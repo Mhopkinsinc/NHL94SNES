@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank80_9000. <- CURRENT
+bank80_A000. <- CURRENT
 
 ## Sources
 
@@ -90,8 +90,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | File | Status | Org | End | Code% | Note |
 |---|---|---|---|---|---|
 | bank80_8000 | matched 4098 bytes | $808000 | $809001 | 83% | Reset, NMI, IRQ, WaitFrame(s), WaitDMAQueue, RandomWord, JoyDirIndex, BCDTable; end moved +2 (jmp crosses) |
-| bank80_9000 | incbin <- CURRENT | $809002 | $809FFF | 29% | |
-| bank80_A000 | incbin | $80A000 | $80AFFF | 79% | |
+| bank80_9000 | matched 4083 bytes | $809002 | $809FF4 | 29% | Mul16*/Mul16x8Hi*/MulFrac*, Div16*/Div32*/DivX8*, SineTable, Sin/Cos, SPCCmd01-0E, SPCUpload/Download/Stream*, heap (HeapInit, NewHandle, DisposeHandle, HeapCompact, SetHandleSize, ...), ByteBitMasks; end moved -11 (word table) |
+| bank80_A000 | incbin <- CURRENT | $809FF5 | $80AFFF | 79% | org moved to $809FF5: starts with the word table read by its code |
 | bank80_B000 | incbin | $80B000 | $80BFFF | 89% | |
 | bank80_C000 | incbin | $80C000 | $80CFFF | 64% | |
 | bank80_D000 | incbin | $80D000 | $80DFFF | 11% | |
@@ -350,3 +350,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 
 - Setup: 256 incbin segments of 4 KB, prebuild ROM check and extractor, quick-pass tool with the Vault code map, full build MATCH.
 - bank80_8000: source, MATCH. Reset/NMI/IRQ and low-level services; vector, wait, RNG and joypad helpers named from what they do (no 93S/94G byte match in this bank); hardware registers from 93S snes_regs.asm; JoyPad from the Vault. Remaining CODE_ labels are auto names. bank80_9000 org moved to $809002.
+- bank80_9000: source, MATCH. Math library (16x16 and 16x8 multiplies, mode 7 fraction multiplies, 16/32-bit divides), quarter-wave SineTable with Sin/Cos, sound driver commands $01-$11 over APUIO0-3, and a handle-based heap in banks $7E/$7F; all named from what the code does (no 93S/94G byte match). Unreached routines decoded with --entry. bank80_A000 org moved to $809FF5. `jsl.l $809099` in bank80_8000 now `jsl.l Mul16U`.

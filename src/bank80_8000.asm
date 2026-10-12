@@ -1305,7 +1305,7 @@ CODE_808A2F:
 	asl a
 	pha
 	ldx.b $26
-	jsl.l $809099
+	jsl.l Mul16U
 	asl.b $24
 	lda.b $0C
 	clc
@@ -1571,7 +1571,7 @@ CODE_808C01:
 	asl a
 	pha
 	ldx.b $26
-	jsl.l $809099
+	jsl.l Mul16U
 	asl.b $24
 	lda.w $0761
 	bmi CODE_808C1C
@@ -1843,7 +1843,7 @@ CODE_808DED:
 	tya
 	asl a
 	ldx.b $24
-	jsl.l $809099
+	jsl.l Mul16U
 	lda.b $1C
 	asl a
 	clc
@@ -1883,7 +1883,7 @@ CODE_808E2D:
 	tya
 	asl a
 	ldx.b $24
-	jsl.l $809099
+	jsl.l Mul16U
 	lda.b $1C
 	asl a
 	clc
@@ -1930,7 +1930,7 @@ CODE_808E7C:
 	tya
 	asl a
 	ldx.b $24
-	jsl.l $809099
+	jsl.l Mul16U
 	lda.b $1C
 	asl a
 	clc
@@ -1943,7 +1943,7 @@ CODE_808E7C:
 	tax
 	lda.b $22
 	asl a
-	jsl.l $809099
+	jsl.l Mul16U
 	lda.b $20
 	asl a
 	clc
