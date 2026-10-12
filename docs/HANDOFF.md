@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $82, and bank83_8000 to bank83_B000, are source (MATCH); the rest are incbin.
+- Banks $80 to $82, and bank83_8000 to bank83_C000, are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -70,7 +70,7 @@
   $9B85C2; `tools/snesgfx.py tiles/map --linear`), the map is not packed (width, height, a word, then map words, which
   $9BC1D5 pastes into the rink map with palette 5). Most of the tiles are in bank $9A; a few sit at bank ends after the
   sprite frames (HFD at $82FEA9, now CenterIceTilesHFD; others at $83FF47, $84FF38, $86FE78, $8DFF3D, $98FECB, $99FEC0).
-- Next: segment bank83_C000, from $83C13D (`tools/spriteframes.py frames 83C13D 83D000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank83_D000, from $83D15B (`tools/spriteframes.py frames 83D15B 83E000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

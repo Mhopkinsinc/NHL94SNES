@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank83_C000. <- CURRENT
+bank83_D000. <- CURRENT
 
 ## Sources
 
@@ -125,8 +125,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank83_9000 | matched 4123 bytes | $8390A3 | $83A0BD | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8390A3, end moved +$BE (frame boundary) |
 | bank83_A000 | matched 4003 bytes | $83A0BE | $83B060 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $83A0BE, end moved +$61 (frame boundary) |
 | bank83_B000 | matched 4316 bytes | $83B061 | $83C13C | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $83B061, end moved +$13D (frame boundary) |
-| bank83_C000 | incbin <- CURRENT | $83C13D | $83CFFF | 0% | org moved to $83C13D |
-| bank83_D000 | incbin | $83D000 | $83DFFF | 0% | |
+| bank83_C000 | matched 4126 bytes | $83C13D | $83D15A | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $83C13D, end moved +$15B (frame boundary) |
+| bank83_D000 | incbin <- CURRENT | $83D15B | $83DFFF | 0% | org moved to $83D15B |
 | bank83_E000 | incbin | $83E000 | $83EFFF | 0% | |
 | bank83_F000 | incbin | $83F000 | $83FFFF | 0% | |
 | bank84_8000 | incbin | $848000 | $848FFF | 0% | |
@@ -385,3 +385,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank83_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8390A3 83A000`. bank83_A000 org moved to $83A0BE (frame boundary).
 - bank83_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 83A0BE 83B000`. bank83_B000 org moved to $83B061 (frame boundary).
 - bank83_B000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 83B061 83C000`. bank83_C000 org moved to $83C13D (frame boundary).
+- bank83_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 83C13D 83D000`. bank83_D000 org moved to $83D15B (frame boundary).
