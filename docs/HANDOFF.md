@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $83 are source (MATCH); the rest are incbin.
+- Banks $80 to $83, and bank84_8000, are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -72,7 +72,7 @@
   sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47; still incbin: 5 at
   $84FF38, 23 at $86FE78, 3 at $8DFF3D, 21 at $97FE85, 13 at $98FECB, 15 at $99FEC0). Team index = the logo order of
   TeamLogoSprites.
-- Next: segment bank84_8000 (first add SpriteFrames84.bin from `tools/spriteframes.py info` to tools/extract.py, then `tools/spriteframes.py frames 848000 849000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank84_9000, from $8490DC (`tools/spriteframes.py frames 8490DC 84A000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
