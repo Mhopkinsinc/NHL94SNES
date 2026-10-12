@@ -1,0 +1,333 @@
+# NHL 94 SNES segment agent
+
+This file is the queue and the history. Do not rewrite it as a whole file. Edit it in place.
+(Adapted from the NHLPA93SNES SEGMENT_AGENT.md.)
+## Current rules (Oct 2026; these override older notes below)
+
+Naming lineage is 92G -> 93G -> 94G -> 95G, and the SNES ports sit beside their Genesis parents (93S from 92G/93G, 94S from 93S plus the 94G features).
+- A routine, variable or table that matches its parent takes the parent's name. 92G is the naming root.
+- Clash rule: if one name would mean two different things, the earliest game's meaning keeps the name and the later one gets a new name.
+- Fix the earliest repo first, then propagate the change down the lineage (92 -> 93 -> 94 -> 95, and to the SNES repos).
+- Team names: 93 uses the city names of its own data; 94 and 95 use NYIslanders / NYRangers (short NYI / NYR).
+
+Source style:
+- No rename-history, provenance or origin-tag comments ("was X", "from 93G", "renamed"). That history lives in `docs/name_map.csv` only.
+- No hardcoded ROM addresses in comments, and no hand-kept derived counts (sizes, numbers of entries, totals) that the code or the assembler can compute.
+- Mark "new in 94" / "new in 95" only for major features, not for every changed routine.
+- Local labels in 92 style: `.loop`, `.next`, `.done`, `.exit`, and plain numbers for trivial jumps.
+- File headers are short plain-English stories of what the file does, modelled on `hockey93.asm`, `main93.asm` and `menu93.asm`.
+
+Layout (SNES repos, 93S and 94S): `src/banks/` holds ordered bank files named by content (one `org`, then `incsrc` lines in ROM order),
+`src/routines/<module>/<Routine>.asm` holds one routine per file, `src/data/<category>/` holds data. The folder is the module of the
+routine's origin: 94G for 94 code, else 93G, else 92G; SNES-only code goes in a sensibly named SNES folder. Segment build stubs go in
+`src/stubinc`, tools in `tools/`. The build runs a prebuild ROM check that names the path, file name, SHA-1 and size of the ROM it needs
+(and extracts the assets automatically where the repo extracts them).
+
+Work in small steps: every change is built and checked byte for byte against the reference ROM, then committed and pushed to main
+(no force push, no PRs). Keep `docs/HANDOFF.md` current after each push.
+
+## Current segment
+
+bank80_8000. <- CURRENT
+
+## Sources
+
+- Reference ROM: `lst/nhl94snes.sfc` (not in the repo; `tools/prebuild.py` says where to put it, its SHA-1 and size).
+- Each segment `src/bankXX_YYYY.asm` starts as an `org` plus an `incbin` of its 4 KB from `Extracted/segments/` (cut from the ROM by
+  `tools/extract.py`, run automatically by the prebuild check).
+- Starting text: `python3 tools/disasm65816.py lst/nhl94snes.sfc output/quickpass` writes a quick pass per segment
+  (`output/quickpass/bankXX_YYYY.asm`). It decodes from the vectors by recursive descent with M/X tracking, and also decodes the
+  instruction starts in `tools/codemap.txt` (from the NHL94SNESVault DiztinGUIsh export) where the bytes agree. Every instruction line
+  has its address and bytes in the comment; db lines are unresolved. The quick pass of all 256 segments assembles byte for byte.
+  Copy your segment's text into `src/bankXX_YYYY.asm` in place of the incbin; never point the tool at `src/`.
+- Names: NHLPA93SNES (https://github.com/abdulahmad/NHLPA93SNES) for code that matches 93S, NHL94Genesis
+  (https://github.com/abdulahmad/NHL94Genesis) for 94 features, then NHLPA93Genesis / NHL92Genesis down the lineage. NHL94SNESVault
+  (https://github.com/Mhopkinsinc/NHL94SNESVault, public domain) for SNES-only systems and RAM it already names.
+  The Vault's export does not build this exact ROM: with its patches off it differs in 344 bytes inside $D8000-$FFFFF, so check its
+  code/data split there against the bytes.
+
+## Build and verify
+
+- `./build.sh` runs the prebuild check, assembles `src/nhl94snes.asm` with asar 1.91 into `output/nhl94snes.sfc`, and compares SHA-1 with
+  `lst/nhl94snes.sfc`. It prints MATCH or MISMATCH plus the first differing offsets. The whole ROM builds in about a second.
+- `sh tools/verify_segment.sh bankXX_YYYY` compares one segment's range (its org to the next segment's org) after `./build.sh`.
+- `sh tools/verify_all.sh` deletes Extracted/ and output/, extracts fresh, builds, and checks every segment. Last line MATCH or FAIL.
+- Never change a byte. Every session ends with `./build.sh` printing MATCH, then commit and push to main.
+
+## Segment rules
+
+- One segment per session. A segment's end may move to a routine or table boundary; move the next segment's org (and cut its incbin
+  with `incbin "../Extracted/segments/<file>.bin":<start>-<end>`) in the same commit, and note it in the row.
+- Keep operand sizes explicit (`lda.b` / `lda.w` / `lda.l`) so asar emits the same bytes. Labels are global across segments.
+- RAM names go in `src/ram94snes.asm` (create it with the first name and include it at the top of `src/nhl94snes.asm`), one place each.
+- Hardware register names go in `src/inc/snes_regs.asm` (copy NHLPA93SNES's).
+- Name history goes in `docs/name_map.csv` (address, name, auto_name, source, note, file).
+- After the segment phase the source is regrouped into the hybrid layout (`src/banks`, `src/routines/<module>`, `src/data`) as in 93S.
+
+## ROM map
+
+The first row that is still incbin is the current segment. Code% is the share of the segment the quick pass decoded as instructions
+(false positives are possible where a `jsl` lands in data).
+
+| File | Status | Org | End | Code% | Note |
+|---|---|---|---|---|---|
+| bank80_8000 | incbin <- CURRENT | $808000 | $808FFF | 83% | |
+| bank80_9000 | incbin | $809000 | $809FFF | 29% | |
+| bank80_A000 | incbin | $80A000 | $80AFFF | 79% | |
+| bank80_B000 | incbin | $80B000 | $80BFFF | 89% | |
+| bank80_C000 | incbin | $80C000 | $80CFFF | 64% | |
+| bank80_D000 | incbin | $80D000 | $80DFFF | 11% | |
+| bank80_E000 | incbin | $80E000 | $80EFFF | 0% | |
+| bank80_F000 | incbin | $80F000 | $80FFFF | 0% | |
+| bank81_8000 | incbin | $818000 | $818FFF | 0% | |
+| bank81_9000 | incbin | $819000 | $819FFF | 0% | |
+| bank81_A000 | incbin | $81A000 | $81AFFF | 0% | |
+| bank81_B000 | incbin | $81B000 | $81BFFF | 0% | |
+| bank81_C000 | incbin | $81C000 | $81CFFF | 0% | |
+| bank81_D000 | incbin | $81D000 | $81DFFF | 0% | |
+| bank81_E000 | incbin | $81E000 | $81EFFF | 0% | |
+| bank81_F000 | incbin | $81F000 | $81FFFF | 0% | |
+| bank82_8000 | incbin | $828000 | $828FFF | 0% | |
+| bank82_9000 | incbin | $829000 | $829FFF | 0% | |
+| bank82_A000 | incbin | $82A000 | $82AFFF | 0% | |
+| bank82_B000 | incbin | $82B000 | $82BFFF | 0% | |
+| bank82_C000 | incbin | $82C000 | $82CFFF | 0% | |
+| bank82_D000 | incbin | $82D000 | $82DFFF | 0% | |
+| bank82_E000 | incbin | $82E000 | $82EFFF | 0% | |
+| bank82_F000 | incbin | $82F000 | $82FFFF | 0% | |
+| bank83_8000 | incbin | $838000 | $838FFF | 0% | |
+| bank83_9000 | incbin | $839000 | $839FFF | 0% | |
+| bank83_A000 | incbin | $83A000 | $83AFFF | 0% | |
+| bank83_B000 | incbin | $83B000 | $83BFFF | 0% | |
+| bank83_C000 | incbin | $83C000 | $83CFFF | 0% | |
+| bank83_D000 | incbin | $83D000 | $83DFFF | 0% | |
+| bank83_E000 | incbin | $83E000 | $83EFFF | 0% | |
+| bank83_F000 | incbin | $83F000 | $83FFFF | 0% | |
+| bank84_8000 | incbin | $848000 | $848FFF | 0% | |
+| bank84_9000 | incbin | $849000 | $849FFF | 0% | |
+| bank84_A000 | incbin | $84A000 | $84AFFF | 0% | |
+| bank84_B000 | incbin | $84B000 | $84BFFF | 0% | |
+| bank84_C000 | incbin | $84C000 | $84CFFF | 0% | |
+| bank84_D000 | incbin | $84D000 | $84DFFF | 0% | |
+| bank84_E000 | incbin | $84E000 | $84EFFF | 0% | |
+| bank84_F000 | incbin | $84F000 | $84FFFF | 0% | |
+| bank85_8000 | incbin | $858000 | $858FFF | 0% | |
+| bank85_9000 | incbin | $859000 | $859FFF | 0% | |
+| bank85_A000 | incbin | $85A000 | $85AFFF | 0% | |
+| bank85_B000 | incbin | $85B000 | $85BFFF | 0% | |
+| bank85_C000 | incbin | $85C000 | $85CFFF | 0% | |
+| bank85_D000 | incbin | $85D000 | $85DFFF | 0% | |
+| bank85_E000 | incbin | $85E000 | $85EFFF | 0% | |
+| bank85_F000 | incbin | $85F000 | $85FFFF | 0% | |
+| bank86_8000 | incbin | $868000 | $868FFF | 0% | |
+| bank86_9000 | incbin | $869000 | $869FFF | 0% | |
+| bank86_A000 | incbin | $86A000 | $86AFFF | 0% | |
+| bank86_B000 | incbin | $86B000 | $86BFFF | 0% | |
+| bank86_C000 | incbin | $86C000 | $86CFFF | 0% | |
+| bank86_D000 | incbin | $86D000 | $86DFFF | 0% | |
+| bank86_E000 | incbin | $86E000 | $86EFFF | 0% | |
+| bank86_F000 | incbin | $86F000 | $86FFFF | 0% | |
+| bank87_8000 | incbin | $878000 | $878FFF | 0% | |
+| bank87_9000 | incbin | $879000 | $879FFF | 0% | |
+| bank87_A000 | incbin | $87A000 | $87AFFF | 0% | |
+| bank87_B000 | incbin | $87B000 | $87BFFF | 0% | |
+| bank87_C000 | incbin | $87C000 | $87CFFF | 0% | |
+| bank87_D000 | incbin | $87D000 | $87DFFF | 0% | |
+| bank87_E000 | incbin | $87E000 | $87EFFF | 0% | |
+| bank87_F000 | incbin | $87F000 | $87FFFF | 0% | |
+| bank88_8000 | incbin | $888000 | $888FFF | 0% | |
+| bank88_9000 | incbin | $889000 | $889FFF | 0% | |
+| bank88_A000 | incbin | $88A000 | $88AFFF | 0% | |
+| bank88_B000 | incbin | $88B000 | $88BFFF | 0% | |
+| bank88_C000 | incbin | $88C000 | $88CFFF | 0% | |
+| bank88_D000 | incbin | $88D000 | $88DFFF | 0% | |
+| bank88_E000 | incbin | $88E000 | $88EFFF | 0% | |
+| bank88_F000 | incbin | $88F000 | $88FFFF | 0% | |
+| bank89_8000 | incbin | $898000 | $898FFF | 0% | |
+| bank89_9000 | incbin | $899000 | $899FFF | 0% | |
+| bank89_A000 | incbin | $89A000 | $89AFFF | 0% | |
+| bank89_B000 | incbin | $89B000 | $89BFFF | 0% | |
+| bank89_C000 | incbin | $89C000 | $89CFFF | 0% | |
+| bank89_D000 | incbin | $89D000 | $89DFFF | 0% | |
+| bank89_E000 | incbin | $89E000 | $89EFFF | 0% | |
+| bank89_F000 | incbin | $89F000 | $89FFFF | 0% | |
+| bank8A_8000 | incbin | $8A8000 | $8A8FFF | 0% | |
+| bank8A_9000 | incbin | $8A9000 | $8A9FFF | 0% | |
+| bank8A_A000 | incbin | $8AA000 | $8AAFFF | 0% | |
+| bank8A_B000 | incbin | $8AB000 | $8ABFFF | 0% | |
+| bank8A_C000 | incbin | $8AC000 | $8ACFFF | 0% | |
+| bank8A_D000 | incbin | $8AD000 | $8ADFFF | 0% | |
+| bank8A_E000 | incbin | $8AE000 | $8AEFFF | 0% | |
+| bank8A_F000 | incbin | $8AF000 | $8AFFFF | 0% | |
+| bank8B_8000 | incbin | $8B8000 | $8B8FFF | 0% | |
+| bank8B_9000 | incbin | $8B9000 | $8B9FFF | 0% | |
+| bank8B_A000 | incbin | $8BA000 | $8BAFFF | 0% | |
+| bank8B_B000 | incbin | $8BB000 | $8BBFFF | 0% | |
+| bank8B_C000 | incbin | $8BC000 | $8BCFFF | 0% | |
+| bank8B_D000 | incbin | $8BD000 | $8BDFFF | 0% | |
+| bank8B_E000 | incbin | $8BE000 | $8BEFFF | 0% | |
+| bank8B_F000 | incbin | $8BF000 | $8BFFFF | 0% | |
+| bank8C_8000 | incbin | $8C8000 | $8C8FFF | 0% | |
+| bank8C_9000 | incbin | $8C9000 | $8C9FFF | 0% | |
+| bank8C_A000 | incbin | $8CA000 | $8CAFFF | 0% | |
+| bank8C_B000 | incbin | $8CB000 | $8CBFFF | 0% | |
+| bank8C_C000 | incbin | $8CC000 | $8CCFFF | 0% | |
+| bank8C_D000 | incbin | $8CD000 | $8CDFFF | 0% | |
+| bank8C_E000 | incbin | $8CE000 | $8CEFFF | 0% | |
+| bank8C_F000 | incbin | $8CF000 | $8CFFFF | 0% | |
+| bank8D_8000 | incbin | $8D8000 | $8D8FFF | 0% | |
+| bank8D_9000 | incbin | $8D9000 | $8D9FFF | 0% | |
+| bank8D_A000 | incbin | $8DA000 | $8DAFFF | 0% | |
+| bank8D_B000 | incbin | $8DB000 | $8DBFFF | 0% | |
+| bank8D_C000 | incbin | $8DC000 | $8DCFFF | 0% | |
+| bank8D_D000 | incbin | $8DD000 | $8DDFFF | 0% | |
+| bank8D_E000 | incbin | $8DE000 | $8DEFFF | 0% | |
+| bank8D_F000 | incbin | $8DF000 | $8DFFFF | 0% | |
+| bank8E_8000 | incbin | $8E8000 | $8E8FFF | 0% | |
+| bank8E_9000 | incbin | $8E9000 | $8E9FFF | 0% | |
+| bank8E_A000 | incbin | $8EA000 | $8EAFFF | 0% | |
+| bank8E_B000 | incbin | $8EB000 | $8EBFFF | 0% | |
+| bank8E_C000 | incbin | $8EC000 | $8ECFFF | 0% | |
+| bank8E_D000 | incbin | $8ED000 | $8EDFFF | 0% | |
+| bank8E_E000 | incbin | $8EE000 | $8EEFFF | 0% | |
+| bank8E_F000 | incbin | $8EF000 | $8EFFFF | 0% | |
+| bank8F_8000 | incbin | $8F8000 | $8F8FFF | 0% | |
+| bank8F_9000 | incbin | $8F9000 | $8F9FFF | 0% | |
+| bank8F_A000 | incbin | $8FA000 | $8FAFFF | 0% | |
+| bank8F_B000 | incbin | $8FB000 | $8FBFFF | 0% | |
+| bank8F_C000 | incbin | $8FC000 | $8FCFFF | 0% | |
+| bank8F_D000 | incbin | $8FD000 | $8FDFFF | 0% | |
+| bank8F_E000 | incbin | $8FE000 | $8FEFFF | 0% | |
+| bank8F_F000 | incbin | $8FF000 | $8FFFFF | 0% | |
+| bank90_8000 | incbin | $908000 | $908FFF | 0% | |
+| bank90_9000 | incbin | $909000 | $909FFF | 0% | |
+| bank90_A000 | incbin | $90A000 | $90AFFF | 0% | |
+| bank90_B000 | incbin | $90B000 | $90BFFF | 0% | |
+| bank90_C000 | incbin | $90C000 | $90CFFF | 0% | |
+| bank90_D000 | incbin | $90D000 | $90DFFF | 0% | |
+| bank90_E000 | incbin | $90E000 | $90EFFF | 0% | |
+| bank90_F000 | incbin | $90F000 | $90FFFF | 0% | |
+| bank91_8000 | incbin | $918000 | $918FFF | 0% | |
+| bank91_9000 | incbin | $919000 | $919FFF | 0% | |
+| bank91_A000 | incbin | $91A000 | $91AFFF | 0% | |
+| bank91_B000 | incbin | $91B000 | $91BFFF | 0% | |
+| bank91_C000 | incbin | $91C000 | $91CFFF | 0% | |
+| bank91_D000 | incbin | $91D000 | $91DFFF | 0% | |
+| bank91_E000 | incbin | $91E000 | $91EFFF | 0% | |
+| bank91_F000 | incbin | $91F000 | $91FFFF | 0% | |
+| bank92_8000 | incbin | $928000 | $928FFF | 0% | |
+| bank92_9000 | incbin | $929000 | $929FFF | 0% | |
+| bank92_A000 | incbin | $92A000 | $92AFFF | 0% | |
+| bank92_B000 | incbin | $92B000 | $92BFFF | 0% | |
+| bank92_C000 | incbin | $92C000 | $92CFFF | 0% | |
+| bank92_D000 | incbin | $92D000 | $92DFFF | 0% | |
+| bank92_E000 | incbin | $92E000 | $92EFFF | 0% | |
+| bank92_F000 | incbin | $92F000 | $92FFFF | 0% | |
+| bank93_8000 | incbin | $938000 | $938FFF | 0% | |
+| bank93_9000 | incbin | $939000 | $939FFF | 0% | |
+| bank93_A000 | incbin | $93A000 | $93AFFF | 0% | |
+| bank93_B000 | incbin | $93B000 | $93BFFF | 0% | |
+| bank93_C000 | incbin | $93C000 | $93CFFF | 0% | |
+| bank93_D000 | incbin | $93D000 | $93DFFF | 0% | |
+| bank93_E000 | incbin | $93E000 | $93EFFF | 0% | |
+| bank93_F000 | incbin | $93F000 | $93FFFF | 0% | |
+| bank94_8000 | incbin | $948000 | $948FFF | 0% | |
+| bank94_9000 | incbin | $949000 | $949FFF | 0% | |
+| bank94_A000 | incbin | $94A000 | $94AFFF | 0% | |
+| bank94_B000 | incbin | $94B000 | $94BFFF | 0% | |
+| bank94_C000 | incbin | $94C000 | $94CFFF | 0% | |
+| bank94_D000 | incbin | $94D000 | $94DFFF | 0% | |
+| bank94_E000 | incbin | $94E000 | $94EFFF | 0% | |
+| bank94_F000 | incbin | $94F000 | $94FFFF | 0% | |
+| bank95_8000 | incbin | $958000 | $958FFF | 0% | |
+| bank95_9000 | incbin | $959000 | $959FFF | 0% | |
+| bank95_A000 | incbin | $95A000 | $95AFFF | 0% | |
+| bank95_B000 | incbin | $95B000 | $95BFFF | 0% | |
+| bank95_C000 | incbin | $95C000 | $95CFFF | 0% | |
+| bank95_D000 | incbin | $95D000 | $95DFFF | 0% | |
+| bank95_E000 | incbin | $95E000 | $95EFFF | 0% | |
+| bank95_F000 | incbin | $95F000 | $95FFFF | 0% | |
+| bank96_8000 | incbin | $968000 | $968FFF | 0% | |
+| bank96_9000 | incbin | $969000 | $969FFF | 0% | |
+| bank96_A000 | incbin | $96A000 | $96AFFF | 0% | |
+| bank96_B000 | incbin | $96B000 | $96BFFF | 0% | |
+| bank96_C000 | incbin | $96C000 | $96CFFF | 0% | |
+| bank96_D000 | incbin | $96D000 | $96DFFF | 0% | |
+| bank96_E000 | incbin | $96E000 | $96EFFF | 0% | |
+| bank96_F000 | incbin | $96F000 | $96FFFF | 0% | |
+| bank97_8000 | incbin | $978000 | $978FFF | 0% | |
+| bank97_9000 | incbin | $979000 | $979FFF | 0% | |
+| bank97_A000 | incbin | $97A000 | $97AFFF | 0% | |
+| bank97_B000 | incbin | $97B000 | $97BFFF | 0% | |
+| bank97_C000 | incbin | $97C000 | $97CFFF | 0% | |
+| bank97_D000 | incbin | $97D000 | $97DFFF | 0% | |
+| bank97_E000 | incbin | $97E000 | $97EFFF | 0% | |
+| bank97_F000 | incbin | $97F000 | $97FFFF | 0% | |
+| bank98_8000 | incbin | $988000 | $988FFF | 0% | |
+| bank98_9000 | incbin | $989000 | $989FFF | 0% | |
+| bank98_A000 | incbin | $98A000 | $98AFFF | 0% | |
+| bank98_B000 | incbin | $98B000 | $98BFFF | 0% | |
+| bank98_C000 | incbin | $98C000 | $98CFFF | 0% | |
+| bank98_D000 | incbin | $98D000 | $98DFFF | 0% | |
+| bank98_E000 | incbin | $98E000 | $98EFFF | 0% | |
+| bank98_F000 | incbin | $98F000 | $98FFFF | 0% | |
+| bank99_8000 | incbin | $998000 | $998FFF | 0% | |
+| bank99_9000 | incbin | $999000 | $999FFF | 0% | |
+| bank99_A000 | incbin | $99A000 | $99AFFF | 0% | |
+| bank99_B000 | incbin | $99B000 | $99BFFF | 0% | |
+| bank99_C000 | incbin | $99C000 | $99CFFF | 0% | |
+| bank99_D000 | incbin | $99D000 | $99DFFF | 0% | |
+| bank99_E000 | incbin | $99E000 | $99EFFF | 0% | |
+| bank99_F000 | incbin | $99F000 | $99FFFF | 0% | |
+| bank9A_8000 | incbin | $9A8000 | $9A8FFF | 0% | |
+| bank9A_9000 | incbin | $9A9000 | $9A9FFF | 0% | |
+| bank9A_A000 | incbin | $9AA000 | $9AAFFF | 0% | |
+| bank9A_B000 | incbin | $9AB000 | $9ABFFF | 0% | |
+| bank9A_C000 | incbin | $9AC000 | $9ACFFF | 0% | |
+| bank9A_D000 | incbin | $9AD000 | $9ADFFF | 0% | |
+| bank9A_E000 | incbin | $9AE000 | $9AEFFF | 0% | |
+| bank9A_F000 | incbin | $9AF000 | $9AFFFF | 0% | |
+| bank9B_8000 | incbin | $9B8000 | $9B8FFF | 74% | |
+| bank9B_9000 | incbin | $9B9000 | $9B9FFF | 37% | |
+| bank9B_A000 | incbin | $9BA000 | $9BAFFF | 84% | |
+| bank9B_B000 | incbin | $9BB000 | $9BBFFF | 28% | |
+| bank9B_C000 | incbin | $9BC000 | $9BCFFF | 75% | |
+| bank9B_D000 | incbin | $9BD000 | $9BDFFF | 0% | |
+| bank9B_E000 | incbin | $9BE000 | $9BEFFF | 0% | |
+| bank9B_F000 | incbin | $9BF000 | $9BFFFF | 0% | |
+| bank9C_8000 | incbin | $9C8000 | $9C8FFF | 43% | |
+| bank9C_9000 | incbin | $9C9000 | $9C9FFF | 76% | |
+| bank9C_A000 | incbin | $9CA000 | $9CAFFF | 29% | |
+| bank9C_B000 | incbin | $9CB000 | $9CBFFF | 0% | |
+| bank9C_C000 | incbin | $9CC000 | $9CCFFF | 0% | |
+| bank9C_D000 | incbin | $9CD000 | $9CDFFF | 0% | |
+| bank9C_E000 | incbin | $9CE000 | $9CEFFF | 0% | |
+| bank9C_F000 | incbin | $9CF000 | $9CFFFF | 0% | |
+| bank9D_8000 | incbin | $9D8000 | $9D8FFF | 97% | |
+| bank9D_9000 | incbin | $9D9000 | $9D9FFF | 85% | |
+| bank9D_A000 | incbin | $9DA000 | $9DAFFF | 81% | |
+| bank9D_B000 | incbin | $9DB000 | $9DBFFF | 95% | |
+| bank9D_C000 | incbin | $9DC000 | $9DCFFF | 74% | |
+| bank9D_D000 | incbin | $9DD000 | $9DDFFF | 42% | |
+| bank9D_E000 | incbin | $9DE000 | $9DEFFF | 5% | |
+| bank9D_F000 | incbin | $9DF000 | $9DFFFF | 0% | |
+| bank9E_8000 | incbin | $9E8000 | $9E8FFF | 96% | |
+| bank9E_9000 | incbin | $9E9000 | $9E9FFF | 97% | |
+| bank9E_A000 | incbin | $9EA000 | $9EAFFF | 89% | |
+| bank9E_B000 | incbin | $9EB000 | $9EBFFF | 91% | |
+| bank9E_C000 | incbin | $9EC000 | $9ECFFF | 95% | |
+| bank9E_D000 | incbin | $9ED000 | $9EDFFF | 79% | |
+| bank9E_E000 | incbin | $9EE000 | $9EEFFF | 90% | |
+| bank9E_F000 | incbin | $9EF000 | $9EFFFF | 63% | |
+| bank9F_8000 | incbin | $9F8000 | $9F8FFF | 89% | |
+| bank9F_9000 | incbin | $9F9000 | $9F9FFF | 81% | |
+| bank9F_A000 | incbin | $9FA000 | $9FAFFF | 86% | |
+| bank9F_B000 | incbin | $9FB000 | $9FBFFF | 84% | |
+| bank9F_C000 | incbin | $9FC000 | $9FCFFF | 92% | |
+| bank9F_D000 | incbin | $9FD000 | $9FDFFF | 82% | |
+| bank9F_E000 | incbin | $9FE000 | $9FEFFF | 69% | |
+| bank9F_F000 | incbin | $9FF000 | $9FFFFF | 57% | |
+
+## History
+
+- Setup: 256 incbin segments of 4 KB, prebuild ROM check and extractor, quick-pass tool with the Vault code map, full build MATCH.
