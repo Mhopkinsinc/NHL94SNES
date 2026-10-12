@@ -77,7 +77,9 @@ bank82_9000. <- CURRENT
   include it with `incbin "../Extracted/data/<name>":<start>..<end>`. A block that spans segments is split across their files at the
   segment edges. Spell out its header fields as db/dw where they are known. Nothing in `Extracted/` is committed.
   Identify a block before naming it: `tools/snesgfx.py` unpacks all four formats (`unpack`, `blocks` lists the packed blocks
-  of a ROM range) and renders tiles and maps to PNG (`tiles`, `map`; no Pillow needed).
+  of a ROM range) and renders tiles, maps and sprite sets to PNG (`tiles`, `map`, `sprites`; no Pillow needed).
+  SpriteFrames (banks $82-$8E): `tools/spriteframes.py frames FROM TO` writes the source of the frames in a segment (tiles from
+  the bank's asset SpriteFramesXX.bin; `info` lists the asset ranges), and ends the segment at a frame boundary.
 - Long pointers in data: `dl Label` emits the label's own bank ($80+). Where the ROM holds a bank-$00 pointer (e.g. `$008019`),
   write `dl Label&$FFFF`; check the bytes of every `dl`/`dw` table.
 - Keep operand sizes explicit (`lda.b` / `lda.w` / `lda.l`) so asar emits the same bytes. Labels are global across segments.

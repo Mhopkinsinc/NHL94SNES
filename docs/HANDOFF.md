@@ -59,8 +59,9 @@
   frames are source; then `dd SpriteFrameN-SpriteFrames` can replace them), then frames in order, contiguous, in the ROM halves
   of banks $82-$8E. Each bank's frames are a data asset (SpriteFramesXX.bin in tools/extract.py; bank $82: $828F40-$82FEA8);
   the source writes each frame's header and pieces and includes its tiles from the asset. Frames cross 4 KB edges, so segment
-  edges move to frame boundaries (bank82_9000 starts at $82908B). The generator used is not in the repo; the frame layout
-  is in the bank82_8000 header and in `tools/snesgfx.py` (sprites). Header words +4..+$A and bytes +$12..+$15 are not traced.
+  edges move to frame boundaries (bank82_9000 starts at $82908B). `tools/spriteframes.py frames FROM TO` writes the source
+  of the frames that start in a range and prints where the next segment starts; `info` gives each bank's frames and its
+  asset range for tools/extract.py; `table` writes the offset table. Header words +4..+$A and bytes +$12..+$15 are not traced.
   After the frames, each bank ends with a small Huffman block (bank $82: $82FEA9-$82FFF6, $3A0 bytes unpacked).
 - Next: segment bank82_9000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
