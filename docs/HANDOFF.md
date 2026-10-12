@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 to bank81_F000 (all of bank $81) are source (MATCH); the rest are incbin.
+- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 to bank81_F000 (all of bank $81) and bank82_8000 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -55,7 +55,14 @@
   (DATA8_80D324, DATA8_80DD16) are not identified yet.
 - `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
   the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
-- Next: segment bank82_8000 (bank $82; see START_HERE.md about stopping after a bank).
+- bank82_8000: SpriteFrames ($828000), the main sprite set: an offset table of 976 frames (dd, raw offsets until the
+  frames are source; then `dd SpriteFrameN-SpriteFrames` can replace them), then frames in order, contiguous, in the ROM halves
+  of banks $82-$8E. Each bank's frames are a data asset (SpriteFramesXX.bin in tools/extract.py; bank $82: $828F40-$82FEA8);
+  the source writes each frame's header and pieces and includes its tiles from the asset. Frames cross 4 KB edges, so segment
+  edges move to frame boundaries (bank82_9000 starts at $82908B). The generator used is not in the repo; the frame layout
+  is in the bank82_8000 header and in `tools/snesgfx.py` (sprites). Header words +4..+$A and bytes +$12..+$15 are not traced.
+  After the frames, each bank ends with a small Huffman block (bank $82: $82FEA9-$82FFF6, $3A0 bytes unpacked).
+- Next: segment bank82_9000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

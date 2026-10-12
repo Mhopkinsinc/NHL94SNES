@@ -30,6 +30,7 @@ Examples:
   python3 tools/snesgfx.py tiles Extracted/data/IceRink.chr.lz --columns 32 -o rinktiles.png
   python3 tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48 -o rink.png    (6-byte header: width, height, ...)
   python3 tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497 -o logos.png
+  python3 tools/snesgfx.py sprites '$828000' --rom --count 64 --columns 8 --cell 64 --origin-x 32 --origin-y 48 -o frames.png
 """
 import argparse
 import os
@@ -294,11 +295,23 @@ def sword(d, o):
     return v - 0x10000 if v & 0x8000 else v
 
 
-def sprite_frames(d):
+class RomSet:
+    """An unpacked sprite set in the ROM: offset o is the LoROM address base + o."""
+    def __init__(self, rom, base):
+        self.rom, self.base = rom, base
+
+    def __getitem__(self, i):
+        if isinstance(i, slice):
+            return bytes(self[k] for k in range(i.start, i.stop))
+        return self.rom[lorom_offset(self.base + i)]
+
+
+def sprite_frames(d, first_frame=0, count=0):
     """The frames of a sprite set: [(pieces, vram tiles)], pieces = [(x, y, tile word, size byte)]."""
     first = d[0] | d[1] << 8 | d[2] << 16
     frames = []
-    for n in range(first // 4):
+    last = first // 4 if not count else min(first // 4, first_frame + count)
+    for n in range(first_frame, last):
         o = d[4 * n] | d[4 * n + 1] << 8 | d[4 * n + 2] << 16
         s1, s2 = d[o + 0xC] | d[o + 0xD] << 8, d[o + 0xE] | d[o + 0xF] << 8
         src = o + (d[o + 0x10] | d[o + 0x11] << 8)
@@ -314,12 +327,13 @@ def sprite_frames(d):
 
 
 def cmd_sprites(a):
-    frames = sprite_frames(load(a.input))
     rom = open(ROM, 'rb').read()
+    data = RomSet(rom, int(a.input.lstrip('$'), 16)) if a.rom else load(a.input)
+    frames = sprite_frames(data, a.first, a.count)
 
     def frame_palette(n):
         if a.pal_table:
-            q = lorom_offset(int(a.pal_table.lstrip('$'), 16)) + 4 * n
+            q = lorom_offset(int(a.pal_table.lstrip('$'), 16)) + 4 * (n + a.first)
             p = lorom_offset(rom[q] | rom[q + 1] << 8 | rom[q + 2] << 16 | 0x800000)
             return [snes_rgb(rom[p + 2 * i] | rom[p + 2 * i + 1] << 8) for i in range(16)]
         return palette(a.pal)[a.palrow * 16:a.palrow * 16 + 16]
@@ -330,7 +344,7 @@ def cmd_sprites(a):
     px = [[bg] * (cols * cw) for _ in range(rows * ch)]
     for n, (pcs, vram) in enumerate(frames):
         cl = frame_palette(n)
-        ox, oy = (n % cols) * cw + cw // 8, (n // cols) * ch + ch // 8
+        ox, oy = (n % cols) * cw + a.origin_x, (n // cols) * ch + a.origin_y
         for x, y, t, size in pcs:
             hf, vf, tn, sz = t & 0x4000, t & 0x8000, t & 0x1FF, 16 if size else 8
             for py in range(sz):
@@ -454,8 +468,13 @@ def main():
     p.add_argument('--pal', help='palette IN[:OFFSET] for every frame')
     p.add_argument('--palrow', type=num, default=0, help='palette row (16 colours) of --pal')
     p.add_argument('--pal-table', help='ROM address of a table of long pointers, one 16-colour palette per frame')
+    p.add_argument('--rom', action='store_true', help='IN is $ADDR of an unpacked sprite set in the ROM (frames in later banks)')
+    p.add_argument('--first', type=num, default=0, help='first frame')
+    p.add_argument('--count', type=num, default=0, help='number of frames (default all)')
     p.add_argument('--columns', type=num, default=6)
     p.add_argument('--cell', type=num, default=72, help='pixels per frame cell')
+    p.add_argument('--origin-x', type=num, default=8, help='x of the frame origin in its cell')
+    p.add_argument('--origin-y', type=num, default=8, help='y of the frame origin in its cell')
     p.add_argument('--scale', type=num, default=2)
     p.set_defaults(func=cmd_sprites)
 
