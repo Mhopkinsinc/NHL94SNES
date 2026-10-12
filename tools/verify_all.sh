@@ -3,10 +3,10 @@
 # Deletes the old output first; fails on any assembler error, missing output or byte difference. The last line is MATCH or FAIL.
 cd "$(dirname "$0")/.."
 rm -rf Extracted output
-fail=0
-./build.sh >/tmp/nhl94snes_build.log 2>&1
-grep -qiE 'error' /tmp/nhl94snes_build.log && { echo "ASM ERRORS"; fail=1; }
-tail -1 /tmp/nhl94snes_build.log | grep -qx MATCH || { echo "TOP:"; tail -15 /tmp/nhl94snes_build.log; fail=1; }
+fail=0; mkdir -p output; LOG=output/verify_all.log
+./build.sh >$LOG 2>&1
+grep -qiE 'error' $LOG && { echo "ASM ERRORS"; fail=1; }
+tail -1 $LOG | grep -qx MATCH || { echo "TOP:"; tail -15 $LOG; fail=1; }
 [ -s output/nhl94snes.sfc ] || { echo "TOP NO BIN"; fail=1; }
 for f in src/bank*_*.asm; do
   s=$(basename "$f" .asm)

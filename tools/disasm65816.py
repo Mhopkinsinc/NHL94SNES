@@ -5,6 +5,8 @@ Tracks M/X through REP/SEP (and PLP/RTI heuristically: state after PLP = state a
 Emits asar asm, one file per 4 KB segment, under outdir. Unreached bytes become db (TODO for segment agents).
 Instructions seeded only from codemap.txt have unknown M/X (shown as M=? X=?); their operand sizes come from the codemap lengths.
 --entry ADDR:M:X (M and X are 8 or 16) adds a decode start, e.g. for unreached code after an rtl; repeat it as needed.
+--continue: after rtl/rts/rti/jmp/jml/bra/brl, also decode the following bytes (same M/X) when they look like code: a trial decode
+reaches a return or jump within 64 bytes without brk/cop/stp/wdm or bytes already decoded. Check the result: it is a heuristic.
 Usage: python3 tools/disasm65816.py lst/nhl94snes.sfc output/quickpass [--entry 8080CE:16:16 ...]
 Writes one starting-text file per 4 KB segment (bankXX_YYYY.asm) to outdir. Never point outdir at src/: copy the lines of your
 segment from outdir into src/bankXX_YYYY.asm by hand, replacing its incbin.
@@ -48,6 +50,7 @@ FMT={'imp':'{m}','acc':'{m} a','imm8':'{m} #${v:02X}','dp':'{m}.b ${v:02X}','dpx
 STOP={'rts','rtl','rti','jmp','jml','bra','brl','stp','brk','cop'}
 BR={'bpl','bmi','bvc','bvs','bra','bcc','bcs','bne','beq','brl'}
 rom=open(sys.argv[1],'rb').read(); out=sys.argv[2]
+CONT='--continue' in sys.argv
 EXTRA=[a.split(':') for i,a in enumerate(sys.argv) if i>0 and sys.argv[i-1]=='--entry']; NB=len(rom)//0x8000
 def off(addr):  # LoROM
     b=(addr>>16)&0x7F; a=addr&0xFFFF
@@ -61,6 +64,17 @@ def push(a,m,x,why):
     entries.add(o)
     if o in ins: return
     q.append((o,m,x))
+def looks_code(o,m,x):
+    s=o
+    while o<len(rom) and o-s<64:
+        c=rom[o]
+        if c in(0x00,0x02,0xDB,0x42) or o in cov: return False
+        mn,mode=M[c]; n=1+(SZ[mode] if mode not in('immM','immX') else (1 if (m if mode=='immM' else x) else 2))
+        if mn in STOP: return o>s
+        if mn=='rep': v=rom[o+1]; m=m and not v&0x20; x=x and not v&0x10
+        elif mn=='sep': v=rom[o+1]; m=m or bool(v&0x20); x=x or bool(v&0x10)
+        o+=n
+    return False
 w=lambda o:rom[o]|rom[o+1]<<8
 v=rom[0x7FE0:0x8000]
 for i in (4,6,0xA,0xE,0x1C,0x1E):
@@ -86,7 +100,9 @@ while q:
         elif mode=='rell' and mn=='brl': push(bank|((a+3+(val-65536 if val>32767 else val))&0xFFFF),m,x,'br')
         elif mn in('jsr','jmp') and mode=='abs': push(bank|val,m,x,'j')
         elif mn in('jsl','jml') and mode=='abl': push(val,m,x,'j')
-        if mn in STOP: break
+        if mn in STOP:
+            if CONT and mn not in('stp','brk','cop') and looks_code(o+n,m,x): push(addr(o+n),m,x,'cont')
+            break
         o+=n
 # seed the instruction starts of tools/codemap.txt that decode the same way in this ROM
 cm=os.path.join(os.path.dirname(os.path.abspath(__file__)),'codemap.txt')
