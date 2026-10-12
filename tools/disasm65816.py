@@ -2,7 +2,9 @@
 """Quick recursive-descent 65816 disassembler for NHL '94 SNES (LoROM, banks $80-$9F).
 Also decodes the instruction starts listed in tools/codemap.txt (taken from the NHL94SNESVault export) where the ROM bytes agree.
 Tracks M/X through REP/SEP (and PLP/RTI heuristically: state after PLP = state at matching PHP if known).
-Emits asar asm, one file per bank, under src/. Unreached bytes become db (TODO for segment agents).
+Emits asar asm, one file per 4 KB segment, under outdir. Unreached bytes become db (TODO for segment agents).
+Instructions seeded only from codemap.txt have unknown M/X (shown as M=? X=?); their operand sizes come from the codemap lengths.
+--entry ADDR:M:X (M and X are 8 or 16) adds a decode start, e.g. for unreached code after an rtl; repeat it as needed.
 Usage: python3 tools/disasm65816.py lst/nhl94snes.sfc output/quickpass [--entry 8080CE:16:16 ...]
 Writes one starting-text file per 4 KB segment (bankXX_YYYY.asm) to outdir. Never point outdir at src/: copy the lines of your
 segment from outdir into src/bankXX_YYYY.asm by hand, replacing its incbin.
@@ -52,7 +54,7 @@ def off(addr):  # LoROM
     if a<0x8000 or b>=NB: return None
     return b*0x8000+(a-0x8000)
 def addr(o): return 0x800000|((o//0x8000)<<16)|(0x8000+o%0x8000)
-ins={}; cov=set(); flags={}; entries=set(); q=collections.deque()
+ins={}; cov=set(); seeded=set(); flags={}; entries=set(); q=collections.deque()
 def push(a,m,x,why):
     o=off(a)
     if o is None: return
@@ -99,7 +101,7 @@ for line in open(cm):
     else:
         if n!=1+SZ[mode]: continue
         m=x=True
-    ins[o]=(n,m,x); cov.update(range(o,o+n))
+    ins[o]=(n,m,x); cov.update(range(o,o+n)); seeded.add(o)
 for o,(n,m,x) in list(ins.items()):
     mn,mode=M[rom[o]]; a=addr(o); val=int.from_bytes(rom[o+1:o+n],'little'); t=None
     if mode=='rel': t=(a&0xFF0000)|((a+2+(val-256 if val>127 else val))&0xFFFF)
@@ -122,7 +124,7 @@ for sg in range(NB*8):
             flush(); L.append('; Internal header $FFC0-$FFFF follows as data (see header.asm notes)')
         if o in ins and not(b==0 and 0x7FB0<=o):
             flush(); n,m,x=ins[o]; c=rom[o]; mn,mode=M[c]; a=addr(o); val=int.from_bytes(rom[o+1:o+n],'little')
-            if o in entries: L.append(f'CODE_{a:06X}:\t\t; M={8 if m else 16} X={8 if x else 16}')
+            if o in entries: L.append(f'CODE_{a:06X}:\t\t; '+('M=? X=?' if o in seeded else f'M={8 if m else 16} X={8 if x else 16}'))
             if mode in('immM','immX'): s=f'{mn}.{"b" if n==2 else "w"} #${val:0{2*(n-1)}X}'
             elif mode in('rel','rell'):
                 t=(a&0xFF0000)|((a+n+(val-(256 if n==2 else 65536) if val>(127 if n==2 else 32767) else val))&0xFFFF)
@@ -130,7 +132,7 @@ for sg in range(NB*8):
                 s=f'{mn} CODE_{t:06X}' if to in ins and to in entries and not(b==0 and to>=0x7FB0) else 'db '+','.join(f'${c:02X}' for c in rom[o:o+n])+f' ; {mn} ${t:06X}'
             elif mode=='bm': s=f'{mn} ${rom[o+2]:02X},${rom[o+1]:02X}'
             else: s=FMT[mode].format(m=mn,v=val)
-            L.append(f'\t{s}\t\t; ${a:06X}: '+' '.join(f'{c:02X}' for c in rom[o:o+n])); o+=n; stats[0]+=n
+            L.append(f'\t{s}\t\t; ${a:06X}: '+' '.join(f'{c:02X}' for c in rom[o:o+n])+(' ; crosses into the next segment: move its org past this instruction' if o+n>end else '')); o+=n; stats[0]+=n
         else:
             data.append((rom[o],o)); o+=1; stats[1]+=1
     flush()

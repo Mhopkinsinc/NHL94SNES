@@ -38,8 +38,16 @@ bank80_8000. <- CURRENT
 - Starting text: `python3 tools/disasm65816.py lst/nhl94snes.sfc output/quickpass` writes a quick pass per segment
   (`output/quickpass/bankXX_YYYY.asm`). It decodes from the vectors by recursive descent with M/X tracking, and also decodes the
   instruction starts in `tools/codemap.txt` (from the NHL94SNESVault DiztinGUIsh export) where the bytes agree. Every instruction line
-  has its address and bytes in the comment; db lines are unresolved. The quick pass of all 256 segments assembles byte for byte.
+  has its address and bytes in the comment; db lines are unresolved. Labels marked `M=? X=?` come only from the codemap and
+  their M/X is unknown: trace it yourself. Unreached code (after an `rtl`, behind a never-taken branch) stays db; decode it by
+  rerunning the tool into a scratch dir with `--entry ADDR:M:X` (M, X = 8 or 16) once per start, e.g.
+  `python3 tools/disasm65816.py lst/nhl94snes.sfc output/qp2 --entry 8085A3:16:16`. The address and byte comments are
+  for checking only; strip them in `src/` (no ROM addresses in comments). The quick pass of all 256 segments assembles byte for byte.
   Copy your segment's text into `src/bankXX_YYYY.asm` in place of the incbin; never point the tool at `src/`.
+- Local clones: put the reference repos beside this one (e.g. `../NHLPA93SNES`, `../NHL94Genesis`, `../NHL94SNESVault`); the
+  Vault's `Src/bank_XX.asm` is the DiztinGUIsh export and `Src/all-labels.txt` its labels (most are still auto names).
+- Bank $80 of 94S is a new engine: its reset, interrupt and service code does not match 93S byte for byte, so most names there
+  come from what the code does. Expect 93S matches in game logic, not in the low-level services.
 - Names: NHLPA93SNES (https://github.com/abdulahmad/NHLPA93SNES) for code that matches 93S, NHL94Genesis
   (https://github.com/abdulahmad/NHL94Genesis) for 94 features, then NHLPA93Genesis / NHL92Genesis down the lineage. NHL94SNESVault
   (https://github.com/Mhopkinsinc/NHL94SNESVault, public domain) for SNES-only systems and RAM it already names.
@@ -57,7 +65,9 @@ bank80_8000. <- CURRENT
 ## Segment rules
 
 - One segment per session. A segment's end may move to a routine or table boundary; move the next segment's org (and cut its incbin
-  with `incbin "../Extracted/segments/<file>.bin":<start>-<end>`) in the same commit, and note it in the row.
+  with `incbin "../Extracted/segments/<file>.bin":<start>..<end>`, decimal, end exclusive; the old `:<start>-<end>` form is
+  deprecated in asar 1.91 and reads the numbers as hex) in the same commit, and note it in the row. The quick pass flags an
+  instruction that crosses a segment end with "crosses into the next segment".
 - Keep operand sizes explicit (`lda.b` / `lda.w` / `lda.l`) so asar emits the same bytes. Labels are global across segments.
 - RAM names go in `src/ram94snes.asm` (create it with the first name and include it at the top of `src/nhl94snes.asm`), one place each.
 - Hardware register names go in `src/inc/snes_regs.asm` (copy NHLPA93SNES's).
