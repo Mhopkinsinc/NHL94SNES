@@ -149,3 +149,4 @@ $80DA56,TeamSongs,DATA8_80DA56,code,"songs for MusicStart, six per team; read by
 $80DCF6,DefaultSongs,DATA8_80DCF6,code,songs picked at random when the home team has none for the slot,src/bank80_D000.asm
 $828000,SpriteFrames,DATA8_828000,code,"main DrawSprite sprite set: frame offsets, then frames through bank $8E",src/bank82_8000.asm
 $82FEA9,CenterIceTilesHFD,DATA8_82FEA9,code,"Hartford centre ice logo tiles (linear 4bpp, Huffman); from the per-team table at $9C83B7",src/bank82_F000.asm
+$83FF47,CenterIceTilesPIT,DATA8_83FF47,code,"Pittsburgh centre ice logo tiles (linear 4bpp, Huffman); team 17 of the table at $9C83B7",src/bank83_F000.asm
