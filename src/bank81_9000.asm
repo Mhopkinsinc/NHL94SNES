@@ -1,3 +1,4 @@
-; Segment bank81_9000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank81_9000.asm.
+; Bank $81, second 4 KB: IceRinkTiles continued (see the previous file), from Extracted/data/IceRink.chr.lz.
+
 org $819000
-	incbin "../Extracted/segments/bank81_9000.bin"
+	incbin "../Extracted/data/IceRink.chr.lz":4096..8192

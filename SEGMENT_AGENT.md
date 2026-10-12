@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank81_9000. <- CURRENT
+bank81_A000. <- CURRENT
 
 ## Sources
 
@@ -104,8 +104,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank80_E000 | matched 4096 bytes | $80E000 | $80EFFF | 0% | data: end of the records, copyright, CreditTitles, CreditNames, long pointer tables, $FF fill (pad) |
 | bank80_F000 | matched 4096 bytes | $80F000 | $80FFFF | 0% | $FF fill (pad), OAM high table masks, internal header and vectors (93S snes_header.asm layout) |
 | bank81_8000 | matched 4096 bytes | $818000 | $818FFF | 0% | start of IceRinkTiles (93S name), LZ-packed rink tiles $818000-$81ABDD, from the asset Extracted/data/IceRink.chr.lz |
-| bank81_9000 | incbin <- CURRENT | $819000 | $819FFF | 0% | |
-| bank81_A000 | incbin | $81A000 | $81AFFF | 0% | |
+| bank81_9000 | matched 4096 bytes | $819000 | $819FFF | 0% | IceRinkTiles continued (asset IceRink.chr.lz) |
+| bank81_A000 | incbin <- CURRENT | $81A000 | $81AFFF | 0% | |
 | bank81_B000 | incbin | $81B000 | $81BFFF | 0% | |
 | bank81_C000 | incbin | $81C000 | $81CFFF | 0% | |
 | bank81_D000 | incbin | $81D000 | $81DFFF | 0% | |
@@ -364,3 +364,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank80_E000: source, MATCH. Data only: the end of the 48-byte records, the copyright lines, the credits (CreditTitles and CreditNames, word pointer lists to zero-terminated strings, named from their content), three long pointer tables as dd, and the $FF fill as padbyte/pad. The OAM masks DrawSprite reads at $E67C are WRAM in bank $7E, not this data (HANDOFF corrected).
 - bank80_F000: source, MATCH. $FF fill as padbyte/pad, the OAM high table masks at $80FF00 (same values as the WRAM copy DrawSprite reads at $7EE67C; no reader of this one found), and the internal header and vectors in the 93S snes_header.asm layout (vectors point at NMI, Reset, IRQ). Bank $80 is now all source.
 - bank81_8000: source, MATCH. All of it is the start of IceRinkTiles ($818000-$81ABDD, LZ-packed, 613 tiles unpacked; bank $9F loads it to $7F0000 then VRAM $1000). Identified with the new tools/snesgfx.py: the packed map at $92E053 (48 x 113 tiles after a 6-byte header) uses exactly these tiles and renders as the rink with crowd and benches, so the 93S name IceRinkTiles applies. New: data assets. tools/extract.py has an ASSETS list and cuts Extracted/data/IceRink.chr.lz; the segment spells out the header and incbins the rest of its 4 KB from the asset. bank81_9000 and bank81_A000 continue the same asset. The format words are $FB10/$FB46/$FB30/$FB7A (little-endian; earlier notes said $10FB etc., now fixed).
+- bank81_9000: source, MATCH. The next 4 KB of IceRinkTiles, an incbin of Extracted/data/IceRink.chr.lz:4096..8192.
