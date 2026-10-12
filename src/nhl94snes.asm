@@ -4,6 +4,9 @@
 
 lorom
 
+incsrc "inc/snes_regs.asm"
+incsrc "ram94snes.asm"
+
 incsrc "bank80_8000.asm"
 incsrc "bank80_9000.asm"
 incsrc "bank80_A000.asm"

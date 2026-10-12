@@ -1,1 +1,25 @@
 address,name,auto_name,source,note,file
+$808000,Mode7Identity,DATA8_808000,code,M7A-M7D identity matrix written at reset,src/bank80_8000.asm
+$808006,InitHooks,,code,initial hook long pointers and random seed,src/bank80_8000.asm
+$808013,InitTag,,code,6-byte tag copied to RAM at reset,src/bank80_8000.asm
+$808019,NullHook,,code,rtl; default hook target,src/bank80_8000.asm
+$80801A,Reset,CODE_80801A,code,reset vector,src/bank80_8000.asm
+$80802A,Reset_Fast,CODE_80802A,code,reset continues in the FastROM bank,src/bank80_8000.asm
+$808147,NMI,CODE_808147,code,NMI vector,src/bank80_8000.asm
+$80814B,NMI_Fast,CODE_80814B,code,,src/bank80_8000.asm
+$808186,NMI_HookReturn,,code,return point of the hook called with pea/jml,src/bank80_8000.asm
+$808469,NMI_FrameHookReturn,,code,,src/bank80_8000.asm
+$808481,BCDTable,,code,0-99 as packed BCD,src/bank80_8000.asm
+$8084E5,IRQ,CODE_8084E5,code,IRQ vector,src/bank80_8000.asm
+$8084E9,IRQ_Fast,CODE_8084E9,code,,src/bank80_8000.asm
+$8084FF,IRQ_HookReturn,,code,,src/bank80_8000.asm
+$80854E,IRQHook_Off,,code,rtl; IRQ hook when raster IRQ is off,src/bank80_8000.asm
+$808583,WaitFrame,CODE_808583,code,waits for the NMI frame counter to change,src/bank80_8000.asm
+$80858E,WaitFrames_Inc,CODE_80858E,code,,src/bank80_8000.asm
+$80858F,WaitFrames,CODE_80858F,code,X*Y frames,src/bank80_8000.asm
+$80859A,WaitDMAQueue,CODE_80859A,code,waits until the NMI DMA queue is empty,src/bank80_8000.asm
+$808639,JoyDirIndex_Hi,CODE_808639,code,,src/bank80_8000.asm
+$80863A,JoyDirIndex,CODE_80863A,code,d-pad bits to direction*2 in X,src/bank80_8000.asm
+$808648,JoyDirTable,,code,,src/bank80_8000.asm
+$808658,RandomWord,CODE_808658,code,two 16-bit LFSRs (eor $1D87) summed,src/bank80_8000.asm
+$0776,JoyPad,JoyPad,NHL94SNESVault,RAM; joypad 1 held,src/ram94snes.asm

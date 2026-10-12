@@ -28,7 +28,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank80_8000. <- CURRENT
+bank80_9000. <- CURRENT
 
 ## Sources
 
@@ -81,8 +81,8 @@ The first row that is still incbin is the current segment. Code% is the share of
 
 | File | Status | Org | End | Code% | Note |
 |---|---|---|---|---|---|
-| bank80_8000 | incbin <- CURRENT | $808000 | $808FFF | 83% | |
-| bank80_9000 | incbin | $809000 | $809FFF | 29% | |
+| bank80_8000 | matched 4098 bytes | $808000 | $809001 | 83% | Reset, NMI, IRQ, WaitFrame(s), WaitDMAQueue, RandomWord, JoyDirIndex, BCDTable; end moved +2 (jmp crosses) |
+| bank80_9000 | incbin <- CURRENT | $809002 | $809FFF | 29% | |
 | bank80_A000 | incbin | $80A000 | $80AFFF | 79% | |
 | bank80_B000 | incbin | $80B000 | $80BFFF | 89% | |
 | bank80_C000 | incbin | $80C000 | $80CFFF | 64% | |
@@ -341,3 +341,4 @@ The first row that is still incbin is the current segment. Code% is the share of
 ## History
 
 - Setup: 256 incbin segments of 4 KB, prebuild ROM check and extractor, quick-pass tool with the Vault code map, full build MATCH.
+- bank80_8000: source, MATCH. Reset/NMI/IRQ and low-level services; vector, wait, RNG and joypad helpers named from what they do (no 93S/94G byte match in this bank); hardware registers from 93S snes_regs.asm; JoyPad from the Vault. Remaining CODE_ labels are auto names. bank80_9000 org moved to $809002.

@@ -3,8 +3,10 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- All 256 segments are still incbin. Nothing is disassembled or named yet; `docs/name_map.csv` is empty.
-- Next: segment bank80_8000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- bank80_8000 is source (MATCH); the other 255 segments are incbin. bank80_9000 now starts at $809002.
+- `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
+- bank80_8000 still has many auto `CODE_` labels and raw RAM addresses: no 93S/94G match, left for a naming pass.
+- Next: segment bank80_9000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
