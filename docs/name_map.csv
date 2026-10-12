@@ -130,3 +130,14 @@ $07B4,SpriteVRAM,,code,RAM,src/ram94snes.asm
 $07B6,SpritesReserved,,code,RAM,src/ram94snes.asm
 $07BC,OAMNext,,code,RAM,src/ram94snes.asm
 $07BE,OAMHideEnd,,code,RAM,src/ram94snes.asm
+$80C2F3,DecompressRLE,CODE_80C2F3,code,format $7AFB in Decompress,src/bank80_C000.asm
+$80C373,Decompress,CODE_80C373,code,,src/bank80_C000.asm
+$80C3CB,SoundDriver,DATA8_80C3CB,code,sent by SPCIPLUpload at reset,src/bank80_C000.asm
+$80C943,ShootoutWonBy,CODE_80C943,94G,"same job as 94G ShootoutWonBy (""<team> Wins!"")",src/bank80_C000.asm
+$80CA0B,ShootoutShooters,CODE_80CA0B,94G,same job as 94G ShootoutShooters (goalie and shooters screen),src/bank80_C000.asm
+$80CDC8,InitShooters,CODE_80CDC8,94G,same job as 94G InitShooters (8 bytes from the team data),src/bank80_C000.asm
+$80CE41,ShooterSelectList,CODE_80CE41,94G,same job as 94G ShooterSelectList; Vault name Shootout_Edit_Lines,src/bank80_C000.asm
+$17AA,Selected_Goalie,,Vault,RAM,src/ram94snes.asm
+$1D71,homeshooters,,94G,RAM; goalie then shooters (bytes),src/ram94snes.asm
+$1D79,awayshooters,,94G,RAM,src/ram94snes.asm
+$1D85,shootoutround,,94G,RAM,src/ram94snes.asm

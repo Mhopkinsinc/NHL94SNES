@@ -22,3 +22,7 @@ SpriteVRAM = $07B4		; VRAM word address of sprite tile 0
 SpritesReserved = $07B6		; OAM entries at the start that the sprite drawing leaves alone
 OAMNext = $07BC			; next OAM entry to fill in OAMDrawBuf
 OAMHideEnd = $07BE		; SpriteFrameEnd moves the entries from OAMNext up to here off screen
+Selected_Goalie = $17AA		; home and away goalie choice (words)
+homeshooters = $1D71		; home shootout list: the goalie, then the shooters (bytes, player number + 1)
+awayshooters = $1D79		; away shootout list, as homeshooters
+shootoutround = $1D85		; shootout round, from 1

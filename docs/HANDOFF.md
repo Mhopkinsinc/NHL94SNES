@@ -3,8 +3,8 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- bank80_8000 to bank80_B000 are source (MATCH); the rest are incbin. bank80_B000 runs from $80B001 to
-  $80C000; bank80_C000 starts at $80C001 (incbin from byte 1, split at CODE_80C069, which a branch in bank80_B000 targets).
+- bank80_8000 to bank80_C000 are source (MATCH); the rest are incbin. bank80_C000 runs from $80C001 to $80D000;
+  bank80_D000 starts at $80D001 (incbin from byte 1).
 - `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
 - bank80_8000 still has many auto `CODE_` labels and raw RAM addresses: no 93S/94G match, left for a naming pass.
 - bank80_9000: math, sine, sound driver commands and the heap, named from what the code does. Left raw: the direct-page
@@ -16,11 +16,16 @@
 - bank80_B000: sprites and decompression. OAM buffer RAM is named; the tile cache tables ($2540-$2E40 in bank $7E, $07BA
   count, $07C0-$07D0 work) and the two allocators ($2F40/$2FB9 blocks of four tiles, $3032/$3093 single tiles) are raw,
   and their routines are auto labels with comments. The decompressors are called from the dispatcher at $80C373 (format
-  word $10FB LZ, $46FB pairs, $30FB Huffman, $7AFB at $80C2F3). DecompressHuffman continues in bank80_C000 (bit reader at
-  $80C1B0, long-code handlers from $80C000) and bank80_C000 jumps back through its tables; the Vault names it
-  LoadGameSetupScreen, which does not fit the code. $80B07E, $80B389, $80B394, $80B724 and $80B8AE have no direct caller
-  found. The OAM high table masks it reads at $80E67C-$80E68B are in bank80_E000.
-- Next: segment bank80_C000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+  word $10FB LZ, $46FB pairs, $30FB Huffman, $7AFB DecompressRLE). $80B07E, $80B389, $80B394, $80B724 and $80B8AE have no
+  direct caller found; the Vault names DecompressHuffman LoadGameSetupScreen, which does not fit the code. The OAM high
+  table masks it reads at $80E67C-$80E68B are in bank80_E000.
+- bank80_C000: the Huffman decoder's long-code handlers and bit readers (auto labels), DecompressRLE, Decompress,
+  SoundDriver (SPC700 bytes as db; the SPC side is not disassembled), then the shootout. The shootout routines and RAM
+  with a 94G counterpart take its names; the rounds loop ($80C81C, called from bank $9F), the screen drawing and the
+  menu RAM ($1D81 shootout on, $1D89, $1DB9 cursor, $1D9B/$1DA3/$1DA7/$1DAB list scroll, $7E3468 redraw) are raw/auto.
+  $178E/$1790 decide the shootout but are used elsewhere too; not named. $80D004 (called by ShooterSelectList after each
+  cursor move) is in bank80_D000.
+- Next: segment bank80_D000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

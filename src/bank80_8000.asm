@@ -98,7 +98,7 @@ CODE_8080B4:
 	cpx.w #HDMAEN
 	bne CODE_8080B4
 	rep #$20
-	lda.w #$C3CB
+	lda.w #SoundDriver
 	sta.b $0C
 	stz.b $0E
 	jsl.l SPCIPLUpload

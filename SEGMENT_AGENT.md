@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank80_C000. <- CURRENT
+bank80_D000. <- CURRENT
 
 ## Sources
 
@@ -93,8 +93,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank80_9000 | matched 4083 bytes | $809002 | $809FF4 | 29% | Mul16*/Mul16x8Hi*/MulFrac*, Div16*/Div32*/DivX8*, SineTable, Sin/Cos, SPCCmd01-0E, SPCUpload/Download/Stream*, heap (HeapInit, NewHandle, DisposeHandle, HeapCompact, SetHandleSize, ...), ByteBitMasks; end moved -11 (word table) |
 | bank80_A000 | matched 4108 bytes | $809FF5 | $80B000 | 79% | PitchTable, VolumeCurve, music/sound effect player (MusicStart, MusicStop, SoundInit, SoundUpdate, SetSoundFade, SoundVoicesOff), SPCIPLUpload, InitSprites, SpriteFrameStart, SpriteFrameEnd; sequencer internals keep auto labels; org moved to $809FF5, end moved +1 (lda crosses) |
 | bank80_B000 | matched 4096 bytes | $80B001 | $80C000 | 89% | DrawSprite, sprite VRAM tile cache and allocators, DecompressLZ, DecompressPairs, DecompressHuffman (its jump tables as dw); allocator and decoder internals keep auto labels; org moved to $80B001, end moved +1 (cmp crosses) |
-| bank80_C000 | incbin <- CURRENT | $80C001 | $80CFFF | 64% | org moved to $80C001; CODE_80C069 placed between two incbin pieces (a bcc in bank80_B000 targets it) |
-| bank80_D000 | incbin | $80D000 | $80DFFF | 11% | |
+| bank80_C000 | matched 4096 bytes | $80C001 | $80D000 | 64% | Huffman long-code handlers and bit readers, DecompressRLE, Decompress (format word dispatcher), SoundDriver (SPC program as IPL blocks), shootout (ShootoutWonBy, ShootoutShooters, InitShooters, ShooterSelectList from 94G; rounds loop and screen drawing auto); org moved to $80C001, end moved +1 (jsl crosses) |
+| bank80_D000 | incbin <- CURRENT | $80D001 | $80DFFF | 11% | org moved to $80D001 |
 | bank80_E000 | incbin | $80E000 | $80EFFF | 0% | |
 | bank80_F000 | incbin | $80F000 | $80FFFF | 0% | |
 | bank81_8000 | incbin | $818000 | $818FFF | 0% | |
@@ -353,3 +353,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank80_9000: source, MATCH. Math library (16x16 and 16x8 multiplies, mode 7 fraction multiplies, 16/32-bit divides), quarter-wave SineTable with Sin/Cos, sound driver commands $01-$11 over APUIO0-3, and a handle-based heap in banks $7E/$7F; all named from what the code does (no 93S/94G byte match). Unreached routines decoded with --entry. bank80_A000 org moved to $809FF5. `jsl.l $809099` in bank80_8000 now `jsl.l Mul16U`.
 - bank80_A000: source, MATCH. CPU side of the music/sound effect player (voices, tracks, envelopes, fade) with PitchTable and VolumeCurve, and SPCIPLUpload; named entry points and RAM (SoundLock, MusicOn, SoundVolume, SoundFadeSpeed) from what the code does, internals left as auto labels. Branch-skipped code decoded with --entry. bank80_B000 org moved to $80B001; bank80_8000/9000 now use the new names.
 - bank80_B000: source, MATCH. Sprite system (double OAM buffers, DrawSprite, the VRAM tile cache with a 16x16 block allocator and a single tile allocator) and the WRAM decompressors called by the $80C373 dispatcher (DecompressLZ, DecompressPairs, DecompressHuffman), named from what the code does; the Vault calls DecompressHuffman LoadGameSetupScreen. OAM RAM named (OAMDrawBuf, OAMShowBuf, OAMReady, OAMNext, ...). Unreferenced entry points decoded with --entry. bank80_C000 org moved to $80C001; the sprite routines at the end of bank80_A000 are now InitSprites, SpriteFrameStart, SpriteFrameEnd.
+- bank80_C000: source, MATCH. The rest of the Huffman decoder (its jump table targets now labels, CODE_80BFCD added in bank80_B000 for a branch from here), DecompressRLE and the Decompress dispatcher, SoundDriver (one IPL block to $0400, length computed by the assembler; Reset now loads #SoundDriver), and the shootout. ShootoutWonBy, ShootoutShooters, InitShooters, ShooterSelectList and the RAM homeshooters, awayshooters, shootoutround take the 94G names (same job, not the same code); the Vault calls ShooterSelectList Shootout_Edit_Lines; Selected_Goalie from the Vault. $178E/$1790 (used outside the shootout too) stay raw. bank80_D000 org moved to $80D001.
