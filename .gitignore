@@ -1,9 +1,7 @@
 output/
 Extracted/
-lst/*.sfc
 lst/*.smc
 lst/*.bin
-*.sfc
 *.smc
 *.log
 __pycache__/
