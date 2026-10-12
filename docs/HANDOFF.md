@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- bank80_8000 to bank80_E000 are source (MATCH); the rest are incbin.
+- Bank $80 (bank80_8000 to bank80_F000) is source (MATCH); the other banks are incbin.
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
   as 93S `snes93.mac`.
 - `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
@@ -33,7 +33,10 @@
 - bank80_E000: data only. The records end at $80E2E0; then the copyright lines, CreditTitles / CreditNames (read from bank
   $9D) with their strings, long pointer tables DATA8_80E6C1 / DATA8_80E6FD / DATA8_80E73D (read from bank $9C), and $FF
   fill to $80F000 written as `padbyte $FF` / `pad $80F000`.
-- Next: segment bank80_F000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- bank80_F000: $FF fill, DATA8_80FF00 (the OAM high table masks; DrawSprite reads the same values from WRAM $7EE67C, and
+  neither the copy into WRAM nor a reader of this table is found yet), the internal header (checksum $9B52, complement
+  $64AD, 1 MB, LoROM/FastROM) and the vectors (NMI, Reset, IRQ; COP/BRK/ABORT are $0000).
+- Next: segment bank81_8000 (bank $81 starts the next round; see START_HERE.md about stopping after a bank) (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
