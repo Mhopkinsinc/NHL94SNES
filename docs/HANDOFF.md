@@ -19,7 +19,7 @@
 - bank80_B000: sprites and decompression. OAM buffer RAM is named; the tile cache tables ($2540-$2E40 in bank $7E, $07BA
   count, $07C0-$07D0 work) and the two allocators ($2F40/$2FB9 blocks of four tiles, $3032/$3093 single tiles) are raw,
   and their routines are auto labels with comments. The decompressors are called from the dispatcher at $80C373 (format
-  word $10FB LZ, $46FB pairs, $30FB Huffman, $7AFB DecompressRLE). $80B07E, $80B389, $80B394, $80B724 and $80B8AE have no
+  word $FB10 LZ, $FB46 pairs, $FB30 Huffman, $FB7A DecompressRLE). $80B07E, $80B389, $80B394, $80B724 and $80B8AE have no
   direct caller found; the Vault names DecompressHuffman LoadGameSetupScreen, which does not fit the code. The OAM high
   table masks DrawSprite reads (`and.w $E67C,x`, `ora.w $E680,x` ... with the data bank at $7E) are in WRAM at
   $7EE67C-$7EE68B; what fills them is not traced yet.
@@ -38,10 +38,14 @@
 - bank80_F000: $FF fill, DATA8_80FF00 (the OAM high table masks; DrawSprite reads the same values from WRAM $7EE67C, and
   neither the copy into WRAM nor a reader of this table is found yet), the internal header (checksum $9B52, complement
   $64AD, 1 MB, LoROM/FastROM) and the vectors (NMI, Reset, IRQ; COP/BRK/ABORT are $0000).
-- bank81_8000: the start of DATA8_818000, LZ-packed background tiles ($818000-$81ABDD) that $9FB6F7 and $9FE7AD unpack
-  to $7F0000 and copy to VRAM $1000 (which screen is not named yet). bank81_9000 is the next 4 KB of the same asset
-  (`incbin "../Extracted/data/818000.chr.lz":4096..8192`); bank81_A000 ends it at $81ABDE, where a $30FB Huffman block
-  starts (loaded by bank $9D code to $7F0000). Unpack and render blocks to check their contents before naming them.
+- bank81_8000: the start of IceRinkTiles, LZ-packed rink tiles ($818000-$81ABDD) that $9FB6F7 and $9FE7AD unpack to
+  $7F0000 and copy to VRAM $1000. The rink map is the packed block at $92E053 (header words: width $30, height $71, then
+  $0308, not traced; it renders with `tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48`). Its
+  palette is not found yet. bank81_9000 is the next 4 KB of the same asset
+  (`incbin "../Extracted/data/IceRink.chr.lz":4096..8192`); bank81_A000 ends it at $81ABDE, where a $FB30 Huffman block
+  starts ($7C00 bytes unpacked, loaded by bank $9D code to $7F0000).
+- `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
+  the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
 - Next: segment bank81_9000 (see `SEGMENT_AGENT.md`, `PROMPT.md`). (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes

@@ -530,8 +530,8 @@ CODE_80C35C:
 	bne CODE_80C352
 CODE_80C372:
 	rts
-Decompress:		; unpack the data at [$0C] to WRAM at [$10] by its format word ($10FB LZ, $46FB pairs, $30FB Huffman,
-		;   $7AFB run-length); X = the unpacked size from the header, or 1 for an unknown format
+Decompress:		; unpack the data at [$0C] to WRAM at [$10] by its format word ($FB10 LZ, $FB46 pairs, $FB30 Huffman,
+		;   $FB7A run-length); X = the unpacked size from the header, or 1 for an unknown format
 	php
 	phb
 	rep #$30

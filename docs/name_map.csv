@@ -116,9 +116,9 @@ $80AEE1,InitSprites,CODE_80AEE1,code,,src/bank80_A000.asm
 $80AF7B,SpriteFrameStart,CODE_80AF7B,code,,src/bank80_A000.asm
 $80AFDE,SpriteFrameEnd,CODE_80AFDE,code,,src/bank80_A000.asm
 $80B08D,DrawSprite,CODE_80B08D,code,,src/bank80_B000.asm
-$80B8DB,DecompressLZ,CODE_80B8DB,code,format $10FB in the $80C373 dispatcher,src/bank80_B000.asm
-$80BA63,DecompressPairs,CODE_80BA63,code,format $46FB in the $80C373 dispatcher,src/bank80_B000.asm
-$80BBB3,DecompressHuffman,CODE_80BBB3,code,format $30FB in the $80C373 dispatcher; Vault name LoadGameSetupScreen,src/bank80_B000.asm
+$80B8DB,DecompressLZ,CODE_80B8DB,code,format $FB10 in the $80C373 dispatcher,src/bank80_B000.asm
+$80BA63,DecompressPairs,CODE_80BA63,code,format $FB46 in the $80C373 dispatcher,src/bank80_B000.asm
+$80BBB3,DecompressHuffman,CODE_80BBB3,code,format $FB30 in the $80C373 dispatcher; Vault name LoadGameSetupScreen,src/bank80_B000.asm
 $0766,OAMReady,,code,RAM,src/ram94snes.asm
 $07A8,OAMLastEnd,,code,RAM,src/ram94snes.asm
 $07AA,OAMDrawBuf,,code,RAM,src/ram94snes.asm
@@ -130,7 +130,7 @@ $07B4,SpriteVRAM,,code,RAM,src/ram94snes.asm
 $07B6,SpritesReserved,,code,RAM,src/ram94snes.asm
 $07BC,OAMNext,,code,RAM,src/ram94snes.asm
 $07BE,OAMHideEnd,,code,RAM,src/ram94snes.asm
-$80C2F3,DecompressRLE,CODE_80C2F3,code,format $7AFB in Decompress,src/bank80_C000.asm
+$80C2F3,DecompressRLE,CODE_80C2F3,code,format $FB7A in Decompress,src/bank80_C000.asm
 $80C373,Decompress,CODE_80C373,code,,src/bank80_C000.asm
 $80C3CB,SoundDriver,DATA8_80C3CB,code,sent by SPCIPLUpload at reset,src/bank80_C000.asm
 $80C943,ShootoutWonBy,CODE_80C943,94G,"same job as 94G ShootoutWonBy (""<team> Wins!"")",src/bank80_C000.asm
@@ -143,3 +143,4 @@ $1D79,awayshooters,,94G,RAM,src/ram94snes.asm
 $1D85,shootoutround,,94G,RAM,src/ram94snes.asm
 $80E30C,CreditTitles,DATA8_80E30C,code,word pointers to the credit title strings,src/bank80_E000.asm
 $80E44D,CreditNames,DATA8_80E44D,code,word pointers to the names under each title,src/bank80_E000.asm
+$818000,IceRinkTiles,DATA8_818000,93S,packed rink tiles (93S IceRinkTiles); asset Extracted/data/IceRink.chr.lz,src/bank81_8000.asm
