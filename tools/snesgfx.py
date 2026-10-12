@@ -15,8 +15,13 @@ Commands:
   blocks [--from ADDR] [--to ADDR]    list the packed blocks found in a ROM range, with their sizes
   tiles IN [-o PNG]                   tile sheet of 4bpp tiles (--offset, --count, --columns, --pal, --palrow)
   map MAP --tiles TILES [-o PNG]      render BG map words with their tiles (--width, --map-offset, --tiles-offset, --pal)
+  sprites IN [-o PNG]                 sheet of the frames of a sprite set as DrawSprite draws them (--pal, --pal-table)
 
 Map words: vflip 15, hflip 14, priority 13, palette 12-10, tile 9-0. Tiles: 4bpp planar, 32 bytes per 8x8 tile.
+Sprite sets: 4-byte offsets of the frames (the first offset ends the list). A frame: piece count (byte), flags (byte,
+bit 7: 16x16 block tiles), tile count, ..., at +$C/+$E the byte counts of the two tile transfers, at +$10 the offset of
+its tiles; from +$16 the pieces of 7 bytes (x, y, tile and attribute word, size byte: nonzero = 16x16). The tiles go to
+VRAM 16 per row: the first transfer from tile 0, the second from the row after it (DrawSprite's loader, CODE_80B3E1).
 Palettes: --pal IN[:OFFSET] (BGR555 words, 16 colours per row), else grey levels. Writes PNG without other modules.
 
 Examples:
@@ -24,6 +29,7 @@ Examples:
   python3 tools/snesgfx.py blocks --from 818000 --to 828000
   python3 tools/snesgfx.py tiles Extracted/data/IceRink.chr.lz --columns 32 -o rinktiles.png
   python3 tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48 -o rink.png    (6-byte header: width, height, ...)
+  python3 tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497 -o logos.png
 """
 import argparse
 import os
@@ -283,6 +289,61 @@ def write_png(path, w, h, px, scale):
     open(path, 'wb').write(png)
 
 
+def sword(d, o):
+    v = d[o] | d[o + 1] << 8
+    return v - 0x10000 if v & 0x8000 else v
+
+
+def sprite_frames(d):
+    """The frames of a sprite set: [(pieces, vram tiles)], pieces = [(x, y, tile word, size byte)]."""
+    first = d[0] | d[1] << 8 | d[2] << 16
+    frames = []
+    for n in range(first // 4):
+        o = d[4 * n] | d[4 * n + 1] << 8 | d[4 * n + 2] << 16
+        s1, s2 = d[o + 0xC] | d[o + 0xD] << 8, d[o + 0xE] | d[o + 0xF] << 8
+        src = o + (d[o + 0x10] | d[o + 0x11] << 8)
+        vram = bytearray(0x2000)
+        vram[:s1] = d[src:src + s1]
+        if d[o + 1] & 0x80:
+            t2 = (((s1 >> 1) & 0xFF00) | 0x100) >> 4
+            vram[t2 * 32:t2 * 32 + s2] = d[src + s1:src + s1 + s2]
+        pcs = [(sword(d, q), sword(d, q + 2), d[q + 4] | d[q + 5] << 8, d[q + 6])
+               for q in range(o + 0x16, o + 0x16 + 7 * d[o], 7)]
+        frames.append((pcs, vram))
+    return frames
+
+
+def cmd_sprites(a):
+    frames = sprite_frames(load(a.input))
+    rom = open(ROM, 'rb').read()
+
+    def frame_palette(n):
+        if a.pal_table:
+            q = lorom_offset(int(a.pal_table.lstrip('$'), 16)) + 4 * n
+            p = lorom_offset(rom[q] | rom[q + 1] << 8 | rom[q + 2] << 16 | 0x800000)
+            return [snes_rgb(rom[p + 2 * i] | rom[p + 2 * i + 1] << 8) for i in range(16)]
+        return palette(a.pal)[a.palrow * 16:a.palrow * 16 + 16]
+    cw = ch = a.cell
+    cols = a.columns
+    rows = (len(frames) + cols - 1) // cols
+    bg = (40, 40, 40)
+    px = [[bg] * (cols * cw) for _ in range(rows * ch)]
+    for n, (pcs, vram) in enumerate(frames):
+        cl = frame_palette(n)
+        ox, oy = (n % cols) * cw + cw // 8, (n // cols) * ch + ch // 8
+        for x, y, t, size in pcs:
+            hf, vf, tn, sz = t & 0x4000, t & 0x8000, t & 0x1FF, 16 if size else 8
+            for py in range(sz):
+                for qx in range(sz):
+                    sx, sy = (sz - 1 - qx) if hf else qx, (sz - 1 - py) if vf else py
+                    c = tile_pixel(vram, tn + (sx >> 3) + 16 * (sy >> 3), sx & 7, sy & 7)
+                    X, Y = ox + x + qx, oy + y + py
+                    if c and 0 <= X < cols * cw and (n // cols) * ch <= Y < (n // cols + 1) * ch:
+                        px[Y][X] = cl[c]
+    write_png(a.output, cols * cw, rows * ch, px, a.scale)
+    print('%d frames -> %s' % (len(frames), a.output))
+
+
 def cmd_unpack(a):
     if a.input.startswith('$'):
         out, n, fmt = unpack(open(ROM, 'rb').read(), lorom_offset(int(a.input[1:], 16)))
@@ -386,6 +447,17 @@ def main():
     p.add_argument('--pal')
     p.add_argument('--scale', type=num, default=2)
     p.set_defaults(func=cmd_map)
+
+    p = sub.add_parser('sprites', help='sheet of the frames of a sprite set')
+    p.add_argument('input')
+    p.add_argument('-o', '--output', default='sprites.png')
+    p.add_argument('--pal', help='palette IN[:OFFSET] for every frame')
+    p.add_argument('--palrow', type=num, default=0, help='palette row (16 colours) of --pal')
+    p.add_argument('--pal-table', help='ROM address of a table of long pointers, one 16-colour palette per frame')
+    p.add_argument('--columns', type=num, default=6)
+    p.add_argument('--cell', type=num, default=72, help='pixels per frame cell')
+    p.add_argument('--scale', type=num, default=2)
+    p.set_defaults(func=cmd_sprites)
 
     a = ap.parse_args()
     a.func(a)

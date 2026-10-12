@@ -9,9 +9,11 @@ rom = open(sys.argv[1], 'rb').read()
 out = os.path.join(ROOT, 'Extracted'); shutil.rmtree(out, ignore_errors=True)
 os.makedirs(os.path.join(out, 'segments'))
 # Data assets: file under Extracted/data/, first ROM address, end address (exclusive). The extension gives the format:
-# .chr.lz = SNES 4bpp tiles packed for DecompressLZ (format word $FB10, unpacked size, stream); tools/snesgfx.py unpacks them.
+# .chr.lz = SNES 4bpp tiles packed for DecompressLZ (format word $FB10, unpacked size, stream);
+# .spr.huf = a DrawSprite sprite set packed for DecompressHuffman (format word $FB30). tools/snesgfx.py unpacks and renders them.
 ASSETS = [
     ('IceRink.chr.lz', 0x818000, 0x81ABDE),
+    ('TeamLogos.spr.huf', 0x81ABDE, 0x81FE45),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []

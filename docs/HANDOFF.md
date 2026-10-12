@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Bank $80 (bank80_8000 to bank80_F000), bank81_8000 and bank81_9000 are source (MATCH); the rest are incbin.
+- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 to bank81_A000 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -41,12 +41,15 @@
 - bank81_8000: the start of IceRinkTiles, LZ-packed rink tiles ($818000-$81ABDD) that $9FB6F7 and $9FE7AD unpack to
   $7F0000 and copy to VRAM $1000. The rink map is the packed block at $92E053 (header words: width $30, height $71, then
   $0308, not traced; it renders with `tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48`). Its
-  palette is not found yet. bank81_9000 is the next 4 KB of the same asset. bank81_A000 ends it
-  (`incbin "../Extracted/data/IceRink.chr.lz":8192..11230`) at $81ABDE, where a $FB30 Huffman block starts ($7C00 bytes
-  unpacked, loaded by bank $9D code to $7F0000; it runs to $81FE44).
+  palette is not found yet.
+- bank81_A000 ends IceRinkTiles at $81ABDE and starts TeamLogoSprites ($81ABDE-$81FE44, Huffman, $7C00 bytes unpacked):
+  a sprite set the team setup code in bank $9D unpacks to $7F7800 and draws with DrawSprite (frame = team, palettes from
+  the long pointer table at $9C8497). `tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497` renders all of its frames.
+  bank81_B000 to bank81_F000 continue it (`incbin "../Extracted/data/TeamLogos.spr.huf":<start>..<end>`, from 1058 on);
+  after it, $81FE45-$81FFFF is other data (it holds "TRAK" strings) that bank81_F000 has to look at.
 - `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
   the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
-- Next: segment bank81_A000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank81_B000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
