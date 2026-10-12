@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank82_B000. <- CURRENT
+bank82_C000. <- CURRENT
 
 ## Sources
 
@@ -116,8 +116,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank82_8000 | matched 4235 bytes | $828000 | $82908A | 0% | SpriteFrames: frame offset table (dd), SpriteFrame0 (header and pieces as source, tiles from asset SpriteFrames82.bin); end moved +$8B (frame boundary) |
 | bank82_9000 | matched 4103 bytes | $82908B | $82A091 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $82908B, end moved +$92 (frame boundary) |
 | bank82_A000 | matched 4024 bytes | $82A092 | $82B049 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $82A092, end moved +$4A (frame boundary) |
-| bank82_B000 | incbin <- CURRENT | $82B04A | $82BFFF | 0% | org moved to $82B04A |
-| bank82_C000 | incbin | $82C000 | $82CFFF | 0% | |
+| bank82_B000 | matched 4220 bytes | $82B04A | $82C0C5 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $82B04A, end moved +$C6 (frame boundary) |
+| bank82_C000 | incbin <- CURRENT | $82C0C6 | $82CFFF | 0% | org moved to $82C0C6 |
 | bank82_D000 | incbin | $82D000 | $82DFFF | 0% | |
 | bank82_E000 | incbin | $82E000 | $82EFFF | 0% | |
 | bank82_F000 | incbin | $82F000 | $82FFFF | 0% | |
@@ -376,3 +376,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank82_8000: source, MATCH. SpriteFrames, the main DrawSprite sprite set (frames in the ROM halves of banks $82-$8E, used with [$10] = $828000 from banks $9B-$9F): its frame offset table as dd (raw values until the frames are source), then SpriteFrame0 with its header and pieces written out (tile offset as a label difference) and its tiles from the new asset SpriteFrames82.bin ($828F40-$82FEA8, the frames of bank $82). `tools/snesgfx.py sprites '$828000' --rom` renders the set. bank82_9000 org moved to $82908B (frame boundary).
 - bank82_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 82908B 82A000`. bank82_A000 org moved to $82A092 (frame boundary).
 - bank82_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 82A092 82B000`. bank82_B000 org moved to $82B04A (frame boundary).
+- bank82_B000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 82B04A 82C000`. bank82_C000 org moved to $82C0C6 (frame boundary).
