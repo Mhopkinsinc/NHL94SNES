@@ -446,7 +446,7 @@ DATA8_80DA26:		; single-bit masks, bit 0 up
 	dw $0100,$0200,$0400,$0800,$1000,$2000,$4000,$8000
 DATA8_80DA46:
 	db $08,$00,$04,$08,$06,$07,$05,$08,$02,$01,$03,$08,$08,$08,$08,$08
-DATA8_80DA56:
+TeamSongs:		; songs for MusicStart, six per team (long pointers, $FFFFFFFF none), by home team and song slot
 	dd $FFFFFFFF,$FFFFFFFF,$FFFFFFFF,$FFFFFFFF
 	dd $FFFFFFFF,$FFFFFFFF,$00999A9C,$009AAF99
 	dd $009AADE5,$FFFFFFFF,$009AB2DF,$00999A9C
@@ -489,7 +489,7 @@ DATA8_80DA56:
 	dd $FFFFFFFF,$FFFFFFFF,$FFFFFFFF,$FFFFFFFF
 	dd $FFFFFFFF,$FFFFFFFF,$FFFFFFFF,$FFFFFFFF
 	dd $FFFFFFFF,$FFFFFFFF,$FFFFFFFF,$FFFFFFFF
-DATA8_80DCF6:
+DefaultSongs:		; songs for MusicStart, one picked at random when the home team has none for the slot
 	dd $00968646,$0099BB80,$0097E67A,$0096D0CE
 	dd $00969C09,$0096AEBB,$009785F0,$0098C874
 DATA8_80DD16:

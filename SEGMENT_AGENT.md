@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank81_F000. <- CURRENT
+bank82_8000. <- CURRENT
 
 ## Sources
 
@@ -110,8 +110,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank81_C000 | matched 4096 bytes | $81C000 | $81CFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
 | bank81_D000 | matched 4096 bytes | $81D000 | $81DFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
 | bank81_E000 | matched 4096 bytes | $81E000 | $81EFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
-| bank81_F000 | incbin <- CURRENT | $81F000 | $81FFFF | 0% | |
-| bank82_8000 | incbin | $828000 | $828FFF | 0% | |
+| bank81_F000 | matched 4096 bytes | $81F000 | $81FFFF | 0% | end of TeamLogoSprites; a song from TeamSongs ($81FE45, header, TRAK chunks "left"/"right") |
+| bank82_8000 | incbin <- CURRENT | $828000 | $828FFF | 0% | |
 | bank82_9000 | incbin | $829000 | $829FFF | 0% | |
 | bank82_A000 | incbin | $82A000 | $82AFFF | 0% | |
 | bank82_B000 | incbin | $82B000 | $82BFFF | 0% | |
@@ -370,3 +370,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank81_C000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:5154..9250.
 - bank81_D000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:9250..13346.
 - bank81_E000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:13346..17442.
+- bank81_F000: source, MATCH. The end of TeamLogoSprites, then a song ($81FE45-$81FFFF) laid out as MusicStart reads it: header (byte 1 tempo), track offsets as label differences, then two TRAK chunks ("left", "right") of note bytes. Its pointer is in the song table of bank80_D000, which the music code at $9C9B5F indexes by home team ($1C98) * 6 + slot: named TeamSongs, with DefaultSongs (the 8-entry table it picks from at random when the team has no song for the slot). Bank $81 is now all source.

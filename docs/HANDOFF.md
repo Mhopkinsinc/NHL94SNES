@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 to bank81_E000 are source (MATCH); the rest are incbin.
+- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 to bank81_F000 (all of bank $81) are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -47,10 +47,15 @@
   the long pointer table at $9C8497). `tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497` renders all of its frames.
   bank81_B000 to bank81_F000 continue it (`incbin "../Extracted/data/TeamLogos.spr.huf":<start>..<end>`; bank81_F000
   starts at byte 17442 and ends the asset at $81FE45);
-  after it, $81FE45-$81FFFF is other data (it holds "TRAK" strings) that bank81_F000 has to look at.
+  after it, $81FE45-$81FFFF is a song (DATA8_81FE45) from TeamSongs (bank80_D000): header, track offsets, TRAK chunks
+  "left"/"right". The note stream format (commands $D9-$EA of the player in bank80_A000) is not decoded yet; the second
+  chunk's size byte ($CA) reaches past the bank end, but its track ends (command $D9) inside the bank.
+- TeamSongs ($80DA56, six long pointers per team, $FFFFFFFF none) and DefaultSongs ($80DCF6) are read by the music code
+  at $9C9B5F: slot A of the home team ($1C98), else a random DefaultSongs entry. The other long pointer tables in bank80_D000
+  (DATA8_80D324, DATA8_80DD16) are not identified yet.
 - `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
   the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
-- Next: segment bank81_F000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank82_8000 (bank $82; see START_HERE.md about stopping after a bank).
 
 ## Setup notes
 

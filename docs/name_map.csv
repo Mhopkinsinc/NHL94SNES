@@ -145,3 +145,5 @@ $80E30C,CreditTitles,DATA8_80E30C,code,word pointers to the credit title strings
 $80E44D,CreditNames,DATA8_80E44D,code,word pointers to the names under each title,src/bank80_E000.asm
 $818000,IceRinkTiles,DATA8_818000,93S,packed rink tiles (93S IceRinkTiles); asset Extracted/data/IceRink.chr.lz,src/bank81_8000.asm
 $81ABDE,TeamLogoSprites,DATA8_81ABDE,code,"packed sprite set: the team logos, then Wales, Campbell, NHL, NHLPA; asset Extracted/data/TeamLogos.spr.huf",src/bank81_A000.asm
+$80DA56,TeamSongs,DATA8_80DA56,code,"songs for MusicStart, six per team; read by $9C9B5F",src/bank80_D000.asm
+$80DCF6,DefaultSongs,DATA8_80DCF6,code,songs picked at random when the home team has none for the slot,src/bank80_D000.asm
