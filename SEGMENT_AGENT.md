@@ -14,6 +14,8 @@ Source style:
 - No rename-history, provenance or origin-tag comments ("was X", "from 93G", "renamed"). That history lives in `docs/name_map.csv` only.
 - No hardcoded ROM addresses in comments, and no hand-kept derived counts (sizes, numbers of entries, totals) that the code or the assembler can compute.
 - Mark "new in 94" / "new in 95" only for major features, not for every changed routine.
+- First-pass naming: a label with no 93S/94G (or 93G/92G) match is named from what the code clearly does when that is obvious;
+  otherwise an auto label (`CODE_xxxxxx`, raw RAM address) is acceptable and is revisited in a later naming pass. Never guess a name.
 - Local labels in 92 style: `.loop`, `.next`, `.done`, `.exit`, and plain numbers for trivial jumps.
 - File headers are short plain-English stories of what the file does, modelled on `hockey93.asm`, `main93.asm` and `menu93.asm`.
 
@@ -42,10 +44,12 @@ bank80_9000. <- CURRENT
   their M/X is unknown: trace it yourself. Unreached code (after an `rtl`, behind a never-taken branch) stays db; decode it by
   rerunning the tool into a scratch dir with `--entry ADDR:M:X` (M, X = 8 or 16) once per start, e.g.
   `python3 tools/disasm65816.py lst/nhl94snes.sfc output/qp2 --entry 8085A3:16:16`. The address and byte comments are
-  for checking only; strip them in `src/` (no ROM addresses in comments). The quick pass of all 256 segments assembles byte for byte.
+  for checking only; strip them in `src/` (no ROM addresses in comments). `--continue` decodes past rtl/rts/rti/jmp/jml/bra/brl
+  when the next bytes look like code (trial decode reaches a return or jump within 64 bytes without brk/cop/stp/wdm); it is a
+  heuristic, so check its output against the data the code reads, and fall back to `--entry` where it is wrong. The quick pass of all 256 segments assembles byte for byte.
   Copy your segment's text into `src/bankXX_YYYY.asm` in place of the incbin; never point the tool at `src/`.
-- Local clones: put the reference repos beside this one (e.g. `../NHLPA93SNES`, `../NHL94Genesis`, `../NHL94SNESVault`); the
-  Vault's `Src/bank_XX.asm` is the DiztinGUIsh export and `Src/all-labels.txt` its labels (most are still auto names).
+- Local clones: as in START_HERE.md, each reference repo is cloned beside this one (`../NHLPA93SNES`, `../NHL94Genesis`,
+  `../NHLPA93Genesis`, `../NHL92Genesis`, `../NHL94SNESVault`). The Vault's `Src/bank_XX.asm` is the DiztinGUIsh export and `Src/all-labels.txt` its labels (most are still auto names).
 - Bank $80 of 94S is a new engine: its reset, interrupt and service code does not match 93S byte for byte, so most names there
   come from what the code does. Expect 93S matches in game logic, not in the low-level services.
 - Names: NHLPA93SNES (https://github.com/abdulahmad/NHLPA93SNES) for code that matches 93S, NHL94Genesis
@@ -68,6 +72,8 @@ bank80_9000. <- CURRENT
   with `incbin "../Extracted/segments/<file>.bin":<start>..<end>`, decimal, end exclusive; the old `:<start>-<end>` form is
   deprecated in asar 1.91 and reads the numbers as hex) in the same commit, and note it in the row. The quick pass flags an
   instruction that crosses a segment end with "crosses into the next segment".
+- Long pointers in data: `dl Label` emits the label's own bank ($80+). Where the ROM holds a bank-$00 pointer (e.g. `$008019`),
+  write `dl Label&$FFFF`; check the bytes of every `dl`/`dw` table.
 - Keep operand sizes explicit (`lda.b` / `lda.w` / `lda.l`) so asar emits the same bytes. Labels are global across segments.
 - RAM names go in `src/ram94snes.asm` (create it with the first name and include it at the top of `src/nhl94snes.asm`), one place each.
 - Hardware register names go in `src/inc/snes_regs.asm` (copy NHLPA93SNES's).
@@ -77,7 +83,9 @@ bank80_9000. <- CURRENT
 ## ROM map
 
 The first row that is still incbin is the current segment. Code% is the share of the segment the quick pass decoded as instructions
-(false positives are possible where a `jsl` lands in data).
+(false positives are possible where a `jsl` lands in data). A low or 0% Code% is not a tool fault: much of the ROM is graphics,
+sound and tables, and much code is only reached through pointer tables or hooks the quick pass cannot follow. Those bytes stay db
+until traced (`--entry`, `--continue`). The column is the default pass, not the segment's real code share.
 
 | File | Status | Org | End | Code% | Note |
 |---|---|---|---|---|---|

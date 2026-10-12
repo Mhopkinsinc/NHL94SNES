@@ -14,8 +14,9 @@ You are the agent doing this whole project. The human does nothing by hand: you 
 - Put your ROM at `lst/nhl94snes.sfc`. `./build.sh` tells you the exact path, SHA-1 and size if it is missing or wrong.
 - Linux / macOS: `sh tools/setup.sh` builds asar 1.91 into `tools/bin/asar` (gitignored). Windows: `powershell -ExecutionPolicy Bypass -File tools\setup.ps1`.
 - Python 3 is needed for the prebuild check, the extractor and the quick-pass tool.
-- Clone the naming references next to this repo: https://github.com/abdulahmad/NHLPA93SNES, https://github.com/abdulahmad/NHL94Genesis
-  (and NHLPA93Genesis / NHL92Genesis), https://github.com/Mhopkinsinc/NHL94SNESVault. Read-only; never commit into them from here.
+- Reference repos (read-only; clone them beside this repo, so `../<Name>` from here):
+  https://github.com/abdulahmad/NHLPA93SNES, https://github.com/abdulahmad/NHL94Genesis, https://github.com/abdulahmad/NHLPA93Genesis,
+  https://github.com/abdulahmad/NHL92Genesis, https://github.com/Mhopkinsinc/NHL94SNESVault.
 
 ## 2. Build and confirm MATCH
 
