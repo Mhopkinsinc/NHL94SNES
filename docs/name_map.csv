@@ -141,3 +141,5 @@ $17AA,Selected_Goalie,,Vault,RAM,src/ram94snes.asm
 $1D71,homeshooters,,94G,RAM; goalie then shooters (bytes),src/ram94snes.asm
 $1D79,awayshooters,,94G,RAM,src/ram94snes.asm
 $1D85,shootoutround,,94G,RAM,src/ram94snes.asm
+$80E30C,CreditTitles,DATA8_80E30C,code,word pointers to the credit title strings,src/bank80_E000.asm
+$80E44D,CreditNames,DATA8_80E44D,code,word pointers to the names under each title,src/bank80_E000.asm

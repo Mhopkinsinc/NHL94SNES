@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- bank80_8000 to bank80_D000 are source (MATCH); the rest are incbin. bank80_D000 runs from $80D001 to $80DFFF.
+- bank80_8000 to bank80_E000 are source (MATCH); the rest are incbin.
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
   as 93S `snes93.mac`.
 - `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
@@ -19,7 +19,8 @@
   and their routines are auto labels with comments. The decompressors are called from the dispatcher at $80C373 (format
   word $10FB LZ, $46FB pairs, $30FB Huffman, $7AFB DecompressRLE). $80B07E, $80B389, $80B394, $80B724 and $80B8AE have no
   direct caller found; the Vault names DecompressHuffman LoadGameSetupScreen, which does not fit the code. The OAM high
-  table masks it reads at $80E67C-$80E68B are in bank80_E000.
+  table masks DrawSprite reads (`and.w $E67C,x`, `ora.w $E680,x` ... with the data bank at $7E) are in WRAM at
+  $7EE67C-$7EE68B; what fills them is not traced yet.
 - bank80_C000: the Huffman decoder's long-code handlers and bit readers (auto labels), DecompressRLE, Decompress,
   SoundDriver (SPC700 bytes as db; the SPC side is not disassembled), then the shootout. The shootout routines and RAM
   with a 94G counterpart take its names; the rounds loop ($80C81C, called from bank $9F), the screen drawing and the
@@ -29,7 +30,10 @@
   data read from other banks. Its tables are labelled with auto names where code references them (Vault DATA8_ names);
   the penalty/stoppage table at DATA8_80D3EB (strings with variable trailing data) and the 48-byte records from $80DDA0
   (they continue into bank80_E000) are plain db until their readers are disassembled.
-- Next: segment bank80_E000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- bank80_E000: data only. The records end at $80E2E0; then the copyright lines, CreditTitles / CreditNames (read from bank
+  $9D) with their strings, long pointer tables DATA8_80E6C1 / DATA8_80E6FD / DATA8_80E73D (read from bank $9C), and $FF
+  fill to $80F000 written as `padbyte $FF` / `pad $80F000`.
+- Next: segment bank80_F000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank80_E000. <- CURRENT
+bank80_F000. <- CURRENT
 
 ## Sources
 
@@ -95,8 +95,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank80_B000 | matched 4096 bytes | $80B001 | $80C000 | 89% | DrawSprite, sprite VRAM tile cache and allocators, DecompressLZ, DecompressPairs, DecompressHuffman (its jump tables as dw); allocator and decoder internals keep auto labels; org moved to $80B001, end moved +1 (cmp crosses) |
 | bank80_C000 | matched 4096 bytes | $80C001 | $80D000 | 64% | Huffman long-code handlers and bit readers, DecompressRLE, Decompress (format word dispatcher), SoundDriver (SPC program as IPL blocks), shootout (ShootoutWonBy, ShootoutShooters, InitShooters, ShooterSelectList from 94G; rounds loop and screen drawing auto); org moved to $80C001, end moved +1 (jsl crosses) |
 | bank80_D000 | matched 4095 bytes | $80D001 | $80DFFF | 11% | shootout player list drawing and row swap (auto labels), then data read from other banks: long pointer tables as dd, length strings as %String, rating column lists, records as db; org moved to $80D001 |
-| bank80_E000 | incbin <- CURRENT | $80E000 | $80EFFF | 0% | |
-| bank80_F000 | incbin | $80F000 | $80FFFF | 0% | |
+| bank80_E000 | matched 4096 bytes | $80E000 | $80EFFF | 0% | data: end of the records, copyright, CreditTitles, CreditNames, long pointer tables, $FF fill (pad) |
+| bank80_F000 | incbin <- CURRENT | $80F000 | $80FFFF | 0% | |
 | bank81_8000 | incbin | $818000 | $818FFF | 0% | |
 | bank81_9000 | incbin | $819000 | $819FFF | 0% | |
 | bank81_A000 | incbin | $81A000 | $81AFFF | 0% | |
@@ -355,3 +355,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank80_B000: source, MATCH. Sprite system (double OAM buffers, DrawSprite, the VRAM tile cache with a 16x16 block allocator and a single tile allocator) and the WRAM decompressors called by the $80C373 dispatcher (DecompressLZ, DecompressPairs, DecompressHuffman), named from what the code does; the Vault calls DecompressHuffman LoadGameSetupScreen. OAM RAM named (OAMDrawBuf, OAMShowBuf, OAMReady, OAMNext, ...). Unreferenced entry points decoded with --entry. bank80_C000 org moved to $80C001; the sprite routines at the end of bank80_A000 are now InitSprites, SpriteFrameStart, SpriteFrameEnd.
 - bank80_C000: source, MATCH. The rest of the Huffman decoder (its jump table targets now labels, CODE_80BFCD added in bank80_B000 for a branch from here), DecompressRLE and the Decompress dispatcher, SoundDriver (one IPL block to $0400, length computed by the assembler; Reset now loads #SoundDriver), and the shootout. ShootoutWonBy, ShootoutShooters, InitShooters, ShooterSelectList and the RAM homeshooters, awayshooters, shootoutround take the 94G names (same job, not the same code); the Vault calls ShooterSelectList Shootout_Edit_Lines; Selected_Goalie from the Vault. $178E/$1790 (used outside the shootout too) stay raw. bank80_D000 org moved to $80D001.
 - bank80_D000: source, MATCH. The end of the shootout player list (ShooterSelectList drawing, the row swap) with auto labels, then data that other banks read, laid out by structure: long pointer tables as `dd` ($FFFFFFFF = none), length-prefixed strings with the 93S `String` macro (new `src/macros/snes94.mac`, included before the banks), the rating column lists, position and playoff round names; penalty/stoppage data and the 48-byte records (continuing into bank80_E000) as db. Table labels are the Vault auto names where it has them. bank80_C000 now calls CODE_80D004/CODE_80D2BD by label.
+- bank80_E000: source, MATCH. Data only: the end of the 48-byte records, the copyright lines, the credits (CreditTitles and CreditNames, word pointer lists to zero-terminated strings, named from their content), three long pointer tables as dd, and the $FF fill as padbyte/pad. The OAM masks DrawSprite reads at $E67C are WRAM in bank $7E, not this data (HANDOFF corrected).
