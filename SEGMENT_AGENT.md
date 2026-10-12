@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank82_A000. <- CURRENT
+bank82_B000. <- CURRENT
 
 ## Sources
 
@@ -115,8 +115,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank81_F000 | matched 4096 bytes | $81F000 | $81FFFF | 0% | end of TeamLogoSprites; a song from TeamSongs ($81FE45, header, TRAK chunks "left"/"right") |
 | bank82_8000 | matched 4235 bytes | $828000 | $82908A | 0% | SpriteFrames: frame offset table (dd), SpriteFrame0 (header and pieces as source, tiles from asset SpriteFrames82.bin); end moved +$8B (frame boundary) |
 | bank82_9000 | matched 4103 bytes | $82908B | $82A091 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $82908B, end moved +$92 (frame boundary) |
-| bank82_A000 | incbin <- CURRENT | $82A092 | $82AFFF | 0% | org moved to $82A092 |
-| bank82_B000 | incbin | $82B000 | $82BFFF | 0% | |
+| bank82_A000 | matched 4024 bytes | $82A092 | $82B049 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $82A092, end moved +$4A (frame boundary) |
+| bank82_B000 | incbin <- CURRENT | $82B04A | $82BFFF | 0% | org moved to $82B04A |
 | bank82_C000 | incbin | $82C000 | $82CFFF | 0% | |
 | bank82_D000 | incbin | $82D000 | $82DFFF | 0% | |
 | bank82_E000 | incbin | $82E000 | $82EFFF | 0% | |
@@ -375,3 +375,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank81_F000: source, MATCH. The end of TeamLogoSprites, then a song ($81FE45-$81FFFF) laid out as MusicStart reads it: header (byte 1 tempo), track offsets as label differences, then two TRAK chunks ("left", "right") of note bytes. Its pointer is in the song table of bank80_D000, which the music code at $9C9B5F indexes by home team ($1C98) * 6 + slot: named TeamSongs, with DefaultSongs (the 8-entry table it picks from at random when the team has no song for the slot). Bank $81 is now all source.
 - bank82_8000: source, MATCH. SpriteFrames, the main DrawSprite sprite set (frames in the ROM halves of banks $82-$8E, used with [$10] = $828000 from banks $9B-$9F): its frame offset table as dd (raw values until the frames are source), then SpriteFrame0 with its header and pieces written out (tile offset as a label difference) and its tiles from the new asset SpriteFrames82.bin ($828F40-$82FEA8, the frames of bank $82). `tools/snesgfx.py sprites '$828000' --rom` renders the set. bank82_9000 org moved to $82908B (frame boundary).
 - bank82_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 82908B 82A000`. bank82_A000 org moved to $82A092 (frame boundary).
+- bank82_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 82A092 82B000`. bank82_B000 org moved to $82B04A (frame boundary).
