@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank84_9000. <- CURRENT
+bank84_A000. <- CURRENT
 
 ## Sources
 
@@ -130,8 +130,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank83_E000 | matched 4334 bytes | $83E0D6 | $83F1C3 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $83E0D6, end moved +$1C4 (frame boundary) |
 | bank83_F000 | matched 3644 bytes | $83F1C4 | $83FFFF | 0% | last SpriteFrames frames of bank $83; CenterIceTilesPIT (Huffman, asset CenterIcePIT.lin.huf); org moved to $83F1C4 |
 | bank84_8000 | matched 4316 bytes | $848000 | $8490DB | 0% | SpriteFrames frames (tools/spriteframes.py); end moved +$DC (frame boundary) |
-| bank84_9000 | incbin <- CURRENT | $8490DC | $849FFF | 0% | org moved to $8490DC |
-| bank84_A000 | incbin | $84A000 | $84AFFF | 0% | |
+| bank84_9000 | matched 4219 bytes | $8490DC | $84A156 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8490DC, end moved +$157 (frame boundary) |
+| bank84_A000 | incbin <- CURRENT | $84A157 | $84AFFF | 0% | org moved to $84A157 |
 | bank84_B000 | incbin | $84B000 | $84BFFF | 0% | |
 | bank84_C000 | incbin | $84C000 | $84CFFF | 0% | |
 | bank84_D000 | incbin | $84D000 | $84DFFF | 0% | |
@@ -390,3 +390,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank83_E000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 83E0D6 83F000`. bank83_F000 org moved to $83F1C4 (frame boundary).
 - bank83_F000: source, MATCH. The last SpriteFrames frames of bank $83 (tools/spriteframes.py frames 83F1C4 840000), then CenterIceTilesPIT ($83FF47-$83FFFA; team 17 of the centre ice table at $9C83B7, rendered with its map $9AE168: the Penguins logo), new asset CenterIcePIT.lin.huf, and the bytes $00,$FF,$FF,$FF,$FF. Bank $83 is now all source.
 - bank84_8000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 848000 849000`. bank84_9000 org moved to $8490DC (frame boundary).
+- bank84_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8490DC 84A000`. bank84_A000 org moved to $84A157 (frame boundary).
