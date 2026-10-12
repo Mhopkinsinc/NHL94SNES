@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 to bank81_C000 are source (MATCH); the rest are incbin.
+- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 to bank81_D000 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -45,12 +45,12 @@
 - bank81_A000 ends IceRinkTiles at $81ABDE and starts TeamLogoSprites ($81ABDE-$81FE44, Huffman, $7C00 bytes unpacked):
   a sprite set the team setup code in bank $9D unpacks to $7F7800 and draws with DrawSprite (frame = team, palettes from
   the long pointer table at $9C8497). `tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497` renders all of its frames.
-  bank81_B000 to bank81_F000 continue it (`incbin "../Extracted/data/TeamLogos.spr.huf":<start>..<end>`; bank81_D000
-  starts at byte 9250);
+  bank81_B000 to bank81_F000 continue it (`incbin "../Extracted/data/TeamLogos.spr.huf":<start>..<end>`; bank81_E000
+  starts at byte 13346);
   after it, $81FE45-$81FFFF is other data (it holds "TRAK" strings) that bank81_F000 has to look at.
 - `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
   the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
-- Next: segment bank81_D000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank81_E000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

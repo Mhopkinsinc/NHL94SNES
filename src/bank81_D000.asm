@@ -1,3 +1,4 @@
-; Segment bank81_D000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank81_D000.asm.
+; Bank $81, sixth 4 KB: TeamLogoSprites continued (see bank81_A000), from Extracted/data/TeamLogos.spr.huf.
+
 org $81D000
-	incbin "../Extracted/segments/bank81_D000.bin"
+	incbin "../Extracted/data/TeamLogos.spr.huf":9250..13346

@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank81_D000. <- CURRENT
+bank81_E000. <- CURRENT
 
 ## Sources
 
@@ -108,8 +108,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank81_A000 | matched 4096 bytes | $81A000 | $81AFFF | 0% | end of IceRinkTiles; start of TeamLogoSprites ($81ABDE-$81FE44, Huffman-packed sprite set, asset TeamLogos.spr.huf) |
 | bank81_B000 | matched 4096 bytes | $81B000 | $81BFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
 | bank81_C000 | matched 4096 bytes | $81C000 | $81CFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
-| bank81_D000 | incbin <- CURRENT | $81D000 | $81DFFF | 0% | |
-| bank81_E000 | incbin | $81E000 | $81EFFF | 0% | |
+| bank81_D000 | matched 4096 bytes | $81D000 | $81DFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
+| bank81_E000 | incbin <- CURRENT | $81E000 | $81EFFF | 0% | |
 | bank81_F000 | incbin | $81F000 | $81FFFF | 0% | |
 | bank82_8000 | incbin | $828000 | $828FFF | 0% | |
 | bank82_9000 | incbin | $829000 | $829FFF | 0% | |
@@ -368,3 +368,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank81_A000: source, MATCH. The end of IceRinkTiles, then TeamLogoSprites: a Huffman-packed sprite set ($81ABDE-$81FE44, $7C00 bytes unpacked) that the team setup code in bank $9D unpacks to $7F7800 and draws with DrawSprite, frame = team, palette per team from the long pointers at $9C8497. Rendered with the new `tools/snesgfx.py sprites`: the 26 team logos, then Wales, Campbell, NHL and NHLPA. 94G keeps separate per-team bitmaps (TeamLogoBitmaps), so the name is new. New asset TeamLogos.spr.huf in tools/extract.py.
 - bank81_B000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:1058..5154.
 - bank81_C000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:5154..9250.
+- bank81_D000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:9250..13346.
