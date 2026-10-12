@@ -1456,7 +1456,7 @@ CODE_80CF36:
 	sbc.w $1D9B
 CODE_80CF41:
 	sta.w $1D9B
-	jsl.l $80D004
+	jsl.l CODE_80D004
 CODE_80CF48:
 	jsl.l $9DD923
 	jsl.l $9DD94D
@@ -1477,7 +1477,7 @@ CODE_80CF48:
 	bne CODE_80CF9E
 	bit.w #$8080
 	beq CODE_80CF48
-	jsl.l $80D2BD
+	jsl.l CODE_80D2BD
 CODE_80CF84:
 	lda.w #$0001
 	sta.l $7E3468
@@ -1488,21 +1488,21 @@ CODE_80CF8C:
 	cmp.w #$0010
 	bpl CODE_80CF48
 	sta.w $0D47
-	jsl.l $80D004
+	jsl.l CODE_80D004
 	bra CODE_80CF48
 CODE_80CF9E:
 	lda.w $0D47
 	dec a
 	bmi CODE_80CF48
 	sta.w $0D47
-	jsl.l $80D004
+	jsl.l CODE_80D004
 	jmp.w CODE_80CF48
 CODE_80CFAE:
 	lda.w $1D9B
 	dec a
 	bmi CODE_80CFD1
 	sta.w $1D9B
-	jsl.l $80D004
+	jsl.l CODE_80D004
 	jmp.w CODE_80CF48
 CODE_80CFBE:
 	lda.w $1D9B
@@ -1510,7 +1510,7 @@ CODE_80CFBE:
 	cmp.w #$0009
 	bpl CODE_80CFEE
 	sta.w $1D9B
-	jsl.l $80D004
+	jsl.l CODE_80D004
 	jmp.w CODE_80CF48
 CODE_80CFD1:
 	lda.w $1DA7
@@ -1523,7 +1523,7 @@ CODE_80CFD1:
 	jmp.w CODE_80CF48
 CODE_80CFE4:
 	inc.w $1DA7
-	jsl.l $80D004
+	jsl.l CODE_80D004
 	jmp.w CODE_80CF48
 CODE_80CFEE:
 	lda.w $1DA7
@@ -1533,4 +1533,4 @@ CODE_80CFEE:
 	jmp.w CODE_80CF48
 CODE_80CFFA:
 	dec.w $1DA7
-	jsl.l $80D004
+	jsl.l CODE_80D004

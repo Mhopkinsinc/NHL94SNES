@@ -1,0 +1,7 @@
+; NHL '94 (SNES) macros. Included once by nhl94snes.asm, before the bank files.
+
+macro String(text)		; length word (counts itself), then the text
+?l:	dw ?e-?l
+	db "<text>"
+?e:
+endmacro

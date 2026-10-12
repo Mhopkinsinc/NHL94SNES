@@ -3,8 +3,9 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- bank80_8000 to bank80_C000 are source (MATCH); the rest are incbin. bank80_C000 runs from $80C001 to $80D000;
-  bank80_D000 starts at $80D001 (incbin from byte 1).
+- bank80_8000 to bank80_D000 are source (MATCH); the rest are incbin. bank80_D000 runs from $80D001 to $80DFFF.
+- `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
+  as 93S `snes93.mac`.
 - `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
 - bank80_8000 still has many auto `CODE_` labels and raw RAM addresses: no 93S/94G match, left for a naming pass.
 - bank80_9000: math, sine, sound driver commands and the heap, named from what the code does. Left raw: the direct-page
@@ -23,9 +24,12 @@
   SoundDriver (SPC700 bytes as db; the SPC side is not disassembled), then the shootout. The shootout routines and RAM
   with a 94G counterpart take its names; the rounds loop ($80C81C, called from bank $9F), the screen drawing and the
   menu RAM ($1D81 shootout on, $1D89, $1DB9 cursor, $1D9B/$1DA3/$1DA7/$1DAB list scroll, $7E3468 redraw) are raw/auto.
-  $178E/$1790 decide the shootout but are used elsewhere too; not named. $80D004 (called by ShooterSelectList after each
-  cursor move) is in bank80_D000.
-- Next: segment bank80_D000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+  $178E/$1790 decide the shootout but are used elsewhere too; not named.
+- bank80_D000: the rest of the ShooterSelectList screen ($0D47 rating column, $1D9B cursor row, $1DA7 first row), then
+  data read from other banks. Its tables are labelled with auto names where code references them (Vault DATA8_ names);
+  the penalty/stoppage table at DATA8_80D3EB (strings with variable trailing data) and the 48-byte records from $80DDA0
+  (they continue into bank80_E000) are plain db until their readers are disassembled.
+- Next: segment bank80_E000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
