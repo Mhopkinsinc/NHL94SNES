@@ -26,7 +26,7 @@ routine's origin: 94G for 94 code, else 93G, else 92G; SNES-only code goes in a 
 (and extracts the assets automatically where the repo extracts them).
 
 Work in small steps: every change is built and checked byte for byte against the reference ROM, then committed and pushed to main
-(no force push, no PRs). Keep `docs/HANDOFF.md` current after each push.
+(no force push; outside contributors push to their fork and open a PR, see START_HERE.md). Keep `docs/HANDOFF.md` current after each push.
 
 ## Current segment
 
@@ -48,8 +48,8 @@ bank80_9000. <- CURRENT
   when the next bytes look like code (trial decode reaches a return or jump within 64 bytes without brk/cop/stp/wdm); it is a
   heuristic, so check its output against the data the code reads, and fall back to `--entry` where it is wrong. The quick pass of all 256 segments assembles byte for byte.
   Copy your segment's text into `src/bankXX_YYYY.asm` in place of the incbin; never point the tool at `src/`.
-- Local clones: as in START_HERE.md, each reference repo is cloned beside this one (`../NHLPA93SNES`, `../NHL94Genesis`,
-  `../NHLPA93Genesis`, `../NHL92Genesis`, `../NHL94SNESVault`). The Vault's `Src/bank_XX.asm` is the DiztinGUIsh export and `Src/all-labels.txt` its labels (most are still auto names).
+- Reference repos are read on GitHub (URLs in START_HERE.md; raw files at raw.githubusercontent.com); local clones are optional.
+  In NHL94SNESVault, the `Src/bank_XX.asm` is the DiztinGUIsh export and `Src/all-labels.txt` its labels (most are still auto names).
 - Bank $80 of 94S is a new engine: its reset, interrupt and service code does not match 93S byte for byte, so most names there
   come from what the code does. Expect 93S matches in game logic, not in the low-level services.
 - Names: NHLPA93SNES (https://github.com/abdulahmad/NHLPA93SNES) for code that matches 93S, NHL94Genesis
@@ -64,7 +64,7 @@ bank80_9000. <- CURRENT
   `lst/nhl94snes.sfc`. It prints MATCH or MISMATCH plus the first differing offsets. The whole ROM builds in about a second.
 - `sh tools/verify_segment.sh bankXX_YYYY` compares one segment's range (its org to the next segment's org) after `./build.sh`.
 - `sh tools/verify_all.sh` deletes Extracted/ and output/, extracts fresh, builds, and checks every segment. Last line MATCH or FAIL.
-- Never change a byte. Every session ends with `./build.sh` printing MATCH, then commit and push to main.
+- Never change a byte. Every session ends with `./build.sh` printing MATCH, then commit and push to main (contributors: to their fork, then a PR).
 
 ## Segment rules
 
