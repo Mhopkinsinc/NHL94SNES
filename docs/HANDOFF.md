@@ -46,7 +46,7 @@
   unpacked, loaded by bank $9D code to $7F0000; it runs to $81FE44).
 - `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
   the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
-- Next: segment bank81_A000 (see `SEGMENT_AGENT.md`, `PROMPT.md`). (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank81_A000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
