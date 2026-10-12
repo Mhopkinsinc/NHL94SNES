@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 to bank81_F000 (all of bank $81) and bank82_8000 are source (MATCH); the rest are incbin.
+- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 to bank81_F000 (all of bank $81), bank82_8000 and bank82_9000 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -63,7 +63,7 @@
   of the frames that start in a range and prints where the next segment starts; `info` gives each bank's frames and its
   asset range for tools/extract.py; `table` writes the offset table. Header words +4..+$A and bytes +$12..+$15 are not traced.
   After the frames, each bank ends with a small Huffman block (bank $82: $82FEA9-$82FFF6, $3A0 bytes unpacked).
-- Next: segment bank82_9000 (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank82_A000, from $82A092 (`tools/spriteframes.py frames 82A092 82B000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
