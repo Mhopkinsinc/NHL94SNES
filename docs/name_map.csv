@@ -112,3 +112,21 @@ $07E5,SoundLock,,code,RAM,src/ram94snes.asm
 $07F3,MusicOn,,code,RAM,src/ram94snes.asm
 $07F7,SoundVolume,,code,RAM,src/ram94snes.asm
 $07F9,SoundFadeSpeed,,code,RAM,src/ram94snes.asm
+$80AEE1,InitSprites,CODE_80AEE1,code,,src/bank80_A000.asm
+$80AF7B,SpriteFrameStart,CODE_80AF7B,code,,src/bank80_A000.asm
+$80AFDE,SpriteFrameEnd,CODE_80AFDE,code,,src/bank80_A000.asm
+$80B08D,DrawSprite,CODE_80B08D,code,,src/bank80_B000.asm
+$80B8DB,DecompressLZ,CODE_80B8DB,code,format $10FB in the $80C373 dispatcher,src/bank80_B000.asm
+$80BA63,DecompressPairs,CODE_80BA63,code,format $46FB in the $80C373 dispatcher,src/bank80_B000.asm
+$80BBB3,DecompressHuffman,CODE_80BBB3,code,format $30FB in the $80C373 dispatcher; Vault name LoadGameSetupScreen,src/bank80_B000.asm
+$0766,OAMReady,,code,RAM,src/ram94snes.asm
+$07A8,OAMLastEnd,,code,RAM,src/ram94snes.asm
+$07AA,OAMDrawBuf,,code,RAM,src/ram94snes.asm
+$07AC,OAMShowBuf,,code,RAM,src/ram94snes.asm
+$07AE,SpritesLeft,,code,RAM,src/ram94snes.asm
+$07B0,OAMHiPtr,,code,RAM,src/ram94snes.asm
+$07B2,OAMHiShift,,code,RAM,src/ram94snes.asm
+$07B4,SpriteVRAM,,code,RAM,src/ram94snes.asm
+$07B6,SpritesReserved,,code,RAM,src/ram94snes.asm
+$07BC,OAMNext,,code,RAM,src/ram94snes.asm
+$07BE,OAMHideEnd,,code,RAM,src/ram94snes.asm

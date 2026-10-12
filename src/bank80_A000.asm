@@ -5,7 +5,7 @@
 ; The tracks advance one tick at a time. SoundUpdate runs every frame from the NMI unless SoundLock is set: it applies the
 ; fade, steps the envelopes and plays the song ticks that are due. PitchTable gives the driver pitch of each semitone, and
 ; VolumeCurve scales note volumes. SPCIPLUpload sends the sound driver through the sound CPU's boot loader. The last
-; routines set up and fill buffers in bank $7E; they are not traced yet.
+; routines set up the sprite system and start and end a frame of sprites; the sprite drawing is in the next file.
 
 org $809FF5
 PitchTable:		; sound driver pitch of each semitone, from the lowest octave up
@@ -1856,13 +1856,14 @@ CODE_80AED4:
 	stz.w APUIO0
 	rep #$30
 	rtl
-CODE_80AEE1:
-	sta.w $07B4
+InitSprites:		; A: SpriteVRAM, X: SpritesReserved, Y: sizes the 16x16 block area of sprite VRAM;
+		;   empties the tile allocators, then ends an empty frame
+	sta.w SpriteVRAM
 	phb
 	pea.w $7E7E
 	plb
 	plb
-	stx.w $07B6
+	stx.w SpritesReserved
 	tya
 	cmp.w #$01C0
 	bcs CODE_80AEF6
@@ -1905,20 +1906,20 @@ CODE_80AF0A:
 	sta.w $3093
 	rep #$30
 	lda.w #$0080
-	sta.w $07AE
+	sta.w SpritesLeft
 	lda.w #$2100
-	sta.w $07BC
+	sta.w OAMNext
 	lda.w #$2300
-	sta.w $07BE
+	sta.w OAMHideEnd
 	lda.w #$2520
-	sta.w $07A8
+	sta.w OAMLastEnd
 	lda.w #$2320
-	sta.w $07AC
+	sta.w OAMShowBuf
 	lda.w #$2100
-	sta.w $07AA
+	sta.w OAMDrawBuf
 	jsr.w CODE_80AF6D
 	plb
-	jmp.w CODE_80AFDE
+	jmp.w SpriteFrameEnd
 CODE_80AF6D:
 	ldx.w #$03D0
 	lda.w #$FFFF
@@ -1928,7 +1929,8 @@ CODE_80AF73:
 	dex
 	bpl CODE_80AF73
 	rts
-CODE_80AF7B:
+SpriteFrameStart:	; start filling OAMDrawBuf after the reserved entries; free the tiles of frames not drawn
+			;   since the last call
 	phb
 	lda.w #$7E7E
 	pha
@@ -1936,25 +1938,25 @@ CODE_80AF7B:
 	plb
 	lda.w #$0080
 	sec
-	sbc.w $07B6
-	sta.w $07AE
-	lda.w $07B6
+	sbc.w SpritesReserved
+	sta.w SpritesLeft
+	lda.w SpritesReserved
 	lsr a
 	lsr a
 	tax
 	clc
-	adc.w $07AA
+	adc.w OAMDrawBuf
 	adc.w #$0200
-	sta.w $07B0
+	sta.w OAMHiPtr
 	txa
 	and.w #$0003
 	eor.w #$0003
-	sta.w $07B2
-	lda.w $07B6
+	sta.w OAMHiShift
+	lda.w SpritesReserved
 	asl a
 	asl a
-	adc.w $07AA
-	sta.w $07BC
+	adc.w OAMDrawBuf
+	sta.w OAMNext
 	lda.w $07BA
 	beq CODE_80AFDC
 	dec a
@@ -1976,7 +1978,7 @@ CODE_80AFB9:
 	phx
 	phy
 	phb
-	jmp.w $B772
+	jmp.w CODE_80B772
 CODE_80AFD8:
 	dex
 	dex
@@ -1984,16 +1986,16 @@ CODE_80AFD8:
 CODE_80AFDC:
 	plb
 	rtl
-CODE_80AFDE:
+SpriteFrameEnd:		; move the unused entries off screen, swap the OAM buffers and set OAMReady
 	phb
 	pea.w $7E7E
 	plb
 	plb
-	lda.w $07AE
-	ldx.w $07BC
+	lda.w SpritesLeft
+	ldx.w OAMNext
 	lda.w #$E100
 CODE_80AFED:
-	cpx.w $07BE
+	cpx.w OAMHideEnd
 	bcs CODE_80AFFB
 	sta.w $0000,x
 	inx
@@ -2002,5 +2004,5 @@ CODE_80AFED:
 	inx
 	bne CODE_80AFED
 CODE_80AFFB:
-	ldy.w $07A8
-	lda.w $07BC
+	ldy.w OAMLastEnd
+	lda.w OAMNext

@@ -149,7 +149,7 @@ CODE_80811E:
 	lda.w #$0000
 	tax
 	tay
-	jsl.l $80AEE1
+	jsl.l InitSprites
 	sep #$20
 	lda.b #$81
 	sta.w NMITIMEN
@@ -443,15 +443,15 @@ CODE_8083A5:
 	cmp.w #$026E
 	bcc CODE_8083DD
 	sep #$20
-	lda.w $0766
+	lda.w OAMReady
 	beq CODE_8083DD
-	stz.w $0766
+	stz.w OAMReady
 	lda.b #$7E
 	sta.w A1B0
 	rep #$20
 	lda.w #$0400
 	sta.w DMAP0
-	lda.w $07AC
+	lda.w OAMShowBuf
 	sta.w A1T0L
 	lda.w #$0220
 	sta.w DAS0L
