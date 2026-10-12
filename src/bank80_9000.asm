@@ -1033,7 +1033,7 @@ SPCDownload:		; sound driver command $11: X bytes from sound RAM address Y to [$
 	rtl
 SPCUploadBlock:		; SPCUpload of the block at [$0C]: address and length (big-endian words), then the data
 	sep #$20
-	dec.w $07E5
+	dec.w SoundLock
 	rep #$20
 	ldy.w #$0000
 	lda.b [$0C],y
@@ -1050,7 +1050,7 @@ SPCUploadBlock:		; SPCUpload of the block at [$0C]: address and length (big-endi
 	sta.b $0C
 	jsl.l SPCUpload
 	sep #$20
-	inc.w $07E5
+	inc.w SoundLock
 	rep #$20
 	rtl
 

@@ -101,7 +101,7 @@ CODE_8080B4:
 	lda.w #$C3CB
 	sta.b $0C
 	stz.b $0E
-	jsl.l $80AE7B
+	jsl.l SPCIPLUpload
 	sep #$20
 	rep #$20
 	lda.w #$0000
@@ -154,7 +154,7 @@ CODE_80811E:
 	lda.b #$81
 	sta.w NMITIMEN
 	rep #$30
-	jsl.l $80A380
+	jsl.l SoundInit
 	stz.w $0AD3
 	jsl.l CODE_8086A9
 	jml.l $9F8283
@@ -530,7 +530,7 @@ NMI_FrameHookReturn:
 	sep #$30
 	jsl.l $9B80AB
 	rep #$20
-	jsr.w $AD9D
+	jsr.w SoundUpdate
 	jsl.l $9C9981
 	rep #$30
 	stz.b $38

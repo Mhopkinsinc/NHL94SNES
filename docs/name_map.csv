@@ -99,3 +99,16 @@ $07A6,NewHandleSkipBank,,code,RAM,src/ram94snes.asm
 $7E2000,HandleTable,,code,RAM,src/ram94snes.asm
 $7E35E2,SPCStreamLeft,,code,RAM,src/ram94snes.asm
 $7E35EC,SPCStreamPtr,,code,RAM,src/ram94snes.asm
+$809FF5,PitchTable,DATA8_809FF5,code,,src/bank80_A000.asm
+$80A0FD,VolumeCurve,DATA8_80A0FD,code,,src/bank80_A000.asm
+$80A2E0,MusicStart,CODE_80A2E0,code,,src/bank80_A000.asm
+$80A349,MusicStop,CODE_80A349,code,,src/bank80_A000.asm
+$80A37B,SetSoundFade,CODE_80A37B,code,,src/bank80_A000.asm
+$80A380,SoundInit,CODE_80A380,code,,src/bank80_A000.asm
+$80A3C1,SoundVoicesOff,CODE_80A3C1,code,,src/bank80_A000.asm
+$80AD9D,SoundUpdate,CODE_80AD9D,code,,src/bank80_A000.asm
+$80AE7B,SPCIPLUpload,CODE_80AE7B,code,,src/bank80_A000.asm
+$07E5,SoundLock,,code,RAM,src/ram94snes.asm
+$07F3,MusicOn,,code,RAM,src/ram94snes.asm
+$07F7,SoundVolume,,code,RAM,src/ram94snes.asm
+$07F9,SoundFadeSpeed,,code,RAM,src/ram94snes.asm
