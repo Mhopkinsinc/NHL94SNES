@@ -3,7 +3,9 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Bank $80 (bank80_8000 to bank80_F000) is source (MATCH); the other banks are incbin.
+- Bank $80 (bank80_8000 to bank80_F000) and bank81_8000 are source (MATCH); the rest are incbin.
+- Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
+  `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
   as 93S `snes93.mac`.
 - `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
@@ -36,7 +38,11 @@
 - bank80_F000: $FF fill, DATA8_80FF00 (the OAM high table masks; DrawSprite reads the same values from WRAM $7EE67C, and
   neither the copy into WRAM nor a reader of this table is found yet), the internal header (checksum $9B52, complement
   $64AD, 1 MB, LoROM/FastROM) and the vectors (NMI, Reset, IRQ; COP/BRK/ABORT are $0000).
-- Next: segment bank81_8000 (bank $81 starts the next round; see START_HERE.md about stopping after a bank) (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- bank81_8000: the start of DATA8_818000, LZ-packed background tiles ($818000-$81ABDD) that $9FB6F7 and $9FE7AD unpack
+  to $7F0000 and copy to VRAM $1000 (which screen is not named yet). bank81_9000 is the next 4 KB of the same asset
+  (`incbin "../Extracted/data/818000.chr.lz":4096..8192`); bank81_A000 ends it at $81ABDE, where a $30FB Huffman block
+  starts (loaded by bank $9D code to $7F0000). Unpack and render blocks to check their contents before naming them.
+- Next: segment bank81_9000 (see `SEGMENT_AGENT.md`, `PROMPT.md`). (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

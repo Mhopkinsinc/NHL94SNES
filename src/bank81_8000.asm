@@ -1,3 +1,9 @@
-; Segment bank81_8000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank81_8000.asm.
+; Bank $81, first 4 KB: the start of a block of background tiles packed for DecompressLZ, which the bank $9F screen code
+; unpacks to $7F0000 and sends to VRAM. The packed bytes come from Extracted/data/818000.chr.lz, which the prebuild cuts
+; from the ROM; the block continues in the following files.
+
 org $818000
-	incbin "../Extracted/segments/bank81_8000.bin"
+DATA8_818000:		; packed tiles: format word, unpacked size (big-endian), then the stream
+	db $10,$FB
+	db $00,$4C,$A0
+	incbin "../Extracted/data/818000.chr.lz":5..4096

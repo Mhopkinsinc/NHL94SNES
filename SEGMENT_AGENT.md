@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank81_8000. <- CURRENT
+bank81_9000. <- CURRENT
 
 ## Sources
 
@@ -72,6 +72,10 @@ bank81_8000. <- CURRENT
   with `incbin "../Extracted/segments/<file>.bin":<start>..<end>`, decimal, end exclusive; the old `:<start>-<end>` form is
   deprecated in asar 1.91 and reads the numbers as hex) in the same commit, and note it in the row. The quick pass flags an
   instruction that crosses a segment end with "crosses into the next segment".
+- Packed or binary data blocks (graphics, sound data) are data assets: add the block to the `ASSETS` list in `tools/extract.py`
+  (file name with a format extension, first address, end address exclusive) so the prebuild cuts it into `Extracted/data/`, and
+  include it with `incbin "../Extracted/data/<name>":<start>..<end>`. A block that spans segments is split across their files at the
+  segment edges. Spell out its header fields as db/dw where they are known. Nothing in `Extracted/` is committed.
 - Long pointers in data: `dl Label` emits the label's own bank ($80+). Where the ROM holds a bank-$00 pointer (e.g. `$008019`),
   write `dl Label&$FFFF`; check the bytes of every `dl`/`dw` table.
 - Keep operand sizes explicit (`lda.b` / `lda.w` / `lda.l`) so asar emits the same bytes. Labels are global across segments.
@@ -97,8 +101,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank80_D000 | matched 4095 bytes | $80D001 | $80DFFF | 11% | shootout player list drawing and row swap (auto labels), then data read from other banks: long pointer tables as dd, length strings as %String, rating column lists, records as db; org moved to $80D001 |
 | bank80_E000 | matched 4096 bytes | $80E000 | $80EFFF | 0% | data: end of the records, copyright, CreditTitles, CreditNames, long pointer tables, $FF fill (pad) |
 | bank80_F000 | matched 4096 bytes | $80F000 | $80FFFF | 0% | $FF fill (pad), OAM high table masks, internal header and vectors (93S snes_header.asm layout) |
-| bank81_8000 | incbin <- CURRENT | $818000 | $818FFF | 0% | |
-| bank81_9000 | incbin | $819000 | $819FFF | 0% | |
+| bank81_8000 | matched 4096 bytes | $818000 | $818FFF | 0% | start of DATA8_818000, LZ-packed tiles ($818000-$81ABDD), from the asset Extracted/data/818000.chr.lz |
+| bank81_9000 | incbin <- CURRENT | $819000 | $819FFF | 0% | |
 | bank81_A000 | incbin | $81A000 | $81AFFF | 0% | |
 | bank81_B000 | incbin | $81B000 | $81BFFF | 0% | |
 | bank81_C000 | incbin | $81C000 | $81CFFF | 0% | |
@@ -357,3 +361,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank80_D000: source, MATCH. The end of the shootout player list (ShooterSelectList drawing, the row swap) with auto labels, then data that other banks read, laid out by structure: long pointer tables as `dd` ($FFFFFFFF = none), length-prefixed strings with the 93S `String` macro (new `src/macros/snes94.mac`, included before the banks), the rating column lists, position and playoff round names; penalty/stoppage data and the 48-byte records (continuing into bank80_E000) as db. Table labels are the Vault auto names where it has them. bank80_C000 now calls CODE_80D004/CODE_80D2BD by label.
 - bank80_E000: source, MATCH. Data only: the end of the 48-byte records, the copyright lines, the credits (CreditTitles and CreditNames, word pointer lists to zero-terminated strings, named from their content), three long pointer tables as dd, and the $FF fill as padbyte/pad. The OAM masks DrawSprite reads at $E67C are WRAM in bank $7E, not this data (HANDOFF corrected).
 - bank80_F000: source, MATCH. $FF fill as padbyte/pad, the OAM high table masks at $80FF00 (same values as the WRAM copy DrawSprite reads at $7EE67C; no reader of this one found), and the internal header and vectors in the 93S snes_header.asm layout (vectors point at NMI, Reset, IRQ). Bank $80 is now all source.
+- bank81_8000: source, MATCH. All of it is the start of an LZ-packed block of background tiles ($818000-$81ABDD, 613 tiles unpacked, loaded by bank $9F screen code to $7F0000 then VRAM $1000). New: data assets. tools/extract.py has an ASSETS list and cuts Extracted/data/818000.chr.lz; the segment spells out the header and incbins the rest of its 4 KB from the asset. bank81_9000 and bank81_A000 continue the same asset.
