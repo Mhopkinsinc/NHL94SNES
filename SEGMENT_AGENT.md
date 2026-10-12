@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank81_E000. <- CURRENT
+bank81_F000. <- CURRENT
 
 ## Sources
 
@@ -109,8 +109,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank81_B000 | matched 4096 bytes | $81B000 | $81BFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
 | bank81_C000 | matched 4096 bytes | $81C000 | $81CFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
 | bank81_D000 | matched 4096 bytes | $81D000 | $81DFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
-| bank81_E000 | incbin <- CURRENT | $81E000 | $81EFFF | 0% | |
-| bank81_F000 | incbin | $81F000 | $81FFFF | 0% | |
+| bank81_E000 | matched 4096 bytes | $81E000 | $81EFFF | 0% | TeamLogoSprites continued (asset TeamLogos.spr.huf) |
+| bank81_F000 | incbin <- CURRENT | $81F000 | $81FFFF | 0% | |
 | bank82_8000 | incbin | $828000 | $828FFF | 0% | |
 | bank82_9000 | incbin | $829000 | $829FFF | 0% | |
 | bank82_A000 | incbin | $82A000 | $82AFFF | 0% | |
@@ -369,3 +369,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank81_B000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:1058..5154.
 - bank81_C000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:5154..9250.
 - bank81_D000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:9250..13346.
+- bank81_E000: source, MATCH. TeamLogoSprites continued, an incbin of Extracted/data/TeamLogos.spr.huf:13346..17442.
