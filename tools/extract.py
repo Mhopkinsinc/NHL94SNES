@@ -13,10 +13,12 @@ os.makedirs(os.path.join(out, 'segments'))
 # .spr.huf = a DrawSprite sprite set packed for DecompressHuffman (format word $FB30). tools/snesgfx.py unpacks and renders them.
 # SpriteFramesXX.bin = the SpriteFrames frames of bank $XX, not packed (the source writes their headers and pieces, and includes
 # their tiles from it).
+# .lin.huf = linear 4bpp tiles (converted to planar by $9B85C2) packed for DecompressHuffman: the team centre ice logos.
 ASSETS = [
     ('IceRink.chr.lz', 0x818000, 0x81ABDE),
     ('TeamLogos.spr.huf', 0x81ABDE, 0x81FE45),
     ('SpriteFrames82.bin', 0x828F40, 0x82FEA9),
+    ('CenterIceHFD.lin.huf', 0x82FEA9, 0x82FFF7),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []

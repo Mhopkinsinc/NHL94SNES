@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank82_F000. <- CURRENT
+bank83_8000. <- CURRENT
 
 ## Sources
 
@@ -120,8 +120,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank82_C000 | matched 3928 bytes | $82C0C6 | $82D01D | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $82C0C6, end moved +$1E (frame boundary) |
 | bank82_D000 | matched 4303 bytes | $82D01E | $82E0EC | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $82D01E, end moved +$ED (frame boundary) |
 | bank82_E000 | matched 3933 bytes | $82E0ED | $82F049 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $82E0ED, end moved +$4A (frame boundary) |
-| bank82_F000 | incbin <- CURRENT | $82F04A | $82FFFF | 0% | org moved to $82F04A |
-| bank83_8000 | incbin | $838000 | $838FFF | 0% | |
+| bank82_F000 | matched 4022 bytes | $82F04A | $82FFFF | 0% | last SpriteFrames frames of bank $82; CenterIceTilesHFD (Huffman, asset CenterIceHFD.lin.huf); $FF fill; org moved to $82F04A |
+| bank83_8000 | incbin <- CURRENT | $838000 | $838FFF | 0% | |
 | bank83_9000 | incbin | $839000 | $839FFF | 0% | |
 | bank83_A000 | incbin | $83A000 | $83AFFF | 0% | |
 | bank83_B000 | incbin | $83B000 | $83BFFF | 0% | |
@@ -380,3 +380,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank82_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 82C0C6 82D000`. bank82_D000 org moved to $82D01E (frame boundary).
 - bank82_D000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 82D01E 82E000`. bank82_E000 org moved to $82E0ED (frame boundary).
 - bank82_E000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 82E0ED 82F000`. bank82_F000 org moved to $82F04A (frame boundary).
+- bank82_F000: source, MATCH. The last SpriteFrames frames of bank $82 (tools/spriteframes.py frames 82F04A 830000), then CenterIceTilesHFD ($82FEA9-$82FFF6): the Hartford centre ice logo tiles, linear 4bpp packed for DecompressHuffman, which the rink loader ($9BC17C) takes from the per-team table at $9C83B7 (tiles, map), converts with $9B85C2 and sends to VRAM after the rink tiles. Identified by rendering with its map (`tools/snesgfx.py map ... --linear`); new asset CenterIceHFD.lin.huf. Bank $82 is now all source.

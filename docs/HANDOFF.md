@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Bank $80 (bank80_8000 to bank80_F000), bank $81, and bank82_8000 to bank82_E000 are source (MATCH); the rest are incbin.
+- Banks $80, $81 and $82 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -63,7 +63,13 @@
   of the frames that start in a range and prints where the next segment starts; `info` gives each bank's frames and its
   asset range for tools/extract.py; `table` writes the offset table. Header words +4..+$A and bytes +$12..+$15 are not traced.
   After the frames, each bank ends with a small Huffman block (bank $82: $82FEA9-$82FFF6, $3A0 bytes unpacked).
-- Next: segment bank82_F000, from $82F04A: the last frames of bank $82 (`tools/spriteframes.py frames 82F04A 830000`), then the Huffman block at $82FEA9 and the bytes after it (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Centre ice logos: the rink loader $9BC17C reads the per-team table at $9C83B7 (8 bytes per home team $1C98: long pointer to
+  the logo tiles, then to the logo map). The tiles are linear 4bpp packed for DecompressHuffman (converted to planar by
+  $9B85C2; `tools/snesgfx.py tiles/map --linear`), the map is not packed (width, height, a word, then map words, which
+  $9BC1D5 pastes into the rink map with palette 5). Most of the tiles are in bank $9A; a few sit at bank ends after the
+  sprite frames (HFD at $82FEA9, now CenterIceTilesHFD; others at $83FF47, $84FF38, $86FE78, $8DFF3D, $98FECB, $99FEC0).
+- Next: segment bank83_8000 (SpriteFrames from $838000: `tools/spriteframes.py frames 838000 839000`; add the bank's asset
+  from `tools/spriteframes.py info` to tools/extract.py first; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

@@ -17,7 +17,8 @@ Commands:
   map MAP --tiles TILES [-o PNG]      render BG map words with their tiles (--width, --map-offset, --tiles-offset, --pal)
   sprites IN [-o PNG]                 sheet of the frames of a sprite set as DrawSprite draws them (--pal, --pal-table)
 
-Map words: vflip 15, hflip 14, priority 13, palette 12-10, tile 9-0. Tiles: 4bpp planar, 32 bytes per 8x8 tile.
+Map words: vflip 15, hflip 14, priority 13, palette 12-10, tile 9-0. Tiles: 4bpp planar, 32 bytes per 8x8 tile, or with
+--linear 4bpp linear (two pixels per byte), which $9B85C2 converts to planar (the team centre ice logos).
 Sprite sets: 4-byte offsets of the frames (the first offset ends the list). A frame: piece count (byte), flags (byte,
 bit 7: 16x16 block tiles), tile count, ..., at +$C/+$E the byte counts of the two tile transfers, at +$10 the offset of
 its tiles; from +$16 the pieces of 7 bytes (x, y, tile and attribute word, size byte: nonzero = 16x16). The tiles go to
@@ -276,6 +277,24 @@ def tile_pixel(tiles, t, x, y):
     return ((p0 >> bit) & 1) | ((p1 >> bit) & 1) << 1 | ((p2 >> bit) & 1) << 2 | ((p3 >> bit) & 1) << 3
 
 
+def linear_to_planar(data):
+    """Linear 4bpp tiles (4 bytes per row of 8 pixels, high nibble first) to SNES planar, as $9B85C2 converts them: nibble
+    bits 3, 2, 1, 0 go to planes 1, 0, 3, 2."""
+    out = bytearray(len(data) // 32 * 32)
+    for t in range(len(data) // 32):
+        for y in range(8):
+            p = [0, 0, 0, 0]
+            for x in range(8):
+                b = data[t * 32 + y * 4 + x // 2]
+                n = b >> 4 if x % 2 == 0 else b & 15
+                for bit, plane in ((3, 1), (2, 0), (1, 3), (0, 2)):
+                    if n >> bit & 1:
+                        p[plane] |= 0x80 >> x
+            out[t * 32 + 2 * y], out[t * 32 + 2 * y + 1] = p[0], p[1]
+            out[t * 32 + 16 + 2 * y], out[t * 32 + 17 + 2 * y] = p[2], p[3]
+    return bytes(out)
+
+
 def write_png(path, w, h, px, scale):
     """Write RGB pixels px[y][x] as a PNG, each pixel scale x scale."""
     rows = []
@@ -389,6 +408,8 @@ def cmd_blocks(a):
 
 def cmd_tiles(a):
     data = load(a.input)[a.offset:]
+    if a.linear:
+        data = linear_to_planar(data)
     n = a.count or len(data) // 32
     cols, row, w = palette(a.pal), a.palrow * 16, a.columns
     h = (n + w - 1) // w
@@ -404,6 +425,8 @@ def cmd_tiles(a):
 def cmd_map(a):
     mp = load(a.input)[a.map_offset:]
     tiles = load(a.tiles)[a.tiles_offset:]
+    if a.linear:
+        tiles = linear_to_planar(tiles)
     cols = palette(a.pal)
     width = a.width
     height = a.height or (len(mp) // 2 + width - 1) // width
@@ -447,6 +470,7 @@ def main():
     p.add_argument('--pal')
     p.add_argument('--palrow', type=num, default=0, help='palette row (16 colours) for the sheet')
     p.add_argument('--scale', type=num, default=2)
+    p.add_argument('--linear', action='store_true', help='the tiles are linear 4bpp (converted as $9B85C2 does)')
     p.set_defaults(func=cmd_tiles)
 
     p = sub.add_parser('map', help='render BG map words with their tiles')
@@ -460,6 +484,7 @@ def main():
     p.add_argument('--tile-base', type=num, default=0, help='tile number of the first tile in --tiles')
     p.add_argument('--pal')
     p.add_argument('--scale', type=num, default=2)
+    p.add_argument('--linear', action='store_true', help='the tiles are linear 4bpp (converted as $9B85C2 does)')
     p.set_defaults(func=cmd_map)
 
     p = sub.add_parser('sprites', help='sheet of the frames of a sprite set')
