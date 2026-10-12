@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank83_A000. <- CURRENT
+bank83_B000. <- CURRENT
 
 ## Sources
 
@@ -123,8 +123,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank82_F000 | matched 4022 bytes | $82F04A | $82FFFF | 0% | last SpriteFrames frames of bank $82; CenterIceTilesHFD (Huffman, asset CenterIceHFD.lin.huf); $FF fill; org moved to $82F04A |
 | bank83_8000 | matched 4259 bytes | $838000 | $8390A2 | 0% | SpriteFrames frames (tools/spriteframes.py); end moved +$A3 (frame boundary) |
 | bank83_9000 | matched 4123 bytes | $8390A3 | $83A0BD | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8390A3, end moved +$BE (frame boundary) |
-| bank83_A000 | incbin <- CURRENT | $83A0BE | $83AFFF | 0% | org moved to $83A0BE |
-| bank83_B000 | incbin | $83B000 | $83BFFF | 0% | |
+| bank83_A000 | matched 4003 bytes | $83A0BE | $83B060 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $83A0BE, end moved +$61 (frame boundary) |
+| bank83_B000 | incbin <- CURRENT | $83B061 | $83BFFF | 0% | org moved to $83B061 |
 | bank83_C000 | incbin | $83C000 | $83CFFF | 0% | |
 | bank83_D000 | incbin | $83D000 | $83DFFF | 0% | |
 | bank83_E000 | incbin | $83E000 | $83EFFF | 0% | |
@@ -383,3 +383,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank82_F000: source, MATCH. The last SpriteFrames frames of bank $82 (tools/spriteframes.py frames 82F04A 830000), then CenterIceTilesHFD ($82FEA9-$82FFF6): the Hartford centre ice logo tiles, linear 4bpp packed for DecompressHuffman, which the rink loader ($9BC17C) takes from the per-team table at $9C83B7 (tiles, map), converts with $9B85C2 and sends to VRAM after the rink tiles. Identified by rendering with its map (`tools/snesgfx.py map ... --linear`); new asset CenterIceHFD.lin.huf. Bank $82 is now all source.
 - bank83_8000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 838000 839000`. bank83_9000 org moved to $8390A3 (frame boundary).
 - bank83_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8390A3 83A000`. bank83_A000 org moved to $83A0BE (frame boundary).
+- bank83_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 83A0BE 83B000`. bank83_B000 org moved to $83B061 (frame boundary).
