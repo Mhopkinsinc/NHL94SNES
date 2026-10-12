@@ -1,5 +1,5 @@
 ; Bank $80, seventh 4 KB: data. The end of the 48-byte records from the previous file, the copyright lines, the credits,
-; two tables of long pointers, and $FF fill to the end of the file.
+; tables of long pointers, and $FF fill to the end of the file.
 ; The credits are a list of title strings and, for each title, a list of name strings ended by $0000.
 
 org $80E000
