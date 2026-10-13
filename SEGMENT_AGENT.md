@@ -326,11 +326,11 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9B_F000 | matched 4096 bytes | $9BF000 | $9BFFFF | 0% | $FF fill (padbyte/pad) |
 | bank9C_8000 | matched 4096 bytes | $9C8000 | $9C8FFF | 43% | box styles DATA8_9C8000-DATA8_9C8310 (tiles as assets, 3 x 3 maps), CenterIceTable, LogoPaletteTable, DATA8_9C850F; screen code with auto labels |
 | bank9C_9000 | matched 4098 bytes | $9C9000 | $9CA001 | 76% | stats screens with auto labels; DATA8_9C9168/DATA8_9C9258 stat names, DATA8_9C92FD stat sources, TeamPlaceNames, DATA8_9C9A5B/DATA8_9C9A73 streamed sound blocks; end moved +$2 |
-| bank9C_A000 | matched 4107 bytes | $9CA002 | $9CB00C | 29% | code with auto labels; TeamList; team records AllStarsEast, AllStarsWest, Boston, Buffalo (start); org moved to $9CA002; end moved +$D |
-| bank9C_B000 | matched 4090 bytes | $9CB00D | $9CC006 | 0% | team records Calgary, Chicago, Detroit, Edmonton, Hartford, LosAngeles (start); org moved to $9CB00D; end moved +$7 |
-| bank9C_C000 | matched 4090 bytes | $9CC007 | $9CD000 | 0% | team records (see the file header); org moved to $9CC007; end moved +$1 |
-| bank9C_D000 | matched 4112 bytes | $9CD001 | $9CE010 | 0% | team records (see the file header); org moved to $9CD001; end moved +$11 |
-| bank9C_E000 | matched 4079 bytes | $9CE011 | $9CEFFF | 0% | team records Vancouver ... Anaheim (end); playoffseats; screen text records (labels where code points at them); org moved to $9CE011 |
+| bank9C_A000 | matched | $9CA002 | $9CEF58 | 29% | code with auto labels, then src/data/teamdata94s.asm (TeamList, all team records, playoffseats); org moved to $9CA002 |
+| bank9C_B000 | matched | - | - | 0% | no file: its team records are in src/data/teamdata94s.asm |
+| bank9C_C000 | matched | - | - | 0% | no file: its team records are in src/data/teamdata94s.asm |
+| bank9C_D000 | matched | - | - | 0% | no file: its team records are in src/data/teamdata94s.asm |
+| bank9C_E000 | matched | $9CEF59 | $9CEFFF | 0% | the first screen text records (src/data/text/DATA8_9CEF59.asm); org moved to $9CEF59 (the team records before it are in src/data/teamdata94s.asm) |
 | bank9C_F000 | matched 4096 bytes | $9CF000 | $9CFFFF | 0% | screen text records (DATA8_ labels where code points at them); $FF fill (padbyte/pad) |
 | bank9D_8000 | matched 4096 bytes | $9D8000 | $9D8FFF | 97% | screen code with auto labels; DATA8_9D875A position names; HDMA tables DATA8_9D8BA9/DATA8_9D8BB5 |
 | bank9D_9000 | matched 4096 bytes | $9D9000 | $9D9FFF | 85% | screen code with auto labels (Team Roster); tables DATA8_9D93AD, DATA8_9D94FE, DATA8_9D977D, DATA8_9D9A28, DATA8_9D9B7B, DATA8_9D9CC2 |

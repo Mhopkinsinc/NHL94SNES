@@ -268,36 +268,36 @@ $9BCD4A,PasswordChars,DATA8_9BCD4A,code,"the characters passwords are written wi
 $9C83B7,CenterIceTable,DATA8_9C83B7,code,"per team (home team $1C98): long pointers to the centre ice logo tiles and map; read by the rink loader $9BC17C and in banks $9D and $9F",src/bank9C_8000.asm
 $9C8497,LogoPaletteTable,DATA8_9C8497,code,"per team: long pointer to the 16 logo colours (TeamLogoSprites and centre ice logo); read in bank $9D",src/bank9C_8000.asm
 $9C9649,TeamPlaceNames,DATA8_9C9649,code,"word pointers to the team places (Anaheim ... All Stars W.), $00-ended strings after them; read in banks $9C and $9D",src/data/text/TeamPlaceNames.asm
-$9CA5E7,TeamList,DATA8_9CA5E7,94G,"long pointer to each team record, team number = index (Anaheim 0 ... Winnipeg 25, AllStarsEast 26, AllStarsWest 27); 94G/93S TeamList",src/bank9C_A000.asm
-$9CABAC,Boston,DATA8_9CABAC,94G,"team 1 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
-$9CAE32,Buffalo,DATA8_9CAE32,94G,"team 2 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
-$9CA657,AllStarsEast,DATA8_9CA657,94G,"team 26 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
-$9CA904,AllStarsWest,DATA8_9CA904,94G,"team 27 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
-$9CB0C1,Calgary,DATA8_9CB0C1,94G,"team 3 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
-$9CB340,Chicago,DATA8_9CB340,94G,"team 4 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
-$9CB5D7,Detroit,DATA8_9CB5D7,94G,"team 6 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
-$9CB89D,Edmonton,DATA8_9CB89D,94G,"team 7 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
-$9CBB1D,Hartford,DATA8_9CBB1D,94G,"team 9 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
-$9CBDB2,LosAngeles,DATA8_9CBDB2,94G,"team 10 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
-$9CC04F,Dallas,DATA8_9CC04F,94G,"team 5 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
-$9CC2DB,Montreal,DATA8_9CC2DB,94G,"team 11 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
-$9CC57E,NewJersey,DATA8_9CC57E,94G,"team 12 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
-$9CC82B,NYIslanders,DATA8_9CC82B,94G,"team 13 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
-$9CCA9C,NYRangers,DATA8_9CCA9C,94G,"team 14 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
-$9CCD06,Ottawa,DATA8_9CCD06,94G,"team 15 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
-$9CCFAC,Philadelphia,DATA8_9CCFAC,94G,"team 16 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
-$9CD237,Pittsburgh,DATA8_9CD237,94G,"team 17 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
-$9CD4D2,Quebec,DATA8_9CD4D2,94G,"team 18 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
-$9CD760,SanJose,DATA8_9CD760,94G,"team 19 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
-$9CD9D4,StLouis,DATA8_9CD9D4,94G,"team 20 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
-$9CDC4A,TampaBay,DATA8_9CDC4A,94G,"team 21 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
-$9CDEDC,Toronto,DATA8_9CDEDC,94G,"team 22 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
-$9CEB4F,Anaheim,DATA8_9CEB4F,94G,"team 0 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
-$9CE94D,Florida,DATA8_9CE94D,94G,"team 8 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
-$9CE17E,Vancouver,DATA8_9CE17E,94G,"team 23 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
-$9CE6AD,Washington,DATA8_9CE6AD,94G,"team 24 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
-$9CE405,Winnipeg,DATA8_9CE405,94G,"team 25 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
-$9CED59,playoffseats,DATA8_9CED59,94G,"playoff tree seedings: 32 rows of 16 team numbers; 94G playoffseats (the same rows)",src/bank9C_E000.asm
+$9CA5E7,TeamList,DATA8_9CA5E7,94G,"long pointer to each team record, team number = index (Anaheim 0 ... Winnipeg 25, AllStarsEast 26, AllStarsWest 27); 94G/93S TeamList",src/data/teamdata94s.asm
+$9CABAC,Boston,DATA8_9CABAC,94G,"team 1 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CAE32,Buffalo,DATA8_9CAE32,94G,"team 2 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CA657,AllStarsEast,DATA8_9CA657,94G,"team 26 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CA904,AllStarsWest,DATA8_9CA904,94G,"team 27 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CB0C1,Calgary,DATA8_9CB0C1,94G,"team 3 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CB340,Chicago,DATA8_9CB340,94G,"team 4 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CB5D7,Detroit,DATA8_9CB5D7,94G,"team 6 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CB89D,Edmonton,DATA8_9CB89D,94G,"team 7 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CBB1D,Hartford,DATA8_9CBB1D,94G,"team 9 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CBDB2,LosAngeles,DATA8_9CBDB2,94G,"team 10 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CC04F,Dallas,DATA8_9CC04F,94G,"team 5 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CC2DB,Montreal,DATA8_9CC2DB,94G,"team 11 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CC57E,NewJersey,DATA8_9CC57E,94G,"team 12 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CC82B,NYIslanders,DATA8_9CC82B,94G,"team 13 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CCA9C,NYRangers,DATA8_9CCA9C,94G,"team 14 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CCD06,Ottawa,DATA8_9CCD06,94G,"team 15 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CCFAC,Philadelphia,DATA8_9CCFAC,94G,"team 16 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CD237,Pittsburgh,DATA8_9CD237,94G,"team 17 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CD4D2,Quebec,DATA8_9CD4D2,94G,"team 18 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CD760,SanJose,DATA8_9CD760,94G,"team 19 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CD9D4,StLouis,DATA8_9CD9D4,94G,"team 20 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CDC4A,TampaBay,DATA8_9CDC4A,94G,"team 21 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CDEDC,Toronto,DATA8_9CDEDC,94G,"team 22 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CEB4F,Anaheim,DATA8_9CEB4F,94G,"team 0 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CE94D,Florida,DATA8_9CE94D,94G,"team 8 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CE17E,Vancouver,DATA8_9CE17E,94G,"team 23 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CE6AD,Washington,DATA8_9CE6AD,94G,"team 24 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CE405,Winnipeg,DATA8_9CE405,94G,"team 25 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/data/teamdata94s.asm
+$9CED59,playoffseats,DATA8_9CED59,94G,"playoff tree seedings: 32 rows of 16 team numbers; 94G playoffseats (the same rows)",src/data/teamdata94s.asm
 $9DCD53,PlayerPhotoTable,DATA8_9DCD53,code,"long pointer to each packed player photo, 26 per team in TeamList order; read at $9DC9DD and $9DCC65 as (team * 26 + slot) * 4",src/bank9D_C000.asm
 $9DD8B3,PhotoPaletteTable,DATA8_9DD8B3,code,"per team: long pointer to the 16 colours of its player photos (PhotoPaletteANA ...; Boston's is DATA8_85FFDF)",src/bank9D_D000.asm
 $9BB17A,adda43,CODE_9BB17A,93S,"same instructions as the 93S routine adda43 (hockey)",src/bank9B_B000.asm

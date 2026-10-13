@@ -9,7 +9,9 @@
   compares the files with the ROM (see SEGMENT_AGENT.md, Segment rules). The text tables are source files in
   `src/data/text/`, one per table, included where they sit in the ROM; nine take their 93S names (AttribMenuSkater,
   AttribMenuGoalie, PositionNames, GameLabels, PasstoText, StatusTextTbl, HandedTextTbl, GoalBoxText, RosterLineNames).
-  The penalty/stoppage table DATA8_80D3EB (strings mixed with data) and the team database in bank $9C stay in the banks.
+  The team database (TeamList, the team records, playoffseats) is `src/data/teamdata94s.asm`, included from bank9C_A000
+  (as 93S `teamdata93s.asm`); the segment files bank9C_B000 to bank9C_D000 are gone and bank9C_E000 starts at $9CEF59.
+  The penalty/stoppage table DATA8_80D3EB (strings mixed with data) stays in bank80_D000.
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
   as 93S `snes93.mac`.
 - `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.

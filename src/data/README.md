@@ -9,8 +9,9 @@ writes them again.
 - `sound/`: blocks for the sound CPU.
 - `text/`: the text tables as source, one file per table named after its label (`incsrc "data/text/<Label>.asm"` at its
   place in the bank file). Strings are written with the `String` macro (length word, then the text); records with
-  position codes ($9F, $AF or $BF, then two position bytes) keep their length word. The team database (bank $9C) stays in
-  the bank files.
+  position codes ($9F, $AF or $BF, then two position bytes) keep their length word.
+- `teamdata94s.asm`: the team database (TeamList, the team records with their players, playoffseats), as
+  NHLPA93SNES `teamdata93s.asm`; bank9C_A000 includes it.
 
 A block that spans segments is included in pieces, one per segment file (`incbin "data/gfx/<name>":<start>..<end>`, decimal,
 end exclusive). The bank source spells out the header fields it knows as db/dw and includes the rest.

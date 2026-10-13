@@ -25,8 +25,8 @@ from it; the Vault is released into the public domain (Unlicense).
 ## Layout
 
 - `src/nhl94snes.asm` includes the segments in ROM order. Each `src/bankXX_YYYY.asm` has one `org`.
-- `src/data/gfx/`, `src/data/sound/` the binary assets the banks `incbin`, `src/data/text/` the text tables the banks `incsrc`
-  (see `src/data/README.md`).
+- `src/data/gfx/`, `src/data/sound/` the binary assets the banks `incbin`, `src/data/text/` the text tables the banks `incsrc`,
+  `src/data/teamdata94s.asm` the team database (see `src/data/README.md`).
 - `tools/prebuild.py` ROM check, run by every build. `tools/extract.py` lists the assets' ROM ranges and checks or rewrites them.
 - `tools/disasm65816.py` quick pass for a segment's starting text (`output/quickpass/`).
 - `tools/verify_segment.sh`, `tools/verify_all.sh` segment and clean full checks.
