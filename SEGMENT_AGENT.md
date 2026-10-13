@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8A_B000. <- CURRENT
+bank8A_C000. <- CURRENT
 
 ## Sources
 
@@ -180,8 +180,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8A_8000 | matched 4258 bytes | $8A8000 | $8A90A1 | 0% | SpriteFrames frames (tools/spriteframes.py); end moved +$A2 (frame boundary) |
 | bank8A_9000 | matched 4087 bytes | $8A90A2 | $8AA098 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8A90A2, end moved +$99 (frame boundary) |
 | bank8A_A000 | matched 4332 bytes | $8AA099 | $8AB184 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8AA099, end moved +$185 (frame boundary) |
-| bank8A_B000 | incbin <- CURRENT | $8AB185 | $8ABFFF | 0% | org moved to $8AB185 |
-| bank8A_C000 | incbin | $8AC000 | $8ACFFF | 0% | |
+| bank8A_B000 | matched 3945 bytes | $8AB185 | $8AC0ED | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8AB185, end moved +$EE (frame boundary) |
+| bank8A_C000 | incbin <- CURRENT | $8AC0EE | $8ACFFF | 0% | org moved to $8AC0EE |
 | bank8A_D000 | incbin | $8AD000 | $8ADFFF | 0% | |
 | bank8A_E000 | incbin | $8AE000 | $8AEFFF | 0% | |
 | bank8A_F000 | incbin | $8AF000 | $8AFFFF | 0% | |
@@ -440,3 +440,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8A_8000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8A8000 8A9000`. bank8A_9000 org moved to $8A90A2 (frame boundary).
 - bank8A_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8A90A2 8AA000`. bank8A_A000 org moved to $8AA099 (frame boundary).
 - bank8A_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8AA099 8AB000`. bank8A_B000 org moved to $8AB185 (frame boundary).
+- bank8A_B000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8AB185 8AC000`. bank8A_C000 org moved to $8AC0EE (frame boundary).
