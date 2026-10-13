@@ -1,26 +1,7 @@
-; Bank $98, fifth 4 KB: the end of DATA8_98BF41, then DATA8_98C18E, a player photo, then DATA8_98C3DB, a player photo,
-; then DATA8_98C628, a player photo, then DATA8_98C874, a song from the DefaultSongs table (laid out as in
-; bank81_F000), then DATA8_98CAC0, a player photo, then DATA8_98CD0A, a player photo, then the start of DATA8_98CF54,
-; a player photo.
+; A song: a header (the second byte is the tempo), the offsets of its tracks, then each track
+; in a TRAK chunk (size byte, tag, track name, then the note stream the music player reads).
 
-org $98C000
-	incbin "data/gfx/DATA8_98BF41.lin.huf":191..589
-DATA8_98C18E:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_98C18E.lin.huf":5..589
-DATA8_98C3DB:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_98C3DB.lin.huf":5..589
-DATA8_98C628:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_98C628.lin.huf":5..588
-DATA8_98C874:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+DATA8_98C874:		; header, track offsets (a zero ends them), padding, then the tracks
 	db $01,$A0,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_98C874,.right-DATA8_98C874,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
@@ -64,19 +45,3 @@ DATA8_98C874:		; a song (see bank81_F000): header, track offsets ($0000 ends the
 	db $A4,$7E,$09,$00,$93,$76,$13,$1B,$8E,$75,$15,$1A,$93,$75,$14,$1B
 	db $8C,$7A,$17,$1B,$93,$7C,$14,$1B,$8E,$75,$16,$1A,$93,$7A,$14,$1B
 	db $8C,$7E,$0D,$0D,$D9,$00,$00,$00,$00,$00,$00,$00,$00
-DATA8_98CAC0:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_98CAC0.lin.huf":5..585
-	db $00
-DATA8_98CD0A:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_98CD0A.lin.huf":5..586
-DATA8_98CF54:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_98CF54.lin.huf":5..172
