@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank91_8000. <- CURRENT
+bank91_9000. <- CURRENT
 
 ## Sources
 
@@ -233,8 +233,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank90_D000 | matched 4096 bytes | $90D000 | $90DFFF | 0% | DATA8_90C20C continued (song) |
 | bank90_E000 | matched 4096 bytes | $90E000 | $90EFFF | 0% | end of DATA8_90C20C; start of DATA8_90E08C (sound CPU upload block, asset DATA8_90E08C.spc) |
 | bank90_F000 | matched 4096 bytes | $90F000 | $90FFFF | 0% | end of DATA8_90E08C; DATA8_90FDE2 (a player photo, asset DATA8_90FDE2.lin.huf) |
-| bank91_8000 | incbin <- CURRENT | $918000 | $918FFF | 0% | |
-| bank91_9000 | incbin | $919000 | $919FFF | 0% | |
+| bank91_8000 | matched 4096 bytes | $918000 | $918FFF | 0% | start of DATA8_918000 (sound CPU upload block) |
+| bank91_9000 | incbin <- CURRENT | $919000 | $919FFF | 0% | |
 | bank91_A000 | incbin | $91A000 | $91AFFF | 0% | |
 | bank91_B000 | incbin | $91B000 | $91BFFF | 0% | |
 | bank91_C000 | incbin | $91C000 | $91CFFF | 0% | |
@@ -493,3 +493,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank90_D000: source, MATCH. The song DATA8_90C20C continued.
 - bank90_E000: source, MATCH. The end of the song DATA8_90C20C (its track offsets in bank90_C000 are now all label differences), then the start of DATA8_90E08C ($90E08C-$90FDE1): a block for SPCUploadBlock ($1D52 bytes), entry 12 of the upload list DATA8_80E6C1. New asset DATA8_90E08C.spc.
 - bank90_F000: source, MATCH. The end of DATA8_90E08C, then DATA8_90FDE2 ($90FDE2-$90FFFE): a player photo, entry 159 of the photo table (team 6, column 3); new asset DATA8_90FDE2.lin.huf; then the last byte of the bank. Bank $90 is now all source.
+- bank91_8000: source, MATCH. The start of DATA8_918000 ($918000-$9199D1, upload lists DATA8_80E6C1/E6FD entry 7). Bank $91: DATA8_9199D2 (upload, entry 10), DATA8_91B188 (a Huffman-packed sprite set of an opening screen: N, H, L letters, NHL shield, NHLPA logo, licence line), DATA8_91C7A7 (upload, DATA8_80DD16 entry 17; DATA8_80DD16 is a list of 20 upload blocks), DATA8_91DDAD (LZ-packed background tiles with EA SPORTS / ELECTRONIC ARTS), DATA8_91F2F9 (upload, DATA8_80DD16 entry 0). Assets per block.
