@@ -1,3 +1,9 @@
-; Segment bank94_9000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank94_9000.asm.
+; Bank $94, second 4 KB: the end of DATA8_948D6F, then the start of DATA8_949A00, an LZ-packed block not identified
+; yet.
+
 org $949000
-	incbin "../Extracted/segments/bank94_9000.bin"
+	incbin "../Extracted/data/DATA8_948D6F.spc":657..3217
+DATA8_949A00:		; packed for DecompressLZ, read by code in bank $9F; what it unpacks to is not identified yet
+	db $10,$FB
+	db $00,$2E,$40
+	incbin "../Extracted/data/DATA8_949A00.lz":5..1536
