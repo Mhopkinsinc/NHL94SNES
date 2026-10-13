@@ -14,6 +14,7 @@ os.makedirs(os.path.join(out, 'segments'))
 # SpriteFramesXX.bin = the SpriteFrames frames of bank $XX, not packed (the source writes their headers and pieces, and includes
 # their tiles from it).
 # .lin.huf = linear 4bpp tiles (converted to planar by $9B85C2) packed for DecompressHuffman: the team centre ice logos.
+# DATA8_XXXXXX.<format> = a packed block not identified yet, named by its address (.lz: DecompressLZ).
 ASSETS = [
     ('IceRink.chr.lz', 0x818000, 0x81ABDE),
     ('TeamLogos.spr.huf', 0x81ABDE, 0x81FE45),
@@ -27,6 +28,7 @@ ASSETS = [
     ('SpriteFrames86.bin', 0x868000, 0x86FE78),
     ('CenterIceVAN.lin.huf', 0x86FE78, 0x86FFFB),
     ('SpriteFrames87.bin', 0x878000, 0x87FF91),
+    ('DATA8_87FF91.lz', 0x87FF91, 0x87FFFB),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []

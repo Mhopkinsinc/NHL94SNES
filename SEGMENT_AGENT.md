@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank87_F000. <- CURRENT
+bank88_8000. <- CURRENT
 
 ## Sources
 
@@ -160,8 +160,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank87_C000 | matched 4594 bytes | $87C142 | $87D333 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $87C142, end moved +$334 (frame boundary) |
 | bank87_D000 | matched 3396 bytes | $87D334 | $87E077 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $87D334, end moved +$78 (frame boundary) |
 | bank87_E000 | matched 4370 bytes | $87E078 | $87F189 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $87E078, end moved +$18A (frame boundary) |
-| bank87_F000 | incbin <- CURRENT | $87F18A | $87FFFF | 0% | org moved to $87F18A |
-| bank88_8000 | incbin | $888000 | $888FFF | 0% | |
+| bank87_F000 | matched 3702 bytes | $87F18A | $87FFFF | 0% | last SpriteFrames frames of bank $87; DATA8_87FF91 (LZ byte map, asset DATA8_87FF91.lz); org moved to $87F18A |
+| bank88_8000 | incbin <- CURRENT | $888000 | $888FFF | 0% | |
 | bank88_9000 | incbin | $889000 | $889FFF | 0% | |
 | bank88_A000 | incbin | $88A000 | $88AFFF | 0% | |
 | bank88_B000 | incbin | $88B000 | $88BFFF | 0% | |
@@ -420,3 +420,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank87_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 87C142 87D000`. bank87_D000 org moved to $87D334 (frame boundary).
 - bank87_D000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 87D334 87E000`. bank87_E000 org moved to $87E078 (frame boundary).
 - bank87_E000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 87E078 87F000`. bank87_F000 org moved to $87F18A (frame boundary).
+- bank87_F000: source, MATCH. The last SpriteFrames frames of bank $87 (tools/spriteframes.py frames 87F18A 880000), then DATA8_87FF91 ($87FF91-$87FFFA): packed for DecompressLZ, unpacked a header (10, 12, 16) and a 10 x 12 byte map, unpacked to $7F0000 by $9DB6D7; not identified, new asset DATA8_87FF91.lz. Bank $87 is now all source.
