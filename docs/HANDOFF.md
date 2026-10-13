@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $8F, and bank90_8000 to bank90_E000, are source (MATCH); the rest are incbin.
+- Banks $80 to $90 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -97,7 +97,7 @@
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Next: segment bank90_F000: the end of DATA8_90E08C, then the player photo DATA8_90FDE2 (photo table entry 159; new asset DATA8_90FDE2.lin.huf) and the last byte (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank91_8000. $918000 is entry 7 of the upload lists (DATA8_80E6C1/E6FD; SPCUploadBlock, $19CE bytes to $9199D2), $9199D2 entry 10 ($17B2 bytes to $91B188); then the Huffman block $91B188 (unpacked to $7F5000 at $9DB71B) and the LZ block $91DDAD; use `tools/snesgfx.py blocks` and the upload lists to map the rest (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
