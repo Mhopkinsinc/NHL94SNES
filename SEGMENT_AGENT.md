@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank95_B000. <- CURRENT
+bank95_C000. <- CURRENT
 
 ## Sources
 
@@ -268,8 +268,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank95_8000 | matched 4096 bytes | $958000 | $958FFF | 0% | DATA8_958000, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then the start of DATA8_958ABD, a block for the sound CPU (upload list DATA8_80DD16) |
 | bank95_9000 | matched 4096 bytes | $959000 | $959FFF | 0% | the end of DATA8_958ABD, then DATA8_959490, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_959E48, a block for the sound CPU (a long pointer list in bank $9C) |
 | bank95_A000 | matched 4096 bytes | $95A000 | $95AFFF | 0% | the end of DATA8_959E48, then the start of SmallLetterSprites, a sprite set of small letters and digits |
-| bank95_B000 | incbin <- CURRENT | $95B000 | $95BFFF | 0% | |
-| bank95_C000 | incbin | $95C000 | $95CFFF | 0% | |
+| bank95_B000 | matched 4096 bytes | $95B000 | $95BFFF | 0% | the end of SmallLetterSprites, then DATA8_95B15C, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80DD16), then the start of DATA8_95BA96, LZ-packed tiles |
+| bank95_C000 | incbin <- CURRENT | $95C000 | $95CFFF | 0% | |
 | bank95_D000 | incbin | $95D000 | $95DFFF | 0% | |
 | bank95_E000 | incbin | $95E000 | $95EFFF | 0% | |
 | bank95_F000 | incbin | $95F000 | $95FFFF | 0% | |
@@ -528,3 +528,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank95_8000: source, MATCH. DATA8_958000, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then the start of DATA8_958ABD, a block for the sound CPU (upload list DATA8_80DD16).
 - bank95_9000: source, MATCH. The end of DATA8_958ABD, then DATA8_959490, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_959E48, a block for the sound CPU (a long pointer list in bank $9C).
 - bank95_A000: source, MATCH. The end of DATA8_959E48, then the start of SmallLetterSprites, a sprite set of small letters and digits.
+- bank95_B000: source, MATCH. The end of SmallLetterSprites, then DATA8_95B15C, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80DD16), then the start of DATA8_95BA96, LZ-packed tiles.
