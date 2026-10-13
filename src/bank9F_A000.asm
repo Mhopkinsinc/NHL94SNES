@@ -1307,10 +1307,10 @@ CODE_9FAB51:
 	stz.w SPA,x
 	lda.w position,x
 	bne CODE_9FAB97
-	lda.w #$E0FE
+	lda.w #DATA8_9DE0FE
 	bra CODE_9FAB9A
 CODE_9FAB97:
-	lda.w #$EA1A
+	lda.w #DATA8_9DEA1A
 CODE_9FAB9A:
 	jsl.l CODE_9EA3F1
 	jsl.l CODE_9EA419

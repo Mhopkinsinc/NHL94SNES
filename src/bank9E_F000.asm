@@ -28,7 +28,7 @@ CODE_9EF02B:
 	bne CODE_9EF02A
 	inc a
 	sta.w $1543,y
-	lda.w #$F896
+	lda.w #DATA8_9DF896
 	ldx.b $91
 	jsl.l CODE_9EA3F1
 	ldx.b $95
@@ -693,7 +693,7 @@ CODE_9EF578:
 	jsl.l CODE_9E8C18
 	inx
 	inx
-	lda.w #$F644
+	lda.w #DATA8_9DF644
 	jsl.l CODE_9EA3F1
 	ldy.b $91
 	ldx.w tmsort,y

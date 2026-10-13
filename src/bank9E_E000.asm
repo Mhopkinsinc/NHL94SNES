@@ -214,10 +214,10 @@ CODE_9EE197:
 	jsl.l vtoa
 	lda.w #$000F
 	sta.w passspeed
-	ldy.w #$ED4A
+	ldy.w #DATA8_9DED4A
 	jsl.l Findhittype
 	beq CODE_9EE1BD
-	ldy.w #$EE5C
+	ldy.w #DATA8_9DEE5C
 CODE_9EE1BD:
 	sty.b $A9
 	jml.l SetSPA
@@ -225,9 +225,9 @@ ShotMode:
 	cpx.w $0AD9
 	bne CODE_9EE219
 	lda.w SPA,x
-	cmp.w #$ED4A
+	cmp.w #DATA8_9DED4A
 	bcc CODE_9EE219
-	cmp.w #$F021
+	cmp.w #DATA8_9DF020+1
 	bcs CODE_9EE219
 	lda.w SPAnum,x
 	cmp.w #$0018
@@ -279,7 +279,7 @@ CODE_9EE23C:
 	lda.w #$1000
 	tsb.w sflags
 	lda.w SPA,x
-	cmp.w #$EE5C
+	cmp.w #DATA8_9DEE5C
 	bne CODE_9EE264
 	lda.w #$0001
 	sta.b $01,s
@@ -637,10 +637,10 @@ CODE_9EE56D:
 	jsl.l vtoa
 	jsl.l Findhittype
 	beq CODE_9EE57C
-	lda.w #$F020
+	lda.w #DATA8_9DF020
 	bra CODE_9EE57F
 CODE_9EE57C:
-	lda.w #$EF6E
+	lda.w #DATA8_9DEF6E
 CODE_9EE57F:
 	jsl.l CODE_9EA3F1
 	jsl.l CODE_9EA419
@@ -882,9 +882,9 @@ CODE_9EE796:
 	rtl
 CODE_9EE797:
 	lda.w SPA,x
-	cmp.w #$EF6E
+	cmp.w #DATA8_9DEF6E
 	beq CODE_9EE7F6
-	cmp.w #$F020
+	cmp.w #DATA8_9DF020
 	beq CODE_9EE7F6
 	phy
 	ldy.w #$0000
@@ -916,10 +916,10 @@ CODE_9EE7DA:
 	jsl.l vtoa
 	jsl.l Findhittype
 	beq CODE_9EE7E9
-	lda.w #$F020
+	lda.w #DATA8_9DF020
 	bra CODE_9EE7EC
 CODE_9EE7E9:
-	lda.w #$EF6E
+	lda.w #DATA8_9DEF6E
 CODE_9EE7EC:
 	jsl.l CODE_9EA3F1
 	jmp.w $E796
@@ -1287,13 +1287,13 @@ CODE_9EEAE9:
 	lda.w puckvy
 	sta.b $A9
 	jsl.l vtoa
-	ldy.w #$E34E
+	ldy.w #DATA8_9DE34E
 	lda.w position,x
 	beq CODE_9EEB0B
-	ldy.w #$EC66
+	ldy.w #DATA8_9DEC66
 	jsl.l Findhittype
 	beq CODE_9EEB0B
-	ldy.w #$ECD8
+	ldy.w #DATA8_9DECD8
 CODE_9EEB0B:
 	sty.b $A9
 	jsl.l SetSPA

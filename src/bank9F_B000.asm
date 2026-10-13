@@ -327,7 +327,7 @@ CODE_9FB2C4:
 	pla
 	cmp.w #$0000
 	bne CODE_9FB304
-	lda.w #$F600
+	lda.w #DATA8_9DF600
 	sta.b $A9
 	lda.w $101F
 	cmp.w #$0011
@@ -336,7 +336,7 @@ CODE_9FB2C4:
 	and.w #$0007
 	sta.b $A5
 	beq CODE_9FB2FA
-	lda.w #$F62A
+	lda.w #DATA8_9DF62A
 	sta.b $A9
 CODE_9FB2FA:
 	lda.w #$0001
@@ -372,10 +372,10 @@ CODE_9FB330:
 	beq CODE_9FB34D
 	lda.w #$0001
 	sta.w $1543,x
-	lda.w #$F600
+	lda.w #DATA8_9DF600
 	jml.l CODE_9EA3F1
 CODE_9FB34D:
-	lda.w #$F62A
+	lda.w #DATA8_9DF62A
 	jml.l CODE_9EA3F1
 CODE_9FB354:
 	rtl

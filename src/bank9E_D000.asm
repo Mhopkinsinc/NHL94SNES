@@ -1,4 +1,4 @@
-; Bank $9E, sixth 4 KB: more game code with auto labels for now. DATA8_9EDBF4 holds word pointers into the next file;
+; Bank $9E, sixth 4 KB: more game code with auto labels for now. DATA8_9EDBF4 holds animations in SPAList;
 ; DATA8_9EDC94 is a list of small signed steps.
 
 org $9ED002
@@ -23,16 +23,16 @@ CODE_9ED022:
 	ldy.w $19D4,x
 	bmi CODE_9ED039
 	lda.w SPA,x
-	cmp.w #$E4B6
+	cmp.w #DATA8_9DE4B6
 	bcc CODE_9ED039
-	cmp.w #$F90E
+	cmp.w #DATA8_9DF90E
 	bcc CODE_9ED04D
 CODE_9ED039:
 	lda.b $A5
 	cmp.w $1163,x
 	beq CODE_9ED07A
 	sta.b $AD
-	lda.w #$E0FE
+	lda.w #DATA8_9DE0FE
 	jsl.l CODE_9EA3F1
 	jml.l CODE_9EA719
 CODE_9ED04D:
@@ -70,10 +70,10 @@ CODE_9ED08B:
 	lda.w $0B05,x
 	bit.w #$0002
 	bne CODE_9ED098
-	lda.w #$E0FE
+	lda.w #DATA8_9DE0FE
 	bra CODE_9ED09B
 CODE_9ED098:
-	lda.w #$E3C0
+	lda.w #DATA8_9DE3C0
 CODE_9ED09B:
 	jsl.l CODE_9EA3F1
 	lda.w $1163,x
@@ -524,7 +524,7 @@ CODE_9ED44E:
 CODE_9ED46A:
 	lda.w $1543,x
 	bne CODE_9ED476
-	lda.w #$E0FE
+	lda.w #DATA8_9DE0FE
 	jsl.l CODE_9EA3F1
 CODE_9ED476:
 	lda.w $15D6
@@ -651,7 +651,7 @@ CODE_9ED577:
 	bcs CODE_9ED574
 	lda.w #$005A
 	sta.w $1543,x
-	lda.w #$E66C
+	lda.w #DATA8_9DE66C
 	jsl.l CODE_9EA3F1
 CODE_9ED58C:
 	rtl
@@ -661,7 +661,7 @@ CODE_9ED58D:
 CODE_9ED593:
 	sta.w $1163,x
 	sta.w $14E3,x
-	lda.w #$E528
+	lda.w #DATA8_9DE528
 	jsl.l CODE_9EA3F1
 	lda.w #$00F0
 	sta.w $0BEB,x
@@ -759,7 +759,7 @@ CODE_9ED676:
 	lda.b $A5
 CODE_9ED67C:
 	sta.w $1163,x
-	ldy.w #$E4B6
+	ldy.w #DATA8_9DE4B6
 	tya
 	jsl.l CODE_9EA3F1
 	lda.w #$0168
@@ -1235,9 +1235,9 @@ CODE_9EDA59:
 	cmp.w pfteam,y
 	beq CODE_9EDAA4
 	lda.w SPA,y
-	cmp.w #$ED4A
+	cmp.w #DATA8_9DED4A
 	bcc CODE_9EDAA1
-	cmp.w #$F021
+	cmp.w #DATA8_9DF020+1
 	bcs CODE_9EDAA1
 	lda.w $0EE3,y
 	bit.w #$8000
@@ -1432,8 +1432,10 @@ CODE_9EDBEC:
 	sta.b $A9
 CODE_9EDBF3:
 	rtl
-DATA8_9EDBF4:
-	dw $E1E2,$E214,$E2AA,$E2FC,$E246,$E278,$E862,$E7D0,$E73E
+DATA8_9EDBF4:		; animations in SPAList, read by index and passed to CODE_9EA3F1
+	dw DATA8_9DE1E2&$FFFF,DATA8_9DE214&$FFFF,DATA8_9DE2AA&$FFFF,DATA8_9DE2FC&$FFFF
+	dw DATA8_9DE246&$FFFF,DATA8_9DE278&$FFFF,DATA8_9DE862&$FFFF,DATA8_9DE7D0&$FFFF
+	dw DATA8_9DE73E&$FFFF
 CODE_9EDC06:
 	lda.w $1163,x
 	sta.b $14
@@ -1726,7 +1728,7 @@ CODE_9EDE5E:
 	sta.w $11FF
 	phx
 	ldx.w #$001C
-	lda.w #$E978
+	lda.w #DATA8_9DE978
 	jsl.l CODE_9EA3F1
 	plx
 	rtl

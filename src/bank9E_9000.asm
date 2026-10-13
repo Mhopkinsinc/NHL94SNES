@@ -486,7 +486,7 @@ CODE_9E93E0:
 	and.w #$01C0
 	bne CODE_9E9429
 	lda.w SPA,x
-	cmp.w #$F342
+	cmp.w #DATA8_9DF342
 	bne CODE_9E9429
 	ldy.b $91
 	lda.w pucky
@@ -709,17 +709,17 @@ CODE_9E957C:
 	jmp.w $9784
 CODE_9E95AE:
 	lda.w SPA,x
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc CODE_9E95DC
-	cmp.w #$F46B
+	cmp.w #DATA8_9DF46A+1
 	bcs CODE_9E95DC
 	stz.w $14E3,x
 	stz.w $1543,x
 	ldy.w $0F03,x
 	lda.w SPA,y
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc CODE_9E95DA
-	cmp.w #$F46B
+	cmp.w #DATA8_9DF46A+1
 	bcs CODE_9E95DA
 	lda.w #$0000
 	sta.w $14E3,y
@@ -728,18 +728,18 @@ CODE_9E95DA:
 	ldy.b $91
 CODE_9E95DC:
 	lda.w SPA,y
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc CODE_9E960A
-	cmp.w #$F46B
+	cmp.w #DATA8_9DF46A+1
 	bcs CODE_9E960A
 	lda.w #$0000
 	sta.w $14E3,y
 	sta.w $1543,y
 	ldx.w $0F03,y
 	lda.w SPA,x
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc CODE_9E9608
-	cmp.w #$F46B
+	cmp.w #DATA8_9DF46A+1
 	bcs CODE_9E9608
 	stz.w $14E3,x
 	stz.w $1543,x
@@ -762,9 +762,9 @@ CODE_9E960A:
 CODE_9E9624:
 	sta.b $B5
 	lda.w SPA,x
-	cmp.w #$F208
+	cmp.w #DATA8_9DF208
 	bcc CODE_9E963C
-	cmp.w #$F343
+	cmp.w #DATA8_9DF342+1
 	bcs CODE_9E963C
 CODE_9E9633:
 	lda.b $B5
@@ -774,9 +774,9 @@ CODE_9E9633:
 	bra CODE_9E9649
 CODE_9E963C:
 	lda.w SPA,y
-	cmp.w #$F208
+	cmp.w #DATA8_9DF208
 	bcc CODE_9E9649
-	cmp.w #$F343
+	cmp.w #DATA8_9DF342+1
 	bcc CODE_9E9633
 CODE_9E9649:
 	lda.b $B5
@@ -1306,7 +1306,7 @@ CODE_9E9AC6:
 	lda.w #$008C
 	sta.w $1083,y
 	lda.w SPA,y
-	cmp.w #$E4B6
+	cmp.w #DATA8_9DE4B6
 	bne CODE_9E9AED
 CODE_9E9AE7:
 	lda.w #$0005
@@ -1371,17 +1371,17 @@ CODE_9E9B5E:
 	cpy.w #$0018
 	bcs CODE_9E9BB2
 	lda.w SPA,y
-	cmp.w #$F90E
+	cmp.w #DATA8_9DF90E
 	beq CODE_9E9BB2
-	cmp.w #$F7B2
+	cmp.w #DATA8_9DF7B2
 	beq CODE_9E9BB2
-	cmp.w #$F49C
+	cmp.w #DATA8_9DF49C
 	beq CODE_9E9BB2
-	cmp.w #$F54E
+	cmp.w #DATA8_9DF54E
 	beq CODE_9E9BB2
-	cmp.w #$F6C0
+	cmp.w #DATA8_9DF6C0
 	beq CODE_9E9BB2
-	lda.w #$F7B2
+	lda.w #DATA8_9DF7B2
 	sta.b $A9
 	lda.w $15D6
 	bne CODE_9E9BB3
@@ -1466,7 +1466,7 @@ CODE_9E9C36:
 	bit.w #$0800
 	bne CODE_9E9C79
 CODE_9E9C3E:
-	lda.w #$FD3A
+	lda.w #DATA8_9DFD3A
 	bra CODE_9E9C7C
 CODE_9E9C43:
 	lda.w Ypos,y
@@ -1492,7 +1492,7 @@ CODE_9E9C71:
 	bit.w #$0800
 	bne CODE_9E9C3E
 CODE_9E9C79:
-	lda.w #$FD9C
+	lda.w #DATA8_9DFD9C
 CODE_9E9C7C:
 	ldx.b $91
 	sta.w $14E3,x
@@ -1536,7 +1536,7 @@ CODE_9E9CB6:
 	lda.w #$0000
 	sta.w $0EE3,y
 CODE_9E9CDB:
-	lda.w #$FC76
+	lda.w #DATA8_9DFC76
 	bra CODE_9E9C7C
 CODE_9E9CE0:
 	lda.w Xpos,y
@@ -1554,7 +1554,7 @@ CODE_9E9CE0:
 	lda.w #$0000
 	sta.w $0EE3,y
 CODE_9E9D04:
-	lda.w #$FCD8
+	lda.w #DATA8_9DFCD8
 	jmp.w $9C7C
 CODE_9E9D0A:
 	jmp.w $9EC2
@@ -1569,7 +1569,7 @@ CODE_9E9D17:
 	jsl.l CODE_9C9FD5
 	lda.w #$0002
 	sta.w $0C25
-	lda.w #$F54E
+	lda.w #DATA8_9DF54E
 	sta.b $A9
 	ldy.b $91
 	lda.b $A5
@@ -1579,7 +1579,7 @@ CODE_9E9D17:
 	and.w #$0007
 	cmp.w #$0003
 	bcc CODE_9E9D59
-	lda.w #$F49C
+	lda.w #DATA8_9DF49C
 	sta.b $A9
 	lda.w $1163,y
 	and.w #$0003
@@ -1590,7 +1590,7 @@ CODE_9E9D17:
 	bmi CODE_9E9D59
 	cpx.w #$0018
 	bcs CODE_9E9D59
-	lda.w #$F6C0
+	lda.w #DATA8_9DF6C0
 	sta.b $A9
 CODE_9E9D59:
 	ldx.b $91
@@ -1628,7 +1628,7 @@ CODE_9E9D79:
 	lda.w position,x
 	beq CODE_9E9D76
 	lda.w SPA,y
-	cmp.w #$F54E
+	cmp.w #DATA8_9DF54E
 	bne CODE_9E9D76
 	lda.w $1163,y
 	and.w #$0003
@@ -1660,7 +1660,7 @@ CODE_9E9DF2:
 	adc.w #$0006
 	jsl.l CODE_9C9FD5
 	ldx.b $91
-	lda.w #$F90E
+	lda.w #DATA8_9DF90E
 	jsl.l CODE_9EA3F1
 	ldx.b $95
 	lda.w $0EC3,x
@@ -1701,7 +1701,7 @@ CODE_9E9E4D:
 CODE_9E9E59:
 	ldy.b $91
 	lda.w SPA,y
-	cmp.w #$F7B2
+	cmp.w #DATA8_9DF7B2
 	beq CODE_9E9E69
 	lda.w #$FFFF
 	sta.w $0AD9
@@ -1735,10 +1735,10 @@ CODE_9E9E96:
 	lda.w attribute,x
 	bit.w #$0800
 	bne CODE_9E9EB1
-	lda.w #$FE60
+	lda.w #DATA8_9DFE60
 	bra CODE_9E9EB4
 CODE_9E9EB1:
-	lda.w #$FDFE
+	lda.w #DATA8_9DFDFE
 CODE_9E9EB4:
 	sta.w $14E3,x
 	jsl.l CODE_9EA3F1

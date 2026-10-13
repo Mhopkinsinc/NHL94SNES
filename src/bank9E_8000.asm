@@ -6,7 +6,7 @@ org $9E8000
 CODE_9E8000:
 	lda.w $14E3,x
 	bne CODE_9E800C
-	lda.w #$F0D2
+	lda.w #DATA8_9DF0D2
 	jsl.l CODE_9EA3F1
 CODE_9E800C:
 	rtl
@@ -293,7 +293,7 @@ CODE_9E8223:
 	clc
 	adc.w $0EE3,x
 	sta.w $0EE3,x
-	lda.w #$F342
+	lda.w #DATA8_9DF342
 	sta.w $14E3,x
 	jml.l CODE_9EA3F1
 CODE_9E8272:
@@ -1610,7 +1610,7 @@ CODE_9E8D23:
 	rtl
 CODE_9E8D29:
 	lda.w SPA,x
-	cmp.w #$FC76
+	cmp.w #DATA8_9DFC76
 	bcs CODE_9E8D3D
 	lda.w $0E43,x
 	sta.w Xpos,x
@@ -1828,7 +1828,7 @@ CODE_9E8E91:
 	inx
 	inx
 	stx.b $95
-	lda.w #$F8E8
+	lda.w #DATA8_9DF8E8
 	sta.b $A9
 	jsl.l SetSPA
 	plx

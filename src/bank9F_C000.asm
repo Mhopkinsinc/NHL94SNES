@@ -1580,14 +1580,14 @@ CODE_9FCC20:
 	bit.w #$1000
 	bne CODE_9FCC96
 	lda.w SPA,x
-	cmp.w #$EBB0
+	cmp.w #DATA8_9DEBB0
 	bcc CODE_9FCC3C
-	cmp.w #$EBE3
+	cmp.w #DATA8_9DEBE2+1
 	bcc CODE_9FCC51
 CODE_9FCC3C:
-	cmp.w #$F196
+	cmp.w #DATA8_9DF196
 	bcc CODE_9FCC46
-	cmp.w #$F343
+	cmp.w #DATA8_9DF342+1
 	bcc CODE_9FCC51
 CODE_9FCC46:
 	lda.w pflags,x

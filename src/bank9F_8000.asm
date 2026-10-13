@@ -760,11 +760,11 @@ CODE_9F8738:
 	bne CODE_9F8796
 CODE_9F8742:
 	lda.w SPA,x
-	cmp.w #$F90E
+	cmp.w #DATA8_9DF90E
 	bne CODE_9F874D
 	jmp.w $8834
 CODE_9F874D:
-	cmp.w #$FC76
+	cmp.w #DATA8_9DFC76
 	bcc CODE_9F8755
 	jmp.w $8834
 CODE_9F8755:

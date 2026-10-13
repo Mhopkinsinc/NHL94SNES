@@ -161,13 +161,13 @@ CODE_9EB13F:
 	sbc.b $C1
 	sta.w $1003,x
 	bpl CODE_9EB185
-	lda.w #$F940
+	lda.w #DATA8_9DF940
 	sta.b $A9
 	sta.w $14E3,x
 	cpx.w $0D29
 	bne CODE_9EB176
 CODE_9EB16B:
-	lda.w #$FA84
+	lda.w #DATA8_9DFA84
 	sta.b $A9
 	lda.w #$FFFF
 	sta.w $0D29
@@ -1374,7 +1374,7 @@ CODE_9EBB16:
 	lda.w #$0002
 	sta.w $1163,x
 	sta.w $14E3,x
-	lda.w #$E936
+	lda.w #DATA8_9DE936
 	jsl.l CODE_9EA3F1
 	jml.l SprSort
 CODE_9EBB35:
@@ -1648,7 +1648,7 @@ CODE_9EBD7B:
 	lda.w #$003C
 	sta.w $1203,x
 CODE_9EBD87:
-	lda.w #$EA1A
+	lda.w #DATA8_9DEA1A
 	sta.w $1563,x
 	jsl.l CODE_9EA3F1
 	lda.w #$0006
@@ -1685,7 +1685,7 @@ CODE_9EBDC9:
 	lda.w #$0002
 	sta.w $1163,x
 	sta.w $14E3,x
-	lda.w #$E8F4
+	lda.w #DATA8_9DE8F4
 	jsl.l CODE_9EA3F1
 	lda.w pflags,x
 	and.w #$BFFF

@@ -368,10 +368,10 @@ CODE_9FD2BC:
 	lda.w position,x
 	bmi CODE_9FD2F3
 	bne CODE_9FD2D4
-	lda.w #$E0FE
+	lda.w #DATA8_9DE0FE
 	bra CODE_9FD2D7
 CODE_9FD2D4:
-	lda.w #$EA1A
+	lda.w #DATA8_9DEA1A
 CODE_9FD2D7:
 	jsl.l CODE_9EA3F1
 	stz.w $0F23,x
@@ -1124,10 +1124,10 @@ CODE_9FD8F3:
 	bmi CODE_9FD907
 	jmp.w $D99D
 CODE_9FD907:
-	lda.w #$EA1A
+	lda.w #DATA8_9DEA1A
 	ldy.w position,x
 	bne CODE_9FD912
-	lda.w #$E0FE
+	lda.w #DATA8_9DE0FE
 CODE_9FD912:
 	jsl.l CODE_9EA3F1
 	lda.w #$0001
@@ -1156,10 +1156,10 @@ CODE_9FD93E:
 	sta.w $0EC3,x
 	lda.w #$0002
 	sta.w $1163,x
-	lda.w #$E936
+	lda.w #DATA8_9DE936
 	ldy.w position,x
 	bne CODE_9FD960
-	lda.w #$E484
+	lda.w #DATA8_9DE484
 CODE_9FD960:
 	jsl.l CODE_9EA3F1
 	lda.w #$0064
@@ -1247,11 +1247,11 @@ CODE_9FDA06:
 	lda.w #$0002
 	sta.w $1163,x
 	sta.w $14E3,x
-	lda.w #$E8F4
+	lda.w #DATA8_9DE8F4
 	ldy.w position,x
 	bne CODE_9FDA2F
 CODE_9FDA2C:
-	lda.w #$E452
+	lda.w #DATA8_9DE452
 CODE_9FDA2F:
 	jml.l CODE_9EA403
 CODE_9FDA33:

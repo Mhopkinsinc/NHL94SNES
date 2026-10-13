@@ -24,16 +24,16 @@ CODE_9EA01E:
 CODE_9EA021:
 	ldy.b $91
 	lda.w SPA,y
-	cmp.w #$F374
+	cmp.w #DATA8_9DF374
 	beq CODE_9EA01E
-	cmp.w #$F864
+	cmp.w #DATA8_9DF864
 	beq CODE_9EA01E
-	cmp.w #$F208
+	cmp.w #DATA8_9DF208
 	bne CODE_9EA038
 	jmp.w $BC24
 CODE_9EA038:
 	lda.w SPA,x
-	cmp.w #$F342
+	cmp.w #DATA8_9DF342
 	bne CODE_9EA01D
 	lda.w $15D6
 	beq CODE_9EA04E
@@ -156,8 +156,9 @@ CODE_9EA132:
 	jsl.l AddPenalty
 CODE_9EA151:
 	jmp.w $9B52
-DATA8_9EA154:		; word pointers into this bank, not identified yet
-	dw $F196,$F2AC,$F310,$F310,$F310,$F2DE,$F2DE,$F27A
+DATA8_9EA154:		; animations in SPAList, read by index and passed to CODE_9EA3F1
+	dw DATA8_9DF196&$FFFF,DATA8_9DF2AC&$FFFF,DATA8_9DF310&$FFFF,DATA8_9DF310&$FFFF
+	dw DATA8_9DF310&$FFFF,DATA8_9DF2DE&$FFFF,DATA8_9DF2DE&$FFFF,DATA8_9DF27A&$FFFF
 CODE_9EA164:
 	lda.w #$0014
 	sec
@@ -187,9 +188,9 @@ CODE_9EA19B:
 	lda.w position,y
 	beq CODE_9EA1B4
 	lda.w SPA,y
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc CODE_9EA1AF
-	cmp.w #$F46B
+	cmp.w #DATA8_9DF46A+1
 	bcc CODE_9EA1BD
 CODE_9EA1AF:
 	lda.w $14E3,y
@@ -237,9 +238,9 @@ CODE_9EA1BD:
 	bpl CODE_9EA233
 CODE_9EA20D:
 	lda.w SPA,y
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc CODE_9EA21A
-	cmp.w #$F46B
+	cmp.w #DATA8_9DF46A+1
 	bcc CODE_9EA23E
 CODE_9EA21A:
 	lda.w $0793
@@ -261,7 +262,7 @@ CODE_9EA233:
 CODE_9EA23E:
 	jml.l CODE_9E81F9
 CODE_9EA242:
-	lda.w #$F208
+	lda.w #DATA8_9DF208
 	sta.w $1543,x
 	jml.l CODE_9EA3F1
 CODE_9EA24C:
@@ -270,7 +271,7 @@ CODE_9EA24C:
 	lda.w $14E3,x
 	beq CODE_9EA25F
 	lda.w SPA,x
-	cmp.w #$F342
+	cmp.w #DATA8_9DF342
 	bne CODE_9EA25F
 CODE_9EA25E:
 	rtl
@@ -329,7 +330,7 @@ CODE_9EA2C3:
 	dec.b $AD
 	bne CODE_9EA276
 CODE_9EA2CB:
-	lda.w #$F864
+	lda.w #DATA8_9DF864
 	sta.b $A9
 	sta.w $14E3,x
 	ldy.b $89
@@ -342,7 +343,7 @@ CODE_9EA2CB:
 	and.w #$0007
 	cmp.w #$0005
 	bcc CODE_9EA2ED
-	lda.w #$F374
+	lda.w #DATA8_9DF374
 	sta.b $A9
 CODE_9EA2ED:
 	jml.l SetSPA
@@ -401,7 +402,7 @@ CODE_9EA334:
 	sta.w $0EE3,y
 	tya
 	sta.w $0F03,x
-	lda.w #$F46A
+	lda.w #DATA8_9DF46A
 	sta.w $14E3,x
 	jsl.l CODE_9EA3F1
 	ldx.b $91
@@ -410,12 +411,12 @@ CODE_9EA334:
 	stx.b $95
 	tya
 	sta.w $0F03,x
-	lda.w #$F3A6
+	lda.w #DATA8_9DF3A6
 	sta.w $14E3,x
 	ldy.w SPA,x
-	cpy.w #$F374
+	cpy.w #DATA8_9DF374
 	beq CODE_9EA388
-	lda.w #$F3D8
+	lda.w #DATA8_9DF3D8
 CODE_9EA388:
 	jsl.l CODE_9EA3F1
 	jsl.l CODE_9EC042
@@ -438,7 +439,7 @@ CODE_9EA3AD:
 	lda.w #$0028
 	sta.b $A5
 	lda.w SPA,x
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	beq CODE_9EA3CA
 	lda.w #$0020
 	sta.b $A5
@@ -514,7 +515,7 @@ CODE_9EA442:
 	bne CODE_9EA425
 CODE_9EA456:
 	lda.w SPA,x
-	cmp.w #$FDFE
+	cmp.w #DATA8_9DFDFE
 	bcs CODE_9EA46F
 	lda.w attribute,x
 	bit.w #$0800
@@ -556,9 +557,9 @@ CODE_9EA472:
 	stz.w $1543,x
 	stz.w $14E3,x
 	lda.w SPA,x
-	cmp.w #$FEC2
+	cmp.w #DATA8_9DFEC2
 	bcs CODE_9EA4BF
-	cmp.w #$FDFE
+	cmp.w #DATA8_9DFDFE
 	bcs CODE_9EA4DF
 CODE_9EA4BF:
 	lda.b $A9
@@ -587,7 +588,7 @@ CODE_9EA4DF:
 	lda.w #$0002
 	sta.w $1163,x
 	sta.w $14E3,x
-	lda.w #$E8F4
+	lda.w #DATA8_9DE8F4
 	jsl.l CODE_9EA403
 	bra CODE_9EA4DD
 CODE_9EA4F7:
@@ -602,7 +603,7 @@ CODE_9EA4F7:
 	cmp.w #$1001
 	bmi CODE_9EA539
 CODE_9EA511:
-	lda.w #$EA1A
+	lda.w #DATA8_9DEA1A
 	ldy.w $1523,x
 	bne CODE_9EA535
 	cpx.w $0AD9
@@ -614,7 +615,7 @@ CODE_9EA511:
 	lda.w #$0011
 	jsl.l CODE_9C9AD0
 CODE_9EA52F:
-	lda.w #$EC14
+	lda.w #DATA8_9DEC14
 	sta.w $1543,x
 CODE_9EA535:
 	jsl.l CODE_9EA3F1
@@ -808,7 +809,7 @@ CODE_9EA69D:
 CODE_9EA6BC:
 	lda.w $0D37
 	sta.w $1063,x
-	lda.w #$F68E
+	lda.w #DATA8_9DF68E
 	sta.w $14E3,x
 	jsl.l CODE_9EA3F1
 CODE_9EA6CC:
@@ -1040,13 +1041,13 @@ CODE_9EA8A9:
 	jml.l CODE_9ECFDC
 CODE_9EA8B2:
 	lda.w SPA,x
-	cmp.w #$F208
+	cmp.w #DATA8_9DF208
 	beq CODE_9EA8ED
-	lda.w #$EA1A
+	lda.w #DATA8_9DEA1A
 	sta.b $A9
 	lda.w $1523,x
 	beq CODE_9EA8C9
-	lda.w #$F0D2
+	lda.w #DATA8_9DF0D2
 	sta.b $A9
 CODE_9EA8C9:
 	lda.b $A5
@@ -1263,7 +1264,7 @@ CODE_9EAA72:
 CODE_9EAA81:
 	lda.b $A9
 	clc
-	adc.w #$EBE2
+	adc.w #DATA8_9DEBE2
 	sta.b $A9
 CODE_9EAA89:
 	lda.w $1543,x
@@ -1320,35 +1321,35 @@ CODE_9EAB05:
 	lda.w $1163,x
 	and.w #$0007
 	sta.w $1163,x
-	lda.w #$EA1A
+	lda.w #DATA8_9DEA1A
 	sta.b $A9
 	lda.w $1523,x
 	bne CODE_9EAB1B
 	jmp.w $A3DD
 CODE_9EAB1B:
 	ldy.w #$0001
-	lda.w #$F0D2
+	lda.w #DATA8_9DF0D2
 	jml.l CODE_9EA3F1
 CODE_9EAB25:
 	ldy.w #$0001
-	lda.w #$F104
+	lda.w #DATA8_9DF104
 	sta.b $A9
 	lda.w $1523,x
 	bne CODE_9EAB57
 	ldy.w #$0000
-	lda.w #$EAFE
+	lda.w #DATA8_9DEAFE
 	sta.b $A9
 	lda.w pflags,x
 	bit.w #$0004
 	beq CODE_9EAB4A
 	ldy.w #$0001
-	lda.w #$F7B2
+	lda.w #DATA8_9DF7B2
 	sta.b $A9
 CODE_9EAB4A:
 	cpx.w $0AD9
 	bne CODE_9EAB57
 	ldy.w #$0000
-	lda.w #$EA4C
+	lda.w #DATA8_9DEA4C
 	sta.b $A9
 CODE_9EAB57:
 	lda.w $1543,x

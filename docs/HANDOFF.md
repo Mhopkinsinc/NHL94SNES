@@ -103,7 +103,14 @@
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Next: naming passes. Code banks $9B to $9F (and parts of $80) still use auto labels (CODE_/DATA8_) for most routines and tables; match them to NHLPA93SNES / NHL94Genesis names, name RAM variables, and turn the remaining numeric pointers (for example in the sprite animation sequences of bank9D_E000 and the word pointer tables) into labels.
+- Sprite animations: SPAList (bank9D_E000/F000, 93S name) holds 71 animations, each labelled DATA8_ by address with its
+  direction lists .d0-.d7; SPA holds the address of one, and the code that sets or tests SPA uses the labels. The
+  animations have no names yet (their frame numbers differ from 93S, so matching them to the 93S SPA names needs the
+  frames compared). CODE_9EA419 has the shape of 93S updateanim and CODE_9EA3F1 of SetSPA with the animation in A;
+  with them $11E3 would be SPAcnt and $1163 facedir: candidates for the next 93S pass.
+- Next: naming passes. Code banks $9B to $9F (and parts of $80) still use auto labels (CODE_/DATA8_) for most routines
+  and tables; match them to NHLPA93SNES / NHL94Genesis names, name RAM variables, and turn the remaining numeric
+  pointers (word pointer tables) into labels.
 
 ## Setup notes
 

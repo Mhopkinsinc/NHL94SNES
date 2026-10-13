@@ -434,3 +434,4 @@ $9F9848,StatusTextTbl,DATA8_9F9848,93S,"Ice, Bench, Inj P, Inj G, then the capta
 $9F98F1,HandedTextTbl,DATA8_9F98F1,93S,"Right, Left, as 93S HandedTextTbl",src/data/text/HandedTextTbl.asm
 $9FA816,GoalBoxText,DATA8_9FA816,93S,"GOAL!, HAT TRICK! with position codes, as 93S GoalBoxText",src/data/text/GoalBoxText.asm
 $9DA05D,RosterLineNames,DATA8_9DA05D,93S,"the line names, the same strings as 93S RosterLineNames",src/data/text/RosterLineNames.asm
+$9DE0FC,SPAList,DATA8_9DE0FC,93S,"the sprite animations: a zero word (SPA 0 = no animation), then each animation; SPA holds the address of one; 93S SPAList",src/bank9D_E000.asm
