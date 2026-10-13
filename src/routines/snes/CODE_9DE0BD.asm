@@ -1,0 +1,17 @@
+; Unidentified routine.
+CODE_9DE0BD:		; copy X colours from [$0C] into the colour buffer $7F7500, from colour Y
+	stx.b $16
+	tya
+	asl a
+	tax
+	ldy.w #$0000
+CODE_9DE0C5:
+	lda.b [$0C],y
+	sta.l $7F7500,x
+	iny
+	iny
+	inx
+	inx
+	dec.b $16
+	bne CODE_9DE0C5
+	rtl

@@ -3,10 +3,10 @@
 ## Alignment
 
 - Audit is `docs/align_plan.md` (no source change). `bank9C_A000` plus `src/data/teamdata94s.asm` does cover the old bank9C_B000, C000 and D000 ranges: the next file is bank9C_E000 at `$9CEF59`.
-- Layout done: banks `$81` through `$9A` are `src/banks/` files. Banks `$9B` and `$9C` are `src/banks/b9B_screens.asm` and `b9C_teams.asm` (routines in `src/routines/`, tables in `src/data/tables/`). `tools/verify_all.sh` MATCH.
+- Layout done: banks `$81` through `$9D` are `src/banks/` files (`b9B_screens`, `b9C_teams`, `b9D_roster` hold the code banks). Routines are in `src/routines/`, tables in `src/data/tables/`. `tools/verify_all.sh` MATCH.
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
 - `adda43` shares a file with `CODE_9BB176` because that routine falls through into it.
-- Next: split the remaining code banks (`$80`, `$9D-$9F`) into `src/routines/`. Extraction, SPA symbols and the doc rewrite are still ahead.
+- Next: split the remaining code banks (`$80`, `$9E`, `$9F`) into `src/routines/`. The animation sequences in bank `$9D` still need `src/data/frames94s.asm`. Extraction, SPA symbols and the doc rewrite are still ahead.
 
 ## Unsure
 

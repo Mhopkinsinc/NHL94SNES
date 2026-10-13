@@ -1,0 +1,3 @@
+; Data table.
+DATA8_9DACDF:
+	dw $000E,$005E,$005E,$005E,$009E,$00CE,$00FE
