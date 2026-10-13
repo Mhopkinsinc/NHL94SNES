@@ -20,6 +20,8 @@ os.makedirs(os.path.join(out, 'segments'))
 # .chr.huf = tiles packed for DecompressHuffman. .lin.pairs = linear 4bpp tiles packed for DecompressPairs.
 # .map.huf = map words packed for DecompressHuffman. .chr.pairs = tiles packed for DecompressPairs.
 # .lin.lz = linear 4bpp tiles (converted to planar by $9B85C2) packed for DecompressLZ.
+# .huf = packed for DecompressHuffman, not identified yet. .pal.huf, .pal.rle = colours packed for DecompressHuffman,
+# DecompressRLE. .map.rle = map words (or map bytes after a $0010 header word) packed for DecompressRLE.
 # .spc = a block for SPCUploadBlock: big-endian sound RAM address and length, then the bytes for the sound CPU.
 ASSETS = [
     ('IceRink.chr.lz', 0x818000, 0x81ABDE),
@@ -274,6 +276,14 @@ ASSETS = [
     ('DATA8_9AA6D6.lin.huf', 0x9AA6D6, 0x9AA8AB),
     ('DATA8_9AA8AB.lin.huf', 0x9AA8AB, 0x9AAA6E),
     ('CenterIceCHI.lin.huf', 0x9AAC2E, 0x9AADE5),
+    ('DATA8_9AB13D.lin.huf', 0x9AB13D, 0x9AB2DF),
+    ('CenterIceANA.lin.huf', 0x9AB47B, 0x9AB610),
+    ('DATA8_9AB610.huf', 0x9AB610, 0x9AB7A1),
+    ('DATA8_9AB7A1.map.huf', 0x9AB7A1, 0x9AB931),
+    ('DATA8_9ABA95.map.lz', 0x9ABA95, 0x9ABBF5),
+    ('CenterIceNJD.lin.huf', 0x9ABBF5, 0x9ABD3D),
+    ('CenterIceWPG.lin.huf', 0x9ABE73, 0x9ABFA1),
+    ('CenterIceBOS.lin.huf', 0x9ABFA1, 0x9AC0CC),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []

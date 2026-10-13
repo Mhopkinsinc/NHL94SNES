@@ -142,7 +142,7 @@ DATA8_9AADE5:		; a song (see bank81_F000): header, track offsets ($0000 ends the
 	db $00,$00,$00,$00,$00
 DATA8_9AAF99:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
-	dw .left-DATA8_9AAF99,$00F2,$0000
+	dw .left-DATA8_9AAF99,.right-DATA8_9AAF99,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $00,$C2,"TRAK"

@@ -164,3 +164,7 @@ $97FE85,CenterIceTilesTBL,DATA8_97FE85,code,"Tampa Bay centre ice logo tiles (li
 $98FECB,CenterIceTilesNYI,DATA8_98FECB,code,"the New York Islanders centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 13 of the centre ice table in bank $9C)",src/bank98_F000.asm
 $99FEC0,CenterIceTilesOTT,DATA8_99FEC0,code,"the Ottawa centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 15 of the centre ice table in bank $9C)",src/bank99_F000.asm
 $9AAC2E,CenterIceTilesCHI,DATA8_9AAC2E,code,"the Chicago centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 4 of the centre ice table in bank $9C)",src/bank9A_A000.asm
+$9AB47B,CenterIceTilesANA,DATA8_9AB47B,code,"the Anaheim centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 0 of the centre ice table in bank $9C)",src/bank9A_B000.asm
+$9ABBF5,CenterIceTilesNJD,DATA8_9ABBF5,code,"the New Jersey centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 12 of the centre ice table in bank $9C)",src/bank9A_B000.asm
+$9ABE73,CenterIceTilesWPG,DATA8_9ABE73,code,"the Winnipeg centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 25 of the centre ice table in bank $9C)",src/bank9A_B000.asm
+$9ABFA1,CenterIceTilesBOS,DATA8_9ABFA1,code,"the Boston centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 1 of the centre ice table in bank $9C)",src/bank9A_B000.asm
