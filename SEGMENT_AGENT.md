@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8B_B000. <- CURRENT
+bank8B_C000. <- CURRENT
 
 ## Sources
 
@@ -188,8 +188,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8B_8000 | matched 4563 bytes | $8B8000 | $8B91D2 | 0% | SpriteFrames frames (tools/spriteframes.py); end moved +$1D3 (frame boundary) |
 | bank8B_9000 | matched 3931 bytes | $8B91D3 | $8BA12D | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8B91D3, end moved +$12E (frame boundary) |
 | bank8B_A000 | matched 3813 bytes | $8BA12E | $8BB012 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8BA12E, end moved +$13 (frame boundary) |
-| bank8B_B000 | incbin <- CURRENT | $8BB013 | $8BBFFF | 0% | org moved to $8BB013 |
-| bank8B_C000 | incbin | $8BC000 | $8BCFFF | 0% | |
+| bank8B_B000 | matched 4355 bytes | $8BB013 | $8BC115 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8BB013, end moved +$116 (frame boundary) |
+| bank8B_C000 | incbin <- CURRENT | $8BC116 | $8BCFFF | 0% | org moved to $8BC116 |
 | bank8B_D000 | incbin | $8BD000 | $8BDFFF | 0% | |
 | bank8B_E000 | incbin | $8BE000 | $8BEFFF | 0% | |
 | bank8B_F000 | incbin | $8BF000 | $8BFFFF | 0% | |
@@ -448,3 +448,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8B_8000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8B8000 8B9000`. bank8B_9000 org moved to $8B91D3 (frame boundary).
 - bank8B_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8B91D3 8BA000`. bank8B_A000 org moved to $8BA12E (frame boundary).
 - bank8B_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8BA12E 8BB000`. bank8B_B000 org moved to $8BB013 (frame boundary).
+- bank8B_B000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8BB013 8BC000`. bank8B_C000 org moved to $8BC116 (frame boundary).

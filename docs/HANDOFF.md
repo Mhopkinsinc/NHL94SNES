@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $8A, and bank8B_8000 to bank8B_A000, are source (MATCH); the rest are incbin.
+- Banks $80 to $8A, and bank8B_8000 to bank8B_B000, are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -83,7 +83,7 @@
   DATA8_89FFC7 (bank89_F000) is an LZ-packed palette that $9DC8E4 loads at colour $40; its screen is not identified.
 - DATA8_8AFF7A (bank8A_F000) has the layout of DATA8_87FF91 unpacked (10 x 12 byte map after three words) and is read at
   $9DB635, near the code that unpacks DATA8_87FF91; both are likely tile pictures of one screen, not identified yet.
-- Next: segment bank8B_B000, from $8BB013 (`tools/spriteframes.py frames 8BB013 8BC000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank8B_C000, from $8BC116 (`tools/spriteframes.py frames 8BC116 8BD000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
