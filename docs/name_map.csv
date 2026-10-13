@@ -265,3 +265,5 @@ $9B8358,Multi5Init,CODE_9B8358,code,"calls Multi5ConnectCheck, then clears the m
 $9B83BE,Multi5ConnectCheck,CODE_9B83BE,code,"reads the multitap signature bits of both ports into $1A00; marker strings name it MULTI5 CONNECT CHECK VER1.00",src/bank9B_8000.asm
 $9B85C2,LinearToPlanar,CODE_9B85C2,code,"converts linear 4bpp tiles at [$0C] to SNES planar in place (used for the centre ice logos and photos)",src/bank9B_8000.asm
 $9BCD4A,PasswordChars,DATA8_9BCD4A,code,"the characters passwords are written with (consonants, digits, a dash); read by the password screen code that prints Password / Bad Password",src/bank9B_C000.asm
+$9C83B7,CenterIceTable,DATA8_9C83B7,code,"per team (home team $1C98): long pointers to the centre ice logo tiles and map; read by the rink loader $9BC17C and in banks $9D and $9F",src/bank9C_8000.asm
+$9C8497,LogoPaletteTable,DATA8_9C8497,code,"per team: long pointer to the 16 logo colours (TeamLogoSprites and centre ice logo); read in bank $9D",src/bank9C_8000.asm

@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9C_8000. <- CURRENT
+bank9C_9000. <- CURRENT
 
 ## Sources
 
@@ -321,8 +321,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9B_D000 | matched 4096 bytes | $9BD000 | $9BDFFF | 0% | $FF fill (padbyte/pad) |
 | bank9B_E000 | matched 4096 bytes | $9BE000 | $9BEFFF | 0% | $FF fill (padbyte/pad) |
 | bank9B_F000 | matched 4096 bytes | $9BF000 | $9BFFFF | 0% | $FF fill (padbyte/pad) |
-| bank9C_8000 | incbin <- CURRENT | $9C8000 | $9C8FFF | 43% | |
-| bank9C_9000 | incbin | $9C9000 | $9C9FFF | 76% | |
+| bank9C_8000 | matched 4096 bytes | $9C8000 | $9C8FFF | 43% | box styles DATA8_9C8000-DATA8_9C8310 (tiles as assets, 3 x 3 maps), CenterIceTable, LogoPaletteTable, DATA8_9C850F; screen code with auto labels |
+| bank9C_9000 | incbin <- CURRENT | $9C9000 | $9C9FFF | 76% | |
 | bank9C_A000 | incbin | $9CA000 | $9CAFFF | 29% | |
 | bank9C_B000 | incbin | $9CB000 | $9CBFFF | 0% | |
 | bank9C_C000 | incbin | $9CC000 | $9CCFFF | 0% | |
@@ -581,3 +581,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9B_D000: source, MATCH. $FF fill, written with padbyte/pad.
 - bank9B_E000: source, MATCH. $FF fill, written with padbyte/pad.
 - bank9B_F000: source, MATCH. $FF fill, written with padbyte/pad. Bank $9B is now all source.
+- bank9C_8000: source, MATCH. Three box styles for the box drawer in bank $9D (tiles as new assets DATA8_9C8000.chr, DATA8_9C8098.chr, DATA8_9C81F0.chr; 3 x 3 maps as dw), DATA8_9C8328 (LZ-packed, asset DATA8_9C8328.lz), CenterIceTable and LogoPaletteTable (named; their entries written as dd of the team labels), DATA8_9C850F (per-team 16-colour pointers), then screen code with auto labels and the stat column names DATA8_9C8BCE as text records. bank9C_9000 is split around CODE_9C9002 for a branch. Unreached branches decoded with `tools/disasm65816.py --entry`.
