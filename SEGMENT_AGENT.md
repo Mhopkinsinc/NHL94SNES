@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank91_F000. <- CURRENT
+bank92_8000. <- CURRENT
 
 ## Sources
 
@@ -240,8 +240,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank91_C000 | matched 4096 bytes | $91C000 | $91CFFF | 0% | end of DATA8_91B188; start of DATA8_91C7A7 (sound CPU upload block) |
 | bank91_D000 | matched 4096 bytes | $91D000 | $91DFFF | 0% | end of DATA8_91C7A7; start of DATA8_91DDAD (LZ-packed background tiles) |
 | bank91_E000 | matched 4096 bytes | $91E000 | $91EFFF | 0% | DATA8_91DDAD continued |
-| bank91_F000 | incbin <- CURRENT | $91F000 | $91FFFF | 0% | |
-| bank92_8000 | incbin | $928000 | $928FFF | 0% | |
+| bank91_F000 | matched 4096 bytes | $91F000 | $91FFFF | 0% | end of DATA8_91DDAD; DATA8_91F2F9 (sound CPU upload block) |
+| bank92_8000 | incbin <- CURRENT | $928000 | $928FFF | 0% | |
 | bank92_9000 | incbin | $929000 | $929FFF | 0% | |
 | bank92_A000 | incbin | $92A000 | $92AFFF | 0% | |
 | bank92_B000 | incbin | $92B000 | $92BFFF | 0% | |
@@ -500,3 +500,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank91_C000: source, MATCH. The end of DATA8_91B188, a zero byte, then the start of DATA8_91C7A7 ($91C7A7-$91DDAC): a block for SPCUploadBlock, entry 17 of the upload list DATA8_80DD16. New asset DATA8_91C7A7.spc.
 - bank91_D000: source, MATCH. The end of DATA8_91C7A7, then the start of DATA8_91DDAD ($91DDAD-$91F2F8): background tiles packed for DecompressLZ that the screen setup at $9DC7E6 unpacks and sends to VRAM; rendered they show EA SPORTS and ELECTRONIC ARTS. New asset DATA8_91DDAD.chr.lz.
 - bank91_E000: source, MATCH. DATA8_91DDAD continued.
+- bank91_F000: source, MATCH. The end of DATA8_91DDAD, then DATA8_91F2F9 ($91F2F9-$91FFFE): a block for SPCUploadBlock, entry 0 of the upload list DATA8_80DD16; new asset DATA8_91F2F9.spc; then the last byte. Bank $91 is now all source.
