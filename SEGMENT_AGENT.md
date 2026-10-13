@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8F_8000. <- CURRENT
+bank8F_9000. <- CURRENT
 
 ## Sources
 
@@ -217,8 +217,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8E_D000 | matched 4068 bytes | $8ED01C | $8EDFFF | 0% | last SpriteFrames frames; start of DATA8_8ED897 (sound CPU upload block, asset DATA8_8ED897.spc); org moved to $8ED01C |
 | bank8E_E000 | matched 4096 bytes | $8EE000 | $8EEFFF | 0% | DATA8_8ED897 continued (asset DATA8_8ED897.spc) |
 | bank8E_F000 | matched 4096 bytes | $8EF000 | $8EFFFF | 0% | end of DATA8_8ED897; DATA8_8EFD2B (a song from TeamSongs) |
-| bank8F_8000 | incbin <- CURRENT | $8F8000 | $8F8FFF | 0% | |
-| bank8F_9000 | incbin | $8F9000 | $8F9FFF | 0% | |
+| bank8F_8000 | matched 4096 bytes | $8F8000 | $8F8FFF | 0% | start of DATA8_8F8000 (sound CPU upload block, asset DATA8_8F8000.spc) |
+| bank8F_9000 | incbin <- CURRENT | $8F9000 | $8F9FFF | 0% | |
 | bank8F_A000 | incbin | $8FA000 | $8FAFFF | 0% | |
 | bank8F_B000 | incbin | $8FB000 | $8FBFFF | 0% | |
 | bank8F_C000 | incbin | $8FC000 | $8FCFFF | 0% | |
@@ -477,3 +477,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8E_D000: source, MATCH. The last SpriteFrames frames (frame 975 ends at $8ED897; SpriteFrames is now all source), then the start of DATA8_8ED897: a block for SPCUploadBlock (sound RAM $1545, $2490 bytes; in the upload lists DATA8_80E6C1 and DATA8_80E6FD that $9C9860 and $9C97B0 send at sound setup), new asset DATA8_8ED897.spc, split at the segment edges.
 - bank8E_E000: source, MATCH. DATA8_8ED897 continued, an incbin of Extracted/data/DATA8_8ED897.spc:1897..5993.
 - bank8E_F000: source, MATCH. The end of DATA8_8ED897, then DATA8_8EFD2B: a song (TeamSongs entries 114 and 139: San Jose slot 0, Vancouver slot 1) laid out as in bank81_F000; its chunk sizes are big-endian words ($0166, $0146). Bank $8E is now all source.
+- bank8F_8000: source, MATCH. The start of DATA8_8F8000 ($8F8000-$8FBB25): the block of the upload list DATA8_80E73D, for SPCUploadBlock ($3B22 bytes). New asset DATA8_8F8000.spc. Bank $8F then holds a second block (DATA8_8FBB26, $8FBB26-$8FDD31), a 13-track song (DATA8_8FDD32, $8FDD32-$8FFE73) and a stand-in player photo (DATA8_8FFE74).

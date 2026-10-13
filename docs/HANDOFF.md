@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $8E are source (MATCH); the rest are incbin. SpriteFrames is all source.
+- Banks $80 to $8E, and bank8F_8000, are source (MATCH); the rest are incbin. SpriteFrames is all source.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -93,9 +93,11 @@
   probably samples and sound data; DATA8_8ED897 (bank8E_D000-F000, asset DATA8_8ED897.spc) is one of them.
 - Songs: the TRAK chunk size before each "TRAK" tag is a big-endian word (DATA8_8EFD2B has $0166); in bank81_F000 and
   bank8B_F000 its high byte $00 is written at the end of the padding.
-- Next: segment bank8F_8000. $8F8000 is the block of DATA8_80E73D (SPCUploadBlock, $3B22 bytes to $8FBB26), sent with the
-  sound effect table $80E741; identify the rest of bank $8F with `tools/snesgfx.py blocks --from 8F8000 --to 908000`
-  (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Bank $8F: DATA8_8F8000 ($8F8000-$8FBB25, upload block of DATA8_80E73D), DATA8_8FBB26 ($8FBB26-$8FDD31, upload block in a
+  long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
+  no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
+  photo share: a generic skater), then $FF fill.
+- Next: segment bank8F_9000: `incbin "../Extracted/data/DATA8_8F8000.spc":4096..8192` (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
