@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9B_D000. <- CURRENT
+bank9B_E000. <- CURRENT
 
 ## Sources
 
@@ -318,8 +318,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9B_A000 | matched 4097 bytes | $9BA000 | $9BB000 | 84% | screen code with auto labels; DATA8_9BA414, DATA8_9BA849 records, DATA8_9BAE57 direction steps; end moved +$1 |
 | bank9B_B000 | matched 4096 bytes | $9BB001 | $9BC000 | 28% | game code with auto labels; DATA8_9BB4C9 sound effects; CODE_9BBFB9 draws a SpriteFrames frame; org moved to $9BB001; end moved +$1 |
 | bank9B_C000 | matched 4095 bytes | $9BC001 | $9BCFFF | 75% | screen code with auto labels; PasswordChars; DATA8_9BC5E7/DATA8_9BC5F5 short team names; $FF fill; org moved to $9BC001 |
-| bank9B_D000 | incbin <- CURRENT | $9BD000 | $9BDFFF | 0% | |
-| bank9B_E000 | incbin | $9BE000 | $9BEFFF | 0% | |
+| bank9B_D000 | matched 4096 bytes | $9BD000 | $9BDFFF | 0% | $FF fill (padbyte/pad) |
+| bank9B_E000 | incbin <- CURRENT | $9BE000 | $9BEFFF | 0% | |
 | bank9B_F000 | incbin | $9BF000 | $9BFFFF | 0% | |
 | bank9C_8000 | incbin | $9C8000 | $9C8FFF | 43% | |
 | bank9C_9000 | incbin | $9C9000 | $9C9FFF | 76% | |
@@ -578,3 +578,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9B_A000: source, MATCH. Screen code with auto labels: it unpacks DATA8_96D7AC and converts it with LinearToPlanar, loads colours and small maps from bank $9A; data DATA8_9BA414 (word list), DATA8_9BA849 with byte/pointer records (pointers written as DATA8_9BA849+n), DATA8_9BAE57 (x and y steps for eight directions). The last instruction ends at $9BB000, so bank9B_B000's org moves to $9BB001; bank9B_B000 is split around CODE_9BB011, CODE_9BB015 and CODE_9BB01D for branches here. Unreached branches decoded with `tools/disasm65816.py --entry`.
 - bank9B_B000: source, MATCH. Game code with auto labels; DATA8_9BB493 (bytes), DATA8_9BB4C9 (a sound effect table: word offsets, then 48-byte effects; bank $9C points [$34] at it with the upload list DATA8_80E6FD), CODE_9BBFB9 (draws SpriteFrames frame $0CCD). The last instruction ends at $9BC000, so bank9B_C000 starts at $9BC001 with the label CODE_9BC001 for a branch here.
 - bank9B_C000: source, MATCH. Screen code with auto labels: the Other Scores screen, the short names DATA8_9BC5E7 / DATA8_9BC5F5 (NY Islanders, NY Rangers) as text records, the password screen with PasswordChars (the password characters, as a string), then $FF fill (the code map had decoded part of it as code; it is db here). Org $9BC001 (set by bank9B_B000).
+- bank9B_D000: source, MATCH. $FF fill, written with padbyte/pad.
