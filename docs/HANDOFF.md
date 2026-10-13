@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $87, and bank88_8000 to bank88_9000, are source (MATCH); the rest are incbin.
+- Banks $80 to $87, and bank88_8000 to bank88_A000, are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -77,7 +77,7 @@
   words (palettes?); no reader of these found yet.
 - DATA8_87FF91 (bank87_F000): an LZ block, unpacked a 10 x 12 byte map after three words (10, 12, 16); $9DB6D7 unpacks it
   to $7F0000 and then unpacks $9ADEE0 to $7F4000 and $91B188 to $7F5000; what reads the map is not traced.
-- Next: segment bank88_A000, from $88A17A (`tools/spriteframes.py frames 88A17A 88B000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank88_B000, from $88B0B9 (`tools/spriteframes.py frames 88B0B9 88C000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
