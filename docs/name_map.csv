@@ -153,3 +153,4 @@ $83FF47,CenterIceTilesPIT,DATA8_83FF47,code,"Pittsburgh centre ice logo tiles (l
 $84FF38,CenterIceTilesDAL,DATA8_84FF38,code,"Dallas centre ice logo tiles (linear 4bpp, Huffman); team 5 of the table at $9C83B7",src/bank84_F000.asm
 $86FE78,CenterIceTilesVAN,DATA8_86FE78,code,"Vancouver centre ice logo tiles (linear 4bpp, Huffman); team 23 of the table at $9C83B7",src/bank86_F000.asm
 $88FFC6,CenterIceMapNHL,DATA8_88FFC6,code,"centre ice logo map of the all-star teams (26, 27) of the table at $9C83B7: the NHL shield",src/bank88_F000.asm
+$8DFF3D,CenterIceTilesCGY,DATA8_8DFF3D,code,"Calgary centre ice logo tiles (linear 4bpp, Huffman); team 3 of the table at $9C83B7",src/bank8D_F000.asm
