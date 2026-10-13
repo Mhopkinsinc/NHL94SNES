@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9B_A000. <- CURRENT
+bank9B_B000. <- CURRENT
 
 ## Sources
 
@@ -315,8 +315,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9A_F000 | matched 4096 bytes | $9AF000 | $9AFFFF | 0% | the end of LogoPaletteSJS, then more logo colours (LogoPaletteSTL to LogoPaletteLAK, with the colours DATA8_9AF15C between them), then PhotoPaletteANA and more colours, then DATA8_9AF59C, a block for the sound CPU (upload list DATA8_80DD16), then the last bytes of the bank |
 | bank9B_8000 | matched 4097 bytes | $9B8000 | $9B9000 | 74% | Multi5Bios, Multi5ConnectCheck, PadDirection, LinearToPlanar; the lines screen with auto labels; end moved +$1 |
 | bank9B_9000 | matched 4095 bytes | $9B9001 | $9B9FFF | 37% | screen code with auto labels; DATA8_9B906F rating names, DATA8_9B9C26 records, IRQ hooks CODE_9B93C1/CODE_9B93DE; org moved to $9B9001 |
-| bank9B_A000 | incbin <- CURRENT | $9BA000 | $9BAFFF | 84% | |
-| bank9B_B000 | incbin | $9BB000 | $9BBFFF | 28% | |
+| bank9B_A000 | matched 4097 bytes | $9BA000 | $9BB000 | 84% | screen code with auto labels; DATA8_9BA414, DATA8_9BA849 records, DATA8_9BAE57 direction steps; end moved +$1 |
+| bank9B_B000 | incbin <- CURRENT | $9BB001 | $9BBFFF | 28% | org moved to $9BB001 |
 | bank9B_C000 | incbin | $9BC000 | $9BCFFF | 75% | |
 | bank9B_D000 | incbin | $9BD000 | $9BDFFF | 0% | |
 | bank9B_E000 | incbin | $9BE000 | $9BEFFF | 0% | |
@@ -575,3 +575,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9A_F000: source, MATCH. The end of LogoPaletteSJS, then more logo colours (LogoPaletteSTL to LogoPaletteLAK, with the colours DATA8_9AF15C between them), then PhotoPaletteANA and more colours, then DATA8_9AF59C, a block for the sound CPU (upload list DATA8_80DD16), then the last bytes of the bank. Bank $9A is now all source.
 - bank9B_8000: source, MATCH. Code: CODE_9B8000 (50 Hz check), CODE_9B8017 with the new PadDirection table, Multi5Bios / Multi5Init / Multi5ConnectCheck (the multitap reader, named from its SHVC MULTI5 marker strings, kept as db strings), LinearToPlanar, then the lines screen (line name records DATA8_9B8861 and DATA8_9B88E9 as dw/db) with auto labels. Unreached branches decoded with `tools/disasm65816.py --entry` (9B80E4, 9B8205, 9B8230, 9B823C, 9B8289, 9B829E, 9B82A6, 9B82DB, 9B8309 at M=8 X=16; 9B850A, 9B87C9, 9B89B4, 9B8BF5, 9B8BFB, 9B8D4F at 16/16).
 - bank9B_9000: source, MATCH. Screen code that prints text records from bank $9C, with auto labels; DATA8_9B906F (the player rating names as dw/db records), CODE_9B93C1/CODE_9B93DE (a pair of IRQ hooks that split the BG1 scroll), DATA8_9B9C26 (word pointers to word records, not identified yet). Org moved to $9B9001: the last instruction of bank9B_8000 ends there (its row now says end moved +$1). bank9B_A000 is split around CODE_9BA003, which a branch here targets. Unreached branches decoded with `tools/disasm65816.py --entry`.
+- bank9B_A000: source, MATCH. Screen code with auto labels: it unpacks DATA8_96D7AC and converts it with LinearToPlanar, loads colours and small maps from bank $9A; data DATA8_9BA414 (word list), DATA8_9BA849 with byte/pointer records (pointers written as DATA8_9BA849+n), DATA8_9BAE57 (x and y steps for eight directions). The last instruction ends at $9BB000, so bank9B_B000's org moves to $9BB001; bank9B_B000 is split around CODE_9BB011, CODE_9BB015 and CODE_9BB01D for branches here. Unreached branches decoded with `tools/disasm65816.py --entry`.
