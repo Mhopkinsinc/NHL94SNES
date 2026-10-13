@@ -15,6 +15,7 @@ os.makedirs(os.path.join(out, 'segments'))
 # their tiles from it).
 # .lin.huf = linear 4bpp tiles (converted to planar by $9B85C2) packed for DecompressHuffman: the team centre ice logos.
 # DATA8_XXXXXX.<format> = a packed block not identified yet, named by its address (.lz: DecompressLZ; .pal.lz: colours).
+# .spc = a block for SPCUploadBlock: big-endian sound RAM address and length, then the bytes for the sound CPU.
 ASSETS = [
     ('IceRink.chr.lz', 0x818000, 0x81ABDE),
     ('TeamLogos.spr.huf', 0x81ABDE, 0x81FE45),
@@ -39,6 +40,7 @@ ASSETS = [
     ('SpriteFrames8D.bin', 0x8D8000, 0x8DFF3D),
     ('CenterIceCGY.lin.huf', 0x8DFF3D, 0x8DFFFC),
     ('SpriteFrames8E.bin', 0x8E8000, 0x8ED897),
+    ('DATA8_8ED897.spc', 0x8ED897, 0x8EFD2B),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []

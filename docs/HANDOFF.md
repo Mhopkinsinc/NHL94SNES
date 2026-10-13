@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $8D, and bank8E_8000 to bank8E_C000, are source (MATCH); the rest are incbin.
+- Banks $80 to $8D, and bank8E_8000 to bank8E_D000, are source (MATCH); the rest are incbin. SpriteFrames is all source.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -86,7 +86,15 @@
   $9DB635, near the code that unpacks DATA8_87FF91; both are likely tile pictures of one screen, not identified yet.
 - Songs at bank ends: DATA8_81FE45 (bank81_F000) and DATA8_8BFE74 (bank8B_F000, TeamSongs entries 31, 32, 79), both
   header + TRAK chunks "left"/"right"; the note bytes are not decoded yet.
-- Next: segment bank8E_D000, from $8ED01C (`tools/spriteframes.py frames 8ED01C 8EE000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Sound uploads: DATA8_80E6C1 (15 entries) and DATA8_80E6FD (16) in bank80_E000 are lists of long pointers to blocks for
+  SPCUploadBlock ($809906: big-endian sound RAM address and length, then the bytes). $9C9860 and $9C97B0 set the sound effect
+  table ([$34] = $9BB4C9), call SoundInit and send every block of one list; $9C9800 sends DATA8_80E73D (one block, $8F8000)
+  with [$34] = $80E741, so the data from $80E741 in bank80_E000 is a sound effect table (still plain db). The blocks are
+  probably samples and sound data; DATA8_8ED897 (bank8E_D000-F000, asset DATA8_8ED897.spc) is one of them.
+- Songs: the TRAK chunk size before each "TRAK" tag is a big-endian word (DATA8_8EFD2B has $0166); in bank81_F000 and
+  bank8B_F000 its high byte $00 is written at the end of the padding.
+- Next: segment bank8E_E000: `incbin "../Extracted/data/DATA8_8ED897.spc":1897..5993`; then bank8E_F000: the rest of the
+  block (5993..9364) and the song at $8EFD2B (TeamSongs entries; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

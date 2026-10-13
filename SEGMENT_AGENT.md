@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8E_D000. <- CURRENT
+bank8E_E000. <- CURRENT
 
 ## Sources
 
@@ -214,8 +214,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8E_A000 | matched 3796 bytes | $8EA3DB | $8EB2AE | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8EA3DB, end moved +$2AF (frame boundary) |
 | bank8E_B000 | matched 4338 bytes | $8EB2AF | $8EC3A0 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8EB2AF, end moved +$3A1 (frame boundary) |
 | bank8E_C000 | matched 3195 bytes | $8EC3A1 | $8ED01B | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8EC3A1, end moved +$1C (frame boundary) |
-| bank8E_D000 | incbin <- CURRENT | $8ED01C | $8EDFFF | 0% | org moved to $8ED01C |
-| bank8E_E000 | incbin | $8EE000 | $8EEFFF | 0% | |
+| bank8E_D000 | matched 4068 bytes | $8ED01C | $8EDFFF | 0% | last SpriteFrames frames; start of DATA8_8ED897 (sound CPU upload block, asset DATA8_8ED897.spc); org moved to $8ED01C |
+| bank8E_E000 | incbin <- CURRENT | $8EE000 | $8EEFFF | 0% | |
 | bank8E_F000 | incbin | $8EF000 | $8EFFFF | 0% | |
 | bank8F_8000 | incbin | $8F8000 | $8F8FFF | 0% | |
 | bank8F_9000 | incbin | $8F9000 | $8F9FFF | 0% | |
@@ -474,3 +474,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8E_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8EA3DB 8EB000`. bank8E_B000 org moved to $8EB2AF (frame boundary).
 - bank8E_B000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8EB2AF 8EC000`. bank8E_C000 org moved to $8EC3A1 (frame boundary).
 - bank8E_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8EC3A1 8ED000`. bank8E_D000 org moved to $8ED01C (frame boundary).
+- bank8E_D000: source, MATCH. The last SpriteFrames frames (frame 975 ends at $8ED897; SpriteFrames is now all source), then the start of DATA8_8ED897: a block for SPCUploadBlock (sound RAM $1545, $2490 bytes; in the upload lists DATA8_80E6C1 and DATA8_80E6FD that $9C9860 and $9C97B0 send at sound setup), new asset DATA8_8ED897.spc, split at the segment edges.
