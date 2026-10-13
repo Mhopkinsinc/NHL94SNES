@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $88, and bank89_8000 to bank89_9000, are source (MATCH); the rest are incbin.
+- Banks $80 to $88, and bank89_8000 to bank89_A000, are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -79,7 +79,7 @@
   to $7F0000 and then unpacks $9ADEE0 to $7F4000 and $91B188 to $7F5000; what reads the map is not traced.
 - CenterIceMapNHL ($88FFC6, bank88_F000) is the centre ice map of teams 26 and 27 (the all-star teams), with the tiles at
   $9AD4B6: the NHL shield.
-- Next: segment bank89_A000, from $89A035 (`tools/spriteframes.py frames 89A035 89B000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank89_B000, from $89B16F (`tools/spriteframes.py frames 89B16F 89C000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

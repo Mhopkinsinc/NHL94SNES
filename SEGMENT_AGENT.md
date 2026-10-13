@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank89_A000. <- CURRENT
+bank89_B000. <- CURRENT
 
 ## Sources
 
@@ -171,8 +171,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank88_F000 | matched 3946 bytes | $88F096 | $88FFFF | 0% | last SpriteFrames frames of bank $88; CenterIceMapNHL (all-star centre ice logo map); org moved to $88F096 |
 | bank89_8000 | matched 4218 bytes | $898000 | $899079 | 0% | SpriteFrames frames (tools/spriteframes.py); end moved +$7A (frame boundary) |
 | bank89_9000 | matched 4027 bytes | $89907A | $89A034 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $89907A, end moved +$35 (frame boundary) |
-| bank89_A000 | incbin <- CURRENT | $89A035 | $89AFFF | 0% | org moved to $89A035 |
-| bank89_B000 | incbin | $89B000 | $89BFFF | 0% | |
+| bank89_A000 | matched 4410 bytes | $89A035 | $89B16E | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $89A035, end moved +$16F (frame boundary) |
+| bank89_B000 | incbin <- CURRENT | $89B16F | $89BFFF | 0% | org moved to $89B16F |
 | bank89_C000 | incbin | $89C000 | $89CFFF | 0% | |
 | bank89_D000 | incbin | $89D000 | $89DFFF | 0% | |
 | bank89_E000 | incbin | $89E000 | $89EFFF | 0% | |
@@ -431,3 +431,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank88_F000: source, MATCH. The last SpriteFrames frames of bank $88 (tools/spriteframes.py frames 88F096 890000), then CenterIceMapNHL ($88FFC6): the centre ice logo map that teams 26 and 27 (the all-star teams) of the table at $9C83B7 use with the tiles at $9AD4B6; rendered, the NHL shield. Written as words (6 x 4 map). Bank $88 is now all source.
 - bank89_8000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 898000 899000`. bank89_9000 org moved to $89907A (frame boundary).
 - bank89_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 89907A 89A000`. bank89_A000 org moved to $89A035 (frame boundary).
+- bank89_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 89A035 89B000`. bank89_B000 org moved to $89B16F (frame boundary).
