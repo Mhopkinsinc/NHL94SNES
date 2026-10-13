@@ -778,7 +778,7 @@ CODE_9D97E1:
 	lsr.b $A5
 	dec.b $AD
 	bpl CODE_9D97E1
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	bmi CODE_9D9840
 	lda.b $AD
@@ -857,7 +857,7 @@ CODE_9D9893:
 	and.w #$00FF
 	sta.l $7E3538,x
 	rtl
-CODE_9D98B5:
+GetShifter:
 	lda.w #$FFF0
 	sta.b $AD
 	lda.w #$0010
@@ -949,7 +949,7 @@ CODE_9D996F:
 	bne CODE_9D9977
 	jmp.w $9A0E
 CODE_9D9977:
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.w #$007E
 	sta.b $8B
 	lda.w #$34D2
@@ -1656,7 +1656,7 @@ CODE_9D9F43:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1670,7 +1670,7 @@ CODE_9D9F43:
 	sta.b $8D
 	pla
 	sta.b $8F
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $A5
 	dec a
 	sta.b $A9

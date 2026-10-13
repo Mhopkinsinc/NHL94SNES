@@ -481,7 +481,7 @@ CODE_9DC566:
 	lda.w #DATA8_80D79B
 	sta.b $8D
 	stz.b $08
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.w $1D9B
 	cmp.b $A5
 	bpl CODE_9DC5A4
@@ -565,7 +565,7 @@ CODE_9DC601:
 	lda.w #DATA8_80D79B
 	sta.b $8D
 	stz.b $08
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.w $1D9B
 	cmp.b $A5
 	bpl CODE_9DC63F
@@ -689,7 +689,7 @@ CODE_9DC697:
 	sta.b $8F
 	lda.w #$D3D7
 	sta.b $8D
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
@@ -700,7 +700,7 @@ CODE_9DC697:
 	sta.b $8D
 	lda.w #$0004
 	sta.b $A5
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AC1F3
@@ -1166,7 +1166,7 @@ CODE_9DCB53:
 	lda.w #DATA8_80D79B
 	sta.b $8D
 	stz.b $08
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.w $1D9B
 	cmp.b $A5
 	bpl CODE_9DCB6E

@@ -1319,7 +1319,7 @@ CODE_9BAB07:
 	lda.w #$0000
 	pha
 CODE_9BAB41:
-	jsl.l CODE_9BB0C5
+	jsl.l suba4
 	pla
 	inc a
 	pha
@@ -1331,7 +1331,7 @@ CODE_9BAB41:
 CODE_9BAB4F:
 	lda.b $01,s
 	beq CODE_9BAB5C
-	jsl.l CODE_9BB136
+	jsl.l adda4
 	pla
 	dec a
 	pha
@@ -1767,11 +1767,11 @@ CODE_9BAF03:
 	bne CODE_9BAF4C
 	bit.w #$4000
 	beq CODE_9BAF80
-	jsl.l CODE_9BB0C5
-	jsl.l CODE_9BB0C5
+	jsl.l suba4
+	jsl.l suba4
 	bra CODE_9BAF6E
 CODE_9BAF31:
-	jsl.l CODE_9BB0C5
+	jsl.l suba4
 	ldx.w #$0006
 	bra CODE_9BAF67
 CODE_9BAF3A:
@@ -1783,11 +1783,11 @@ CODE_9BAF3D:
 	trb.w $15D8
 	jmp.w $ACE5
 CODE_9BAF4C:
-	jsl.l CODE_9BB136
-	jsl.l CODE_9BB136
+	jsl.l adda4
+	jsl.l adda4
 	bra CODE_9BAF6E
 CODE_9BAF56:
-	jsl.l CODE_9BB136
+	jsl.l adda4
 	ldx.w #$0006
 	lda.b $B1
 	bit.w #$0010
@@ -1809,7 +1809,7 @@ CODE_9BAF80:
 	bne CODE_9BAF8B
 	jmp.w $ACE5
 CODE_9BAF8B:
-	jsl.l CODE_9BB136
+	jsl.l adda4
 	lda.b $C1
 	beq CODE_9BAF6E
 	lda.w $0CB3

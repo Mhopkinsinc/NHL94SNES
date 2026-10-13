@@ -65,7 +65,7 @@ CODE_9C9074:
 	tay
 	lda.w $0000,y
 	sta.b $A5
-	jsl.l CODE_9FC5EB
+	jsl.l PushNumber
 	jmp.w $9154
 CODE_9C9086:
 	lda.b [$89]
@@ -98,7 +98,7 @@ CODE_9C90B8:
 	lda.w #$0064
 CODE_9C90BF:
 	sta.b $A5
-	jsl.l CODE_9FC5EB
+	jsl.l PushNumber
 	lda.w #$0000
 	sta.b $97
 	lda.w #$0A2A
@@ -125,7 +125,7 @@ CODE_9C90F0:
 	tay
 	lda.w $0000,y
 	sta.b $A5
-	jsl.l CODE_9FC5EB
+	jsl.l PushNumber
 	lda.b [$89]
 	sta.b $A9
 	lda.w #$0000
@@ -146,7 +146,7 @@ CODE_9C90F0:
 	tay
 	lda.w $0000,y
 	sta.b $A5
-	jsl.l CODE_9FC5EB
+	jsl.l PushNumber
 	jsl.l appstring
 	lda.b $97
 	sta.b $8F
@@ -160,7 +160,7 @@ CODE_9C9145:
 	tay
 	lda.w $0000,y
 	sta.b $A5
-	jsl.l CODE_9FA3D7
+	jsl.l PushTime
 CODE_9C9154:
 	lda.b [$8D]
 	inc a
@@ -1131,7 +1131,7 @@ CODE_9C9BC3:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1308,7 +1308,7 @@ CODE_9C9D8A:
 	jsl.l GetPlayerCount
 	lda.b $A5
 	sta.w $1E21
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $A5
 	sta.w $1E23
 	ldx.w #$0000
@@ -1454,7 +1454,7 @@ CODE_9C9E8E:
 	clc
 	adc.w #$001A
 	sta.w $1E21
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $A5
 	clc
 	adc.w #$001A

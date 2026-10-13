@@ -5,7 +5,7 @@
 
 org $9FE000
 	rtl
-CODE_9FE001:
+lcfound:
 	ldx.b $95
 	ldy.b $91
 	lda.b $AD
@@ -30,8 +30,8 @@ CODE_9FE001:
 	jmp.w $DE13
 CODE_9FE03E:
 	rtl
-CODE_9FE03F:
-	jsl.l CODE_9FCDAC
+SetupTeamForIntermission:
+	jsl.l ResetBench
 	lda.w #$0001
 	sta.l $7E344E
 	stz.b $91
@@ -42,7 +42,7 @@ CODE_9FE03F:
 	lda.w #$0002
 	sta.b $91
 CODE_9FE05C:
-	jsl.l CODE_9FDD9D
+	jsl.l reenergizeteam
 	ldx.b $95
 	ldy.b $91
 	stz.w $1796,x
@@ -424,7 +424,7 @@ CODE_9FE3AF:
 	jmp.w $E2AE
 CODE_9FE3BA:
 	jsl.l CODE_9FC76C
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	jsl.l CODE_9FC76C
 	ldy.b $91
 	lda.b $A9
@@ -488,7 +488,7 @@ CODE_9FE431:
 	dec a
 	bmi CODE_9FE4BC
 	sta.w $17E2,y
-	jsl.l CODE_9FDD9D
+	jsl.l reenergizeteam
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -927,7 +927,7 @@ CODE_9FE79F:
 	sta.b $8F
 	lda.w #$D3D0
 	sta.b $8D
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
@@ -938,7 +938,7 @@ CODE_9FE79F:
 	sta.b $8D
 	lda.w #$0004
 	sta.b $A5
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96BABD
@@ -987,7 +987,7 @@ CODE_9FE79F:
 	lda.w #$FFFF
 	sta.w $0CD5
 	stz.w $0CD7
-	jsl.l CODE_9FBA17
+	jsl.l SetHor
 	ldx.w #$0000
 	ldy.w #$01C0
 	lda.w #$6000

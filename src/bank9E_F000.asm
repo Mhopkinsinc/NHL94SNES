@@ -115,7 +115,7 @@ CODE_9EF0D5:
 	jmp.w $F1CA
 CODE_9EF0EC:
 	jsl.l CODE_9EF213
-	jsl.l CODE_9EC4F3
+	jsl.l a2touchpuck
 	lda.w #$0006
 	jsl.l CODE_9C9ABC
 	lda.w $0EFF
@@ -807,7 +807,7 @@ CODE_9EF64C:
 CODE_9EF68B:
 	lda.w #$0003
 	jsl.l CODE_9C9ABC
-	jsl.l CODE_9EC4F3
+	jsl.l a2touchpuck
 	jmp.w $F722
 CODE_9EF699:
 	rtl
@@ -1123,7 +1123,7 @@ CODE_9EF903:
 	and.w #$FFEF
 	sta.w $17DE,y
 	rtl
-CODE_9EF913:
+UpdatePA:
 	lda.w $162A
 	bmi CODE_9EF968
 	sec
@@ -1164,7 +1164,7 @@ CODE_9EF924:
 	jmp.w $C7BE
 CODE_9EF968:
 	rtl
-CODE_9EF969:
+SetPA:
 	lda.b $A5
 	sta.w $162E
 	stz.w $162C
@@ -1387,7 +1387,7 @@ CODE_9EFAF7:
 	lda.w #$000F
 	sta.w $0D11
 CODE_9EFB21:
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.w #$0200
 	tsb.w $15D8
 	lda.w #$FFFF

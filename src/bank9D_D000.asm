@@ -223,7 +223,7 @@ CODE_9DD9AD:
 	sta.b $8F
 	lda.w #$D3D7
 	sta.b $8D
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
@@ -238,7 +238,7 @@ CODE_9DD9AD:
 	adc.l $7E35C4
 	sta.l $7E35C4
 	sta.l $7E35CE
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AC1F3

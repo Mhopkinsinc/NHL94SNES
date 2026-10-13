@@ -350,7 +350,7 @@ CODE_9C8826:
 	lda.w $1DF9
 	cmp.w #$0000
 	beq CODE_9C8842
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $A5
 	sta.w $1DBD
 	jsl.l GetPlayerCount
@@ -359,7 +359,7 @@ CODE_9C8826:
 	bra CODE_9C884E
 CODE_9C8842:
 	stz.w $1DBD
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $A5
 	sta.w $1DC1
 CODE_9C884E:

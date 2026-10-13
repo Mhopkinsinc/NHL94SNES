@@ -546,7 +546,7 @@ CODE_9B8544:
 	lda.w #$0014
 	sta.w $0AC4
 	rtl
-CODE_9B854B:
+RemapTiles:
 	lda.w #$000E
 	sta.b $CA
 	sta.b $CA
@@ -615,7 +615,7 @@ CODE_9B85A8:
 	adc.w #$0020
 	sta.b $89
 	dec.b $A5
-	bne CODE_9B854B
+	bne RemapTiles
 	rtl
 LinearToPlanar:		; convert $00 bytes of linear 4bpp tiles at [$0C] to SNES planar, in place
 	ldx.b $00
@@ -1005,7 +1005,7 @@ CODE_9B890F:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	jsl.l CODE_9B8970
 	lda.b $8F
 	pha
@@ -1097,7 +1097,7 @@ CODE_9B89E6:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	rts
 CODE_9B8A15:
 	jsr.w $89E6
@@ -1279,7 +1279,7 @@ CODE_9B8B60:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1293,7 +1293,7 @@ CODE_9B8B60:
 	sta.b $8D
 	pla
 	sta.b $8F
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $A5
 	dec a
 	sta.b $A9
@@ -1553,7 +1553,7 @@ CODE_9B8D86:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AE9C7
@@ -1592,7 +1592,7 @@ CODE_9B8D86:
 	jsl.l CODE_9B9300
 	lda.b $A5
 	sta.w $1DA3
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $A5
 	sta.w $1DAB
 	jsl.l CODE_9B92DC
@@ -1605,7 +1605,7 @@ CODE_9B8E3D:
 	jsl.l CODE_9B92DC
 	lda.b $A5
 	sta.w $1DA3
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $A5
 	sta.w $1DAB
 CODE_9B8E4F:
@@ -1761,7 +1761,7 @@ CODE_9B8F7B:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.w #$0011
 	sta.w $0D0F
 	lda.w #$0002

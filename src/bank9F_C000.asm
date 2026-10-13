@@ -391,7 +391,7 @@ CODE_9FC2E1:
 CODE_9FC311:
 	jml.l passmode
 CODE_9FC315:
-	jml.l CODE_9EE1C3
+	jml.l ShotMode
 CODE_9FC319:
 	lda.w #$0014
 	sta.b $A5
@@ -751,7 +751,7 @@ CODE_9FC5A6:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jml.l CODE_9FBD9C
+	jml.l eraser
 PutDigits2:
 	lda.w #$2020
 	sta.b $C5
@@ -777,7 +777,7 @@ CODE_9FC5D7:
 	inc.b $8D
 	inc.b $8D
 	rtl
-CODE_9FC5EB:
+PushNumber:
 	phx
 	lda.w #$0000
 	sta.b $8F
@@ -877,7 +877,7 @@ CODE_9FC6A6:
 	sta.w $1C82
 	sta.w $15D6
 	rtl
-CODE_9FC6B2:
+ClearTeamStats:
 	lda.w $17AA
 	pha
 	lda.w $17AC
@@ -1077,7 +1077,7 @@ CODE_9FC833:
 	lda.l $7E35D4
 	cmp.w #$0002
 	bcs CODE_9FC87B
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	asl a
 	sta.b $89
@@ -1139,7 +1139,7 @@ CODE_9FC896:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1790,7 +1790,7 @@ CODE_9FCD90:
 CODE_9FCDAA:
 	plx
 	rtl
-CODE_9FCDAC:
+ResetBench:
 	stz.w $1624
 	lda.w #$0010
 	sta.b $A9
@@ -1844,7 +1844,7 @@ CODE_9FCE16:
 	dec.b $A5
 	bpl CODE_9FCDC9
 	rtl
-CODE_9FCE1D:
+forcepldata:
 	stx.b $87
 	ldx.w #$0000
 CODE_9FCE22:
@@ -1882,7 +1882,7 @@ CODE_9FCE5B:
 	sta.w $0F43,x
 	cmp.w #$0000
 	bmi CODE_9FCE9E
-	jsl.l CODE_9FCED0
+	jsl.l Setplass
 	ldx.b $95
 	lda.w $0F43,x
 	cmp.w #$0004
@@ -1936,7 +1936,7 @@ CODE_9FCEC4:
 	ldx.b $87
 	ldx.b $95
 	rtl
-CODE_9FCED0:
+Setplass:
 	lda.w $0F43,x
 	sta.b $A5
 	bmi CODE_9FCEEE

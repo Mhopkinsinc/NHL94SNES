@@ -86,7 +86,7 @@ CODE_9F9097:
 	sta.l $7E3578,x
 	lda.w $1790
 	sta.l $7E3588,x
-	jsl.l CODE_9FE03F
+	jsl.l SetupTeamForIntermission
 	ldx.w #$0000
 CODE_9F90B9:
 	lda.w #$FF10
@@ -103,7 +103,7 @@ CODE_9F90B9:
 	jsl.l CODE_8086A9
 	jsl.l CODE_9F9307
 	jsl.l CODE_9FB901
-	jsl.l CODE_9FBA17
+	jsl.l SetHor
 	jsl.l SpriteFrameStart
 	jsl.l CODE_9FBAAA
 	jsl.l SpriteFrameEnd
@@ -274,7 +274,7 @@ CODE_9F9243:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame
 	jsl.l CODE_9F9307
@@ -284,9 +284,9 @@ CODE_9F9276:
 	jsl.l CODE_9F9298
 	jmp.w $91E8
 CODE_9F927D:
-	jsl.l CODE_9FDD9D
+	jsl.l reenergizeteam
 	jsl.l setpersonel
-	jsl.l CODE_9FCE1D
+	jsl.l forcepldata
 	ldy.b $91
 	lda.w #$FFFF
 	sta.w $179A,y
@@ -404,7 +404,7 @@ CODE_9F937B:
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
 	jsl.l CODE_8086A9
-	jsl.l CODE_9FBA17
+	jsl.l SetHor
 	ldx.w #$0000
 	ldy.w #$01C0
 	lda.w #$6000
@@ -503,7 +503,7 @@ CODE_9F94AE:
 	sta.l $7E3578,x
 	lda.w $1790
 	sta.l $7E3588,x
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	asl a
 	sta.b $89
@@ -570,7 +570,7 @@ CODE_9F954B:
 CODE_9F9559:
 	bvs CODE_9F95C2
 CODE_9F955B:
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	asl a
 	sta.b $89
@@ -614,7 +614,7 @@ CODE_9F95B0:
 	tsb.w $15DC
 CODE_9F95C2:
 	stz.w $0ACF
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	asl a
 	sta.b $89
@@ -770,7 +770,7 @@ CODE_9F9708:
 	bne CODE_9F9708
 	rtl
 CODE_9F9712:
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	sta.w $0D31
 	asl a
@@ -900,7 +900,7 @@ CODE_9F9811:
 	sta.b $A9
 	and.w #$0FFF
 	sta.b $A5
-	jsl.l CODE_9FA3D7
+	jsl.l PushTime
 	jsl.l CODE_9EC7BE
 	lda.w #$0004
 	sta.b $A5
@@ -992,7 +992,7 @@ DATA8_9F98F1:
 	asl a
 	adc.w #$008C
 	sta.b $A5
-	jsl.l CODE_9FC5EB
+	jsl.l PushNumber
 	jsl.l CODE_9EC7BE
 	lda.b $8F
 	pha
@@ -1353,7 +1353,7 @@ CODE_9F9BBB:
 	sta.b $8D
 	jsl.l CODE_9ECFC6
 	jsl.l CODE_9FBEFD
-	jsl.l CODE_9EB735
+	jsl.l updatepwrplay
 	bra CODE_9F9C05
 CODE_9F9BD3:
 	lda.b $8F
@@ -1514,7 +1514,7 @@ CODE_9F9CFB:
 	sta.b $8D
 	pla
 	sta.b $8F
-	jsl.l CODE_9F9D80
+	jsl.l PrintPerLabel
 	lda.b $A9
 	pha
 	lda.b $8F
@@ -1533,7 +1533,7 @@ CODE_9F9CFB:
 	lda.w $178E
 	sta.b $A5
 	jsl.l CODE_9F9E15
-	jsl.l CODE_9FC5EB
+	jsl.l PushNumber
 	jsl.l CODE_9F9DFB
 	jsl.l CODE_9ECE15
 	lda.b $8F
@@ -1552,13 +1552,13 @@ CODE_9F9CFB:
 	lda.w $1790
 	sta.b $A5
 	jsl.l CODE_9F9E15
-	jsl.l CODE_9FC5EB
+	jsl.l PushNumber
 	jsl.l CODE_9F9DFB
 	jsl.l CODE_9ECE15
 	pla
 	sta.b $A9
 	jmp.w $9CD8
-CODE_9F9D80:
+PrintPerLabel:
 	lda.w $1630
 	sta.b $A5
 	cmp.w #$0004

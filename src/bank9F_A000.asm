@@ -283,7 +283,7 @@ CODE_9FA24D:
 	jsl.l CODE_9EC7BE
 	lda.b $AD
 	sta.b $A5
-	jsl.l CODE_9FA3D7
+	jsl.l PushTime
 	inc.w $0D0F
 	jsl.l CODE_9EC7BE
 	pla
@@ -291,7 +291,7 @@ CODE_9FA24D:
 	inc.w $0D11
 	rtl
 CODE_9FA2A6:
-	jsl.l CODE_9FE03F
+	jsl.l SetupTeamForIntermission
 	lda.w #$0000
 	ldy.w #$001E
 CODE_9FA2B0:
@@ -388,7 +388,7 @@ CODE_9FA37A:
 	ora.l $7E35D6
 	bne CODE_9FA390
 CODE_9FA385:
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	sta.w $0D31
 	bmi CODE_9FA379
@@ -418,13 +418,13 @@ CODE_9FA3BE:
 	ora.l $7E35D6
 	bne CODE_9FA3D4
 CODE_9FA3C9:
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	sta.w $0D31
 	bmi CODE_9FA3BA
 CODE_9FA3D4:
 	jmp.w $A461
-CODE_9FA3D7:
+PushTime:
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A48
@@ -561,7 +561,7 @@ CODE_9FA4D0:
 	sta.w $0D11
 	lda.w $0D0F
 	pha
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.w #$2400
 	sta.w $0D0D
 	lda.b $8F
@@ -633,7 +633,7 @@ CODE_9FA586:
 	sta.w $0D0F
 	lda.b $A9
 	sta.b $A5
-	jsl.l CODE_9FC5EB
+	jsl.l PushNumber
 	jml.l CODE_9EC7BE
 CODE_9FA5AD:
 	lda.b $83
@@ -709,7 +709,7 @@ CODE_9FA635:
 CODE_9FA636:
 	lda.l $7E34BC
 	beq CODE_9FA668
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	asl a
 	sta.b $89
@@ -750,7 +750,7 @@ CODE_9FA669:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jml.l CODE_9FBD9C
+	jml.l eraser
 CODE_9FA697:
 	lda.b $A5
 	pha
@@ -841,7 +841,7 @@ CODE_9FA746:
 	and.w #$00FF
 	cmp.w #$0003
 	bne CODE_9FA77B
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	ldy.w #$0003
 	lda.b [$99],y
 	and.w #$00FF
@@ -1085,14 +1085,14 @@ CODE_9FA9A4:
 	bpl CODE_9FA9A4
 	lda.w #$003C
 	sta.w $0D4F
-	jsl.l CODE_9FCDAC
+	jsl.l ResetBench
 	stz.b $91
 	jsl.l setpersonel
-	jsl.l CODE_9FCE1D
+	jsl.l forcepldata
 	inc.b $91
 	inc.b $91
 	jsl.l setpersonel
-	jsl.l CODE_9FCE1D
+	jsl.l forcepldata
 	jsl.l CODE_9FD252
 	lda.w #$FFFF
 	sta.w $179E
@@ -1773,7 +1773,7 @@ CODE_9FAF97:
 CODE_9FAFAD:
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	stz.w $0764
 	stz.w $1D6D
 	rtl

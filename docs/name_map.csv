@@ -329,3 +329,30 @@ $9FC975,addteamstat,CODE_9FC975,93S,"same instructions as the 93S routine addtea
 $9FC93D,GetPlayerCount,CODE_9FC93D,93S,"same instructions as the 93S routine GetPlayerCount (stats)",src/bank9F_C000.asm
 $9FDCD3,setpde,CODE_9FDCD3,93S,"same instructions as the 93S routine setpde (hockey)",src/bank9F_D000.asm
 $9FD407,setpersonel,CODE_9FD407,93S,"same instructions as the 93S routine setpersonel (hockey)",src/bank9F_D000.asm
+$9B854B,RemapTiles,CODE_9B854B,93S,"most instructions as the 93S routine RemapTiles (score/module: 0.92 video)",src/bank9B_8000.asm
+$9BB0C5,suba4,CODE_9BB0C5,93S,"most instructions as the 93S routine suba4 (score/module: 0.95 hockey)",src/bank9B_B000.asm
+$9BB136,adda4,CODE_9BB136,93S,"most instructions as the 93S routine adda4 (score/module: 0.97 hockey)",src/bank9B_B000.asm
+$9BCD69,PWtoBits,CODE_9BCD69,93S,"most instructions as the 93S routine PWtoBits (score/module: 0.93 hockey)",src/bank9B_C000.asm
+$9D98B5,GetShifter,CODE_9D98B5,93S,"most instructions as the 93S routine GetShifter (score/module: 0.93 hockey)",src/bank9D_9000.asm
+$9EB3BC,chkprogress,CODE_9EB3BC,93S,"most instructions as the 93S routine chkprogress (score/module: 0.92 penalty)",src/bank9E_B000.asm
+$9EB735,updatepwrplay,CODE_9EB735,93S,"most instructions as the 93S routine updatepwrplay (score/module: 0.94 penalty)",src/bank9E_B000.asm
+$9EBB92,GetLowestPen,CODE_9EBB92,93S,"most instructions as the 93S routine GetLowestPen (score/module: 0.93 penalty)",src/bank9E_B000.asm
+$9EBF44,updatepentime,CODE_9EBF44,93S,"most instructions as the 93S routine updatepentime (score/module: 0.90 penalty)",src/bank9E_B000.asm
+$9EC4F3,a2touchpuck,CODE_9EC4F3,93S,"most instructions as the 93S routine a2touchpuck (score/module: 0.88 logic)",src/bank9E_C000.asm
+$9ED300,GoalieCount,CODE_9ED300,93S,"most instructions as the 93S routine GoalieCount (score/module: 0.91 logic)",src/bank9E_D000.asm
+$9EE1C3,ShotMode,CODE_9EE1C3,93S,"most instructions as the 93S routine ShotMode (score/module: 0.96 logic)",src/bank9E_E000.asm
+$9EF913,UpdatePA,CODE_9EF913,93S,"most instructions as the 93S routine UpdatePA (score/module: 1.00 penalty)",src/bank9E_F000.asm
+$9EF969,SetPA,CODE_9EF969,93S,"most instructions as the 93S routine SetPA (score/module: 0.93 penalty)",src/bank9E_F000.asm
+$9F9D80,PrintPerLabel,CODE_9F9D80,93S,"most instructions as the 93S routine PrintPerLabel (score/module: 1.00 penalty)",src/bank9F_9000.asm
+$9FA3D7,PushTime,CODE_9FA3D7,93S,"most instructions as the 93S routine PushTime (score/module: 0.90 middle)",src/bank9F_A000.asm
+$9FBA17,SetHor,CODE_9FBA17,93S,"most instructions as the 93S routine SetHor (score/module: 1.00 penalty)",src/bank9F_B000.asm
+$9FBD9C,eraser,CODE_9FBD9C,93S,"most instructions as the 93S routine eraser (score/module: 0.90 middle)",src/bank9F_B000.asm
+$9FC5EB,PushNumber,CODE_9FC5EB,93S,"most instructions as the 93S routine PushNumber (score/module: 0.96 middle)",src/bank9F_C000.asm
+$9FC6B2,ClearTeamStats,CODE_9FC6B2,93S,"most instructions as the 93S routine ClearTeamStats (score/module: 0.94 hockey)",src/bank9F_C000.asm
+$9FCDAC,ResetBench,CODE_9FCDAC,93S,"most instructions as the 93S routine ResetBench (score/module: 1.00 hockey)",src/bank9F_C000.asm
+$9FCE1D,forcepldata,CODE_9FCE1D,93S,"most instructions as the 93S routine forcepldata (score/module: 1.00 hockey)",src/bank9F_C000.asm
+$9FCED0,Setplass,CODE_9FCED0,93S,"most instructions as the 93S routine Setplass (score/module: 0.92 hockey)",src/bank9F_C000.asm
+$9FD6D8,TryAddPlayerToList,CODE_9FD6D8,93S,"most instructions as the 93S routine TryAddPlayerToList (score/module: 0.91 hockey)",src/bank9F_D000.asm
+$9FDD9D,reenergizeteam,CODE_9FDD9D,93S,"most instructions as the 93S routine reenergizeteam (score/module: 1.00 penalty)",src/bank9F_D000.asm
+$9FE001,lcfound,CODE_9FE001,93S,"most instructions as the 93S routine lcfound (score/module: 0.91 logic)",src/bank9F_E000.asm
+$9FE03F,SetupTeamForIntermission,CODE_9FE03F,93S,"most instructions as the 93S routine SetupTeamForIntermission (score/module: 0.92 penalty)",src/bank9F_E000.asm

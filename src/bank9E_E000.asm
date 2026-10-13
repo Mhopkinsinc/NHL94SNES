@@ -186,10 +186,10 @@ CODE_9EE161:
 	sec
 	sbc.b $C1
 	sta.w $10A3,x
-	bpl CODE_9EE1C3
+	bpl ShotMode
 	lda.w #$0080
 	tsb.b $AD
-	bra CODE_9EE1C3
+	bra ShotMode
 CODE_9EE17A:
 	lda.w #$0008
 	sta.w $0D03
@@ -221,7 +221,7 @@ CODE_9EE197:
 CODE_9EE1BD:
 	sty.b $A9
 	jml.l SetSPA
-CODE_9EE1C3:
+ShotMode:
 	cpx.w $0AD9
 	bne CODE_9EE219
 	lda.w $11A3,x
@@ -990,7 +990,7 @@ CODE_9EE87E:
 	lda.b $91
 	pha
 	stx.b $91
-	jsl.l CODE_9EC4F3
+	jsl.l a2touchpuck
 	pla
 	sta.b $91
 	jsl.l CODE_9EE220
@@ -1792,7 +1792,7 @@ CODE_9EEF7F:
 	beq CODE_9EEF91
 	jmp.w $F02A
 CODE_9EEF91:
-	jsl.l CODE_9EC4F3
+	jsl.l a2touchpuck
 	ldy.w $0DF9
 	cmp.w #$000E
 	bmi CODE_9EEFA6

@@ -181,10 +181,10 @@ CODE_9EB17A:
 CODE_9EB185:
 	jmp.w $A5A4
 CODE_9EB188:
-	jsl.l CODE_9EBF44
+	jsl.l updatepentime
 	jsl.l CODE_9EB1E5
-	jsl.l CODE_9EB3BC
-	jml.l CODE_9EF913
+	jsl.l chkprogress
+	jml.l UpdatePA
 CODE_9EB198:
 	stz.b $A9
 	lda.w $0DD3
@@ -340,7 +340,7 @@ CODE_9EB2B5:
 	bne CODE_9EB2B1
 	lda.w #$0030
 	sta.b $A5
-	jsl.l CODE_9EF969
+	jsl.l SetPA
 	jmp.w $B1F2
 CODE_9EB2C9:
 	lda.w #$FFFF
@@ -452,8 +452,8 @@ CODE_9EB39E:
 	tsb.w $15D4
 	lda.w #$000A
 	sta.b $A5
-	jml.l CODE_9EF969
-CODE_9EB3BC:
+	jml.l SetPA
+chkprogress:
 	lda.w $15D4
 	bit.w #$0004
 	bne CODE_9EB3C5
@@ -510,7 +510,7 @@ CODE_9EB3E5:
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
 CODE_9EB434:
-	jsl.l CODE_9FBA17
+	jsl.l SetHor
 	lda.w #$FF00
 	tsb.w $0AD9
 	ldx.w #$001C
@@ -524,7 +524,7 @@ CODE_9EB434:
 	lda.w #$FF00
 	tsb.w $162C
 	stz.w $162A
-	jsl.l CODE_9EF913
+	jsl.l UpdatePA
 	lda.w #$0032
 	sta.w $162A
 	stz.b $A5
@@ -809,7 +809,7 @@ CODE_9EB680:
 	pla
 	sta.b $A5
 	ldx.b $95
-	jsl.l CODE_9EF969
+	jsl.l SetPA
 	jsl.l ShowInjuryBox
 	bra CODE_9EB6CC
 CODE_9EB6A1:
@@ -821,7 +821,7 @@ CODE_9EB6A5:
 	beq CODE_9EB6B2
 	jmp.w $B4A1
 CODE_9EB6B2:
-	jsl.l CODE_9EF969
+	jsl.l SetPA
 	bra CODE_9EB6CC
 CODE_9EB6B8:
 	lda.w #$0004
@@ -888,7 +888,7 @@ CODE_9EB727:
 	lda.b $A9
 	sta.w $17A6,y
 	rtl
-CODE_9EB735:
+updatepwrplay:
 	lda.l $7E34BC
 	cmp.w #$0004
 	beq CODE_9EB769
@@ -943,7 +943,7 @@ CODE_9EB791:
 	sta.b $8D
 	pla
 	sta.b $8F
-	jsl.l CODE_9EBB92
+	jsl.l GetLowestPen
 	lda.w $15D6
 	bne CODE_9EB7FB
 	lda.b $A5
@@ -980,7 +980,7 @@ CODE_9EB7F8:
 	rep #$20
 	plx
 CODE_9EB7FB:
-	jsl.l CODE_9FA3D7
+	jsl.l PushTime
 	jsl.l CODE_9EC7BE
 	ldx.b $95
 	lda.w $1CDC,x
@@ -1419,7 +1419,7 @@ CODE_9EBB6D:
 CODE_9EBB8C:
 	ldx.b $E4
 	jml.l CODE_9E8BE6
-CODE_9EBB92:
+GetLowestPen:
 	stz.b $A5
 	stz.b $B1
 	lda.b $91
@@ -1866,7 +1866,7 @@ CODE_9EBF3B:
 	plx
 CODE_9EBF43:
 	rtl
-CODE_9EBF44:
+updatepentime:
 	lda.w #$0020
 	trb.w $15DC
 	lda.w $15D6

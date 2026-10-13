@@ -352,7 +352,7 @@ CODE_9ED2F7:
 	lda.w $10A3,x
 	sta.b $A5
 	jml.l CODE_9EA8A9
-CODE_9ED300:
+GoalieCount:
 	lda.b $91
 	tay
 	lda.w #$009C
@@ -1543,7 +1543,7 @@ CODE_9EDCEA:
 	lda.w $0AD9
 	bmi CODE_9EDD3F
 	sta.b $91
-	jsl.l CODE_9EC4F3
+	jsl.l a2touchpuck
 	lda.b $91
 	jsl.l CODE_9BC002
 	ldy.b $91

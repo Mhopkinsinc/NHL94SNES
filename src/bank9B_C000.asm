@@ -342,7 +342,7 @@ CODE_9BC294:
 	inc a
 CODE_9BC295:
 	sta.w $1DBD
-	jsl.l CODE_9D98B5
+	jsl.l GetShifter
 	lda.b $A9
 	inc a
 	sta.w $1DC1
@@ -1152,7 +1152,7 @@ CODE_9BC9FD:
 	jsl.l CODE_9BCAB8
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.w #$0003
 	sta.w $0A4A
 	phx
@@ -1353,7 +1353,7 @@ CODE_9BCB7B:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	jsr.w $CBD8
 	jsl.l CODE_9FBF75
 	jsl.l CODE_8085FF
@@ -1508,7 +1508,7 @@ CODE_9BCD1C:
 	sta.b $C1
 	rtl
 CODE_9BCD28:
-	jsl.l CODE_9BCD69
+	jsl.l PWtoBits
 	jml.l CODE_9BCC41
 CODE_9BCD30:
 	ldx.w #$000F
@@ -1525,7 +1525,7 @@ CODE_9BCD33:
 	rtl
 PasswordChars:		; the characters a password is written with
 	db "BCDFGHJKLMNPRSTVWXYZ0123456789-"
-CODE_9BCD69:
+PWtoBits:
 	jsl.l CODE_9BCD8F
 	ldx.w #$0000
 CODE_9BCD70:

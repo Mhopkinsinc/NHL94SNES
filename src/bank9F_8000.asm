@@ -67,7 +67,7 @@ CODE_9F8064:
 	sta.b $A9
 	lda.l $7E35B6
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -358,7 +358,7 @@ CODE_9F8357:
 	lda.w #$0020
 	tsb.w $15D4
 CODE_9F837C:
-	jsl.l CODE_9FC6B2
+	jsl.l ClearTeamStats
 	jsl.l restoreteams
 	jsl.l CODE_9FC833
 	lda.w #$007E
@@ -442,10 +442,10 @@ CODE_9F8433:
 	tcs
 CODE_9F843C:
 	stz.b $91
-	jsl.l CODE_9FDD9D
+	jsl.l reenergizeteam
 	lda.w #$0002
 	sta.b $91
-	jsl.l CODE_9FDD9D
+	jsl.l reenergizeteam
 	stz.w $0CC7
 	jsl.l CODE_8086A9
 	jsl.l CODE_9FB8B4
@@ -672,7 +672,7 @@ CODE_9F8646:
 	jsl.l CODE_80D323
 	jsl.l CODE_9FDDCD
 	jsl.l CODE_9EC2C7
-	jsl.l CODE_9EB735
+	jsl.l updatepwrplay
 CODE_9F8685:
 	rtl
 CODE_9F8686:
@@ -1417,7 +1417,7 @@ CODE_9F8D25:
 	iny
 	cpy.w #$0068
 	bcc CODE_9F8D17
-	jsl.l CODE_9FBA17
+	jsl.l SetHor
 	ldx.w #$0000
 	ldy.w #$01C0
 	lda.w #$6000
@@ -1577,7 +1577,7 @@ CODE_9F8EAD:
 	pha
 	lda.b $8B
 	pha
-	jsl.l CODE_9FC6B2
+	jsl.l ClearTeamStats
 	jsl.l restoreteams
 	lda.w #$0000
 	sta.b $91
@@ -1586,10 +1586,10 @@ CODE_9F8EAD:
 	sta.b $91
 	jsl.l CODE_9B9334
 	stz.b $91
-	jsl.l CODE_9FDD9D
+	jsl.l reenergizeteam
 	lda.w #$0002
 	sta.b $91
-	jsl.l CODE_9FDD9D
+	jsl.l reenergizeteam
 	jsl.l CODE_9BC17C
 	ldx.w #$0008
 	lda.w #$FFFF
@@ -1646,7 +1646,7 @@ CODE_9F8F55:
 	jsl.l CODE_9FB9A4
 	stz.w $0D37
 	stz.w $0CEB
-	jsl.l CODE_9FCDAC
+	jsl.l ResetBench
 	stz.b $91
 	jsl.l CODE_9F927D
 	lda.w #$0002

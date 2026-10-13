@@ -101,7 +101,7 @@ CODE_9B91A2:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -205,7 +205,7 @@ CODE_9B929B:
 	sta.b $A5
 	sta.b $04
 	stz.b $08
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $04
 	cmp.b $A5
 	bpl CODE_9B92C4
@@ -612,7 +612,7 @@ CODE_9B95F5:
 	pla
 	and.w #$0FFF
 	sta.b $A5
-	jsl.l CODE_9FA3D7
+	jsl.l PushTime
 	lda.b [$8D]
 	cmp.w #$0006
 	bne CODE_9B9640
@@ -994,7 +994,7 @@ CODE_9B995F:
 	pla
 	and.w #$0FFF
 	sta.b $A5
-	jsl.l CODE_9FA3D7
+	jsl.l PushTime
 	lda.b [$8D]
 	cmp.w #$0006
 	bne CODE_9B99AA

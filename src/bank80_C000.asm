@@ -990,7 +990,7 @@ CODE_80CAE1:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1046,7 +1046,7 @@ CODE_80CB5C:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1173,7 +1173,7 @@ CODE_80CC89:		; print the goalie and shooter rows, the row at the cursor ($1DB9)
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1187,7 +1187,7 @@ CODE_80CC89:		; print the goalie and shooter rows, the row at the cursor ($1DB9)
 	sta.b $8D
 	pla
 	sta.b $8F
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $A5
 	dec a
 	sta.b $A9
@@ -1324,7 +1324,7 @@ CODE_80CDF9:
 CODE_80CE0A:		; button on a row: the goalie row cycles the goalie, a shooter row opens ShooterSelectList
 	lda.w $1DB9
 	bne ShooterSelectList
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.w #$0000
 	sta.b $8F
 	lda.w #homeshooters
@@ -1369,7 +1369,7 @@ ShooterSelectList:	; pick the player for the shooter row at the cursor
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AE9C7
@@ -1402,7 +1402,7 @@ ShooterSelectList:	; pick the player for the shooter row at the cursor
 	jsl.l GetPlayerCount
 	lda.b $A5
 	sta.w $1DA3
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.w $1DA3
 	sec
 	sbc.b $A5

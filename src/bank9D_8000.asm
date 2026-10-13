@@ -167,7 +167,7 @@ CODE_9D8129:
 	lda.w #$0001
 	sta.l $7E3474
 	stz.w $1E3F
-	jsl.l CODE_9FC6B2
+	jsl.l ClearTeamStats
 	jsl.l CODE_9D87D7
 	ldx.w #$0000
 	jsl.l CODE_9DCC36
@@ -310,7 +310,7 @@ CODE_9D825E:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	jsl.l CODE_9D842F
 	bra CODE_9D8217
 CODE_9D8292:
@@ -557,7 +557,7 @@ CODE_9D8489:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	jsl.l SpriteFrameStart
 	ldx.w #$0056
 	ldy.w #$0010
@@ -951,7 +951,7 @@ CODE_9D87D7:
 	sta.b $8F
 	lda.w #$D3D7
 	sta.b $8D
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
@@ -969,7 +969,7 @@ CODE_9D87D7:
 	clc
 	adc.l $7E35BC
 	sta.l $7E35CE
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AC1F3
@@ -1426,7 +1426,7 @@ CODE_9D8C19:
 	sta.b $8F
 	lda.w #$D3D7
 	sta.b $8D
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96A103

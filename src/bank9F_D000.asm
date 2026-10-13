@@ -413,7 +413,7 @@ CODE_9FD325:
 	sta.b $AD
 	lda.l $7E3120
 	bne CODE_9FD33D
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 CODE_9FD33D:
 	jsl.l CODE_9FE089
 	lda.w $0D11
@@ -860,7 +860,7 @@ CODE_9FD69B:
 	lda.b [$8D],y
 	and.w #$00FF
 	sta.b $A5
-	jsl.l CODE_9FD6D8
+	jsl.l TryAddPlayerToList
 	beq CODE_9FD69B
 CODE_9FD6B8:
 	dec.b $B5
@@ -877,10 +877,10 @@ CODE_9FD6C8:
 	sta.b $A5
 	dec.b $B1
 	bmi CODE_9FD6B8
-	jsl.l CODE_9FD6D8
+	jsl.l TryAddPlayerToList
 	beq CODE_9FD6C8
 	bra CODE_9FD6B8
-CODE_9FD6D8:
+TryAddPlayerToList:
 	lda.b $A5
 	sta.b $A9
 	dec.b $A5
@@ -1214,7 +1214,7 @@ CODE_9FD9CB:
 	lda.w $1243,x
 	sta.b $A5
 	sta.w $0F43,x
-	jsl.l CODE_9FCED0
+	jsl.l Setplass
 	lda.w #$FFFF
 	sta.w $1263,x
 	sta.w $1243,x
@@ -1674,7 +1674,7 @@ CODE_9FDD84:
 	pla
 	sta.b $A9
 	rtl
-CODE_9FDD9D:
+reenergizeteam:
 	lda.w #$0032
 	sta.b $A5
 CODE_9FDDA2:
@@ -1749,7 +1749,7 @@ CODE_9FDE26:
 	sta.b $AD
 	lda.l $7E3120
 	bne CODE_9FDE38
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 CODE_9FDE38:
 	jml.l CODE_9F9B36
 CODE_9FDE3C:

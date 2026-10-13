@@ -42,7 +42,7 @@ CODE_9BB020:
 	jsl.l CODE_9BB19D
 	lda.w #$0800
 	trb.w $15D8
-	jsl.l CODE_9FBA17
+	jsl.l SetHor
 	jsl.l SpriteFrameStart
 	jsl.l CODE_9FBAAA
 	jsl.l SpriteFrameEnd
@@ -83,7 +83,7 @@ CODE_9BB0B6:
 	jsl.l MusicStart
 CODE_9BB0C4:
 	rtl
-CODE_9BB0C5:
+suba4:
 	lda.b $99
 	cmp.w #$577E
 	bne CODE_9BB0E5
@@ -138,7 +138,7 @@ CODE_9BB12F:
 	jsl.l CODE_9BB19D
 	stz.b $C1
 	rtl
-CODE_9BB136:
+adda4:
 	stz.b $C1
 	lda.w $15D8
 	bit.w #$0400

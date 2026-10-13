@@ -28,7 +28,7 @@ CODE_80D004:		; draw the ShooterSelectList list: the title of rating column $0D4
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.w #$0011
 	sta.w $0D0F
 	lda.w #$0002
@@ -215,7 +215,7 @@ CODE_80D27C:
 	sta.b $A5
 	sta.b $04
 	stz.b $08
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $04
 	cmp.b $A5
 	bpl CODE_80D2A5

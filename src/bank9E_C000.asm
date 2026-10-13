@@ -111,7 +111,7 @@ CODE_9EC0CB:
 	and.w #$00FF
 	sta.w $0F43,x
 	stx.b $95
-	jsl.l CODE_9FCED0
+	jsl.l Setplass
 	jsl.l CODE_9FCEF6
 	lda.w $1283,x
 	ora.w #$1000
@@ -223,7 +223,7 @@ CODE_9EC180:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.w #$0000
 	sta.l $7E344C
 CODE_9EC1BB:
@@ -596,7 +596,7 @@ CODE_9EC479:
 	lda.w #$0002
 	sta.w $0D0F
 	sta.w $0D11
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 CODE_9EC4A9:
 	pla
 	sta.b $8B
@@ -639,7 +639,7 @@ CODE_9EC4E9:
 	dec.b $A5
 	bpl CODE_9EC4DB
 	bra CODE_9EC479
-CODE_9EC4F3:
+a2touchpuck:
 	ldy.b $91
 	cpy.w #$0018
 	bcc CODE_9EC4FD

@@ -192,7 +192,7 @@ CODE_9FB1A4:
 CODE_9FB1A9:
 	sty.b $91
 	ldx.b $95
-	jsl.l CODE_9EC4F3
+	jsl.l a2touchpuck
 CODE_9FB1B1:
 	lda.w $17DE
 	and.w #$FFFB
@@ -663,7 +663,7 @@ CODE_9FB5B6:
 	bit.w #$0008
 	beq CODE_9FB5C9
 	stz.b $AD
-	jsl.l CODE_9FE001
+	jsl.l lcfound
 	jsl.l CODE_9FD325
 CODE_9FB5C9:
 	plx
@@ -950,7 +950,7 @@ CODE_9FB6EE:
 	sta.b $8F
 	lda.w #$D3D0
 	sta.b $8D
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
@@ -961,7 +961,7 @@ CODE_9FB6EE:
 	sta.b $8D
 	lda.w #$0004
 	sta.b $A5
-	jsl.l CODE_9B854B
+	jsl.l RemapTiles
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96BABD
@@ -1154,7 +1154,7 @@ CODE_9FBA0B:
 	ldx.b $87
 	ldx.b $95
 	rtl
-CODE_9FBA17:
+SetHor:
 	stx.b $87
 	ldx.w #$0000
 CODE_9FBA1C:
@@ -1563,7 +1563,7 @@ CODE_9FBD7D:
 	inc.w $0D11
 	inc.w $0D11
 	rtl
-CODE_9FBD9C:
+eraser:
 	phx
 	lda.b $AD
 	clc

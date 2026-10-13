@@ -23,7 +23,7 @@ org $9DA000
 	sta.b $A5
 	sta.b $04
 	stz.b $08
-	jsl.l CODE_9ED300
+	jsl.l GoalieCount
 	lda.b $04
 	cmp.b $A5
 	bpl CODE_9DA03A
@@ -1013,7 +1013,7 @@ CODE_9DA992:
 	lda.w #$000E
 	sta.w $0D11
 	stz.w $0D0F
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.b $C1
 	sta.b $BD
 	lda.w #$000E
@@ -1136,7 +1136,7 @@ CODE_9DAA83:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.w #$0001
 	sta.l $7E3460
 	bra CODE_9DAACC
@@ -1160,7 +1160,7 @@ CODE_9DAACC:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l CODE_9FBD9C
+	jsl.l eraser
 	lda.w #$0001
 	sta.l $7E3460
 	bra CODE_9DAB0B
