@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $8E, and bank8F_8000 to bank8F_A000, are source (MATCH); the rest are incbin.
+- Banks $80 to $8E, and bank8F_8000 to bank8F_B000, are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -97,7 +97,7 @@
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Next: segment bank8F_B000: the end of DATA8_8F8000 (`incbin "../Extracted/data/DATA8_8F8000.spc":12288..15142`), then the start of DATA8_8FBB26 (an upload block, new asset DATA8_8FBB26.spc; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank8F_C000: `incbin "../Extracted/data/DATA8_8FBB26.spc":1242..5338` (see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

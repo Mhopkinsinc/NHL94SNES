@@ -42,6 +42,7 @@ ASSETS = [
     ('SpriteFrames8E.bin', 0x8E8000, 0x8ED897),
     ('DATA8_8ED897.spc', 0x8ED897, 0x8EFD2B),
     ('DATA8_8F8000.spc', 0x8F8000, 0x8FBB26),
+    ('DATA8_8FBB26.spc', 0x8FBB26, 0x8FDD32),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []
