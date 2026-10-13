@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9C_9000. <- CURRENT
+bank9C_A000. <- CURRENT
 
 ## Sources
 
@@ -322,8 +322,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9B_E000 | matched 4096 bytes | $9BE000 | $9BEFFF | 0% | $FF fill (padbyte/pad) |
 | bank9B_F000 | matched 4096 bytes | $9BF000 | $9BFFFF | 0% | $FF fill (padbyte/pad) |
 | bank9C_8000 | matched 4096 bytes | $9C8000 | $9C8FFF | 43% | box styles DATA8_9C8000-DATA8_9C8310 (tiles as assets, 3 x 3 maps), CenterIceTable, LogoPaletteTable, DATA8_9C850F; screen code with auto labels |
-| bank9C_9000 | incbin <- CURRENT | $9C9000 | $9C9FFF | 76% | |
-| bank9C_A000 | incbin | $9CA000 | $9CAFFF | 29% | |
+| bank9C_9000 | matched 4098 bytes | $9C9000 | $9CA001 | 76% | stats screens with auto labels; DATA8_9C9168/DATA8_9C9258 stat names, DATA8_9C92FD stat sources, TeamPlaceNames, DATA8_9C9A5B/DATA8_9C9A73 streamed sound blocks; end moved +$2 |
+| bank9C_A000 | incbin <- CURRENT | $9CA002 | $9CAFFF | 29% | org moved to $9CA002 |
 | bank9C_B000 | incbin | $9CB000 | $9CBFFF | 0% | |
 | bank9C_C000 | incbin | $9CC000 | $9CCFFF | 0% | |
 | bank9C_D000 | incbin | $9CD000 | $9CDFFF | 0% | |
@@ -582,3 +582,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9B_E000: source, MATCH. $FF fill, written with padbyte/pad.
 - bank9B_F000: source, MATCH. $FF fill, written with padbyte/pad. Bank $9B is now all source.
 - bank9C_8000: source, MATCH. Three box styles for the box drawer in bank $9D (tiles as new assets DATA8_9C8000.chr, DATA8_9C8098.chr, DATA8_9C81F0.chr; 3 x 3 maps as dw), DATA8_9C8328 (LZ-packed, asset DATA8_9C8328.lz), CenterIceTable and LogoPaletteTable (named; their entries written as dd of the team labels), DATA8_9C850F (per-team 16-colour pointers), then screen code with auto labels and the stat column names DATA8_9C8BCE as text records. bank9C_9000 is split around CODE_9C9002 for a branch. Unreached branches decoded with `tools/disasm65816.py --entry`.
+- bank9C_9000: source, MATCH. Stats screens with auto labels: the stat names DATA8_9C9168 / DATA8_9C9258 as text records, DATA8_9C92FD (kind word and the RAM word of each team per stat), TeamPlaceNames (named; word pointers as local labels .ANA ... .ASW to $00-ended strings), and the sound block streamer at the end: DATA8_9C9A5B (dd of the six blocks) and DATA8_9C9A73 (the sound played after each), read with 1-based indexes (written DATA8_9C9A5B-4, DATA8_9C9A73-2). The last instruction ends at $9CA001, so bank9C_A000 starts at $9CA002; it is split around CODE_9CA04D for a branch.
