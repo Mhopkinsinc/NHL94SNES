@@ -284,6 +284,18 @@ ASSETS = [
     ('CenterIceNJD.lin.huf', 0x9ABBF5, 0x9ABD3D),
     ('CenterIceWPG.lin.huf', 0x9ABE73, 0x9ABFA1),
     ('CenterIceBOS.lin.huf', 0x9ABFA1, 0x9AC0CC),
+    ('DATA8_9AC0CC.map.huf', 0x9AC0CC, 0x9AC1F3),
+    ('DATA8_9AC1F3.chr.huf', 0x9AC1F3, 0x9AC315),
+    ('CenterIceEDM.lin.huf', 0x9AC315, 0x9AC436),
+    ('CenterIcePHI.lin.huf', 0x9AC436, 0x9AC557),
+    ('CenterIceFLA.lin.huf', 0x9AC557, 0x9AC667),
+    ('CenterIceSJS.lin.huf', 0x9AC667, 0x9AC774),
+    ('CenterIceSTL.lin.huf', 0x9AC774, 0x9AC880),
+    ('CenterIceDET.lin.huf', 0x9AC880, 0x9AC98B),
+    ('DATA8_9AC98B.chr.huf', 0x9AC98B, 0x9ACA96),
+    ('CenterIceBUF.lin.huf', 0x9ACA96, 0x9ACBA0),
+    ('CenterIceNYR.lin.huf', 0x9ACBA0, 0x9ACCA9),
+    ('DATA8_9ACCA9.pal.lz', 0x9ACCA9, 0x9ACDB0),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []

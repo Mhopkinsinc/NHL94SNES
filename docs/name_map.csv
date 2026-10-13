@@ -168,3 +168,11 @@ $9AB47B,CenterIceTilesANA,DATA8_9AB47B,code,"the Anaheim centre ice logo: linear
 $9ABBF5,CenterIceTilesNJD,DATA8_9ABBF5,code,"the New Jersey centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 12 of the centre ice table in bank $9C)",src/bank9A_B000.asm
 $9ABE73,CenterIceTilesWPG,DATA8_9ABE73,code,"the Winnipeg centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 25 of the centre ice table in bank $9C)",src/bank9A_B000.asm
 $9ABFA1,CenterIceTilesBOS,DATA8_9ABFA1,code,"the Boston centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 1 of the centre ice table in bank $9C)",src/bank9A_B000.asm
+$9AC315,CenterIceTilesEDM,DATA8_9AC315,code,"the Edmonton centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 7 of the centre ice table in bank $9C)",src/bank9A_C000.asm
+$9AC436,CenterIceTilesPHI,DATA8_9AC436,code,"the Philadelphia centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 16 of the centre ice table in bank $9C)",src/bank9A_C000.asm
+$9AC557,CenterIceTilesFLA,DATA8_9AC557,code,"the Florida centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 8 of the centre ice table in bank $9C)",src/bank9A_C000.asm
+$9AC667,CenterIceTilesSJS,DATA8_9AC667,code,"the San Jose centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 19 of the centre ice table in bank $9C)",src/bank9A_C000.asm
+$9AC774,CenterIceTilesSTL,DATA8_9AC774,code,"the St. Louis centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 20 of the centre ice table in bank $9C)",src/bank9A_C000.asm
+$9AC880,CenterIceTilesDET,DATA8_9AC880,code,"the Detroit centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 6 of the centre ice table in bank $9C)",src/bank9A_C000.asm
+$9ACA96,CenterIceTilesBUF,DATA8_9ACA96,code,"the Buffalo centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 2 of the centre ice table in bank $9C)",src/bank9A_C000.asm
+$9ACBA0,CenterIceTilesNYR,DATA8_9ACBA0,code,"the New York Rangers centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 14 of the centre ice table in bank $9C)",src/bank9A_C000.asm
