@@ -1,5 +1,14 @@
 # Handoff
 
+## Alignment
+
+- Audit is `docs/align_plan.md` (no source change). `bank9C_A000` plus `src/data/teamdata94s.asm` does cover the old bank9C_B000, C000 and D000 ranges: the next file is bank9C_E000 at `$9CEF59`.
+- Next: layout, one bank at a time, starting with bank `$81` (rink tiles and team logos). Then the abbreviation renames in the plan (ANA/LAK/NJD/OTT/SJS/TBL to the team-data strings ANH/LA/NJ/OTW/SJ/TB).
+
+## Unsure
+
+- None yet. Auto `CODE_` / `DATA8_` labels stay as they are until a 93S or 94G match is clear.
+
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
