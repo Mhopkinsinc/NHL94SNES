@@ -163,3 +163,4 @@ $9788DC,PregameText,DATA8_9788DC,code,"the pre-game screen text ($0D-ended strin
 $97FE85,CenterIceTilesTBL,DATA8_97FE85,code,"Tampa Bay centre ice logo tiles (linear 4bpp, Huffman); team 21 of the table at $9C83B7",src/bank97_F000.asm
 $98FECB,CenterIceTilesNYI,DATA8_98FECB,code,"the New York Islanders centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 13 of the centre ice table in bank $9C)",src/bank98_F000.asm
 $99FEC0,CenterIceTilesOTT,DATA8_99FEC0,code,"the Ottawa centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 15 of the centre ice table in bank $9C)",src/bank99_F000.asm
+$9AAC2E,CenterIceTilesCHI,DATA8_9AAC2E,code,"the Chicago centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 4 of the centre ice table in bank $9C)",src/bank9A_A000.asm

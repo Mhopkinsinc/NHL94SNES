@@ -1,3 +1,153 @@
-; Segment bank9A_A000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank9A_A000.asm.
+; Bank $9A, third 4 KB: the end of DATA8_9A9F70, then DATA8_9AA14D, a song from the TeamSongs table (laid out as in
+; bank81_F000), then DATA8_9AA329, a player photo, then DATA8_9AA500, a player photo, then DATA8_9AA6D6, a player
+; photo, then DATA8_9AA8AB, a player photo, then DATA8_9AAA6E, a song from the TeamSongs table (laid out as in
+; bank81_F000), then CenterIceTilesCHI, the Chicago centre ice logo tiles, then DATA8_9AADE5, a song from the
+; TeamSongs table (laid out as in bank81_F000), then the start of DATA8_9AAF99, a song from the TeamSongs table (laid
+; out as in bank81_F000).
+
 org $9AA000
-	incbin "../Extracted/segments/bank9A_A000.bin"
+	incbin "../Extracted/data/DATA8_9A9F70.lin.huf":144..477
+DATA8_9AA14D:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+	db $01,$78,$01,$00,$00,$00,$02,$00
+	dw .left-DATA8_9AA14D,.right-DATA8_9AA14D,$0000
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$D6,"TRAK"
+.left:
+	db $00,$E7,$05,"left",$00
+	db $00,$DC,$0B,$00,$A8,$7B,$07,$00,$A3,$7B,$08,$27,$A8,$7B,$0A,$00
+	db $A3,$7B,$0A,$24,$A3,$7B,$0A,$00,$A8,$7B,$09,$21,$A3,$7B,$03,$00
+	db $A8,$7B,$04,$10,$A3,$7B,$09,$00,$A8,$7B,$0A,$0F,$A9,$7B,$08,$00
+	db $A4,$7B,$09,$1D,$A9,$7B,$07,$00,$A4,$7B,$08,$1D,$A4,$7B,$08,$00
+	db $A9,$7B,$08,$1D,$A6,$7B,$02,$00,$AB,$7B,$03,$0D,$A4,$7B,$08,$00
+	db $A9,$7B,$07,$0E,$A3,$7B,$06,$00,$A8,$7B,$07,$1B,$A3,$7B,$06,$00
+	db $A8,$7B,$06,$19,$A3,$7B,$07,$00,$A8,$7B,$08,$1A,$A3,$7B,$02,$00
+	db $A8,$7B,$03,$0C,$A8,$7B,$08,$00,$A3,$7B,$07,$0C,$A9,$7B,$06,$00
+	db $A4,$7B,$08,$19,$A9,$7B,$06,$00,$A4,$7B,$07,$18,$A9,$7B,$09,$00
+	db $A4,$7B,$08,$19,$AB,$7B,$03,$00,$A6,$7B,$02,$0C,$A4,$7B,$04,$00
+	db $A9,$7B,$04,$0D,$A3,$7B,$07,$00,$A8,$7B,$06,$26,$A8,$7B,$04,$00
+	db $A3,$7B,$02,$0C,$AD,$7B,$04,$0C,$AD,$7B,$06,$06,$D9,$00,$00,$00
+	db $00,$00,$00,$00,$00,$AD,$00,$00
+	db $00,$DE,"TRAK"
+.right:
+	db $00,$E7,$06,"right",$00
+	db $00,$DC,$0C,$00,$A0,$7B,$07,$00,$90,$7B,$08,$27,$A0,$7B,$0A,$00
+	db $90,$7B,$0B,$24,$90,$7B,$0A,$00,$A0,$7B,$0A,$21,$90,$7B,$03,$00
+	db $A0,$7B,$03,$10,$90,$7B,$0A,$00,$A0,$7B,$0A,$0F,$91,$7B,$0B,$00
+	db $A1,$7B,$08,$1D,$91,$7B,$09,$00,$A1,$7B,$08,$1D,$91,$7B,$08,$00
+	db $A1,$7B,$08,$1D,$93,$7B,$03,$00,$A3,$7B,$03,$0D,$91,$7B,$06,$00
+	db $A1,$7B,$08,$0E,$90,$7B,$07,$00,$A0,$7B,$07,$1B,$90,$7B,$07,$00
+	db $A0,$7B,$06,$19,$90,$7B,$07,$00,$A0,$7B,$07,$1A,$90,$7B,$02,$00
+	db $A0,$7B,$02,$0C,$90,$7B,$07,$00,$A0,$7B,$08,$0C,$A1,$7B,$08,$00
+	db $91,$7B,$0A,$19,$91,$7B,$08,$00,$A1,$7B,$07,$18,$91,$7B,$09,$00
+	db $A1,$7B,$08,$19,$93,$7B,$03,$00,$A3,$7B,$03,$0C,$91,$7B,$05,$00
+	db $A1,$7B,$03,$0D,$90,$7B,$06,$00,$A0,$7B,$07,$26,$90,$7B,$04,$00
+	db $A0,$7B,$03,$0C,$A8,$7B,$03,$00,$A1,$7B,$03,$0C,$A8,$7B,$06,$00
+	db $A1,$7B,$06,$06,$D9,$00,$00,$00,$00,$00,$00,$00,$00
+DATA8_9AA329:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
+			;   in bank $9D
+	db $30,$FB
+	db $00,$04,$80
+	incbin "../Extracted/data/DATA8_9AA329.lin.huf":5..471
+DATA8_9AA500:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
+			;   in bank $9D
+	db $30,$FB
+	db $00,$04,$80
+	incbin "../Extracted/data/DATA8_9AA500.lin.huf":5..470
+DATA8_9AA6D6:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
+			;   in bank $9D
+	db $30,$FB
+	db $00,$04,$80
+	incbin "../Extracted/data/DATA8_9AA6D6.lin.huf":5..469
+DATA8_9AA8AB:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
+			;   in bank $9D
+	db $30,$FB
+	db $00,$04,$80
+	incbin "../Extracted/data/DATA8_9AA8AB.lin.huf":5..451
+DATA8_9AAA6E:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+	db $01,$78,$01,$00,$00,$00,$02,$00
+	dw .left-DATA8_9AAA6E,.right-DATA8_9AAA6E,$0000
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $01,$06,"TRAK"
+.left:
+	db $00,$E7,$05,"left",$00
+	db $00,$DC,$0B,$00,$A4,$6E,$13,$00,$98,$6E,$0F,$26,$9F,$6E,$11,$00
+	db $93,$6E,$14,$24,$95,$6E,$15,$00,$A1,$6E,$15,$23,$97,$6E,$11,$00
+	db $A3,$6E,$10,$24,$98,$6E,$0F,$00,$A4,$6E,$13,$1F,$9F,$6E,$13,$00
+	db $93,$6E,$13,$20,$95,$6E,$14,$00,$A1,$6E,$16,$1E,$97,$6E,$13,$00
+	db $A3,$6E,$13,$1E,$99,$6E,$0F,$00,$A5,$6E,$13,$1B,$94,$6E,$14,$00
+	db $A0,$6E,$15,$1C,$96,$6E,$10,$00,$A2,$6E,$15,$19,$98,$6E,$11,$00
+	db $A4,$6E,$14,$1A,$99,$6E,$0E,$00,$A5,$6E,$12,$19,$94,$6E,$0F,$00
+	db $A0,$6E,$13,$19,$96,$6E,$0F,$00,$A2,$6E,$14,$19,$A4,$6E,$12,$00
+	db $98,$6E,$10,$18,$9A,$6E,$0C,$00,$A6,$6E,$11,$17,$95,$6E,$0E,$00
+	db $A1,$6E,$10,$17,$A3,$6E,$10,$00,$97,$6E,$0D,$16,$99,$6E,$10,$00
+	db $A5,$6E,$0F,$16,$9A,$6E,$0B,$00,$A6,$6E,$0F,$14,$95,$6E,$0C,$00
+	db $A1,$6E,$0F,$14,$97,$6E,$0C,$00,$A3,$6E,$10,$15,$99,$6E,$0E,$00
+	db $A5,$6E,$10,$15,$9B,$6E,$0B,$00,$A7,$6E,$0F,$15,$96,$6E,$0D,$00
+	db $A2,$6E,$0E,$14,$98,$6E,$0D,$00,$A4,$6E,$10,$13,$9A,$6E,$0D,$00
+	db $A6,$6E,$10,$15,$A7,$6E,$0F,$00,$9B,$6E,$0E,$0F,$D9,$00,$00,$00
+	db $00,$00,$00,$00,$00,$93,$00,$00
+	db $00,$92,"TRAK"
+.right:
+	db $00,$E7,$06,"right",$00
+	db $00,$DC,$0C,$00,$8C,$6E,$12,$26,$87,$6E,$10,$24,$89,$6E,$10,$23
+	db $8B,$6E,$10,$24,$8C,$6E,$12,$1F,$87,$6E,$11,$20,$89,$6E,$12,$1E
+	db $8B,$6E,$0E,$1E,$8D,$6E,$13,$1B,$88,$6E,$0F,$1C,$8A,$6E,$10,$19
+	db $8C,$6E,$11,$1A,$8D,$6E,$11,$19,$88,$6E,$0C,$19,$8A,$6E,$0E,$19
+	db $8C,$6E,$10,$18,$8E,$6E,$0F,$17,$89,$6E,$0D,$17,$8B,$6E,$0A,$16
+	db $8D,$6E,$0F,$16,$8E,$6E,$0D,$14,$89,$6E,$0B,$14,$8B,$6E,$0A,$15
+	db $8D,$6E,$0D,$15,$8F,$6E,$0D,$15,$8A,$6E,$0C,$14,$8C,$6E,$0C,$13
+	db $8E,$6E,$0B,$15,$8F,$6E,$0D,$0D,$D9,$00,$00,$00,$00,$00,$00,$00
+	db $00
+CenterIceTilesCHI:	; the Chicago centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 4 of
+			;   the centre ice table in bank $9C)
+	db $30,$FB
+	db $00,$03,$80
+	incbin "../Extracted/data/CenterIceCHI.lin.huf":5..439
+DATA8_9AADE5:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+	db $01,$60,$01,$00,$00,$00,$02,$00
+	dw .left-DATA8_9AADE5,.right-DATA8_9AADE5,$0000
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$C6,"TRAK"
+.left:
+	db $00,$E7,$05,"left",$00
+	db $00,$DC,$0B,$00,$9B,$78,$05,$18,$9F,$6F,$05,$18,$A0,$75,$05,$12
+	db $A1,$76,$13,$12,$A2,$79,$04,$0C,$9B,$79,$04,$18,$9F,$73,$05,$18
+	db $A0,$77,$04,$12,$A1,$74,$12,$12,$A2,$79,$05,$0C,$9B,$7A,$05,$18
+	db $9F,$71,$05,$18,$A0,$78,$04,$12,$A1,$77,$12,$12,$A2,$77,$05,$0C
+	db $9F,$7A,$03,$00,$A7,$7A,$03,$0C,$A7,$7A,$03,$00,$9F,$7A,$03,$0C
+	db $A7,$7A,$05,$00,$9F,$7A,$05,$48,$9C,$78,$05,$18,$A0,$6F,$05,$18
+	db $A1,$75,$05,$12,$A2,$76,$13,$12,$A3,$79,$04,$0C,$9C,$79,$04,$18
+	db $A0,$73,$05,$18,$A1,$77,$04,$12,$A2,$74,$12,$12,$A3,$79,$05,$0C
+	db $9C,$7A,$05,$18,$A0,$71,$05,$18,$A1,$78,$04,$12,$A2,$77,$12,$12
+	db $A3,$77,$05,$0C,$A0,$7A,$03,$00,$A8,$7A,$03,$0C,$A8,$7A,$03,$00
+	db $A0,$7A,$03,$0C,$A8,$7A,$05,$00,$A0,$7A,$05,$05,$D9,$00,$00,$00
+	db $00,$00,$00,$00,$00,$FF,$00,$00
+	db $00,$C6,"TRAK"
+.right:
+	db $00,$E7,$06,"right",$00
+	db $00,$DC,$0C,$00,$8F,$74,$04,$18,$93,$70,$05,$18,$94,$73,$04,$12
+	db $95,$6C,$13,$12,$96,$75,$04,$0C,$8F,$70,$05,$18,$93,$6D,$06,$18
+	db $94,$73,$04,$12,$95,$6E,$12,$12,$96,$76,$05,$0C,$8F,$72,$05,$18
+	db $93,$72,$04,$18,$94,$74,$05,$12,$95,$6F,$13,$12,$96,$73,$04,$0C
+	db $A2,$7A,$03,$00,$8F,$77,$03,$0C,$A2,$7A,$03,$00,$8F,$77,$03,$0C
+	db $A2,$7A,$05,$00,$8F,$77,$05,$48,$90,$74,$04,$18,$94,$70,$05,$18
+	db $95,$73,$04,$12,$96,$6C,$13,$12,$97,$75,$04,$0C,$90,$70,$05,$18
+	db $94,$6D,$06,$18,$95,$73,$04,$12,$96,$6E,$12,$12,$97,$76,$05,$0C
+	db $90,$72,$05,$18,$94,$72,$04,$18,$95,$74,$05,$12,$96,$6F,$13,$12
+	db $97,$73,$04,$0C,$A3,$7A,$03,$00,$90,$77,$03,$0C,$A3,$7A,$03,$00
+	db $90,$77,$03,$0C,$A3,$7A,$05,$00,$90,$77,$05,$05,$D9,$00,$00,$00
+	db $00,$00,$00,$00,$00
+DATA8_9AAF99:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+	db $01,$78,$01,$00,$00,$00,$02,$00
+	dw .left-DATA8_9AAF99,$00F2,$0000
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$C2,"TRAK"
+.left:
+	db $00,$E7,$05,"left",$00
+	db $00,$DC,$0B,$08,$9B,$74,$13,$1F,$96,$74,$11,$1D,$98,$70,$0F,$1E
+	db $9A,$6E,$0F,$1C,$9B,$74,$0E,$1D,$96,$74,$0B,$1B,$98,$6E,$0F,$1C
+	db $9A,$6B,$0E,$1A,$9C,$72,$0F,$1A,$97,$6C,$0E,$1A,$99,$74,$0D

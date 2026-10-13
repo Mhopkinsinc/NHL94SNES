@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9A_A000. <- CURRENT
+bank9A_B000. <- CURRENT
 
 ## Sources
 
@@ -307,8 +307,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank99_F000 | matched 4096 bytes | $99F000 | $99FFFF | 0% | the end of DATA8_99EE68, then DATA8_99F079, a player photo, then DATA8_99F289, a player photo, then DATA8_99F498, a player photo, then DATA8_99F6A3, a player photo, then DATA8_99F8AC, a player photo, then DATA8_99FAB4, a player photo, then DATA8_99FCBA, a player photo, then CenterIceTilesOTT, the Ottawa centre ice logo tiles, then the last bytes of the bank |
 | bank9A_8000 | matched 4096 bytes | $9A8000 | $9A8FFF | 0% | DATA8_9A8000, a block for the sound CPU (upload list DATA8_80E6FD), then DATA8_9A801F, a player photo, then DATA8_9A8225, a player photo, then DATA8_9A842A, a player photo, then DATA8_9A862E, a player photo, then DATA8_9A8832, a player photo, then DATA8_9A8A31, a player photo, then DATA8_9A8C2C, a player photo, then the start of DATA8_9A8E26, a player photo |
 | bank9A_9000 | matched 4096 bytes | $9A9000 | $9A9FFF | 0% | the end of DATA8_9A8E26, then DATA8_9A901F, a player photo, then DATA8_9A9218, a player photo, then DATA8_9A940F, a player photo, then DATA8_9A9601, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9A97E5, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9A99C9, a player photo, then DATA8_9A9BAD, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9A9D91, a player photo, then the start of DATA8_9A9F70, a player photo |
-| bank9A_A000 | incbin <- CURRENT | $9AA000 | $9AAFFF | 0% | |
-| bank9A_B000 | incbin | $9AB000 | $9ABFFF | 0% | |
+| bank9A_A000 | matched 4096 bytes | $9AA000 | $9AAFFF | 0% | the end of DATA8_9A9F70, then DATA8_9AA14D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9AA329, a player photo, then DATA8_9AA500, a player photo, then DATA8_9AA6D6, a player photo, then DATA8_9AA8AB, a player photo, then DATA8_9AAA6E, a song from the TeamSongs table (laid out as in bank81_F000), then CenterIceTilesCHI, the Chicago centre ice logo tiles, then DATA8_9AADE5, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_9AAF99, a song from the TeamSongs table (laid out as in bank81_F000) |
+| bank9A_B000 | incbin <- CURRENT | $9AB000 | $9ABFFF | 0% | |
 | bank9A_C000 | incbin | $9AC000 | $9ACFFF | 0% | |
 | bank9A_D000 | incbin | $9AD000 | $9ADFFF | 0% | |
 | bank9A_E000 | incbin | $9AE000 | $9AEFFF | 0% | |
@@ -567,3 +567,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank99_F000: source, MATCH. The end of DATA8_99EE68, then DATA8_99F079, a player photo, then DATA8_99F289, a player photo, then DATA8_99F498, a player photo, then DATA8_99F6A3, a player photo, then DATA8_99F8AC, a player photo, then DATA8_99FAB4, a player photo, then DATA8_99FCBA, a player photo, then CenterIceTilesOTT, the Ottawa centre ice logo tiles, then the last bytes of the bank. Bank $99 is now all source.
 - bank9A_8000: source, MATCH. DATA8_9A8000, a block for the sound CPU (upload list DATA8_80E6FD), then DATA8_9A801F, a player photo, then DATA8_9A8225, a player photo, then DATA8_9A842A, a player photo, then DATA8_9A862E, a player photo, then DATA8_9A8832, a player photo, then DATA8_9A8A31, a player photo, then DATA8_9A8C2C, a player photo, then the start of DATA8_9A8E26, a player photo.
 - bank9A_9000: source, MATCH. The end of DATA8_9A8E26, then DATA8_9A901F, a player photo, then DATA8_9A9218, a player photo, then DATA8_9A940F, a player photo, then DATA8_9A9601, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9A97E5, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9A99C9, a player photo, then DATA8_9A9BAD, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9A9D91, a player photo, then the start of DATA8_9A9F70, a player photo.
+- bank9A_A000: source, MATCH. The end of DATA8_9A9F70, then DATA8_9AA14D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9AA329, a player photo, then DATA8_9AA500, a player photo, then DATA8_9AA6D6, a player photo, then DATA8_9AA8AB, a player photo, then DATA8_9AAA6E, a song from the TeamSongs table (laid out as in bank81_F000), then CenterIceTilesCHI, the Chicago centre ice logo tiles, then DATA8_9AADE5, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_9AAF99, a song from the TeamSongs table (laid out as in bank81_F000).
