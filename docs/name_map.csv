@@ -286,3 +286,9 @@ $9CC82B,NYIslanders,DATA8_9CC82B,94G,"team 13 record: header offsets, .sr, .sodd
 $9CCA9C,NYRangers,DATA8_9CCA9C,94G,"team 14 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
 $9CCD06,Ottawa,DATA8_9CCD06,94G,"team 15 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
 $9CCFAC,Philadelphia,DATA8_9CCFAC,94G,"team 16 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_C000.asm
+$9CD237,Pittsburgh,DATA8_9CD237,94G,"team 17 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
+$9CD4D2,Quebec,DATA8_9CD4D2,94G,"team 18 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
+$9CD760,SanJose,DATA8_9CD760,94G,"team 19 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
+$9CD9D4,StLouis,DATA8_9CD9D4,94G,"team 20 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
+$9CDC4A,TampaBay,DATA8_9CDC4A,94G,"team 21 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
+$9CDEDC,Toronto,DATA8_9CDEDC,94G,"team 22 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm

@@ -634,12 +634,12 @@ TeamList:		; a long pointer to each team record (team number = index)
 	dd NYRangers		; 14
 	dd Ottawa		; 15
 	dd Philadelphia		; 16
-	dd $9CD237		; 17
-	dd $9CD4D2		; 18
-	dd $9CD760		; 19
-	dd $9CD9D4		; 20
-	dd $9CDC4A		; 21
-	dd $9CDEDC		; 22
+	dd Pittsburgh		; 17
+	dd Quebec		; 18
+	dd SanJose		; 19
+	dd StLouis		; 20
+	dd TampaBay		; 21
+	dd Toronto		; 22
 	dd $9CE17E		; 23
 	dd $9CE6AD		; 24
 	dd $9CE405		; 25

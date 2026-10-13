@@ -305,7 +305,7 @@ Ottawa:
 .ar:		; arena
 	%String("Ottawa Civic Center")
 Philadelphia:
-.0:	dw $0055,.sr-.0,$0266,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
+.0:	dw .pld-.0,.sr-.0,.tn-.0,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
 .sr:		; the scouting report
 	db $36,$02,$22,$D7,$45
 .sodds:

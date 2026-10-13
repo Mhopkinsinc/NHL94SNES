@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9C_D000. <- CURRENT
+bank9C_E000. <- CURRENT
 
 ## Sources
 
@@ -326,8 +326,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9C_A000 | matched 4107 bytes | $9CA002 | $9CB00C | 29% | code with auto labels; TeamList; team records AllStarsEast, AllStarsWest, Boston, Buffalo (start); org moved to $9CA002; end moved +$D |
 | bank9C_B000 | matched 4090 bytes | $9CB00D | $9CC006 | 0% | team records Calgary, Chicago, Detroit, Edmonton, Hartford, LosAngeles (start); org moved to $9CB00D; end moved +$7 |
 | bank9C_C000 | matched 4090 bytes | $9CC007 | $9CD000 | 0% | team records (see the file header); org moved to $9CC007; end moved +$1 |
-| bank9C_D000 | incbin <- CURRENT | $9CD001 | $9CDFFF | 0% | org moved to $9CD001 |
-| bank9C_E000 | incbin | $9CE000 | $9CEFFF | 0% | |
+| bank9C_D000 | matched 4112 bytes | $9CD001 | $9CE010 | 0% | team records (see the file header); org moved to $9CD001; end moved +$11 |
+| bank9C_E000 | incbin <- CURRENT | $9CE011 | $9CEFFF | 0% | org moved to $9CE011 |
 | bank9C_F000 | incbin | $9CF000 | $9CFFFF | 0% | |
 | bank9D_8000 | incbin | $9D8000 | $9D8FFF | 97% | |
 | bank9D_9000 | incbin | $9D9000 | $9D9FFF | 85% | |
@@ -586,3 +586,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9C_A000: source, MATCH. Game code with auto labels (DATA8_9CA2FB object records read field by field as DATA8_9CA2FB+n; DATA8_9CA099/DATA8_9CA0A1/DATA8_9CA0A9 read with 1-based indexes), then the team database: TeamList and the team records, written as in 93S/94G teamdata (team labels Anaheim ... AllStarsWest; .0 header offsets, .sr, .sodds, .ls lines, .pld with the new Player macro in src/macros/snes94.mac, .tn/.ta/.tm/.ar Strings). TeamList entries and header offsets that point past the end of this file are numbers until those records are source. Org $9CA002 (set by bank9C_9000); the last Player entry ends at $9CB00C, so bank9C_B000 starts at $9CB00D.
 - bank9C_B000: source, MATCH. Team records written by the team data generator in 93S/94G teamdata form (see bank9C_A000): the rest of Buffalo, then Calgary, Chicago, Detroit, Edmonton, Hartford and the start of LosAngeles. TeamList and the Buffalo header in bank9C_A000 now use the labels of these records. The last Player entry ends at $9CC006, so bank9C_C000 starts at $9CC007.
 - bank9C_C000: source, MATCH. Team records written by the team data generator in 93S/94G teamdata form (see bank9C_A000): the rest of LosAngeles, then Dallas, then Montreal, then NewJersey, then NYIslanders, then NYRangers, then Ottawa, then Philadelphia Philadelphia continues in the next file.  Earlier TeamList entries and headers now use the new labels. The last Player entry ends at $9CD000, so bank9C_D000 starts at $9CD001.
+- bank9C_D000: source, MATCH. Team records written by the team data generator in 93S/94G teamdata form (see bank9C_A000): the rest of Philadelphia, then Pittsburgh, then Quebec, then SanJose, then StLouis, then TampaBay, then Toronto Toronto continues in the next file. org $9CD001  Earlier TeamList entries and headers now use the new labels. The last Player entry ends at $9CE010, so bank9C_E000 starts at $9CE011.
