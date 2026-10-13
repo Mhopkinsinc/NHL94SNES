@@ -54,8 +54,8 @@ org $95E000
 DATA8_95E304:		; tiles packed for DecompressLZ that screen setups in bank $9F send to VRAM; not identified yet
 	db $10,$FB
 	db $00,$0D,$00
-	incbin "../Extracted/data/DATA8_95E304.chr.lz":5..1887
+	incbin "data/gfx/DATA8_95E304.chr.lz":5..1887
 DATA8_95EA63:		; for SPCUploadBlock, as DATA8_958000
 	db $07,$47
 	db $07,$47
-	incbin "../Extracted/data/DATA8_95EA63.spc":4..1437
+	incbin "data/sound/DATA8_95EA63.spc":4..1437

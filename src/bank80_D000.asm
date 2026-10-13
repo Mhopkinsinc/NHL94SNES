@@ -119,40 +119,7 @@ CODE_80D0BB:
 CODE_80D0E5:
 	jsl.l CODE_80D21C
 	rtl
-DATA8_80D0EA:		; rating columns of the shooter list: title, then a mask word and a value word; $FFFF ends it
-	%String("      Status]")
-	dw $0000,$0000
-	%String("    [Overall]")
-	dw $1F3A,$000A
-	%String("     [Energy]")
-	dw $0000,$0002
-	%String("    [Agility]")
-	dw $1000,$000A
-	%String("      [Speed]")
-	dw $0800,$000A
-	%String("     [Handed]")
-	dw $0040,$0004
-	%String("[Off. Aware.]")
-	dw $0400,$000A
-	%String("[Def. Aware.]")
-	dw $0200,$000A
-	%String(" [Shot Power]")
-	dw $0100,$000A
-	%String(" [Shot Accur]")
-	dw $0010,$000A
-	%String(" [Pass Accur]")
-	dw $0002,$000A
-	%String("[Stick Handl]")
-	dw $0020,$000A
-	%String("     [Weight]")
-	dw $2000,$0006
-	%String(" [ Endurance]")
-	dw $0008,$000A
-	%String(" [Aggression]")
-	dw $0001,$000A
-	%String("   [Checking ")
-	dw $0080,$000A
-	dw $FFFF
+incsrc "data/text/DATA8_80D0EA.asm"
 CODE_80D21C:		; print the rows of the list from $1DA7, the row at the cursor ($1D9B) in another palette
 	lda.b $8F
 	pha
@@ -179,7 +146,7 @@ CODE_80D21C:		; print the rows of the list from $1DA7, the row at the cursor ($1
 	sta.b $95
 	lda.w #$0080
 	sta.b $9F
-	lda.w #DATA8_80D9B3
+	lda.w #PositionNames
 	sta.b $9D
 	lda.w #$0008
 	sta.b $A9
@@ -361,78 +328,10 @@ DATA8_80D6FE:
 	db $33,$CB,$36,$38,$3A,$3C,$3E,$40,$42,$44,$BA,$00,$00,$00,$00,$4A
 	db $4A,$00,$02,$04,$06,$08,$0A,$0C,$0E,$F0,$11,$13,$15,$17,$19,$1B
 	db $1D,$1F,$21,$23,$25,$27,$29,$2B,$2D,$2F,$31
-DATA8_80D739:		; playoff round names
-	%String("NHL Hockey Night")
-	%String("First Round Playoff")
-	%String("Conference Semifinal")
-	%String("Conference Final")
-	%String("Stanley Cup Final")
-DATA8_80D79B:		; skater rating columns, as DATA8_80D0EA
-	%String("   Status   ]")
-	dw $0000,$0000
-	%String("[  Overall  ]")
-	dw $9FBA,$000A
-	%String("[  Energy   ]")
-	dw $0000,$0002
-	%String("[  Agility  ]")
-	dw $1000,$000A
-	%String("[   Speed   ]")
-	dw $0800,$000A
-	%String("[  Handed   ]")
-	dw $0040,$0004
-	%String("[Off. Aware.]")
-	dw $0400,$000A
-	%String("[Def. Aware.]")
-	dw $0200,$000A
-	%String("[Shot Power ]")
-	dw $0100,$000A
-	%String("[Shot  Accur]")
-	dw $0010,$000A
-	%String("[Pass  Accur]")
-	dw $0002,$000A
-	%String("[Stick Handl]")
-	dw $0020,$000A
-	%String("[  Weight   ]")
-	dw $2000,$0006
-	%String("[ Endurance ]")
-	dw $0008,$000A
-	%String("[Aggression ]")
-	dw $0001,$000A
-	%String("[ Checking   ")
-	dw $0080,$000A
-	dw $FFFF
-DATA8_80D8CD:		; goalie rating columns, as DATA8_80D0EA
-	%String("   Status   ]")
-	dw $0000,$0000
-	%String("[  Overall  ]")
-	dw $930F,$000A
-	%String("[  Agility  ]")
-	dw $1000,$000A
-	%String("[   Speed   ]")
-	dw $0800,$000A
-	%String("[Glove Hand ]")
-	dw $0040,$0004
-	%String("[Def. Aware.]")
-	dw $0200,$000A
-	%String("[Puck Cont. ]")
-	dw $0100,$000A
-	%String("[Stick Right]")
-	dw $0008,$000A
-	%String("[Stick Left ]")
-	dw $0004,$000A
-	%String("[Glove Right]")
-	dw $0002,$000A
-	%String("[Glove Left ]")
-	dw $0001,$000A
-	%String("[   Weight   ")
-	dw $2000,$0006
-	dw $FFFF
-DATA8_80D9B3:		; position names
-	%String("LD")
-	%String("RD")
-	%String("LW")
-	%String("C")
-	%String("RW")
+incsrc "data/text/GameLabels.asm"
+incsrc "data/text/AttribMenuSkater.asm"
+incsrc "data/text/AttribMenuGoalie.asm"
+incsrc "data/text/PositionNames.asm"
 DATA8_80D9C6:
 	db $10,$C7,$9F,$01,$11,$65,$CA,$01,$44,$17,$F7,$01,$A9,$DD,$25,$02
 	db $40,$B8,$56,$02,$09,$A7,$89,$02,$04,$AA,$BE,$02,$31,$C1,$F5,$02

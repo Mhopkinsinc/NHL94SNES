@@ -6,7 +6,7 @@
 ; out as in bank81_F000).
 
 org $9AA000
-	incbin "../Extracted/data/DATA8_9A9F70.lin.huf":144..477
+	incbin "data/gfx/DATA8_9A9F70.lin.huf":144..477
 DATA8_9AA14D:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_9AA14D,.right-DATA8_9AA14D,$0000
@@ -48,22 +48,22 @@ DATA8_9AA329:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9AA329.lin.huf":5..471
+	incbin "data/gfx/DATA8_9AA329.lin.huf":5..471
 DATA8_9AA500:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9AA500.lin.huf":5..470
+	incbin "data/gfx/DATA8_9AA500.lin.huf":5..470
 DATA8_9AA6D6:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9AA6D6.lin.huf":5..469
+	incbin "data/gfx/DATA8_9AA6D6.lin.huf":5..469
 DATA8_9AA8AB:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9AA8AB.lin.huf":5..451
+	incbin "data/gfx/DATA8_9AA8AB.lin.huf":5..451
 DATA8_9AAA6E:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_9AAA6E,.right-DATA8_9AAA6E,$0000
@@ -104,7 +104,7 @@ CenterIceTilesCHI:	; the Chicago centre ice logo: linear 4bpp tiles packed for D
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$80
-	incbin "../Extracted/data/CenterIceCHI.lin.huf":5..439
+	incbin "data/gfx/CenterIceCHI.lin.huf":5..439
 DATA8_9AADE5:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$60,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_9AADE5,.right-DATA8_9AADE5,$0000

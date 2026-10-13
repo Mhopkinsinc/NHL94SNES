@@ -967,24 +967,8 @@ CODE_9B8849:
 	rtl
 CODE_9B8860:
 	rtl
-DATA8_9B8861:		; the line names: each entry is a word (the bytes to the next entry), then its text
-	dw $0011 : db "    Goalies   ]"
-	dw $0011 : db "   Scoring 1  ]"
-	dw $0011 : db "[  Scoring 2  ]"
-	dw $0011 : db "[  Checking   ]"
-	dw $0011 : db "[ Pwr. Play 1 ]"
-	dw $0011 : db "[ Pwr. Play 2 ]"
-	dw $0011 : db "[ Pen. Kill 1 ]"
-	dw $0011 : db "[ Pen. Kill 2  "
-DATA8_9B88E9:		; as DATA8_9B8861, the list with Best Line
-	dw $0003 : db " "
-	dw $0011 : db "   Best Line   "
-	dw $0003 : db " "
-	dw $0003 : db " "
-	dw $0003 : db " "
-	dw $0003 : db " "
-	dw $0003 : db " "
-	dw $0003 : db " "
+incsrc "data/text/DATA8_9B8861.asm"
+incsrc "data/text/DATA8_9B88E9.asm"
 CODE_9B890F:
 	lda.b $8F
 	pha
@@ -1317,7 +1301,7 @@ CODE_9B8B60:
 	sec
 	adc.b $A5
 	sta.b $95
-	lda.w #DATA8_80D9B3
+	lda.w #PositionNames
 	sta.b $9D
 	lda.w #$0080
 	sta.b $9F
@@ -1386,11 +1370,7 @@ CODE_9B8C65:
 	rts
 DATA8_9B8C6A:
 	db $01,$02,$03,$04
-DATA8_9B8C6E:		; entries as DATA8_9B8861
-	dw $0003 : db "G"
-	dw $0003 : db "G"
-	dw $0003 : db "G"
-	dw $0003 : db "G"
+incsrc "data/text/DATA8_9B8C6E.asm"
 CODE_9B8C7A:
 	sta.w $1D8F
 	lda.w $0D43

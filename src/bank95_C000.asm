@@ -3,12 +3,12 @@
 ; and DATA8_80DD16).
 
 org $95C000
-	incbin "../Extracted/data/DATA8_95BA96.chr.lz":1386..2272
+	incbin "data/gfx/DATA8_95BA96.chr.lz":1386..2272
 DATA8_95C376:		; for SPCUploadBlock, as DATA8_958000
 	db $07,$1A
 	db $08,$70
-	incbin "../Extracted/data/DATA8_95C376.spc":4..2164
+	incbin "data/sound/DATA8_95C376.spc":4..2164
 DATA8_95CBEA:		; for SPCUploadBlock, as DATA8_958000
 	db $08,$04
 	db $08,$04
-	incbin "../Extracted/data/DATA8_95CBEA.spc":4..1046
+	incbin "data/sound/DATA8_95CBEA.spc":4..1046

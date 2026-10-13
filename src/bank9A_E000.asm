@@ -6,23 +6,23 @@
 ; colours between them) and the start of LogoPaletteSJS.
 
 org $9AE000
-	incbin "../Extracted/data/DATA8_9ADFCB.map.huf":53..92
+	incbin "data/gfx/DATA8_9ADFCB.map.huf":53..92
 DATA8_9AE027:		; packed for DecompressLZ by a screen setup in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$01,$00
-	incbin "../Extracted/data/DATA8_9AE027.lz":5..89
+	incbin "data/gfx/DATA8_9AE027.lz":5..89
 DATA8_9AE080:		; for SPCUploadBlock, as DATA8_9A8000
 	db $00,$51
 	db $00,$51
-	incbin "../Extracted/data/DATA8_9AE080.spc":4..85
+	incbin "data/sound/DATA8_9AE080.spc":4..85
 DATA8_9AE0D5:		; colours packed for DecompressLZ, loaded into CGRAM by a screen setup in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$00,$A0
-	incbin "../Extracted/data/DATA8_9AE0D5.pal.lz":5..76
+	incbin "data/gfx/DATA8_9AE0D5.pal.lz":5..76
 DATA8_9AE121:		; colours packed for DecompressLZ, loaded into CGRAM by screen setups in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$01,$00
-	incbin "../Extracted/data/DATA8_9AE121.pal.lz":5..71
+	incbin "data/gfx/DATA8_9AE121.pal.lz":5..71
 CenterIceMapPIT:	; the Pittsburgh centre ice logo map: width, height, a word, then the map words (8 x 4)
 	dw $0008,$0004,$0308
 	dw $0000,$0401,$0402,$0403,$0404,$0405,$0000,$0000
@@ -180,25 +180,25 @@ CenterIceMapMTL:	; the Montreal centre ice logo map: width, height, a word, then
 	dw $040D,$040E,$040F,$0410,$0411,$0412,$0413,$0414
 	dw $0000,$0415,$0416,$0417,$0417,$0418,$0419,$0000
 DATA8_9AE884:		; colours packed for DecompressRLE, loaded into the colour buffer by a screen setup in bank $9D; not identified yet
-	incbin "../Extracted/data/DATA8_9AE884.pal.rle":0..59
+	incbin "data/gfx/DATA8_9AE884.pal.rle":0..59
 DATA8_9AE8BF:		; packed for DecompressHuffman by a screen setup in bank $9D; not identified yet
 	db $30,$FB
 	db $00,$00,$C0
-	incbin "../Extracted/data/DATA8_9AE8BF.huf":5..45
+	incbin "data/gfx/DATA8_9AE8BF.huf":5..45
 DATA8_9AE8EC:		; an 18 x 3 map packed for DecompressRLE (width, height, $0308, then the map words)
 			;   read in bank $9B; not identified yet
-	incbin "../Extracted/data/DATA8_9AE8EC.map.rle":0..45
+	incbin "data/gfx/DATA8_9AE8EC.map.rle":0..45
 DATA8_9AE919:		; an 18 x 3 map packed for DecompressRLE (width, height, $0308, then the map words)
 			;   read in bank $9B; not identified yet
-	incbin "../Extracted/data/DATA8_9AE919.map.rle":0..45
+	incbin "data/gfx/DATA8_9AE919.map.rle":0..45
 DATA8_9AE946:		; colours packed for DecompressLZ, loaded into CGRAM by a screen setup in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$01,$00
-	incbin "../Extracted/data/DATA8_9AE946.pal.lz":5..44
+	incbin "data/gfx/DATA8_9AE946.pal.lz":5..44
 DATA8_9AE972:		; colours packed for DecompressHuffman, loaded into CGRAM by a screen setup in bank $9D; not identified yet
 	db $30,$FB
 	db $00,$01,$00
-	incbin "../Extracted/data/DATA8_9AE972.pal.huf":5..43
+	incbin "data/gfx/DATA8_9AE972.pal.huf":5..43
 DATA8_9AE99D:		; a map, not packed: width, height and a word, then the map words (9 x 2); read in bank $9F
 	dw $0009,$0002,$0308
 	dw $0001,$0002,$0003,$0004,$0005,$0007,$0008,$0009
@@ -208,17 +208,17 @@ DATA8_9AE9C7:		; a 30 x 12 map packed for DecompressLZ (width, height, $0308, th
 			;   read in bank $9B; not identified yet
 	db $10,$FB
 	db $00,$02,$D6
-	incbin "../Extracted/data/DATA8_9AE9C7.map.lz":5..41
+	incbin "data/gfx/DATA8_9AE9C7.map.lz":5..41
 DATA8_9AE9F0:		; a 7 x 7 map packed for DecompressLZ (width, height, $0308, then the map words)
 			;   read by a screen setup in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$00,$68
-	incbin "../Extracted/data/DATA8_9AE9F0.map.lz":5..37
+	incbin "data/gfx/DATA8_9AE9F0.map.lz":5..37
 DATA8_9AEA15:		; a 7 x 7 map packed for DecompressLZ (width, height, $0308, then the map words)
 			;   read by a screen setup in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$00,$68
-	incbin "../Extracted/data/DATA8_9AEA15.map.lz":5..37
+	incbin "data/gfx/DATA8_9AEA15.map.lz":5..37
 DATA8_9AEA3A:		; a map, not packed: width, height and a word, then the map words (7 x 2); read in bank $9F
 	dw $0007,$0002,$0308
 	dw $0401,$0402,$0403,$0404,$0405,$0406,$0401,$0401

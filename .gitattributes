@@ -1,0 +1,3 @@
+# The data assets are ROM bytes: never convert their line endings.
+src/data/gfx/** binary
+src/data/sound/** binary

@@ -1,5 +1,5 @@
 ; Bank $9F, third 4 KB: more game flow code, with auto labels for now: among it the GOAL! and HAT TRICK! messages
-; (DATA8_9FA816, text records with position codes), the word table DATA8_9FA038 and the byte tables DATA8_9FAEE2,
+; (GoalBoxText, text records with position codes), the word table DATA8_9FA038 and the byte tables DATA8_9FAEE2,
 ; DATA8_9FAEFA and DATA8_9FAF02.
 
 org $9FA001
@@ -588,7 +588,7 @@ CODE_9FA4D0:
 CODE_9FA52C:
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D739
+	lda.w #GameLabels
 	sta.b $8D
 	jsl.l CODE_9ECFC6
 	lda.b $01,s
@@ -826,7 +826,7 @@ CODE_9FA718:
 CODE_9FA72C:
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FA816
+	lda.w #GoalBoxText
 	sta.b $8D
 	ldy.w #$0003
 	lda.b [$99],y
@@ -932,9 +932,7 @@ CODE_9FA7F8:
 	sta.b $A5
 	ldx.b $95
 	rtl
-DATA8_9FA816:		; a word (2 + the bytes), then the bytes: position codes and text
-	dw $000D : db $BF,$0F,$03,"GOAL!",$BF,$0C,$05
-	dw $0012 : db $BF,$0C,$03,"HAT TRICK!",$BF,$0C,$05
+incsrc "data/text/GoalBoxText.asm"
 	lda.w pflags,x
 	bit.w #$0002
 	bne CODE_9FA840

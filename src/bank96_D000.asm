@@ -148,7 +148,7 @@ DATA8_96D442:		; a song (see bank81_F000): header, track offsets ($0000 ends the
 DATA8_96D7AC:		; linear 4bpp tiles packed for DecompressLZ, converted by $9B85C2 in bank $9B; not identified yet
 	db $10,$FB
 	db $00,$08,$A0
-	incbin "../Extracted/data/DATA8_96D7AC.lin.lz":5..866
+	incbin "data/gfx/DATA8_96D7AC.lin.lz":5..866
 DATA8_96DB0E:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$03,$00
 	dw .left-DATA8_96DB0E,.right-DATA8_96DB0E,.claps-DATA8_96DB0E,$0000
@@ -215,4 +215,4 @@ DATA8_96DB0E:		; a song (see bank81_F000): header, track offsets ($0000 ends the
 DATA8_96DE60:		; for SPCUploadBlock, as DATA8_968000
 	db $03,$45
 	db $03,$45
-	incbin "../Extracted/data/DATA8_96DE60.spc":4..416
+	incbin "data/sound/DATA8_96DE60.spc":4..416

@@ -1,6 +1,6 @@
 ; Bank $83, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames83.bin. Then the centre ice logo tiles of the Pittsburgh home team (see bank82_F000), from
-; Extracted/data/CenterIcePIT.lin.huf, and the last bytes of the bank.
+; data/gfx/SpriteFrames83.bin. Then the centre ice logo tiles of the Pittsburgh home team (see bank82_F000), from
+; data/gfx/CenterIcePIT.lin.huf, and the last bytes of the bank.
 
 org $83F1C4
 SpriteFrame150:
@@ -14,7 +14,7 @@ SpriteFrame150:
 	dw -9,-7,$0802 : db $FF
 	dw 7,0,$0804 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames83.bin":29167..29551
+	incbin "data/gfx/SpriteFrames83.bin":29167..29551
 SpriteFrame151:
 	db $03,$80
 	dw $000C
@@ -26,7 +26,7 @@ SpriteFrame151:
 	dw -9,-7,$0802 : db $FF
 	dw 7,-3,$0804 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames83.bin":29594..29978
+	incbin "data/gfx/SpriteFrames83.bin":29594..29978
 SpriteFrame152:
 	db $03,$80
 	dw $0009
@@ -38,7 +38,7 @@ SpriteFrame152:
 	dw -6,-7,$0802 : db $FF
 	dw -8,9,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames83.bin":30021..30309
+	incbin "data/gfx/SpriteFrames83.bin":30021..30309
 SpriteFrame153:
 	db $03,$80
 	dw $0009
@@ -50,7 +50,7 @@ SpriteFrame153:
 	dw -6,-7,$0802 : db $FF
 	dw -8,9,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames83.bin":30352..30640
+	incbin "data/gfx/SpriteFrames83.bin":30352..30640
 SpriteFrame154:
 	db $03,$80
 	dw $0009
@@ -62,7 +62,7 @@ SpriteFrame154:
 	dw -9,-8,$0802 : db $FF
 	dw -17,3,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames83.bin":30683..30971
+	incbin "data/gfx/SpriteFrames83.bin":30683..30971
 SpriteFrame155:
 	db $03,$80
 	dw $0009
@@ -74,7 +74,7 @@ SpriteFrame155:
 	dw -9,-8,$0802 : db $FF
 	dw -17,3,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames83.bin":31014..31302
+	incbin "data/gfx/SpriteFrames83.bin":31014..31302
 SpriteFrame156:
 	db $03,$80
 	dw $000C
@@ -86,7 +86,7 @@ SpriteFrame156:
 	dw -15,-10,$0802 : db $FF
 	dw 1,-10,$0804 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames83.bin":31345..31729
+	incbin "data/gfx/SpriteFrames83.bin":31345..31729
 SpriteFrame157:
 	db $03,$80
 	dw $000C
@@ -98,7 +98,7 @@ SpriteFrame157:
 	dw -15,-10,$0802 : db $FF
 	dw 1,-10,$0804 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames83.bin":31772..32156
+	incbin "data/gfx/SpriteFrames83.bin":31772..32156
 SpriteFrame158:
 	db $03,$80
 	dw $000C
@@ -110,9 +110,9 @@ SpriteFrame158:
 	dw -4,-7,$0802 : db $FF
 	dw -20,-11,$0804 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames83.bin":32199..32583
+	incbin "data/gfx/SpriteFrames83.bin":32199..32583
 CenterIceTilesPIT:	; packed tiles: format word, unpacked size (big-endian), then the stream
 	db $30,$FB
 	db $00,$02,$C0
-	incbin "../Extracted/data/CenterIcePIT.lin.huf":5..180
+	incbin "data/gfx/CenterIcePIT.lin.huf":5..180
 	db $00,$FF,$FF,$FF,$FF

@@ -34,7 +34,7 @@ DATA8_9AB13D:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9AB13D.lin.huf":5..418
+	incbin "data/gfx/DATA8_9AB13D.lin.huf":5..418
 DATA8_9AB2DF:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_9AB2DF,.right-DATA8_9AB2DF,$0000
@@ -72,16 +72,16 @@ CenterIceTilesANA:	; the Anaheim centre ice logo: linear 4bpp tiles packed for D
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$60
-	incbin "../Extracted/data/CenterIceANA.lin.huf":5..405
+	incbin "data/gfx/CenterIceANA.lin.huf":5..405
 DATA8_9AB610:		; packed for DecompressHuffman, unpacked into a RAM buffer by screen setups in bank $9D; not identified yet
 	db $30,$FB
 	db $00,$06,$40
-	incbin "../Extracted/data/DATA8_9AB610.huf":5..401
+	incbin "data/gfx/DATA8_9AB610.huf":5..401
 DATA8_9AB7A1:		; a 32 x 28 map packed for DecompressHuffman (width, height, $0308, then the map words), read
 			;   by a screen setup in bank $9D; not identified yet
 	db $30,$FB
 	db $00,$07,$06
-	incbin "../Extracted/data/DATA8_9AB7A1.map.huf":5..400
+	incbin "data/gfx/DATA8_9AB7A1.map.huf":5..400
 DATA8_9AB931:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_9AB931,.right-DATA8_9AB931,$0000
@@ -115,12 +115,12 @@ DATA8_9ABA95:		; a 32 x 28 map packed for DecompressLZ (width, height, $0308, th
 			;   by screen setups in banks $9B and $9D; not identified yet
 	db $10,$FB
 	db $00,$07,$06
-	incbin "../Extracted/data/DATA8_9ABA95.map.lz":5..352
+	incbin "data/gfx/DATA8_9ABA95.map.lz":5..352
 CenterIceTilesNJD:	; the New Jersey centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 12 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "../Extracted/data/CenterIceNJD.lin.huf":5..328
+	incbin "data/gfx/CenterIceNJD.lin.huf":5..328
 DATA8_9ABD3D:		; a map, not packed: width, height and a word, then the map words (76 x 2); not identified yet
 	dw $004C,$0002,$0308
 	dw $0001,$0002,$0003,$0004,$0005,$0006,$0007,$0002
@@ -146,9 +146,9 @@ CenterIceTilesWPG:	; the Winnipeg centre ice logo: linear 4bpp tiles packed for 
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$A0
-	incbin "../Extracted/data/CenterIceWPG.lin.huf":5..302
+	incbin "data/gfx/CenterIceWPG.lin.huf":5..302
 CenterIceTilesBOS:	; the Boston centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 1 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "../Extracted/data/CenterIceBOS.lin.huf":5..95
+	incbin "data/gfx/CenterIceBOS.lin.huf":5..95

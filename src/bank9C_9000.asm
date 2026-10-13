@@ -173,35 +173,8 @@ CODE_9C9154:
 	jsl.l CODE_9EC894
 CODE_9C9167:
 	rts
-DATA8_9C9168:		; stat names: a word (2 + the text), then the text
-	dw $000F : db "    Score    "
-	dw $000F : db "    Shots    "
-	dw $000F : db "Shooting Pct."
-	dw $000F : db "  Power Play "
-	dw $000F : db "  PP Minutes "
-	dw $000F : db "  PP Shots   "
-	dw $000F : db "  SH Goals   "
-	dw $000F : db " Breakaways  "
-	dw $000F : db " One timers  "
-	dw $000F : db "Penalty Shots"
-	dw $000F : db "  Faceoffs   "
-	dw $000F : db " Body Checks "
-	dw $000F : db "  Penalties  "
-	dw $000F : db " Attack Zone "
-	dw $000F : db "   Passing   "
-	dw $000F : db " Passing Pct."
-DATA8_9C9258:		; stat names, the second list
-	dw $000F : db "    Score    "
-	dw $000F : db "    Shots    "
-	dw $000F : db "Shooting Pct."
-	dw $000F : db " Breakaways  "
-	dw $000F : db " One timers  "
-	dw $000F : db "Penalty Shots"
-	dw $000F : db "  Faceoffs   "
-	dw $000F : db " Body Checks "
-	dw $000F : db " Attack Zone "
-	dw $000F : db "   Passing   "
-	dw $000F : db " Passing Pct."
+incsrc "data/text/DATA8_9C9168.asm"
+incsrc "data/text/DATA8_9C9258.asm"
 DATA8_9C92FD:		; per stat of DATA8_9C9168: a kind word, then the RAM word of the home and away team
 			;   ($FFFF = none); $FFFF ends them
 	dw $0010,$178E,$FFFF
@@ -221,10 +194,7 @@ DATA8_9C92FD:		; per stat of DATA8_9C9168: a kind word, then the RAM word of the
 	dw $0011,$17BA,$17BE
 	dw $0012,$17BA,$17BE
 	dw $FFFF,$FFFF,$FFFF
-DATA8_9C9363:
-	dw $0003 : db "{"
-	dw $0003 : db "}"
-	dw $0003 : db " "
+incsrc "data/text/DATA8_9C9363.asm"
 CODE_9C936C:
 	stx.w $1E17
 	sty.w $1E1B
@@ -579,39 +549,7 @@ DATA8_9C9623:
 	db $07,$07,$06,$07,$06,$06,$07,$06,$02,$05,$07,$05,$08,$07,$08,$06
 	db $08,$06,$05,$06,$06,$07,$08,$06,$06,$05,$03,$05,$05,$04,$06,$06
 	db $06,$05,$05,$06,$05,$05
-TeamPlaceNames:		; word pointers to the team places, then the places ($00 ends each)
-	dw .ANA,.BOS,.BUF,.CGY,.CHI,.DAL,.DET
-	dw .EDM,.FLA,.HFD,.LAK,.MTL,.NJD,.NYI
-	dw .NYR,.OTT,.PHI,.PIT,.QUE,.SJS,.STL
-	dw .TBL,.TOR,.VAN,.WSH,.WPG,.ASE,.ASW
-.ANA:	db "Anaheim",$00
-.BOS:	db "Boston",$00
-.BUF:	db "Buffalo",$00
-.CGY:	db "Calgary",$00
-.CHI:	db "Chicago",$00
-.DAL:	db "Dallas",$00
-.DET:	db "Detroit",$00
-.EDM:	db "Edmonton",$00
-.FLA:	db "Florida",$00
-.HFD:	db "Hartford",$00
-.LAK:	db "Los Angeles",$00
-.MTL:	db "Montreal",$00
-.NJD:	db "New Jersey",$00
-.NYI:	db "New York",$00
-.NYR:	db "New York",$00
-.OTT:	db "Ottawa",$00
-.PHI:	db "Philadelphia",$00
-.PIT:	db "Pittsburgh",$00
-.QUE:	db "Quebec",$00
-.SJS:	db "San Jose",$00
-.STL:	db "St. Louis",$00
-.TBL:	db "Tampa Bay",$00
-.TOR:	db "Toronto",$00
-.VAN:	db "Vancouver",$00
-.WSH:	db "Washington",$00
-.WPG:	db "Winnipeg",$00
-.ASE:	db "All Stars E.",$00
-.ASW:	db "All Stars W.",$00
+incsrc "data/text/TeamPlaceNames.asm"
 CODE_9C9786:
 	lda.w #$0200
 	jsl.l SetSoundFade

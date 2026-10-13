@@ -5,4 +5,4 @@ org $928000
 DATA8_928000:		; for SPCUploadBlock: sound RAM address, length (big-endian words), then the bytes
 	db $00,$12
 	db $13,$EF
-	incbin "../Extracted/data/DATA8_928000.spc":4..4096
+	incbin "data/sound/DATA8_928000.spc":4..4096

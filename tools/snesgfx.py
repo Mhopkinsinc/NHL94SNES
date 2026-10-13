@@ -28,7 +28,7 @@ Palettes: --pal IN[:OFFSET] (BGR555 words, 16 colours per row), else grey levels
 Examples:
   python3 tools/snesgfx.py unpack '$818000' -o rinktiles.bin
   python3 tools/snesgfx.py blocks --from 818000 --to 828000
-  python3 tools/snesgfx.py tiles Extracted/data/IceRink.chr.lz --columns 32 -o rinktiles.png
+  python3 tools/snesgfx.py tiles src/data/gfx/IceRink.chr.lz --columns 32 -o rinktiles.png
   python3 tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48 -o rink.png    (6-byte header: width, height, ...)
   python3 tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497 -o logos.png
   python3 tools/snesgfx.py sprites '$828000' --rom --count 64 --columns 8 --cell 64 --origin-x 32 --origin-y 48 -o frames.png

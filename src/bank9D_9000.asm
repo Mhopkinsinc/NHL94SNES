@@ -1592,7 +1592,7 @@ CODE_9D9ECB:
 	sta.b $A5
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9DA05D
+	lda.w #RosterLineNames
 	sta.b $8D
 	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC7BE
@@ -1603,7 +1603,7 @@ CODE_9D9ECB:
 CODE_9D9F08:
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D79B
+	lda.w #AttribMenuSkater
 	sta.b $8D
 	lda.w $0D47
 	sta.b $A5
@@ -1611,7 +1611,7 @@ CODE_9D9F08:
 	bne CODE_9D9F32
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D8CD
+	lda.w #AttribMenuGoalie
 	sta.b $8D
 	bra CODE_9D9F32
 CODE_9D9F28:
@@ -1703,7 +1703,7 @@ CODE_9D9F43:
 	sta.b $95
 	lda.w #$0080
 	sta.b $9F
-	lda.w #DATA8_80D9B3
+	lda.w #PositionNames
 	sta.b $9D
 	lda.w #$0004
 	sta.b $A9

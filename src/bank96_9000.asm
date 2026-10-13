@@ -3,15 +3,15 @@
 ; DATA8_80E6FD), then the start of DATA8_969C09, a song from the TeamSongs table (laid out as in bank81_F000).
 
 org $969000
-	incbin "../Extracted/data/DATA8_968C02.lz":1022..1422
+	incbin "data/gfx/DATA8_968C02.lz":1022..1422
 DATA8_969190:		; for SPCUploadBlock, as DATA8_968000
 	db $05,$4F
 	db $05,$4F
-	incbin "../Extracted/data/DATA8_969190.spc":4..1363
+	incbin "data/sound/DATA8_969190.spc":4..1363
 DATA8_9696E3:		; for SPCUploadBlock, as DATA8_968000
 	db $05,$22
 	db $05,$22
-	incbin "../Extracted/data/DATA8_9696E3.spc":4..1318
+	incbin "data/sound/DATA8_9696E3.spc":4..1318
 DATA8_969C09:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_969C09,.right-DATA8_969C09,$0000

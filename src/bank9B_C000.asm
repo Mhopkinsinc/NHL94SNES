@@ -1,6 +1,6 @@
 ; Bank $9B, fifth 4 KB: screen code, with auto labels for now: the Other Scores screen (No Other Games.), the short
 ; names DATA8_9BC5E7 and DATA8_9BC5F5 (NY Islanders, NY Rangers) as text records, then the password screen. Passwords
-; are written with the characters of PasswordChars (consonants, digits and a dash); Bad Password is shown for one
+; are written with the characters of PasstoText (consonants, digits and a dash); Bad Password is shown for one
 ; that does not decode. The bank ends with $FF fill.
 
 org $9BC001
@@ -716,10 +716,7 @@ CODE_9BC5DC:
 	sta.b $8D
 CODE_9BC5E6:
 	rtl
-DATA8_9BC5E7:		; a text record: a word (2 + the text), then the text
-	dw $000E : db "NY Islanders"
-DATA8_9BC5F5:
-	dw $000C : db "NY Rangers"
+incsrc "data/text/DATA8_9BC5E7.asm"
 CODE_9BC601:
 	jsl.l CODE_9BC5AB
 	lda.w #$0007
@@ -824,7 +821,7 @@ CODE_9BC6D5:
 	pha
 	lda.w #$009B
 	sta.b $93
-	lda.w #PasswordChars
+	lda.w #PasstoText
 	sta.b $91
 	lda.w #$0000
 	sta.b $8F
@@ -997,7 +994,7 @@ CODE_9BC7FB:
 	dec.w printx
 	lda.w #$009B
 	sta.b $8B
-	lda.w #PasswordChars
+	lda.w #PasstoText
 	sta.b $89
 	lda.w #$0004
 	sta.b $A5
@@ -1051,7 +1048,7 @@ CODE_9BC90F:
 	phx
 	ldy.b $B9
 	tyx
-	lda.l PasswordChars,x
+	lda.l PasstoText,x
 	plx
 	sta.w $0A4C
 	lda.w #$0000
@@ -1158,7 +1155,7 @@ CODE_9BC9FD:
 	phx
 	ldy.b $B9
 	tyx
-	lda.l PasswordChars,x
+	lda.l PasstoText,x
 	plx
 	sta.w $0A4C
 	lda.w #$0000
@@ -1176,7 +1173,7 @@ CODE_9BC9FD:
 	phx
 	ldy.b $B9
 	tyx
-	lda.l PasswordChars,x
+	lda.l PasstoText,x
 	plx
 	sta.w $0A4C
 	lda.w #$0000
@@ -1523,8 +1520,7 @@ CODE_9BCD33:
 	dex
 	bpl CODE_9BCD33
 	rtl
-PasswordChars:		; the characters a password is written with
-	db "BCDFGHJKLMNPRSTVWXYZ0123456789-"
+incsrc "data/text/PasstoText.asm"
 PWtoBits:
 	jsl.l CODE_9BCD8F
 	ldx.w #$0000

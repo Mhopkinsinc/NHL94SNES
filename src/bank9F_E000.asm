@@ -1272,12 +1272,7 @@ CODE_9FEC28:
 	ldy.w #$0001
 	jsl.l CODE_9FEB90
 	rtl
-DATA8_9FEC30:		; a word (2 + the text), then the text
-	dw $0012 : db "Automatic Goalie"
-	dw $000F : db "Manual Goalie"
-	dw $0006 : db "None"
-	dw $0004 : db "On"
-	dw $0005 : db "Off"
+incsrc "data/text/DATA8_9FEC30.asm"
 CODE_9FEC60:
 	lda.w #$009F
 	sta.b $9B
@@ -1289,73 +1284,4 @@ CODE_9FEC60:
 DATA8_9FEC72:
 	dw $0009,$0009,$0003,$FFFF,$FFFF,$000A,$000A,$000A,$0004
 	dw $0003,$0003,$000B,$000B,$000B,$0005,$FFFF,$FFFF,$000C
-DATA8_9FEC96:		; the menu item names, as DATA8_9FEC30
-	dw $000D : db "Resume Game"
-	dw $0010 : db "Instant Replay"
-	dw $000C : db "Game Stats"
-	dw $000D : db "Team Roster"
-	dw $000C : db "Edit Lines"
-	dw $000E : db "Player Stats"
-	dw $0011 : db "Scoring Summary"
-	dw $0011 : db "Penalty Summary"
-	dw $000E : db "Period Stats"
-	dw $000B : db "Goalie - "
-	dw $0002
-	dw $0011 : db "Def. Control - "
-	dw $000E : db "Player Cards"
-	dw $000E : db "Other Scores"
-	dw $000D : db "Crowd Level"
-	dw $000B : db "Exit Game"
-	dw $000D : db "Resume Game"
-	dw $0010 : db "Instant Replay"
-	dw $000C : db "Game Stats"
-	dw $000D : db "Team Roster"
-	dw $000C : db "Edit Lines"
-	dw $0009 : db "Timeout"
-	dw $000E : db "Player Stats"
-	dw $0011 : db "Scoring Summary"
-	dw $0011 : db "Penalty Summary"
-	dw $000E : db "Period Stats"
-	dw $000B : db "Goalie - "
-	dw $0002
-	dw $0011 : db "Defense Ctrl - "
-	dw $000E : db "Player Cards"
-	dw $000E : db "Other Scores"
-	dw $000D : db "Crowd Level"
-	dw $000B : db "Exit Game"
-	dw $000B : db "Exit Game"
-	dw $0010 : db "Instant Replay"
-	dw $000C : db "Game Stats"
-	dw $000D : db "Team Roster"
-	dw $000C : db "Edit Lines"
-	dw $000E : db "Player Stats"
-	dw $0011 : db "Scoring Summary"
-	dw $0011 : db "Penalty Summary"
-	dw $000E : db "Period Stats"
-	dw $000B : db "Goalie - "
-	dw $0002
-	dw $0011 : db "Defense Ctrl - "
-	dw $000E : db "Player Cards"
-	dw $000E : db "Other Scores"
-	dw $000D : db "Crowd Level"
-	dw $000C : db "Start Game"
-	dw $000D : db "Team Roster"
-	dw $000C : db "Edit Lines"
-	dw $000B : db "Goalie - "
-	dw $0002
-	dw $0011 : db "Defense Ctrl - "
-	dw $000E : db "Player Cards"
-	dw $000E : db "Other Scores"
-	dw $000B : db "Exit Game"
-	dw $0010 : db "Start Shootout"
-	dw $0010 : db "Shootout Setup"
-	dw $000D : db "Team Roster"
-	dw $0002
-	dw $000E : db "Player Cards"
-	dw $000F : db "Exit Shootout"
-	dw $0011 : db "Resume Shootout"
-	dw $0010 : db "Instant Replay"
-	dw $000D : db "Team Roster"
-	dw $0002
-	dw $000E : db "Player Cards"
-	dw $000F : db "Exit Shootout"
+incsrc "data/text/DATA8_9FEC96.asm"

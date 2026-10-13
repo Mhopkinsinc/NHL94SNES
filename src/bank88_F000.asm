@@ -1,5 +1,5 @@
 ; Bank $88, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames88.bin. Then the centre ice logo map of the two all-star teams (the NHL shield): the rink
+; data/gfx/SpriteFrames88.bin. Then the centre ice logo map of the two all-star teams (the NHL shield): the rink
 ; loader pastes it into the rink map (see bank82_F000).
 
 org $88F096
@@ -16,7 +16,7 @@ SpriteFrame532:
 	dw 3,-10,$0806 : db $00
 	dw 3,-2,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames88.bin":28879..29327
+	incbin "data/gfx/SpriteFrames88.bin":28879..29327
 SpriteFrame533:
 	db $04,$80
 	dw $000D
@@ -29,7 +29,7 @@ SpriteFrame533:
 	dw -7,-8,$0804 : db $FF
 	dw 9,0,$0806 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames88.bin":29377..29793
+	incbin "data/gfx/SpriteFrames88.bin":29377..29793
 SpriteFrame534:
 	db $06,$80
 	dw $000C
@@ -44,7 +44,7 @@ SpriteFrame534:
 	dw 4,-6,$0814 : db $00
 	dw 4,2,$0815 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames88.bin":29857..30241
+	incbin "data/gfx/SpriteFrames88.bin":29857..30241
 SpriteFrame535:
 	db $04,$80
 	dw $0010
@@ -57,7 +57,7 @@ SpriteFrame535:
 	dw -14,-9,$0804 : db $FF
 	dw 2,-9,$0806 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames88.bin":30291..30803
+	incbin "data/gfx/SpriteFrames88.bin":30291..30803
 SpriteFrame536:
 	db $03,$80
 	dw $0009
@@ -69,7 +69,7 @@ SpriteFrame536:
 	dw -6,-11,$0802 : db $FF
 	dw 12,-19,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames88.bin":30846..31134
+	incbin "data/gfx/SpriteFrames88.bin":30846..31134
 SpriteFrame537:
 	db $04,$80
 	dw $000A
@@ -82,7 +82,7 @@ SpriteFrame537:
 	dw -10,-15,$0804 : db $00
 	dw -10,-7,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames88.bin":31184..31504
+	incbin "data/gfx/SpriteFrames88.bin":31184..31504
 SpriteFrame538:
 	db $05,$80
 	dw $000E
@@ -96,7 +96,7 @@ SpriteFrame538:
 	dw 6,-8,$0806 : db $00
 	dw 6,0,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames88.bin":31561..32009
+	incbin "data/gfx/SpriteFrames88.bin":31561..32009
 SpriteFrame539:
 	db $04,$80
 	dw $000A
@@ -109,7 +109,7 @@ SpriteFrame539:
 	dw 7,-7,$0804 : db $00
 	dw 7,1,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames88.bin":32059..32379
+	incbin "data/gfx/SpriteFrames88.bin":32059..32379
 SpriteFrame540:
 	db $03,$80
 	dw $0009
@@ -121,7 +121,7 @@ SpriteFrame540:
 	dw -6,-2,$0802 : db $FF
 	dw 5,-10,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames88.bin":32422..32710
+	incbin "data/gfx/SpriteFrames88.bin":32422..32710
 CenterIceMapNHL:	; width, height and a word, then the map words, one row per line
 	dw $0006,$0004,$0308
 	dw $0401,$0402,$0403,$0404,$0405,$0406

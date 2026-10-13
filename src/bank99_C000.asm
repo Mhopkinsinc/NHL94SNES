@@ -4,22 +4,22 @@
 ; then the start of DATA8_99CEDE, a song from the TeamSongs table (laid out as in bank81_F000).
 
 org $99C000
-	incbin "../Extracted/data/DATA8_99BFD5.lin.huf":43..553
+	incbin "data/gfx/DATA8_99BFD5.lin.huf":43..553
 DATA8_99C1FE:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99C1FE.lin.huf":5..552
+	incbin "data/gfx/DATA8_99C1FE.lin.huf":5..552
 DATA8_99C426:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99C426.lin.huf":5..552
+	incbin "data/gfx/DATA8_99C426.lin.huf":5..552
 DATA8_99C64E:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99C64E.lin.huf":5..548
+	incbin "data/gfx/DATA8_99C64E.lin.huf":5..548
 DATA8_99C872:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_99C872,.right-DATA8_99C872,$0000
@@ -106,7 +106,7 @@ DATA8_99CCBA:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99CCBA.lin.huf":5..548
+	incbin "data/gfx/DATA8_99CCBA.lin.huf":5..548
 DATA8_99CEDE:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_99CEDE,.right-DATA8_99CEDE,$0000

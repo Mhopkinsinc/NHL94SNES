@@ -1,4 +1,4 @@
-; Bank $9D, third 4 KB: screen code, with auto labels for now: the line editor (DATA8_9DA05D holds the line names,
+; Bank $9D, third 4 KB: screen code, with auto labels for now: the line editor (RosterLineNames holds the line names,
 ; Goalies to Pen. Kill 2), more menu code, and the Game Setup screen. DATA8_9DACED holds its option texts (Regular
 ; Season, Cont. Playoffs ... Automatic, Manual) and setting names (Play Mode, Home, Visitor, Period, Penalties, Line
 ; Changes, Goalie); DATA8_9DAC7F, DATA8_9DACD1 and DATA8_9DACDF are tables of words its code reads.
@@ -41,20 +41,8 @@ CODE_9DA04C:
 	rtl
 DATA8_9DA04D:
 	db $01,$02,$03,$04
-DATA8_9DA051:
-	dw $0003 : db "G"
-	dw $0003 : db "G"
-	dw $0003 : db "G"
-	dw $0003 : db "G"
-DATA8_9DA05D:		; the line names: a word (2 + the text), then the text
-	dw $000F : db "  Goalies   }"
-	dw $000F : db "{Scoring  1 }"
-	dw $000F : db "{Scoring  2 }"
-	dw $000F : db "{ Checking  }"
-	dw $000F : db "{Pwr. Play 1}"
-	dw $000F : db "{Pwr. Play 2}"
-	dw $000F : db "{Pen. Kill 1}"
-	dw $000F : db "{Pen. Kill 2 "
+incsrc "data/text/DATA8_9DA051.asm"
+incsrc "data/text/RosterLineNames.asm"
 CODE_9DA0D5:
 	stz.w $1C84
 	stz.w $1C86
@@ -1335,40 +1323,8 @@ DATA8_9DACD1:
 	dw $0005,$001C,$001C,$0003,$0003,$0003,$0002
 DATA8_9DACDF:
 	dw $000E,$005E,$005E,$005E,$009E,$00CE,$00FE
-DATA8_9DACED:		; Game Setup option texts: a word (2 + the text), then the text
-	dw $0010 : db "Regular Season"
-	dw $0010 : db "Cont. Playoffs"
-	dw $0010 : db "New Playoffs  "
-	dw $0010 : db "Best of 7     "
-	dw $0010 : db "Shootout      "
-	dw $0010 : db "5 Minutes     "
-	dw $0010 : db "10 Minutes    "
-	dw $0010 : db "20 Minutes    "
-	dw $0010 : db "30 Seconds    "
-	dw $0010 : db "Off           "
-	dw $0010 : db "On            "
-	dw $0010 : db "On, No Offside"
-	dw $0010 : db "Off           "
-	dw $0010 : db "On            "
-	dw $0010 : db "Automatic     "
-	dw $0010 : db "Automatic     "
-	dw $0010 : db "Manual        "
-DATA8_9DADFD:		; Game Setup setting names
-	dw $000B : db "Play Mode"
-	dw $0006 : db "Home"
-	dw $0009 : db "Visitor"
-	dw $0008 : db "Period"
-	dw $000B : db "Penalties"
-	dw $000E : db "Line Changes"
-	dw $0008 : db "Goalie"
-DATA8_9DAE40:
-	dw $000B : db "Play Mode"
-	dw $0006 : db "Team"
-	dw $0005 : db "N/A"
-	dw $0005 : db "N/A"
-	dw $0005 : db "N/A"
-	dw $0005 : db "N/A"
-	dw $0008 : db "Goalie"
+incsrc "data/text/DATA8_9DACED.asm"
+incsrc "data/text/DATA8_9DADFD.asm"
 CODE_9DAE6D:
 	lda.b $91
 	pha

@@ -1,28 +1,13 @@
 #!/usr/bin/env python3
-# extract.py: cut the ROM into the 4 KB segment files that the incbin segments include, and into the data assets
-# (packed graphics and other blocks) that the source includes by name.
-# Usage: python3 tools/extract.py lst/nhl94snes.sfc   (tools/prebuild.py runs it when needed)
-# Writes Extracted/segments/bankXX_YYYY.bin and Extracted/data/<asset>, then Extracted/.extract-complete.json last.
-import hashlib, json, os, shutil, sys
+# extract.py: write the data assets (packed graphics, sprite frames, sound blocks) that the source includes by name from the
+# ROM into src/data/<category>/, or check the committed files against the ROM. The files are committed; run this only to
+# add an asset or to check them. src/data/README.md describes the formats (by file extension).
+# Usage: python3 tools/extract.py lst/nhl94snes.sfc           (writes every asset)
+#        python3 tools/extract.py lst/nhl94snes.sfc --check   (compares every asset with the ROM, exit 1 on a difference)
+# Each entry: file name with a format extension, first ROM address, end address (exclusive). The category folder follows the
+# extension: .spc blocks go to src/data/sound/, everything else to src/data/gfx/.
+import os, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-rom = open(sys.argv[1], 'rb').read()
-out = os.path.join(ROOT, 'Extracted'); shutil.rmtree(out, ignore_errors=True)
-os.makedirs(os.path.join(out, 'segments'))
-# Data assets: file under Extracted/data/, first ROM address, end address (exclusive). The extension gives the format:
-# .chr.lz = SNES 4bpp tiles packed for DecompressLZ (format word $FB10, unpacked size, stream);
-# .spr.huf = a DrawSprite sprite set packed for DecompressHuffman (format word $FB30). tools/snesgfx.py unpacks and renders them.
-# SpriteFramesXX.bin = the SpriteFrames frames of bank $XX, not packed (the source writes their headers and pieces, and includes
-# their tiles from it).
-# .lin.huf = linear 4bpp tiles (converted to planar by $9B85C2) packed for DecompressHuffman: the team centre ice logos.
-# DATA8_XXXXXX.<format> = a packed block not identified yet, named by its address (.lz: DecompressLZ; .pal.lz: colours).
-# .chr = SNES 4bpp planar tiles, not packed.
-# .spr = a DrawSprite sprite set, not packed. .map.lz = map words packed for DecompressLZ.
-# .chr.huf = tiles packed for DecompressHuffman. .lin.pairs = linear 4bpp tiles packed for DecompressPairs.
-# .map.huf = map words packed for DecompressHuffman. .chr.pairs = tiles packed for DecompressPairs.
-# .lin.lz = linear 4bpp tiles (converted to planar by $9B85C2) packed for DecompressLZ.
-# .huf = packed for DecompressHuffman, not identified yet. .pal.huf, .pal.rle = colours packed for DecompressHuffman,
-# DecompressRLE. .map.rle = map words (or map bytes after a $0010 header word) packed for DecompressRLE.
-# .spc = a block for SPCUploadBlock: big-endian sound RAM address and length, then the bytes for the sound CPU.
 ASSETS = [
     ('IceRink.chr.lz', 0x818000, 0x81ABDE),
     ('TeamLogos.spr.huf', 0x81ABDE, 0x81FE45),
@@ -327,19 +312,21 @@ ASSETS = [
     ('DATA8_9C81F0.chr', 0x9C81F0, 0x9C8310),
     ('DATA8_9C8328.lz', 0x9C8328, 0x9C83B7),
 ]
+def category(name): return 'sound' if name.endswith('.spc') else 'gfx'
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
-files = []
-os.makedirs(os.path.join(out, 'data'))
-for name, start, end in ASSETS:
-    path = 'data/' + name
-    open(os.path.join(out, path), 'wb').write(rom[rom_offset(start):rom_offset(end)])
-    files.append({'path': path, 'size': rom_offset(end) - rom_offset(start)})
-for o in range(0, len(rom), 0x1000):
-    name = f'segments/bank{0x80 + o // 0x8000:02X}_{0x8000 + o % 0x8000:04X}.bin'
-    open(os.path.join(out, name), 'wb').write(rom[o:o + 0x1000])
-    files.append({'path': name, 'size': 0x1000})
-marker = {'romSha1': hashlib.sha1(rom).hexdigest(),
-          'extractorSha1': hashlib.sha1(open(__file__, 'rb').read()).hexdigest(), 'files': files}
-json.dump(marker, open(os.path.join(out, '.extract-complete.json'), 'w'), indent=1)
-print(f'ROM: {sys.argv[1]} sha1 {marker["romSha1"]}')
-print(f'Extracted {len(files) - len(ASSETS)} slices and {len(ASSETS)} assets')
+if __name__ == '__main__':
+    rom = open(sys.argv[1], 'rb').read()
+    check = '--check' in sys.argv[2:]
+    bad = 0
+    for name, start, end in ASSETS:
+        path = os.path.join(ROOT, 'src', 'data', category(name), name)
+        data = rom[rom_offset(start):rom_offset(end)]
+        if check:
+            if not os.path.exists(path) or open(path, 'rb').read() != data:
+                print(f'differs: src/data/{category(name)}/{name}'); bad += 1
+        else:
+            os.makedirs(os.path.dirname(path), exist_ok=True)
+            open(path, 'wb').write(data)
+    if check:
+        print(f'{len(ASSETS) - bad} of {len(ASSETS)} assets match the ROM'); sys.exit(1 if bad else 0)
+    print(f'Wrote {len(ASSETS)} assets to src/data/')

@@ -141,8 +141,8 @@ $17AA,Selected_Goalie,,Vault,RAM,src/ram94snes.asm
 $1D71,homeshooters,,94G,RAM; goalie then shooters (bytes),src/ram94snes.asm
 $1D79,awayshooters,,94G,RAM,src/ram94snes.asm
 $1D85,shootoutround,,94G,RAM,src/ram94snes.asm
-$80E30C,CreditTitles,DATA8_80E30C,code,word pointers to the credit title strings,src/bank80_E000.asm
-$80E44D,CreditNames,DATA8_80E44D,code,word pointers to the names under each title,src/bank80_E000.asm
+$80E30C,CreditTitles,DATA8_80E30C,code,word pointers to the credit title strings,src/data/text/CreditTitles.asm
+$80E44D,CreditNames,DATA8_80E44D,code,word pointers to the names under each title,src/data/text/CreditNames.asm
 $818000,IceRinkTiles,DATA8_818000,93S,packed rink tiles (93S IceRinkTiles); asset Extracted/data/IceRink.chr.lz,src/bank81_8000.asm
 $81ABDE,TeamLogoSprites,DATA8_81ABDE,code,"packed sprite set: the team logos, then Wales, Campbell, NHL, NHLPA; asset Extracted/data/TeamLogos.spr.huf",src/bank81_A000.asm
 $80DA56,TeamSongs,DATA8_80DA56,code,"songs for MusicStart, six per team; read by $9C9B5F",src/bank80_D000.asm
@@ -159,7 +159,7 @@ $92E053,IceRinkMap,DATA8_92E053,93S,"the rink map (LZ-packed, 48 x 113 words aft
 $95A7F7,SmallLetterSprites,DATA8_95A7F7,code,"small letters A-Z, digits 0-9 and a full stop as an unpacked sprite set; drawn by the text routine at $9C95F1",src/bank95_A000.asm
 $96C9CE,AwayUniformPalettes,DATA8_96C9CE,code,"16 colours per team, indexed by the away team $1C9A, copied to the sprite colours at $9FB951; dark jerseys when rendered",src/bank96_C000.asm
 $96CD4E,HomeUniformPalettes,DATA8_96CD4E,code,"16 colours per team, indexed by the home team $1C98, copied to the sprite colours at $9FB91A; white jerseys when rendered",src/bank96_C000.asm
-$9788DC,PregameText,DATA8_9788DC,code,"the pre-game screen text ($0D-ended strings: team places, then Ron Barr's lines with % codes); read at $9EC977",src/bank97_8000.asm
+$9788DC,PregameText,DATA8_9788DC,code,"the pre-game screen text ($0D-ended strings: team places, then Ron Barr's lines with % codes); read at $9EC977",src/data/text/PregameText.asm
 $97FE85,CenterIceTilesTBL,DATA8_97FE85,code,"Tampa Bay centre ice logo tiles (linear 4bpp, Huffman); team 21 of the table at $9C83B7",src/bank97_F000.asm
 $98FECB,CenterIceTilesNYI,DATA8_98FECB,code,"the New York Islanders centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 13 of the centre ice table in bank $9C)",src/bank98_F000.asm
 $99FEC0,CenterIceTilesOTT,DATA8_99FEC0,code,"the Ottawa centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 15 of the centre ice table in bank $9C)",src/bank99_F000.asm
@@ -267,7 +267,7 @@ $9B85C2,LinearToPlanar,CODE_9B85C2,code,"converts linear 4bpp tiles at [$0C] to 
 $9BCD4A,PasswordChars,DATA8_9BCD4A,code,"the characters passwords are written with (consonants, digits, a dash); read by the password screen code that prints Password / Bad Password",src/bank9B_C000.asm
 $9C83B7,CenterIceTable,DATA8_9C83B7,code,"per team (home team $1C98): long pointers to the centre ice logo tiles and map; read by the rink loader $9BC17C and in banks $9D and $9F",src/bank9C_8000.asm
 $9C8497,LogoPaletteTable,DATA8_9C8497,code,"per team: long pointer to the 16 logo colours (TeamLogoSprites and centre ice logo); read in bank $9D",src/bank9C_8000.asm
-$9C9649,TeamPlaceNames,DATA8_9C9649,code,"word pointers to the team places (Anaheim ... All Stars W.), $00-ended strings after them; read in banks $9C and $9D",src/bank9C_9000.asm
+$9C9649,TeamPlaceNames,DATA8_9C9649,code,"word pointers to the team places (Anaheim ... All Stars W.), $00-ended strings after them; read in banks $9C and $9D",src/data/text/TeamPlaceNames.asm
 $9CA5E7,TeamList,DATA8_9CA5E7,94G,"long pointer to each team record, team number = index (Anaheim 0 ... Winnipeg 25, AllStarsEast 26, AllStarsWest 27); 94G/93S TeamList",src/bank9C_A000.asm
 $9CABAC,Boston,DATA8_9CABAC,94G,"team 1 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
 $9CAE32,Buffalo,DATA8_9CAE32,94G,"team 2 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
@@ -425,3 +425,12 @@ $15A3,OOlistpos,,93S,"RAM; the 93S name of the variable at this place in routine
 $15C3,OOlist,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
 $1632,gameclock,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
 $85FFDF,PhotoPaletteBOS,DATA8_85FFDF,code,"the 16 colours of the Boston player photos (entry 1 of PhotoPaletteTable)",src/bank85_F000.asm
+$80D739,GameLabels,DATA8_80D739,93S,"the title of the game by play mode and playoff round; 93S GameLabels (EASN Hockey Night, EA Cup ...) has the same role",src/data/text/GameLabels.asm
+$80D79B,AttribMenuSkater,DATA8_80D79B,93S,"the skater rating columns; the same strings as 93S AttribMenuSkater",src/data/text/AttribMenuSkater.asm
+$80D8CD,AttribMenuGoalie,DATA8_80D8CD,93S,"the goalie rating columns; the same strings as 93S AttribMenuGoalie",src/data/text/AttribMenuGoalie.asm
+$80D9B3,PositionNames,DATA8_80D9B3,93S,"LD, RD, LW, C, RW as in 93S PositionNames",src/data/text/PositionNames.asm
+$9BCD4A,PasstoText,DATA8_9BCD4A,93S,"the password characters, the same string as 93S PasstoText; replaces the name PasswordChars",src/data/text/PasstoText.asm
+$9F9848,StatusTextTbl,DATA8_9F9848,93S,"Ice, Bench, Inj P, Inj G, then the captain mark, as 93S StatusTextTbl",src/data/text/StatusTextTbl.asm
+$9F98F1,HandedTextTbl,DATA8_9F98F1,93S,"Right, Left, as 93S HandedTextTbl",src/data/text/HandedTextTbl.asm
+$9FA816,GoalBoxText,DATA8_9FA816,93S,"GOAL!, HAT TRICK! with position codes, as 93S GoalBoxText",src/data/text/GoalBoxText.asm
+$9DA05D,RosterLineNames,DATA8_9DA05D,93S,"the line names, the same strings as 93S RosterLineNames",src/data/text/RosterLineNames.asm

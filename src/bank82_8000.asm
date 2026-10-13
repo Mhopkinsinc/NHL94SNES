@@ -4,7 +4,7 @@
 ; frames, in order through bank $8E, only in the ROM half of each bank. A frame: piece count, flags (bit 7: tiles in 16x16
 ; blocks), tile count, four words not traced, the byte counts of the two tile transfers, the offset of its tiles, four
 ; bytes not traced, the pieces (x, y, tile and attribute word : size byte, nonzero = 16x16), then its tiles. The tiles
-; come from Extracted/data/SpriteFrames82.bin (the frames of this bank, cut from the ROM by the prebuild).
+; come from data/gfx/SpriteFrames82.bin (the frames of this bank).
 
 org $828000
 SpriteFrames:		; frame offsets
@@ -263,4 +263,4 @@ SpriteFrame0:
 	dw -6,-14,$0802 : db $FF
 	dw -2,2,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":43..331
+	incbin "data/gfx/SpriteFrames82.bin":43..331

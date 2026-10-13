@@ -27,18 +27,18 @@ DATA8_99D102:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99D102.lin.huf":5..547
+	incbin "data/gfx/DATA8_99D102.lin.huf":5..547
 DATA8_99D325:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99D325.lin.huf":5..543
+	incbin "data/gfx/DATA8_99D325.lin.huf":5..543
 	db $00
 DATA8_99D545:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99D545.lin.huf":5..544
+	incbin "data/gfx/DATA8_99D545.lin.huf":5..544
 DATA8_99D765:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_99D765,.right-DATA8_99D765,$0000
@@ -84,20 +84,20 @@ DATA8_99D981:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99D981.lin.huf":5..538
+	incbin "data/gfx/DATA8_99D981.lin.huf":5..538
 DATA8_99DB9B:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99DB9B.lin.huf":5..537
+	incbin "data/gfx/DATA8_99DB9B.lin.huf":5..537
 	db $00
 DATA8_99DDB5:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99DDB5.lin.huf":5..538
+	incbin "data/gfx/DATA8_99DDB5.lin.huf":5..538
 DATA8_99DFCF:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99DFCF.lin.huf":5..49
+	incbin "data/gfx/DATA8_99DFCF.lin.huf":5..49

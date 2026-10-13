@@ -23,15 +23,15 @@ org $96A000
 DATA8_96A103:		; tiles packed for DecompressPairs that screen setups in banks $9D and $9F send to VRAM; not identified yet
 	db $46,$FB
 	db $00,$0D,$40
-	incbin "../Extracted/data/DATA8_96A103.chr.pairs":5..1250
+	incbin "data/gfx/DATA8_96A103.chr.pairs":5..1250
 DATA8_96A5E5:		; tiles packed for DecompressLZ that a screen setup in bank $9D sends to VRAM; not identified yet
 	db $10,$FB
 	db $00,$12,$C0
-	incbin "../Extracted/data/DATA8_96A5E5.chr.lz":5..1151
+	incbin "data/gfx/DATA8_96A5E5.chr.lz":5..1151
 DATA8_96AA64:		; for SPCUploadBlock, as DATA8_968000
 	db $04,$53
 	db $04,$53
-	incbin "../Extracted/data/DATA8_96AA64.spc":4..1111
+	incbin "data/sound/DATA8_96AA64.spc":4..1111
 DATA8_96AEBB:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_96AEBB,.right-DATA8_96AEBB,$0000

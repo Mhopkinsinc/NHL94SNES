@@ -60,24 +60,7 @@ CODE_9B9041:
 CODE_9B906B:
 	jsr.w $9249
 	rtl
-DATA8_9B906F:		; the player rating names: a word (2 + the text), the text, then two words; $FFFF ends them
-	dw $000F : db "      Status]" : dw $0000,$0000
-	dw $000F : db "    [Overall]" : dw $9FBA,$000A
-	dw $000F : db "     [Energy]" : dw $0000,$0002
-	dw $000F : db "    [Agility]" : dw $1000,$000A
-	dw $000F : db "      [Speed]" : dw $0800,$000A
-	dw $000F : db "     [Handed]" : dw $0040,$0004
-	dw $000F : db "[Off. Aware.]" : dw $0400,$000A
-	dw $000F : db "[Def. Aware.]" : dw $0200,$000A
-	dw $000F : db " [Shot Power]" : dw $0100,$000A
-	dw $000F : db " [Shot Accur]" : dw $0010,$000A
-	dw $000F : db " [Pass Accur]" : dw $0002,$000A
-	dw $000F : db "[Stick Handl]" : dw $0020,$000A
-	dw $000F : db "     [Weight]" : dw $2000,$0006
-	dw $000F : db " [ Endurance]" : dw $0008,$000A
-	dw $000F : db " [Aggression]" : dw $0001,$000A
-	dw $000F : db "   [Checking " : dw $0080,$000A
-	dw $FFFF
+incsrc "data/text/DATA8_9B906F.asm"
 CODE_9B91A1:
 	rtl
 CODE_9B91A2:
@@ -175,7 +158,7 @@ CODE_9B9249:
 	lda.w $1DA7
 	inc a
 	sta.b $95
-	lda.w #DATA8_80D9B3
+	lda.w #PositionNames
 	sta.b $9D
 	lda.w #$0080
 	sta.b $9F

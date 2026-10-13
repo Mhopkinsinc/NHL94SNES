@@ -4,8 +4,12 @@
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
 - Banks $80 to $9F are source (MATCH): every segment of the ROM is source.
-- Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
-  `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
+- Data assets: the binary blocks are committed in `src/data/gfx/` and `src/data/sound/` (formats in `src/data/README.md`) and
+  the source includes them by name. `tools/extract.py` has the `ASSETS` list (name, first address, end exclusive); `--check`
+  compares the files with the ROM (see SEGMENT_AGENT.md, Segment rules). The text tables are source files in
+  `src/data/text/`, one per table, included where they sit in the ROM; nine take their 93S names (AttribMenuSkater,
+  AttribMenuGoalie, PositionNames, GameLabels, PasstoText, StatusTextTbl, HandedTextTbl, GoalBoxText, RosterLineNames).
+  The penalty/stoppage table DATA8_80D3EB (strings mixed with data) and the team database in bank $9C stay in the banks.
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
   as 93S `snes93.mac`.
 - `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
@@ -45,7 +49,7 @@
 - bank81_A000 ends IceRinkTiles at $81ABDE and starts TeamLogoSprites ($81ABDE-$81FE44, Huffman, $7C00 bytes unpacked):
   a sprite set the team setup code in bank $9D unpacks to $7F7800 and draws with DrawSprite (frame = team, palettes from
   the long pointer table at $9C8497). `tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497` renders all of its frames.
-  bank81_B000 to bank81_F000 continue it (`incbin "../Extracted/data/TeamLogos.spr.huf":<start>..<end>`; bank81_F000
+  bank81_B000 to bank81_F000 continue it (`incbin "data/gfx/TeamLogos.spr.huf":<start>..<end>`; bank81_F000
   starts at byte 17442 and ends the asset at $81FE45);
   after it, $81FE45-$81FFFF is a song (DATA8_81FE45) from TeamSongs (bank80_D000): header, track offsets, TRAK chunks
   "left"/"right". The note stream format (commands $D9-$EA of the player in bank80_A000) is not decoded yet; the second
@@ -102,7 +106,7 @@
 ## Setup notes
 
 - asar 1.91 on PATH or in `tools/bin/` (`tools/setup.sh`). Python 3.
-- ROM at `lst/nhl94snes.sfc` (gitignored). `Extracted/` and `output/` are generated and gitignored.
+- ROM at `lst/nhl94snes.sfc`. `output/` is generated and gitignored.
 - The Vault's export (patches off) differs from this ROM in 344 bytes inside $D8000-$FFFFF; the quick pass only uses its code map
   where the bytes decode the same way.
 - Windows: `python3` may be the Microsoft Store stub; put a `python3` wrapper for the real Python first on PATH before

@@ -1,4 +1,4 @@
-; Bank $9F, second 4 KB: more game flow code, with auto labels for now. DATA8_9F9848 and DATA8_9F98F1 are text records
+; Bank $9F, second 4 KB: more game flow code, with auto labels for now. StatusTextTbl and HandedTextTbl are text records
 ; (Ice, Bench, Inj P, Inj G; Right, Left), GetPeriodTime_timetab the period lengths in seconds (5, 10 and 20 minutes, 30
 ; seconds), and DATA8_9F9323, DATA8_9F97CE, DATA8_9F9AD8 and DATA8_9F9AF8 tables its code reads.
 
@@ -889,7 +889,7 @@ CODE_9F97FE:
 CODE_9F9803:
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9F9848
+	lda.w #StatusTextTbl
 	sta.b $8D
 	jml.l CODE_9ECFC6
 CODE_9F9811:
@@ -912,16 +912,10 @@ CODE_9F9811:
 CODE_9F983A:
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9F9848
+	lda.w #StatusTextTbl
 	sta.b $8D
 	jml.l CODE_9ECFC6
-DATA8_9F9848:		; a word (2 + the text), then the text
-	dw $0008 : db "Ice   "
-	dw $0008 : db "Bench "
-	dw $0008 : db "Inj P "
-	dw $0008 : db "Inj G "
-	dw $0004 : db "  "
-	dw $0004 : db " C"
+incsrc "data/text/StatusTextTbl.asm"
 	asl.b $A5
 	lda.b $91
 	beq CODE_9F9879
@@ -980,12 +974,10 @@ CODE_9F98B1:
 	sta.b $A5
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9F98F1
+	lda.w #HandedTextTbl
 	sta.b $8D
 	jml.l CODE_9ECFC6
-DATA8_9F98F1:
-	dw $0008 : db "Right "
-	dw $0008 : db "Left  "
+incsrc "data/text/HandedTextTbl.asm"
 	lda.b $A5
 	asl a
 	asl a

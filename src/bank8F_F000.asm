@@ -1,5 +1,5 @@
 ; Bank $8F, last 4 KB: the end of the song DATA8_8FDD32 (see bank8F_D000), then the player photo that most photo table entries
-; without their own photo share (a generic skater), from Extracted/data/DATA8_8FFE74.lin.huf, and $FF fill.
+; without their own photo share (a generic skater), from data/gfx/DATA8_8FFE74.lin.huf, and $FF fill.
 
 org $8FF000
 	db $38,$07,$00,$38,$31,$0B,$0C,$36,$27,$03,$0C
@@ -245,5 +245,5 @@ DATA8_8FFE74:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   here for most players without a photo of their own
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_8FFE74.lin.huf":5..379
+	incbin "data/gfx/DATA8_8FFE74.lin.huf":5..379
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF

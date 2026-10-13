@@ -1,5 +1,5 @@
 ; Bank $8C, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames8C.bin, then a player photo from Extracted/data/DATA8_8CFDEC.lin.huf.
+; data/gfx/SpriteFrames8C.bin, then a player photo from data/gfx/DATA8_8CFDEC.lin.huf.
 
 org $8CF171
 SpriteFrame822:
@@ -16,7 +16,7 @@ SpriteFrame822:
 	dw 10,-5,$0814 : db $00
 	dw 18,-5,$0815 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8C.bin":29105..29489
+	incbin "data/gfx/SpriteFrames8C.bin":29105..29489
 SpriteFrame823:
 	db $03,$80
 	dw $0009
@@ -28,7 +28,7 @@ SpriteFrame823:
 	dw -9,-15,$0802 : db $FF
 	dw -4,1,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8C.bin":29532..29820
+	incbin "data/gfx/SpriteFrames8C.bin":29532..29820
 SpriteFrame824:
 	db $05,$80
 	dw $0008
@@ -42,7 +42,7 @@ SpriteFrame824:
 	dw -8,-3,$0812 : db $00
 	dw 0,-3,$0813 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8C.bin":29877..30133
+	incbin "data/gfx/SpriteFrames8C.bin":29877..30133
 SpriteFrame825:
 	db $04,$80
 	dw $000A
@@ -55,7 +55,7 @@ SpriteFrame825:
 	dw -3,0,$0804 : db $00
 	dw 5,0,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8C.bin":30183..30503
+	incbin "data/gfx/SpriteFrames8C.bin":30183..30503
 SpriteFrame826:
 	db $03,$80
 	dw $0009
@@ -67,7 +67,7 @@ SpriteFrame826:
 	dw -5,-14,$0802 : db $FF
 	dw -1,2,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8C.bin":30546..30834
+	incbin "data/gfx/SpriteFrames8C.bin":30546..30834
 SpriteFrame827:
 	db $04,$80
 	dw $000A
@@ -80,7 +80,7 @@ SpriteFrame827:
 	dw -4,1,$0804 : db $00
 	dw 4,1,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8C.bin":30884..31204
+	incbin "data/gfx/SpriteFrames8C.bin":30884..31204
 SpriteFrame828:
 	db $03,$80
 	dw $0009
@@ -92,7 +92,7 @@ SpriteFrame828:
 	dw -5,-14,$0802 : db $FF
 	dw 0,2,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8C.bin":31247..31535
+	incbin "data/gfx/SpriteFrames8C.bin":31247..31535
 SpriteFrame829:
 	db $03,$80
 	dw $0009
@@ -104,7 +104,7 @@ SpriteFrame829:
 	dw -5,-14,$0802 : db $FF
 	dw 7,-22,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8C.bin":31578..31866
+	incbin "data/gfx/SpriteFrames8C.bin":31578..31866
 SpriteFrame830:
 	db $04,$80
 	dw $000A
@@ -117,9 +117,9 @@ SpriteFrame830:
 	dw 7,-23,$0804 : db $00
 	dw -5,1,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8C.bin":31916..32236
+	incbin "data/gfx/SpriteFrames8C.bin":31916..32236
 DATA8_8CFDEC:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the per-team photo
 			;   table in bank $9D (the first photo of the Ottawa team)
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_8CFDEC.lin.huf":5..532
+	incbin "data/gfx/DATA8_8CFDEC.lin.huf":5..532

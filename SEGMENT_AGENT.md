@@ -35,8 +35,8 @@ None: every segment is source (MATCH). Later passes name the auto labels (see `d
 ## Sources
 
 - Reference ROM: `lst/nhl94snes.sfc` (not in the repo; `tools/prebuild.py` says where to put it, its SHA-1 and size).
-- Each segment `src/bankXX_YYYY.asm` starts as an `org` plus an `incbin` of its 4 KB from `Extracted/segments/` (cut from the ROM by
-  `tools/extract.py`, run automatically by the prebuild check).
+- Each segment `src/bankXX_YYYY.asm` has one `org`; every segment is source. Binary blocks are data assets in `src/data/` (Segment
+  rules).
 - Starting text: `python3 tools/disasm65816.py lst/nhl94snes.sfc output/quickpass` writes a quick pass per segment
   (`output/quickpass/bankXX_YYYY.asm`). It decodes from the vectors by recursive descent with M/X tracking, and also decodes the
   instruction starts in `tools/codemap.txt` (from the NHL94SNESVault DiztinGUIsh export) where the bytes agree. Every instruction line
@@ -63,19 +63,22 @@ None: every segment is source (MATCH). Later passes name the auto labels (see `d
 - `./build.sh` runs the prebuild check, assembles `src/nhl94snes.asm` with asar 1.91 into `output/nhl94snes.sfc`, and compares SHA-1 with
   `lst/nhl94snes.sfc`. It prints MATCH or MISMATCH plus the first differing offsets. The whole ROM builds in about a second.
 - `sh tools/verify_segment.sh bankXX_YYYY` compares one segment's range (its org to the next segment's org) after `./build.sh`.
-- `sh tools/verify_all.sh` deletes Extracted/ and output/, extracts fresh, builds, and checks every segment. Last line MATCH or FAIL.
+- `sh tools/verify_all.sh` deletes output/, builds, and checks every segment. Last line MATCH or FAIL.
 - Never change a byte. Every session ends with `./build.sh` printing MATCH, then commit and push to main (contributors: to their fork, then a PR).
 
 ## Segment rules
 
-- One segment per session. A segment's end may move to a routine or table boundary; move the next segment's org (and cut its incbin
-  with `incbin "../Extracted/segments/<file>.bin":<start>..<end>`, decimal, end exclusive; the old `:<start>-<end>` form is
-  deprecated in asar 1.91 and reads the numbers as hex) in the same commit, and note it in the row. The quick pass flags an
-  instruction that crosses a segment end with "crosses into the next segment".
+- One segment per session. A segment's end may move to a routine or table boundary; move the next segment's org in the same
+  commit and note it in the row. The quick pass flags an instruction that crosses a segment end with "crosses into the next
+  segment". Incbin ranges are written `:<start>..<end>`, decimal, end exclusive; the old `:<start>-<end>` form is deprecated
+  in asar 1.91 and reads the numbers as hex.
 - Packed or binary data blocks (graphics, sound data) are data assets: add the block to the `ASSETS` list in `tools/extract.py`
-  (file name with a format extension, first address, end address exclusive) so the prebuild cuts it into `Extracted/data/`, and
-  include it with `incbin "../Extracted/data/<name>":<start>..<end>`. A block that spans segments is split across their files at the
-  segment edges. Spell out its header fields as db/dw where they are known. Nothing in `Extracted/` is committed.
+  (file name with a format extension, first address, end address exclusive), run `python3 tools/extract.py lst/nhl94snes.sfc` to
+  write it into `src/data/gfx/` or `src/data/sound/` (`.spc`), commit the file, and include it with
+  `incbin "data/<category>/<name>":<start>..<end>`. A block that spans segments is split across their files at the segment edges.
+  Spell out its header fields as db/dw where they are known. `src/data/README.md` lists the format extensions.
+- Text tables go in `src/data/text/<Label>.asm` (one file per table, named after its label), included with
+  `incsrc "data/text/<Label>.asm"` at their place in the bank file; write the strings with the `String` macro.
   Identify a block before naming it: `tools/snesgfx.py` unpacks all four formats (`unpack`, `blocks` lists the packed blocks
   of a ROM range) and renders tiles, maps and sprite sets to PNG (`tiles`, `map`, `sprites`; no Pillow needed).
   SpriteFrames (banks $82-$8E): `tools/spriteframes.py frames FROM TO` writes the source of the frames in a segment (tiles from

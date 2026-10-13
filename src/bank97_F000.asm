@@ -4,17 +4,17 @@
 ; then CenterIceTilesTBL, the Tampa Bay centre ice logo tiles, and the last bytes of the bank.
 
 org $97F000
-	incbin "../Extracted/data/DATA8_97EDBC.lin.huf":580..615
+	incbin "data/gfx/DATA8_97EDBC.lin.huf":580..615
 DATA8_97F023:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_97F023.lin.huf":5..615
+	incbin "data/gfx/DATA8_97F023.lin.huf":5..615
 DATA8_97F28A:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_97F28A.lin.huf":5..615
+	incbin "data/gfx/DATA8_97F28A.lin.huf":5..615
 DATA8_97F4F1:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_97F4F1,.right-DATA8_97F4F1,$0000
@@ -65,12 +65,12 @@ DATA8_97F757:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_97F757.lin.huf":5..613
+	incbin "data/gfx/DATA8_97F757.lin.huf":5..613
 DATA8_97F9BC:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_97F9BC.lin.huf":5..613
+	incbin "data/gfx/DATA8_97F9BC.lin.huf":5..613
 DATA8_97FC21:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_97FC21,.right-DATA8_97FC21,$0000
@@ -120,5 +120,5 @@ CenterIceTilesTBL:	; the Tampa Bay centre ice logo: linear 4bpp tiles packed for
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$C0
-	incbin "../Extracted/data/CenterIceTBL.lin.huf":5..363
+	incbin "data/gfx/CenterIceTBL.lin.huf":5..363
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF

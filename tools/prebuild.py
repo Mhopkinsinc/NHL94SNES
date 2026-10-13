@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 # prebuild.py: run before every build (build.sh, build.ps1, tools/verify_all.sh).
 # Usage: python3 tools/prebuild.py
-# The ROM must be present (and the right version); then makes sure Extracted/ is complete, and runs
-# the extractor if it is not. If the ROM is missing or wrong, stops with the path, file name, SHA-1
-# and size it must have.
-import hashlib, json, os, subprocess, sys
+# The ROM must be present (and the right version): the build compares its output with it. If the ROM is missing or wrong,
+# stops with the path, file name, SHA-1 and size it must have.
+import hashlib, os, sys
 
 GAME = "NHL '94 (Super Nintendo)"
-EXTRACTOR = 'tools/extract.py'
 ROM = {'label': "NHL '94 SNES retail (USA, header title \"NHL '94\", version 1.0)", 'file': 'lst/nhl94snes.sfc',
        'sha1': '10dcd21be9c5542e82b0b94473bf5ff569b36cf5', 'size': 0x100000}
 # ---------------------------------------------------------------------------------------------
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-EXTRACTED = os.path.join(ROOT, 'Extracted')
-MARKER = os.path.join(EXTRACTED, '.extract-complete.json')
 
 def sha1_of(data): return hashlib.sha1(data).hexdigest()
 def size_text(n):
@@ -26,27 +22,11 @@ def stop(lines):
     print('\n'.join(lines), file=sys.stderr)
     print('', file=sys.stderr)
     print(f'ROMs are not included in the repo. Use your own dump of the {GAME} cartridge,', file=sys.stderr)
-    print('saved under exactly that file name (no copier header), then run the build again. The', file=sys.stderr)
-    print('segment files in Extracted/ are then extracted from it automatically.', file=sys.stderr)
+    print('saved under exactly that file name (no copier header), then run the build again.', file=sys.stderr)
     print('', file=sys.stderr)
     sys.exit(1)
 
-def extracted_state():
-    if not os.path.isdir(EXTRACTED): return 'Extracted/ is missing'
-    if not os.path.exists(MARKER): return 'Extracted/ is incomplete (no .extract-complete.json marker)'
-    try: m = json.load(open(MARKER))
-    except Exception: return 'the Extracted/ marker is unreadable'
-    if m.get('extractorSha1') != sha1_of(open(os.path.join(ROOT, EXTRACTOR), 'rb').read()):
-        return f'{EXTRACTOR} changed since the last extraction'
-    if m.get('romSha1') != ROM['sha1']: return 'Extracted/ came from an unknown ROM'
-    if not m.get('files'): return 'the Extracted/ marker lists no files'
-    for f in m['files']:
-        p = os.path.join(EXTRACTED, f['path'])
-        if not os.path.exists(p): return f"Extracted/{f['path']} is missing"
-        if os.path.getsize(p) != f['size']: return f"Extracted/{f['path']} has the wrong size"
-    return None
-
-# 1. The ROM this build needs.
+# The ROM this build needs.
 rom_path = os.path.join(ROOT, ROM['file'])
 block = [f"  {ROM['label']}",
          f'    Put it at:  {rom_path}',
@@ -62,15 +42,4 @@ if sha1_of(data) != ROM['sha1'] or len(data) != ROM['size']:
           '    (a bad dump, a hack, another revision, or a file with a 512-byte copier header)',
           'This build needs this ROM, exactly the version shown:'] + block)
 
-# 2. Extracted/ segments: extract again if missing or incomplete.
-why = extracted_state()
-if not why:
-    print('prebuild: ROM OK, Extracted/ complete.'); sys.exit(0)
-print(f'prebuild: {why}; extracting from {ROM["file"]} ...')
-r = subprocess.run([sys.executable, os.path.join(ROOT, EXTRACTOR), rom_path], cwd=ROOT, capture_output=True, text=True)
-after = extracted_state() if r.returncode == 0 else 'the extractor failed'
-if after:
-    print(r.stdout + r.stderr, file=sys.stderr)
-    print(f'*** BUILD STOPPED: extraction failed ({after}) ***', file=sys.stderr); sys.exit(1)
-for l in r.stdout.splitlines(): print('prebuild: ' + l)
-print('prebuild: Extracted/ complete.')
+print('prebuild: ROM OK.')

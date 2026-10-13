@@ -8,64 +8,64 @@
 ; start of DATA8_9ACFB6, colours.
 
 org $9AC000
-	incbin "../Extracted/data/CenterIceBOS.lin.huf":95..299
+	incbin "data/gfx/CenterIceBOS.lin.huf":95..299
 DATA8_9AC0CC:		; a 32 x 28 map packed for DecompressHuffman (width, height, $0308, then the map words), read
 			;   by a screen setup in bank $9D; not identified yet
 	db $30,$FB
 	db $00,$07,$06
-	incbin "../Extracted/data/DATA8_9AC0CC.map.huf":5..295
+	incbin "data/gfx/DATA8_9AC0CC.map.huf":5..295
 DATA8_9AC1F3:		; tiles packed for DecompressHuffman sent to VRAM by screen setups in banks $9D and $9F; not identified yet
 	db $30,$FB
 	db $00,$02,$A0
-	incbin "../Extracted/data/DATA8_9AC1F3.chr.huf":5..290
+	incbin "data/gfx/DATA8_9AC1F3.chr.huf":5..290
 CenterIceTilesEDM:	; the Edmonton centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 7 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "../Extracted/data/CenterIceEDM.lin.huf":5..289
+	incbin "data/gfx/CenterIceEDM.lin.huf":5..289
 CenterIceTilesPHI:	; the Philadelphia centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 16 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$80
-	incbin "../Extracted/data/CenterIcePHI.lin.huf":5..289
+	incbin "data/gfx/CenterIcePHI.lin.huf":5..289
 CenterIceTilesFLA:	; the Florida centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 8 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "../Extracted/data/CenterIceFLA.lin.huf":5..272
+	incbin "data/gfx/CenterIceFLA.lin.huf":5..272
 CenterIceTilesSJS:	; the San Jose centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 19 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$00
-	incbin "../Extracted/data/CenterIceSJS.lin.huf":5..269
+	incbin "data/gfx/CenterIceSJS.lin.huf":5..269
 CenterIceTilesSTL:	; the St. Louis centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 20 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "../Extracted/data/CenterIceSTL.lin.huf":5..268
+	incbin "data/gfx/CenterIceSTL.lin.huf":5..268
 CenterIceTilesDET:	; the Detroit centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 6 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$40
-	incbin "../Extracted/data/CenterIceDET.lin.huf":5..267
+	incbin "data/gfx/CenterIceDET.lin.huf":5..267
 DATA8_9AC98B:		; tiles packed for DecompressHuffman sent to VRAM by screen setups in bank $9F; not identified yet
 	db $30,$FB
 	db $00,$01,$80
-	incbin "../Extracted/data/DATA8_9AC98B.chr.huf":5..267
+	incbin "data/gfx/DATA8_9AC98B.chr.huf":5..267
 CenterIceTilesBUF:	; the Buffalo centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 2 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$60
-	incbin "../Extracted/data/CenterIceBUF.lin.huf":5..266
+	incbin "data/gfx/CenterIceBUF.lin.huf":5..266
 CenterIceTilesNYR:	; the New York Rangers centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 14 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$40
-	incbin "../Extracted/data/CenterIceNYR.lin.huf":5..265
+	incbin "data/gfx/CenterIceNYR.lin.huf":5..265
 DATA8_9ACCA9:		; 256 colours packed for DecompressLZ, loaded into CGRAM by a screen setup in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$02,$00
-	incbin "../Extracted/data/DATA8_9ACCA9.pal.lz":5..263
+	incbin "data/gfx/DATA8_9ACCA9.pal.lz":5..263
 DATA8_9ACDB0:		; a map, not packed: width, height and a word, then the map words (32 x 4); not identified yet
 	dw $0020,$0004,$0308
 	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000

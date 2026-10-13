@@ -120,7 +120,7 @@ DATA8_96C61F:		; a 32 x 32 map packed for DecompressLZ (width, height, $0308, th
 			;   setup in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$08,$06
-	incbin "../Extracted/data/DATA8_96C61F.map.lz":5..943
+	incbin "data/gfx/DATA8_96C61F.map.lz":5..943
 AwayUniformPalettes:	; 16 colours per team, indexed by the away team $1C9A: the sprite colours of the away players
 			;   (dark jerseys)
 	dw $7FF2,$6F7B,$0000,$294A,$1084,$31A0,$294A,$4258

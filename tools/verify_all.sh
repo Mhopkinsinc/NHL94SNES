@@ -1,8 +1,8 @@
 #!/bin/sh
-# verify_all.sh: fresh extract, full build, then every segment against its ROM slice. Usage: tools/verify_all.sh
+# verify_all.sh: clean full build, then every segment against its ROM slice. Usage: tools/verify_all.sh
 # Deletes the old output first; fails on any assembler error, missing output or byte difference. The last line is MATCH or FAIL.
 cd "$(dirname "$0")/.."
-rm -rf Extracted output
+rm -rf output
 fail=0; mkdir -p output; LOG=output/verify_all.log
 ./build.sh >$LOG 2>&1
 grep -qiE 'error' $LOG && { echo "ASM ERRORS"; fail=1; }

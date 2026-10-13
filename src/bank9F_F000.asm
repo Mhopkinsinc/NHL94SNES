@@ -158,16 +158,7 @@ CODE_9FF154:
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	rtl
-DATA8_9FF163:		; the exit prompt lines
-	%String("                    ")
-DATA8_9FF179:
-	%String("     Exit Game?     ")
-DATA8_9FF18F:
-	%String("   Exit Shootout?   ")
-DATA8_9FF1A5:
-	%String("         Yes        ")
-DATA8_9FF1BB:
-	%String("         No         ")
+incsrc "data/text/DATA8_9FF163.asm"
 CODE_9FF1D1:
 	lda.w $1A0E
 	beq CODE_9FF1E3
@@ -350,30 +341,7 @@ CODE_9FF34E:
 	adc.w #$0010
 	sta.w printx
 	rtl
-DATA8_9FF35F:		; the MultiPlayer 5 messages
-	%String("The MultiPlayer 5")
-DATA8_9FF372:
-	%String("must be connected")
-DATA8_9FF385:
-	%String("to Controller")
-DATA8_9FF394:
-	%String("Socket #2.")
-DATA8_9FF3A0:
-	%String("The MultiPlayer 5 is")
-DATA8_9FF3B6:
-	%String("not designed for use")
-DATA8_9FF3CC:
-	%String("with the Super NES")
-DATA8_9FF3E0:
-	%String("Super Scope.")
-DATA8_9FF3EE:
-	%String("The MultiPlayer 5 is")
-DATA8_9FF404:
-	%String("not designed for use")
-DATA8_9FF41A:
-	%String("with the Super NES")
-DATA8_9FF42E:
-	%String("Mouse.")
+incsrc "data/text/DATA8_9FF35F.asm"
 CODE_9FF436:
 	stz.w $0AD3
 	jsl.l CODE_8086A9

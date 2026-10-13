@@ -90,12 +90,12 @@ CenterIceTilesNHL:	; the NHL shield centre ice logo of the all-star teams (26 an
 			;   $9C): linear 4bpp tiles packed for DecompressHuffman, drawn with CenterIceMapNHL
 	db $30,$FB
 	db $00,$02,$E0
-	incbin "../Extracted/data/CenterIceNHL.lin.huf":5..249
+	incbin "data/gfx/CenterIceNHL.lin.huf":5..249
 CenterIceTilesQUE:	; the Quebec centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 18 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$40
-	incbin "../Extracted/data/CenterIceQUE.lin.huf":5..247
+	incbin "data/gfx/CenterIceQUE.lin.huf":5..247
 DATA8_9AD6A6:		; a map, not packed: width, height and a word, then the map words (12 x 10); not identified yet
 	dw $000C,$000A,$0308
 	dw $2000,$2001,$2002,$2003,$2004,$2005,$2006,$2007
@@ -117,23 +117,23 @@ CenterIceTilesLAK:	; the Los Angeles centre ice logo: linear 4bpp tiles packed f
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "../Extracted/data/CenterIceLAK.lin.huf":5..240
+	incbin "data/gfx/CenterIceLAK.lin.huf":5..240
 DATA8_9AD88C:		; a 32 x 28 map packed for DecompressHuffman (width, height, $0308, then the map words), read
 			;   by a screen setup in bank $9D; not identified yet
 	db $30,$FB
 	db $00,$07,$06
-	incbin "../Extracted/data/DATA8_9AD88C.map.huf":5..229
+	incbin "data/gfx/DATA8_9AD88C.map.huf":5..229
 	db $00
 CenterIceTilesTOR:	; the Toronto centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 22 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$40
-	incbin "../Extracted/data/CenterIceTOR.lin.huf":5..216
+	incbin "data/gfx/CenterIceTOR.lin.huf":5..216
 CenterIceTilesMTL:	; the Montreal centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 11 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$40
-	incbin "../Extracted/data/CenterIceMTL.lin.huf":5..207
+	incbin "data/gfx/CenterIceMTL.lin.huf":5..207
 DATA8_9ADB19:		; an 18 x 10 map of bytes, not packed (width, height, $0010, then a byte per entry), read by
 			;   a routine in bank $9F; not identified yet
 	db $12,$00,$0A,$00,$10,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
@@ -166,24 +166,24 @@ DATA8_9ADC8D:		; a 128 x 128 map of bytes (width, height, $0010, then a byte per
 			;   DecompressHuffman, copied to VRAM by a routine in bank $9F; not identified yet
 	db $30,$FB
 	db $00,$40,$06
-	incbin "../Extracted/data/DATA8_9ADC8D.map.huf":5..166
+	incbin "data/gfx/DATA8_9ADC8D.map.huf":5..166
 CenterIceTilesWSH:	; the Washington centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 24 of
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$02,$40
-	incbin "../Extracted/data/CenterIceWSH.lin.huf":5..147
+	incbin "data/gfx/CenterIceWSH.lin.huf":5..147
 DATA8_9ADDC6:		; a 32 x 28 map packed for DecompressHuffman (width, height, $0308, then the map words), read
 			;   by a screen setup in bank $9D; not identified yet
 	db $30,$FB
 	db $00,$07,$06
-	incbin "../Extracted/data/DATA8_9ADDC6.map.huf":5..145
+	incbin "data/gfx/DATA8_9ADDC6.map.huf":5..145
 DATA8_9ADE57:		; colours packed for DecompressLZ, loaded into CGRAM by screen setups in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$01,$00
-	incbin "../Extracted/data/DATA8_9ADE57.pal.lz":5..137
+	incbin "data/gfx/DATA8_9ADE57.pal.lz":5..137
 DATA8_9ADEE0:		; a 12 x 12 map of bytes (width, height, $0010, then a byte per entry) packed for
 			;   DecompressRLE, read by a screen setup in bank $9D; not identified yet
-	incbin "../Extracted/data/DATA8_9ADEE0.map.rle":0..121
+	incbin "data/gfx/DATA8_9ADEE0.map.rle":0..121
 DATA8_9ADF59:		; a map, not packed: width, height and a word, then the map words (27 x 2); not identified yet
 	dw $001B,$0002,$0308
 	dw $0001,$0002,$0003,$0004,$0005,$0006,$0007,$0008
@@ -197,4 +197,4 @@ DATA8_9ADFCB:		; an 18 x 3 map packed for DecompressHuffman (width, height, $030
 			;   read in bank $9B; not identified yet
 	db $30,$FB
 	db $00,$00,$72
-	incbin "../Extracted/data/DATA8_9ADFCB.map.huf":5..53
+	incbin "data/gfx/DATA8_9ADFCB.map.huf":5..53

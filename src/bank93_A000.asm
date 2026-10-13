@@ -2,8 +2,8 @@
 ; pointer list in bank $9C).
 
 org $93A000
-	incbin "../Extracted/data/DATA8_9390FA.spc":3846..4243
+	incbin "data/sound/DATA8_9390FA.spc":3846..4243
 DATA8_93A18D:		; for SPCUploadBlock, as DATA8_9390FA
 	db $10,$86
 	db $10,$86
-	incbin "../Extracted/data/DATA8_93A18D.spc":4..3699
+	incbin "data/sound/DATA8_93A18D.spc":4..3699

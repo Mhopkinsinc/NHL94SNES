@@ -501,8 +501,7 @@ CODE_9FD3D8:
 	adc.b [$8D]
 	sta.b $8D
 	jml.l CODE_9EC7BE
-DATA8_9FD404:
-	db "YBA"
+incsrc "data/text/DATA8_9FD404.asm"
 setpersonel:
 	stx.b $87
 	ldx.w #$0000

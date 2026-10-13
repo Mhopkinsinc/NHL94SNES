@@ -1,4 +1,4 @@
-; Bank $87, fourth 4 KB: SpriteFrames continued (see bank82_8000), tiles from Extracted/data/SpriteFrames87.bin.
+; Bank $87, fourth 4 KB: SpriteFrames continued (see bank82_8000), tiles from data/gfx/SpriteFrames87.bin.
 
 org $87B063
 SpriteFrame424:
@@ -19,7 +19,7 @@ SpriteFrame424:
 	dw 2,-10,$081C : db $00
 	dw 2,-2,$081D : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":12479..13375
+	incbin "data/gfx/SpriteFrames87.bin":12479..13375
 SpriteFrame425:
 	db $07,$80
 	dw $001C
@@ -35,7 +35,7 @@ SpriteFrame425:
 	dw -25,-10,$080A : db $FF
 	dw -9,-10,$080C : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":13446..14342
+	incbin "data/gfx/SpriteFrames87.bin":13446..14342
 SpriteFrame426:
 	db $0A,$80
 	dw $001C
@@ -54,7 +54,7 @@ SpriteFrame426:
 	dw -16,-37,$081C : db $00
 	dw -8,-37,$081D : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":14434..15330
+	incbin "data/gfx/SpriteFrames87.bin":14434..15330
 SpriteFrame427:
 	db $08,$80
 	dw $001D
@@ -71,7 +71,7 @@ SpriteFrame427:
 	dw -16,-45,$080C : db $FF
 	dw 6,-5,$080E : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":15408..16336
+	incbin "data/gfx/SpriteFrames87.bin":15408..16336
 SpriteFrame428:
 	db $04,$80
 	dw $000A
@@ -84,4 +84,4 @@ SpriteFrame428:
 	dw -5,-58,$0204 : db $00
 	dw -5,-50,$0205 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":16386..16706
+	incbin "data/gfx/SpriteFrames87.bin":16386..16706

@@ -110,7 +110,7 @@ PhotoPaletteANA:	; the 16 colours of the Anaheim player photos (the photo palett
 DATA8_9AF59C:		; for SPCUploadBlock, as DATA8_9A8000
 	db $00,$09
 	db $00,$1B
-	incbin "../Extracted/data/DATA8_9AF59C.spc":4..31
+	incbin "data/sound/DATA8_9AF59C.spc":4..31
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF

@@ -1,0 +1,3 @@
+DATA8_80E2E0:		; copyright lines
+	db "@ 1993 ELECTRONIC ARTS",$00
+	db "LICENSED BY NINTENDO",$00

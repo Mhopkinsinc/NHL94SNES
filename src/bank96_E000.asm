@@ -5,7 +5,7 @@
 ; bank81_F000).
 
 org $96E000
-	incbin "../Extracted/data/DATA8_96DE60.spc":416..841
+	incbin "data/sound/DATA8_96DE60.spc":416..841
 DATA8_96E1A9:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_96E1A9,.right-DATA8_96E1A9,$0000

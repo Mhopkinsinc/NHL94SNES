@@ -34,34 +34,34 @@ DATA8_98E18A:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_98E18A.lin.huf":5..579
+	incbin "data/gfx/DATA8_98E18A.lin.huf":5..579
 DATA8_98E3CD:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_98E3CD.lin.huf":5..579
+	incbin "data/gfx/DATA8_98E3CD.lin.huf":5..579
 DATA8_98E610:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_98E610.lin.huf":5..579
+	incbin "data/gfx/DATA8_98E610.lin.huf":5..579
 DATA8_98E853:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_98E853.lin.huf":5..578
+	incbin "data/gfx/DATA8_98E853.lin.huf":5..578
 DATA8_98EA95:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_98EA95.lin.huf":5..577
+	incbin "data/gfx/DATA8_98EA95.lin.huf":5..577
 DATA8_98ECD6:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_98ECD6.lin.huf":5..577
+	incbin "data/gfx/DATA8_98ECD6.lin.huf":5..577
 DATA8_98EF17:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_98EF17.lin.huf":5..233
+	incbin "data/gfx/DATA8_98EF17.lin.huf":5..233

@@ -263,10 +263,7 @@ CODE_9DC280:
 	rtl
 DATA8_9DC298:
 	db $00,$04,$03,$05,$01,$02
-DATA8_9DC29E:		; a word (2 + the text), then the text
-	dw $0009 : db "Forward"
-	dw $0009 : db "Defense"
-	dw $0008 : db "Goalie"
+incsrc "data/text/DATA8_9DC29E.asm"
 CODE_9DC2B8:
 	lda.b [$95],y
 	and.w #$00FF
@@ -427,36 +424,7 @@ CODE_9DC42B:
 	sta.w $1E81
 CODE_9DC435:
 	rtl
-DATA8_9DC436:		; the rating names in full, as DATA8_9DC29E
-	dw $0008 : db "Status"
-	dw $0009 : db "Overall"
-	dw $0008 : db "Energy"
-	dw $0009 : db "Agility"
-	dw $0007 : db "Speed"
-	dw $000C : db "Handedness"
-	dw $000B : db "Offensive"
-	dw $000B : db "Defensive"
-	dw $000C : db "Shot Power"
-	dw $000F : db "Shot Accuracy"
-	dw $0009 : db "Passing"
-	dw $0010 : db "Stick Handling"
-	dw $0008 : db "Weight"
-	dw $000B : db "Endurance"
-	dw $000C : db "Aggression"
-	dw $000A : db "Checking"
-	dw $000A : db "Fighting"
-	dw $0008 : db "Status"
-	dw $0009 : db "Overall"
-	dw $0009 : db "Agility"
-	dw $0007 : db "Speed"
-	dw $000C : db "Glove hand"
-	dw $0010 : db "Def. Awareness"
-	dw $000E : db "Puck Control"
-	dw $000C : db "Stick Side"
-	dw $000C : db "Stick Side"
-	dw $0007 : db "Glove"
-	dw $0007 : db "Glove"
-	dw $0008 : db "Weight"
+incsrc "data/text/DATA8_9DC436.asm"
 CODE_9DC561:
 	stx.b $87
 	ldx.w #$0000
@@ -478,7 +446,7 @@ CODE_9DC566:
 	pha
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D79B
+	lda.w #AttribMenuSkater
 	sta.b $8D
 	stz.b $08
 	jsl.l GoalieCount
@@ -487,7 +455,7 @@ CODE_9DC566:
 	bpl CODE_9DC5A4
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D8CD
+	lda.w #AttribMenuGoalie
 	sta.b $8D
 	lda.w #$0010
 	sta.b $08
@@ -562,7 +530,7 @@ CODE_9DC601:
 	pha
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D79B
+	lda.w #AttribMenuSkater
 	sta.b $8D
 	stz.b $08
 	jsl.l GoalieCount
@@ -571,7 +539,7 @@ CODE_9DC601:
 	bpl CODE_9DC63F
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D8CD
+	lda.w #AttribMenuGoalie
 	sta.b $8D
 	lda.w #$0010
 	sta.b $08
@@ -1163,7 +1131,7 @@ CODE_9DCB49:
 CODE_9DCB53:
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D79B
+	lda.w #AttribMenuSkater
 	sta.b $8D
 	stz.b $08
 	jsl.l GoalieCount

@@ -4,17 +4,17 @@
 ; player photo, then the start of DATA8_97BF0A, a player photo.
 
 org $97B000
-	incbin "../Extracted/data/DATA8_97AD8B.lin.huf":629..641
+	incbin "data/gfx/DATA8_97AD8B.lin.huf":629..641
 DATA8_97B00C:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_97B00C.lin.huf":5..641
+	incbin "data/gfx/DATA8_97B00C.lin.huf":5..641
 DATA8_97B28D:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_97B28D.lin.huf":5..640
+	incbin "data/gfx/DATA8_97B28D.lin.huf":5..640
 DATA8_97B50D:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$82,$01,$00,$00,$00,$03,$00
 	dw .left-DATA8_97B50D,.right-DATA8_97B50D,.claps-DATA8_97B50D,$0000
@@ -117,14 +117,14 @@ DATA8_97BA0D:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_97BA0D.lin.huf":5..639
+	incbin "data/gfx/DATA8_97BA0D.lin.huf":5..639
 DATA8_97BC8C:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_97BC8C.lin.huf":5..638
+	incbin "data/gfx/DATA8_97BC8C.lin.huf":5..638
 DATA8_97BF0A:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_97BF0A.lin.huf":5..246
+	incbin "data/gfx/DATA8_97BF0A.lin.huf":5..246

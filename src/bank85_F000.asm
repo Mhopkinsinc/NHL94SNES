@@ -1,5 +1,5 @@
 ; Bank $85, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames85.bin, then PhotoPaletteBOS, the Boston player photo colours, and the last byte of the bank.
+; data/gfx/SpriteFrames85.bin, then PhotoPaletteBOS, the Boston player photo colours, and the last byte of the bank.
 
 org $85F0B4
 SpriteFrame297:
@@ -15,7 +15,7 @@ SpriteFrame297:
 	dw 1,-15,$0806 : db $FF
 	dw -16,-23,$0808 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames85.bin":28909..29453
+	incbin "data/gfx/SpriteFrames85.bin":28909..29453
 SpriteFrame298:
 	db $06,$80
 	dw $0012
@@ -30,7 +30,7 @@ SpriteFrame298:
 	dw 6,6,$0808 : db $00
 	dw 6,14,$0809 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames85.bin":29517..30093
+	incbin "data/gfx/SpriteFrames85.bin":29517..30093
 SpriteFrame299:
 	db $05,$80
 	dw $000B
@@ -44,7 +44,7 @@ SpriteFrame299:
 	dw 4,-2,$0805 : db $00
 	dw 4,6,$0814 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames85.bin":30150..30502
+	incbin "data/gfx/SpriteFrames85.bin":30150..30502
 SpriteFrame300:
 	db $05,$80
 	dw $000E
@@ -58,7 +58,7 @@ SpriteFrame300:
 	dw -13,0,$0806 : db $00
 	dw -13,8,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames85.bin":30559..31007
+	incbin "data/gfx/SpriteFrames85.bin":30559..31007
 SpriteFrame301:
 	db $06,$80
 	dw $0012
@@ -73,7 +73,7 @@ SpriteFrame301:
 	dw -1,5,$0808 : db $00
 	dw 7,5,$0809 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames85.bin":31071..31647
+	incbin "data/gfx/SpriteFrames85.bin":31071..31647
 SpriteFrame302:
 	db $06,$80
 	dw $0012
@@ -88,7 +88,7 @@ SpriteFrame302:
 	dw -17,1,$0808 : db $00
 	dw -17,9,$0809 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames85.bin":31711..32287
+	incbin "data/gfx/SpriteFrames85.bin":31711..32287
 SpriteFrame303:
 	db $06,$80
 	dw $000C
@@ -103,7 +103,7 @@ SpriteFrame303:
 	dw 7,-10,$0814 : db $00
 	dw -10,-26,$0815 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames85.bin":32351..32735
+	incbin "data/gfx/SpriteFrames85.bin":32351..32735
 PhotoPaletteBOS:		; the 16 colours of the Boston player photos (PhotoPaletteTable)
 	dw $7C1F,$4EFE,$C6BD,$BE7B,$3239,$29F8,$9DB6,$9575
 	dw $0D33,$0911,$04EF,$808A,$8027,$037C,$0000,$77BD

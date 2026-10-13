@@ -2,8 +2,8 @@
 ; yet.
 
 org $949000
-	incbin "../Extracted/data/DATA8_948D6F.spc":657..3217
+	incbin "data/sound/DATA8_948D6F.spc":657..3217
 DATA8_949A00:		; packed for DecompressLZ, read by code in bank $9F; what it unpacks to is not identified yet
 	db $10,$FB
 	db $00,$2E,$40
-	incbin "../Extracted/data/DATA8_949A00.lz":5..1536
+	incbin "data/gfx/DATA8_949A00.lz":5..1536

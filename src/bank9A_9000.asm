@@ -5,22 +5,22 @@
 ; player photo, then the start of DATA8_9A9F70, a player photo.
 
 org $9A9000
-	incbin "../Extracted/data/DATA8_9A8E26.lin.huf":474..505
+	incbin "data/gfx/DATA8_9A8E26.lin.huf":474..505
 DATA8_9A901F:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9A901F.lin.huf":5..505
+	incbin "data/gfx/DATA8_9A901F.lin.huf":5..505
 DATA8_9A9218:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9A9218.lin.huf":5..503
+	incbin "data/gfx/DATA8_9A9218.lin.huf":5..503
 DATA8_9A940F:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9A940F.lin.huf":5..498
+	incbin "data/gfx/DATA8_9A940F.lin.huf":5..498
 DATA8_9A9601:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_9A9601,.right-DATA8_9A9601,$0000
@@ -99,7 +99,7 @@ DATA8_9A99C9:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9A99C9.lin.huf":5..483
+	incbin "data/gfx/DATA8_9A99C9.lin.huf":5..483
 	db $00
 DATA8_9A9BAD:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
@@ -142,9 +142,9 @@ DATA8_9A9D91:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9A9D91.lin.huf":5..479
+	incbin "data/gfx/DATA8_9A9D91.lin.huf":5..479
 DATA8_9A9F70:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_9A9F70.lin.huf":5..144
+	incbin "data/gfx/DATA8_9A9F70.lin.huf":5..144

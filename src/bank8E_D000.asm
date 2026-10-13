@@ -1,6 +1,6 @@
-; Bank $8E, sixth 4 KB: the last frames of SpriteFrames (see bank82_8000), tiles from Extracted/data/SpriteFrames8E.bin.
+; Bank $8E, sixth 4 KB: the last frames of SpriteFrames (see bank82_8000), tiles from data/gfx/SpriteFrames8E.bin.
 ; Then the start of a block for the sound CPU (sent by SPCUploadBlock from the upload lists in bank80_E000), from
-; Extracted/data/DATA8_8ED897.spc; it continues in the following files.
+; data/sound/DATA8_8ED897.spc; it continues in the following files.
 
 org $8ED01C
 SpriteFrame950:
@@ -13,7 +13,7 @@ SpriteFrame950:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":20544..20608
+	incbin "data/gfx/SpriteFrames8E.bin":20544..20608
 SpriteFrame951:
 	db $02,$00
 	dw $0002
@@ -24,7 +24,7 @@ SpriteFrame951:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":20644..20708
+	incbin "data/gfx/SpriteFrames8E.bin":20644..20708
 SpriteFrame952:
 	db $02,$00
 	dw $0002
@@ -35,7 +35,7 @@ SpriteFrame952:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":20744..20808
+	incbin "data/gfx/SpriteFrames8E.bin":20744..20808
 SpriteFrame953:
 	db $02,$00
 	dw $0002
@@ -46,7 +46,7 @@ SpriteFrame953:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":20844..20908
+	incbin "data/gfx/SpriteFrames8E.bin":20844..20908
 SpriteFrame954:
 	db $01,$00
 	dw $0001
@@ -56,7 +56,7 @@ SpriteFrame954:
 	db $34,$46,$34,$46
 	dw 1,7,$0000 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":20937..20969
+	incbin "data/gfx/SpriteFrames8E.bin":20937..20969
 SpriteFrame955:
 	db $02,$00
 	dw $0002
@@ -67,7 +67,7 @@ SpriteFrame955:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21005..21069
+	incbin "data/gfx/SpriteFrames8E.bin":21005..21069
 SpriteFrame956:
 	db $02,$00
 	dw $0002
@@ -78,7 +78,7 @@ SpriteFrame956:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21105..21169
+	incbin "data/gfx/SpriteFrames8E.bin":21105..21169
 SpriteFrame957:
 	db $02,$00
 	dw $0002
@@ -89,7 +89,7 @@ SpriteFrame957:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21205..21269
+	incbin "data/gfx/SpriteFrames8E.bin":21205..21269
 SpriteFrame958:
 	db $02,$00
 	dw $0002
@@ -100,7 +100,7 @@ SpriteFrame958:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21305..21369
+	incbin "data/gfx/SpriteFrames8E.bin":21305..21369
 SpriteFrame959:
 	db $02,$00
 	dw $0002
@@ -111,7 +111,7 @@ SpriteFrame959:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21405..21469
+	incbin "data/gfx/SpriteFrames8E.bin":21405..21469
 SpriteFrame960:
 	db $02,$00
 	dw $0002
@@ -122,7 +122,7 @@ SpriteFrame960:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21505..21569
+	incbin "data/gfx/SpriteFrames8E.bin":21505..21569
 SpriteFrame961:
 	db $02,$00
 	dw $0002
@@ -133,7 +133,7 @@ SpriteFrame961:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21605..21669
+	incbin "data/gfx/SpriteFrames8E.bin":21605..21669
 SpriteFrame962:
 	db $02,$00
 	dw $0002
@@ -144,7 +144,7 @@ SpriteFrame962:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21705..21769
+	incbin "data/gfx/SpriteFrames8E.bin":21705..21769
 SpriteFrame963:
 	db $02,$00
 	dw $0002
@@ -155,7 +155,7 @@ SpriteFrame963:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21805..21869
+	incbin "data/gfx/SpriteFrames8E.bin":21805..21869
 SpriteFrame964:
 	db $02,$00
 	dw $0002
@@ -166,7 +166,7 @@ SpriteFrame964:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":21905..21969
+	incbin "data/gfx/SpriteFrames8E.bin":21905..21969
 SpriteFrame965:
 	db $02,$00
 	dw $0002
@@ -177,7 +177,7 @@ SpriteFrame965:
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22005..22069
+	incbin "data/gfx/SpriteFrames8E.bin":22005..22069
 SpriteFrame966:
 	db $01,$00
 	dw $0001
@@ -187,7 +187,7 @@ SpriteFrame966:
 	db $FB,$F8,$FB,$F8
 	dw -2,-4,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22098..22130
+	incbin "data/gfx/SpriteFrames8E.bin":22098..22130
 SpriteFrame967:
 	db $01,$00
 	dw $0001
@@ -197,7 +197,7 @@ SpriteFrame967:
 	db $FB,$F8,$FB,$F8
 	dw -2,-4,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22159..22191
+	incbin "data/gfx/SpriteFrames8E.bin":22159..22191
 SpriteFrame968:
 	db $01,$00
 	dw $0001
@@ -207,7 +207,7 @@ SpriteFrame968:
 	db $FB,$F8,$FB,$F8
 	dw -2,-3,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22220..22252
+	incbin "data/gfx/SpriteFrames8E.bin":22220..22252
 SpriteFrame969:
 	db $01,$00
 	dw $0001
@@ -217,7 +217,7 @@ SpriteFrame969:
 	db $FB,$F8,$FB,$F8
 	dw -2,-4,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22281..22313
+	incbin "data/gfx/SpriteFrames8E.bin":22281..22313
 SpriteFrame970:
 	db $01,$00
 	dw $0001
@@ -227,7 +227,7 @@ SpriteFrame970:
 	db $FB,$F8,$FB,$F8
 	dw -2,-4,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22342..22374
+	incbin "data/gfx/SpriteFrames8E.bin":22342..22374
 SpriteFrame971:
 	db $01,$00
 	dw $0001
@@ -237,7 +237,7 @@ SpriteFrame971:
 	db $FC,$F8,$FC,$F8
 	dw -1,-3,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22403..22435
+	incbin "data/gfx/SpriteFrames8E.bin":22403..22435
 SpriteFrame972:
 	db $01,$00
 	dw $0001
@@ -247,7 +247,7 @@ SpriteFrame972:
 	db $FB,$F8,$FB,$F8
 	dw -2,-4,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22464..22496
+	incbin "data/gfx/SpriteFrames8E.bin":22464..22496
 SpriteFrame973:
 	db $01,$00
 	dw $0001
@@ -257,7 +257,7 @@ SpriteFrame973:
 	db $FB,$F8,$FB,$F8
 	dw -2,-4,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22525..22557
+	incbin "data/gfx/SpriteFrames8E.bin":22525..22557
 SpriteFrame974:
 	db $01,$00
 	dw $0001
@@ -267,7 +267,7 @@ SpriteFrame974:
 	db $FB,$F8,$FB,$F8
 	dw -2,-3,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22586..22618
+	incbin "data/gfx/SpriteFrames8E.bin":22586..22618
 SpriteFrame975:
 	db $01,$00
 	dw $0001
@@ -277,8 +277,8 @@ SpriteFrame975:
 	db $FB,$FA,$FB,$FA
 	dw -2,0,$0200 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8E.bin":22647..22679
+	incbin "data/gfx/SpriteFrames8E.bin":22647..22679
 DATA8_8ED897:		; for SPCUploadBlock: sound RAM address, length (big-endian words), then the bytes
 	db $15,$45
 	db $24,$90
-	incbin "../Extracted/data/DATA8_8ED897.spc":4..1897
+	incbin "data/sound/DATA8_8ED897.spc":4..1897

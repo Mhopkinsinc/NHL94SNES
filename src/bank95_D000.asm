@@ -2,11 +2,11 @@
 ; DATA8_80DD16), then DATA8_95DB8E, a 7 x 136 map.
 
 org $95D000
-	incbin "../Extracted/data/DATA8_95CBEA.spc":1046..2056
+	incbin "data/sound/DATA8_95CBEA.spc":1046..2056
 DATA8_95D3F2:		; for SPCUploadBlock, as DATA8_958000
 	db $07,$98
 	db $07,$98
-	incbin "../Extracted/data/DATA8_95D3F2.spc":4..1948
+	incbin "data/sound/DATA8_95D3F2.spc":4..1948
 DATA8_95DB8E:		; a map, not packed: width, height and a word, then the map words (7 x 136); read in bank $9E
 	dw $0007,$0088,$0308
 	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000

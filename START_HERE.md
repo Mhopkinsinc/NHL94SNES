@@ -5,7 +5,7 @@ You are the agent doing this whole project. The human does nothing by hand: you 
 ## Hard rules
 
 - Never change a ROM byte. Every commit must build to MATCH (sha1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`).
-- Never commit the ROM or anything in `Extracted/` or `output/` (all gitignored).
+- Never commit the ROM or anything in `output/` (gitignored).
 - Never force-push, never rewrite pushed history, never push a commit that does not MATCH. Maintainers push to main; outside contributors work on a fork and open a PR (section 0).
 - Small commits: one segment (or one file group) per commit.
 
@@ -21,7 +21,7 @@ Where these docs say "push to main", contributors push to their fork and open a 
 
 - Put your ROM at `lst/nhl94snes.sfc`. `./build.sh` tells you the exact path, SHA-1 and size if it is missing or wrong.
 - Linux / macOS: `sh tools/setup.sh` builds asar 1.91 into `tools/bin/asar` (gitignored). Windows: `powershell -ExecutionPolicy Bypass -File tools\setup.ps1`.
-- Python 3 is needed for the prebuild check, the extractor and the quick-pass tool.
+- Python 3 is needed for the prebuild check, the asset extractor and the quick-pass tool.
 - Reference repos: read them on GitHub, no clone needed. Browse `https://github.com/<owner>/<repo>/blob/main/<path>`, raw text at
   `https://raw.githubusercontent.com/<owner>/<repo>/main/<path>`, or GitHub code search:
   https://github.com/abdulahmad/NHLPA93SNES, https://github.com/abdulahmad/NHL94Genesis, https://github.com/abdulahmad/NHLPA93Genesis,
@@ -30,8 +30,8 @@ Where these docs say "push to main", contributors push to their fork and open a 
 
 ## 2. Build and confirm MATCH
 
-`./build.sh` (Windows: `build.ps1`). The prebuild check cuts the ROM into `Extracted/segments/` on the first run. The last line must be `MATCH`. On a fresh clone, if it is not MATCH, stop and report the output.
-`sh tools/verify_all.sh` is the clean check: it deletes the old output, extracts again, builds, and checks every segment.
+`./build.sh` (Windows: `build.ps1`). The prebuild check makes sure the ROM is there to compare with. The last line must be `MATCH`. On a fresh clone, if it is not MATCH, stop and report the output.
+`sh tools/verify_all.sh` is the clean check: it deletes the old output, builds, and checks every segment.
 
 ## 3. Work loop
 

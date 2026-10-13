@@ -1,8 +1,8 @@
-; Bank $8E, last 4 KB: the end of DATA8_8ED897 (see bank8E_D000), from Extracted/data/DATA8_8ED897.spc, then a song from
+; Bank $8E, last 4 KB: the end of DATA8_8ED897 (see bank8E_D000), from data/sound/DATA8_8ED897.spc, then a song from
 ; the TeamSongs table (laid out as in bank81_F000).
 
 org $8EF000
-	incbin "../Extracted/data/DATA8_8ED897.spc":5993..9364
+	incbin "data/sound/DATA8_8ED897.spc":5993..9364
 DATA8_8EFD2B:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_8EFD2B,.right-DATA8_8EFD2B,$0000

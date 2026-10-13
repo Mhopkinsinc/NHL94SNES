@@ -6,7 +6,7 @@
 
 org $9C8000
 DATA8_9C8000:		; box border tiles (SNES 4bpp), drawn with the 3 x 3 map DATA8_9C8080
-	incbin "../Extracted/data/DATA8_9C8000.chr"
+	incbin "data/gfx/DATA8_9C8000.chr"
 DATA8_9C8080:		; a box map for the box drawer in bank $9D: width, height, a word, then the top, middle and
 			;   bottom rows (corner, edge, corner)
 	dw $0003,$0003,$0308
@@ -14,14 +14,14 @@ DATA8_9C8080:		; a box map for the box drawer in bank $9D: width, height, a word
 	dw $0002,$0003,$4002
 	dw $8000,$8001,$C000
 DATA8_9C8098:		; box border tiles, drawn with DATA8_9C81D8
-	incbin "../Extracted/data/DATA8_9C8098.chr"
+	incbin "data/gfx/DATA8_9C8098.chr"
 DATA8_9C81D8:		; a box map, as DATA8_9C8080
 	dw $0003,$0003,$0308
 	dw $0001,$0002,$0003
 	dw $0004,$0005,$0006
 	dw $0007,$0008,$0009
 DATA8_9C81F0:		; box border tiles, drawn with DATA8_9C8310
-	incbin "../Extracted/data/DATA8_9C81F0.chr"
+	incbin "data/gfx/DATA8_9C81F0.chr"
 DATA8_9C8310:		; a box map, as DATA8_9C8080
 	dw $0003,$0003,$0308
 	dw $0001,$0002,$0003
@@ -30,7 +30,7 @@ DATA8_9C8310:		; a box map, as DATA8_9C8080
 DATA8_9C8328:		; packed for DecompressLZ, unpacked by a screen setup in bank $9B; not identified yet
 	db $10,$FB
 	db $00,$01,$00
-	incbin "../Extracted/data/DATA8_9C8328.lz":5..143
+	incbin "data/gfx/DATA8_9C8328.lz":5..143
 CenterIceTable:		; per team: a long pointer to the centre ice logo tiles, then one to its map
 	dd CenterIceTilesANA,CenterIceMapANA
 	dd CenterIceTilesBOS,CenterIceMapBOS
@@ -744,13 +744,7 @@ CODE_9C8BBE:
 	bcc CODE_9C8B9D
 	jsl.l CODE_9C8934
 	rtl
-DATA8_9C8BCE:		; the stat column names: a word (2 + the text), then the text
-	dw $000E : db "  Goalies  ]"
-	dw $000E : db "[  Goals   ]"
-	dw $000E : db "[ Assists  ]"
-	dw $000E : db "[  Points  ]"
-	dw $000E : db "[  Shots   ]"
-	dw $000E : db "[ Penalties "
+incsrc "data/text/DATA8_9C8BCE.asm"
 CODE_9C8C22:
 	phx
 	phy
@@ -887,8 +881,7 @@ CODE_9C8D24:
 	sta.w $0D0D
 CODE_9C8D2A:
 	rtl
-DATA8_9C8D2B:
-	dw $0003 : db "%"
+incsrc "data/text/DATA8_9C8D2B.asm"
 CODE_9C8D2E:
 	lda.w VisTeam
 	sta.l $7E3454

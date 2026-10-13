@@ -1605,10 +1605,7 @@ CODE_9ECC7B:
 	lda.w #DATA8_9ECC88
 	sta.b $8D
 	jmp.w $CD19
-DATA8_9ECC88:		; a word (2 + the text), then the text
-	dw $000C : db "extremely "
-	dw $0006 : db " has"
-	dw $0007 : db " have"
+incsrc "data/text/DATA8_9ECC88.asm"
 CODE_9ECCA1:
 	lda.w $1E41
 	jsl.l CODE_9BC5AB

@@ -5,7 +5,7 @@ SpriteFrames starts with a table of 4-byte offsets from $828000, one per frame (
 follow in order, contiguous, in the ROM half of each bank. A frame: piece count, flags (bit 7: tiles in 16x16 blocks),
 tile count, four words, the byte counts of the two tile transfers, the offset of its tiles, four bytes, the pieces
 (x, y, tile and attribute word, size byte), then its tiles. The source writes the header and pieces, and includes the
-tiles from the bank's data asset Extracted/data/SpriteFramesXX.bin (tools/extract.py ASSETS).
+tiles from the bank's data asset src/data/gfx/SpriteFramesXX.bin (tools/extract.py ASSETS).
 
 Commands:
   frames FROM TO    the source of the frames that start at FROM up to (not including) TO, e.g. frames 82908B 82A000;
@@ -73,7 +73,7 @@ def frame_source(n, a, asset_start):
     for k in range(pieces):
         q = a + 0x16 + 7 * k
         lines.append('\tdw %d,%d,$%04X : db $%02X' % (sword(q), sword(q + 2), word(q + 4), byte(q + 6)))
-    lines += ['.tiles:', '\tincbin "../Extracted/data/SpriteFrames%02X.bin":%d..%d'
+    lines += ['.tiles:', '\tincbin "data/gfx/SpriteFrames%02X.bin":%d..%d'
               % (a >> 16, a + tiles - asset_start, frame_end(a) - asset_start)]
     return lines
 

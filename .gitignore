@@ -1,5 +1,4 @@
 output/
-Extracted/
 lst/*.smc
 lst/*.bin
 *.smc

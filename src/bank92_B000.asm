@@ -2,8 +2,8 @@
 ; bank80_E000.
 
 org $92B000
-	incbin "../Extracted/data/LetterSprites.spr":2119..5032
+	incbin "data/gfx/LetterSprites.spr":2119..5032
 DATA8_92BB61:		; for SPCUploadBlock, as DATA8_928000
 	db $13,$68
 	db $13,$68
-	incbin "../Extracted/data/DATA8_92BB61.spc":4..1183
+	incbin "data/sound/DATA8_92BB61.spc":4..1183

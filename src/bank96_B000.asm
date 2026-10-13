@@ -55,7 +55,7 @@ org $96B000
 DATA8_96B2CF:		; tiles packed for DecompressLZ that screen setups in bank $9F send to VRAM; not identified yet
 	db $10,$FB
 	db $00,$06,$E0
-	incbin "../Extracted/data/DATA8_96B2CF.chr.lz":5..1022
+	incbin "data/gfx/DATA8_96B2CF.chr.lz":5..1022
 DATA8_96B6CD:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_96B6CD,.right-DATA8_96B6CD,$0000
@@ -129,7 +129,7 @@ DATA8_96B6CD:		; a song (see bank81_F000): header, track offsets ($0000 ends the
 DATA8_96BABD:		; tiles packed for DecompressLZ that screen setups in bank $9F send to VRAM; not identified yet
 	db $10,$FB
 	db $00,$09,$E0
-	incbin "../Extracted/data/DATA8_96BABD.chr.lz":5..1000
+	incbin "data/gfx/DATA8_96BABD.chr.lz":5..1000
 DATA8_96BEA5:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$03,$00
 	dw .left-DATA8_96BEA5,.right-DATA8_96BEA5,.claps-DATA8_96BEA5,$0000

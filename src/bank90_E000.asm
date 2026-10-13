@@ -1,5 +1,5 @@
 ; Bank $90, seventh 4 KB: the end of the song DATA8_90C20C (see bank90_C000), then the start of a block for the sound
-; CPU from the sound upload list DATA8_80E6C1 (bank80_E000), from Extracted/data/DATA8_90E08C.spc.
+; CPU from the sound upload list DATA8_80E6C1 (bank80_E000), from data/sound/DATA8_90E08C.spc.
 
 org $90E000
 	db $00,$8E,"TRAK"
@@ -16,4 +16,4 @@ org $90E000
 DATA8_90E08C:		; for SPCUploadBlock: sound RAM address, length (big-endian words), then the bytes
 	db $1D,$52
 	db $1D,$52
-	incbin "../Extracted/data/DATA8_90E08C.spc":4..3956
+	incbin "data/sound/DATA8_90E08C.spc":4..3956

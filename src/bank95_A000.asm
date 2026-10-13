@@ -2,7 +2,7 @@
 ; and digits.
 
 org $95A000
-	incbin "../Extracted/data/DATA8_959E48.spc":440..2479
+	incbin "data/sound/DATA8_959E48.spc":440..2479
 SmallLetterSprites:	; the letters A to Z, the digits 0 to 9 and a full stop as a DrawSprite sprite set, not packed;
 			;   a text routine in bank $9C draws words with it, one frame per character
-	incbin "../Extracted/data/SmallLetterSprites.spr":0..2057
+	incbin "data/gfx/SmallLetterSprites.spr":0..2057

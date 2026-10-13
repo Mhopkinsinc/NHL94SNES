@@ -6,7 +6,7 @@ org $968000
 DATA8_968000:		; for SPCUploadBlock: sound RAM address, length (big-endian words), then the bytes
 	db $06,$42
 	db $06,$42
-	incbin "../Extracted/data/DATA8_968000.spc":4..1606
+	incbin "data/sound/DATA8_968000.spc":4..1606
 DATA8_968646:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$90,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_968646,.right-DATA8_968646,$0000
@@ -109,4 +109,4 @@ DATA8_968646:		; a song (see bank81_F000): header, track offsets ($0000 ends the
 DATA8_968C02:		; packed for DecompressLZ, read by a screen setup in bank $9D; not identified yet
 	db $10,$FB
 	db $00,$07,$40
-	incbin "../Extracted/data/DATA8_968C02.lz":5..1022
+	incbin "data/gfx/DATA8_968C02.lz":5..1022

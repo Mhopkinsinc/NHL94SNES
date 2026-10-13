@@ -1,5 +1,5 @@
 ; Bank $89, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames89.bin, then a packed palette from Extracted/data/DATA8_89FFC7.pal.lz and $FF fill.
+; data/gfx/SpriteFrames89.bin, then a packed palette from data/gfx/DATA8_89FFC7.pal.lz and $FF fill.
 
 org $89F1BF
 SpriteFrame605:
@@ -15,7 +15,7 @@ SpriteFrame605:
 	dw 1,-23,$0806 : db $00
 	dw 1,-15,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames89.bin":29176..29624
+	incbin "data/gfx/SpriteFrames89.bin":29176..29624
 SpriteFrame606:
 	db $03,$80
 	dw $000C
@@ -27,7 +27,7 @@ SpriteFrame606:
 	dw 4,-10,$0802 : db $FF
 	dw -7,-26,$0804 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames89.bin":29667..30051
+	incbin "data/gfx/SpriteFrames89.bin":29667..30051
 SpriteFrame607:
 	db $05,$80
 	dw $000E
@@ -41,7 +41,7 @@ SpriteFrame607:
 	dw 0,-13,$0806 : db $00
 	dw 14,-5,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames89.bin":30108..30556
+	incbin "data/gfx/SpriteFrames89.bin":30108..30556
 SpriteFrame608:
 	db $04,$80
 	dw $0010
@@ -54,7 +54,7 @@ SpriteFrame608:
 	dw -11,-3,$0804 : db $FF
 	dw 5,-3,$0806 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames89.bin":30606..31118
+	incbin "data/gfx/SpriteFrames89.bin":30606..31118
 SpriteFrame609:
 	db $07,$80
 	dw $0010
@@ -70,7 +70,7 @@ SpriteFrame609:
 	dw 12,-5,$0816 : db $00
 	dw 12,3,$0817 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames89.bin":31189..31701
+	incbin "data/gfx/SpriteFrames89.bin":31189..31701
 SpriteFrame610:
 	db $05,$80
 	dw $000E
@@ -84,7 +84,7 @@ SpriteFrame610:
 	dw 3,-2,$0806 : db $00
 	dw 3,6,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames89.bin":31758..32206
+	incbin "data/gfx/SpriteFrames89.bin":31758..32206
 SpriteFrame611:
 	db $05,$80
 	dw $000E
@@ -98,10 +98,10 @@ SpriteFrame611:
 	dw 4,-7,$0806 : db $00
 	dw 4,1,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames89.bin":32263..32711
+	incbin "data/gfx/SpriteFrames89.bin":32263..32711
 DATA8_89FFC7:		; packed for DecompressLZ: unpacked, BGR555 colours. A screen setup in bank $9D unpacks it and loads
 			;   its first 16 colours into colours $40-$4F; the screen is not identified yet
 	db $10,$FB
 	db $00,$01,$00
-	incbin "../Extracted/data/DATA8_89FFC7.pal.lz":5..45
+	incbin "data/gfx/DATA8_89FFC7.pal.lz":5..45
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF

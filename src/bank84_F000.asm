@@ -1,6 +1,6 @@
 ; Bank $84, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames84.bin. Then the centre ice logo tiles of the Dallas home team (see bank82_F000), from
-; Extracted/data/CenterIceDAL.lin.huf, and the last bytes of the bank.
+; data/gfx/SpriteFrames84.bin. Then the centre ice logo tiles of the Dallas home team (see bank82_F000), from
+; data/gfx/CenterIceDAL.lin.huf, and the last bytes of the bank.
 
 org $84F045
 SpriteFrame223:
@@ -15,7 +15,7 @@ SpriteFrame223:
 	dw -5,-1,$0804 : db $00
 	dw 3,-1,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":28791..29111
+	incbin "data/gfx/SpriteFrames84.bin":28791..29111
 SpriteFrame224:
 	db $03,$80
 	dw $0006
@@ -27,7 +27,7 @@ SpriteFrame224:
 	dw 5,-39,$0202 : db $00
 	dw 5,-31,$0203 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":29154..29346
+	incbin "data/gfx/SpriteFrames84.bin":29154..29346
 SpriteFrame225:
 	db $01,$80
 	dw $0004
@@ -37,7 +37,7 @@ SpriteFrame225:
 	db $00,$00,$00,$00
 	dw -2,-39,$0200 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":29375..29503
+	incbin "data/gfx/SpriteFrames84.bin":29375..29503
 SpriteFrame226:
 	db $01,$80
 	dw $0004
@@ -47,7 +47,7 @@ SpriteFrame226:
 	db $01,$01,$00,$00
 	dw -3,-39,$0200 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":29532..29660
+	incbin "data/gfx/SpriteFrames84.bin":29532..29660
 SpriteFrame227:
 	db $01,$80
 	dw $0004
@@ -57,7 +57,7 @@ SpriteFrame227:
 	db $01,$01,$00,$00
 	dw -6,-39,$0200 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":29689..29817
+	incbin "data/gfx/SpriteFrames84.bin":29689..29817
 SpriteFrame228:
 	db $02,$80
 	dw $0005
@@ -68,7 +68,7 @@ SpriteFrame228:
 	dw -12,-39,$0200 : db $FF
 	dw 4,-39,$0202 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":29853..30013
+	incbin "data/gfx/SpriteFrames84.bin":29853..30013
 SpriteFrame229:
 	db $01,$80
 	dw $0004
@@ -78,7 +78,7 @@ SpriteFrame229:
 	db $01,$00,$00,$00
 	dw -7,-39,$0200 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":30042..30170
+	incbin "data/gfx/SpriteFrames84.bin":30042..30170
 SpriteFrame230:
 	db $02,$00
 	dw $0002
@@ -89,7 +89,7 @@ SpriteFrame230:
 	dw -4,-39,$0200 : db $00
 	dw -4,-31,$0201 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":30206..30270
+	incbin "data/gfx/SpriteFrames84.bin":30206..30270
 SpriteFrame231:
 	db $01,$80
 	dw $0004
@@ -99,7 +99,7 @@ SpriteFrame231:
 	db $01,$00,$00,$00
 	dw -9,-40,$0200 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":30299..30427
+	incbin "data/gfx/SpriteFrames84.bin":30299..30427
 SpriteFrame232:
 	db $05,$80
 	dw $000E
@@ -113,7 +113,7 @@ SpriteFrame232:
 	dw -19,-18,$0806 : db $00
 	dw -11,-18,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":30484..30932
+	incbin "data/gfx/SpriteFrames84.bin":30484..30932
 SpriteFrame233:
 	db $06,$80
 	dw $000C
@@ -128,7 +128,7 @@ SpriteFrame233:
 	dw 5,-10,$0814 : db $00
 	dw 5,-2,$0815 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":30996..31380
+	incbin "data/gfx/SpriteFrames84.bin":30996..31380
 SpriteFrame234:
 	db $05,$80
 	dw $000B
@@ -142,7 +142,7 @@ SpriteFrame234:
 	dw -1,-19,$0805 : db $00
 	dw 7,-19,$0814 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":31437..31789
+	incbin "data/gfx/SpriteFrames84.bin":31437..31789
 SpriteFrame235:
 	db $05,$80
 	dw $000B
@@ -156,7 +156,7 @@ SpriteFrame235:
 	dw -10,-16,$0805 : db $00
 	dw -2,-16,$0814 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":31846..32198
+	incbin "data/gfx/SpriteFrames84.bin":31846..32198
 SpriteFrame236:
 	db $04,$80
 	dw $000A
@@ -169,9 +169,9 @@ SpriteFrame236:
 	dw 6,2,$0804 : db $00
 	dw 6,10,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames84.bin":32248..32568
+	incbin "data/gfx/SpriteFrames84.bin":32248..32568
 CenterIceTilesDAL:	; packed tiles: format word, unpacked size (big-endian), then the stream
 	db $30,$FB
 	db $00,$03,$20
-	incbin "../Extracted/data/CenterIceDAL.lin.huf":5..193
+	incbin "data/gfx/CenterIceDAL.lin.huf":5..193
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF

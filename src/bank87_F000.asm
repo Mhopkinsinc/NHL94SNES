@@ -1,5 +1,5 @@
 ; Bank $87, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames87.bin, then a small packed block from Extracted/data/DATA8_87FF91.lz and the last bytes.
+; data/gfx/SpriteFrames87.bin, then a small packed block from data/gfx/DATA8_87FF91.lz and the last bytes.
 
 org $87F18A
 SpriteFrame462:
@@ -14,7 +14,7 @@ SpriteFrame462:
 	dw -11,-10,$0804 : db $FF
 	dw 5,-10,$0806 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":29116..29628
+	incbin "data/gfx/SpriteFrames87.bin":29116..29628
 SpriteFrame463:
 	db $07,$80
 	dw $0010
@@ -30,7 +30,7 @@ SpriteFrame463:
 	dw -5,1,$0816 : db $00
 	dw 3,1,$0817 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":29699..30211
+	incbin "data/gfx/SpriteFrames87.bin":29699..30211
 SpriteFrame464:
 	db $06,$80
 	dw $0012
@@ -45,7 +45,7 @@ SpriteFrame464:
 	dw -9,2,$0808 : db $00
 	dw -1,2,$0809 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":30275..30851
+	incbin "data/gfx/SpriteFrames87.bin":30275..30851
 SpriteFrame465:
 	db $06,$80
 	dw $000F
@@ -60,7 +60,7 @@ SpriteFrame465:
 	dw 13,-18,$0807 : db $00
 	dw 12,6,$0816 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":30915..31395
+	incbin "data/gfx/SpriteFrames87.bin":30915..31395
 SpriteFrame466:
 	db $06,$80
 	dw $0012
@@ -75,7 +75,7 @@ SpriteFrame466:
 	dw -10,4,$0808 : db $00
 	dw -2,4,$0809 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":31459..32035
+	incbin "data/gfx/SpriteFrames87.bin":31459..32035
 SpriteFrame467:
 	db $08,$80
 	dw $0011
@@ -92,10 +92,10 @@ SpriteFrame467:
 	dw 0,5,$0817 : db $00
 	dw 8,5,$0808 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames87.bin":32113..32657
+	incbin "data/gfx/SpriteFrames87.bin":32113..32657
 DATA8_87FF91:		; packed for DecompressLZ: unpacked, three words (10, 12, 16) and then 10 x 12 bytes, a byte map. The
 			;   screen setup in bank $9D unpacks it to $7F0000; its use is not traced yet
 	db $10,$FB
 	db $00,$00,$7E
-	incbin "../Extracted/data/DATA8_87FF91.lz":5..106
+	incbin "data/gfx/DATA8_87FF91.lz":5..106
 	db $FF,$FF,$FF,$FF,$FF

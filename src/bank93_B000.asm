@@ -2,8 +2,8 @@
 ; screen with EA SPORTS.
 
 org $93B000
-	incbin "../Extracted/data/DATA8_93A18D.spc":3699..4234
+	incbin "data/sound/DATA8_93A18D.spc":3699..4234
 DATA8_93B217:		; linear 4bpp background tiles packed for DecompressPairs: a screen with EA SPORTS
 	db $46,$FB
 	db $00,$2C,$E0
-	incbin "../Extracted/data/DATA8_93B217.lin.pairs":5..3561
+	incbin "data/gfx/DATA8_93B217.lin.pairs":5..3561

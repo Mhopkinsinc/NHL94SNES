@@ -2,7 +2,7 @@
 ; several screens (laid out as in bank81_F000).
 
 org $93E000
-	incbin "../Extracted/data/DATA8_93DFAD.spc":83..3460
+	incbin "data/sound/DATA8_93DFAD.spc":83..3460
 DATA8_93ED31:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$9A,$01,$00,$00,$00,$0E,$00
 	dw .chug_L_50-DATA8_93ED31,.chug_R_51-DATA8_93ED31,.apower_L_48-DATA8_93ED31,.apower_R_49-DATA8_93ED31,.orgn_L_31-DATA8_93ED31,.orgn_R_47-DATA8_93ED31,.orch-DATA8_93ED31,.bsec_R_45-DATA8_93ED31,.bsec_L_46-DATA8_93ED31,.drums-DATA8_93ED31,.bass-DATA8_93ED31,.xtra_crsh_15-DATA8_93ED31,.timp-DATA8_93ED31,.crshbkwd_4-DATA8_93ED31,$0000

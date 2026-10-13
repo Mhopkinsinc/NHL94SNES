@@ -1,9 +1,9 @@
-; Bank $90, fifth 4 KB: the end of DATA8_90A120 (see bank90_A000), from Extracted/data/DATA8_90A120.spc, then the start
+; Bank $90, fifth 4 KB: the end of DATA8_90A120 (see bank90_A000), from data/sound/DATA8_90A120.spc, then the start
 ; of a song that MusicStart plays from several screens, laid out as the other songs (see bank81_F000); it continues in
 ; the following files.
 
 org $90C000
-	incbin "../Extracted/data/DATA8_90A120.spc":7904..8428
+	incbin "data/sound/DATA8_90A120.spc":7904..8428
 DATA8_90C20C:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$9B,$01,$00,$00,$00,$0E,$00
 	dw .CHUG_39-DATA8_90C20C,.dist_38-DATA8_90C20C,.crshbkwd_cow_4_35-DATA8_90C20C,.crash_15-DATA8_90C20C,.timp_22-DATA8_90C20C,.bsec_R_17_apower_43_M-DATA8_90C20C,.bsec_L_16_apower_42_R-DATA8_90C20C,.bsec_M_40_apower_41_L-DATA8_90C20C,.BASS-DATA8_90C20C,.drums-DATA8_90C20C,.ohat_32-DATA8_90C20C,.dist_L_36-DATA8_90C20C,.dist_R_37-DATA8_90C20C,.orch-DATA8_90C20C,$0000

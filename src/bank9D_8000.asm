@@ -850,14 +850,7 @@ CODE_9D8751:
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	rtl
-DATA8_9D875A:		; position names: a word (2 + the text), then the text
-	dw $000D : db "   Team    "
-	dw $000D : db "  Center   "
-	dw $000D : db " Left Wing "
-	dw $000D : db "Right Wing "
-	dw $000D : db " Left Def. "
-	dw $000D : db " Right Def."
-	dw $000D : db "  Goalie   "
+incsrc "data/text/DATA8_9D875A.asm"
 CODE_9D87B5:
 	ldy.b $91
 	lda.w tmdata,y

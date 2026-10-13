@@ -1,5 +1,5 @@
 ; Bank $8B, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames8B.bin, then a song from the TeamSongs table (laid out as in bank81_F000) and $FF fill.
+; data/gfx/SpriteFrames8B.bin, then a song from the TeamSongs table (laid out as in bank81_F000) and $FF fill.
 
 org $8BF142
 SpriteFrame752:
@@ -15,7 +15,7 @@ SpriteFrame752:
 	dw 6,-17,$0806 : db $00
 	dw 14,-17,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8B.bin":29051..29499
+	incbin "data/gfx/SpriteFrames8B.bin":29051..29499
 SpriteFrame753:
 	db $05,$80
 	dw $0011
@@ -29,7 +29,7 @@ SpriteFrame753:
 	dw 3,-7,$0806 : db $FF
 	dw 14,-15,$0808 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8B.bin":29556..30100
+	incbin "data/gfx/SpriteFrames8B.bin":29556..30100
 SpriteFrame754:
 	db $06,$80
 	dw $0012
@@ -44,7 +44,7 @@ SpriteFrame754:
 	dw -8,-4,$0808 : db $00
 	dw 0,-4,$0809 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8B.bin":30164..30740
+	incbin "data/gfx/SpriteFrames8B.bin":30164..30740
 SpriteFrame755:
 	db $06,$80
 	dw $000F
@@ -59,7 +59,7 @@ SpriteFrame755:
 	dw -23,-4,$0807 : db $00
 	dw 16,4,$0816 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8B.bin":30804..31284
+	incbin "data/gfx/SpriteFrames8B.bin":30804..31284
 SpriteFrame756:
 	db $05,$80
 	dw $0011
@@ -73,7 +73,7 @@ SpriteFrame756:
 	dw -3,-8,$0806 : db $FF
 	dw 13,0,$0808 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8B.bin":31341..31885
+	incbin "data/gfx/SpriteFrames8B.bin":31341..31885
 SpriteFrame757:
 	db $07,$80
 	dw $000D
@@ -89,7 +89,7 @@ SpriteFrame757:
 	dw 19,-2,$0815 : db $00
 	dw 2,-18,$0806 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8B.bin":31956..32372
+	incbin "data/gfx/SpriteFrames8B.bin":31956..32372
 DATA8_8BFE74:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_8BFE74,.right-DATA8_8BFE74,$0000

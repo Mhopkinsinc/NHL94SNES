@@ -2,12 +2,12 @@
 ; DATA8_80DD16), then the start of DATA8_959E48, a block for the sound CPU (a long pointer list in bank $9C).
 
 org $959000
-	incbin "../Extracted/data/DATA8_958ABD.spc":1347..2515
+	incbin "data/sound/DATA8_958ABD.spc":1347..2515
 DATA8_959490:		; for SPCUploadBlock, as DATA8_958000
 	db $09,$B4
 	db $09,$B4
-	incbin "../Extracted/data/DATA8_959490.spc":4..2488
+	incbin "data/sound/DATA8_959490.spc":4..2488
 DATA8_959E48:		; for SPCUploadBlock, as DATA8_958000
 	db $03,$F9
 	db $09,$AB
-	incbin "../Extracted/data/DATA8_959E48.spc":4..440
+	incbin "data/sound/DATA8_959E48.spc":4..440

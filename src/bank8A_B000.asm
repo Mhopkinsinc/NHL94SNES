@@ -1,4 +1,4 @@
-; Bank $8A, fourth 4 KB: SpriteFrames continued (see bank82_8000), tiles from Extracted/data/SpriteFrames8A.bin.
+; Bank $8A, fourth 4 KB: SpriteFrames continued (see bank82_8000), tiles from data/gfx/SpriteFrames8A.bin.
 
 org $8AB185
 SpriteFrame641:
@@ -13,7 +13,7 @@ SpriteFrame641:
 	dw -17,-9,$0804 : db $FF
 	dw -1,-9,$0806 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":12727..13239
+	incbin "data/gfx/SpriteFrames8A.bin":12727..13239
 SpriteFrame642:
 	db $04,$80
 	dw $000A
@@ -26,7 +26,7 @@ SpriteFrame642:
 	dw -20,-19,$0804 : db $00
 	dw -20,-11,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":13289..13609
+	incbin "data/gfx/SpriteFrames8A.bin":13289..13609
 SpriteFrame643:
 	db $05,$80
 	dw $000E
@@ -40,7 +40,7 @@ SpriteFrame643:
 	dw 2,-25,$0806 : db $00
 	dw 2,-17,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":13666..14114
+	incbin "data/gfx/SpriteFrames8A.bin":13666..14114
 SpriteFrame644:
 	db $05,$80
 	dw $000E
@@ -54,7 +54,7 @@ SpriteFrame644:
 	dw 2,-10,$0806 : db $00
 	dw 2,-2,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":14171..14619
+	incbin "data/gfx/SpriteFrames8A.bin":14171..14619
 SpriteFrame645:
 	db $04,$80
 	dw $000D
@@ -67,7 +67,7 @@ SpriteFrame645:
 	dw -8,-8,$0804 : db $FF
 	dw 8,0,$0806 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":14669..15085
+	incbin "data/gfx/SpriteFrames8A.bin":14669..15085
 SpriteFrame646:
 	db $05,$80
 	dw $000E
@@ -81,7 +81,7 @@ SpriteFrame646:
 	dw 4,-10,$0806 : db $00
 	dw 4,-2,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":15142..15590
+	incbin "data/gfx/SpriteFrames8A.bin":15142..15590
 SpriteFrame647:
 	db $03,$80
 	dw $0009
@@ -93,7 +93,7 @@ SpriteFrame647:
 	dw -5,-10,$0802 : db $FF
 	dw 13,-18,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":15633..15921
+	incbin "data/gfx/SpriteFrames8A.bin":15633..15921
 SpriteFrame648:
 	db $03,$80
 	dw $0009
@@ -105,7 +105,7 @@ SpriteFrame648:
 	dw -5,-10,$0802 : db $FF
 	dw 13,-18,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":15964..16252
+	incbin "data/gfx/SpriteFrames8A.bin":15964..16252
 SpriteFrame649:
 	db $04,$80
 	dw $000A
@@ -118,4 +118,4 @@ SpriteFrame649:
 	dw 6,-9,$0804 : db $00
 	dw 6,-1,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":16302..16622
+	incbin "data/gfx/SpriteFrames8A.bin":16302..16622

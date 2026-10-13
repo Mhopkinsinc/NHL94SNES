@@ -1,5 +1,5 @@
 ; Bank $8A, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames8A.bin, then a byte map and $FF fill.
+; data/gfx/SpriteFrames8A.bin, then a byte map and $FF fill.
 
 org $8AF011
 SpriteFrame675:
@@ -15,7 +15,7 @@ SpriteFrame675:
 	dw 1,-7,$0806 : db $00
 	dw 1,1,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":28746..29194
+	incbin "data/gfx/SpriteFrames8A.bin":28746..29194
 SpriteFrame676:
 	db $05,$80
 	dw $0011
@@ -29,7 +29,7 @@ SpriteFrame676:
 	dw -7,-9,$0806 : db $FF
 	dw 1,-17,$0808 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":29251..29795
+	incbin "data/gfx/SpriteFrames8A.bin":29251..29795
 SpriteFrame677:
 	db $04,$80
 	dw $000A
@@ -42,7 +42,7 @@ SpriteFrame677:
 	dw 4,-14,$0804 : db $00
 	dw 4,-6,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":29845..30165
+	incbin "data/gfx/SpriteFrames8A.bin":29845..30165
 SpriteFrame678:
 	db $02,$80
 	dw $0008
@@ -53,7 +53,7 @@ SpriteFrame678:
 	dw -11,-22,$0800 : db $FF
 	dw -8,-6,$0802 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":30201..30457
+	incbin "data/gfx/SpriteFrames8A.bin":30201..30457
 SpriteFrame679:
 	db $04,$80
 	dw $000A
@@ -66,7 +66,7 @@ SpriteFrame679:
 	dw 8,-16,$0804 : db $00
 	dw 8,-8,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":30507..30827
+	incbin "data/gfx/SpriteFrames8A.bin":30507..30827
 SpriteFrame680:
 	db $05,$80
 	dw $000E
@@ -80,7 +80,7 @@ SpriteFrame680:
 	dw 10,-8,$0806 : db $00
 	dw 18,-8,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":30884..31332
+	incbin "data/gfx/SpriteFrames8A.bin":30884..31332
 SpriteFrame681:
 	db $03,$80
 	dw $000C
@@ -92,7 +92,7 @@ SpriteFrame681:
 	dw -4,-8,$0802 : db $FF
 	dw 12,-8,$0804 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":31375..31759
+	incbin "data/gfx/SpriteFrames8A.bin":31375..31759
 SpriteFrame682:
 	db $05,$80
 	dw $000E
@@ -106,7 +106,7 @@ SpriteFrame682:
 	dw 27,-5,$0806 : db $00
 	dw 35,-5,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":31816..32264
+	incbin "data/gfx/SpriteFrames8A.bin":31816..32264
 SpriteFrame683:
 	db $04,$80
 	dw $000A
@@ -119,7 +119,7 @@ SpriteFrame683:
 	dw 7,2,$0804 : db $00
 	dw 15,2,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames8A.bin":32314..32634
+	incbin "data/gfx/SpriteFrames8A.bin":32314..32634
 DATA8_8AFF7A:		; three words (10, 12, 16), then a 10 x 12 byte map, one row per line; a screen setup in bank $9D
 			;   reads it (as it unpacks the same kind of map from bank $87); not identified yet
 	dw 10,12,16

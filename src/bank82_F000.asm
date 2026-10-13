@@ -1,6 +1,6 @@
 ; Bank $82, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames82.bin. Then the centre ice logo tiles of the Hartford home team: linear 4bpp tiles packed for
-; DecompressHuffman, from Extracted/data/CenterIceHFD.lin.huf. The rink loader in bank $9B takes them from a per-team table
+; data/gfx/SpriteFrames82.bin. Then the centre ice logo tiles of the Hartford home team: linear 4bpp tiles packed for
+; DecompressHuffman, from data/gfx/CenterIceHFD.lin.huf. The rink loader in bank $9B takes them from a per-team table
 ; in bank $9C (tiles, then the logo map), converts them to planar and sends them to VRAM after the rink tiles.
 
 org $82F04A
@@ -14,7 +14,7 @@ SpriteFrame68:
 	dw -12,-19,$0800 : db $FF
 	dw -11,-3,$0802 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":24878..25134
+	incbin "data/gfx/SpriteFrames82.bin":24878..25134
 SpriteFrame69:
 	db $02,$80
 	dw $0008
@@ -25,7 +25,7 @@ SpriteFrame69:
 	dw -8,-22,$0800 : db $FF
 	dw -9,-6,$0802 : db $FF
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":25170..25426
+	incbin "data/gfx/SpriteFrames82.bin":25170..25426
 SpriteFrame70:
 	db $04,$80
 	dw $000A
@@ -38,7 +38,7 @@ SpriteFrame70:
 	dw 1,-9,$0804 : db $00
 	dw 1,-1,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":25476..25796
+	incbin "data/gfx/SpriteFrames82.bin":25476..25796
 SpriteFrame71:
 	db $06,$80
 	dw $000C
@@ -53,7 +53,7 @@ SpriteFrame71:
 	dw 9,-8,$0814 : db $00
 	dw 9,0,$0815 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":25860..26244
+	incbin "data/gfx/SpriteFrames82.bin":25860..26244
 SpriteFrame72:
 	db $04,$80
 	dw $000A
@@ -66,7 +66,7 @@ SpriteFrame72:
 	dw -1,-8,$0804 : db $00
 	dw -1,0,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":26294..26614
+	incbin "data/gfx/SpriteFrames82.bin":26294..26614
 SpriteFrame73:
 	db $05,$80
 	dw $000E
@@ -80,7 +80,7 @@ SpriteFrame73:
 	dw -2,-23,$0806 : db $00
 	dw -2,-15,$0807 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":26671..27119
+	incbin "data/gfx/SpriteFrames82.bin":26671..27119
 SpriteFrame74:
 	db $03,$80
 	dw $0009
@@ -92,7 +92,7 @@ SpriteFrame74:
 	dw -10,-8,$0802 : db $FF
 	dw -18,-10,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":27162..27450
+	incbin "data/gfx/SpriteFrames82.bin":27162..27450
 SpriteFrame75:
 	db $04,$80
 	dw $000A
@@ -105,7 +105,7 @@ SpriteFrame75:
 	dw 1,-12,$0804 : db $00
 	dw 1,-4,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":27500..27820
+	incbin "data/gfx/SpriteFrames82.bin":27500..27820
 SpriteFrame76:
 	db $03,$80
 	dw $0009
@@ -117,7 +117,7 @@ SpriteFrame76:
 	dw -9,-8,$0802 : db $FF
 	dw -17,-11,$0804 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":27863..28151
+	incbin "data/gfx/SpriteFrames82.bin":27863..28151
 SpriteFrame77:
 	db $04,$80
 	dw $000A
@@ -130,9 +130,9 @@ SpriteFrame77:
 	dw 0,-12,$0804 : db $00
 	dw 0,-4,$0805 : db $00
 .tiles:
-	incbin "../Extracted/data/SpriteFrames82.bin":28201..28521
+	incbin "data/gfx/SpriteFrames82.bin":28201..28521
 CenterIceTilesHFD:	; packed tiles: format word, unpacked size (big-endian), then the stream
 	db $30,$FB
 	db $00,$03,$A0
-	incbin "../Extracted/data/CenterIceHFD.lin.huf":5..334
+	incbin "data/gfx/CenterIceHFD.lin.huf":5..334
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF

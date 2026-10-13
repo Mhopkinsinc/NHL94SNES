@@ -4,22 +4,22 @@
 ; the start of DATA8_99BFD5, a player photo.
 
 org $99B000
-	incbin "../Extracted/data/DATA8_99AE67.lin.huf":409..560
+	incbin "data/gfx/DATA8_99AE67.lin.huf":409..560
 DATA8_99B097:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99B097.lin.huf":5..560
+	incbin "data/gfx/DATA8_99B097.lin.huf":5..560
 DATA8_99B2C7:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99B2C7.lin.huf":5..560
+	incbin "data/gfx/DATA8_99B2C7.lin.huf":5..560
 DATA8_99B4F7:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99B4F7.lin.huf":5..559
+	incbin "data/gfx/DATA8_99B4F7.lin.huf":5..559
 DATA8_99B726:		; a map, not packed: width, height and a word, then the map words (12 x 23), which a routine in
 			;   bank $9D copies column by column into a map buffer; not identified yet
 	dw $000C,$0017,$0308
@@ -62,7 +62,7 @@ DATA8_99B954:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99B954.lin.huf":5..556
+	incbin "data/gfx/DATA8_99B954.lin.huf":5..556
 DATA8_99BB80:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_99BB80,.right-DATA8_99BB80,$0000
@@ -109,9 +109,9 @@ DATA8_99BDAC:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99BDAC.lin.huf":5..553
+	incbin "data/gfx/DATA8_99BDAC.lin.huf":5..553
 DATA8_99BFD5:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../Extracted/data/DATA8_99BFD5.lin.huf":5..43
+	incbin "data/gfx/DATA8_99BFD5.lin.huf":5..43
