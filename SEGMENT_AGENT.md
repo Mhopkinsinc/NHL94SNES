@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank92_F000. <- CURRENT
+bank93_8000. <- CURRENT
 
 ## Sources
 
@@ -248,8 +248,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank92_C000 | matched 4096 bytes | $92C000 | $92CFFF | 0% | end of DATA8_92BB61; start of DATA8_92CECD |
 | bank92_D000 | matched 4096 bytes | $92D000 | $92DFFF | 0% | DATA8_92CECD continued |
 | bank92_E000 | matched 4096 bytes | $92E000 | $92EFFF | 0% | end of DATA8_92CECD; start of IceRinkMap (LZ-packed rink map, 93S name, asset IceRink.map.lz) |
-| bank92_F000 | incbin <- CURRENT | $92F000 | $92FFFF | 0% | |
-| bank93_8000 | incbin | $938000 | $938FFF | 0% | |
+| bank92_F000 | matched 4096 bytes | $92F000 | $92FFFF | 0% | end of IceRinkMap; DATA8_92F18A (sound CPU upload block); DATA8_92FFB0 (6 x 6 photo map) |
+| bank93_8000 | incbin <- CURRENT | $938000 | $938FFF | 0% | |
 | bank93_9000 | incbin | $939000 | $939FFF | 0% | |
 | bank93_A000 | incbin | $93A000 | $93AFFF | 0% | |
 | bank93_B000 | incbin | $93B000 | $93BFFF | 0% | |
@@ -508,3 +508,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank92_C000: source, MATCH. The end of DATA8_92BB61, then the start of DATA8_92CECD ($92CECD-$92E052, entry 1 of the upload list near $9C9A5B).
 - bank92_D000: source, MATCH. DATA8_92CECD continued (IceRinkMap starts in bank92_E000).
 - bank92_E000: source, MATCH. The end of DATA8_92CECD, then the start of IceRinkMap ($92E053-$92F189): the rink map packed for DecompressLZ (a header of three words, 48 x 113 map words for IceRinkTiles), which $9BC1D5 unpacks before it pastes the centre ice logo; the 93S name; new asset IceRink.map.lz.
+- bank92_F000: source, MATCH. The end of IceRinkMap, then DATA8_92F18A ($92F18A-$92FFAF, upload lists E6C1/E6FD entry 6), DATA8_92FFB0 (a map for a player photo: 6, 6, $0308, then tile numbers 0-35 in order; read near $9DCA25), and $FF,$FF. Bank $92 is now all source.
