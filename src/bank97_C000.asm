@@ -1,3 +1,78 @@
-; Segment bank97_C000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank97_C000.asm.
+; Bank $97, fifth 4 KB: the end of DATA8_97BF0A, then DATA8_97C188, a player photo, then DATA8_97C405, a player photo,
+; then DATA8_97C682, a player photo, then DATA8_97C8FE, a player photo, then DATA8_97CB79, a song from the TeamSongs
+; table (laid out as in bank81_F000), then the start of DATA8_97CDF3, a player photo.
+
 org $97C000
-	incbin "../Extracted/segments/bank97_C000.bin"
+	incbin "../Extracted/data/DATA8_97BF0A.lin.huf":246..638
+DATA8_97C188:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
+			;   in bank $9D
+	db $30,$FB
+	db $00,$04,$80
+	incbin "../Extracted/data/DATA8_97C188.lin.huf":5..637
+DATA8_97C405:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
+			;   in bank $9D
+	db $30,$FB
+	db $00,$04,$80
+	incbin "../Extracted/data/DATA8_97C405.lin.huf":5..637
+DATA8_97C682:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
+			;   in bank $9D
+	db $30,$FB
+	db $00,$04,$80
+	incbin "../Extracted/data/DATA8_97C682.lin.huf":5..636
+DATA8_97C8FE:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
+			;   in bank $9D
+	db $30,$FB
+	db $00,$04,$80
+	incbin "../Extracted/data/DATA8_97C8FE.lin.huf":5..635
+DATA8_97CB79:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+	db $01,$78,$01,$00,$00,$00,$02,$00
+	dw .left-DATA8_97CB79,.right-DATA8_97CB79,$0000
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $01,$36,"TRAK"
+.left:
+	db $00,$E7,$05,"left",$00
+	db $00,$DC,$0B,$01,$A9,$77,$04,$00,$A4,$79,$04,$1F,$A4,$7D,$04,$00
+	db $A9,$77,$05,$1D,$A4,$7F,$05,$00,$A9,$79,$05,$1D,$A7,$79,$04,$00
+	db $A2,$7F,$04,$08,$A9,$6E,$0E,$00,$A4,$79,$0F,$15,$A9,$75,$05,$00
+	db $A4,$7B,$05,$1C,$A9,$7C,$05,$00,$A4,$7F,$04,$1C,$A4,$7F,$04,$00
+	db $A9,$79,$05,$1B,$A2,$7F,$04,$00,$A7,$78,$04,$08,$A9,$7F,$0D,$00
+	db $A4,$7F,$0E,$15,$A4,$7F,$05,$00,$A9,$7F,$05,$1B,$A9,$7F,$05,$00
+	db $A4,$7F,$04,$1A,$A9,$7F,$05,$00,$A4,$7F,$04,$1A,$A7,$79,$04,$00
+	db $A2,$7F,$04,$08,$A9,$7F,$0B,$00,$A4,$7C,$0B,$14,$A9,$7F,$07,$00
+	db $A4,$7F,$07,$19,$A9,$7F,$06,$00,$A4,$7F,$06,$19,$A9,$7F,$06,$00
+	db $A4,$7F,$05,$18,$AC,$7C,$05,$00,$A7,$7F,$04,$07,$AE,$7F,$0B,$00
+	db $A9,$7F,$0C,$14,$AE,$7F,$05,$00,$A9,$7F,$05,$1A,$AE,$7F,$05,$00
+	db $A9,$7F,$05,$19,$AE,$7F,$05,$00,$A9,$7F,$06,$19,$AC,$75,$03,$00
+	db $A7,$7F,$04,$08,$A9,$7C,$0C,$00,$AE,$7F,$0B,$14,$AE,$7F,$05,$00
+	db $A9,$7F,$05,$1A,$A9,$7F,$07,$00,$AE,$7F,$05,$18,$A9,$7B,$05,$00
+	db $AE,$7F,$05,$19,$A2,$7F,$04,$00,$A7,$7D,$05,$09,$A9,$78,$0D,$00
+	db $A4,$7F,$0E,$13,$A4,$7F,$07,$00,$A9,$7F,$07,$35,$A4,$77,$09,$08
+	db $A9,$76,$08,$08,$AD,$74,$06,$08,$B0,$7D,$06,$12,$AD,$75,$06,$06
+	db $B0,$7F,$7A,$34,$AD,$75,$44,$00,$A9,$76,$46,$46,$D9,$00,$00,$00
+	db $00,$00,$00,$00,$00,$8A,$00,$00
+	db $01,$1C,"TRAK"
+.right:
+	db $00,$E7,$06,"right",$00
+	db $00,$DC,$0C,$01,$A1,$72,$04,$00,$91,$77,$05,$1F,$A1,$78,$04,$00
+	db $91,$78,$05,$1D,$A1,$79,$04,$00,$91,$76,$05,$1D,$9F,$72,$04,$00
+	db $8F,$7A,$05,$08,$A1,$78,$0D,$00,$91,$76,$0F,$15,$A1,$74,$04,$00
+	db $91,$75,$06,$1C,$A1,$7C,$04,$00,$91,$78,$05,$1C,$A1,$7F,$04,$00
+	db $91,$79,$06,$1B,$9F,$6F,$04,$00,$8F,$78,$05,$08,$A1,$7D,$0C,$00
+	db $91,$7B,$0D,$15,$A1,$7D,$05,$00,$91,$7A,$05,$1B,$A1,$7F,$04,$00
+	db $91,$7D,$06,$1A,$A1,$7F,$04,$00,$91,$79,$05,$1A,$9F,$71,$04,$00
+	db $8F,$7D,$04,$08,$A1,$7A,$0A,$00,$91,$7F,$0B,$14,$A1,$7F,$07,$00
+	db $91,$7F,$06,$19,$A1,$7F,$05,$00,$91,$7D,$06,$19,$A1,$7F,$04,$00
+	db $91,$7B,$05,$18,$A4,$76,$04,$00,$94,$7B,$04,$07,$A6,$7F,$0B,$00
+	db $96,$7F,$0B,$14,$A6,$79,$05,$00,$96,$7F,$04,$1A,$A6,$7F,$05,$00
+	db $96,$7F,$03,$19,$A6,$7F,$06,$00,$96,$7F,$05,$19,$A4,$75,$03,$00
+	db $94,$78,$04,$08,$A6,$7D,$0B,$00,$96,$7F,$0C,$14,$A6,$79,$05,$00
+	db $96,$7F,$05,$1A,$A6,$7A,$06,$00,$96,$7F,$05,$18,$A6,$77,$04,$00
+	db $96,$7F,$05,$19,$9F,$75,$04,$00,$8F,$7D,$04,$09,$A1,$7F,$0A,$00
+	db $91,$7F,$0B,$13,$A1,$7F,$07,$00,$91,$7F,$06,$20,$D9,$D9,$71,$45
+	db $45,$D9,$00,$00,$00,$00,$00,$00,$00,$00,$12
+DATA8_97CDF3:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
+			;   in bank $9D
+	db $30,$FB
+	db $00,$04,$80
+	incbin "../Extracted/data/DATA8_97CDF3.lin.huf":5..525
