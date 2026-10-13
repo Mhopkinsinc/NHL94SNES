@@ -643,3 +643,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Bank $9C: the five slices are `src/banks/b9C_teams.asm`. Code is one file per routine under `src/routines/` (a 93S name uses that 93S folder; other code is `routines/snes/`). Data tables are `src/data/tables/`. Fall-through code stays in the first routine's file. MATCH.
 - Bank $9B: the eight slices are `src/banks/b9B_screens.asm`, split the same way. `adda43` stays in `CODE_9BB176.asm` (that routine falls through into it). MATCH.
 - Bank $9D: the eight slices are `src/banks/b9D_roster.asm`, split the same way. The animation sequences stay a data table for now (`frames94s.asm` is a later pass). MATCH.
+- Bank $9E: the eight slices are `src/banks/b9E_game.asm`, split the same way. Matched 93S names are in `routines/logic/` and `routines/penalty/`. MATCH.

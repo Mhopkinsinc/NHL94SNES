@@ -1,0 +1,5 @@
+; Unidentified routine.
+CODE_9EF21E:
+	lda.w $15D6
+	beq CODE_9EF226
+	jmp.w $F318
