@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank89_F000. <- CURRENT
+bank8A_8000. <- CURRENT
 
 ## Sources
 
@@ -176,8 +176,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank89_C000 | matched 4023 bytes | $89C129 | $89D0DF | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $89C129, end moved +$E0 (frame boundary) |
 | bank89_D000 | matched 3923 bytes | $89D0E0 | $89E032 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $89D0E0, end moved +$33 (frame boundary) |
 | bank89_E000 | matched 4492 bytes | $89E033 | $89F1BE | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $89E033, end moved +$1BF (frame boundary) |
-| bank89_F000 | incbin <- CURRENT | $89F1BF | $89FFFF | 0% | org moved to $89F1BF |
-| bank8A_8000 | incbin | $8A8000 | $8A8FFF | 0% | |
+| bank89_F000 | matched 3649 bytes | $89F1BF | $89FFFF | 0% | last SpriteFrames frames of bank $89; DATA8_89FFC7 (LZ palette, asset DATA8_89FFC7.pal.lz); $FF fill; org moved to $89F1BF |
+| bank8A_8000 | incbin <- CURRENT | $8A8000 | $8A8FFF | 0% | |
 | bank8A_9000 | incbin | $8A9000 | $8A9FFF | 0% | |
 | bank8A_A000 | incbin | $8AA000 | $8AAFFF | 0% | |
 | bank8A_B000 | incbin | $8AB000 | $8ABFFF | 0% | |
@@ -436,3 +436,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank89_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 89C129 89D000`. bank89_D000 org moved to $89D0E0 (frame boundary).
 - bank89_D000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 89D0E0 89E000`. bank89_E000 org moved to $89E033 (frame boundary).
 - bank89_E000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 89E033 89F000`. bank89_F000 org moved to $89F1BF (frame boundary).
+- bank89_F000: source, MATCH. The last SpriteFrames frames of bank $89 (tools/spriteframes.py frames 89F1BF 8A0000), then DATA8_89FFC7 ($89FFC7-$89FFF3): an LZ-packed palette that $9DC8E4 unpacks and loads with $9DE0BD (Y = first colour $40, X = 16 colours); the screen is not identified. New asset DATA8_89FFC7.pal.lz. Bank $89 is now all source.

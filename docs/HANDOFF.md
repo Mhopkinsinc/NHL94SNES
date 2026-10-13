@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $88, and bank89_8000 to bank89_E000, are source (MATCH); the rest are incbin.
+- Banks $80 to $89 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -79,7 +79,9 @@
   to $7F0000 and then unpacks $9ADEE0 to $7F4000 and $91B188 to $7F5000; what reads the map is not traced.
 - CenterIceMapNHL ($88FFC6, bank88_F000) is the centre ice map of teams 26 and 27 (the all-star teams), with the tiles at
   $9AD4B6: the NHL shield.
-- Next: segment bank89_F000, from $89F1BF (`tools/spriteframes.py frames 89F1BF 8A8000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- $9DE0BD loads colours into CGRAM: [$0C] the colours, Y the first colour, X the count (team palettes: Y = $A0).
+  DATA8_89FFC7 (bank89_F000) is an LZ-packed palette that $9DC8E4 loads at colour $40; its screen is not identified.
+- Next: segment bank8A_8000 (first add SpriteFrames8A.bin from `tools/spriteframes.py info` to tools/extract.py, then `tools/spriteframes.py frames 8A8000 8A9000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
