@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank97_9000. <- CURRENT
+bank97_A000. <- CURRENT
 
 ## Sources
 
@@ -282,8 +282,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank96_E000 | matched 4096 bytes | $96E000 | $96EFFF | 0% | the end of DATA8_96DE60, then DATA8_96E1A9, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96E4D9, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96E7FD, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96EB21, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_96EE45, a song from the TeamSongs table (laid out as in bank81_F000) |
 | bank96_F000 | matched 4096 bytes | $96F000 | $96FFFF | 0% | the end of DATA8_96EE45, then DATA8_96F15D, map words in 7 x 8 blocks, then DATA8_96F46D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96F779, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96FA7D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96FD81, a player photo |
 | bank97_8000 | matched 4096 bytes | $978000 | $978FFF | 0% | DATA8_978000, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9782F8, a block for the sound CPU (upload list DATA8_80DD16), then DATA8_9785F0, a song from the TeamSongs table (laid out as in bank81_F000), then PregameText, the text of the pre-game screen, then DATA8_978BBB, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_978E95, a player photo |
-| bank97_9000 | incbin <- CURRENT | $979000 | $979FFF | 0% | |
-| bank97_A000 | incbin | $97A000 | $97AFFF | 0% | |
+| bank97_9000 | matched 4096 bytes | $979000 | $979FFF | 0% | the end of DATA8_978E95, then DATA8_979162, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_979406, a player photo, then DATA8_97969D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_979931, a player photo, then DATA8_979BC5, a player photo, then the start of DATA8_979E57, a player photo |
+| bank97_A000 | incbin <- CURRENT | $97A000 | $97AFFF | 0% | |
 | bank97_B000 | incbin | $97B000 | $97BFFF | 0% | |
 | bank97_C000 | incbin | $97C000 | $97CFFF | 0% | |
 | bank97_D000 | incbin | $97D000 | $97DFFF | 0% | |
@@ -542,3 +542,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank96_E000: source, MATCH. The end of DATA8_96DE60, then DATA8_96E1A9, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96E4D9, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96E7FD, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96EB21, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_96EE45, a song from the TeamSongs table (laid out as in bank81_F000).
 - bank96_F000: source, MATCH. The end of DATA8_96EE45, then DATA8_96F15D, map words in 7 x 8 blocks, then DATA8_96F46D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96F779, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96FA7D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96FD81, a player photo. Bank $96 is now all source.
 - bank97_8000: source, MATCH. DATA8_978000, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_9782F8, a block for the sound CPU (upload list DATA8_80DD16), then DATA8_9785F0, a song from the TeamSongs table (laid out as in bank81_F000), then PregameText, the text of the pre-game screen, then DATA8_978BBB, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_978E95, a player photo.
+- bank97_9000: source, MATCH. The end of DATA8_978E95, then DATA8_979162, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_979406, a player photo, then DATA8_97969D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_979931, a player photo, then DATA8_979BC5, a player photo, then the start of DATA8_979E57, a player photo.
