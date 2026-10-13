@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9F_F000. <- CURRENT
+None: every segment is source (MATCH). Later passes name the auto labels (see `docs/HANDOFF.md`).
 
 ## Sources
 
@@ -352,7 +352,7 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9F_C000 | matched 4094 bytes | $9FC002 | $9FCFFF | 92% | game flow code with auto labels; DATA8_9FCEEF; org moved to $9FC002 |
 | bank9F_D000 | matched 4096 bytes | $9FD000 | $9FDFFF | 82% | game flow code with auto labels; DATA8_9FD404 (Y, B, A); small tables |
 | bank9F_E000 | matched 4107 bytes | $9FE000 | $9FF00A | 69% | menu code with auto labels; DATA8_9FE504 item handlers (dd of labels); DATA8_9FEC96 item names; DATA8_9FEC30 settings; DATA8_9FEC72; end moved +$B |
-| bank9F_F000 | incbin <- CURRENT | $9FF00B | $9FFFFF | 57% | org moved to $9FF00B |
+| bank9F_F000 | matched 4085 bytes | $9FF00B | $9FFFFF | 57% | the end of the menu item names, the exit prompt and MultiPlayer 5 messages, jump table DATA8_9FF631, $FF fill; org moved to $9FF00B |
 
 ## History
 
@@ -612,3 +612,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9F_C000: source, MATCH. Game flow code with auto labels (unreached routines decoded with `tools/disasm65816.py --entry`); DATA8_9FCEEF (bytes). Org $9FC002 (set by bank9F_B000); bank9F_D000 is split around CODE_9FD01F for a branch here.
 - bank9F_D000: source, MATCH. Game flow code with auto labels; DATA8_9FD404 (the letters Y, B, A as a string), DATA8_9FD820 (bytes), DATA8_9FDB34 / DATA8_9FDBBE (words). Org $9FD000 (bank9F_C000 split it around CODE_9FD01F).
 - bank9F_E000: source, MATCH. The pause and intermission menu code with auto labels: DATA8_9FEC96 (the menu item names as text records) and DATA8_9FE504 (the handler of each item, dd of labels; handlers decoded with --entry), DATA8_9FEC30 (Automatic Goalie, Manual Goalie, None, On, Off), DATA8_9FEC72 (words). The item names run to $9FF00A, so bank9F_F000 starts at $9FF00B.
+- bank9F_F000: source, MATCH. The end of the menu item names (see bank9F_E000), the last game flow code with auto labels: the exit prompt (Exit Game?, Exit Shootout?, Yes, No) and the MultiPlayer 5 messages as String records labelled where code points at them, the jump table DATA8_9FF631 (dw of its targets, decoded with `tools/disasm65816.py --entry`), DATA8_9FF4C0, then $FF fill written with padbyte/pad. Bank $9F is now all source, and so is the whole ROM.

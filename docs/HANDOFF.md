@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $9E, and bank9F_8000 to bank9F_E000, are source (MATCH); the rest are incbin.
+- Banks $80 to $9F are source (MATCH): every segment of the ROM is source.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -97,7 +97,7 @@
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Next: segment bank9F_F000 (the last one: the rest of the menu names, code, then $FF fill; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: naming passes. Code banks $9B to $9F (and parts of $80) still use auto labels (CODE_/DATA8_) for most routines and tables; match them to NHLPA93SNES / NHL94Genesis names, name RAM variables, and turn the remaining numeric pointers (for example in the sprite animation sequences of bank9D_E000 and the word pointer tables) into labels.
 
 ## Setup notes
 
