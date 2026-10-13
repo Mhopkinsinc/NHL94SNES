@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $8E, and bank8F_8000 to bank8F_E000, are source (MATCH); the rest are incbin.
+- Banks $80 to $8F are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -97,7 +97,7 @@
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Next: segment bank8F_F000: the rest of the song DATA8_8FDD32 (then its track offsets in bank8F_D000 become label differences), the stand-in player photo DATA8_8FFE74 (new asset) and $FF fill (see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank90_8000. Bank $90: from $908000 unpacked 4bpp tiles that $9BA0A2 copies to VRAM during play (the first ~180 render as crowd graphics; what follows up to the song at $90C20C, which MusicStart plays from $9BB0B6, $9F82FB and others, is not identified), the upload block $90E08C (list DATA8_80E6C1 entry 12, $1D52 bytes) and a player photo at $90FDE2 (photo table entry 159). See `SEGMENT_AGENT.md`, `PROMPT.md`.
 
 ## Setup notes
 

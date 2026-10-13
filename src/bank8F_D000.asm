@@ -6,7 +6,7 @@ org $8FD000
 	incbin "../Extracted/data/DATA8_8FBB26.spc":5338..8716
 DATA8_8FDD32:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$9C,$01,$00,$00,$00,$0D,$00
-	dw .timp-DATA8_8FDD32,.orch-DATA8_8FDD32,.BASS_2-DATA8_8FDD32,$08EC,$09AA,$0A28,$0BBE,$0E64,$10BA,$1230,$1D36,$2050,$20BC,$0000
+	dw .timp-DATA8_8FDD32,.orch-DATA8_8FDD32,.BASS_2-DATA8_8FDD32,.cowbell_21-DATA8_8FDD32,.crash_14-DATA8_8FDD32,.chug_18-DATA8_8FDD32,.HORN_R_26-DATA8_8FDD32,.HORN_L_16-DATA8_8FDD32,.HORN_M_25-DATA8_8FDD32,.drums-DATA8_8FDD32,.dist_A_27-DATA8_8FDD32,.dist_echo_L_28-DATA8_8FDD32,.dist_echo_R_29-DATA8_8FDD32,$0000
 	db $00,$00,$00,$00,$00,$00
 	db $00,$68,"TRAK"
 .timp:

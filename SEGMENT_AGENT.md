@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8F_F000. <- CURRENT
+bank90_8000. <- CURRENT
 
 ## Sources
 
@@ -224,8 +224,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8F_C000 | matched 4096 bytes | $8FC000 | $8FCFFF | 0% | DATA8_8FBB26 continued (asset DATA8_8FBB26.spc) |
 | bank8F_D000 | matched 4096 bytes | $8FD000 | $8FDFFF | 0% | end of DATA8_8FBB26; start of DATA8_8FDD32 (a 13-track song) |
 | bank8F_E000 | matched 4096 bytes | $8FE000 | $8FEFFF | 0% | DATA8_8FDD32 continued (song) |
-| bank8F_F000 | incbin <- CURRENT | $8FF000 | $8FFFFF | 0% | |
-| bank90_8000 | incbin | $908000 | $908FFF | 0% | |
+| bank8F_F000 | matched 4096 bytes | $8FF000 | $8FFFFF | 0% | end of DATA8_8FDD32; DATA8_8FFE74 (stand-in player photo, asset DATA8_8FFE74.lin.huf); $FF fill |
+| bank90_8000 | incbin <- CURRENT | $908000 | $908FFF | 0% | |
 | bank90_9000 | incbin | $909000 | $909FFF | 0% | |
 | bank90_A000 | incbin | $90A000 | $90AFFF | 0% | |
 | bank90_B000 | incbin | $90B000 | $90BFFF | 0% | |
@@ -484,3 +484,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8F_C000: source, MATCH. DATA8_8FBB26 continued, an incbin of Extracted/data/DATA8_8FBB26.spc:1242..5338.
 - bank8F_D000: source, MATCH. The end of DATA8_8FBB26, then the start of DATA8_8FDD32 ($8FDD32-$8FFE73): a song with 13 named tracks (timp, orch, BASS #2, ...) laid out as the other songs; track labels are made label-safe from the names. Offsets of tracks not yet in source are written as numbers; bank8F_F000 turns them into label differences.
 - bank8F_E000: source, MATCH. The song DATA8_8FDD32 continued.
+- bank8F_F000: source, MATCH. The end of the song DATA8_8FDD32 (its track offsets in bank8F_D000 are now all label differences), then DATA8_8FFE74 ($8FFE74-$8FFFEE): the player photo that most photo-table entries without their own photo share, a generic skater; new asset DATA8_8FFE74.lin.huf; $FF fill. Bank $8F is now all source.
