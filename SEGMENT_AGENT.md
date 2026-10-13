@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9B_F000. <- CURRENT
+bank9C_8000. <- CURRENT
 
 ## Sources
 
@@ -320,8 +320,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9B_C000 | matched 4095 bytes | $9BC001 | $9BCFFF | 75% | screen code with auto labels; PasswordChars; DATA8_9BC5E7/DATA8_9BC5F5 short team names; $FF fill; org moved to $9BC001 |
 | bank9B_D000 | matched 4096 bytes | $9BD000 | $9BDFFF | 0% | $FF fill (padbyte/pad) |
 | bank9B_E000 | matched 4096 bytes | $9BE000 | $9BEFFF | 0% | $FF fill (padbyte/pad) |
-| bank9B_F000 | incbin <- CURRENT | $9BF000 | $9BFFFF | 0% | |
-| bank9C_8000 | incbin | $9C8000 | $9C8FFF | 43% | |
+| bank9B_F000 | matched 4096 bytes | $9BF000 | $9BFFFF | 0% | $FF fill (padbyte/pad) |
+| bank9C_8000 | incbin <- CURRENT | $9C8000 | $9C8FFF | 43% | |
 | bank9C_9000 | incbin | $9C9000 | $9C9FFF | 76% | |
 | bank9C_A000 | incbin | $9CA000 | $9CAFFF | 29% | |
 | bank9C_B000 | incbin | $9CB000 | $9CBFFF | 0% | |
@@ -580,3 +580,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9B_C000: source, MATCH. Screen code with auto labels: the Other Scores screen, the short names DATA8_9BC5E7 / DATA8_9BC5F5 (NY Islanders, NY Rangers) as text records, the password screen with PasswordChars (the password characters, as a string), then $FF fill (the code map had decoded part of it as code; it is db here). Org $9BC001 (set by bank9B_B000).
 - bank9B_D000: source, MATCH. $FF fill, written with padbyte/pad.
 - bank9B_E000: source, MATCH. $FF fill, written with padbyte/pad.
+- bank9B_F000: source, MATCH. $FF fill, written with padbyte/pad. Bank $9B is now all source.

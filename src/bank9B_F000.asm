@@ -1,3 +1,5 @@
-; Segment bank9B_F000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank9B_F000.asm.
+; Bank $9B, last 4 KB: $FF fill.
+
 org $9BF000
-	incbin "../Extracted/segments/bank9B_F000.bin"
+	padbyte $FF
+	pad $9C8000
