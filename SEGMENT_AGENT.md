@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank94_F000. <- CURRENT
+bank95_8000. <- CURRENT
 
 ## Sources
 
@@ -264,8 +264,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank94_C000 | matched 4096 bytes | $94C000 | $94CFFF | 0% | the end of DATA8_94BEAC, then the start of DATA8_94CABF, a block for the sound CPU (upload list DATA8_80DD16) |
 | bank94_D000 | matched 4096 bytes | $94D000 | $94DFFF | 0% | the end of DATA8_94CABF, then the start of DATA8_94D6A5, Huffman-packed background tiles |
 | bank94_E000 | matched 4096 bytes | $94E000 | $94EFFF | 0% | the end of DATA8_94D6A5, then DATA8_94E225, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_94ED96, a block for the sound CPU (upload list DATA8_80DD16) |
-| bank94_F000 | incbin <- CURRENT | $94F000 | $94FFFF | 0% | |
-| bank95_8000 | incbin | $958000 | $958FFF | 0% | |
+| bank94_F000 | matched 4096 bytes | $94F000 | $94FFFF | 0% | the end of DATA8_94ED96, then DATA8_94F8EC, a packed sprite set of large E and A letters |
+| bank95_8000 | incbin <- CURRENT | $958000 | $958FFF | 0% | |
 | bank95_9000 | incbin | $959000 | $959FFF | 0% | |
 | bank95_A000 | incbin | $95A000 | $95AFFF | 0% | |
 | bank95_B000 | incbin | $95B000 | $95BFFF | 0% | |
@@ -524,3 +524,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank94_C000: source, MATCH. The end of DATA8_94BEAC, then the start of DATA8_94CABF, a block for the sound CPU (upload list DATA8_80DD16).
 - bank94_D000: source, MATCH. The end of DATA8_94CABF, then the start of DATA8_94D6A5, Huffman-packed background tiles.
 - bank94_E000: source, MATCH. The end of DATA8_94D6A5, then DATA8_94E225, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_94ED96, a block for the sound CPU (upload list DATA8_80DD16).
+- bank94_F000: source, MATCH. The end of DATA8_94ED96, then DATA8_94F8EC, a packed sprite set of large E and A letters. Bank $94 is now all source.
