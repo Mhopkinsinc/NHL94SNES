@@ -1,0 +1,19 @@
+; Unidentified routine.
+CODE_9FC345:
+	bit.w #$0080
+	beq CODE_9FC371
+	ldy.w $0D07
+	bmi CODE_9FC371
+	lda.w pflags,y
+	and.w #$1000
+	ora.w $14E3,y
+	bne CODE_9FC371
+	lda.w $19D4,y
+	bpl CODE_9FC371
+	lda.w pfteam,y
+	cmp.w pfteam,x
+	bne CODE_9FC371
+	sty.b $A5
+	inc.w $0BAB
+	jsl.l CODE_9FCB68
+	rtl

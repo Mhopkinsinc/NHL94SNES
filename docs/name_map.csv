@@ -464,3 +464,5 @@ $9C96E6,TeamPlaceNames_NJ,TeamPlaceNames_NJD,teamdata,local label; abbreviation 
 $9C9703,TeamPlaceNames_OTW,TeamPlaceNames_OTT,teamdata,local label; abbreviation OTW,src/data/text/TeamPlaceNames.asm
 $9C9729,TeamPlaceNames_SJ,TeamPlaceNames_SJS,teamdata,local label; abbreviation SJ,src/data/text/TeamPlaceNames.asm
 $9C973C,TeamPlaceNames_TB,TeamPlaceNames_TBL,teamdata,local label; abbreviation TB,src/data/text/TeamPlaceNames.asm
+$9F9901,CODE_9F9901,,code,entry had no label,src/routines/snes/CODE_9F9901.asm
+$9FA835,CODE_9FA835,,code,entry had no label,src/routines/snes/CODE_9FA835.asm

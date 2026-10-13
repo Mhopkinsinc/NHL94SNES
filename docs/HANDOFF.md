@@ -3,10 +3,11 @@
 ## Alignment
 
 - Audit is `docs/align_plan.md` (no source change). `bank9C_A000` plus `src/data/teamdata94s.asm` does cover the old bank9C_B000, C000 and D000 ranges: the next file is bank9C_E000 at `$9CEF59`.
-- Layout done: banks `$81` through `$9E` are `src/banks/` files (`b9B_screens`, `b9C_teams`, `b9D_roster`, `b9E_game` hold the code banks). Routines are in `src/routines/`, tables in `src/data/tables/`. `tools/verify_all.sh` MATCH.
+- Layout done: banks `$81` through `$9F` are `src/banks/` files (`b9B_screens`, `b9C_teams`, `b9D_roster`, `b9E_game`, `b9F_flow` hold the code banks). Routines are in `src/routines/`, tables in `src/data/tables/`. `tools/verify_all.sh` MATCH.
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
-- `adda43` shares a file with `CODE_9BB176` because that routine falls through into it.
-- Next: split the remaining code banks (`$80`, `$9F`) into `src/routines/`. The animation sequences in bank `$9D` still need `src/data/frames94s.asm`. Extraction, SPA symbols and the doc rewrite are still ahead.
+- `adda43` shares a file with `CODE_9BB176` because that routine falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
+- Two entries in bank `$9F` had no label. They are `CODE_9F9901` and `CODE_9FA835` (rows in `docs/name_map.csv`).
+- Next: split bank `$80` into `src/routines/`, including `src/header/snes_header.asm`. The animation sequences in bank `$9D` still need `src/data/frames94s.asm`. Extraction, SPA symbols and the doc rewrite are still ahead.
 
 ## Unsure
 

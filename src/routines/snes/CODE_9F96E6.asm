@@ -1,0 +1,8 @@
+; Unidentified routine.
+CODE_9F96E6:
+	lda.w #$0005
+	sta.w $0AD1
+	ldx.w #$009C
+	lda.w #$9971
+	jsl.l CODE_80855E
+	rtl

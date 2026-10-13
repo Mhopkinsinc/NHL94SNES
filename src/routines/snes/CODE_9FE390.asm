@@ -1,0 +1,6 @@
+; Unidentified routine.
+CODE_9FE390:
+	lda.b $A9
+	bit.w #$8080
+	bne CODE_9FE39A
+	jmp.w $E19E
