@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8D_D000. <- CURRENT
+bank8D_E000. <- CURRENT
 
 ## Sources
 
@@ -206,8 +206,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8D_A000 | matched 3887 bytes | $8DA109 | $8DB037 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8DA109, end moved +$38 (frame boundary) |
 | bank8D_B000 | matched 4474 bytes | $8DB038 | $8DC1B1 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8DB038, end moved +$1B2 (frame boundary) |
 | bank8D_C000 | matched 4015 bytes | $8DC1B2 | $8DD160 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8DC1B2, end moved +$161 (frame boundary) |
-| bank8D_D000 | incbin <- CURRENT | $8DD161 | $8DDFFF | 0% | org moved to $8DD161 |
-| bank8D_E000 | incbin | $8DE000 | $8DEFFF | 0% | |
+| bank8D_D000 | matched 3769 bytes | $8DD161 | $8DE019 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8DD161, end moved +$1A (frame boundary) |
+| bank8D_E000 | incbin <- CURRENT | $8DE01A | $8DEFFF | 0% | org moved to $8DE01A |
 | bank8D_F000 | incbin | $8DF000 | $8DFFFF | 0% | |
 | bank8E_8000 | incbin | $8E8000 | $8E8FFF | 0% | |
 | bank8E_9000 | incbin | $8E9000 | $8E9FFF | 0% | |
@@ -466,3 +466,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8D_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8DA109 8DB000`. bank8D_B000 org moved to $8DB038 (frame boundary).
 - bank8D_B000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8DB038 8DC000`. bank8D_C000 org moved to $8DC1B2 (frame boundary).
 - bank8D_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8DC1B2 8DD000`. bank8D_D000 org moved to $8DD161 (frame boundary).
+- bank8D_D000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8DD161 8DE000`. bank8D_E000 org moved to $8DE01A (frame boundary).
