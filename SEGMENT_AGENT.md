@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank96_B000. <- CURRENT
+bank96_C000. <- CURRENT
 
 ## Sources
 
@@ -276,8 +276,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank96_8000 | matched 4096 bytes | $968000 | $968FFF | 0% | DATA8_968000, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then DATA8_968646, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_968C02, an LZ-packed block |
 | bank96_9000 | matched 4096 bytes | $969000 | $969FFF | 0% | the end of DATA8_968C02, then DATA8_969190, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then DATA8_9696E3, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then the start of DATA8_969C09, a song from the TeamSongs table (laid out as in bank81_F000) |
 | bank96_A000 | matched 4096 bytes | $96A000 | $96AFFF | 0% | the end of DATA8_969C09, then DATA8_96A103, tiles packed for DecompressPairs, then DATA8_96A5E5, LZ-packed tiles, then DATA8_96AA64, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_96AEBB, a song from the TeamSongs table (laid out as in bank81_F000) |
-| bank96_B000 | incbin <- CURRENT | $96B000 | $96BFFF | 0% | |
-| bank96_C000 | incbin | $96C000 | $96CFFF | 0% | |
+| bank96_B000 | matched 4096 bytes | $96B000 | $96BFFF | 0% | the end of DATA8_96AEBB, then DATA8_96B2CF, LZ-packed tiles, then DATA8_96B6CD, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96BABD, LZ-packed tiles, then the start of DATA8_96BEA5, a song from the TeamSongs table (laid out as in bank81_F000) |
+| bank96_C000 | incbin <- CURRENT | $96C000 | $96CFFF | 0% | |
 | bank96_D000 | incbin | $96D000 | $96DFFF | 0% | |
 | bank96_E000 | incbin | $96E000 | $96EFFF | 0% | |
 | bank96_F000 | incbin | $96F000 | $96FFFF | 0% | |
@@ -536,3 +536,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank96_8000: source, MATCH. DATA8_968000, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then DATA8_968646, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_968C02, an LZ-packed block.
 - bank96_9000: source, MATCH. The end of DATA8_968C02, then DATA8_969190, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then DATA8_9696E3, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then the start of DATA8_969C09, a song from the TeamSongs table (laid out as in bank81_F000).
 - bank96_A000: source, MATCH. The end of DATA8_969C09, then DATA8_96A103, tiles packed for DecompressPairs, then DATA8_96A5E5, LZ-packed tiles, then DATA8_96AA64, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_96AEBB, a song from the TeamSongs table (laid out as in bank81_F000).
+- bank96_B000: source, MATCH. The end of DATA8_96AEBB, then DATA8_96B2CF, LZ-packed tiles, then DATA8_96B6CD, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96BABD, LZ-packed tiles, then the start of DATA8_96BEA5, a song from the TeamSongs table (laid out as in bank81_F000).

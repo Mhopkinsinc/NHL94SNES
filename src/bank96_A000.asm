@@ -34,7 +34,7 @@ DATA8_96AA64:		; for SPCUploadBlock, as DATA8_968000
 	incbin "../Extracted/data/DATA8_96AA64.spc":4..1111
 DATA8_96AEBB:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
-	dw .left-DATA8_96AEBB,$0276,$0000
+	dw .left-DATA8_96AEBB,.right-DATA8_96AEBB,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $02,$46,"TRAK"
