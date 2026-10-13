@@ -370,7 +370,7 @@ CODE_9EC2C7:
 	jmp.w $C35F
 CODE_9EC2CF:
 	rtl
-CODE_9EC2D0:
+setInjuryType:
 	ldy.b $91
 	lda.w pflags,y
 	ora.w #$1000
@@ -402,7 +402,7 @@ CODE_9EC31A:
 	lda.w pnum,y
 	and.w #$00FF
 	ora.b $A9
-	sta.w $1636
+	sta.w TempPlOffset
 	and.w #$00FF
 	bit.w #$0080
 	beq CODE_9EC330
@@ -424,9 +424,9 @@ CODE_9EC33A:
 	bne CODE_9EC35E
 	lda.w #$FFFC
 	sta.w tmpdst,y
-	lda.w $1636
+	lda.w TempPlOffset
 	ora.w #$4000
-	sta.w $1636
+	sta.w TempPlOffset
 CODE_9EC35E:
 	rtl
 CODE_9EC35F:
@@ -483,11 +483,11 @@ CODE_9EC376:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $1636
+	lda.w TempPlOffset
 	bit.w #$4000
 	beq CODE_9EC3EC
 	and.w #$BFFF
-	sta.w $1636
+	sta.w TempPlOffset
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -990,7 +990,7 @@ CODE_9EC7C2:
 	tax
 	lda.l $7E35B6
 	adc.l $7E35A8
-	ora.w $0D0D
+	ora.w printa
 	sta.b $14
 CODE_9EC7DF:
 	tya
@@ -1047,7 +1047,7 @@ CODE_9EC838:
 	asl a
 	asl a
 	asl a
-	sta.w $0D0D
+	sta.w printa
 	lda.b $01,s
 	and.w #$0040
 	asl a
@@ -1057,7 +1057,7 @@ CODE_9EC838:
 	asl a
 	asl a
 	asl a
-	tsb.w $0D0D
+	tsb.w printa
 	pla
 	and.w #$0003
 	pha
@@ -1117,7 +1117,7 @@ CODE_9EC894:
 	lda.l $7E35B6
 	clc
 	adc.l $7E35A8
-	ora.w $0D0D
+	ora.w printa
 	jsl.l CODE_9EC8CE
 	plx
 	rtl
@@ -1865,7 +1865,7 @@ CODE_9ECE88:
 	clc
 	adc.l $7E35AE
 	adc.l $7E35A8
-	ora.w $0D0D
+	ora.w printa
 	ldx.b $A9
 	sta.l $7E37F4,x
 	txa
@@ -1885,7 +1885,7 @@ CODE_9ECEB8:
 	clc
 	adc.l $7E35AE
 	adc.l $7E35A8
-	ora.w $0D0D
+	ora.w printa
 	ldx.b $A9
 	sta.l $7E3834,x
 	lda.b $AD
@@ -1895,7 +1895,7 @@ CODE_9ECEB8:
 	clc
 	adc.l $7E35AE
 	adc.l $7E35A8
-	ora.w $0D0D
+	ora.w printa
 	ldx.b $A9
 	sta.l $7E37F6,x
 	ldx.b $A5
@@ -1903,7 +1903,7 @@ CODE_9ECEB8:
 	clc
 	adc.l $7E35AE
 	adc.l $7E35A8
-	ora.w $0D0D
+	ora.w printa
 	ldx.b $A9
 	sta.l $7E3836,x
 	inc.w printx
@@ -1917,7 +1917,7 @@ CODE_9ECF0E:
 	clc
 	adc.l $7E35AE
 	adc.l $7E35A8
-	ora.w $0D0D
+	ora.w printa
 	ldx.b $A9
 	sta.l $7E37F4,x
 	sta.l $7E3834,x
@@ -1944,7 +1944,7 @@ CODE_9ECF40:
 	asl a
 	asl a
 	asl a
-	sta.w $0D0D
+	sta.w printa
 	lda.b $01,s
 	and.w #$0040
 	asl a
@@ -1954,7 +1954,7 @@ CODE_9ECF40:
 	asl a
 	asl a
 	asl a
-	tsb.w $0D0D
+	tsb.w printa
 	pla
 	and.w #$0003
 	pha

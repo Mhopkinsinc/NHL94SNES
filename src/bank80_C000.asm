@@ -1005,7 +1005,7 @@ CODE_80CAE1:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000E
 	sta.b $A5
 	lda.w #$0003
@@ -1061,7 +1061,7 @@ CODE_80CB5C:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000E
 	sta.b $A5
 	lda.w #$0003
@@ -1226,14 +1226,14 @@ CODE_80CD13:
 	sta.b $A9
 CODE_80CD22:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$0005
 	sec
 	sbc.b $A9
 	cmp.w $1DB9
 	bne CODE_80CD62
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.b [$95]
 	and.w #$00FF
 	dec a

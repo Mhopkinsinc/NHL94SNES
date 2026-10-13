@@ -1,5 +1,5 @@
 ; Unidentified routine.
-CODE_9BC10F:
+projxy:
 	lda.w sfhormode
 	beq CODE_9BC128
 	lda.b $A5

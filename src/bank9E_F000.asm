@@ -104,7 +104,7 @@ CODE_9EF0BE:
 	eor.w #$0002
 	sta.b $AD
 CODE_9EF0D5:
-	lda.w $0D97,y
+	lda.w frame,y
 	sec
 	sbc.w #$0296
 	cmp.w #$0010
@@ -690,7 +690,7 @@ CODE_9EF578:
 	sta.w $157F
 	lda.w #$001A
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 	inx
 	inx
 	lda.w #DATA8_9DF644
@@ -927,11 +927,11 @@ CODE_9EF78A:
 	stz.b $8D
 	lda.w #$0002
 	sta.b $91
-	jsl.l CODE_9EF8C4
+	jsl.l ClearOffsidesIfAllPlayers
 	stz.b $91
 	lda.w #$0002
 	sta.b $8D
-	jsl.l CODE_9EF8C4
+	jsl.l ClearOffsidesIfAllPlayers
 	lda.w #$0054
 	sta.b $A5
 	lda.w pucky
@@ -1084,7 +1084,7 @@ CODE_9EF8BB:
 	dec.b $AD
 	bpl CODE_9EF8A0
 	rtl
-CODE_9EF8C4:
+ClearOffsidesIfAllPlayers:
 	ldy.b $91
 	lda.w tmflags,y
 	bit.w #$0010

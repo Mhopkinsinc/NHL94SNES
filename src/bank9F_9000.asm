@@ -93,7 +93,7 @@ CODE_9F90B9:
 	sta.w Xpos,x
 	stz.w Ypos,x
 	lda.w #$0001
-	sta.w $0D97,x
+	sta.w frame,x
 	inx
 	inx
 	cpx.w #$0018
@@ -1575,7 +1575,7 @@ CODE_9F9D99:
 	bpl CODE_9F9D99
 	jml.l CODE_9EC7BE
 CODE_9F9DB0:
-	jsl.l CODE_9FBD66
+	jsl.l printteamname
 	ldy.b $91
 	lda.w tmscore,y
 	sta.b $A5

@@ -107,7 +107,7 @@ CODE_9ED0BF:
 	bne rtss
 	lda.w pucky
 	sta.b $A9
-	jsl.l CODE_9ED130
+	jsl.l CPgoalie
 	rtl
 CODE_9ED0EF:
 	lda.w tmgoalie,y
@@ -140,7 +140,7 @@ CODE_9ED116:
 	jmp.w $D130
 CODE_9ED12F:
 	rtl
-CODE_9ED130:
+CPgoalie:
 	lda.w gsp
 	cmp.w #$0002
 	bne CODE_9ED178
@@ -351,7 +351,7 @@ CODE_9ED2E3:
 CODE_9ED2F7:
 	lda.w temp2b,x
 	sta.b $A5
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 GoalieCount:
 	lda.b $91
 	tay

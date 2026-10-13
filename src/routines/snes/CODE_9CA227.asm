@@ -29,7 +29,7 @@ CODE_9CA244:
 	lda.w DATA8_9CA2FB+2,x
 	sta.w Ypos,y
 	lda.w DATA8_9CA2FB+6,x
-	sta.w $0D97,y
+	sta.w frame,y
 	lda.w DATA8_9CA2FB+8,x
 	sta.w attribute,y
 	lda.w DATA8_9CA2FB+10,x

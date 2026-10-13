@@ -82,7 +82,7 @@ CODE_9FA083:
 	rep #$20
 CODE_9FA0F6:
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$0003
 	sta.w printx
 	lda.w #$0018
@@ -394,7 +394,7 @@ CODE_9FA385:
 	bmi CODE_9FA379
 CODE_9FA390:
 	jmp.w $A461
-CODE_9FA393:
+IntermissionTick:
 	lda.w $0D2F
 	beq CODE_9FA3BA
 	lda.b $83
@@ -405,7 +405,7 @@ CODE_9FA393:
 	jsl.l CODE_9FA3BE
 	lda.l $7E35DC
 	cmp.w $0D31
-	bne CODE_9FA393
+	bne IntermissionTick
 	jsl.l CODE_9FA636
 	lda.w #$0008
 	trb.w sflags3
@@ -563,7 +563,7 @@ CODE_9FA4D0:
 	pha
 	jsl.l GetShifter
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -605,7 +605,7 @@ CODE_9FA52C:
 	sta.b $8D
 	jsl.l CODE_9ECFC6
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	ldx.b $89
 	lda.l $7E3528,x
 	sta.b $A5
@@ -1138,7 +1138,7 @@ CODE_9FAA22:
 	sta.w Xpos,x
 	stz.w Ypos,x
 	lda.w #$0001
-	sta.w $0D97,x
+	sta.w frame,x
 	lda.w position,x
 	sta.b $A9
 	bpl CODE_9FAA3D

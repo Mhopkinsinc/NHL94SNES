@@ -1010,7 +1010,7 @@ CODE_9DA992:
 	ldx.w #$0000
 CODE_9DA9BE:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$009D
 	sta.b $8F
 	lda.w #DATA8_9DADFD
@@ -1070,7 +1070,7 @@ CODE_9DAA29:
 	cpx.b $BD
 	bne CODE_9DAA44
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 CODE_9DAA44:
 	stx.b $C1
 	cpx.w #$0002

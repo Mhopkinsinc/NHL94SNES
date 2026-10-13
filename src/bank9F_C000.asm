@@ -311,7 +311,7 @@ CODE_9FC231:
 	lda.b $A9
 	bit.w #$0080
 	bne CODE_9FC2B6
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 CODE_9FC26C:
 	jmp.w $C331
 CODE_9FC26F:
@@ -333,7 +333,7 @@ CODE_9FC287:
 	and.w #$0002
 	bne CODE_9FC298
 CODE_9FC294:
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 CODE_9FC298:
 	rtl
 CODE_9FC299:
@@ -387,7 +387,7 @@ CODE_9FC2E1:
 	lda.b $A9
 	bit.w #$0080
 	bne CODE_9FC32A
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 CODE_9FC311:
 	jml.l passmode
 CODE_9FC315:
@@ -515,7 +515,7 @@ CODE_9FC3F8:
 	lda.b $93
 	pha
 	stz.b $91
-	lda.w $1636
+	lda.w TempPlOffset
 	sta.b $A5
 	bpl CODE_9FC416
 	and.w #$00FF
@@ -609,7 +609,7 @@ CODE_9FC4A1:
 	lda.b $93
 	pha
 	stz.b $91
-	lda.w $1636
+	lda.w TempPlOffset
 	sta.b $A5
 	bpl CODE_9FC4BF
 	and.w #$00FF
@@ -725,7 +725,7 @@ GetPlayerNumInitial:
 	lda.b $93
 	pha
 	stz.b $91
-	lda.w $1636
+	lda.w TempPlOffset
 	sta.b $A5
 	bpl CODE_9FC595
 	and.w #$00FF
@@ -1948,7 +1948,7 @@ Setplass:
 	lda.b [$89],y
 	and.w #$00FF
 	sta.b $A5
-	jml.l CODE_9E8C18
+	jml.l assreplace
 CODE_9FCEEE:
 	rtl
 DATA8_9FCEEF:

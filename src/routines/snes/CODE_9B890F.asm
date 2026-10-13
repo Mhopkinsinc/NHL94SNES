@@ -35,7 +35,7 @@ CODE_9B890F:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$0011
 	sta.b $A5
 	lda.w #$0003

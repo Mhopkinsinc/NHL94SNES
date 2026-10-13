@@ -5,12 +5,12 @@ CODE_9B8BFB:
 	dec.b $A9
 CODE_9B8BFD:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	lda.b $A9
 	cmp.w $1D8B
 	bne CODE_9B8C1A
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.b [$95]
 	and.w #$00FF
 	dec a

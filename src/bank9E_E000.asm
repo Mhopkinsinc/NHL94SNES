@@ -136,7 +136,7 @@ CODE_9EE0CD:
 	lda.b $00
 	sta.b $B5
 	rts
-CODE_9EE10B:
+CompShoot:
 	pla
 	sep #$20
 	pla
@@ -509,7 +509,7 @@ CODE_9EE430:
 	beq CODE_9EE43E
 	lda.w #$0012
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 CODE_9EE43E:
 	rtl
 DATA8_9EE43F:
@@ -1336,7 +1336,7 @@ CODE_9EEB40:
 	jsl.l assinsert
 	ldx.b $95
 	ldy.b $89
-	lda.w $0D97,y
+	lda.w frame,y
 	pha
 	lda.w attribute,y
 	bit.w #$0800
@@ -1356,12 +1356,12 @@ CODE_9EEB7D:
 	lda.l $9D0000,x
 	ldx.b $95
 	ldy.b $89
-	sta.w $0D97,y
+	sta.w frame,y
 	lda.b $89
 	jsl.l CODE_9BC002
 	ldy.b $89
 	pla
-	sta.w $0D97,y
+	sta.w frame,y
 	lda.b $A9
 	clc
 	adc.w Ypos,y
@@ -1755,7 +1755,7 @@ DATA8_9EEF04:
 DATA8_9EEF1C:
 	dw -105,-115,-115,-180,-215,-180,105,115,115,180,215,180
 puckshadow:
-	lda.w $0D97,x
+	lda.w frame,x
 	cmp.w #$018C
 	bne CODE_9EEF58
 	lda.w puckx

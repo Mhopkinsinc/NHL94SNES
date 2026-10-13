@@ -127,7 +127,13 @@
   rewritten (94G assgoaliecpu) and CODE_9ED179 is closer to assgoalietopuck, so both keep auto labels. The per-object
   flags pfalock/pfrev/pf2aip/pfnc keep the 93S order and spacing. Not yet named: playeracc (CODE_9EA719 is jumped to
   where 93S jumps to playeracc, but only about half its instructions agree), assexit (CODE_9E8BE6), Sweepcheck
-  (CODE_9EA242), $0D97 frame, $0D2D threat, $1C84 cont1team, $17B6 tmchecks (each from one place only).
+  (CODE_9EA242), $0D2D threat, $1C84 cont1team, $17B6 tmchecks (each from one routine only).
+- 93S near matches: a tie between labels is settled by the one where the 93S routine's first instruction lines up (the
+  labels before it are 94 entries that add a few instructions). Still open: ProcessInputWithRepeat (never lines up at
+  the start), printscores1/USBoard/SaveRegsStartHL2 (CODE_9F8DFA fits several short 93S routines), DoHiLights (the 93S
+  body starts after a 94 wrapper, at an instruction with no label), clockcont_0, Endfaceoff and findpc (a call goes to a
+  different named routine than in 93S), print, unusedEnergyBar, PrintTeamNameAndScore, RestoreBenchEnergy/restoreteams,
+  UpdateScores, WritePassBits (weaker or misaligned). CODE_9B9B35 is a copy of printteamname.
 - Next: naming passes. Code banks $9B to $9F (and parts of $80) still use auto labels (CODE_/DATA8_) for most routines
   and tables; match them to NHLPA93SNES / NHL94Genesis names, name RAM variables, and turn the remaining numeric
   pointers (word pointer tables) into labels.

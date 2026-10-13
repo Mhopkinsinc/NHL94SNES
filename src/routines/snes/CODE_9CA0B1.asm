@@ -24,7 +24,7 @@ CODE_9CA0CF:
 	lda.w position,x
 	bmi CODE_9CA0FE
 CODE_9CA0E4:
-	lda.w $0D97,x
+	lda.w frame,x
 	cmp.w #$0170
 	beq CODE_9CA0F1
 	cmp.w #$0171
@@ -33,5 +33,5 @@ CODE_9CA0F1:
 	lda.w sfhormode
 	bne CODE_9CA101
 	lda.w #$0171
-	sta.w $0D97,x
+	sta.w frame,x
 	bra CODE_9CA107

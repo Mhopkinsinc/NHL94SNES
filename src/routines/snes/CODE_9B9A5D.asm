@@ -19,7 +19,7 @@ CODE_9B9A5D:
 	sta.b $A9
 	jsl.l CODE_9D80DD
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000A
 	sta.w printx
 	lda.w #$0007

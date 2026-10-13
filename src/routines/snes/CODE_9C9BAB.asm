@@ -90,7 +90,7 @@ CODE_9C9BC3:
 	lda.w #$0002
 	sta.b $91
 CODE_9C9C69:
-	jsl.l CODE_9FBD66
+	jsl.l printteamname
 	lda.w #$0005
 	sta.w printy
 	lda.w #$0011
@@ -114,7 +114,7 @@ CODE_9C9C69:
 	lda.w #$0002
 	sta.b $91
 CODE_9C9CA9:
-	jsl.l CODE_9FBD66
+	jsl.l printteamname
 	lda.w #$0006
 	sta.w printy
 	lda.w #$0011
@@ -138,7 +138,7 @@ CODE_9C9CA9:
 	lda.w #$0002
 	sta.b $91
 CODE_9C9CE9:
-	jsl.l CODE_9FBD66
+	jsl.l printteamname
 	lda.w #$0007
 	sta.w printy
 	lda.w #$0011

@@ -59,7 +59,7 @@ CODE_80D061:
 	bra CODE_80D03E
 CODE_80D06A:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	jsl.l CODE_9EC7BE
 	lda.b [$8D]
 	sta.b $B7
@@ -163,12 +163,12 @@ CODE_80D267:
 	dec.b $A9
 CODE_80D269:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	lda.b $A9
 	cmp.w $1D9B
 	bne CODE_80D27C
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 CODE_80D27C:
 	lda.b $8F
 	sta.b $9F
@@ -197,7 +197,7 @@ CODE_80D2A5:
 	dec.b $A9
 	bpl CODE_80D269
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	rtl
 CODE_80D2BD:		; put the player at the cursor in shooter row $1DB9; if that player is already in the list, the two swap
 	ldy.b $A9

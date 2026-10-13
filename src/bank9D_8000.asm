@@ -10,7 +10,7 @@ CODE_9D8000:
 	lda.l $7E35BC
 	clc
 	adc.l $7E35A8
-	ora.w $0D0D
+	ora.w printa
 	sta.b $C5
 	lda.w #$009C
 	sta.b $0E
@@ -1619,7 +1619,7 @@ CODE_9D8F15:
 	and.w #$00FF
 	sta.w printx
 	lda.w #$3000
-	sta.w $0D0D
+	sta.w printa
 	lda.b [$89]
 	inc.b $89
 	and.w #$00FF
@@ -1636,7 +1636,7 @@ CODE_9D8F15:
 	and.w #$00FF
 	bne CODE_9D8F4E
 	lda.w #$3400
-	sta.w $0D0D
+	sta.w printa
 CODE_9D8F4E:
 	lda.b $CD
 	asl a

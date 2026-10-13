@@ -1,26 +1,26 @@
 ; Unidentified routine.
 CODE_9CA101:
 	lda.w #$0170
-	sta.w $0D97,x
+	sta.w frame,x
 CODE_9CA107:
 	lda.w Xpos,x
 	sta.b $A5
 	lda.w Ypos,x
 	sta.b $A9
-	jsl.l CODE_9BC10F
+	jsl.l projxy
 	cmp.w #$4E20
 	beq CODE_9CA186
 	sta.w $0CD1
 	lda.b $A5
 	sta.w $0CCF
-	lda.w $0D97,x
+	lda.w frame,x
 	sta.w $0E23,x
 	bne CODE_9CA12F
 	cpx.w #$0018
 	bcs CODE_9CA186
 CODE_9CA12F:
 	sta.w $0CCD
-	lda.w $0D97,x
+	lda.w frame,x
 	cmp.w #$0171
 	beq CODE_9CA193
 	cmp.w #$0380

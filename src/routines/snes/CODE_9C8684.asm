@@ -12,7 +12,7 @@ CODE_9C8684:
 	asl a
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9C9363
@@ -35,7 +35,7 @@ CODE_9C86C2:
 	asl a
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$009C
 	sta.b $8F
 	lda.w #$9366

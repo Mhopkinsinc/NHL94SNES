@@ -405,7 +405,7 @@ CODE_9FD2FE:
 	jmp.w $D325
 CODE_9FD324:
 	rtl
-CODE_9FD325:
+SetLCmode2:
 	jsl.l CODE_9FE089
 	inc.b $A5
 	inc.b $A9
@@ -448,7 +448,7 @@ CODE_9FD370:
 	bit.w #$0008
 	bne CODE_9FD397
 	lda.b $B5
-	cmp.w $17E6,y
+	cmp.w tmlcchoice,y
 	bne CODE_9FD3D5
 	lda.w tmline,y
 	sta.b $A5
@@ -477,7 +477,7 @@ CODE_9FD397:
 	jsl.l CODE_9ECFC6
 	pla
 	sta.b $A5
-	jsl.l CODE_9FDFA6
+	jsl.l linebar
 CODE_9FD3D5:
 	dec.w printy
 CODE_9FD3D8:
@@ -944,7 +944,7 @@ CODE_9FD741:
 	lda.w #$FFFF
 	sta.w $1D55,y
 	jsl.l CODE_9FDE13
-	jsl.l CODE_9FD325
+	jsl.l SetLCmode2
 CODE_9FD75F:
 	pla
 	sta.b $A9
@@ -964,7 +964,7 @@ CODE_9FD75F:
 	beq CODE_9FD78D
 	lda.w pfalock,x
 	bne CODE_9FD78D
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 CODE_9FD78D:
 	rtl
 CODE_9FD78E:
@@ -1489,7 +1489,7 @@ CODE_9FDC25:
 	jsl.l CODE_9FDA53
 	jsl.l setpersonel
 	jsl.l CODE_9F9B36
-	jml.l CODE_9EE10B
+	jml.l CompShoot
 CODE_9FDC4B:
 	rtl
 CODE_9FDC4C:
@@ -1519,7 +1519,7 @@ CODE_9FDC5E:
 	stz.w temp1,x
 	lda.w #$000C
 	sta.b $A5
-	jml.l CODE_9E8C18
+	jml.l assreplace
 CODE_9FDC8E:
 	rtl
 CODE_9FDC8F:
@@ -1769,7 +1769,7 @@ CODE_9FDE41:
 	lda.b $8F
 	pha
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.b $A5
 	lsr a
 	lsr a
@@ -1817,7 +1817,7 @@ CODE_9FDE9C:
 	lda.b $A9
 	beq CODE_9FDEB6
 	lda.w #$0C00
-	tsb.w $0D0D
+	tsb.w printa
 CODE_9FDEB6:
 	lda.w #$0000
 	sta.b $8F
@@ -1828,7 +1828,7 @@ CODE_9FDEB6:
 	sbc.w #$000B
 	sta.w printx
 	lda.w #$4000
-	tsb.w $0D0D
+	tsb.w printa
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A2A
@@ -1843,7 +1843,7 @@ CODE_9FDEB6:
 	xba
 	sta.w $0A2D
 	lda.w #$4000
-	trb.w $0D0D
+	trb.w printa
 	pla
 	sta.b $8F
 	pla
@@ -1946,13 +1946,13 @@ CODE_9FDF7F:
 	pla
 	sta.b $B1
 	rtl
-CODE_9FDFA6:
+linebar:
 	jsl.l CODE_9FDF0C
-	lda.w $0D0D
+	lda.w printa
 	pha
 	phx
 	lda.w #$3000
-	sta.w $0D0D
+	sta.w printa
 	lda.b $A5
 	cmp.w #$1000
 	bcc CODE_9FDFBF
@@ -1984,4 +1984,4 @@ CODE_9FDFBF:
 	sta.b [$8D]
 	jsl.l CODE_9EC7BE
 	pla
-	sta.w $0D0D
+	sta.w printa

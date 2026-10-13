@@ -578,7 +578,7 @@ CODE_9EA4D5:
 	sta.w SPAcnt,x
 CODE_9EA4D8:
 	lda.b $AD
-	sta.w $0D97,x
+	sta.w frame,x
 CODE_9EA4DD:
 	ply
 	rtl
@@ -793,7 +793,7 @@ CODE_9EA65E:
 CODE_9EA694:
 	lda.w temp2b,x
 	sta.b $A5
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 assstanley:
 	lda.w pflags,x
 	bit.w #$0002
@@ -1035,7 +1035,7 @@ CODE_9EA888:
 DATA8_9EA889:		; x and y steps (words) for eight directions
 	dw $0000,$0006,$0004,$0004,$0006,$0000,$0004,$FFFC
 	dw $0000,$FFFA,$FFFC,$FFFC,$FFFA,$0000,$FFFC,$0004
-CODE_9EA8A9:
+doplayeracc:
 	lda.w position,x
 	bne CODE_9EA8B2
 	jml.l CODE_9ECFDC
@@ -1237,10 +1237,10 @@ CODE_9EAA24:
 	sbc.b $B7
 	sta.b $B7
 CODE_9EAA4A:
-	lda.w $1183,x
+	lda.w facefrac,x
 	clc
 	adc.b $B5
-	sta.w $1183,x
+	sta.w facefrac,x
 	lda.w facedir,x
 	adc.b $B7
 	and.w #$0007

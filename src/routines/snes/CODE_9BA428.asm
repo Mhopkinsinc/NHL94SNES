@@ -36,7 +36,7 @@ CODE_9BA428:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$0014
 	sta.b $A5
 	lda.w #$0005

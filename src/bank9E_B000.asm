@@ -56,7 +56,7 @@ CODE_9EB045:
 CODE_9EB070:
 	lda.w temp2b,x
 	sta.b $A5
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 CODE_9EB079:
 	lda.w puckc
 	bmi CODE_9EB070
@@ -183,7 +183,7 @@ CODE_9EB185:
 	jmp.w $A5A4
 CODE_9EB188:
 	jsl.l updatepentime
-	jsl.l CODE_9EB1E5
+	jsl.l checkfornewpen
 	jsl.l chkprogress
 	jml.l UpdatePA
 CODE_9EB198:
@@ -228,7 +228,7 @@ CODE_9EB1DB:
 	sta.w $1756,y
 CODE_9EB1E4:
 	rtl
-CODE_9EB1E5:
+checkfornewpen:
 	lda.w sfhormode
 	beq CODE_9EB1ED
 	jmp.w $B2B4
@@ -682,7 +682,7 @@ CODE_9EB582:
 	lda.w pnum,x
 	and.w #$00FF
 	ora.b $A5
-	sta.w $1636
+	sta.w TempPlOffset
 	lda.w pnum,x
 	sta.b $A5
 	lda.b $91
@@ -714,7 +714,7 @@ CODE_9EB5AB:
 	sta.w $163E,y
 	iny
 	iny
-	lda.w $1636
+	lda.w TempPlOffset
 	cmp.w #$0080
 	bmi CODE_9EB5E6
 	ora.w #$0080
@@ -730,7 +730,7 @@ CODE_9EB5E6:
 	rep #$20
 	inc.w $163C
 CODE_9EB5FD:
-	lda.w $1636
+	lda.w TempPlOffset
 	and.w #$00FF
 	bit.w #$0080
 	beq CODE_9EB60B
@@ -791,7 +791,7 @@ CODE_9EB664:
 	sta.b $8B
 	lda.w #$000D
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 	stx.b $87
 	ldx.w #$000E
 CODE_9EB680:
@@ -831,7 +831,7 @@ CODE_9EB6B8:
 	stx.b $95
 	lda.w #$001B
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 CODE_9EB6CC:
 	lda.w $1E9B
 	bne CODE_9EB6E0
@@ -1694,7 +1694,7 @@ CODE_9EBDC9:
 	sta.w pflags,x
 	lda.w #$000E
 	sta.b $A5
-	jml.l CODE_9E8C18
+	jml.l assreplace
 CODE_9EBDF7:
 	rtl
 CODE_9EBDF8:
@@ -1836,11 +1836,11 @@ CODE_9EBEEE:
 	lda.w sfhormode
 	bne CODE_9EBF0A
 	lda.w #$0171
-	sta.w $0D97,x
+	sta.w frame,x
 	bra CODE_9EBF10
 CODE_9EBF0A:
 	lda.w #$0170
-	sta.w $0D97,x
+	sta.w frame,x
 CODE_9EBF10:
 	rtl
 CODE_9EBF11:

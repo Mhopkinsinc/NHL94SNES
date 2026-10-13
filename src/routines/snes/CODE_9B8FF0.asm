@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9B8FF0:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	jsl.l CODE_9EC7BE
 	lda.b [$8D]
 	sta.b $B7

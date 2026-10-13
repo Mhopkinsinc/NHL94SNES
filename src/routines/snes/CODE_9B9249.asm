@@ -32,14 +32,14 @@ CODE_9B9249:
 	sta.b $A9
 CODE_9B9284:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	lda.b $A9
 	sep #$20
 	cmp.w $1D9B
 	rep #$20
 	bne CODE_9B929B
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 CODE_9B929B:
 	lda.b $8D
 	sta.b $9D
@@ -68,5 +68,5 @@ CODE_9B92C4:
 	dec.b $A9
 	bpl CODE_9B9284
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	rts

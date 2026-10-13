@@ -126,7 +126,7 @@ CODE_9F813E:
 	lda.w printx
 	sta.b $B5
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000C
 	sta.w printy
 	inc.w printx
@@ -167,7 +167,7 @@ CODE_9F8197:
 	asl a
 	tax
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.w $1DB9
 	beq CODE_9F8219
 CODE_9F81A6:
@@ -193,7 +193,7 @@ CODE_9F81A6:
 	jsl.l CODE_9EC7BE
 	inc.w printy
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	ldx.w #$0068
 	ldy.w #$0040
 	lda.w #$009C
@@ -484,7 +484,7 @@ CODE_9F8497:
 	sta.l $7E3138
 	lda.w #$001B
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 	jsl.l CODE_9DD977
 	lda.w #$0400
 	tsb.w sflags
@@ -645,28 +645,28 @@ CODE_9F8622:
 CODE_9F8625:
 	jsl.l SpriteFrameStart
 	jsl.l CODE_9C9FED
-	jsl.l CODE_9F8646
+	jsl.l periodicevents
 	jsl.l CODE_9F8686
 	jsl.l CODE_9FC090
 	jsl.l CODE_9BA8DB
 	jsl.l CODE_9FBAAA
 	jsl.l SpriteFrameEnd
 	rtl
-CODE_9F8646:
+periodicevents:
 	jsl.l CODE_9EB188
 	jsl.l CODE_9B9F7A
 	jsl.l CODE_9C9930
 	jsl.l CODE_9FA626
 	lda.w sfhormode
 	bne CODE_9F8685
-	lda.w $0CF7
+	lda.w lldisp
 	sec
 	sbc.b $C1
-	sta.w $0CF7
+	sta.w lldisp
 	bpl CODE_9F8685
 	clc
 	adc.w #$0018
-	sta.w $0CF7
+	sta.w lldisp
 	jsl.l CODE_9ED0A8
 	jsl.l CODE_80D322
 	jsl.l CODE_80D323

@@ -208,7 +208,7 @@ CODE_9FB1B1:
 	stz.w pfnc,x
 	lda.w #$0018
 	sta.b $A5
-	jml.l CODE_9E8C18
+	jml.l assreplace
 CODE_9FB1DE:
 	pha
 	lda.w #$0006
@@ -604,7 +604,7 @@ CODE_9FB518:
 	lda.w #$001C
 	sta.b $A5
 	ldx.b $95
-	jml.l CODE_9E8C18
+	jml.l assreplace
 CODE_9FB54F:
 	lda.b $95
 	clc
@@ -667,7 +667,7 @@ CODE_9FB5B6:
 	beq CODE_9FB5C9
 	stz.b $AD
 	jsl.l lcfound
-	jsl.l CODE_9FD325
+	jsl.l SetLCmode2
 CODE_9FB5C9:
 	plx
 	stx.b $95
@@ -1442,7 +1442,7 @@ CODE_9FBC7B:
 	lda.w Ypos,x
 	sta.b $A9
 	stz.b $AD
-	jsl.l CODE_9BC10F
+	jsl.l projxy
 	cmp.w #$4E20
 	beq CODE_9FBC78
 	ldy.w position,x
@@ -1540,7 +1540,7 @@ DATA8_9FBD5F:
 	db $0B,$0B,$0C,$0A,$0D,$0E
 CODE_9FBD65:
 	rtl
-CODE_9FBD66:
+printteamname:
 	lda.w printx
 	pha
 	lda.w tmdata

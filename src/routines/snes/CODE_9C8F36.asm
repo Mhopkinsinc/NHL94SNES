@@ -6,7 +6,7 @@ CODE_9C8F36:
 	asl a
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$009C
 	sta.b $8F
 	lda.w #$9369
@@ -20,7 +20,7 @@ CODE_9C8F36:
 	asl a
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$009C
 	sta.b $8F
 	lda.w #$9369

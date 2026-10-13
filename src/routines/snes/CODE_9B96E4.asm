@@ -29,7 +29,7 @@ CODE_9B96FE:
 	ply
 	iny
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	sep #$20
 	lda.b [$95],y
 	rep #$20

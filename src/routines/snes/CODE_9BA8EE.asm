@@ -48,7 +48,7 @@ CODE_9BA93F:
 	sta.w WMDATA
 	lda.w Ypos,x
 	sta.w WMDATA
-	lda.w $0D97,x
+	lda.w frame,x
 	sta.w WMDATA
 	lda.w $0D98,x
 	and.b #$3F

@@ -566,3 +566,22 @@ $9C96E6,TeamPlaceNames_NJ,TeamPlaceNames_NJD,teamdata,local label; abbreviation 
 $9C9703,TeamPlaceNames_OTW,TeamPlaceNames_OTT,teamdata,local label; abbreviation OTW,src/data/text/TeamPlaceNames.asm
 $9C9729,TeamPlaceNames_SJ,TeamPlaceNames_SJS,teamdata,local label; abbreviation SJ,src/data/text/TeamPlaceNames.asm
 $9C973C,TeamPlaceNames_TB,TeamPlaceNames_TBL,teamdata,local label; abbreviation TB,src/data/text/TeamPlaceNames.asm
+$9E8C18,assreplace,CODE_9E8C18,93S,"same instructions as the 93S routine assreplace (logic)",src/bank9E_8000.asm
+$9FDFA6,linebar,CODE_9FDFA6,93S,"most instructions as the 93S routine linebar (penalty), same start",src/bank9F_D000.asm
+$9EE10B,CompShoot,CODE_9EE10B,93S,"most instructions as the 93S routine CompShoot (logic), same start",src/bank9E_E000.asm
+$9EF8C4,ClearOffsidesIfAllPlayers,CODE_9EF8C4,93S,"most instructions as the 93S routine ClearOffsidesIfAllPlayers (logic), same start",src/bank9E_F000.asm
+$9ED130,CPgoalie,CODE_9ED130,93S,"most instructions as the 93S routine CPgoalie (logic), same start (CODE_9ED10F before it is a 94 entry)",src/bank9E_D000.asm
+$9EA8A9,doplayeracc,CODE_9EA8A9,93S,"most instructions as the 93S routine doplayeracc (logic), same start; its calls go where 93S calls",src/bank9E_A000.asm
+$9F8646,periodicevents,CODE_9F8646,93S,"most instructions as the 93S routine periodicevents (hockey), same start (CODE_9F8625 is a 94 entry that calls it)",src/bank9F_8000.asm
+$9EB1E5,checkfornewpen,CODE_9EB1E5,93S,"most instructions as the 93S routine checkfornewpen (penalty), same start (CODE_9EB198/CODE_9EB1C9 are 94 entries before it)",src/bank9E_B000.asm
+$9FD325,SetLCmode2,CODE_9FD325,93S,"most instructions as the 93S routine SetLCmode2 (logic), same start (CODE_9FD2FE is a 94 entry before it)",src/bank9F_D000.asm
+$9EC2D0,setInjuryType,CODE_9EC2D0,93S,"most instructions as the 93S routine setInjuryType (hockey), same start; called from FallDown",src/bank9E_C000.asm
+$9FA393,IntermissionTick,CODE_9FA393,93S,"most instructions as the 93S routine IntermissionTick (penalty), same start (CODE_9FA37A is a 94 entry before it)",src/bank9F_A000.asm
+$9FBD66,printteamname,CODE_9FBD66,93S,"same instructions as the 93S routine printteamname (penalty), called where 93S PrintTeamNameAndScore calls it; CODE_9B9B35 is a copy of it in bank $9B",src/bank9F_B000.asm
+$9BC10F,projxy,CODE_9BC10F,93S,"most instructions as the 93S routine projxy (video), same start",src/routines/video/projxy.asm
+$0CF7,lldisp,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D0D,printa,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D97,frame,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1183,facefrac,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1636,TempPlOffset,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$17E6,tmlcchoice,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm

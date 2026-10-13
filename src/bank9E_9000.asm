@@ -1675,7 +1675,7 @@ CODE_9E9DF2:
 	cmp.w #$8000
 	ror a
 	sta.w Yvel,x
-	jsl.l CODE_9EC2D0
+	jsl.l setInjuryType
 	lda.w #$0004
 	sta.w $1626
 	lda.w #$0016

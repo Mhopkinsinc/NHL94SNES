@@ -3,7 +3,7 @@ CODE_9B95F5:
 	lda.w #$0001
 	sta.w printx
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	ldy.w #$0000
 	lda.b [$95],y
 	phy

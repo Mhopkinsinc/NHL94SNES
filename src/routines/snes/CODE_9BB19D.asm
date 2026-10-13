@@ -35,7 +35,7 @@ CODE_9BB1C9:
 CODE_9BB1DE:
 	sta.w $0DB8,x
 	lda.w WMDATA
-	sta.w $0D97,x
+	sta.w frame,x
 	lda.w WMDATA
 	sta.b $14
 	and.b #$3F

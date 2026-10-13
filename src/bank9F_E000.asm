@@ -10,7 +10,7 @@ lcfound:
 	ldy.b $91
 	lda.b $AD
 	sta.b $A5
-	sta.w $17E6,y
+	sta.w tmlcchoice,y
 	jsl.l getlchoice
 	lda.b $A5
 	bmi CODE_9FE03E
@@ -589,7 +589,7 @@ DATA8_9FE504:		; a long pointer to the handler of each menu item of DATA8_9FEC96
 CODE_9FE618:
 	jsl.l CODE_9FF1D1
 	jsr.w $E75E
-	jsl.l CODE_9FA393
+	jsl.l IntermissionTick
 	beq CODE_9FE628
 	jmp.w $E70D
 CODE_9FE628:
@@ -1088,12 +1088,12 @@ CODE_9FEAAA:
 	bra CODE_9FEAAA
 CODE_9FEAB4:
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.b $A5
 	cmp.w $0D15
 	bne CODE_9FEAC7
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 CODE_9FEAC7:
 	lda.w #$0006
 	sta.w printx

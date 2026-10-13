@@ -368,7 +368,7 @@ CODE_9E82FD:
 	bpl CODE_9E830D
 	lda.w #$0010
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 	bra CODE_9E8373
 CODE_9E830D:
 	jsl.l CODE_9FDBD0
@@ -1457,7 +1457,7 @@ CODE_9E8BD7:
 	bpl CODE_9E8BE5
 	lda.w #$0008
 	sta.b $A5
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 CODE_9E8BE5:
 	rtl
 CODE_9E8BE6:
@@ -1486,7 +1486,7 @@ assinsert:
 	dec a
 	and.w #$0007
 	sta.w $0F63,x
-CODE_9E8C18:
+assreplace:
 	lda.w pflags,x
 	ora.w #$0002
 	sta.w pflags,x

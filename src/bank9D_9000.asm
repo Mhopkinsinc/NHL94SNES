@@ -1311,7 +1311,7 @@ CODE_9D9C3B:
 	tax
 	lda.l $7E3466
 	ora.w #$2000
-	ora.w $0D0D
+	ora.w printa
 	sta.l $7EC67C,x
 	inc a
 	sta.l $7EC77C,x
@@ -1452,7 +1452,7 @@ CODE_9D9D26:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000F
 	sta.b $A5
 	lda.w #$0003
@@ -1472,7 +1472,7 @@ CODE_9D9D26:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000F
 	sta.b $A5
 	lda.w #$0003

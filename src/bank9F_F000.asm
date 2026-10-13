@@ -67,7 +67,7 @@ CODE_9FF063:
 CODE_9FF08E:
 	phy
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$0006
 	sta.w printx
 	sty.w printy
@@ -94,7 +94,7 @@ CODE_9FF08E:
 	pla
 	sta.b $8F
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$009F
 	sta.b $8F
 	lda.w #DATA8_9FF179
@@ -121,11 +121,11 @@ CODE_9FF0EC:
 	pla
 	sta.b $8F
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w $1DB9
 	bne CODE_9FF11B
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 CODE_9FF11B:
 	lda.w #$009F
 	sta.b $8F
@@ -146,11 +146,11 @@ CODE_9FF11B:
 	pla
 	sta.b $8F
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w $1DB9
 	beq CODE_9FF154
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 CODE_9FF154:
 	lda.w #$009F
 	sta.b $8F
