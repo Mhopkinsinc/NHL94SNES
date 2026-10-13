@@ -52,6 +52,7 @@ ASSETS = [
     ('DATA8_918000.spc', 0x918000, 0x9199D2),
     ('DATA8_9199D2.spc', 0x9199D2, 0x91B188),
     ('DATA8_91B188.spr.huf', 0x91B188, 0x91C7A6),
+    ('DATA8_91C7A7.spc', 0x91C7A7, 0x91DDAD),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []

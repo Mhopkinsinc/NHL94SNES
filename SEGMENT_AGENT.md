@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank91_C000. <- CURRENT
+bank91_D000. <- CURRENT
 
 ## Sources
 
@@ -237,8 +237,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank91_9000 | matched 4096 bytes | $919000 | $919FFF | 0% | end of DATA8_918000; start of DATA8_9199D2 (sound CPU upload block) |
 | bank91_A000 | matched 4096 bytes | $91A000 | $91AFFF | 0% | DATA8_9199D2 continued |
 | bank91_B000 | matched 4096 bytes | $91B000 | $91BFFF | 0% | end of DATA8_9199D2; start of DATA8_91B188 (Huffman-packed sprite set) |
-| bank91_C000 | incbin <- CURRENT | $91C000 | $91CFFF | 0% | |
-| bank91_D000 | incbin | $91D000 | $91DFFF | 0% | |
+| bank91_C000 | matched 4096 bytes | $91C000 | $91CFFF | 0% | end of DATA8_91B188; start of DATA8_91C7A7 (sound CPU upload block) |
+| bank91_D000 | incbin <- CURRENT | $91D000 | $91DFFF | 0% | |
 | bank91_E000 | incbin | $91E000 | $91EFFF | 0% | |
 | bank91_F000 | incbin | $91F000 | $91FFFF | 0% | |
 | bank92_8000 | incbin | $928000 | $928FFF | 0% | |
@@ -497,3 +497,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank91_9000: source, MATCH. The end of DATA8_918000, then the start of DATA8_9199D2 ($9199D2-$91B187, upload lists entry 10).
 - bank91_A000: source, MATCH. DATA8_9199D2 continued.
 - bank91_B000: source, MATCH. The end of DATA8_9199D2, then the start of DATA8_91B188 ($91B188-$91C7A5): a sprite set packed for DecompressHuffman that the screen setup at $9DB716 unpacks to $7F5000; rendered (`tools/snesgfx.py sprites '$91B188'`): the N, H and L letters in three steps each, the NHL shield, the NHLPA logo and the licence line. New asset DATA8_91B188.spr.huf.
+- bank91_C000: source, MATCH. The end of DATA8_91B188, a zero byte, then the start of DATA8_91C7A7 ($91C7A7-$91DDAC): a block for SPCUploadBlock, entry 17 of the upload list DATA8_80DD16. New asset DATA8_91C7A7.spc.
