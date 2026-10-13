@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $98, and bank99_8000 to bank99_E000, are source (MATCH); the rest are incbin.
+- Banks $80 to $99 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -69,7 +69,7 @@
   the logo tiles, then to the logo map). The tiles are linear 4bpp packed for DecompressHuffman (converted to planar by
   $9B85C2; `tools/snesgfx.py tiles/map --linear`), the map is not packed (width, height, a word, then map words, which
   $9BC1D5 pastes into the rink map with palette 5). Most of the tiles are in bank $9A; a few sit at bank ends after the
-  sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38, CenterIceTilesVAN (23) at $86FE78, CenterIceTilesCGY (3) at $8DFF3D, CenterIceTilesTBL (21) at $97FE85, CenterIceTilesNYI (13) at $98FECB; still incbin: 15 at $99FEC0). Team index = the logo order of
+  sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38, CenterIceTilesVAN (23) at $86FE78, CenterIceTilesCGY (3) at $8DFF3D, CenterIceTilesTBL (21) at $97FE85, CenterIceTilesNYI (13) at $98FECB, CenterIceTilesOTT (15) at $99FEC0; the rest are in bank $9A). Team index = the logo order of
   TeamLogoSprites.
 - $9DCD53 is a table of long pointers read at $9DC9DD and $9DCC65 as (team $1C98 * 26 + $A5) * 4: 28 rows of 26 packed
   entries that are unpacked and converted with $9B85C2: player photos, 6 x 6 tiles (checked: DATA8_8CFDEC, entry 390,
@@ -97,7 +97,7 @@
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Next: segment bank99_F000 (bank $99 plan: see the bank99_8000 history line; `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank9A_8000: map bank $9A first (`tools/snesgfx.py blocks`, the upload lists, TeamSongs, the photo table, lda #bank pairs in the code banks; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 

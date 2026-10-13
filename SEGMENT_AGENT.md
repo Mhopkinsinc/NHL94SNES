@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank99_F000. <- CURRENT
+bank9A_8000. <- CURRENT
 
 ## Sources
 
@@ -304,8 +304,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank99_C000 | matched 4096 bytes | $99C000 | $99CFFF | 0% | the end of DATA8_99BFD5, then DATA8_99C1FE, a player photo, then DATA8_99C426, a player photo, then DATA8_99C64E, a player photo, then DATA8_99C872, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_99CA96, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_99CCBA, a player photo, then the start of DATA8_99CEDE, a song from the TeamSongs table (laid out as in bank81_F000) |
 | bank99_D000 | matched 4096 bytes | $99D000 | $99DFFF | 0% | the end of DATA8_99CEDE, then DATA8_99D102, a player photo, then DATA8_99D325, a player photo, then DATA8_99D545, a player photo, then DATA8_99D765, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_99D981, a player photo, then DATA8_99DB9B, a player photo, then DATA8_99DDB5, a player photo, then the start of DATA8_99DFCF, a player photo |
 | bank99_E000 | matched 4096 bytes | $99E000 | $99EFFF | 0% | the end of DATA8_99DFCF, then DATA8_99E1E8, a player photo, then DATA8_99E401, a player photo, then DATA8_99E619, a player photo, then DATA8_99E831, a player photo, then DATA8_99EA44, a player photo, then DATA8_99EC56, a player photo, then the start of DATA8_99EE68, a player photo |
-| bank99_F000 | incbin <- CURRENT | $99F000 | $99FFFF | 0% | |
-| bank9A_8000 | incbin | $9A8000 | $9A8FFF | 0% | |
+| bank99_F000 | matched 4096 bytes | $99F000 | $99FFFF | 0% | the end of DATA8_99EE68, then DATA8_99F079, a player photo, then DATA8_99F289, a player photo, then DATA8_99F498, a player photo, then DATA8_99F6A3, a player photo, then DATA8_99F8AC, a player photo, then DATA8_99FAB4, a player photo, then DATA8_99FCBA, a player photo, then CenterIceTilesOTT, the Ottawa centre ice logo tiles, then the last bytes of the bank |
+| bank9A_8000 | incbin <- CURRENT | $9A8000 | $9A8FFF | 0% | |
 | bank9A_9000 | incbin | $9A9000 | $9A9FFF | 0% | |
 | bank9A_A000 | incbin | $9AA000 | $9AAFFF | 0% | |
 | bank9A_B000 | incbin | $9AB000 | $9ABFFF | 0% | |
@@ -564,3 +564,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank99_C000: source, MATCH. The end of DATA8_99BFD5, then DATA8_99C1FE, a player photo, then DATA8_99C426, a player photo, then DATA8_99C64E, a player photo, then DATA8_99C872, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_99CA96, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_99CCBA, a player photo, then the start of DATA8_99CEDE, a song from the TeamSongs table (laid out as in bank81_F000).
 - bank99_D000: source, MATCH. The end of DATA8_99CEDE, then DATA8_99D102, a player photo, then DATA8_99D325, a player photo, then DATA8_99D545, a player photo, then DATA8_99D765, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_99D981, a player photo, then DATA8_99DB9B, a player photo, then DATA8_99DDB5, a player photo, then the start of DATA8_99DFCF, a player photo.
 - bank99_E000: source, MATCH. The end of DATA8_99DFCF, then DATA8_99E1E8, a player photo, then DATA8_99E401, a player photo, then DATA8_99E619, a player photo, then DATA8_99E831, a player photo, then DATA8_99EA44, a player photo, then DATA8_99EC56, a player photo, then the start of DATA8_99EE68, a player photo.
+- bank99_F000: source, MATCH. The end of DATA8_99EE68, then DATA8_99F079, a player photo, then DATA8_99F289, a player photo, then DATA8_99F498, a player photo, then DATA8_99F6A3, a player photo, then DATA8_99F8AC, a player photo, then DATA8_99FAB4, a player photo, then DATA8_99FCBA, a player photo, then CenterIceTilesOTT, the Ottawa centre ice logo tiles, then the last bytes of the bank. Bank $99 is now all source.
