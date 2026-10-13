@@ -1,6 +1,6 @@
 ; Colours for one team.
 
-PhotoPaletteANA:	; the 16 colours of the Anaheim player photos (the photo palette table)
+PhotoPaletteANH:	; the 16 colours of the Anaheim player photos (the photo palette table)
 	dw $7C1F,$4EFE,$C6BD,$BE7B,$3239,$29F8,$9DB6,$9575
 	dw $0D33,$0911,$04EF,$808A,$8027,$3E20,$0000,$77BD
 	dw $0000,$6F7B,$0100,$0140,$0180,$81E0,$8220,$0260

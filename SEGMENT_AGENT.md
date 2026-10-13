@@ -365,6 +365,7 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Bank $8F: slices merged into `src/banks/b8F_sound.asm`. MATCH.
 - Banks $83-$8E: each bank's slices are `src/banks/bXX_spriteframes.asm` (the frames, then that bank's tail: a centre-ice logo, a photo palette, a map, a song or a sound block). MATCH.
 - Bank $9A: slices merged into `src/banks/`. MATCH.
+- Abbreviation labels ANA/LAK/NJD/OTT/SJS/TBL renamed to the team-record strings ANH/LA/NJ/OTW/SJ/TB. MATCH.
 - Bank $99: slices merged into `src/banks/`. MATCH.
 - Bank $98: slices merged into `src/banks/`. MATCH.
 - Bank $97: slices merged into `src/banks/`. MATCH.

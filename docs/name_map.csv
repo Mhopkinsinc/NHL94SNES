@@ -434,3 +434,33 @@ $9F9848,StatusTextTbl,DATA8_9F9848,93S,"Ice, Bench, Inj P, Inj G, then the capta
 $9F98F1,HandedTextTbl,DATA8_9F98F1,93S,"Right, Left, as 93S HandedTextTbl",src/data/text/HandedTextTbl.asm
 $9FA816,GoalBoxText,DATA8_9FA816,93S,"GOAL!, HAT TRICK! with position codes, as 93S GoalBoxText",src/data/text/GoalBoxText.asm
 $9DA05D,RosterLineNames,DATA8_9DA05D,93S,"the line names, the same strings as 93S RosterLineNames",src/data/text/RosterLineNames.asm
+$9AB47B,CenterIceTilesANH,CenterIceTilesANA,teamdata,abbreviation ANH from the Anaheim team record,src/data/gfx/CenterIceTilesANH.asm
+$9AD79C,CenterIceTilesLA,CenterIceTilesLAK,teamdata,abbreviation LA from the Los Angeles team record,src/data/gfx/CenterIceTilesLA.asm
+$9ABBF5,CenterIceTilesNJ,CenterIceTilesNJD,teamdata,abbreviation NJ from the New Jersey team record,src/data/gfx/CenterIceTilesNJ.asm
+$99FEC0,CenterIceTilesOTW,CenterIceTilesOTT,teamdata,abbreviation OTW from the Ottawa team record,src/data/gfx/CenterIceTilesOTW.asm
+$9AC667,CenterIceTilesSJ,CenterIceTilesSJS,teamdata,abbreviation SJ from the San Jose team record,src/data/gfx/CenterIceTilesSJ.asm
+$97FE85,CenterIceTilesTB,CenterIceTilesTBL,teamdata,abbreviation TB from the Tampa Bay team record,src/data/gfx/CenterIceTilesTB.asm
+$9AE53C,CenterIceMapANH,CenterIceMapANA,teamdata,abbreviation ANH from the Anaheim team record,src/data/gfx/CenterIceMapANH.asm
+$9AE2C6,CenterIceMapLA,CenterIceMapLAK,teamdata,abbreviation LA from the Los Angeles team record,src/data/gfx/CenterIceMapLA.asm
+$9AE69A,CenterIceMapNJ,CenterIceMapNJD,teamdata,abbreviation NJ from the New Jersey team record,src/data/gfx/CenterIceMapNJ.asm
+$9AE60E,CenterIceMapOTW,CenterIceMapOTT,teamdata,abbreviation OTW from the Ottawa team record,src/data/gfx/CenterIceMapOTW.asm
+$9AE23A,CenterIceMapSJ,CenterIceMapSJS,teamdata,abbreviation SJ from the San Jose team record,src/data/gfx/CenterIceMapSJ.asm
+$9AE30C,CenterIceMapTB,CenterIceMapTBL,teamdata,abbreviation TB from the Tampa Bay team record,src/data/gfx/CenterIceMapTB.asm
+$9AEDBC,LogoPaletteANH,LogoPaletteANA,teamdata,abbreviation ANH from the Anaheim team record,src/data/gfx/LogoPaletteANH.asm
+$9AF33C,LogoPaletteLA,LogoPaletteLAK,teamdata,abbreviation LA from the Los Angeles team record,src/data/gfx/LogoPaletteLA.asm
+$9AEE9C,LogoPaletteNJ,LogoPaletteNJD,teamdata,abbreviation NJ from the New Jersey team record,src/data/gfx/LogoPaletteNJ.asm
+$9AEEDC,LogoPaletteOTW,LogoPaletteOTT,teamdata,abbreviation OTW from the Ottawa team record,src/data/gfx/LogoPaletteOTW.asm
+$9AEFFC,LogoPaletteSJ,LogoPaletteSJS,teamdata,abbreviation SJ from the San Jose team record,src/data/gfx/LogoPaletteSJ.asm
+$9AF05C,LogoPaletteTB,LogoPaletteTBL,teamdata,abbreviation TB from the Tampa Bay team record,src/data/gfx/LogoPaletteTB.asm
+$9AF47C,PhotoPaletteANH,PhotoPaletteANA,teamdata,abbreviation ANH from the Anaheim team record,src/data/gfx/PhotoPaletteANH.asm
+$9AEB7C,PhotoPaletteLA,PhotoPaletteLAK,teamdata,abbreviation LA from the Los Angeles team record,src/data/gfx/PhotoPaletteLA.asm
+$9AEBBC,PhotoPaletteNJ,PhotoPaletteNJD,teamdata,abbreviation NJ from the New Jersey team record,src/data/gfx/PhotoPaletteNJ.asm
+$9AEC1C,PhotoPaletteOTW,PhotoPaletteOTT,teamdata,abbreviation OTW from the Ottawa team record,src/data/gfx/PhotoPaletteOTW.asm
+$9AEC9C,PhotoPaletteSJ,PhotoPaletteSJS,teamdata,abbreviation SJ from the San Jose team record,src/data/gfx/PhotoPaletteSJ.asm
+$9AECDC,PhotoPaletteTB,PhotoPaletteTBL,teamdata,abbreviation TB from the Tampa Bay team record,src/data/gfx/PhotoPaletteTB.asm
+$9C9681,TeamPlaceNames_ANH,TeamPlaceNames_ANA,teamdata,local label; abbreviation ANH,src/data/text/TeamPlaceNames.asm
+$9C96D1,TeamPlaceNames_LA,TeamPlaceNames_LAK,teamdata,local label; abbreviation LA,src/data/text/TeamPlaceNames.asm
+$9C96E6,TeamPlaceNames_NJ,TeamPlaceNames_NJD,teamdata,local label; abbreviation NJ,src/data/text/TeamPlaceNames.asm
+$9C9703,TeamPlaceNames_OTW,TeamPlaceNames_OTT,teamdata,local label; abbreviation OTW,src/data/text/TeamPlaceNames.asm
+$9C9729,TeamPlaceNames_SJ,TeamPlaceNames_SJS,teamdata,local label; abbreviation SJ,src/data/text/TeamPlaceNames.asm
+$9C973C,TeamPlaceNames_TB,TeamPlaceNames_TBL,teamdata,local label; abbreviation TB,src/data/text/TeamPlaceNames.asm

@@ -32,7 +32,7 @@ DATA8_9C8328:		; packed for DecompressLZ, unpacked by a screen setup in bank $9B
 	db $00,$01,$00
 	incbin "data/gfx/DATA8_9C8328.lz":5..143
 CenterIceTable:		; per team: a long pointer to the centre ice logo tiles, then one to its map
-	dd CenterIceTilesANA,CenterIceMapANA
+	dd CenterIceTilesANH,CenterIceMapANH
 	dd CenterIceTilesBOS,CenterIceMapBOS
 	dd CenterIceTilesBUF,CenterIceMapBUF
 	dd CenterIceTilesCGY,CenterIceMapCGY
@@ -42,18 +42,18 @@ CenterIceTable:		; per team: a long pointer to the centre ice logo tiles, then o
 	dd CenterIceTilesEDM,CenterIceMapEDM
 	dd CenterIceTilesFLA,CenterIceMapFLA
 	dd CenterIceTilesHFD,CenterIceMapHFD
-	dd CenterIceTilesLAK,CenterIceMapLAK
+	dd CenterIceTilesLA,CenterIceMapLA
 	dd CenterIceTilesMTL,CenterIceMapMTL
-	dd CenterIceTilesNJD,CenterIceMapNJD
+	dd CenterIceTilesNJ,CenterIceMapNJ
 	dd CenterIceTilesNYI,CenterIceMapNYI
 	dd CenterIceTilesNYR,CenterIceMapNYR
-	dd CenterIceTilesOTT,CenterIceMapOTT
+	dd CenterIceTilesOTW,CenterIceMapOTW
 	dd CenterIceTilesPHI,CenterIceMapPHI
 	dd CenterIceTilesPIT,CenterIceMapPIT
 	dd CenterIceTilesQUE,CenterIceMapQUE
-	dd CenterIceTilesSJS,CenterIceMapSJS
+	dd CenterIceTilesSJ,CenterIceMapSJ
 	dd CenterIceTilesSTL,CenterIceMapSTL
-	dd CenterIceTilesTBL,CenterIceMapTBL
+	dd CenterIceTilesTB,CenterIceMapTB
 	dd CenterIceTilesTOR,CenterIceMapTOR
 	dd CenterIceTilesVAN,CenterIceMapVAN
 	dd CenterIceTilesWSH,CenterIceMapWSH
@@ -61,12 +61,12 @@ CenterIceTable:		; per team: a long pointer to the centre ice logo tiles, then o
 	dd CenterIceTilesNHL,CenterIceMapNHL
 	dd CenterIceTilesNHL,CenterIceMapNHL
 LogoPaletteTable:	; per team: a long pointer to the 16 colours of its logo
-	dd LogoPaletteANA,LogoPaletteBOS,LogoPaletteBUF,LogoPaletteCGY
+	dd LogoPaletteANH,LogoPaletteBOS,LogoPaletteBUF,LogoPaletteCGY
 	dd LogoPaletteCHI,LogoPaletteDAL,LogoPaletteDET,LogoPaletteEDM
-	dd LogoPaletteFLA,LogoPaletteHFD,LogoPaletteLAK,LogoPaletteMTL
-	dd LogoPaletteNJD,LogoPaletteNYI,LogoPaletteNYR,LogoPaletteOTT
-	dd LogoPalettePHI,LogoPalettePIT,LogoPaletteQUE,LogoPaletteSJS
-	dd LogoPaletteSTL,LogoPaletteTBL,LogoPaletteTOR,LogoPaletteVAN
+	dd LogoPaletteFLA,LogoPaletteHFD,LogoPaletteLA,LogoPaletteMTL
+	dd LogoPaletteNJ,LogoPaletteNYI,LogoPaletteNYR,LogoPaletteOTW
+	dd LogoPalettePHI,LogoPalettePIT,LogoPaletteQUE,LogoPaletteSJ
+	dd LogoPaletteSTL,LogoPaletteTB,LogoPaletteTOR,LogoPaletteVAN
 	dd LogoPaletteWSH,LogoPaletteWPG,DATA8_9AEF1C,DATA8_9AEEFC
 	dd $9AF0FC,$9AF11C
 DATA8_9C850F:		; per team: a long pointer to 16 colours, loaded by code in banks $9D and $9F; not identified

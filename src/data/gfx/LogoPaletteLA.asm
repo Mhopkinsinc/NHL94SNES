@@ -1,6 +1,6 @@
 ; Colours for one team.
 
-LogoPaletteLAK:		; the 16 colours of the Los Angeles logo (TeamLogoSprites and the centre ice logo)
+LogoPaletteLA:		; the 16 colours of the Los Angeles logo (TeamLogoSprites and the centre ice logo)
 	dw $0000,$0000,$0421,$1084,$98C6,$A108,$2D6B,$35AD
 	dw $BDEF,$C631,$5294,$DAD6,$E318,$6F7B,$77BD,$FFFF
 	dw $0000,$6F7B,$34C0,$BCE0,$C920,$5540,$6180,$EDA0
