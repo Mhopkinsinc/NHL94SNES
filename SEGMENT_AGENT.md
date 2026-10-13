@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank92_A000. <- CURRENT
+bank92_B000. <- CURRENT
 
 ## Sources
 
@@ -243,8 +243,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank91_F000 | matched 4096 bytes | $91F000 | $91FFFF | 0% | end of DATA8_91DDAD; DATA8_91F2F9 (sound CPU upload block) |
 | bank92_8000 | matched 4096 bytes | $928000 | $928FFF | 0% | start of DATA8_928000 (sound CPU upload block) |
 | bank92_9000 | matched 4096 bytes | $929000 | $929FFF | 0% | end of DATA8_928000; start of DATA8_9293F3 |
-| bank92_A000 | incbin <- CURRENT | $92A000 | $92AFFF | 0% | |
-| bank92_B000 | incbin | $92B000 | $92BFFF | 0% | |
+| bank92_A000 | matched 4096 bytes | $92A000 | $92AFFF | 0% | end of DATA8_9293F3; start of LetterSprites (A-Z sprite set, asset LetterSprites.spr) |
+| bank92_B000 | incbin <- CURRENT | $92B000 | $92BFFF | 0% | |
 | bank92_C000 | incbin | $92C000 | $92CFFF | 0% | |
 | bank92_D000 | incbin | $92D000 | $92DFFF | 0% | |
 | bank92_E000 | incbin | $92E000 | $92EFFF | 0% | |
@@ -503,3 +503,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank91_F000: source, MATCH. The end of DATA8_91DDAD, then DATA8_91F2F9 ($91F2F9-$91FFFE): a block for SPCUploadBlock, entry 0 of the upload list DATA8_80DD16; new asset DATA8_91F2F9.spc; then the last byte. Bank $91 is now all source.
 - bank92_8000: source, MATCH. The start of DATA8_928000 ($928000-$9293F2, DATA8_80DD16 entry 11). Bank $92: DATA8_9293F3 (upload, DD16 entry 3), LetterSprites ($92A7B9-$92BB60, the letters A-Z as an unpacked sprite set that the text routine at $9C93C3 draws with; rendered), DATA8_92BB61 (upload, E6C1/E6FD entry 2), DATA8_92CECD (upload, list near $9C9A5B entry 1), IceRinkMap ($92E053-$92F189, the LZ-packed rink map; 93S name), DATA8_92F18A (upload, E6C1/E6FD entry 6), DATA8_92FFB0 (a 6 x 6 photo map read near $9DCA25).
 - bank92_9000: source, MATCH. The end of DATA8_928000, then the start of DATA8_9293F3 ($9293F3-$92A7B8, DATA8_80DD16 entry 3).
+- bank92_A000: source, MATCH. The end of DATA8_9293F3, then the start of LetterSprites ($92A7B9-$92BB60): the letters A to Z as a DrawSprite sprite set, not packed; the text routine at $9C93C3 maps a character to a frame and draws it, advancing by a width table. New asset LetterSprites.spr.

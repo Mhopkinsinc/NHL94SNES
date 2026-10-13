@@ -1,3 +1,7 @@
-; Segment bank92_A000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank92_A000.asm.
+; Bank $92, third 4 KB: the end of DATA8_9293F3, then LetterSprites, a sprite set of the letters A to Z.
+
 org $92A000
-	incbin "../Extracted/segments/bank92_A000.bin"
+	incbin "../Extracted/data/DATA8_9293F3.spc":3085..5062
+LetterSprites:		; the letters A to Z as a DrawSprite sprite set, not packed: frame offsets, then the frames;
+			;   a text routine in bank $9C draws words with it, one frame per letter
+	incbin "../Extracted/data/LetterSprites.spr":0..2119
