@@ -22,7 +22,7 @@ org $9FA001
 	sta.w $0CFF
 	lda.w #$0004
 	sta.b $A5
-	jml.l CODE_9D9CD2
+	jml.l WeightedRandomSelect
 DATA8_9FA038:
 	dw $002B,$001E,$0017,$0004,$0027,$0020,$0018,$0005
 	dw $0023,$0021,$001A,$0006,$001E,$0022,$001E,$0006
@@ -104,7 +104,7 @@ CODE_9FA121:
 	jml.l CODE_9EC7BE
 CODE_9FA12F:
 	rtl
-CODE_9FA130:
+ShowInjuryBox:
 	stx.b $87
 	ldx.w #$0000
 CODE_9FA135:
@@ -202,7 +202,7 @@ CODE_9FA1D9:
 	lda.w $1852,y
 	bit.w #$4000
 	bne CODE_9FA1C1
-	jsl.l CODE_9FA21E
+	jsl.l pplpen
 	bra CODE_9FA1C1
 CODE_9FA1EB:
 	lda.b $91
@@ -228,9 +228,9 @@ CODE_9FA20C:
 	lda.w $1852,y
 	bit.w #$4000
 	beq CODE_9FA1F4
-	jsl.l CODE_9FA21E
+	jsl.l pplpen
 	bra CODE_9FA1F4
-CODE_9FA21E:
+pplpen:
 	lda.w $0D11
 	cmp.w #$000B
 	bcs CODE_9FA1B7
@@ -273,7 +273,7 @@ CODE_9FA24D:
 	sta.b $8F
 	lda.w #$0A2C
 	sta.b $8D
-	jsl.l CODE_9FC5BE
+	jsl.l PutDigits2
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A2A
@@ -1087,11 +1087,11 @@ CODE_9FA9A4:
 	sta.w $0D4F
 	jsl.l CODE_9FCDAC
 	stz.b $91
-	jsl.l CODE_9FD407
+	jsl.l setpersonel
 	jsl.l CODE_9FCE1D
 	inc.b $91
 	inc.b $91
-	jsl.l CODE_9FD407
+	jsl.l setpersonel
 	jsl.l CODE_9FCE1D
 	jsl.l CODE_9FD252
 	lda.w #$FFFF
@@ -1299,7 +1299,7 @@ CODE_9FAB51:
 	sta.b $A9
 	stz.w $0EC3,x
 	stz.w $0EE3,x
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	sta.w $1163,x
 	lda.w $1283,x

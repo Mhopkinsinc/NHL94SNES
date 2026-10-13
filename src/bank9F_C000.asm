@@ -389,7 +389,7 @@ CODE_9FC2E1:
 	bne CODE_9FC32A
 	jml.l CODE_9EA8A9
 CODE_9FC311:
-	jml.l CODE_9EE9A3
+	jml.l passmode
 CODE_9FC315:
 	jml.l CODE_9EE1C3
 CODE_9FC319:
@@ -450,7 +450,7 @@ CODE_9FC372:
 	pha
 	lda.b $8B
 	pha
-	jsl.l CODE_9FC732
+	jsl.l GetPlayerRecord
 	lda.b $89
 	pha
 	lda.b $8B
@@ -472,17 +472,17 @@ CODE_9FC372:
 	lda.b [$89]
 	and.w #$00FF
 	sta.b $A5
-	jsl.l CODE_9FC5BE
+	jsl.l PutDigits2
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF8D7
 	sta.b $8D
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	pla
 	sta.b $8F
 	pla
 	sta.b $8D
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A2A
@@ -546,7 +546,7 @@ CODE_9FC427:
 	pha
 	lda.b $8B
 	pha
-	jsl.l CODE_9FC732
+	jsl.l GetPlayerRecord
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A2A
@@ -640,7 +640,7 @@ CODE_9FC4D0:
 	pha
 	lda.b $8B
 	pha
-	jsl.l CODE_9FC732
+	jsl.l GetPlayerRecord
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A2A
@@ -660,7 +660,7 @@ CODE_9FC4D0:
 	lda.b [$89]
 	and.w #$00FF
 	sta.b $A5
-	jsl.l CODE_9FC5BE
+	jsl.l PutDigits2
 	lda.w #$0020
 	sta.b [$8D]
 	inc.b $8D
@@ -715,7 +715,7 @@ CODE_9FC551:
 	pla
 	sta.b $A5
 	rtl
-CODE_9FC576:
+GetPlayerNumInitial:
 	lda.b $A5
 	pha
 	lda.b $A7
@@ -752,7 +752,7 @@ CODE_9FC5A6:
 	lda.l $7E35D0
 	sta.b $AD
 	jml.l CODE_9FBD9C
-CODE_9FC5BE:
+PutDigits2:
 	lda.w #$2020
 	sta.b $C5
 	lda.b $A5
@@ -896,7 +896,7 @@ CODE_9FC6BD:
 	lda.w #$FFFF
 	sta.w $18BA
 	sta.w $18D4
-CODE_9FC6D8:
+setteams:
 	stz.w $1766
 	lda.w #$000C
 	sta.w $1768
@@ -915,7 +915,7 @@ CODE_9FC6D8:
 	lda.l TeamList,x
 	sta.w $1CDE
 	rtl
-CODE_9FC702:
+restoreteams:
 	stz.b $91
 	jsl.l CODE_9FC70D
 	lda.w #$0002
@@ -940,7 +940,7 @@ CODE_9FC721:
 	dec.b $A5
 	bpl CODE_9FC71A
 	rtl
-CODE_9FC732:
+GetPlayerRecord:
 	lda.w #$009C
 	sta.b $8B
 	ldy.b $91
@@ -1108,7 +1108,7 @@ CODE_9FC873:
 	bpl CODE_9FC845
 CODE_9FC87B:
 	rtl
-CODE_9FC87C:
+InitScoutDisplay:
 	lda.w #$FFFF
 	sta.w $0D49
 	sta.w $0D3F
@@ -1188,7 +1188,7 @@ CODE_9FC896:
 	ldy.w #$0000
 	jsl.l CODE_808BED
 	jmp.w $A130
-CODE_9FC93D:
+GetPlayerCount:
 	lda.b $89
 	pha
 	lda.b $8B
@@ -1219,7 +1219,7 @@ CODE_9FC95B:
 	pla
 	sta.b $89
 	rtl
-CODE_9FC975:
+addteamstat:
 	ldy.b $A9
 	lda.w $1503,x
 	beq CODE_9FC97E
@@ -2033,7 +2033,7 @@ CODE_9FCF91:
 	lda.w $15D8
 	bit.w #$2000
 	beq CODE_9FCFBF
-	jsl.l CODE_9E827C
+	jsl.l chkpk2
 	beq CODE_9FCFAC
 	ldy.w #$0001
 	lda.b [$89],y

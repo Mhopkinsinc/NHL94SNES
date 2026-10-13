@@ -605,7 +605,7 @@ CODE_9B95F5:
 	sta.b $8F
 	lda.w #$D6E1
 	sta.b $8D
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC894
 	lda.w #$0004
 	sta.w $0D0F
@@ -987,7 +987,7 @@ CODE_9B995F:
 	sta.b $8F
 	lda.w #$D6E1
 	sta.b $8D
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC894
 	lda.w #$0004
 	sta.w $0D0F

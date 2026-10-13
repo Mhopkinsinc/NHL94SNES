@@ -503,7 +503,7 @@ CODE_9FD3D8:
 	jml.l CODE_9EC7BE
 DATA8_9FD404:
 	db "YBA"
-CODE_9FD407:
+setpersonel:
 	stx.b $87
 	ldx.w #$0000
 CODE_9FD40C:
@@ -869,7 +869,7 @@ CODE_9FD6B8:
 CODE_9FD6BF:
 	rtl
 CODE_9FD6C0:
-	jsl.l CODE_9FC93D
+	jsl.l GetPlayerCount
 	lda.b $A5
 	sta.b $B1
 CODE_9FD6C8:
@@ -1486,7 +1486,7 @@ CODE_9FDC25:
 	lda.l $7E34C6
 	beq CODE_9FDC4B
 	jsl.l CODE_9FDA53
-	jsl.l CODE_9FD407
+	jsl.l setpersonel
 	jsl.l CODE_9F9B36
 	jml.l CODE_9EE10B
 CODE_9FDC4B:
@@ -1554,7 +1554,7 @@ CODE_9FDCCA:
 	lda.w $17EA,y
 	sta.b $A5
 	rtl
-CODE_9FDCD3:
+setpde:
 	lda.b $91
 	beq CODE_9FDCDA
 	lda.w #$0034

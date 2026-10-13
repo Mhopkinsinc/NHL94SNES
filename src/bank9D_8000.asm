@@ -374,7 +374,7 @@ CODE_9D831C:
 CODE_9D832F:
 	rtl
 CODE_9D8330:
-	jsl.l CODE_9FC93D
+	jsl.l GetPlayerCount
 	lda.b $A5
 	sta.b $B5
 	ldx.w #$0000
@@ -497,7 +497,7 @@ CODE_9D8424:
 CODE_9D842E:
 	rtl
 CODE_9D842F:
-	jsl.l CODE_9FC87C
+	jsl.l InitScoutDisplay
 	lda.w #$001D
 	sta.b [$89]
 	inc.b $89
@@ -782,7 +782,7 @@ CODE_9D86AA:
 	sta.b $8F
 	lda.w #DATA8_9D875A
 	sta.b $8D
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC7BE
 	lda.b $8F
 	pha

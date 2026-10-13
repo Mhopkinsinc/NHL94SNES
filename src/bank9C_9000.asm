@@ -7,7 +7,7 @@
 org $9C9000
 	sta.b $8D
 CODE_9C9002:
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC894
 	lda.w #$2400
 	sta.w $0D0D
@@ -105,12 +105,12 @@ CODE_9C90BF:
 	sta.b $95
 	lda.w #$0002
 	sta.b [$95]
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF36A
 	sta.b $8D
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.b $97
 	sta.b $8F
 	lda.b $95
@@ -134,12 +134,12 @@ CODE_9C90F0:
 	sta.b $95
 	lda.w #$0002
 	sta.b [$95]
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF36D
 	sta.b $8D
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.b $91
 	clc
 	adc.b $A9
@@ -147,7 +147,7 @@ CODE_9C90F0:
 	lda.w $0000,y
 	sta.b $A5
 	jsl.l CODE_9FC5EB
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.b $97
 	sta.b $8F
 	lda.b $95
@@ -1305,7 +1305,7 @@ CODE_9C9D25:
 	sta.w $1E1F
 CODE_9C9D8A:
 	stz.b $91
-	jsl.l CODE_9FC93D
+	jsl.l GetPlayerCount
 	lda.b $A5
 	sta.w $1E21
 	jsl.l CODE_9ED300
@@ -1449,7 +1449,7 @@ CODE_9C9E8E:
 	bmi CODE_9C9EBC
 	lda.w #$0002
 	sta.b $91
-	jsl.l CODE_9FC93D
+	jsl.l GetPlayerCount
 	lda.b $A5
 	clc
 	adc.w #$001A

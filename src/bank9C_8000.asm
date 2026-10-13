@@ -353,7 +353,7 @@ CODE_9C8826:
 	jsl.l CODE_9ED300
 	lda.b $A5
 	sta.w $1DBD
-	jsl.l CODE_9FC93D
+	jsl.l GetPlayerCount
 	lda.b $A5
 	sta.w $1DC1
 	bra CODE_9C884E
@@ -717,7 +717,7 @@ CODE_9C8B69:
 	sta.b $8F
 	lda.w #DATA8_9C8BCE
 	sta.b $8D
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC7BE
 	ldx.w $1DBD
 CODE_9C8B9D:

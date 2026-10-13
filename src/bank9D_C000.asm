@@ -44,7 +44,7 @@ CODE_9DC01C:
 	lda.w $1E79
 	sta.b $A5
 	bmi CODE_9DC0BB
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$0084
 	jsl.l CODE_9C9590
@@ -58,7 +58,7 @@ CODE_9DC01C:
 	lda.w $1E7F
 	cmp.w #$0050
 	bmi CODE_9DC0BB
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$008E
 	jsl.l CODE_9C9590
@@ -72,7 +72,7 @@ CODE_9DC01C:
 	lda.w $1E83
 	cmp.w #$0050
 	bmi CODE_9DC0BB
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$0098
 	jsl.l CODE_9C9590

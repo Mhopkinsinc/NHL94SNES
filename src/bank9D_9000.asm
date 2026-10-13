@@ -1355,7 +1355,7 @@ CODE_9D9CB8:
 	rtl
 DATA8_9D9CC2:
 	dw $0000,$000B,$000A,$0001,$0000,$0000,$0000,$0001
-CODE_9D9CD2:
+WeightedRandomSelect:
 	lda.b $AB
 	pha
 	lda.b $A9
@@ -1594,7 +1594,7 @@ CODE_9D9ECB:
 	sta.b $8F
 	lda.w #DATA8_9DA05D
 	sta.b $8D
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC7BE
 	lda.w #$0011
 	sta.w $0D0F

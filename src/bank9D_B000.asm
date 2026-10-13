@@ -1425,7 +1425,7 @@ CODE_9DBD4F:
 	lda.b $91
 	pha
 	stz.w $1DB9
-	jsl.l CODE_9FC93D
+	jsl.l GetPlayerCount
 	lda.b $A5
 	clc
 	adc.w #$0006
@@ -1540,7 +1540,7 @@ CODE_9DBE5B:
 	eor.w #$0002
 	sta.b $91
 	stz.w $1DB9
-	jsl.l CODE_9FC93D
+	jsl.l GetPlayerCount
 	lda.b $A5
 	clc
 	adc.w #$0006
@@ -1664,7 +1664,7 @@ CODE_9DBF33:
 CODE_9DBF80:
 	jmp.w $C0BB
 CODE_9DBF83:
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$0084
 	jsl.l CODE_9C9590
@@ -1683,7 +1683,7 @@ CODE_9DBFA5:
 	bpl CODE_9DBFB0
 	jmp.w $C0BB
 CODE_9DBFB0:
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$008E
 	jsl.l CODE_9C9590
@@ -1703,7 +1703,7 @@ CODE_9DBFD2:
 CODE_9DBFDA:
 	jmp.w $C0BB
 CODE_9DBFDD:
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$0098
 	jsl.l CODE_9C9590

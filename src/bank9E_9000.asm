@@ -1429,7 +1429,7 @@ CODE_9E9BD2:
 	sec
 	sbc.w $0DB7,y
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.w $0D55,y
 	cmp.w #$0068
 	bpl CODE_9E9C16
@@ -1596,7 +1596,7 @@ CODE_9E9D59:
 	ldx.b $91
 	lda.w #$0001
 	sta.w $14E3,x
-	jsl.l CODE_9EA3DD
+	jsl.l SetSPA
 	ldx.b $95
 	lda.w $0F43,x
 	bne CODE_9E9D79

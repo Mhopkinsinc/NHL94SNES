@@ -102,7 +102,7 @@ CODE_9E80D2:
 	beq CODE_9E80EC
 	dec.b $A9
 	dec.b $A9
-	jsl.l CODE_9E827C
+	jsl.l chkpk2
 	bne CODE_9E80EC
 	inc.b $A9
 	inc.b $A9
@@ -173,7 +173,7 @@ CODE_9E814E:
 	bpl CODE_9E8102
 	stz.w $1043,x
 CODE_9E8178:
-	jsl.l CODE_9EDEA7
+	jsl.l skatetopuckinit
 	lda.b $A9
 	pha
 	lda.b $A5
@@ -254,7 +254,7 @@ CODE_9E81FF:
 	sec
 	sbc.w #$00CC
 	sta.b $A5
-	jsl.l CODE_9FDCD3
+	jsl.l setpde
 	lda.l $7E34C6
 	cmp.w #$0002
 	bne CODE_9E8223
@@ -299,10 +299,10 @@ CODE_9E8223:
 CODE_9E8272:
 	lda.w $15D8
 	and.w #$2000
-	bne CODE_9E827C
+	bne chkpk2
 	inc a
 	rtl
-CODE_9E827C:
+chkpk2:
 	lda.w $1503,x
 	bne CODE_9E828B
 	lda.w $15D8
@@ -493,7 +493,7 @@ CODE_9E83EE:
 	sec
 	sbc.w $0DB7,y
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.w $1163,x
 	eor.w #$0004
 	cmp.b $A5
@@ -1151,7 +1151,7 @@ CODE_9E893F:
 	sec
 	sbc.w $0DD3
 	sta.b $A9
-	jml.l CODE_9BB445
+	jml.l vtoa
 CODE_9E8967:
 	rtl
 	ldy.w $0AD9
@@ -1830,7 +1830,7 @@ CODE_9E8E91:
 	stx.b $95
 	lda.w #$F8E8
 	sta.b $A9
-	jsl.l CODE_9EA3DD
+	jsl.l SetSPA
 	plx
 	stx.b $95
 	lda.w #$0006

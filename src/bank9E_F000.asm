@@ -54,7 +54,7 @@ CODE_9EF05B:
 	sec
 	sbc.b $A9
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	ldy.b $91
 	lda.b $A5
 	sec
@@ -565,7 +565,7 @@ CODE_9EF471:
 	lda.l $7E313A
 	adc.w #$0006
 	sta.l $7E313A
-	jsl.l CODE_9F9B08
+	jsl.l GetPeriodTimeRemaining
 	lda.b $A5
 	sta.b [$89]
 	inc.b $89

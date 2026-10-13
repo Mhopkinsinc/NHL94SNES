@@ -26,7 +26,7 @@ CODE_9FE001:
 	sta.w $1796,y
 	lda.w #$FFFF
 	sta.w $1D55,y
-	jsl.l CODE_9FD407
+	jsl.l setpersonel
 	jmp.w $DE13
 CODE_9FE03E:
 	rtl
@@ -440,7 +440,7 @@ CODE_9FE3DC:
 	dec a
 CODE_9FE3DD:
 	sta.w $17AA,y
-	jsl.l CODE_9FD407
+	jsl.l setpersonel
 	jmp.w $E19E
 CODE_9FE3E7:
 	lda.b $A5

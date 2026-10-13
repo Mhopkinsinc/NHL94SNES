@@ -3,7 +3,7 @@
 
 org $9ED002
 	bne CODE_9ED008
-	jml.l CODE_9EA3DD
+	jml.l SetSPA
 CODE_9ED008:
 	rtl
 CODE_9ED009:
@@ -113,7 +113,7 @@ CODE_9ED0EF:
 	lda.w $17AA,y
 	ora.w #$FF00
 	sta.w $17AA,y
-	jsl.l CODE_9FD407
+	jsl.l setpersonel
 CODE_9ED0FC:
 	rtl
 CODE_9ED0FD:
@@ -171,7 +171,7 @@ CODE_9ED165:
 	lda.w $17AA,y
 	ora.w #$FF00
 	sta.w $17AA,y
-	jml.l CODE_9FD407
+	jml.l setpersonel
 CODE_9ED178:
 	rtl
 CODE_9ED179:
@@ -270,7 +270,7 @@ CODE_9ED243:
 	bcc CODE_9ED214
 CODE_9ED24D:
 	jsr.w $DC44
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	jsl.l CODE_9EDC06
 	asl.w $12E3,x
 	jsl.l CODE_9ED263
@@ -345,7 +345,7 @@ CODE_9ED2E3:
 	sta.b $A9
 	pla
 	pla
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	sta.w $10A3,x
 CODE_9ED2F7:
@@ -374,7 +374,7 @@ CODE_9ED31A:
 	asl a
 	bne CODE_9ED31A
 	rtl
-CODE_9ED323:
+AdvanceStringPtr:
 	bra CODE_9ED32C
 CODE_9ED325:
 	lda.b $8D
@@ -656,7 +656,7 @@ CODE_9ED577:
 CODE_9ED58C:
 	rtl
 CODE_9ED58D:
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 CODE_9ED593:
 	sta.w $1163,x
@@ -755,7 +755,7 @@ CODE_9ED640:
 CODE_9ED673:
 	jmp.w $D6AE
 CODE_9ED676:
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 CODE_9ED67C:
 	sta.w $1163,x
@@ -801,7 +801,7 @@ CODE_9ED6D8:
 	cpx.w $0AD9
 	beq CODE_9ED6EA
 	jsr.w $DC44
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	jsl.l CODE_9EDC06
 	bra CODE_9ED6FD
 CODE_9ED6EA:
@@ -1074,7 +1074,7 @@ CODE_9ED8FC:
 	inc a
 CODE_9ED90F:
 	sta.b $04
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	cmp.w #$0008
 	beq CODE_9ED93F
@@ -1326,7 +1326,7 @@ CODE_9EDB10:
 	stz.b $A5
 	stz.b $A9
 CODE_9EDB18:
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	sta.w $10A3,x
 CODE_9EDB21:
@@ -1643,7 +1643,7 @@ CODE_9EDDBD:
 	beq CODE_9EDDCB
 	jmp.w $9788
 CODE_9EDDCB:
-	jsl.l CODE_9EDE81
+	jsl.l pucknothing
 	jmp.w $9788
 CODE_9EDDD2:
 	phx
@@ -1730,7 +1730,7 @@ CODE_9EDE5E:
 	jsl.l CODE_9EA3F1
 	plx
 	rtl
-CODE_9EDE81:
+pucknothing:
 	lda.w $11DF
 	cmp.w #$0008
 	bcc CODE_9EDE97
@@ -1746,7 +1746,7 @@ CODE_9EDE97:
 	lda.w #$FFFF
 	sta.w $11FF
 	rtl
-CODE_9EDEA7:
+skatetopuckinit:
 	lda.w $0EDF
 	xba
 	lsr a
@@ -1842,7 +1842,7 @@ CODE_9EDF24:
 	lsr.b $B5
 	lsr.b $B5
 	lsr.b $B5
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	sta.b $B9
 	lda.w #$0005
 	sta.b $B1

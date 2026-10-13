@@ -855,7 +855,7 @@ CODE_9B8725:
 	lda.w #DATA8_9B88E9
 	sta.b $8D
 CODE_9B8769:
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC7BE
 	jsl.l CODE_9DD923
 	lda.b $8F
@@ -956,7 +956,7 @@ CODE_9B8810:
 	lda.w #DATA8_9B88E9
 	sta.b $8D
 CODE_9B8849:
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC7BE
 	lda.b [$8D]
 	sta.b $B7

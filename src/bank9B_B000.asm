@@ -147,7 +147,7 @@ CODE_9BB136:
 	pha
 	lda.b $99
 	pha
-	jsl.l CODE_9BB17A
+	jsl.l adda43
 	lda.b $9B
 	sta.b $C7
 	lda.b $99
@@ -173,7 +173,7 @@ CODE_9BB167:
 	rtl
 CODE_9BB176:
 	jsl.l CODE_9BB19D
-CODE_9BB17A:
+adda43:
 	lda.b $99
 	clc
 	adc.w #$007A
@@ -535,7 +535,7 @@ CODE_9BB441:
 	plx
 	sta.b $A5
 	rtl
-CODE_9BB445:
+vtoa:
 	lda.b $A5
 	ora.b $A9
 	beq CODE_9BB48D

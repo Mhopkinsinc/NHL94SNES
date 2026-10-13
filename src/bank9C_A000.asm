@@ -609,7 +609,7 @@ CODE_9CA5BC:
 	jsl.l CODE_9CA568
 	ldx.b $E4
 	sta.w $0B1D,x
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	sta.w $0B5D,x
 	inx
 	inx

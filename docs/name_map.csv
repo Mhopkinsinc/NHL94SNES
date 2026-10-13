@@ -300,3 +300,32 @@ $9CE405,Winnipeg,DATA8_9CE405,94G,"team 25 record: header offsets, .sr, .sodds, 
 $9CED59,playoffseats,DATA8_9CED59,94G,"playoff tree seedings: 32 rows of 16 team numbers; 94G playoffseats (the same rows)",src/bank9C_E000.asm
 $9DCD53,PlayerPhotoTable,DATA8_9DCD53,code,"long pointer to each packed player photo, 26 per team in TeamList order; read at $9DC9DD and $9DCC65 as (team * 26 + slot) * 4",src/bank9D_C000.asm
 $9DD8B3,PhotoPaletteTable,DATA8_9DD8B3,code,"per team: long pointer to the 16 colours of its player photos (PhotoPaletteANA ...; Boston's is DATA8_85FFDF)",src/bank9D_D000.asm
+$9BB17A,adda43,CODE_9BB17A,93S,"same instructions as the 93S routine adda43 (hockey)",src/bank9B_B000.asm
+$9BB445,vtoa,CODE_9BB445,93S,"same instructions as the 93S routine vtoa (logic)",src/bank9B_B000.asm
+$9D9CD2,WeightedRandomSelect,CODE_9D9CD2,93S,"same instructions as the 93S routine WeightedRandomSelect (middle)",src/bank9D_9000.asm
+$9E827C,chkpk2,CODE_9E827C,93S,"same instructions as the 93S routine chkpk2 (logic)",src/bank9E_8000.asm
+$9EA3DD,SetSPA,CODE_9EA3DD,93S,"same instructions as the 93S routine SetSPA (logic)",src/bank9E_A000.asm
+$9EA6FA,RemovePlayerFromList,CODE_9EA6FA,93S,"same instructions as the 93S routine RemovePlayerFromList (penalty)",src/bank9E_A000.asm
+$9EB6F7,coinsearch,CODE_9EB6F7,93S,"same instructions as the 93S routine coinsearch (penalty)",src/bank9E_B000.asm
+$9ECFA5,appstring,CODE_9ECFA5,93S,"same instructions as the 93S routine appstring (middle)",src/bank9E_C000.asm
+$9EC107,ClearPenaltyBuffer,CODE_9EC107,93S,"same instructions as the 93S routine ClearPenaltyBuffer (penalty)",src/bank9E_C000.asm
+$9EC071,releasepl,CODE_9EC071,93S,"same instructions as the 93S routine releasepl (penalty)",src/bank9E_C000.asm
+$9EDE81,pucknothing,CODE_9EDE81,93S,"same instructions as the 93S routine pucknothing (logic)",src/bank9E_D000.asm
+$9EDEA7,skatetopuckinit,CODE_9EDEA7,93S,"same instructions as the 93S routine skatetopuckinit (logic)",src/bank9E_D000.asm
+$9ED323,AdvanceStringPtr,CODE_9ED323,93S,"same instructions as the 93S routine AdvanceStringPtr (penalty)",src/bank9E_D000.asm
+$9EE698,Findhittype,CODE_9EE698,93S,"same instructions as the 93S routine Findhittype (logic)",src/bank9E_E000.asm
+$9EE9A3,passmode,CODE_9EE9A3,93S,"same instructions as the 93S routine passmode (logic)",src/bank9E_E000.asm
+$9F9B08,GetPeriodTimeRemaining,CODE_9F9B08,93S,"same instructions as the 93S routine GetPeriodTimeRemaining (hockey)",src/bank9F_9000.asm
+$9FA130,ShowInjuryBox,CODE_9FA130,93S,"same instructions as the 93S routine ShowInjuryBox (hockey)",src/bank9F_A000.asm
+$9FA21E,pplpen,CODE_9FA21E,93S,"same instructions as the 93S routine pplpen (penalty)",src/bank9F_A000.asm
+$9FBC41,show_rink,CODE_9FBC41,93S,"same instructions as the 93S routine show_rink (video)",src/bank9F_B000.asm
+$9FC576,GetPlayerNumInitial,CODE_9FC576,93S,"same instructions as the 93S routine GetPlayerNumInitial (hockey)",src/bank9F_C000.asm
+$9FC732,GetPlayerRecord,CODE_9FC732,93S,"same instructions as the 93S routine GetPlayerRecord (hockey)",src/bank9F_C000.asm
+$9FC87C,InitScoutDisplay,CODE_9FC87C,93S,"same instructions as the 93S routine InitScoutDisplay (hockey)",src/bank9F_C000.asm
+$9FC702,restoreteams,CODE_9FC702,93S,"same instructions as the 93S routine restoreteams (hockey)",src/bank9F_C000.asm
+$9FC6D8,setteams,CODE_9FC6D8,93S,"same instructions as the 93S routine setteams (hockey)",src/bank9F_C000.asm
+$9FC5BE,PutDigits2,CODE_9FC5BE,93S,"same instructions as the 93S routine PutDigits2 (middle)",src/bank9F_C000.asm
+$9FC975,addteamstat,CODE_9FC975,93S,"same instructions as the 93S routine addteamstat (penalty)",src/bank9F_C000.asm
+$9FC93D,GetPlayerCount,CODE_9FC93D,93S,"same instructions as the 93S routine GetPlayerCount (stats)",src/bank9F_C000.asm
+$9FDCD3,setpde,CODE_9FDCD3,93S,"same instructions as the 93S routine setpde (hockey)",src/bank9F_D000.asm
+$9FD407,setpersonel,CODE_9FD407,93S,"same instructions as the 93S routine setpersonel (hockey)",src/bank9F_D000.asm

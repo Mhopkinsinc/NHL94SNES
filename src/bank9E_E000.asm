@@ -211,16 +211,16 @@ CODE_9EE197:
 	sec
 	sbc.w $0DB7,x
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.w #$000F
 	sta.w $0D05
 	ldy.w #$ED4A
-	jsl.l CODE_9EE698
+	jsl.l Findhittype
 	beq CODE_9EE1BD
 	ldy.w #$EE5C
 CODE_9EE1BD:
 	sty.b $A9
-	jml.l CODE_9EA3DD
+	jml.l SetSPA
 CODE_9EE1C3:
 	cpx.w $0AD9
 	bne CODE_9EE219
@@ -634,8 +634,8 @@ CODE_9EE564:
 	sbc.w $0DB7,x
 	sta.b $A9
 CODE_9EE56D:
-	jsl.l CODE_9BB445
-	jsl.l CODE_9EE698
+	jsl.l vtoa
+	jsl.l Findhittype
 	beq CODE_9EE57C
 	lda.w #$F020
 	bra CODE_9EE57F
@@ -766,7 +766,7 @@ CODE_9EE690:
 	sta.w $1EA9
 	stz.w $1EA1
 	bra CODE_9EE67D
-CODE_9EE698:
+Findhittype:
 	lda.b $A5
 	eor.w #$FFFF
 	inc a
@@ -913,8 +913,8 @@ CODE_9EE7D1:
 	sbc.w $0BA9
 	sta.b $A9
 CODE_9EE7DA:
-	jsl.l CODE_9BB445
-	jsl.l CODE_9EE698
+	jsl.l vtoa
+	jsl.l Findhittype
 	beq CODE_9EE7E9
 	lda.w #$F020
 	bra CODE_9EE7EC
@@ -1128,7 +1128,7 @@ CODE_9EE98A:
 	jmp.w $8BE6
 CODE_9EE9A2:
 	rtl
-CODE_9EE9A3:
+passmode:
 	lda.b $AD
 	bit.w #$8000
 	bne CODE_9EE9BF
@@ -1286,17 +1286,17 @@ CODE_9EEAE9:
 	sta.b $A5
 	lda.w $0EFF
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	ldy.w #$E34E
 	lda.w $0F43,x
 	beq CODE_9EEB0B
 	ldy.w #$EC66
-	jsl.l CODE_9EE698
+	jsl.l Findhittype
 	beq CODE_9EEB0B
 	ldy.w #$ECD8
 CODE_9EEB0B:
 	sty.b $A9
-	jsl.l CODE_9EA3DD
+	jsl.l SetSPA
 	lda.w #$0001
 	sta.w $14E3,x
 	lda.w $0F43,x

@@ -48,7 +48,7 @@ CODE_9FB055:
 	sta.w $1E9D
 	lda.w #$03E8
 	sta.w $1E9F
-	jsl.l CODE_9EC107
+	jsl.l ClearPenaltyBuffer
 	rtl
 CODE_9FB06C:
 	stx.w $0AD9
@@ -341,7 +341,7 @@ CODE_9FB2C4:
 CODE_9FB2FA:
 	lda.w #$0001
 	sta.w $1543,x
-	jml.l CODE_9EA3DD
+	jml.l SetSPA
 CODE_9FB304:
 	rtl
 CODE_9FB305:
@@ -508,7 +508,7 @@ CODE_9FB477:
 	jmp.w $B517
 CODE_9FB47F:
 	jsl.l CODE_9FDA53
-	jsl.l CODE_9FD407
+	jsl.l setpersonel
 	jml.l CODE_9F9B36
 CODE_9FB48B:
 	lda.l $7E34C6
@@ -1239,7 +1239,7 @@ CODE_9FBAAF:
 	cpx.w #$0038
 	bne CODE_9FBAAF
 	ldx.b $87
-	jsl.l CODE_9FBC41
+	jsl.l show_rink
 	jsl.l CODE_9FB1FD
 	jsl.l CODE_9FBB01
 	jsl.l CODE_9CA054
@@ -1398,7 +1398,7 @@ DATA8_9FBC01:
 	dw $FF8C,$FF9C,$0001,$C000
 	dw $FF8C,$0000,$0002,$4000
 	dw $FF8C,$0064,$0001,$4000
-CODE_9FBC41:
+show_rink:
 	lda.w $15DA
 	bne CODE_9FBC5E
 	lda.w $0CEB

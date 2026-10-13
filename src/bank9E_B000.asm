@@ -15,7 +15,7 @@ CODE_9EB00F:
 	sta.b $A9
 	pla
 	pla
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	sta.w $10A3,x
 	lda.w $0F43,x
@@ -24,7 +24,7 @@ CODE_9EB00F:
 	sta.b $A5
 	lda.w $0EFF
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	cmp.w #$0008
 	beq CODE_9EB045
@@ -42,7 +42,7 @@ CODE_9EB045:
 	sbc.w $0D55,x
 	sta.b $A5
 	pha
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	sta.b $C5
 	pla
@@ -172,7 +172,7 @@ CODE_9EB16B:
 	lda.w #$FFFF
 	sta.w $0D29
 CODE_9EB176:
-	jsl.l CODE_9EA3DD
+	jsl.l SetSPA
 CODE_9EB17A:
 	lda.w #$0078
 	jsl.l CODE_9BB385
@@ -645,7 +645,7 @@ CODE_9EB540:
 	cpx.w #$0010
 	bne CODE_9EB540
 	ldx.b $87
-	jsl.l CODE_9F9B08
+	jsl.l GetPeriodTimeRemaining
 	lda.b [$89]
 	xba
 	and.w #$00FF
@@ -708,7 +708,7 @@ CODE_9EB5AB:
 	asl a
 	asl a
 	tay
-	jsl.l CODE_9F9B08
+	jsl.l GetPeriodTimeRemaining
 	lda.b $A5
 	sta.w $163E,y
 	iny
@@ -810,7 +810,7 @@ CODE_9EB680:
 	sta.b $A5
 	ldx.b $95
 	jsl.l CODE_9EF969
-	jsl.l CODE_9FA130
+	jsl.l ShowInjuryBox
 	bra CODE_9EB6CC
 CODE_9EB6A1:
 	jsl.l CODE_9EC72D
@@ -835,10 +835,10 @@ CODE_9EB6CC:
 	lda.w $1E9B
 	bne CODE_9EB6E0
 	stz.b $91
-	jsl.l CODE_9EB6F7
+	jsl.l coinsearch
 	lda.w #$0002
 	sta.b $91
-	jsl.l CODE_9EB6F7
+	jsl.l coinsearch
 CODE_9EB6E0:
 	stx.b $87
 	ldx.w #$000E
@@ -856,7 +856,7 @@ CODE_9EB6E5:
 	ldx.b $95
 CODE_9EB6F6:
 	rtl
-CODE_9EB6F7:
+coinsearch:
 	lda.w #$0006
 	sta.b $A9
 	lda.w #$0032
@@ -997,7 +997,7 @@ CODE_9EB7FB:
 	sta.b $8F
 	lda.w #DATA8_9CF72A
 	sta.b $8D
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.b $89
 	ldy.w #$0004
 	clc
@@ -1008,7 +1008,7 @@ CODE_9EB7FB:
 	sta.b $8D
 	lda.b $8B
 	sta.b $8F
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.b $97
 	sta.b $8F
 	lda.b $95
@@ -1214,7 +1214,7 @@ CODE_9EB9C2:
 	inc.b $89
 	bra CODE_9EB971
 CODE_9EB9D1:
-	jsl.l CODE_9EC107
+	jsl.l ClearPenaltyBuffer
 CODE_9EB9D5:
 	ldy.b $91
 	lda.w $17A6,y
@@ -1248,7 +1248,7 @@ CODE_9EBA05:
 	bne CODE_9EB9ED
 	lda.w #$0000
 	sta.w $1852,y
-	jsl.l CODE_9EA6FA
+	jsl.l RemovePlayerFromList
 	ldy.b $8D
 	lda.w $17A6,y
 	inc a
@@ -1524,7 +1524,7 @@ CODE_9EBC4F:
 	sec
 	sbc.w $0DB7,y
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	ldy.b $91
 	lda.b $A5
 	sec
@@ -1933,7 +1933,7 @@ CODE_9EBFB6:
 	dec a
 	sta.w $1852,y
 	bne CODE_9EBFDB
-	jsl.l CODE_9EA6FA
+	jsl.l RemovePlayerFromList
 CODE_9EBFDB:
 	bra CODE_9EBF9E
 CODE_9EBFDD:

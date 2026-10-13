@@ -709,7 +709,7 @@ CODE_80C898:		; a shootout turn of team $91: the shooter of this round from its 
 	stz.w $1D87
 	lda.b $91
 	pha
-	jsl.l CODE_9EC107
+	jsl.l ClearPenaltyBuffer
 	stz.w $15D4
 	lda.b $91
 	beq CODE_80C8B2
@@ -1399,7 +1399,7 @@ ShooterSelectList:	; pick the player for the shooter row at the cursor
 	jsl.l WaitFrame
 	lda.w #$0007
 	sta.w $1DEF
-	jsl.l CODE_9FC93D
+	jsl.l GetPlayerCount
 	lda.b $A5
 	sta.w $1DA3
 	jsl.l CODE_9ED300

@@ -639,7 +639,7 @@ CODE_9DA5CA:
 	sta.w $1C98
 	lda.l $7E34C0
 	sta.w $1C9A
-	jsl.l CODE_9FC6D8
+	jsl.l setteams
 	lda.w $1C9A
 	clc
 	adc.w #$0021
@@ -1000,7 +1000,7 @@ CODE_9DA973:
 	sta.w $1C98
 	lda.l $7E34C0
 	sta.w $1C9A
-	jsl.l CODE_9FC6D8
+	jsl.l setteams
 	lda.w #$0000
 	sta.l $7E3456
 CODE_9DA992:

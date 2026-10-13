@@ -1551,7 +1551,7 @@ CODE_9BAD19:
 	sbc.w $0DD7
 	sta.b $A9
 	sta.b $B1
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	cmp.w #$0008
 	beq CODE_9BAD81
 	sec

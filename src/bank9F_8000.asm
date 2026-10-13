@@ -159,7 +159,7 @@ CODE_9F8183:
 	lda.w #$D6E1
 	sta.b $8D
 	stx.b $A5
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC7BE
 CODE_9F8197:
 	txa
@@ -359,7 +359,7 @@ CODE_9F8357:
 	tsb.w $15D4
 CODE_9F837C:
 	jsl.l CODE_9FC6B2
-	jsl.l CODE_9FC702
+	jsl.l restoreteams
 	jsl.l CODE_9FC833
 	lda.w #$007E
 	sta.w $0D21
@@ -955,7 +955,7 @@ CODE_9F88DB:
 	lda.w #$0005
 	trb.w $0CF1
 CODE_9F88F6:
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	sta.w $0B5D,x
 	dex
 	dex
@@ -1325,7 +1325,7 @@ CODE_9F8C3B:
 	dec.b $AD
 	bpl CODE_9F8C2B
 CODE_9F8C43:
-	jsl.l CODE_9EC107
+	jsl.l ClearPenaltyBuffer
 	lda.l $7E35E0
 	clc
 	adc.w #$03E8
@@ -1578,7 +1578,7 @@ CODE_9F8EAD:
 	lda.b $8B
 	pha
 	jsl.l CODE_9FC6B2
-	jsl.l CODE_9FC702
+	jsl.l restoreteams
 	lda.w #$0000
 	sta.b $91
 	jsl.l CODE_9B9334

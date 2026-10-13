@@ -49,7 +49,7 @@ CODE_9EA04E:
 	sec
 	sbc.w $0DB7,x
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	sec
 	sbc.w $1163,x
@@ -219,7 +219,7 @@ CODE_9EA1BD:
 	bmi CODE_9EA1B4
 	cmp.w #$0022
 	bpl CODE_9EA1B4
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	cmp.w $1163,x
 	bne CODE_9EA1B4
@@ -302,7 +302,7 @@ CODE_9EA276:
 	lda.b $A5
 	jsl.l CODE_9CA554
 	sta.b $B5
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	sec
 	sbc.w $1163,x
@@ -345,7 +345,7 @@ CODE_9EA2CB:
 	lda.w #$F374
 	sta.b $A9
 CODE_9EA2ED:
-	jml.l CODE_9EA3DD
+	jml.l SetSPA
 CODE_9EA2F1:
 	lda.w $0F43,x
 	beq CODE_9EA333
@@ -360,7 +360,7 @@ CODE_9EA2F1:
 	sec
 	sbc.w $0DB7,y
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	ldy.b $91
 	lda.b $A5
 	sec
@@ -452,7 +452,7 @@ CODE_9EA3CE:
 	lda.w #$FFFF
 	sta.w $0CDB
 	rtl
-CODE_9EA3DD:
+SetSPA:
 	lda.b $A9
 	cmp.w $11A3,x
 	beq CODE_9EA3F0
@@ -766,7 +766,7 @@ CODE_9EA653:
 	sta.b $A5
 	bra CODE_9EA65E
 CODE_9EA65A:
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 CODE_9EA65E:
 	lda.b $89
 	sta.w $1D5A
@@ -788,7 +788,7 @@ CODE_9EA65E:
 	sec
 	sbc.w $0DB7,x
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 CODE_9EA694:
 	lda.w $10A3,x
 	sta.b $A5
@@ -820,7 +820,7 @@ CODE_9EA6CC:
 	sec
 	sbc.w $0DB7,x
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	lda.b $A5
 	cmp.w #$0008
 	bpl CODE_9EA6F9
@@ -832,7 +832,7 @@ CODE_9EA6CC:
 	jmp.w $A719
 CODE_9EA6F9:
 	rtl
-CODE_9EA6FA:
+RemovePlayerFromList:
 	lda.w #$FFFF
 	sta.b $AD
 CODE_9EA6FF:
@@ -1028,7 +1028,7 @@ CODE_9EA85B:
 	adc.b $A5
 	sta.b $A5
 CODE_9EA884:
-	jml.l CODE_9FDCD3
+	jml.l setpde
 CODE_9EA888:
 	rtl
 DATA8_9EA889:		; x and y steps (words) for eight directions
@@ -1119,7 +1119,7 @@ CODE_9EA948:
 	lda.b $AD
 	cmp.w #$0004
 	bne CODE_9EA9AD
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	inc a
 	and.w #$0007
 	cmp.w #$0003
@@ -1132,7 +1132,7 @@ CODE_9EA967:
 	and.w #$0007
 	cmp.w #$0003
 	bcs CODE_9EA9AD
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	inc a
 	inc a
 	and.w #$0007
@@ -1147,7 +1147,7 @@ CODE_9EA983:
 	beq CODE_9EA9A7
 	lda.w $0EE3,x
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	sec
 	sbc.b $01,s
 	inc a
@@ -1268,7 +1268,7 @@ CODE_9EAA81:
 CODE_9EAA89:
 	lda.w $1543,x
 	bne CODE_9EAA98
-	jsl.l CODE_9EA3DD
+	jsl.l SetSPA
 	lda.w #$0001
 	sta.w $1543,x
 CODE_9EAA98:
@@ -1297,7 +1297,7 @@ CODE_9EAAC9:
 	sta.b $A5
 	lda.w $0EE3,x
 	sta.b $A9
-	jsl.l CODE_9BB445
+	jsl.l vtoa
 	bit.w #$0008
 	bne CODE_9EAAF4
 	sec
@@ -1355,7 +1355,7 @@ CODE_9EAB57:
 	bne CODE_9EAB64
 	tya
 	sta.w $1543,x
-	jsl.l CODE_9EA3DD
+	jsl.l SetSPA
 CODE_9EAB64:
 	lda.w $1523,x
 	beq CODE_9EAB70
@@ -1937,7 +1937,7 @@ CODE_9EAFA6:
 	inc.b $C9
 	rts
 CODE_9EAFB5:
-	jsl.l CODE_9EDEA7
+	jsl.l skatetopuckinit
 	lda.w $1023,x
 	sec
 	sbc.b $C1

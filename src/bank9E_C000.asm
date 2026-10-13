@@ -15,7 +15,7 @@ CODE_9EC007:
 	bpl CODE_9EBFDD
 	lda.w $1852,y
 	bne CODE_9EC01C
-	jsl.l CODE_9EC071
+	jsl.l releasepl
 CODE_9EC01C:
 	rtl
 CODE_9EC01D:
@@ -29,11 +29,11 @@ CODE_9EC029:
 	bne CODE_9EC038
 	lda.w #$1000
 	sta.w $1852,y
-	jml.l CODE_9EA6FA
+	jml.l RemovePlayerFromList
 CODE_9EC038:
 	lda.w #$0000
 	sta.w $1852,y
-	jml.l CODE_9EA6FA
+	jml.l RemovePlayerFromList
 CODE_9EC042:
 	lda.w $15D4
 	bit.w #$0010
@@ -57,7 +57,7 @@ CODE_9EC06D:
 	lda.w #$0000
 CODE_9EC070:
 	rtl
-CODE_9EC071:
+releasepl:
 	stx.b $87
 	ldx.w #$0000
 CODE_9EC076:
@@ -136,7 +136,7 @@ CODE_9EC0FB:
 	ldx.b $87
 	ldx.b $95
 	rtl
-CODE_9EC107:
+ClearPenaltyBuffer:
 	lda.w #$001F
 	sta.b $A5
 	lda.w #$0000
@@ -1532,7 +1532,7 @@ CODE_9ECBE8:
 	phx
 	lda.b $89
 	pha
-	jsl.l CODE_9FC732
+	jsl.l GetPlayerRecord
 	lda.b $8B
 	sta.b $8F
 	lda.b $89
@@ -1543,7 +1543,7 @@ CODE_9ECBE8:
 	sta.b $95
 	lda.w #$0002
 	sta.b [$95]
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A2A
@@ -1572,7 +1572,7 @@ CODE_9ECC2A:
 	pha
 	lda.w #$0002
 	sta.b $A5
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	pla
 	sta.b $A5
 	jmp.w $CD19
@@ -1590,7 +1590,7 @@ CODE_9ECC4B:
 	pha
 	lda.w #$0003
 	sta.b $A5
-	jsl.l CODE_9ED323
+	jsl.l AdvanceStringPtr
 	pla
 	sta.b $A5
 	jmp.w $CD19
@@ -1618,7 +1618,7 @@ CODE_9ECCA1:
 	sta.b $95
 	lda.w #$0002
 	sta.b [$95]
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.w #$009E
 	sta.b $8F
 	lda.w #$CC9A
@@ -1633,7 +1633,7 @@ CODE_9ECCA1:
 	lda.w #$CC94
 	sta.b $8D
 CODE_9ECCDC:
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A2A
@@ -1669,7 +1669,7 @@ CODE_9ECD19:
 	sta.b $95
 	lda.w #$0002
 	sta.b [$95]
-	jsl.l CODE_9ECFA5
+	jsl.l appstring
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A2A
@@ -1998,7 +1998,7 @@ CODE_9ECF91:
 	sta.b $A5
 	plx
 	rtl
-CODE_9ECFA5:
+appstring:
 	lda.w #$0002
 	sta.b $C5
 	lda.b [$95]

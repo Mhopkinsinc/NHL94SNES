@@ -285,7 +285,7 @@ CODE_9F9276:
 	jmp.w $91E8
 CODE_9F927D:
 	jsl.l CODE_9FDD9D
-	jsl.l CODE_9FD407
+	jsl.l setpersonel
 	jsl.l CODE_9FCE1D
 	ldy.b $91
 	lda.w #$FFFF
@@ -338,7 +338,7 @@ CODE_9F92F8:
 	inx
 	cpx.w #$0018
 	bcc CODE_9F92F8
-	jsl.l CODE_9EC107
+	jsl.l ClearPenaltyBuffer
 	rtl
 CODE_9F9307:
 	ldx.w #$0000
@@ -1253,7 +1253,7 @@ DATA8_9F9AD8:
 	db $00,$00,$00,$09,$02,$02,$09,$09,$02,$02,$02,$02,$02,$02,$02,$02
 DATA8_9F9AF8:
 	db $00,$00,$00,$01,$01,$01,$01,$01,$01,$00,$01,$01,$01,$01,$01,$01
-CODE_9F9B08:
+GetPeriodTimeRemaining:
 	lda.w $1630
 	xba
 	and.w #$FF00
