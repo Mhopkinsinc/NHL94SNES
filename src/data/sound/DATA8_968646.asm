@@ -1,13 +1,7 @@
-; Bank $96, first 4 KB: DATA8_968000, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then
-; DATA8_968646, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_968C02, an
-; LZ-packed block.
+; A song: a header (the second byte is the tempo), the offsets of its tracks, then each track
+; in a TRAK chunk (size byte, tag, track name, then the note stream the music player reads).
 
-org $968000
-DATA8_968000:		; for SPCUploadBlock: sound RAM address, length (big-endian words), then the bytes
-	db $06,$42
-	db $06,$42
-	incbin "data/sound/DATA8_968000.spc":4..1606
-DATA8_968646:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+DATA8_968646:		; header, track offsets (a zero ends them), padding, then the tracks
 	db $01,$90,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_968646,.right-DATA8_968646,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
@@ -106,7 +100,3 @@ DATA8_968646:		; a song (see bank81_F000): header, track offsets ($0000 ends the
 	db $9C,$78,$0B,$18,$9C,$78,$0B,$0C,$A5,$78,$4E,$0C,$9C,$78,$0B,$18
 	db $9C,$78,$0B,$18,$9C,$78,$0B,$18,$9C,$78,$0B,$0B,$D9,$00,$00,$00
 	db $00,$00,$00,$00,$00
-DATA8_968C02:		; packed for DecompressLZ, read by a screen setup in bank $9D; not identified yet
-	db $10,$FB
-	db $00,$07,$40
-	incbin "data/gfx/DATA8_968C02.lz":5..1022

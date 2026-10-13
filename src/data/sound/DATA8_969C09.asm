@@ -1,18 +1,7 @@
-; Bank $96, second 4 KB: the end of DATA8_968C02, then DATA8_969190, a block for the sound CPU (upload lists
-; DATA8_80E6C1 and DATA8_80E6FD), then DATA8_9696E3, a block for the sound CPU (upload lists DATA8_80E6C1 and
-; DATA8_80E6FD), then the start of DATA8_969C09, a song from the TeamSongs table (laid out as in bank81_F000).
+; A song: a header (the second byte is the tempo), the offsets of its tracks, then each track
+; in a TRAK chunk (size byte, tag, track name, then the note stream the music player reads).
 
-org $969000
-	incbin "data/gfx/DATA8_968C02.lz":1022..1422
-DATA8_969190:		; for SPCUploadBlock, as DATA8_968000
-	db $05,$4F
-	db $05,$4F
-	incbin "data/sound/DATA8_969190.spc":4..1363
-DATA8_9696E3:		; for SPCUploadBlock, as DATA8_968000
-	db $05,$22
-	db $05,$22
-	incbin "data/sound/DATA8_9696E3.spc":4..1318
-DATA8_969C09:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+DATA8_969C09:		; header, track offsets (a zero ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_969C09,.right-DATA8_969C09,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
@@ -83,3 +72,20 @@ DATA8_969C09:		; a song (see bank81_F000): header, track offsets ($0000 ends the
 	db $A3,$72,$01,$0B,$A3,$7E,$02,$00,$8E,$7D,$0F,$0B,$A3,$7A,$02,$0B
 	db $A3,$7D,$02,$00,$87,$75,$0D,$0A,$A3,$77,$02,$0A,$A3,$7D,$02,$00
 	db $8E,$79,$0D,$0B
+	db $A3,$79,$02,$0A,$A3,$7D,$02,$00,$87,$77,$0D,$0B
+	db $A3,$72,$02,$09,$A2,$7F,$06,$00,$8E,$7A,$0D,$0B,$A3,$77,$03,$0B
+	db $A3,$7D,$02,$00,$87,$79,$0E,$0A,$A3,$7D,$02,$0A,$A3,$7E,$02,$00
+	db $8E,$7D,$09,$0A,$A3,$79,$02,$0A,$A3,$7F,$02,$00,$87,$7A,$0E,$0A
+	db $A3,$7B,$02,$0A,$A3,$7F,$02,$00,$8E,$7E,$0A,$0A,$A3,$7E,$02,$09
+	db $A3,$7F,$02,$00,$87,$77,$0F,$0A,$A3,$7B,$02,$0A,$A3,$7F,$02,$00
+	db $8E,$7B,$09,$09,$A3,$7A,$02,$0A,$A3,$79,$02,$00,$87,$77,$0E,$08
+	db $A3,$7D,$02,$0B,$A4,$7F,$07,$00,$8C,$7B,$09,$0A,$A4,$73,$02,$09
+	db $A4,$7E,$02,$00,$87,$79,$0D,$0A,$A4,$77,$02,$09,$A4,$7F,$02,$00
+	db $8C,$7E,$0B,$0A,$A4,$7B,$02,$09,$A4,$7F,$02,$00,$87,$79,$0D,$09
+	db $A4,$79,$02,$0A,$A6,$7F,$03,$00,$8E,$7D,$0D,$08,$A6,$7D,$02,$0A
+	db $A6,$7F,$04,$00,$87,$79,$0E,$09,$A6,$7D,$02,$0A,$A6,$7F,$03,$00
+	db $8E,$7E,$0B,$09,$A6,$7A,$03,$09,$A6,$7D,$03,$00,$87,$77,$0C,$0A
+	db $AB,$7F,$03,$00,$A6,$79,$03,$09,$A8,$7F,$0B,$00,$8C,$7F,$0D,$37
+	db $A4,$7F,$09,$09,$A9,$75,$0A,$09,$AD,$75,$0B,$0B,$B0,$7F,$06,$13
+	db $AD,$75,$09,$0A,$B0,$7F,$81,$10,$49,$91,$75,$46,$47,$D9,$00,$00
+	db $00,$00,$00,$00,$00,$00,$00
