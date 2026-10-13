@@ -109,7 +109,7 @@ DATA8_99CCBA:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 	incbin "../Extracted/data/DATA8_99CCBA.lin.huf":5..548
 DATA8_99CEDE:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
-	dw .left-DATA8_99CEDE,$012E,$0000
+	dw .left-DATA8_99CEDE,.right-DATA8_99CEDE,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $00,$FE,"TRAK"
