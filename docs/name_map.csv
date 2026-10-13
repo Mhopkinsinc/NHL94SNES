@@ -156,3 +156,4 @@ $88FFC6,CenterIceMapNHL,DATA8_88FFC6,code,"centre ice logo map of the all-star t
 $8DFF3D,CenterIceTilesCGY,DATA8_8DFF3D,code,"Calgary centre ice logo tiles (linear 4bpp, Huffman); team 3 of the table at $9C83B7",src/bank8D_F000.asm
 $92A7B9,LetterSprites,DATA8_92A7B9,code,"the letters A-Z as an unpacked sprite set; drawn by the text routine at $9C93C3",src/bank92_A000.asm
 $92E053,IceRinkMap,DATA8_92E053,93S,"the rink map (LZ-packed, 48 x 113 words after a header) for IceRinkTiles; 93S IceRinkMap",src/bank92_E000.asm
+$95A7F7,SmallLetterSprites,DATA8_95A7F7,code,"small letters A-Z, digits 0-9 and a full stop as an unpacked sprite set; drawn by the text routine at $9C95F1",src/bank95_A000.asm
