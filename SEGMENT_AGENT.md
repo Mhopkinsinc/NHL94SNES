@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8C_A000. <- CURRENT
+bank8C_B000. <- CURRENT
 
 ## Sources
 
@@ -195,8 +195,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8B_F000 | matched 3774 bytes | $8BF142 | $8BFFFF | 0% | last SpriteFrames frames of bank $8B; DATA8_8BFE74 (a song from TeamSongs); $FF fill; org moved to $8BF142 |
 | bank8C_8000 | matched 4413 bytes | $8C8000 | $8C913C | 0% | SpriteFrames frames (tools/spriteframes.py); end moved +$13D (frame boundary) |
 | bank8C_9000 | matched 3810 bytes | $8C913D | $8CA01E | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8C913D, end moved +$1F (frame boundary) |
-| bank8C_A000 | incbin <- CURRENT | $8CA01F | $8CAFFF | 0% | org moved to $8CA01F |
-| bank8C_B000 | incbin | $8CB000 | $8CBFFF | 0% | |
+| bank8C_A000 | matched 4122 bytes | $8CA01F | $8CB038 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8CA01F, end moved +$39 (frame boundary) |
+| bank8C_B000 | incbin <- CURRENT | $8CB039 | $8CBFFF | 0% | org moved to $8CB039 |
 | bank8C_C000 | incbin | $8CC000 | $8CCFFF | 0% | |
 | bank8C_D000 | incbin | $8CD000 | $8CDFFF | 0% | |
 | bank8C_E000 | incbin | $8CE000 | $8CEFFF | 0% | |
@@ -455,3 +455,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8B_F000: source, MATCH. The last SpriteFrames frames of bank $8B (tools/spriteframes.py frames 8BF142 8C0000), then DATA8_8BFE74: a song laid out as in bank81_F000 (TeamSongs entries 31, 32 and 79 point to it: Dallas slots 1 and 2, NY Islanders slot 1), then $FF fill. Bank $8B is now all source.
 - bank8C_8000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8C8000 8C9000`. bank8C_9000 org moved to $8C913D (frame boundary).
 - bank8C_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8C913D 8CA000`. bank8C_A000 org moved to $8CA01F (frame boundary).
+- bank8C_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8CA01F 8CB000`. bank8C_B000 org moved to $8CB039 (frame boundary).
