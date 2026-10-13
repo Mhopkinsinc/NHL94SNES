@@ -308,6 +308,19 @@ ASSETS = [
     ('DATA8_9ADE57.pal.lz', 0x9ADE57, 0x9ADEE0),
     ('DATA8_9ADEE0.map.rle', 0x9ADEE0, 0x9ADF59),
     ('DATA8_9ADFCB.map.huf', 0x9ADFCB, 0x9AE027),
+    ('DATA8_9AE027.lz', 0x9AE027, 0x9AE080),
+    ('DATA8_9AE080.spc', 0x9AE080, 0x9AE0D5),
+    ('DATA8_9AE0D5.pal.lz', 0x9AE0D5, 0x9AE121),
+    ('DATA8_9AE121.pal.lz', 0x9AE121, 0x9AE168),
+    ('DATA8_9AE884.pal.rle', 0x9AE884, 0x9AE8BF),
+    ('DATA8_9AE8BF.huf', 0x9AE8BF, 0x9AE8EC),
+    ('DATA8_9AE8EC.map.rle', 0x9AE8EC, 0x9AE919),
+    ('DATA8_9AE919.map.rle', 0x9AE919, 0x9AE946),
+    ('DATA8_9AE946.pal.lz', 0x9AE946, 0x9AE972),
+    ('DATA8_9AE972.pal.huf', 0x9AE972, 0x9AE99D),
+    ('DATA8_9AE9C7.map.lz', 0x9AE9C7, 0x9AE9F0),
+    ('DATA8_9AE9F0.map.lz', 0x9AE9F0, 0x9AEA15),
+    ('DATA8_9AEA15.map.lz', 0x9AEA15, 0x9AEA3A),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []

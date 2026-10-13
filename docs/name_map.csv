@@ -182,3 +182,67 @@ $9AD79C,CenterIceTilesLAK,DATA8_9AD79C,code,"the Los Angeles centre ice logo: li
 $9AD972,CenterIceTilesTOR,DATA8_9AD972,code,"the Toronto centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 22 of the centre ice table in bank $9C)",src/bank9A_D000.asm
 $9ADA4A,CenterIceTilesMTL,DATA8_9ADA4A,code,"the Montreal centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 11 of the centre ice table in bank $9C)",src/bank9A_D000.asm
 $9ADD33,CenterIceTilesWSH,DATA8_9ADD33,code,"the Washington centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 24 of the centre ice table in bank $9C)",src/bank9A_D000.asm
+$9AE168,CenterIceMapPIT,DATA8_9AE168,code,"the Pittsburgh centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE1AE,CenterIceMapQUE,DATA8_9AE1AE,code,"the Quebec centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE1F4,CenterIceMapDET,DATA8_9AE1F4,code,"the Detroit centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE23A,CenterIceMapSJS,DATA8_9AE23A,code,"the San Jose centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE280,CenterIceMapSTL,DATA8_9AE280,code,"the St. Louis centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE2C6,CenterIceMapLAK,DATA8_9AE2C6,code,"the Los Angeles centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE30C,CenterIceMapTBL,DATA8_9AE30C,code,"the Tampa Bay centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE352,CenterIceMapTOR,DATA8_9AE352,code,"the Toronto centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE398,CenterIceMapDAL,DATA8_9AE398,code,"the Dallas centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE3DE,CenterIceMapVAN,DATA8_9AE3DE,code,"the Vancouver centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE424,CenterIceMapWSH,DATA8_9AE424,code,"the Washington centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE46A,CenterIceMapWPG,DATA8_9AE46A,code,"the Winnipeg centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE4B0,CenterIceMapHFD,DATA8_9AE4B0,code,"the Hartford centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE4F6,CenterIceMapCHI,DATA8_9AE4F6,code,"the Chicago centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE53C,CenterIceMapANA,DATA8_9AE53C,code,"the Anaheim centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE582,CenterIceMapNYI,DATA8_9AE582,code,"the New York Islanders centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE5C8,CenterIceMapNYR,DATA8_9AE5C8,code,"the New York Rangers centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE60E,CenterIceMapOTT,DATA8_9AE60E,code,"the Ottawa centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE654,CenterIceMapFLA,DATA8_9AE654,code,"the Florida centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE69A,CenterIceMapNJD,DATA8_9AE69A,code,"the New Jersey centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE6E0,CenterIceMapCGY,DATA8_9AE6E0,code,"the Calgary centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE726,CenterIceMapEDM,DATA8_9AE726,code,"the Edmonton centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE76C,CenterIceMapBUF,DATA8_9AE76C,code,"the Buffalo centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE7B2,CenterIceMapPHI,DATA8_9AE7B2,code,"the Philadelphia centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE7F8,CenterIceMapBOS,DATA8_9AE7F8,code,"the Boston centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AE83E,CenterIceMapMTL,DATA8_9AE83E,code,"the Montreal centre ice logo map: width, height, a word, then the map words (8 x 4)",src/bank9A_E000.asm
+$9AEA5C,PhotoPaletteBUF,DATA8_9AEA5C,code,"the 16 colours of the Buffalo player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEA7C,PhotoPaletteCGY,DATA8_9AEA7C,code,"the 16 colours of the Calgary player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEA9C,PhotoPaletteCHI,DATA8_9AEA9C,code,"the 16 colours of the Chicago player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEABC,PhotoPaletteDAL,DATA8_9AEABC,code,"the 16 colours of the Dallas player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEADC,PhotoPaletteDET,DATA8_9AEADC,code,"the 16 colours of the Detroit player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEAFC,PhotoPaletteEDM,DATA8_9AEAFC,code,"the 16 colours of the Edmonton player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEB1C,PhotoPaletteFLA,DATA8_9AEB1C,code,"the 16 colours of the Florida player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEB5C,PhotoPaletteHFD,DATA8_9AEB5C,code,"the 16 colours of the Hartford player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEB7C,PhotoPaletteLAK,DATA8_9AEB7C,code,"the 16 colours of the Los Angeles player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEB9C,PhotoPaletteMTL,DATA8_9AEB9C,code,"the 16 colours of the Montreal player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEBBC,PhotoPaletteNJD,DATA8_9AEBBC,code,"the 16 colours of the New Jersey player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEBDC,PhotoPaletteNYI,DATA8_9AEBDC,code,"the 16 colours of the New York Islanders player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEBFC,PhotoPaletteNYR,DATA8_9AEBFC,code,"the 16 colours of the New York Rangers player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEC1C,PhotoPaletteOTT,DATA8_9AEC1C,code,"the 16 colours of the Ottawa player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEC3C,PhotoPalettePHI,DATA8_9AEC3C,code,"the 16 colours of the Philadelphia player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEC5C,PhotoPalettePIT,DATA8_9AEC5C,code,"the 16 colours of the Pittsburgh player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEC7C,PhotoPaletteQUE,DATA8_9AEC7C,code,"the 16 colours of the Quebec player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AEC9C,PhotoPaletteSJS,DATA8_9AEC9C,code,"the 16 colours of the San Jose player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AECBC,PhotoPaletteSTL,DATA8_9AECBC,code,"the 16 colours of the St. Louis player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AECDC,PhotoPaletteTBL,DATA8_9AECDC,code,"the 16 colours of the Tampa Bay player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AECFC,PhotoPaletteTOR,DATA8_9AECFC,code,"the 16 colours of the Toronto player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AED1C,PhotoPaletteVAN,DATA8_9AED1C,code,"the 16 colours of the Vancouver player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AED3C,PhotoPaletteWSH,DATA8_9AED3C,code,"the 16 colours of the Washington player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AED5C,PhotoPaletteWPG,DATA8_9AED5C,code,"the 16 colours of the Winnipeg player photos (the photo palette table in bank $9D)",src/bank9A_E000.asm
+$9AED7C,LogoPaletteBOS,DATA8_9AED7C,code,"the 16 colours of the Boston logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AED9C,LogoPaletteNYI,DATA8_9AED9C,code,"the 16 colours of the New York Islanders logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEDBC,LogoPaletteANA,DATA8_9AEDBC,code,"the 16 colours of the Anaheim logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEDDC,LogoPaletteDAL,DATA8_9AEDDC,code,"the 16 colours of the Dallas logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEDFC,LogoPaletteMTL,DATA8_9AEDFC,code,"the 16 colours of the Montreal logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEE9C,LogoPaletteNJD,DATA8_9AEE9C,code,"the 16 colours of the New Jersey logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEEBC,LogoPaletteNYR,DATA8_9AEEBC,code,"the 16 colours of the New York Rangers logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEEDC,LogoPaletteOTT,DATA8_9AEEDC,code,"the 16 colours of the Ottawa logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEF3C,LogoPalettePHI,DATA8_9AEF3C,code,"the 16 colours of the Philadelphia logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEF7C,LogoPalettePIT,DATA8_9AEF7C,code,"the 16 colours of the Pittsburgh logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEF9C,LogoPaletteBUF,DATA8_9AEF9C,code,"the 16 colours of the Buffalo logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEFBC,LogoPaletteQUE,DATA8_9AEFBC,code,"the 16 colours of the Quebec logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEFDC,LogoPaletteCGY,DATA8_9AEFDC,code,"the 16 colours of the Calgary logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AEFFC,LogoPaletteSJS,DATA8_9AEFFC,code,"the 16 colours of the San Jose logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
