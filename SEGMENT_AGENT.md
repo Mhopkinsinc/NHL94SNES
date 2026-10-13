@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank93_B000. <- CURRENT
+bank93_C000. <- CURRENT
 
 ## Sources
 
@@ -252,8 +252,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank93_8000 | matched 4096 bytes | $938000 | $938FFF | 0% | start of DATA8_938000 (Huffman-packed background tiles) |
 | bank93_9000 | matched 4096 bytes | $939000 | $939FFF | 0% | the end of DATA8_938000, then the start of DATA8_9390FA, a block for the sound CPU (upload list DATA8_80E6FD) |
 | bank93_A000 | matched 4096 bytes | $93A000 | $93AFFF | 0% | the end of DATA8_9390FA, then the start of DATA8_93A18D, a block for the sound CPU (a long pointer list in bank $9C) |
-| bank93_B000 | incbin <- CURRENT | $93B000 | $93BFFF | 0% | |
-| bank93_C000 | incbin | $93C000 | $93CFFF | 0% | |
+| bank93_B000 | matched 4096 bytes | $93B000 | $93BFFF | 0% | the end of DATA8_93A18D, then the start of DATA8_93B217, packed linear background tiles of a screen with EA SPORTS |
+| bank93_C000 | incbin <- CURRENT | $93C000 | $93CFFF | 0% | |
 | bank93_D000 | incbin | $93D000 | $93DFFF | 0% | |
 | bank93_E000 | incbin | $93E000 | $93EFFF | 0% | |
 | bank93_F000 | incbin | $93F000 | $93FFFF | 0% | |
@@ -512,3 +512,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank93_8000: source, MATCH. The start of DATA8_938000 ($938000-$9390F9): background tiles packed for DecompressHuffman, unpacked near $9DDC1F; the screen is not identified. Bank $93: DATA8_9390FA (upload, E6FD entry 15), DATA8_93A18D (upload, list near $9C9A5B entry 5), DATA8_93B217 (linear tiles packed for DecompressPairs, a screen with EA SPORTS; read near $9DC7A3), DATA8_93C20B (upload, DD16 entry 8), DATA8_93D187 (upload, in no list found yet), DATA8_93DFAD (upload, E6FD entry 13), DATA8_93ED31 (a 14-track song, MusicStart from $9BB0A5, $9D8C04, $9F8CEC, $9F9115), DATA8_93FAB1 (upload, E6C1/E6FD entry 0).
 - bank93_9000: source, MATCH. The end of DATA8_938000, then the start of DATA8_9390FA, a block for the sound CPU (upload list DATA8_80E6FD).
 - bank93_A000: source, MATCH. The end of DATA8_9390FA, then the start of DATA8_93A18D, a block for the sound CPU (a long pointer list in bank $9C).
+- bank93_B000: source, MATCH. The end of DATA8_93A18D, then the start of DATA8_93B217, packed linear background tiles of a screen with EA SPORTS.
