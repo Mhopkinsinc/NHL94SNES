@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9C_F000. <- CURRENT
+bank9D_8000. <- CURRENT
 
 ## Sources
 
@@ -328,8 +328,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9C_C000 | matched 4090 bytes | $9CC007 | $9CD000 | 0% | team records (see the file header); org moved to $9CC007; end moved +$1 |
 | bank9C_D000 | matched 4112 bytes | $9CD001 | $9CE010 | 0% | team records (see the file header); org moved to $9CD001; end moved +$11 |
 | bank9C_E000 | matched 4079 bytes | $9CE011 | $9CEFFF | 0% | team records Vancouver ... Anaheim (end); playoffseats; screen text records (labels where code points at them); org moved to $9CE011 |
-| bank9C_F000 | incbin <- CURRENT | $9CF000 | $9CFFFF | 0% | |
-| bank9D_8000 | incbin | $9D8000 | $9D8FFF | 97% | |
+| bank9C_F000 | matched 4096 bytes | $9CF000 | $9CFFFF | 0% | screen text records (DATA8_ labels where code points at them); $FF fill (padbyte/pad) |
+| bank9D_8000 | incbin <- CURRENT | $9D8000 | $9D8FFF | 97% | |
 | bank9D_9000 | incbin | $9D9000 | $9D9FFF | 85% | |
 | bank9D_A000 | incbin | $9DA000 | $9DAFFF | 81% | |
 | bank9D_B000 | incbin | $9DB000 | $9DBFFF | 95% | |
@@ -588,3 +588,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9C_C000: source, MATCH. Team records written by the team data generator in 93S/94G teamdata form (see bank9C_A000): the rest of LosAngeles, then Dallas, then Montreal, then NewJersey, then NYIslanders, then NYRangers, then Ottawa, then Philadelphia; Philadelphia continues in the next file. Earlier TeamList entries and headers now use the new labels. The last Player entry ends at $9CD000, so bank9C_D000 starts at $9CD001.
 - bank9C_D000: source, MATCH. Team records written by the team data generator in 93S/94G teamdata form (see bank9C_A000): the rest of Philadelphia, then Pittsburgh, then Quebec, then SanJose, then StLouis, then TampaBay, then Toronto; Toronto continues in the next file. Earlier TeamList entries and headers now use the new labels. The last Player entry ends at $9CE010, so bank9C_E000 starts at $9CE011.
 - bank9C_E000: source, MATCH. The rest of the team records (the rest of Toronto, then Vancouver, Winnipeg, Washington, Florida, Anaheim), then playoffseats (94G name; the playoff tree seedings, 32 rows of 16 team numbers, the same rows as 94G) and the first screen text records (length word, then the text with $9F/$AF/$BF position codes), labelled where code points at them. TeamList and the Toronto header now use the new labels; the team database is all source.
+- bank9C_F000: source, MATCH. The rest of the screen text records (see bank9C_E000), labelled where code points at them, then $FF fill written with padbyte/pad. Bank $9C is now all source.

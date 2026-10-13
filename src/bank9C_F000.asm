@@ -1,3 +1,430 @@
-; Segment bank9C_F000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank9C_F000.asm.
+; Bank $9C, last 4 KB: the rest of the screen text records (see bank9C_E000), then $FF fill.
+
 org $9CF000
-	incbin "../Extracted/segments/bank9C_F000.bin"
+DATA8_9CF000:
+	dw $0005 : db $BF,$0B,$07
+DATA8_9CF005:
+	dw $0005 : db $BF,$00,$09
+DATA8_9CF00A:
+	dw $0013 : db $BF,$09,$0D,"Return to Game"
+DATA8_9CF01D:
+	dw $001A : db $9F,$06,$0E,"Restore default lines"
+DATA8_9CF037:
+	dw $0005 : db $BF,$09,$0D
+DATA8_9CF03C:
+	dw $0005 : db $9F,$09,$0D
+DATA8_9CF041:
+	dw $0010 : db "Return to Game"
+DATA8_9CF051:
+	dw $0005 : db $BF,$06,$0E
+DATA8_9CF056:
+	dw $0005 : db $9F,$06,$0E
+DATA8_9CF05B:
+	dw $0017 : db "Restore default lines"
+DATA8_9CF072:
+	dw $0005 : db $BF,$00,$0D
+DATA8_9CF077:
+	dw $0005 : db $BF,$00,$0E
+DATA8_9CF07C:
+	dw $0005 : db $BF,$00,$01
+DATA8_9CF081:
+	dw $0005 : db $BF,$00,$01
+DATA8_9CF086:
+	dw $000B : db $AF,$03,$02,"Player"
+DATA8_9CF091:
+	dw $0006 : db $AF,$02,$02,"{"
+DATA8_9CF097:
+	dw $0006 : db $AF,$09,$02,"}"
+DATA8_9CF09D:
+	dw $0005 : db $BF,$00,$00
+DATA8_9CF0A2:
+	dw $0005 : db $BF,$07,$09
+DATA8_9CF0A7:
+	dw $0005 : db $BF,$00,$03
+DATA8_9CF0AC:
+	dw $0009 : db "Scoring"
+DATA8_9CF0B5:
+	dw $0023 : db $AF,$01,$09,"Per Time Tm  Goal/Assist   P/S"
+DATA8_9CF0D8:
+	dw $000F : db $BF,$0B,$0D,"No Scoring"
+DATA8_9CF0E7:
+	dw $0005 : db "PP2"
+DATA8_9CF0EC:
+	dw $0004 : db "PP"
+DATA8_9CF0F0:
+	dw $0004 : db "SH"
+DATA8_9CF0F4:
+	dw $0005 : db "SH2"
+DATA8_9CF0F9:
+	dw $000B : db "Penalties"
+DATA8_9CF104:
+	dw $0023 : db $AF,$01,$09,"Per Time Tm  Player/Penalty PM"
+DATA8_9CF127:
+	dw $0011 : db $BF,$0A,$0D,"No Penalties"
+DATA8_9CF138:
+	dw $0005 : db $BF,$09,$06
+DATA8_9CF13D:
+	dw $000E : db "   Scroll  }"
+DATA8_9CF14B:
+	dw $0006 : db $AF,$15,$07,"}"
+DATA8_9CF151:
+	dw $0006 : db $AF,$15,$07," "
+DATA8_9CF157:
+	dw $0006 : db $AF,$0A,$07,"{"
+DATA8_9CF15D:
+	dw $0006 : db $AF,$0A,$07," "
+DATA8_9CF163:
+	dw $0005 : db $BF,$06,$0A
+DATA8_9CF168:
+	dw $000D : db "CROWD METER"
+DATA8_9CF175:
+	dw $000C : db $AF,$05,$11,"Current"
+DATA8_9CF181:
+	dw $0007 : db $AF,$19,$11,"db"
+DATA8_9CF188:
+	dw $000C : db $BF,$05,$11,"Current"
+DATA8_9CF194:
+	dw $0007 : db $BF,$19,$11,"db"
+DATA8_9CF19B:
+	dw $0009 : db $AF,$05,$13,"Peak"
+DATA8_9CF1A4:
+	dw $0007 : db $AF,$19,$13,"db"
+DATA8_9CF1AB:
+	dw $0009 : db $BF,$05,$13,"Peak"
+DATA8_9CF1B4:
+	dw $0007 : db $BF,$19,$13,"db"
+DATA8_9CF1BB:
+	dw $000C : db $AF,$05,$15,"Average"
+DATA8_9CF1C7:
+	dw $0007 : db $AF,$19,$15,"db"
+DATA8_9CF1CE:
+	dw $000C : db $BF,$05,$15,"Average"
+DATA8_9CF1DA:
+	dw $0007 : db $BF,$19,$15,"db"
+DATA8_9CF1E1:
+	dw $000E : db "Other Scores"
+DATA8_9CF1EF:
+	dw $0014 : db $9F,$09,$0B,"No Other Games."
+DATA8_9CF203:
+	dw $000A : db "Password"
+DATA8_9CF20D:
+	dw $0005 : db $AF,$01,$12
+DATA8_9CF212:
+	dw $0010 : db $AF,$02,$0E,"Password",$AF,$15,$0E
+DATA8_9CF222:
+	dw $0005 : db $BF,$02,$10
+DATA8_9CF227:
+	dw $0005 : db $AF,$01,$11
+DATA8_9CF22C:
+	dw $0005 : db " < "
+DATA8_9CF231:
+	dw $0005 : db $AF,$14,$0D
+DATA8_9CF236:
+	dw $0014 : db $BF,$02,$13,"Bad Password   "
+DATA8_9CF24A:
+	dw $0014 : db $BF,$02,$14,"A - Retry      "
+DATA8_9CF25E:
+	dw $0014 : db $BF,$02,$15,"Y - Exit Screen"
+DATA8_9CF272:
+	dw $0010 : db $AF,$0A,$18,"           "
+DATA8_9CF282:
+	dw $0005 : db $AF,$02,$13
+DATA8_9CF287:
+	dw $0014 : db $AF,$02,$13," {}[] - Select "
+DATA8_9CF29B:
+	dw $0014 : db $AF,$02,$14,"    A - Next   "
+DATA8_9CF2AF:
+	dw $0014 : db $AF,$02,$15,"    Y - Back   "
+DATA8_9CF2C3:
+	dw $0010 : db $AF,$0A,$18,"Press start"
+DATA8_9CF2D3:
+	dw $000E : db "Player Stats"
+DATA8_9CF2E1:
+	dw $0005 : db $BF,$09,$06
+DATA8_9CF2E6:
+	dw $0015 : db $9F,$08,$1A,"Y - Switch Teams"
+DATA8_9CF2FB:
+	dw $000E : db "Player Stats"
+DATA8_9CF309:
+	dw $0023 : db $9F,$01,$09,"  Player         G  A Pt Sh PM"
+DATA8_9CF32C:
+	dw $0023 : db $9F,$01,$09,"  Goalie          GA  Sh  Ptg "
+DATA8_9CF34F:
+	dw $0005 : db $AF,$0A,$07
+DATA8_9CF354:
+	dw $000C : db "Game Stats"
+DATA8_9CF360:
+	dw $0005 : db $BF,$01,$09
+DATA8_9CF365:
+	dw $0005 : db $BF,$16,$09
+DATA8_9CF36A:
+	dw $0003 : db "%"
+DATA8_9CF36D:
+	dw $0003 : db "/"
+DATA8_9CF370:
+	dw $0005 : db $BF,$0B,$02
+DATA8_9CF375:
+	dw $0005 : db $BF,$0B,$02
+DATA8_9CF37A:
+	dw $0016 : db $BF,$0D,$03,"Stars of the Game"
+DATA8_9CF390:
+	dw $0005 : db $BF,$01,$0D
+DATA8_9CF395:
+	dw $0005 : db $FF,$02,$0E
+DATA8_9CF39A:
+	dw $0005 : db $FF,$00,$00
+DATA8_9CF39F:
+	dw $000A : db "Matchups"
+DATA8_9CF3A9:
+	dw $0005 : db $BF,$01,$0A
+DATA8_9CF3AE:
+	dw $0005 : db $BF,$16,$0A
+DATA8_9CF3B3:
+	dw $0005 : db $EF,$03,$09
+DATA8_9CF3B8:
+	dw $0005 : db $EF,$01,$08
+DATA8_9CF3BD:
+	dw $0005 : db $EF,$19,$09
+DATA8_9CF3C2:
+	dw $0005 : db $EF,$14,$08
+DATA8_9CF3C7:
+	dw $000F : db $EF,$01,$08,"Overall",$EF,$03,$09
+DATA8_9CF3D6:
+	dw $000F : db $EF,$18,$08,"Overall",$EF,$19,$09
+DATA8_9CF3E5:
+	dw $0005 : db $EF,$0A,$04
+DATA8_9CF3EA:
+	dw $000E : db $EF,$0B,$06,"Advantage"
+DATA8_9CF3F8:
+	dw $000A : db $FF,$0D,$09,"[ [ ["
+DATA8_9CF402:
+	dw $000A : db $FF,$0D,$09,"] ] ]"
+DATA8_9CF40C:
+	dw $0009 : db $FF,$0D,$09,"None"
+DATA8_9CF415:
+	dw $0005 : db $AF,$00,$00
+DATA8_9CF41A:
+	dw $0005 : db $CF,$00,$00
+DATA8_9CF41F:
+	dw $0005 : db $DF,"8h"
+DATA8_9CF424:
+	dw $000D : db "Team Roster"
+DATA8_9CF431:
+	dw $0017 : db $9F,$07,$0C,"Player",$9F,$19,$0C,"Rating",$BF,$01,$08
+DATA8_9CF448:
+	dw $0005 : db $BF,$10,$08
+DATA8_9CF44D:
+	dw $0005 : db $BF,$0B,$06
+DATA8_9CF452:
+	dw $000D : db "Team Roster"
+DATA8_9CF45F:
+	dw $0005 : db $9F,$02,$09
+DATA8_9CF464:
+	dw $0005 : db $BF,$00,$0D
+DATA8_9CF469:
+	dw $0018 : db $9F,$08,$1A,"Y - Switch Teams",$BF,$00,$0E
+DATA8_9CF481:
+	dw $0008 : db $BF,$05,$0A,"Not"
+DATA8_9CF489:
+	dw $000C : db $BF,$03,$0B,"Playing"
+DATA8_9CF495:
+	dw $0008 : db $BF,$0F,$0A,"Not"
+DATA8_9CF49D:
+	dw $000C : db $BF,$0D,$0B,"Playing"
+DATA8_9CF4A9:
+	dw $001A : db $EF,$05,$19,"Use [] to select team"
+DATA8_9CF4C3:
+	dw $001A : db $EF,$05,$1A,"Press START when done"
+DATA8_9CF4DD:
+	dw $001D : db $BF,$04,$19,"At least one person must"
+DATA8_9CF4FA:
+	dw $001B : db $BF,$04,$1A,"  play in playoff mode"
+DATA8_9CF515:
+	dw $001D : db $BF,$04,$19,"Only one player per team"
+DATA8_9CF532:
+	dw $001C : db $BF,$04,$1A," is allowed in shootout"
+DATA8_9CF54E:
+	dw $001D : db $EF,$04,$19," Use [] to select team  "
+DATA8_9CF56B:
+	dw $001D : db $EF,$04,$1A," Press START when done  "
+DATA8_9CF588:
+	dw $000F : db "Player select"
+DATA8_9CF597:
+	dw $000C : db "Game Setup"
+DATA8_9CF5A3:
+	dw $0005 : db $AF,$00,$00
+DATA8_9CF5A8:
+	dw $000C : db "Game Setup"
+DATA8_9CF5B4:
+	dw $000F : db "Player select"
+DATA8_9CF5C3:
+	dw $001E : db $EF,$04,$10,"The MultiPlayer 5 must be"
+DATA8_9CF5E1:
+	dw $001C : db $EF,$04,$12,"connected to Controller"
+DATA8_9CF5FD:
+	dw $000F : db $EF,$0A,$14,"Socket #2."
+DATA8_9CF60C:
+	dw $001E : db $EF,$04,$10,"The MultiPlayer 5 is not "
+DATA8_9CF62A:
+	dw $001E : db $EF,$04,$12,"designed for use with the"
+DATA8_9CF648:
+	dw $001B : db $EF,$06,$14,"Super NES Super Scope."
+DATA8_9CF663:
+	dw $001D : db $EF,$04,$10,"The MultiPlayer 5 is not"
+DATA8_9CF680:
+	dw $001E : db $EF,$04,$12,"designed for use with the"
+DATA8_9CF69E:
+	dw $0015 : db $EF,$09,$14,"Super NES mouse."
+DATA8_9CF6B3:
+	dw $0005 : db $9F,$00,$03
+DATA8_9CF6B8:
+	dw $000C : db "Strengths:"
+DATA8_9CF6C4:
+	dw $000C : db "Strengths:"
+DATA8_9CF6D0:
+	dw $0010 : db "Overall Rating"
+DATA8_9CF6E0:
+	dw $0005 : db $9F,$0C,$04
+DATA8_9CF6E5:
+	dw $000D : db "Team Rating"
+DATA8_9CF6F2:
+	dw $0026 : db $AF,$08,$18,"[] Switch cards",$AF,$08,$19,"Y  Switch teams"
+DATA8_9CF718:
+	dw $0012 : db $BF,$01,$19,"   ",$16,$17,$18,$19,$BF,$01,$1A,"   "
+DATA8_9CF72A:
+	dw $0005 : db $BF,$01,$19
+DATA8_9CF72F:
+	dw $0005 : db $BF,$00,$0A
+DATA8_9CF734:
+	dw $0005 : db $BF,$05,$0A
+DATA8_9CF739:
+	dw $0005 : db $BF,$11,$0D
+DATA8_9CF73E:
+	dw $0005 : db $BF,$0B,$03
+DATA8_9CF743:
+	dw $0023 : db $BF,$0C,$04,"Injury to:",$BF,$0C,$06,"Out for period",$BF,$0C,$05
+DATA8_9CF766:
+	dw $0010 : db $BF,$14,$06,"the game",$BF,$0C,$05
+DATA8_9CF776:
+	dw $0005 : db $BF,$04,$0C
+DATA8_9CF77B:
+	dw $001B : db $BF,$05,$0D,"                      "
+DATA8_9CF796:
+	dw $0005 : db $EF,$02,$0E
+	dw $0005 : db $BF,$01,$0A
+DATA8_9CF7A0:
+	dw $0005 : db $BF,$11,$0D
+DATA8_9CF7A5:
+	dw $000E : db "Period Stats"
+DATA8_9CF7B3:
+	dw $0005 : db $BF,$01,$0B
+DATA8_9CF7B8:
+	dw $0005 : db $BF,$01,$0E
+DATA8_9CF7BD:
+	dw $0005 : db $BF,$01,$13
+DATA8_9CF7C2:
+	dw $0007 : db "Total"
+	dw $0007 : db "Shots"
+	dw $000E : db $EF,$0B,$19,"Y - Goals"
+DATA8_9CF7DE:
+	dw $0007 : db "Goals"
+DATA8_9CF7E5:
+	dw $000E : db $EF,$0B,$19,"Y - Shots"
+DATA8_9CF7F3:
+	dw $0016 : db "Highlight from game:"
+DATA8_9CF809:
+	dw $0005 : db $BF,$05,$0C
+DATA8_9CF80E:
+	dw $0005 : db $BF,$05,$0C
+DATA8_9CF813:
+	dw $0004 : db "  "
+DATA8_9CF817:
+	dw $0005 : db "   "
+DATA8_9CF81C:
+	dw $0005 : db $BF,$00,$17
+DATA8_9CF821:
+	dw $0005 : db $BF,$01,$18
+DATA8_9CF826:
+	dw $000A : db $BF,$01,$1A,"Round"
+DATA8_9CF830:
+	dw $0005 : db $BF,$17,$17
+DATA8_9CF835:
+	dw $0005 : db $BF,$1C,$18
+DATA8_9CF83A:
+	dw $0005 : db $BF,$18,$18
+DATA8_9CF83F:
+	dw $0005 : db $BF,$0F,$01
+DATA8_9CF844:
+	dw $0005 : db $BF,$0F,$1A
+DATA8_9CF849:
+	dw $0005 : db $BF,$0F,$02
+DATA8_9CF84E:
+	dw $0005 : db $BF,$1B,$04
+DATA8_9CF853:
+	dw $0005 : db $BF,$09,$04
+DATA8_9CF858:
+	dw $0005 : db $BF,$14,$08
+DATA8_9CF85D:
+	dw $0005 : db $BF,$03,$08
+	dw $0005 : db $BF,$05,$0C
+DATA8_9CF867:
+	dw $0005 : db $BF,$02,$17
+DATA8_9CF86C:
+	dw $0005 : db $BF,$02,$17
+DATA8_9CF871:
+	dw $001C : db "                          "
+DATA8_9CF88D:
+	dw $0005 : db $FF,$0B,$02
+DATA8_9CF892:
+	dw $0005 : db $BF,$0B,$02
+DATA8_9CF897:
+	dw $0012 : db $BF,$0E,$06,"Assist by:",$BF,$0C,$07
+DATA8_9CF8A9:
+	dw $0005 : db $BF,$0C,$08
+DATA8_9CF8AE:
+	dw $0005 : db $BF,$00,$00
+DATA8_9CF8B3:
+	dw $0005 : db "vs."
+DATA8_9CF8B8:
+	dw $000A : db "Shootout"
+	dw $000B : db "Pen. Shot"
+DATA8_9CF8CD:
+	dw $0005 : db $BF,$00,$00
+DATA8_9CF8D2:
+	dw $0005 : db $BF,$01,$19
+DATA8_9CF8D7:
+	dw $0003 : db " "
+DATA8_9CF8DA:
+	dw $0005 : db $FF,$00,$00
+DATA8_9CF8DF:
+	dw $0005 : db $FF,$00,$00
+DATA8_9CF8E4:
+	dw $0005 : db $BF,$13,$01
+DATA8_9CF8E9:
+	dw $0005 : db $BF,$05,$0C
+DATA8_9CF8EE:
+	dw $000F : db $BF,$0C,$0E,"Timeout",$BF,$0A,$0F
+DATA8_9CF8FD:
+	dw $0005 : db $BF,$06,$0D
+DATA8_9CF902:
+	dw $0016 : db "                    "
+DATA8_9CF918:
+	dw $0005 : db $BF,$05,$0C
+DATA8_9CF91D:
+	dw $0005 : db $BF,$06,$0D
+DATA8_9CF922:
+	dw $0005 : db $BF,$06,$0F
+DATA8_9CF927:
+	dw $0005 : db $BF,$06,$10
+DATA8_9CF92C:
+	dw $0005 : db $BF,$05,$0C
+DATA8_9CF931:
+	dw $0005 : db $BF,$0C,$0D
+DATA8_9CF936:
+	dw $0005 : db $BF,$0C,$0E
+DATA8_9CF93B:
+	dw $0005 : db $BF,$0C,$0F
+DATA8_9CF940:
+	dw $0005 : db $BF,$0C,$10
+	padbyte $FF
+	pad $9D8000
