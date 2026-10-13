@@ -1,7 +1,7 @@
 ; Bank $97, last 4 KB: the end of DATA8_97EDBC, then DATA8_97F023, a player photo, then DATA8_97F28A, a player photo,
 ; then DATA8_97F4F1, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_97F757, a player photo,
 ; then DATA8_97F9BC, a player photo, then DATA8_97FC21, a song from the TeamSongs table (laid out as in bank81_F000),
-; then CenterIceTilesTBL, the Tampa Bay centre ice logo tiles.
+; then CenterIceTilesTBL, the Tampa Bay centre ice logo tiles, and the last bytes of the bank.
 
 org $97F000
 	incbin "../Extracted/data/DATA8_97EDBC.lin.huf":580..615

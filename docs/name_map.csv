@@ -160,3 +160,4 @@ $95A7F7,SmallLetterSprites,DATA8_95A7F7,code,"small letters A-Z, digits 0-9 and 
 $96C9CE,AwayUniformPalettes,DATA8_96C9CE,code,"16 colours per team, indexed by the away team $1C9A, copied to the sprite colours at $9FB951; dark jerseys when rendered",src/bank96_C000.asm
 $96CD4E,HomeUniformPalettes,DATA8_96CD4E,code,"16 colours per team, indexed by the home team $1C98, copied to the sprite colours at $9FB91A; white jerseys when rendered",src/bank96_C000.asm
 $9788DC,PregameText,DATA8_9788DC,code,"the pre-game screen text ($0D-ended strings: team places, then Ron Barr's lines with % codes); read at $9EC977",src/bank97_8000.asm
+$97FE85,CenterIceTilesTBL,DATA8_97FE85,code,"Tampa Bay centre ice logo tiles (linear 4bpp, Huffman); team 21 of the table at $9C83B7",src/bank97_F000.asm

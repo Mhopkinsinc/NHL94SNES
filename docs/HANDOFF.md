@@ -69,7 +69,7 @@
   the logo tiles, then to the logo map). The tiles are linear 4bpp packed for DecompressHuffman (converted to planar by
   $9B85C2; `tools/snesgfx.py tiles/map --linear`), the map is not packed (width, height, a word, then map words, which
   $9BC1D5 pastes into the rink map with palette 5). Most of the tiles are in bank $9A; a few sit at bank ends after the
-  sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38, CenterIceTilesVAN (23) at $86FE78, CenterIceTilesCGY (3) at $8DFF3D; still incbin: 21 at $97FE85, 13 at $98FECB, 15 at $99FEC0). Team index = the logo order of
+  sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38, CenterIceTilesVAN (23) at $86FE78, CenterIceTilesCGY (3) at $8DFF3D, CenterIceTilesTBL (21) at $97FE85; still incbin: 13 at $98FECB, 15 at $99FEC0). Team index = the logo order of
   TeamLogoSprites.
 - $9DCD53 is a table of long pointers read at $9DC9DD and $9DCC65 as (team $1C98 * 26 + $A5) * 4: 28 rows of 26 packed
   entries that are unpacked and converted with $9B85C2: player photos, 6 x 6 tiles (checked: DATA8_8CFDEC, entry 390,
