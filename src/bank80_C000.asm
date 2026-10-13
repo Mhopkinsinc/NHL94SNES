@@ -670,9 +670,9 @@ CODE_80C81C:		; the shootout: both shooter lists, then a turn for each team ever
 	lda.w #$0002
 	sta.b $91
 	jsl.l InitShooters
-	jsl.l $9F833C
-	jsl.l $9F8433
-	jsl.l $9F937B
+	jsl.l CODE_9F833C
+	jsl.l CODE_9F8433
+	jsl.l CODE_9F937B
 	lda.w #$0001
 	sta.w shootoutround
 	stz.b $A9
@@ -709,14 +709,14 @@ CODE_80C898:		; a shootout turn of team $91: the shooter of this round from its 
 	stz.w $1D87
 	lda.b $91
 	pha
-	jsl.l $9EC107
+	jsl.l CODE_9EC107
 	stz.w $15D4
 	lda.b $91
 	beq CODE_80C8B2
 	lda.w #$0002
 	sta.w $15D4
 CODE_80C8B2:
-	jsl.l $9F8433
+	jsl.l CODE_9F8433
 	pla
 	sta.b $91
 	lda.w #$0000
@@ -741,7 +741,7 @@ CODE_80C8CC:
 CODE_80C8E2:
 	sty.w $1E93
 CODE_80C8E5:
-	jsl.l $9EC72D
+	jsl.l CODE_9EC72D
 	lda.b $91
 	beq CODE_80C918
 	lda.w shootoutround
@@ -784,7 +784,7 @@ CODE_80C926:
 	sta.w $1E8D
 	stz.w $1E91
 CODE_80C93E:
-	jsl.l $9F8511
+	jsl.l CODE_9F8511
 	rtl
 ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	lda.w $1D81
@@ -820,7 +820,7 @@ CODE_80C97A:
 CODE_80C97D:
 	phy
 	lda.w $1C98,y
-	jsl.l $9BC5AB
+	jsl.l CODE_9BC5AB
 	lda.b [$8D]
 	and.w #$00FF
 	dec a
@@ -841,13 +841,13 @@ CODE_80C97D:
 	sta.w $0D11
 	lda.w #$0006
 	sta.b $A9
-	jsl.l $9D8000
+	jsl.l CODE_9D8000
 	lda.b $00
 	inc a
 	sta.w $0D0F
 	lda.w #$000E
 	sta.w $0D11
-	jsl.l $9ECE15
+	jsl.l CODE_9ECE15
 	lda.w #$000C
 	sta.w $0D0F
 	lda.w #$0010
@@ -860,16 +860,16 @@ CODE_80C97D:
 	beq CODE_80C9EA
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EF59
+	lda.w #DATA8_9CEF59
 	sta.b $8D
-	jsl.l $9ECE15
+	jsl.l CODE_9ECE15
 	bra CODE_80C9F8
 CODE_80C9EA:
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EF60
+	lda.w #DATA8_9CEF60
 	sta.b $8D
-	jsl.l $9ECE15
+	jsl.l CODE_9ECE15
 CODE_80C9F8:
 	pla
 	sta.b $8D
@@ -880,12 +880,12 @@ CODE_80C9F8:
 	lda.w #$0010
 	sta.b $A5
 CODE_80CA05:
-	jsl.l $9EB88A
+	jsl.l CODE_9EB88A
 	rtl
 CODE_80CA0A:		; does nothing
 	rtl
 ShootoutShooters:	; the screen where team $91 picks its goalie and shooters; Selected_Goalie is set from the list on exit
-	jsl.l $9DE0E9
+	jsl.l CODE_9DE0E9
 	lda.w #$0001
 	sta.b $A5
 	lda.b $91
@@ -906,9 +906,9 @@ CODE_80CA2E:
 	sta.l $7E3454
 	lda.w #$FFFF
 	sta.l $7E3452
-	jsl.l $9DD9AD
+	jsl.l CODE_9DD9AD
 	jsl.l CODE_80CAE1
-	jsl.l $9DE0D4
+	jsl.l CODE_9DE0D4
 	jsl.l CODE_80CC1B
 	stz.w $1DB9
 	lda.w #$0001
@@ -917,15 +917,15 @@ CODE_80CA2E:
 	jsl.l CODE_80CC89
 	lda.w #$0005
 	ldx.w #$0050
-	jsl.l $9DCCF5
-	jsl.l $9DDFF6
+	jsl.l CODE_9DCCF5
+	jsl.l CODE_9DDFF6
 	jsl.l CODE_8086BD
 CODE_80CA70:
-	jsl.l $9DD923
+	jsl.l CODE_9DD923
 	jsl.l WaitFrame
-	jsl.l $9B8017
-	jsl.l $9B851F
-	jsl.l $9B852C
+	jsl.l CODE_9B8017
+	jsl.l CODE_9B851F
+	jsl.l CODE_9B852C
 	lda.b $A9
 	bit.w #$0800
 	bne CODE_80CAB8
@@ -977,9 +977,9 @@ CODE_80CAE1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EF66
+	lda.w #DATA8_9CEF66
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -990,16 +990,16 @@ CODE_80CAE1:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l $9FBD9C
+	jsl.l CODE_9FBD9C
 	lda.b $8F
 	pha
 	lda.b $8D
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EF6B
+	lda.w #DATA8_9CEF6B
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -1010,16 +1010,16 @@ CODE_80CAE1:
 	sta.b $A5
 	lda.w #$0003
 	sta.b $A9
-	jsl.l $9D80DD
+	jsl.l CODE_9D80DD
 	lda.b $8F
 	pha
 	lda.b $8D
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EF70
+	lda.w #DATA8_9CEF70
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -1033,9 +1033,9 @@ CODE_80CB5C:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EF81
+	lda.w #DATA8_9CEF81
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -1046,16 +1046,16 @@ CODE_80CB5C:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l $9FBD9C
+	jsl.l CODE_9FBD9C
 	lda.b $8F
 	pha
 	lda.b $8D
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EF86
+	lda.w #DATA8_9CEF86
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -1066,23 +1066,23 @@ CODE_80CB5C:
 	sta.b $A5
 	lda.w #$0003
 	sta.b $A9
-	jsl.l $9D80DD
+	jsl.l CODE_9D80DD
 	lda.b $8F
 	pha
 	lda.b $8D
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EF8B
+	lda.w #DATA8_9CEF8B
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
 	sta.b $8F
 	lda.w #$009A
 	sta.b $0E
-	lda.w #$BA95
+	lda.w #DATA8_9ABA95
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -1118,18 +1118,18 @@ CODE_80CC25:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EF9C
+	lda.w #DATA8_9CEF9C
 	sta.b $8D
-	jsl.l $9C936C
+	jsl.l CODE_9C936C
 	lda.b $8F
 	pha
 	lda.b $8D
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EFA6
+	lda.w #DATA8_9CEFA6
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -1141,8 +1141,8 @@ CODE_80CC25:
 	lda.w $1C9A
 	sta.b $A9
 CODE_80CC65:
-	jsl.l $9FBE08
-	jsl.l $9DDDB3
+	jsl.l CODE_9FBE08
+	jsl.l CODE_9DDDB3
 	jsl.l SpriteFrameEnd
 	lda.l $7E3468
 	beq CODE_80CC88
@@ -1160,9 +1160,9 @@ CODE_80CC89:		; print the goalie and shooter rows, the row at the cursor ($1DB9)
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EFAB
+	lda.w #DATA8_9CEFAB
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -1173,21 +1173,21 @@ CODE_80CC89:		; print the goalie and shooter rows, the row at the cursor ($1DB9)
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l $9FBD9C
+	jsl.l CODE_9FBD9C
 	lda.b $8F
 	pha
 	lda.b $8D
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EFB0
+	lda.w #DATA8_9CEFB0
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
 	sta.b $8F
-	jsl.l $9ED300
+	jsl.l CODE_9ED300
 	lda.b $A5
 	dec a
 	sta.b $A9
@@ -1260,7 +1260,7 @@ CODE_80CD62:
 	sta.b $8F
 	lda.b $9D
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	lda.b $8F
 	sta.b $9F
 	lda.b $8D
@@ -1271,8 +1271,8 @@ CODE_80CD62:
 	and.w #$00FF
 	dec a
 	sta.b $A5
-	jsl.l $9FC372
-	jsl.l $9EC7BE
+	jsl.l CODE_9FC372
+	jsl.l CODE_9EC7BE
 	inc.b $95
 	inc.w $0D11
 	inc.w $0D11
@@ -1324,7 +1324,7 @@ CODE_80CDF9:
 CODE_80CE0A:		; button on a row: the goalie row cycles the goalie, a shooter row opens ShooterSelectList
 	lda.w $1DB9
 	bne ShooterSelectList
-	jsl.l $9ED300
+	jsl.l CODE_9ED300
 	lda.w #$0000
 	sta.b $8F
 	lda.w #homeshooters
@@ -1356,9 +1356,9 @@ ShooterSelectList:	; pick the player for the shooter row at the cursor
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EFB5
+	lda.w #DATA8_9CEFB5
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -1369,10 +1369,10 @@ ShooterSelectList:	; pick the player for the shooter row at the cursor
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l $9FBD9C
+	jsl.l CODE_9FBD9C
 	lda.w #$009A
 	sta.b $0E
-	lda.w #$E9C7
+	lda.w #DATA8_9AE9C7
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -1393,16 +1393,16 @@ ShooterSelectList:	; pick the player for the shooter row at the cursor
 	clc
 	adc.w #$0C00
 	jsl.l CODE_808E2D
-	jsl.l $9DD938
-	jsl.l $9DD962
+	jsl.l CODE_9DD938
+	jsl.l CODE_9DD962
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	lda.w #$0007
 	sta.w $1DEF
-	jsl.l $9FC93D
+	jsl.l CODE_9FC93D
 	lda.b $A5
 	sta.w $1DA3
-	jsl.l $9ED300
+	jsl.l CODE_9ED300
 	lda.w $1DA3
 	sec
 	sbc.b $A5
@@ -1458,12 +1458,12 @@ CODE_80CF41:
 	sta.w $1D9B
 	jsl.l CODE_80D004
 CODE_80CF48:
-	jsl.l $9DD923
-	jsl.l $9DD94D
+	jsl.l CODE_9DD923
+	jsl.l CODE_9DD94D
 	jsl.l WaitFrame
-	jsl.l $9B8017
-	jsl.l $9B851F
-	jsl.l $9B852C
+	jsl.l CODE_9B8017
+	jsl.l CODE_9B851F
+	jsl.l CODE_9B852C
 	lda.b $A9
 	bit.w #$1000
 	bne CODE_80CF84

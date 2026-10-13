@@ -15,9 +15,9 @@ CODE_80D004:		; draw the ShooterSelectList list: the title of rating column $0D4
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EFBA
+	lda.w #DATA8_9CEFBA
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -28,7 +28,7 @@ CODE_80D004:		; draw the ShooterSelectList list: the title of rating column $0D4
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l $9FBD9C
+	jsl.l CODE_9FBD9C
 	lda.w #$0011
 	sta.w $0D0F
 	lda.w #$0002
@@ -60,7 +60,7 @@ CODE_80D061:
 CODE_80D06A:
 	lda.w #$3800
 	sta.w $0D0D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	lda.b [$8D]
 	sta.b $B7
 	ldy.w #$0002
@@ -72,9 +72,9 @@ CODE_80D06A:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EFBF
+	lda.w #DATA8_9CEFBF
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -88,9 +88,9 @@ CODE_80D06A:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EFCA
+	lda.w #DATA8_9CEFCA
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -109,9 +109,9 @@ CODE_80D0BB:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EFD0
+	lda.w #DATA8_9CEFD0
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -160,9 +160,9 @@ CODE_80D21C:		; print the rows of the list from $1DA7, the row at the cursor ($1
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$EFD6
+	lda.w #DATA8_9CEFD6
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -215,7 +215,7 @@ CODE_80D27C:
 	sta.b $A5
 	sta.b $04
 	stz.b $08
-	jsl.l $9ED300
+	jsl.l CODE_9ED300
 	lda.b $04
 	cmp.b $A5
 	bpl CODE_80D2A5
@@ -224,7 +224,7 @@ CODE_80D27C:
 CODE_80D2A5:
 	lda.b $04
 	sta.b $A5
-	jsl.l $9F9745
+	jsl.l CODE_9F9745
 	inc.b $95
 	inc.w $0D11
 	dec.b $A9

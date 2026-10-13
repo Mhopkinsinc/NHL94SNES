@@ -150,7 +150,7 @@ CODE_9EB139:
 CODE_9EB13F:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #$D0FC
+	lda.w #CODE_9ED0FC
 	sta.b $89
 	lda.w $1043,x
 	sta.b $A5
@@ -184,7 +184,7 @@ CODE_9EB188:
 	jsl.l CODE_9EBF44
 	jsl.l CODE_9EB1E5
 	jsl.l CODE_9EB3BC
-	jml.l $9EF913
+	jml.l CODE_9EF913
 CODE_9EB198:
 	stz.b $A9
 	lda.w $0DD3
@@ -258,7 +258,7 @@ CODE_9EB206:
 	tay
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3EB
+	lda.w #DATA8_80D3EB
 	sta.b $8D
 	lda.b [$8D],y
 	clc
@@ -309,7 +309,7 @@ CODE_9EB274:
 	tay
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3EB
+	lda.w #DATA8_80D3EB
 	sta.b $8D
 	lda.b [$8D],y
 	clc
@@ -340,7 +340,7 @@ CODE_9EB2B5:
 	bne CODE_9EB2B1
 	lda.w #$0030
 	sta.b $A5
-	jsl.l $9EF969
+	jsl.l CODE_9EF969
 	jmp.w $B1F2
 CODE_9EB2C9:
 	lda.w #$FFFF
@@ -430,7 +430,7 @@ CODE_9EB378:
 	sta.l $7E3136
 	lda.b $A9
 	sta.l $7E3138
-	jsl.l $9FB601
+	jsl.l CODE_9FB601
 CODE_9EB388:
 	lda.b $83
 	sec
@@ -452,7 +452,7 @@ CODE_9EB39E:
 	tsb.w $15D4
 	lda.w #$000A
 	sta.b $A5
-	jml.l $9EF969
+	jml.l CODE_9EF969
 CODE_9EB3BC:
 	lda.w $15D4
 	bit.w #$0004
@@ -493,7 +493,7 @@ CODE_9EB3E5:
 	tay
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3EB
+	lda.w #DATA8_80D3EB
 	sta.b $8D
 	clc
 	adc.b [$8D],y
@@ -507,10 +507,10 @@ CODE_9EB3E5:
 	tsb.w $15D8
 	lda.w $0AD3
 	beq CODE_9EB434
-	jsl.l $9F96F7
-	jsl.l $9F9708
+	jsl.l CODE_9F96F7
+	jsl.l CODE_9F9708
 CODE_9EB434:
-	jsl.l $9FBA17
+	jsl.l CODE_9FBA17
 	lda.w #$FF00
 	tsb.w $0AD9
 	ldx.w #$001C
@@ -524,12 +524,12 @@ CODE_9EB434:
 	lda.w #$FF00
 	tsb.w $162C
 	stz.w $162A
-	jsl.l $9EF913
+	jsl.l CODE_9EF913
 	lda.w #$0032
 	sta.w $162A
 	stz.b $A5
-	jsl.l $9EFA36
-	jsl.l $9F96E6
+	jsl.l CODE_9EFA36
+	jsl.l CODE_9F96E6
 	jsl.l CODE_8086BD
 	rtl
 CODE_9EB476:
@@ -607,7 +607,7 @@ CODE_9EB4F9:
 	tay
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3EB
+	lda.w #DATA8_80D3EB
 	sta.b $8D
 	lda.b [$8D],y
 	clc
@@ -645,7 +645,7 @@ CODE_9EB540:
 	cpx.w #$0010
 	bne CODE_9EB540
 	ldx.b $87
-	jsl.l $9F9B08
+	jsl.l CODE_9F9B08
 	lda.b [$89]
 	xba
 	and.w #$00FF
@@ -708,7 +708,7 @@ CODE_9EB5AB:
 	asl a
 	asl a
 	tay
-	jsl.l $9F9B08
+	jsl.l CODE_9F9B08
 	lda.b $A5
 	sta.w $163E,y
 	iny
@@ -809,11 +809,11 @@ CODE_9EB680:
 	pla
 	sta.b $A5
 	ldx.b $95
-	jsl.l $9EF969
-	jsl.l $9FA130
+	jsl.l CODE_9EF969
+	jsl.l CODE_9FA130
 	bra CODE_9EB6CC
 CODE_9EB6A1:
-	jsl.l $9EC72D
+	jsl.l CODE_9EC72D
 CODE_9EB6A5:
 	lda.w #$0000
 	sta.b [$89]
@@ -821,7 +821,7 @@ CODE_9EB6A5:
 	beq CODE_9EB6B2
 	jmp.w $B4A1
 CODE_9EB6B2:
-	jsl.l $9EF969
+	jsl.l CODE_9EF969
 	bra CODE_9EB6CC
 CODE_9EB6B8:
 	lda.w #$0004
@@ -936,9 +936,9 @@ CODE_9EB791:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F718
+	lda.w #DATA8_9CF718
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	pla
 	sta.b $8D
 	pla
@@ -980,8 +980,8 @@ CODE_9EB7F8:
 	rep #$20
 	plx
 CODE_9EB7FB:
-	jsl.l $9FA3D7
-	jsl.l $9EC7BE
+	jsl.l CODE_9FA3D7
+	jsl.l CODE_9EC7BE
 	ldx.b $95
 	lda.w $1CDC,x
 	sta.b $89
@@ -995,9 +995,9 @@ CODE_9EB7FB:
 	sta.b [$95]
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F72A
+	lda.w #DATA8_9CF72A
 	sta.b $8D
-	jsl.l $9ECFA5
+	jsl.l CODE_9ECFA5
 	lda.b $89
 	ldy.w #$0004
 	clc
@@ -1008,18 +1008,18 @@ CODE_9EB7FB:
 	sta.b $8D
 	lda.b $8B
 	sta.b $8F
-	jsl.l $9ECFA5
+	jsl.l CODE_9ECFA5
 	lda.b $97
 	sta.b $8F
 	lda.b $95
 	sta.b $8D
-	jsl.l $9EC7BE
+	jsl.l CODE_9EC7BE
 	rtl
 CODE_9EB851:
 	lda.w #$2000
 	trb.w $15D8
 	beq CODE_9EB85D
-	jsl.l $9FBEFD
+	jsl.l CODE_9FBEFD
 CODE_9EB85D:
 	rtl
 CODE_9EB85E:
@@ -1111,7 +1111,7 @@ CODE_9EB8FE:
 	sta.b [$8D]
 	lda.w #$0080
 	sta.b $8B
-	lda.w #$D3EB
+	lda.w #DATA8_80D3EB
 	sta.b $89
 	ldy.b $A5
 	clc
@@ -1180,7 +1180,7 @@ CODE_9EB987:
 	tay
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3EB
+	lda.w #DATA8_80D3EB
 	sta.b $8D
 	lda.b [$8D],y
 	clc
@@ -1214,7 +1214,7 @@ CODE_9EB9C2:
 	inc.b $89
 	bra CODE_9EB971
 CODE_9EB9D1:
-	jsl.l $9EC107
+	jsl.l CODE_9EC107
 CODE_9EB9D5:
 	ldy.b $91
 	lda.w $17A6,y
@@ -1538,7 +1538,7 @@ CODE_9EBC4F:
 	sty.b $91
 	stx.b $95
 	jsl.l CODE_9E9B52
-	jsl.l $9EC042
+	jsl.l CODE_9EC042
 	beq CODE_9EBCA4
 	lda.w $1E8D
 	bpl CODE_9EBCA4
@@ -1553,7 +1553,7 @@ CODE_9EBC4F:
 CODE_9EBCA3:
 	rtl
 CODE_9EBCA4:
-	jsl.l $9EC124
+	jsl.l CODE_9EC124
 	lda.b $A5
 	cmp.w #$0005
 	bcs CODE_9EBCB8
@@ -1615,7 +1615,7 @@ CODE_9EBD2D:
 	sta.b $A9
 	lda.w #$009E
 	sta.b $8B
-	lda.w #$D0FC
+	lda.w #CODE_9ED0FC
 	sta.b $89
 	jml.l CODE_9EA5A4
 CODE_9EBD45:
@@ -1727,7 +1727,7 @@ CODE_9EBE24:
 	jmp.w CODE_80BDF7
 CODE_9EBE2E:
 	sta.b $B5
-	jsl.l $9FCD0A
+	jsl.l CODE_9FCD0A
 	rtl
 CODE_9EBE35:
 	cpy.w #$0003
@@ -1946,7 +1946,7 @@ CODE_9EBFDE:
 	beq CODE_9EC000
 	lda.b $A9
 	bne CODE_9EBFF4
-	jsl.l $9EC000
+	jsl.l CODE_9EC000
 	bra CODE_9EBFFB
 CODE_9EBFF4:
 	lda.b $A9

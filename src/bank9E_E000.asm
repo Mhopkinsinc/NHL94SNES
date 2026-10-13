@@ -301,7 +301,7 @@ CODE_9EE264:
 CODE_9EE274:
 	lda.w $1363,x
 	stx.b $89
-	jsl.l $9FDCEB
+	jsl.l CODE_9FDCEB
 	adc.w #$0014
 	tax
 	lda.w $0D05
@@ -1306,11 +1306,11 @@ CODE_9EEB0B:
 	stz.w $0EC3,x
 	stz.w $0EE3,x
 	sta.b $B5
-	jsl.l $9FCBB6
+	jsl.l CODE_9FCBB6
 CODE_9EEB2D:
 	rtl
 CODE_9EEB2E:
-	jsl.l $9FC757
+	jsl.l CODE_9FC757
 	lda.w $15D6
 	bne CODE_9EEB40
 	ldy.b $91
@@ -1514,10 +1514,10 @@ CODE_9EEC4D:
 	sta.b $B5
 	lda.w $0D07
 	sta.b $A5
-	jsl.l $9FCB5C
+	jsl.l CODE_9FCB5C
 	lda.w $19D4,x
 	bmi CODE_9EECF5
-	jsl.l $9FCBB6
+	jsl.l CODE_9FCBB6
 CODE_9EECF5:
 	rtl
 CODE_9EECF6:

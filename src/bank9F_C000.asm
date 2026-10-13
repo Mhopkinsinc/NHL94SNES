@@ -317,7 +317,7 @@ CODE_9FC26C:
 CODE_9FC26F:
 	jml.l CODE_9FB30F
 CODE_9FC273:
-	jml.l $9FD733
+	jml.l CODE_9FD733
 CODE_9FC277:
 	jml.l CODE_9EA24C
 CODE_9FC27B:
@@ -475,7 +475,7 @@ CODE_9FC372:
 	jsl.l CODE_9FC5BE
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F8D7
+	lda.w #DATA8_9CF8D7
 	sta.b $8D
 	jsl.l CODE_9ECFA5
 	pla
@@ -1126,7 +1126,7 @@ CODE_9FC896:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F8DA
+	lda.w #DATA8_9CF8DA
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -1146,7 +1146,7 @@ CODE_9FC896:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F8DF
+	lda.w #DATA8_9CF8DF
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla

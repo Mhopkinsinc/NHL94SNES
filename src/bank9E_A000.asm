@@ -113,7 +113,7 @@ CODE_9EA0B1:
 	sec
 	sbc.w $1483,x
 	bmi CODE_9EA10F
-	jsl.l $9EC124
+	jsl.l CODE_9EC124
 	lda.b $A5
 	cmp.w #$0001
 	bcs CODE_9EA10E
@@ -129,7 +129,7 @@ CODE_9EA0B1:
 CODE_9EA10E:
 	rtl
 CODE_9EA10F:
-	jsl.l $9EC124
+	jsl.l CODE_9EC124
 	lda.b $A5
 	cmp.w #$0001
 	bcs CODE_9EA132
@@ -141,9 +141,9 @@ CODE_9EA10F:
 	clc
 	adc.w #$001C
 	sta.b $A5
-	jsl.l $9EB85E
+	jsl.l CODE_9EB85E
 CODE_9EA132:
-	jsl.l $9EC042
+	jsl.l CODE_9EC042
 	beq CODE_9EA151
 	lda.w $1E8D
 	bpl CODE_9EA151
@@ -153,7 +153,7 @@ CODE_9EA132:
 	sta.w $1E93
 	lda.w #$0024
 	sta.b $A5
-	jsl.l $9EB85E
+	jsl.l CODE_9EB85E
 CODE_9EA151:
 	jmp.w $9B52
 DATA8_9EA154:		; word pointers into this bank, not identified yet
@@ -418,7 +418,7 @@ CODE_9EA334:
 	lda.w #$F3D8
 CODE_9EA388:
 	jsl.l CODE_9EA3F1
-	jsl.l $9EC042
+	jsl.l CODE_9EC042
 	beq CODE_9EA3AD
 	lda.w $1E8D
 	bpl CODE_9EA3AD
@@ -428,10 +428,10 @@ CODE_9EA388:
 	sta.w $1E93
 	lda.w #$0024
 	sta.b $A5
-	jsl.l $9EB85E
+	jsl.l CODE_9EB85E
 	bra CODE_9EA3CE
 CODE_9EA3AD:
-	jsl.l $9EC124
+	jsl.l CODE_9EC124
 	lda.b $A5
 	cmp.w #$0001
 	bcs CODE_9EA3CE
@@ -443,7 +443,7 @@ CODE_9EA3AD:
 	lda.w #$0020
 	sta.b $A5
 CODE_9EA3CA:
-	jsl.l $9EB85E
+	jsl.l CODE_9EB85E
 CODE_9EA3CE:
 	ldx.b $91
 	ldy.b $95
@@ -954,7 +954,7 @@ CODE_9EA7DB:
 	lda.b $A5
 	pha
 	ldx.b $E4
-	jsl.l $9FDCB2
+	jsl.l CODE_9FDCB2
 	lda.w $1303,x
 	pha
 	lda.l $7E34C6
@@ -1015,7 +1015,7 @@ CODE_9EA85B:
 	lda.w $0792
 	and.w #$003F
 	bne CODE_9EA888
-	jsl.l $9FDCB2
+	jsl.l CODE_9FDCB2
 	lda.b $A5
 	sec
 	sbc.w #$0021
@@ -1028,7 +1028,7 @@ CODE_9EA85B:
 	adc.b $A5
 	sta.b $A5
 CODE_9EA884:
-	jml.l $9FDCD3
+	jml.l CODE_9FDCD3
 CODE_9EA888:
 	rtl
 DATA8_9EA889:		; x and y steps (words) for eight directions
@@ -1037,7 +1037,7 @@ DATA8_9EA889:		; x and y steps (words) for eight directions
 CODE_9EA8A9:
 	lda.w $0F43,x
 	bne CODE_9EA8B2
-	jml.l $9ECFDC
+	jml.l CODE_9ECFDC
 CODE_9EA8B2:
 	lda.w $11A3,x
 	cmp.w #$F208
@@ -1937,7 +1937,7 @@ CODE_9EAFA6:
 	inc.b $C9
 	rts
 CODE_9EAFB5:
-	jsl.l $9EDEA7
+	jsl.l CODE_9EDEA7
 	lda.w $1023,x
 	sec
 	sbc.b $C1

@@ -62,7 +62,7 @@ CODE_9DE074:
 	jsl.l CODE_8087EA
 	lda.w #$0096
 	sta.b $0E
-	lda.w #$A103
+	lda.w #DATA8_96A103
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

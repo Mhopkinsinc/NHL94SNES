@@ -113,7 +113,7 @@ CODE_9ED0EF:
 	lda.w $17AA,y
 	ora.w #$FF00
 	sta.w $17AA,y
-	jsl.l $9FD407
+	jsl.l CODE_9FD407
 CODE_9ED0FC:
 	rtl
 CODE_9ED0FD:
@@ -171,7 +171,7 @@ CODE_9ED165:
 	lda.w $17AA,y
 	ora.w #$FF00
 	sta.w $17AA,y
-	jml.l $9FD407
+	jml.l CODE_9FD407
 CODE_9ED178:
 	rtl
 CODE_9ED179:
@@ -219,7 +219,7 @@ CODE_9ED1D7:
 	bpl CODE_9ED214
 	lda.w $15D6
 	bne CODE_9ED214
-	jsl.l $9FDC4C
+	jsl.l CODE_9FDC4C
 	lda.w $1283,x
 	bit.w #$0002
 	beq CODE_9ED1F9
@@ -427,7 +427,7 @@ CODE_9ED381:
 	and.w $0B05,x
 	sta.w $0B05,x
 CODE_9ED391:
-	jsl.l $9FDC4C
+	jsl.l CODE_9FDC4C
 	lda.w $1283,x
 	bit.w #$0002
 	beq CODE_9ED3B5
@@ -460,7 +460,7 @@ CODE_9ED3D3:
 CODE_9ED3DD:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #$D0FC
+	lda.w #CODE_9ED0FC
 	sta.b $89
 	ldy.w #$0004
 	lda.w $0D55,x
@@ -493,7 +493,7 @@ CODE_9ED41E:
 CODE_9ED421:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #$D0FC
+	lda.w #CODE_9ED0FC
 	sta.b $89
 	ldy.w #$0004
 	lda.w $0D55,x
@@ -640,7 +640,7 @@ CODE_9ED55D:
 	bpl CODE_9ED54B
 	lda.w #$0001
 	sta.w $0D2D
-	jsl.l $9EE89F
+	jsl.l CODE_9EE89F
 	lda.w $0AD9
 	bmi CODE_9ED58C
 CODE_9ED574:
@@ -1580,8 +1580,8 @@ CODE_9EDD2C:
 	lda.w $0EE3,y
 	sta.w $0EFF
 CODE_9EDD3F:
-	jsl.l $9EF751
-	jsl.l $9EF78A
+	jsl.l CODE_9EF751
+	jsl.l CODE_9EF78A
 	lda.w $15D6
 	bne CODE_9EDDBD
 	lda.w $0AD9

@@ -18,7 +18,7 @@ CODE_9BB011:
 CODE_9BB015:
 	sec
 	sbc.w #$0015
-	jsl.l $9C9A7F
+	jsl.l CODE_9C9A7F
 CODE_9BB01D:
 	jmp.w $ABAB
 CODE_9BB020:
@@ -42,15 +42,15 @@ CODE_9BB020:
 	jsl.l CODE_9BB19D
 	lda.w #$0800
 	trb.w $15D8
-	jsl.l $9FBA17
+	jsl.l CODE_9FBA17
 	jsl.l SpriteFrameStart
-	jsl.l $9FBAAA
+	jsl.l CODE_9FBAAA
 	jsl.l SpriteFrameEnd
 	stz.w $0CD5
 	lda.w #$03FF
 	sta.w $0CD7
-	jsl.l $9F96F7
-	jsl.l $9C9786
+	jsl.l CODE_9F96F7
+	jsl.l CODE_9C9786
 CODE_9BB075:
 	lda.w $0AD3
 	bne CODE_9BB075
@@ -61,7 +61,7 @@ CODE_9BB075:
 	bne CODE_9BB0C4
 	lda.w $0CBB
 	beq CODE_9BB0C4
-	jsl.l $9C978E
+	jsl.l CODE_9C978E
 	lda.l $7E34BC
 	beq CODE_9BB0B6
 	cmp.w #$0004
@@ -71,14 +71,14 @@ CODE_9BB075:
 	bcc CODE_9BB0B6
 	lda.w #$0093
 	sta.b $0E
-	lda.w #$ED31
+	lda.w #DATA8_93ED31
 	sta.b $0C
 	jsl.l MusicStart
 	jmp.w $B0C4
 CODE_9BB0B6:
 	lda.w #$0090
 	sta.b $0E
-	lda.w #$C20C
+	lda.w #DATA8_90C20C
 	sta.b $0C
 	jsl.l MusicStart
 CODE_9BB0C4:
@@ -785,7 +785,7 @@ CODE_9BBFB9:		; draw SpriteFrames frame $0CCD (at most $3D0) at $0CCF, $0CD1
 	bcs CODE_9BC001
 	lda.w #$0082
 	sta.b $12
-	lda.w #$8000
+	lda.w #SpriteFrames
 	sta.b $10
 	lda.w $0CC5
 	beq CODE_9BBFD6

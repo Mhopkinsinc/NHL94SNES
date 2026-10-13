@@ -51,7 +51,7 @@ CODE_9FF063:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F918
+	lda.w #DATA8_9CF918
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -86,7 +86,7 @@ CODE_9FF08E:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F91D
+	lda.w #DATA8_9CF91D
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -113,7 +113,7 @@ CODE_9FF0EC:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F922
+	lda.w #DATA8_9CF922
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -138,7 +138,7 @@ CODE_9FF11B:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F927
+	lda.w #DATA8_9CF927
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -186,7 +186,7 @@ CODE_9FF1E4:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F92C
+	lda.w #DATA8_9CF92C
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -282,7 +282,7 @@ CODE_9FF2D5:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F931
+	lda.w #DATA8_9CF931
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -297,7 +297,7 @@ CODE_9FF2F1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F936
+	lda.w #DATA8_9CF936
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -312,7 +312,7 @@ CODE_9FF30D:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F93B
+	lda.w #DATA8_9CF93B
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -327,7 +327,7 @@ CODE_9FF329:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F940
+	lda.w #DATA8_9CF940
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -436,7 +436,7 @@ CODE_9FF4D8:
 	sta.w CGDATA
 	sta.w CGDATA
 	rep #$20
-	lda.w #$EE1C
+	lda.w #DATA8_9AEE1C
 	sta.b $0C
 	lda.w #$009A
 	sta.b $0E
@@ -446,7 +446,7 @@ CODE_9FF4D8:
 	ldy.w #$00B0
 	ldx.w #$0010
 	jsl.l CODE_808723
-	lda.w #$EE3C
+	lda.w #DATA8_9AEE3C
 	sta.b $0C
 	lda.w #$009A
 	sta.b $0E
@@ -472,7 +472,7 @@ CODE_9FF543:
 	inx
 	cpx.w #$4000
 	bcc CODE_9FF543
-	lda.w #$9A00
+	lda.w #DATA8_949A00
 	sta.b $0C
 	lda.w #$0094
 	sta.b $0E
@@ -481,7 +481,7 @@ CODE_9FF543:
 	lda.w #$007F
 	sta.b $12
 	jsl.l Decompress
-	lda.w #$DC8D
+	lda.w #DATA8_9ADC8D
 	sta.b $0C
 	lda.w #$009A
 	sta.b $0E
@@ -525,7 +525,7 @@ CODE_9FF5AA:
 	cpy.w #$0A00
 	bmi CODE_9FF5AA
 	rep #$20
-	lda.w #$F8EC
+	lda.w #DATA8_94F8EC
 	sta.b $0C
 	lda.w #$0094
 	sta.b $0E
@@ -644,7 +644,7 @@ CODE_9FF6BA:
 CODE_9FF6CA:
 	jsr.w $F8D4
 CODE_9FF6CD:
-	lda.w #$DBD3
+	lda.w #DATA8_9ADBD3
 	sta.b $0C
 	lda.w #$009A
 	sta.b $0E
@@ -683,7 +683,7 @@ CODE_9FF71D:
 CODE_9FF726:
 	jsr.w $F8D4
 CODE_9FF729:
-	lda.w #$DB19
+	lda.w #DATA8_9ADB19
 	sta.b $0C
 	lda.w #$009A
 	sta.b $0E
@@ -729,7 +729,7 @@ CODE_9FF794:
 	jsr.w $F8D4
 CODE_9FF797:
 	jsl.l CODE_9FF8E4
-	lda.w #$EE5C
+	lda.w #DATA8_9AEE5C
 	sta.b $C9
 	lda.w #$009A
 	sta.b $CB
@@ -748,7 +748,7 @@ CODE_9FF7C0:
 	sta.b $B7
 	jmp.w $F898
 CODE_9FF7C5:
-	lda.w #$EE7C
+	lda.w #DATA8_9AEE7C
 	sta.b $C9
 	lda.w #$009A
 	sta.b $CB
@@ -769,7 +769,7 @@ CODE_9FF7EA:
 	sta.b $B7
 	jmp.w $F898
 CODE_9FF7F2:
-	lda.w #$EE1C
+	lda.w #DATA8_9AEE1C
 	sta.b $0C
 	lda.w #$009A
 	sta.b $0E
@@ -789,7 +789,7 @@ CODE_9FF815:
 	sta.b $B7
 	jmp.w $F898
 CODE_9FF81D:
-	lda.w #$EE3C
+	lda.w #DATA8_9AEE3C
 	sta.b $0C
 	lda.w #$009A
 	sta.b $0E
@@ -806,7 +806,7 @@ CODE_9FF83C:
 	sta.b $B7
 	jmp.w $F898
 CODE_9FF844:
-	lda.w #$EE5C
+	lda.w #DATA8_9AEE5C
 	sta.b $0C
 	lda.w #$009A
 	sta.b $0E

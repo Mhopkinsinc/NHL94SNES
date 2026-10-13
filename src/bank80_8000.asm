@@ -129,7 +129,7 @@ CODE_8080F7:
 	dex
 	bne CODE_8080F7
 CODE_808102:
-	jsl.l $9F8282
+	jsl.l CODE_9F8282
 	sep #$20
 	rep #$10
 	lda.b #$8F
@@ -157,7 +157,7 @@ CODE_80811E:
 	jsl.l SoundInit
 	stz.w $0AD3
 	jsl.l CODE_8086A9
-	jml.l $9F8283
+	jml.l CODE_9F8283
 
 NMI:
 	jml.l NMI_Fast
@@ -528,10 +528,10 @@ CODE_808460:
 	jml [$0789]
 NMI_FrameHookReturn:
 	sep #$30
-	jsl.l $9B80AB
+	jsl.l Multi5Bios
 	rep #$20
 	jsr.w SoundUpdate
-	jsl.l $9C9981
+	jsl.l CODE_9C9981
 	rep #$30
 	stz.b $38
 	ply
@@ -829,8 +829,8 @@ CODE_808684:
 CODE_8086A9:
 	lda.w $0AD3
 	beq CODE_8086B6
-	jsl.l $9F96F7
-	jsl.l $9F9708
+	jsl.l CODE_9F96F7
+	jsl.l CODE_9F9708
 CODE_8086B6:
 	jsl.l CODE_808684
 	jmp.w CODE_8086D5
@@ -839,7 +839,7 @@ CODE_8086BD:
 	lda.w $0AD3
 	cmp.w #$000F
 	beq CODE_8086CA
-	jsl.l $9F96E6
+	jsl.l CODE_9F96E6
 CODE_8086CA:
 	sep #$20
 	lda.b #$0F

@@ -406,7 +406,7 @@ CODE_9FD2FE:
 CODE_9FD324:
 	rtl
 CODE_9FD325:
-	jsl.l $9FE089
+	jsl.l CODE_9FE089
 	inc.b $A5
 	inc.b $A9
 	lda.l $7E35D0
@@ -415,7 +415,7 @@ CODE_9FD325:
 	bne CODE_9FD33D
 	jsl.l CODE_9FBD9C
 CODE_9FD33D:
-	jsl.l $9FE089
+	jsl.l CODE_9FE089
 	lda.w $0D11
 	sec
 	sbc.w #$000F
@@ -425,7 +425,7 @@ CODE_9FD33D:
 	bra CODE_9FD35A
 CODE_9FD352:
 	jsl.l CODE_9FA669
-	jsl.l $9FE089
+	jsl.l CODE_9FE089
 CODE_9FD35A:
 	jsl.l CODE_9D8000
 	dec.w $0D11
@@ -1736,7 +1736,7 @@ CODE_9FDE0C:
 CODE_9FDE12:
 	rtl
 CODE_9FDE13:
-	jsl.l $9FE089
+	jsl.l CODE_9FE089
 	lda.w $0D11
 	sec
 	sbc.w #$000F

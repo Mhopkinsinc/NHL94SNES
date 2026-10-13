@@ -54,7 +54,7 @@ CODE_9CA054:
 	bne CODE_9CA0B1
 	lda.w #$0082
 	sta.b $12
-	lda.w #$8000
+	lda.w #SpriteFrames
 	sta.b $10
 	lda.w $0C29
 	lsr a

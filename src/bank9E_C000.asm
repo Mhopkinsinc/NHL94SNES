@@ -111,8 +111,8 @@ CODE_9EC0CB:
 	and.w #$00FF
 	sta.w $0F43,x
 	stx.b $95
-	jsl.l $9FCED0
-	jsl.l $9FCEF6
+	jsl.l CODE_9FCED0
+	jsl.l CODE_9FCEF6
 	lda.w $1283,x
 	ora.w #$1000
 	sta.w $1283,x
@@ -210,7 +210,7 @@ CODE_9EC180:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F72F
+	lda.w #DATA8_9CF72F
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -223,7 +223,7 @@ CODE_9EC180:
 	sta.b $A9
 	lda.l $7E35D0
 	sta.b $AD
-	jsl.l $9FBD9C
+	jsl.l CODE_9FBD9C
 	lda.w #$0000
 	sta.l $7E344C
 CODE_9EC1BB:
@@ -237,7 +237,7 @@ CODE_9EC1C2:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F734
+	lda.w #DATA8_9CF734
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -246,7 +246,7 @@ CODE_9EC1C2:
 	sta.b $8F
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3EB
+	lda.w #DATA8_80D3EB
 	sta.b $8D
 	ldy.b $A5
 	lda.l $7E344C
@@ -320,7 +320,7 @@ CODE_9EC265:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F739
+	lda.w #DATA8_9CF739
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -329,7 +329,7 @@ CODE_9EC265:
 	sta.b $8F
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3EB
+	lda.w #DATA8_80D3EB
 	sta.b $8D
 	ldy.b $A5
 	lda.b [$8D],y
@@ -458,7 +458,7 @@ CODE_9EC376:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F73E
+	lda.w #DATA8_9CF73E
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -476,7 +476,7 @@ CODE_9EC376:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F743
+	lda.w #DATA8_9CF743
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -494,7 +494,7 @@ CODE_9EC376:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F766
+	lda.w #DATA8_9CF766
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -502,7 +502,7 @@ CODE_9EC376:
 	pla
 	sta.b $8F
 CODE_9EC3EC:
-	jsl.l $9FC4A1
+	jsl.l CODE_9FC4A1
 	jsl.l CODE_9EC7BE
 	stx.b $87
 	ldx.w #$0012
@@ -596,7 +596,7 @@ CODE_9EC479:
 	lda.w #$0002
 	sta.w $0D0F
 	sta.w $0D11
-	jsl.l $9FBD9C
+	jsl.l CODE_9FBD9C
 CODE_9EC4A9:
 	pla
 	sta.b $8B
@@ -620,7 +620,7 @@ CODE_9EC4BC:
 	bne CODE_9EC4A9
 	lda.w $162A
 	bpl CODE_9EC4A9
-	jsl.l $9EFA36
+	jsl.l CODE_9EFA36
 	bra CODE_9EC4A9
 CODE_9EC4D4:
 	lda.b $A9
@@ -1172,7 +1172,7 @@ CODE_9EC913:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F776
+	lda.w #DATA8_9CF776
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -1190,7 +1190,7 @@ CODE_9EC913:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F77B
+	lda.w #DATA8_9CF77B
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -1218,7 +1218,7 @@ CODE_9EC96D:
 CODE_9EC977:
 	lda.w #$0097
 	sta.b $8F
-	lda.w #$88DC
+	lda.w #PregameText
 	sta.b $8D
 	lda.w $0D3F
 	sta.b $A5
@@ -1460,7 +1460,7 @@ CODE_9ECB5D:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F796
+	lda.w #DATA8_9CF796
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -1532,7 +1532,7 @@ CODE_9ECBE8:
 	phx
 	lda.b $89
 	pha
-	jsl.l $9FC732
+	jsl.l CODE_9FC732
 	lda.b $8B
 	sta.b $8F
 	lda.b $89
@@ -1572,7 +1572,7 @@ CODE_9ECC2A:
 	pha
 	lda.w #$0002
 	sta.b $A5
-	jsl.l $9ED323
+	jsl.l CODE_9ED323
 	pla
 	sta.b $A5
 	jmp.w $CD19
@@ -1590,7 +1590,7 @@ CODE_9ECC4B:
 	pha
 	lda.w #$0003
 	sta.b $A5
-	jsl.l $9ED323
+	jsl.l CODE_9ED323
 	pla
 	sta.b $A5
 	jmp.w $CD19

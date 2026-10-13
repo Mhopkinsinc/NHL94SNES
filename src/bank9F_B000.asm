@@ -21,7 +21,7 @@ CODE_9FB01B:
 	bra CODE_9FB02A
 CODE_9FB024:
 	sty.b $B5
-	jsl.l $9FCD2A
+	jsl.l CODE_9FCD2A
 CODE_9FB02A:
 	plx
 	ldy.w $1E91
@@ -507,8 +507,8 @@ CODE_9FB477:
 	bne CODE_9FB47F
 	jmp.w $B517
 CODE_9FB47F:
-	jsl.l $9FDA53
-	jsl.l $9FD407
+	jsl.l CODE_9FDA53
+	jsl.l CODE_9FD407
 	jml.l CODE_9F9B36
 CODE_9FB48B:
 	lda.l $7E34C6
@@ -545,7 +545,7 @@ CODE_9FB4B6:
 CODE_9FB4CE:
 	lda.w #$FFFF
 	sta.w $1D55,y
-	jsl.l $9FD2FE
+	jsl.l CODE_9FD2FE
 	ply
 	sty.b $91
 	ldx.b $95
@@ -663,8 +663,8 @@ CODE_9FB5B6:
 	bit.w #$0008
 	beq CODE_9FB5C9
 	stz.b $AD
-	jsl.l $9FE001
-	jsl.l $9FD325
+	jsl.l CODE_9FE001
+	jsl.l CODE_9FD325
 CODE_9FB5C9:
 	plx
 	stx.b $95
@@ -819,7 +819,7 @@ CODE_9FB6EE:
 	jsl.l CODE_9C98DF
 	lda.w #$0081
 	sta.b $0E
-	lda.w #$8000
+	lda.w #IceRinkTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -842,7 +842,7 @@ CODE_9FB6EE:
 	jsl.l CODE_9BC17C
 	lda.w #$0096
 	sta.b $0E
-	lda.w #$B2CF
+	lda.w #DATA8_96B2CF
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -865,7 +865,7 @@ CODE_9FB6EE:
 	jsl.l CODE_80891F
 	lda.w #$009A
 	sta.b $0E
-	lda.w #$C98B
+	lda.w #DATA8_9AC98B
 	sta.b $0C
 	jsl.l Decompress
 	txa
@@ -884,7 +884,7 @@ CODE_9FB6EE:
 	jsl.l CODE_80891F
 	lda.w #$0095
 	sta.b $0E
-	lda.w #$E304
+	lda.w #DATA8_95E304
 	sta.b $0C
 	jsl.l Decompress
 	txa
@@ -903,7 +903,7 @@ CODE_9FB6EE:
 	jsl.l CODE_80891F
 	lda.w #$0095
 	sta.b $0E
-	lda.w #$BA96
+	lda.w #DATA8_95BA96
 	sta.b $0C
 	jsl.l Decompress
 	txa
@@ -928,7 +928,7 @@ CODE_9FB6EE:
 	jsl.l CODE_8087EA
 	lda.w #$0096
 	sta.b $0E
-	lda.w #$A103
+	lda.w #DATA8_96A103
 	sta.b $0C
 	jsl.l Decompress
 	txa
@@ -953,7 +953,7 @@ CODE_9FB6EE:
 	jsl.l CODE_9B854B
 	lda.w #$009C
 	sta.b $8B
-	lda.w #$8000
+	lda.w #DATA8_9C8000
 	sta.b $89
 	lda.w #$0080
 	sta.b $8F
@@ -964,7 +964,7 @@ CODE_9FB6EE:
 	jsl.l CODE_9B854B
 	lda.w #$0096
 	sta.b $0E
-	lda.w #$BABD
+	lda.w #DATA8_96BABD
 	sta.b $0C
 	jsl.l Decompress
 	txa
@@ -984,7 +984,7 @@ CODE_9FB6EE:
 	jsl.l CODE_80891F
 	lda.w #$009A
 	sta.b $0E
-	lda.w #$C1F3
+	lda.w #DATA8_9AC1F3
 	sta.b $0C
 	jsl.l Decompress
 	txa
@@ -1093,7 +1093,7 @@ CODE_9FB91A:
 	jsl.l CODE_808F2F
 	lda.w #$009A
 	sta.b $0E
-	lda.w #$CEB6
+	lda.w #DATA8_9ACEB6
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
@@ -1199,7 +1199,7 @@ CODE_9FBA2D:
 	sta.w $0D23
 	stz.w $0D25
 	jsl.l CODE_9CA19B
-	jsl.l $9FC896
+	jsl.l CODE_9FC896
 	stx.b $87
 	ldx.w #$001A
 CODE_9FBA7D:
@@ -1273,7 +1273,7 @@ CODE_9FBB01:
 	bne CODE_9FBB4F
 	lda.w #$0082
 	sta.b $12
-	lda.w #$8000
+	lda.w #SpriteFrames
 	sta.b $10
 	ldy.w #$0000
 	lda.w #$0175
@@ -1416,7 +1416,7 @@ CODE_9FBC5E:
 CODE_9FBC5F:
 	lda.w #$0082
 	sta.b $12
-	lda.w #$8000
+	lda.w #SpriteFrames
 	sta.b $10
 	lda.w #$000C
 	sta.b $91
@@ -1769,7 +1769,7 @@ CODE_9FBEFD:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F8D2
+	lda.w #DATA8_9CF8D2
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	pla
@@ -1778,7 +1778,7 @@ CODE_9FBEFD:
 	sta.b $8F
 	lda.w #$009A
 	sta.b $0E
-	lda.w #$EA3A
+	lda.w #DATA8_9AEA3A
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
