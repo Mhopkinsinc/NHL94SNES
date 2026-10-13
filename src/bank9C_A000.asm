@@ -617,7 +617,7 @@ CODE_9CA5BC:
 	bne CODE_9CA58F
 	rtl
 TeamList:		; a long pointer to each team record (team number = index)
-	dd $9CEB4F		; 0
+	dd Anaheim		; 0
 	dd Boston		; 1
 	dd Buffalo		; 2
 	dd Calgary		; 3
@@ -625,7 +625,7 @@ TeamList:		; a long pointer to each team record (team number = index)
 	dd Dallas		; 5
 	dd Detroit		; 6
 	dd Edmonton		; 7
-	dd $9CE94D		; 8
+	dd Florida		; 8
 	dd Hartford		; 9
 	dd LosAngeles		; 10
 	dd Montreal		; 11
@@ -640,9 +640,9 @@ TeamList:		; a long pointer to each team record (team number = index)
 	dd StLouis		; 20
 	dd TampaBay		; 21
 	dd Toronto		; 22
-	dd $9CE17E		; 23
-	dd $9CE6AD		; 24
-	dd $9CE405		; 25
+	dd Vancouver		; 23
+	dd Washington		; 24
+	dd Winnipeg		; 25
 	dd AllStarsEast		; 26
 	dd AllStarsWest		; 27
 AllStarsEast:

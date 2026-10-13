@@ -292,3 +292,9 @@ $9CD760,SanJose,DATA8_9CD760,94G,"team 19 record: header offsets, .sr, .sodds, .
 $9CD9D4,StLouis,DATA8_9CD9D4,94G,"team 20 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
 $9CDC4A,TampaBay,DATA8_9CDC4A,94G,"team 21 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
 $9CDEDC,Toronto,DATA8_9CDEDC,94G,"team 22 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_D000.asm
+$9CEB4F,Anaheim,DATA8_9CEB4F,94G,"team 0 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
+$9CE94D,Florida,DATA8_9CE94D,94G,"team 8 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
+$9CE17E,Vancouver,DATA8_9CE17E,94G,"team 23 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
+$9CE6AD,Washington,DATA8_9CE6AD,94G,"team 24 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
+$9CE405,Winnipeg,DATA8_9CE405,94G,"team 25 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
+$9CED59,playoffseats,DATA8_9CED59,94G,"playoff tree seedings: 32 rows of 16 team numbers; 94G playoffseats (the same rows)",src/bank9C_E000.asm

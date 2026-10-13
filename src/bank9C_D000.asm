@@ -278,7 +278,7 @@ TampaBay:
 .ar:		; arena
 	%String("Expo Hall")
 Toronto:
-.0:	dw .pld-.0,.sr-.0,$0273,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
+.0:	dw .pld-.0,.sr-.0,.tn-.0,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
 .sr:		; the scouting report
 	db $20,$20,$11,$E8,$48
 .sodds:
