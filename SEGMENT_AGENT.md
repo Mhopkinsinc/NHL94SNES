@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9F_A000. <- CURRENT
+bank9F_B000. <- CURRENT
 
 ## Sources
 
@@ -347,8 +347,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9E_F000 | matched 4096 bytes | $9EF000 | $9EFFFF | 63% | game code with auto labels; $FF fill (padbyte/pad) |
 | bank9F_8000 | matched 4097 bytes | $9F8000 | $9F9000 | 89% | game flow code with auto labels; DATA8_9F8B65 / DATA8_9F8B6F byte tables; end moved +$1 |
 | bank9F_9000 | matched 4096 bytes | $9F9001 | $9FA000 | 81% | game flow code with auto labels; text records DATA8_9F9848/DATA8_9F98F1; DATA8_9F9B2E period lengths; tables; org moved to $9F9001; end moved +$1 |
-| bank9F_A000 | incbin <- CURRENT | $9FA001 | $9FAFFF | 86% | org moved to $9FA001 |
-| bank9F_B000 | incbin | $9FB000 | $9FBFFF | 84% | |
+| bank9F_A000 | matched 4098 bytes | $9FA001 | $9FB002 | 86% | game flow code with auto labels; DATA8_9FA816 GOAL!/HAT TRICK! records; tables; org moved to $9FA001; end moved +$3 |
+| bank9F_B000 | incbin <- CURRENT | $9FB003 | $9FBFFF | 84% | org moved to $9FB003 |
 | bank9F_C000 | incbin | $9FC000 | $9FCFFF | 92% | |
 | bank9F_D000 | incbin | $9FD000 | $9FDFFF | 82% | |
 | bank9F_E000 | incbin | $9FE000 | $9FEFFF | 69% | |
@@ -607,3 +607,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9E_F000: source, MATCH. The end of the game code for the objects on the ice with auto labels, then $FF fill written with padbyte/pad (the code map had decoded part of the fill as code). Bank $9E is now all source.
 - bank9F_8000: source, MATCH. Game flow code with auto labels (calls into the screen code of banks $9B to $9E and the sound code of bank $9C); DATA8_9F8B65 / DATA8_9F8B6F byte tables (the second read with a 1-based index, written DATA8_9F8B6F-1). The last instruction ends at $9F9000, so bank9F_9000 starts at $9F9001.
 - bank9F_9000: source, MATCH. Game flow code with auto labels; DATA8_9F9848 / DATA8_9F98F1 (Ice, Bench, Inj P, Inj G; Right, Left) as text records, DATA8_9F9B2E (period lengths in seconds), DATA8_9F9323, DATA8_9F97CE (signed words), DATA8_9F9AD8, DATA8_9F9AF8 (bytes). Org $9F9001 (set by bank9F_8000).
+- bank9F_A000: source, MATCH. Game flow code with auto labels; DATA8_9FA816 (the GOAL! and HAT TRICK! messages as text records with position codes), DATA8_9FA038 (words), DATA8_9FAEE2 / DATA8_9FAEFA / DATA8_9FAF02 (bytes). Org $9FA001 (set by bank9F_9000); the last instruction ends at $9FB002, so bank9F_B000 starts at $9FB003.
