@@ -259,3 +259,8 @@ $9AF27C,LogoPaletteFLA,DATA8_9AF27C,code,"the 16 colours of the Florida logo (Te
 $9AF2FC,LogoPaletteHFD,DATA8_9AF2FC,code,"the 16 colours of the Hartford logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
 $9AF33C,LogoPaletteLAK,DATA8_9AF33C,code,"the 16 colours of the Los Angeles logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
 $9AF47C,PhotoPaletteANA,DATA8_9AF47C,code,"the 16 colours of the Anaheim player photos (the photo palette table in bank $9D)",src/bank9A_F000.asm
+$9B8087,PadDirection,DATA8_9B8087,code,"d-pad bits (up, down, left, right) to a direction 0-7 clockwise from up, 8 = none; read by CODE_9B8017 for each pad",src/bank9B_8000.asm
+$9B80AB,Multi5Bios,CODE_9B80AB,code,"reads the five pads (two from the auto read, three through the multitap); the ROM marker strings around it say START OF / MODIFIED FROM SHVC MULTI5 BIOS Ver2.00 / END OF MULTI5 BIOS",src/bank9B_8000.asm
+$9B8358,Multi5Init,CODE_9B8358,code,"calls Multi5ConnectCheck, then clears the multitap pads and state",src/bank9B_8000.asm
+$9B83BE,Multi5ConnectCheck,CODE_9B83BE,code,"reads the multitap signature bits of both ports into $1A00; marker strings name it MULTI5 CONNECT CHECK VER1.00",src/bank9B_8000.asm
+$9B85C2,LinearToPlanar,CODE_9B85C2,code,"converts linear 4bpp tiles at [$0C] to SNES planar in place (used for the centre ice logos and photos)",src/bank9B_8000.asm
