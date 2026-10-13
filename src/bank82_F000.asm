@@ -1,7 +1,7 @@
 ; Bank $82, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
 ; Extracted/data/SpriteFrames82.bin. Then the centre ice logo tiles of the Hartford home team: linear 4bpp tiles packed for
-; DecompressHuffman, from Extracted/data/CenterIceHFD.lin.huf. The rink loader in bank $9B takes them from the per-team table
-; at $9C83B7 (tiles, then the logo map), converts them to planar ($9B85C2) and sends them to VRAM after the rink tiles.
+; DecompressHuffman, from Extracted/data/CenterIceHFD.lin.huf. The rink loader in bank $9B takes them from a per-team table
+; in bank $9C (tiles, then the logo map), converts them to planar and sends them to VRAM after the rink tiles.
 
 org $82F04A
 SpriteFrame68:
