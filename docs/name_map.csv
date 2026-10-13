@@ -157,3 +157,5 @@ $8DFF3D,CenterIceTilesCGY,DATA8_8DFF3D,code,"Calgary centre ice logo tiles (line
 $92A7B9,LetterSprites,DATA8_92A7B9,code,"the letters A-Z as an unpacked sprite set; drawn by the text routine at $9C93C3",src/bank92_A000.asm
 $92E053,IceRinkMap,DATA8_92E053,93S,"the rink map (LZ-packed, 48 x 113 words after a header) for IceRinkTiles; 93S IceRinkMap",src/bank92_E000.asm
 $95A7F7,SmallLetterSprites,DATA8_95A7F7,code,"small letters A-Z, digits 0-9 and a full stop as an unpacked sprite set; drawn by the text routine at $9C95F1",src/bank95_A000.asm
+$96C9CE,AwayUniformPalettes,DATA8_96C9CE,code,"16 colours per team, indexed by the away team $1C9A, copied to the sprite colours at $9FB951; dark jerseys when rendered",src/bank96_C000.asm
+$96CD4E,HomeUniformPalettes,DATA8_96CD4E,code,"16 colours per team, indexed by the home team $1C98, copied to the sprite colours at $9FB91A; white jerseys when rendered",src/bank96_C000.asm
