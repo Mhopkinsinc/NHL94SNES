@@ -1,0 +1,3 @@
+; Unidentified routine.
+CODE_9E8457:
+	jmp.w $8BD7

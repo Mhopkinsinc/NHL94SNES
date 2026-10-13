@@ -1,0 +1,3 @@
+; COLDATA values for DATA8_9DE064
+DATA8_9DE060:		; COLDATA values for DATA8_9DE064
+	db $EF,$E7,$E3,$E0

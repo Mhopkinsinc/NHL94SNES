@@ -3,10 +3,11 @@
 ## Alignment
 
 - Audit is `docs/align_plan.md` (no source change). `bank9C_A000` plus `src/data/teamdata94s.asm` does cover the old bank9C_B000, C000 and D000 ranges: the next file is bank9C_E000 at `$9CEF59`.
-- Layout done: banks `$81` through `$9A` are `src/banks/` files. Banks `$9B` and `$9C` are `src/banks/b9B_screens.asm` and `b9C_teams.asm` (routines in `src/routines/`, tables in `src/data/tables/`). `tools/verify_all.sh` MATCH.
+- Layout done: banks `$80` through `$9F` are `src/banks/` files. Code banks are `b80_engine`, `b9B_screens`, `b9C_teams`, `b9D_roster`, `b9E_game` and `b9F_flow`. Routines are in `src/routines/`, tables in `src/data/tables/`. The SNES header is `src/header/snes_header.asm`. `tools/verify_all.sh` MATCH.
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
-- `adda43` shares a file with `CODE_9BB176` because that routine falls through into it.
-- Next: split the remaining code banks (`$80`, `$9D-$9F`) into `src/routines/`. Extraction, SPA symbols and the doc rewrite are still ahead.
+- `adda43` shares a file with `CODE_9BB176` because that routine falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
+- Two entries in bank `$9F` had no label. They are `CODE_9F9901` and `puckfaceoff2` (asstab entry $1C; rows in `docs/name_map.csv`).
+- `src/data/frames94s.asm` holds SPAList, the bank `$9D` animation sequences (see Sprite animations below). Still ahead from that plan: extraction, SPA symbols and the doc rewrite.
 
 ## Unsure
 
@@ -115,13 +116,13 @@
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Sprite animations: SPAList (bank9D_E000/F000, 93S name) holds the animations with their direction lists .d0-.d7; SPA
+- Sprite animations: SPAList (src/data/frames94s.asm, 93S name) holds the animations with their direction lists .d0-.d7; SPA
   holds the address of one, and the code that sets or tests SPA uses the labels. Those identified take their 93S SPA
   names (the player animations keep the 93S frame numbers below 354, so same frames and times; the others from the code
   that sets them, e.g. the FallDown and noturn0 orders, GoalieSaveList, asseben/assepen). The rest are new in 94 or not
   certain (DATA8_9DFA84 is what the scorer gets where 93S uses SPApump; GoalieSaveList entries 6-8). updateanim is the
   93S routine reworked for 94; CODE_9EA3F1 is SetSPA with the animation in A.
-- Assignments: asstab (bank80_D000) has the 93S/94G order with two 94 additions (entries 7 and $14, CODE_9ED331 and
+- Assignments: asstab (src/data/tables/asstab.asm) has the 93S/94G order with two 94 additions (entries 7 and $14, CODE_9ED331 and
   CODE_9EED8D) and without the fight assignments; the routines take their 93S names where the code agrees. Entries $F
   and $10 (CODE_9ED179, CODE_9EE463) sit where 93S has assgoalie and assgoalietopuck, but the 94 goalie code is
   rewritten (94G assgoaliecpu) and CODE_9ED179 is closer to assgoalietopuck, so both keep auto labels. The per-object

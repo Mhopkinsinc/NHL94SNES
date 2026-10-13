@@ -1,0 +1,16 @@
+; Unidentified routine.
+assscore:
+	lda.w gmode
+	bit.w #$0040
+	beq CODE_9EB0C8
+	lda.b $91
+	inc a
+	inc a
+	jsl.l CODE_9C9FD5
+CODE_9EB0C8:
+	ldy.w $19D4,x
+	bmi CODE_9EB0D6
+	lda.w $0776,y
+	and.w #$FFF0
+	beq CODE_9EB0D6
+	rtl

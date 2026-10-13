@@ -1,0 +1,20 @@
+; Unidentified routine.
+CODE_9DBC8B:
+	ldx.w #$0000
+	ldy.w #$0000
+CODE_9DBC91:
+	tya
+	jsr.w $B8A1
+	sta.l $7F8000,x
+	tya
+	jsr.w $B8E6
+	sta.l $7F8A00,x
+	tya
+	jsr.w $B934
+	sta.l $7F9400,x
+	inx
+	inx
+	iny
+	cpy.w #$0500
+	bcc CODE_9DBC91
+	rts

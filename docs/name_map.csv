@@ -434,108 +434,6 @@ $9F9848,StatusTextTbl,DATA8_9F9848,93S,"Ice, Bench, Inj P, Inj G, then the capta
 $9F98F1,HandedTextTbl,DATA8_9F98F1,93S,"Right, Left, as 93S HandedTextTbl",src/data/text/HandedTextTbl.asm
 $9FA816,GoalBoxText,DATA8_9FA816,93S,"GOAL!, HAT TRICK! with position codes, as 93S GoalBoxText",src/data/text/GoalBoxText.asm
 $9DA05D,RosterLineNames,DATA8_9DA05D,93S,"the line names, the same strings as 93S RosterLineNames",src/data/text/RosterLineNames.asm
-$9DE0FC,SPAList,DATA8_9DE0FC,93S,"the sprite animations: a zero word (SPA 0 = no animation), then each animation; SPA holds the address of one; 93S SPAList",src/bank9D_E000.asm
-$9DE0FE,SPAgready,DATA8_9DE0FE,93S,"the goalie ready animation (93S SPAgready): set for goalies where 93S assbench sets it (glide for skaters), loops",src/bank9D_E000.asm
-$9DE1B0,SPAgready2,DATA8_9DE1B0,93S,"93S SPAgready2: the goalie frames held 30, after SPAgready as in 93S and 94G",src/bank9D_E000.asm
-$9DE1E2,SPAgglover,DATA8_9DE1E2,93S,"93S SPAgglover: GoalieSaveList entry 0",src/bank9D_E000.asm
-$9DE214,SPAgglovel,DATA8_9DE214,93S,"93S SPAgglovel: GoalieSaveList entry 1",src/bank9D_E000.asm
-$9DE246,SPAgstickr,DATA8_9DE246,93S,"93S SPAgstickr: GoalieSaveList entry 4",src/bank9D_E000.asm
-$9DE278,SPAgstickl,DATA8_9DE278,93S,"93S SPAgstickl: GoalieSaveList entry 5",src/bank9D_E000.asm
-$9DE2AA,SPAgstackr,DATA8_9DE2AA,93S,"93S SPAgstackr: GoalieSaveList entry 2",src/bank9D_E000.asm
-$9DE2FC,SPAgstackl,DATA8_9DE2FC,93S,"93S SPAgstackl: GoalieSaveList entry 3",src/bank9D_E000.asm
-$9DE34E,SPAgswing,DATA8_9DE34E,93S,"93S SPAgswing: same times as 93S/94G, the goalie's pass animation",src/bank9D_E000.asm
-$9DE3C0,SPAgskate,DATA8_9DE3C0,93S,"93S SPAgskate: chosen against SPAgready as in 93S goalieacc, same times as 94G",src/bank9D_E000.asm
-$9DE4B6,SPAgdive,DATA8_9DE4B6,93S,"93S SPAgdive: tested where 93S puckglue tests it (temp5 = 140 first), same times as 94G",src/bank9D_E000.asm
-$9DE978,SPApflip,DATA8_9DE978,93S,"93S SPApflip: the puck spin, same times as 93S, loops",src/bank9D_E000.asm
-$9DEA1A,SPAglide,DATA8_9DEA1A,93S,"93S SPAglide: same frames and times as 93S",src/bank9D_E000.asm
-$9DEA4C,SPAskatewp,DATA8_9DEA4C,93S,"93S SPAskatewp: same frames and times as 93S",src/bank9D_E000.asm
-$9DEAFE,SPAskate,DATA8_9DEAFE,93S,"93S SPAskate: same frames and times as 93S",src/bank9D_E000.asm
-$9DEBB0,SPAturnl,DATA8_9DEBB0,93S,"93S SPAturnl: same frames as 93S",src/bank9D_E000.asm
-$9DEBE2,SPAturnr,DATA8_9DEBE2,93S,"93S SPAturnr: same frames as 93S",src/bank9D_E000.asm
-$9DEC14,SPAstop,DATA8_9DEC14,93S,"93S SPAstop: same frames and times as 93S",src/bank9D_E000.asm
-$9DEC66,SPApassf,DATA8_9DEC66,93S,"93S SPApassf: same frames and times as 93S",src/bank9D_E000.asm
-$9DECD8,SPApassb,DATA8_9DECD8,93S,"93S SPApassb: same frames and times as 93S",src/bank9D_E000.asm
-$9DED4A,SPAshotf,DATA8_9DED4A,93S,"93S SPAshotf: same frames and times as 93S",src/bank9D_E000.asm
-$9DEE5C,SPAshotb,DATA8_9DEE5C,93S,"93S SPAshotb: same frames and times as 93S",src/bank9D_E000.asm
-$9DF0D2,SPAglideback,DATA8_9DF0D2,93S,"93S SPAglideback: same frames and times as 93S",src/bank9D_F000.asm
-$9DF104,SPAskateback,DATA8_9DF104,93S,"93S SPAskateback: same frames as 93S",src/bank9D_F000.asm
-$9DF208,SPAsweepchk,DATA8_9DF208,93S,"93S SPAsweepchk: set as in 93S Sweepcheck, same times as 93S and 94G",src/bank9D_F000.asm
-$9DF27A,SPAshoulderchkr,DATA8_9DF27A,93S,"93S SPAshoulderchkr: same frames and times as 93S",src/bank9D_F000.asm
-$9DF2DE,SPAhipchkr,DATA8_9DF2DE,93S,"93S SPAhipchkr: same frames and times as 93S",src/bank9D_F000.asm
-$9DF310,SPAshoulderchkl,DATA8_9DF310,93S,"93S SPAshoulderchkl: same frames and times as 93S",src/bank9D_F000.asm
-$9DF342,SPAburst,DATA8_9DF342,93S,"93S SPAburst: same frames and times as 93S",src/bank9D_F000.asm
-$9DF49C,SPAfallfwd,DATA8_9DF49C,93S,"93S SPAfallfwd: in the 93S FallDown order of tests and sets, same times as 93S",src/bank9D_F000.asm
-$9DF54E,SPAfallback,DATA8_9DF54E,93S,"93S SPAfallback: in the 93S FallDown order of tests and sets, same times as 93S",src/bank9D_F000.asm
-$9DF600,SPAfaceoff,DATA8_9DF600,93S,"93S SPAfaceoff: set before SPAfaceoffr as in 93S, same times as 93S",src/bank9D_F000.asm
-$9DF62A,SPAfaceoffr,DATA8_9DF62A,93S,"93S SPAfaceoffr: same frames and times as 93S",src/bank9D_F000.asm
-$9DF68E,SPAstanley,DATA8_9DF68E,93S,"93S SPAstanley: same frames and times as 93S",src/bank9D_F000.asm
-$9DF6C0,SPAflip,DATA8_9DF6C0,93S,"93S SPAflip: in the 93S FallDown order of tests and sets, same times as 93S",src/bank9D_F000.asm
-$9DF7B2,SPAstumble,DATA8_9DF7B2,93S,"93S SPAstumble: in the 93S FallDown order of tests and sets, and in the noturn0 order",src/bank9D_F000.asm
-$9DF90E,SPAinjury1,DATA8_9DF90E,93S,"93S SPAinjury1: in the 93S FallDown order of tests and sets",src/bank9D_F000.asm
-$9DF940,SPAcelebrate,DATA8_9DF940,93S,"93S SPAcelebrate: set where 93S assscore sets it",src/bank9D_F000.asm
-$9DFA12,SPApump,DATA8_9DFA12,93S,"93S SPApump: same frames and times as 93S (no reference found; the scorer gets DATA8_9DFA84)",src/bank9D_F000.asm
-$9EDBF4,GoalieSaveList,DATA8_9EDBF4,93S,"93S GoalieSaveList: the save animation by save type, read as in 93S; entries 6-8 are new in 94",src/bank9E_D000.asm
-$9EA419,updateanim,CODE_9EA419,93S,"93S updateanim: next frame of the animation of object X (SPA, SPAnum, the attribute word, the direction list), reworked for 94",src/bank9E_A000.asm
-$11E3,SPAcnt,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$9ED0FC,rtss,CODE_9ED0FC,93S,"asstab entry 0 (93S rtss): returns at once",src/bank9E_D000.asm
-$9EA69D,assstanley,CODE_9EA69D,93S,"93S assstanley: asstab entry 9 (94 adds an assignment at 7); same instructions for the most part, sets SPAstanley",src/bank9E_A000.asm
-$9EBADA,assepen,CODE_9EBADA,93S,"93S assepen: asstab entry B; same instructions for the most part, sets SPAwallleft",src/bank9E_B000.asm
-$9EBEDF,assdopen,CODE_9EBEDF,93S,"93S assdopen: asstab entry E",src/bank9E_B000.asm
-$9E9B5E,FallDown,CODE_9E9B5E,93S,"93S FallDown: the same tests and sets of the fall animations in the same order, same start",src/bank9E_9000.asm
-$9EAAB3,noturn0,CODE_9EAAB3,93S,"93S noturn0: same instructions for the most part (glide, glideback, skateback, skate, stumble, skatewp)",src/bank9E_A000.asm
-$9EA4F7,dostop,CODE_9EA4F7,93S,"93S dostop: where noturn0 goes to stop, as in 93S; sets SPAstop below the speed limit",src/bank9E_A000.asm
-$9EE17A,SetShotMode,CODE_9EE17A,93S,"93S SetShotMode: same instructions for the most part (SPAshotf/SPAshotb by Findhittype)",src/bank9E_E000.asm
-$9EDE5E,puckflip,CODE_9EDE5E,93S,"93S puckflip: same instructions for the most part (SPApflip on the puck)",src/bank9E_D000.asm
-$9DE8F4,SPAwallright,DATA8_9DE8F4,93S,"93S SPAwallright: set where 93S asseben sets it",src/bank9D_E000.asm
-$9DE936,SPAwallleft,DATA8_9DE936,93S,"93S SPAwallleft: set where 93S assepen sets it",src/bank9D_E000.asm
-$80D324,asstab,DATA8_80D324,93S,"93S/94G asstab: long pointer to each assignment routine by assignment number; 94 adds two (7 and $14) and drops the fight ones",src/bank80_D000.asm
-$9E8A6A,asswingo,CODE_9E8A6A,93S,"asstab entry 4 (93S/94G asswingo); same instructions for the most part",src/bank9E_8000.asm
-$9E8968,asswingd,CODE_9E8968,93S,"asstab entry 3 (93S/94G asswingd)",src/bank9E_8000.asm
-$9E8804,assdefo,CODE_9E8804,93S,"asstab entry 1 (93S/94G assdefo); the 93S order holds for entries 0-6",src/bank9E_8000.asm
-$9E8618,assdefd,CODE_9E8618,93S,"asstab entry 2 (93S/94G assdefd); same instructions for the most part",src/bank9E_8000.asm
-$9E8573,asscenterd,CODE_9E8573,93S,"asstab entry 5 (93S/94G asscenterd); same instructions for the most part",src/bank9E_8000.asm
-$9E843C,asscentero,CODE_9E843C,93S,"asstab entry 6 (93S/94G asscentero); same instructions for the most part",src/bank9E_8000.asm
-$9E8292,asspuckc,CODE_9E8292,93S,"asstab entry 11 (93S asspuckc); same instructions for the most part",src/bank9E_8000.asm
-$9E800D,assnearest,CODE_9E800D,93S,"asstab entry 12 (93S assnearest), between asspuckc and assshoot",src/bank9E_8000.asm
-$9EBCC7,asspenalty,CODE_9EBCC7,93S,"asstab entry D (93S asspenalty); same instructions for the most part",src/bank9E_B000.asm
-$9EB0B8,assscore,CODE_9EB0B8,93S,"asstab entry 8 (93S assscore, one later: 94 adds entry 7); same instructions for the most part after a 94 start",src/bank9E_B000.asm
-$9FD9E1,asseben,CODE_9FD9E1,93S,"asstab entry A (93S asseben); same instructions for the most part, sets SPAwallright",src/bank9F_D000.asm
-$9FD85F,assbench,CODE_9FD85F,93S,"asstab entry C (93S assbench); same instructions for the most part",src/bank9F_D000.asm
-$9EEF34,puckshadow,CODE_9EEF34,93S,"asstab entry 19 (93S puckshadow); same instructions for the most part",src/bank9E_E000.asm
-$9EE706,asspassrec,CODE_9EE706,93S,"asstab entry 15 (93S asspassrec; 94 adds entry 14)",src/bank9E_E000.asm
-$9EE146,assshoot,CODE_9EE146,93S,"asstab entry 13 (93S assshoot); same instruction shapes",src/bank9E_E000.asm
-$9FB355,puckfaceoff,CODE_9FB355,93S,"asstab entry 1B (93S puckfaceoff); same instructions for the most part",src/bank9F_B000.asm
-$9FB27C,assfaceoffpl,CODE_9FB27C,93S,"asstab entry 17 (93S assfaceoffpl); same instructions for the most part",src/bank9F_B000.asm
-$9FB26A,assfaceoff,CODE_9FB26A,93S,"asstab entry 16 (93S assfaceoff, the fight assignments dropped); without the music cues",src/bank9F_B000.asm
-$9EDCA8,pucknorm,CODE_9EDCA8,93S,"asstab entry 18 (93S pucknorm); same instruction shapes",src/bank9E_D000.asm
-$9FA835,puckfaceoff2,CODE_9FA835,93S,"asstab entry 1C (93S puckfaceoff2); same instructions for the most part",src/bank9F_A000.asm
-$0792,seed,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$0AD9,puckc,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$0CEB,Hpos,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$0D37,Vpos,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$0D71,puckx,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$0EC3,Xvel,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$0EE3,Yvel,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1003,temp1,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1023,temp2,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1043,temp3,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1063,temp4,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1083,temp5,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$10A3,temp2b,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1163,facedir,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1203,nopuck,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1223,nopuckb,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1323,aioff,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1343,aidef,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1403,stickhand,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1483,aggress,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$14A3,handed,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$14E3,pfalock,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1523,pfrev,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1543,pf2aip,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1563,pfnc,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$15D6,gmclock,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$178E,tmscore,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
 $9AB47B,CenterIceTilesANH,CenterIceTilesANA,teamdata,abbreviation ANH from the Anaheim team record,src/data/gfx/CenterIceTilesANH.asm
 $9AD79C,CenterIceTilesLA,CenterIceTilesLAK,teamdata,abbreviation LA from the Los Angeles team record,src/data/gfx/CenterIceTilesLA.asm
 $9ABBF5,CenterIceTilesNJ,CenterIceTilesNJD,teamdata,abbreviation NJ from the New Jersey team record,src/data/gfx/CenterIceTilesNJ.asm
@@ -566,22 +464,125 @@ $9C96E6,TeamPlaceNames_NJ,TeamPlaceNames_NJD,teamdata,local label; abbreviation 
 $9C9703,TeamPlaceNames_OTW,TeamPlaceNames_OTT,teamdata,local label; abbreviation OTW,src/data/text/TeamPlaceNames.asm
 $9C9729,TeamPlaceNames_SJ,TeamPlaceNames_SJS,teamdata,local label; abbreviation SJ,src/data/text/TeamPlaceNames.asm
 $9C973C,TeamPlaceNames_TB,TeamPlaceNames_TBL,teamdata,local label; abbreviation TB,src/data/text/TeamPlaceNames.asm
-$9E8C18,assreplace,CODE_9E8C18,93S,"same instructions as the 93S routine assreplace (logic)",src/bank9E_8000.asm
-$9FDFA6,linebar,CODE_9FDFA6,93S,"most instructions as the 93S routine linebar (penalty), same start",src/bank9F_D000.asm
-$9EE10B,CompShoot,CODE_9EE10B,93S,"most instructions as the 93S routine CompShoot (logic), same start",src/bank9E_E000.asm
-$9EF8C4,ClearOffsidesIfAllPlayers,CODE_9EF8C4,93S,"most instructions as the 93S routine ClearOffsidesIfAllPlayers (logic), same start",src/bank9E_F000.asm
-$9ED130,CPgoalie,CODE_9ED130,93S,"most instructions as the 93S routine CPgoalie (logic), same start (CODE_9ED10F before it is a 94 entry)",src/bank9E_D000.asm
-$9EA8A9,doplayeracc,CODE_9EA8A9,93S,"most instructions as the 93S routine doplayeracc (logic), same start; its calls go where 93S calls",src/bank9E_A000.asm
-$9F8646,periodicevents,CODE_9F8646,93S,"most instructions as the 93S routine periodicevents (hockey), same start (CODE_9F8625 is a 94 entry that calls it)",src/bank9F_8000.asm
-$9EB1E5,checkfornewpen,CODE_9EB1E5,93S,"most instructions as the 93S routine checkfornewpen (penalty), same start (CODE_9EB198/CODE_9EB1C9 are 94 entries before it)",src/bank9E_B000.asm
-$9FD325,SetLCmode2,CODE_9FD325,93S,"most instructions as the 93S routine SetLCmode2 (logic), same start (CODE_9FD2FE is a 94 entry before it)",src/bank9F_D000.asm
-$9EC2D0,setInjuryType,CODE_9EC2D0,93S,"most instructions as the 93S routine setInjuryType (hockey), same start; called from FallDown",src/bank9E_C000.asm
-$9FA393,IntermissionTick,CODE_9FA393,93S,"most instructions as the 93S routine IntermissionTick (penalty), same start (CODE_9FA37A is a 94 entry before it)",src/bank9F_A000.asm
-$9FBD66,printteamname,CODE_9FBD66,93S,"same instructions as the 93S routine printteamname (penalty), called where 93S PrintTeamNameAndScore calls it; CODE_9B9B35 is a copy of it in bank $9B",src/bank9F_B000.asm
+$9F9901,CODE_9F9901,,code,entry had no label,src/routines/snes/CODE_9F9901.asm
+$9DE0FC,SPAList,DATA8_9DE0FC,93S,"the sprite animations: a zero word (SPA 0 = no animation), then each animation; SPA holds the address of one; 93S SPAList",src/data/frames94s.asm
+$9DE0FE,SPAgready,DATA8_9DE0FE,93S,"the goalie ready animation (93S SPAgready): set for goalies where 93S assbench sets it (glide for skaters), loops",src/data/frames94s.asm
+$9DE1B0,SPAgready2,DATA8_9DE1B0,93S,"93S SPAgready2: the goalie frames held 30, after SPAgready as in 93S and 94G",src/data/frames94s.asm
+$9DE1E2,SPAgglover,DATA8_9DE1E2,93S,93S SPAgglover: GoalieSaveList entry 0,src/data/frames94s.asm
+$9DE214,SPAgglovel,DATA8_9DE214,93S,93S SPAgglovel: GoalieSaveList entry 1,src/data/frames94s.asm
+$9DE246,SPAgstickr,DATA8_9DE246,93S,93S SPAgstickr: GoalieSaveList entry 4,src/data/frames94s.asm
+$9DE278,SPAgstickl,DATA8_9DE278,93S,93S SPAgstickl: GoalieSaveList entry 5,src/data/frames94s.asm
+$9DE2AA,SPAgstackr,DATA8_9DE2AA,93S,93S SPAgstackr: GoalieSaveList entry 2,src/data/frames94s.asm
+$9DE2FC,SPAgstackl,DATA8_9DE2FC,93S,93S SPAgstackl: GoalieSaveList entry 3,src/data/frames94s.asm
+$9DE34E,SPAgswing,DATA8_9DE34E,93S,"93S SPAgswing: same times as 93S/94G, the goalie's pass animation",src/data/frames94s.asm
+$9DE3C0,SPAgskate,DATA8_9DE3C0,93S,"93S SPAgskate: chosen against SPAgready as in 93S goalieacc, same times as 94G",src/data/frames94s.asm
+$9DE4B6,SPAgdive,DATA8_9DE4B6,93S,"93S SPAgdive: tested where 93S puckglue tests it (temp5 = 140 first), same times as 94G",src/data/frames94s.asm
+$9DE978,SPApflip,DATA8_9DE978,93S,"93S SPApflip: the puck spin, same times as 93S, loops",src/data/frames94s.asm
+$9DEA1A,SPAglide,DATA8_9DEA1A,93S,93S SPAglide: same frames and times as 93S,src/data/frames94s.asm
+$9DEA4C,SPAskatewp,DATA8_9DEA4C,93S,93S SPAskatewp: same frames and times as 93S,src/data/frames94s.asm
+$9DEAFE,SPAskate,DATA8_9DEAFE,93S,93S SPAskate: same frames and times as 93S,src/data/frames94s.asm
+$9DEBB0,SPAturnl,DATA8_9DEBB0,93S,93S SPAturnl: same frames as 93S,src/data/frames94s.asm
+$9DEBE2,SPAturnr,DATA8_9DEBE2,93S,93S SPAturnr: same frames as 93S,src/data/frames94s.asm
+$9DEC14,SPAstop,DATA8_9DEC14,93S,93S SPAstop: same frames and times as 93S,src/data/frames94s.asm
+$9DEC66,SPApassf,DATA8_9DEC66,93S,93S SPApassf: same frames and times as 93S,src/data/frames94s.asm
+$9DECD8,SPApassb,DATA8_9DECD8,93S,93S SPApassb: same frames and times as 93S,src/data/frames94s.asm
+$9DED4A,SPAshotf,DATA8_9DED4A,93S,93S SPAshotf: same frames and times as 93S,src/data/frames94s.asm
+$9DEE5C,SPAshotb,DATA8_9DEE5C,93S,93S SPAshotb: same frames and times as 93S,src/data/frames94s.asm
+$9DF0D2,SPAglideback,DATA8_9DF0D2,93S,93S SPAglideback: same frames and times as 93S,src/data/frames94s.asm
+$9DF104,SPAskateback,DATA8_9DF104,93S,93S SPAskateback: same frames as 93S,src/data/frames94s.asm
+$9DF208,SPAsweepchk,DATA8_9DF208,93S,"93S SPAsweepchk: set as in 93S Sweepcheck, same times as 93S and 94G",src/data/frames94s.asm
+$9DF27A,SPAshoulderchkr,DATA8_9DF27A,93S,93S SPAshoulderchkr: same frames and times as 93S,src/data/frames94s.asm
+$9DF2DE,SPAhipchkr,DATA8_9DF2DE,93S,93S SPAhipchkr: same frames and times as 93S,src/data/frames94s.asm
+$9DF310,SPAshoulderchkl,DATA8_9DF310,93S,93S SPAshoulderchkl: same frames and times as 93S,src/data/frames94s.asm
+$9DF342,SPAburst,DATA8_9DF342,93S,93S SPAburst: same frames and times as 93S,src/data/frames94s.asm
+$9DF49C,SPAfallfwd,DATA8_9DF49C,93S,"93S SPAfallfwd: in the 93S FallDown order of tests and sets, same times as 93S",src/data/frames94s.asm
+$9DF54E,SPAfallback,DATA8_9DF54E,93S,"93S SPAfallback: in the 93S FallDown order of tests and sets, same times as 93S",src/data/frames94s.asm
+$9DF600,SPAfaceoff,DATA8_9DF600,93S,"93S SPAfaceoff: set before SPAfaceoffr as in 93S, same times as 93S",src/data/frames94s.asm
+$9DF62A,SPAfaceoffr,DATA8_9DF62A,93S,93S SPAfaceoffr: same frames and times as 93S,src/data/frames94s.asm
+$9DF68E,SPAstanley,DATA8_9DF68E,93S,93S SPAstanley: same frames and times as 93S,src/data/frames94s.asm
+$9DF6C0,SPAflip,DATA8_9DF6C0,93S,"93S SPAflip: in the 93S FallDown order of tests and sets, same times as 93S",src/data/frames94s.asm
+$9DF7B2,SPAstumble,DATA8_9DF7B2,93S,"93S SPAstumble: in the 93S FallDown order of tests and sets, and in the noturn0 order",src/data/frames94s.asm
+$9DF90E,SPAinjury1,DATA8_9DF90E,93S,93S SPAinjury1: in the 93S FallDown order of tests and sets,src/data/frames94s.asm
+$9DF940,SPAcelebrate,DATA8_9DF940,93S,93S SPAcelebrate: set where 93S assscore sets it,src/data/frames94s.asm
+$9DFA12,SPApump,DATA8_9DFA12,93S,93S SPApump: same frames and times as 93S (no reference found; the scorer gets DATA8_9DFA84),src/data/frames94s.asm
+$9EDBF4,GoalieSaveList,DATA8_9EDBF4,93S,"93S GoalieSaveList: the save animation by save type, read as in 93S; entries 6-8 are new in 94",src/data/tables/GoalieSaveList.asm
+$9EA419,updateanim,CODE_9EA419,93S,"93S updateanim: next frame of the animation of object X (SPA, SPAnum, the attribute word, the direction list), reworked for 94",src/routines/hockey/updateanim.asm
+$11E3,SPAcnt,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$9ED0FC,rtss,CODE_9ED0FC,93S,asstab entry 0 (93S rtss): returns at once,src/routines/snes/CODE_9ED0EF.asm
+$9EA69D,assstanley,CODE_9EA69D,93S,"93S assstanley: asstab entry 9 (94 adds an assignment at 7); same instructions for the most part, sets SPAstanley",src/routines/logic/assstanley.asm
+$9EBADA,assepen,CODE_9EBADA,93S,"93S assepen: asstab entry B; same instructions for the most part, sets SPAwallleft",src/routines/logic/assepen.asm
+$9EBEDF,assdopen,CODE_9EBEDF,93S,93S assdopen: asstab entry E,src/routines/logic/assdopen.asm
+$9E9B5E,FallDown,CODE_9E9B5E,93S,"93S FallDown: the same tests and sets of the fall animations in the same order, same start",src/routines/snes/CODE_9E9B52.asm
+$9EAAB3,noturn0,CODE_9EAAB3,93S,"93S noturn0: same instructions for the most part (glide, glideback, skateback, skate, stumble, skatewp)",src/routines/logic/noturn0.asm
+$9EA4F7,dostop,CODE_9EA4F7,93S,"93S dostop: where noturn0 goes to stop, as in 93S; sets SPAstop below the speed limit",src/routines/logic/dostop.asm
+$9EE17A,SetShotMode,CODE_9EE17A,93S,93S SetShotMode: same instructions for the most part (SPAshotf/SPAshotb by Findhittype),src/routines/logic/SetShotMode.asm
+$9EDE5E,puckflip,CODE_9EDE5E,93S,93S puckflip: same instructions for the most part (SPApflip on the puck),src/routines/logic/puckflip.asm
+$9DE8F4,SPAwallright,DATA8_9DE8F4,93S,93S SPAwallright: set where 93S asseben sets it,src/data/frames94s.asm
+$9DE936,SPAwallleft,DATA8_9DE936,93S,93S SPAwallleft: set where 93S assepen sets it,src/data/frames94s.asm
+$80D324,asstab,DATA8_80D324,93S,93S/94G asstab: long pointer to each assignment routine by assignment number; 94 adds two (7 and $14) and drops the fight ones,src/data/tables/asstab.asm
+$9E8A6A,asswingo,CODE_9E8A6A,93S,asstab entry 4 (93S/94G asswingo); same instructions for the most part,src/routines/logic/asswingo.asm
+$9E8968,asswingd,CODE_9E8968,93S,asstab entry 3 (93S/94G asswingd),src/routines/logic/asswingd.asm
+$9E8804,assdefo,CODE_9E8804,93S,asstab entry 1 (93S/94G assdefo); the 93S order holds for entries 0-6,src/routines/logic/assdefo.asm
+$9E8618,assdefd,CODE_9E8618,93S,asstab entry 2 (93S/94G assdefd); same instructions for the most part,src/routines/logic/assdefd.asm
+$9E8573,asscenterd,CODE_9E8573,93S,asstab entry 5 (93S/94G asscenterd); same instructions for the most part,src/routines/logic/asscenterd.asm
+$9E843C,asscentero,CODE_9E843C,93S,asstab entry 6 (93S/94G asscentero); same instructions for the most part,src/routines/logic/asscentero.asm
+$9E8292,asspuckc,CODE_9E8292,93S,asstab entry 11 (93S asspuckc); same instructions for the most part,src/routines/logic/asspuckc.asm
+$9E800D,assnearest,CODE_9E800D,93S,"asstab entry 12 (93S assnearest), between asspuckc and assshoot",src/routines/logic/assnearest.asm
+$9EBCC7,asspenalty,CODE_9EBCC7,93S,asstab entry D (93S asspenalty); same instructions for the most part,src/routines/logic/asspenalty.asm
+$9EB0B8,assscore,CODE_9EB0B8,93S,"asstab entry 8 (93S assscore, one later: 94 adds entry 7); same instructions for the most part after a 94 start",src/routines/logic/assscore.asm
+$9FD9E1,asseben,CODE_9FD9E1,93S,"asstab entry A (93S asseben); same instructions for the most part, sets SPAwallright",src/routines/logic/asseben.asm
+$9FD85F,assbench,CODE_9FD85F,93S,asstab entry C (93S assbench); same instructions for the most part,src/routines/logic/assbench.asm
+$9EEF34,puckshadow,CODE_9EEF34,93S,asstab entry 19 (93S puckshadow); same instructions for the most part,src/routines/logic/puckshadow.asm
+$9EE706,asspassrec,CODE_9EE706,93S,asstab entry 15 (93S asspassrec; 94 adds entry 14),src/routines/logic/asspassrec.asm
+$9EE146,assshoot,CODE_9EE146,93S,asstab entry 13 (93S assshoot); same instruction shapes,src/routines/logic/assshoot.asm
+$9FB355,puckfaceoff,CODE_9FB355,93S,asstab entry 1B (93S puckfaceoff); same instructions for the most part,src/routines/logic/puckfaceoff.asm
+$9FB27C,assfaceoffpl,CODE_9FB27C,93S,asstab entry 17 (93S assfaceoffpl); same instructions for the most part,src/routines/logic/assfaceoffpl.asm
+$9FB26A,assfaceoff,CODE_9FB26A,93S,"asstab entry 16 (93S assfaceoff, the fight assignments dropped); without the music cues",src/routines/logic/assfaceoff.asm
+$9EDCA8,pucknorm,CODE_9EDCA8,93S,asstab entry 18 (93S pucknorm); same instruction shapes,src/routines/logic/pucknorm.asm
+$9FA835,puckfaceoff2,CODE_9FA835,93S,asstab entry 1C (93S puckfaceoff2); same instructions for the most part,src/routines/logic/puckfaceoff2.asm
+$0792,seed,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$0AD9,puckc,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$0CEB,Hpos,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$0D37,Vpos,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$0D71,puckx,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$0EC3,Xvel,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$0EE3,Yvel,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1003,temp1,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1023,temp2,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1043,temp3,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1063,temp4,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1083,temp5,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$10A3,temp2b,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1163,facedir,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1203,nopuck,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1223,nopuckb,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1323,aioff,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1343,aidef,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1403,stickhand,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1483,aggress,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$14A3,handed,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$14E3,pfalock,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1523,pfrev,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1543,pf2aip,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1563,pfnc,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$15D6,gmclock,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$178E,tmscore,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$9E8C18,assreplace,CODE_9E8C18,93S,same instructions as the 93S routine assreplace (logic),src/routines/logic/assinsert.asm
+$9FDFA6,linebar,CODE_9FDFA6,93S,"most instructions as the 93S routine linebar (penalty), same start",src/routines/penalty/linebar.asm
+$9EE10B,CompShoot,CODE_9EE10B,93S,"most instructions as the 93S routine CompShoot (logic), same start",src/routines/logic/CompShoot.asm
+$9EF8C4,ClearOffsidesIfAllPlayers,CODE_9EF8C4,93S,"most instructions as the 93S routine ClearOffsidesIfAllPlayers (logic), same start",src/routines/logic/ClearOffsidesIfAllPlayers.asm
+$9ED130,CPgoalie,CODE_9ED130,93S,"most instructions as the 93S routine CPgoalie (logic), same start (CODE_9ED10F before it is a 94 entry)",src/routines/logic/CPgoalie.asm
+$9EA8A9,doplayeracc,CODE_9EA8A9,93S,"most instructions as the 93S routine doplayeracc (logic), same start; its calls go where 93S calls",src/routines/logic/doplayeracc.asm
+$9F8646,periodicevents,CODE_9F8646,93S,"most instructions as the 93S routine periodicevents (hockey), same start (CODE_9F8625 is a 94 entry that calls it)",src/routines/hockey/periodicevents.asm
+$9EB1E5,checkfornewpen,CODE_9EB1E5,93S,"most instructions as the 93S routine checkfornewpen (penalty), same start (CODE_9EB198/CODE_9EB1C9 are 94 entries before it)",src/routines/penalty/checkfornewpen.asm
+$9FD325,SetLCmode2,CODE_9FD325,93S,"most instructions as the 93S routine SetLCmode2 (logic), same start (CODE_9FD2FE is a 94 entry before it)",src/routines/logic/SetLCmode2.asm
+$9EC2D0,setInjuryType,CODE_9EC2D0,93S,"most instructions as the 93S routine setInjuryType (hockey), same start; called from FallDown",src/routines/hockey/setInjuryType.asm
+$9FA393,IntermissionTick,CODE_9FA393,93S,"most instructions as the 93S routine IntermissionTick (penalty), same start (CODE_9FA37A is a 94 entry before it)",src/routines/penalty/IntermissionTick.asm
+$9FBD66,printteamname,CODE_9FBD66,93S,"same instructions as the 93S routine printteamname (penalty), called where 93S PrintTeamNameAndScore calls it; CODE_9B9B35 is a copy of it in bank $9B",src/routines/penalty/printteamname.asm
 $9BC10F,projxy,CODE_9BC10F,93S,"most instructions as the 93S routine projxy (video), same start",src/routines/video/projxy.asm
-$0CF7,lldisp,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$0D0D,printa,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$0D97,frame,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1183,facefrac,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$1636,TempPlOffset,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
-$17E6,tmlcchoice,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0CF7,lldisp,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$0D0D,printa,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$0D97,frame,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1183,facefrac,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$1636,TempPlOffset,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
+$17E6,tmlcchoice,,93S,RAM; the 93S name of the variable at this place in routines that match 93S,src/ram94snes.asm
