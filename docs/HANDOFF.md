@@ -3,8 +3,8 @@
 ## Alignment
 
 - Audit is `docs/align_plan.md` (no source change). `bank9C_A000` plus `src/data/teamdata94s.asm` does cover the old bank9C_B000, C000 and D000 ranges: the next file is bank9C_E000 at `$9CEF59`.
-- Layout done: bank `$81` is `src/banks/b81_rink_logos.asm` (IceRinkTiles, TeamLogoSprites, the TeamSongs entry DATA8_81FE45). `tools/verify_all.sh` MATCH.
-- Next: bank `$82` sprite frames, then `$83-$8E` the same way. Abbreviation renames stay as listed in the plan (ANA/LAK/NJD/OTT/SJS/TBL to ANH/LA/NJ/OTW/SJ/TB).
+- Layout done: bank `$81` (`b81_rink_logos.asm`) and bank `$82` (`b82_spriteframes.asm`, SpriteFrames82, CenterIceTilesHFD). `tools/verify_all.sh` MATCH.
+- Next: banks `$83-$8E` the same way. Abbreviation renames stay as listed in the plan (ANA/LAK/NJD/OTT/SJS/TBL to ANH/LA/NJ/OTW/SJ/TB).
 
 ## Unsure
 
