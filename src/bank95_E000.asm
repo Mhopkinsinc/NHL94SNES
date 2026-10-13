@@ -1,5 +1,5 @@
-; Bank $95, seventh 4 KB: DATA8_95E304, LZ-packed tiles, then the start of DATA8_95EA63, a block for the sound CPU
-; (upload lists DATA8_80E6C1 and DATA8_80E6FD).
+; Bank $95, seventh 4 KB: the end of the map DATA8_95DB8E, then DATA8_95E304, LZ-packed tiles, then the start of
+; DATA8_95EA63, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD).
 
 org $95E000
 	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000
