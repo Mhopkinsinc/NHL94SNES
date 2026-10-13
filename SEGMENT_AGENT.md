@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank98_F000. <- CURRENT
+bank99_8000. <- CURRENT
 
 ## Sources
 
@@ -296,8 +296,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank98_C000 | matched 4096 bytes | $98C000 | $98CFFF | 0% | the end of DATA8_98BF41, then DATA8_98C18E, a player photo, then DATA8_98C3DB, a player photo, then DATA8_98C628, a player photo, then DATA8_98C874, a song from the DefaultSongs table (laid out as in bank81_F000), then DATA8_98CAC0, a player photo, then DATA8_98CD0A, a player photo, then the start of DATA8_98CF54, a player photo |
 | bank98_D000 | matched 4096 bytes | $98D000 | $98DFFF | 0% | the end of DATA8_98CF54, then DATA8_98D19D, a player photo, then DATA8_98D3E6, a player photo, then DATA8_98D62E, a player photo, then DATA8_98D876, a player photo, then DATA8_98DABC, a player photo, then DATA8_98DD01, a player photo, then the start of DATA8_98DF46, a song from the TeamSongs table (laid out as in bank81_F000) |
 | bank98_E000 | matched 4096 bytes | $98E000 | $98EFFF | 0% | the end of DATA8_98DF46, then DATA8_98E18A, a player photo, then DATA8_98E3CD, a player photo, then DATA8_98E610, a player photo, then DATA8_98E853, a player photo, then DATA8_98EA95, a player photo, then DATA8_98ECD6, a player photo, then the start of DATA8_98EF17, a player photo |
-| bank98_F000 | incbin <- CURRENT | $98F000 | $98FFFF | 0% | |
-| bank99_8000 | incbin | $998000 | $998FFF | 0% | |
+| bank98_F000 | matched 4096 bytes | $98F000 | $98FFFF | 0% | the end of DATA8_98EF17, then DATA8_98F158, a player photo, then DATA8_98F399, a player photo, then DATA8_98F5D7, a player photo, then DATA8_98F814, a player photo, then DATA8_98FA51, a player photo, then DATA8_98FC8E, a player photo, then CenterIceTilesNYI, the New York Islanders centre ice logo tiles, then the last bytes of the bank |
+| bank99_8000 | incbin <- CURRENT | $998000 | $998FFF | 0% | |
 | bank99_9000 | incbin | $999000 | $999FFF | 0% | |
 | bank99_A000 | incbin | $99A000 | $99AFFF | 0% | |
 | bank99_B000 | incbin | $99B000 | $99BFFF | 0% | |
@@ -556,3 +556,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank98_C000: source, MATCH. The end of DATA8_98BF41, then DATA8_98C18E, a player photo, then DATA8_98C3DB, a player photo, then DATA8_98C628, a player photo, then DATA8_98C874, a song from the DefaultSongs table (laid out as in bank81_F000), then DATA8_98CAC0, a player photo, then DATA8_98CD0A, a player photo, then the start of DATA8_98CF54, a player photo.
 - bank98_D000: source, MATCH. The end of DATA8_98CF54, then DATA8_98D19D, a player photo, then DATA8_98D3E6, a player photo, then DATA8_98D62E, a player photo, then DATA8_98D876, a player photo, then DATA8_98DABC, a player photo, then DATA8_98DD01, a player photo, then the start of DATA8_98DF46, a song from the TeamSongs table (laid out as in bank81_F000).
 - bank98_E000: source, MATCH. The end of DATA8_98DF46, then DATA8_98E18A, a player photo, then DATA8_98E3CD, a player photo, then DATA8_98E610, a player photo, then DATA8_98E853, a player photo, then DATA8_98EA95, a player photo, then DATA8_98ECD6, a player photo, then the start of DATA8_98EF17, a player photo.
+- bank98_F000: source, MATCH. The end of DATA8_98EF17, then DATA8_98F158, a player photo, then DATA8_98F399, a player photo, then DATA8_98F5D7, a player photo, then DATA8_98F814, a player photo, then DATA8_98FA51, a player photo, then DATA8_98FC8E, a player photo, then CenterIceTilesNYI, the New York Islanders centre ice logo tiles, then the last bytes of the bank. Bank $98 is now all source.
