@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8A_F000. <- CURRENT
+bank8B_8000. <- CURRENT
 
 ## Sources
 
@@ -184,8 +184,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8A_C000 | matched 4087 bytes | $8AC0EE | $8AD0E4 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8AC0EE, end moved +$E5 (frame boundary) |
 | bank8A_D000 | matched 4118 bytes | $8AD0E5 | $8AE0FA | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8AD0E5, end moved +$FB (frame boundary) |
 | bank8A_E000 | matched 3862 bytes | $8AE0FB | $8AF010 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8AE0FB, end moved +$11 (frame boundary) |
-| bank8A_F000 | incbin <- CURRENT | $8AF011 | $8AFFFF | 0% | org moved to $8AF011 |
-| bank8B_8000 | incbin | $8B8000 | $8B8FFF | 0% | |
+| bank8A_F000 | matched 4079 bytes | $8AF011 | $8AFFFF | 0% | last SpriteFrames frames of bank $8A; DATA8_8AFF7A (10 x 12 byte map); $FF fill; org moved to $8AF011 |
+| bank8B_8000 | incbin <- CURRENT | $8B8000 | $8B8FFF | 0% | |
 | bank8B_9000 | incbin | $8B9000 | $8B9FFF | 0% | |
 | bank8B_A000 | incbin | $8BA000 | $8BAFFF | 0% | |
 | bank8B_B000 | incbin | $8BB000 | $8BBFFF | 0% | |
@@ -444,3 +444,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8A_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8AC0EE 8AD000`. bank8A_D000 org moved to $8AD0E5 (frame boundary).
 - bank8A_D000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8AD0E5 8AE000`. bank8A_E000 org moved to $8AE0FB (frame boundary).
 - bank8A_E000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8AE0FB 8AF000`. bank8A_F000 org moved to $8AF011 (frame boundary).
+- bank8A_F000: source, MATCH. The last SpriteFrames frames of bank $8A (tools/spriteframes.py frames 8AF011 8B0000), then DATA8_8AFF7A: three words (10, 12, 16) and a 10 x 12 byte map, not packed, read at $9DB635 (the same layout as DATA8_87FF91 once unpacked); not identified. Bank $8A is now all source.

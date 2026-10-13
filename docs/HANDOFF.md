@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $89, and bank8A_8000 to bank8A_E000, are source (MATCH); the rest are incbin.
+- Banks $80 to $8A are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -81,7 +81,9 @@
   $9AD4B6: the NHL shield.
 - $9DE0BD loads colours into CGRAM: [$0C] the colours, Y the first colour, X the count (team palettes: Y = $A0).
   DATA8_89FFC7 (bank89_F000) is an LZ-packed palette that $9DC8E4 loads at colour $40; its screen is not identified.
-- Next: segment bank8A_F000, from $8AF011 (`tools/spriteframes.py frames 8AF011 8B8000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- DATA8_8AFF7A (bank8A_F000) has the layout of DATA8_87FF91 unpacked (10 x 12 byte map after three words) and is read at
+  $9DB635, near the code that unpacks DATA8_87FF91; both are likely tile pictures of one screen, not identified yet.
+- Next: segment bank8B_8000 (first add SpriteFrames8B.bin from `tools/spriteframes.py info` to tools/extract.py, then `tools/spriteframes.py frames 8B8000 8B9000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
