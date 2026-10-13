@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank94_C000. <- CURRENT
+bank94_D000. <- CURRENT
 
 ## Sources
 
@@ -261,8 +261,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank94_9000 | matched 4096 bytes | $949000 | $949FFF | 0% | the end of DATA8_948D6F, then the start of DATA8_949A00, an LZ-packed block not identified yet |
 | bank94_A000 | matched 4096 bytes | $94A000 | $94AFFF | 0% | the end of DATA8_949A00, then the start of DATA8_94A662, a block for the sound CPU (a long pointer list in bank $9C) |
 | bank94_B000 | matched 4096 bytes | $94B000 | $94BFFF | 0% | the end of DATA8_94A662, then DATA8_94B287, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_94BEAC, a block for the sound CPU (upload list DATA8_80E6FD) |
-| bank94_C000 | incbin <- CURRENT | $94C000 | $94CFFF | 0% | |
-| bank94_D000 | incbin | $94D000 | $94DFFF | 0% | |
+| bank94_C000 | matched 4096 bytes | $94C000 | $94CFFF | 0% | the end of DATA8_94BEAC, then the start of DATA8_94CABF, a block for the sound CPU (upload list DATA8_80DD16) |
+| bank94_D000 | incbin <- CURRENT | $94D000 | $94DFFF | 0% | |
 | bank94_E000 | incbin | $94E000 | $94EFFF | 0% | |
 | bank94_F000 | incbin | $94F000 | $94FFFF | 0% | |
 | bank95_8000 | incbin | $958000 | $958FFF | 0% | |
@@ -521,3 +521,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank94_9000: source, MATCH. The end of DATA8_948D6F, then the start of DATA8_949A00, an LZ-packed block not identified yet.
 - bank94_A000: source, MATCH. The end of DATA8_949A00, then the start of DATA8_94A662, a block for the sound CPU (a long pointer list in bank $9C).
 - bank94_B000: source, MATCH. The end of DATA8_94A662, then DATA8_94B287, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_94BEAC, a block for the sound CPU (upload list DATA8_80E6FD).
+- bank94_C000: source, MATCH. The end of DATA8_94BEAC, then the start of DATA8_94CABF, a block for the sound CPU (upload list DATA8_80DD16).
