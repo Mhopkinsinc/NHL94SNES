@@ -1,3 +1,805 @@
-; Segment bank9D_D000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank9D_D000.asm.
+; Bank $9D, sixth 4 KB: the rest of PlayerPhotoTable (see bank9D_C000), then PhotoPaletteTable (a long pointer to the
+; photo colours of each team), then screen code with auto labels for now.
+
 org $9DD003
-	incbin "../Extracted/segments/bank9D_D000.bin":3..4096
+	dd DATA8_99E1E8,DATA8_9A940F,DATA8_99FAB4,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9993FD,DATA8_98D876,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D	; Edmonton
+	dd DATA8_97BC8C,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_97C682
+	dd DATA8_9AB13D,DATA8_98898F,DATA8_99B097,DATA8_99E1E8,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_97C188,DATA8_99C64E,DATA8_99E1E8,DATA8_998479,DATA8_989EC9,DATA8_99E1E8,DATA8_8FFE74	; Florida
+	dd DATA8_97A0E8,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_97F9BC,DATA8_8FFE74,DATA8_97D06C
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_98DD01,DATA8_99C64E,DATA8_99C64E,DATA8_99EE68,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D	; Hartford
+	dd DATA8_98ACC7,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_98B608,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_999F04,DATA8_98AF19,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_97E40B,DATA8_99C64E,DATA8_99C64E,DATA8_97DF28,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8	; LosAngeles
+	dd DATA8_98D62E,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_97D7CC,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_97A887,DATA8_97C8FE,DATA8_8FFE74,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9A862E,DATA8_99C64E,DATA8_99F8AC,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_97D557	; Montreal
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_98CAC0,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9988EC,DATA8_99DFCF,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_9AA329,DATA8_99C64E,DATA8_99D545,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D	; NewJersey
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_9AA6D6,DATA8_97AB0A,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_98F158,DATA8_988264,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_9986B3,DATA8_9A8225,DATA8_9991C8,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8	; NYIslanders
+	dd DATA8_98A377,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_99F079,DATA8_97C405,DATA8_8FFE74,DATA8_9AB13D,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_9A8E26,DATA8_98BF41,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_97B28D,DATA8_8FFE74	; NYRangers
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_98CF54,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_979406,DATA8_9884C8,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_8CFDEC,DATA8_99C64E,DATA8_99E619,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8	; Ottawa
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99AE67,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_99F498,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_99EA44,DATA8_99DB9B,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_988E50,DATA8_99C64E,DATA8_99C64E,DATA8_98DABC,DATA8_98FC8E,DATA8_99E1E8,DATA8_8FFE74	; Philadelphia
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9897BF
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_98C18E,DATA8_99E831,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99F6A3,DATA8_99C64E,DATA8_9AA500,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_98E610	; Pittsburgh
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9A9F70,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_9A8A31,DATA8_989566,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_98EF17,DATA8_99C64E,DATA8_99A5A0,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74	; Quebec
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_9A901F,DATA8_9A801F,DATA8_99E1E8
+	dd DATA8_8FFE74,DATA8_99D325,DATA8_97A374,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_98AA74,DATA8_99C64E,DATA8_99C64E,DATA8_98B3B9,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74	; SanJose
+	dd DATA8_9AB13D,DATA8_98FA51,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_98930C,DATA8_99E1E8
+	dd DATA8_8FFE74,DATA8_98872C,DATA8_97F757,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9A9218,DATA8_9A99C9,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8	; StLouis
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99A36C,DATA8_98F399,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_98E18A,DATA8_99E401,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_97EDBC,DATA8_99C64E,DATA8_99C64E,DATA8_99BDAC,DATA8_99A138,DATA8_9AB13D,DATA8_99E1E8	; TampaBay
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_99F289,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_988000,DATA8_9A8832,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_998F93,DATA8_99C64E,DATA8_9AA8AB,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8	; Toronto
+	dd DATA8_99FCBA,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_979E57,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_98D3E6,DATA8_99D981,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_98C3DB,DATA8_99C64E,DATA8_99B954,DATA8_8FFE74,DATA8_99E1E8,DATA8_98BAA5,DATA8_9AB13D	; Vancouver
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_98B857,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_99DDB5,DATA8_97BF0A,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_97DCB5,DATA8_99C64E,DATA8_97B00C,DATA8_988BF0,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D	; Washington
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_99EC56,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_99E1E8,DATA8_8FFE74,DATA8_98E853,DATA8_98C628,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_999632,DATA8_99C64E,DATA8_99A7D3,DATA8_97D2E2,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74	; Winnipeg
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_9A842A,DATA8_8FFE74
+	dd DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9A9D91,DATA8_99823D,DATA8_9AB13D,DATA8_99E1E8
+	dd DATA8_8FFE74,DATA8_9AB13D,DATA8_99E1E8,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_9A862E,DATA8_998D5D,DATA8_99F6A3,DATA8_9AA500,DATA8_98BF41,DATA8_99F8AC,DATA8_98F814	; AllStarsEast
+	dd DATA8_99A5A0,DATA8_9A8225,DATA8_99B2C7,DATA8_98E610,DATA8_9A9F70,DATA8_99EC56,DATA8_98CF54
+	dd DATA8_99E1E8,DATA8_99C1FE,DATA8_9897BF,DATA8_9A8A31,DATA8_998000,DATA8_979406,DATA8_99D325
+	dd DATA8_98C628,DATA8_98F158,DATA8_999F04,DATA8_8FFE74,DATA8_9AB13D
+	dd DATA8_97A600,DATA8_98F5D7,DATA8_998F93,DATA8_99C426,DATA8_97AD8B,DATA8_98EA95,DATA8_99BDAC	; AllStarsWest
+	dd DATA8_9AA8AB,DATA8_97DF28,DATA8_99AA05,DATA8_98D62E,DATA8_97EB52,DATA8_98F399,DATA8_98B857
+	dd DATA8_9A842A,DATA8_98930C,DATA8_99E1E8,DATA8_978E95,DATA8_98E18A,DATA8_9A940F,DATA8_99B4F7
+	dd DATA8_9A9D91,DATA8_98898F,DATA8_998B25,DATA8_99FAB4,DATA8_8FFE74
+PhotoPaletteTable:	; per team: a long pointer to the 16 colours of its player photos
+	dd PhotoPaletteANA,DATA8_85FFDF,PhotoPaletteBUF,PhotoPaletteCGY
+	dd PhotoPaletteCHI,PhotoPaletteDAL,PhotoPaletteDET,PhotoPaletteEDM
+	dd PhotoPaletteFLA,PhotoPaletteHFD,PhotoPaletteLAK,PhotoPaletteMTL
+	dd PhotoPaletteNJD,PhotoPaletteNYI,PhotoPaletteNYR,PhotoPaletteOTT
+	dd PhotoPalettePHI,PhotoPalettePIT,PhotoPaletteQUE,PhotoPaletteSJS
+	dd PhotoPaletteSTL,PhotoPaletteTBL,PhotoPaletteTOR,PhotoPaletteVAN
+	dd PhotoPaletteWSH,PhotoPaletteWPG,DATA8_9AEB3C,DATA8_9AEB3C
+CODE_9DD923:
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$37F4
+	sta.b $0C
+	ldy.w #$0000
+	ldx.w #$0800
+	jsl.l CODE_80891F
+	rtl
+CODE_9DD938:
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$3834
+	sta.b $0C
+	ldy.w #$0020
+	ldx.w #$0300
+	jsl.l CODE_80891F
+	rtl
+CODE_9DD94D:
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$3FF4
+	sta.b $0C
+	ldy.w #$0400
+	ldx.w #$0800
+	jsl.l CODE_80891F
+	rtl
+CODE_9DD962:
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$4034
+	sta.b $0C
+	ldy.w #$0420
+	ldx.w #$0300
+	jsl.l CODE_80891F
+	rtl
+CODE_9DD977:
+	lda.w #$007E
+	sta.b $12
+	lda.w #$37F4
+	sta.b $10
+	lda.l $7E35D0
+	clc
+	adc.l $7E35AA
+	ldx.w #$0800
+	jsl.l CODE_808EDF
+	rtl
+CODE_9DD992:
+	lda.w #$007E
+	sta.b $12
+	lda.w #$3FF4
+	sta.b $10
+	lda.l $7E35D0
+	clc
+	adc.l $7E35AC
+	ldx.w #$0800
+	jsl.l CODE_808EDF
+	rtl
+CODE_9DD9AD:
+	stz.w $07C6
+	lda.b $91
+	pha
+	jsl.l $9F96F7
+	lda.w #$0081
+	sta.b $0E
+	lda.w #$ABDE
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$7800
+	sta.b $10
+	jsl.l Decompress
+	jsl.l $9F9708
+	jsl.l CODE_8086A9
+	sep #$20
+	lda.b #$00
+	sta.w BG1SC
+	lda.b #$04
+	sta.w BG2SC
+	lda.b #$12
+	sta.w BG12NBA
+	lda.b #$03
+	sta.w OBSEL
+	lda.b #$13
+	sta.w TM
+	rep #$30
+	lda.w #$FF00
+	sta.l $7E35AA
+	sta.l $7E35A8
+	lda.w #$0000
+	sta.l $7E35AC
+	lda.l $7E35B6
+	sta.l $7E35C4
+	asl a
+	asl a
+	asl a
+	asl a
+	adc.w #$1000
+	sta.w VMADDL
+	lda.w #$0096
+	sta.b $0E
+	lda.w #$A103
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	txa
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	sta.b $A5
+	clc
+	adc.l $7E35C4
+	sta.l $7E35C4
+	sta.l $7E35BC
+	lda.w #$007F
+	sta.b $8B
+	lda.w #$0000
+	sta.b $89
+	lda.w #$0080
+	sta.b $8F
+	lda.w #$D3D7
+	sta.b $8D
+	jsl.l CODE_9B854B
+	lda.w #$009C
+	sta.b $8B
+	lda.w #$8000
+	sta.b $89
+	lda.w #$0080
+	sta.b $8F
+	lda.w #$D3E7
+	sta.b $8D
+	lda.w #$0004
+	sta.b $A5
+	clc
+	adc.l $7E35C4
+	sta.l $7E35C4
+	sta.l $7E35CE
+	jsl.l CODE_9B854B
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$C1F3
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	txa
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	clc
+	adc.l $7E35C4
+	sta.l $7E35C4
+	sta.l $7E35BE
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$FFFF
+	jsl.l CODE_80891F
+	lda.l $7E35C4
+	sta.l $7E35BE
+	lda.w #$009C
+	sta.b $0E
+	lda.w #$8098
+	sta.b $0C
+	ldx.w #$0140
+	txa
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	clc
+	adc.l $7E35C4
+	sta.l $7E35C4
+	sta.l $7E35C0
+	ldy.w #$FFFF
+	jsl.l CODE_80891F
+	lda.l $7E35C4
+	sta.l $7E35C0
+	lda.w #$009C
+	sta.b $0E
+	lda.w #$81F0
+	sta.b $0C
+	ldx.w #$0120
+	txa
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	clc
+	adc.l $7E35C4
+	sta.l $7E35C4
+	ldy.w #$FFFF
+	jsl.l CODE_80891F
+	lda.l $7E35C4
+	sec
+	sbc.w #$0100
+	sta.l $7E35D2
+	lda.w #$0095
+	sta.b $0E
+	lda.w #$F1AE
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	txa
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	sta.l $7E35B4
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$1000
+	jsl.l CODE_80891F
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$BA95
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$7706
+	sta.b $10
+	lda.w #$0007
+	sta.b $24
+	sta.b $18
+	sta.b $1A
+	lda.w #$0001
+	sta.b $20
+	sta.b $22
+	ldx.w #$0000
+	ldy.w #$0000
+	lda.w #$0C00
+	jsl.l CODE_808E7C
+	lda.w #$0007
+	sta.l $7F7700
+	sta.l $7F7702
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	lda.w #$007E
+	sta.b $12
+	lda.w #$3FF4
+	sta.b $10
+	lda.w #$0020
+	sta.b $24
+	lda.w #$001C
+	sta.b $26
+	ldx.w #$0000
+	ldy.w #$0000
+	lda.l $7E35AC
+	clc
+	adc.w #$0C00
+	jsl.l CODE_808E2D
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$DE57
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$0000
+	ldx.w #$0030
+	jsl.l $9DE0BD
+	lda.l $7E3454
+	cmp.w #$0021
+	bcs CODE_9DDC18
+	jmp.w $DCF3
+CODE_9DDC18:
+	sbc.w #$0021
+	sta.l $7E3454
+	lda.w #$0093
+	sta.b $0E
+	lda.w #$8000
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$FFFF
+	jsl.l CODE_80891F
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$B7A1
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	txa
+	sec
+	sbc.w #$0008
+	tay
+	lda.b $10
+	clc
+	adc.w #$0006
+	sta.b $10
+CODE_9DDC6E:
+	lda.b [$10],y
+	beq CODE_9DDC85
+	clc
+	adc.l $7E35B4
+	clc
+	adc.l $7E35AC
+	clc
+	adc.w #$0800
+	tyx
+	sta.l $7E3FF4,x
+CODE_9DDC85:
+	dey
+	dey
+	bpl CODE_9DDC6E
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$DE57
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$0000
+	ldx.w #$0010
+	jsl.l $9DE0BD
+	lda.b $0C
+	clc
+	adc.w #$0020
+	sta.b $0C
+	ldy.w #$0010
+	ldx.w #$0010
+	jsl.l $9DE0BD
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$E972
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$0020
+	ldx.w #$0010
+	jsl.l $9DE0BD
+CODE_9DDCF3:
+	sep #$20
+	stz.w CGADD
+	stz.w CGDATA
+	stz.w CGDATA
+	rep #$20
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$E121
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$0030
+	ldx.w #$0020
+	jsl.l $9DE0BD
+	lda.l $7E35BE
+	clc
+	adc.w #$1400
+	sta.l $7E35BE
+	lda.l $7E35C0
+	clc
+	adc.w #$1000
+	sta.l $7E35C0
+	lda.w $1C98
+	cmp.w #$0018
+	bcs CODE_9DDD4E
+	stz.b $91
+CODE_9DDD4E:
+	lda.w $1C9A
+	cmp.w #$0018
+	bcs CODE_9DDD5B
+	lda.w #$0002
+	sta.b $91
+CODE_9DDD5B:
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$D3B6
+	sta.b $0C
+	ldy.w #$0080
+	ldx.w #$0010
+	jsl.l $9DE0BD
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$F15C
+	sta.b $0C
+	ldy.w #$00C0
+	ldx.w #$0010
+	jsl.l $9DE0BD
+	jsl.l CODE_9DD977
+	jsl.l CODE_9DD94D
+	jsl.l WaitFrame
+	ldx.w #$0000
+	ldy.w #$0180
+	lda.w #$6000
+	jsl.l InitSprites
+	jsl.l SpriteFrameStart
+	jsl.l CODE_9DDF73
+	lda.w #$3568
+	sta.l $7F7500
+	jsl.l CODE_9DDDB3
+	pla
+	sta.b $91
+	rtl
+CODE_9DDDB3:
+	lda.b $91
+	pha
+	lda.l $7E3454
+	sta.b $00
+	bpl CODE_9DDDFF
+	lda.l $7E3452
+	bpl CODE_9DDDC9
+	lda.w #$0002
+	sta.b $91
+CODE_9DDDC9:
+	lda.l $7E345C
+	ldx.w #$0001
+	ldy.w #$0001
+	jsl.l CODE_9DC9A8
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$7780
+	sta.b $0C
+	lda.w #$007E
+	sta.b $12
+	lda.w #$3FF4
+	sta.b $10
+	lda.w #$0020
+	sta.b $24
+	ldx.w #$0001
+	ldy.w #$0001
+	lda.w #$0000
+	jsl.l CODE_808E2D
+	bra CODE_9DDE63
+CODE_9DDDFF:
+	lda.l $7E3454
+	asl a
+	asl a
+	tax
+	lda.l LogoPaletteTable+2,x
+	sta.b $0E
+	lda.l LogoPaletteTable,x
+	sta.b $0C
+	ldy.w #$00A0
+	ldx.w #$0010
+	jsl.l $9DE0BD
+	lda.w #$007F
+	sta.b $12
+	lda.w #$7800
+	sta.b $10
+	lda.w #$2400
+	ldx.w #$000C
+	ldy.w #$000C
+	jsl.l DrawSprite
+	ldx.w #$0001
+	ldy.w #$0001
+	jsl.l CODE_9DCCBA
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$7700
+	sta.b $0C
+	lda.w #$007E
+	sta.b $12
+	lda.w #$3FF4
+	sta.b $10
+	lda.w #$0020
+	sta.b $24
+	ldx.w #$0001
+	ldy.w #$0001
+	lda.w #$0000
+	jsl.l CODE_808E2D
+CODE_9DDE63:
+	lda.l $7E3452
+	sta.b $00
+	bpl CODE_9DDEA9
+	lda.l $7E3454
+	bpl CODE_9DDE73
+	stz.b $91
+CODE_9DDE73:
+	lda.l $7E345A
+	ldx.w #$0018
+	ldy.w #$0001
+	jsl.l CODE_9DC9A8
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$7780
+	sta.b $0C
+	lda.w #$007E
+	sta.b $12
+	lda.w #$3FF4
+	sta.b $10
+	lda.w #$0020
+	sta.b $24
+	ldx.w #$0018
+	ldy.w #$0001
+	lda.w #$0000
+	jsl.l CODE_808E2D
+	bra CODE_9DDF0D
+CODE_9DDEA9:
+	lda.l $7E3452
+	asl a
+	asl a
+	tax
+	lda.l LogoPaletteTable+2,x
+	sta.b $0E
+	lda.l LogoPaletteTable,x
+	sta.b $0C
+	ldy.w #$00B0
+	ldx.w #$0010
+	jsl.l $9DE0BD
+	lda.w #$007F
+	sta.b $12
+	lda.w #$7800
+	sta.b $10
+	lda.w #$2600
+	ldx.w #$00C4
+	ldy.w #$000C
+	jsl.l DrawSprite
+	ldx.w #$0018
+	ldy.w #$0001
+	jsl.l CODE_9DCCBA
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$7700
+	sta.b $0C
+	lda.w #$007E
+	sta.b $12
+	lda.w #$3FF4
+	sta.b $10
+	lda.w #$0020
+	sta.b $24
+	ldx.w #$0018
+	ldy.w #$0001
+	lda.w #$0000
+	jsl.l CODE_808E2D
+CODE_9DDF0D:
+	lda.l $7E3478
+	bne CODE_9DDF6F
+	lda.l $7E3454
+	bmi CODE_9DDF1F
+	lda.l $7E3452
+	bpl CODE_9DDF63
+CODE_9DDF1F:
+	lda.w #$007F
+	sta.b $0E
+	lda.l $7E3470
+	sta.b $0C
+	lda.l $7E35D2
+	asl a
+	asl a
+	asl a
+	asl a
+	clc
+	adc.w #$2000
+	tay
+	ldx.w #$0600
+	jsl.l WaitFrame
+	jsl.l CODE_80891F
+	lda.w #$007F
+	sta.b $0E
+	lda.l $7E3472
+	sta.b $0C
+	lda.l $7E35D2
+	asl a
+	asl a
+	asl a
+	asl a
+	clc
+	adc.w #$2300
+	tay
+	ldx.w #$0600
+	jsl.l CODE_80891F
+	bra CODE_9DDF67
+CODE_9DDF63:
+	jsl.l WaitFrame
+CODE_9DDF67:
+	jsl.l CODE_9DD938
+	jsl.l CODE_9DD962
+CODE_9DDF6F:
+	pla
+	sta.b $91
+	rtl
+CODE_9DDF73:
+	lda.w #$009A
+	sta.b $0E
+	lda.w #$E9F0
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$7780
+	sta.b $10
+	jsl.l Decompress
+	lda.l $7F7780
+	asl a
+	sta.b $14
+	lda.l $7F7782
+	tax
+	lda.b $10
+	clc
+	adc.w #$0006
+	sta.b $10
+CODE_9DDF9F:
+	ldy.b $14
+	dey
+	dey
+CODE_9DDFA3:
+	lda.b [$10],y
+	clc
+	adc.l $7E35AC
+	clc
+	adc.w #$0C00
+	sta.b [$10],y
+	dey
+	dey
+	bpl CODE_9DDFA3
+	lda.b $10
+	clc
+	adc.b $14
+	sta.b $10
+	dex
+	bne CODE_9DDF9F
+	rtl
+CODE_9DDFBF:
+	sta.b $00
+	stx.b $04
+	sty.b $08
+	lda.b $00
+	asl a
+	asl a
+	tax
+	lda.l LogoPaletteTable+2,x
+	sta.b $0E
+	lda.l LogoPaletteTable,x
+	sta.b $0C
+	ldy.w #$00A0
+	ldx.w #$0010
+	jsl.l $9DE0BD
+	lda.w #$007F
+	sta.b $12
+	lda.w #$7800
+	sta.b $10
+	lda.w #$2400
+	ldx.b $04
+	ldy.b $08
+	jsl.l DrawSprite
+	rtl
+CODE_9DDFF6:
+	sep #$20
+	lda.b #$A0
+	sta.w WOBJSEL
+	lda.b #$40
+	sta.w WH0
