@@ -33,7 +33,7 @@ CODE_9F900A:
 	lda.w sflags
 	bit.w #$0001
 	bne CODE_9F9060
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9F9060
 	ldx.b $C1
 CODE_9F9049:
@@ -55,7 +55,7 @@ CODE_9F9060:
 	pla
 	sta.b $C1
 	sta.w $0ADB
-	lda.w $15D6
+	lda.w gmclock
 	beq CODE_9F9079
 	pla
 	sec
@@ -67,13 +67,13 @@ CODE_9F9079:
 	lda.b $A9
 	bit.w #$9080
 	beq CODE_9F900A
-	lda.w $178E
+	lda.w tmscore
 	cmp.w $1790
 	bne CODE_9F9097
 	jsl.l RandomWord
 	and.w #$0002
 	tax
-	inc.w $178E,x
+	inc.w tmscore,x
 CODE_9F9097:
 	pla
 	pla
@@ -82,7 +82,7 @@ CODE_9F9097:
 	sta.b $89
 	jsl.l CODE_9C9786
 	ldx.b $89
-	lda.w $178E
+	lda.w tmscore
 	sta.l $7E3578,x
 	lda.w $1790
 	sta.l $7E3588,x
@@ -499,7 +499,7 @@ CODE_9F94AE:
 	sta.b $A5
 	stz.b $89
 	tax
-	lda.w $178E
+	lda.w tmscore
 	sta.l $7E3578,x
 	lda.w $1790
 	sta.l $7E3588,x
@@ -1522,7 +1522,7 @@ CODE_9F9CFB:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $178E
+	lda.w tmscore
 	sta.b $A5
 	jsl.l CODE_9F9E15
 	jsl.l PushNumber
@@ -1577,7 +1577,7 @@ CODE_9F9D99:
 CODE_9F9DB0:
 	jsl.l CODE_9FBD66
 	ldy.b $91
-	lda.w $178E,y
+	lda.w tmscore,y
 	sta.b $A5
 	jsl.l CODE_9F9E15
 	lda.w #$0000

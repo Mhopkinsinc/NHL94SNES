@@ -477,3 +477,62 @@ $9DFA12,SPApump,DATA8_9DFA12,93S,"93S SPApump: same frames and times as 93S (no 
 $9EDBF4,GoalieSaveList,DATA8_9EDBF4,93S,"93S GoalieSaveList: the save animation by save type, read as in 93S; entries 6-8 are new in 94",src/bank9E_D000.asm
 $9EA419,updateanim,CODE_9EA419,93S,"93S updateanim: next frame of the animation of object X (SPA, SPAnum, the attribute word, the direction list), reworked for 94",src/bank9E_A000.asm
 $11E3,SPAcnt,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$9ED0FC,rtss,CODE_9ED0FC,93S,"asstab entry 0 (93S rtss): returns at once",src/bank9E_D000.asm
+$9EA69D,assstanley,CODE_9EA69D,93S,"93S assstanley: asstab entry 9 (94 adds an assignment at 7); same instructions for the most part, sets SPAstanley",src/bank9E_A000.asm
+$9EBADA,assepen,CODE_9EBADA,93S,"93S assepen: asstab entry B; same instructions for the most part, sets SPAwallleft",src/bank9E_B000.asm
+$9EBEDF,assdopen,CODE_9EBEDF,93S,"93S assdopen: asstab entry E",src/bank9E_B000.asm
+$9E9B5E,FallDown,CODE_9E9B5E,93S,"93S FallDown: the same tests and sets of the fall animations in the same order, same start",src/bank9E_9000.asm
+$9EAAB3,noturn0,CODE_9EAAB3,93S,"93S noturn0: same instructions for the most part (glide, glideback, skateback, skate, stumble, skatewp)",src/bank9E_A000.asm
+$9EA4F7,dostop,CODE_9EA4F7,93S,"93S dostop: where noturn0 goes to stop, as in 93S; sets SPAstop below the speed limit",src/bank9E_A000.asm
+$9EE17A,SetShotMode,CODE_9EE17A,93S,"93S SetShotMode: same instructions for the most part (SPAshotf/SPAshotb by Findhittype)",src/bank9E_E000.asm
+$9EDE5E,puckflip,CODE_9EDE5E,93S,"93S puckflip: same instructions for the most part (SPApflip on the puck)",src/bank9E_D000.asm
+$9DE8F4,SPAwallright,DATA8_9DE8F4,93S,"93S SPAwallright: set where 93S asseben sets it",src/bank9D_E000.asm
+$9DE936,SPAwallleft,DATA8_9DE936,93S,"93S SPAwallleft: set where 93S assepen sets it",src/bank9D_E000.asm
+$80D324,asstab,DATA8_80D324,93S,"93S/94G asstab: long pointer to each assignment routine by assignment number; 94 adds two (7 and $14) and drops the fight ones",src/bank80_D000.asm
+$9E8A6A,asswingo,CODE_9E8A6A,93S,"asstab entry 4 (93S/94G asswingo); same instructions for the most part",src/bank9E_8000.asm
+$9E8968,asswingd,CODE_9E8968,93S,"asstab entry 3 (93S/94G asswingd)",src/bank9E_8000.asm
+$9E8804,assdefo,CODE_9E8804,93S,"asstab entry 1 (93S/94G assdefo); the 93S order holds for entries 0-6",src/bank9E_8000.asm
+$9E8618,assdefd,CODE_9E8618,93S,"asstab entry 2 (93S/94G assdefd); same instructions for the most part",src/bank9E_8000.asm
+$9E8573,asscenterd,CODE_9E8573,93S,"asstab entry 5 (93S/94G asscenterd); same instructions for the most part",src/bank9E_8000.asm
+$9E843C,asscentero,CODE_9E843C,93S,"asstab entry 6 (93S/94G asscentero); same instructions for the most part",src/bank9E_8000.asm
+$9E8292,asspuckc,CODE_9E8292,93S,"asstab entry 11 (93S asspuckc); same instructions for the most part",src/bank9E_8000.asm
+$9E800D,assnearest,CODE_9E800D,93S,"asstab entry 12 (93S assnearest), between asspuckc and assshoot",src/bank9E_8000.asm
+$9EBCC7,asspenalty,CODE_9EBCC7,93S,"asstab entry D (93S asspenalty); same instructions for the most part",src/bank9E_B000.asm
+$9EB0B8,assscore,CODE_9EB0B8,93S,"asstab entry 8 (93S assscore, one later: 94 adds entry 7); same instructions for the most part after a 94 start",src/bank9E_B000.asm
+$9FD9E1,asseben,CODE_9FD9E1,93S,"asstab entry A (93S asseben); same instructions for the most part, sets SPAwallright",src/bank9F_D000.asm
+$9FD85F,assbench,CODE_9FD85F,93S,"asstab entry C (93S assbench); same instructions for the most part",src/bank9F_D000.asm
+$9EEF34,puckshadow,CODE_9EEF34,93S,"asstab entry 19 (93S puckshadow); same instructions for the most part",src/bank9E_E000.asm
+$9EE706,asspassrec,CODE_9EE706,93S,"asstab entry 15 (93S asspassrec; 94 adds entry 14)",src/bank9E_E000.asm
+$9EE146,assshoot,CODE_9EE146,93S,"asstab entry 13 (93S assshoot); same instruction shapes",src/bank9E_E000.asm
+$9FB355,puckfaceoff,CODE_9FB355,93S,"asstab entry 1B (93S puckfaceoff); same instructions for the most part",src/bank9F_B000.asm
+$9FB27C,assfaceoffpl,CODE_9FB27C,93S,"asstab entry 17 (93S assfaceoffpl); same instructions for the most part",src/bank9F_B000.asm
+$9FB26A,assfaceoff,CODE_9FB26A,93S,"asstab entry 16 (93S assfaceoff, the fight assignments dropped); without the music cues",src/bank9F_B000.asm
+$9EDCA8,pucknorm,CODE_9EDCA8,93S,"asstab entry 18 (93S pucknorm); same instruction shapes",src/bank9E_D000.asm
+$9FA835,puckfaceoff2,CODE_9FA835,93S,"asstab entry 1C (93S puckfaceoff2); same instructions for the most part",src/bank9F_A000.asm
+$0792,seed,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0AD9,puckc,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0CEB,Hpos,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D37,Vpos,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D71,puckx,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0EC3,Xvel,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0EE3,Yvel,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1003,temp1,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1023,temp2,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1043,temp3,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1063,temp4,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1083,temp5,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$10A3,temp2b,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1163,facedir,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1203,nopuck,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1223,nopuckb,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1323,aioff,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1343,aidef,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1403,stickhand,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1483,aggress,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$14A3,handed,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$14E3,pfalock,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1523,pfrev,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1543,pf2aip,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1563,pfnc,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$15D6,gmclock,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$178E,tmscore,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm

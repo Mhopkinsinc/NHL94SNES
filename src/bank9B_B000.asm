@@ -26,9 +26,9 @@ CODE_9BB020:
 	sta.w $0AF3
 	jsl.l SoundVoicesOff
 	pla
-	sta.w $0CEB
+	sta.w Hpos
 	pla
-	sta.w $0D37
+	sta.w Vpos
 	pla
 	sta.w $0D21
 	pla
@@ -367,11 +367,11 @@ CODE_9BB300:
 	bit.b #$20
 	bne CODE_9BB330
 	lda.w WMDATA
-	sta.w $0CEB
+	sta.w Hpos
 	lda.w WMDATA
 	sta.w $0CEC
 	lda.w WMDATA
-	sta.w $0D37
+	sta.w Vpos
 	lda.w WMDATA
 	sta.w $0D38
 	lda.w WMDATA

@@ -33,7 +33,7 @@
   SoundDriver (SPC700 bytes as db; the SPC side is not disassembled), then the shootout. The shootout routines and RAM
   with a 94G counterpart take its names; the rounds loop ($80C81C, called from bank $9F), the screen drawing and the
   menu RAM ($1D81 shootout on, $1D89, $1DB9 cursor, $1D9B/$1DA3/$1DA7/$1DAB list scroll, $7E3468 redraw) are raw/auto.
-  $178E/$1790 decide the shootout but are used elsewhere too; not named.
+  The team scores (tmscore, a word per team) decide the shootout.
 - bank80_D000: the rest of the ShooterSelectList screen ($0D47 rating column, $1D9B cursor row, $1DA7 first row), then
   data read from other banks. Its tables are labelled with auto names where code references them (Vault DATA8_ names);
   the penalty/stoppage table at DATA8_80D3EB (strings with variable trailing data) and the 48-byte records from $80DDA0
@@ -57,8 +57,8 @@
   "left"/"right". The note stream format (commands $D9-$EA of the player in bank80_A000) is not decoded yet; the second
   chunk's size byte ($CA) reaches past the bank end, but its track ends (command $D9) inside the bank.
 - TeamSongs ($80DA56, six long pointers per team, $FFFFFFFF none) and DefaultSongs ($80DCF6) are read by the music code
-  at $9C9B5F: slot A of the home team ($1C98), else a random DefaultSongs entry. The other long pointer tables in bank80_D000
-  (DATA8_80D324, DATA8_80DD16) are not identified yet.
+  at $9C9B5F: slot A of the home team ($1C98), else a random DefaultSongs entry. The long pointer table DATA8_80DD16 in
+  bank80_D000 is not identified yet (the other one is asstab).
 - `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
   the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
 - bank82_8000: SpriteFrames ($828000), the main sprite set: an offset table of 976 frames (dd, raw offsets until the
@@ -105,11 +105,17 @@
   photo share: a generic skater), then $FF fill.
 - Sprite animations: SPAList (bank9D_E000/F000, 93S name) holds the animations with their direction lists .d0-.d7; SPA
   holds the address of one, and the code that sets or tests SPA uses the labels. Those identified take their 93S SPA
-  names (the player animations keep the 93S frame numbers below 354, so same frames and times; goalie and fall
-  animations from the code that sets them, e.g. the FallDown and noturn0 orders, GoalieSaveList). The rest are new in 94
-  or not certain (DATA8_9DFA84 is what the scorer gets where 93S uses SPApump; GoalieSaveList entries 6-8). updateanim
-  is the 93S routine reworked for 94; CODE_9EA3F1 is SetSPA with the animation in A. $14E3/$1543 align as pfalock/pf2aip
-  in updateanim but the other way round in the 93S Sweepcheck counterpart (CODE_9EA242), so they stay raw.
+  names (the player animations keep the 93S frame numbers below 354, so same frames and times; the others from the code
+  that sets them, e.g. the FallDown and noturn0 orders, GoalieSaveList, asseben/assepen). The rest are new in 94 or not
+  certain (DATA8_9DFA84 is what the scorer gets where 93S uses SPApump; GoalieSaveList entries 6-8). updateanim is the
+  93S routine reworked for 94; CODE_9EA3F1 is SetSPA with the animation in A.
+- Assignments: asstab (bank80_D000) has the 93S/94G order with two 94 additions (entries 7 and $14, CODE_9ED331 and
+  CODE_9EED8D) and without the fight assignments; the routines take their 93S names where the code agrees. Entries $F
+  and $10 (CODE_9ED179, CODE_9EE463) sit where 93S has assgoalie and assgoalietopuck, but the 94 goalie code is
+  rewritten (94G assgoaliecpu) and CODE_9ED179 is closer to assgoalietopuck, so both keep auto labels. The per-object
+  flags pfalock/pfrev/pf2aip/pfnc keep the 93S order and spacing. Not yet named: playeracc (CODE_9EA719 is jumped to
+  where 93S jumps to playeracc, but only about half its instructions agree), assexit (CODE_9E8BE6), Sweepcheck
+  (CODE_9EA242), $0D97 frame, $0D2D threat, $1C84 cont1team, $17B6 tmchecks (each from one place only).
 - Next: naming passes. Code banks $9B to $9F (and parts of $80) still use auto labels (CODE_/DATA8_) for most routines
   and tables; match them to NHLPA93SNES / NHL94Genesis names, name RAM variables, and turn the remaining numeric
   pointers (word pointer tables) into labels.

@@ -163,11 +163,11 @@ CODE_9BC10F:
 CODE_9BC128:
 	lda.b $A5
 	sec
-	sbc.w $0CEB
+	sbc.w Hpos
 	sta.b $A5
 	lda.b $A9
 	sec
-	sbc.w $0D37
+	sbc.w Vpos
 	sta.b $A9
 CODE_9BC138:
 	lda.b $A5

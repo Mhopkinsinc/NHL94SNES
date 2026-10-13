@@ -85,7 +85,7 @@ CODE_9FC090:
 	bit.w #$0040
 	bne CODE_9FC102
 	ldx.w #$001C
-	lda.w $0AD9
+	lda.w puckc
 	bmi CODE_9FC0DB
 	tax
 	lda.w pfgoal,x
@@ -108,7 +108,7 @@ CODE_9FC0C6:
 	lda.w #$FFCE
 	sta.w $0D4F
 CODE_9FC0DB:
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	lsr a
 	lsr a
 	lsr a
@@ -132,7 +132,7 @@ CODE_9FC0ED:
 CODE_9FC102:
 	lda.b $AD
 	sec
-	sbc.w $0D37
+	sbc.w Vpos
 	sta.b $A5
 	cmp.w #$FFF7
 	bpl CODE_9FC123
@@ -160,7 +160,7 @@ CODE_9FC123:
 CODE_9FC13C:
 	lda.b $A9
 	sec
-	sbc.w $0D37
+	sbc.w Vpos
 	beq CODE_9FC15D
 	lsr a
 	lsr a
@@ -175,12 +175,12 @@ CODE_9FC150:
 	inc a
 CODE_9FC156:
 	clc
-	adc.w $0D37
-	sta.w $0D37
+	adc.w Vpos
+	sta.w Vpos
 CODE_9FC15D:
 	lda.b $B1
 	sec
-	sbc.w $0CEB
+	sbc.w Hpos
 	sta.b $A5
 	cmp.w #$FFD8
 	bpl CODE_9FC17E
@@ -208,7 +208,7 @@ CODE_9FC17E:
 CODE_9FC197:
 	lda.b $A9
 	sec
-	sbc.w $0CEB
+	sbc.w Hpos
 	beq CODE_9FC1B8
 	lsr a
 	lsr a
@@ -223,8 +223,8 @@ CODE_9FC1AB:
 	inc a
 CODE_9FC1B1:
 	clc
-	adc.w $0CEB
-	sta.w $0CEB
+	adc.w Hpos
+	sta.w Hpos
 CODE_9FC1B8:
 	rtl
 CODE_9FC1B9:
@@ -284,14 +284,14 @@ CODE_9FC222:
 	lda.b $A9
 	bit.w #$2000
 	bne CODE_9FC299
-	cpx.w $0AD9
+	cpx.w puckc
 	bne CODE_9FC231
 	jmp.w $C2CE
 CODE_9FC231:
 	lda.b $A9
 	bit.w #$4000
 	bne CODE_9FC277
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9FC26C
 	lda.b $A9
 	bit.w #$0040
@@ -337,7 +337,7 @@ CODE_9FC294:
 CODE_9FC298:
 	rtl
 CODE_9FC299:
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9FC298
 	ldy.w #$0000
 	lda.w pfteam,x
@@ -361,12 +361,12 @@ CODE_9FC2C5:
 	beq CODE_9FC298
 	jml.l CODE_9FCD2A
 CODE_9FC2CE:
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9FC26C
 	jsl.l CODE_9EC417
 	lda.w position,x
 	bne CODE_9FC2E1
-	lda.w $1543,x
+	lda.w pf2aip,x
 	bne CODE_9FC298
 CODE_9FC2E1:
 	lda.w sflags
@@ -401,11 +401,11 @@ CODE_9FC322:
 CODE_9FC326:
 	jml.l CODE_9FCBB6
 CODE_9FC32A:
-	jml.l CODE_9EE17A
+	jml.l SetShotMode
 CODE_9FC32E:
 	jmp.w $C287
 CODE_9FC331:
-	cpx.w $0AD9
+	cpx.w puckc
 	beq CODE_9FC371
 	lda.b $A9
 	bit.w #$8000
@@ -420,7 +420,7 @@ CODE_9FC345:
 	bmi CODE_9FC371
 	lda.w pflags,y
 	and.w #$1000
-	ora.w $14E3,y
+	ora.w pfalock,y
 	bne CODE_9FC371
 	lda.w $19D4,y
 	bpl CODE_9FC371
@@ -875,7 +875,7 @@ CODE_9FC6A6:
 	lda.b $A5
 	sta.w gameclock
 	sta.w $1C82
-	sta.w $15D6
+	sta.w gmclock
 	rtl
 ClearTeamStats:
 	lda.w tmgoalie
@@ -1535,13 +1535,13 @@ CODE_9FCBBB:
 	ldx.b $87
 	lda.w #$0008
 	sta.b $00
-	ldy.w $0AD9
+	ldy.w puckc
 	bmi CODE_9FCC06
 	lda.w position,x
 	beq CODE_9FCBEB
 	lda.w $19D4,x
 	bmi CODE_9FCBEB
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9FCBEB
 	lda.w $0B3D,x
 	cmp.w #$0064
@@ -1592,7 +1592,7 @@ CODE_9FCC3C:
 CODE_9FCC46:
 	lda.w pflags,x
 	and.w #$1000
-	ora.w $14E3,x
+	ora.w pfalock,x
 	bne CODE_9FCC96
 CODE_9FCC51:
 	lda.w $19D4,x
@@ -1601,7 +1601,7 @@ CODE_9FCC51:
 	bne CODE_9FCC96
 CODE_9FCC5A:
 	stz.b $14
-	lda.w $0AD9
+	lda.w puckc
 	bmi CODE_9FCC86
 	lda.b $00
 	cmp.w #$0008
@@ -1646,7 +1646,7 @@ CODE_9FCC96:
 	cmp.w $19EC,y
 	bne CODE_9FCCF5
 CODE_9FCCAE:
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9FCCFB
 	lda.b $B5
 	pha
@@ -1995,7 +1995,7 @@ CODE_9FCF23:
 	bne CODE_9FCF4E
 CODE_9FCF44:
 	jsl.l assinsert
-	stz.w $14E3,x
+	stz.w pfalock,x
 	stz.w SPA,x
 CODE_9FCF4E:
 	lda.b $89
@@ -2083,4 +2083,4 @@ CODE_9FCFDD:
 	beq CODE_9FCFFD
 	bpl CODE_9FD01F
 CODE_9FCFFD:
-	lda.w $178E
+	lda.w tmscore

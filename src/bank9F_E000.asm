@@ -117,7 +117,7 @@ CODE_9FE0EB:
 	lda.w #$000C
 CODE_9FE0FA:
 	sta.b $14
-	lda.w $0792
+	lda.w seed
 	and.w #$0010
 	beq CODE_9FE111
 	sep #$20
@@ -543,7 +543,7 @@ CODE_9FE4BC:
 CODE_9FE4BF:
 	ldx.w $0AC6
 	bmi CODE_9FE4E8
-	lda.w $15D6
+	lda.w gmclock
 	beq CODE_9FE4E8
 	lda.w $1A10
 	bne CODE_9FE4E8

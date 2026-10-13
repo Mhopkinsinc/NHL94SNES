@@ -699,7 +699,7 @@ CODE_9FA623:
 	plx
 	rtl
 CODE_9FA626:
-	lda.w $15D6
+	lda.w gmclock
 	ora.w gameclock
 	bne CODE_9FA635
 	jsl.l CODE_9FBA97
@@ -933,6 +933,7 @@ CODE_9FA7F8:
 	ldx.b $95
 	rtl
 incsrc "data/text/GoalBoxText.asm"
+puckfaceoff2:
 	lda.w pflags,x
 	bit.w #$0002
 	bne CODE_9FA840
@@ -1040,7 +1041,7 @@ CODE_9FA90C:
 	sta.w $0DF9
 	sta.w $0D07
 	asl a
-	sta.w $0AD9
+	sta.w puckc
 	lda.w #$8200
 	trb.w sflags
 	lda.w #$0000
@@ -1049,10 +1050,10 @@ CODE_9FA90C:
 	lda.w #$0500
 	tsb.w sflags
 	jsl.l CODE_9FB9A4
-	stz.w $0D37
-	stz.w $0CEB
+	stz.w Vpos
+	stz.w Hpos
 	lda.l $7E3136
-	sta.w $0D71
+	sta.w puckx
 	lda.l $7E3138
 	sta.w pucky
 	stz.w puckvx
@@ -1284,7 +1285,7 @@ CODE_9FAB51:
 	lda.b $A5
 	sta.w Xpos,x
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	eor.w #$FFFF
 	inc a
 	sta.b $A5
@@ -1295,15 +1296,15 @@ CODE_9FAB51:
 	eor.w #$FFFF
 	inc a
 	sta.b $A9
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	jsl.l vtoa
 	lda.b $A5
-	sta.w $1163,x
+	sta.w facedir,x
 	lda.w pflags,x
 	and.w #$EFFF
 	sta.w pflags,x
-	stz.w $14E3,x
+	stz.w pfalock,x
 	stz.w SPA,x
 	lda.w position,x
 	bne CODE_9FAB97
@@ -1615,11 +1616,11 @@ CODE_9FAE2E:
 	adc.w #$00B4
 	sta.b $A5
 	ldx.b $95
-	sta.w $1003,x
+	sta.w temp1,x
 	lda.w $1E9B
 	beq CODE_9FAE4A
 	lda.w #$00B4
-	sta.w $1003,x
+	sta.w temp1,x
 CODE_9FAE4A:
 	lda.w #$0001
 	sta.l $7E312A
@@ -1666,15 +1667,15 @@ CODE_9FAEA5:
 CODE_9FAEB1:
 	lda.b $C1
 	sta.b $C5
-	cmp.w $1003,x
+	cmp.w temp1,x
 	bmi CODE_9FAEBF
 	lda.w #$0001
 	sta.b $C5
 CODE_9FAEBF:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b $C5
-	sta.w $1003,x
+	sta.w temp1,x
 	bpl CODE_9FAF1E
 	lda.w $1E9B
 	beq CODE_9FAED6
@@ -1695,7 +1696,7 @@ DATA8_9FAF02:
 	db $00,$00,$06,$FF,$DD,$FF,$CE,$FF,$23,$00,$CE,$FF,$CE,$FF,$F6,$FF
 	db $00,$00,$F1,$FF,$32,$00,$F6,$FF,$00,$00,$C4,$FF
 CODE_9FAF1E:
-	lda.w $1003,x
+	lda.w temp1,x
 	beq CODE_9FAF42
 	clc
 	adc.w #$0006
@@ -1776,7 +1777,7 @@ CODE_9FAFAD:
 	stz.w $1D6D
 	rtl
 CODE_9FAFBE:
-	stz.w $0D71
+	stz.w puckx
 	stz.w pucky
 	stz.w $0DF9
 	stz.w puckvx

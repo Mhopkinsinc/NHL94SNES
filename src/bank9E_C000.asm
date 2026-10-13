@@ -39,7 +39,7 @@ CODE_9EC042:
 	bit.w #$0010
 	bne CODE_9EC06D
 	lda.b $91
-	cmp.w $0AD9
+	cmp.w puckc
 	bne CODE_9EC06D
 	lda.w $1E8B
 	bne CODE_9EC059
@@ -166,7 +166,7 @@ CODE_9EC124:
 CODE_9EC138:
 	lda.w Xpos,x
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	cmp.w #$FFD7
 	bmi CODE_9EC15C
 	cmp.w #$0029
@@ -802,31 +802,31 @@ CODE_9EC64A:
 	rtl
 CODE_9EC64B:
 	stz.w $1638
-	lda.w $0AD9
+	lda.w puckc
 	bpl CODE_9EC656
 	jmp.w $C6E6
 CODE_9EC656:
 	lda.w gmode
 	bit.w #$0002
 	bne CODE_9EC668
-	lda.w $0AD9
+	lda.w puckc
 	cmp.w #$000C
 	bmi CODE_9EC6AA
 	bra CODE_9EC672
 CODE_9EC668:
-	lda.w $0AD9
+	lda.w puckc
 	cmp.w #$000C
 	bmi CODE_9EC672
 	bra CODE_9EC6AA
 CODE_9EC672:
-	ldy.w $0AD9
+	ldy.w puckc
 	lda.w Ypos,y
 	bpl CODE_9EC6E6
 	sec
 	sbc.w #$0004
 	sta.b $A5
 	ldy.w #$0000
-	lda.w $0AD9
+	lda.w puckc
 	cmp.w #$000C
 	bpl CODE_9EC68E
 	ldy.w #$000C
@@ -848,14 +848,14 @@ CODE_9EC6A2:
 	bpl CODE_9EC693
 	bra CODE_9EC6E0
 CODE_9EC6AA:
-	ldy.w $0AD9
+	ldy.w puckc
 	lda.w Ypos,y
 	bmi CODE_9EC6E6
 	clc
 	adc.w #$0004
 	sta.b $A5
 	ldy.w #$0000
-	lda.w $0AD9
+	lda.w puckc
 	cmp.w #$000C
 	bpl CODE_9EC6C6
 	ldy.w #$000C
@@ -900,7 +900,7 @@ CODE_9EC704:
 CODE_9EC710:
 	phy
 	ldy.w #$0000
-	lda.w $0AD9
+	lda.w puckc
 	cmp.w #$000C
 	bmi CODE_9EC71F
 	ldy.w #$0002
@@ -2042,8 +2042,8 @@ CODE_9ECFDC:
 	cmp.w #$0009
 	bne CODE_9ECFFF
 CODE_9ECFF7:
-	lda.w $0EC3,x
-	ora.w $0EE3,x
+	lda.w Xvel,x
+	ora.w Yvel,x
 	bne CODE_9ED04D
 CODE_9ECFFF:
-	lda.w $1543,x
+	lda.w pf2aip,x

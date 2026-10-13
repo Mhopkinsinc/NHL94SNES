@@ -53,7 +53,7 @@ CODE_9BA04D:
 	bpl CODE_9BA076
 	cmp.w #$FEB0
 	bmi CODE_9BA076
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FFF4
 	bpl CODE_9BA076
 	cmp.w #$FFEC
@@ -73,7 +73,7 @@ CODE_9BA079:
 	bpl CODE_9BA076
 	cmp.w #$FE90
 	bmi CODE_9BA076
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FFFD
 	bpl CODE_9BA076
 	cmp.w #$FFF4
@@ -1215,11 +1215,11 @@ CODE_9BA9A3:
 	sta.w WMDATA
 	lda.w PBnum
 	sta.w WMDATA
-	lda.w $0CEB
+	lda.w Hpos
 	sta.w WMDATA
 	lda.w $0CEC
 	sta.w WMDATA
-	lda.w $0D37
+	lda.w Vpos
 	sta.w WMDATA
 	lda.w $0D38
 	sta.w WMDATA
@@ -1280,9 +1280,9 @@ CODE_9BAA60:
 	pha
 	lda.w #$0020
 	trb.w sflags
-	lda.w $0D37
+	lda.w Vpos
 	pha
-	lda.w $0CEB
+	lda.w Hpos
 	pha
 	lda.w ReplayBufferPtr
 	cmp.w #$577E
@@ -1338,9 +1338,9 @@ CODE_9BAB4F:
 	bra CODE_9BAB4F
 CODE_9BAB5C:
 	pla
-	lda.w $0CEB
+	lda.w Hpos
 	sta.w $0CBD
-	lda.w $0D37
+	lda.w Vpos
 	sta.w $0CBF
 	ldx.w #$0000
 	ldy.w #$01C0
@@ -1397,7 +1397,7 @@ CODE_9BABE7:
 	bmi CODE_9BABEF
 	lda.w #$0040
 CODE_9BABEF:
-	sta.w $0CEB
+	sta.w Hpos
 	sta.w $0CBD
 	lda.w Ypos,x
 	sta.w $0DD7
@@ -1430,7 +1430,7 @@ CODE_9BAC28:
 CODE_9BAC2D:
 	lda.w #$0100
 CODE_9BAC30:
-	sta.w $0D37
+	sta.w Vpos
 	sta.w $0CBF
 	txa
 	lsr a
@@ -1466,7 +1466,7 @@ CODE_9BAC73:
 	bmi CODE_9BAC7B
 	lda.w #$0040
 CODE_9BAC7B:
-	sta.w $0CEB
+	sta.w Hpos
 	sta.w $0CBD
 	lda.w $0DD7
 	cmp.w $0CBF
@@ -1497,13 +1497,13 @@ CODE_9BACB1:
 CODE_9BACB6:
 	lda.w #$0100
 CODE_9BACB9:
-	sta.w $0D37
+	sta.w Vpos
 	sta.w $0CBF
 	bra CODE_9BACCD
 CODE_9BACC1:
-	lda.w $0CEB
+	lda.w Hpos
 	sta.w $0CBD
-	lda.w $0D37
+	lda.w Vpos
 	sta.w $0CBF
 CODE_9BACCD:
 	lda.b $C1
@@ -1624,7 +1624,7 @@ CODE_9BADA5:
 	lda.w DATA8_9BAE57,y
 	xba
 	and.w #$FF00
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	lda.w $AE59,y
 	clc
 	adc.w $0DD7
@@ -1632,7 +1632,7 @@ CODE_9BADA5:
 	lda.w $AE59,y
 	xba
 	and.w #$FF00
-	sta.w $0EE3,x
+	sta.w Yvel,x
 	lda.b $AD
 	pha
 	lda.b $B1
@@ -1679,10 +1679,10 @@ CODE_9BAE34:
 CODE_9BAE3E:
 	lda.b $AD
 	sta.w $0D75
-	sta.w $0CEB
+	sta.w Hpos
 	lda.b $B1
 	sta.w $0DD7
-	sta.w $0D37
+	sta.w Vpos
 	lda.w #$0010
 	sta.w $0AF3
 	jmp.w $ABAB
@@ -1708,7 +1708,7 @@ CODE_9BAE77:
 CODE_9BAE9D:
 	lda.w #$000F
 	sta.w $0AF3
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FF78
 	bpl CODE_9BAEAE
 CODE_9BAEAB:

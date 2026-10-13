@@ -255,15 +255,15 @@ CODE_80D322:		; does nothing
 	rtl
 CODE_80D323:		; does nothing
 	rtl
-DATA8_80D324:
-	dd $009ED0FC,$009E8804,$009E8618,$009E8968
-	dd $009E8A6A,$009E8573,$009E843C,$009ED331
-	dd $009EB0B8,$009EA69D,$009FD9E1,$009EBADA
-	dd $009FD85F,$009EBCC7,$009EBEDF,$009ED179
-	dd $009EE463,$009E8292,$009E800D,$009EE146
-	dd $009EED8D,$009EE706,$009FB26A,$009FB27C
-	dd $009EDCA8,$009EEF34,$009EDE81,$009FB355
-	dd $009FA835
+asstab:		; the assignment routine for each assignment number (93S/94G asstab)
+	dd rtss,assdefo,assdefd,asswingd
+	dd asswingo,asscenterd,asscentero,CODE_9ED331
+	dd assscore,assstanley,asseben,assepen
+	dd assbench,asspenalty,assdopen,CODE_9ED179
+	dd CODE_9EE463,asspuckc,assnearest,assshoot
+	dd CODE_9EED8D,asspassrec,assfaceoff,assfaceoffpl
+	dd pucknorm,puckshadow,pucknothing,puckfaceoff
+	dd puckfaceoff2
 	db $9C,$FF,$EC,$FF,$64,$00,$EC,$FF,$88,$FF,$28,$00,$14,$00,$28,$00
 	db $78,$00,$28,$00,$EC,$FF,$28,$00,$D8,$FF,$F0,$00,$00,$00,$DC,$00
 	db $14,$00,$E6,$00,$1E,$00,$E6,$00,$07,$01,$02,$03,$04,$05,$06,$07

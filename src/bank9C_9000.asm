@@ -781,7 +781,7 @@ CODE_9C9981:
 	lda.w $1D68
 	cmp.w #$0002
 	beq CODE_9C99E4
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9C99A2
 	lda.w $07F3
 	beq CODE_9C999F
@@ -957,7 +957,7 @@ CODE_9C9B19:
 	ldy.w #$0002
 	lda.b [$4E],y
 	tax
-	lda.w $0792
+	lda.w seed
 	and.w #$003F
 	clc
 	adc.w #$00C0
@@ -1414,10 +1414,10 @@ CODE_9C9EC5:
 	stz.b $8D
 CODE_9C9ED8:
 	ldy.b $91
-	lda.w $178E,y
+	lda.w tmscore,y
 	ldy.b $8D
 	sec
-	sbc.w $178E,y
+	sbc.w tmscore,y
 	sta.b $A5
 	lda.w #$0000
 	sbc.w #$0000

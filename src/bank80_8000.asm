@@ -787,13 +787,13 @@ JoyDirTable:		; up/down/left/right bits to a direction 0-7, 8 = none
 	db $08,$02,$06,$08,$04,$03,$05,$08,$00,$01,$07,$08,$08,$08,$08,$08
 
 RandomWord:
-	lda.w $0792
+	lda.w seed
 	beq CODE_808679
 	asl a
 	bcc CODE_808663
 	eor.w #$1D87
 CODE_808663:
-	sta.w $0792
+	sta.w seed
 	lda.w $0794
 	beq CODE_80867E
 	asl a
@@ -802,7 +802,7 @@ CODE_808663:
 CODE_808671:
 	sta.w $0794
 	clc
-	adc.w $0792
+	adc.w seed
 	rtl
 CODE_808679:
 	lda.w #$A5A5

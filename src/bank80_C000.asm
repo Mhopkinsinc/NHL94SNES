@@ -697,7 +697,7 @@ CODE_80C86D:
 	lda.w shootoutround
 	cmp.w #$0006
 	bmi CODE_80C851
-	lda.w $178E
+	lda.w tmscore
 	cmp.w $1790
 	beq CODE_80C851
 	stz.w $1D81
@@ -797,7 +797,7 @@ CODE_80C94B:
 	bne CODE_80C958
 	jmp.w CODE_80CA05
 CODE_80C958:
-	lda.w $178E
+	lda.w tmscore
 	sec
 	sbc.w $1790
 	bne CODE_80C964
@@ -809,7 +809,7 @@ CODE_80C964:
 	pha
 	lda.b $8D
 	pha
-	lda.w $178E
+	lda.w tmscore
 	sec
 	sbc.w $1790
 	bmi CODE_80C97A

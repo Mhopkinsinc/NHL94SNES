@@ -31,7 +31,7 @@ CODE_9EE030:
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b $A5
 	lda.w $0EE4,y
 	and.w #$00FF
@@ -109,7 +109,7 @@ CODE_9EE0CC:
 CODE_9EE0CD:
 	lda.b $B1
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b $B1
 	lda.b $B5
 	sec
@@ -161,36 +161,37 @@ CODE_9EE123:
 	lda.w #$0014
 CODE_9EE134:
 	sta.b $A9
-	stz.w $1023,x
+	stz.w temp2,x
 	lda.b $A9
-	sta.w $10A3,x
+	sta.w temp2b,x
 	lda.w #$0013
 	sta.b $A5
 	jmp.w $8C18
+assshoot:
 	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9EE156
 	and.w #$FFFD
 	sta.w pflags,x
-	bra CODE_9EE17A
+	bra SetShotMode
 CODE_9EE156:
 	lda.w sflags
 	bit.w #$0008
 	bne CODE_9EE161
 	jmp.w $8BE6
 CODE_9EE161:
-	lda.w $1003,x
+	lda.w temp1,x
 	sta.b $A5
 	stz.b $AD
-	lda.w $10A3,x
+	lda.w temp2b,x
 	sec
 	sbc.b $C1
-	sta.w $10A3,x
+	sta.w temp2b,x
 	bpl ShotMode
 	lda.w #$0080
 	tsb.b $AD
 	bra ShotMode
-CODE_9EE17A:
+SetShotMode:
 	lda.w #$0008
 	sta.w passdir
 	lda.w #$0008
@@ -222,7 +223,7 @@ CODE_9EE1BD:
 	sty.b $A9
 	jml.l SetSPA
 ShotMode:
-	cpx.w $0AD9
+	cpx.w puckc
 	bne CODE_9EE219
 	lda.w SPA,x
 	cmp.w #SPAshotf
@@ -268,9 +269,9 @@ CODE_9EE220:
 	pha
 	lda.w #$0008
 	trb.w sflags
-	sta.w $14E3,x
+	sta.w pfalock,x
 	stx.w $0D29
-	cpx.w $0AD9
+	cpx.w puckc
 	beq CODE_9EE23C
 	jmp.w $E408
 CODE_9EE23C:
@@ -319,9 +320,9 @@ CODE_9EE274:
 CODE_9EE2A5:
 	ldx.b $E4
 	lda.w #$FFFF
-	sta.w $0AD9
+	sta.w puckc
 	lda.w #$0010
-	sta.w $1203,x
+	sta.w nopuck,x
 	txa
 	lsr a
 	sta.w $0CF3
@@ -341,7 +342,7 @@ CODE_9EE2C3:
 	sta.b $89
 	lda.b [$89],y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b $A5
 	iny
 	iny
@@ -514,7 +515,8 @@ CODE_9EE43E:
 DATA8_9EE43F:
 	dw 0,12,15,12,15,6,15,0,0
 	dw 0,-15,0,-15,6,-15,12,0,6
-	cpx.w $0AD9
+CODE_9EE463:
+	cpx.w puckc
 	bne CODE_9EE46D
 	lda.w $19D4,x
 	bmi CODE_9EE47E
@@ -525,10 +527,10 @@ CODE_9EE470:
 CODE_9EE471:
 	jsl.l CODE_9E8000
 	lda.w #$003C
-	sta.w $1203,x
+	sta.w nopuck,x
 	jmp.w $8BD7
 CODE_9EE47E:
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9EE471
 	lda.w Ypos,x
 	sta.b $A5
@@ -544,14 +546,14 @@ CODE_9EE495:
 	beq CODE_9EE4BE
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
-	stz.w $1023,x
+	stz.w temp1,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 	stz.w $1EA7
-	lda.w $0792
+	lda.w seed
 	and.w #$0003
-	sta.w $1043,x
+	sta.w temp3,x
 	jsr.w $E5E6
 CODE_9EE4BE:
 	lda.w $1EA5
@@ -560,7 +562,7 @@ CODE_9EE4BE:
 	cmp.w $1EA5
 	bmi CODE_9EE4D3
 	jsr.w $E593
-	lda.w $1163,x
+	lda.w facedir,x
 	sta.w $1EAB
 CODE_9EE4D3:
 	lda.w $1EA1
@@ -578,13 +580,13 @@ CODE_9EE4EA:
 	sta.b $8B
 	lda.w #$E592
 	sta.b $89
-	lda.w $1023,x
+	lda.w temp2,x
 	sec
 	sbc.w $0CDD
-	sta.w $1023,x
+	sta.w temp2,x
 	jml.l CODE_9EA5A4
 CODE_9EE502:
-	lda.w $1163,x
+	lda.w facedir,x
 	sec
 	sbc.w $1EAB
 	beq CODE_9EE4D3
@@ -771,7 +773,7 @@ Findhittype:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.w $1163,x
+	adc.w facedir,x
 	and.w #$0007
 	sta.b $A5
 	lda.w attribute,x
@@ -795,7 +797,7 @@ DATA8_9EE6C7:
 CODE_9EE6D2:
 	lda.w position,x
 	bne CODE_9EE6F6
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FFF0
 	bmi CODE_9EE6F6
 	cmp.w #$0010
@@ -809,29 +811,30 @@ CODE_9EE6F1:
 	cmp.w #$0110
 	bcc CODE_9EE705
 CODE_9EE6F6:
-	lda.w $1163,x
+	lda.w facedir,x
 	and.w #$0007
 	sta.w passdir
 	lda.w #$0004
 	tsb.w sflags
 CODE_9EE705:
 	rtl
+asspassrec:
 	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9EE720
 	and.w #$FFFD
 	ora.w #$0001
 	sta.w pflags,x
-	stz.w $1023,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 CODE_9EE720:
 	lda.w $0BAD,x
 	sec
 	sbc.w $0ADB
 	sta.w $0BAD,x
 	bmi CODE_9EE77E
-	lda.w $0AD9
+	lda.w puckc
 	bpl CODE_9EE77E
 	lda.w $0BAB
 	bne CODE_9EE797
@@ -867,12 +870,12 @@ CODE_9EE771:
 	cmp.w #$0058
 	bpl CODE_9EE762
 CODE_9EE779:
-	lda.w $0AD9
+	lda.w puckc
 	bmi CODE_9EE796
 CODE_9EE77E:
 	lda.w #$FFFF
 	sta.w $0D07
-	stz.w $14E3,x
+	stz.w pfalock,x
 	stz.w $0BAB
 	lda.w pflags,x
 	and.w #$FFFE
@@ -927,7 +930,7 @@ CODE_9EE7F3:
 	jmp.w $E77E
 CODE_9EE7F6:
 	lda.w #$000A
-	sta.w $1203,x
+	sta.w nopuck,x
 	lda.w SPAnum,x
 	cmp.w #$0010
 	bcs CODE_9EE7F3
@@ -937,7 +940,7 @@ CODE_9EE7F6:
 	clc
 	adc.b $A5
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b $A5
 	lda.w Ypos,x
 	clc
@@ -952,7 +955,7 @@ CODE_9EE7F6:
 	stz.w SPAcnt,x
 	cmp.w #$000C
 	bcs CODE_9EE891
-	stx.w $0AD9
+	stx.w puckc
 	ldy.w $19D4,x
 	bmi CODE_9EE844
 CODE_9EE83C:
@@ -965,8 +968,8 @@ CODE_9EE844:
 CODE_9EE84A:
 	lda.w #$0024
 	sta.w passspeed
-	sta.w $14E3,x
-	lda.w $15D6
+	sta.w pfalock,x
+	lda.w gmclock
 	bne CODE_9EE86C
 	phy
 	ldy.w #$0000
@@ -996,10 +999,10 @@ CODE_9EE87E:
 	jsl.l CODE_9EE220
 	jmp.w $E77E
 CODE_9EE891:
-	lda.w $0AD9
+	lda.w puckc
 	bmi CODE_9EE89E
 CODE_9EE896:
-	cpx.w $0AD9
+	cpx.w puckc
 	beq CODE_9EE89E
 	jmp.w $E77E
 CODE_9EE89E:
@@ -1025,7 +1028,7 @@ CODE_9EE8B4:
 CODE_9EE8C8:
 	lda.w position,x
 	beq CODE_9EE8E7
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FFD7
 	bmi CODE_9EE8E7
 	cmp.w #$0029
@@ -1049,7 +1052,7 @@ CODE_9EE8EE:
 	bmi CODE_9EE8ED
 	lda.w pflags,y
 	and.w #$1000
-	ora.w $14E3,y
+	ora.w pfalock,y
 	bne CODE_9EE8ED
 	lda.w Ypos,y
 	sta.b $A5
@@ -1147,9 +1150,9 @@ CODE_9EE9BF:
 	lda.w #$0004
 	trb.w sflags
 	lda.w #$FFFF
-	sta.w $0AD9
+	sta.w puckc
 	lda.w #$0010
-	sta.w $1203,x
+	sta.w nopuck,x
 	txa
 	lsr a
 	sta.w $0CF3
@@ -1240,7 +1243,7 @@ CODE_9EEA6F:
 	asl a
 	sta.b $14
 	ldx.b $E4
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	cmp.w #$8000
 	ror a
 	clc
@@ -1257,7 +1260,7 @@ CODE_9EEA6F:
 	asl a
 	sta.b $14
 	ldx.b $E4
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	cmp.w #$8000
 	ror a
 	clc
@@ -1298,20 +1301,20 @@ CODE_9EEB0B:
 	sty.b $A9
 	jsl.l SetSPA
 	lda.w #$0001
-	sta.w $14E3,x
+	sta.w pfalock,x
 	lda.w position,x
 	bne CODE_9EEB2D
 	lda.w $19D4,x
 	bmi CODE_9EEB2D
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	sta.b $B5
 	jsl.l CODE_9FCBB6
 CODE_9EEB2D:
 	rtl
 CODE_9EEB2E:
 	jsl.l CODE_9FC757
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9EEB40
 	ldy.b $91
 	lda.w $17BE,y
@@ -1319,12 +1322,12 @@ CODE_9EEB2E:
 	sta.w $17BE,y
 CODE_9EEB40:
 	ldx.w $0B9D,y
-	lda.w $1343,x
+	lda.w aidef,x
 	lsr a
 	clc
 	adc.w #$0001
-	adc.w $1003,x
-	sta.w $1003,x
+	adc.w temp1,x
+	sta.w temp1,x
 	lda.b $89
 	sta.w $0D07
 	ldx.b $89
@@ -1340,10 +1343,10 @@ CODE_9EEB40:
 	beq CODE_9EEB7A
 	lda.w #$0000
 	sec
-	sbc.w $1163,y
+	sbc.w facedir,y
 	bra CODE_9EEB7D
 CODE_9EEB7A:
-	lda.w $1163,y
+	lda.w facedir,y
 CODE_9EEB7D:
 	and.w #$0007
 	asl a
@@ -1369,7 +1372,7 @@ CODE_9EEB7D:
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b $A5
 	lda.w #$0018
 	sta.b $BD
@@ -1379,7 +1382,7 @@ CODE_9EEB7D:
 	asl a
 	asl a
 	ldy.b $89
-	ldx.w $0EC3,y
+	ldx.w Xvel,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -1390,7 +1393,7 @@ CODE_9EEB7D:
 	asl a
 	asl a
 	asl a
-	ldx.w $0EE3,y
+	ldx.w Yvel,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -1427,7 +1430,7 @@ CODE_9EEC19:
 	asl a
 	asl a
 	ldy.b $89
-	ldx.w $0EC3,y
+	ldx.w Xvel,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -1438,7 +1441,7 @@ CODE_9EEC19:
 	asl a
 	asl a
 	asl a
-	ldx.w $0EE3,y
+	ldx.w Yvel,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -1480,7 +1483,7 @@ CODE_9EEC4D:
 	sta.w puckvy
 	lda.b $AD
 	clc
-	adc.w $0D71
+	adc.w puckx
 	sta.w $0BA7
 	lda.b $B1
 	clc
@@ -1500,7 +1503,7 @@ CODE_9EEC4D:
 	sta.w $0BAD,y
 	ldx.b $E4
 	lda.b $BD
-	sta.w $1203,x
+	sta.w nopuck,x
 	ldy.b $91
 	lda.w $19D4,x
 	sta.w $0B01,y
@@ -1508,8 +1511,8 @@ CODE_9EEC4D:
 	bne CODE_9EECF5
 	lda.w $19D4,x
 	bmi CODE_9EECF5
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	lda.w $19D4,x
 	sta.b $B5
 	lda.w $0D07
@@ -1589,7 +1592,8 @@ CODE_9EED85:
 	lda.w #$0014
 	sta.b $A5
 	jmp.w $8C18
-	cpx.w $0AD9
+CODE_9EED8D:
+	cpx.w puckc
 	bne CODE_9EEDBD
 	lda.w pflags,x
 	bit.w #$0002
@@ -1614,18 +1618,18 @@ CODE_9EEDBD:
 CODE_9EEDC0:
 	ldy.w #$0000
 	lda.w passdir
-	cmp.w $1163,x
+	cmp.w facedir,x
 	beq CODE_9EEDEA
 	iny
 	dec a
 	and.w #$0007
-	cmp.w $1163,x
+	cmp.w facedir,x
 	beq CODE_9EEDEA
 	iny
 	inc a
 	inc a
 	and.w #$0007
-	cmp.w $1163,x
+	cmp.w facedir,x
 	beq CODE_9EEDEA
 	lda.w passdir
 	sta.b $A5
@@ -1639,7 +1643,7 @@ CODE_9EEDEF:
 	asl a
 	adc.w $0BA5
 	sta.w $0BA5
-	lda.w $1163,x
+	lda.w facedir,x
 	sta.w passdir
 CODE_9EEDFD:
 	jsl.l CODE_9EEE04
@@ -1660,7 +1664,7 @@ CODE_9EEE04:
 	clc
 	adc.w DATA8_9EEF04,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b $A5
 	lda.w DATA8_9EEEEC,y
 	clc
@@ -1731,13 +1735,13 @@ CODE_9EEE70:
 	clc
 	adc.w #$10E0
 	sta.w $0E01
-	jsl.l CODE_9EDE5E
+	jsl.l puckflip
 	ldx.b $E4
 	lda.w #$FFFF
 	sta.w $0BA3
-	sta.w $0AD9
+	sta.w puckc
 	lda.w #$001E
-	sta.w $1203,x
+	sta.w nopuck,x
 	txa
 	lsr a
 	sta.w $0CF3
@@ -1750,10 +1754,11 @@ DATA8_9EEF04:
 	dw 0,-80,80,-80,0,80,0,80,-80,-80,0,80
 DATA8_9EEF1C:
 	dw -105,-115,-115,-180,-215,-180,105,115,115,180,215,180
+puckshadow:
 	lda.w $0D97,x
 	cmp.w #$018C
 	bne CODE_9EEF58
-	lda.w $0D71
+	lda.w puckx
 	sta.w Xpos,x
 	lda.w pucky
 	sta.w Ypos,x
@@ -1806,7 +1811,7 @@ CODE_9EEFAD:
 	stz.w $0E01
 	ldy.b $91
 	lda.w #$0008
-	sta.w $1203,y
+	sta.w nopuck,y
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y
@@ -1819,9 +1824,9 @@ CODE_9EEFAD:
 	tya
 	jsl.l CODE_9BC002
 CODE_9EEFD1:
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	sta.b $AD
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	sta.b $B1
 	sep #$20
 	lda.b $A5
@@ -1829,7 +1834,7 @@ CODE_9EEFD1:
 	lda.b $A9
 	sta.w $0EE4,x
 	rep #$30
-	jsl.l CODE_9EDE5E
+	jsl.l puckflip
 	lda.w $0DF9
 	cmp.w #$0008
 	bmi CODE_9EF02A

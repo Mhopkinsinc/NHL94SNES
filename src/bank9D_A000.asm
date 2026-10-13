@@ -713,7 +713,7 @@ CODE_9DA704:
 	jsl.l WaitFrame
 	lda.w $0766
 	bne CODE_9DA704
-	inc.w $0792
+	inc.w seed
 	bne CODE_9DA715
 	inc.w $0794
 CODE_9DA715:

@@ -63,7 +63,7 @@ CODE_9CA054:
 	clc
 	adc.l DATA8_9CA099-2,x
 	sta.b $00
-	lda.w $0D37
+	lda.w Vpos
 	sec
 	sbc.l DATA8_9CA0A1-2,x
 	tay
@@ -71,7 +71,7 @@ CODE_9CA054:
 	pha
 	lda.w #$FFE2
 	sec
-	sbc.w $0CEB
+	sbc.w Hpos
 	tax
 	pla
 	jsl.l DrawSprite
@@ -313,11 +313,11 @@ CODE_9CA244:
 	lda.w DATA8_9CA2FB+16,x
 	sta.w pflags,y
 	lda.w #$0000
-	sta.w $1563,y
+	sta.w pfnc,y
 	cpy.w #$001E
 	bne CODE_9CA2A2
 	lda.w #$0001
-	sta.w $1563,y
+	sta.w pfnc,y
 CODE_9CA2A2:
 	cpx.w #$006C
 	rol a
@@ -569,7 +569,7 @@ CODE_9CA58C:
 	ldx.w #$0000
 CODE_9CA58F:
 	stx.b $E4
-	lda.w $0D71
+	lda.w puckx
 	sec
 	sbc.w Xpos,x
 	sta.b $A5
