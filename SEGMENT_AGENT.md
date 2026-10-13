@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank97_D000. <- CURRENT
+bank97_E000. <- CURRENT
 
 ## Sources
 
@@ -286,8 +286,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank97_A000 | matched 4096 bytes | $97A000 | $97AFFF | 0% | the end of DATA8_979E57, then DATA8_97A0E8, a player photo, then DATA8_97A374, a player photo, then DATA8_97A600, a player photo, then DATA8_97A887, a player photo, then DATA8_97AB0A, a player photo, then the start of DATA8_97AD8B, a player photo |
 | bank97_B000 | matched 4096 bytes | $97B000 | $97BFFF | 0% | the end of DATA8_97AD8B, then DATA8_97B00C, a player photo, then DATA8_97B28D, a player photo, then DATA8_97B50D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_97B78D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_97BA0D, a player photo, then DATA8_97BC8C, a player photo, then the start of DATA8_97BF0A, a player photo |
 | bank97_C000 | matched 4096 bytes | $97C000 | $97CFFF | 0% | the end of DATA8_97BF0A, then DATA8_97C188, a player photo, then DATA8_97C405, a player photo, then DATA8_97C682, a player photo, then DATA8_97C8FE, a player photo, then DATA8_97CB79, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_97CDF3, a player photo |
-| bank97_D000 | incbin <- CURRENT | $97D000 | $97DFFF | 0% | |
-| bank97_E000 | incbin | $97E000 | $97EFFF | 0% | |
+| bank97_D000 | matched 4096 bytes | $97D000 | $97DFFF | 0% | the end of DATA8_97CDF3, then DATA8_97D06C, a player photo, then DATA8_97D2E2, a player photo, then DATA8_97D557, a player photo, then DATA8_97D7CC, a player photo, then DATA8_97DA41, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_97DCB5, a player photo, then the start of DATA8_97DF28, a player photo |
+| bank97_E000 | incbin <- CURRENT | $97E000 | $97EFFF | 0% | |
 | bank97_F000 | incbin | $97F000 | $97FFFF | 0% | |
 | bank98_8000 | incbin | $988000 | $988FFF | 0% | |
 | bank98_9000 | incbin | $989000 | $989FFF | 0% | |
@@ -546,3 +546,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank97_A000: source, MATCH. The end of DATA8_979E57, then DATA8_97A0E8, a player photo, then DATA8_97A374, a player photo, then DATA8_97A600, a player photo, then DATA8_97A887, a player photo, then DATA8_97AB0A, a player photo, then the start of DATA8_97AD8B, a player photo.
 - bank97_B000: source, MATCH. The end of DATA8_97AD8B, then DATA8_97B00C, a player photo, then DATA8_97B28D, a player photo, then DATA8_97B50D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_97B78D, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_97BA0D, a player photo, then DATA8_97BC8C, a player photo, then the start of DATA8_97BF0A, a player photo.
 - bank97_C000: source, MATCH. The end of DATA8_97BF0A, then DATA8_97C188, a player photo, then DATA8_97C405, a player photo, then DATA8_97C682, a player photo, then DATA8_97C8FE, a player photo, then DATA8_97CB79, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_97CDF3, a player photo.
+- bank97_D000: source, MATCH. The end of DATA8_97CDF3, then DATA8_97D06C, a player photo, then DATA8_97D2E2, a player photo, then DATA8_97D557, a player photo, then DATA8_97D7CC, a player photo, then DATA8_97DA41, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_97DCB5, a player photo, then the start of DATA8_97DF28, a player photo.
