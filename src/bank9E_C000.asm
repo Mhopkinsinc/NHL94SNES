@@ -112,7 +112,7 @@ CODE_9EC0CB:
 	sta.w position,x
 	stx.b $95
 	jsl.l Setplass
-	jsl.l CODE_9FCEF6
+	jsl.l setplayer
 	lda.w pflags,x
 	ora.w #$1000
 	sta.w pflags,x
@@ -180,7 +180,7 @@ CODE_9EC138:
 	bpl CODE_9EC15C
 	lsr.b $A5
 CODE_9EC15C:
-	jml.l CODE_9BB39B
+	jml.l randomd0
 CODE_9EC160:
 	lda.b $A5
 	pha
@@ -692,7 +692,7 @@ CODE_9EC555:
 CODE_9EC565:
 	lda.w #$1000
 	trb.w sflags
-	jsl.l CODE_9EC5F0
+	jsl.l a2offsides
 	ldy.b $91
 	lda.w iflags
 	bit.w #$0004
@@ -715,7 +715,7 @@ CODE_9EC590:
 	tax
 	lda.w #$000C
 	sta.b $A5
-	jsl.l CODE_9EB85E
+	jsl.l AddPenalty
 	plx
 	stx.b $95
 CODE_9EC5A7:
@@ -757,7 +757,7 @@ CODE_9EC5E5:
 	lda.w #$0004
 	tsb.w iflags
 	rtl
-CODE_9EC5F0:
+a2offsides:
 	ldy.b $91
 	lda.w gmode
 	bit.w #$0020
@@ -793,7 +793,7 @@ CODE_9EC61F:
 	stx.b $95
 	lda.w #$0012
 	sta.b $A5
-	jsl.l CODE_9EB85E
+	jsl.l AddPenalty
 	ldx.b $91
 	ldy.b $95
 	sty.b $91

@@ -84,7 +84,7 @@ CODE_9E8086:
 	sta.w pflags,x
 	lda.w #$0012
 	sta.b $A5
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
 	ldx.b $E4
 	jmp.w $8BE6
 CODE_9E80BF:
@@ -148,7 +148,7 @@ CODE_9E8136:
 	jsl.l CODE_9EAFB5
 	jmp.w $A164
 CODE_9E813D:
-	jsl.l CODE_9BB39B
+	jsl.l randomd0
 	lda.b $A5
 	cmp.w #$0002
 	bcs CODE_9E814E
@@ -1473,7 +1473,7 @@ CODE_9E8BE6:
 	ora.w #$0002
 	sta.w pflags,x
 	rtl
-CODE_9E8C0E:
+assinsert:
 	lda.w $0F63,x
 	dec a
 	and.w #$0007

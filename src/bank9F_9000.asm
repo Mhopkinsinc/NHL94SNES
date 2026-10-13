@@ -1,5 +1,5 @@
 ; Bank $9F, second 4 KB: more game flow code, with auto labels for now. DATA8_9F9848 and DATA8_9F98F1 are text records
-; (Ice, Bench, Inj P, Inj G; Right, Left), DATA8_9F9B2E the period lengths in seconds (5, 10 and 20 minutes, 30
+; (Ice, Bench, Inj P, Inj G; Right, Left), GetPeriodTime_timetab the period lengths in seconds (5, 10 and 20 minutes, 30
 ; seconds), and DATA8_9F9323, DATA8_9F97CE, DATA8_9F9AD8 and DATA8_9F9AF8 tables its code reads.
 
 org $9F9001
@@ -1268,16 +1268,16 @@ GetPeriodTimeRemaining:
 	sbc.w $1632
 	sta.b $A5
 	rtl
-CODE_9F9B1F:
+GetPeriodTime:
 	phx
-	lda.l $7E34C2
+	lda.l OptPerlen
 	asl a
 	tax
-	lda.l DATA8_9F9B2E,x
+	lda.l GetPeriodTime_timetab,x
 	sta.b $A5
 	plx
 	rtl
-DATA8_9F9B2E:		; period lengths in seconds
+GetPeriodTime_timetab:		; period lengths in seconds
 	dw 300,600,1200,30
 CODE_9F9B36:
 	lda.b $A5

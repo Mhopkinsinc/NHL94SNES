@@ -1179,7 +1179,7 @@ CODE_9FAA70:
 	lda.w #$0017
 	sta.b $A5
 CODE_9FAA86:
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
 CODE_9FAA8A:
 	lda.w tmap
 	sta.b $B5
@@ -1329,7 +1329,7 @@ CODE_9FABA2:
 CODE_9FABB3:
 	pla
 	sta.b $AD
-	jsl.l CODE_9CA19B
+	jsl.l SprSort
 	pla
 	sta.b $95
 	pla

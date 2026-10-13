@@ -716,7 +716,7 @@ CODE_9EF5C4:
 	bmi CODE_9EF5D2
 	beq CODE_9EF5D2
 	stz.w $1563,x
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
 CODE_9EF5D2:
 	inx
 	inx

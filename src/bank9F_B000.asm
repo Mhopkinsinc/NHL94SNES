@@ -52,14 +52,14 @@ CODE_9FB055:
 	rtl
 CODE_9FB06C:
 	stx.w $0AD9
-	jsl.l CODE_9E8C0E
-	jsl.l CODE_9E8C0E
-	jsl.l CODE_9E8C0E
-	jsl.l CODE_9E8C0E
-	jsl.l CODE_9E8C0E
-	jsl.l CODE_9E8C0E
-	jsl.l CODE_9E8C0E
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
 	inx
 	inx
 	rtl
@@ -1126,7 +1126,7 @@ CODE_9FB9CC:
 	stz.w sfhormode
 	lda.w #$03E7
 	sta.w $0D23
-	jsl.l CODE_9CA19B
+	jsl.l SprSort
 	lda.w sflags
 	bit.w #$0001
 	bne CODE_9FB9F2
@@ -1198,7 +1198,7 @@ CODE_9FBA2D:
 	lda.w #$002E
 	sta.w $0D23
 	stz.w $0D25
-	jsl.l CODE_9CA19B
+	jsl.l SprSort
 	jsl.l CODE_9FC896
 	stx.b $87
 	ldx.w #$001A

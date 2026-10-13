@@ -395,7 +395,7 @@ CODE_9FC315:
 CODE_9FC319:
 	lda.w #$0014
 	sta.b $A5
-	jml.l CODE_9E8C0E
+	jml.l assinsert
 CODE_9FC322:
 	jml.l CODE_9EE6D2
 CODE_9FC326:
@@ -857,7 +857,7 @@ CODE_9FC65F:
 	lda.b $00
 	rtl
 CODE_9FC683:
-	jsl.l CODE_9F9B1F
+	jsl.l GetPeriodTime
 	lda.w $1D81
 	beq CODE_9FC693
 	lda.w #$0019
@@ -1028,7 +1028,7 @@ CODE_9FC7BD:
 CODE_9FC7D7:
 	lda.w #$001A
 	sta.b $A5
-	jsl.l CODE_9BB39B
+	jsl.l randomd0
 	jsr.w $C7EC
 	lda.w $1EAF
 	cmp.w #$0000
@@ -1889,7 +1889,7 @@ CODE_9FCE5B:
 	bne CODE_9FCE7C
 	lda.w #$0012
 	sta.b $A5
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
 CODE_9FCE7C:
 	ldx.b $95
 	lda.w newpnum,x
@@ -1906,7 +1906,7 @@ CODE_9FCE8E:
 	lda.w #$FFFF
 	sta.w tmpdst,y
 	lsr.b $B1
-	jsl.l CODE_9FCEF6
+	jsl.l setplayer
 CODE_9FCE9E:
 	ldx.b $95
 	lda.w #$FFFF
@@ -1953,7 +1953,7 @@ CODE_9FCEEE:
 	rtl
 DATA8_9FCEEF:
 	db $07,$02,$02,$03,$05,$03,$05
-CODE_9FCEF6:
+setplayer:
 	phx
 	phy
 	lda.w pflags,x
@@ -1994,7 +1994,7 @@ CODE_9FCF23:
 	cmp.w #$FFFE
 	bne CODE_9FCF4E
 CODE_9FCF44:
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
 	stz.w $14E3,x
 	stz.w SPA,x
 CODE_9FCF4E:
@@ -2075,7 +2075,7 @@ CODE_9FCFDD:
 	sbc.w #$0002
 	bmi CODE_9FD01F
 	bne CODE_9FCFFD
-	jsl.l CODE_9F9B1F
+	jsl.l GetPeriodTime
 	lsr.b $A5
 	lda.b $A5
 	sec

@@ -440,7 +440,7 @@ CODE_9FD370:
 	sta.w printx
 	lda.b $B5
 	sta.b $A5
-	jsl.l CODE_9FD7B2
+	jsl.l getlchoice
 	lda.b $A5
 	bmi CODE_9FD3D8
 	ldy.b $91
@@ -538,7 +538,7 @@ CODE_9FD435:
 	stx.b $95
 	dec.b $B5
 	bpl CODE_9FD435
-	jsl.l CODE_9FD55D
+	jsl.l SetPlList
 	lda.w #$0005
 	sta.b $B5
 	lda.w #$007E
@@ -683,7 +683,7 @@ CODE_9FD551:
 	ldx.b $87
 	ldx.b $95
 	rtl
-CODE_9FD55D:
+SetPlList:
 	lda.w #$007E
 	sta.b $9B
 	lda.w #$3114
@@ -982,7 +982,7 @@ CODE_9FD78E:
 	jmp.w $DE13
 CODE_9FD7AF:
 	jmp.w $E001
-CODE_9FD7B2:
+getlchoice:
 	lda.b $A9
 	pha
 	lda.b $AB

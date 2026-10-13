@@ -72,3 +72,4 @@ tmboxlist = $18BA	; penalty box list of roster players (bytes, negative ends)
 HomeTeam = $1C98	; home team number (TeamList index)
 VisTeam = $1C9A		; visiting team number
 tmdata = $1CDC		; team data address
+OptPerlen = $7E34C2		; the period length option (index into GetPeriodTime_timetab)

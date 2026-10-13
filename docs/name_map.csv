@@ -403,3 +403,16 @@ $18BA,tmboxlist,,93S,"RAM; the 93S name of the variable at this place in routine
 $1C98,HomeTeam,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
 $1C9A,VisTeam,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
 $1CDC,tmdata,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$9BB4A3,SuperAdd,CODE_9BB4A3,93S,"called where 93S calls SuperAdd; instruction score 0.81",src/bank9B_B000.asm
+$9CA19B,SprSort,CODE_9CA19B,93S,"called where 93S calls SprSort; instruction score 0.70",src/bank9C_A000.asm
+$9EB851,updatepwrplay_clr,CODE_9EB851,93S,"called where 93S calls updatepwrplay_clr (twice); instruction score 0.80",src/bank9E_B000.asm
+$9EB85E,AddPenalty,CODE_9EB85E,93S,"called where 93S calls AddPenalty; instruction score 0.93",src/bank9E_B000.asm
+$9EC5F0,a2offsides,CODE_9EC5F0,93S,"called where 93S calls a2offsides; instruction score 0.77",src/bank9E_C000.asm
+$9FCEF6,setplayer,CODE_9FCEF6,93S,"called where 93S calls setplayer (twice); instruction score 0.73",src/bank9F_C000.asm
+$9FD55D,SetPlList,CODE_9FD55D,93S,"called where 93S calls SetPlList; instruction score 0.74",src/bank9F_D000.asm
+$9FD7B2,getlchoice,CODE_9FD7B2,93S,"called where 93S calls getlchoice; instruction score 0.75",src/bank9F_D000.asm
+$9BB39B,randomd0,CODE_9BB39B,93S,"called where 93S calls randomd0; same instructions",src/bank9B_B000.asm
+$9E8C0E,assinsert,CODE_9E8C0E,93S,"called where 93S calls assinsert (twice); same instructions",src/bank9E_8000.asm
+$9F9B1F,GetPeriodTime,CODE_9F9B1F,93S,"called where 93S calls GetPeriodTime; same code (period length option to seconds)",src/bank9F_9000.asm
+$9F9B2E,GetPeriodTime_timetab,DATA8_9F9B2E,93S,"the period lengths in seconds read by GetPeriodTime, as in 93S",src/bank9F_9000.asm
+$7E34C2,OptPerlen,,93S,"RAM; the period length option, read by GetPeriodTime as in 93S",src/ram94snes.asm

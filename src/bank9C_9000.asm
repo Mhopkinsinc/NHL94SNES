@@ -1525,7 +1525,7 @@ CODE_9C9F04:
 CODE_9C9F48:
 	lda.b $A5
 	pha
-	jsl.l CODE_9F9B1F
+	jsl.l GetPeriodTime
 	lda.b $A5
 	phx
 	ldx.w #$0028

@@ -1382,7 +1382,7 @@ CODE_9D9CF7:
 	bpl CODE_9D9CEC
 	lda.b $A9
 	sta.b $A5
-	jsl.l CODE_9BB39B
+	jsl.l randomd0
 CODE_9D9D03:
 	dec.b $8D
 	dec.b $8D

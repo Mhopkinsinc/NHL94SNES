@@ -1536,7 +1536,7 @@ CODE_9BCD70:
 	and.w #$00FF
 	sta.b $A5
 	stz.b $A7
-	jsl.l CODE_9BB4A3
+	jsl.l SuperAdd
 	inx
 	cpx.w #$0010
 	bne CODE_9BCD70
@@ -1569,7 +1569,7 @@ CODE_9BCDB3:
 	stz.b $A7
 	lda.b $A9
 	sta.b $A5
-	jsl.l CODE_9BB4A3
+	jsl.l SuperAdd
 	pla
 	sta.b $AB
 	pla

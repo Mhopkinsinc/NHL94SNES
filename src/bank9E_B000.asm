@@ -517,7 +517,7 @@ CODE_9EB434:
 	stx.b $95
 	lda.w #$001A
 	sta.b $A5
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
 	ldx.b $95
 	lda.w #$1C20
 	sta.w $1003,x
@@ -906,7 +906,7 @@ CODE_9EB753:
 	lda.w sflags
 	bit.w #$4000
 	bne CODE_9EB784
-	jsl.l CODE_9EB851
+	jsl.l updatepwrplay_clr
 	lda.w #$4000
 	tsb.w sflags
 	bra CODE_9EB784
@@ -920,7 +920,7 @@ CODE_9EB76A:
 	lda.w sflags
 	bit.w #$4000
 	beq CODE_9EB784
-	jsl.l CODE_9EB851
+	jsl.l updatepwrplay_clr
 	lda.w #$4000
 	trb.w sflags
 CODE_9EB784:
@@ -1015,14 +1015,14 @@ CODE_9EB7FB:
 	sta.b $8D
 	jsl.l CODE_9EC7BE
 	rtl
-CODE_9EB851:
+updatepwrplay_clr:
 	lda.w #$2000
 	trb.w sflags
 	beq CODE_9EB85D
 	jsl.l CODE_9FBEFD
 CODE_9EB85D:
 	rtl
-CODE_9EB85E:
+AddPenalty:
 	lda.w $15D6
 	bne CODE_9EB889
 	lda.w $163A
@@ -1376,7 +1376,7 @@ CODE_9EBB16:
 	sta.w $14E3,x
 	lda.w #$E936
 	jsl.l CODE_9EA3F1
-	jml.l CODE_9CA19B
+	jml.l SprSort
 CODE_9EBB35:
 	lda.w #$0004
 	sta.w $1163,x
@@ -1548,7 +1548,7 @@ CODE_9EBC4F:
 	sta.w $1E93
 	lda.w #$0024
 	sta.b $A5
-	jsl.l CODE_9EB85E
+	jsl.l AddPenalty
 	bra CODE_9EBCB8
 CODE_9EBCA3:
 	rtl
@@ -1559,7 +1559,7 @@ CODE_9EBCA4:
 	bcs CODE_9EBCB8
 	lda.w #$0022
 	sta.b $A5
-	jsl.l CODE_9EB85E
+	jsl.l AddPenalty
 CODE_9EBCB8:
 	ldx.b $91
 	ldy.b $95

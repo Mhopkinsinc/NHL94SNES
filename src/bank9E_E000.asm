@@ -1330,7 +1330,7 @@ CODE_9EEB40:
 	ldx.b $89
 	lda.w #$0015
 	sta.b $A5
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
 	ldx.b $95
 	ldy.b $89
 	lda.w $0D97,y

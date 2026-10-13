@@ -1353,7 +1353,7 @@ CODE_9BAB5C:
 	lda.w #$9971
 	jsl.l CODE_80855E
 	jsl.l CODE_8086BD
-	jsl.l CODE_9CA19B
+	jsl.l SprSort
 	jsl.l SpriteFrameStart
 	jsl.l CODE_9FBAAA
 	jsl.l SpriteFrameEnd
@@ -1508,7 +1508,7 @@ CODE_9BACC1:
 CODE_9BACCD:
 	lda.b $C1
 	sta.w $0ADB
-	jsl.l CODE_9CA19B
+	jsl.l SprSort
 	jsl.l SpriteFrameStart
 	jsl.l CODE_9FBAAA
 	jsl.l SpriteFrameEnd

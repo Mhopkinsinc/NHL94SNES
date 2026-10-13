@@ -11,7 +11,7 @@ lcfound:
 	lda.b $AD
 	sta.b $A5
 	sta.w $17E6,y
-	jsl.l CODE_9FD7B2
+	jsl.l getlchoice
 	lda.b $A5
 	bmi CODE_9FE03E
 	lda.w pflags,x
@@ -96,7 +96,7 @@ CODE_9FE0BA:
 	sta.w printy
 	lda.w #$0002
 	sta.b $A5
-	jsl.l CODE_9FD7B2
+	jsl.l getlchoice
 	lda.w #$0006
 	sta.b $A9
 	lda.b $A5

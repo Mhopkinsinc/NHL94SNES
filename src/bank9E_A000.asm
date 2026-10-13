@@ -108,7 +108,7 @@ CODE_9EA0B1:
 	beq CODE_9EA10F
 	bmi CODE_9EA10F
 	sta.b $A5
-	jsl.l CODE_9BB39B
+	jsl.l randomd0
 	lda.b $A5
 	sec
 	sbc.w $1483,x
@@ -141,7 +141,7 @@ CODE_9EA10F:
 	clc
 	adc.w #$001C
 	sta.b $A5
-	jsl.l CODE_9EB85E
+	jsl.l AddPenalty
 CODE_9EA132:
 	jsl.l CODE_9EC042
 	beq CODE_9EA151
@@ -153,7 +153,7 @@ CODE_9EA132:
 	sta.w $1E93
 	lda.w #$0024
 	sta.b $A5
-	jsl.l CODE_9EB85E
+	jsl.l AddPenalty
 CODE_9EA151:
 	jmp.w $9B52
 DATA8_9EA154:		; word pointers into this bank, not identified yet
@@ -428,7 +428,7 @@ CODE_9EA388:
 	sta.w $1E93
 	lda.w #$0024
 	sta.b $A5
-	jsl.l CODE_9EB85E
+	jsl.l AddPenalty
 	bra CODE_9EA3CE
 CODE_9EA3AD:
 	jsl.l CODE_9EC124
@@ -443,7 +443,7 @@ CODE_9EA3AD:
 	lda.w #$0020
 	sta.b $A5
 CODE_9EA3CA:
-	jsl.l CODE_9EB85E
+	jsl.l AddPenalty
 CODE_9EA3CE:
 	ldx.b $91
 	ldy.b $95

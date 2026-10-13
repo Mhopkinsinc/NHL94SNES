@@ -1237,7 +1237,7 @@ CODE_9F8B79:
 	stx.b $95
 	lda.w #$0018
 	sta.b $A5
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
 	lda.w #$0001
 	jsl.l CODE_9C9A7F
 	stz.b $0C
@@ -1315,7 +1315,7 @@ CODE_9F8C2B:
 	lda.w position,x
 	beq CODE_9F8C3B
 	bmi CODE_9F8C3B
-	jsl.l CODE_9E8C0E
+	jsl.l assinsert
 	lda.w #$0008
 	sta.b $A5
 CODE_9F8C3B:
@@ -1703,4 +1703,4 @@ CODE_9F8FF1:
 	txa
 	sta.w $0AD9
 CODE_9F8FFD:
-	jsl.l CODE_9CA19B
+	jsl.l SprSort

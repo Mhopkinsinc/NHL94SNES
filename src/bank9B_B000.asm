@@ -433,7 +433,7 @@ CODE_9BB387:
 	and.w #$00FF
 	clc
 	rtl
-CODE_9BB39B:
+randomd0:
 	lda.b $A5
 	jsl.l CODE_9BB370
 	sta.b $A5
@@ -582,7 +582,7 @@ CODE_9BB48D:
 	rtl
 DATA8_9BB493:
 	db $01,$07,$03,$05,$00,$00,$04,$04,$02,$06,$02,$06,$01,$07,$03,$05
-CODE_9BB4A3:
+SuperAdd:
 	phx
 	lda.l $7E3508
 	clc
