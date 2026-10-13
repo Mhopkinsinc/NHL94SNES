@@ -1,30 +1,7 @@
-; Bank $97, fifth 4 KB: the end of DATA8_97BF0A, then DATA8_97C188, a player photo, then DATA8_97C405, a player photo,
-; then DATA8_97C682, a player photo, then DATA8_97C8FE, a player photo, then DATA8_97CB79, a song from the TeamSongs
-; table (laid out as in bank81_F000), then the start of DATA8_97CDF3, a player photo.
+; A song: a header (the second byte is the tempo), the offsets of its tracks, then each track
+; in a TRAK chunk (size byte, tag, track name, then the note stream the music player reads).
 
-org $97C000
-	incbin "data/gfx/DATA8_97BF0A.lin.huf":246..638
-DATA8_97C188:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_97C188.lin.huf":5..637
-DATA8_97C405:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_97C405.lin.huf":5..637
-DATA8_97C682:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_97C682.lin.huf":5..636
-DATA8_97C8FE:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_97C8FE.lin.huf":5..635
-DATA8_97CB79:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+DATA8_97CB79:		; header, track offsets (a zero ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_97CB79,.right-DATA8_97CB79,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
@@ -71,8 +48,3 @@ DATA8_97CB79:		; a song (see bank81_F000): header, track offsets ($0000 ends the
 	db $96,$7F,$05,$19,$9F,$75,$04,$00,$8F,$7D,$04,$09,$A1,$7F,$0A,$00
 	db $91,$7F,$0B,$13,$A1,$7F,$07,$00,$91,$7F,$06,$20,$D9,$D9,$71,$45
 	db $45,$D9,$00,$00,$00,$00,$00,$00,$00,$00,$12
-DATA8_97CDF3:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHuffman, one entry of the photo table
-			;   in bank $9D
-	db $30,$FB
-	db $00,$04,$80
-	incbin "data/gfx/DATA8_97CDF3.lin.huf":5..525
