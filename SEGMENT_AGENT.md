@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9D_E000. <- CURRENT
+bank9D_F000. <- CURRENT
 
 ## Sources
 
@@ -335,8 +335,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9D_B000 | matched 4098 bytes | $9DB000 | $9DC001 | 95% | screen code with auto labels; reads CenterIceTable (written CenterIceTable+n); DATA8_9DB774 / DATA8_9DB78A; end moved +$2 |
 | bank9D_C000 | matched 4097 bytes | $9DC002 | $9DD002 | 74% | screen code with auto labels (player card); DATA8_9DC29E/DATA8_9DC436 text records; PlayerPhotoTable (start); org moved to $9DC002; end moved +$3 |
 | bank9D_D000 | matched 4095 bytes | $9DD003 | $9DE001 | 42% | PlayerPhotoTable (end), PhotoPaletteTable; code with auto labels; org moved to $9DD003; end moved +$2 |
-| bank9D_E000 | incbin <- CURRENT | $9DE002 | $9DEFFF | 5% | org moved to $9DE002 |
-| bank9D_F000 | incbin | $9DF000 | $9DFFFF | 0% | |
+| bank9D_E000 | matched 4094 bytes | $9DE002 | $9DEFFF | 5% | code with auto labels; HDMA tables DATA8_9DE056/DATA8_9DE064; CODE_9DE0BD/CODE_9DE0D4 colour buffer; DATA8_9DE0FC animation sequences (start); org moved to $9DE002 |
+| bank9D_F000 | incbin <- CURRENT | $9DF000 | $9DFFFF | 0% | |
 | bank9E_8000 | incbin | $9E8000 | $9E8FFF | 96% | |
 | bank9E_9000 | incbin | $9E9000 | $9E9FFF | 97% | |
 | bank9E_A000 | incbin | $9EA000 | $9EAFFF | 89% | |
@@ -595,3 +595,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9D_B000: source, MATCH. Screen code with auto labels: screen setups that unpack tiles, maps and colours from banks $96 and $9A, code that reads CenterIceTable (reads at an offset written CenterIceTable+n), and the word tables DATA8_9DB774 / DATA8_9DB78A. The last instruction ends at $9DC001, so bank9D_C000 starts at $9DC002.
 - bank9D_C000: source, MATCH. Screen code with auto labels: the player card (DATA8_9DC29E position groups and DATA8_9DC436 full rating names as text records, small tables DATA8_9DC298, DATA8_9DC9A2, DATA8_9DCCAE), then PlayerPhotoTable (named): the long pointers to the packed player photos, 26 per team, written as dd of the photo labels. Org $9DC002 (set by bank9D_B000); the last entry here ends at $9DD002, so bank9D_D000 starts at $9DD003.
 - bank9D_D000: source, MATCH. The rest of PlayerPhotoTable (dd of the photo labels), PhotoPaletteTable (named; dd of the team photo palettes, Boston's being DATA8_85FFDF), then code with auto labels. Org $9DD003 (set by bank9D_C000); the last instruction ends at $9DE001, so bank9D_E000 starts at $9DE002.
+- bank9D_E000: source, MATCH. Code with auto labels: a second pair of indirect HDMA tables (DATA8_9DE056 with DATA8_9DE04E, DATA8_9DE064 with DATA8_9DE060, label pointers), CODE_9DE0BD (copies X colours into the colour buffer $7F7500 from colour Y) and CODE_9DE0D4 (sends the buffer), then DATA8_9DE0FC: sprite animation sequences (groups of eight word pointers to frame/time lists) as dw, pointers still numbers. Org $9DE002 (set by bank9D_D000).
