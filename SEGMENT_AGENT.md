@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8E_A000. <- CURRENT
+bank8E_B000. <- CURRENT
 
 ## Sources
 
@@ -211,8 +211,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8D_F000 | matched 3983 bytes | $8DF071 | $8DFFFF | 0% | last SpriteFrames frames of bank $8D; CenterIceTilesCGY (Huffman, asset CenterIceCGY.lin.huf); org moved to $8DF071 |
 | bank8E_8000 | matched 4325 bytes | $8E8000 | $8E90E4 | 0% | SpriteFrames frames (tools/spriteframes.py); end moved +$E5 (frame boundary) |
 | bank8E_9000 | matched 4854 bytes | $8E90E5 | $8EA3DA | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8E90E5, end moved +$3DB (frame boundary) |
-| bank8E_A000 | incbin <- CURRENT | $8EA3DB | $8EAFFF | 0% | org moved to $8EA3DB |
-| bank8E_B000 | incbin | $8EB000 | $8EBFFF | 0% | |
+| bank8E_A000 | matched 3796 bytes | $8EA3DB | $8EB2AE | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8EA3DB, end moved +$2AF (frame boundary) |
+| bank8E_B000 | incbin <- CURRENT | $8EB2AF | $8EBFFF | 0% | org moved to $8EB2AF |
 | bank8E_C000 | incbin | $8EC000 | $8ECFFF | 0% | |
 | bank8E_D000 | incbin | $8ED000 | $8EDFFF | 0% | |
 | bank8E_E000 | incbin | $8EE000 | $8EEFFF | 0% | |
@@ -471,3 +471,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8D_F000: source, MATCH. The last SpriteFrames frames of bank $8D (tools/spriteframes.py frames 8DF071 8E8000), then CenterIceTilesCGY ($8DFF3D-$8DFFFB; team 3 of the centre ice table at $9C83B7, rendered with its map $9AE6E0: the Calgary logo), new asset CenterIceCGY.lin.huf, and the last bytes of the bank. Bank $8D is now all source.
 - bank8E_8000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8E8000 8E9000`. bank8E_9000 org moved to $8E90E5 (frame boundary).
 - bank8E_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8E90E5 8EA000`. bank8E_A000 org moved to $8EA3DB (frame boundary).
+- bank8E_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8EA3DB 8EB000`. bank8E_B000 org moved to $8EB2AF (frame boundary).
