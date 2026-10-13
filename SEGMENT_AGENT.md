@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8E_F000. <- CURRENT
+bank8F_8000. <- CURRENT
 
 ## Sources
 
@@ -216,8 +216,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8E_C000 | matched 3195 bytes | $8EC3A1 | $8ED01B | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8EC3A1, end moved +$1C (frame boundary) |
 | bank8E_D000 | matched 4068 bytes | $8ED01C | $8EDFFF | 0% | last SpriteFrames frames; start of DATA8_8ED897 (sound CPU upload block, asset DATA8_8ED897.spc); org moved to $8ED01C |
 | bank8E_E000 | matched 4096 bytes | $8EE000 | $8EEFFF | 0% | DATA8_8ED897 continued (asset DATA8_8ED897.spc) |
-| bank8E_F000 | incbin <- CURRENT | $8EF000 | $8EFFFF | 0% | |
-| bank8F_8000 | incbin | $8F8000 | $8F8FFF | 0% | |
+| bank8E_F000 | matched 4096 bytes | $8EF000 | $8EFFFF | 0% | end of DATA8_8ED897; DATA8_8EFD2B (a song from TeamSongs) |
+| bank8F_8000 | incbin <- CURRENT | $8F8000 | $8F8FFF | 0% | |
 | bank8F_9000 | incbin | $8F9000 | $8F9FFF | 0% | |
 | bank8F_A000 | incbin | $8FA000 | $8FAFFF | 0% | |
 | bank8F_B000 | incbin | $8FB000 | $8FBFFF | 0% | |
@@ -476,3 +476,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8E_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8EC3A1 8ED000`. bank8E_D000 org moved to $8ED01C (frame boundary).
 - bank8E_D000: source, MATCH. The last SpriteFrames frames (frame 975 ends at $8ED897; SpriteFrames is now all source), then the start of DATA8_8ED897: a block for SPCUploadBlock (sound RAM $1545, $2490 bytes; in the upload lists DATA8_80E6C1 and DATA8_80E6FD that $9C9860 and $9C97B0 send at sound setup), new asset DATA8_8ED897.spc, split at the segment edges.
 - bank8E_E000: source, MATCH. DATA8_8ED897 continued, an incbin of Extracted/data/DATA8_8ED897.spc:1897..5993.
+- bank8E_F000: source, MATCH. The end of DATA8_8ED897, then DATA8_8EFD2B: a song (TeamSongs entries 114 and 139: San Jose slot 0, Vancouver slot 1) laid out as in bank81_F000; its chunk sizes are big-endian words ($0166, $0146). Bank $8E is now all source.
