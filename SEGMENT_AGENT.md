@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank95_F000. <- CURRENT
+bank96_8000. <- CURRENT
 
 ## Sources
 
@@ -272,8 +272,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank95_C000 | matched 4096 bytes | $95C000 | $95CFFF | 0% | the end of DATA8_95BA96, then DATA8_95C376, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then the start of DATA8_95CBEA, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80DD16) |
 | bank95_D000 | matched 4096 bytes | $95D000 | $95DFFF | 0% | the end of DATA8_95CBEA, then DATA8_95D3F2, a block for the sound CPU (upload list DATA8_80DD16), then DATA8_95DB8E, a 7 x 136 map |
 | bank95_E000 | matched 4096 bytes | $95E000 | $95EFFF | 0% | DATA8_95E304, LZ-packed tiles, then the start of DATA8_95EA63, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD) |
-| bank95_F000 | incbin <- CURRENT | $95F000 | $95FFFF | 0% | |
-| bank96_8000 | incbin | $968000 | $968FFF | 0% | |
+| bank95_F000 | matched 4096 bytes | $95F000 | $95FFFF | 0% | the end of DATA8_95EA63, then DATA8_95F1AE, LZ-packed tiles, then DATA8_95F8C6, an LZ-packed block, then DATA8_95FF9B, a packed 6 x 13 map |
+| bank96_8000 | incbin <- CURRENT | $968000 | $968FFF | 0% | |
 | bank96_9000 | incbin | $969000 | $969FFF | 0% | |
 | bank96_A000 | incbin | $96A000 | $96AFFF | 0% | |
 | bank96_B000 | incbin | $96B000 | $96BFFF | 0% | |
@@ -532,3 +532,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank95_C000: source, MATCH. The end of DATA8_95BA96, then DATA8_95C376, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD), then the start of DATA8_95CBEA, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80DD16).
 - bank95_D000: source, MATCH. The end of DATA8_95CBEA, then DATA8_95D3F2, a block for the sound CPU (upload list DATA8_80DD16), then DATA8_95DB8E, a 7 x 136 map.
 - bank95_E000: source, MATCH. DATA8_95E304, LZ-packed tiles, then the start of DATA8_95EA63, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD).
+- bank95_F000: source, MATCH. The end of DATA8_95EA63, then DATA8_95F1AE, LZ-packed tiles, then DATA8_95F8C6, an LZ-packed block, then DATA8_95FF9B, a packed 6 x 13 map. Bank $95 is now all source.
