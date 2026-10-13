@@ -1,3 +1,8 @@
-; Segment bank92_8000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank92_8000.asm.
+; Bank $92, first 4 KB: blocks for the sound CPU (SPCUploadBlock) from the sound upload list DATA8_80DD16 in
+; bank80_D000, from data assets cut from the ROM; they continue in the following files.
+
 org $928000
-	incbin "../Extracted/segments/bank92_8000.bin"
+DATA8_928000:		; for SPCUploadBlock: sound RAM address, length (big-endian words), then the bytes
+	db $00,$12
+	db $13,$EF
+	incbin "../Extracted/data/DATA8_928000.spc":4..4096
