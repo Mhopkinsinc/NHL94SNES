@@ -1,3 +1,9 @@
-; Segment bank92_E000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank92_E000.asm.
+; Bank $92, seventh 4 KB: the end of DATA8_92CECD, then the start of IceRinkMap, the packed rink map.
+
 org $92E000
-	incbin "../Extracted/segments/bank92_E000.bin"
+	incbin "../Extracted/data/DATA8_92CECD.spc":4403..4486
+IceRinkMap:		; the rink map packed for DecompressLZ: three words (width, height, ...), then the map words
+			;   for IceRinkTiles
+	db $10,$FB
+	db $00,$2A,$66
+	incbin "../Extracted/data/IceRink.map.lz":5..4013
