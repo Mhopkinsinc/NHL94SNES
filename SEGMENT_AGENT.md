@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank96_D000. <- CURRENT
+bank96_E000. <- CURRENT
 
 ## Sources
 
@@ -278,8 +278,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank96_A000 | matched 4096 bytes | $96A000 | $96AFFF | 0% | the end of DATA8_969C09, then DATA8_96A103, tiles packed for DecompressPairs, then DATA8_96A5E5, LZ-packed tiles, then DATA8_96AA64, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_96AEBB, a song from the TeamSongs table (laid out as in bank81_F000) |
 | bank96_B000 | matched 4096 bytes | $96B000 | $96BFFF | 0% | the end of DATA8_96AEBB, then DATA8_96B2CF, LZ-packed tiles, then DATA8_96B6CD, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96BABD, LZ-packed tiles, then the start of DATA8_96BEA5, a song from the TeamSongs table (laid out as in bank81_F000) |
 | bank96_C000 | matched 4096 bytes | $96C000 | $96CFFF | 0% | the end of DATA8_96BEA5, then DATA8_96C265, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96C61F, an LZ-packed 32 x 32 map, then AwayUniformPalettes, the away team's player colours, then the start of HomeUniformPalettes, the home team's player colours |
-| bank96_D000 | incbin <- CURRENT | $96D000 | $96DFFF | 0% | |
-| bank96_E000 | incbin | $96E000 | $96EFFF | 0% | |
+| bank96_D000 | matched 4096 bytes | $96D000 | $96DFFF | 0% | the end of HomeUniformPalettes, then DATA8_96D0CE, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96D442, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96D7AC, LZ-packed linear tiles, then DATA8_96DB0E, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_96DE60, a block for the sound CPU (upload list DATA8_80DD16) |
+| bank96_E000 | incbin <- CURRENT | $96E000 | $96EFFF | 0% | |
 | bank96_F000 | incbin | $96F000 | $96FFFF | 0% | |
 | bank97_8000 | incbin | $978000 | $978FFF | 0% | |
 | bank97_9000 | incbin | $979000 | $979FFF | 0% | |
@@ -538,3 +538,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank96_A000: source, MATCH. The end of DATA8_969C09, then DATA8_96A103, tiles packed for DecompressPairs, then DATA8_96A5E5, LZ-packed tiles, then DATA8_96AA64, a block for the sound CPU (upload list DATA8_80DD16), then the start of DATA8_96AEBB, a song from the TeamSongs table (laid out as in bank81_F000).
 - bank96_B000: source, MATCH. The end of DATA8_96AEBB, then DATA8_96B2CF, LZ-packed tiles, then DATA8_96B6CD, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96BABD, LZ-packed tiles, then the start of DATA8_96BEA5, a song from the TeamSongs table (laid out as in bank81_F000).
 - bank96_C000: source, MATCH. The end of DATA8_96BEA5, then DATA8_96C265, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96C61F, an LZ-packed 32 x 32 map, then AwayUniformPalettes, the away team's player colours, then the start of HomeUniformPalettes, the home team's player colours.
+- bank96_D000: source, MATCH. The end of HomeUniformPalettes, then DATA8_96D0CE, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96D442, a song from the TeamSongs table (laid out as in bank81_F000), then DATA8_96D7AC, LZ-packed linear tiles, then DATA8_96DB0E, a song from the TeamSongs table (laid out as in bank81_F000), then the start of DATA8_96DE60, a block for the sound CPU (upload list DATA8_80DD16).

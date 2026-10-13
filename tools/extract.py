@@ -19,6 +19,7 @@ os.makedirs(os.path.join(out, 'segments'))
 # .spr = a DrawSprite sprite set, not packed. .map.lz = map words packed for DecompressLZ.
 # .chr.huf = tiles packed for DecompressHuffman. .lin.pairs = linear 4bpp tiles packed for DecompressPairs.
 # .map.huf = map words packed for DecompressHuffman. .chr.pairs = tiles packed for DecompressPairs.
+# .lin.lz = linear 4bpp tiles (converted to planar by $9B85C2) packed for DecompressLZ.
 # .spc = a block for SPCUploadBlock: big-endian sound RAM address and length, then the bytes for the sound CPU.
 ASSETS = [
     ('IceRink.chr.lz', 0x818000, 0x81ABDE),
@@ -109,6 +110,8 @@ ASSETS = [
     ('DATA8_96B2CF.chr.lz', 0x96B2CF, 0x96B6CD),
     ('DATA8_96BABD.chr.lz', 0x96BABD, 0x96BEA5),
     ('DATA8_96C61F.map.lz', 0x96C61F, 0x96C9CE),
+    ('DATA8_96D7AC.lin.lz', 0x96D7AC, 0x96DB0E),
+    ('DATA8_96DE60.spc', 0x96DE60, 0x96E1A9),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []
