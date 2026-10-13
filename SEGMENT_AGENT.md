@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank86_9000. <- CURRENT
+bank86_A000. <- CURRENT
 
 ## Sources
 
@@ -146,8 +146,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank85_E000 | matched 4082 bytes | $85E0C2 | $85F0B3 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $85E0C2, end moved +$B4 (frame boundary) |
 | bank85_F000 | matched 3916 bytes | $85F0B4 | $85FFFF | 0% | last SpriteFrames frames of bank $85; DATA8_85FFDF (16 words and a byte, not identified); org moved to $85F0B4 |
 | bank86_8000 | matched 4434 bytes | $868000 | $869151 | 0% | SpriteFrames frames (tools/spriteframes.py); end moved +$152 (frame boundary) |
-| bank86_9000 | incbin <- CURRENT | $869152 | $869FFF | 0% | org moved to $869152 |
-| bank86_A000 | incbin | $86A000 | $86AFFF | 0% | |
+| bank86_9000 | matched 3884 bytes | $869152 | $86A07D | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $869152, end moved +$7E (frame boundary) |
+| bank86_A000 | incbin <- CURRENT | $86A07E | $86AFFF | 0% | org moved to $86A07E |
 | bank86_B000 | incbin | $86B000 | $86BFFF | 0% | |
 | bank86_C000 | incbin | $86C000 | $86CFFF | 0% | |
 | bank86_D000 | incbin | $86D000 | $86DFFF | 0% | |
@@ -406,3 +406,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank85_E000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 85E0C2 85F000`. bank85_F000 org moved to $85F0B4 (frame boundary).
 - bank85_F000: source, MATCH. The last SpriteFrames frames of bank $85 (tools/spriteframes.py frames 85F0B4 860000), then DATA8_85FFDF (16 words and a byte; see HANDOFF). Source comments no longer cite ROM addresses (bank82_F000 header reworded). Bank $85 is now all source.
 - bank86_8000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 868000 869000`. bank86_9000 org moved to $869152 (frame boundary).
+- bank86_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 869152 86A000`. bank86_A000 org moved to $86A07E (frame boundary).
