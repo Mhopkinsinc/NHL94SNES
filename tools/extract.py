@@ -91,6 +91,8 @@ ASSETS = [
     ('SmallLetterSprites.spr', 0x95A7F7, 0x95B15C),
     ('DATA8_95B15C.spc', 0x95B15C, 0x95BA96),
     ('DATA8_95BA96.chr.lz', 0x95BA96, 0x95C376),
+    ('DATA8_95C376.spc', 0x95C376, 0x95CBEA),
+    ('DATA8_95CBEA.spc', 0x95CBEA, 0x95D3F2),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []
