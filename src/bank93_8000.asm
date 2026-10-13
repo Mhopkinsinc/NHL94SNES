@@ -1,3 +1,8 @@
-; Segment bank93_8000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank93_8000.asm.
+; Bank $93, first 4 KB: the start of DATA8_938000, Huffman-packed background tiles of a screen not identified yet.
+
 org $938000
-	incbin "../Extracted/segments/bank93_8000.bin"
+DATA8_938000:		; background tiles packed for DecompressHuffman, unpacked by a screen setup in bank $9D; the screen is not
+			;   identified yet
+	db $30,$FB
+	db $00,$18,$80
+	incbin "../Extracted/data/DATA8_938000.chr.huf":5..4096

@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank93_8000. <- CURRENT
+bank93_9000. <- CURRENT
 
 ## Sources
 
@@ -249,8 +249,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank92_D000 | matched 4096 bytes | $92D000 | $92DFFF | 0% | DATA8_92CECD continued |
 | bank92_E000 | matched 4096 bytes | $92E000 | $92EFFF | 0% | end of DATA8_92CECD; start of IceRinkMap (LZ-packed rink map, 93S name, asset IceRink.map.lz) |
 | bank92_F000 | matched 4096 bytes | $92F000 | $92FFFF | 0% | end of IceRinkMap; DATA8_92F18A (sound CPU upload block); DATA8_92FFB0 (6 x 6 photo map) |
-| bank93_8000 | incbin <- CURRENT | $938000 | $938FFF | 0% | |
-| bank93_9000 | incbin | $939000 | $939FFF | 0% | |
+| bank93_8000 | matched 4096 bytes | $938000 | $938FFF | 0% | start of DATA8_938000 (Huffman-packed background tiles) |
+| bank93_9000 | incbin <- CURRENT | $939000 | $939FFF | 0% | |
 | bank93_A000 | incbin | $93A000 | $93AFFF | 0% | |
 | bank93_B000 | incbin | $93B000 | $93BFFF | 0% | |
 | bank93_C000 | incbin | $93C000 | $93CFFF | 0% | |
@@ -509,3 +509,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank92_D000: source, MATCH. DATA8_92CECD continued (IceRinkMap starts in bank92_E000).
 - bank92_E000: source, MATCH. The end of DATA8_92CECD, then the start of IceRinkMap ($92E053-$92F189): the rink map packed for DecompressLZ (a header of three words, 48 x 113 map words for IceRinkTiles), which $9BC1D5 unpacks before it pastes the centre ice logo; the 93S name; new asset IceRink.map.lz.
 - bank92_F000: source, MATCH. The end of IceRinkMap, then DATA8_92F18A ($92F18A-$92FFAF, upload lists E6C1/E6FD entry 6), DATA8_92FFB0 (a map for a player photo: 6, 6, $0308, then tile numbers 0-35 in order; read near $9DCA25), and $FF,$FF. Bank $92 is now all source.
+- bank93_8000: source, MATCH. The start of DATA8_938000 ($938000-$9390F9): background tiles packed for DecompressHuffman, unpacked near $9DDC1F; the screen is not identified. Bank $93: DATA8_9390FA (upload, E6FD entry 15), DATA8_93A18D (upload, list near $9C9A5B entry 5), DATA8_93B217 (linear tiles packed for DecompressPairs, a screen with EA SPORTS; read near $9DC7A3), DATA8_93C20B (upload, DD16 entry 8), DATA8_93D187 (upload, in no list found yet), DATA8_93DFAD (upload, E6FD entry 13), DATA8_93ED31 (a 14-track song, MusicStart from $9BB0A5, $9D8C04, $9F8CEC, $9F9115), DATA8_93FAB1 (upload, E6C1/E6FD entry 0).
