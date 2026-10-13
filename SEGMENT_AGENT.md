@@ -362,6 +362,7 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Alignment audit: `docs/align_plan.md`. No bytes moved. bank9C_A000's teamdata include covers bank9C_B000, C000 and D000 (next org is `$9CEF59`). Layout work follows that plan, one bank per commit.
 - Bank $81: the eight slices are `src/banks/b81_rink_logos.asm`, which includes `data/gfx/IceRinkTiles.asm`, `data/gfx/TeamLogoSprites.asm` and `data/sound/DATA8_81FE45.asm`. MATCH.
 - Bank $82: slices merged into `src/banks/b82_spriteframes.asm` (`data/gfx/SpriteFrames82.asm`, `data/gfx/CenterIceTilesHFD.asm`). MATCH.
+- Bank $8E: slices merged into `src/banks/b8E_spriteframes.asm`. MATCH.
 - Bank $8D: slices merged into `src/banks/b8D_spriteframes.asm`. MATCH.
 - Bank $8C: slices merged into `src/banks/b8C_spriteframes.asm`. MATCH.
 - Bank $8B: slices merged into `src/banks/b8B_spriteframes.asm`. MATCH.

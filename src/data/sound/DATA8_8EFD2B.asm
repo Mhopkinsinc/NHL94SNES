@@ -1,9 +1,8 @@
-; Bank $8E, last 4 KB: the end of DATA8_8ED897 (see bank8E_D000), from data/sound/DATA8_8ED897.spc, then a song from
-; the TeamSongs table (laid out as in bank81_F000).
+; A song MusicStart plays from the TeamSongs table: a header (the second byte is the tempo),
+; the offsets of its tracks, then each track in a TRAK chunk (size byte, tag, track name,
+; then the note stream the music player reads).
 
-org $8EF000
-	incbin "data/sound/DATA8_8ED897.spc":5993..9364
-DATA8_8EFD2B:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
+DATA8_8EFD2B:		; header, track offsets (a zero ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_8EFD2B,.right-DATA8_8EFD2B,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
