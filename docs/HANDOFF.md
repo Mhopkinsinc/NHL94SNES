@@ -1,5 +1,17 @@
 # Handoff
 
+## Alignment
+
+- Audit is `docs/align_plan.md` (no source change). `bank9C_A000` plus `src/data/teamdata94s.asm` does cover the old bank9C_B000, C000 and D000 ranges: the next file is bank9C_E000 at `$9CEF59`.
+- Layout done: banks `$81` through `$9A` are `src/banks/` files. Banks `$9B` and `$9C` are `src/banks/b9B_screens.asm` and `b9C_teams.asm` (routines in `src/routines/`, tables in `src/data/tables/`). `tools/verify_all.sh` MATCH.
+- Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
+- `adda43` shares a file with `CODE_9BB176` because that routine falls through into it.
+- Next: split the remaining code banks (`$80`, `$9D-$9F`) into `src/routines/`. Extraction, SPA symbols and the doc rewrite are still ahead.
+
+## Unsure
+
+- None yet. Auto `CODE_` / `DATA8_` labels stay as they are until a 93S or 94G match is clear.
+
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.

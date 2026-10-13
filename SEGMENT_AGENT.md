@@ -359,6 +359,24 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 
 ## History
 
+- Alignment audit: `docs/align_plan.md`. No bytes moved. bank9C_A000's teamdata include covers bank9C_B000, C000 and D000 (next org is `$9CEF59`). Layout work follows that plan, one bank per commit.
+- Bank $81: the eight slices are `src/banks/b81_rink_logos.asm`, which includes `data/gfx/IceRinkTiles.asm`, `data/gfx/TeamLogoSprites.asm` and `data/sound/DATA8_81FE45.asm`. MATCH.
+- Bank $82: slices merged into `src/banks/b82_spriteframes.asm` (`data/gfx/SpriteFrames82.asm`, `data/gfx/CenterIceTilesHFD.asm`). MATCH.
+- Bank $8F: slices merged into `src/banks/b8F_sound.asm`. MATCH.
+- Banks $83-$8E: each bank's slices are `src/banks/bXX_spriteframes.asm` (the frames, then that bank's tail: a centre-ice logo, a photo palette, a map, a song or a sound block). MATCH.
+- Bank $9A: slices merged into `src/banks/`. MATCH.
+- Abbreviation labels ANA/LAK/NJD/OTT/SJS/TBL renamed to the team-record strings ANH/LA/NJ/OTW/SJ/TB. MATCH.
+- Bank $99: slices merged into `src/banks/`. MATCH.
+- Bank $98: slices merged into `src/banks/`. MATCH.
+- Bank $97: slices merged into `src/banks/`. MATCH.
+- Bank $96: slices merged into `src/banks/`. MATCH.
+- Bank $95: slices merged into `src/banks/`. MATCH.
+- Bank $94: slices merged into `src/banks/`. MATCH.
+- Bank $93: slices merged into `src/banks/`. MATCH.
+- Bank $92: slices merged into `src/banks/`. MATCH.
+- Bank $91: slices merged into `src/banks/`. MATCH.
+- Bank $90: slices merged into `src/banks/`. MATCH.
+
 - Setup: 256 incbin segments of 4 KB, prebuild ROM check and extractor, quick-pass tool with the Vault code map, full build MATCH.
 - bank80_8000: source, MATCH. Reset/NMI/IRQ and low-level services; vector, wait, RNG and joypad helpers named from what they do (no 93S/94G byte match in this bank); hardware registers from 93S snes_regs.asm; JoyPad from the Vault. Remaining CODE_ labels are auto names. bank80_9000 org moved to $809002.
 - bank80_9000: source, MATCH. Math library (16x16 and 16x8 multiplies, mode 7 fraction multiplies, 16/32-bit divides), quarter-wave SineTable with Sin/Cos, sound driver commands $01-$11 over APUIO0-3, and a handle-based heap in banks $7E/$7F; all named from what the code does (no 93S/94G byte match). Unreached routines decoded with --entry. bank80_A000 org moved to $809FF5. `jsl.l $809099` in bank80_8000 now `jsl.l Mul16U`.
@@ -625,3 +643,5 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Naming pass 7 (animations): the sprite animations in bank $9D are SPAList (93S), written as in 93S: each animation (DATA8_ label) with its eight direction lists (.d0-.d7) and its attribute word, then the frame lists in decimal. SPA holds the address of an animation, so the code that sets or compares SPA (lda/cmp/ldy/cpy/adc immediates, range ends as label+1) and the tables DATA8_9EA154 and DATA8_9EDBF4 use the labels. An animation crosses $9DF000, so bank9D_F000 starts at $9DF020. MATCH.
 - Naming pass 8 (animations from 93S): 39 animations in SPAList take their 93S SPA names: player animations by their frames and times (the 94 player frames keep the 93S numbers), the others where the code that sets or tests them follows a 93S routine (FallDown, noturn0, assbench, puckglue, goalieacc, Sweepcheck, assscore). DATA8_9EDBF4 is GoalieSaveList, CODE_9EA419 updateanim, $11E3 SPAcnt. MATCH.
 - Naming pass 9 (assignments): DATA8_80D324 is asstab; its entries are labels, and the assignment routines take their 93S names (assdefo ... puckfaceoff2) where the code agrees, the order checked by code alignment (94 adds entries 7 and $14 and drops assfight/assfwatch). Also FallDown, noturn0, dostop, SetShotMode, puckflip, SPAwallright/SPAwallleft, and the RAM the newly aligned routines give at least twice (or once where the 93S layout puts it): seed, puckc, Hpos, Vpos, puckx, Xvel, Yvel, temp1-temp5, temp2b, facedir, nopuck, nopuckb, aioff, aidef, stickhand, aggress, handed, pfalock, pfrev, pf2aip, pfnc, gmclock, tmscore. MATCH.
+- Bank $9C: the five slices are `src/banks/b9C_teams.asm`. Code is one file per routine under `src/routines/` (a 93S name uses that 93S folder; other code is `routines/snes/`). Data tables are `src/data/tables/`. Fall-through code stays in the first routine's file. MATCH.
+- Bank $9B: the eight slices are `src/banks/b9B_screens.asm`, split the same way. `adda43` stays in `CODE_9BB176.asm` (that routine falls through into it). MATCH.

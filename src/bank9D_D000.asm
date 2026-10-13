@@ -89,12 +89,12 @@ org $9DD003
 	dd DATA8_9A842A,DATA8_98930C,DATA8_99E1E8,DATA8_978E95,DATA8_98E18A,DATA8_9A940F,DATA8_99B4F7
 	dd DATA8_9A9D91,DATA8_98898F,DATA8_998B25,DATA8_99FAB4,DATA8_8FFE74
 PhotoPaletteTable:	; per team: a long pointer to the 16 colours of its player photos
-	dd PhotoPaletteANA,PhotoPaletteBOS,PhotoPaletteBUF,PhotoPaletteCGY
+	dd PhotoPaletteANH,PhotoPaletteBOS,PhotoPaletteBUF,PhotoPaletteCGY
 	dd PhotoPaletteCHI,PhotoPaletteDAL,PhotoPaletteDET,PhotoPaletteEDM
-	dd PhotoPaletteFLA,PhotoPaletteHFD,PhotoPaletteLAK,PhotoPaletteMTL
-	dd PhotoPaletteNJD,PhotoPaletteNYI,PhotoPaletteNYR,PhotoPaletteOTT
-	dd PhotoPalettePHI,PhotoPalettePIT,PhotoPaletteQUE,PhotoPaletteSJS
-	dd PhotoPaletteSTL,PhotoPaletteTBL,PhotoPaletteTOR,PhotoPaletteVAN
+	dd PhotoPaletteFLA,PhotoPaletteHFD,PhotoPaletteLA,PhotoPaletteMTL
+	dd PhotoPaletteNJ,PhotoPaletteNYI,PhotoPaletteNYR,PhotoPaletteOTW
+	dd PhotoPalettePHI,PhotoPalettePIT,PhotoPaletteQUE,PhotoPaletteSJ
+	dd PhotoPaletteSTL,PhotoPaletteTB,PhotoPaletteTOR,PhotoPaletteVAN
 	dd PhotoPaletteWSH,PhotoPaletteWPG,DATA8_9AEB3C,DATA8_9AEB3C
 CODE_9DD923:
 	lda.w #$007E
