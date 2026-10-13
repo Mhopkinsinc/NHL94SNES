@@ -268,3 +268,8 @@ $9BCD4A,PasswordChars,DATA8_9BCD4A,code,"the characters passwords are written wi
 $9C83B7,CenterIceTable,DATA8_9C83B7,code,"per team (home team $1C98): long pointers to the centre ice logo tiles and map; read by the rink loader $9BC17C and in banks $9D and $9F",src/bank9C_8000.asm
 $9C8497,LogoPaletteTable,DATA8_9C8497,code,"per team: long pointer to the 16 logo colours (TeamLogoSprites and centre ice logo); read in bank $9D",src/bank9C_8000.asm
 $9C9649,TeamPlaceNames,DATA8_9C9649,code,"word pointers to the team places (Anaheim ... All Stars W.), $00-ended strings after them; read in banks $9C and $9D",src/bank9C_9000.asm
+$9CA5E7,TeamList,DATA8_9CA5E7,94G,"long pointer to each team record, team number = index (Anaheim 0 ... Winnipeg 25, AllStarsEast 26, AllStarsWest 27); 94G/93S TeamList",src/bank9C_A000.asm
+$9CABAC,Boston,DATA8_9CABAC,94G,"team 1 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
+$9CAE32,Buffalo,DATA8_9CAE32,94G,"team 2 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
+$9CA657,AllStarsEast,DATA8_9CA657,94G,"team 26 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
+$9CA904,AllStarsWest,DATA8_9CA904,94G,"team 27 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
