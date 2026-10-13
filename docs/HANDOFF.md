@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $8B, and bank8C_8000 to bank8C_E000, are source (MATCH); the rest are incbin.
+- Banks $80 to $8C are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -72,7 +72,8 @@
   sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38, CenterIceTilesVAN (23) at $86FE78; still incbin: 3 at $8DFF3D, 21 at $97FE85, 13 at $98FECB, 15 at $99FEC0). Team index = the logo order of
   TeamLogoSprites.
 - $9DCD53 is a table of long pointers read at $9DC9DD and $9DCC65 as (team $1C98 * 26 + $A5) * 4: 28 rows of 26 packed
-  entries that are unpacked and converted with $9B85C2 (likely player photos; not checked yet). After the 28 rows,
+  entries that are unpacked and converted with $9B85C2: player photos, 6 x 6 tiles (checked: DATA8_8CFDEC, entry 390,
+  renders as a face; whether the column is the roster index is not checked). After the 28 rows,
   entries point at 16-word tables: $9AF47C, $85FFDF (DATA8_85FFDF), $9AEA5C, ... at $20 steps, which share their first
   words (palettes?); no reader of these found yet.
 - DATA8_87FF91 (bank87_F000): an LZ block, unpacked a 10 x 12 byte map after three words (10, 12, 16); $9DB6D7 unpacks it
@@ -85,7 +86,7 @@
   $9DB635, near the code that unpacks DATA8_87FF91; both are likely tile pictures of one screen, not identified yet.
 - Songs at bank ends: DATA8_81FE45 (bank81_F000) and DATA8_8BFE74 (bank8B_F000, TeamSongs entries 31, 32, 79), both
   header + TRAK chunks "left"/"right"; the note bytes are not decoded yet.
-- Next: segment bank8C_F000, from $8CF171 (`tools/spriteframes.py frames 8CF171 8D8000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank8D_8000 (first add SpriteFrames8D.bin from `tools/spriteframes.py info` to tools/extract.py, then `tools/spriteframes.py frames 8D8000 8D9000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
