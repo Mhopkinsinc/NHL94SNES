@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank89_B000. <- CURRENT
+bank89_C000. <- CURRENT
 
 ## Sources
 
@@ -172,8 +172,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank89_8000 | matched 4218 bytes | $898000 | $899079 | 0% | SpriteFrames frames (tools/spriteframes.py); end moved +$7A (frame boundary) |
 | bank89_9000 | matched 4027 bytes | $89907A | $89A034 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $89907A, end moved +$35 (frame boundary) |
 | bank89_A000 | matched 4410 bytes | $89A035 | $89B16E | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $89A035, end moved +$16F (frame boundary) |
-| bank89_B000 | incbin <- CURRENT | $89B16F | $89BFFF | 0% | org moved to $89B16F |
-| bank89_C000 | incbin | $89C000 | $89CFFF | 0% | |
+| bank89_B000 | matched 4026 bytes | $89B16F | $89C128 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $89B16F, end moved +$129 (frame boundary) |
+| bank89_C000 | incbin <- CURRENT | $89C129 | $89CFFF | 0% | org moved to $89C129 |
 | bank89_D000 | incbin | $89D000 | $89DFFF | 0% | |
 | bank89_E000 | incbin | $89E000 | $89EFFF | 0% | |
 | bank89_F000 | incbin | $89F000 | $89FFFF | 0% | |
@@ -432,3 +432,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank89_8000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 898000 899000`. bank89_9000 org moved to $89907A (frame boundary).
 - bank89_9000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 89907A 89A000`. bank89_A000 org moved to $89A035 (frame boundary).
 - bank89_A000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 89A035 89B000`. bank89_B000 org moved to $89B16F (frame boundary).
+- bank89_B000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 89B16F 89C000`. bank89_C000 org moved to $89C129 (frame boundary).
