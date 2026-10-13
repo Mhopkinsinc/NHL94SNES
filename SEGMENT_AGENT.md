@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9F_D000. <- CURRENT
+bank9F_E000. <- CURRENT
 
 ## Sources
 
@@ -350,8 +350,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9F_A000 | matched 4098 bytes | $9FA001 | $9FB002 | 86% | game flow code with auto labels; DATA8_9FA816 GOAL!/HAT TRICK! records; tables; org moved to $9FA001; end moved +$3 |
 | bank9F_B000 | matched 4095 bytes | $9FB003 | $9FC001 | 84% | game flow code with auto labels; DATA8_9FBC01 four-word entries; small tables; org moved to $9FB003; end moved +$2 |
 | bank9F_C000 | matched 4094 bytes | $9FC002 | $9FCFFF | 92% | game flow code with auto labels; DATA8_9FCEEF; org moved to $9FC002 |
-| bank9F_D000 | incbin <- CURRENT | $9FD000 | $9FDFFF | 82% | |
-| bank9F_E000 | incbin | $9FE000 | $9FEFFF | 69% | |
+| bank9F_D000 | matched 4096 bytes | $9FD000 | $9FDFFF | 82% | game flow code with auto labels; DATA8_9FD404 (Y, B, A); small tables |
+| bank9F_E000 | incbin <- CURRENT | $9FE000 | $9FEFFF | 69% | |
 | bank9F_F000 | incbin | $9FF000 | $9FFFFF | 57% | |
 
 ## History
@@ -610,3 +610,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9F_A000: source, MATCH. Game flow code with auto labels; DATA8_9FA816 (the GOAL! and HAT TRICK! messages as text records with position codes), DATA8_9FA038 (words), DATA8_9FAEE2 / DATA8_9FAEFA / DATA8_9FAF02 (bytes). Org $9FA001 (set by bank9F_9000); the last instruction ends at $9FB002, so bank9F_B000 starts at $9FB003.
 - bank9F_B000: source, MATCH. Game flow code with auto labels (calls the rink loader in bank $9B); DATA8_9FBC01 (four words per entry, field reads written DATA8_9FBC01+n), DATA8_9FB1F7, DATA8_9FBD51, DATA8_9FBD5F (small tables, 1-based reads written label-1). Org $9FB003 (set by bank9F_A000); the last instruction ends at $9FC001, so bank9F_C000 starts at $9FC002; it is split around CODE_9FC00D for a branch here.
 - bank9F_C000: source, MATCH. Game flow code with auto labels (unreached routines decoded with `tools/disasm65816.py --entry`); DATA8_9FCEEF (bytes). Org $9FC002 (set by bank9F_B000); bank9F_D000 is split around CODE_9FD01F for a branch here.
+- bank9F_D000: source, MATCH. Game flow code with auto labels; DATA8_9FD404 (the letters Y, B, A as a string), DATA8_9FD820 (bytes), DATA8_9FDB34 / DATA8_9FDBBE (words). Org $9FD000 (bank9F_C000 split it around CODE_9FD01F).
