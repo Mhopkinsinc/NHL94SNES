@@ -132,7 +132,7 @@ DATA8_96BABD:		; tiles packed for DecompressLZ that screen setups in bank $9F se
 	incbin "../Extracted/data/DATA8_96BABD.chr.lz":5..1000
 DATA8_96BEA5:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$03,$00
-	dw .left-DATA8_96BEA5,$01F6,$0374,$0000
+	dw .left-DATA8_96BEA5,.right-DATA8_96BEA5,.claps-DATA8_96BEA5,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $01,$C6,"TRAK"
