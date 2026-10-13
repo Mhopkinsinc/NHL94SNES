@@ -82,11 +82,11 @@ CODE_9FD02F:
 	adc.b $00
 	lsr a
 	clc
-	adc.w $0D0B
+	adc.w PPBonus
 	clc
-	adc.w $0D09
+	adc.w PKBonus
 	clc
-	adc.w $0CEF
+	adc.w HmAwBonus
 	clc
 	adc.w $0CE5
 	ldy.w #$0002
@@ -109,7 +109,7 @@ CODE_9FD02F:
 	adc.b $00
 	lsr a
 	clc
-	adc.w $0CEF
+	adc.w HmAwBonus
 	ldy.w #$0003
 	jsl.l CODE_9FD22B
 	pha
@@ -157,18 +157,18 @@ CODE_9FD0FA:
 	ldy.w #$0005
 	jsl.l CODE_9FD22B
 	sta.w $1483,x
-	lda.w $0E03,x
+	lda.w attribute,x
 	and.w #$F7FF
-	sta.w $0E03,x
+	sta.w attribute,x
 	ldy.w #$0004
 	lda.b [$89],y
 	and.w #$0001
 	eor.w #$0001
 	sta.w $14A3,x
 	bne CODE_9FD156
-	lda.w $0E03,x
+	lda.w attribute,x
 	ora.w #$0800
-	sta.w $0E03,x
+	sta.w attribute,x
 CODE_9FD156:
 	lda.b [$89],y
 	and.w #$000E
@@ -186,11 +186,11 @@ CODE_9FD156:
 	adc.b $00
 	lsr a
 	clc
-	adc.w $0D0B
+	adc.w PPBonus
 	clc
-	adc.w $0D09
+	adc.w PKBonus
 	clc
-	adc.w $0CEF
+	adc.w HmAwBonus
 	ldy.w #$0006
 	jsl.l CODE_9FD22B
 	sta.w $1403,x
@@ -203,11 +203,11 @@ CODE_9FD156:
 	adc.b $00
 	lsr a
 	clc
-	adc.w $0D0B
+	adc.w PPBonus
 	clc
-	adc.w $0D09
+	adc.w PKBonus
 	clc
-	adc.w $0CEF
+	adc.w HmAwBonus
 	ldy.w #$0007
 	jsl.l CODE_9FD22B
 	sta.w $1383,x
@@ -254,9 +254,9 @@ CODE_9FD156:
 	adc.b $00
 	lsr a
 	clc
-	adc.w $0D0B
+	adc.w PPBonus
 	clc
-	adc.w $0CEF
+	adc.w HmAwBonus
 	ldy.w #$000A
 	jsl.l CODE_9FD22B
 	sta.w $13A3,x

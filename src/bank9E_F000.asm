@@ -97,7 +97,7 @@ CODE_9EF0BE:
 	clc
 	adc.w #$000F
 	sta.b $A9
-	lda.w $0E03,y
+	lda.w attribute,y
 	bit.w #$0800
 	beq CODE_9EF0D5
 	lda.b $AD

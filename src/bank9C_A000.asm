@@ -149,14 +149,14 @@ CODE_9CA12F:
 	beq CODE_9CA193
 	cmp.w #$0380
 	bcs CODE_9CA193
-	lda.w $0E03,x
+	lda.w attribute,x
 	and.w #$0800
 	sta.w $0CC5
-	lda.w $0E03,x
+	lda.w attribute,x
 	and.w #$1000
 	sta.w $0CD3
 CODE_9CA151:
-	lda.w $0E03,x
+	lda.w attribute,x
 	ldx.w #$2000
 	lsr a
 	bcc CODE_9CA15D
@@ -208,7 +208,7 @@ SprSort:
 	bne CODE_9CA1C6
 CODE_9CA1B7:
 	lda.w Ypos,x
-	sta.w $1583,x
+	sta.w Ylist,x
 	inx
 	inx
 	cpx.w #$0020
@@ -216,7 +216,7 @@ CODE_9CA1B7:
 	bra CODE_9CA1D3
 CODE_9CA1C6:
 	lda.w Xpos,x
-	sta.w $1583,x
+	sta.w Ylist,x
 	inx
 	inx
 	cpx.w #$0020
@@ -228,23 +228,23 @@ CODE_9CA1D8:
 	lda.w $15C4,x
 	and.w #$00FF
 	sta.b $A9
-	lda.w $15C3,x
+	lda.w OOlist,x
 	and.w #$00FF
 	sta.b $A5
 	tay
-	lda.w $1583,y
+	lda.w Ylist,y
 	ldy.b $A9
-	cmp.w $1583,y
+	cmp.w Ylist,y
 	bmi CODE_9CA208
 	beq CODE_9CA208
-	lda.w $15C3,x
+	lda.w OOlist,x
 	xba
-	sta.w $15C3,x
+	sta.w OOlist,x
 	txa
-	sta.w $15A3,y
+	sta.w OOlistpos,y
 	inc a
 	ldy.b $A5
-	sta.w $15A3,y
+	sta.w OOlistpos,y
 	inc.b $AD
 CODE_9CA208:
 	inx
@@ -299,7 +299,7 @@ CODE_9CA244:
 	lda.w DATA8_9CA2FB+6,x
 	sta.w $0D97,y
 	lda.w DATA8_9CA2FB+8,x
-	sta.w $0E03,y
+	sta.w attribute,y
 	lda.w DATA8_9CA2FB+10,x
 	sta.w $10C3,y
 	lda.w DATA8_9CA2FB+12,x
@@ -340,12 +340,12 @@ CODE_9CA2BD:
 	lda.b $BD
 	asl a
 	ldy.b $8D
-	sta.w $15C3,y
+	sta.w OOlist,y
 	inc.b $8D
 	rep #$30
 	ldy.b $99
 	lda.b $BD
-	sta.w $15A3,y
+	sta.w OOlistpos,y
 	inc.b $99
 	inc.b $99
 	inc.b $BD

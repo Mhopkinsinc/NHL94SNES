@@ -73,3 +73,11 @@ HomeTeam = $1C98	; home team number (TeamList index)
 VisTeam = $1C9A		; visiting team number
 tmdata = $1CDC		; team data address
 OptPerlen = $7E34C2		; the period length option (index into GetPeriodTime_timetab)
+HmAwBonus = $0CEF	; setplayer: home bonus / visitor penalty
+PKBonus = $0D09		; setplayer: penalty kill bonus (negative)
+PPBonus = $0D0B		; setplayer: power play bonus
+attribute = $0E03	; frame attribute bits (attrxflip, attryflip)
+Ylist = $1583		; y of each sort object
+OOlistpos = $15A3	; position of each object in OOlist
+OOlist = $15C3		; 16 bytes: object order list, bottom of the screen last
+gameclock = $1632	; game clock seconds; gameclock+2 = jiffies

@@ -37,14 +37,14 @@ CODE_9F900A:
 	bne CODE_9F9060
 	ldx.b $C1
 CODE_9F9049:
-	lda.w $1632
+	lda.w gameclock
 	beq CODE_9F905D
 	lda.w $1634
 	sec
 	sbc.w #$0AAA
 	sta.w $1634
 	bcs CODE_9F905D
-	dec.w $1632
+	dec.w gameclock
 CODE_9F905D:
 	dex
 	bne CODE_9F9049
@@ -1265,7 +1265,7 @@ GetPeriodTimeRemaining:
 	asl a
 	ora.w $1C82
 	sec
-	sbc.w $1632
+	sbc.w gameclock
 	sta.b $A5
 	rtl
 GetPeriodTime:

@@ -490,7 +490,7 @@ CODE_9EA419:
 CODE_9EA425:
 	cpx.w #$0018
 	bcs CODE_9EA456
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	beq CODE_9EA43B
 	lda.w #$0002
@@ -516,7 +516,7 @@ CODE_9EA456:
 	lda.w SPA,x
 	cmp.w #$FDFE
 	bcs CODE_9EA46F
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	beq CODE_9EA46F
 	lda.w #$0000
@@ -1254,7 +1254,7 @@ CODE_9EAA4A:
 	lda.w #$FFCE
 	sta.b $A9
 CODE_9EAA72:
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	beq CODE_9EAA81
 	lda.b $A9
@@ -1311,7 +1311,7 @@ CODE_9EAAC9:
 	jmp.w $A4F7
 CODE_9EAAF4:
 	inc.w $1163,x
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	beq CODE_9EAB05
 	dec.w $1163,x

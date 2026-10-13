@@ -689,7 +689,7 @@ CODE_9EE5E6:
 	jsl.l RandomWord
 	and.w #$00C0
 	beq CODE_9EE600
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	bne CODE_9EE611
 	bra CODE_9EE616
@@ -729,7 +729,7 @@ CODE_9EE635:
 	jsl.l RandomWord
 	and.w #$00C0
 	beq CODE_9EE655
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	bne CODE_9EE666
 	bra CODE_9EE66B
@@ -774,7 +774,7 @@ Findhittype:
 	adc.w $1163,x
 	and.w #$0007
 	sta.b $A5
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	beq CODE_9EE6BB
 	phx
@@ -1335,7 +1335,7 @@ CODE_9EEB40:
 	ldy.b $89
 	lda.w $0D97,y
 	pha
-	lda.w $0E03,y
+	lda.w attribute,y
 	bit.w #$0800
 	beq CODE_9EEB7A
 	lda.w #$0000
@@ -1777,7 +1777,7 @@ CODE_9EEF58:
 	bpl CODE_9EEF7E
 CODE_9EEF6F:
 	lda.w #$8000
-	sta.w $0E03,x
+	sta.w attribute,x
 	lda.w #$FED4
 	sta.w Ypos,x
 	dec.w $0DFB

@@ -588,14 +588,14 @@ CODE_9F85A8:
 CODE_9F85AA:
 	ldx.b $C1
 CODE_9F85AC:
-	lda.w $1632
+	lda.w gameclock
 	beq CODE_9F85D0
 	lda.w $1634
 	sec
 	sbc.w #$0AAA
 	sta.w $1634
 	bcs CODE_9F85D0
-	dec.w $1632
+	dec.w gameclock
 	lda.w $19BE
 	clc
 	adc.w #$FFFD
@@ -1607,7 +1607,7 @@ CODE_9F8EF6:
 	lda.w #$0078
 	jsl.l CODE_9BB385
 	adc.w #$0078
-	sta.w $1632
+	sta.w gameclock
 	pla
 	sta.b $8B
 	pla

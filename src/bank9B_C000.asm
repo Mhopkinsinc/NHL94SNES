@@ -38,7 +38,7 @@ CODE_9BC02F:
 	ora.w #$FF00
 CODE_9BC03F:
 	sta.b $A9
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	beq CODE_9BC051
 	lda.w #$0000
@@ -46,7 +46,7 @@ CODE_9BC03F:
 	sbc.b $A5
 	sta.b $A5
 CODE_9BC051:
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$1000
 	bne CODE_9BC061
 	lda.w #$0000
@@ -118,7 +118,7 @@ CODE_9BC0D4:
 	eor.w #$FFFF
 	adc.b $A9
 	sta.b $A9
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	beq CODE_9BC0EC
 CODE_9BC0E4:
@@ -127,7 +127,7 @@ CODE_9BC0E4:
 	sbc.b $A5
 	sta.b $A5
 CODE_9BC0EC:
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$1000
 	bne CODE_9BC0FC
 	lda.w #$0000

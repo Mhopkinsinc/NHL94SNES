@@ -89,7 +89,7 @@ org $9DD003
 	dd DATA8_9A842A,DATA8_98930C,DATA8_99E1E8,DATA8_978E95,DATA8_98E18A,DATA8_9A940F,DATA8_99B4F7
 	dd DATA8_9A9D91,DATA8_98898F,DATA8_998B25,DATA8_99FAB4,DATA8_8FFE74
 PhotoPaletteTable:	; per team: a long pointer to the 16 colours of its player photos
-	dd PhotoPaletteANA,DATA8_85FFDF,PhotoPaletteBUF,PhotoPaletteCGY
+	dd PhotoPaletteANA,PhotoPaletteBOS,PhotoPaletteBUF,PhotoPaletteCGY
 	dd PhotoPaletteCHI,PhotoPaletteDAL,PhotoPaletteDET,PhotoPaletteEDM
 	dd PhotoPaletteFLA,PhotoPaletteHFD,PhotoPaletteLAK,PhotoPaletteMTL
 	dd PhotoPaletteNJD,PhotoPaletteNYI,PhotoPaletteNYR,PhotoPaletteOTT

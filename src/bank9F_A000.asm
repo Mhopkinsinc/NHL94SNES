@@ -40,7 +40,7 @@ CODE_9FA083:
 	sta.w $0A2C
 	lda.w #$003A
 	sta.w $0A2E
-	lda.w $1632
+	lda.w gameclock
 	sta.b $08
 	lda.w #$000A
 	sta.b $04
@@ -487,7 +487,7 @@ CODE_9FA44B:
 	sta.b [$8D]
 	rtl
 CODE_9FA458:
-	lda.w $1632
+	lda.w gameclock
 	cmp.w #$01E1
 	bcc CODE_9FA461
 	rtl
@@ -700,7 +700,7 @@ CODE_9FA623:
 	rtl
 CODE_9FA626:
 	lda.w $15D6
-	ora.w $1632
+	ora.w gameclock
 	bne CODE_9FA635
 	jsl.l CODE_9FBA97
 	jmp.w $8B79

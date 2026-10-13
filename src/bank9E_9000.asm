@@ -569,7 +569,7 @@ CODE_9E9484:
 CODE_9E9491:
 	rtl
 CODE_9E9492:
-	lda.w $15A3,x
+	lda.w OOlistpos,x
 	sta.b $A9
 CODE_9E9497:
 	ldy.b $A9
@@ -578,7 +578,7 @@ CODE_9E9497:
 	lda.w $15C4,y
 	and.w #$00FF
 	tay
-	lda.w $1583,y
+	lda.w Ylist,y
 	sec
 	sbc.b $B1
 	sec
@@ -604,7 +604,7 @@ CODE_9E94DA:
 	inc.b $A9
 	bra CODE_9E9497
 CODE_9E94DE:
-	lda.w $15A3,x
+	lda.w OOlistpos,x
 	beq CODE_9E9527
 	sta.b $A9
 CODE_9E94E5:
@@ -614,7 +614,7 @@ CODE_9E94E5:
 	tay
 	lda.b $B1
 	sec
-	sbc.w $1583,y
+	sbc.w Ylist,y
 	sec
 	sbc.w #$000E
 	bpl CODE_9E9527
@@ -948,7 +948,7 @@ CODE_9E9794:
 	lda.w $15C4,y
 	and.w #$00FF
 	tay
-	lda.w $1583,y
+	lda.w Ylist,y
 	sec
 	sbc.w pucky
 	sec
@@ -968,7 +968,7 @@ CODE_9E97BD:
 	tay
 	lda.w pucky
 	sec
-	sbc.w $1583,y
+	sbc.w Ylist,y
 	sec
 	sbc.w #$0028
 	bpl CODE_9E97DC
@@ -1462,7 +1462,7 @@ CODE_9E9C16:
 	lda.w #$0000
 	sta.w $0EC3,y
 CODE_9E9C36:
-	lda.w $0E03,y
+	lda.w attribute,y
 	bit.w #$0800
 	bne CODE_9E9C79
 CODE_9E9C3E:
@@ -1488,7 +1488,7 @@ CODE_9E9C43:
 	cmp.w #$FFA8
 	bpl CODE_9E9CB3
 CODE_9E9C71:
-	lda.w $0E03,y
+	lda.w attribute,y
 	bit.w #$0800
 	bne CODE_9E9C3E
 CODE_9E9C79:
@@ -1732,7 +1732,7 @@ CODE_9E9E96:
 	sta.w Xpos,x
 	lda.w #$0000
 	sta.w $0EC3,x
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	bne CODE_9E9EB1
 	lda.w #$FE60

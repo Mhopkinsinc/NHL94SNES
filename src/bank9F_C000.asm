@@ -873,7 +873,7 @@ CODE_9FC693:
 	sta.b $A5
 CODE_9FC6A6:
 	lda.b $A5
-	sta.w $1632
+	sta.w gameclock
 	sta.w $1C82
 	sta.w $15D6
 	rtl
@@ -2022,10 +2022,10 @@ CODE_9FCF55:
 	clc
 	adc.b $89
 	sta.b $89
-	stz.w $0D0B
-	stz.w $0D09
+	stz.w PPBonus
+	stz.w PKBonus
 	stz.w $0CE5
-	stz.w $0CEF
+	stz.w HmAwBonus
 	lda.w position,x
 	bne CODE_9FCF91
 	jmp.w $D01F
@@ -2038,7 +2038,7 @@ CODE_9FCF91:
 	ldy.w #$0001
 	lda.b [$89],y
 	and.w #$000F
-	sta.w $0D0B
+	sta.w PPBonus
 	bra CODE_9FCFBF
 CODE_9FCFAC:
 	ldy.w #$0001
@@ -2050,7 +2050,7 @@ CODE_9FCFAC:
 	and.w #$000F
 	eor.w #$FFFF
 	inc a
-	sta.w $0D09
+	sta.w PKBonus
 CODE_9FCFBF:
 	ldy.w #$0002
 	lda.b [$89],y
@@ -2069,7 +2069,7 @@ CODE_9FCFBF:
 	sta.b $A5
 CODE_9FCFDD:
 	lda.b $A5
-	sta.w $0CEF
+	sta.w HmAwBonus
 	lda.w gsp
 	sec
 	sbc.w #$0002
@@ -2079,7 +2079,7 @@ CODE_9FCFDD:
 	lsr.b $A5
 	lda.b $A5
 	sec
-	sbc.w $1632
+	sbc.w gameclock
 	beq CODE_9FCFFD
 	bpl CODE_9FD01F
 CODE_9FCFFD:

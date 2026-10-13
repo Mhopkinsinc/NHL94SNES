@@ -153,7 +153,7 @@ CODE_9ED130:
 	beq CODE_9ED178
 	cmp.w #$0003
 	bcs CODE_9ED178
-	lda.w $1632
+	lda.w gameclock
 	cmp.w #$003D
 	bcs CODE_9ED178
 	lda.w tmsort,y
@@ -1150,7 +1150,7 @@ CODE_9ED9A0:
 	lsr a
 	lsr a
 	sta.b $A5
-	lda.w $0E03,x
+	lda.w attribute,x
 	bit.w #$0800
 	beq CODE_9ED9B8
 	lda.b $A5
@@ -1773,7 +1773,7 @@ CODE_9EDECD:
 CODE_9EDED4:
 	lda.w $15D6
 	bne CODE_9EDEE4
-	lda.w $1632
+	lda.w gameclock
 	cmp.w #$0005
 	bcs CODE_9EDEE4
 	jmp.w $E10B

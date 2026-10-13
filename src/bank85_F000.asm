@@ -1,5 +1,5 @@
 ; Bank $85, last 4 KB: the last SpriteFrames frames of the bank (see bank82_8000), tiles from
-; Extracted/data/SpriteFrames85.bin, then 33 bytes of data to the end of the bank.
+; Extracted/data/SpriteFrames85.bin, then PhotoPaletteBOS, the Boston player photo colours, and the last byte of the bank.
 
 org $85F0B4
 SpriteFrame297:
@@ -104,8 +104,7 @@ SpriteFrame303:
 	dw -10,-26,$0815 : db $00
 .tiles:
 	incbin "../Extracted/data/SpriteFrames85.bin":32351..32735
-DATA8_85FFDF:		; a long pointer table in bank $9D points here, just after its packed per-team entries; no reader
-			;   found. Its 16 words look like the 16-colour tables the next pointers lead to, which share its first words
+PhotoPaletteBOS:		; the 16 colours of the Boston player photos (PhotoPaletteTable)
 	dw $7C1F,$4EFE,$C6BD,$BE7B,$3239,$29F8,$9DB6,$9575
 	dw $0D33,$0911,$04EF,$808A,$8027,$037C,$0000,$77BD
 	db $FF

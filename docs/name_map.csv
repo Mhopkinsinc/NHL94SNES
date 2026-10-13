@@ -416,3 +416,12 @@ $9E8C0E,assinsert,CODE_9E8C0E,93S,"called where 93S calls assinsert (twice); sam
 $9F9B1F,GetPeriodTime,CODE_9F9B1F,93S,"called where 93S calls GetPeriodTime; same code (period length option to seconds)",src/bank9F_9000.asm
 $9F9B2E,GetPeriodTime_timetab,DATA8_9F9B2E,93S,"the period lengths in seconds read by GetPeriodTime, as in 93S",src/bank9F_9000.asm
 $7E34C2,OptPerlen,,93S,"RAM; the period length option, read by GetPeriodTime as in 93S",src/ram94snes.asm
+$0CEF,HmAwBonus,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D09,PKBonus,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D0B,PPBonus,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0E03,attribute,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1583,Ylist,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$15A3,OOlistpos,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$15C3,OOlist,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1632,gameclock,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$85FFDF,PhotoPaletteBOS,DATA8_85FFDF,code,"the 16 colours of the Boston player photos (entry 1 of PhotoPaletteTable)",src/bank85_F000.asm

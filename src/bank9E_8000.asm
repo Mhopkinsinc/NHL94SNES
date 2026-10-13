@@ -1549,7 +1549,7 @@ CODE_9E8CA8:
 	beq CODE_9E8CB0
 	jmp.w $8D29
 CODE_9E8CB0:
-	lda.w $15A3,x
+	lda.w OOlistpos,x
 	sta.b $A9
 CODE_9E8CB5:
 	ldy.b $A9
@@ -1561,24 +1561,24 @@ CODE_9E8CB5:
 	tay
 	lda.b $B1
 	sec
-	sbc.w $1583,y
+	sbc.w Ylist,y
 	beq CODE_9E8CEC
 	bmi CODE_9E8CEC
-	inc.w $15A3,x
-	lda.w $15A3,y
+	inc.w OOlistpos,x
+	lda.w OOlistpos,y
 	dec a
-	sta.w $15A3,y
+	sta.w OOlistpos,y
 	sep #$30
 	ldy.b $A9
 	lda.b $B5
-	sta.w $15C3,y
+	sta.w OOlist,y
 	txa
 	sta.w $15C4,y
 	rep #$30
 	inc.b $A9
 	bra CODE_9E8CB5
 CODE_9E8CEC:
-	lda.w $15A3,x
+	lda.w OOlistpos,x
 	beq CODE_9E8D23
 	sta.b $A9
 CODE_9E8CF3:
@@ -1589,16 +1589,16 @@ CODE_9E8CF3:
 	tay
 	lda.b $B1
 	sec
-	sbc.w $1583,y
+	sbc.w Ylist,y
 	bpl CODE_9E8D23
-	dec.w $15A3,x
-	lda.w $15A3,y
+	dec.w OOlistpos,x
+	lda.w OOlistpos,y
 	inc a
-	sta.w $15A3,y
+	sta.w OOlistpos,y
 	sep #$30
 	ldy.b $A9
 	lda.b $B5
-	sta.w $15C3,y
+	sta.w OOlist,y
 	txa
 	sta.w $15C2,y
 	rep #$30
@@ -1606,7 +1606,7 @@ CODE_9E8CF3:
 	bne CODE_9E8CF3
 CODE_9E8D23:
 	lda.b $B1
-	sta.w $1583,x
+	sta.w Ylist,x
 	rtl
 CODE_9E8D29:
 	lda.w SPA,x
