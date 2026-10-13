@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $85, and bank86_8000 to bank86_E000, are source (MATCH); the rest are incbin.
+- Banks $80 to $86 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -69,13 +69,13 @@
   the logo tiles, then to the logo map). The tiles are linear 4bpp packed for DecompressHuffman (converted to planar by
   $9B85C2; `tools/snesgfx.py tiles/map --linear`), the map is not packed (width, height, a word, then map words, which
   $9BC1D5 pastes into the rink map with palette 5). Most of the tiles are in bank $9A; a few sit at bank ends after the
-  sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38; still incbin: 23 at $86FE78, 3 at $8DFF3D, 21 at $97FE85, 13 at $98FECB, 15 at $99FEC0). Team index = the logo order of
+  sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38, CenterIceTilesVAN (23) at $86FE78; still incbin: 3 at $8DFF3D, 21 at $97FE85, 13 at $98FECB, 15 at $99FEC0). Team index = the logo order of
   TeamLogoSprites.
 - $9DCD53 is a table of long pointers read at $9DC9DD and $9DCC65 as (team $1C98 * 26 + $A5) * 4: 28 rows of 26 packed
   entries that are unpacked and converted with $9B85C2 (likely player photos; not checked yet). After the 28 rows,
   entries point at 16-word tables: $9AF47C, $85FFDF (DATA8_85FFDF), $9AEA5C, ... at $20 steps, which share their first
   words (palettes?); no reader of these found yet.
-- Next: segment bank86_F000, from $86F164 (`tools/spriteframes.py frames 86F164 878000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank87_8000 (first add SpriteFrames87.bin from `tools/spriteframes.py info` to tools/extract.py, then `tools/spriteframes.py frames 878000 879000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
