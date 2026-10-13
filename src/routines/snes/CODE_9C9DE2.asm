@@ -1,0 +1,8 @@
+; Unidentified routine.
+CODE_9C9DE2:
+	bvc CODE_9C9DFE
+CODE_9C9DE4:
+	beq CODE_9C9DEE
+	bmi CODE_9C9DEC
+	bvs CODE_9C9DEE
+	bra CODE_9C9E55
