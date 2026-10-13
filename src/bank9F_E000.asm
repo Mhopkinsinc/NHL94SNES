@@ -14,16 +14,16 @@ lcfound:
 	jsl.l CODE_9FD7B2
 	lda.b $A5
 	bmi CODE_9FE03E
-	lda.w $1283,x
+	lda.w pflags,x
 	ora.w #$0008
-	sta.w $1283,x
+	sta.w pflags,x
 	jsl.l CODE_9FC757
 	ldy.b $91
-	lda.w $17DE,y
+	lda.w tmflags,y
 	and.w #$FFF7
-	sta.w $17DE,y
+	sta.w tmflags,y
 	lda.b $A5
-	sta.w $1796,y
+	sta.w tmline,y
 	lda.w #$FFFF
 	sta.w $1D55,y
 	jsl.l setpersonel
@@ -45,20 +45,20 @@ CODE_9FE05C:
 	jsl.l reenergizeteam
 	ldx.b $95
 	ldy.b $91
-	stz.w $1796,x
+	stz.w tmline,x
 	lda.l $7E34C6
 	beq CODE_9FE088
-	lda.w $17A6,x
+	lda.w tmap,x
 	sec
-	sbc.w $17A6,y
+	sbc.w tmap,y
 	sta.b $A5
 	beq CODE_9FE088
 	lda.w #$0003
-	sta.w $1796,x
+	sta.w tmline,x
 	lda.b $A5
 	bpl CODE_9FE088
 	lda.w #$0005
-	sta.w $1796,x
+	sta.w tmline,x
 CODE_9FE088:
 	rtl
 CODE_9FE089:
@@ -80,7 +80,7 @@ CODE_9FE091:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $15D4
+	lda.w gmode
 	bit.w #$0002
 	beq CODE_9FE0BA
 	lda.b $A5
@@ -92,8 +92,8 @@ CODE_9FE0BA:
 	ldx.b $A5
 	jsl.l CODE_808F4C
 	plx
-	adc.w $0D11
-	sta.w $0D11
+	adc.w printy
+	sta.w printy
 	lda.w #$0002
 	sta.b $A5
 	jsl.l CODE_9FD7B2
@@ -102,7 +102,7 @@ CODE_9FE0BA:
 	lda.b $A5
 	bpl CODE_9FE0E2
 	dec.b $A9
-	inc.w $0D11
+	inc.w printy
 CODE_9FE0E2:
 	lda.w #$000C
 	sta.b $A5
@@ -144,7 +144,7 @@ CODE_9FE11D:
 	bne CODE_9FE161
 	bra CODE_9FE16F
 CODE_9FE130:
-	lda.w $1630
+	lda.w gsp
 	cmp.w #$0004
 	beq CODE_9FE145
 	lda.w $1EBB
@@ -434,19 +434,19 @@ CODE_9FE3BA:
 	bne CODE_9FE3D7
 	jmp.w $E19E
 CODE_9FE3D7:
-	lda.w $17AA,y
+	lda.w tmgoalie,y
 	bmi CODE_9FE3E7
 CODE_9FE3DC:
 	dec a
 CODE_9FE3DD:
-	sta.w $17AA,y
+	sta.w tmgoalie,y
 	jsl.l setpersonel
 	jmp.w $E19E
 CODE_9FE3E7:
 	lda.b $A5
 	bra CODE_9FE3DC
 CODE_9FE3EB:
-	lda.w $17AA,y
+	lda.w tmgoalie,y
 	bmi CODE_9FE3FA
 	inc a
 	cmp.b $A5
@@ -521,7 +521,7 @@ CODE_9FE431:
 	pla
 	sta.b $8F
 	ldy.b $91
-	lda.w $1C98,y
+	lda.w HomeTeam,y
 	jsl.l CODE_9BC5AB
 	lda.b [$8D]
 	dec a
@@ -531,7 +531,7 @@ CODE_9FE431:
 	inc a
 	clc
 	adc.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	jsl.l CODE_9EC7BE
 	jsl.l CODE_9DD923
 	ldx.w #$0096
@@ -811,7 +811,7 @@ CODE_9FE79F:
 	sta.b $0C
 	ldy.w #$1000
 	jsl.l CODE_80891F
-	lda.w $1C98
+	lda.w HomeTeam
 	asl a
 	asl a
 	asl a
@@ -1096,7 +1096,7 @@ CODE_9FEAB4:
 	sta.w $0D0D
 CODE_9FEAC7:
 	lda.w #$0006
-	sta.w $0D0F
+	sta.w printx
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1130,9 +1130,9 @@ CODE_9FEAF4:
 	inc a
 	clc
 	adc.w #$0011
-	sta.w $0D0F
+	sta.w printx
 	jsl.l CODE_9EC7BE
-	inc.w $0D11
+	inc.w printy
 	lda.b $89
 	clc
 	adc.b [$89]
@@ -1161,12 +1161,12 @@ CODE_9FEB32:
 CODE_9FEB4E:
 	jsl.l CODE_9FC76C
 	ldy.b $91
-	lda.w $17AA,y
+	lda.w tmgoalie,y
 	bpl CODE_9FEB5C
 	jmp.w $EC60
 CODE_9FEB5C:
 	sta.b $C5
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $99
 	lda.w #$009C
 	sta.b $9B

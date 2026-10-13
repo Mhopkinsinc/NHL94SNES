@@ -105,7 +105,7 @@ CODE_9DB0AB:
 	sta.b $18
 	lda.w #$0002
 	sta.b $1A
-	ldy.w $0D11
+	ldy.w printy
 	sty.b $26
 	ldx.w #$0000
 	jsl.l CODE_808BED
@@ -1469,7 +1469,7 @@ CODE_9DBDAE:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $97
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $95
 	ldy.w #$000C
 	clc
@@ -1510,7 +1510,7 @@ CODE_9DBE06:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $97
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $95
 	ldy.w #$000C
 	clc
@@ -1570,14 +1570,14 @@ CODE_9DBE79:
 	sta.b $AD
 	jsl.l eraser
 	ldy.b $91
-	lda.w $1C98,y
+	lda.w HomeTeam,y
 	ldx.w #$00C8
 	ldy.w #$0010
 	jsl.l CODE_9DDFBF
 	ldy.b $91
 	lda.w #$009C
 	sta.b $97
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $95
 	ldy.w #$000C
 	clc
@@ -1620,9 +1620,9 @@ CODE_9DBF02:
 	inc a
 	clc
 	adc.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$000C
-	sta.w $0D11
+	sta.w printy
 	jsl.l CODE_9EC7BE
 	jsl.l GoalieCount
 	lda.w $1D9B
@@ -1642,9 +1642,9 @@ CODE_9DBF33:
 	inc a
 	clc
 	adc.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$000D
-	sta.w $0D11
+	sta.w printy
 	jsl.l CODE_9EC7BE
 	jsl.l CODE_9DC374
 	ldx.w #$0038

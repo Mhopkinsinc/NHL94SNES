@@ -6,11 +6,11 @@ org $9EE002
 	lda.w #$0005
 	sta.b $A9
 	ldy.w #$0000
-	lda.w $1503,x
+	lda.w pfteam,x
 	bne CODE_9EE014
 	ldy.w #$000C
 CODE_9EE014:
-	lda.w $0F43,y
+	lda.w position,y
 	beq CODE_9EE022
 	iny
 	iny
@@ -29,7 +29,7 @@ CODE_9EE030:
 	pla
 	ror a
 	clc
-	adc.w $0D55,y
+	adc.w Xpos,y
 	sec
 	sbc.w $0D71
 	sta.b $A5
@@ -44,9 +44,9 @@ CODE_9EE04C:
 	pla
 	ror a
 	clc
-	adc.w $0DB7,y
+	adc.w Ypos,y
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	sta.b $A9
 	ldy.b $A5
 	jsl.l CODE_9CA554
@@ -54,7 +54,7 @@ CODE_9EE04C:
 	lda.w #$0012
 	sta.b $B1
 	ldy.w #$0108
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE072
 	ldy.w #$FEF8
 CODE_9EE072:
@@ -84,7 +84,7 @@ CODE_9EE072:
 	bmi CODE_9EE0C7
 	cmp.w #$002D
 	bpl CODE_9EE0C7
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	beq CODE_9EE0B1
 	lda.w #$0000
 	sec
@@ -103,7 +103,7 @@ CODE_9EE0B1:
 	sta.b $A5
 CODE_9EE0C7:
 	lda.b $A5
-	sta.w $0D03
+	sta.w passdir
 CODE_9EE0CC:
 	rtl
 CODE_9EE0CD:
@@ -113,7 +113,7 @@ CODE_9EE0CD:
 	sta.b $B1
 	lda.b $B5
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	ldx.b $A5
 	jsl.l Mul16S
 	lda.b $0A
@@ -141,9 +141,9 @@ CODE_9EE10B:
 	sep #$20
 	pla
 	rep #$30
-	lda.w $0DD3
+	lda.w pucky
 	sta.b $A5
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE123
 	lda.w #$0000
 	sec
@@ -167,14 +167,14 @@ CODE_9EE134:
 	lda.w #$0013
 	sta.b $A5
 	jmp.w $8C18
-	lda.w $1283,x
+	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9EE156
 	and.w #$FFFD
-	sta.w $1283,x
+	sta.w pflags,x
 	bra CODE_9EE17A
 CODE_9EE156:
-	lda.w $15D8
+	lda.w sflags
 	bit.w #$0008
 	bne CODE_9EE161
 	jmp.w $8BE6
@@ -192,28 +192,28 @@ CODE_9EE161:
 	bra ShotMode
 CODE_9EE17A:
 	lda.w #$0008
-	sta.w $0D03
+	sta.w passdir
 	lda.w #$0008
-	tsb.w $15D8
+	tsb.w sflags
 	stz.b $A5
 	lda.w #$0128
 	sta.b $A9
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE197
 	lda.w #$FED8
 	sta.b $A9
 CODE_9EE197:
 	lda.b $A5
 	sec
-	sbc.w $0D55,x
+	sbc.w Xpos,x
 	sta.b $A5
 	lda.b $A9
 	sec
-	sbc.w $0DB7,x
+	sbc.w Ypos,x
 	sta.b $A9
 	jsl.l vtoa
 	lda.w #$000F
-	sta.w $0D05
+	sta.w passspeed
 	ldy.w #$ED4A
 	jsl.l Findhittype
 	beq CODE_9EE1BD
@@ -224,42 +224,42 @@ CODE_9EE1BD:
 ShotMode:
 	cpx.w $0AD9
 	bne CODE_9EE219
-	lda.w $11A3,x
+	lda.w SPA,x
 	cmp.w #$ED4A
 	bcc CODE_9EE219
 	cmp.w #$F021
 	bcs CODE_9EE219
-	lda.w $11C3,x
+	lda.w SPAnum,x
 	cmp.w #$0018
 	bcs CODE_9EE220
 	lda.b $A5
 	bit.w #$0008
 	bne CODE_9EE1EA
 	and.w #$0007
-	sta.w $0D03
+	sta.w passdir
 CODE_9EE1EA:
-	lda.w $11C3,x
+	lda.w SPAnum,x
 	cmp.w #$0010
 	bcs CODE_9EE21F
-	lda.w $0D05
+	lda.w passspeed
 	clc
 	adc.b $C1
-	sta.w $0D05
+	sta.w passspeed
 	lda.b $AD
 	bit.w #$0080
 	beq CODE_9EE21F
 	lda.w #$001C
 	sec
-	sbc.w $11C3,x
-	sta.w $11C3,x
+	sbc.w SPAnum,x
+	sta.w SPAnum,x
 	cmp.w #$0018
 	bcc CODE_9EE21F
 	lda.w #$0018
-	sta.w $11C3,x
+	sta.w SPAnum,x
 	bra CODE_9EE220
 CODE_9EE219:
 	lda.w #$0008
-	trb.w $15D8
+	trb.w sflags
 CODE_9EE21F:
 	rtl
 CODE_9EE220:
@@ -267,7 +267,7 @@ CODE_9EE220:
 	lda.w #$0007
 	pha
 	lda.w #$0008
-	trb.w $15D8
+	trb.w sflags
 	sta.w $14E3,x
 	stx.w $0D29
 	cpx.w $0AD9
@@ -277,22 +277,22 @@ CODE_9EE23C:
 	lda.w #$0001
 	sta.b $01,s
 	lda.w #$1000
-	tsb.w $15D8
-	lda.w $11A3,x
+	tsb.w sflags
+	lda.w SPA,x
 	cmp.w #$EE5C
 	bne CODE_9EE264
 	lda.w #$0001
 	sta.b $01,s
-	lda.w $0D05
+	lda.w passspeed
 	lsr a
 	lsr a
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.w $0D05
-	sta.w $0D05
+	adc.w passspeed
+	sta.w passspeed
 CODE_9EE264:
-	lda.w $0D05
+	lda.w passspeed
 	sta.w $0BC5
 	cmp.w #$001E
 	bcc CODE_9EE274
@@ -304,13 +304,13 @@ CODE_9EE274:
 	jsl.l CODE_9FDCEB
 	adc.w #$0014
 	tax
-	lda.w $0D05
+	lda.w passspeed
 	jsl.l CODE_808F98
 	ldx.b $08
 	lda.w #$2570
 	jsl.l Mul16U
 	lda.b $0A
-	sta.w $0D05
+	sta.w passspeed
 	lda.w $1E8B
 	beq CODE_9EE2A5
 	jsl.l CODE_9EC64B
@@ -326,12 +326,12 @@ CODE_9EE2A5:
 	lsr a
 	sta.w $0CF3
 	ldy.w #$0108
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE2C3
 	ldy.w #$FEF8
 CODE_9EE2C3:
 	sty.b $A9
-	lda.w $0D03
+	lda.w passdir
 	asl a
 	asl a
 	tay
@@ -350,7 +350,7 @@ CODE_9EE2C3:
 	pha
 	lda.b $A9
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	sta.b $A9
 	pha
 	lda.b $A5
@@ -363,7 +363,7 @@ CODE_9EE2C3:
 	inc a
 CODE_9EE2FE:
 	sta.b $B1
-	lda.w $15D4
+	lda.w gmode
 	bit.w #$0010
 	beq CODE_9EE30B
 	jmp.w $E387
@@ -377,7 +377,7 @@ CODE_9EE30B:
 	cmp.w #$000F
 	bcs CODE_9EE387
 CODE_9EE321:
-	lda.w $0D05
+	lda.w passspeed
 	lsr a
 	lsr a
 	lsr a
@@ -432,7 +432,7 @@ CODE_9EE373:
 	adc.b $05,s
 	sta.b $05,s
 CODE_9EE387:
-	ldx.w $0D05
+	ldx.w passspeed
 	lda.w #$0044
 	jsl.l CODE_808F5D
 	plx
@@ -442,8 +442,8 @@ CODE_9EE387:
 	jsl.l Div32S
 	lda.b $00
 	asl a
-	sta.w $0EDF
-	ldx.w $0D05
+	sta.w puckvx
+	ldx.w passspeed
 	lda.w #$0044
 	jsl.l CODE_808F5D
 	plx
@@ -453,12 +453,12 @@ CODE_9EE387:
 	jsl.l Div32S
 	lda.b $00
 	asl a
-	sta.w $0EFF
+	sta.w puckvy
 	ldx.b $E4
 	pla
 	beq CODE_9EE408
 	tax
-	lda.w $0D05
+	lda.w passspeed
 	jsl.l CODE_808F98
 	ldx.b $08
 	lda.w #$0044
@@ -472,7 +472,7 @@ CODE_9EE387:
 	lda.w #$0B33
 	ldx.b $B1
 	jsl.l Mul16U
-	lda.w $0D05
+	lda.w passspeed
 	sta.b $04
 	jsl.l Div32U
 	ldx.b $E4
@@ -489,20 +489,20 @@ CODE_9EE408:
 	jsl.l CODE_9C9ABC
 	ldx.b $95
 	ldy.w #$0108
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE41A
 	ldy.w #$FEF8
 CODE_9EE41A:
 	sty.b $C5
 	tya
 	sec
-	sbc.w $0DD3
-	eor.w $0EFF
+	sbc.w pucky
+	eor.w puckvy
 	bpl CODE_9EE430
 	lda.w #$0000
 	sec
-	sbc.w $0EFF
-	sta.w $0EFF
+	sbc.w puckvy
+	sta.w puckvy
 CODE_9EE430:
 	lda.w $163A
 	beq CODE_9EE43E
@@ -530,20 +530,20 @@ CODE_9EE471:
 CODE_9EE47E:
 	lda.w $15D6
 	bne CODE_9EE471
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	sta.b $A5
-	ldy.w $14C3,x
+	ldy.w pfgoal,x
 	bne CODE_9EE495
 	lda.w #$0000
 	sec
 	sbc.b $A5
 	sta.b $A5
 CODE_9EE495:
-	lda.w $1283,x
+	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9EE4BE
 	and.w #$FFFD
-	sta.w $1283,x
+	sta.w pflags,x
 	stz.w $1003,x
 	stz.w $1023,x
 	lda.w #$0008
@@ -567,7 +567,7 @@ CODE_9EE4D3:
 	sta.b $A5
 	lda.w $1EA3
 	sta.b $A9
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE4EA
 	lda.w #$0000
 	sec
@@ -614,24 +614,24 @@ CODE_9EE528:
 	sta.b $A5
 CODE_9EE540:
 	lda.b $A5
-	sta.w $0D03
+	sta.w passdir
 	lda.w #$0014
-	sta.w $0D05
+	sta.w passspeed
 	lda.w #$0000
 	sec
-	sbc.w $0D55,x
+	sbc.w Xpos,x
 	sta.b $A5
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE564
 	lda.w #$FEF8
 	sec
-	sbc.w $0DB7,x
+	sbc.w Ypos,x
 	sta.b $A9
 	bra CODE_9EE56D
 CODE_9EE564:
 	lda.w #$0108
 	sec
-	sbc.w $0DB7,x
+	sbc.w Ypos,x
 	sta.b $A9
 CODE_9EE56D:
 	jsl.l vtoa
@@ -707,7 +707,7 @@ CODE_9EE611:
 CODE_9EE616:
 	lda.w #$FFD3
 CODE_9EE619:
-	ldy.w $14C3,x
+	ldy.w pfgoal,x
 	bne CODE_9EE622
 CODE_9EE61E:
 	eor.w #$FFFF
@@ -721,7 +721,7 @@ CODE_9EE622:
 	sta.w $1EA5
 	rts
 CODE_9EE635:
-	lda.w $0D55,x
+	lda.w Xpos,x
 	cmp.w #$0020
 	bpl CODE_9EE690
 	cmp.w #$FFE0
@@ -747,7 +747,7 @@ CODE_9EE666:
 CODE_9EE66B:
 	lda.w #$FFD4
 CODE_9EE66E:
-	ldy.w $14C3,x
+	ldy.w pfgoal,x
 	bne CODE_9EE677
 	eor.w #$FFFF
 	inc a
@@ -793,14 +793,14 @@ CODE_9EE6BB:
 DATA8_9EE6C7:
 	db $00,$00,$00,$00,$01,$01,$01,$01,$00,$00,$00
 CODE_9EE6D2:
-	lda.w $0F43,x
+	lda.w position,x
 	bne CODE_9EE6F6
 	lda.w $0D71
 	cmp.w #$FFF0
 	bmi CODE_9EE6F6
 	cmp.w #$0010
 	bpl CODE_9EE6F6
-	lda.w $0DD3
+	lda.w pucky
 	cmp.w #$0108
 	bpl CODE_9EE6F1
 	cmp.w #$FEF8
@@ -811,17 +811,17 @@ CODE_9EE6F1:
 CODE_9EE6F6:
 	lda.w $1163,x
 	and.w #$0007
-	sta.w $0D03
+	sta.w passdir
 	lda.w #$0004
-	tsb.w $15D8
+	tsb.w sflags
 CODE_9EE705:
 	rtl
-	lda.w $1283,x
+	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9EE720
 	and.w #$FFFD
 	ora.w #$0001
-	sta.w $1283,x
+	sta.w pflags,x
 	stz.w $1023,x
 	lda.w #$0008
 	sta.w $10A3,x
@@ -851,9 +851,9 @@ CODE_9EE74E:
 	ldy.b $91
 	lda.w $19D0,y
 	bne CODE_9EE779
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE771
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	cmp.w #$FFA8
 	bpl CODE_9EE779
 CODE_9EE762:
@@ -863,7 +863,7 @@ CODE_9EE762:
 	inc.w $0BAB
 	jmp.w $E797
 CODE_9EE771:
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	cmp.w #$0058
 	bpl CODE_9EE762
 CODE_9EE779:
@@ -874,14 +874,14 @@ CODE_9EE77E:
 	sta.w $0D07
 	stz.w $14E3,x
 	stz.w $0BAB
-	lda.w $1283,x
+	lda.w pflags,x
 	and.w #$FFFE
-	sta.w $1283,x
+	sta.w pflags,x
 	jmp.w $8BE6
 CODE_9EE796:
 	rtl
 CODE_9EE797:
-	lda.w $11A3,x
+	lda.w SPA,x
 	cmp.w #$EF6E
 	beq CODE_9EE7F6
 	cmp.w #$F020
@@ -900,7 +900,7 @@ CODE_9EE7B0:
 	sec
 	sbc.w $0BA7
 	sta.b $A5
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE7D1
 	lda.w #$FEF8
 	sec
@@ -928,22 +928,22 @@ CODE_9EE7F3:
 CODE_9EE7F6:
 	lda.w #$000A
 	sta.w $1203,x
-	lda.w $11C3,x
+	lda.w SPAnum,x
 	cmp.w #$0010
 	bcs CODE_9EE7F3
 	txa
 	jsl.l CODE_9BC002
-	lda.w $0D55,x
+	lda.w Xpos,x
 	clc
 	adc.b $A5
 	sec
 	sbc.w $0D71
 	sta.b $A5
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	clc
 	adc.b $A9
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	sta.b $A9
 	ldy.b $A5
 	jsl.l CODE_9CA554
@@ -957,14 +957,14 @@ CODE_9EE7F6:
 	bmi CODE_9EE844
 CODE_9EE83C:
 	lda.w $0AA4,y
-	sta.w $0D03
+	sta.w passdir
 	bra CODE_9EE84A
 CODE_9EE844:
 	lda.w #$0008
-	sta.w $0D03
+	sta.w passdir
 CODE_9EE84A:
 	lda.w #$0024
-	sta.w $0D05
+	sta.w passspeed
 	sta.w $14E3,x
 	lda.w $15D6
 	bne CODE_9EE86C
@@ -1023,14 +1023,14 @@ CODE_9EE8B4:
 	adc.w #$0006
 	sta.b $A5
 CODE_9EE8C8:
-	lda.w $0F43,x
+	lda.w position,x
 	beq CODE_9EE8E7
 	lda.w $0D71
 	cmp.w #$FFD7
 	bmi CODE_9EE8E7
 	cmp.w #$0029
 	bpl CODE_9EE8E7
-	lda.w $0DD3
+	lda.w pucky
 	cmp.w #$FF33
 	bmi CODE_9EE8ED
 	cmp.w #$00CD
@@ -1044,18 +1044,18 @@ CODE_9EE8ED:
 CODE_9EE8EE:
 	ldy.b $A5
 	sty.b $89
-	lda.w $0F43,y
+	lda.w position,y
 	beq CODE_9EE8ED
 	bmi CODE_9EE8ED
-	lda.w $1283,y
+	lda.w pflags,y
 	and.w #$1000
 	ora.w $14E3,y
 	bne CODE_9EE8ED
-	lda.w $0DB7,y
+	lda.w Ypos,y
 	sta.b $A5
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	sta.b $A9
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EE923
 	lda.w #$0000
 	sec
@@ -1066,7 +1066,7 @@ CODE_9EE8EE:
 	sbc.b $A9
 	sta.b $A9
 CODE_9EE923:
-	lda.w $15D4
+	lda.w gmode
 	bit.w #$0020
 	beq CODE_9EE93D
 	lda.b $A5
@@ -1093,7 +1093,7 @@ CODE_9EE950:
 	sec
 	sbc.w #$0004
 	and.w #$0007
-	sta.w $0D03
+	sta.w passdir
 	lda.w $0B3D,y
 	sta.b $AD
 	lda.w #$0005
@@ -1111,7 +1111,7 @@ CODE_9EE974:
 	sec
 	sbc.w #$0004
 	and.w #$0007
-	cmp.w $0D03
+	cmp.w passdir
 	beq CODE_9EE9A2
 CODE_9EE98A:
 	iny
@@ -1119,7 +1119,7 @@ CODE_9EE98A:
 	dec.b $B1
 	bpl CODE_9EE974
 	jsl.l CODE_9EE9BF
-	lda.w $0F43,x
+	lda.w position,x
 	beq CODE_9EE9A2
 	pla
 	sep #$20
@@ -1136,7 +1136,7 @@ passmode:
 	bit.w #$0008
 	bne CODE_9EE9BE
 	and.w #$0007
-	sta.w $0D03
+	sta.w passdir
 	ora.w #$0008
 	sta.b $A5
 	bra CODE_9EE9BF
@@ -1145,7 +1145,7 @@ CODE_9EE9BE:
 CODE_9EE9BF:
 	stz.w $0BAB
 	lda.w #$0004
-	trb.w $15D8
+	trb.w sflags
 	lda.w #$FFFF
 	sta.w $0AD9
 	lda.w #$0010
@@ -1155,7 +1155,7 @@ CODE_9EE9BF:
 	sta.w $0CF3
 	lda.w #$0007
 	sta.b $A5
-	lda.w $0F43,x
+	lda.w position,x
 	beq CODE_9EE9E8
 	lda.w $13A3,x
 	sta.b $A5
@@ -1164,7 +1164,7 @@ CODE_9EE9E8:
 	asl a
 	asl a
 	adc.w #$0090
-	sta.w $0D05
+	sta.w passspeed
 	lda.w #$FFFF
 	sta.b $B5
 	lda.w #$0005
@@ -1178,15 +1178,15 @@ CODE_9EEA08:
 	cpx.b $8D
 	beq CODE_9EEA50
 	ldy.b $8D
-	lda.w $0F43,y
+	lda.w position,y
 	bmi CODE_9EEA50
 	beq CODE_9EEA50
-	lda.w $1283,y
+	lda.w pflags,y
 	bit.w #$1000
 	bne CODE_9EEA50
 	lda.w $0B5D,y
 	sec
-	sbc.w $0D03
+	sbc.w passdir
 	sec
 	sbc.w #$0004
 	stz.b $00
@@ -1224,7 +1224,7 @@ CODE_9EEA5B:
 	jsl.l CODE_9C9ABC
 	jmp.w $EACC
 CODE_9EEA6F:
-	lda.w $0D03
+	lda.w passdir
 	asl a
 	asl a
 	adc.w #$DA08
@@ -1245,7 +1245,7 @@ CODE_9EEA6F:
 	ror a
 	clc
 	adc.b $14
-	sta.w $0EFF
+	sta.w puckvy
 	dec.b $89
 	dec.b $89
 	lda.b [$89]
@@ -1262,33 +1262,33 @@ CODE_9EEA6F:
 	ror a
 	clc
 	adc.b $14
-	sta.w $0EDF
+	sta.w puckvx
 	jsl.l RandomWord
 	and.w #$0FFF
 	sta.w $0E01
 CODE_9EEACC:
-	lda.w $0F43,x
+	lda.w position,x
 	bne CODE_9EEAE9
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	beq CODE_9EEADD
-	lda.w $0EFF
+	lda.w puckvy
 	bmi CODE_9EEAE2
 	bra CODE_9EEAE9
 CODE_9EEADD:
-	lda.w $0EFF
+	lda.w puckvy
 	bmi CODE_9EEAE9
 CODE_9EEAE2:
 	eor.w #$FFFF
 	inc a
-	sta.w $0EFF
+	sta.w puckvy
 CODE_9EEAE9:
-	lda.w $0EDF
+	lda.w puckvx
 	sta.b $A5
-	lda.w $0EFF
+	lda.w puckvy
 	sta.b $A9
 	jsl.l vtoa
 	ldy.w #$E34E
-	lda.w $0F43,x
+	lda.w position,x
 	beq CODE_9EEB0B
 	ldy.w #$EC66
 	jsl.l Findhittype
@@ -1299,7 +1299,7 @@ CODE_9EEB0B:
 	jsl.l SetSPA
 	lda.w #$0001
 	sta.w $14E3,x
-	lda.w $0F43,x
+	lda.w position,x
 	bne CODE_9EEB2D
 	lda.w $19D4,x
 	bmi CODE_9EEB2D
@@ -1361,13 +1361,13 @@ CODE_9EEB7D:
 	sta.w $0D97,y
 	lda.b $A9
 	clc
-	adc.w $0DB7,y
+	adc.w Ypos,y
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	sta.b $A9
 	lda.b $A5
 	clc
-	adc.w $0D55,y
+	adc.w Xpos,y
 	sec
 	sbc.w $0D71
 	sta.b $A5
@@ -1450,7 +1450,7 @@ CODE_9EEC19:
 	pla
 CODE_9EEC4D:
 	sta.b $B9
-	sta.w $0D05
+	sta.w passspeed
 	ldx.b $E4
 	lda.w #$0010
 	sec
@@ -1467,7 +1467,7 @@ CODE_9EEC4D:
 	lda.b $00
 	xba
 	and.w #$FF00
-	sta.w $0EDF
+	sta.w puckvx
 	lda.b $B9
 	ldx.b $B1
 	jsl.l CODE_808FC9
@@ -1477,14 +1477,14 @@ CODE_9EEC4D:
 	lda.b $00
 	xba
 	and.w #$FF00
-	sta.w $0EFF
+	sta.w puckvy
 	lda.b $AD
 	clc
 	adc.w $0D71
 	sta.w $0BA7
 	lda.b $B1
 	clc
-	adc.w $0DD3
+	adc.w pucky
 	sta.w $0BA9
 	lda.b $B5
 	asl a
@@ -1504,7 +1504,7 @@ CODE_9EEC4D:
 	ldy.b $91
 	lda.w $19D4,x
 	sta.w $0B01,y
-	lda.w $0F43,x
+	lda.w position,x
 	bne CODE_9EECF5
 	lda.w $19D4,x
 	bmi CODE_9EECF5
@@ -1522,17 +1522,17 @@ CODE_9EECF5:
 	rtl
 CODE_9EECF6:
 	stx.w $0BA3
-	lda.w $0F43,x
+	lda.w position,x
 	beq CODE_9EED6D
-	lda.w $14C3,x
+	lda.w pfgoal,x
 	bne CODE_9EED38
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	cmp.w #$FFA8
 	bmi CODE_9EED24
 CODE_9EED0B:
 	lda.w #$0004
-	sta.w $0D03
-	lda.w $0D55,x
+	sta.w passdir
+	lda.w Xpos,x
 	bmi CODE_9EED1D
 	lda.w #$000A
 	sta.w $0BA5
@@ -1546,17 +1546,17 @@ CODE_9EED24:
 	sec
 	sbc.w #$0004
 	and.w #$0007
-	sta.w $0D03
+	sta.w passdir
 	lda.w #$0008
 	sta.w $0BA5
 	rtl
 CODE_9EED38:
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	cmp.w #$0058
 	bpl CODE_9EED59
 	lda.w #$0000
-	sta.w $0D03
-	lda.w $0D55,x
+	sta.w passdir
+	lda.w Xpos,x
 	bmi CODE_9EED52
 	lda.w #$0016
 	sta.w $0BA5
@@ -1570,19 +1570,19 @@ CODE_9EED59:
 	sec
 	sbc.w #$0004
 	and.w #$0007
-	sta.w $0D03
+	sta.w passdir
 	lda.w #$0014
 	sta.w $0BA5
 	rtl
 CODE_9EED6D:
 	stz.w $0BA5
-	stz.w $0D03
-	lda.w $14C3,x
+	stz.w passdir
+	lda.w pfgoal,x
 	bne CODE_9EED84
 	lda.w #$000C
 	sta.w $0BA5
 	lda.w #$0004
-	sta.w $0D03
+	sta.w passdir
 CODE_9EED84:
 	rtl
 CODE_9EED85:
@@ -1591,13 +1591,13 @@ CODE_9EED85:
 	jmp.w $8C18
 	cpx.w $0AD9
 	bne CODE_9EEDBD
-	lda.w $1283,x
+	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9EEDC0
 	jsl.l CODE_9EECF6
-	lda.w $1283,x
+	lda.w pflags,x
 	and.w #$FFFD
-	sta.w $1283,x
+	sta.w pflags,x
 	lda.w $19D4,x
 	bpl CODE_9EEDC0
 	lda.w $0BA5
@@ -1613,7 +1613,7 @@ CODE_9EEDBD:
 	jmp.w $8BE6
 CODE_9EEDC0:
 	ldy.w #$0000
-	lda.w $0D03
+	lda.w passdir
 	cmp.w $1163,x
 	beq CODE_9EEDEA
 	iny
@@ -1627,12 +1627,12 @@ CODE_9EEDC0:
 	and.w #$0007
 	cmp.w $1163,x
 	beq CODE_9EEDEA
-	lda.w $0D03
+	lda.w passdir
 	sta.b $A5
 	jsl.l CODE_9EDC06
 	rtl
 CODE_9EEDEA:
-	lda.w $0F43,x
+	lda.w position,x
 	bne CODE_9EEDFD
 CODE_9EEDEF:
 	tya
@@ -1640,7 +1640,7 @@ CODE_9EEDEF:
 	adc.w $0BA5
 	sta.w $0BA5
 	lda.w $1163,x
-	sta.w $0D03
+	sta.w passdir
 CODE_9EEDFD:
 	jsl.l CODE_9EEE04
 	jmp.w $8BE6
@@ -1669,7 +1669,7 @@ CODE_9EEE04:
 	clc
 	adc.w DATA8_9EEF1C,y
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	sta.b $A9
 	ldy.b $A5
 	jsl.l CODE_9CA554
@@ -1687,7 +1687,7 @@ CODE_9EEE54:
 	lda.w #$0060
 CODE_9EEE57:
 	ldx.b $E4
-	ldy.w $0F43,x
+	ldy.w position,x
 	beq CODE_9EEE68
 	cmp.w #$0010
 	bcs CODE_9EEE66
@@ -1709,7 +1709,7 @@ CODE_9EEE70:
 	lda.b $00
 	xba
 	and.w #$FF00
-	sta.w $0EDF
+	sta.w puckvx
 	lda.b $B1
 	ldx.b $A9
 	jsl.l CODE_808FC9
@@ -1719,7 +1719,7 @@ CODE_9EEE70:
 	lda.b $00
 	xba
 	and.w #$FF00
-	sta.w $0EFF
+	sta.w puckvy
 	asl a
 	asl a
 	asl a
@@ -1754,32 +1754,32 @@ DATA8_9EEF1C:
 	cmp.w #$018C
 	bne CODE_9EEF58
 	lda.w $0D71
-	sta.w $0D55,x
-	lda.w $0DD3
-	sta.w $0DB7,x
+	sta.w Xpos,x
+	lda.w pucky
+	sta.w Ypos,x
 	stz.w $0DFB
-	lda.w $15DA
+	lda.w sfhormode
 	beq CODE_9EEF54
-	inc.w $0D55,x
+	inc.w Xpos,x
 	rtl
 CODE_9EEF54:
-	inc.w $0DB7,x
+	inc.w Ypos,x
 	rtl
 CODE_9EEF58:
 	tay
 	beq CODE_9EEF7E
-	stz.w $0D55,x
+	stz.w Xpos,x
 	lda.w #$012C
-	sta.w $0DB7,x
+	sta.w Ypos,x
 	lda.w #$000E
 	sta.w $0DFB
-	lda.w $0DD3
+	lda.w pucky
 	bpl CODE_9EEF7E
 CODE_9EEF6F:
 	lda.w #$8000
 	sta.w $0E03,x
 	lda.w #$FED4
-	sta.w $0DB7,x
+	sta.w Ypos,x
 	dec.w $0DFB
 CODE_9EEF7E:
 	rtl
@@ -1807,13 +1807,13 @@ CODE_9EEFAD:
 	ldy.b $91
 	lda.w #$0008
 	sta.w $1203,y
-	lda.w $0D55,x
+	lda.w Xpos,x
 	sec
-	sbc.w $0D55,y
+	sbc.w Xpos,y
 	sta.b $A5
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	sec
-	sbc.w $0DB7,y
+	sbc.w Ypos,y
 	sta.b $A9
 	bne CODE_9EEFD1
 	tya

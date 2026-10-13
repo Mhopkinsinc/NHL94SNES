@@ -4,7 +4,7 @@
 ; Changes, Goalie); DATA8_9DAC7F, DATA8_9DACD1 and DATA8_9DACDF are tables of words its code reads.
 
 org $9DA000
-	sta.w $0D0F
+	sta.w printx
 	lda.b $9F
 	sta.b $8F
 	lda.b $9D
@@ -15,7 +15,7 @@ org $9DA000
 	lda.b $8D
 	sta.b $9D
 	lda.w #$0004
-	sta.w $0D0F
+	sta.w printx
 	lda.b [$95]
 	inc.b $95
 	and.w #$00FF
@@ -33,8 +33,8 @@ CODE_9DA03A:
 	lda.b $04
 	sta.b $A5
 	jsl.l CODE_9F9745
-	inc.w $0D11
-	inc.w $0D11
+	inc.w printy
+	inc.w printy
 	dec.b $A9
 	bpl CODE_9D9FFD
 CODE_9DA04C:
@@ -115,8 +115,8 @@ CODE_9DA0EB:
 	lda.w $1C84
 	dec a
 	beq CODE_9DA180
-	lda.w $1C9A
-	sta.w $1C98
+	lda.w VisTeam
+	sta.w HomeTeam
 CODE_9DA180:
 	dec.b $A9
 	inc.b $AB
@@ -139,10 +139,10 @@ CODE_9DA19A:
 	lda.w #$FFFF
 	sta.l $7E3460
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$000A
-	sta.w $0D11
-	lda.w $1C9A
+	sta.w printy
+	lda.w VisTeam
 	sta.b $A9
 	lda.b $AB
 	pha
@@ -152,8 +152,8 @@ CODE_9DA1C5:
 	pla
 	sta.b $AB
 	lda.w #$0016
-	sta.w $0D0F
-	lda.w $1C98
+	sta.w printx
+	lda.w HomeTeam
 	sta.b $A9
 	jsr.w $AE6D
 	jsr.w $B0AB
@@ -508,9 +508,9 @@ CODE_9DA496:
 	jmp.w $A2F5
 CODE_9DA49E:
 	jsl.l SpriteFrameStart
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.l $7E3454
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.l $7E3452
 	lda.b $AB
 	beq CODE_9DA4BB
@@ -636,15 +636,15 @@ CODE_9DA5CA:
 	jsl.l CODE_9DD977
 	jsl.l CODE_9DE074
 	lda.l $7E34BE
-	sta.w $1C98
+	sta.w HomeTeam
 	lda.l $7E34C0
-	sta.w $1C9A
+	sta.w VisTeam
 	jsl.l setteams
-	lda.w $1C9A
+	lda.w VisTeam
 	clc
 	adc.w #$0021
 	sta.l $7E3454
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.l $7E3452
 	jsl.l CODE_9DD9AD
 	sep #$20
@@ -792,14 +792,14 @@ CODE_9DA7A3:
 	lda.w #$001C
 	jsl.l CODE_9BB385
 	sta.l $7E34BE
-	sta.w $1C98
+	sta.w HomeTeam
 CODE_9DA7B1:
 	lda.w #$001C
 	jsl.l CODE_9BB385
 	cmp.l $7E34BE
 	beq CODE_9DA7B1
 	sta.l $7E34C0
-	sta.w $1C9A
+	sta.w VisTeam
 	lda.w #$0000
 	sta.l $7E34CC
 	lda.w #$0000
@@ -997,9 +997,9 @@ CODE_9DA973:
 	lda.l $7E3456
 	beq CODE_9DA992
 	lda.l $7E34BE
-	sta.w $1C98
+	sta.w HomeTeam
 	lda.l $7E34C0
-	sta.w $1C9A
+	sta.w VisTeam
 	jsl.l setteams
 	lda.w #$0000
 	sta.l $7E3456
@@ -1011,13 +1011,13 @@ CODE_9DA992:
 	lda.w #$000E
 	sta.b $A9
 	lda.w #$000E
-	sta.w $0D11
-	stz.w $0D0F
+	sta.w printy
+	stz.w printx
 	jsl.l eraser
 	lda.b $C1
 	sta.b $BD
 	lda.w #$000E
-	sta.w $0D11
+	sta.w printy
 	stz.b $AD
 	ldx.w #$0000
 CODE_9DA9BE:
@@ -1046,13 +1046,13 @@ CODE_9DA9BE:
 	sta.b $8D
 CODE_9DA9F2:
 	lda.w #$0003
-	sta.w $0D0F
+	sta.w printx
 	txa
 	lsr a
 	sta.b $A5
 	jsl.l CODE_9ECFC6
 	lda.w #$0011
-	sta.w $0D0F
+	sta.w printx
 	stx.b $C1
 	jsr.w $A8B8
 	txy
@@ -1091,8 +1091,8 @@ CODE_9DAA44:
 	beq CODE_9DAA69
 	jsl.l CODE_9EC7BE
 CODE_9DAA54:
-	inc.w $0D11
-	inc.w $0D11
+	inc.w printy
+	inc.w printy
 CODE_9DAA5A:
 	inx
 	inx
@@ -1127,9 +1127,9 @@ CODE_9DAA83:
 	lda.w #$001C
 	sta.l $7E3454
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$000A
-	sta.w $0D11
+	sta.w printy
 	lda.w #$000A
 	sta.b $A5
 	lda.w #$0002
@@ -1141,7 +1141,7 @@ CODE_9DAA83:
 	sta.l $7E3460
 	bra CODE_9DAACC
 CODE_9DAAC5:
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.l $7E3454
 CODE_9DAACC:
 	dex
@@ -1151,9 +1151,9 @@ CODE_9DAACC:
 	lda.w #$001D
 	sta.l $7E3452
 	lda.w #$0016
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$000A
-	sta.w $0D11
+	sta.w printy
 	lda.w #$000A
 	sta.b $A5
 	lda.w #$0002
@@ -1165,7 +1165,7 @@ CODE_9DAACC:
 	sta.l $7E3460
 	bra CODE_9DAB0B
 CODE_9DAB04:
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.l $7E3452
 CODE_9DAB0B:
 	lda.l $7E3458
@@ -1188,10 +1188,10 @@ CODE_9DAB18:
 	cmp.w #$001C
 	bpl CODE_9DAB51
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$000A
-	sta.w $0D11
-	lda.w $1C9A
+	sta.w printy
+	lda.w VisTeam
 	sta.b $A9
 	jsl.l CODE_9FBE08
 CODE_9DAB51:
@@ -1199,10 +1199,10 @@ CODE_9DAB51:
 	cmp.w #$001C
 	bpl CODE_9DAB6F
 	lda.w #$0016
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$000A
-	sta.w $0D11
-	lda.w $1C98
+	sta.w printy
+	lda.w HomeTeam
 	sta.b $A9
 	jsl.l CODE_9FBE08
 CODE_9DAB6F:
@@ -1379,7 +1379,7 @@ CODE_9DAE6D:
 	sta.b $14
 	ldy.w #$0060
 	lda.b $A9
-	cmp.w $1C98
+	cmp.w HomeTeam
 	bne CODE_9DAE96
 	ldx.w #$1C00
 	stx.b $14
@@ -1397,8 +1397,8 @@ CODE_9DAE96:
 	sta.b $0C
 	ldx.w #$0010
 	jsl.l CODE_9DE0BD
-	lda.w $1C98
-	cmp.w $1C9A
+	lda.w HomeTeam
+	cmp.w VisTeam
 	bne CODE_9DAEC9
 	lda.b $14
 	cmp.w #$1800
@@ -1416,13 +1416,13 @@ CODE_9DAEC9:
 	sta.b $93
 	lda.w #$E9A3
 	sta.b $91
-	lda.w $0D11
+	lda.w printy
 	asl a
 	asl a
 	asl a
 	asl a
 	asl a
-	adc.w $0D0F
+	adc.w printx
 	asl a
 	adc.w $0CD9
 	tax
@@ -1467,7 +1467,7 @@ CODE_9DAF29:
 	sta.b $0C
 	lda.w #$009C
 	sta.b $0E
-	lda.w $0D0F
+	lda.w printx
 	pha
 	lda.w #$005C
 	sta.w $1D59
@@ -1477,7 +1477,7 @@ CODE_9DAF29:
 	sta.w $1D5C
 	jsl.l CODE_9D9A5C
 	pla
-	sta.w $0D0F
+	sta.w printx
 	plx
 	pla
 	sta.b $91

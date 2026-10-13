@@ -69,8 +69,8 @@ CODE_9FF08E:
 	lda.w #$2400
 	sta.w $0D0D
 	lda.w #$0006
-	sta.w $0D0F
-	sty.w $0D11
+	sta.w printx
+	sty.w printy
 	lda.w #$009F
 	sta.b $8F
 	lda.w #DATA8_9FF163
@@ -348,7 +348,7 @@ CODE_9FF34E:
 	inc a
 	clc
 	adc.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	rtl
 DATA8_9FF35F:		; the MultiPlayer 5 messages
 	%String("The MultiPlayer 5")

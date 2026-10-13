@@ -99,13 +99,13 @@ CODE_9D90B7:
 	lda.b [$89]
 	inc.b $89
 	and.w #$00FF
-	sta.w $0D0F
+	sta.w printx
 	lda.b [$89]
 	inc.b $89
 	and.w #$00FF
 	asl a
 	asl a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A2A
@@ -207,7 +207,7 @@ CODE_9D910B:
 	ldy.w #$0000
 	jsl.l CODE_808BED
 	lda.w #$0180
-	sta.w $0CED
+	sta.w Hscroll
 	sec
 	sbc.w #$0100
 	sta.w $07D6
@@ -270,7 +270,7 @@ CODE_9D927C:
 	lda.w #$0002
 	sta.b $B3
 CODE_9D9281:
-	lda.w $0CED
+	lda.w Hscroll
 	clc
 	adc.b $B3
 	cmp.b $AF
@@ -281,14 +281,14 @@ CODE_9D928E:
 	bcc CODE_9D9295
 	jmp.w $9394
 CODE_9D9295:
-	sta.w $0CED
+	sta.w Hscroll
 	and.w #$0007
 	beq CODE_9D92A0
 	jmp.w $936E
 CODE_9D92A0:
 	lda.b $B3
 	bmi CODE_9D930D
-	lda.w $0CED
+	lda.w Hscroll
 	lsr a
 	lsr a
 	lsr a
@@ -336,7 +336,7 @@ CODE_9D92B6:
 	jsl.l CODE_808BED
 	bra CODE_9D936E
 CODE_9D930D:
-	lda.w $0CED
+	lda.w Hscroll
 	lsr a
 	lsr a
 	lsr a
@@ -380,7 +380,7 @@ CODE_9D930D:
 	ldy.w #$0000
 	jsl.l CODE_808BED
 CODE_9D936E:
-	lda.w $0CED
+	lda.w Hscroll
 	cmp.w #$0058
 	beq CODE_9D9394
 	cmp.w #$00B0
@@ -398,7 +398,7 @@ CODE_9D936E:
 CODE_9D9394:
 	stz.b $B3
 CODE_9D9396:
-	lda.w $0CED
+	lda.w Hscroll
 	sec
 	sbc.w #$0100
 	sta.w $07D6
@@ -995,9 +995,9 @@ CODE_9D99D1:
 	lda.b $A9
 	sta.l $7E35D6
 	lda.l $7E3528,x
-	sta.w $1C98
+	sta.w HomeTeam
 	lda.l $7E3538,x
-	sta.w $1C9A
+	sta.w VisTeam
 	asl.b $A5
 	asl.b $A5
 	phb
@@ -1055,8 +1055,8 @@ CODE_9D9A5C:
 	lsr a
 	sta.b $16
 	clc
-	adc.w $0D0F
-	sta.w $0D0F
+	adc.w printx
+	sta.w printx
 	lda.b $16
 	asl a
 	asl a
@@ -1134,7 +1134,7 @@ CODE_9D9B07:
 	bcc CODE_9D9B59
 CODE_9D9B0F:
 	jsl.l $001D59
-	inc.w $0D0F
+	inc.w printx
 	lda.b $06
 	sta.b $04
 	lda.l $7E3466
@@ -1298,7 +1298,7 @@ CODE_9D9C3B:
 	dec.b $00
 	bne CODE_9D9C34
 	rts
-	lda.w $0D11
+	lda.w printy
 	asl a
 	asl a
 	asl a
@@ -1306,7 +1306,7 @@ CODE_9D9C3B:
 	asl a
 	asl a
 	asl a
-	adc.w $0D0F
+	adc.w printx
 	asl a
 	tax
 	lda.l $7E3466
@@ -1316,13 +1316,13 @@ CODE_9D9C3B:
 	inc a
 	sta.l $7EC77C,x
 	rtl
-	lda.w $0D11
+	lda.w printy
 	asl a
 	asl a
 	asl a
 	asl a
 	asl a
-	adc.w $0D0F
+	adc.w printx
 	asl a
 	tax
 	lda.l $7E3466
@@ -1408,13 +1408,13 @@ CODE_9D9D03:
 CODE_9D9D26:
 	jsl.l CODE_9DE0E9
 	ldy.b $91
-	lda.w $1796,y
+	lda.w tmline,y
 	inc a
 	sta.b $A5
 	sta.w $0D43
 	stz.w $0D47
 	ldx.b $91
-	lda.w $1C98,x
+	lda.w HomeTeam,x
 	sta.l $7E3454
 	lda.w #$001D
 	sta.l $7E3452
@@ -1492,11 +1492,11 @@ CODE_9D9DE2:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.b $A9
 	lda.b $91
 	beq CODE_9D9E0D
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.b $A9
 	lda.w #$0030
 CODE_9D9E0D:
@@ -1563,7 +1563,7 @@ CODE_9D9E9C:
 	sta.b $91
 	jsl.l SpriteFrameStart
 	ldx.b $91
-	lda.w $1C98,x
+	lda.w HomeTeam,x
 	sta.l $7E3454
 	ldx.w #$004C
 	ldy.w #$0018
@@ -1597,9 +1597,9 @@ CODE_9D9ECB:
 	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC7BE
 	lda.w #$0011
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0009
-	sta.w $0D11
+	sta.w printy
 CODE_9D9F08:
 	lda.w #$0080
 	sta.b $8F
@@ -1693,7 +1693,7 @@ CODE_9D9F43:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $97
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $95
 	ldy.w #$0006
 	clc

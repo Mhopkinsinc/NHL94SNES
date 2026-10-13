@@ -515,12 +515,12 @@ CODE_9DDCF3:
 	clc
 	adc.w #$1000
 	sta.l $7E35C0
-	lda.w $1C98
+	lda.w HomeTeam
 	cmp.w #$0018
 	bcs CODE_9DDD4E
 	stz.b $91
 CODE_9DDD4E:
-	lda.w $1C9A
+	lda.w VisTeam
 	cmp.w #$0018
 	bcs CODE_9DDD5B
 	lda.w #$0002

@@ -54,7 +54,7 @@ CODE_9BC051:
 	sbc.b $A9
 	sta.b $A9
 CODE_9BC061:
-	lda.w $15DA
+	lda.w sfhormode
 	beq CODE_9BC072
 	lda.b $A5
 	ldy.b $A9
@@ -135,7 +135,7 @@ CODE_9BC0EC:
 	sbc.b $A9
 	sta.b $A9
 CODE_9BC0FC:
-	lda.w $15DA
+	lda.w sfhormode
 	beq CODE_9BC10D
 	lda.b $A5
 	ldy.b $A9
@@ -147,7 +147,7 @@ CODE_9BC10D:
 	plx
 	rtl
 CODE_9BC10F:
-	lda.w $15DA
+	lda.w sfhormode
 	beq CODE_9BC128
 	lda.b $A5
 	pha
@@ -210,7 +210,7 @@ CODE_9BC174:
 	sta.w $0AE7,y
 	rtl
 CODE_9BC17C:
-	lda.w $1C98
+	lda.w HomeTeam
 	asl a
 	asl a
 	asl a
@@ -261,7 +261,7 @@ CODE_9BC1D5:
 	lda.w #$C800
 	sta.b $10
 	jsl.l Decompress
-	lda.w $1C98
+	lda.w HomeTeam
 	asl a
 	asl a
 	asl a
@@ -381,11 +381,11 @@ CODE_9BC2EC:
 	beq CODE_9BC316
 CODE_9BC2F2:
 	lda.w #$0004
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DBD
 	asl a
 	adc.w $1DBD
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -402,7 +402,7 @@ CODE_9BC316:
 	cmp.w $1DC1
 	bpl CODE_9BC351
 	lda.w #$0004
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DBD
 	clc
 	adc.w $1DC5
@@ -411,7 +411,7 @@ CODE_9BC316:
 	asl a
 	adc.b $14
 	inc a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -582,7 +582,7 @@ CODE_9BC49A:
 	lda.w #$2400
 	sta.w $0D0D
 	lda.w #$0000
-	sta.w $0D11
+	sta.w printy
 	lda.b $00
 	sta.w $1DB9
 	stz.w $1DE9
@@ -597,7 +597,7 @@ CODE_9BC4DB:
 	cmp.w $1DC1
 	beq CODE_9BC4F2
 	jsr.w $C543
-	inc.w $0D11
+	inc.w printy
 CODE_9BC4E9:
 	lda.w $1DB9
 	inc a
@@ -607,11 +607,11 @@ CODE_9BC4F2:
 	rtl
 CODE_9BC4F3:
 	lda.w #$0004
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DBD
 	asl a
 	adc.w $1DBD
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -620,7 +620,7 @@ CODE_9BC4F3:
 	sta.b $8D
 	jsl.l CODE_9EC894
 	lda.w #$0004
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DBD
 	clc
 	adc.w $1DC5
@@ -629,7 +629,7 @@ CODE_9BC4F3:
 	asl a
 	adc.b $14
 	inc a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -646,13 +646,13 @@ CODE_9BC543:
 	sta.b $A5
 	lda.l $7E3528,x
 	jsr.w $C601
-	inc.w $0D11
+	inc.w printy
 	lda.l $7E3588,x
 	sta.b $A5
 	lda.l $7E3538,x
 	jsr.w $C601
 	lda.w #$0017
-	sta.w $0D0F
+	sta.w printx
 	lda.l $7E3568,x
 	sta.b $A5
 	lda.l $7E3578,x
@@ -682,7 +682,7 @@ CODE_9BC58E:
 	bne CODE_9BC58E
 CODE_9BC5A3:
 	jsl.l CODE_9EC894
-	inc.w $0D11
+	inc.w printy
 	rts
 CODE_9BC5AB:
 	cmp.w #$000D
@@ -723,10 +723,10 @@ DATA8_9BC5F5:
 CODE_9BC601:
 	jsl.l CODE_9BC5AB
 	lda.w #$0007
-	sta.w $0D0F
+	sta.w printx
 	jsl.l CODE_9EC894
 	lda.w #$0014
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0002
 	sta.b $A9
 	jsl.l CODE_9FC623
@@ -907,7 +907,7 @@ CODE_9BC767:
 CODE_9BC7AE:
 	jsl.l CODE_9BC623
 	jsl.l CODE_9BCD30
-	lda.w $15DC
+	lda.w sflags3
 	bit.w #$0004
 	beq CODE_9BC7D1
 	ldx.w #$000E
@@ -993,8 +993,8 @@ CODE_9BC7FB:
 	sta.b $8D
 	pla
 	sta.b $8F
-	dec.w $0D0F
-	dec.w $0D0F
+	dec.w printx
+	dec.w printx
 	lda.w #$009B
 	sta.b $8B
 	lda.w #PasswordChars
@@ -1027,12 +1027,12 @@ CODE_9BC8C4:
 	lda.w #$0A2A
 	sta.b $8D
 	jsl.l CODE_9EC7BE
-	inc.w $0D11
-	inc.w $0D11
-	lda.w $0D0F
+	inc.w printy
+	inc.w printy
+	lda.w printx
 	sec
 	sbc.w #$000B
-	sta.w $0D0F
+	sta.w printx
 	dec.b $A5
 	bpl CODE_9BC8AC
 	stz.b $B5
@@ -1058,9 +1058,9 @@ CODE_9BC90F:
 	sta.b $8F
 	lda.w #$0A4A
 	sta.b $8D
-	inc.w $0D0F
-	dec.w $0D11
-	dec.w $0D11
+	inc.w printx
+	dec.w printy
+	dec.w printy
 	jsl.l CODE_9EC7BE
 	lda.w #$000A
 	sta.w $0AD1
@@ -1165,9 +1165,9 @@ CODE_9BC9FD:
 	sta.b $8F
 	lda.w #$0A4A
 	sta.b $8D
-	inc.w $0D0F
-	dec.w $0D11
-	dec.w $0D11
+	inc.w printx
+	dec.w printy
+	dec.w printy
 	jsl.l CODE_9EC7BE
 	pla
 	sta.b $B9
@@ -1183,9 +1183,9 @@ CODE_9BC9FD:
 	sta.b $8F
 	lda.w #$0A4A
 	sta.b $8D
-	inc.w $0D0F
-	dec.w $0D11
-	dec.w $0D11
+	inc.w printx
+	dec.w printy
+	dec.w printy
 	jsl.l CODE_9EC7BE
 	lda.w #$007E
 	sta.b $8B
@@ -1211,10 +1211,10 @@ CODE_9BCA7A:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $0D0F
+	lda.w printx
 	clc
 	adc.b $B5
-	sta.w $0D0F
+	sta.w printx
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1249,14 +1249,14 @@ CODE_9BCAB8:
 	jsl.l DivX8U
 	plx
 	asl a
-	adc.w $0D11
-	sta.w $0D11
+	adc.w printy
+	sta.w printy
 	lda.w RDMPYL
 	asl a
-	adc.w $0D0F
+	adc.w printx
 	dec a
 	dec a
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0003
 	sta.b $A5
 	sta.b $A9

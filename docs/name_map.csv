@@ -356,3 +356,50 @@ $9FD6D8,TryAddPlayerToList,CODE_9FD6D8,93S,"most instructions as the 93S routine
 $9FDD9D,reenergizeteam,CODE_9FDD9D,93S,"most instructions as the 93S routine reenergizeteam (score/module: 1.00 penalty)",src/bank9F_D000.asm
 $9FE001,lcfound,CODE_9FE001,93S,"most instructions as the 93S routine lcfound (score/module: 0.91 logic)",src/bank9F_E000.asm
 $9FE03F,SetupTeamForIntermission,CODE_9FE03F,93S,"most instructions as the 93S routine SetupTeamForIntermission (score/module: 0.92 penalty)",src/bank9F_E000.asm
+$0CED,Hscroll,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0CF1,iflags,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D03,passdir,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D05,passspeed,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D0F,printx,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D11,printy,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D1F,ReplayBufferPtr,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D39,Vscroll,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0D55,Xpos,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0DB7,Ypos,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0DD3,pucky,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0EDF,puckvx,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0EFF,puckvy,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$0F43,position,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$11A3,SPA,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$11C3,SPAnum,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1243,newpos,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1263,newpnum,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1283,pflags,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$12A3,pnum,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$14C3,pfgoal,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1503,pfteam,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$15D4,gmode,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$15D8,sflags,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$15DA,sfhormode,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$15DC,sflags3,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1620,Pencntdwn,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1622,pentimer,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1624,PBnum,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1628,penmsgtimer,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$162A,RefCnt,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$162C,RefStep,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1630,gsp,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1766,tmsort,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1796,tmline,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$179A,tmtouch1,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$179E,tmtouch2,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$17A2,tmtouch3,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$17A6,tmap,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$17AA,tmgoalie,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S; replaces the Vault name Selected_Goalie",src/ram94snes.asm
+$17DE,tmflags,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$17EA,tmpde,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1852,tmpdst,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$18BA,tmboxlist,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1C98,HomeTeam,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1C9A,VisTeam,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm
+$1CDC,tmdata,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm

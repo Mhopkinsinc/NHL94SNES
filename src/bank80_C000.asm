@@ -710,11 +710,11 @@ CODE_80C898:		; a shootout turn of team $91: the shooter of this round from its 
 	lda.b $91
 	pha
 	jsl.l ClearPenaltyBuffer
-	stz.w $15D4
+	stz.w gmode
 	lda.b $91
 	beq CODE_80C8B2
 	lda.w #$0002
-	sta.w $15D4
+	sta.w gmode
 CODE_80C8B2:
 	jsl.l CODE_9F8433
 	pla
@@ -819,7 +819,7 @@ CODE_80C97A:
 	ldy.w #$0002
 CODE_80C97D:
 	phy
-	lda.w $1C98,y
+	lda.w HomeTeam,y
 	jsl.l CODE_9BC5AB
 	lda.b [$8D]
 	and.w #$00FF
@@ -835,25 +835,25 @@ CODE_80C97D:
 	sec
 	sbc.b $A5
 	lsr a
-	sta.w $0D0F
+	sta.w printx
 	sta.b $00
 	lda.w #$000D
-	sta.w $0D11
+	sta.w printy
 	lda.w #$0006
 	sta.b $A9
 	jsl.l CODE_9D8000
 	lda.b $00
 	inc a
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$000E
-	sta.w $0D11
+	sta.w printy
 	jsl.l CODE_9ECE15
 	lda.w #$000C
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0010
-	sta.w $0D11
+	sta.w printy
 	ply
-	lda.w $1C98,y
+	lda.w HomeTeam,y
 	cmp.w #$000E
 	beq CODE_80C9EA
 	cmp.w #$000D
@@ -884,7 +884,7 @@ CODE_80CA05:
 	rtl
 CODE_80CA0A:		; does nothing
 	rtl
-ShootoutShooters:	; the screen where team $91 picks its goalie and shooters; Selected_Goalie is set from the list on exit
+ShootoutShooters:	; the screen where team $91 picks its goalie and shooters; tmgoalie is set from the list on exit
 	jsl.l CODE_9DE0E9
 	lda.w #$0001
 	sta.b $A5
@@ -902,7 +902,7 @@ CODE_80CA1D:
 	jmp.w CODE_80CA9C
 CODE_80CA2E:
 	ldx.b $91
-	lda.w $1C98,x
+	lda.w HomeTeam,x
 	sta.l $7E3454
 	lda.w #$FFFF
 	sta.l $7E3452
@@ -951,7 +951,7 @@ CODE_80CAA9:
 CODE_80CAB0:
 	and.w #$00FF
 	dec a
-	sta.w Selected_Goalie,y
+	sta.w tmgoalie,y
 	rtl
 CODE_80CAB8:
 	lda.w $1DB9
@@ -1134,11 +1134,11 @@ CODE_80CC25:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.b $A9
 	lda.b $91
 	beq CODE_80CC65
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.b $A9
 CODE_80CC65:
 	jsl.l CODE_9FBE08
@@ -1240,7 +1240,7 @@ CODE_80CD22:
 	sta.l $7E345A
 	phx
 	ldx.b $91
-	lda.w $1C98,x
+	lda.w HomeTeam,x
 	cmp.w #$0018
 	bcc CODE_80CD61
 CODE_80CD4E:
@@ -1255,7 +1255,7 @@ CODE_80CD61:
 	plx
 CODE_80CD62:
 	lda.w #$0005
-	sta.w $0D0F
+	sta.w printx
 	lda.b $9F
 	sta.b $8F
 	lda.b $9D
@@ -1266,7 +1266,7 @@ CODE_80CD62:
 	lda.b $8D
 	sta.b $9D
 	lda.w #$0008
-	sta.w $0D0F
+	sta.w printx
 	lda.b [$95]
 	and.w #$00FF
 	dec a
@@ -1274,8 +1274,8 @@ CODE_80CD62:
 	jsl.l CODE_9FC372
 	jsl.l CODE_9EC7BE
 	inc.b $95
-	inc.w $0D11
-	inc.w $0D11
+	inc.w printy
+	inc.w printy
 	dec.b $A9
 	bmi CODE_80CDA1
 	jmp.w CODE_80CD22
@@ -1303,7 +1303,7 @@ CODE_80CDE0:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $8F
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $8D
 	ldy.w #$000C
 	clc

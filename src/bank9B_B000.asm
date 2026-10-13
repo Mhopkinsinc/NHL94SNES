@@ -32,16 +32,16 @@ CODE_9BB020:
 	pla
 	sta.w $0D21
 	pla
-	sta.w $0D1F
+	sta.w ReplayBufferPtr
 	lda.w #$0020
-	trb.w $15D8
+	trb.w sflags
 	lda.w $0D21
 	sta.b $9B
-	lda.w $0D1F
+	lda.w ReplayBufferPtr
 	sta.b $99
 	jsl.l CODE_9BB19D
 	lda.w #$0800
-	trb.w $15D8
+	trb.w sflags
 	jsl.l SetHor
 	jsl.l SpriteFrameStart
 	jsl.l CODE_9FBAAA
@@ -90,7 +90,7 @@ suba4:
 	lda.b $9B
 	cmp.w #$007E
 	bne CODE_9BB0E5
-	lda.w $15D8
+	lda.w sflags
 	bit.w #$0010
 	beq CODE_9BB12F
 	lda.w #$007E
@@ -106,7 +106,7 @@ CODE_9BB0E5:
 	sbc.w #$0000
 	sta.b $9B
 	lda.b $99
-	cmp.w $0D1F
+	cmp.w ReplayBufferPtr
 	beq CODE_9BB0FF
 	jml.l CODE_9BB19D
 CODE_9BB0FF:
@@ -140,7 +140,7 @@ CODE_9BB12F:
 	rtl
 adda4:
 	stz.b $C1
-	lda.w $15D8
+	lda.w sflags
 	bit.w #$0400
 	beq CODE_9BB167
 	lda.b $9B
@@ -157,7 +157,7 @@ adda4:
 	pla
 	sta.b $9B
 	lda.b $C5
-	cmp.w $0D1F
+	cmp.w ReplayBufferPtr
 	bne CODE_9BB167
 	lda.b $C7
 	cmp.w $0D21
@@ -165,7 +165,7 @@ adda4:
 	rtl
 CODE_9BB167:
 	lda.b $99
-	cmp.w $0D1F
+	cmp.w ReplayBufferPtr
 	bne CODE_9BB176
 	lda.b $9B
 	cmp.w $0D21
@@ -206,7 +206,7 @@ CODE_9BB19D:
 	ldx.w #$0000
 CODE_9BB1B6:
 	lda.w WMDATA
-	sta.w $0D55,x
+	sta.w Xpos,x
 	lda.w WMDATA
 	sta.b $14
 	and.b #$0F
@@ -216,7 +216,7 @@ CODE_9BB1B6:
 CODE_9BB1C9:
 	sta.w $0D56,x
 	lda.w WMDATA
-	sta.w $0DB7,x
+	sta.w Ypos,x
 	lda.b $14
 	lsr a
 	lsr a
@@ -264,7 +264,7 @@ CODE_9BB213:
 	lda.b #$FF
 	sta.w $0F44,x
 CODE_9BB232:
-	sta.w $0F43,x
+	sta.w position,x
 	stz.w $0F46,x
 	lda.b $14
 	lsr a
@@ -355,7 +355,7 @@ CODE_9BB273:
 	lda.w WMDATA
 	sta.l $7E35E1
 	lda.w WMDATA
-	sta.w $1624
+	sta.w PBnum
 	bpl CODE_9BB2FE
 	lda.b #$FF
 	bra CODE_9BB300
@@ -363,7 +363,7 @@ CODE_9BB2FE:
 	lda.b #$00
 CODE_9BB300:
 	sta.w $1625
-	lda.w $15D8
+	lda.w sflags
 	bit.b #$20
 	bne CODE_9BB330
 	lda.w WMDATA

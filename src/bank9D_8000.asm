@@ -46,13 +46,13 @@ CODE_9D804C:
 	plx
 	rtl
 CODE_9D804F:
-	lda.w $0D11
+	lda.w printy
 	asl a
 	asl a
 	asl a
 	asl a
 	asl a
-	adc.w $0D0F
+	adc.w printx
 	asl a
 	adc.w $0CD9
 	sta.b $C9
@@ -81,7 +81,7 @@ CODE_9D8077:
 	clc
 	adc.b $C5
 	sta.l $7E37F6,x
-	inc.w $0D11
+	inc.w printy
 	rts
 CODE_9D8091:
 	phx
@@ -348,7 +348,7 @@ CODE_9D8292:
 	lda.w #$0002
 	sta.b $91
 	jsl.l CODE_9D8330
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.w $1E41
 	lda.w #$0001
 	sta.w $1E43
@@ -358,7 +358,7 @@ CODE_9D8292:
 	bmi CODE_9D830F
 	bra CODE_9D831C
 CODE_9D830F:
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.w $1E41
 	lda.w $1E47
 	sec
@@ -513,13 +513,13 @@ CODE_9D842F:
 	inc.b $89
 	inc.b $89
 CODE_9D8453:
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.b $A5
 	lda.w #$001F
 	sta.b [$89]
 	inc.b $89
 	inc.b $89
-	lda.w $1C9A
+	lda.w VisTeam
 	cmp.b $A5
 	beq CODE_9D8471
 	lda.w #$0020
@@ -579,7 +579,7 @@ CODE_9D8489:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.b $A9
 	jsl.l CODE_9FBE08
 	lda.b $8F
@@ -595,7 +595,7 @@ CODE_9D8489:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.b $A9
 	jsl.l CODE_9FBE08
 	lda.w $1DB9
@@ -708,14 +708,14 @@ CODE_9D851D:
 	lda.w #$0021
 	sec
 	sbc.b [$8D]
-	sta.w $0D0F
+	sta.w printx
 	jsl.l CODE_9EC7BE
 	inc.w $1DB9
 	jmp.w $86AA
 CODE_9D8631:
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.l $7E3452
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.l $7E3454
 	jsl.l CODE_9DDDB3
 	jsl.l CODE_9DE0D4
@@ -860,7 +860,7 @@ DATA8_9D875A:		; position names: a word (2 + the text), then the text
 	dw $000D : db "  Goalie   "
 CODE_9D87B5:
 	ldy.b $91
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $89
 	lda.w #$009C
 	sta.b $8B
@@ -1087,12 +1087,12 @@ CODE_9D87D7:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
-	lda.w $1C98
+	lda.w HomeTeam
 	cmp.w #$0018
 	bcs CODE_9D89FE
 	stz.b $91
 CODE_9D89FE:
-	lda.w $1C9A
+	lda.w VisTeam
 	cmp.w #$0018
 	bcs CODE_9D8A0B
 	lda.w #$0002
@@ -1624,13 +1624,13 @@ CODE_9D8F15:
 	lda.b [$89]
 	inc.b $89
 	and.w #$00FF
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$3000
 	sta.w $0D0D
 	lda.b [$89]
 	inc.b $89
 	and.w #$00FF
-	sta.w $0D11
+	sta.w printy
 	lda.b [$8D]
 	inc.b $8D
 	and.w #$00FF
@@ -1652,7 +1652,7 @@ CODE_9D8F4E:
 	sta.b $0C
 	lda.w #$009C
 	sta.b $0E
-	lda.w $0D0F
+	lda.w printx
 	pha
 	lda.w #$005C
 	sta.w $1D59
@@ -1662,7 +1662,7 @@ CODE_9D8F4E:
 	sta.w $1D5C
 	jsl.l CODE_9D9A5C
 	pla
-	sta.w $0D0F
+	sta.w printx
 	lda.b $CD
 	asl a
 	asl a
@@ -1673,7 +1673,7 @@ CODE_9D8F4E:
 	lda.w #$0000
 	adc.w #$007F
 	sta.b $93
-	lda.w $0D11
+	lda.w printy
 	asl a
 	asl a
 	asl a
@@ -1681,7 +1681,7 @@ CODE_9D8F4E:
 	asl a
 	asl a
 	asl a
-	adc.w $0D0F
+	adc.w printx
 	asl a
 	tax
 	lda.w #$0007

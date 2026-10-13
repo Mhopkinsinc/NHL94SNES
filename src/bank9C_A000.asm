@@ -50,7 +50,7 @@ CODE_9CA04D:
 CODE_9CA054:
 	lda.w $0C29
 	bmi CODE_9CA0B1
-	lda.w $15DA
+	lda.w sfhormode
 	bne CODE_9CA0B1
 	lda.w #$0082
 	sta.b $12
@@ -107,7 +107,7 @@ CODE_9CA0CF:
 	lda.l $7E34BC
 	cmp.w #$0004
 	bne CODE_9CA0E4
-	lda.w $0F43,x
+	lda.w position,x
 	bmi CODE_9CA0FE
 CODE_9CA0E4:
 	lda.w $0D97,x
@@ -116,7 +116,7 @@ CODE_9CA0E4:
 	cmp.w #$0171
 	bne CODE_9CA107
 CODE_9CA0F1:
-	lda.w $15DA
+	lda.w sfhormode
 	bne CODE_9CA101
 	lda.w #$0171
 	sta.w $0D97,x
@@ -127,9 +127,9 @@ CODE_9CA101:
 	lda.w #$0170
 	sta.w $0D97,x
 CODE_9CA107:
-	lda.w $0D55,x
+	lda.w Xpos,x
 	sta.b $A5
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	sta.b $A9
 	jsl.l CODE_9BC10F
 	cmp.w #$4E20
@@ -204,10 +204,10 @@ CODE_9CA19B:
 	lda.b $AF
 	pha
 	ldx.w #$0000
-	lda.w $15DA
+	lda.w sfhormode
 	bne CODE_9CA1C6
 CODE_9CA1B7:
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	sta.w $1583,x
 	inx
 	inx
@@ -215,7 +215,7 @@ CODE_9CA1B7:
 	bne CODE_9CA1B7
 	bra CODE_9CA1D3
 CODE_9CA1C6:
-	lda.w $0D55,x
+	lda.w Xpos,x
 	sta.w $1583,x
 	inx
 	inx
@@ -273,7 +273,7 @@ CODE_9CA227:
 	plb
 	ldx.w #$0000
 CODE_9CA22D:
-	stz.w $0D55,x
+	stz.w Xpos,x
 	inx
 	inx
 	cpx.w #$076E
@@ -291,11 +291,11 @@ CODE_9CA244:
 	sta.w $1143,y
 	lda.w #$FFFF
 	sta.w $0E23,y
-	sta.w $12A3,y
+	sta.w pnum,y
 	lda.w DATA8_9CA2FB,x
-	sta.w $0D55,y
+	sta.w Xpos,y
 	lda.w DATA8_9CA2FB+2,x
-	sta.w $0DB7,y
+	sta.w Ypos,y
 	lda.w DATA8_9CA2FB+6,x
 	sta.w $0D97,y
 	lda.w DATA8_9CA2FB+8,x
@@ -314,7 +314,7 @@ CODE_9CA244:
 	ldy.b $95
 	sta.w $0B7D,y
 	lda.w DATA8_9CA2FB+16,x
-	sta.w $1283,y
+	sta.w pflags,y
 	lda.w #$0000
 	sta.w $1563,y
 	cpy.w #$001E
@@ -326,13 +326,13 @@ CODE_9CA2A2:
 	rol a
 	inc a
 	and.w #$0001
-	sta.w $14C3,y
+	sta.w pfgoal,y
 	cpx.w #$006C
 	bcc CODE_9CA2BD
 	cpx.w #$00D8
 	bcs CODE_9CA2BD
 	lda.w #$0034
-	sta.w $1503,y
+	sta.w pfteam,y
 CODE_9CA2BD:
 	inc.b $95
 	inc.b $95
@@ -574,7 +574,7 @@ CODE_9CA58F:
 	stx.b $E4
 	lda.w $0D71
 	sec
-	sbc.w $0D55,x
+	sbc.w Xpos,x
 	sta.b $A5
 	bpl CODE_9CA5A0
 	eor.w #$FFFF
@@ -587,9 +587,9 @@ CODE_9CA5A0:
 	jsl.l CODE_808F4C
 	ldx.b $E4
 	sta.w $0B3D,x
-	lda.w $0DD3
+	lda.w pucky
 	sec
-	sbc.w $0DB7,x
+	sbc.w Ypos,x
 	sta.b $A9
 	bpl CODE_9CA5BC
 	eor.w #$FFFF

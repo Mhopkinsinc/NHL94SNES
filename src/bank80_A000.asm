@@ -68,7 +68,7 @@ CODE_80A1A4:
 	stx.w $07FF
 	lda.b $4E
 	sta.w $086A,x
-	lda.w $15D8
+	lda.w sflags
 	bit.w #$0800
 	bne CODE_80A1E5
 	pla
@@ -831,7 +831,7 @@ CODE_80A728:
 	and.w #$00FF
 	cmp.w #$0010
 	bne CODE_80A74B
-	lda.w $15D8
+	lda.w sflags
 	bit.w #$0800
 	bne CODE_80A74B
 	lda.b $5C
@@ -970,7 +970,7 @@ CODE_80A840:
 	and.w #$00FF
 	cmp.w #$0010
 	bne CODE_80A867
-	lda.w $15D8
+	lda.w sflags
 	bit.w #$0800
 	bne CODE_80A867
 	lda.w $094A,x

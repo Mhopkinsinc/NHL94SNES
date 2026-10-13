@@ -94,7 +94,7 @@ CODE_9E90AE:
 CODE_9E90B6:
 	ldy.w $0AD9
 	bmi CODE_9E90C0
-	lda.w $0F43,y
+	lda.w position,y
 	beq CODE_9E9116
 CODE_9E90C0:
 	lda.w $0DF9
@@ -103,7 +103,7 @@ CODE_9E90C0:
 	ldy.b $91
 	lda.b $AD
 	sec
-	sbc.w $0D55,y
+	sbc.w Xpos,y
 	sta.b $AD
 	cmp.w #$0017
 	bpl CODE_9E9116
@@ -114,7 +114,7 @@ CODE_9E90C0:
 	sta.b $B9
 	lda.b $B1
 	sec
-	sbc.w $0DB7,y
+	sbc.w Ypos,y
 	sta.b $B1
 	cmp.w #$000A
 	bpl CODE_9E9116
@@ -144,9 +144,9 @@ CODE_9E9117:
 	sta.w $0AD9
 	lda.w #$0008
 	sta.w $1203,y
-	lda.w $0DD3
+	lda.w pucky
 	sta.b $A9
-	lda.w $14C3,y
+	lda.w pfgoal,y
 	bne CODE_9E913E
 	lda.w #$0000
 	sec
@@ -166,7 +166,7 @@ CODE_9E9148:
 	sec
 	sbc.w $0EA3,x
 	sta.b $A9
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	sbc.w $0E83,x
 	sta.b $AB
 	lda.b $AA
@@ -196,7 +196,7 @@ CODE_9E9186:
 	sec
 	sbc.w $0E63,x
 	sta.b $B1
-	lda.w $0D55,x
+	lda.w Xpos,x
 	sbc.w $0E43,x
 	sta.b $B3
 	lda.b $B2
@@ -237,7 +237,7 @@ CODE_9E91C4:
 CODE_9E91E9:
 	jmp.w $92BE
 CODE_9E91EC:
-	lda.w $0EFF
+	lda.w puckvy
 	cmp.w #$0800
 	bpl CODE_9E920C
 	cmp.w #$F800
@@ -245,18 +245,18 @@ CODE_9E91EC:
 	cmp.w #$0000
 	bpl CODE_9E9206
 	lda.w #$F800
-	sta.w $0EFF
+	sta.w puckvy
 	bra CODE_9E920C
 CODE_9E9206:
 	lda.w #$0800
-	sta.w $0EFF
+	sta.w puckvy
 CODE_9E920C:
 	jmp.w $8F42
 CODE_9E920F:
 	jmp.w $F319
 CODE_9E9212:
 	stz.b $A9
-	lda.w $0DD3
+	lda.w pucky
 	eor.b $0C
 	bmi CODE_9E91EC
 	lda.w #$0000
@@ -299,7 +299,7 @@ CODE_9E9274:
 	jsl.l RandomWord
 	and.w #$0FFF
 	sta.b $A5
-	lda.w $0DD3
+	lda.w pucky
 	bmi CODE_9E928A
 	lda.w #$0000
 	sec
@@ -307,12 +307,12 @@ CODE_9E9274:
 	sta.b $A5
 CODE_9E928A:
 	lda.b $A5
-	sta.w $0EFF
+	sta.w puckvy
 	jsl.l RandomWord
 	and.w #$1FFF
 	sec
 	sbc.w #$1000
-	sta.w $0EDF
+	sta.w puckvx
 	jsl.l RandomWord
 	and.w #$1FFF
 	sec
@@ -329,7 +329,7 @@ CODE_9E92BA:
 	sta.w $0E01
 	rtl
 CODE_9E92BE:
-	lda.w $0EDF
+	lda.w puckvx
 	cmp.w #$0800
 	bpl CODE_9E92DE
 	cmp.w #$F800
@@ -337,11 +337,11 @@ CODE_9E92BE:
 	cmp.w #$0000
 	bpl CODE_9E92D8
 	lda.w #$F800
-	sta.w $0EDF
+	sta.w puckvx
 	bra CODE_9E92DE
 CODE_9E92D8:
 	lda.w #$0800
-	sta.w $0EDF
+	sta.w puckvx
 CODE_9E92DE:
 	stz.b $A5
 	lda.w #$00FF
@@ -356,7 +356,7 @@ CODE_9E92DE:
 CODE_9E92F5:
 	jmp.w $8F42
 CODE_9E92F8:
-	lda.w $1283,x
+	lda.w pflags,x
 	bit.w #$8000
 	bne CODE_9E9305
 	cpx.w #$0017
@@ -393,7 +393,7 @@ CODE_9E9330:
 	lda.b $B1
 	pha
 	sec
-	sbc.w $0DB7,y
+	sbc.w Ypos,y
 	sta.b $B1
 	eor.w #$FFFF
 	inc a
@@ -401,7 +401,7 @@ CODE_9E9330:
 	lda.b $AD
 	pha
 	sec
-	sbc.w $0D55,y
+	sbc.w Xpos,y
 	sta.b $A9
 	sta.b $04
 	tax
@@ -485,13 +485,13 @@ CODE_9E93E0:
 	lda.w $0792
 	and.w #$01C0
 	bne CODE_9E9429
-	lda.w $11A3,x
+	lda.w SPA,x
 	cmp.w #$F342
 	bne CODE_9E9429
 	ldy.b $91
-	lda.w $0DD3
+	lda.w pucky
 	sec
-	sbc.w $0DB7,y
+	sbc.w Ypos,y
 	cmp.w #$FF80
 	bmi CODE_9E9429
 	cmp.w #$0080
@@ -553,7 +553,7 @@ CODE_9E945C:
 	stz.w $0EC3,x
 	stz.w $0EE3,x
 	lda.w #$0040
-	tsb.w $15D8
+	tsb.w sflags
 	lda.w $15D6
 	bne CODE_9E942F
 	pla
@@ -561,7 +561,7 @@ CODE_9E945C:
 	sta.b $A5
 	jmp.w $B88A
 CODE_9E9484:
-	lda.w $1283,x
+	lda.w pflags,x
 	bit.w #$8000
 	bne CODE_9E9491
 	cpx.w #$0018
@@ -584,16 +584,16 @@ CODE_9E9497:
 	sec
 	sbc.w #$000E
 	bpl CODE_9E94DE
-	lda.w $0F43,y
+	lda.w position,y
 	bmi CODE_9E94DA
-	lda.w $0D55,y
+	lda.w Xpos,y
 	sec
 	sbc.b $AD
 	cmp.w #$FFF1
 	bmi CODE_9E94DA
 	cmp.w #$000F
 	bpl CODE_9E94DA
-	lda.w $1283,y
+	lda.w pflags,y
 	and.w #$8000
 	ora.w $1563,y
 	bne CODE_9E94DA
@@ -618,16 +618,16 @@ CODE_9E94E5:
 	sec
 	sbc.w #$000E
 	bpl CODE_9E9527
-	lda.w $0F43,y
+	lda.w position,y
 	bmi CODE_9E9523
-	lda.w $0D55,y
+	lda.w Xpos,y
 	sec
 	sbc.b $AD
 	cmp.w #$FFF1
 	bmi CODE_9E9523
 	cmp.w #$000F
 	bpl CODE_9E9523
-	lda.w $1283,y
+	lda.w pflags,y
 	and.w #$8000
 	ora.w $1563,y
 	bne CODE_9E9523
@@ -655,13 +655,13 @@ CODE_9E9528:
 	lda.b $B9
 	pha
 	sty.b $91
-	lda.w $0D55,y
+	lda.w Xpos,y
 	sec
-	sbc.w $0D55,x
+	sbc.w Xpos,x
 	sta.b $AD
-	lda.w $0DB7,y
+	lda.w Ypos,y
 	sec
-	sbc.w $0DB7,x
+	sbc.w Ypos,x
 	sta.b $B1
 	ldy.b $AD
 	jsl.l CODE_9CA554
@@ -708,7 +708,7 @@ CODE_9E957C:
 	bpl CODE_9E95AE
 	jmp.w $9784
 CODE_9E95AE:
-	lda.w $11A3,x
+	lda.w SPA,x
 	cmp.w #$F3A6
 	bcc CODE_9E95DC
 	cmp.w #$F46B
@@ -716,7 +716,7 @@ CODE_9E95AE:
 	stz.w $14E3,x
 	stz.w $1543,x
 	ldy.w $0F03,x
-	lda.w $11A3,y
+	lda.w SPA,y
 	cmp.w #$F3A6
 	bcc CODE_9E95DA
 	cmp.w #$F46B
@@ -727,7 +727,7 @@ CODE_9E95AE:
 CODE_9E95DA:
 	ldy.b $91
 CODE_9E95DC:
-	lda.w $11A3,y
+	lda.w SPA,y
 	cmp.w #$F3A6
 	bcc CODE_9E960A
 	cmp.w #$F46B
@@ -736,7 +736,7 @@ CODE_9E95DC:
 	sta.w $14E3,y
 	sta.w $1543,y
 	ldx.w $0F03,y
-	lda.w $11A3,x
+	lda.w SPA,x
 	cmp.w #$F3A6
 	bcc CODE_9E9608
 	cmp.w #$F46B
@@ -748,8 +748,8 @@ CODE_9E9608:
 CODE_9E960A:
 	lda.b $AA
 	sta.b $A9
-	lda.w $1503,x
-	cmp.w $1503,y
+	lda.w pfteam,x
+	cmp.w pfteam,y
 	beq CODE_9E9692
 	lda.b $A9
 	lsr a
@@ -761,7 +761,7 @@ CODE_9E960A:
 	lda.w #$0005
 CODE_9E9624:
 	sta.b $B5
-	lda.w $11A3,x
+	lda.w SPA,x
 	cmp.w #$F208
 	bcc CODE_9E963C
 	cmp.w #$F343
@@ -773,7 +773,7 @@ CODE_9E9633:
 	sta.b $B5
 	bra CODE_9E9649
 CODE_9E963C:
-	lda.w $11A3,y
+	lda.w SPA,y
 	cmp.w #$F208
 	bcc CODE_9E9649
 	cmp.w #$F343
@@ -950,7 +950,7 @@ CODE_9E9794:
 	tay
 	lda.w $1583,y
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	sec
 	sbc.w #$0028
 	bpl CODE_9E97B8
@@ -966,7 +966,7 @@ CODE_9E97BD:
 	lda.w $15C2,y
 	and.w #$00FF
 	tay
-	lda.w $0DD3
+	lda.w pucky
 	sec
 	sbc.w $1583,y
 	sec
@@ -984,7 +984,7 @@ CODE_9E97DD:
 	beq CODE_9E97F6
 	cpy.w #$0018
 	bcs CODE_9E97F6
-	lda.w $0F43,y
+	lda.w position,y
 	bmi CODE_9E97F6
 	lda.w $1563,y
 	ora.w $1203,y
@@ -1006,10 +1006,10 @@ CODE_9E9802:
 	cpx.w #$001C
 	bne CODE_9E9802
 	ldx.b $87
-	lda.w $1283,y
+	lda.w pflags,y
 	bit.w #$1000
 	bne CODE_9E97F7
-	lda.w $0F43,y
+	lda.w position,y
 	beq CODE_9E97FA
 	lda.w $0DF9
 	cmp.w #$0005
@@ -1022,7 +1022,7 @@ CODE_9E9802:
 	ldy.b $91
 	lda.b $A5
 	clc
-	adc.w $0D55,y
+	adc.w Xpos,y
 	sec
 	sbc.w $0D71
 	bit.w #$8000
@@ -1035,9 +1035,9 @@ CODE_9E9845:
 	sta.b $A5
 	lda.b $A9
 	clc
-	adc.w $0DB7,y
+	adc.w Ypos,y
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	bit.w #$8000
 	beq CODE_9E985F
 	eor.w #$FFFF
@@ -1071,9 +1071,9 @@ CODE_9E988D:
 	jsl.l CODE_9EF5DA
 	bra CODE_9E98EC
 CODE_9E9899:
-	lda.w $0F43,y
+	lda.w position,y
 	beq CODE_9E98FB
-	lda.w $0D55,y
+	lda.w Xpos,y
 	sec
 	sbc.w $0D71
 	bit.w #$8000
@@ -1084,9 +1084,9 @@ CODE_9E98AE:
 	cmp.w #$0009
 	bcs CODE_9E98EC
 	sta.b $A5
-	lda.w $0DB7,y
+	lda.w Ypos,y
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	bit.w #$8000
 	beq CODE_9E98C5
 	eor.w #$FFFF
@@ -1121,7 +1121,7 @@ CODE_9E98F1:
 	ldx.b $87
 	rtl
 CODE_9E98FB:
-	lda.w $0D55,y
+	lda.w Xpos,y
 	sec
 	sbc.w $0D71
 	sta.b $A5
@@ -1129,9 +1129,9 @@ CODE_9E98FB:
 	bmi CODE_9E98EC
 	cmp.w #$000B
 	bpl CODE_9E98EC
-	lda.w $0DB7,y
+	lda.w Ypos,y
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	sta.b $A9
 	cmp.w #$FFF5
 	bmi CODE_9E98EC
@@ -1173,7 +1173,7 @@ CODE_9E99AC:
 	ldy.b $91
 	lda.b $A5
 	clc
-	adc.w $0D55,y
+	adc.w Xpos,y
 	sec
 	sbc.w $0D71
 	bit.w #$8000
@@ -1186,9 +1186,9 @@ CODE_9E99D1:
 	sta.b $A5
 	lda.b $A9
 	clc
-	adc.w $0DB7,y
+	adc.w Ypos,y
 	sec
-	sbc.w $0DD3
+	sbc.w pucky
 	bit.w #$8000
 	beq CODE_9E99EA
 	eor.w #$FFFF
@@ -1259,7 +1259,7 @@ CODE_9E9A61:
 	stz.b $89
 	lda.w #$0002
 	sta.b $8D
-	lda.w $1503,y
+	lda.w pfteam,y
 	bne CODE_9E9A7B
 	stz.b $8D
 	lda.w #$0002
@@ -1267,13 +1267,13 @@ CODE_9E9A61:
 CODE_9E9A7B:
 	ldy.b $89
 	lda.w #$FFFF
-	sta.w $179E,y
-	sta.w $17A2,y
-	lda.w $17DE,y
+	sta.w tmtouch2,y
+	sta.w tmtouch3,y
+	lda.w tmflags,y
 	ora.w #$0004
-	sta.w $17DE,y
+	sta.w tmflags,y
 	lda.w #$0010
-	trb.w $15DC
+	trb.w sflags3
 	beq CODE_9E9AB1
 	ldy.b $8D
 	lda.w $1792,y
@@ -1297,15 +1297,15 @@ CODE_9E9AB1:
 	sta.w $17BA,y
 CODE_9E9AC6:
 	lda.w #$000C
-	trb.w $15D8
+	trb.w sflags
 	ldy.b $91
-	lda.w $0F43,y
+	lda.w position,y
 	bne CODE_9E9AED
 	jsl.l CODE_9EF213
 	ldy.b $91
 	lda.w #$008C
 	sta.w $1083,y
-	lda.w $11A3,y
+	lda.w SPA,y
 	cmp.w #$E4B6
 	bne CODE_9E9AED
 CODE_9E9AE7:
@@ -1370,7 +1370,7 @@ CODE_9E9B5E:
 	ldy.b $91
 	cpy.w #$0018
 	bcs CODE_9E9BB2
-	lda.w $11A3,y
+	lda.w SPA,y
 	cmp.w #$F90E
 	beq CODE_9E9BB2
 	cmp.w #$F7B2
@@ -1403,10 +1403,10 @@ CODE_9E9B5E:
 CODE_9E9BB2:
 	rtl
 CODE_9E9BB3:
-	lda.w $0F43,x
+	lda.w position,x
 	beq CODE_9E9BD2
 	stz.b $89
-	lda.w $1503,x
+	lda.w pfteam,x
 	beq CODE_9E9BC4
 	lda.w #$0002
 	sta.b $89
@@ -1421,21 +1421,21 @@ CODE_9E9BD2:
 	ldy.b $91
 	lda.w #$0078
 	sta.w $1203,y
-	lda.w $0D55,x
+	lda.w Xpos,x
 	sec
-	sbc.w $0D55,y
+	sbc.w Xpos,y
 	sta.b $A5
-	lda.w $0DB7,x
+	lda.w Ypos,x
 	sec
-	sbc.w $0DB7,y
+	sbc.w Ypos,y
 	sta.b $A9
 	jsl.l vtoa
-	lda.w $0D55,y
+	lda.w Xpos,y
 	cmp.w #$0068
 	bpl CODE_9E9C16
 	cmp.w #$FF98
 	bmi CODE_9E9C43
-	lda.w $0DB7,y
+	lda.w Ypos,y
 	cmp.w #$0112
 	bpl CODE_9E9C10
 	cmp.w #$FEED
@@ -1449,7 +1449,7 @@ CODE_9E9C10:
 CODE_9E9C13:
 	jmp.w $9EC2
 CODE_9E9C16:
-	lda.w $0DB7,y
+	lda.w Ypos,y
 	cmp.w #$00F0
 	bpl CODE_9E9C13
 	cmp.w #$FF0A
@@ -1458,7 +1458,7 @@ CODE_9E9C16:
 	cmp.w #$0005
 	bcc CODE_9E9C0A
 	lda.w #$0082
-	sta.w $0D55,y
+	sta.w Xpos,y
 	lda.w #$0000
 	sta.w $0EC3,y
 CODE_9E9C36:
@@ -1469,7 +1469,7 @@ CODE_9E9C3E:
 	lda.w #$FD3A
 	bra CODE_9E9C7C
 CODE_9E9C43:
-	lda.w $0DB7,y
+	lda.w Ypos,y
 	cmp.w #$00F0
 	bpl CODE_9E9C13
 	cmp.w #$FF0A
@@ -1479,10 +1479,10 @@ CODE_9E9C43:
 	cmp.w #$0003
 	bcs CODE_9E9C0A
 	lda.w #$FF7E
-	sta.w $0D55,y
+	sta.w Xpos,y
 	lda.w #$0000
 	sta.w $0EC3,y
-	lda.w $0DB7,y
+	lda.w Ypos,y
 	cmp.w #$0058
 	bpl CODE_9E9C71
 	cmp.w #$FFA8
@@ -1505,7 +1505,7 @@ CODE_9E9C7C:
 CODE_9E9C91:
 	stz.w $0C23
 	ldy.b $91
-	lda.w $1503,y
+	lda.w pfteam,y
 	beq CODE_9E9C9E
 	lda.w #$0002
 CODE_9E9C9E:
@@ -1520,7 +1520,7 @@ CODE_9E9C9E:
 CODE_9E9CB3:
 	jmp.w $9E8A
 CODE_9E9CB6:
-	lda.w $0D55,y
+	lda.w Xpos,y
 	cmp.w #$0050
 	bpl CODE_9E9D0A
 	cmp.w #$FFB0
@@ -1532,14 +1532,14 @@ CODE_9E9CB6:
 	cmp.w #$0005
 	bcc CODE_9E9D0D
 	lda.w #$0128
-	sta.w $0DB7,y
+	sta.w Ypos,y
 	lda.w #$0000
 	sta.w $0EE3,y
 CODE_9E9CDB:
 	lda.w #$FC76
 	bra CODE_9E9C7C
 CODE_9E9CE0:
-	lda.w $0D55,y
+	lda.w Xpos,y
 	cmp.w #$0050
 	bpl CODE_9E9D0A
 	cmp.w #$FFB0
@@ -1550,7 +1550,7 @@ CODE_9E9CE0:
 	cmp.w #$0003
 	bcs CODE_9E9D0D
 	lda.w #$FED8
-	sta.w $0DB7,y
+	sta.w Ypos,y
 	lda.w #$0000
 	sta.w $0EE3,y
 CODE_9E9D04:
@@ -1560,7 +1560,7 @@ CODE_9E9D0A:
 	jmp.w $9EC2
 CODE_9E9D0D:
 	ldy.b $95
-	lda.w $1503,y
+	lda.w pfteam,y
 	beq CODE_9E9D17
 	lda.w #$0002
 CODE_9E9D17:
@@ -1598,7 +1598,7 @@ CODE_9E9D59:
 	sta.w $14E3,x
 	jsl.l SetSPA
 	ldx.b $95
-	lda.w $0F43,x
+	lda.w position,x
 	bne CODE_9E9D79
 	cpx.w #$0018
 	bcs CODE_9E9D79
@@ -1619,21 +1619,21 @@ CODE_9E9D79:
 	bmi CODE_9E9D73
 	cpy.b $A5
 	bne CODE_9E9D73
-	lda.w $15D4
+	lda.w gmode
 	bit.w #$0010
 	bne CODE_9E9D76
 	lda.l $7E34BC
 	cmp.w #$0004
 	beq CODE_9E9D76
-	lda.w $0F43,x
+	lda.w position,x
 	beq CODE_9E9D76
-	lda.w $11A3,y
+	lda.w SPA,y
 	cmp.w #$F54E
 	bne CODE_9E9D76
 	lda.w $1163,y
 	and.w #$0003
 	bne CODE_9E9D76
-	lda.w $1283,y
+	lda.w pflags,y
 	bit.w #$4000
 	bne CODE_9E9D76
 	lda.w #$0096
@@ -1645,14 +1645,14 @@ CODE_9E9D79:
 	bpl CODE_9E9D76
 	lda.w $15D6
 	bne CODE_9E9D76
-	lda.w $0F43,y
+	lda.w position,y
 	bmi CODE_9E9E59
 	beq CODE_9E9E59
 	lda.w #$FFFF
 	sta.w $0AD9
 	stz.w $0C23
 	ldy.b $91
-	lda.w $1503,y
+	lda.w pfteam,y
 	beq CODE_9E9DF2
 	lda.w #$0002
 CODE_9E9DF2:
@@ -1686,7 +1686,7 @@ CODE_9E9DF2:
 	bmi CODE_9E9E3C
 	sta.w $19BE
 CODE_9E9E3C:
-	lda.w $0F43,x
+	lda.w position,x
 	bne CODE_9E9E44
 	jmp.w $B88A
 CODE_9E9E44:
@@ -1700,14 +1700,14 @@ CODE_9E9E4D:
 	jmp.w $B2C9
 CODE_9E9E59:
 	ldy.b $91
-	lda.w $11A3,y
+	lda.w SPA,y
 	cmp.w #$F7B2
 	beq CODE_9E9E69
 	lda.w #$FFFF
 	sta.w $0AD9
 CODE_9E9E69:
 	ldy.b $91
-	lda.w $1503,y
+	lda.w pfteam,y
 	bne CODE_9E9E78
 	lda.w #$0003
 	jsl.l CODE_9C9A7F
@@ -1729,7 +1729,7 @@ CODE_9E9E8A:
 CODE_9E9E96:
 	ldx.b $91
 	lda.w #$FF7E
-	sta.w $0D55,x
+	sta.w Xpos,x
 	lda.w #$0000
 	sta.w $0EC3,x
 	lda.w $0E03,x
@@ -1748,9 +1748,9 @@ CODE_9E9EB4:
 CODE_9E9EC2:
 	lda.b $A5
 	sta.b $B9
-	lda.w $0D55,y
+	lda.w Xpos,y
 	sta.b $AD
-	lda.w $0DB7,y
+	lda.w Ypos,y
 	sta.b $B1
 	ldx.w #$0048
 	ldy.w #$00EA
@@ -1830,11 +1830,11 @@ CODE_9E9F4C:
 	adc.w #$0006
 	clc
 	adc.b $A7
-	sta.w $0D55,y
+	sta.w Xpos,y
 	lda.b $A9
 	clc
 	adc.b $AB
-	sta.w $0DB7,y
+	sta.w Ypos,y
 	lda.w #$0000
 	sta.w $0EC3,y
 	sta.w $0EE3,y
@@ -1850,11 +1850,11 @@ CODE_9E9F7F:
 	sbc.w #$0006
 	clc
 	adc.b $A7
-	sta.w $0D55,y
+	sta.w Xpos,y
 	lda.b $A9
 	clc
 	adc.b $AB
-	sta.w $0DB7,y
+	sta.w Ypos,y
 	lda.w #$0000
 	sta.w $0EC3,y
 	sta.w $0EE3,y
@@ -1870,11 +1870,11 @@ CODE_9E9FA6:
 	lda.b $A5
 	clc
 	adc.b $A7
-	sta.w $0D55,y
+	sta.w Xpos,y
 	lda.b $A9
 	clc
 	adc.b $AB
-	sta.w $0DB7,y
+	sta.w Ypos,y
 	lda.w #$0000
 	sta.w $0EC3,y
 	sta.w $0EE3,y
@@ -1889,11 +1889,11 @@ CODE_9E9FD1:
 	lda.b $A5
 	clc
 	adc.b $A7
-	sta.w $0D55,y
+	sta.w Xpos,y
 	lda.b $A9
 	clc
 	adc.b $AB
-	sta.w $0DB7,y
+	sta.w Ypos,y
 	lda.w #$0000
 	sta.w $0EC3,y
 	sta.w $0EE3,y

@@ -84,7 +84,7 @@ CODE_9C8583:
 	lda.b $91
 	pha
 	ldx.b $91
-	lda.w $1C98,x
+	lda.w HomeTeam,x
 	sta.l $7E3454
 	lda.w #$001D
 	sta.l $7E3452
@@ -191,10 +191,10 @@ CODE_9C8684:
 	cmp.w $1DBD
 	beq CODE_9C86B5
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DB9
 	asl a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -211,13 +211,13 @@ CODE_9C86B5:
 	beq CODE_9C86E8
 CODE_9C86C2:
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DB9
 	clc
 	adc.w $1DC5
 	dec a
 	asl a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -331,7 +331,7 @@ CODE_9C87DB:
 	jsl.l CODE_9C8B69
 	jsl.l SpriteFrameStart
 	ldx.b $91
-	lda.w $1C98,x
+	lda.w HomeTeam,x
 	sta.l $7E3454
 	ldx.w #$0049
 	ldy.w #$0018
@@ -369,10 +369,10 @@ CODE_9C884E:
 	rtl
 CODE_9C8858:
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DB9
 	asl a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -381,13 +381,13 @@ CODE_9C8858:
 	sta.b $8D
 	jsl.l CODE_9EC894
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DB9
 	clc
 	adc.w $1DC5
 	dec a
 	asl a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -480,10 +480,10 @@ CODE_9C8934:
 	tya
 	dec a
 	asl a
-	sta.w $0D11
+	sta.w printy
 CODE_9C8957:
-	inc.w $0D11
-	inc.w $0D11
+	inc.w printy
+	inc.w printy
 	sep #$20
 	lda.w $1DFB,y
 	rep #$20
@@ -508,7 +508,7 @@ CODE_9C8980:
 	lda.w #$FFFF
 	jsl.l CODE_9C8D17
 	lda.w #$0003
-	sta.w $0D0F
+	sta.w printx
 	stx.b $A5
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC894
@@ -524,7 +524,7 @@ CODE_9C89A5:
 	lda.w #$0001
 	jsl.l CODE_9C8D17
 	lda.w #$0011
-	sta.w $0D0F
+	sta.w printx
 	sep #$20
 	lda.w $18EE,x
 	rep #$20
@@ -537,7 +537,7 @@ CODE_9C89A5:
 	lda.w #$0002
 	jsl.l CODE_9C8D17
 	lda.w #$0014
-	sta.w $0D0F
+	sta.w printx
 	sep #$20
 	lda.w $1922,x
 	rep #$20
@@ -550,7 +550,7 @@ CODE_9C89A5:
 	lda.w #$0003
 	jsl.l CODE_9C8D17
 	lda.w #$0017
-	sta.w $0D0F
+	sta.w printx
 	sep #$20
 	lda.w $18EE,x
 	rep #$20
@@ -570,7 +570,7 @@ CODE_9C89A5:
 	lda.w #$0004
 	jsl.l CODE_9C8D17
 	lda.w #$001A
-	sta.w $0D0F
+	sta.w printx
 	sep #$20
 	lda.w $1956,x
 	rep #$20
@@ -583,7 +583,7 @@ CODE_9C89A5:
 	lda.w #$0005
 	jsl.l CODE_9C8D17
 	lda.w #$001D
-	sta.w $0D0F
+	sta.w printx
 	sep #$20
 	lda.w $198A,x
 	rep #$20
@@ -606,7 +606,7 @@ CODE_9C8A83:
 	lda.w #$FFFF
 	jsl.l CODE_9C8D17
 	lda.w #$0003
-	sta.w $0D0F
+	sta.w printx
 	stx.b $A5
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC894
@@ -619,7 +619,7 @@ CODE_9C8AA8:
 	adc.w $1DC9
 	tax
 	lda.w #$0012
-	sta.w $0D0F
+	sta.w printx
 	sep #$20
 	lda.w $18EE,x
 	rep #$20
@@ -630,7 +630,7 @@ CODE_9C8AA8:
 	jsl.l CODE_9FC623
 	jsl.l CODE_9EC894
 	lda.w #$0016
-	sta.w $0D0F
+	sta.w printx
 	sep #$20
 	lda.w $1956,x
 	rep #$20
@@ -641,7 +641,7 @@ CODE_9C8AA8:
 	jsl.l CODE_9FC623
 	jsl.l CODE_9EC894
 	lda.w #$001B
-	sta.w $0D0F
+	sta.w printx
 	sep #$20
 	lda.w $18EE,x
 	rep #$20
@@ -675,7 +675,7 @@ CODE_9C8B26:
 	jsl.l CODE_9FC623
 	jsl.l CODE_9EC894
 	lda.w #$001E
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9C8D2B
@@ -890,9 +890,9 @@ CODE_9C8D2A:
 DATA8_9C8D2B:
 	dw $0003 : db "%"
 CODE_9C8D2E:
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.l $7E3454
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.l $7E3452
 	jsl.l CODE_9DD9AD
 	ldx.w #$0050
@@ -915,7 +915,7 @@ CODE_9C8D2E:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.b $A9
 	jsl.l CODE_9FBE08
 	lda.b $8F
@@ -931,7 +931,7 @@ CODE_9C8D2E:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.b $A9
 	jsl.l CODE_9FBE08
 	jsl.l SpriteFrameEnd
@@ -999,10 +999,10 @@ CODE_9C8E3A:
 	lda.w $1DBD
 	beq CODE_9C8E60
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DBD
 	asl a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -1017,12 +1017,12 @@ CODE_9C8E60:
 	cmp.w $1DA3
 	beq CODE_9C8E91
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DBD
 	clc
 	adc.w $1DC5
 	asl a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -1098,10 +1098,10 @@ CODE_9C8F2D:
 	rts
 CODE_9C8F36:
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DBD
 	asl a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -1110,12 +1110,12 @@ CODE_9C8F36:
 	sta.b $8D
 	jsl.l CODE_9EC894
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DBD
 	clc
 	adc.w $1DC5
 	asl a
-	sta.w $0D11
+	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w #$009C
@@ -1151,15 +1151,15 @@ CODE_9C8F9B:
 	adc.l $7E35A8
 	jsl.l CODE_808EDF
 	lda.w #$0000
-	sta.w $0D11
+	sta.w printy
 	lda.w #$0000
 	sta.w $1DB9
 	lda.w $1DA3
 	sta.b $B5
 CODE_9C8FC6:
 	jsr.w $8FD7
-	inc.w $0D11
-	inc.w $0D11
+	inc.w printy
+	inc.w printy
 	inc.w $1DB9
 	dec.b $B5
 	bpl CODE_9C8FC6
@@ -1168,7 +1168,7 @@ CODE_9C8FD7:
 	lda.w #$2800
 	sta.w $0D0D
 	lda.w #$0009
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1DB9
 	sta.b $A5
 	lda.w #$009C

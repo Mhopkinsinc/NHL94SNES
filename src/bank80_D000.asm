@@ -30,9 +30,9 @@ CODE_80D004:		; draw the ShooterSelectList list: the title of rating column $0D4
 	sta.b $AD
 	jsl.l eraser
 	lda.w #$0011
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0002
-	sta.w $0D11
+	sta.w printy
 CODE_80D03E:
 	lda.w #$0080
 	sta.b $8F
@@ -208,7 +208,7 @@ CODE_80D27C:
 	lda.b $8D
 	sta.b $9D
 	lda.w #$0002
-	sta.w $0D0F
+	sta.w printx
 	lda.b $95
 	and.w #$00FF
 	dec a
@@ -226,7 +226,7 @@ CODE_80D2A5:
 	sta.b $A5
 	jsl.l CODE_9F9745
 	inc.b $95
-	inc.w $0D11
+	inc.w printy
 	dec.b $A9
 	bpl CODE_80D269
 	lda.w #$2000

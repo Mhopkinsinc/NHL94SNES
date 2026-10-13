@@ -13,12 +13,12 @@ CODE_9C9002:
 	sta.w $0D0D
 	stz.b $91
 	lda.w #$001C
-	sta.w $0D0F
+	sta.w printx
 	jsr.w $902A
 	lda.w #$0002
 	sta.b $91
 	lda.w #$0007
-	sta.w $0D0F
+	sta.w printx
 	jsr.w $902A
 	rts
 CODE_9C902A:
@@ -168,8 +168,8 @@ CODE_9C9154:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.w $0D0F
-	sta.w $0D0F
+	adc.w printx
+	sta.w printx
 	jsl.l CODE_9EC894
 CODE_9C9167:
 	rts
@@ -966,11 +966,11 @@ CODE_9C9AB3:
 	rtl
 CODE_9C9ABC:
 	pha
-	lda.w $0EDF
+	lda.w puckvx
 	cmp.w #$8000
 	ror a
 	sta.b $0C
-	lda.w $0EFF
+	lda.w puckvy
 	cmp.w #$8000
 	ror a
 	sta.b $0E
@@ -1056,9 +1056,9 @@ CODE_9C9B5F:
 	sta.b $14
 	inc a
 	pha
-	lda.w $1C98
+	lda.w HomeTeam
 	asl a
-	adc.w $1C98
+	adc.w HomeTeam
 	asl a
 	clc
 	adc.b $14
@@ -1165,9 +1165,9 @@ CODE_9C9BC3:
 	sta.b $8F
 	jsl.l CODE_9C9D25
 	lda.w #$0005
-	sta.w $0D11
+	sta.w printy
 	lda.w #$000D
-	sta.w $0D0F
+	sta.w printx
 	stz.b $B1
 	stz.b $91
 	lda.w $1E2B
@@ -1182,16 +1182,16 @@ CODE_9C9BC3:
 CODE_9C9C69:
 	jsl.l CODE_9FBD66
 	lda.w #$0005
-	sta.w $0D11
+	sta.w printy
 	lda.w #$0011
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1E2B
 	sta.b $A5
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC7BE
-	inc.w $0D11
+	inc.w printy
 	lda.w #$000D
-	sta.w $0D0F
+	sta.w printx
 	stz.b $B1
 	stz.b $91
 	lda.w $1E2D
@@ -1206,16 +1206,16 @@ CODE_9C9C69:
 CODE_9C9CA9:
 	jsl.l CODE_9FBD66
 	lda.w #$0006
-	sta.w $0D11
+	sta.w printy
 	lda.w #$0011
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1E2D
 	sta.b $A5
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC7BE
-	inc.w $0D11
+	inc.w printy
 	lda.w #$000D
-	sta.w $0D0F
+	sta.w printx
 	stz.b $B1
 	stz.b $91
 	lda.w $1E2F
@@ -1230,9 +1230,9 @@ CODE_9C9CA9:
 CODE_9C9CE9:
 	jsl.l CODE_9FBD66
 	lda.w #$0007
-	sta.w $0D11
+	sta.w printy
 	lda.w #$0011
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1E2F
 	sta.b $A5
 	jsl.l CODE_9FC427

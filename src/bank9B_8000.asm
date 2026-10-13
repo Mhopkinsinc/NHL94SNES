@@ -778,13 +778,13 @@ CODE_9B8694:
 CODE_9B869B:
 	jsl.l CODE_9DE0E9
 	ldy.b $91
-	lda.w $1796,y
+	lda.w tmline,y
 	inc a
 	sta.b $A5
 	sta.w $0D43
 	stz.w $0D47
 	ldx.b $91
-	lda.w $1C98,x
+	lda.w HomeTeam,x
 	sta.l $7E3454
 	lda.w #$FFFF
 	sta.l $7E3452
@@ -1054,12 +1054,12 @@ CODE_9B8979:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.b $A9
 	lda.b $91
 	beq CODE_9B89BC
 CODE_9B89B4:
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.b $A9
 	lda.w #$0030
 CODE_9B89BC:
@@ -1349,7 +1349,7 @@ CODE_9B8BFD:
 	sta.l $7E345A
 CODE_9B8C1A:
 	lda.w #$0005
-	sta.w $0D0F
+	sta.w printx
 	lda.b $9D
 	sta.b $8D
 	lda.b $9F
@@ -1360,7 +1360,7 @@ CODE_9B8C1A:
 	lda.b $8F
 	sta.b $9F
 	lda.w #$0008
-	sta.w $0D0F
+	sta.w printx
 	lda.b $8D
 	pha
 	lda.b $8F
@@ -1376,8 +1376,8 @@ CODE_9B8C1A:
 	sta.b $8F
 	pla
 	sta.b $8D
-	inc.w $0D11
-	inc.w $0D11
+	inc.w printy
+	inc.w printy
 	dec.b $A9
 	bmi CODE_9B8C65
 	jmp.w $8BFD
@@ -1763,9 +1763,9 @@ CODE_9B8F7B:
 	sta.b $AD
 	jsl.l eraser
 	lda.w #$0011
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0002
-	sta.w $0D11
+	sta.w printy
 CODE_9B8FB5:
 	lda.w #DATA8_9B906F
 	sta.b $8D

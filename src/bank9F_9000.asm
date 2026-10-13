@@ -30,7 +30,7 @@ CODE_9F900A:
 	stx.w $0D35
 	stx.w $0D01
 	jsl.l CODE_9B8017
-	lda.w $15D8
+	lda.w sflags
 	bit.w #$0001
 	bne CODE_9F9060
 	lda.w $15D6
@@ -90,8 +90,8 @@ CODE_9F9097:
 	ldx.w #$0000
 CODE_9F90B9:
 	lda.w #$FF10
-	sta.w $0D55,x
-	stz.w $0DB7,x
+	sta.w Xpos,x
+	stz.w Ypos,x
 	lda.w #$0001
 	sta.w $0D97,x
 	inx
@@ -215,11 +215,11 @@ CODE_9F91C1:
 	beq CODE_9F91E8
 CODE_9F91E0:
 	lda.w #$0008
-	tsb.w $15DC
+	tsb.w sflags3
 	bra CODE_9F91EE
 CODE_9F91E8:
 	lda.w #$0008
-	trb.w $15DC
+	trb.w sflags3
 CODE_9F91EE:
 	jsl.l CODE_9BC17C
 	lda.w #$0096
@@ -265,9 +265,9 @@ CODE_9F9237:
 	rtl
 CODE_9F9243:
 	lda.w #$0004
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0014
-	sta.w $0D11
+	sta.w printy
 	lda.w #$0018
 	sta.b $A5
 	lda.w #$0003
@@ -289,9 +289,9 @@ CODE_9F927D:
 	jsl.l forcepldata
 	ldy.b $91
 	lda.w #$FFFF
-	sta.w $179A,y
-	sta.w $179E,y
-	sta.w $17A2,y
+	sta.w tmtouch1,y
+	sta.w tmtouch2,y
+	sta.w tmtouch3,y
 	rtl
 CODE_9F9298:
 	ldx.b $89
@@ -326,7 +326,7 @@ CODE_9F92CE:
 	sta.l $7E47F4,x
 	inx
 	inx
-	stz.w $17AA
+	stz.w tmgoalie
 	stz.w $17AC
 	stz.w $19D0
 	stz.w $19D2
@@ -373,7 +373,7 @@ CODE_9F9364:
 	rtl
 CODE_9F9365:
 	lda.w #$0001
-	tsb.w $15D8
+	tsb.w sflags
 	rtl
 CODE_9F936C:
 	sta.w $0AC6
@@ -397,9 +397,9 @@ CODE_9F937B:
 	jsl.l CODE_808F2F
 	plx
 	jsl.l CODE_9C9786
-	lda.w $15DA
+	lda.w sfhormode
 	pha
-	lda.w $15D8
+	lda.w sflags
 	pha
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
@@ -462,14 +462,14 @@ CODE_9F93DB:
 	lda.w #$03FF
 	sta.w $0CD7
 	pla
-	sta.w $15D8
+	sta.w sflags
 	pla
-	sta.w $15DA
+	sta.w sfhormode
 	bne CODE_9F945E
 	jsl.l CODE_9FB9A4
 CODE_9F945E:
 	lda.w #$0001
-	trb.w $15D8
+	trb.w sflags
 	jsl.l CODE_9F9B36
 	ldx.w #$0000
 	ldy.w #$01C0
@@ -611,7 +611,7 @@ CODE_9F95B0:
 	dex
 	bpl CODE_9F95B0
 	lda.w #$0004
-	tsb.w $15DC
+	tsb.w sflags3
 CODE_9F95C2:
 	stz.w $0ACF
 	jsl.l GetShifter
@@ -818,10 +818,10 @@ CODE_9F974A:
 	pla
 	sta.b $08
 	lda.w #$0019
-	sta.w $0D0F
+	sta.w printx
 	lda.l $7E346A
 	bne CODE_9F977F
-	inc.w $0D0F
+	inc.w printx
 CODE_9F977F:
 	lda.b $B5
 	cmp.w #$0003
@@ -872,7 +872,7 @@ DATA8_9F97CE:
 CODE_9F97E3:
 	adc.b $A5
 	tay
-	lda.w $1852,y
+	lda.w tmpdst,y
 	sta.b $A5
 	bpl CODE_9F9811
 	eor.w #$FFFF
@@ -929,7 +929,7 @@ DATA8_9F9848:		; a word (2 + the text), then the text
 CODE_9F9879:
 	adc.b $A5
 	tay
-	lda.w $17EA,y
+	lda.w tmpde,y
 	sta.b $08
 	lda.l $7E34C6
 	cmp.w #$0002
@@ -1025,7 +1025,7 @@ CODE_9F992E:
 CODE_9F9945:
 	lda.w #$009C
 	sta.b $8B
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $89
 	clc
 	ldy.w #$0000
@@ -1254,7 +1254,7 @@ DATA8_9F9AD8:
 DATA8_9F9AF8:
 	db $00,$00,$00,$01,$01,$01,$01,$01,$01,$00,$01,$01,$01,$01,$01,$01
 GetPeriodTimeRemaining:
-	lda.w $1630
+	lda.w gsp
 	xba
 	and.w #$FF00
 	asl a
@@ -1302,7 +1302,7 @@ CODE_9F9B4D:
 	cpx.w #$0010
 	bne CODE_9F9B4D
 	ldx.b $87
-	lda.w $15DA
+	lda.w sfhormode
 	beq CODE_9F9B61
 	jmp.w $9CFB
 CODE_9F9B61:
@@ -1340,11 +1340,11 @@ CODE_9F9B61:
 	sta.b $8D
 	pla
 	sta.b $8F
-	lda.w $1630
+	lda.w gsp
 	sta.b $A5
 	cmp.w #$0004
 	bne CODE_9F9BBB
-	dec.w $0D0F
+	dec.w printx
 	inc.b $A5
 CODE_9F9BBB:
 	lda.w #$0080
@@ -1370,7 +1370,7 @@ CODE_9F9BD3:
 	pla
 	sta.b $8F
 	lda.w #$0006
-	sta.w $0D0F
+	sta.w printx
 	lda.w $1D85
 	sta.b $A5
 	lda.w #$0002
@@ -1378,7 +1378,7 @@ CODE_9F9BD3:
 	jsl.l CODE_9FC623
 	jsl.l CODE_9EC7BE
 CODE_9F9C05:
-	lda.w $15DC
+	lda.w sflags3
 	bit.w #$0001
 	beq CODE_9F9C10
 	jmp.w $9CD8
@@ -1437,7 +1437,7 @@ CODE_9F9C10:
 	stz.b $91
 	lda.w #$0002
 	sta.b $95
-	lda.w $15D4
+	lda.w gmode
 	bit.w #$0002
 	bne CODE_9F9C94
 	stz.b $95
@@ -1559,11 +1559,11 @@ CODE_9F9CFB:
 	sta.b $A9
 	jmp.w $9CD8
 PrintPerLabel:
-	lda.w $1630
+	lda.w gsp
 	sta.b $A5
 	cmp.w #$0004
 	bne CODE_9F9D8F
-	dec.w $0D0F
+	dec.w printx
 	inc.b $A5
 CODE_9F9D8F:
 	lda.w #$0080
@@ -1617,12 +1617,12 @@ CODE_9F9DFA:
 CODE_9F9DFB:
 	ldy.w #$0002
 CODE_9F9DFE:
-	dec.w $0D0F
+	dec.w printx
 	lda.b [$8D],y
 	and.w #$00FF
 	cmp.w #$0031
 	beq CODE_9F9E0E
-	dec.w $0D0F
+	dec.w printx
 CODE_9F9E0E:
 	iny
 	tya
@@ -1645,18 +1645,18 @@ CODE_9F9E24:
 	lda.b $91
 	pha
 	stz.b $91
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.b $A9
 	lda.w #$0014
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0002
-	sta.w $0D11
+	sta.w printy
 	jsl.l CODE_9FBE08
 	lda.w #$0002
 	sta.b $91
 	lda.w #$0003
-	sta.w $0D0F
-	lda.w $1C9A
+	sta.w printx
+	lda.w VisTeam
 	sta.b $A9
 	jsl.l CODE_9FBE08
 	pla
@@ -1731,7 +1731,7 @@ CODE_9F9EC6:
 CODE_9F9F02:
 	cmp.w #$0002
 	bcs CODE_9F9F77
-	lda.w $1630
+	lda.w gsp
 	cmp.w #$0004
 	bne CODE_9F9F20
 	lda.l $7E3578,x

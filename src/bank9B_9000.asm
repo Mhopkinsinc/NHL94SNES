@@ -198,7 +198,7 @@ CODE_9B929B:
 	lda.b $8F
 	sta.b $9F
 	lda.w #$0002
-	sta.w $0D0F
+	sta.w printx
 	lda.b $95
 	and.w #$00FF
 	dec a
@@ -216,7 +216,7 @@ CODE_9B92C4:
 	sta.b $A5
 	jsl.l CODE_9F9745
 	inc.b $95
-	inc.w $0D11
+	inc.w printy
 	dec.b $A9
 	bpl CODE_9B9284
 	lda.w #$3800
@@ -226,7 +226,7 @@ CODE_9B92DC:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $97
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $95
 	ldy.w #$0008
 	clc
@@ -246,7 +246,7 @@ CODE_9B9300:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $97
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $95
 	ldy.w #$0008
 	clc
@@ -286,7 +286,7 @@ CODE_9B9334:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $8F
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $8D
 	ldy.w #$0006
 	clc
@@ -312,7 +312,7 @@ CODE_9B9361:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $8F
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $8D
 	ldy.w #$000C
 	clc
@@ -368,9 +368,9 @@ CODE_9B93DE:		; IRQ hook: BG1 vertical scroll $FFFF, then CODE_9B93C1 is the nex
 	sta.w $078F
 	rtl
 CODE_9B93F3:
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.l $7E3454
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.l $7E3452
 	jsl.l CODE_9DD9AD
 	lda.w #$0000
@@ -564,7 +564,7 @@ CODE_9B95B0:
 	lda.w #$313C
 	sta.b $95
 	lda.w #$0000
-	sta.w $0D11
+	sta.w printy
 	pha
 CODE_9B95DB:
 	cmp.w $1DC1
@@ -575,7 +575,7 @@ CODE_9B95E0:
 	clc
 	adc.w #$0006
 	sta.b $95
-	inc.w $0D11
+	inc.w printy
 	pla
 	inc a
 	pha
@@ -585,7 +585,7 @@ CODE_9B95F3:
 	rts
 CODE_9B95F5:
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$2000
 	sta.w $0D0D
 	ldy.w #$0000
@@ -608,7 +608,7 @@ CODE_9B95F5:
 	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC894
 	lda.w #$0004
-	sta.w $0D0F
+	sta.w printx
 	pla
 	and.w #$0FFF
 	sta.b $A5
@@ -616,11 +616,11 @@ CODE_9B95F5:
 	lda.b [$8D]
 	cmp.w #$0006
 	bne CODE_9B9640
-	inc.w $0D0F
+	inc.w printx
 CODE_9B9640:
 	jsl.l CODE_9EC894
 	lda.w #$000A
-	sta.w $0D0F
+	sta.w printx
 	ply
 	iny
 	iny
@@ -639,10 +639,10 @@ CODE_9B9640:
 	sta.b $91
 CODE_9B9668:
 	jsl.l CODE_9B9B35
-	dec.w $0D11
-	dec.w $0D11
+	dec.w printy
+	dec.w printy
 	lda.w #$001C
-	sta.w $0D0F
+	sta.w printx
 	pla
 	and.w #$000F
 	cmp.w #$0000
@@ -721,7 +721,7 @@ CODE_9B96FE:
 	and.w #$00FF
 	sta.b $A5
 	lda.w #$000E
-	sta.w $0D0F
+	sta.w printx
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC894
 	ply
@@ -732,13 +732,13 @@ CODE_9B96FE:
 	lda.b [$95],y
 	rep #$20
 	phy
-	inc.w $0D11
+	inc.w printy
 	and.w #$00FF
 	cmp.w #$00FF
 	beq CODE_9B9744
 	sta.b $A5
 	lda.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC894
 CODE_9B9744:
@@ -747,21 +747,21 @@ CODE_9B9744:
 	sep #$20
 	lda.b [$95],y
 	rep #$20
-	inc.w $0D11
+	inc.w printy
 	and.w #$00FF
 	cmp.w #$00FF
 	beq CODE_9B9767
 	sta.b $A5
 	lda.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC894
 CODE_9B9767:
 	rts
 CODE_9B9768:
-	lda.w $1C9A
+	lda.w VisTeam
 	sta.l $7E3454
-	lda.w $1C98
+	lda.w HomeTeam
 	sta.l $7E3452
 	jsl.l CODE_9DD9AD
 	lda.w #$0000
@@ -945,7 +945,7 @@ CODE_9B9917:
 	lda.w #$163E
 	sta.b $95
 	lda.w #$0000
-	sta.w $0D11
+	sta.w printy
 	pha
 CODE_9B9942:
 	cmp.w $1DC1
@@ -956,8 +956,8 @@ CODE_9B9947:
 	clc
 	adc.w #$0004
 	sta.b $95
-	inc.w $0D11
-	inc.w $0D11
+	inc.w printy
+	inc.w printy
 	pla
 	inc a
 	pha
@@ -967,7 +967,7 @@ CODE_9B995D:
 	rts
 CODE_9B995F:
 	lda.w #$0001
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$2000
 	sta.w $0D0D
 	ldy.w #$0000
@@ -990,7 +990,7 @@ CODE_9B995F:
 	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC894
 	lda.w #$0004
-	sta.w $0D0F
+	sta.w printx
 	pla
 	and.w #$0FFF
 	sta.b $A5
@@ -998,11 +998,11 @@ CODE_9B995F:
 	lda.b [$8D]
 	cmp.w #$0006
 	bne CODE_9B99AA
-	inc.w $0D0F
+	inc.w printx
 CODE_9B99AA:
 	jsl.l CODE_9EC894
 	lda.w #$000A
-	sta.w $0D0F
+	sta.w printx
 	ply
 	iny
 	iny
@@ -1021,10 +1021,10 @@ CODE_9B99AA:
 	sta.b $91
 CODE_9B99D2:
 	jsl.l CODE_9B9B35
-	dec.w $0D11
-	dec.w $0D11
+	dec.w printy
+	dec.w printy
 	lda.w #$000E
-	sta.w $0D0F
+	sta.w printx
 	pla
 	and.w #$007F
 	sta.b $A5
@@ -1046,7 +1046,7 @@ CODE_9B99D2:
 	adc.b $8D
 	sta.b $8D
 	lda.w #$001D
-	sta.w $0D0F
+	sta.w printx
 	lda.b [$8D]
 	and.w #$00FF
 	sta.b $A5
@@ -1064,9 +1064,9 @@ CODE_9B99D2:
 	sta.b $8D
 	lda.w #$2400
 	sta.w $0D0D
-	inc.w $0D11
+	inc.w printy
 	lda.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	inc.b $8D
 	inc.b $8D
 	lda.b [$8D]
@@ -1103,9 +1103,9 @@ CODE_9B9A5D:
 	lda.w #$2400
 	sta.w $0D0D
 	lda.w #$000A
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0007
-	sta.w $0D11
+	sta.w printy
 	lda.b $8F
 	pha
 	lda.b $8D
@@ -1190,9 +1190,9 @@ CODE_9B9B30:
 	jsl.l CODE_9FBF75
 	rtl
 CODE_9B9B35:
-	lda.w $0D0F
+	lda.w printx
 	pha
-	lda.w $1CDC
+	lda.w tmdata
 	sta.b $8D
 	lda.w #$009C
 	sta.b $8F
@@ -1211,12 +1211,12 @@ CODE_9B9B4C:
 	sta.b $8D
 	jsl.l CODE_9EC894
 	pla
-	sta.w $0D0F
-	inc.w $0D11
-	inc.w $0D11
+	sta.w printx
+	inc.w printy
+	inc.w printy
 	rtl
 CODE_9B9B6B:
-	lda.w $1630
+	lda.w gsp
 	cmp.w #$0003
 	beq CODE_9B9BA4
 	stz.b $00
@@ -1424,7 +1424,7 @@ CODE_9B9F9D:
 CODE_9B9FAE:
 	rtl
 CODE_9B9FAF:
-	lda.w $15D8
+	lda.w sflags
 	and.w #$0800
 	beq CODE_9B9FBD
 	lda.w $0CB9
@@ -1433,7 +1433,7 @@ CODE_9B9FAF:
 CODE_9B9FBD:
 	jsl.l CODE_9BA1A1
 	ldx.w #$0022
-	lda.w $1C98
+	lda.w HomeTeam
 	cmp.w #$0013
 	bne CODE_9B9FDC
 	lda.w $0C53

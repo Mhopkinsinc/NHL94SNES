@@ -25,9 +25,9 @@ CODE_9DC01C:
 	inc a
 	clc
 	adc.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$000D
-	sta.w $0D11
+	sta.w printy
 	jsl.l CODE_9EC7BE
 	jsl.l CODE_9DC2FB
 	ldx.w #$0038
@@ -114,7 +114,7 @@ CODE_9DC0EE:
 	pla
 	sta.b $8F
 	ldy.b $91
-	lda.w $1C98,y
+	lda.w HomeTeam,y
 	sta.b $A9
 	jsl.l CODE_9FBE08
 	lda.w #$0000
@@ -122,7 +122,7 @@ CODE_9DC0EE:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $8F
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $8D
 	ldy.w #$0004
 	clc
@@ -142,9 +142,9 @@ CODE_9DC0EE:
 	inc a
 	clc
 	adc.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0007
-	sta.w $0D11
+	sta.w printy
 	jsl.l CODE_9EC7BE
 	lda.b [$8D]
 	dec a
@@ -154,39 +154,39 @@ CODE_9DC0EE:
 	inc a
 	clc
 	adc.w #$0010
-	sta.w $0D0F
+	sta.w printx
 	lda.w #$0009
-	sta.w $0D11
+	sta.w printy
 	jsl.l CODE_9EC7BE
 	lda.w #$0060
-	sta.w $0D11
+	sta.w printy
 	ldx.w #$0080
 	ldy.w #$0004
 	jsl.l CODE_9DC2B8
-	lda.w $0D11
+	lda.w printy
 	clc
 	adc.w #$0008
-	sta.w $0D11
+	sta.w printy
 	ldx.w #$0040
 	ldy.w #$0003
 	jsl.l CODE_9DC2B8
 	ldx.w #$00C0
 	ldy.w #$0005
 	jsl.l CODE_9DC2B8
-	lda.w $0D11
+	lda.w printy
 	clc
 	adc.w #$000E
-	sta.w $0D11
+	sta.w printy
 	ldx.w #$0058
 	ldy.w #$0001
 	jsl.l CODE_9DC2B8
 	ldx.w #$00A8
 	ldy.w #$0002
 	jsl.l CODE_9DC2B8
-	lda.w $0D11
+	lda.w printy
 	clc
 	adc.w #$000E
-	sta.w $0D11
+	sta.w printy
 	ldx.w #$0080
 	ldy.w #$0000
 	jsl.l CODE_9DC2B8
@@ -286,7 +286,7 @@ CODE_9DC2B8:
 	clc
 	adc.b $A9
 	tax
-	ldy.w $0D11
+	ldy.w printy
 	jsl.l CODE_9C9590
 	rtl
 CODE_9DC2DE:
@@ -932,7 +932,7 @@ CODE_9DC973:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $8F
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $8D
 	ldy.w #$000C
 	clc
@@ -966,7 +966,7 @@ CODE_9DC9C7:
 	lda.b $A5
 	ldy.b $91
 	sta.b $A5
-	lda.w $1C98,y
+	lda.w HomeTeam,y
 	ldx.w #$001A
 	jsl.l CODE_808F4C
 	clc
@@ -1048,7 +1048,7 @@ CODE_9DCA7F:
 	jsl.l CODE_9DCAB7
 CODE_9DCA85:
 	ldy.b $91
-	lda.w $1C98,y
+	lda.w HomeTeam,y
 	asl a
 	asl a
 	clc
@@ -1179,7 +1179,7 @@ CODE_9DCB72:
 	ldy.b $91
 	lda.w #$009C
 	sta.b $97
-	lda.w $1CDC,y
+	lda.w tmdata,y
 	sta.b $95
 	ldy.w #$000C
 	clc
@@ -1246,7 +1246,7 @@ CODE_9DCBFE:
 	ply
 	jsl.l CODE_808E2D
 	ldy.b $91
-	lda.w $1C98,y
+	lda.w HomeTeam,y
 	asl a
 	asl a
 	clc
@@ -1272,7 +1272,7 @@ CODE_9DCC2E:
 	rtl
 CODE_9DCC36:
 	stx.b $91
-	lda.w $1C98,x
+	lda.w HomeTeam,x
 	cmp.l $7E346C,x
 	bne CODE_9DCC42
 	rtl
@@ -1286,7 +1286,7 @@ CODE_9DCC48:
 	lsr a
 	jsl.l CODE_9DC973
 	ldx.b $91
-	lda.w $1C98,x
+	lda.w HomeTeam,x
 	sta.l $7E346C,x
 	ldx.w #$001A
 	jsl.l CODE_808F4C

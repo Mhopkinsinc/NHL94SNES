@@ -22,7 +22,53 @@ SpriteVRAM = $07B4		; VRAM word address of sprite tile 0
 SpritesReserved = $07B6		; OAM entries at the start that the sprite drawing leaves alone
 OAMNext = $07BC			; next OAM entry to fill in OAMDrawBuf
 OAMHideEnd = $07BE		; SpriteFrameEnd moves the entries from OAMNext up to here off screen
-Selected_Goalie = $17AA		; home and away goalie choice (words)
 homeshooters = $1D71		; home shootout list: the goalie, then the shooters (bytes, player number + 1)
 awayshooters = $1D79		; away shootout list, as homeshooters
 shootoutround = $1D85		; shootout round, from 1
+Hscroll = $0CED		; horizontal scroll
+iflags = $0CF1		; icing flags (if* masks)
+passdir = $0D03		; direction for pass/shot 0-7 (8 = none)
+passspeed = $0D05	; speed of pass/shot
+printx = $0D0F		; x cordinate for printing (text map column)
+printy = $0D11		; y cordinate for printing
+ReplayBufferPtr = $0D1F	; long pointer to the next replay frame record
+Vscroll = $0D39		; vertical scroll (low 3 bits = BG2 fine scroll)
+Xpos = $0D55		; x position (integer part) of each object
+Ypos = $0DB7		; y position (integer part) of each object
+pucky = $0DD3		; puck y position
+puckvx = $0EDF		; puck x speed
+puckvy = $0EFF		; puck y speed
+position = $0F43	; player's position (0=goalie,1=l.def,2=r.def,3=l.wing,4=center,5=r.wing; negative = none)
+SPA = $11A3		; current animation (offset into the animation data)
+SPAnum = $11C3		; index into animation (4 per frame)
+newpos = $1243		; requested next position (negative = none)
+newpnum = $1263		; requested next roster player (negative = none)
+pflags = $1283		; pflags (bits 0-7) and pflags2 (bit n at bit n+10); some flags have their own arrays below
+pnum = $12A3		; player's team location number (low byte)
+pfgoal = $14C3		; nonzero: shoots at the top goal. pflags bit pfgoal
+pfteam = $1503		; 0 = home, nonzero = visitors. pflags bit pfteam
+gmode = $15D4		; game mode flags (gm* masks)
+sflags = $15D8		; sflags (low byte) and sflags2 (high byte) as one word (sf*/sf2* masks)
+sfhormode = $15DA	; nonzero: screen in horizontal mode. sflags bit sfhor
+sflags3 = $15DC		; sflags3 (sf3* masks)
+Pencntdwn = $1620	; penalty/fight count down (negative = fight over)
+pentimer = $1622	; frames to the next penalty clock second (updatepentime)
+PBnum = $1624		; players in the penalty boxes: home*16 + visitors
+penmsgtimer = $1628	; count down to reprinting the horizontal penalty message line
+RefCnt = $162A		; ref graphics control (negative = idle)
+RefStep = $162C		; step in the ref animation (negative = done)
+gsp = $1630		; game period
+tmsort = $1766		; first object index of the team
+tmline = $1796		; current line
+tmtouch1 = $179A	; pnum of the last touch
+tmtouch2 = $179E	; second last touch
+tmtouch3 = $17A2	; third last touch
+tmap = $17A6		; active players on ice
+tmgoalie = $17AA	; home and away goalie (words): low byte = goalie 0/1, $FFxx = pulled
+tmflags = $17DE		; team flags
+tmpde = $17EA		; energy of each roster player (word per player)
+tmpdst = $1852		; bench/ice/box state of each roster player
+tmboxlist = $18BA	; penalty box list of roster players (bytes, negative ends)
+HomeTeam = $1C98	; home team number (TeamList index)
+VisTeam = $1C9A		; visiting team number
+tmdata = $1CDC		; team data address
