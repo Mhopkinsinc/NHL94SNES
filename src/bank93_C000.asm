@@ -1,3 +1,9 @@
-; Segment bank93_C000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank93_C000.asm.
+; Bank $93, fifth 4 KB: the end of DATA8_93B217, then the start of DATA8_93C20B, a block for the sound CPU (upload
+; list DATA8_80DD16).
+
 org $93C000
-	incbin "../Extracted/segments/bank93_C000.bin"
+	incbin "../Extracted/data/DATA8_93B217.lin.pairs":3561..4084
+DATA8_93C20B:		; for SPCUploadBlock, as DATA8_9390FA
+	db $0F,$78
+	db $0F,$78
+	incbin "../Extracted/data/DATA8_93C20B.spc":4..3573
