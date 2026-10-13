@@ -1,3 +1,4 @@
-; Segment bank90_9000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank90_9000.asm.
+; Bank $90, second 4 KB: DATA8_908000 continued (see bank90_8000), from Extracted/data/DATA8_908000.chr.
+
 org $909000
-	incbin "../Extracted/segments/bank90_9000.bin"
+	incbin "../Extracted/data/DATA8_908000.chr":4096..8192

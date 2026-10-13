@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank90_9000. <- CURRENT
+bank90_A000. <- CURRENT
 
 ## Sources
 
@@ -226,8 +226,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8F_E000 | matched 4096 bytes | $8FE000 | $8FEFFF | 0% | DATA8_8FDD32 continued (song) |
 | bank8F_F000 | matched 4096 bytes | $8FF000 | $8FFFFF | 0% | end of DATA8_8FDD32; DATA8_8FFE74 (stand-in player photo, asset DATA8_8FFE74.lin.huf); $FF fill |
 | bank90_8000 | matched 4096 bytes | $908000 | $908FFF | 0% | start of DATA8_908000 (animation tiles, asset DATA8_908000.chr) |
-| bank90_9000 | incbin <- CURRENT | $909000 | $909FFF | 0% | |
-| bank90_A000 | incbin | $90A000 | $90AFFF | 0% | |
+| bank90_9000 | matched 4096 bytes | $909000 | $909FFF | 0% | DATA8_908000 continued (asset DATA8_908000.chr) |
+| bank90_A000 | incbin <- CURRENT | $90A000 | $90AFFF | 0% | |
 | bank90_B000 | incbin | $90B000 | $90BFFF | 0% | |
 | bank90_C000 | incbin | $90C000 | $90CFFF | 0% | |
 | bank90_D000 | incbin | $90D000 | $90DFFF | 0% | |
@@ -486,3 +486,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8F_E000: source, MATCH. The song DATA8_8FDD32 continued.
 - bank8F_F000: source, MATCH. The end of the song DATA8_8FDD32 (its track offsets in bank8F_D000 are now all label differences), then DATA8_8FFE74 ($8FFE74-$8FFFEE): the player photo that most photo-table entries without their own photo share, a generic skater; new asset DATA8_8FFE74.lin.huf; $FF fill. Bank $8F is now all source.
 - bank90_8000: source, MATCH. The start of DATA8_908000 ($908000-$90A11F): SNES 4bpp tiles, not packed, that the play code at $9BA0A2 copies to VRAM as animation frames; the first ones render as crowd graphics. New asset DATA8_908000.chr (.chr = planar tiles, not packed). Bank $90 then holds DATA8_90A120 (upload block, list near $9C9A5B), the song DATA8_90C20C (played by MusicStart from $9BB0B6, $9F82FB, $9F8CFD, $9F9125), DATA8_90E08C (upload block, DATA8_80E6C1 entry 12) and a player photo DATA8_90FDE2 (photo table entry 159).
+- bank90_9000: source, MATCH. DATA8_908000 continued, an incbin of Extracted/data/DATA8_908000.chr:4096..8192.
