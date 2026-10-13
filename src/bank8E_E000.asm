@@ -1,3 +1,4 @@
-; Segment bank8E_E000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank8E_E000.asm.
+; Bank $8E, seventh 4 KB: DATA8_8ED897 continued (see bank8E_D000), from Extracted/data/DATA8_8ED897.spc.
+
 org $8EE000
-	incbin "../Extracted/segments/bank8E_E000.bin"
+	incbin "../Extracted/data/DATA8_8ED897.spc":1897..5993

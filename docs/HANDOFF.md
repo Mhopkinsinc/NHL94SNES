@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $8D, and bank8E_8000 to bank8E_D000, are source (MATCH); the rest are incbin. SpriteFrames is all source.
+- Banks $80 to $8D, and bank8E_8000 to bank8E_E000, are source (MATCH); the rest are incbin. SpriteFrames is all source.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -93,8 +93,8 @@
   probably samples and sound data; DATA8_8ED897 (bank8E_D000-F000, asset DATA8_8ED897.spc) is one of them.
 - Songs: the TRAK chunk size before each "TRAK" tag is a big-endian word (DATA8_8EFD2B has $0166); in bank81_F000 and
   bank8B_F000 its high byte $00 is written at the end of the padding.
-- Next: segment bank8E_E000: `incbin "../Extracted/data/DATA8_8ED897.spc":1897..5993`; then bank8E_F000: the rest of the
-  block (5993..9364) and the song at $8EFD2B (TeamSongs entries; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank8E_F000: the rest of DATA8_8ED897 (`incbin "../Extracted/data/DATA8_8ED897.spc":5993..9364`), then the song
+  at $8EFD2B (TeamSongs entries; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
