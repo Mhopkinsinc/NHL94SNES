@@ -362,18 +362,7 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Alignment audit: `docs/align_plan.md`. No bytes moved. bank9C_A000's teamdata include covers bank9C_B000, C000 and D000 (next org is `$9CEF59`). Layout work follows that plan, one bank per commit.
 - Bank $81: the eight slices are `src/banks/b81_rink_logos.asm`, which includes `data/gfx/IceRinkTiles.asm`, `data/gfx/TeamLogoSprites.asm` and `data/sound/DATA8_81FE45.asm`. MATCH.
 - Bank $82: slices merged into `src/banks/b82_spriteframes.asm` (`data/gfx/SpriteFrames82.asm`, `data/gfx/CenterIceTilesHFD.asm`). MATCH.
-- Bank $8E: slices merged into `src/banks/b8E_spriteframes.asm`. MATCH.
-- Bank $8D: slices merged into `src/banks/b8D_spriteframes.asm`. MATCH.
-- Bank $8C: slices merged into `src/banks/b8C_spriteframes.asm`. MATCH.
-- Bank $8B: slices merged into `src/banks/b8B_spriteframes.asm`. MATCH.
-- Bank $8A: slices merged into `src/banks/b8A_spriteframes.asm`. MATCH.
-- Bank $89: slices merged into `src/banks/b89_spriteframes.asm`. MATCH.
-- Bank $88: slices merged into `src/banks/b88_spriteframes.asm`. MATCH.
-- Bank $87: slices merged into `src/banks/b87_spriteframes.asm`. MATCH.
-- Bank $86: slices merged into `src/banks/b86_spriteframes.asm`. MATCH.
-- Bank $85: slices merged into `src/banks/b85_spriteframes.asm`. MATCH.
-- Bank $84: slices merged into `src/banks/b84_spriteframes.asm`. MATCH.
-- Bank $83: slices merged into `src/banks/b83_spriteframes.asm`. MATCH.
+- Banks $83-$8E: each bank's slices are `src/banks/bXX_spriteframes.asm` (the frames, then that bank's tail: a centre-ice logo, a photo palette, a map, a song or a sound block). MATCH.
 
 - Setup: 256 incbin segments of 4 KB, prebuild ROM check and extractor, quick-pass tool with the Vault code map, full build MATCH.
 - bank80_8000: source, MATCH. Reset/NMI/IRQ and low-level services; vector, wait, RNG and joypad helpers named from what they do (no 93S/94G byte match in this bank); hardware registers from 93S snes_regs.asm; JoyPad from the Vault. Remaining CODE_ labels are auto names. bank80_9000 org moved to $809002.
