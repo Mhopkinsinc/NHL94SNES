@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank94_8000. <- CURRENT
+bank94_9000. <- CURRENT
 
 ## Sources
 
@@ -257,8 +257,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank93_D000 | matched 4096 bytes | $93D000 | $93DFFF | 0% | the end of DATA8_93C20B, then DATA8_93D187, a block for the sound CPU, then the start of DATA8_93DFAD, a block for the sound CPU (upload list DATA8_80E6FD) |
 | bank93_E000 | matched 4096 bytes | $93E000 | $93EFFF | 0% | the end of DATA8_93DFAD, then the start of DATA8_93ED31, a song that MusicStart plays from several screens (laid out as in bank81_F000) |
 | bank93_F000 | matched 4096 bytes | $93F000 | $93FFFF | 0% | the end of DATA8_93ED31, then DATA8_93FAB1, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD) |
-| bank94_8000 | incbin <- CURRENT | $948000 | $948FFF | 0% | |
-| bank94_9000 | incbin | $949000 | $949FFF | 0% | |
+| bank94_8000 | matched 4096 bytes | $948000 | $948FFF | 0% | DATA8_948000, packed tiles of logo pieces, then the start of DATA8_948D6F, a block for the sound CPU (upload list DATA8_80DD16) |
+| bank94_9000 | incbin <- CURRENT | $949000 | $949FFF | 0% | |
 | bank94_A000 | incbin | $94A000 | $94AFFF | 0% | |
 | bank94_B000 | incbin | $94B000 | $94BFFF | 0% | |
 | bank94_C000 | incbin | $94C000 | $94CFFF | 0% | |
@@ -517,3 +517,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank93_D000: source, MATCH. The end of DATA8_93C20B, then DATA8_93D187, a block for the sound CPU, then the start of DATA8_93DFAD, a block for the sound CPU (upload list DATA8_80E6FD).
 - bank93_E000: source, MATCH. The end of DATA8_93DFAD, then the start of DATA8_93ED31, a song that MusicStart plays from several screens (laid out as in bank81_F000).
 - bank93_F000: source, MATCH. The end of DATA8_93ED31, then DATA8_93FAB1, a block for the sound CPU (upload lists DATA8_80E6C1 and DATA8_80E6FD). Bank $93 is now all source.
+- bank94_8000: source, MATCH. DATA8_948000, packed tiles of logo pieces, then the start of DATA8_948D6F, a block for the sound CPU (upload list DATA8_80DD16).
