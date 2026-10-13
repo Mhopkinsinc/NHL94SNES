@@ -364,6 +364,7 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Bank $82: slices merged into `src/banks/b82_spriteframes.asm` (`data/gfx/SpriteFrames82.asm`, `data/gfx/CenterIceTilesHFD.asm`). MATCH.
 - Bank $8F: slices merged into `src/banks/b8F_sound.asm`. MATCH.
 - Banks $83-$8E: each bank's slices are `src/banks/bXX_spriteframes.asm` (the frames, then that bank's tail: a centre-ice logo, a photo palette, a map, a song or a sound block). MATCH.
+- Bank $91: slices merged into `src/banks/`. MATCH.
 - Bank $90: slices merged into `src/banks/`. MATCH.
 
 - Setup: 256 incbin segments of 4 KB, prebuild ROM check and extractor, quick-pass tool with the Vault code map, full build MATCH.
