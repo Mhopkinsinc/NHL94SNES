@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank93_D000. <- CURRENT
+bank93_E000. <- CURRENT
 
 ## Sources
 
@@ -254,8 +254,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank93_A000 | matched 4096 bytes | $93A000 | $93AFFF | 0% | the end of DATA8_9390FA, then the start of DATA8_93A18D, a block for the sound CPU (a long pointer list in bank $9C) |
 | bank93_B000 | matched 4096 bytes | $93B000 | $93BFFF | 0% | the end of DATA8_93A18D, then the start of DATA8_93B217, packed linear background tiles of a screen with EA SPORTS |
 | bank93_C000 | matched 4096 bytes | $93C000 | $93CFFF | 0% | the end of DATA8_93B217, then the start of DATA8_93C20B, a block for the sound CPU (upload list DATA8_80DD16) |
-| bank93_D000 | incbin <- CURRENT | $93D000 | $93DFFF | 0% | |
-| bank93_E000 | incbin | $93E000 | $93EFFF | 0% | |
+| bank93_D000 | matched 4096 bytes | $93D000 | $93DFFF | 0% | the end of DATA8_93C20B, then DATA8_93D187, a block for the sound CPU, then the start of DATA8_93DFAD, a block for the sound CPU (upload list DATA8_80E6FD) |
+| bank93_E000 | incbin <- CURRENT | $93E000 | $93EFFF | 0% | |
 | bank93_F000 | incbin | $93F000 | $93FFFF | 0% | |
 | bank94_8000 | incbin | $948000 | $948FFF | 0% | |
 | bank94_9000 | incbin | $949000 | $949FFF | 0% | |
@@ -514,3 +514,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank93_A000: source, MATCH. The end of DATA8_9390FA, then the start of DATA8_93A18D, a block for the sound CPU (a long pointer list in bank $9C).
 - bank93_B000: source, MATCH. The end of DATA8_93A18D, then the start of DATA8_93B217, packed linear background tiles of a screen with EA SPORTS.
 - bank93_C000: source, MATCH. The end of DATA8_93B217, then the start of DATA8_93C20B, a block for the sound CPU (upload list DATA8_80DD16).
+- bank93_D000: source, MATCH. The end of DATA8_93C20B, then DATA8_93D187, a block for the sound CPU, then the start of DATA8_93DFAD, a block for the sound CPU (upload list DATA8_80E6FD).
