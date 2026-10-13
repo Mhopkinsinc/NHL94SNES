@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9E_9000. <- CURRENT
+bank9E_A000. <- CURRENT
 
 ## Sources
 
@@ -338,8 +338,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9D_E000 | matched 4094 bytes | $9DE002 | $9DEFFF | 5% | code with auto labels; HDMA tables DATA8_9DE056/DATA8_9DE064; CODE_9DE0BD/CODE_9DE0D4 colour buffer; DATA8_9DE0FC animation sequences (start); org moved to $9DE002 |
 | bank9D_F000 | matched 4096 bytes | $9DF000 | $9DFFFF | 0% | animation sequences (DATA8_9DE0FC continued) as dw; $FF fill (padbyte/pad) |
 | bank9E_8000 | matched 4096 bytes | $9E8000 | $9E8FFF | 96% | game code with auto labels; DATA8_9E8553 / DATA8_9E8BB7 word tables |
-| bank9E_9000 | incbin <- CURRENT | $9E9000 | $9E9FFF | 97% | |
-| bank9E_A000 | incbin | $9EA000 | $9EAFFF | 89% | |
+| bank9E_9000 | matched 4097 bytes | $9E9000 | $9EA000 | 97% | game code with auto labels; DATA8_9E9927 (index * 2 / 3); end moved +$1 |
+| bank9E_A000 | incbin <- CURRENT | $9EA001 | $9EAFFF | 89% | org moved to $9EA001 |
 | bank9E_B000 | incbin | $9EB000 | $9EBFFF | 91% | |
 | bank9E_C000 | incbin | $9EC000 | $9ECFFF | 95% | |
 | bank9E_D000 | incbin | $9ED000 | $9EDFFF | 79% | |
@@ -598,3 +598,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9D_E000: source, MATCH. Code with auto labels: a second pair of indirect HDMA tables (DATA8_9DE056 with DATA8_9DE04E, DATA8_9DE064 with DATA8_9DE060, label pointers), CODE_9DE0BD (copies X colours into the colour buffer $7F7500 from colour Y) and CODE_9DE0D4 (sends the buffer), then DATA8_9DE0FC: sprite animation sequences (groups of eight word pointers to frame/time lists) as dw, pointers still numbers. Org $9DE002 (set by bank9D_D000).
 - bank9D_F000: source, MATCH. The rest of the sprite animation sequences (DATA8_9DE0FC, see bank9D_E000) as dw, then $FF fill written with padbyte/pad. Bank $9D is now all source.
 - bank9E_8000: source, MATCH. Game code for the objects on the ice with auto labels; DATA8_9E8553 and DATA8_9E8BB7 (word tables read through [$89]) as dw. Unreached code (single rtl bytes after jumps, a jmp) decoded with `tools/disasm65816.py --entry`.
+- bank9E_9000: source, MATCH. Game code with auto labels; DATA8_9E9927 (index * 2 / 3, rounded) as dw. The last instruction ends at $9EA000, so bank9E_A000 starts at $9EA001.
