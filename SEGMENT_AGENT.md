@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9D_A000. <- CURRENT
+bank9D_B000. <- CURRENT
 
 ## Sources
 
@@ -331,8 +331,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9C_F000 | matched 4096 bytes | $9CF000 | $9CFFFF | 0% | screen text records (DATA8_ labels where code points at them); $FF fill (padbyte/pad) |
 | bank9D_8000 | matched 4096 bytes | $9D8000 | $9D8FFF | 97% | screen code with auto labels; DATA8_9D875A position names; HDMA tables DATA8_9D8BA9/DATA8_9D8BB5 |
 | bank9D_9000 | matched 4096 bytes | $9D9000 | $9D9FFF | 85% | screen code with auto labels (Team Roster); tables DATA8_9D93AD, DATA8_9D94FE, DATA8_9D977D, DATA8_9D9A28, DATA8_9D9B7B, DATA8_9D9CC2 |
-| bank9D_A000 | incbin <- CURRENT | $9DA000 | $9DAFFF | 81% | |
-| bank9D_B000 | incbin | $9DB000 | $9DBFFF | 95% | |
+| bank9D_A000 | matched 4096 bytes | $9DA000 | $9DAFFF | 81% | screen code with auto labels; line names DATA8_9DA05D; Game Setup option texts DATA8_9DACED, setting names DATA8_9DADFD; word tables |
+| bank9D_B000 | incbin <- CURRENT | $9DB000 | $9DBFFF | 95% | |
 | bank9D_C000 | incbin | $9DC000 | $9DCFFF | 74% | |
 | bank9D_D000 | incbin | $9DD000 | $9DDFFF | 42% | |
 | bank9D_E000 | incbin | $9DE000 | $9DEFFF | 5% | |
@@ -591,3 +591,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9C_F000: source, MATCH. The rest of the screen text records (see bank9C_E000), labelled where code points at them, then $FF fill written with padbyte/pad. Bank $9C is now all source.
 - bank9D_8000: source, MATCH. Screen code with auto labels: the box drawer (lays the 3 x 3 box maps of bank $9C into the map buffer $7E37F4), menu and roster code, DATA8_9D875A (position names as text records), and the indirect HDMA setup CODE_9D8B49 with its tables DATA8_9D8BA9 (windows, values DATA8_9D8BA1) and DATA8_9D8BB5 (COLDATA, values DATA8_9D8BB3), written with label pointers.
 - bank9D_9000: source, MATCH. Screen code with auto labels: the Team Roster screen and the code around it; its tables DATA8_9D93AD, DATA8_9D94FE, DATA8_9D977D, DATA8_9D9A28, DATA8_9D9B7B, DATA8_9D9CC2 as db/dw (reads at an offset written as label+n). Unreached branches decoded with `tools/disasm65816.py --entry`.
+- bank9D_A000: source, MATCH. Screen code with auto labels: the line editor (line names DATA8_9DA05D as text records), menu code, and the Game Setup screen: DATA8_9DACED / DATA8_9DADFD / DATA8_9DAE40 (option texts and setting names as text records), DATA8_9DAC7F, DATA8_9DACD1, DATA8_9DACDF (word tables), DATA8_9DA570 / DATA8_9DA580 (word tables). Unreached code decoded with `tools/disasm65816.py --entry`.
