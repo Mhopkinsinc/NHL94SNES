@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank8B_F000. <- CURRENT
+bank8C_8000. <- CURRENT
 
 ## Sources
 
@@ -192,8 +192,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank8B_C000 | matched 4258 bytes | $8BC116 | $8BD1B7 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8BC116, end moved +$1B8 (frame boundary) |
 | bank8B_D000 | matched 3696 bytes | $8BD1B8 | $8BE027 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8BD1B8, end moved +$28 (frame boundary) |
 | bank8B_E000 | matched 4378 bytes | $8BE028 | $8BF141 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $8BE028, end moved +$142 (frame boundary) |
-| bank8B_F000 | incbin <- CURRENT | $8BF142 | $8BFFFF | 0% | org moved to $8BF142 |
-| bank8C_8000 | incbin | $8C8000 | $8C8FFF | 0% | |
+| bank8B_F000 | matched 3774 bytes | $8BF142 | $8BFFFF | 0% | last SpriteFrames frames of bank $8B; DATA8_8BFE74 (a song from TeamSongs); $FF fill; org moved to $8BF142 |
+| bank8C_8000 | incbin <- CURRENT | $8C8000 | $8C8FFF | 0% | |
 | bank8C_9000 | incbin | $8C9000 | $8C9FFF | 0% | |
 | bank8C_A000 | incbin | $8CA000 | $8CAFFF | 0% | |
 | bank8C_B000 | incbin | $8CB000 | $8CBFFF | 0% | |
@@ -452,3 +452,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank8B_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8BC116 8BD000`. bank8B_D000 org moved to $8BD1B8 (frame boundary).
 - bank8B_D000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8BD1B8 8BE000`. bank8B_E000 org moved to $8BE028 (frame boundary).
 - bank8B_E000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 8BE028 8BF000`. bank8B_F000 org moved to $8BF142 (frame boundary).
+- bank8B_F000: source, MATCH. The last SpriteFrames frames of bank $8B (tools/spriteframes.py frames 8BF142 8C0000), then DATA8_8BFE74: a song laid out as in bank81_F000 (TeamSongs entries 31, 32 and 79 point to it: Dallas slots 1 and 2, NY Islanders slot 1), then $FF fill. Bank $8B is now all source.
