@@ -1,3 +1,8 @@
-; Segment bank91_9000: not yet disassembled. tools/disasm65816.py writes its starting text to output/quickpass/bank91_9000.asm.
+; Bank $91, second 4 KB: DATA8_918000 continued and a second block for the sound CPU (see bank91_8000).
+
 org $919000
-	incbin "../Extracted/segments/bank91_9000.bin"
+	incbin "../Extracted/data/DATA8_918000.spc":4096..6610
+DATA8_9199D2:		; for SPCUploadBlock, as DATA8_918000
+	db $17,$B2
+	db $17,$B2
+	incbin "../Extracted/data/DATA8_9199D2.spc":4..1582
