@@ -176,3 +176,9 @@ $9AC774,CenterIceTilesSTL,DATA8_9AC774,code,"the St. Louis centre ice logo: line
 $9AC880,CenterIceTilesDET,DATA8_9AC880,code,"the Detroit centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 6 of the centre ice table in bank $9C)",src/bank9A_C000.asm
 $9ACA96,CenterIceTilesBUF,DATA8_9ACA96,code,"the Buffalo centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 2 of the centre ice table in bank $9C)",src/bank9A_C000.asm
 $9ACBA0,CenterIceTilesNYR,DATA8_9ACBA0,code,"the New York Rangers centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 14 of the centre ice table in bank $9C)",src/bank9A_C000.asm
+$9AD4B6,CenterIceTilesNHL,DATA8_9AD4B6,code,"the NHL shield centre ice logo of the all-star teams (26 and 27 of the centre ice table in bank $9C): linear 4bpp tiles packed for DecompressHuffman, drawn with CenterIceMapNHL",src/bank9A_D000.asm
+$9AD5AF,CenterIceTilesQUE,DATA8_9AD5AF,code,"the Quebec centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 18 of the centre ice table in bank $9C)",src/bank9A_D000.asm
+$9AD79C,CenterIceTilesLAK,DATA8_9AD79C,code,"the Los Angeles centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 10 of the centre ice table in bank $9C)",src/bank9A_D000.asm
+$9AD972,CenterIceTilesTOR,DATA8_9AD972,code,"the Toronto centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 22 of the centre ice table in bank $9C)",src/bank9A_D000.asm
+$9ADA4A,CenterIceTilesMTL,DATA8_9ADA4A,code,"the Montreal centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 11 of the centre ice table in bank $9C)",src/bank9A_D000.asm
+$9ADD33,CenterIceTilesWSH,DATA8_9ADD33,code,"the Washington centre ice logo: linear 4bpp tiles packed for DecompressHuffman (team 24 of the centre ice table in bank $9C)",src/bank9A_D000.asm
