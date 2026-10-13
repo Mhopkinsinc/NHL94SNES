@@ -3,8 +3,8 @@
 ## Alignment
 
 - Audit is `docs/align_plan.md` (no source change). `bank9C_A000` plus `src/data/teamdata94s.asm` does cover the old bank9C_B000, C000 and D000 ranges: the next file is bank9C_E000 at `$9CEF59`.
-- Layout done: banks `$81` through `$8F` are `src/banks/` files. `tools/verify_all.sh` MATCH.
-- Next: banks `$90-$9A` (graphics, sound, photos, logos). Abbreviation renames stay as listed in the plan (ANA/LAK/NJD/OTT/SJS/TBL to ANH/LA/NJ/OTW/SJ/TB).
+- Layout done: banks `$81` through `$90` are `src/banks/` files. `tools/verify_all.sh` MATCH.
+- Next: the next data bank through `$9A`, then the code banks. Abbreviation renames stay as listed in the plan (ANA/LAK/NJD/OTT/SJS/TBL to ANH/LA/NJ/OTW/SJ/TB).
 
 ## Unsure
 
