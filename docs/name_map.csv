@@ -246,3 +246,16 @@ $9AEF9C,LogoPaletteBUF,DATA8_9AEF9C,code,"the 16 colours of the Buffalo logo (Te
 $9AEFBC,LogoPaletteQUE,DATA8_9AEFBC,code,"the 16 colours of the Quebec logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
 $9AEFDC,LogoPaletteCGY,DATA8_9AEFDC,code,"the 16 colours of the Calgary logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
 $9AEFFC,LogoPaletteSJS,DATA8_9AEFFC,code,"the 16 colours of the San Jose logo (TeamLogoSprites and the centre ice logo)",src/bank9A_E000.asm
+$9AF01C,LogoPaletteSTL,DATA8_9AF01C,code,"the 16 colours of the St. Louis logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF03C,LogoPaletteCHI,DATA8_9AF03C,code,"the 16 colours of the Chicago logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF05C,LogoPaletteTBL,DATA8_9AF05C,code,"the 16 colours of the Tampa Bay logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF07C,LogoPaletteTOR,DATA8_9AF07C,code,"the 16 colours of the Toronto logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF09C,LogoPaletteVAN,DATA8_9AF09C,code,"the 16 colours of the Vancouver logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF0BC,LogoPaletteWSH,DATA8_9AF0BC,code,"the 16 colours of the Washington logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF0DC,LogoPaletteWPG,DATA8_9AF0DC,code,"the 16 colours of the Winnipeg logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF13C,LogoPaletteDET,DATA8_9AF13C,code,"the 16 colours of the Detroit logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF1BC,LogoPaletteEDM,DATA8_9AF1BC,code,"the 16 colours of the Edmonton logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF27C,LogoPaletteFLA,DATA8_9AF27C,code,"the 16 colours of the Florida logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF2FC,LogoPaletteHFD,DATA8_9AF2FC,code,"the 16 colours of the Hartford logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF33C,LogoPaletteLAK,DATA8_9AF33C,code,"the 16 colours of the Los Angeles logo (TeamLogoSprites and the centre ice logo)",src/bank9A_F000.asm
+$9AF47C,PhotoPaletteANA,DATA8_9AF47C,code,"the 16 colours of the Anaheim player photos (the photo palette table in bank $9D)",src/bank9A_F000.asm
