@@ -1,10 +1,8 @@
-; Bank $81, last 4 KB: the end of TeamLogoSprites (see bank81_A000), from data/gfx/TeamLogos.spr.huf, then a
-; song for MusicStart from the TeamSongs table: a header (byte 1 the tempo), the offsets of its tracks, then each track in
-; a "TRAK" chunk (size byte, tag, track name, then the note stream that the player in bank80_A000 reads).
+; A song MusicStart plays from the TeamSongs table: a header (the second byte is the tempo),
+; the offsets of its tracks, then each track in a TRAK chunk (size byte, tag, track name,
+; then the note stream the music player reads).
 
-org $81F000
-	incbin "data/gfx/TeamLogos.spr.huf":17442..21095
-DATA8_81FE45:		; a song: header, track offsets ($0000 ends them), padding, then the tracks
+DATA8_81FE45:		; header, track offsets (a zero ends them), padding, then the tracks
 	db $01,$6A,$01,$00,$00,$00,$02,$00
 	dw .left-DATA8_81FE45,.right-DATA8_81FE45,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00

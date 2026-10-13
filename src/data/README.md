@@ -13,8 +13,9 @@ writes them again.
 - `teamdata94s.asm`: the team database (TeamList, the team records with their players, playoffseats), as
   NHLPA93SNES `teamdata93s.asm`; bank9C_A000 includes it.
 
-A block that spans segments is included in pieces, one per segment file (`incbin "data/gfx/<name>":<start>..<end>`, decimal,
-end exclusive). The bank source spells out the header fields it knows as db/dw and includes the rest.
+A block that still spans segment files is included in pieces (`incbin "data/gfx/<name>":<start>..<end>`, decimal,
+end exclusive). Once a bank is in `src/banks/`, the asset is one data file: the header fields it knows are db/dw,
+and one `incbin` covers the rest of that asset (IceRinkTiles, TeamLogoSprites).
 `tools/snesgfx.py` unpacks the packed formats and renders tiles, maps and sprite sets to PNG.
 
 The file extension gives the format:

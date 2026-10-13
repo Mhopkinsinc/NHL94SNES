@@ -2,7 +2,7 @@
 # verify_segment.sh bankXX_YYYY: compare that segment's 4 KB of output/nhl94snes.sfc (from ./build.sh) with the same bytes of
 # lst/nhl94snes.sfc. A segment whose end moved is compared over the range from its org to the next segment's org.
 cd "$(dirname "$0")/.."
-s=$1; [ -f "src/$s.asm" ] || { echo "$s: no src/$s.asm"; exit 1; }
+s=$1; [ -f "src/$s.asm" ] || [ -f "src/banks/$s.asm" ] || { echo "$s: no src/$s.asm"; exit 1; }
 [ -s output/nhl94snes.sfc ] || { echo "$s: run ./build.sh first"; exit 1; }
 python3 - "$s" <<'PY'
 import re, sys, glob, os
@@ -10,7 +10,7 @@ s = sys.argv[1]
 def org(f):
     m = re.search(r'^\s*org\s+\$([0-9A-Fa-f]{6})', open(f).read(), re.M)
     a = int(m[1], 16); return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
-segs = sorted(glob.glob('src/bank*_*.asm'), key=org)
+segs = sorted(glob.glob('src/bank*_*.asm') + glob.glob('src/banks/b*.asm'), key=org)
 names = [os.path.basename(f)[:-4] for f in segs]; i = names.index(s)
 lo = org(segs[i]); hi = org(segs[i + 1]) if i + 1 < len(segs) else os.path.getsize('lst/nhl94snes.sfc')
 a = open('output/nhl94snes.sfc', 'rb').read()[lo:hi]; b = open('lst/nhl94snes.sfc', 'rb').read()[lo:hi]
