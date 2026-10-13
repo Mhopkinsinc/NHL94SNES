@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9F_8000. <- CURRENT
+bank9F_9000. <- CURRENT
 
 ## Sources
 
@@ -345,8 +345,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9E_D000 | matched 4096 bytes | $9ED002 | $9EE001 | 79% | game code with auto labels; DATA8_9EDBF4 word pointers; DATA8_9EDC94 steps; org moved to $9ED002; end moved +$2 |
 | bank9E_E000 | matched 4094 bytes | $9EE002 | $9EEFFF | 90% | game code with auto labels; DATA8_9EE43F, DATA8_9EE5CE, DATA8_9EE6C7, DATA8_9EEED4-DATA8_9EEF1C tables; org moved to $9EE002 |
 | bank9E_F000 | matched 4096 bytes | $9EF000 | $9EFFFF | 63% | game code with auto labels; $FF fill (padbyte/pad) |
-| bank9F_8000 | incbin <- CURRENT | $9F8000 | $9F8FFF | 89% | |
-| bank9F_9000 | incbin | $9F9000 | $9F9FFF | 81% | |
+| bank9F_8000 | matched 4097 bytes | $9F8000 | $9F9000 | 89% | game flow code with auto labels; DATA8_9F8B65 / DATA8_9F8B6F byte tables; end moved +$1 |
+| bank9F_9000 | incbin <- CURRENT | $9F9001 | $9F9FFF | 81% | org moved to $9F9001 |
 | bank9F_A000 | incbin | $9FA000 | $9FAFFF | 86% | |
 | bank9F_B000 | incbin | $9FB000 | $9FBFFF | 84% | |
 | bank9F_C000 | incbin | $9FC000 | $9FCFFF | 92% | |
@@ -605,3 +605,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9E_D000: source, MATCH. Game code with auto labels; DATA8_9EDBF4 (word pointers into the next file, still numbers) and DATA8_9EDC94 (small signed steps) as dw. Org $9ED002 (set by bank9E_C000); the last instruction ends at $9EE001, so bank9E_E000 starts at $9EE002.
 - bank9E_E000: source, MATCH. Game code with auto labels and the small tables it reads (DATA8_9EE43F, DATA8_9EE5CE, DATA8_9EE6C7, and DATA8_9EEED4 / DATA8_9EEEEC / DATA8_9EEF04 / DATA8_9EEF1C, signed words read as value and adjustment). Org $9EE002 (set by bank9E_D000); bank9E_F000 is split around CODE_9EF02A for a branch here.
 - bank9E_F000: source, MATCH. The end of the game code for the objects on the ice with auto labels, then $FF fill written with padbyte/pad (the code map had decoded part of the fill as code). Bank $9E is now all source.
+- bank9F_8000: source, MATCH. Game flow code with auto labels (calls into the screen code of banks $9B to $9E and the sound code of bank $9C); DATA8_9F8B65 / DATA8_9F8B6F byte tables (the second read with a 1-based index, written DATA8_9F8B6F-1). The last instruction ends at $9F9000, so bank9F_9000 starts at $9F9001.
