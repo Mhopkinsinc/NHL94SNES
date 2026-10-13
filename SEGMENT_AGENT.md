@@ -362,6 +362,7 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Alignment audit: `docs/align_plan.md`. No bytes moved. bank9C_A000's teamdata include covers bank9C_B000, C000 and D000 (next org is `$9CEF59`). Layout work follows that plan, one bank per commit.
 - Bank $81: the eight slices are `src/banks/b81_rink_logos.asm`, which includes `data/gfx/IceRinkTiles.asm`, `data/gfx/TeamLogoSprites.asm` and `data/sound/DATA8_81FE45.asm`. MATCH.
 - Bank $82: slices merged into `src/banks/b82_spriteframes.asm` (`data/gfx/SpriteFrames82.asm`, `data/gfx/CenterIceTilesHFD.asm`). MATCH.
+- Bank $83: slices merged into `src/banks/b83_spriteframes.asm`. MATCH.
 
 - Setup: 256 incbin segments of 4 KB, prebuild ROM check and extractor, quick-pass tool with the Vault code map, full build MATCH.
 - bank80_8000: source, MATCH. Reset/NMI/IRQ and low-level services; vector, wait, RNG and joypad helpers named from what they do (no 93S/94G byte match in this bank); hardware registers from 93S snes_regs.asm; JoyPad from the Vault. Remaining CODE_ labels are auto names. bank80_9000 org moved to $809002.
