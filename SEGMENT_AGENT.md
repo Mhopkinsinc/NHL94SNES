@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9E_D000. <- CURRENT
+bank9E_E000. <- CURRENT
 
 ## Sources
 
@@ -342,8 +342,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9E_A000 | matched 4095 bytes | $9EA001 | $9EAFFF | 89% | game code with auto labels; jump tables DATA8_9EAD34 / DATA8_9EAF1A; direction steps DATA8_9EA889 / DATA8_9EAAA3; org moved to $9EA001 |
 | bank9E_B000 | matched 4096 bytes | $9EB000 | $9EBFFF | 91% | game code with auto labels |
 | bank9E_C000 | matched 4098 bytes | $9EC000 | $9ED001 | 95% | game code with auto labels (pre-game screen); DATA8_9ECC88 text records; end moved +$2 |
-| bank9E_D000 | incbin <- CURRENT | $9ED002 | $9EDFFF | 79% | org moved to $9ED002 |
-| bank9E_E000 | incbin | $9EE000 | $9EEFFF | 90% | |
+| bank9E_D000 | matched 4096 bytes | $9ED002 | $9EE001 | 79% | game code with auto labels; DATA8_9EDBF4 word pointers; DATA8_9EDC94 steps; org moved to $9ED002; end moved +$2 |
+| bank9E_E000 | incbin <- CURRENT | $9EE002 | $9EEFFF | 90% | org moved to $9EE002 |
 | bank9E_F000 | incbin | $9EF000 | $9EFFFF | 63% | |
 | bank9F_8000 | incbin | $9F8000 | $9F8FFF | 89% | |
 | bank9F_9000 | incbin | $9F9000 | $9F9FFF | 81% | |
@@ -602,3 +602,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9E_A000: source, MATCH. Game code with auto labels: CODE_9EA5A4 (where several routines jump with a pointer in $89), two jump tables DATA8_9EAD34 / DATA8_9EAF1A written as dw of their targets (decoded with --entry), the direction step tables DATA8_9EA889 / DATA8_9EAAA3, and DATA8_9EA154 (word pointers, still numbers). Org $9EA001 (set by bank9E_9000).
 - bank9E_B000: source, MATCH. Game code for the objects on the ice with auto labels (unreached code decoded with `tools/disasm65816.py --entry`). bank9E_C000 is split around CODE_9EC000 and CODE_9EC01D, which branches here target.
 - bank9E_C000: source, MATCH. Game code with auto labels, among it the pre-game screen code that prints PregameText; DATA8_9ECC88 (the words put into Ron Barr's lines) as text records. The last instruction ends at $9ED001, so bank9E_D000 starts at $9ED002; it is split around CODE_9ED009 and CODE_9ED04D for branches here.
+- bank9E_D000: source, MATCH. Game code with auto labels; DATA8_9EDBF4 (word pointers into the next file, still numbers) and DATA8_9EDC94 (small signed steps) as dw. Org $9ED002 (set by bank9E_C000); the last instruction ends at $9EE001, so bank9E_E000 starts at $9EE002.
