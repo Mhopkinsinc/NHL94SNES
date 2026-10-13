@@ -246,7 +246,7 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank92_A000 | matched 4096 bytes | $92A000 | $92AFFF | 0% | end of DATA8_9293F3; start of LetterSprites (A-Z sprite set, asset LetterSprites.spr) |
 | bank92_B000 | matched 4096 bytes | $92B000 | $92BFFF | 0% | end of LetterSprites; start of DATA8_92BB61 (sound CPU upload block) |
 | bank92_C000 | matched 4096 bytes | $92C000 | $92CFFF | 0% | end of DATA8_92BB61; start of DATA8_92CECD |
-| bank92_D000 | matched 4096 bytes | $92D000 | $92DFFF | 0% | end of DATA8_92CECD; start of IceRinkMap (LZ-packed rink map, 93S name, asset IceRink.map.lz) |
+| bank92_D000 | matched 4096 bytes | $92D000 | $92DFFF | 0% | DATA8_92CECD continued |
 | bank92_E000 | incbin <- CURRENT | $92E000 | $92EFFF | 0% | |
 | bank92_F000 | incbin | $92F000 | $92FFFF | 0% | |
 | bank93_8000 | incbin | $938000 | $938FFF | 0% | |
@@ -506,4 +506,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank92_A000: source, MATCH. The end of DATA8_9293F3, then the start of LetterSprites ($92A7B9-$92BB60): the letters A to Z as a DrawSprite sprite set, not packed; the text routine at $9C93C3 maps a character to a frame and draws it, advancing by a width table. New asset LetterSprites.spr.
 - bank92_B000: source, MATCH. The end of LetterSprites (name_map row added), then the start of DATA8_92BB61 ($92BB61-$92CECC, upload lists E6C1/E6FD entry 2).
 - bank92_C000: source, MATCH. The end of DATA8_92BB61, then the start of DATA8_92CECD ($92CECD-$92E052, entry 1 of the upload list near $9C9A5B).
-- bank92_D000: source, MATCH. The end of DATA8_92CECD, then the start of IceRinkMap ($92E053-$92F189): the rink map packed for DecompressLZ (a header of three words, 48 x 113 map words for IceRinkTiles), which $9BC1D5 unpacks before it pastes the centre ice logo; the 93S name; new asset IceRink.map.lz.
+- bank92_D000: source, MATCH. DATA8_92CECD continued (IceRinkMap starts in bank92_E000).
