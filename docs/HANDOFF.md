@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $83, and bank84_8000 to bank84_E000, are source (MATCH); the rest are incbin.
+- Banks $80 to $84 are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -69,10 +69,9 @@
   the logo tiles, then to the logo map). The tiles are linear 4bpp packed for DecompressHuffman (converted to planar by
   $9B85C2; `tools/snesgfx.py tiles/map --linear`), the map is not packed (width, height, a word, then map words, which
   $9BC1D5 pastes into the rink map with palette 5). Most of the tiles are in bank $9A; a few sit at bank ends after the
-  sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47; still incbin: 5 at
-  $84FF38, 23 at $86FE78, 3 at $8DFF3D, 21 at $97FE85, 13 at $98FECB, 15 at $99FEC0). Team index = the logo order of
+  sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38; still incbin: 23 at $86FE78, 3 at $8DFF3D, 21 at $97FE85, 13 at $98FECB, 15 at $99FEC0). Team index = the logo order of
   TeamLogoSprites.
-- Next: segment bank84_F000, from $84F045 (`tools/spriteframes.py frames 84F045 858000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank85_8000 (first add SpriteFrames85.bin from `tools/spriteframes.py info` to tools/extract.py, then `tools/spriteframes.py frames 858000 859000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
