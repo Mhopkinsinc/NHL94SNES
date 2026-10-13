@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank91_B000. <- CURRENT
+bank91_C000. <- CURRENT
 
 ## Sources
 
@@ -236,8 +236,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank91_8000 | matched 4096 bytes | $918000 | $918FFF | 0% | start of DATA8_918000 (sound CPU upload block) |
 | bank91_9000 | matched 4096 bytes | $919000 | $919FFF | 0% | end of DATA8_918000; start of DATA8_9199D2 (sound CPU upload block) |
 | bank91_A000 | matched 4096 bytes | $91A000 | $91AFFF | 0% | DATA8_9199D2 continued |
-| bank91_B000 | incbin <- CURRENT | $91B000 | $91BFFF | 0% | |
-| bank91_C000 | incbin | $91C000 | $91CFFF | 0% | |
+| bank91_B000 | matched 4096 bytes | $91B000 | $91BFFF | 0% | end of DATA8_9199D2; start of DATA8_91B188 (Huffman-packed sprite set) |
+| bank91_C000 | incbin <- CURRENT | $91C000 | $91CFFF | 0% | |
 | bank91_D000 | incbin | $91D000 | $91DFFF | 0% | |
 | bank91_E000 | incbin | $91E000 | $91EFFF | 0% | |
 | bank91_F000 | incbin | $91F000 | $91FFFF | 0% | |
@@ -496,3 +496,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank91_8000: source, MATCH. The start of DATA8_918000 ($918000-$9199D1, upload lists DATA8_80E6C1/E6FD entry 7). Bank $91: DATA8_9199D2 (upload, entry 10), DATA8_91B188 (a Huffman-packed sprite set of an opening screen: N, H, L letters, NHL shield, NHLPA logo, licence line), DATA8_91C7A7 (upload, DATA8_80DD16 entry 17; DATA8_80DD16 is a list of 20 upload blocks), DATA8_91DDAD (LZ-packed background tiles with EA SPORTS / ELECTRONIC ARTS), DATA8_91F2F9 (upload, DATA8_80DD16 entry 0). Assets per block.
 - bank91_9000: source, MATCH. The end of DATA8_918000, then the start of DATA8_9199D2 ($9199D2-$91B187, upload lists entry 10).
 - bank91_A000: source, MATCH. DATA8_9199D2 continued.
+- bank91_B000: source, MATCH. The end of DATA8_9199D2, then the start of DATA8_91B188 ($91B188-$91C7A5): a sprite set packed for DecompressHuffman that the screen setup at $9DB716 unpacks to $7F5000; rendered (`tools/snesgfx.py sprites '$91B188'`): the N, H and L letters in three steps each, the NHL shield, the NHLPA logo and the licence line. New asset DATA8_91B188.spr.huf.
