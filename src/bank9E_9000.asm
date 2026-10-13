@@ -486,7 +486,7 @@ CODE_9E93E0:
 	and.w #$01C0
 	bne CODE_9E9429
 	lda.w SPA,x
-	cmp.w #DATA8_9DF342
+	cmp.w #SPAburst
 	bne CODE_9E9429
 	ldy.b $91
 	lda.w pucky
@@ -762,9 +762,9 @@ CODE_9E960A:
 CODE_9E9624:
 	sta.b $B5
 	lda.w SPA,x
-	cmp.w #DATA8_9DF208
+	cmp.w #SPAsweepchk
 	bcc CODE_9E963C
-	cmp.w #DATA8_9DF342+1
+	cmp.w #SPAburst+1
 	bcs CODE_9E963C
 CODE_9E9633:
 	lda.b $B5
@@ -774,9 +774,9 @@ CODE_9E9633:
 	bra CODE_9E9649
 CODE_9E963C:
 	lda.w SPA,y
-	cmp.w #DATA8_9DF208
+	cmp.w #SPAsweepchk
 	bcc CODE_9E9649
-	cmp.w #DATA8_9DF342+1
+	cmp.w #SPAburst+1
 	bcc CODE_9E9633
 CODE_9E9649:
 	lda.b $B5
@@ -1306,7 +1306,7 @@ CODE_9E9AC6:
 	lda.w #$008C
 	sta.w $1083,y
 	lda.w SPA,y
-	cmp.w #DATA8_9DE4B6
+	cmp.w #SPAgdive
 	bne CODE_9E9AED
 CODE_9E9AE7:
 	lda.w #$0005
@@ -1371,17 +1371,17 @@ CODE_9E9B5E:
 	cpy.w #$0018
 	bcs CODE_9E9BB2
 	lda.w SPA,y
-	cmp.w #DATA8_9DF90E
+	cmp.w #SPAinjury1
 	beq CODE_9E9BB2
-	cmp.w #DATA8_9DF7B2
+	cmp.w #SPAstumble
 	beq CODE_9E9BB2
-	cmp.w #DATA8_9DF49C
+	cmp.w #SPAfallfwd
 	beq CODE_9E9BB2
-	cmp.w #DATA8_9DF54E
+	cmp.w #SPAfallback
 	beq CODE_9E9BB2
-	cmp.w #DATA8_9DF6C0
+	cmp.w #SPAflip
 	beq CODE_9E9BB2
-	lda.w #DATA8_9DF7B2
+	lda.w #SPAstumble
 	sta.b $A9
 	lda.w $15D6
 	bne CODE_9E9BB3
@@ -1569,7 +1569,7 @@ CODE_9E9D17:
 	jsl.l CODE_9C9FD5
 	lda.w #$0002
 	sta.w $0C25
-	lda.w #DATA8_9DF54E
+	lda.w #SPAfallback
 	sta.b $A9
 	ldy.b $91
 	lda.b $A5
@@ -1579,7 +1579,7 @@ CODE_9E9D17:
 	and.w #$0007
 	cmp.w #$0003
 	bcc CODE_9E9D59
-	lda.w #DATA8_9DF49C
+	lda.w #SPAfallfwd
 	sta.b $A9
 	lda.w $1163,y
 	and.w #$0003
@@ -1590,7 +1590,7 @@ CODE_9E9D17:
 	bmi CODE_9E9D59
 	cpx.w #$0018
 	bcs CODE_9E9D59
-	lda.w #DATA8_9DF6C0
+	lda.w #SPAflip
 	sta.b $A9
 CODE_9E9D59:
 	ldx.b $91
@@ -1628,7 +1628,7 @@ CODE_9E9D79:
 	lda.w position,x
 	beq CODE_9E9D76
 	lda.w SPA,y
-	cmp.w #DATA8_9DF54E
+	cmp.w #SPAfallback
 	bne CODE_9E9D76
 	lda.w $1163,y
 	and.w #$0003
@@ -1660,7 +1660,7 @@ CODE_9E9DF2:
 	adc.w #$0006
 	jsl.l CODE_9C9FD5
 	ldx.b $91
-	lda.w #DATA8_9DF90E
+	lda.w #SPAinjury1
 	jsl.l CODE_9EA3F1
 	ldx.b $95
 	lda.w $0EC3,x
@@ -1701,7 +1701,7 @@ CODE_9E9E4D:
 CODE_9E9E59:
 	ldy.b $91
 	lda.w SPA,y
-	cmp.w #DATA8_9DF7B2
+	cmp.w #SPAstumble
 	beq CODE_9E9E69
 	lda.w #$FFFF
 	sta.w $0AD9

@@ -715,7 +715,7 @@ CODE_9F86D3:
 CODE_9F86DF:
 	stx.w $0B9D
 CODE_9F86E2:
-	jsl.l CODE_9EA419
+	jsl.l updateanim
 	lda.w $1203,x
 	sec
 	sbc.w $0ADB
@@ -760,7 +760,7 @@ CODE_9F8738:
 	bne CODE_9F8796
 CODE_9F8742:
 	lda.w SPA,x
-	cmp.w #DATA8_9DF90E
+	cmp.w #SPAinjury1
 	bne CODE_9F874D
 	jmp.w $8834
 CODE_9F874D:

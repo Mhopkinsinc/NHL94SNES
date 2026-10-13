@@ -6,7 +6,7 @@ org $9E8000
 CODE_9E8000:
 	lda.w $14E3,x
 	bne CODE_9E800C
-	lda.w #DATA8_9DF0D2
+	lda.w #SPAglideback
 	jsl.l CODE_9EA3F1
 CODE_9E800C:
 	rtl
@@ -293,7 +293,7 @@ CODE_9E8223:
 	clc
 	adc.w $0EE3,x
 	sta.w $0EE3,x
-	lda.w #DATA8_9DF342
+	lda.w #SPAburst
 	sta.w $14E3,x
 	jml.l CODE_9EA3F1
 CODE_9E8272:

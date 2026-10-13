@@ -28,12 +28,12 @@ CODE_9EA021:
 	beq CODE_9EA01E
 	cmp.w #DATA8_9DF864
 	beq CODE_9EA01E
-	cmp.w #DATA8_9DF208
+	cmp.w #SPAsweepchk
 	bne CODE_9EA038
 	jmp.w $BC24
 CODE_9EA038:
 	lda.w SPA,x
-	cmp.w #DATA8_9DF342
+	cmp.w #SPAburst
 	bne CODE_9EA01D
 	lda.w $15D6
 	beq CODE_9EA04E
@@ -157,8 +157,8 @@ CODE_9EA132:
 CODE_9EA151:
 	jmp.w $9B52
 DATA8_9EA154:		; animations in SPAList, read by index and passed to CODE_9EA3F1
-	dw DATA8_9DF196&$FFFF,DATA8_9DF2AC&$FFFF,DATA8_9DF310&$FFFF,DATA8_9DF310&$FFFF
-	dw DATA8_9DF310&$FFFF,DATA8_9DF2DE&$FFFF,DATA8_9DF2DE&$FFFF,DATA8_9DF27A&$FFFF
+	dw DATA8_9DF196&$FFFF,DATA8_9DF2AC&$FFFF,SPAshoulderchkl&$FFFF,SPAshoulderchkl&$FFFF
+	dw SPAshoulderchkl&$FFFF,SPAhipchkr&$FFFF,SPAhipchkr&$FFFF,SPAshoulderchkr&$FFFF
 CODE_9EA164:
 	lda.w #$0014
 	sec
@@ -262,7 +262,7 @@ CODE_9EA233:
 CODE_9EA23E:
 	jml.l CODE_9E81F9
 CODE_9EA242:
-	lda.w #DATA8_9DF208
+	lda.w #SPAsweepchk
 	sta.w $1543,x
 	jml.l CODE_9EA3F1
 CODE_9EA24C:
@@ -271,7 +271,7 @@ CODE_9EA24C:
 	lda.w $14E3,x
 	beq CODE_9EA25F
 	lda.w SPA,x
-	cmp.w #DATA8_9DF342
+	cmp.w #SPAburst
 	bne CODE_9EA25F
 CODE_9EA25E:
 	rtl
@@ -460,7 +460,7 @@ SetSPA:
 	sta.w SPA,x
 	stz.w SPAnum,x
 	lda.w #$FFFF
-	sta.w $11E3,x
+	sta.w SPAcnt,x
 CODE_9EA3F0:
 	rtl
 CODE_9EA3F1:
@@ -469,7 +469,7 @@ CODE_9EA3F1:
 	sta.w SPA,x
 	stz.w SPAnum,x
 	lda.w #$FFFF
-	sta.w $11E3,x
+	sta.w SPAcnt,x
 CODE_9EA402:
 	rtl
 CODE_9EA403:
@@ -478,11 +478,11 @@ CODE_9EA403:
 	sta.w SPA,x
 	stz.w SPAnum,x
 	lda.w #$FFFF
-	sta.w $11E3,x
-	jsl.l CODE_9EA419
+	sta.w SPAcnt,x
+	jsl.l updateanim
 CODE_9EA418:
 	rtl
-CODE_9EA419:
+updateanim:
 	lda.w SPA,x
 	bne CODE_9EA442
 	stz.w $1543,x
@@ -536,11 +536,11 @@ CODE_9EA472:
 	sty.b $A5
 	lda.b [$89],y
 	sta.b $AD
-	lda.w $11E3,x
+	lda.w SPAcnt,x
 	bmi CODE_9EA4C6
 	sec
 	sbc.w $0ADB
-	sta.w $11E3,x
+	sta.w SPAcnt,x
 	bpl CODE_9EA4D8
 	lda.w SPAnum,x
 	clc
@@ -575,7 +575,7 @@ CODE_9EA4C6:
 	eor.w #$FFFF
 	inc a
 CODE_9EA4D5:
-	sta.w $11E3,x
+	sta.w SPAcnt,x
 CODE_9EA4D8:
 	lda.b $AD
 	sta.w $0D97,x
@@ -603,7 +603,7 @@ CODE_9EA4F7:
 	cmp.w #$1001
 	bmi CODE_9EA539
 CODE_9EA511:
-	lda.w #DATA8_9DEA1A
+	lda.w #SPAglide
 	ldy.w $1523,x
 	bne CODE_9EA535
 	cpx.w $0AD9
@@ -615,7 +615,7 @@ CODE_9EA511:
 	lda.w #$0011
 	jsl.l CODE_9C9AD0
 CODE_9EA52F:
-	lda.w #DATA8_9DEC14
+	lda.w #SPAstop
 	sta.w $1543,x
 CODE_9EA535:
 	jsl.l CODE_9EA3F1
@@ -809,7 +809,7 @@ CODE_9EA69D:
 CODE_9EA6BC:
 	lda.w $0D37
 	sta.w $1063,x
-	lda.w #DATA8_9DF68E
+	lda.w #SPAstanley
 	sta.w $14E3,x
 	jsl.l CODE_9EA3F1
 CODE_9EA6CC:
@@ -1041,13 +1041,13 @@ CODE_9EA8A9:
 	jml.l CODE_9ECFDC
 CODE_9EA8B2:
 	lda.w SPA,x
-	cmp.w #DATA8_9DF208
+	cmp.w #SPAsweepchk
 	beq CODE_9EA8ED
-	lda.w #DATA8_9DEA1A
+	lda.w #SPAglide
 	sta.b $A9
 	lda.w $1523,x
 	beq CODE_9EA8C9
-	lda.w #DATA8_9DF0D2
+	lda.w #SPAglideback
 	sta.b $A9
 CODE_9EA8C9:
 	lda.b $A5
@@ -1264,7 +1264,7 @@ CODE_9EAA72:
 CODE_9EAA81:
 	lda.b $A9
 	clc
-	adc.w #DATA8_9DEBE2
+	adc.w #SPAturnr
 	sta.b $A9
 CODE_9EAA89:
 	lda.w $1543,x
@@ -1321,35 +1321,35 @@ CODE_9EAB05:
 	lda.w $1163,x
 	and.w #$0007
 	sta.w $1163,x
-	lda.w #DATA8_9DEA1A
+	lda.w #SPAglide
 	sta.b $A9
 	lda.w $1523,x
 	bne CODE_9EAB1B
 	jmp.w $A3DD
 CODE_9EAB1B:
 	ldy.w #$0001
-	lda.w #DATA8_9DF0D2
+	lda.w #SPAglideback
 	jml.l CODE_9EA3F1
 CODE_9EAB25:
 	ldy.w #$0001
-	lda.w #DATA8_9DF104
+	lda.w #SPAskateback
 	sta.b $A9
 	lda.w $1523,x
 	bne CODE_9EAB57
 	ldy.w #$0000
-	lda.w #DATA8_9DEAFE
+	lda.w #SPAskate
 	sta.b $A9
 	lda.w pflags,x
 	bit.w #$0004
 	beq CODE_9EAB4A
 	ldy.w #$0001
-	lda.w #DATA8_9DF7B2
+	lda.w #SPAstumble
 	sta.b $A9
 CODE_9EAB4A:
 	cpx.w $0AD9
 	bne CODE_9EAB57
 	ldy.w #$0000
-	lda.w #DATA8_9DEA4C
+	lda.w #SPAskatewp
 	sta.b $A9
 CODE_9EAB57:
 	lda.w $1543,x

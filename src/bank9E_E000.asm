@@ -214,10 +214,10 @@ CODE_9EE197:
 	jsl.l vtoa
 	lda.w #$000F
 	sta.w passspeed
-	ldy.w #DATA8_9DED4A
+	ldy.w #SPAshotf
 	jsl.l Findhittype
 	beq CODE_9EE1BD
-	ldy.w #DATA8_9DEE5C
+	ldy.w #SPAshotb
 CODE_9EE1BD:
 	sty.b $A9
 	jml.l SetSPA
@@ -225,7 +225,7 @@ ShotMode:
 	cpx.w $0AD9
 	bne CODE_9EE219
 	lda.w SPA,x
-	cmp.w #DATA8_9DED4A
+	cmp.w #SPAshotf
 	bcc CODE_9EE219
 	cmp.w #DATA8_9DF020+1
 	bcs CODE_9EE219
@@ -279,7 +279,7 @@ CODE_9EE23C:
 	lda.w #$1000
 	tsb.w sflags
 	lda.w SPA,x
-	cmp.w #DATA8_9DEE5C
+	cmp.w #SPAshotb
 	bne CODE_9EE264
 	lda.w #$0001
 	sta.b $01,s
@@ -643,9 +643,9 @@ CODE_9EE57C:
 	lda.w #DATA8_9DEF6E
 CODE_9EE57F:
 	jsl.l CODE_9EA3F1
-	jsl.l CODE_9EA419
+	jsl.l updateanim
 	lda.w #$0002
-	sta.w $11E3,x
+	sta.w SPAcnt,x
 	jsl.l CODE_9EE220
 	rtl
 	rtl
@@ -949,7 +949,7 @@ CODE_9EE7F6:
 	jsl.l CODE_9CA554
 	cmp.w #$0008
 	bcs CODE_9EE891
-	stz.w $11E3,x
+	stz.w SPAcnt,x
 	cmp.w #$000C
 	bcs CODE_9EE891
 	stx.w $0AD9
@@ -1287,13 +1287,13 @@ CODE_9EEAE9:
 	lda.w puckvy
 	sta.b $A9
 	jsl.l vtoa
-	ldy.w #DATA8_9DE34E
+	ldy.w #SPAgswing
 	lda.w position,x
 	beq CODE_9EEB0B
-	ldy.w #DATA8_9DEC66
+	ldy.w #SPApassf
 	jsl.l Findhittype
 	beq CODE_9EEB0B
-	ldy.w #DATA8_9DECD8
+	ldy.w #SPApassb
 CODE_9EEB0B:
 	sty.b $A9
 	jsl.l SetSPA

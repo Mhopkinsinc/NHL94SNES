@@ -368,10 +368,10 @@ CODE_9FD2BC:
 	lda.w position,x
 	bmi CODE_9FD2F3
 	bne CODE_9FD2D4
-	lda.w #DATA8_9DE0FE
+	lda.w #SPAgready
 	bra CODE_9FD2D7
 CODE_9FD2D4:
-	lda.w #DATA8_9DEA1A
+	lda.w #SPAglide
 CODE_9FD2D7:
 	jsl.l CODE_9EA3F1
 	stz.w $0F23,x
@@ -1124,10 +1124,10 @@ CODE_9FD8F3:
 	bmi CODE_9FD907
 	jmp.w $D99D
 CODE_9FD907:
-	lda.w #DATA8_9DEA1A
+	lda.w #SPAglide
 	ldy.w position,x
 	bne CODE_9FD912
-	lda.w #DATA8_9DE0FE
+	lda.w #SPAgready
 CODE_9FD912:
 	jsl.l CODE_9EA3F1
 	lda.w #$0001

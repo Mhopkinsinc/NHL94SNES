@@ -435,3 +435,45 @@ $9F98F1,HandedTextTbl,DATA8_9F98F1,93S,"Right, Left, as 93S HandedTextTbl",src/d
 $9FA816,GoalBoxText,DATA8_9FA816,93S,"GOAL!, HAT TRICK! with position codes, as 93S GoalBoxText",src/data/text/GoalBoxText.asm
 $9DA05D,RosterLineNames,DATA8_9DA05D,93S,"the line names, the same strings as 93S RosterLineNames",src/data/text/RosterLineNames.asm
 $9DE0FC,SPAList,DATA8_9DE0FC,93S,"the sprite animations: a zero word (SPA 0 = no animation), then each animation; SPA holds the address of one; 93S SPAList",src/bank9D_E000.asm
+$9DE0FE,SPAgready,DATA8_9DE0FE,93S,"the goalie ready animation (93S SPAgready): set for goalies where 93S assbench sets it (glide for skaters), loops",src/bank9D_E000.asm
+$9DE1B0,SPAgready2,DATA8_9DE1B0,93S,"93S SPAgready2: the goalie frames held 30, after SPAgready as in 93S and 94G",src/bank9D_E000.asm
+$9DE1E2,SPAgglover,DATA8_9DE1E2,93S,"93S SPAgglover: GoalieSaveList entry 0",src/bank9D_E000.asm
+$9DE214,SPAgglovel,DATA8_9DE214,93S,"93S SPAgglovel: GoalieSaveList entry 1",src/bank9D_E000.asm
+$9DE246,SPAgstickr,DATA8_9DE246,93S,"93S SPAgstickr: GoalieSaveList entry 4",src/bank9D_E000.asm
+$9DE278,SPAgstickl,DATA8_9DE278,93S,"93S SPAgstickl: GoalieSaveList entry 5",src/bank9D_E000.asm
+$9DE2AA,SPAgstackr,DATA8_9DE2AA,93S,"93S SPAgstackr: GoalieSaveList entry 2",src/bank9D_E000.asm
+$9DE2FC,SPAgstackl,DATA8_9DE2FC,93S,"93S SPAgstackl: GoalieSaveList entry 3",src/bank9D_E000.asm
+$9DE34E,SPAgswing,DATA8_9DE34E,93S,"93S SPAgswing: same times as 93S/94G, the goalie's pass animation",src/bank9D_E000.asm
+$9DE3C0,SPAgskate,DATA8_9DE3C0,93S,"93S SPAgskate: chosen against SPAgready as in 93S goalieacc, same times as 94G",src/bank9D_E000.asm
+$9DE4B6,SPAgdive,DATA8_9DE4B6,93S,"93S SPAgdive: tested where 93S puckglue tests it (temp5 = 140 first), same times as 94G",src/bank9D_E000.asm
+$9DE978,SPApflip,DATA8_9DE978,93S,"93S SPApflip: the puck spin, same times as 93S, loops",src/bank9D_E000.asm
+$9DEA1A,SPAglide,DATA8_9DEA1A,93S,"93S SPAglide: same frames and times as 93S",src/bank9D_E000.asm
+$9DEA4C,SPAskatewp,DATA8_9DEA4C,93S,"93S SPAskatewp: same frames and times as 93S",src/bank9D_E000.asm
+$9DEAFE,SPAskate,DATA8_9DEAFE,93S,"93S SPAskate: same frames and times as 93S",src/bank9D_E000.asm
+$9DEBB0,SPAturnl,DATA8_9DEBB0,93S,"93S SPAturnl: same frames as 93S",src/bank9D_E000.asm
+$9DEBE2,SPAturnr,DATA8_9DEBE2,93S,"93S SPAturnr: same frames as 93S",src/bank9D_E000.asm
+$9DEC14,SPAstop,DATA8_9DEC14,93S,"93S SPAstop: same frames and times as 93S",src/bank9D_E000.asm
+$9DEC66,SPApassf,DATA8_9DEC66,93S,"93S SPApassf: same frames and times as 93S",src/bank9D_E000.asm
+$9DECD8,SPApassb,DATA8_9DECD8,93S,"93S SPApassb: same frames and times as 93S",src/bank9D_E000.asm
+$9DED4A,SPAshotf,DATA8_9DED4A,93S,"93S SPAshotf: same frames and times as 93S",src/bank9D_E000.asm
+$9DEE5C,SPAshotb,DATA8_9DEE5C,93S,"93S SPAshotb: same frames and times as 93S",src/bank9D_E000.asm
+$9DF0D2,SPAglideback,DATA8_9DF0D2,93S,"93S SPAglideback: same frames and times as 93S",src/bank9D_F000.asm
+$9DF104,SPAskateback,DATA8_9DF104,93S,"93S SPAskateback: same frames as 93S",src/bank9D_F000.asm
+$9DF208,SPAsweepchk,DATA8_9DF208,93S,"93S SPAsweepchk: set as in 93S Sweepcheck, same times as 93S and 94G",src/bank9D_F000.asm
+$9DF27A,SPAshoulderchkr,DATA8_9DF27A,93S,"93S SPAshoulderchkr: same frames and times as 93S",src/bank9D_F000.asm
+$9DF2DE,SPAhipchkr,DATA8_9DF2DE,93S,"93S SPAhipchkr: same frames and times as 93S",src/bank9D_F000.asm
+$9DF310,SPAshoulderchkl,DATA8_9DF310,93S,"93S SPAshoulderchkl: same frames and times as 93S",src/bank9D_F000.asm
+$9DF342,SPAburst,DATA8_9DF342,93S,"93S SPAburst: same frames and times as 93S",src/bank9D_F000.asm
+$9DF49C,SPAfallfwd,DATA8_9DF49C,93S,"93S SPAfallfwd: in the 93S FallDown order of tests and sets, same times as 93S",src/bank9D_F000.asm
+$9DF54E,SPAfallback,DATA8_9DF54E,93S,"93S SPAfallback: in the 93S FallDown order of tests and sets, same times as 93S",src/bank9D_F000.asm
+$9DF600,SPAfaceoff,DATA8_9DF600,93S,"93S SPAfaceoff: set before SPAfaceoffr as in 93S, same times as 93S",src/bank9D_F000.asm
+$9DF62A,SPAfaceoffr,DATA8_9DF62A,93S,"93S SPAfaceoffr: same frames and times as 93S",src/bank9D_F000.asm
+$9DF68E,SPAstanley,DATA8_9DF68E,93S,"93S SPAstanley: same frames and times as 93S",src/bank9D_F000.asm
+$9DF6C0,SPAflip,DATA8_9DF6C0,93S,"93S SPAflip: in the 93S FallDown order of tests and sets, same times as 93S",src/bank9D_F000.asm
+$9DF7B2,SPAstumble,DATA8_9DF7B2,93S,"93S SPAstumble: in the 93S FallDown order of tests and sets, and in the noturn0 order",src/bank9D_F000.asm
+$9DF90E,SPAinjury1,DATA8_9DF90E,93S,"93S SPAinjury1: in the 93S FallDown order of tests and sets",src/bank9D_F000.asm
+$9DF940,SPAcelebrate,DATA8_9DF940,93S,"93S SPAcelebrate: set where 93S assscore sets it",src/bank9D_F000.asm
+$9DFA12,SPApump,DATA8_9DFA12,93S,"93S SPApump: same frames and times as 93S (no reference found; the scorer gets DATA8_9DFA84)",src/bank9D_F000.asm
+$9EDBF4,GoalieSaveList,DATA8_9EDBF4,93S,"93S GoalieSaveList: the save animation by save type, read as in 93S; entries 6-8 are new in 94",src/bank9E_D000.asm
+$9EA419,updateanim,CODE_9EA419,93S,"93S updateanim: next frame of the animation of object X (SPA, SPAnum, the attribute word, the direction list), reworked for 94",src/bank9E_A000.asm
+$11E3,SPAcnt,,93S,"RAM; the 93S name of the variable at this place in routines that match 93S",src/ram94snes.asm

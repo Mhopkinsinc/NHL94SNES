@@ -3,7 +3,9 @@
 ; buffer, then SPAList: the sprite animations (93S SPAList). SPA (sort object field) holds the address of an animation
 ; in this bank. Each animation: 8 words = the frame list for each direction, 1 word of attributes (bit 0 = the
 ; animation loops), then the frame lists: pairs of (SpriteFrames frame, time in frames), in decimal; a negative time
-; marks the last entry. A direction may point at the next animation instead of a list. They continue in the next file.
+; marks the last entry. A direction may point at the next animation instead of a list. Animations identified as 93S ones
+; (same frames and times, or set where 93S sets them) take the 93S SPA name; the rest keep auto labels. They continue in
+; the next file.
 
 org $9DE002
 	lda.b #$BF
@@ -120,7 +122,7 @@ CODE_9DE0FB:
 	rtl
 SPAList:		; the animations (SPA): SPA 0 is no animation
 	dw 0
-DATA8_9DE0FE:
+SPAgready:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 1
 .d0:	dw 534,180,646,20,534,10,647,20,534,-10
@@ -131,7 +133,7 @@ DATA8_9DE0FE:
 .d5:	dw 549,180,656,20,657,20,549,1,549,-9
 .d6:	dw 552,120,658,20,659,20,658,10,552,-10
 .d7:	dw 555,180,660,20,661,20,555,1,555,-9
-DATA8_9DE1B0:
+SPAgready2:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 534,-30
@@ -142,7 +144,7 @@ DATA8_9DE1B0:
 .d5:	dw 549,-30
 .d6:	dw 552,-30
 .d7:	dw 555,-30
-DATA8_9DE1E2:
+SPAgglover:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 535,-32
@@ -153,7 +155,7 @@ DATA8_9DE1E2:
 .d5:	dw 550,-32
 .d6:	dw 553,-32
 .d7:	dw 556,-32
-DATA8_9DE214:
+SPAgglovel:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 536,-32
@@ -164,7 +166,7 @@ DATA8_9DE214:
 .d5:	dw 551,-32
 .d6:	dw 554,-32
 .d7:	dw 557,-32
-DATA8_9DE246:
+SPAgstickr:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 598,-32
@@ -175,7 +177,7 @@ DATA8_9DE246:
 .d5:	dw 608,-32
 .d6:	dw 610,-32
 .d7:	dw 612,-32
-DATA8_9DE278:
+SPAgstickl:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 599,-32
@@ -186,7 +188,7 @@ DATA8_9DE278:
 .d5:	dw 609,-32
 .d6:	dw 611,-32
 .d7:	dw 613,-32
-DATA8_9DE2AA:
+SPAgstackr:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 574,8,575,-20
@@ -197,7 +199,7 @@ DATA8_9DE2AA:
 .d5:	dw 582,8,583,-20
 .d6:	dw 582,8,583,-20
 .d7:	dw 584,8,585,-20
-DATA8_9DE2FC:
+SPAgstackl:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 586,8,587,-20
@@ -208,7 +210,7 @@ DATA8_9DE2FC:
 .d5:	dw 594,8,595,-20
 .d6:	dw 594,8,595,-20
 .d7:	dw 596,8,597,-20
-DATA8_9DE34E:
+SPAgswing:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 558,5,559,8,558,-16
@@ -219,7 +221,7 @@ DATA8_9DE34E:
 .d5:	dw 568,5,569,8,568,-16
 .d6:	dw 570,5,571,8,570,-16
 .d7:	dw 572,5,573,8,572,-16
-DATA8_9DE3C0:
+SPAgskate:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 1
 .d0:	dw 614,10,615,10,616,10,617,-15
@@ -236,11 +238,11 @@ DATA8_9DE452:
 .d0:	dw 370,8,371,8,372,8,373,-8
 .d3:	dw 373,8,372,8,371,8,370,-8
 DATA8_9DE484:
-	dw .d0,.d0,.d0,.d3,.d3,.d3,.d3,DATA8_9DE4B6
+	dw .d0,.d0,.d0,.d3,.d3,.d3,.d3,SPAgdive
 	dw 0
 .d0:	dw 373,8,372,8,371,8,370,-8
 .d3:	dw 370,8,371,8,372,8,373,-8
-DATA8_9DE4B6:
+SPAgdive:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 662,8,663,48,662,-8
@@ -324,12 +326,12 @@ DATA8_9DE8F4:
 .d1:	dw 361,8,362,8,363,8,364,-8
 .d3:	dw 364,8,363,8,362,8,361,-8
 DATA8_9DE936:
-	dw .d0,.d1,.d1,.d3,.d3,.d3,.d3,DATA8_9DE978
+	dw .d0,.d1,.d1,.d3,.d3,.d3,.d3,SPApflip
 	dw 0
 .d0:	dw 367,8,366,8,365,8,368,-15
 .d1:	dw 364,8,363,8,362,8,361,-8
 .d3:	dw 361,8,362,8,363,8,364,-8
-DATA8_9DE978:
+SPApflip:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 1
 .d0:	dw 398,4,399,4,400,4,401,4,402,4,399,4,403,4,397,-4
@@ -340,7 +342,7 @@ DATA8_9DE978:
 .d5:	dw 397,-4096
 .d6:	dw 401,-4096
 .d7:	dw 401,-4096
-DATA8_9DEA1A:
+SPAglide:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 1,-8
@@ -351,7 +353,7 @@ DATA8_9DEA1A:
 .d5:	dw 26,-8
 .d6:	dw 31,-8
 .d7:	dw 36,-8
-DATA8_9DEA4C:
+SPAskatewp:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 2,10,3,10,4,10,5,10,1,-15
@@ -362,7 +364,7 @@ DATA8_9DEA4C:
 .d5:	dw 27,10,28,10,29,10,30,10,26,-15
 .d6:	dw 32,10,33,10,34,10,35,10,31,-15
 .d7:	dw 37,10,38,10,39,10,40,10,36,-15
-DATA8_9DEAFE:
+SPAskate:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 42,10,43,10,44,10,45,10,41,-15
@@ -373,7 +375,7 @@ DATA8_9DEAFE:
 .d5:	dw 67,10,68,10,69,10,70,10,66,-15
 .d6:	dw 72,10,73,10,74,10,75,10,71,-15
 .d7:	dw 77,10,78,10,79,10,80,10,76,-15
-DATA8_9DEBB0:
+SPAturnl:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 81,-12
@@ -384,7 +386,7 @@ DATA8_9DEBB0:
 .d5:	dw 86,-12
 .d6:	dw 87,-12
 .d7:	dw 88,-12
-DATA8_9DEBE2:
+SPAturnr:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 89,-12
@@ -395,7 +397,7 @@ DATA8_9DEBE2:
 .d5:	dw 94,-12
 .d6:	dw 95,-12
 .d7:	dw 96,-12
-DATA8_9DEC14:
+SPAstop:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 1
 .d0:	dw 145,4,146,-4
@@ -406,7 +408,7 @@ DATA8_9DEC14:
 .d5:	dw 155,4,156,-4
 .d6:	dw 157,4,158,-4
 .d7:	dw 159,4,160,-4
-DATA8_9DEC66:
+SPApassf:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 100,4,101,4,102,-20
@@ -417,7 +419,7 @@ DATA8_9DEC66:
 .d5:	dw 130,4,131,4,132,-20
 .d6:	dw 136,4,137,4,138,-20
 .d7:	dw 142,4,143,4,144,-20
-DATA8_9DECD8:
+SPApassb:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 100,4,99,4,98,-20
@@ -428,7 +430,7 @@ DATA8_9DECD8:
 .d5:	dw 130,4,129,4,128,-20
 .d6:	dw 136,4,135,4,134,-20
 .d7:	dw 142,4,141,4,140,-20
-DATA8_9DED4A:
+SPAshotf:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 100,4,99,4,98,4,97,4,99,0,100,0,101,0,102,-20
@@ -439,7 +441,7 @@ DATA8_9DED4A:
 .d5:	dw 130,4,129,4,128,4,127,4,129,0,130,0,131,0,132,-20
 .d6:	dw 136,4,135,4,134,4,133,4,135,0,136,0,137,0,138,-20
 .d7:	dw 142,4,141,4,140,4,139,4,141,0,142,0,143,0,144,-20
-DATA8_9DEE5C:
+SPAshotb:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 100,4,101,4,102,4,102,4,101,0,100,0,99,0,98,-20

@@ -1,4 +1,4 @@
-; Bank $9E, sixth 4 KB: more game code with auto labels for now. DATA8_9EDBF4 holds animations in SPAList;
+; Bank $9E, sixth 4 KB: more game code with auto labels for now. GoalieSaveList holds the goalie save animations;
 ; DATA8_9EDC94 is a list of small signed steps.
 
 org $9ED002
@@ -23,16 +23,16 @@ CODE_9ED022:
 	ldy.w $19D4,x
 	bmi CODE_9ED039
 	lda.w SPA,x
-	cmp.w #DATA8_9DE4B6
+	cmp.w #SPAgdive
 	bcc CODE_9ED039
-	cmp.w #DATA8_9DF90E
+	cmp.w #SPAinjury1
 	bcc CODE_9ED04D
 CODE_9ED039:
 	lda.b $A5
 	cmp.w $1163,x
 	beq CODE_9ED07A
 	sta.b $AD
-	lda.w #DATA8_9DE0FE
+	lda.w #SPAgready
 	jsl.l CODE_9EA3F1
 	jml.l CODE_9EA719
 CODE_9ED04D:
@@ -70,10 +70,10 @@ CODE_9ED08B:
 	lda.w $0B05,x
 	bit.w #$0002
 	bne CODE_9ED098
-	lda.w #DATA8_9DE0FE
+	lda.w #SPAgready
 	bra CODE_9ED09B
 CODE_9ED098:
-	lda.w #DATA8_9DE3C0
+	lda.w #SPAgskate
 CODE_9ED09B:
 	jsl.l CODE_9EA3F1
 	lda.w $1163,x
@@ -524,7 +524,7 @@ CODE_9ED44E:
 CODE_9ED46A:
 	lda.w $1543,x
 	bne CODE_9ED476
-	lda.w #DATA8_9DE0FE
+	lda.w #SPAgready
 	jsl.l CODE_9EA3F1
 CODE_9ED476:
 	lda.w $15D6
@@ -759,7 +759,7 @@ CODE_9ED676:
 	lda.b $A5
 CODE_9ED67C:
 	sta.w $1163,x
-	ldy.w #DATA8_9DE4B6
+	ldy.w #SPAgdive
 	tya
 	jsl.l CODE_9EA3F1
 	lda.w #$0168
@@ -1194,7 +1194,7 @@ CODE_9EDA04:
 	asl.b $A5
 	lda.w #$009E
 	sta.b $8F
-	lda.w #DATA8_9EDBF4
+	lda.w #GoalieSaveList
 	sta.b $8D
 	ldy.b $A5
 	lda.b [$8D],y
@@ -1235,7 +1235,7 @@ CODE_9EDA59:
 	cmp.w pfteam,y
 	beq CODE_9EDAA4
 	lda.w SPA,y
-	cmp.w #DATA8_9DED4A
+	cmp.w #SPAshotf
 	bcc CODE_9EDAA1
 	cmp.w #DATA8_9DF020+1
 	bcs CODE_9EDAA1
@@ -1432,9 +1432,9 @@ CODE_9EDBEC:
 	sta.b $A9
 CODE_9EDBF3:
 	rtl
-DATA8_9EDBF4:		; animations in SPAList, read by index and passed to CODE_9EA3F1
-	dw DATA8_9DE1E2&$FFFF,DATA8_9DE214&$FFFF,DATA8_9DE2AA&$FFFF,DATA8_9DE2FC&$FFFF
-	dw DATA8_9DE246&$FFFF,DATA8_9DE278&$FFFF,DATA8_9DE862&$FFFF,DATA8_9DE7D0&$FFFF
+GoalieSaveList:		; the save animation for each save type (93S GoalieSaveList); the last three are new in 94
+	dw SPAgglover&$FFFF,SPAgglovel&$FFFF,SPAgstackr&$FFFF,SPAgstackl&$FFFF
+	dw SPAgstickr&$FFFF,SPAgstickl&$FFFF,DATA8_9DE862&$FFFF,DATA8_9DE7D0&$FFFF
 	dw DATA8_9DE73E&$FFFF
 CODE_9EDC06:
 	lda.w $1163,x
@@ -1728,7 +1728,7 @@ CODE_9EDE5E:
 	sta.w $11FF
 	phx
 	ldx.w #$001C
-	lda.w #DATA8_9DE978
+	lda.w #SPApflip
 	jsl.l CODE_9EA3F1
 	plx
 	rtl

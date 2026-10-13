@@ -2030,7 +2030,7 @@ CODE_9ECFD1:
 	dec.b $A5
 	bra CODE_9ECFCA
 CODE_9ECFDC:
-	lda.w #DATA8_9DE0FE
+	lda.w #SPAgready
 	sta.b $A9
 	lda.b $A5
 	and.w #$000F

@@ -161,7 +161,7 @@ CODE_9EB13F:
 	sbc.b $C1
 	sta.w $1003,x
 	bpl CODE_9EB185
-	lda.w #DATA8_9DF940
+	lda.w #SPAcelebrate
 	sta.b $A9
 	sta.w $14E3,x
 	cpx.w $0D29
@@ -1648,7 +1648,7 @@ CODE_9EBD7B:
 	lda.w #$003C
 	sta.w $1203,x
 CODE_9EBD87:
-	lda.w #DATA8_9DEA1A
+	lda.w #SPAglide
 	sta.w $1563,x
 	jsl.l CODE_9EA3F1
 	lda.w #$0006

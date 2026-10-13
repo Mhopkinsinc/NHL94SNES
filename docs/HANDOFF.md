@@ -103,11 +103,13 @@
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Sprite animations: SPAList (bank9D_E000/F000, 93S name) holds 71 animations, each labelled DATA8_ by address with its
-  direction lists .d0-.d7; SPA holds the address of one, and the code that sets or tests SPA uses the labels. The
-  animations have no names yet (their frame numbers differ from 93S, so matching them to the 93S SPA names needs the
-  frames compared). CODE_9EA419 has the shape of 93S updateanim and CODE_9EA3F1 of SetSPA with the animation in A;
-  with them $11E3 would be SPAcnt and $1163 facedir: candidates for the next 93S pass.
+- Sprite animations: SPAList (bank9D_E000/F000, 93S name) holds the animations with their direction lists .d0-.d7; SPA
+  holds the address of one, and the code that sets or tests SPA uses the labels. Those identified take their 93S SPA
+  names (the player animations keep the 93S frame numbers below 354, so same frames and times; goalie and fall
+  animations from the code that sets them, e.g. the FallDown and noturn0 orders, GoalieSaveList). The rest are new in 94
+  or not certain (DATA8_9DFA84 is what the scorer gets where 93S uses SPApump; GoalieSaveList entries 6-8). updateanim
+  is the 93S routine reworked for 94; CODE_9EA3F1 is SetSPA with the animation in A. $14E3/$1543 align as pfalock/pf2aip
+  in updateanim but the other way round in the 93S Sweepcheck counterpart (CODE_9EA242), so they stay raw.
 - Next: naming passes. Code banks $9B to $9F (and parts of $80) still use auto labels (CODE_/DATA8_) for most routines
   and tables; match them to NHLPA93SNES / NHL94Genesis names, name RAM variables, and turn the remaining numeric
   pointers (word pointer tables) into labels.

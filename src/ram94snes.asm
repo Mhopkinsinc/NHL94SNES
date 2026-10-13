@@ -41,6 +41,7 @@ puckvy = $0EFF		; puck y speed
 position = $0F43	; player's position (0=goalie,1=l.def,2=r.def,3=l.wing,4=center,5=r.wing; negative = none)
 SPA = $11A3		; current animation (offset into the animation data)
 SPAnum = $11C3		; index into animation (4 per frame)
+SPAcnt = $11E3		; count down to the next animation frame (-1 = restart)
 newpos = $1243		; requested next position (negative = none)
 newpnum = $1263		; requested next roster player (negative = none)
 pflags = $1283		; pflags (bits 0-7) and pflags2 (bit n at bit n+10); some flags have their own arrays below

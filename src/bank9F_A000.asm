@@ -1307,13 +1307,13 @@ CODE_9FAB51:
 	stz.w SPA,x
 	lda.w position,x
 	bne CODE_9FAB97
-	lda.w #DATA8_9DE0FE
+	lda.w #SPAgready
 	bra CODE_9FAB9A
 CODE_9FAB97:
-	lda.w #DATA8_9DEA1A
+	lda.w #SPAglide
 CODE_9FAB9A:
 	jsl.l CODE_9EA3F1
-	jsl.l CODE_9EA419
+	jsl.l updateanim
 CODE_9FABA2:
 	inc.b $95
 	inc.b $95
