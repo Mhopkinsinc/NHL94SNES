@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank88_F000. <- CURRENT
+bank89_8000. <- CURRENT
 
 ## Sources
 
@@ -168,8 +168,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank88_C000 | matched 3988 bytes | $88C09C | $88D02F | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $88C09C, end moved +$30 (frame boundary) |
 | bank88_D000 | matched 4389 bytes | $88D030 | $88E154 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $88D030, end moved +$155 (frame boundary) |
 | bank88_E000 | matched 3905 bytes | $88E155 | $88F095 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $88E155, end moved +$96 (frame boundary) |
-| bank88_F000 | incbin <- CURRENT | $88F096 | $88FFFF | 0% | org moved to $88F096 |
-| bank89_8000 | incbin | $898000 | $898FFF | 0% | |
+| bank88_F000 | matched 3946 bytes | $88F096 | $88FFFF | 0% | last SpriteFrames frames of bank $88; CenterIceMapNHL (all-star centre ice logo map); org moved to $88F096 |
+| bank89_8000 | incbin <- CURRENT | $898000 | $898FFF | 0% | |
 | bank89_9000 | incbin | $899000 | $899FFF | 0% | |
 | bank89_A000 | incbin | $89A000 | $89AFFF | 0% | |
 | bank89_B000 | incbin | $89B000 | $89BFFF | 0% | |
@@ -428,3 +428,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank88_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 88C09C 88D000`. bank88_D000 org moved to $88D030 (frame boundary).
 - bank88_D000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 88D030 88E000`. bank88_E000 org moved to $88E155 (frame boundary).
 - bank88_E000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 88E155 88F000`. bank88_F000 org moved to $88F096 (frame boundary).
+- bank88_F000: source, MATCH. The last SpriteFrames frames of bank $88 (tools/spriteframes.py frames 88F096 890000), then CenterIceMapNHL ($88FFC6): the centre ice logo map that teams 26 and 27 (the all-star teams) of the table at $9C83B7 use with the tiles at $9AD4B6; rendered, the NHL shield. Written as words (6 x 4 map). Bank $88 is now all source.
