@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9E_A000. <- CURRENT
+bank9E_B000. <- CURRENT
 
 ## Sources
 
@@ -339,8 +339,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9D_F000 | matched 4096 bytes | $9DF000 | $9DFFFF | 0% | animation sequences (DATA8_9DE0FC continued) as dw; $FF fill (padbyte/pad) |
 | bank9E_8000 | matched 4096 bytes | $9E8000 | $9E8FFF | 96% | game code with auto labels; DATA8_9E8553 / DATA8_9E8BB7 word tables |
 | bank9E_9000 | matched 4097 bytes | $9E9000 | $9EA000 | 97% | game code with auto labels; DATA8_9E9927 (index * 2 / 3); end moved +$1 |
-| bank9E_A000 | incbin <- CURRENT | $9EA001 | $9EAFFF | 89% | org moved to $9EA001 |
-| bank9E_B000 | incbin | $9EB000 | $9EBFFF | 91% | |
+| bank9E_A000 | matched 4095 bytes | $9EA001 | $9EAFFF | 89% | game code with auto labels; jump tables DATA8_9EAD34 / DATA8_9EAF1A; direction steps DATA8_9EA889 / DATA8_9EAAA3; org moved to $9EA001 |
+| bank9E_B000 | incbin <- CURRENT | $9EB000 | $9EBFFF | 91% | |
 | bank9E_C000 | incbin | $9EC000 | $9ECFFF | 95% | |
 | bank9E_D000 | incbin | $9ED000 | $9EDFFF | 79% | |
 | bank9E_E000 | incbin | $9EE000 | $9EEFFF | 90% | |
@@ -599,3 +599,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9D_F000: source, MATCH. The rest of the sprite animation sequences (DATA8_9DE0FC, see bank9D_E000) as dw, then $FF fill written with padbyte/pad. Bank $9D is now all source.
 - bank9E_8000: source, MATCH. Game code for the objects on the ice with auto labels; DATA8_9E8553 and DATA8_9E8BB7 (word tables read through [$89]) as dw. Unreached code (single rtl bytes after jumps, a jmp) decoded with `tools/disasm65816.py --entry`.
 - bank9E_9000: source, MATCH. Game code with auto labels; DATA8_9E9927 (index * 2 / 3, rounded) as dw. The last instruction ends at $9EA000, so bank9E_A000 starts at $9EA001.
+- bank9E_A000: source, MATCH. Game code with auto labels: CODE_9EA5A4 (where several routines jump with a pointer in $89), two jump tables DATA8_9EAD34 / DATA8_9EAF1A written as dw of their targets (decoded with --entry), the direction step tables DATA8_9EA889 / DATA8_9EAAA3, and DATA8_9EA154 (word pointers, still numbers). Org $9EA001 (set by bank9E_9000).
