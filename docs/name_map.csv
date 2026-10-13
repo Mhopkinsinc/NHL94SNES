@@ -298,3 +298,4 @@ $9CE17E,Vancouver,DATA8_9CE17E,94G,"team 23 record: header offsets, .sr, .sodds,
 $9CE6AD,Washington,DATA8_9CE6AD,94G,"team 24 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
 $9CE405,Winnipeg,DATA8_9CE405,94G,"team 25 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_E000.asm
 $9CED59,playoffseats,DATA8_9CED59,94G,"playoff tree seedings: 32 rows of 16 team numbers; 94G playoffseats (the same rows)",src/bank9C_E000.asm
+$9DCD53,PlayerPhotoTable,DATA8_9DCD53,code,"long pointer to each packed player photo, 26 per team in TeamList order; read at $9DC9DD and $9DCC65 as (team * 26 + slot) * 4",src/bank9D_C000.asm

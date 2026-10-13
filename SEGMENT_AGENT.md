@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank9D_C000. <- CURRENT
+bank9D_D000. <- CURRENT
 
 ## Sources
 
@@ -333,8 +333,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank9D_9000 | matched 4096 bytes | $9D9000 | $9D9FFF | 85% | screen code with auto labels (Team Roster); tables DATA8_9D93AD, DATA8_9D94FE, DATA8_9D977D, DATA8_9D9A28, DATA8_9D9B7B, DATA8_9D9CC2 |
 | bank9D_A000 | matched 4096 bytes | $9DA000 | $9DAFFF | 81% | screen code with auto labels; line names DATA8_9DA05D; Game Setup option texts DATA8_9DACED, setting names DATA8_9DADFD; word tables |
 | bank9D_B000 | matched 4098 bytes | $9DB000 | $9DC001 | 95% | screen code with auto labels; reads CenterIceTable (written CenterIceTable+n); DATA8_9DB774 / DATA8_9DB78A; end moved +$2 |
-| bank9D_C000 | incbin <- CURRENT | $9DC002 | $9DCFFF | 74% | org moved to $9DC002 |
-| bank9D_D000 | incbin | $9DD000 | $9DDFFF | 42% | |
+| bank9D_C000 | matched 4097 bytes | $9DC002 | $9DD002 | 74% | screen code with auto labels (player card); DATA8_9DC29E/DATA8_9DC436 text records; PlayerPhotoTable (start); org moved to $9DC002; end moved +$3 |
+| bank9D_D000 | incbin <- CURRENT | $9DD003 | $9DDFFF | 42% | org moved to $9DD003 |
 | bank9D_E000 | incbin | $9DE000 | $9DEFFF | 5% | |
 | bank9D_F000 | incbin | $9DF000 | $9DFFFF | 0% | |
 | bank9E_8000 | incbin | $9E8000 | $9E8FFF | 96% | |
@@ -593,3 +593,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank9D_9000: source, MATCH. Screen code with auto labels: the Team Roster screen and the code around it; its tables DATA8_9D93AD, DATA8_9D94FE, DATA8_9D977D, DATA8_9D9A28, DATA8_9D9B7B, DATA8_9D9CC2 as db/dw (reads at an offset written as label+n). Unreached branches decoded with `tools/disasm65816.py --entry`.
 - bank9D_A000: source, MATCH. Screen code with auto labels: the line editor (line names DATA8_9DA05D as text records), menu code, and the Game Setup screen: DATA8_9DACED / DATA8_9DADFD / DATA8_9DAE40 (option texts and setting names as text records), DATA8_9DAC7F, DATA8_9DACD1, DATA8_9DACDF (word tables), DATA8_9DA570 / DATA8_9DA580 (word tables). Unreached code decoded with `tools/disasm65816.py --entry`.
 - bank9D_B000: source, MATCH. Screen code with auto labels: screen setups that unpack tiles, maps and colours from banks $96 and $9A, code that reads CenterIceTable (reads at an offset written CenterIceTable+n), and the word tables DATA8_9DB774 / DATA8_9DB78A. The last instruction ends at $9DC001, so bank9D_C000 starts at $9DC002.
+- bank9D_C000: source, MATCH. Screen code with auto labels: the player card (DATA8_9DC29E position groups and DATA8_9DC436 full rating names as text records, small tables DATA8_9DC298, DATA8_9DC9A2, DATA8_9DCCAE), then PlayerPhotoTable (named): the long pointers to the packed player photos, 26 per team, written as dd of the photo labels. Org $9DC002 (set by bank9D_B000); the last entry here ends at $9DD002, so bank9D_D000 starts at $9DD003.
