@@ -273,3 +273,9 @@ $9CABAC,Boston,DATA8_9CABAC,94G,"team 1 record: header offsets, .sr, .sodds, .ls
 $9CAE32,Buffalo,DATA8_9CAE32,94G,"team 2 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
 $9CA657,AllStarsEast,DATA8_9CA657,94G,"team 26 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
 $9CA904,AllStarsWest,DATA8_9CA904,94G,"team 27 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_A000.asm
+$9CB0C1,Calgary,DATA8_9CB0C1,94G,"team 3 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
+$9CB340,Chicago,DATA8_9CB340,94G,"team 4 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
+$9CB5D7,Detroit,DATA8_9CB5D7,94G,"team 6 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
+$9CB89D,Edmonton,DATA8_9CB89D,94G,"team 7 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
+$9CBB1D,Hartford,DATA8_9CBB1D,94G,"team 9 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm
+$9CBDB2,LosAngeles,DATA8_9CBDB2,94G,"team 10 record: header offsets, .sr, .sodds, .ls, .pld players, city/abbreviation/nickname/arena; 94G team label",src/bank9C_B000.asm

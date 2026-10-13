@@ -620,14 +620,14 @@ TeamList:		; a long pointer to each team record (team number = index)
 	dd $9CEB4F		; 0
 	dd Boston		; 1
 	dd Buffalo		; 2
-	dd $9CB0C1		; 3
-	dd $9CB340		; 4
+	dd Calgary		; 3
+	dd Chicago		; 4
 	dd $9CC04F		; 5
-	dd $9CB5D7		; 6
-	dd $9CB89D		; 7
+	dd Detroit		; 6
+	dd Edmonton		; 7
 	dd $9CE94D		; 8
-	dd $9CBB1D		; 9
-	dd $9CBDB2		; 10
+	dd Hartford		; 9
+	dd LosAngeles		; 10
 	dd $9CC2DB		; 11
 	dd $9CC57E		; 12
 	dd $9CC82B		; 13
@@ -795,7 +795,7 @@ Boston:
 .ar:		; arena
 	%String("Boston Garden")
 Buffalo:
-.0:	dw .pld-.0,.sr-.0,$0264,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
+.0:	dw .pld-.0,.sr-.0,.tn-.0,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
 .sr:		; the scouting report
 	db $64,$10,$21,$D8,$49
 .sodds:
