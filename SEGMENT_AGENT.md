@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank88_E000. <- CURRENT
+bank88_F000. <- CURRENT
 
 ## Sources
 
@@ -167,8 +167,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank88_B000 | matched 4067 bytes | $88B0B9 | $88C09B | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $88B0B9, end moved +$9C (frame boundary) |
 | bank88_C000 | matched 3988 bytes | $88C09C | $88D02F | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $88C09C, end moved +$30 (frame boundary) |
 | bank88_D000 | matched 4389 bytes | $88D030 | $88E154 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $88D030, end moved +$155 (frame boundary) |
-| bank88_E000 | incbin <- CURRENT | $88E155 | $88EFFF | 0% | org moved to $88E155 |
-| bank88_F000 | incbin | $88F000 | $88FFFF | 0% | |
+| bank88_E000 | matched 3905 bytes | $88E155 | $88F095 | 0% | SpriteFrames frames (tools/spriteframes.py); org moved to $88E155, end moved +$96 (frame boundary) |
+| bank88_F000 | incbin <- CURRENT | $88F096 | $88FFFF | 0% | org moved to $88F096 |
 | bank89_8000 | incbin | $898000 | $898FFF | 0% | |
 | bank89_9000 | incbin | $899000 | $899FFF | 0% | |
 | bank89_A000 | incbin | $89A000 | $89AFFF | 0% | |
@@ -427,3 +427,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank88_B000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 88B0B9 88C000`. bank88_C000 org moved to $88C09C (frame boundary).
 - bank88_C000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 88C09C 88D000`. bank88_D000 org moved to $88D030 (frame boundary).
 - bank88_D000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 88D030 88E000`. bank88_E000 org moved to $88E155 (frame boundary).
+- bank88_E000: source, MATCH. SpriteFrames continued, written by `tools/spriteframes.py frames 88E155 88F000`. bank88_F000 org moved to $88F096 (frame boundary).
