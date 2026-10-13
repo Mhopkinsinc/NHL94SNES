@@ -622,18 +622,18 @@ TeamList:		; a long pointer to each team record (team number = index)
 	dd Buffalo		; 2
 	dd Calgary		; 3
 	dd Chicago		; 4
-	dd $9CC04F		; 5
+	dd Dallas		; 5
 	dd Detroit		; 6
 	dd Edmonton		; 7
 	dd $9CE94D		; 8
 	dd Hartford		; 9
 	dd LosAngeles		; 10
-	dd $9CC2DB		; 11
-	dd $9CC57E		; 12
-	dd $9CC82B		; 13
-	dd $9CCA9C		; 14
-	dd $9CCD06		; 15
-	dd $9CCFAC		; 16
+	dd Montreal		; 11
+	dd NewJersey		; 12
+	dd NYIslanders		; 13
+	dd NYRangers		; 14
+	dd Ottawa		; 15
+	dd Philadelphia		; 16
 	dd $9CD237		; 17
 	dd $9CD4D2		; 18
 	dd $9CD760		; 19

@@ -261,7 +261,7 @@ Hartford:
 .ar:		; arena
 	%String("Hartford Civic Center")
 LosAngeles:
-.0:	dw .pld-.0,.sr-.0,$0270,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
+.0:	dw .pld-.0,.sr-.0,.tn-.0,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
 .sr:		; the scouting report
 	db $66,$12,$11,$C9,$4A
 .sodds:
