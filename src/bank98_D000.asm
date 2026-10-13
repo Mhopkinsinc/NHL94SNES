@@ -37,7 +37,7 @@ DATA8_98DD01:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 	incbin "../Extracted/data/DATA8_98DD01.lin.huf":5..581
 DATA8_98DF46:		; a song (see bank81_F000): header, track offsets ($0000 ends them), padding, then the tracks
 	db $01,$78,$01,$00,$00,$00,$02,$00
-	dw .left-DATA8_98DF46,$013E,$0000
+	dw .left-DATA8_98DF46,.right-DATA8_98DF46,$0000
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
 	db $01,$0E,"TRAK"

@@ -188,6 +188,13 @@ ASSETS = [
     ('DATA8_98D876.lin.huf', 0x98D876, 0x98DABC),
     ('DATA8_98DABC.lin.huf', 0x98DABC, 0x98DD01),
     ('DATA8_98DD01.lin.huf', 0x98DD01, 0x98DF46),
+    ('DATA8_98E18A.lin.huf', 0x98E18A, 0x98E3CD),
+    ('DATA8_98E3CD.lin.huf', 0x98E3CD, 0x98E610),
+    ('DATA8_98E610.lin.huf', 0x98E610, 0x98E853),
+    ('DATA8_98E853.lin.huf', 0x98E853, 0x98EA95),
+    ('DATA8_98EA95.lin.huf', 0x98EA95, 0x98ECD6),
+    ('DATA8_98ECD6.lin.huf', 0x98ECD6, 0x98EF17),
+    ('DATA8_98EF17.lin.huf', 0x98EF17, 0x98F158),
 ]
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
 files = []
