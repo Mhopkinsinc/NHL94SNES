@@ -3,7 +3,7 @@
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $86, and bank87_8000 to bank87_D000, are source (MATCH); the rest are incbin.
+- Banks $80 to $86, and bank87_8000 to bank87_E000, are source (MATCH); the rest are incbin.
 - Data assets: `tools/extract.py` has an `ASSETS` list (name, first address, end exclusive) and cuts each block into
   `Extracted/data/` at prebuild; the source includes them by name (see SEGMENT_AGENT.md, Segment rules).
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -75,7 +75,7 @@
   entries that are unpacked and converted with $9B85C2 (likely player photos; not checked yet). After the 28 rows,
   entries point at 16-word tables: $9AF47C, $85FFDF (DATA8_85FFDF), $9AEA5C, ... at $20 steps, which share their first
   words (palettes?); no reader of these found yet.
-- Next: segment bank87_E000, from $87E078 (`tools/spriteframes.py frames 87E078 87F000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
+- Next: segment bank87_F000, from $87F18A (`tools/spriteframes.py frames 87F18A 888000`; see `SEGMENT_AGENT.md`, `PROMPT.md`).
 
 ## Setup notes
 
