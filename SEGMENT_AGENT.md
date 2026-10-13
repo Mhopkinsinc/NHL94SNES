@@ -30,7 +30,7 @@ Work in small steps: every change is built and checked byte for byte against the
 
 ## Current segment
 
-bank90_D000. <- CURRENT
+bank90_E000. <- CURRENT
 
 ## Sources
 
@@ -230,8 +230,8 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 | bank90_A000 | matched 4096 bytes | $90A000 | $90AFFF | 0% | end of DATA8_908000; start of DATA8_90A120 (sound CPU upload block, asset DATA8_90A120.spc) |
 | bank90_B000 | matched 4096 bytes | $90B000 | $90BFFF | 0% | DATA8_90A120 continued (asset DATA8_90A120.spc) |
 | bank90_C000 | matched 4096 bytes | $90C000 | $90CFFF | 0% | end of DATA8_90A120; start of DATA8_90C20C (a 14-track song) |
-| bank90_D000 | incbin <- CURRENT | $90D000 | $90DFFF | 0% | |
-| bank90_E000 | incbin | $90E000 | $90EFFF | 0% | |
+| bank90_D000 | matched 4096 bytes | $90D000 | $90DFFF | 0% | DATA8_90C20C continued (song) |
+| bank90_E000 | incbin <- CURRENT | $90E000 | $90EFFF | 0% | |
 | bank90_F000 | incbin | $90F000 | $90FFFF | 0% | |
 | bank91_8000 | incbin | $918000 | $918FFF | 0% | |
 | bank91_9000 | incbin | $919000 | $919FFF | 0% | |
@@ -490,3 +490,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - bank90_A000: source, MATCH. The end of DATA8_908000, then the start of DATA8_90A120 ($90A120-$90C20B): a block for SPCUploadBlock ($20E8 bytes), entry 3 of the long pointer list near $9C9A5B. New asset DATA8_90A120.spc.
 - bank90_B000: source, MATCH. DATA8_90A120 continued, an incbin of Extracted/data/DATA8_90A120.spc:3808..7904.
 - bank90_C000: source, MATCH. The end of DATA8_90A120, then the start of DATA8_90C20C ($90C20C-$90E08B): a song with 14 named tracks that MusicStart plays from $9BB0B6, $9F82FB, $9F8CFD and $9F9125, laid out as the other songs. Offsets of tracks not yet in source are numbers until bank90_E000.
+- bank90_D000: source, MATCH. The song DATA8_90C20C continued.
