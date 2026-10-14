@@ -11,6 +11,6 @@ puckflip:
 	phx
 	ldx.w #$001C
 	lda.w #$E978
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	plx
 	rtl

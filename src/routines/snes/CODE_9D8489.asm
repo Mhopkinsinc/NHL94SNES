@@ -244,7 +244,7 @@ CODE_9D86AA:
 	sta.b d0
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9D875A
+	lda.w #LineSlotNames
 	sta.b a1
 	jsl.l AdvanceStringPtr
 	jsl.l print

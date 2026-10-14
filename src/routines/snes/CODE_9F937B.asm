@@ -51,7 +51,7 @@ CODE_9F937B:
 	lda.w #$0007
 	sta.b d1
 	jsl.l CODE_9D8000
-	jsl.l CODE_9F9B36
+	jsl.l printscores1
 	jsl.l CODE_9FE11D
 	bne .loop
 	lda.w #$0000
@@ -86,7 +86,7 @@ CODE_9F937B:
 .1:
 	lda.w #$0001
 	trb.w sflags
-	jsl.l CODE_9F9B36
+	jsl.l printscores1
 	ldx.w #$0000
 	ldy.w #$01C0
 	lda.w #$6000

@@ -17,7 +17,7 @@ GameOver:
 	lda.l PassWord
 	and.w #$7F7F
 	sta.l PassWord
-	jsl.l CODE_9BCD28
+	jsl.l DecodePW
 	jsl.l maketree
 	lda.w #$0004
 	trb.w sflags3

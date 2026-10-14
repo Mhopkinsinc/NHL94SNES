@@ -17,7 +17,7 @@ CODE_9FC4A1:
 	inc.b a2
 	inc.b a2
 .1:
-	jsl.l CODE_9FC4D0
+	jsl.l PlayerShortName
 	pla
 	sta.b $93
 	pla

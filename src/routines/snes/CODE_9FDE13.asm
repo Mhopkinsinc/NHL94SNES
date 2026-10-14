@@ -15,7 +15,7 @@ CODE_9FDE13:
 	bne .2
 	jsl.l eraser
 .2:
-	jml.l CODE_9F9B36
+	jml.l printscores1
 
 .t1:
 	stx.b xsave

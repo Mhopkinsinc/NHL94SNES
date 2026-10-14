@@ -1,4 +1,5 @@
-DATA8_9DADFD:		; Game Setup setting names
+; Game Setup setting names
+GameSetupNames:		; Game Setup setting names
 	%String("Play Mode")
 	%String("Home")
 	%String("Visitor")
@@ -6,7 +7,7 @@ DATA8_9DADFD:		; Game Setup setting names
 	%String("Penalties")
 	%String("Line Changes")
 	%String("Goalie")
-DATA8_9DAE40:
+PlayoffSetupNames:
 	%String("Play Mode")
 	%String("Team")
 	%String("N/A")

@@ -16,7 +16,7 @@ CODE_9EA69D:
 	sta.w $1063,x
 	lda.w #$F68E
 	sta.w pfalock,x
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 .2:
 	lda.w $1043,x
 	sec

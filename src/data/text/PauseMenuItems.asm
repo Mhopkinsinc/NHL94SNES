@@ -1,4 +1,5 @@
-DATA8_9FEC96:		; the menu item names, as DATA8_9FEC30
+; Pause menu item names
+PauseMenuItems:
 	%String("Resume Game")
 	%String("Instant Replay")
 	%String("Game Stats")

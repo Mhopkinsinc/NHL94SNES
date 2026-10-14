@@ -61,7 +61,7 @@ CODE_9EDA04:
 	ldy.b d0
 	lda.b [a1],y
 	sta.w pfalock,x
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	lda.l $7E35E0
 	clc
 	adc.w #$0096

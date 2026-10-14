@@ -51,7 +51,7 @@ org $9ED002
 	beq CODE_9ED07A
 	sta.b d2
 	lda.w #$E0FE
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	jml.l CODE_9EA719
 
 .t3:
@@ -96,7 +96,7 @@ CODE_9ED07A:
 .t1:
 	lda.w #$E3C0
 CODE_9ED09B:
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	lda.w facedir,x
 	sta.b d2
 	jml.l CODE_9EA719

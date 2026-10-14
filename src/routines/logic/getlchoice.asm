@@ -156,7 +156,7 @@ getlchoice:
 	bne .1x2x
 	lda.w #$E0FE
 .1x2x:
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	lda.w #$0001
 	sta.w $1563,x
 	lda.w facedir,x
@@ -188,7 +188,7 @@ getlchoice:
 	bne .4
 	lda.w #$E484
 .4:
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	lda.w #$0064
 	sta.w $1003,x
 	sta.w pfalock,x

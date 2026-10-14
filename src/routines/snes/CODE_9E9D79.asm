@@ -53,7 +53,7 @@ CODE_9E9D79:
 	jsl.l CODE_9C9FD5
 	ldx.b a2
 	lda.w #$F90E
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	ldx.b a3
 	lda.w $0EC3,x
 	eor.w #$FFFF
@@ -69,7 +69,7 @@ CODE_9E9D79:
 	sta.w $0EE3,x
 	jsl.l setInjuryType
 	lda.w #$0004
-	sta.w $1626
+	sta.w InjCntDown
 	lda.w #$0016
 	sta.b d0
 	lda.w $19BE

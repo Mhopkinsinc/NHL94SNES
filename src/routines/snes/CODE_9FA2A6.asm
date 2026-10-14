@@ -83,7 +83,7 @@ CODE_9FA2A6:
 	lda.w #$0007
 	sta.b d1
 	jsl.l CODE_9D8000
-	jsl.l CODE_9F9B36
+	jsl.l printscores1
 	jsl.l CODE_9FE11D
 	bne .loop2
 	lda.w #$0000

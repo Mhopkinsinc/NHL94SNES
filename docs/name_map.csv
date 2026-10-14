@@ -3638,3 +3638,37 @@ $9FEAA6,.t7,CODE_9FEAA6,new,continued in the previous routine,src/routines/snes/
 $9FE1FA,.t7,CODE_9FE1FA,new,continued in the previous routine,src/routines/snes/CODE_9FE17D.asm
 $9C87A6,.t8,CODE_9C87A6,new,continued in the previous routine,src/routines/snes/CODE_9C8583.asm
 $9FE17D,.t7,CODE_9FE17D,new,continued in the previous routine,src/routines/snes/CODE_9FE11D.asm
+$9FA130,USBoard,ShowInjuryBox,93S,scoreboard penalty list; the injury-box name was on this routine,src/routines/penalty/USBoard.asm
+$9FA1B8,DispPen,CODE_9FA1B8,93S,"USBoard penalty-box list, timed players first",src/routines/penalty/DispPen.asm
+$9BB3B0,randomd0sd0,CODE_9BB3B0,93S,randomd0s with the range in d0,src/routines/middle/randomd0sd0.asm
+$9BCD28,DecodePW,CODE_9BCD28,93S,Turn the password into the playoff state,src/routines/hockey/DecodePW.asm
+$9F9353,marktextlo,CODE_9F9353,93S,Lower the low end of the changed text map area to A,src/routines/video/marktextlo.asm
+$9F935C,marktexthi,CODE_9F935C,93S,Raise the high end of the changed text map area to A,src/routines/video/marktexthi.asm
+$9EC2C7,CheckInjury,CODE_9EC2C7,93S,Count down InjCntDown and show the injury box at zero,src/routines/hockey/CheckInjury.asm
+$9EC35F,ShowInjuryBox,CODE_9EC35F,93S,"Injury box: 12 by 5 frame, Injury to, Out for period, the game",src/routines/hockey/ShowInjuryBox.asm
+$9FC4D0,PlayerShortName,CODE_9FC4D0,93S,"number, initial and last name into mesarea",src/routines/hockey/PlayerShortName.asm
+$9EA3F1,SetSPAFromA,CODE_9EA3F1,new,SetSPA with the animation already in A,src/routines/logic/SetSPAFromA.asm
+$9EFA2F,showref,CODE_9EFA2F,93S,clears sf2refref,src/routines/video/showref.asm
+$9F9DFA,nullrtl89,CODE_9F9DFA,93S,Does nothing,src/routines/penalty/nullrtl89.asm
+$9F9B36,printscores1,CODE_9F9B36,93S,vertical scoreboard; shootout round is extra,src/routines/penalty/printscores1.asm
+$9F9CFB,.sbscreen,CODE_9F9CFB,93S,printscores1 horizontal rink,src/routines/penalty/printscores1.asm
+$9F9C05,.scores,CODE_9F9C05,new,printscores1 joins the score boxes after the shootout line,src/routines/penalty/printscores1.asm
+$9F9CD8,.ex,CODE_9F9CD8,93S,printscores1 restore,src/routines/penalty/printscores1.asm
+$1626,InjCntDown,,93S,frames until the injury box is shown,src/ram94snes.asm
+$0002,gmdir,,93S,0 = home team goes up,src/ram94snes.asm
+$0200,sf2refref,,93S,ref needs refresh,src/ram94snes.asm
+$0001,sf3llcs,,93S,lower line change box on screen,src/ram94snes.asm
+$9FBEFD,EASNLogo,CODE_9FBEFD,93S,logo unless sf2pwrplay; dirty range starts at $0321,src/routines/penalty/EASNLogo.asm
+$9FEC96,PauseMenuItems,DATA8_9FEC96,new,pause menu item names,src/data/text/PauseMenuItems.asm
+$9FEC30,GoalieOptionText,DATA8_9FEC30,new,"Automatic Goalie, Manual Goalie, None, On, Off",src/data/text/GoalieOptionText.asm
+$9DACED,GameSetupChoices,DATA8_9DACED,new,Game Setup option texts,src/data/text/GameSetupChoices.asm
+$9DADFD,GameSetupNames,DATA8_9DADFD,new,Game Setup setting names,src/data/text/GameSetupNames.asm
+$9DAE40,PlayoffSetupNames,DATA8_9DAE40,new,"playoff Game Setup names, with N/A rows",src/data/text/GameSetupNames.asm
+$9D875A,LineSlotNames,DATA8_9D875A,new,"Team, Center, wings, defense, Goalie",src/data/text/LineSlotNames.asm
+$9DC29E,RosterGroups,DATA8_9DC29E,new,"Forward, Defense, Goalie",src/data/text/RosterGroups.asm
+$9DC436,RatingNames,DATA8_9DC436,new,player rating names,src/data/text/RatingNames.asm
+$9FF163,ExitPromptClear,DATA8_9FF163,new,blank line that clears the exit prompt,src/data/text/ExitPromptClear.asm
+$9FF179,ExitGameAsk,DATA8_9FF179,new,Exit Game?,src/data/text/ExitPromptClear.asm
+$9FF18F,ExitShootoutAsk,DATA8_9FF18F,new,Exit Shootout?,src/data/text/ExitPromptClear.asm
+$9FF1A5,ExitYes,DATA8_9FF1A5,new,Yes,src/data/text/ExitPromptClear.asm
+$9FF1BB,ExitNo,DATA8_9FF1BB,new,No,src/data/text/ExitPromptClear.asm

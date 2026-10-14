@@ -21,7 +21,7 @@ CODE_9E9E8A:
 	lda.w #$FDFE
 CODE_9E9EB4:
 	sta.w pfalock,x
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	ldx.b a3
 	ldy.b a2
 	jmp.w CODE_9E9D79

@@ -7,6 +7,6 @@ CODE_9EF02B:
 	sta.w $1543,y
 	lda.w #$F896
 	ldx.b a2
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	ldx.b a3
 	rtl

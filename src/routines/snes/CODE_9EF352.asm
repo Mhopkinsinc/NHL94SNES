@@ -232,7 +232,7 @@ CODE_9EF424:
 	inc.w $18EE,x
 .11:
 	jsl.l CODE_9EB94C
-	jsl.l CODE_9F9B36
+	jsl.l printscores1
 	lda.w #$0008
 	sta.b d0
 	jsl.l .t1
@@ -273,7 +273,7 @@ CODE_9EF424:
 	inx
 	inx
 	lda.w #$F644
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	ldy.b a2
 	ldx.w tmsort,y
 	stx.b a3

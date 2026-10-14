@@ -58,7 +58,7 @@ CODE_9EA2F1:
 	sta.w $0F03,x
 	lda.w #$F46A
 	sta.w pfalock,x
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	ldx.b a2
 	ldy.b a3
 	sty.b a2
@@ -72,7 +72,7 @@ CODE_9EA2F1:
 	beq .1
 	lda.w #$F3D8
 .1:
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	jsl.l CODE_9EC042
 	beq .t1x
 	lda.w $1E8D

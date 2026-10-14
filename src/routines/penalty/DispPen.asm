@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FA1B8:
+; Penalty box list of team a2: timed players first
+DispPen:
 	lda.b a2
 	beq .1
 	lda.w #$001A

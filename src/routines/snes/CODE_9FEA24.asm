@@ -30,7 +30,7 @@ CODE_9FEA24:
 .t1:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #DATA8_9FEC96
+	lda.w #PauseMenuItems
 	sta.b a0
 	bra .t7
 

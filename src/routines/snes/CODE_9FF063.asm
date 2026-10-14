@@ -28,7 +28,7 @@ CODE_9FF063:
 	sty.w printy
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF163
+	lda.w #ExitPromptClear
 	sta.b a1
 	jsl.l print
 	ply
@@ -52,13 +52,13 @@ CODE_9FF063:
 	sta.w $0D0D
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF179
+	lda.w #ExitGameAsk
 	sta.b a1
 	lda.w $1D81
 	beq .1
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF18F
+	lda.w #ExitShootoutAsk
 	sta.b a1
 .1:
 	jsl.l print
@@ -84,7 +84,7 @@ CODE_9FF063:
 .2:
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF1BB
+	lda.w #ExitNo
 	sta.b a1
 	jsl.l print
 	lda.b $8F
@@ -109,7 +109,7 @@ CODE_9FF063:
 .3:
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF1A5
+	lda.w #ExitYes
 	sta.b a1
 	jsl.l print
 	rtl

@@ -1,7 +1,7 @@
-; Unidentified routine.
-CODE_9FBEFD:
+; Draw the EASN logo on the rink unless a power play is on
+EASNLogo:
 	lda.w sflags
-	bit.w #$2000
+	bit.w #sf2pwrplay
 	bne .rtl
 	lda.b $8F
 	pha

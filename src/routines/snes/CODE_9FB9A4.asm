@@ -29,7 +29,7 @@ CODE_9FB9A4:
 	stz.w textdirtylo
 	lda.w #$03FF
 	sta.w textdirtyhi
-	jsl.l CODE_9F9B36
+	jsl.l printscores1
 .2:
 	lda.w #$007E
 	sta.b $0E

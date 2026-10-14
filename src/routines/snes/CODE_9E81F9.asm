@@ -53,4 +53,4 @@ CODE_9E81F9:
 	sta.w $0EE3,x
 	lda.w #$F342
 	sta.w pfalock,x
-	jml.l CODE_9EA3F1
+	jml.l SetSPAFromA

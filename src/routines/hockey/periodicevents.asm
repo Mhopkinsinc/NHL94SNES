@@ -18,7 +18,7 @@ periodicevents:
 	jsl.l CODE_80D322
 	jsl.l CODE_80D323
 	jsl.l RestoreBenchEnergy
-	jsl.l CODE_9EC2C7
+	jsl.l CheckInjury
 	jsl.l updatepwrplay
 .rtl:
 	rtl

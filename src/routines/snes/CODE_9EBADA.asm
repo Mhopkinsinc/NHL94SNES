@@ -35,7 +35,7 @@ CODE_9EBADA:
 	sta.w facedir,x
 	sta.w pfalock,x
 	lda.w #$E936
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	jml.l SprSort
 
 .t2:

@@ -67,4 +67,4 @@ CODE_9FC896:
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l CODE_808BED
-	jmp.w ShowInjuryBox
+	jmp.w USBoard

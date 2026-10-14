@@ -59,6 +59,7 @@ sflags3 = $15DC		; sflags3 (sf3* masks)
 Pencntdwn = $1620	; penalty/fight count down (negative = fight over)
 pentimer = $1622	; frames to the next penalty clock second (updatepentime)
 PBnum = $1624		; players in the penalty boxes: home*16 + visitors
+InjCntDown = $1626	; frames until the injury box is shown
 penmsgtimer = $1628	; count down to reprinting the horizontal penalty message line
 RefCnt = $162A		; ref graphics control (negative = idle)
 RefStep = $162C		; step in the ref animation (negative = done)
@@ -118,6 +119,7 @@ puckx = Xpos+puckobj	; puck x position
 
 gmoffs = $0020		; offsides on
 gmhl = $0010		; highlight mode
+gmdir = $0002		; 0 = home team goes up
 pfna = $0002		; new assignment
 tmfoffside = $0010	; team flagged offsides
 cbut = $0080		; shoot / check button in d2
@@ -132,7 +134,9 @@ sf2drec = $0400		; disable replay record
 sf2pwrplay = $2000	; power play in progress
 sf2pwrtm = $4000	; 0 for team 1 in power play
 sf2replay = $0800	; replay in progress
+sf2refref = $0200	; ref needs refresh
 sfslock = $0040		; scroll lock to xc1/yc1
+sf3llcs = $0001		; lower line change box on screen
 pf2inj = $0004		; injured
 TMPDBENCH = $FFFE	; on the bench
 TMPDOUT = $FFFD		; out of the game

@@ -385,7 +385,7 @@ CODE_9FA9EF:
 .t3:
 	lda.w #$EA1A
 CODE_9FAB9A:
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	jsl.l CODE_9EA419
 CODE_9FABA2:
 	inc.b a3
@@ -500,7 +500,7 @@ CODE_9FABA2:
 	asl a
 	asl a
 	adc.w printx
-	jsl.l CODE_9F9353
+	jsl.l marktextlo
 	lda.w printy
 	clc
 	adc.l DATA8_9AD6A6+2
@@ -513,7 +513,7 @@ CODE_9FABA2:
 	adc.w printx
 	adc.l DATA8_9AD6A6
 	dec a
-	jsl.l CODE_9F935C
+	jsl.l marktexthi
 	jsl.l CODE_9EBF11
 	lda.w #$D6AC
 	sta.l $7E3120

@@ -6,7 +6,7 @@ CODE_9ED593:
 	sta.w facedir,x
 	sta.w pfalock,x
 	lda.w #$E528
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	lda.w #$00F0
 	sta.w $0BEB,x
 	rtl
