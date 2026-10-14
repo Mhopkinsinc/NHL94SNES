@@ -12,7 +12,7 @@ Pausemode:
 	ldx.w #$0800
 	jsl.l MemCopy
 	plx
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 	lda.w sfhormode
 	pha
 	lda.w sflags

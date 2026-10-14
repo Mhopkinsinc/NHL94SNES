@@ -1,7 +1,7 @@
 ; End of a period: the next period, overtime, or game over
 PeriodOver:
 	jsl.l FadeOut
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 	jsl.l WaitFrame
 	jsl.l WaitFrame
 .loop:
@@ -89,7 +89,7 @@ PeriodOver:
 .t1x:
 	lda.w gsp
 	sta.w $1EAD
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 	jsl.l FadeOut
 .loopxx:
 	lda.w SoundFadeSpeed

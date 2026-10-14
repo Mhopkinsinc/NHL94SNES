@@ -75,7 +75,7 @@ StartHL2:
 	jsl.l FadeOut
 	jsl.l WaitFadeOut
 	jsl.l forceblack
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 	lda.w $1D68
 	cmp.w #$0001
 	beq .1
@@ -295,7 +295,7 @@ org $9F9001
 	sta.b $8B
 	pla
 	sta.b a0
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 	ldx.b a0
 	lda.w $178E
 	sta.l $7E3578,x

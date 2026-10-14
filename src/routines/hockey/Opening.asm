@@ -22,7 +22,7 @@ Opening:
 	jsl.l ReadAnyPad
 	stz.w $1D68
 	jsl.l TitleScreen
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 .loop2:
 	lda.w brightness
 	bne .loop2
@@ -42,7 +42,7 @@ Restart:
 	lda.w $07ED
 	cmp.w #$C20C
 	beq .2
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 .loop:
 	lda.w MusicOn
 	bne .loop

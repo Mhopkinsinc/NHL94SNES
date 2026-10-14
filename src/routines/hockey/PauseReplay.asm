@@ -9,7 +9,7 @@ PauseReplay:
 	lda.w MusicOn
 	sta.w $0CBB
 	jsl.l FadeOut
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 	jsl.l WaitFadeOut
 	jsl.l forceblack
 	lda.b d7

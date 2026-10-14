@@ -5645,3 +5645,4 @@ $9C9415,PrintStringSprites,CODE_9C9415,new,Behavior: enters PrintTeamSprites_go;
 $9C9590,PrintSmallLetterSprites,CODE_9C9590,new,"Behavior: PrintLetterSprites with the small letter set (space 3, a period); called from DrawPlayerCard and PrintLineSlotName",src/routines/hockey/PrintSmallLetterSprites.asm
 $9C9479,PrintTeamSprites_go,CODE_9C9479,new,PrintTeamSprites: the letter loop; PrintStringSprites enters here,src/routines/hockey/PrintTeamSprites.asm
 $9C9ABC,PuckSfx,CODE_9C9ABC,new,"Behavior: falls into sfx; the puck collision, pass and shot routines call it",src/routines/sound/PuckSfx.asm
+$9C9786,FadeOutSound,CODE_9C9786,new,"Behavior: called before the screen changes (Opening, pause, replay, period end, playoffs, setupice)",src/routines/sound/FadeOutSound.asm

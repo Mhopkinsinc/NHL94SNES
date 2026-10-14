@@ -718,3 +718,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Sprite text routines. MATCH.
 - Raw local table reads. MATCH.
 - PuckSfx. MATCH.
+- FadeOutSound. MATCH.

@@ -22,7 +22,7 @@ PlayoffScreen:
 	lda.w $07ED
 	cmp.w #$ED31
 	beq .t2
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 	jsl.l forceblack
 .loop:
 	lda.w MusicOn

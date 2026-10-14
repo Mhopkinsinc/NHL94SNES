@@ -691,7 +691,7 @@ org $9BB001
 	lda.w #$03FF
 	sta.w textdirtyhi
 	jsl.l FadeOut
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 .loopxx:
 	lda.w brightness
 	bne .loopxx

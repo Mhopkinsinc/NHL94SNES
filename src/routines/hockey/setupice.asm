@@ -29,7 +29,7 @@ setupice:
 	dex
 	dex
 	bpl .loop
-	jsl.l CODE_9C9786
+	jsl.l FadeOutSound
 .loop2:
 	lda.w SoundFadeSpeed
 	bne .loop2
