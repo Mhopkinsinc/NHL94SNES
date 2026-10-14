@@ -137,7 +137,7 @@ ResolveGames:
 	lda.b d1
 	asl a
 	tax
-	lda.l DATA8_80DA26,x
+	lda.l BitMaskTable,x
 	tsb.b d3
 .1x:
 	lda.b a0
@@ -151,7 +151,7 @@ ResolveGames:
 	lda.b d2
 	asl a
 	tax
-	lda.l DATA8_80DA26,x
+	lda.l BitMaskTable,x
 	tax
 	dec a
 	and.w $0AD5

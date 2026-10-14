@@ -20,6 +20,7 @@
 - Tails: `CODE_` files that only the routine before them reaches, by a branch or a jump, are folded into it, and labels that are then used only inside one routine's scope are locals. Several of them had looked shared because of the wrong-bank jump labels above.
 - Whole bodies: with the tails folded, each `CODE_` routine was compared with the unused 93S routines as a whole; names where the body and the callers agree: `Endfaceoff`, `NewPO`, `resetplstuff`, `puckglue`, `InitSortObjects`, `shotdiradj`, `CalcAngleOffset`, `printteamname` (`CODE_9B9B35` is a copy that calls another print routine), `PrintTeamNameAndScore`.
 - More calls from those: `updateanim`, `wallcollb`, `doinput`, `dopass`, `ResetClock`. `ShootoutWonBy` is the routine `wallcollb`, `clockcont_0` and others call with a penalty number where 93S calls `AddPenalty2`: in a shootout it prints the winner (the 94G job), otherwise it ends in `AddPenalty2`.
+- Tables: `dirtab`, `BitMaskTable`, `jdtab8F` and `ButtonLabelCharTable` have the same bytes as the 93S tables and are read the same way. `DATA8_80D3EB` stays (not `PenaltyList`).
 
 ## Unsure
 

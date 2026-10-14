@@ -4542,3 +4542,7 @@ $9E8E91,wallcollb,CODE_9E8E91,93S,"checkwallcoll calls it where 93S calls wallco
 $9FC1B9,doinput,CODE_9FC1B9,93S,"updateplayers calls it where 93S calls doinput; the 93S pause, face off and line change paths",src/routines/logic/doinput.asm
 $9EE9BF,dopass,CODE_9EE9BF,93S,chk4pass calls it where 93S calls dopass; the 93S body for the most part,src/routines/logic/dopass.asm
 $9FC683,ResetClock,CODE_9FC683,93S,PeriodOver calls it where 93S calls ResetClock; GetPeriodTime and the overtime length as in 93S,src/routines/hockey/ResetClock.asm
+$80DA06,dirtab,DATA8_80DA06,93S,"same words as 93S dirtab (x, y speed per direction); Endfaceoff reads it where 93S reads dirtab",src/data/tables/dirtab.asm
+$80DA26,BitMaskTable,DATA8_80DA26,93S,same words as 93S BitMaskTable; ResolveGames reads it where 93S reads BitMaskTable,src/data/tables/BitMaskTable.asm
+$80DA46,jdtab8F,DATA8_80DA46,93S,same bytes as 93S jdtab8F (pad directions to direction 0-7),src/data/tables/jdtab8F.asm
+$9FBD5F,ButtonLabelCharTable,DATA8_9FBD5F,93S,"same bytes as 93S ButtonLabelCharTable, read 1-based as in 93S",src/data/tables/ButtonLabelCharTable.asm

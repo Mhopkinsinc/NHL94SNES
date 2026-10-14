@@ -31,7 +31,7 @@ CODE_9E81F9:
 	tay
 	lda.w #$0080
 	sta.b $8B
-	lda.w #DATA8_80DA06
+	lda.w #dirtab
 	sta.b a0
 	lda.b [a0],y
 	iny

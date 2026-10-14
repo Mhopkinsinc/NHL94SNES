@@ -89,7 +89,7 @@ Endfaceoff:
 	asl.b d0
 	asl.b d0
 	ldx.b d0
-	lda.l DATA8_80DA06,x
+	lda.l dirtab,x
 	asl a
 	asl a
 	asl a
@@ -98,7 +98,7 @@ Endfaceoff:
 	ldx.b a3
 	sta.w $0EC3,x
 	ldx.b d0
-	lda.l DATA8_80DA06+2,x
+	lda.l dirtab+2,x
 	asl a
 	asl a
 	asl a

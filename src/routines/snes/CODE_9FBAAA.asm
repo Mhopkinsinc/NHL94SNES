@@ -129,7 +129,7 @@ CODE_9FBAAA:
 .4:
 	ldx.b d2
 	beq .rts
-	lda.l DATA8_80DA46,x
+	lda.l jdtab8F,x
 	and.w #$00FF
 	asl a
 	asl a

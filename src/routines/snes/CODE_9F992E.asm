@@ -45,7 +45,7 @@ CODE_9F992E:
 	sta.b d2
 	asl a
 	tax
-	lda.l DATA8_80DA26,x
+	lda.l BitMaskTable,x
 	bit.b $B7
 	bne .t2
 	jmp.w .12

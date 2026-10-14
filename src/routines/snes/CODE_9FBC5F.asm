@@ -73,7 +73,7 @@ CODE_9FBC5F:
 	lda.w #$FFFF
 	sta.w mesarea+2,y
 	iny
-	lda.l DATA8_9FBD5F-1,x
+	lda.l ButtonLabelCharTable-1,x
 	sta.w mesarea+2,y
 	iny
 	lda.b d0

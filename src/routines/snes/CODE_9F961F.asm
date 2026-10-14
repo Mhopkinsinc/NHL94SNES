@@ -9,7 +9,7 @@ CODE_9F961F:
 	lda.b d1
 	asl a
 	tax
-	lda.l DATA8_80DA26,x
+	lda.l BitMaskTable,x
 	tsb.b d3
 .1:
 	ldx.b a0
@@ -19,7 +19,7 @@ CODE_9F961F:
 	lda.b d1
 	asl a
 	tax
-	lda.l DATA8_80DA26,x
+	lda.l BitMaskTable,x
 	eor.b d3
 	sta.b d3
 .2:
@@ -30,7 +30,7 @@ CODE_9F961F:
 	lda.b d2
 	asl a
 	tax
-	lda.l DATA8_80DA26,x
+	lda.l BitMaskTable,x
 	tax
 	dec a
 	and.w $0AD5
