@@ -3,7 +3,7 @@ Pausemode:
 	phx
 	lda.w #$007E
 	sta.b $0E
-	lda.w #$37F4
+	lda.w #textmap
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
@@ -69,7 +69,7 @@ Pausemode:
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
-	lda.w #$37F4
+	lda.w #textmap
 	sta.b $10
 	ldx.w #$0800
 	jsl.l MemCopy

@@ -2,7 +2,7 @@
 ClearTextMap:
 	lda.w #$007E
 	sta.b $12
-	lda.w #$37F4
+	lda.w #textmap
 	sta.b $10
 	lda.l $7E35D0
 	clc

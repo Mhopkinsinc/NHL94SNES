@@ -2,7 +2,7 @@
 ClearPictureBox:
 	lda.w #$007E
 	sta.b $12
-	lda.w #$37F4
+	lda.w #textmap
 	sta.b $10
 	stx.b $14
 	tya

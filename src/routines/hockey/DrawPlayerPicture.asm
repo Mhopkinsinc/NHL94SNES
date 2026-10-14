@@ -64,7 +64,7 @@ DrawPlayerPicture:
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
-	lda.w #$37F4
+	lda.w #textmap
 	sta.b $10
 	lda.w #$0020
 	sta.b $24
@@ -88,7 +88,7 @@ DrawPlayerPicture:
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
-	lda.w #$37F4
+	lda.w #textmap
 	sta.b $10
 	lda.w #$0020
 	sta.b $24
@@ -293,7 +293,7 @@ DrawPlayerPicture:
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
-	lda.w #$37F4
+	lda.w #textmap
 	sta.b $10
 	lda.w #$0020
 	sta.b $24

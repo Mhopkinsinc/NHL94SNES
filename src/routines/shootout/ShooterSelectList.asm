@@ -36,7 +36,7 @@ ShooterSelectList:
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
-	lda.w #$3FF4
+	lda.w #textmap2
 	sta.b $10
 	ldx.w #$0001
 	ldy.w #$0001

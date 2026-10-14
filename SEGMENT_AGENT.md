@@ -726,3 +726,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Placeholder headers on named files replaced. MATCH.
 - DrawTeamBlocks, PlayerInitialName. MATCH.
 - setplayercolors, SetTeamColors, nullrtl, palbuffer, ReloadRink. MATCH.
+- textmap2 and the text map addresses by name. MATCH.
