@@ -80,7 +80,7 @@ CODE_9EC9E2:
 	and.w #$00FF
 	cmp.w #$0025
 	beq .t1
-	jmp.w CODE_9ECAB7
+	jmp.w ScoutPlainWord
 
 .t1:
 	inc.b a2
@@ -89,104 +89,104 @@ CODE_9EC9E2:
 	and.w #$00FF
 	cmp.w #$0072
 	bne .t3
-	jmp.w CODE_9ECC4B
+	jmp.w ScoutHomeArena
 
 .t3:
 	cmp.w #$0076
 	bne .t1x
-	jmp.w CODE_9ECCFE
+	jmp.w ScoutVisCity
 
 .t1x:
 	cmp.w #$0068
 	bne .t2
-	jmp.w CODE_9ECD05
+	jmp.w ScoutHomeCity
 
 .t2:
 	cmp.w #$0056
 	bne .t1xx
-	jmp.w CODE_9ECCEC
+	jmp.w ScoutVisName
 
 .t1xx:
 	cmp.w #$0048
 	bne .t5
-	jmp.w CODE_9ECCF5
+	jmp.w ScoutHomeName
 
 .t5:
 	cmp.w #$006D
 	bne .t1x2
-	jmp.w CODE_9ECC1E
+	jmp.w ScoutVisNick
 
 .t1x2:
 	cmp.w #$006E
 	bne .t2x
-	jmp.w CODE_9ECC25
+	jmp.w ScoutHomeNick
 
 .t2x:
 	cmp.w #$0074
 	bne .t1xx2
-	jmp.w CODE_9ECCA1
+	jmp.w ScoutHotTeam
 
 .t1xx2:
 	cmp.w #$0065
 	bne .t3x
-	jmp.w CODE_9ECC71
+	jmp.w ScoutExtremely
 
 .t3x:
 	cmp.w #$0030
 	bne .t1x2x
-	jmp.w CODE_9ECB99
+	jmp.w ScoutHomeHot1
 
 .t1x2x:
 	cmp.w #$0031
 	bne .t2xx
-	jmp.w CODE_9ECB9E
+	jmp.w ScoutHomeHot2
 
 .t2xx:
 	cmp.w #$0032
 	bne .t1xxx
-	jmp.w CODE_9ECBA3
+	jmp.w ScoutHomeHot3
 
 .t1xxx:
 	cmp.w #$0033
 	bne .t4
-	jmp.w CODE_9ECBA8
+	jmp.w ScoutHomeCold1
 
 .t4:
 	cmp.w #$0034
 	bne .t1x3
-	jmp.w CODE_9ECBAD
+	jmp.w ScoutHomeCold2
 
 .t1x3:
 	cmp.w #$0035
 	bne .t2x2
-	jmp.w CODE_9ECBB2
+	jmp.w ScoutHomeCold3
 
 .t2x2:
 	cmp.w #$0036
 	bne .t1xx2x
-	jmp.w CODE_9ECBB7
+	jmp.w ScoutVisHot1
 
 .t1xx2x:
 	cmp.w #$0037
 	bne .t3xx
-	jmp.w CODE_9ECBBC
+	jmp.w ScoutVisHot2
 
 .t3xx:
 	cmp.w #$0038
 	bne .t1x2xx
-	jmp.w CODE_9ECBC1
+	jmp.w ScoutVisHot3
 
 .t1x2xx:
 	cmp.w #$0039
 	bne .t2xxx
-	jmp.w CODE_9ECBC6
+	jmp.w ScoutVisCold1
 
 .t2xxx:
 	cmp.w #$0061
 	bne .t1xxxx
-	jmp.w CODE_9ECBCB
+	jmp.w ScoutVisCold2
 
 .t1xxxx:
 	cmp.w #$0062
-	bne CODE_9ECAB7
-	jmp.w CODE_9ECBD0
+	bne ScoutPlainWord
+	jmp.w ScoutVisCold3

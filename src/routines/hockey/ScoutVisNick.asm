@@ -1,13 +1,13 @@
-; Unidentified routine.
-CODE_9ECC1E:
+; Script code %m: the visitors nickname (the third team String)
+ScoutVisNick:
 	lda.w $1CDE
 	sta.b a1
-	bra CODE_9ECC2A
+	bra ScoutTeamNick
 
-CODE_9ECC25:
+ScoutHomeNick:
 	lda.w tmdata
 	sta.b a1
-CODE_9ECC2A:
+ScoutTeamNick:
 	lda.w #$009C
 	sta.b $8F
 	ldy.w #$0004
@@ -22,4 +22,4 @@ CODE_9ECC2A:
 	jsl.l AdvanceStringPtr
 	pla
 	sta.b d0
-	jmp.w CODE_9ECD19
+	jmp.w ScoutAppend

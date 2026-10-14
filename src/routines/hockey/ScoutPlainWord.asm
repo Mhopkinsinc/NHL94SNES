@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ECAB7:
+; Copy the next plain script word into mesarea and type it (not a % code)
+ScoutPlainWord:
 	lda.w #$FFFF
 	sta.w PlayerScrollCtr
 	lda.w #$0000
@@ -55,7 +55,7 @@ CODE_9ECAB7:
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
-CODE_9ECB2B:
+ScoutTypeWord:
 	lda.b d0
 	sec
 	sbc.w #$0014

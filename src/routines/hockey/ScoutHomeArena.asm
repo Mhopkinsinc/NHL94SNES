@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ECC4B:
+; Script code %r: the home arena (the fourth team String)
+ScoutHomeArena:
 	lda.w tmdata
 	sta.b a1
 	lda.w #$009C
@@ -16,4 +16,4 @@ CODE_9ECC4B:
 	jsl.l AdvanceStringPtr
 	pla
 	sta.b d0
-	jmp.w CODE_9ECD19
+	jmp.w ScoutAppend

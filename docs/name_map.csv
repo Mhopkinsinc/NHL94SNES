@@ -887,10 +887,10 @@ $9FF6B7,.2,CODE_9FF6B7,new,branch target only used in this routine,src/routines/
 $9FF7EA,.1,CODE_9FF7EA,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
 $9FD269,.loop,CODE_9FD269,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
 $9FD289,.loop2,CODE_9FD289,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
-$9ECD39,.loop,CODE_9ECD39,new,branch target only used in this routine,src/routines/snes/CODE_9ECD05.asm
-$9ECD73,.1,CODE_9ECD73,new,branch target only used in this routine,src/routines/snes/CODE_9ECD05.asm
-$9ECD76,.2,CODE_9ECD76,new,branch target only used in this routine,src/routines/snes/CODE_9ECD05.asm
-$9ECD7C,.3,CODE_9ECD7C,new,branch target only used in this routine,src/routines/snes/CODE_9ECD05.asm
+$9ECD39,.loop,CODE_9ECD39,new,branch target only used in this routine,src/routines/hockey/ScoutHomeCity.asm
+$9ECD73,.1,CODE_9ECD73,new,branch target only used in this routine,src/routines/hockey/ScoutHomeCity.asm
+$9ECD76,.2,CODE_9ECD76,new,branch target only used in this routine,src/routines/hockey/ScoutHomeCity.asm
+$9ECD7C,.3,CODE_9ECD7C,new,branch target only used in this routine,src/routines/hockey/ScoutHomeCity.asm
 $9ED7E1,.1,CODE_9ED7E1,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
 $9ED7C2,.1,CODE_9ED7C2,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
 $9BAFCC,.1,CODE_9BAFCC,new,branch target only used in this routine,src/routines/snes/CODE_9BAF8B.asm
@@ -1579,7 +1579,7 @@ $9FB8E4,.loop,CODE_9FB8E4,new,branch target only used in this routine,src/routin
 $9FB8F1,.1,CODE_9FB8F1,new,branch target only used in this routine,src/routines/hockey/setupice.asm
 $9EA132,.1,CODE_9EA132,new,branch target only used in this routine,src/routines/snes/CODE_9EA10F.asm
 $9EA151,.2,CODE_9EA151,new,branch target only used in this routine,src/routines/snes/CODE_9EA10F.asm
-$9ECB47,.loop,CODE_9ECB47,new,branch target only used in this routine,src/routines/snes/CODE_9ECAB7.asm
+$9ECB47,.loop,CODE_9ECB47,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
 $9EC7BD,.rtl,CODE_9EC7BD,new,branch target only used in this routine,src/routines/snes/CODE_9EC791.asm
 $8086CA,.1,CODE_8086CA,new,branch target only used in this routine,src/routines/snes/ScreenOn.asm
 $9BA8EB,.1,CODE_9BA8EB,new,branch target only used in this routine,src/routines/hockey/updatereplay.asm
@@ -2104,11 +2104,11 @@ $9EC72B,.4,CODE_9EC72B,new,branch target only used in this routine,src/routines/
 $9EC72C,.rtl,CODE_9EC72C,new,branch target only used in this routine,src/routines/snes/CODE_9EC6E7.asm
 $9C9AA6,.1,CODE_9C9AA6,new,branch target only used in this routine,src/routines/snes/CODE_9C9A7F.asm
 $9C9AB3,.2,CODE_9C9AB3,new,branch target only used in this routine,src/routines/snes/CODE_9C9A7F.asm
-$9ECAC9,.loop,CODE_9ECAC9,new,branch target only used in this routine,src/routines/snes/CODE_9ECAB7.asm
-$9ECAD5,.loop2,CODE_9ECAD5,new,branch target only used in this routine,src/routines/snes/CODE_9ECAB7.asm
-$9ECAF0,.1,CODE_9ECAF0,new,branch target only used in this routine,src/routines/snes/CODE_9ECAB7.asm
-$9ECAFA,.2,CODE_9ECAFA,new,branch target only used in this routine,src/routines/snes/CODE_9ECAB7.asm
-$9ECB1A,.3,CODE_9ECB1A,new,branch target only used in this routine,src/routines/snes/CODE_9ECAB7.asm
+$9ECAC9,.loop,CODE_9ECAC9,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
+$9ECAD5,.loop2,CODE_9ECAD5,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
+$9ECAF0,.1,CODE_9ECAF0,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
+$9ECAFA,.2,CODE_9ECAFA,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
+$9ECB1A,.3,CODE_9ECB1A,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
 $9BC02F,.1,CODE_9BC02F,new,branch target only used in this routine,src/routines/logic/GetHot.asm
 $9BC03F,.2,CODE_9BC03F,new,branch target only used in this routine,src/routines/logic/GetHot.asm
 $9BC051,.3,CODE_9BC051,new,branch target only used in this routine,src/routines/logic/GetHot.asm
@@ -2212,7 +2212,7 @@ $9B9BDA,.3,CODE_9B9BDA,new,branch target only used in this routine,src/routines/
 $9FCD3A,.1,CODE_9FCD3A,new,branch target only used in this routine,src/routines/snes/CODE_9FCD2F.asm
 $9E9491,.rtl,CODE_9E9491,new,branch target only used in this routine,src/routines/hockey/checkplcoll.asm
 $9E811C,.1,CODE_9E811C,new,branch target only used in this routine,src/routines/logic/assnearest.asm
-$9ECCDC,.1,CODE_9ECCDC,new,branch target only used in this routine,src/routines/snes/CODE_9ECCA1.asm
+$9ECCDC,.1,CODE_9ECCDC,new,branch target only used in this routine,src/routines/hockey/ScoutHotTeam.asm
 $9DBF80,.1,CODE_9DBF80,new,branch target only used in this routine,src/routines/snes/CODE_9DBF33.asm
 $9FFA50,.1,CODE_9FFA50,new,branch target only used in this routine,src/routines/snes/CODE_9FFA2C.asm
 $9FFA60,.2,CODE_9FFA60,new,branch target only used in this routine,src/routines/snes/CODE_9FFA2C.asm
@@ -2920,9 +2920,9 @@ $9ED008,.t1,CODE_9ED008,new,continued in the previous routine,src/routines/logic
 $9ECFD1,.t1,CODE_9ECFD1,new,continued in the previous routine,src/routines/penalty/PrintStringFromList.asm
 $9ECE69,.t1,CODE_9ECE69,new,continued in the previous routine,src/routines/snes/CODE_9ECE53.asm
 $9ECE4B,.t1,CODE_9ECE4B,new,continued in the previous routine,src/routines/snes/CODE_9ECE33.asm
-$9ECD98,.t1,CODE_9ECD98,new,continued in the previous routine,src/routines/snes/CODE_9ECD05.asm
-$9ECC7B,.t1,CODE_9ECC7B,new,continued in the previous routine,src/routines/snes/CODE_9ECC71.asm
-$9ECB5D,.t1,CODE_9ECB5D,new,continued in the previous routine,src/routines/snes/CODE_9ECAB7.asm
+$9ECD98,.t1,CODE_9ECD98,new,continued in the previous routine,src/routines/hockey/ScoutHomeCity.asm
+$9ECC7B,.t1,CODE_9ECC7B,new,continued in the previous routine,src/routines/hockey/ScoutExtremely.asm
+$9ECB5D,.t1,CODE_9ECB5D,new,continued in the previous routine,src/routines/hockey/ScoutPlainWord.asm
 $9ECAAF,.t1,CODE_9ECAAF,new,continued in the previous routine,src/routines/snes/CODE_9ECAA7.asm
 $9ECA9F,.t1,CODE_9ECA9F,new,continued in the previous routine,src/routines/snes/CODE_9ECA97.asm
 $9ECA8F,.t1,CODE_9ECA8F,new,continued in the previous routine,src/routines/snes/CODE_9ECA87.asm
@@ -4125,9 +4125,9 @@ $9EC5AD,.8,CODE_9EC5AD,new,branch target only used in this routine,src/routines/
 $9EC901,.1,CODE_9EC901,new,branch target only used in this routine,src/routines/hockey/PrintToStatsPage.asm
 $9EC902,.2,CODE_9EC902,new,continued in the previous routine,src/routines/hockey/PrintToStatsPage.asm
 $9EC96D,.2,CODE_9EC96D,new,branch target only used in this routine,src/routines/hockey/UpdateScoutingDisplay.asm
-$9ECB37,.1,CODE_9ECB37,new,branch target only used in this routine,src/routines/snes/CODE_9ECAB7.asm
-$9ECB3D,.2,CODE_9ECB3D,new,continued in the previous routine,src/routines/snes/CODE_9ECAB7.asm
-$9ECB3F,.3,CODE_9ECB3F,new,branch target only used in this routine,src/routines/snes/CODE_9ECAB7.asm
+$9ECB37,.1,CODE_9ECB37,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
+$9ECB3D,.2,CODE_9ECB3D,new,continued in the previous routine,src/routines/hockey/ScoutPlainWord.asm
+$9ECB3F,.3,CODE_9ECB3F,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
 $9ECDAE,.1,CODE_9ECDAE,new,branch target only used in this routine,src/routines/hockey/ScrollDisplayUp.asm
 $9ECDB1,.2,CODE_9ECDB1,new,continued in the previous routine,src/routines/hockey/ScrollDisplayUp.asm
 $9ECDB3,.3,CODE_9ECDB3,new,branch target only used in this routine,src/routines/hockey/ScrollDisplayUp.asm
@@ -5649,3 +5649,33 @@ $9C9786,FadeOutSound,CODE_9C9786,new,"Behavior: called before the screen changes
 $80DD16,GameSampleList,DATA8_80DD16,new,the block list SPCGameUpload sends (long pointers),src/data/tables/GameSampleList.asm
 $80DD66,GameSfxTable,DATA8_80DD16+80,new,the sound table SPCGameUpload passes to SoundInit in $34 (was the immediate #$DD66),src/data/tables/GameSfxTable.asm
 $80E741,DATA8_80E741,DATA8_80E73D+4,new,the sound table CODE_9C97E9 passes to SoundInit (was the immediate #$E741),src/data/tables/DATA8_80E741.asm
+$9ECB99,ScoutHomeHot1,CODE_9ECB99,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeHot1.asm
+$9ECB9E,ScoutHomeHot2,CODE_9ECB9E,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeHot2.asm
+$9ECBA3,ScoutHomeHot3,CODE_9ECBA3,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeHot3.asm
+$9ECBA8,ScoutHomeCold1,CODE_9ECBA8,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeCold1.asm
+$9ECBAD,ScoutHomeCold2,CODE_9ECBAD,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeCold2.asm
+$9ECBB2,ScoutHomeCold3,CODE_9ECBB2,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeCold3.asm
+$9ECBB7,ScoutVisHot1,CODE_9ECBB7,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutVisHot1.asm
+$9ECBBC,ScoutVisHot2,CODE_9ECBBC,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutVisHot2.asm
+$9ECBC1,ScoutVisHot3,CODE_9ECBC1,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutVisHot3.asm
+$9ECBC6,ScoutVisCold1,CODE_9ECBC6,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutVisCold1.asm
+$9ECBCB,ScoutVisCold2,CODE_9ECBCB,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutVisCold2.asm
+$9ECBD0,ScoutVisCold3,CODE_9ECBD0,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutVisCold3.asm
+$9ECBD5,ScoutHomePlayer,CODE_9ECBD5,new,Behavior: entered from ScoutHomeHot1 ... ScoutHomeCold3,src/routines/hockey/ScoutHomePlayer.asm
+$9ECBDD,ScoutVisPlayer,CODE_9ECBDD,new,Behavior: entered from ScoutVisHot1 ... ScoutVisCold3,src/routines/hockey/ScoutVisPlayer.asm
+$9ECBE8,ScoutPlayerName,CODE_9ECBE8,new,Behavior,src/routines/hockey/ScoutPlayerName.asm
+$9ECC1E,ScoutVisNick,CODE_9ECC1E,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutVisNick.asm
+$9ECC4B,ScoutHomeArena,CODE_9ECC4B,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeArena.asm
+$9ECC71,ScoutExtremely,CODE_9ECC71,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutExtremely.asm
+$9ECCA1,ScoutHotTeam,CODE_9ECCA1,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHotTeam.asm
+$9ECCEC,ScoutVisName,CODE_9ECCEC,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutVisName.asm
+$9ECCF5,ScoutHomeName,CODE_9ECCF5,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeName.asm
+$9ECCFE,ScoutVisCity,CODE_9ECCFE,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutVisCity.asm
+$9ECD05,ScoutHomeCity,CODE_9ECD05,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeCity.asm
+$9ECAB7,ScoutPlainWord,CODE_9ECAB7,new,Behavior: UpdateScoutingDisplay jumps here when the character is not %,src/routines/hockey/ScoutPlainWord.asm
+$9ECC25,ScoutHomeNick,CODE_9ECC25,new,Script code %n: the home nickname (ScoutVisNick for the home team),src/routines/hockey/ScoutVisNick.asm
+$9ECC2A,ScoutTeamNick,CODE_9ECC2A,new,ScoutVisNick / ScoutHomeNick: the nickname String of team data a1,src/routines/hockey/ScoutVisNick.asm
+$9ECD0A,ScoutTeamCity,CODE_9ECD0A,new,ScoutVisCity / ScoutHomeCity: the city String of team data a1,src/routines/hockey/ScoutHomeCity.asm
+$9ECD19,ScoutAppend,CODE_9ECD19,new,"put String [a1] into mesarea, then ScoutTypeText",src/routines/hockey/ScoutHomeCity.asm
+$9ECD36,ScoutTypeText,CODE_9ECD36,new,type the mesarea text word by word,src/routines/hockey/ScoutHomeCity.asm
+$9ECB2B,ScoutTypeWord,CODE_9ECB2B,new,ScoutPlainWord: type the word in mesarea; ScoutTypeText enters here,src/routines/hockey/ScoutPlainWord.asm

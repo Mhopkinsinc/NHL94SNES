@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ECBE8:
+; Put the name of player d0 of team a2 (GetPlayerRecord) into mesarea and type it (ScoutTypeText)
+ScoutPlayerName:
 	phx
 	lda.b a0
 	pha
@@ -23,4 +23,4 @@ CODE_9ECBE8:
 	sta.b a0
 	plx
 	stx.b d0
-	jmp.w CODE_9ECD36
+	jmp.w ScoutTypeText

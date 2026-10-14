@@ -720,3 +720,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - PuckSfx. MATCH.
 - FadeOutSound. MATCH.
 - Sample set tables; uploads still unsure. MATCH.
+- Scouting script handlers (from the PregameText codes). MATCH.

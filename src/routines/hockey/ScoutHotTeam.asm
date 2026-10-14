@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ECCA1:
+; Script code %t: the full name of the hotter team ($1E41), then " has" (" have" for the two New York teams)
+ScoutHotTeam:
 	lda.w $1E41
 	jsl.l GetTeamLongName
 	lda.w #$0000
@@ -20,7 +20,7 @@ CODE_9ECCA1:
 	beq .1
 	lda.w #$009E
 	sta.b $8F
-	lda.w #$CC94
+	lda.w #ScoutFragments+12
 	sta.b a1
 .1:
 	jsl.l appstring
@@ -28,4 +28,4 @@ CODE_9ECCA1:
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
-	bra CODE_9ECD36
+	bra ScoutTypeText

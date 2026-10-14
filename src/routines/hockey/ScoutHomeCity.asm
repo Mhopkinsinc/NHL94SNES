@@ -1,8 +1,8 @@
-; Unidentified routine.
-CODE_9ECD05:
+; Script code %h: the home city (the first team String)
+ScoutHomeCity:
 	lda.w tmdata
 	sta.b a1
-CODE_9ECD0A:
+ScoutTeamCity:
 	lda.w #$009C
 	sta.b $8F
 	ldy.w #$0004
@@ -10,7 +10,7 @@ CODE_9ECD0A:
 	clc
 	adc.b [a1],y
 	sta.b a1
-CODE_9ECD19:
+ScoutAppend:
 	lda.w #$0000
 	sta.b $97
 	lda.w #mesarea
@@ -22,7 +22,7 @@ CODE_9ECD19:
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
-CODE_9ECD36:
+ScoutTypeText:
 	ldy.w #$0003
 .loop:
 	lda.b [a1],y
@@ -78,8 +78,8 @@ CODE_9ECD36:
 	lda.b [a1],y
 	and.w #$00FF
 	beq .t1
-	jmp.w CODE_9ECB2B
+	jmp.w ScoutTypeWord
 
 .t1:
 	dec.b d1
-	jmp.w CODE_9ECB2B
+	jmp.w ScoutTypeWord
