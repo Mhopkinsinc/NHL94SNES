@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB8A1:
+; A = the mode 7 scale of title path step A
+TitlePathScale:
 	phx
 	phy
 	cmp.w #$0400

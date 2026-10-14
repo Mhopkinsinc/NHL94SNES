@@ -779,7 +779,7 @@ $9D9FF7,.1,CODE_9D9FF7,new,branch target only used in this routine,src/routines/
 $80BC9B,.1,CODE_80BC9B,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
 $80A4F5,.loop,CODE_80A4F5,new,branch target only used in this routine,src/routines/snes/SeqCmd0C0B.asm
 $80A513,.loop,CODE_80A513,new,branch target only used in this routine,src/routines/snes/SeqCmd0C0B.asm
-$9DBC91,.loop,CODE_9DBC91,new,branch target only used in this routine,src/routines/snes/CODE_9DBC8B.asm
+$9DBC91,.loop,CODE_9DBC91,new,branch target only used in this routine,src/routines/hockey/BuildTitlePath.asm
 $80CC65,.1,CODE_80CC65,new,branch target only used in this routine,src/routines/shootout/ShootersBackground.asm
 $80CC88,.rtl,CODE_80CC88,new,branch target only used in this routine,src/routines/shootout/ShootersBackground.asm
 $80A395,.loop,CODE_80A395,new,branch target only used in this routine,src/routines/snes/SoundInit.asm
@@ -2794,8 +2794,8 @@ $9DBCDE,.t1,CODE_9DBCDE,new,continued in the previous routine,src/routines/hocke
 $9DBBF1,.t1,CODE_9DBBF1,new,continued in the previous routine,src/routines/snes/CODE_9DBBA8.asm
 $9DBA94,.t1,CODE_9DBA94,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
 $9DBA24,.t1,CODE_9DBA24,new,continued in the previous routine,src/routines/snes/CODE_9DBA13.asm
-$9DB90A,.t1,CODE_9DB90A,new,continued in the previous routine,src/routines/snes/CODE_9DB8E6.asm
-$9DB8C3,.t1,CODE_9DB8C3,new,continued in the previous routine,src/routines/snes/CODE_9DB8A1.asm
+$9DB90A,.t1,CODE_9DB90A,new,continued in the previous routine,src/routines/hockey/TitlePathX.asm
+$9DB8C3,.t1,CODE_9DB8C3,new,continued in the previous routine,src/routines/hockey/TitlePathScale.asm
 $9DB871,.t1,CODE_9DB871,new,continued in the previous routine,src/routines/hockey/TitleZoomOutLeft.asm
 $9DB818,.t1,CODE_9DB818,new,continued in the previous routine,src/routines/hockey/TitleZoomOutRight.asm
 $9DB7CF,.t1,CODE_9DB7CF,new,continued in the previous routine,src/routines/snes/CODE_9DB7BB.asm
@@ -4414,8 +4414,8 @@ $9DAACC,.1,CODE_9DAACC,new,branch target only used in this routine,src/routines/
 $9DAB0B,.5,CODE_9DAB0B,new,branch target only used in this routine,src/routines/hockey/setoptions.asm
 $9DAC54,.2,CODE_9DAC54,new,branch target only used in this routine,src/routines/hockey/setoptions.asm
 $9DAC7D,.3,CODE_9DAC7D,new,branch target only used in this routine,src/routines/hockey/setoptions.asm
-$9DB8E0,.1,CODE_9DB8E0,new,branch target only used in this routine,src/routines/snes/CODE_9DB8A1.asm
-$9DB931,.1,CODE_9DB931,new,branch target only used in this routine,src/routines/snes/CODE_9DB8E6.asm
+$9DB8E0,.1,CODE_9DB8E0,new,branch target only used in this routine,src/routines/hockey/TitlePathScale.asm
+$9DB931,.1,CODE_9DB931,new,branch target only used in this routine,src/routines/hockey/TitlePathX.asm
 $9DBD01,.1,CODE_9DBD01,new,branch target only used in this routine,src/routines/hockey/ShuffleTitleTeams.asm
 $9DC3DA,.1,CODE_9DC3DA,new,branch target only used in this routine,src/routines/hockey/FindGoalieStrengths.asm
 $9DC40F,.1,CODE_9DC40F,new,branch target only used in this routine,src/routines/hockey/AddStrength.asm
@@ -5800,3 +5800,7 @@ $9DE074,InitSetupChars,CODE_9DE074,new,"Behavior: setoptions calls it before Set
 $9DC2DE,SetCardTeamColours,CODE_9DC2DE,new,Behavior: DrawPlayerCard calls it before SendColours,src/routines/hockey/SetCardTeamColours.asm
 $9D8091,FramerNineTile,CODE_9D8091,new,Behavior: Framer's steps with another box map and tile base; called from ShowCrowdMeter,src/routines/middle/FramerNineTile.asm
 $9D80DD,FramerOutline,CODE_9D80DD,new,"Behavior: Framer's steps with another box map and tile base; the text boxes of the scouting, roster, stats, shooters and password screens use it",src/routines/middle/FramerOutline.asm
+$9DBC8B,BuildTitlePath,CODE_9DBC8B,new,"Behavior: TitleScreen reads the three tables back into $0BFB (M7A / M7D), $0BF7 (BG1HOFS) and $0BF9 (BG1VOFS)",src/routines/hockey/BuildTitlePath.asm
+$9DB8A1,TitlePathScale,CODE_9DB8A1,new,Behavior: BuildTitlePath's first table,src/routines/hockey/TitlePathScale.asm
+$9DB8E6,TitlePathX,CODE_9DB8E6,new,Behavior: BuildTitlePath's second table,src/routines/hockey/TitlePathX.asm
+$9DB934,TitlePathY,CODE_9DB934,new,Behavior: BuildTitlePath's third table,src/routines/hockey/TitlePathY.asm

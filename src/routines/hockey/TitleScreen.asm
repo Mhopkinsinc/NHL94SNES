@@ -63,7 +63,7 @@ TitleScreen:
 	sta.w $0BD3
 	stz.w $0BFF
 	jsr.w .7
-	jsr.w CODE_9DBC8B
+	jsr.w BuildTitlePath
 	stz.w $0BEB
 	stz.w titleskip
 	jsl.l FadeIn

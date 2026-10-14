@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB8E6:
+; A = the x offset of title path step A (Sin)
+TitlePathX:
 	phx
 	phy
 	cmp.w #$0480

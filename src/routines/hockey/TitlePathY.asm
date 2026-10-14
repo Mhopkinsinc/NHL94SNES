@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB934:
+; A = the y scroll of title path step A
+TitlePathY:
 	phx
 	phy
 	tax
