@@ -35,7 +35,7 @@ SoundUpdate:		; per frame: fade, envelopes, and the song ticks that are due; not
 	pla
 	sta.w $07F8
 .4:
-	jsr.w CODE_80AC7B
+	jsr.w UpdateSfxVoices
 	lda.w MusicOn
 	beq .6
 	jsr.w SequencerTick

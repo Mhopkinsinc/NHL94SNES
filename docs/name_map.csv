@@ -2581,10 +2581,10 @@ $80AFD8,.t1,CODE_80AFD8,new,continued in the previous routine,src/routines/snes/
 $80AF6D,.t1,CODE_80AF6D,new,continued in the previous routine,src/routines/snes/InitSprites.asm
 $80ADC1,.t1,CODE_80ADC1,new,continued in the previous routine,src/routines/snes/SoundUpdate.asm
 $80AD9C,.t1,CODE_80AD9C,new,continued in the previous routine,src/routines/snes/CODE_80AD89.asm
-$80AD80,.t1,CODE_80AD80,new,continued in the previous routine,src/routines/snes/CODE_80AC7B.asm
+$80AD80,.t1,CODE_80AD80,new,continued in the previous routine,src/routines/sound/UpdateSfxVoices.asm
 $80AD4A,.t1,CODE_80AD4A,new,continued in the previous routine,src/routines/snes/CODE_80AD2A.asm
 $80AD25,.t1,CODE_80AD25,new,continued in the previous routine,src/routines/snes/CODE_80ACC2.asm
-$80AC8B,.t1,CODE_80AC8B,new,continued in the previous routine,src/routines/snes/CODE_80AC7B.asm
+$80AC8B,.t1,CODE_80AC8B,new,continued in the previous routine,src/routines/sound/UpdateSfxVoices.asm
 $80AC7A,.t1,CODE_80AC7A,new,continued in the previous routine,src/routines/snes/SequencerTick.asm
 $80AC36,.t1,CODE_80AC36,new,continued in the previous routine,src/routines/snes/CODE_80AC2E.asm
 $80ABB3,.t1,CODE_80ABB3,new,continued in the previous routine,src/routines/snes/StepTrack.asm
@@ -3197,7 +3197,7 @@ $80B1F3,.t2,CODE_80B1F3,new,continued in the previous routine,src/routines/snes/
 $80B171,.t1,CODE_80B171,new,continued in the previous routine,src/routines/snes/CODE_80B161.asm
 $80B116,.t2,CODE_80B116,new,continued in the previous routine,src/routines/snes/DrawSprite.asm
 $80B044,.t2,CODE_80B044,new,continued in the previous routine,src/routines/snes/GetFrameTiles.asm
-$80AD89,.t2,CODE_80AD89,new,continued in the previous routine,src/routines/snes/CODE_80AC7B.asm
+$80AD89,.t2,CODE_80AD89,new,continued in the previous routine,src/routines/sound/UpdateSfxVoices.asm
 $80AD2A,.t2,CODE_80AD2A,new,continued in the previous routine,src/routines/snes/CODE_80ACC2.asm
 $80AC2E,.t2,CODE_80AC2E,new,continued in the previous routine,src/routines/snes/ReleaseVoice.asm
 $80ABB7,.t2,CODE_80ABB7,new,continued in the previous routine,src/routines/snes/StepTrack.asm
@@ -3462,7 +3462,7 @@ $80B44E,.t3,CODE_80B44E,new,continued in the previous routine,src/routines/snes/
 $80B36F,.t1,CODE_80B36F,new,continued in the previous routine,src/routines/snes/CODE_80B2FA.asm
 $80B240,.t2,CODE_80B240,new,continued in the previous routine,src/routines/snes/DrawSprite.asm
 $80B161,.t3,CODE_80B161,new,continued in the previous routine,src/routines/snes/DrawSprite.asm
-$80ACC2,.t3,CODE_80ACC2,new,continued in the previous routine,src/routines/snes/CODE_80AC7B.asm
+$80ACC2,.t3,CODE_80ACC2,new,continued in the previous routine,src/routines/sound/UpdateSfxVoices.asm
 $80AA7B,.t3,CODE_80AA7B,new,continued in the previous routine,src/routines/snes/CODE_80AA48.asm
 $80AA14,.t3,CODE_80AA14,new,continued in the previous routine,src/routines/snes/CODE_80A9C8.asm
 $80A8A8,.t3,CODE_80A8A8,new,continued in the previous routine,src/routines/snes/StepTrack.asm
@@ -3928,12 +3928,12 @@ $80AB06,.8,CODE_80AB06,new,continued in the previous routine,src/routines/snes/S
 $80AC3E,.1,CODE_80AC3E,new,continued in the previous routine,src/routines/snes/ReleaseVoice.asm
 $80AC40,.2,CODE_80AC40,new,branch target only used in this routine,src/routines/snes/ReleaseVoice.asm
 $80AC45,.3,CODE_80AC45,new,branch target only used in this routine,src/routines/snes/ReleaseVoice.asm
-$80AC7E,.3,CODE_80AC7E,new,branch target only used in this routine,src/routines/snes/CODE_80AC7B.asm
-$80AD4D,.4,CODE_80AD4D,new,branch target only used in this routine,src/routines/snes/CODE_80AC7B.asm
-$80AD55,.5,CODE_80AD55,new,branch target only used in this routine,src/routines/snes/CODE_80AC7B.asm
-$80AD61,.6,CODE_80AD61,new,branch target only used in this routine,src/routines/snes/CODE_80AC7B.asm
-$80AD64,.7,CODE_80AD64,new,continued in the previous routine,src/routines/snes/CODE_80AC7B.asm
-$80AD90,.8,CODE_80AD90,new,branch target only used in this routine,src/routines/snes/CODE_80AC7B.asm
+$80AC7E,.3,CODE_80AC7E,new,branch target only used in this routine,src/routines/sound/UpdateSfxVoices.asm
+$80AD4D,.4,CODE_80AD4D,new,branch target only used in this routine,src/routines/sound/UpdateSfxVoices.asm
+$80AD55,.5,CODE_80AD55,new,branch target only used in this routine,src/routines/sound/UpdateSfxVoices.asm
+$80AD61,.6,CODE_80AD61,new,branch target only used in this routine,src/routines/sound/UpdateSfxVoices.asm
+$80AD64,.7,CODE_80AD64,new,continued in the previous routine,src/routines/sound/UpdateSfxVoices.asm
+$80AD90,.8,CODE_80AD90,new,branch target only used in this routine,src/routines/sound/UpdateSfxVoices.asm
 $80B0DD,.2,CODE_80B0DD,new,continued in the previous routine,src/routines/snes/DrawSprite.asm
 $80B177,.3,CODE_80B177,new,branch target only used in this routine,src/routines/snes/DrawSprite.asm
 $80B190,.4,CODE_80B190,new,branch target only used in this routine,src/routines/snes/DrawSprite.asm
@@ -5787,3 +5787,4 @@ $9DBCB3,TitleWindowWipe,CODE_9DBCB3,new,Behavior: called from TitleScreen; the I
 $80A200,PlaySound,CODE_80A200,new,Behavior: the shared tail PlaySoundEntry is where QueueSound jumps; called from TitleScreen and IntroSequence,src/routines/sound/PlaySound.asm
 $80A697,StartSoundVoice,CODE_80A697,new,Behavior: called from PlaySoundEntry and StepTrack,src/routines/sound/StartSoundVoice.asm
 $80A226,PlaySoundEntry,CODE_80A226,new,PlaySound: set up voice slot $20 from sound entry $4E and start it; QueueSound jumps here too,src/routines/sound/PlaySound.asm
+$80AC7B,UpdateSfxVoices,CODE_80AC7B,new,Behavior: SoundUpdate calls it; UpdateVoices does the music voices (owner below $10),src/routines/sound/UpdateSfxVoices.asm

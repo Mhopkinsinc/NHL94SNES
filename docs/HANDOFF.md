@@ -111,6 +111,7 @@
 - Sample sets: `SPCIntroUpload`, `SPCTitleUpload`, `SPCTitleToMenu`, `SPCMenuUpload` with `IntroSampleList`, `IntroSfxTable`, `TitleSampleList`, `MenuSampleList`, `MenuSfxTable` (their only callers, and MenuSampleList = the title list plus the four SPCTitleToMenu blocks); `IntroSequence` (Opening runs it first).
 - Title animation steps from behavior: `TitleZoomIn`, `TitleZoomOutRight`, `TitleZoomOutLeft`, `TitleBlankSprites`, `DrawTitleSprite`, `TitleWindowWipe`.
 - Sound play path from behavior: `PlaySound`, `PlaySoundEntry` (QueueSound shares it), `StartSoundVoice`.
+- `UpdateSfxVoices` (from behavior: the sound effect half of the voice update).
 
 ## Unsure
 

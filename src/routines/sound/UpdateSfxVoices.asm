@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80AC7B:
+; Each frame: step the sound effect voices (owner $08FA $10 and up): their time and envelope counters, the voice commands, and StopVoice when one ends
+UpdateSfxVoices:
 	ldx.b #$00
 	txy
 .3:
