@@ -669,3 +669,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Puck collisions: checkpuckcoll, checkpuckcoll_ccx, puckstick, puckgoalie, deflect; waitxsr. MATCH.
 - Pads: ReadPads (93S) and ReadjoyA (Readjoy1 for any pad). MATCH.
 - Acheck, SPAhook, SPAHold, QueueTextDMA, QueueSound from their 93S callers and job; DMAToVRAM from what it does. MATCH.
+- Shootout setup: ShootersBackground, PrintShooterNames, PrintShooterList, ShootersLoop, ShootersExit (94G). MATCH.

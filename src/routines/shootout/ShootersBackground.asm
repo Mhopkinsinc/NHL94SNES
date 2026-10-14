@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80CC1B:
+; Shootout shooters: the background, the Shootout title and the team
+ShootersBackground:
 	lda.l $7E3468
 	beq .2
 	jsl.l CODE_80CB5C

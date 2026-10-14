@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80CC89:		; print the goalie and shooter rows, the row at the cursor ($1DB9) in another palette
+; Shootout shooters: the shooters' names
+PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor ($1DB9) in another palette
 	lda.b $8F
 	pha
 	lda.b a1
@@ -127,5 +127,5 @@ CODE_80CC89:		; print the goalie and shooter rows, the row at the cursor ($1DB9)
 	jmp.w .2
 
 .t1:
-	jsl.l CODE_80CC1B
+	jsl.l ShootersBackground
 	rtl

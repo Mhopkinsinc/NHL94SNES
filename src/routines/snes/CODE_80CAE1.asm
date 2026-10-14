@@ -53,5 +53,5 @@ CODE_80CAE1:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_80CC1B
+	jsl.l ShootersBackground
 	rtl

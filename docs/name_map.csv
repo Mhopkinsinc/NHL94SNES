@@ -780,8 +780,8 @@ $80BC9B,.1,CODE_80BC9B,new,branch target only used in this routine,src/routines/
 $80A4F5,.loop,CODE_80A4F5,new,branch target only used in this routine,src/routines/snes/CODE_80A4E3.asm
 $80A513,.loop,CODE_80A513,new,branch target only used in this routine,src/routines/snes/CODE_80A4E3.asm
 $9DBC91,.loop,CODE_9DBC91,new,branch target only used in this routine,src/routines/snes/CODE_9DBC8B.asm
-$80CC65,.1,CODE_80CC65,new,branch target only used in this routine,src/routines/snes/CODE_80CC1B.asm
-$80CC88,.rtl,CODE_80CC88,new,branch target only used in this routine,src/routines/snes/CODE_80CC1B.asm
+$80CC65,.1,CODE_80CC65,new,branch target only used in this routine,src/routines/shootout/ShootersBackground.asm
+$80CC88,.rtl,CODE_80CC88,new,branch target only used in this routine,src/routines/shootout/ShootersBackground.asm
 $80A395,.loop,CODE_80A395,new,branch target only used in this routine,src/routines/snes/SoundInit.asm
 $80A3AC,.loop2,CODE_80A3AC,new,branch target only used in this routine,src/routines/snes/SoundInit.asm
 $9D9C34,.loop,CODE_9D9C34,new,branch target only used in this routine,src/routines/snes/CODE_9D9C2A.asm
@@ -1438,7 +1438,7 @@ $9EA5D4,.1,CODE_9EA5D4,new,branch target only used in this routine,src/routines/
 $9EA5F2,.2,CODE_9EA5F2,new,branch target only used in this routine,src/routines/snes/CODE_9EA5B3.asm
 $9EA60E,.3,CODE_9EA60E,new,branch target only used in this routine,src/routines/snes/CODE_9EA5B3.asm
 $80A3CB,.loop,CODE_80A3CB,new,branch target only used in this routine,src/routines/snes/SoundVoicesOff.asm
-$80D061,.1,CODE_80D061,new,branch target only used in this routine,src/routines/snes/CODE_80D004.asm
+$80D061,.1,CODE_80D061,new,branch target only used in this routine,src/routines/shootout/PrintShooterList.asm
 $9FBF59,.1,CODE_9FBF59,new,branch target only used in this routine,src/routines/snes/CODE_9FBEFD.asm
 $9FBF74,.rtl,CODE_9FBF74,new,branch target only used in this routine,src/routines/snes/CODE_9FBEFD.asm
 $9DA496,.1,CODE_9DA496,new,branch target only used in this routine,src/routines/snes/CODE_9DA46E.asm
@@ -1449,11 +1449,11 @@ $9E9A3C,.2,CODE_9E9A3C,new,branch target only used in this routine,src/routines/
 $9E9A46,.3,CODE_9E9A46,new,branch target only used in this routine,src/routines/snes/CODE_9E9A11.asm
 $9FC150,.1,CODE_9FC150,new,branch target only used in this routine,src/routines/snes/CODE_9FC123.asm
 $9FC156,.2,CODE_9FC156,new,branch target only used in this routine,src/routines/snes/CODE_9FC123.asm
-$80CD13,.1,CODE_80CD13,new,branch target only used in this routine,src/routines/snes/CODE_80CC89.asm
-$80CD22,.2,CODE_80CD22,new,branch target only used in this routine,src/routines/snes/CODE_80CC89.asm
-$80CD4E,.3,CODE_80CD4E,new,branch target only used in this routine,src/routines/snes/CODE_80CC89.asm
-$80CD61,.4,CODE_80CD61,new,branch target only used in this routine,src/routines/snes/CODE_80CC89.asm
-$80CD62,.5,CODE_80CD62,new,branch target only used in this routine,src/routines/snes/CODE_80CC89.asm
+$80CD13,.1,CODE_80CD13,new,branch target only used in this routine,src/routines/shootout/PrintShooterNames.asm
+$80CD22,.2,CODE_80CD22,new,branch target only used in this routine,src/routines/shootout/PrintShooterNames.asm
+$80CD4E,.3,CODE_80CD4E,new,branch target only used in this routine,src/routines/shootout/PrintShooterNames.asm
+$80CD61,.4,CODE_80CD61,new,branch target only used in this routine,src/routines/shootout/PrintShooterNames.asm
+$80CD62,.5,CODE_80CD62,new,branch target only used in this routine,src/routines/shootout/PrintShooterNames.asm
 $9EDDAA,.1,CODE_9EDDAA,new,branch target only used in this routine,src/routines/logic/pucknorm.asm
 $9FF6EC,.1,CODE_9FF6EC,new,branch target only used in this routine,src/routines/snes/CODE_9FF6CA.asm
 $9FEAC7,.1,CODE_9FEAC7,new,branch target only used in this routine,src/routines/snes/CODE_9FEAB4.asm
@@ -2531,11 +2531,11 @@ $9FA660,.1,CODE_9FA660,new,branch target only used in this routine,src/routines/
 $9FA668,.rtl,CODE_9FA668,new,branch target only used in this routine,src/routines/hockey/DoHiLights.asm
 $80D30B,.t1,CODE_80D30B,new,continued in the previous routine,src/routines/snes/CODE_80D2BD.asm
 $80D265,.t1,CODE_80D265,new,continued in the previous routine,src/routines/snes/CODE_80D21C.asm
-$80D06A,.t1,CODE_80D06A,new,continued in the previous routine,src/routines/snes/CODE_80D004.asm
+$80D06A,.t1,CODE_80D06A,new,continued in the previous routine,src/routines/shootout/PrintShooterList.asm
 $80CFFA,.t1,CODE_80CFFA,new,continued in the previous routine,src/routines/snes/CODE_80CFEE.asm
 $80CFE4,.t1,CODE_80CFE4,new,continued in the previous routine,src/routines/snes/CODE_80CFD1.asm
 $80CF8C,.t1,CODE_80CF8C,new,continued in the previous routine,src/routines/snes/CODE_80CF36.asm
-$80CDA1,.t1,CODE_80CDA1,new,continued in the previous routine,src/routines/snes/CODE_80CC89.asm
+$80CDA1,.t1,CODE_80CDA1,new,continued in the previous routine,src/routines/shootout/PrintShooterNames.asm
 $80CAA9,.t1,CODE_80CAA9,new,continued in the previous routine,src/routines/shootout/ShootoutShooters.asm
 $80CA2E,.t1,CODE_80CA2E,new,continued in the previous routine,src/routines/shootout/ShootoutShooters.asm
 $80C9EA,.t1,CODE_80C9EA,new,continued in the previous routine,src/routines/snes/CODE_80C97A.asm
@@ -3954,9 +3954,9 @@ $80C306,.1,CODE_80C306,new,continued in the previous routine,src/routines/snes/D
 $80C313,.2,CODE_80C313,new,branch target only used in this routine,src/routines/snes/DecompressRLE.asm
 $80C336,.1,CODE_80C336,new,continued in the previous routine,src/routines/snes/DecompressRLE.asm
 $80C34A,.2,CODE_80C34A,new,branch target only used in this routine,src/routines/snes/DecompressRLE.asm
-$80D03E,.1,CODE_80D03E,new,branch target only used in this routine,src/routines/snes/CODE_80D004.asm
-$80D04F,.2,CODE_80D04F,new,continued in the previous routine,src/routines/snes/CODE_80D004.asm
-$80D059,.3,CODE_80D059,new,branch target only used in this routine,src/routines/snes/CODE_80D004.asm
+$80D03E,.1,CODE_80D03E,new,branch target only used in this routine,src/routines/shootout/PrintShooterList.asm
+$80D04F,.2,CODE_80D04F,new,continued in the previous routine,src/routines/shootout/PrintShooterList.asm
+$80D059,.3,CODE_80D059,new,branch target only used in this routine,src/routines/shootout/PrintShooterList.asm
 $9B811F,.1,CODE_9B811F,new,branch target only used in this routine,src/routines/snes/Multi5Bios.asm
 $9B81EC,.2,CODE_9B81EC,new,continued in the previous routine,src/routines/snes/Multi5Bios.asm
 $9B81F3,.5,CODE_9B81F3,new,branch target only used in this routine,src/routines/snes/Multi5Bios.asm
@@ -4339,7 +4339,7 @@ $80B3B1,.7,CODE_80B3B1,new,branch target only used in this routine,src/routines/
 $80B5AA,.1,CODE_80B5AA,new,branch target only used in this routine,src/routines/snes/CODE_80B3CE.asm
 $80C8E5,.3,CODE_80C8E5,new,branch target only used in this routine,src/routines/snes/CODE_80C81C.asm
 $80C93E,.4,CODE_80C93E,new,branch target only used in this routine,src/routines/snes/CODE_80C81C.asm
-$80CC25,.2,CODE_80CC25,new,branch target only used in this routine,src/routines/snes/CODE_80CC1B.asm
+$80CC25,.2,CODE_80CC25,new,branch target only used in this routine,src/routines/shootout/ShootersBackground.asm
 $80CE2B,.2,CODE_80CE2B,new,branch target only used in this routine,src/routines/snes/CODE_80CE0A.asm
 $80D267,.1,CODE_80D267,new,branch target only used in this routine,src/routines/snes/CODE_80D21C.asm
 $80D269,.3,CODE_80D269,new,branch target only used in this routine,src/routines/snes/CODE_80D21C.asm
@@ -4750,3 +4750,8 @@ $80A17D,QueueSound,CODE_80A17D,93S,sfx calls it as 93S sfx calls QueueSound; sou
 $80891F,DMAToVRAM,CODE_80891F,new,DMA of X bytes from [$0C] to video memory at Y,src/routines/snes/DMAToVRAM.asm
 $9DF864,SPAhook,DATA8_9DF864,93S,"the animation Acheck sets first, as 93S Acheck sets SPAhook; same shape and times as 93S SPAhook",src/data/frames94s.asm
 $9DF374,SPAHold,DATA8_9DF374,93S,"the animation Acheck sets by the angle, as 93S Acheck sets SPAHold; the 93S frames and times, frame numbers 8 higher",src/data/frames94s.asm
+$80CC1B,ShootersBackground,CODE_80CC1B,94G,"ShootoutShooters draws it as 94G does; the background, the Shootout title and the team block",src/routines/shootout/ShootersBackground.asm
+$80CC89,PrintShooterNames,CODE_80CC89,94G,ShootoutShooters and the slot moves call it as 94G does; the home or away shooters' names,src/routines/shootout/PrintShooterNames.asm
+$80D004,PrintShooterList,CODE_80D004,94G,ShooterSelectList calls it as 94G does; the player rows with ShooterAttribColumns,src/routines/shootout/PrintShooterList.asm
+$80CA70,ShootersLoop,CODE_80CA70,94G,"the ShootoutShooters input loop (WaitFrame, ReadPads, ProcessInputWithRepeat), as 94G ShootersLoop",src/routines/shootout/ShootoutShooters.asm
+$80CA9C,ShootersExit,CODE_80CA9C,94G,"Start in ShootersLoop leaves here, as 94G ShootersExit",src/routines/shootout/ShootoutShooters.asm

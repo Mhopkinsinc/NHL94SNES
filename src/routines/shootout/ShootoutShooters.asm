@@ -14,7 +14,7 @@ ShootoutShooters:
 	lda.w $1C86
 	cmp.b d0
 	beq .t1
-	jmp.w CODE_80CA9C
+	jmp.w ShootersExit
 
 .t1:
 	ldx.b a2
@@ -25,18 +25,18 @@ ShootoutShooters:
 	jsl.l CODE_9DD9AD
 	jsl.l CODE_80CAE1
 	jsl.l CODE_9DE0D4
-	jsl.l CODE_80CC1B
+	jsl.l ShootersBackground
 	stz.w $1DB9
 	lda.w #$0001
 	sta.w SelectedPlayerIdx
 	stz.w $0D47
-	jsl.l CODE_80CC89
+	jsl.l PrintShooterNames
 	lda.w #$0005
 	ldx.w #$0050
 	jsl.l CODE_9DCCF5
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
-CODE_80CA70:
+ShootersLoop:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame
 	jsl.l ReadPads
@@ -50,10 +50,10 @@ CODE_80CA70:
 	bit.w #$8080
 	bne CODE_80CAD7
 	bit.w #$1000
-	bne CODE_80CA9C
+	bne ShootersExit
 CODE_80CA9A:
-	bra CODE_80CA70
-CODE_80CA9C:
+	bra ShootersLoop
+ShootersExit:
 	ldy.b a2
 	bne .t1
 	sep #$20
@@ -74,5 +74,5 @@ CODE_80CAB8:
 	lda.w $1DB9
 	beq CODE_80CA9A
 	dec.w $1DB9
-	jsl.l CODE_80CC89
+	jsl.l PrintShooterNames
 	bra CODE_80CA9A

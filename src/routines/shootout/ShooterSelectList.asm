@@ -108,7 +108,7 @@ ShooterSelectList:
 	sbc.w $1D9B
 .1:
 	sta.w $1D9B
-	jsl.l CODE_80D004
+	jsl.l PrintShooterList
 .2:
 	jsl.l CODE_9DD923
 	jsl.l CODE_9DD94D
@@ -141,7 +141,7 @@ ShooterSelectList:
 	cmp.w #$0010
 	bpl .2
 	sta.w $0D47
-	jsl.l CODE_80D004
+	jsl.l PrintShooterList
 	bra .2
 
 .t2:
@@ -149,7 +149,7 @@ ShooterSelectList:
 	dec a
 	bmi .2
 	sta.w $0D47
-	jsl.l CODE_80D004
+	jsl.l PrintShooterList
 	jmp.w .2
 
 .t3:
@@ -157,7 +157,7 @@ ShooterSelectList:
 	dec a
 	bmi .t5
 	sta.w $1D9B
-	jsl.l CODE_80D004
+	jsl.l PrintShooterList
 	jmp.w .2
 
 .t4:
@@ -166,7 +166,7 @@ ShooterSelectList:
 	cmp.w #$0009
 	bpl .t6
 	sta.w $1D9B
-	jsl.l CODE_80D004
+	jsl.l PrintShooterList
 	jmp.w .2
 
 .t5:
@@ -181,7 +181,7 @@ ShooterSelectList:
 
 .t1xx:
 	inc.w $1DA7
-	jsl.l CODE_80D004
+	jsl.l PrintShooterList
 	jmp.w .2
 
 .t6:
@@ -193,6 +193,6 @@ ShooterSelectList:
 
 .t1x2:
 	dec.w $1DA7
-	jsl.l CODE_80D004
+	jsl.l PrintShooterList
 org $80D001
 	jmp.w .2

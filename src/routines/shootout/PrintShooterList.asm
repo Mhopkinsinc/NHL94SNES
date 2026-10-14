@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80D004:		; draw the ShooterSelectList list: the title of rating column $0D47, the scroll marks, the rows
+; Shootout shooters: the player list rows
+PrintShooterList:		; draw the ShooterSelectList list: the title of rating column $0D47, the scroll marks, the rows
 	lda.b $8F
 	pha
 	lda.b a1

@@ -29,6 +29,7 @@
 - Puck collisions: `checkpuckcoll` and `checkpuckcoll_ccx` (the 93S pair; 94 reaches them through a routine `pucknorm` calls), `puckstick` (a 94 goalie test, then the 93S body), `puckgoalie`, `deflect`; also `waitxsr`.
 - Pads: `ReadPads` (once per frame, each pad's direction, changed buttons and new presses, from the pad words the NMI reads) and `ReadjoyA` (93S `Readjoy1` for any pad: the callers pass the pad in A).
 - Callee pairs (a named routine's one unnamed callee against its 93S routine's unused callee): `Acheck` (with the animations it sets, `SPAhook` and `SPAHold`), `QueueTextDMA`, `QueueSound`; `DMAToVRAM` is the VRAM DMA `QueueTextDMA` uses.
+- Shootout setup (94G names): `ShootoutShooters` makes the 94G calls in order, so `ShootersBackground` (the Shootout title), `PrintShooterNames`, `ShootersLoop` and `ShootersExit`; `ShooterSelectList` prints its rows with `PrintShooterList`. The 94S slots read "Lineup"; the up, down and pick handlers do not split the way the 94G ones do and stay `CODE_`.
 
 ## Unsure
 
