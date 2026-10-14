@@ -9,9 +9,9 @@ SeqCmd08Init:
 	sta.w $07EA
 	sta.w $07EB
 	sta.w $07EC
-CODE_80A40F:
+SeqCmd08Init_send:
 	lda.w APUIO0
-	bne CODE_80A40F
+	bne SeqCmd08Init_send
 	lda.w $07F8
 	sta.w APUIO1
 	sta.w APUIO2

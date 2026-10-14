@@ -23,7 +23,7 @@ ShootoutShooters:
 	lda.w #$FFFF
 	sta.l $7E3452
 	jsl.l SetupScreen
-	jsl.l CODE_80CAE1
+	jsl.l ShootersSetup
 	jsl.l SendColours
 	jsl.l ShootersBackground
 	stz.w $1DB9
@@ -44,14 +44,14 @@ ShootersLoop:
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$0800
-	bne CODE_80CAB8
+	bne ShootersUp
 	bit.w #$0400
-	bne CODE_80CAC6
+	bne ShootersDown
 	bit.w #$8080
-	bne CODE_80CAD7
+	bne ShootersPick
 	bit.w #$1000
 	bne ShootersExit
-CODE_80CA9A:
+ShootersNext:
 	bra ShootersLoop
 ShootersExit:
 	ldy.b a2
@@ -59,35 +59,35 @@ ShootersExit:
 	sep #$20
 	lda.w homeshooters
 	rep #$20
-	bra CODE_80CAB0
+	bra ShootersSetGoalie
 
 .t1:
 	sep #$20
 	lda.w awayshooters
 	rep #$20
-CODE_80CAB0:
+ShootersSetGoalie:
 	and.w #$00FF
 	dec a
 	sta.w tmgoalie,y
 	rtl
-CODE_80CAB8:
+ShootersUp:
 	lda.w $1DB9
-	beq CODE_80CA9A
+	beq ShootersNext
 	dec.w $1DB9
 	jsl.l PrintShooterNames
-	bra CODE_80CA9A
-CODE_80CAC6:
+	bra ShootersNext
+ShootersDown:
 	lda.w $1DB9
 	cmp.w #$0005
-	bpl CODE_80CA9A
+	bpl ShootersNext
 	inc.w $1DB9
 	jsl.l PrintShooterNames
-	bra CODE_80CA9A
-CODE_80CAD7:
+	bra ShootersNext
+ShootersPick:
 	jsl.l PickShooterRow
 	jsl.l PrintShooterNames
-	bra CODE_80CA9A
-CODE_80CAE1:
+	bra ShootersNext
+ShootersSetup:
 	lda.b $8F
 	pha
 	lda.b a1

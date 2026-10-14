@@ -234,7 +234,7 @@ StepTrack:
 	sep #$20
 	lda.b $5E
 	sta.w $07F8
-	jsr.w CODE_80A40F
+	jsr.w SeqCmd08Init_send
 	rep #$20
 	jmp.w .12
 
@@ -249,7 +249,7 @@ StepTrack:
 	sep #$20
 	lda.b $5E
 	sta.w $07E8
-	jsr.w CODE_80A40F
+	jsr.w SeqCmd08Init_send
 	rep #$20
 	jmp.w .12
 

@@ -12,4 +12,4 @@ Mul16XS_TestX:
 	inc a
 Mul16XS_Neg:
 	jsl.l Mul16U_Pre
-	jmp.w CODE_808FDA
+	jmp.w Mul16x8XS_negres

@@ -8,6 +8,6 @@ TickerNext:
 	jsl.l GetShifter
 	lda.b d1
 	sta.w $0D31
-	bmi CODE_9FA3BA
+	bmi IntermissionTick_done
 .2:
 	jmp.w NewTicker2

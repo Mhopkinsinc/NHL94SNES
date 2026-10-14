@@ -22,7 +22,7 @@ DrawSprite:
 	lda.b [$10],y
 	adc.b $12
 	sta.b $0E
-CODE_80B0B0:
+DrawSprite_draw:
 	jsr.w GetFrameTiles
 	bmi .1
 	sta.b $16

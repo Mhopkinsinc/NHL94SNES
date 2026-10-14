@@ -11,7 +11,7 @@ puckfaceoff:
 .t4:
 	lda.w #$FFFF
 	sta.w puckc
-	jsl.l CODE_9EDCC3
+	jsl.l pucknorm_move
 	lda.w pflags,x
 	bit.w #$0002
 	bne .t1x

@@ -766,3 +766,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Bench cheer and licence screen. MATCH.
 - assdumpin. MATCH.
 - AdjustFacingDirection, GoaliePuckVector; no CODE_ files left. MATCH.
+- Last CODE_ labels named; none left. MATCH.

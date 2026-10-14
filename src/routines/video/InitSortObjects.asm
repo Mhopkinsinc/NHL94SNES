@@ -96,7 +96,7 @@ InitSortObjects:
 	sta.w $0F5D
 	plb
 	jmp.w SprSort
-.3:		; a record of 9 words per object, read by CODE_9CA244
+.3:		; a record of 9 words per object, read by the .loop2 loop above
 	dw $0160,$00C0,$0000,$0001,$0000,$0008,$0004,$0000,$0000
 	dw $FF38,$FF9C,$0000,$0001,$0000,$0008,$0004,$0000,$0000
 	dw $FF38,$FFB0,$0000,$0001,$0000,$0008,$0004,$0000,$0000

@@ -37,7 +37,7 @@ CalcPuckDistances:
 	sta.w puckdist2,x
 	ply
 	pla
-	jsl.l CODE_9CA568
+	jsl.l ApproxLength_abs
 	ldx.b $E4
 	sta.w puckdist,x
 	jsl.l vtoa

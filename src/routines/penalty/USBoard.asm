@@ -71,5 +71,5 @@ USBoard:
 	bpl .restore
 	ldx.b xsave
 	ldx.b a3
-CODE_9FA1B7:
+USBoard_rtl:
 	rtl

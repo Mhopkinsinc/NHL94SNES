@@ -4,7 +4,7 @@ ClearOffsidesIfAllPlayers:
 	lda.w tmflags,y
 	bit.w #$0010
 	bne .t1
-	jmp.w CODE_9EF829
+	jmp.w ChkOffsides_rtl
 
 .t1:
 	lda.w tmsort,y
@@ -30,7 +30,7 @@ ClearOffsidesIfAllPlayers:
 	sec
 	sbc.w #$0058
 	bmi .t1x
-	jmp.w CODE_9EF829
+	jmp.w ChkOffsides_rtl
 
 .t1x:
 	dec.b d1

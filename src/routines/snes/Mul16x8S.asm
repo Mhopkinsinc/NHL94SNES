@@ -3,14 +3,14 @@ Mul16x8S:
 	phy
 	tay
 	beq Mul16x8_Zero
-	bpl CODE_808FCD
+	bpl Mul16x8XS_neg
 	eor.w #$FFFF
 	inc a
 	tay
 	txa
 	beq Mul16x8_Zero
-	bpl CODE_808FD6
+	bpl Mul16x8XS_mul
 	eor.w #$FFFF
 	inc a
-	jmp.w CODE_808F9F
+	jmp.w Mul16x8U_go
 org $809002

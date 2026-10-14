@@ -253,7 +253,7 @@ updateplayers:
 .12:
 	ply
 	pla
-	jsl.l CODE_9CA568
+	jsl.l ApproxLength_abs
 	ldx.b $E4
 	sta.w puckdist,x
 	cpx.w #$0018

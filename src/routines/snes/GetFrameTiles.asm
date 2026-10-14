@@ -68,4 +68,4 @@ GetFrameTiles:
 	pea.w $7E7E
 	plb
 	plb
-	jmp.w CODE_80B0B0
+	jmp.w DrawSprite_draw

@@ -155,7 +155,7 @@ StartHL2:
 	sta.w RefCnt
 	sta.w $0D19
 	sta.w $0D1D
-	jsl.l CODE_9FB8B4
+	jsl.l setupice_reset
 	jsl.l ClrHor
 	stz.w Vpos
 	stz.w Hpos

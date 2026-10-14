@@ -5,7 +5,7 @@ Mul16x8U:
 	beq Mul16x8_Zero
 	txa
 	beq Mul16x8_Zero
-CODE_808F9F:
+Mul16x8U_go:
 	sep #$20
 	sta.w WRMPYA
 	sty.w WRMPYB

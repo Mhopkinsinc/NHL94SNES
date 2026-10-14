@@ -12,7 +12,7 @@ ApproxLength:
 	inc a
 .2:
 	ldy.b $14
-CODE_9CA568:
+ApproxLength_abs:
 	sty.b $14
 	cmp.b $14
 	bcs .1

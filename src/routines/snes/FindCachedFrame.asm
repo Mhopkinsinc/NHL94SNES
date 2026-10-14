@@ -5,7 +5,7 @@ FindCachedFrame:
 	bne .1
 	lda.b $0E
 	cmp.w $2640,x
-	beq CODE_80B3C9
+	beq DrawSpritePieces_exit
 .1:
 	inx
 	inx
@@ -22,7 +22,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	ldy.w #$0000
 	lda.b [$0C],y
 	sta.b $00
-	beq CODE_80B3C9
+	beq DrawSpritePieces_exit
 	ldy.w #$000C
 	lda.b [$0C],y
 	sta.w $07C8

@@ -218,7 +218,7 @@ setupice:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-CODE_9FB8B4:
+setupice_reset:
 	jsl.l forceblack
 	lda.w #$03E7
 	sta.w Oldrow

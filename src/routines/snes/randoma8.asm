@@ -2,7 +2,7 @@
 randoma8:
 	phx
 	pha
-CODE_9BB387:
+randoma8_go:
 	jsl.l RandomWord
 	and.w #$00FF
 	tax

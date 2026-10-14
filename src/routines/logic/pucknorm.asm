@@ -2,14 +2,14 @@
 pucknorm:
 	lda.w #$0002
 	trb.w $129F
-	beq CODE_9EDCC3
+	beq pucknorm_move
 	stz.w $101F
 	stz.w $103F
 	lda.w #$0078
 	sta.w $10BF
 	lda.w #$0000
 	sta.l $7E3450
-CODE_9EDCC3:
+pucknorm_move:
 	lda.w $0D19
 	sec
 	sbc.b d7

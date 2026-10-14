@@ -2,7 +2,7 @@
 pplpen:
 	lda.w printy
 	cmp.w #$000B
-	bcs CODE_9FA1B7
+	bcs USBoard_rtl
 	lda.b a2
 	beq .noa2
 	lda.w #$0034

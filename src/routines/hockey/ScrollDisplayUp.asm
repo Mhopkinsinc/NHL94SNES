@@ -8,7 +8,7 @@ ScrollDisplayUp:
 	bmi .2
 	bvc .3
 .1:
-	jmp.w CODE_9EC9B0
+	jmp.w UpdateScoutingDisplay_rtl
 .2:
 	bvc .1
 .3:

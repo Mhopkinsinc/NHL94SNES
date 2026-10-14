@@ -3,7 +3,7 @@ randoma:
 	phx
 	pha
 	cmp.w #$0100
-	bcc CODE_9BB387
+	bcc randoma8_go
 	jsl.l RandomWord
 	plx
 	jsl.l Mul16U

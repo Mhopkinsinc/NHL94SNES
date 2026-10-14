@@ -6,15 +6,15 @@ UpdateScoutingDisplay:
 	beq .2
 	bmi .t1
 	bvs .2
-	bra CODE_9EC9B0
+	bra UpdateScoutingDisplay_rtl
 
 .t1:
-	bvs CODE_9EC9B0
+	bvs UpdateScoutingDisplay_rtl
 .2:
 	lda.w $1D5E
 	bmi .1
 	dec.w ScoutingReportTimer
-	bpl CODE_9EC9B0
+	bpl UpdateScoutingDisplay_rtl
 .1:
 	lda.w #$0097
 	sta.b $8F
@@ -22,7 +22,7 @@ UpdateScoutingDisplay:
 	sta.b a1
 	lda.w PlayerScrollCtr
 	sta.b d0
-	bpl CODE_9EC9E2
+	bpl UpdateScoutingDisplay_para
 	stz.w $0D47
 	ldy.w SelectedPlayerIdx
 	inc.w SelectedPlayerIdx
@@ -33,14 +33,14 @@ UpdateScoutingDisplay:
 	sta.b a0
 	lda.b [a0],y
 	sta.b d0
-	bpl CODE_9EC9B1
+	bpl UpdateScoutingDisplay_scroll
 	lda.w #$7FFF
 	sta.w ScoutingReportTimer
 	lda.w #$01E0
 	sta.w $0D41
-CODE_9EC9B0:
+UpdateScoutingDisplay_rtl:
 	rtl
-CODE_9EC9B1:
+UpdateScoutingDisplay_scroll:
 	lda.w VertLineScrolling
 	cmp.w #$0001
 	bmi .1
@@ -51,21 +51,21 @@ CODE_9EC9B1:
 	sta.b $93
 	lda.b a1
 	sta.b a2
-	bra CODE_9EC9D7
-CODE_9EC9CB:
+	bra UpdateScoutingDisplay_next
+UpdateScoutingDisplay_skip:
 	lda.b [a2]
 	inc.b a2
 	and.w #$00FF
 	cmp.w #$000D
-	bne CODE_9EC9CB
-CODE_9EC9D7:
+	bne UpdateScoutingDisplay_skip
+UpdateScoutingDisplay_next:
 	dec.b d0
-	bpl CODE_9EC9CB
+	bpl UpdateScoutingDisplay_skip
 	lda.b a2
 	sec
 	sbc.b a1
 	sta.b d0
-CODE_9EC9E2:
+UpdateScoutingDisplay_para:
 	lda.b a1
 	clc
 	adc.b d0

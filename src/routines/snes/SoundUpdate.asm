@@ -19,7 +19,7 @@ SoundUpdate:		; per frame: fade, envelopes, and the song ticks that are due; not
 
 .t1:
 	sep #$20
-	jsr.w CODE_80A40F
+	jsr.w SeqCmd08Init_send
 .5:
 	sep #$20
 	lda.w $07F1

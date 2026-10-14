@@ -90,5 +90,5 @@ Intermission:
 	sta.l $7E3476
 	stz.w $1A10
 	stz.w $0D2F
-CODE_9FA379:
+Intermission_rtl:
 	rtl

@@ -180,7 +180,7 @@ DrawSpritePieces:
 	and.w #$00FF
 	asl a
 	tax
-CODE_80B3C9:
+DrawSpritePieces_exit:
 	txa
 	plb
 	ply

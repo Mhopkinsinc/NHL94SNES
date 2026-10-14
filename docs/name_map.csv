@@ -5817,3 +5817,44 @@ $9EEF1C,.ytab,DATA8_9EEF1C,new,assdumpin: the target y table (folded into assdum
 $9EEACC,dopass_swing,CODE_9EEACC,new,dopass once the puck velocity is set: the goalie direction fix and the pass animation; assdumpin jumps here,src/routines/logic/dopass.asm
 $9EDC06,AdjustFacingDirection,CODE_9EDC06,93S,"The 93S AdjustFacingDirection turn step (d0 - facedir, negate, and 4, lsr, dec: +-1, add, and 7) at the same point in assgoalie (vtoa, then the turn); 94 adds the tick delay and drops the clamp at the sides of the net",src/routines/logic/AdjustFacingDirection.asm
 $9EDC44,GoaliePuckVector,CODE_9EDC44,new,"Behavior: assgoalie and assgoalietopuck call it before vtoa and AdjustFacingDirection, where 93S assgoalie calls ClampYPosition (the same step, different maths)",src/routines/logic/GoaliePuckVector.asm
+$9C8644,ShowPlayerStats_loop,CODE_9C8644,new,the key loop,src/routines/hockey/ShowPlayerStats.asm
+$9C86F3,ShowPlayerStats_exit,CODE_9C86F3,new,the exit,src/routines/hockey/ShowPlayerStats.asm
+$9C86FE,ShowPlayerStats_down,CODE_9C86FE,new,scroll down,src/routines/hockey/ShowPlayerStats.asm
+$9C874C,ShowPlayerStats_up,CODE_9C874C,new,scroll up,src/routines/hockey/ShowPlayerStats.asm
+$9C8796,ShowPlayerStats_left,CODE_9C8796,new,previous stat column,src/routines/hockey/ShowPlayerStats.asm
+$9C87A6,ShowPlayerStats_right,CODE_9C87A6,new,next stat column,src/routines/hockey/ShowPlayerStats.asm
+$9C87B7,ShowPlayerStats_column,CODE_9C87B7,new,set the stat column and sort,src/routines/hockey/ShowPlayerStats.asm
+$9C87C5,ShowPlayerStats_setrange,CODE_9C87C5,new,set the column with a new range,src/routines/hockey/ShowPlayerStats.asm
+$9EC9B1,UpdateScoutingDisplay_scroll,CODE_9EC9B1,new,scroll the text up when needed,src/routines/hockey/UpdateScoutingDisplay.asm
+$9EC9CB,UpdateScoutingDisplay_skip,CODE_9EC9CB,new,skip to the end of a paragraph,src/routines/hockey/UpdateScoutingDisplay.asm
+$9EC9D7,UpdateScoutingDisplay_next,CODE_9EC9D7,new,count the paragraphs,src/routines/hockey/UpdateScoutingDisplay.asm
+$9EC9E2,UpdateScoutingDisplay_para,CODE_9EC9E2,new,the start of paragraph d0,src/routines/hockey/UpdateScoutingDisplay.asm
+$9EF7C7,ChkOffsides_blue,CODE_9EF7C7,new,at the blue line: StartBreakaway,src/routines/logic/ChkOffsides.asm
+$9EF803,ChkOffsides_team,CODE_9EF803,new,each player of the team,src/routines/logic/ChkOffsides.asm
+$9EF80F,ChkOffsides_loop,CODE_9EF80F,new,the key loop,src/routines/logic/ChkOffsides.asm
+$9EF82A,ChkOffsides_next,CODE_9EF82A,new,count the paragraphs,src/routines/logic/ChkOffsides.asm
+$9EF833,ChkOffsides_other,CODE_9EF833,new,the other end (y negated),src/routines/logic/ChkOffsides.asm
+$9EEB2E,dopass_count,CODE_9EEB2E,new,count the pass for the team ($17BE),src/routines/logic/dopass.asm
+$80CA9A,ShootersNext,CODE_80CA9A,new,ShootoutShooters: back to the key loop,src/routines/shootout/ShootoutShooters.asm
+$80CAB0,ShootersSetGoalie,CODE_80CAB0,new,ShootoutShooters: set the goalie (tmgoalie),src/routines/shootout/ShootoutShooters.asm
+$80CAB8,ShootersUp,CODE_80CAB8,new,ShootoutShooters: the row up,src/routines/shootout/ShootoutShooters.asm
+$80CAC6,ShootersDown,CODE_80CAC6,new,ShootoutShooters: the row down,src/routines/shootout/ShootoutShooters.asm
+$80CAD7,ShootersPick,CODE_80CAD7,new,ShootoutShooters: pick the shooter for the row,src/routines/shootout/ShootoutShooters.asm
+$80CAE1,ShootersSetup,CODE_80CAE1,new,"ShootoutShooters: print position 0,0 and findpc $20 at the start",src/routines/shootout/ShootoutShooters.asm
+$9FB8B4,setupice_reset,CODE_9FB8B4,new,setupice after the graphics: reset the rink state; StartPer and SaveRegsStartHL2 enter here,src/routines/hockey/setupice.asm
+$9C8684,ShowPlayerStats_redraw,CODE_9C8684,new,ShowPlayerStats: redraw the page; SwapPlayerStatsTeam comes back here,src/routines/hockey/ShowPlayerStats.asm
+$9EC9B0,UpdateScoutingDisplay_rtl,CODE_9EC9B0,new,UpdateScoutingDisplay: the rtl; ScrollDisplayUp jumps here,src/routines/hockey/UpdateScoutingDisplay.asm
+$9EF829,ChkOffsides_rtl,CODE_9EF829,new,ChkOffsides: the rtl; ClearOffsidesIfAllPlayers jumps here,src/routines/logic/ChkOffsides.asm
+$9EDCC3,pucknorm_move,CODE_9EDCC3,new,pucknorm after its one-time reset: the puck update; puckfaceoff calls it,src/routines/logic/pucknorm.asm
+$9FA379,Intermission_rtl,CODE_9FA379,new,Intermission: the rtl; InitTicker branches here,src/routines/penalty/Intermission.asm
+$9FA3BA,IntermissionTick_done,CODE_9FA3BA,new,IntermissionTick: A = 0 and rtl; TickerNext branches here,src/routines/penalty/IntermissionTick.asm
+$9FA1B7,USBoard_rtl,CODE_9FA1B7,new,USBoard: restore X and rtl; DispPen and pplpen branch here,src/routines/penalty/USBoard.asm
+$9CA568,ApproxLength_abs,CODE_9CA568,new,ApproxLength with |x| in Y and |y| in A already positive; updateplayers and CalcPuckDistances call it,src/routines/snes/ApproxLength.asm
+$80B0B0,DrawSprite_draw,CODE_80B0B0,new,DrawSprite after GetFrameTiles: put the pieces in OAM; GetFrameTiles jumps back here,src/routines/snes/DrawSprite.asm
+$80B3C9,DrawSpritePieces_exit,CODE_80B3C9,new,DrawSpritePieces: the exit; FindCachedFrame branches here,src/routines/snes/DrawSpritePieces.asm
+$808F9F,Mul16x8U_go,CODE_808F9F,new,Mul16x8U after the zero tests; the other 16 x 8 forms enter here,src/routines/snes/Mul16x8U.asm
+$808FCD,Mul16x8XS_neg,CODE_808FCD,new,Mul16x8XS for a negative X; Mul16x8S enters here,src/routines/snes/Mul16x8XS.asm
+$808FD6,Mul16x8XS_mul,CODE_808FD6,new,"Mul16x8XS: multiply the magnitudes, then negate",src/routines/snes/Mul16x8XS.asm
+$808FDA,Mul16x8XS_negres,CODE_808FDA,new,Mul16x8XS: negate the product; Mul16XS jumps here,src/routines/snes/Mul16x8XS.asm
+$9BB387,randoma8_go,CODE_9BB387,new,randoma8 after its range test; randoma branches here for small ranges,src/routines/snes/randoma8.asm
+$80A40F,SeqCmd08Init_send,CODE_80A40F,new,SeqCmd08Init: wait for the sound CPU and send the command; SoundUpdate and StepTrack call it,src/routines/snes/SeqCmd08Init.asm

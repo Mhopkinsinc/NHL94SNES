@@ -12,7 +12,7 @@ StartPer:
 	jsl.l reenergizeteam
 	stz.w $0CC7
 	jsl.l forceblack
-	jsl.l CODE_9FB8B4
+	jsl.l setupice_reset
 	jsl.l ResetClock
 	jsl.l InitCrowdExcite
 	lda.w $1EBB

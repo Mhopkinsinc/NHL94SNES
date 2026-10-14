@@ -22,4 +22,4 @@ SwapPlayerStatsTeam:
 	jsl.l DrawPlayerStatsPage
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
-	jmp.w CODE_9C8684
+	jmp.w ShowPlayerStats_redraw

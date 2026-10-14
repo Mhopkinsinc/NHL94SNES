@@ -8,6 +8,6 @@ InitTicker:
 	jsl.l GetShifter
 	lda.b d1
 	sta.w $0D31
-	bmi CODE_9FA379
+	bmi Intermission_rtl
 .2:
 	jmp.w NewTicker2

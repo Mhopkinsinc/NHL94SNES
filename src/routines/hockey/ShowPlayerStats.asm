@@ -70,46 +70,46 @@ ShowPlayerStats:
 	jsl.l DrawPlayerStatsPage
 	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
-CODE_9C8644:
+ShowPlayerStats_loop:
 	jsl.l ReadPads
 	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d3
 	bit.w #$1000
 	beq .t2
-	jmp.w CODE_9C86F3
+	jmp.w ShowPlayerStats_exit
 
 .t2:
 	bit.w #$0800
 	beq .t1
 .1:
-	jmp.w CODE_9C874C
+	jmp.w ShowPlayerStats_up
 
 .t1:
 	bit.w #$0400
 	beq .t3
-	jmp.w CODE_9C86FE
+	jmp.w ShowPlayerStats_down
 
 .t3:
 	lda.b d1
 	bit.w #$0200
 	beq .t1x
 .1x:
-	jmp.w CODE_9C8796
+	jmp.w ShowPlayerStats_left
 
 .t1x:
 	bit.w #$0100
 	beq .t2x
 .1xx:
-	jmp.w CODE_9C87A6
+	jmp.w ShowPlayerStats_right
 
 .t2x:
 	bit.w #$4000
-	beq CODE_9C8684
+	beq ShowPlayerStats_redraw
 .1x2:
 	jmp.w SwapPlayerStatsTeam
 
-CODE_9C8684:
+ShowPlayerStats_redraw:
 	lda.w $1DF9
 	cmp.w #$0000
 	beq .4
@@ -155,16 +155,16 @@ CODE_9C8684:
 	jsl.l DrawPlayerStatsPage
 .4:
 	jsl.l WaitFrame
-	jmp.w CODE_9C8644
+	jmp.w ShowPlayerStats_loop
 
-CODE_9C86F3:
+ShowPlayerStats_exit:
 	lda.w #$0000
 	sta.l $7E3478
 	pla
 	sta.b a2
 	rtl
 
-CODE_9C86FE:
+ShowPlayerStats_down:
 	jsl.l ClearPlayerStatBraces
 	lda.w $1DB9
 	clc
@@ -172,7 +172,7 @@ CODE_9C86FE:
 	dec a
 	cmp.w $1DC1
 	bmi .t1x2
-	jmp.w CODE_9C8684
+	jmp.w ShowPlayerStats_redraw
 
 .t1x2:
 	inc.w $1DC5
@@ -193,15 +193,15 @@ CODE_9C86FE:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w CODE_9C8644
+	jmp.w ShowPlayerStats_loop
 
-CODE_9C874C:
+ShowPlayerStats_up:
 	jsl.l ClearPlayerStatBraces
 	lda.w $1DB9
 	dec a
 	cmp.w $1DBD
 	bpl .t1x3
-	jmp.w CODE_9C8684
+	jmp.w ShowPlayerStats_redraw
 
 .t1x3:
 	sta.w $1DB9
@@ -222,38 +222,38 @@ CODE_9C874C:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w CODE_9C8644
+	jmp.w ShowPlayerStats_loop
 
-CODE_9C8796:
+ShowPlayerStats_left:
 	lda.w $1DF9
 	dec a
 	bpl .t1x4
-	jmp.w CODE_9C8684
+	jmp.w ShowPlayerStats_redraw
 
 .t1x4:
 	cmp.w #$0000
-	beq CODE_9C87C5
-	bra CODE_9C87B7
+	beq ShowPlayerStats_setrange
+	bra ShowPlayerStats_column
 
-CODE_9C87A6:
+ShowPlayerStats_right:
 	lda.w $1DF9
 	cmp.w #$0005
 	bmi .t1x5
-	jmp.w CODE_9C8684
+	jmp.w ShowPlayerStats_redraw
 
 .t1x5:
 	inc a
 	cmp.w #$0001
-	beq CODE_9C87C5
-CODE_9C87B7:
+	beq ShowPlayerStats_setrange
+ShowPlayerStats_column:
 	sta.w $1DF9
 	jsl.l SortPlayerStats
 	jsl.l DrawPlayerStatsPage
-	jmp.w CODE_9C8684
-CODE_9C87C5:
+	jmp.w ShowPlayerStats_redraw
+ShowPlayerStats_setrange:
 	sta.w $1DF9
 	jsl.l SetPlayerStatsRange
 	jsl.l InitStatsOrder
 	jsl.l SortPlayerStats
 	jsl.l DrawPlayerStatsPage
-	jmp.w CODE_9C8684
+	jmp.w ShowPlayerStats_redraw

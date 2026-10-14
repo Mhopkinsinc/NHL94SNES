@@ -12,7 +12,7 @@ ChkOffsides:
 	sta.b d0
 	lda.w pucky
 	bpl .t2
-	jmp.w CODE_9EF833
+	jmp.w ChkOffsides_other
 
 .t2:
 	lda.b d0
@@ -22,20 +22,20 @@ ChkOffsides:
 	lda.b d0
 	sec
 	sbc.w $0E9F
-	bpl CODE_9EF829
-	bra CODE_9EF7C7
+	bpl ChkOffsides_rtl
+	bra ChkOffsides_blue
 
 .t1:
 	lda.b d0
 	sec
 	sbc.w $0E9F
-	bmi CODE_9EF829
-CODE_9EF7C7:
+	bmi ChkOffsides_rtl
+ChkOffsides_blue:
 	jsl.l StartBreakaway
 	lda.w gmode
 	bit.w #$0020
 	bne .t2
-	jmp.w CODE_9EF829
+	jmp.w ChkOffsides_rtl
 
 .t2:
 	lda.w #$005E
@@ -56,39 +56,39 @@ CODE_9EF7C7:
 	cmp.w #$000C
 	bpl .t1
 	lda.b a2
-	beq CODE_9EF803
-	bra CODE_9EF829
+	beq ChkOffsides_team
+	bra ChkOffsides_rtl
 
 .t1:
 	lda.b a2
-	beq CODE_9EF829
-CODE_9EF803:
+	beq ChkOffsides_rtl
+ChkOffsides_team:
 	lda.w #$0005
 	sta.b d2
 	ldy.b a2
 	lda.w tmsort,y
 	sta.b a0
-CODE_9EF80F:
+ChkOffsides_loop:
 	ldy.b a0
 	lda.w position,y
-	bmi CODE_9EF82A
+	bmi ChkOffsides_next
 	lda.b d0
 	sec
 	sbc.w Ypos,y
-	bpl CODE_9EF82A
+	bpl ChkOffsides_next
 	ldy.b a2
 	lda.w tmflags,y
 	ora.w #$0010
 	sta.w tmflags,y
-CODE_9EF829:
+ChkOffsides_rtl:
 	rtl
-CODE_9EF82A:
+ChkOffsides_next:
 	inc.b a0
 	inc.b a0
 	dec.b d2
-	bpl CODE_9EF80F
+	bpl ChkOffsides_loop
 	rtl
-CODE_9EF833:
+ChkOffsides_other:
 	lda.w #$0000
 	sec
 	sbc.b d0
@@ -100,20 +100,20 @@ CODE_9EF833:
 	lda.b d0
 	sec
 	sbc.w $0E9F
-	bpl CODE_9EF829
+	bpl ChkOffsides_rtl
 	bra .3
 
 .t1:
 	lda.b d0
 	sec
 	sbc.w $0E9F
-	bmi CODE_9EF829
+	bmi ChkOffsides_rtl
 .3:
 	jsl.l StartBreakaway
 	lda.w gmode
 	bit.w #$0020
 	bne .t1x
-	jmp.w CODE_9EF829
+	jmp.w ChkOffsides_rtl
 
 .t1x:
 	lda.b d0
@@ -137,11 +137,11 @@ CODE_9EF833:
 	bpl .t2
 	lda.b a2
 	beq .4
-	bra CODE_9EF829
+	bra ChkOffsides_rtl
 
 .t2:
 	lda.b a2
-	beq CODE_9EF829
+	beq ChkOffsides_rtl
 .4:
 	lda.w #$0005
 	sta.b d2

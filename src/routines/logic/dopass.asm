@@ -77,7 +77,7 @@ dopass:
 	ldx.b a3
 	lda.b d4
 	bmi .t2
-	jsl.l CODE_9EEB2E
+	jsl.l dopass_count
 	lda.w #$0000
 	jsl.l PuckSfx
 	jmp.w dopass_swing
@@ -170,7 +170,7 @@ dopass_swing:
 	jsl.l findpc
 .rtl:
 	rtl
-CODE_9EEB2E:
+dopass_count:
 	jsl.l loadTeamStruct
 	lda.w gmclock
 	bne .1
