@@ -33,7 +33,7 @@ checkfo:
 	ora.w $0CCB
 	sta.w $0CC9
 	phx
-	jsl.l CODE_9BBFB9
+	jsl.l addframe
 	plx
 	inx
 	inx

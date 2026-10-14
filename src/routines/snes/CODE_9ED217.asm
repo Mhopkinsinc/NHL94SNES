@@ -64,7 +64,7 @@ CODE_9ED24D:
 	clc
 	adc.w pucky
 	sta.b d1
-	jsl.l CODE_9EAB74
+	jsl.l avdgoal
 	lda.b d1
 	pha
 	lda.b d0

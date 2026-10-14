@@ -11,7 +11,7 @@ skatetopuck:
 .t1:
 	adc.w #$0005
 	sta.w $1023,x
-	jsl.l CODE_9EAB74
+	jsl.l avdgoal
 	lda.b d1
 	pha
 	lda.b d0

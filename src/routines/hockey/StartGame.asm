@@ -1,6 +1,6 @@
 ; Reset the game state for a new game, then start the first period
 StartGame:
-	jsl.l CODE_9D8BBF
+	jsl.l PlayoffScreen
 CODE_9F8334:
 	jsl.l CODE_9FE0E8
 	jsl.l CODE_9D8129
@@ -108,5 +108,5 @@ CODE_9F833C:
 	lda.w #$FFFF
 	sta.w $1E8D
 	lda.w $1D81
-	beq CODE_9F8433
+	beq StartPer
 	rtl

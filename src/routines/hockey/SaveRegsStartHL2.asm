@@ -74,7 +74,7 @@ StartHL2:
 	stz.w $0AC2
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jsl.l CODE_9C9786
 	lda.w $1D68
 	cmp.w #$0001
@@ -315,7 +315,7 @@ org $9F9001
 	bcc .loop5
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jsl.l CODE_9F9307
 	jsl.l CODE_9FB901
 	jsl.l SetHor
@@ -370,7 +370,7 @@ org $9F9001
 	jsl.l printscores1
 	jsl.l CODE_9FEA24
 	jsl.l CODE_9F96E6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	stx.b xsave
 	ldx.w #$001A
 .loopx:

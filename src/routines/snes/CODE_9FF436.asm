@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9FF436:
 	stz.w $0AD3
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jsl.l CODE_9B8000
 	jsl.l CODE_9C97E9
 	sep #$20
@@ -29,7 +29,7 @@ CODE_9FF436:
 	ldx.w #$009F
 	lda.w #$FA17
 	jsl.l CODE_80855E
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	lda.w #$7000
 	sta.b $64
 	ldx.w #$003C
@@ -50,5 +50,5 @@ CODE_9FF436:
 	bra .loop2
 
 .t1:
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	rtl

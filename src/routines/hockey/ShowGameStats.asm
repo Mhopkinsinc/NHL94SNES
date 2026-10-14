@@ -73,7 +73,7 @@ ShowGameStats:
 	lda.w #$0010
 	sta.w $1DF5
 	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	jsr.w PrintTeamStatRows
 	jsl.l CODE_9DD923
 	bra MarkGameStatRows

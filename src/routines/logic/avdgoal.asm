@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EAB74:
+; Do not skate through the goal: aim beside the net when the path crosses it
+avdgoal:
 	phb
 	phk
 	plb

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BB19D:
+; Put one recorded replay frame back into the objects, the puck and the screen
+RestoreReplayFrame:
 	lda.b d1
 	pha
 	inc.w $0CB9

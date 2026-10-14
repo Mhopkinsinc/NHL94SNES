@@ -3,7 +3,7 @@ CODE_9F8283:
 	rep #$30
 	jsl.l Multi5Init
 	jsl.l CODE_9FF436
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	lda.w #$0000
 	tax
 .loop:
@@ -28,7 +28,7 @@ CODE_9F8283:
 	bne .loop2
 	lda.w MusicOn
 	bne .loop2
-CODE_9F82D2:
+Restart:
 	lda.w #$0000
 	sta.l playoffRoundIdx
 	rep #$30
@@ -64,4 +64,4 @@ CODE_9F82D2:
 	bne StartGame
 	jsl.l CODE_80C81C
 	stz.w $07C6
-	jmp.w CODE_9F82D2
+	jmp.w Restart

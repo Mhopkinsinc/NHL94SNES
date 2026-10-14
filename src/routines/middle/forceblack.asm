@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_8086A9:
+; Turn the screen black: default interrupt handlers, forced blank, PPU registers reset
+forceblack:
 	lda.w $0AD3
 	beq .1
 	jsl.l CODE_9F96F7

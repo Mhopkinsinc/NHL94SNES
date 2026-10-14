@@ -23,6 +23,6 @@ showzam:
 	sta.w $0CD1
 	lda.w #$01C0
 	sta.w $0CCD
-	jsl.l CODE_9BBFB9
+	jsl.l addframe
 .rtl:
 	rtl

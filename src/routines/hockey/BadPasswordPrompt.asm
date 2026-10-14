@@ -99,4 +99,4 @@ BadPasswordPrompt:
 .t1:
 	lda.w #$0002
 	sta.l $7E34BC
-	jml.l CODE_9F82D2
+	jml.l Restart

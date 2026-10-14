@@ -35,7 +35,7 @@ ShootoutShooters:
 	ldx.w #$0050
 	jsl.l CODE_9DCCF5
 	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 CODE_80CA70:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame

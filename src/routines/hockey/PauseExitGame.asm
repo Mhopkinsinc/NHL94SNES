@@ -13,4 +13,4 @@ PauseExitGame:
 
 .t1:
 	stz.w $07C6
-	jml.l CODE_9F82D2
+	jml.l Restart

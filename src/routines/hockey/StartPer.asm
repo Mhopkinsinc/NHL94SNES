@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F8433:
+; Start a period: reset the teams, the rink and the clock, then the game loop
+StartPer:
 	lda.w $1D81
 	bne .1
 	lda.w #$1FFF
@@ -11,7 +11,7 @@ CODE_9F8433:
 	sta.b a2
 	jsl.l reenergizeteam
 	stz.w $0CC7
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jsl.l CODE_9FB8B4
 	jsl.l ResetClock
 	jsl.l CODE_9B9B6B

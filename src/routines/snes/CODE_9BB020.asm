@@ -17,7 +17,7 @@ CODE_9BB020:
 	sta.b $9B
 	lda.w ReplayBufferPtr
 	sta.b a4
-	jsl.l CODE_9BB19D
+	jsl.l RestoreReplayFrame
 	lda.w #$0800
 	trb.w sflags
 	jsl.l SetHor
@@ -34,7 +34,7 @@ CODE_9BB020:
 	bne .loop
 	lda.w SoundFadeSpeed
 	bne .loop
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	lda.w $1D81
 	bne .1
 	lda.w $0CBB

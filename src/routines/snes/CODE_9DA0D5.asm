@@ -14,7 +14,7 @@ CODE_9DA0D5:
 	sta.w $0AD7
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	sep #$20
 	lda.b #$09
 	sta.w BGMODE
@@ -43,7 +43,7 @@ CODE_9DA0D5:
 	ldy.w #$0800
 	jsl.l CODE_80891F
 	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	jsl.l CODE_9F96E6
 	lda.w #$000A
 	sta.w $0AD1

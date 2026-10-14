@@ -35,7 +35,7 @@ updatesound:
 	sta.w $093A
 	rtl
 	sep #$20
-	lda.w $0762
+	lda.w IniDispShadow
 	bmi .1x
 	lda.w $0AD3
 	sta.w INIDISP

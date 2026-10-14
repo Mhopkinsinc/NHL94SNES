@@ -15,7 +15,7 @@ ShowPlayerCards:
 	clc
 	adc.w #$0006
 	sta.w $1DC1
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	jsl.l DrawPlayerCard
 CODE_9DBD7B:
 	jsl.l CODE_9DD923

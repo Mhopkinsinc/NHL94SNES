@@ -69,7 +69,7 @@ ShowPlayerStats:
 	jsl.l CODE_9DD923
 	jsl.l CODE_9C88A0
 	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 CODE_9C8644:
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B851F

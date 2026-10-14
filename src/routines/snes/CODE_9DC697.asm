@@ -11,7 +11,7 @@ CODE_9DC697:
 	sta.b $10
 	jsl.l Decompress
 	jsl.l CODE_9F9708
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	sep #$20
 	lda.b #$00
 	sta.w BG1SC

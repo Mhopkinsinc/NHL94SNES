@@ -33,7 +33,7 @@ ShowOtherScores:
 	ldy.w #$00D8
 	jsl.l CODE_9BCDF8
 	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	lda.w #$0005
 	sta.w $1DC5
 	jsl.l DrawOtherScoresPage

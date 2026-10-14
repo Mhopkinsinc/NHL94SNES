@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D8BBF:
+; The playoff tree screen
+PlayoffScreen:
 	lda.w #$FFFF
 	sta.l $7E346C
 	sta.l $7E346E
@@ -23,7 +23,7 @@ CODE_9D8BBF:
 	cmp.w #$ED31
 	beq .t2
 	jsl.l CODE_9C9786
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 .loop:
 	lda.w MusicOn
 	bne .loop
@@ -35,7 +35,7 @@ CODE_9D8BBF:
 	jmp.w .2
 
 .t2:
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 .2:
 	sep #$20
 	lda.b #$09

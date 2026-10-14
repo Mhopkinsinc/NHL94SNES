@@ -171,7 +171,7 @@ CODE_9D906E:
 	ldy.w #$0010
 	ldx.w #$0070
 	jsl.l CODE_808723
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 .2:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017

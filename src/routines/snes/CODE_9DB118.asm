@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9DB118:
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jsl.l CODE_9C983D
 	lda.w #$6000
 	ldx.w #$0000
@@ -84,7 +84,7 @@ CODE_9DB118:
 	jsl.l WaitFrame
 	lda.w #$000F
 	sta.w $0AD3
-	sta.w $0762
+	sta.w IniDispShadow
 	jsr.w CODE_9DB7A0
 	lda.w #$7000
 	sta.b $64

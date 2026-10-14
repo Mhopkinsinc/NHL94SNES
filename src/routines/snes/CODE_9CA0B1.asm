@@ -79,7 +79,7 @@ CODE_9CA0B1:
 	ldx.w #$2200
 .1xx:
 	stx.w $0CC9
-	jsl.l CODE_9BBFB9
+	jsl.l addframe
 	lda.w $0CCD
 	cmp.w #$00D9
 	bcc .8

@@ -36,7 +36,7 @@ CODE_9D8129:
 	jsl.l CODE_9D80DD
 	jsl.l ShowMatchups
 	jsl.l CODE_9D8B49
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 CODE_9D8195:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame

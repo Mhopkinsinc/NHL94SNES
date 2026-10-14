@@ -6,7 +6,7 @@ NMI_HookReturn:
 	lda.w $07D4
 	sta.w HTIMEL
 	sep #$30
-	lda.w $0762
+	lda.w IniDispShadow
 	sta.w INIDISP
 	ldx.b #$00
 	txy

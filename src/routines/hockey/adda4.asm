@@ -35,7 +35,7 @@ adda4:
 	rtl
 
 .t1:
-	jsl.l CODE_9BB19D
+	jsl.l RestoreReplayFrame
 adda43:
 	lda.b a4
 	clc

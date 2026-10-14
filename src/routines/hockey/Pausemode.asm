@@ -19,14 +19,14 @@ Pausemode:
 	pha
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jsl.l SetHor
 	ldx.w #$0000
 	ldy.w #$01C0
 	lda.w #$6000
 	jsl.l InitSprites
 	jsl.l CODE_9F96E6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	jsl.l SpriteFrameStart
 	jsl.l setvideo
 	jsl.l SpriteFrameEnd
@@ -60,7 +60,7 @@ Pausemode:
 	stz.w $1D60
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jsl.l SoundInit
 	phx
 	lda.w #$007E
@@ -92,7 +92,7 @@ Pausemode:
 	lda.w #$6000
 	jsl.l InitSprites
 	jsl.l CODE_9F96E6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	jsl.l SpriteFrameStart
 	jsl.l setvideo
 	jsl.l SpriteFrameEnd

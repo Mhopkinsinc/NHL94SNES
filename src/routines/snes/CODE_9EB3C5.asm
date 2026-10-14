@@ -71,7 +71,7 @@ CODE_9EB3C5:
 	stz.b d0
 	jsl.l PushRef
 	jsl.l CODE_9F96E6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	rtl
 
 .t3:

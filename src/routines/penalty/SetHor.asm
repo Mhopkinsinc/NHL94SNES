@@ -34,7 +34,7 @@ SetHor:
 	sta.w puckvy
 	lda.w #$0001
 	sta.l $7E3460
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	lda.w #$0001
 	sta.w sfhormode
 	stz.w Hscroll

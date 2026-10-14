@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_8086BD:
+; Full brightness, no forced blank
+ScreenOn:
 	pha
 	lda.w $0AD3
 	cmp.w #$000F
@@ -8,7 +8,7 @@ CODE_8086BD:
 .1:
 	sep #$20
 	lda.b #$0F
-	sta.w $0762
+	sta.w IniDispShadow
 	rep #$20
 	pla
 	rtl

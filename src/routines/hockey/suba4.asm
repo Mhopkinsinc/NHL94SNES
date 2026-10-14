@@ -24,13 +24,13 @@ suba4:
 	lda.b a4
 	cmp.w ReplayBufferPtr
 	beq .t2
-	jml.l CODE_9BB19D
+	jml.l RestoreReplayFrame
 
 .t2:
 	lda.b $9B
 	cmp.w $0D21
 	beq .t1
-	jml.l CODE_9BB19D
+	jml.l RestoreReplayFrame
 
 .t1:
 	lda.b a4
@@ -54,6 +54,6 @@ suba4:
 	rtl
 
 .t3:
-	jsl.l CODE_9BB19D
+	jsl.l RestoreReplayFrame
 	stz.b d7
 	rtl

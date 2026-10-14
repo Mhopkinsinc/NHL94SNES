@@ -22,7 +22,7 @@ TeamRoster:
 	jsl.l CODE_9C936C
 	jsl.l CODE_9F96E6
 	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	lda.w #$007E
 	sta.b $12
 	lda.w #$37F4

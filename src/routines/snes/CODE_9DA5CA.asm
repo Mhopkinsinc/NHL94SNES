@@ -14,7 +14,7 @@ CODE_9DA5CA:
 	sta.l $7E3456
 	lda.w #$0005
 	sta.l $7E345E
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jsl.l CODE_9DD977
 	jsl.l CODE_9DE074
 	lda.l $7E34BE
@@ -91,7 +91,7 @@ CODE_9DA5CA:
 	jsr.w CODE_9DAA83
 	jsl.l CODE_9B8017
 	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	lda.w #$0008
 	ldx.w #$0040
 	jsl.l CODE_9DCCF5

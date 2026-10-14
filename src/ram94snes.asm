@@ -181,3 +181,4 @@ SelectedPlayerIdx = $0D43	; scouting report selected player
 ScoutingReportTimer = $0D45	; scouting report timer
 TestList = $7E347C		; scouting report text list
 crowdlevel = $7E35E0	; crowd noise level: raised by the play, fades every frame
+IniDispShadow = $0762	; INIDISP value the NMI writes (forced blank, brightness)

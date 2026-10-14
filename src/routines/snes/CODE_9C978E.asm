@@ -4,7 +4,7 @@ CODE_9C978E:
 	lda.w $1D68
 	cmp.w #$0002
 	beq .1
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	lda.w #$0002
 	sta.w $1D68
 	sep #$20

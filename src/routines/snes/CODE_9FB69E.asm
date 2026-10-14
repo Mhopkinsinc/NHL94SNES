@@ -2,7 +2,7 @@
 CODE_9FB69E:
 	lda.w $0AD3
 	bne CODE_9FB69E
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	lda.w #$FF00
 	sta.l $7E35AA
 	lda.w #$0000
@@ -219,7 +219,7 @@ CODE_9FB69E:
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
 CODE_9FB8B4:
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	lda.w #$03E7
 	sta.w Oldrow
 	lda.w #$0001
@@ -247,5 +247,5 @@ CODE_9FB8B4:
 	jsl.l CODE_9FB901
 	stz.w $0AD1
 	jsl.l CODE_9F96E6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	rtl

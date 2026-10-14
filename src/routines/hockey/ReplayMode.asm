@@ -1,7 +1,7 @@
-; Unidentified routine.
-CODE_9BAA60:
+; Instant replay
+ReplayMode:
 	lda.w SoundFadeSpeed
-	bne CODE_9BAA60
+	bne ReplayMode
 	jsl.l CODE_9C98DF
 	lda.w #$0000
 	sta.l crowdlevel
@@ -119,7 +119,7 @@ CODE_9BAA60:
 	ldx.w #$009C
 	lda.w #$9971
 	jsl.l CODE_80855E
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	jsl.l SprSort
 	jsl.l SpriteFrameStart
 	jsl.l setvideo

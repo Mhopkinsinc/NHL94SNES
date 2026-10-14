@@ -81,7 +81,7 @@ ShowCrowdMeter:
 	sta.l $7F75C2
 	jsl.l CODE_9DE0D4
 	stz.w $1DB9
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 .1:
 	jsl.l SpriteFrameStart
 	ldx.w #$0048

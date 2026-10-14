@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_808723:
 	sep #$20
-	lda.w $0762
+	lda.w IniDispShadow
 	bpl .t1
 	tya
 	sta.w CGADD

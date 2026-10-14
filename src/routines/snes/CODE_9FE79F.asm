@@ -15,7 +15,7 @@ CODE_9FE79F:
 	jsl.l Decompress
 	phx
 	jsl.l CODE_9F9708
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jsl.l SpriteFrameStart
 	jsl.l SpriteFrameEnd
 	jsl.l CODE_9FB901
@@ -234,5 +234,5 @@ CODE_9FE79F:
 	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	jsl.l CODE_9F96E6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	rtl

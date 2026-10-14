@@ -23,7 +23,7 @@ EditLinesScreen:
 	ldx.w #$0068
 	jsl.l CODE_9DCCF5
 	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 .3:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame

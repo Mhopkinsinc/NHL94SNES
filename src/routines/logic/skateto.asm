@@ -14,7 +14,7 @@ skateto:
 	sta.b $A7
 	lda.b d1
 	sta.b $AB
-	jsl.l CODE_9EAB74
+	jsl.l avdgoal
 	lda.w $0EC3,x
 	xba
 	and.w #$00FF

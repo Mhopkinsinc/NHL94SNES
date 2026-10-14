@@ -6,7 +6,7 @@ CODE_808684:
 	jsl.l CODE_808569
 	sep #$20
 	lda.b #$8F
-	sta.w $0762
+	sta.w IniDispShadow
 	jsl.l WaitFrame
 	stz.w HDMAEN
 	rep #$20

@@ -11,16 +11,16 @@ PauseReplay:
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9C9786
 	jsl.l CODE_9F9708
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	lda.b d7
 	pha
 	lda.b $85
 	dec a
 	dec a
 	sta.w $0D53
-	jsl.l CODE_9BAA60
+	jsl.l ReplayMode
 	jsl.l CODE_9F96E6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	pla
 	sta.b d7
 	sta.w $0ADB

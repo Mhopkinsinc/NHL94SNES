@@ -9,7 +9,7 @@ PeriodOver:
 	bne .loop
 	lda.w SoundFadeSpeed
 	bne .loop
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	lda.w $1D81
 	bne .5
 	jsl.l CODE_9C978E
@@ -55,7 +55,7 @@ PeriodOver:
 	lda.w #$6000
 	jsl.l InitSprites
 	jsl.l CODE_9F96E6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	jsl.l SpriteFrameStart
 	jsl.l setvideo
 	jsl.l SpriteFrameEnd
@@ -97,4 +97,4 @@ PeriodOver:
 	jsl.l CODE_9C98DF
 	lda.w #$FFFF
 	sta.w $1E8D
-	jmp.w CODE_9F8433
+	jmp.w StartPer

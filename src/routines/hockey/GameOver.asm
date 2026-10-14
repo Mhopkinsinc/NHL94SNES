@@ -2,16 +2,16 @@
 GameOver:
 	stz.w $07C6
 	jsl.l EncodePW
-	jsl.l CODE_9D8BBF
+	jsl.l PlayoffScreen
 	lda.l $7E34BC
 	cmp.w #$0001
 	beq .t1
-	jml.l CODE_9F82D2
+	jml.l Restart
 
 .t1:
 	lda.l $7E35D6
 	bpl .t2
-	jml.l CODE_9F82D2
+	jml.l Restart
 
 .t2:
 	lda.l PassWord

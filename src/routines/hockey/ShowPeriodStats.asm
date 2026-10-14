@@ -12,7 +12,7 @@ ShowPeriodStats:
 	sta.w $1DC5
 	stz.w $1DB9
 	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l ScreenOn
 	jsl.l DrawPeriodStats
 .1:
 	jsl.l CODE_9DD923

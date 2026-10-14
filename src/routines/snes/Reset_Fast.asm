@@ -55,7 +55,7 @@ Reset_Fast:
 	stz.w SETINI
 	rep #$20
 	lda.w #$008F
-	sta.w $0762
+	sta.w IniDispShadow
 	lda.w #$0000
 	tax
 	tay
@@ -106,7 +106,7 @@ Reset_Fast:
 	sep #$20
 	rep #$10
 	lda.b #$8F
-	sta.w $0762
+	sta.w IniDispShadow
 	ldx.w #$000C
 .loop10:
 	lda.w InitHooks,x
@@ -129,5 +129,5 @@ Reset_Fast:
 	rep #$30
 	jsl.l SoundInit
 	stz.w $0AD3
-	jsl.l CODE_8086A9
+	jsl.l forceblack
 	jml.l CODE_9F8283
