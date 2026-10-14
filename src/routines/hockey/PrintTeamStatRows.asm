@@ -69,7 +69,7 @@ org $9C9000
 .3:
 	lda.b [a0]
 	bpl .t2x
-	jmp.w CODE_9C9167
+	jmp.w .8
 
 .t2x:
 	and.w #$00F0
@@ -98,7 +98,7 @@ org $9C9000
 	beq .t2xx
 	cmp.w #$0003
 	bne .t1xx
-	jmp.w CODE_9C9145
+	jmp.w .6
 
 .t1xx:
 	lda.b [a0]
@@ -108,7 +108,7 @@ org $9C9000
 	lda.w $0000,y
 	sta.b d0
 	jsl.l PushNumber
-	jmp.w CODE_9C9154
+	jmp.w .7
 
 .t2xx:
 	lda.b [a0]
@@ -159,7 +159,7 @@ org $9C9000
 	sta.b $8F
 	lda.b a3
 	sta.b a1
-	bra CODE_9C9154
+	bra .7
 .5:
 	lda.b [a0]
 	inc.b a0
@@ -196,4 +196,24 @@ org $9C9000
 	sta.b $8F
 	lda.b a3
 	sta.b a1
-	bra CODE_9C9154
+	bra .7
+.6:
+	lda.b [a0]
+	clc
+	adc.b a2
+	tay
+	lda.w $0000,y
+	sta.b d0
+	jsl.l PushTime
+.7:
+	lda.b [a1]
+	inc a
+	lsr a
+	eor.w #$FFFF
+	inc a
+	clc
+	adc.w printx
+	sta.w printx
+	jsl.l CODE_9EC894
+.8:
+	rts

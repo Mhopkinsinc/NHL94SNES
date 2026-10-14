@@ -21,7 +21,7 @@ CODE_808BED:
 	asl.b $24
 	lda.w $0761
 	bmi .t1
-	jmp.w CODE_808CBF
+	jmp.w .5
 
 .t1:
 	lda.b $0C
@@ -111,3 +111,84 @@ CODE_808BED:
 	and.w #$FFE0
 	sta.w VMADDL
 	jmp.w .3
+.5:
+	lda.b $0C
+	clc
+	adc.w #$0006
+	adc.b $24
+	adc.b $08
+	sta.b $0C
+	pla
+	sta.b $24
+	lda.b $1E
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	adc.w $079C
+	ora.b $1C
+	tay
+.1xx:
+	lda.b $18
+	clc
+	adc.b $1C
+	cmp.w #$0021
+	bcs .3x
+	lda.b $18
+	asl a
+	tax
+	phy
+	lda.b $0C
+	pha
+	jsl.l CODE_808950
+	pla
+	sta.b $0C
+	ply
+.2x:
+	lda.b $0C
+	clc
+	adc.b $24
+	sta.b $0C
+	tya
+	clc
+	adc.w #$0020
+	tay
+	inc.b $1E
+	lda.b $1E
+	cmp.w #$0020
+	bne .1xxx
+	tya
+	clc
+	adc.w $079E
+	tay
+.1xxx:
+	dec.b $1A
+	bne .1xx
+	rtl
+.3x:
+	lda.w #$0020
+	sbc.b $1C
+	asl a
+	sta.b $20
+	tax
+	lda.b $0C
+	pha
+	phy
+	jsl.l CODE_808950
+	ply
+	lda.b $18
+	asl a
+	sec
+	sbc.b $20
+	tax
+	phy
+	tya
+	adc.w #$0400
+	and.w #$FFE0
+	tay
+	jsl.l CODE_808950
+	ply
+	pla
+	sta.b $0C
+	jmp.w .2x

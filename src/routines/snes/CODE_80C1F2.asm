@@ -2,22 +2,22 @@
 CODE_80C1F2:
 	stx.b $00
 	ldx.b #$02
-CODE_80C1F6:
+.1:
 	asl a
 	dey
-	beq CODE_80C21A
-CODE_80C1FA:
+	beq .5
+.2:
 	inx
-	bcc CODE_80C1F6
+	bcc .1
 	stx.b $04
-CODE_80C1FF:
+.3:
 	asl a
 	rol.b $6F
 	dey
-	beq CODE_80C226
-CODE_80C205:
+	beq .6
+.4:
 	dex
-	bne CODE_80C1FF
+	bne .3
 	sta.b $6C
 	asl.b $04
 	ldx.b $04
@@ -27,10 +27,17 @@ CODE_80C205:
 	adc.b $6F
 	sta.b $6F
 	rts
-CODE_80C21A:
+.5:
 	sep #$20
 	lda.b ($0C)
 	rep #$20
 	inc.b $0C
 	ldy.b #$08
-	bra CODE_80C1FA
+	bra .2
+.6:
+	sep #$20
+	lda.b ($0C)
+	rep #$20
+	inc.b $0C
+	ldy.b #$08
+	bra .4

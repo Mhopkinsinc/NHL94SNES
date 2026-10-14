@@ -1,24 +1,24 @@
 ; Unidentified routine.
 CODE_80C277:
 	ldy.b #$02
-CODE_80C279:
+.1:
 	asl a
 	dex
 	dex
-	beq CODE_80C2A2
-CODE_80C27E:
+	beq .5
+.2:
 	iny
-	bcc CODE_80C279
+	bcc .1
 	sty.b $14
-CODE_80C283:
+.3:
 	asl a
 	rol.b $6F
 	dex
 	dex
-	beq CODE_80C2AE
-CODE_80C28A:
+	beq .6
+.4:
 	dey
-	bne CODE_80C283
+	bne .3
 	sta.b $6C
 	txy
 	lda.b $14
@@ -31,10 +31,17 @@ CODE_80C28A:
 	adc.b $6F
 	sta.b $6F
 	rts
-CODE_80C2A2:
+.5:
 	sep #$20
 	lda.b ($0C)
 	rep #$20
 	inc.b $0C
 	ldx.b #$10
-	bra CODE_80C27E
+	bra .2
+.6:
+	sep #$20
+	lda.b ($0C)
+	rep #$20
+	inc.b $0C
+	ldx.b #$10
+	bra .4

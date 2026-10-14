@@ -4,7 +4,7 @@ CODE_80ABF7:
 	lda.w $08F2,y
 	beq .3
 	cmp.b #$01
-	beq CODE_80AC46
+	beq .4
 	lda.b #$04
 	sta.w $08F2,y
 	phy
@@ -45,4 +45,7 @@ CODE_80ABF7:
 	sta.b $5B
 	jsr.w CODE_80A44A
 .3:
+	rts
+.4:
+	jsr.w CODE_80ABC7
 	rts

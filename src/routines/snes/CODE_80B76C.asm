@@ -41,7 +41,7 @@ CODE_80B77B:
 .1:
 	ldx.b $00
 	bmi .t2
-	jmp.w CODE_80B863
+	jmp.w .3
 
 .t2:
 	sep #$30
@@ -138,4 +138,81 @@ CODE_80B77B:
 	plb
 	ply
 	plx
+	rtl
+.3:
+	sep #$30
+	lda.w $3032,x
+	and.b #$7F
+	sta.b $16
+	clc
+	adc.b $00
+	tay
+	lda.w $3032,y
+	bmi .1xxx
+	clc
+	adc.b $16
+	sta.b $16
+.1xxx:
+	lda.w $3093,x
+	bmi .t1xx
+	tay
+	lda.w $3032,y
+	bmi .t1xx
+	clc
+	adc.b $16
+	sta.w $3032,y
+	tya
+	adc.w $3032,y
+	tax
+	tya
+	sta.w $3093,x
+	rep #$30
+	plb
+	ply
+	plx
+	rtl
+
+.t1xx:
+	lda.b $16
+	sta.w $3032,x
+	txa
+	clc
+	adc.b $16
+	tay
+	txa
+	sta.w $3093,y
+	rep #$30
+	plb
+	ply
+	plx
+	rtl
+
+.t2x:
+	phb
+	pea.w $7E7E
+	plb
+	plb
+	stz.b $14
+	lda.w $07B8
+.loop:
+	tax
+	lda.w $2F40,x
+	and.w #$00FF
+	beq .t1xxx
+	cmp.w #$0010
+	bcs .1xxxx
+	clc
+	adc.b $14
+	sta.b $14
+.1xxxx:
+	and.w #$003F
+	sta.b $2A
+	txa
+	clc
+	adc.b $2A
+	bra .loop
+
+.t1xxx:
+	plb
+	lda.b $14
 	rtl

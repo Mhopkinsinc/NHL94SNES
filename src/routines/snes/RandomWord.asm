@@ -1,22 +1,28 @@
 ; Unidentified routine.
 RandomWord:
 	lda.w $0792
-	beq CODE_808679
+	beq .3
 	asl a
-	bcc CODE_808663
+	bcc .1
 	eor.w #$1D87
-CODE_808663:
+.1:
 	sta.w $0792
 	lda.w $0794
-	beq CODE_80867E
+	beq .4
 	asl a
-	bcc CODE_808671
+	bcc .2
 	eor.w #$1D87
-CODE_808671:
+.2:
 	sta.w $0794
 	clc
 	adc.w $0792
 	rtl
-CODE_808679:
+.3:
 	lda.w #$A5A5
-	bra CODE_808663
+	bra .1
+.4:
+	lda.w #$B4B4
+	bra .2
+
+.t1:
+	rtl

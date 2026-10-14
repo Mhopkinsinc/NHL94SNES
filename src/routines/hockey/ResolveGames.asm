@@ -16,7 +16,7 @@ ResolveGames:
 	lda.w $0ACF
 	cmp.w #$0007
 	bne .4
-	jmp.w CODE_9F961F
+	jmp.w .9
 .4:
 	ldx.b a0
 	lda.w #$0004
@@ -164,4 +164,48 @@ ResolveGames:
 	inc a
 	sta.l playoffRoundIdx
 .8:
+	rtl
+.9:
+	stz.b d3
+.loopxx:
+	ldx.b a0
+	lda.l $7E3588,x
+	cmp.l $7E3578,x
+	bcc .1xx
+	lda.b d1
+	asl a
+	tax
+	lda.l BitMaskTable,x
+	tsb.b d3
+.1xx:
+	ldx.b a0
+	lda.l $7E3598,x
+	bit.w #$0001
+	beq .2x
+	lda.b d1
+	asl a
+	tax
+	lda.l BitMaskTable,x
+	eor.b d3
+	sta.b d3
+.2x:
+	dec.b a0
+	dec.b a0
+	dec.b d1
+	bpl .loopxx
+	lda.b d2
+	asl a
+	tax
+	lda.l BitMaskTable,x
+	tax
+	dec a
+	and.w $0AD5
+	sta.w $0AD5
+	lda.b d3
+	jsl.l Mul16U
+	lda.b $08
+	tsb.w $0AD5
+	lda.l playoffRoundIdx
+	inc a
+	sta.l playoffRoundIdx
 	rtl

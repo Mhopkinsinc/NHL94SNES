@@ -133,7 +133,7 @@ CODE_80A965:
 .t5:
 	cpy.b #$E5
 	beq .t2x2
-	jmp.w CODE_80AB0B
+	jmp.w .9
 
 .t2x2:
 	lda.b $5E
@@ -247,5 +247,54 @@ CODE_80A965:
 	bmi .8
 	jmp.w .4
 .8:
+	rep #$20
+	jmp.w CODE_80ABA5
+.9:
+	cpy.b #$DC
+	bne .4x
+	lda.b $5A
+	and.w #$00FF
+	cmp.w #$006A
+	bne .2x
+.1xx:
+	lda.w #$0014
+.2x:
+	asl a
+	tay
+	lda.b [$34],y
+	clc
+	adc.b $34
+	sta.w $086A,x
+	sta.b $4E
+	sep #$20
+	ldx.b $4A
+	ldy.b #$2F
+	lda.b ($4E),y
+	sta.w $089D,x
+	stz.w $088C,x
+	lda.w $07E3
+	bne .t1xxxxxx
+	ldy.b #$12
+	lda.b ($4E),y
+	sta.w $08AE,x
+	iny
+	lda.b ($4E),y
+	bra .3x
+
+.t1xxxxxx:
+	ldy.b #$17
+	lda.b ($4E),y
+	sta.w $08AE,x
+.3x:
+	sta.w $08BF,x
+.4x:
+	rep #$20
+	cpy.b #$EA
+	bne .2xx
+.1xxx:
+	lda.b $5A
+	and.w #$00FF
+	sta.b $62
+.2xx:
 	rep #$20
 	jmp.w CODE_80ABA5

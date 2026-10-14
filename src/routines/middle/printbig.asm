@@ -14,7 +14,7 @@ printbig:
 	lda.b $AF
 	pha
 	ldy.w #$0002
-CODE_9ECE2B:
+.7:
 	tya
 	cmp.b [a1]
 	bne .t3
@@ -33,7 +33,7 @@ CODE_9ECE2B:
 	lda.b [a1],y
 	bit.w #$0080
 	beq .t1
-	jmp.w CODE_9ECF40
+	jmp.w .8
 
 .t1:
 	and.w #$00FF
@@ -121,7 +121,7 @@ CODE_9ECE2B:
 	inc.w printx
 .5:
 	iny
-	jmp.w CODE_9ECE2B
+	jmp.w .7
 .6:
 	lda.l $9ABD6F
 	clc
@@ -143,3 +143,50 @@ CODE_9ECE2B:
 	bcc .1
 	sta.w textdirtyhi
 	bra .1
+.8:
+	eor.w #$FFFF
+	inc a
+	pha
+	and.w #$0030
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	sta.w $0D0D
+	lda.b $01,s
+	and.w #$0040
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	tsb.w $0D0D
+	pla
+	and.w #$0003
+	pha
+	asl a
+	tax
+	lda.l printfontset,x
+	sta.l printfontset
+	pla
+	dec a
+	xba
+	and.w #$FF00
+	asl a
+	asl a
+	asl a
+	sta.w printm
+	iny
+	lda.b [a1],y
+	and.w #$001F
+	sta.w printx
+	iny
+	lda.b [a1],y
+	and.w #$001F
+	sta.w printy
+	iny
+	jmp.w .7

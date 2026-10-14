@@ -70,9 +70,9 @@ CODE_9EDCC3:
 	jsl.l puckIChk
 	jsl.l CODE_9EF78A
 	lda.w gmclock
-	bne CODE_9EDDBD
+	bne .13
 	lda.w puckc
-	bpl CODE_9EDDB0
+	bpl .11
 	lda.w $163A
 	beq .9
 	lda.w gmode
@@ -107,14 +107,30 @@ CODE_9EDCC3:
 .10:
 	lda.w $0D71
 	cmp.w $0E5F
-	bne CODE_9EDDB7
+	bne .12
 	lda.w pucky
 	cmp.w $0E9F
-	bne CODE_9EDDB7
+	bne .12
 	lda.w #$0006
 	sta.b d0
 	dec.w $10BF
-	bpl CODE_9EDDBD
+	bpl .13
 .1x:
 	jsl.l AddPenalty2
-	bra CODE_9EDDBD
+	bra .13
+.11:
+	lda.w #$0000
+	sta.l $7E3450
+.12:
+	lda.w #$0078
+	sta.w $10BF
+.13:
+	lda.w $0E01
+	and.w #$FF00
+	ora.w $0DF9
+	beq .t1x
+	jmp.w checkpuckcoll
+
+.t1x:
+	jsl.l pucknothing
+	jmp.w checkpuckcoll

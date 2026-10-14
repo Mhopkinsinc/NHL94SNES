@@ -88,7 +88,7 @@ CODE_9BAE77:
 	bra .10
 
 .t2:
-	jmp.w CODE_9BB020
+	jmp.w .15
 
 .t3:
 	lda.w #$FFFF
@@ -197,3 +197,66 @@ org $9BB001
 	jsl.l CODE_9C9A7F
 .14:
 	jmp.w CODE_9BABAB
+.15:
+	lda.w #$000F
+	sta.w $0AF3
+	jsl.l SoundVoicesOff
+	pla
+	sta.w Hpos
+	pla
+	sta.w Vpos
+	pla
+	sta.w $0D21
+	pla
+	sta.w ReplayBufferPtr
+	lda.w #$0020
+	trb.w sflags
+	lda.w $0D21
+	sta.b $9B
+	lda.w ReplayBufferPtr
+	sta.b a4
+	jsl.l RestoreReplayFrame
+	lda.w #$0800
+	trb.w sflags
+	jsl.l SetHor
+	jsl.l SpriteFrameStart
+	jsl.l setvideo
+	jsl.l SpriteFrameEnd
+	stz.w textdirtylo
+	lda.w #$03FF
+	sta.w textdirtyhi
+	jsl.l CODE_9F96F7
+	jsl.l CODE_9C9786
+.loop:
+	lda.w $0AD3
+	bne .loop
+	lda.w SoundFadeSpeed
+	bne .loop
+	jsl.l forceblack
+	lda.w $1D81
+	bne .1xxxx
+	lda.w $0CBB
+	beq .1xxxx
+	jsl.l CODE_9C978E
+	lda.l $7E34BC
+	beq .t1xxxx
+	cmp.w #$0004
+	beq .t1xxxx
+	lda.l playoffRoundIdx
+	cmp.w #$0002
+	bcc .t1xxxx
+	lda.w #$0093
+	sta.b $0E
+	lda.w #DATA8_93ED31
+	sta.b $0C
+	jsl.l MusicStart
+	jmp.w .1xxxx
+
+.t1xxxx:
+	lda.w #$0090
+	sta.b $0E
+	lda.w #DATA8_90C20C
+	sta.b $0C
+	jsl.l MusicStart
+.1xxxx:
+	rtl

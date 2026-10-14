@@ -110,3 +110,9 @@ CODE_9EC827:
 	sta.w printy
 	iny
 	jmp.w CODE_9EC7C2
+CODE_9EC881:
+	clc
+	adc.b a1
+	sta.b a1
+	plx
+	rtl

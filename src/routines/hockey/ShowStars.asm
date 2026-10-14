@@ -223,71 +223,71 @@ ShowStars:
 	lda.b d0
 	sta.w $1E23
 	ldx.w #$0000
-CODE_9C9DA1:
+.12:
 	phx
 	cpx.w $1E21
-	bmi .t1
-	jmp.w CODE_9C9E8E
+	bmi .t1x
+	jmp.w .16
 
-.t1:
+.t1x:
 	jsl.l CODE_9C9EC5
 	lda.b $A7
 	sec
 	sbc.w $1E33
 	bmi .t2
-	bvc .1
-	bra .3
+	bvc .1xx
+	bra .3x
 
 .t2:
-	bvc .3
-.1:
-	beq .2
-	bmi .t1x
-	bvs .2
-	bra CODE_9C9E29
+	bvc .3x
+.1xx:
+	beq .2x
+	bmi .t1xx
+	bvs .2x
+	bra .13
 
-.t1x:
-	bvs CODE_9C9E29
-.2:
+.t1xx:
+	bvs .13
+.2x:
 	lda.b d0
 	sec
 	sbc.w $1E31
-	beq .3
-	bmi .t1xx
-	bvs .3
-	bra CODE_9C9E29
+	beq .3x
+	bmi .t1xxx
+	bvs .3x
+	bra .13
 
-.t1xx:
-	bvs CODE_9C9E29
-.3:
+.t1xxx:
+	bvs .13
+.3x:
 	lda.b $A7
 	sec
 	sbc.w $1E37
-	bmi .t1xxx
+	bmi .t1xxxx
 	bvc .4
 	bra .6
 
-.t1xxx:
+.t1xxxx:
 	bvc .6
 .4:
 	beq .5
-	bmi .t1xxxx
+	bmi .t1xxxxx
 	bvs .5
-	bra CODE_9C9E55
+	bra .14
 
-.t1xxxx:
-	bvs CODE_9C9E55
+.t1xxxxx:
+	bvs .14
 .5:
 	lda.b d0
 	sec
 	sbc.w $1E35
 	beq .6
-	bmi .t1xxxxx
+	bmi .t1xxxxxx
 	bvs .6
-	bra CODE_9C9E55
+	bra .14
 
-.t1xxxxx:
-	bvs CODE_9C9E55
+.t1xxxxxx:
+	bvs .14
 .6:
 	lda.b $A7
 	sec
@@ -295,27 +295,94 @@ CODE_9C9DA1:
 	bmi .8
 	bvc .9
 .7:
-	jmp.w CODE_9C9E8E
+	jmp.w .16
 .8:
 	bvc .7
 .9:
 	beq .10
-	bmi .t1xxxxxx
+	bmi .t1xxxxxxx
 	bvs .10
-	bra CODE_9C9E81
+	bra .15
 
-.t1xxxxxx:
-	bvs CODE_9C9E81
+.t1xxxxxxx:
+	bvs .15
 .10:
 	lda.b d0
 	sec
 	sbc.w $1E39
 	beq .11
-	bmi .t1xxxxxxx
+	bmi .t1xxxxxxxx
 	bvs .11
-	bra CODE_9C9E81
+	bra .15
 
-.t1xxxxxxx:
-	bvs CODE_9C9E81
+.t1xxxxxxxx:
+	bvs .15
 .11:
-	bra CODE_9C9E8E
+	bra .16
+.13:
+	lda.w $1E2B
+	sta.w $1E25
+	lda.w $1E33
+	sta.w $1E29
+	lda.w $1E31
+	sta.w $1E27
+	stx.w $1E2B
+	lda.b $A7
+	sta.w $1E33
+	lda.b d0
+	sta.w $1E31
+	ldx.w $1E25
+	lda.w $1E29
+	sta.b $A7
+	lda.w $1E27
+	sta.b d0
+.14:
+	lda.w $1E2D
+	sta.w $1E25
+	lda.w $1E37
+	sta.w $1E29
+	lda.w $1E35
+	sta.w $1E27
+	stx.w $1E2D
+	lda.b $A7
+	sta.w $1E37
+	lda.b d0
+	sta.w $1E35
+	ldx.w $1E25
+	lda.w $1E29
+	sta.b $A7
+	lda.w $1E27
+	sta.b d0
+.15:
+	stx.w $1E2F
+	lda.b $A7
+	sta.w $1E3B
+	lda.b d0
+	sta.w $1E39
+.16:
+	plx
+	inx
+	lda.w $1E21
+	cmp.w #$001A
+	bpl .1xxx
+	cpx.w #$001A
+	bmi .1xxx
+	lda.w #$0002
+	sta.b a2
+	jsl.l GetPlayerCount
+	lda.b d0
+	clc
+	adc.w #$001A
+	sta.w $1E21
+	jsl.l GoalieCount
+	lda.b d0
+	clc
+	adc.w #$001A
+	sta.w $1E23
+.1xxx:
+	cpx.w #$0034
+	bpl .t1xxxxxxxxx
+	jmp.w .12
+
+.t1xxxxxxxxx:
+	rtl

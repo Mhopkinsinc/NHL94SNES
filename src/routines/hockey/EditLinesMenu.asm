@@ -31,7 +31,7 @@ EditLinesMenu:
 	jsl.l WaitButtonRelease
 	lda.w #$0000
 	sta.w $1D97
-CODE_9B8A5A:
+.1:
 	lda.w #$0000
 	cmp.w $1D97
 	bne .t1
@@ -48,7 +48,7 @@ CODE_9B8A5A:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9B8A98
+	bra .2
 
 .t1:
 	lda.b $8F
@@ -64,7 +64,7 @@ CODE_9B8A5A:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9B8A98:
+.2:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -80,7 +80,7 @@ CODE_9B8A98:
 	sta.b $8F
 	lda.w #$0001
 	cmp.w $1D97
-	bne .t1
+	bne .t1x
 	lda.b $8F
 	pha
 	lda.b a1
@@ -94,9 +94,9 @@ CODE_9B8A98:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9B8AF0
+	bra .3
 
-.t1:
+.t1x:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -110,7 +110,7 @@ CODE_9B8A98:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9B8AF0:
+.3:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -133,12 +133,16 @@ CODE_9B8AF0:
 	bit.w #$9080
 	bne CODE_9B8B42
 	bit.w #$0400
-	bne CODE_9B8B3A
+	bne .6
 	bit.w #$0800
-	bne CODE_9B8B32
-CODE_9B8B2F:
-	jmp.w CODE_9B8A5A
-CODE_9B8B32:
+	bne .5
+.4:
+	jmp.w .1
+.5:
 	lda.w #$0000
 	sta.w $1D97
-	bra CODE_9B8B2F
+	bra .4
+.6:
+	lda.w #$0001
+	sta.w $1D97
+	bra .4

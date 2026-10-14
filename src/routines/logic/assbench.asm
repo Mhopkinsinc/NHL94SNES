@@ -3,7 +3,7 @@ assbench:
 	lda.w $1003,x
 	cmp.w #$0064
 	bne .t2
-	jmp.w CODE_9FD96E
+	jmp.w .5
 
 .t2:
 	jsl.l check4bench
@@ -52,7 +52,7 @@ assbench:
 	sbc.b d7
 	sta.w $1003,x
 	bmi .t1x2
-	jmp.w CODE_9FD99D
+	jmp.w .6
 
 .t1x2:
 	lda.w $1003,x
@@ -69,7 +69,7 @@ assbench:
 .2x:
 	cmp.w #$0029
 	bcc .t2x
-	jmp.w CODE_9FD99D
+	jmp.w .6
 
 .t2x:
 	lda.w Xpos,x
@@ -80,7 +80,7 @@ assbench:
 	sbc.w #$0020
 	beq .t1xx
 	bmi .t1xx
-	jmp.w CODE_9FD99D
+	jmp.w .6
 
 .t1xx:
 	lda.w #SPAglide
@@ -105,12 +105,12 @@ assbench:
 	sec
 	sbc.w #$0010
 	beq .3x
-	bpl CODE_9FD96D
+	bpl .1
 .3x:
 	stz.w $0EC3,x
 	lda.w facedir,x
 	cmp.w #$0004
-	bne CODE_9FD96D
+	bne .1
 	lda.w #$F800
 	sta.w $0EC3,x
 	lda.w #$0002
@@ -124,22 +124,22 @@ assbench:
 	lda.w #$0064
 	sta.w $1003,x
 	sta.w pfalock,x
-CODE_9FD96D:
+.1:
 	rtl
-CODE_9FD96E:
+.5:
 	lda.w pnum,x
 	asl a
 	sta.b d0
 	stz.b a0
 	lda.w pfteam,x
-	beq .1
+	beq .1xxx
 	lda.w #$0002
 	sta.b a0
-.1:
+.1xxx:
 	lda.b a0
-	beq .2
+	beq .2xxx
 	lda.w #$0034
-.2:
+.2xxx:
 	clc
 	adc.b d0
 	tay
@@ -149,3 +149,18 @@ CODE_9FD96E:
 	sta.b d3
 	jsl.l CODE_9FD9CB
 	jmp.w setplayer
+.6:
+	lda.w $1563,x
+	bne .1
+	lda.w pflags,x
+	bit.w #$4008
+	bne .1
+	lda.w $1043,x
+	sta.b d0
+	lda.w $1063,x
+	sta.b d1
+	lda.w #$009E
+	sta.b $8B
+	lda.w #$8904
+	sta.b a0
+	jml.l skateto

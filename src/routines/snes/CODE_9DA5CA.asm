@@ -100,7 +100,7 @@ CODE_9DA5CA:
 	jsl.l CODE_9DCC36
 	ldx.w #$0002
 	jsl.l CODE_9DCC36
-CODE_9DA6FF:
+.3:
 	lda.w #$12C0
 	sta.b d6
 .2:
@@ -150,7 +150,7 @@ CODE_9DA6FF:
 	jsl.l CODE_9DB0FD
 	jsr.w CODE_9DA973
 	stz.b d1
-	jmp.w CODE_9DA869
+	jmp.w .6
 
 .t6:
 	lda.w $1A0E
@@ -169,7 +169,7 @@ CODE_9DA6FF:
 	and.w #$FFF0
 	sta.b d1
 	beq .t2x
-	jmp.w CODE_9DA869
+	jmp.w .6
 
 .t2x:
 	jsr.w CODE_9DAA83
@@ -196,7 +196,7 @@ CODE_9DA6FF:
 	lda.w #$0000
 	sta.l $7E34BC
 	sta.l $7E34CA
-CODE_9DA7D7:
+.5:
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AB610
@@ -220,22 +220,22 @@ CODE_9DA7D7:
 	sta.l $7E3474
 	lda.l $7E34BC
 	cmp.w #$0002
-	beq .1
+	beq .1x
 	cmp.w #$0003
-	bne .2
-.1:
+	bne .2x
+.1x:
 	jsl.l NewPO
-.2:
+.2x:
 	lda.w #$0001
 	sta.l $7E34CA
 	lda.l $7E34BC
 	cmp.w #$0001
-	bcc .3
+	bcc .3x
 	cmp.w #$0004
-	bcs .3
+	bcs .3x
 	lda.w #$0005
 	sta.l $7E34CA
-.3:
+.3x:
 	lda.l $7E34CA
 	sec
 	sbc.w #$0005
@@ -250,3 +250,41 @@ CODE_9DA7D7:
 	sta.l PassWord
 	jsl.l maketree
 	jmp.w CODE_9DA0D5
+.6:
+	lda.b d1
+	bit.w #$1000
+	beq .t2xx
+	jmp.w .5
+
+.t2xx:
+	bit.w #$0400
+	beq .t1xxx
+	lda.w #$0002
+	sta.b d0
+	jsr.w CODE_9DAC4F
+	jsr.w CODE_9DA973
+	jmp.w .3
+
+.t1xxx:
+	bit.w #$0800
+	beq .2xx
+	lda.w #$FFFE
+	sta.b d0
+	jsr.w CODE_9DAC4F
+	jsr.w CODE_9DA973
+.1xx:
+	jmp.w .3
+.2xx:
+	lda.w #$0001
+	sta.b d2
+	lda.b d1
+	bit.w #$0100
+	bne .1xxx
+	bit.w #$0200
+	beq .1xx
+	lda.w #$FFFF
+	sta.b d2
+.1xxx:
+	jsr.w CODE_9DA8B8
+	jsr.w CODE_9DA973
+	jmp.w .3

@@ -24,7 +24,7 @@ CODE_808ADF:
 	tay
 	lda.w $0761
 	bmi .t1
-	jmp.w CODE_808B96
+	jmp.w .4
 
 .t1:
 	sep #$20
@@ -98,3 +98,56 @@ CODE_808ADF:
 	and.w #$FFE0
 	sta.w VMADDL
 	jmp.w .2
+.4:
+	stx.b $0C
+.1xx:
+	lda.b $18
+	clc
+	adc.b $1C
+	cmp.w #$0021
+	bcs .3x
+	lda.b $18
+	asl a
+	tax
+	phy
+	jsl.l CODE_808950
+	ply
+.2x:
+	tya
+	clc
+	adc.w #$0020
+	tay
+	inc.b $1E
+	lda.b $1E
+	cmp.w #$0020
+	bne .1xxx
+	tya
+	clc
+	adc.w $079E
+	tay
+.1xxx:
+	dec.b $1A
+	bne .1xx
+	rtl
+.3x:
+	lda.w #$0020
+	sbc.b $1C
+	asl a
+	sta.b $20
+	tax
+	phy
+	jsl.l CODE_808950
+	ply
+	lda.b $18
+	asl a
+	sec
+	sbc.b $20
+	tax
+	phy
+	tya
+	adc.w #$0400
+	and.w #$FFE0
+	tay
+	jsl.l CODE_808950
+	ply
+	jmp.w .2x

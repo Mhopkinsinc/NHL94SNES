@@ -99,7 +99,7 @@ avdgoal:
 .t1xx:
 	lda.b $12
 	cmp.w #$FEF8
-	bmi CODE_9EAC54
+	bmi .5
 	ldy.b $20
 	bmi .3
 	lda.b $0C
@@ -118,3 +118,7 @@ avdgoal:
 	sta.b d1
 .rts:
 	rts
+.5:
+	lda.b $16
+	sta.b d1
+	bra CODE_9EAC95

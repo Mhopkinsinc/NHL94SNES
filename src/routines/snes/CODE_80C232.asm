@@ -5,15 +5,15 @@ CODE_80C232:
 	asl a
 	dex
 	dex
-	beq CODE_80C250
-CODE_80C23B:
+	beq .3
+.1:
 	bcc CODE_80C277
 	asl a
 	rol.b $6F
 	dex
 	dex
-	beq CODE_80C25C
-CODE_80C244:
+	beq .4
+.2:
 	asl a
 	rol.b $6F
 	dex
@@ -22,10 +22,17 @@ CODE_80C244:
 	sta.b $6C
 	lda.b $6F
 	rts
-CODE_80C250:
+.3:
 	sep #$20
 	lda.b ($0C)
 	rep #$20
 	inc.b $0C
 	ldx.b #$10
-	bra CODE_80C23B
+	bra .1
+.4:
+	sep #$20
+	lda.b ($0C)
+	rep #$20
+	inc.b $0C
+	ldx.b #$10
+	bra .2

@@ -2,21 +2,21 @@
 checkfornewpen:
 	lda.w sfhormode
 	beq .t1
-	jmp.w CODE_9EB2B4
+	jmp.w .6
 
 .t1:
 	lda.w #PenBuf
 	sta.b a0
-CODE_9EB1F2:
+.4:
 	lda.b (a0)
 	inc.b a0
 	inc.b a0
 	and.w #$00FF
 	cmp.w #$0034
-	beq CODE_9EB1F2
+	beq .4
 	tay
 	bne .t2
-	jmp.w CODE_9EB2B4
+	jmp.w .6
 
 .t2:
 	lda.w gmode
@@ -42,7 +42,7 @@ CODE_9EB1F2:
 	and.w #$00FF
 	beq .2
 	lda.w puckc
-	bmi CODE_9EB2B5
+	bmi .7
 	lsr a
 	sec
 	sbc.w #$0006
@@ -58,7 +58,7 @@ CODE_9EB1F2:
 	sec
 	sbc.w #$0006
 	eor.b d0
-	bmi CODE_9EB2B5
+	bmi .7
 .2:
 	jsl.l Stop4Pen
 .3:
@@ -70,10 +70,10 @@ CODE_9EB1F2:
 	inc.b a0
 	tya
 	bit.w #$0080
-	beq .t1
-	jmp.w CODE_9EB1F2
+	beq .t1x
+	jmp.w .4
 
-.t1:
+.t1x:
 	dec.b a0
 	dec.b a0
 	lda.b (a0)
@@ -101,11 +101,19 @@ CODE_9EB1F2:
 	sta.b d1
 	sec
 	sbc.w Pencntdwn
-	beq CODE_9EB2B1
-	bmi CODE_9EB2B1
+	beq .5
+	bmi .5
 	lda.b d1
 	sta.w Pencntdwn
-CODE_9EB2B1:
-	jmp.w CODE_9EB1F2
-CODE_9EB2B4:
+.5:
+	jmp.w .4
+.6:
 	rtl
+.7:
+	lda.w #$0008
+	tsb.w gmode
+	bne .5
+	lda.w #$0030
+	sta.b d0
+	jsl.l SetPA
+	jmp.w .4
