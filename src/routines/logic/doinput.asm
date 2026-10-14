@@ -122,7 +122,7 @@ doinput:
 	bpl .14
 	lda.b d4
 	sta.w $1D55,y
-	jmp.w CODE_9FD2FE
+	jmp.w SetLCmode
 .16:
 	jml.l CODE_9E81F9
 .17:

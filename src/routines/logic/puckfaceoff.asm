@@ -179,7 +179,7 @@ puckfaceoff:
 .1xxxx:
 	lda.w #$FFFF
 	sta.w $1D55,y
-	jsl.l CODE_9FD2FE
+	jsl.l SetLCmode
 	ply
 	sty.b a2
 	ldx.b a3

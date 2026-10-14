@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FD2FE:
+; Open the line change box for player X's team, when line changes are on and the box is not open
+SetLCmode:
 	lda.l $7E34C6
 	cmp.w #$0001
 	bne .t1

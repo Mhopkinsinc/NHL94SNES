@@ -680,3 +680,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Sprite tile cache, shootout and IRQ routines named from the descriptions on their labels. MATCH.
 - Private parts: CODE_ files used only by the named routine before them folded into it. MATCH.
 - Private parts of still unnamed routines folded the same way. MATCH.
+- SetLCmode from 93S. MATCH.

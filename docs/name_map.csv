@@ -3093,7 +3093,7 @@ $9FD6BF,.t1,CODE_9FD6BF,new,continued in the previous routine,src/routines/snes/
 $9FD59A,.t1,CODE_9FD59A,new,continued in the previous routine,src/routines/hockey/SetPlList.asm
 $9FD4FC,.t1,CODE_9FD4FC,new,continued in the previous routine,src/routines/snes/CODE_9FD48D.asm
 $9FD352,.t1,CODE_9FD352,new,continued in the previous routine,src/routines/logic/SetLCmode2.asm
-$9FD324,.t1,CODE_9FD324,new,continued in the previous routine,src/routines/snes/CODE_9FD2FE.asm
+$9FD324,.t1,CODE_9FD324,new,continued in the previous routine,src/routines/logic/SetLCmode2.asm
 $9FD2D4,.t1,CODE_9FD2D4,new,continued in the previous routine,src/routines/snes/CODE_9FD2A7.asm
 $9FD0EE,.t1,CODE_9FD0EE,new,continued in the previous routine,src/routines/snes/CODE_9FCFAC.asm
 $9FCF91,.t1,CODE_9FCF91,new,continued in the previous routine,src/routines/hockey/setplayer.asm
@@ -5188,3 +5188,4 @@ $9EE690,.8,CODE_9EE690,new,"part of CODE_9EE5E6, used only by it",src/routines/s
 $9FB06C,.4,CODE_9FB06C,new,"part of CODE_9FAFBE, used only by it",src/routines/snes/CODE_9FAFBE.asm
 $9FC7D7,.1,CODE_9FC7D7,new,"part of CODE_9FC79F, used only by it",src/routines/snes/CODE_9FC79F.asm
 $9FC7EC,.2,CODE_9FC7EC,new,"part of CODE_9FC79F, used only by it",src/routines/snes/CODE_9FC79F.asm
+$9FD2FE,SetLCmode,CODE_9FD2FE,93S,"doinput and puckfaceoff call it as in 93S; the option test, loadTeamStruct, tmflags, then SetLCmode2 as in 93S",src/routines/logic/SetLCmode2.asm
