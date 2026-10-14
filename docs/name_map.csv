@@ -3773,3 +3773,23 @@ $9FE741,PauseExitGame,CODE_9FE741,new,Exit Game,src/routines/hockey/PauseExitGam
 $9FE431,PauseTimeout,CODE_9FE431,new,Timeout,src/routines/hockey/PauseTimeout.asm
 $9FE2CF,PauseShootoutSetup,CODE_9FE2CF,new,Shootout Setup,src/routines/hockey/PauseShootoutSetup.asm
 $9FF00B,AskExitGame,CODE_9FF00B,new,yes or no exit prompt,src/routines/hockey/AskExitGame.asm
+$9B93F3,ShowScoringSummary,CODE_9B93F3,new,prints ScoringLabel and ScoringSummaryHead; only PauseScoringSummary calls it,src/routines/hockey/ShowScoringSummary.asm
+$9B9768,ShowPenaltySummary,CODE_9B9768,new,prints PenaltiesLabel and PenaltySummaryHead; only PausePenaltySummary calls it,src/routines/hockey/ShowPenaltySummary.asm
+$9F8000,ShowPeriodStats,CODE_9F8000,new,only PausePeriodStats calls it,src/routines/hockey/ShowPeriodStats.asm
+$9F8064,DrawPeriodStats,CODE_9F8064,new,prints PeriodStats; only ShowPeriodStats calls it,src/routines/hockey/DrawPeriodStats.asm
+$9C8583,ShowPlayerStats,CODE_9C8583,new,prints PlayerStatsTitle; only PausePlayerStats calls it,src/routines/hockey/ShowPlayerStats.asm
+$9DBD4F,ShowPlayerCards,CODE_9DBD4F,new,only PausePlayerCards calls it,src/routines/hockey/ShowPlayerCards.asm
+$9DBE79,DrawPlayerCard,CODE_9DBE79,new,"prints StrengthsLabel; the player-card screen and its left, right, and Y handlers call it",src/routines/hockey/DrawPlayerCard.asm
+$9C8F9B,PrintTeamStatRows,CODE_9C8F9B,new,walks TeamStatNames or TeamStatNamesNoPen; only ShowGameStats calls it,src/routines/hockey/PrintTeamStatRows.asm
+$9B869B,EditLinesScreen,CODE_9B869B,new,only PauseEditLines calls it; Start calls EditLinesMenu,src/routines/hockey/EditLinesScreen.asm
+$9FF063,DrawExitPrompt,CODE_9FF063,new,prints ExitGameAsk or ExitShootoutAsk; only AskExitGame calls it,src/routines/hockey/DrawExitPrompt.asm
+$9FE11D,PauseMenu,CODE_9FE11D,93S,"same job as 93S PauseMenu: start leaves, up and down move, otherwise run the item. 94 picks one of six menus first",src/routines/hockey/PauseMenu.asm
+$9FE19E,PauseMenuPoll,CODE_9FE19E,new,redraw the pause menu and read the pad; handlers jump here when the button is not pressed,src/routines/hockey/PauseMenu.asm
+$9D9D26,TeamRoster,CODE_9D9D26,93S,"same job as 93S TeamRoster: the pad moves, Y switches team, start leaves",src/routines/stats/TeamRoster.asm
+$9D9E9C,SwapRosterTeam,CODE_9D9E9C,new,Y from TeamRoster; prints TeamRosterSwap,src/routines/stats/SwapRosterTeam.asm
+$9B98C9,DrawPenaltyPage,CODE_9B98C9,new,called from ShowPenaltySummary and its scroll handlers,src/routines/hockey/DrawPenaltyPage.asm
+$9B9A5D,PrintScrollHint,CODE_9B9A5D,new,prints ScrollHint; scoring and penalty summaries call it,src/routines/hockey/PrintScrollHint.asm
+$9B8810,PrintLineNames,CODE_9B8810,new,"LineMenuNames, or BestLineNames when $7E34C6 is zero",src/routines/hockey/PrintLineNames.asm
+$9C87DB,SwapPlayerStatsTeam,CODE_9C87DB,new,prints PlayerStatsHeading; ShowPlayerStats jumps here,src/routines/hockey/SwapPlayerStatsTeam.asm
+$9DB954,PrintCopyright,CODE_9DB954,new,prints CopyrightLines,src/routines/hockey/PrintCopyright.asm
+$9FF1D1,ShowMP5Warning,CODE_9FF1D1,new,pause pad reader calls it while the warning flag is set,src/routines/hockey/ShowMP5Warning.asm

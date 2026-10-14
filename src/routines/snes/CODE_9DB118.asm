@@ -140,13 +140,13 @@ CODE_9DB118:
 	sta.b $0C
 	jsl.l MusicStart
 	jsl.l SpriteFrameStart
-	jsr.w CODE_9DB954
+	jsr.w PrintCopyright
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	jsl.l WaitFrame
 	jsr.w CODE_9DB7D6
 	jsl.l SpriteFrameStart
-	jsr.w CODE_9DB954
+	jsr.w PrintCopyright
 	lda.w #$007F
 	sta.b $12
 	lda.w #$5000
@@ -181,7 +181,7 @@ CODE_9DB118:
 	jsl.l CODE_9DBCEB
 	jsr.w CODE_9DB82B
 	jsl.l SpriteFrameStart
-	jsr.w CODE_9DB954
+	jsr.w PrintCopyright
 	lda.w #$007F
 	sta.b $12
 	lda.w #$5000

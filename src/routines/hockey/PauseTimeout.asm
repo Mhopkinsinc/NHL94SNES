@@ -60,4 +60,4 @@ PauseTimeout:
 	jsl.l WaitFrames_Inc
 	jsl.l CODE_9FE4BF
 .1:
-	jmp.w CODE_9FE19E
+	jmp.w PauseMenuPoll

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D9E9C:
+; Switch the roster to the other team and redraw it.
+SwapRosterTeam:
 	lda.b a2
 	eor.w #$0002
 	sta.b a2

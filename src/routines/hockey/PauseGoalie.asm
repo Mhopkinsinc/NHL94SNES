@@ -9,7 +9,7 @@ PauseGoalie:
 	bne CODE_9FE3EB
 	bit.w #$0200
 	bne .t1
-	jmp.w CODE_9FE19E
+	jmp.w PauseMenuPoll
 
 .t1:
 	lda.w tmgoalie,y
@@ -19,4 +19,4 @@ CODE_9FE3DC:
 CODE_9FE3DD:
 	sta.w tmgoalie,y
 	jsl.l setpersonel
-	jmp.w CODE_9FE19E
+	jmp.w PauseMenuPoll

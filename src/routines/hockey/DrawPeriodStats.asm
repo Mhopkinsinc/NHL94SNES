@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F8064:
+; Draw the period stats title and both teams' period columns.
+DrawPeriodStats:
 	jsl.l SpriteFrameStart
 	jsl.l CODE_9DDDB3
 	jsl.l WaitDMAQueue

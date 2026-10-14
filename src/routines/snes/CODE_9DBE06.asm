@@ -35,5 +35,5 @@ CODE_9DBE06:
 	adc.w #$0007
 	sta.w $1DB9
 .1:
-	jsl.l CODE_9DBE79
+	jsl.l DrawPlayerCard
 	jmp.w CODE_9DBD7B

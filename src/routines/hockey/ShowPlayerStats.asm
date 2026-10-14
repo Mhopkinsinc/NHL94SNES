@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C8583:
+; Player stats for the team in a2.
+ShowPlayerStats:
 	jsl.l CODE_9DE0E9
 	lda.b a2
 	pha
@@ -107,7 +107,7 @@ CODE_9C8644:
 	bit.w #$4000
 	beq .t1xx
 .1x2:
-	jmp.w CODE_9C87DB
+	jmp.w SwapPlayerStatsTeam
 
 .t1xx:
 	lda.w $1DF9

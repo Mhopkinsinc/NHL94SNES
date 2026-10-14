@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B98C9:
+; Draw the visible penalty rows, or No Penalties when the list is empty.
+DrawPenaltyPage:
 	lda.w $1DC1
 	cmp.w #$0000
 	beq .t1

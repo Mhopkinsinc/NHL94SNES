@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C8F9B:
+; Print each team-stat name and both teams' numbers.
+PrintTeamStatRows:
 	lda.w #$007F
 	sta.b $12
 	lda.w #$2780

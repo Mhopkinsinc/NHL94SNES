@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FE618:
-	jsl.l CODE_9FF1D1
+	jsl.l ShowMP5Warning
 	jsr.w CODE_9FE75E
 	jsl.l IntermissionTick
 	beq .t1

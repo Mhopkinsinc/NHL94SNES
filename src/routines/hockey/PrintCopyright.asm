@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB954:
+; Print the two copyright lines.
+PrintCopyright:
 	lda.w #$0080
 	sta.b $8F
 	lda.w #CopyrightLines

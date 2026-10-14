@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B8810:
+; Print the current line name. A zero select word uses the best-line list.
+PrintLineNames:
 	lda.b $8F
 	pha
 	lda.b a1

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE11D:
+; Pick which pause menu is up, then read the pad and run the selected item.
+PauseMenu:
 	lda.w #$FFFF
 	sta.l $7E3476
 	lda.w $1D81
@@ -58,7 +58,7 @@ CODE_9FE11D:
 	lda.w #$FFFF
 	sta.l $7F76DE
 	sta.l $7F76FE
-CODE_9FE19E:
+PauseMenuPoll:
 	jsl.l CODE_9FEA24
 	jsl.l CODE_9FE618
 	lda.b d3
@@ -80,13 +80,13 @@ CODE_9FE19E:
 	sec
 	sbc.w #$0005
 	cmp.w $0D13
-	bmi CODE_9FE19E
+	bmi PauseMenuPoll
 	inc.w $0D13
-	bra CODE_9FE19E
+	bra PauseMenuPoll
 
 .t1:
 	dec.w $0D15
-	bra CODE_9FE19E
+	bra PauseMenuPoll
 
 .t2:
 	bit.w #$0800
@@ -94,12 +94,12 @@ CODE_9FE19E:
 	dec.w $0D15
 	lda.w $0D15
 	cmp.w $0D13
-	bpl CODE_9FE19E
+	bpl PauseMenuPoll
 	dec.w $0D13
-	bpl CODE_9FE19E
+	bpl PauseMenuPoll
 	stz.w $0D13
 	stz.w $0D15
-	bra CODE_9FE19E
+	bra PauseMenuPoll
 
 .t7:
 	lda.w $0D15
