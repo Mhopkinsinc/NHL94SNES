@@ -267,7 +267,7 @@ IntroSequence:
 	lda.b $BB
 	bne .t1xxxx
 	lda.w #$0000
-	jsl.l CODE_80A200
+	jsl.l PlaySound
 	jsr.w .24
 	bra .2xx
 

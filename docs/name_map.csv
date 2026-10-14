@@ -878,9 +878,9 @@ $9BB1DE,.2,CODE_9BB1DE,new,branch target only used in this routine,src/routines/
 $9BB213,.loop2,CODE_9BB213,new,branch target only used in this routine,src/routines/hockey/RestoreReplayFrame.asm
 $9BB232,.3,CODE_9BB232,new,branch target only used in this routine,src/routines/hockey/RestoreReplayFrame.asm
 $9BB249,.4,CODE_9BB249,new,branch target only used in this routine,src/routines/hockey/RestoreReplayFrame.asm
-$80A6AB,.1,CODE_80A6AB,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
-$80A6B1,.2,CODE_80A6B1,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
-$80A6BB,.3,CODE_80A6BB,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
+$80A6AB,.1,CODE_80A6AB,new,branch target only used in this routine,src/routines/sound/StartSoundVoice.asm
+$80A6B1,.2,CODE_80A6B1,new,branch target only used in this routine,src/routines/sound/StartSoundVoice.asm
+$80A6BB,.3,CODE_80A6BB,new,branch target only used in this routine,src/routines/sound/StartSoundVoice.asm
 $9F97C4,.loop,CODE_9F97C4,new,branch target only used in this routine,src/routines/snes/CODE_9F9789.asm
 $9FF6B3,.1,CODE_9FF6B3,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $9FF6B7,.2,CODE_9FF6B7,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
@@ -2605,14 +2605,14 @@ $80A899,.t1,CODE_80A899,new,continued in the previous routine,src/routines/snes/
 $80A831,.t1,CODE_80A831,new,continued in the previous routine,src/routines/snes/CODE_80A80C.asm
 $80A770,.t1,CODE_80A770,new,continued in the previous routine,src/routines/snes/CODE_80A725.asm
 $80A6ED,.t1,CODE_80A6ED,new,continued in the previous routine,src/routines/snes/CODE_80A6D7.asm
-$80A6BD,.t1,CODE_80A6BD,new,continued in the previous routine,src/routines/snes/CODE_80A697.asm
+$80A6BD,.t1,CODE_80A6BD,new,continued in the previous routine,src/routines/sound/StartSoundVoice.asm
 $80A66E,.t1,CODE_80A66E,new,continued in the previous routine,src/routines/snes/FindFreeVoice.asm
 $80A5F4,.t1,CODE_80A5F4,new,continued in the previous routine,src/routines/snes/CODE_80A5DF.asm
 $80A5B1,.t1,CODE_80A5B1,new,continued in the previous routine,src/routines/snes/ReadTrackEvent.asm
 $80A543,.t1,CODE_80A543,new,continued in the previous routine,src/routines/snes/UpdateVoice.asm
 $80A333,.t1,CODE_80A333,new,continued in the previous routine,src/routines/snes/MusicStart.asm
 $80A297,.t1,CODE_80A297,new,continued in the previous routine,src/routines/snes/CODE_80A26E.asm
-$80A24F,.t1,CODE_80A24F,new,continued in the previous routine,src/routines/snes/CODE_80A200.asm
+$80A24F,.t1,CODE_80A24F,new,continued in the previous routine,src/routines/sound/PlaySound.asm
 $80A1E5,.t1,CODE_80A1E5,new,continued in the previous routine,src/routines/sound/QueueSound.asm
 $808F19,.t1,CODE_808F19,new,continued in the previous routine,src/routines/snes/MemOr.asm
 $808EEB,.t1,CODE_808EEB,new,continued in the previous routine,src/routines/snes/MemFill.asm
@@ -3209,9 +3209,9 @@ $80A9A4,.t2,CODE_80A9A4,new,continued in the previous routine,src/routines/snes/
 $80A8C1,.t2,CODE_80A8C1,new,continued in the previous routine,src/routines/snes/CODE_80A8A8.asm
 $80A881,.t1,CODE_80A881,new,continued in the previous routine,src/routines/snes/StepTrack.asm
 $80A80C,.t2,CODE_80A80C,new,continued in the previous routine,src/routines/snes/CODE_80A725.asm
-$80A6D7,.t2,CODE_80A6D7,new,continued in the previous routine,src/routines/snes/CODE_80A697.asm
+$80A6D7,.t2,CODE_80A6D7,new,continued in the previous routine,src/routines/sound/StartSoundVoice.asm
 $80A5DF,.t2,CODE_80A5DF,new,continued in the previous routine,src/routines/snes/ReadTrackEvent.asm
-$80A26E,.t1,CODE_80A26E,new,continued in the previous routine,src/routines/snes/CODE_80A200.asm
+$80A26E,.t1,CODE_80A26E,new,continued in the previous routine,src/routines/sound/PlaySound.asm
 $80878B,.t2,CODE_80878B,new,continued in the previous routine,src/routines/snes/CODE_808766.asm
 $808615,.t2,CODE_808615,new,continued in the previous routine,src/routines/snes/WaitNoButtons.asm
 $8085E6,.t2,CODE_8085E6,new,continued in the previous routine,src/routines/snes/CODE_8085CD.asm
@@ -3466,7 +3466,7 @@ $80ACC2,.t3,CODE_80ACC2,new,continued in the previous routine,src/routines/snes/
 $80AA7B,.t3,CODE_80AA7B,new,continued in the previous routine,src/routines/snes/CODE_80AA48.asm
 $80AA14,.t3,CODE_80AA14,new,continued in the previous routine,src/routines/snes/CODE_80A9C8.asm
 $80A8A8,.t3,CODE_80A8A8,new,continued in the previous routine,src/routines/snes/StepTrack.asm
-$80A725,.t1,CODE_80A725,new,continued in the previous routine,src/routines/snes/CODE_80A697.asm
+$80A725,.t1,CODE_80A725,new,continued in the previous routine,src/routines/sound/StartSoundVoice.asm
 $80A603,.t3,CODE_80A603,new,continued in the previous routine,src/routines/snes/ReadTrackEvent.asm
 $808766,.t3,CODE_808766,new,continued in the previous routine,src/routines/snes/DMAToCGRAM.asm
 $8085CD,.t2,CODE_8085CD,new,continued in the previous routine,src/routines/snes/CODE_8085A3.asm
@@ -4311,17 +4311,17 @@ $80CF48,.2,CODE_80CF48,new,branch target only used in this routine,src/routines/
 $80C97D,.1,CODE_80C97D,new,branch target only used in this routine,src/routines/shootout/ShootoutWonBy.asm
 $80C9F8,.2,CODE_80C9F8,new,branch target only used in this routine,src/routines/shootout/ShootoutWonBy.asm
 $80CA05,.3,CODE_80CA05,new,branch target only used in this routine,src/routines/shootout/ShootoutWonBy.asm
-$80A256,.1,CODE_80A256,new,branch target only used in this routine,src/routines/snes/CODE_80A200.asm
-$80A28B,.2,CODE_80A28B,new,branch target only used in this routine,src/routines/snes/CODE_80A200.asm
-$80A29E,.3,CODE_80A29E,new,branch target only used in this routine,src/routines/snes/CODE_80A200.asm
+$80A256,.1,CODE_80A256,new,branch target only used in this routine,src/routines/sound/PlaySound.asm
+$80A28B,.2,CODE_80A28B,new,branch target only used in this routine,src/routines/sound/PlaySound.asm
+$80A29E,.3,CODE_80A29E,new,branch target only used in this routine,src/routines/sound/PlaySound.asm
 $80A546,.1,CODE_80A546,new,branch target only used in this routine,src/routines/snes/UpdateVoice.asm
 $80A60F,.2,CODE_80A60F,new,branch target only used in this routine,src/routines/snes/ReadTrackEvent.asm
-$80A6D9,.4,CODE_80A6D9,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
-$80A6EF,.5,CODE_80A6EF,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
-$80A728,.6,CODE_80A728,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
-$80A790,.7,CODE_80A790,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
-$80A839,.8,CODE_80A839,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
-$80A840,.9,CODE_80A840,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
+$80A6D9,.4,CODE_80A6D9,new,branch target only used in this routine,src/routines/sound/StartSoundVoice.asm
+$80A6EF,.5,CODE_80A6EF,new,branch target only used in this routine,src/routines/sound/StartSoundVoice.asm
+$80A728,.6,CODE_80A728,new,branch target only used in this routine,src/routines/sound/StartSoundVoice.asm
+$80A790,.7,CODE_80A790,new,branch target only used in this routine,src/routines/sound/StartSoundVoice.asm
+$80A839,.8,CODE_80A839,new,branch target only used in this routine,src/routines/sound/StartSoundVoice.asm
+$80A840,.9,CODE_80A840,new,branch target only used in this routine,src/routines/sound/StartSoundVoice.asm
 $80A8F3,.2,CODE_80A8F3,new,branch target only used in this routine,src/routines/snes/StepTrack.asm
 $80AB4E,.3,CODE_80AB4E,new,branch target only used in this routine,src/routines/snes/StepTrack.asm
 $80AB51,.4,CODE_80AB51,new,branch target only used in this routine,src/routines/snes/StepTrack.asm
@@ -5784,3 +5784,6 @@ $9DB82B,TitleZoomOutLeft,CODE_9DB82B,new,Behavior: called from TitleScreen,src/r
 $9DB891,TitleBlankSprites,CODE_9DB891,new,Behavior: called from TitleScreen between the logo steps,src/routines/hockey/TitleBlankSprites.asm
 $9DB754,DrawTitleSprite,CODE_9DB754,new,Behavior: called from TitleScreen and the title piece drawers,src/routines/hockey/DrawTitleSprite.asm
 $9DBCB3,TitleWindowWipe,CODE_9DBCB3,new,Behavior: called from TitleScreen; the IRQ hooks write $0BCB / $0BCF to WH1 / WH3,src/routines/hockey/TitleWindowWipe.asm
+$80A200,PlaySound,CODE_80A200,new,Behavior: the shared tail PlaySoundEntry is where QueueSound jumps; called from TitleScreen and IntroSequence,src/routines/sound/PlaySound.asm
+$80A697,StartSoundVoice,CODE_80A697,new,Behavior: called from PlaySoundEntry and StepTrack,src/routines/sound/StartSoundVoice.asm
+$80A226,PlaySoundEntry,CODE_80A226,new,PlaySound: set up voice slot $20 from sound entry $4E and start it; QueueSound jumps here too,src/routines/sound/PlaySound.asm

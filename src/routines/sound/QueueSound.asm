@@ -55,11 +55,11 @@ QueueSound:
 	sta.w $0CAD
 	sep #$10
 	plx
-	jmp.w CODE_80A226
+	jmp.w PlaySoundEntry
 
 .t1:
 	pla
-	jmp.w CODE_80A226
+	jmp.w PlaySoundEntry
 .3:
 	lda.w $08F2,y
 	and.w #$00FF

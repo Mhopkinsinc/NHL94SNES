@@ -110,6 +110,7 @@
 - Hook pointers by label: TitleScreen `.framehook` and its IRQ chain `.irq1` / `.irq2` / `.irq3` (raw `#$B4B2`, `#$B50C`, `#$B52F`, `#$B5AC` before), the intro sequence `.framehook` (`#$FA17`), and `#NullHook>>16` in ClearFrameHook.
 - Sample sets: `SPCIntroUpload`, `SPCTitleUpload`, `SPCTitleToMenu`, `SPCMenuUpload` with `IntroSampleList`, `IntroSfxTable`, `TitleSampleList`, `MenuSampleList`, `MenuSfxTable` (their only callers, and MenuSampleList = the title list plus the four SPCTitleToMenu blocks); `IntroSequence` (Opening runs it first).
 - Title animation steps from behavior: `TitleZoomIn`, `TitleZoomOutRight`, `TitleZoomOutLeft`, `TitleBlankSprites`, `DrawTitleSprite`, `TitleWindowWipe`.
+- Sound play path from behavior: `PlaySound`, `PlaySoundEntry` (QueueSound shares it), `StartSoundVoice`.
 
 ## Unsure
 

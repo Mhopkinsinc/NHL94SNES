@@ -89,7 +89,7 @@ TitleScreen:
 	lda.w #$7000
 	sta.b $64
 	lda.w #$0037
-	jsl.l CODE_80A200
+	jsl.l PlaySound
 	ldx.w #$001E
 	jsl.l TitleWait
 	lda.w #$0000
@@ -99,7 +99,7 @@ TitleScreen:
 	lda.w #$0002
 	jsr.w .9
 	lda.w #$0034
-	jsl.l CODE_80A200
+	jsl.l PlaySound
 	lda.w #$0042
 	sta.w $0BCD
 	jsr.w TitleBlankSprites
@@ -110,7 +110,7 @@ TitleScreen:
 	lda.w #$0005
 	jsr.w .9
 	lda.w #$0034
-	jsl.l CODE_80A200
+	jsl.l PlaySound
 	lda.w #$007D
 	sta.w $0BCD
 	jsr.w TitleBlankSprites
@@ -121,7 +121,7 @@ TitleScreen:
 	lda.w #$0008
 	jsr.w .9
 	lda.w #$0034
-	jsl.l CODE_80A200
+	jsl.l PlaySound
 	lda.w #$00FF
 	sta.w $0BCD
 	jsr.w TitleBlankSprites
@@ -129,7 +129,7 @@ TitleScreen:
 	lda.w #$0001
 	sta.w $0BD1
 	lda.w #$0036
-	jsl.l CODE_80A200
+	jsl.l PlaySound
 	ldx.w #$0007
 	jsl.l TitleWait
 	jsr.w TitleWindowWipe

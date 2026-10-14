@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A200:
+; Play sound A at once on the sound effect voices (the QueueSound set up without the replay record or the already-playing test)
+PlaySound:
 	phx
 	phy
 	phb
@@ -23,7 +23,7 @@ CODE_80A200:
 	adc.b $34
 	sta.b $4E
 	sta.w $086A,x
-CODE_80A226:
+PlaySoundEntry:
 	ldy.b #$06
 	lda.b ($4E),y
 	sta.b $5E
@@ -53,7 +53,7 @@ CODE_80A226:
 	lda.b $65
 	sta.b $5A
 	ldy.b #$10
-	jsr.w CODE_80A697
+	jsr.w StartSoundVoice
 	and.b #$FF
 	sep #$20
 	inc.w SoundLock
@@ -63,7 +63,7 @@ CODE_80A226:
 	plx
 	rtl
 
-.t1x:
+.stop:		; unused: release the voices playing sound A
 	phx
 	phy
 	phb

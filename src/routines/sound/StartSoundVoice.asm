@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A697:
+; Put sound entry $4E on a free voice (FindFreeVoice) with its pitch, volume and envelope (SeqCmd07)
+StartSoundVoice:
 	php
 	rep #$20
 	lda.w $086A,x

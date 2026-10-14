@@ -463,7 +463,7 @@ StepTrack:
 	asl a
 	tax
 	rep #$20
-	jsr.w CODE_80A697
+	jsr.w StartSoundVoice
 .12:
 	jsr.w ReadVarLen
 	ldx.w $07FF

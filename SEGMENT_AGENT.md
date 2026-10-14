@@ -754,3 +754,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Title / intro hook pointers by label. MATCH.
 - Sample set uploads and IntroSequence. MATCH.
 - Title animation steps. MATCH.
+- PlaySound, PlaySoundEntry, StartSoundVoice. MATCH.
