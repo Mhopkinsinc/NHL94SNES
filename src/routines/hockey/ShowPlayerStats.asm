@@ -148,7 +148,7 @@ CODE_9C8644:
 	sta.w $0D0D
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$9366
+	lda.w #LineBraces+3
 	sta.b a1
 	jsl.l CODE_9EC894
 .3:
@@ -165,7 +165,7 @@ CODE_9C8644:
 	rtl
 
 .t5:
-	jsl.l CODE_9C8858
+	jsl.l ClearPlayerStatBraces
 	lda.w $1DB9
 	clc
 	adc.w $1DC5
@@ -196,7 +196,7 @@ CODE_9C8644:
 	jmp.w CODE_9C8644
 
 .t6:
-	jsl.l CODE_9C8858
+	jsl.l ClearPlayerStatBraces
 	lda.w $1DB9
 	dec a
 	cmp.w $1DBD
