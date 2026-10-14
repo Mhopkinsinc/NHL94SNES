@@ -3,8 +3,8 @@
 org $9D8000
 incsrc "../routines/middle/Framer.asm"
 incsrc "../routines/middle/FramerRow.asm"
-incsrc "../routines/snes/CODE_9D8091.asm"
-incsrc "../routines/snes/CODE_9D80DD.asm"
+incsrc "../routines/middle/FramerNineTile.asm"
+incsrc "../routines/middle/FramerOutline.asm"
 incsrc "../routines/hockey/ScoutingReport.asm"
 incsrc "../routines/hockey/ShowMatchups.asm"
 incsrc "../data/text/LineSlotNames.asm"

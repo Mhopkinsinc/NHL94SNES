@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D80DD:
+; Framer with an outline box (DATA8_9C8310: eight border tiles, the set's base tile in the middle) from tile set $7E35C0
+FramerOutline:
 	phx
 	phy
 	lda.l $7E35C0

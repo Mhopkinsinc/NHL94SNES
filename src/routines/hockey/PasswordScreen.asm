@@ -43,7 +43,7 @@ PasswordScreen:
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	lda.b $8F
 	pha
 	lda.b a1
@@ -109,7 +109,7 @@ PasswordScreen:
 	sta.b d5
 .1:
 	jsl.l PlacePasswordCursor
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	lda.w #$0003
 	sta.w $0A4A
 	phx
@@ -240,7 +240,7 @@ PasswordRedraw:
 	pla
 	sta.b d5
 	jsl.l PlacePasswordCursor
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	phx
 	ldy.b d5
 	tyx

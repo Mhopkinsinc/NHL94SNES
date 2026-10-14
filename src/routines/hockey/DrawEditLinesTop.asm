@@ -40,5 +40,5 @@ DrawEditLinesTop:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	rtl

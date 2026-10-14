@@ -127,7 +127,7 @@ CODE_80CAE1:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	lda.b $8F
 	pha
 	lda.b a1

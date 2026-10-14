@@ -40,7 +40,7 @@ DrawEditLinesBack:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ABA95

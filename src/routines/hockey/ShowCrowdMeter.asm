@@ -41,7 +41,7 @@ ShowCrowdMeter:
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
-	jsl.l CODE_9D8091
+	jsl.l FramerNineTile
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96D7AC

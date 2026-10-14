@@ -1936,9 +1936,9 @@ $9BA8DA,.rtl,CODE_9BA8DA,new,branch target only used in this routine,src/routine
 $9BA3DD,.1,CODE_9BA3DD,new,branch target only used in this routine,src/routines/snes/CODE_9BA3B1.asm
 $9BA3FA,.2,CODE_9BA3FA,new,branch target only used in this routine,src/routines/snes/CODE_9BA3B1.asm
 $9FC1E1,.1,CODE_9FC1E1,new,branch target only used in this routine,src/routines/logic/doinput.asm
-$9D8102,.1,CODE_9D8102,new,branch target only used in this routine,src/routines/snes/CODE_9D80DD.asm
-$9D8106,.loop,CODE_9D8106,new,branch target only used in this routine,src/routines/snes/CODE_9D80DD.asm
-$9D8126,.2,CODE_9D8126,new,branch target only used in this routine,src/routines/snes/CODE_9D80DD.asm
+$9D8102,.1,CODE_9D8102,new,branch target only used in this routine,src/routines/middle/FramerOutline.asm
+$9D8106,.loop,CODE_9D8106,new,branch target only used in this routine,src/routines/middle/FramerOutline.asm
+$9D8126,.2,CODE_9D8126,new,branch target only used in this routine,src/routines/middle/FramerOutline.asm
 $9D832F,.rtl,CODE_9D832F,new,branch target only used in this routine,src/routines/snes/CODE_9D830F.asm
 $9F9A57,.1,CODE_9F9A57,new,branch target only used in this routine,src/routines/snes/CODE_9F9A3B.asm
 $9EAE25,.1,CODE_9EAE25,new,branch target only used in this routine,src/routines/snes/CODE_9EAE01.asm
@@ -2417,9 +2417,9 @@ $9BC7AE,.1,CODE_9BC7AE,new,branch target only used in this routine,src/routines/
 $9BC7C1,.loop,CODE_9BC7C1,new,branch target only used in this routine,src/routines/snes/CODE_9BC767.asm
 $9BC7D1,.2,CODE_9BC7D1,new,branch target only used in this routine,src/routines/snes/CODE_9BC767.asm
 $9EBC4F,.1,CODE_9EBC4F,new,branch target only used in this routine,src/routines/hockey/Bcheck.asm
-$9D80B6,.1,CODE_9D80B6,new,branch target only used in this routine,src/routines/snes/CODE_9D8091.asm
-$9D80BA,.loop,CODE_9D80BA,new,branch target only used in this routine,src/routines/snes/CODE_9D8091.asm
-$9D80DA,.2,CODE_9D80DA,new,branch target only used in this routine,src/routines/snes/CODE_9D8091.asm
+$9D80B6,.1,CODE_9D80B6,new,branch target only used in this routine,src/routines/middle/FramerNineTile.asm
+$9D80BA,.loop,CODE_9D80BA,new,branch target only used in this routine,src/routines/middle/FramerNineTile.asm
+$9D80DA,.2,CODE_9D80DA,new,branch target only used in this routine,src/routines/middle/FramerNineTile.asm
 $9FE503,.rtl,CODE_9FE503,new,branch target only used in this routine,src/routines/snes/CODE_9FE4E8.asm
 $80A912,.loop,CODE_80A912,new,branch target only used in this routine,src/routines/snes/CODE_80A8EC.asm
 $80A935,.loop2,CODE_80A935,new,branch target only used in this routine,src/routines/snes/CODE_80A8EC.asm
@@ -5798,3 +5798,5 @@ $9DAF5B,ClearBigText,CODE_9DAF5B,new,Behavior: PlayerSelect calls it before draw
 $9DB0AB,SendBigText,CODE_9DB0AB,new,Behavior: PlayerSelect calls it after DrawSelectTeam,src/routines/hockey/SendBigText.asm
 $9DE074,InitSetupChars,CODE_9DE074,new,"Behavior: setoptions calls it before SetupScreen; the three bases are the 93S smallfontchars / Framercset / scorechars (print, Framer and DrawTeamBlocks add them as in 93S)",src/routines/hockey/InitSetupChars.asm
 $9DC2DE,SetCardTeamColours,CODE_9DC2DE,new,Behavior: DrawPlayerCard calls it before SendColours,src/routines/hockey/SetCardTeamColours.asm
+$9D8091,FramerNineTile,CODE_9D8091,new,Behavior: Framer's steps with another box map and tile base; called from ShowCrowdMeter,src/routines/middle/FramerNineTile.asm
+$9D80DD,FramerOutline,CODE_9D80DD,new,"Behavior: Framer's steps with another box map and tile base; the text boxes of the scouting, roster, stats, shooters and password screens use it",src/routines/middle/FramerOutline.asm

@@ -33,7 +33,7 @@ ScoutingReport:
 	sta.b d0
 	lda.w #$000B
 	sta.b d1
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	jsl.l ShowMatchups
 	jsl.l ScoutingHDMA
 	jsl.l ScreenOn

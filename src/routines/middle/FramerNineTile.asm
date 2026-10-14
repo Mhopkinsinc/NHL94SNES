@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D8091:
+; Framer with a nine-tile box (DATA8_9C81D8: eight border tiles and a centre tile, no flips) from tile set $7E35BE
+FramerNineTile:
 	phx
 	phy
 	lda.l $7E35BE
