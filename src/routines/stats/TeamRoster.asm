@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D9D26:
+; Team roster for the team in a2. Y switches team, start leaves.
+TeamRoster:
 	jsl.l CODE_9DE0E9
 	ldy.b a2
 	lda.w tmline,y
@@ -116,7 +116,7 @@ CODE_9D9E2D:
 
 .t1:
 	bit.w #$4000
-	bne CODE_9D9E9C
+	bne SwapRosterTeam
 	stz.b d0
 	inc.b d0
 	bit.w #$0100

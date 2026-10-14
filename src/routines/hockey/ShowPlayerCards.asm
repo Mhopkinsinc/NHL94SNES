@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DBD4F:
+; Player cards. Left and right change the player, start leaves.
+ShowPlayerCards:
 	jsl.l CODE_9DE0E9
 	lda.b a2
 	pha
@@ -16,7 +16,7 @@ CODE_9DBD4F:
 	adc.w #$0006
 	sta.w $1DC1
 	jsl.l CODE_8086BD
-	jsl.l CODE_9DBE79
+	jsl.l DrawPlayerCard
 CODE_9DBD7B:
 	jsl.l CODE_9DD923
 CODE_9DBD7F:

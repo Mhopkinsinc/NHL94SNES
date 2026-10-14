@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9A5D:
+; Print the scroll hint under a summary list.
+PrintScrollHint:
 	lda.b $8F
 	pha
 	lda.b a1

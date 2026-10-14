@@ -2,7 +2,7 @@
 CODE_9B9828:
 	lda.w #$0006
 	sta.w $1DC5
-	jsr.w CODE_9B98C9
+	jsr.w DrawPenaltyPage
 	lda.w #$0005
 	sta.w $1DC5
 	lda.w $1DBD
@@ -25,7 +25,7 @@ CODE_9B9828:
 	cmp.w #$0017
 	bne .loop
 	jsl.l CODE_9B9AB2
-	jsr.w CODE_9B98C9
+	jsr.w DrawPenaltyPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3

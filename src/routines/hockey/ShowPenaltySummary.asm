@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B93F3:
+; Penalty summary for both teams. Start leaves.
+ShowPenaltySummary:
 	lda.w VisTeam
 	sta.l $7E3454
 	lda.w HomeTeam
@@ -9,11 +9,11 @@ CODE_9B93F3:
 	sta.w $1DB9
 	sta.w $1DBD
 	sta.w $1DC1
-	ldx.w #$005E
+	ldx.w #$0058
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #ScoringLabel
+	lda.w #PenaltiesLabel
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd
@@ -30,33 +30,22 @@ CODE_9B93F3:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #ScoringSummaryHead
+	lda.w #PenaltySummaryHead
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w #$0000
+	lda.w $163C
 	sta.w $1DC1
-	lda.l $7E313A
-.loop:
-	cmp.w #$0006
-	bmi .t1
-.1:
-	inc.w $1DC1
-	sec
-	sbc.w #$0006
-	bra .loop
-
-.t1:
 	lda.w $1DC1
 	cmp.w #$0006
 	bcc .2
-.1x:
-	jsl.l CODE_9B9A5D
+.1:
+	jsl.l PrintScrollHint
 .2:
-	jsr.w CODE_9B95B0
+	jsr.w CODE_9B9917
 	jsl.l CODE_9DD923
 	lda.w #$0058
 	ldx.w #$00D0
@@ -66,9 +55,10 @@ CODE_9B93F3:
 	jsl.l CODE_8086BD
 	lda.w #$0005
 	sta.w $1DC5
-	jsr.w CODE_9B9562
-CODE_9B94A5:
+	jsr.w DrawPenaltyPage
+CODE_9B9808:
 	jsl.l CODE_9B851F
+	jsl.l ProcessInputWithRepeat
 	lda.b d3
 	bit.w #$1000
 	beq .t1
@@ -76,9 +66,9 @@ CODE_9B94A5:
 
 .t1:
 	bit.w #$0800
-	bne CODE_9B9514
+	bne CODE_9B987B
 	bit.w #DMA_OAM
-	bne CODE_9B94C1
-CODE_9B94BB:
+	bne CODE_9B9828
+CODE_9B9822:
 	jsl.l WaitFrame
-	bra CODE_9B94A5
+	bra CODE_9B9808

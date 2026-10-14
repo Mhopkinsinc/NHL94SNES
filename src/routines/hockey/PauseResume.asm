@@ -3,7 +3,7 @@ PauseResume:
 	lda.b d1
 	bit.w #$9080
 	bne .t1
-	jmp.w CODE_9FE19E
+	jmp.w PauseMenuPoll
 
 .t1:
 	lda.w #$0000

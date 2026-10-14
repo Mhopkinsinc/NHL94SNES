@@ -3,7 +3,7 @@ PauseShootoutSetup:
 	lda.b d1
 	bit.w #$8080
 	bne .t1
-	jmp.w CODE_9FE19E
+	jmp.w PauseMenuPoll
 
 .t1:
 	lda.w #$0001

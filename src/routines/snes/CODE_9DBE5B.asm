@@ -9,5 +9,5 @@ CODE_9DBE5B:
 	clc
 	adc.w #$0006
 	sta.w $1DC1
-	jsl.l CODE_9DBE79
+	jsl.l DrawPlayerCard
 	jmp.w CODE_9DBD7B

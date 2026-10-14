@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F8000:
+; Period stats for both teams. Start leaves, Y swaps the view.
+ShowPeriodStats:
 	lda.w VisTeam
 	sta.l $7E3454
 	lda.w HomeTeam
@@ -13,7 +13,7 @@ CODE_9F8000:
 	stz.w $1DB9
 	jsl.l CODE_9DDFF6
 	jsl.l CODE_8086BD
-	jsl.l CODE_9F8064
+	jsl.l DrawPeriodStats
 CODE_9F8032:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame
@@ -34,5 +34,5 @@ CODE_9F8032:
 	lda.w $1DB9
 	eor.w #$0001
 	sta.w $1DB9
-	jsl.l CODE_9F8064
+	jsl.l DrawPeriodStats
 	bra CODE_9F8032

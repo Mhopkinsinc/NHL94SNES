@@ -9,4 +9,4 @@ PauseGoalieMode:
 	eor.w #$0001
 	sta.w $1C90,y
 .1:
-	jmp.w CODE_9FE19E
+	jmp.w PauseMenuPoll

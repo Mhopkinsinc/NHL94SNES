@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FF1D1:
+; Draw the MultiPlayer 5 warning for the controller, Super Scope, or mouse.
+ShowMP5Warning:
 	lda.w $1A0E
 	beq .rtl
 .loop:

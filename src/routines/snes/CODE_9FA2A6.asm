@@ -84,7 +84,7 @@ CODE_9FA2A6:
 	sta.b d1
 	jsl.l CODE_9D8000
 	jsl.l printscores1
-	jsl.l CODE_9FE11D
+	jsl.l PauseMenu
 	bne .loop2
 	lda.w #$0000
 	sta.l $7E3476

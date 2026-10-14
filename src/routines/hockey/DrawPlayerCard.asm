@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DBE79:
+; Draw the current player card, including strengths and ratings.
+DrawPlayerCard:
 	jsl.l SpriteFrameStart
 	lda.b $8F
 	pha

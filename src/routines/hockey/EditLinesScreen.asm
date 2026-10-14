@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B869B:
+; Change the lines on the ice. Start opens the line menu.
+EditLinesScreen:
 	jsl.l CODE_9DE0E9
 	ldy.b a2
 	lda.w tmline,y
@@ -18,7 +18,7 @@ CODE_9B869B:
 	sta.w $1D9F
 	dec a
 	sta.w $1D8B
-	jsl.l CODE_9B8810
+	jsl.l PrintLineNames
 	lda.w #$0005
 	ldx.w #$0068
 	jsl.l CODE_9DCCF5
@@ -39,7 +39,7 @@ CODE_9B86E5:
 	jmp.w CODE_9B8860
 
 .t1:
-	jsl.l CODE_9B8810
+	jsl.l PrintLineNames
 	bra CODE_9B86E5
 
 .t2:
@@ -55,7 +55,7 @@ CODE_9B86E5:
 .1:
 	lda.w #$0001
 	sta.l $7E3468
-	jsl.l CODE_9B8810
+	jsl.l PrintLineNames
 	lda.b $8F
 	pha
 	lda.b a1
@@ -123,7 +123,7 @@ CODE_9B86E5:
 	cmp.w $1D9F
 	bpl CODE_9B880D
 	sta.w $1D8B
-	jsl.l CODE_9B8810
+	jsl.l PrintLineNames
 	jmp.w CODE_9B880D
 
 .t2x:
@@ -156,6 +156,6 @@ CODE_9B86E5:
 	inc.w $1D9F
 	inc.w $1D8B
 CODE_9B8809:
-	jsl.l CODE_9B8810
+	jsl.l PrintLineNames
 CODE_9B880D:
 	jmp.w CODE_9B86E5

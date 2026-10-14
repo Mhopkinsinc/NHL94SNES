@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C87DB:
+; Switch player stats to the other team and redraw the heading.
+SwapPlayerStatsTeam:
 	lda.b a2
 	eor.w #$0002
 	sta.b a2

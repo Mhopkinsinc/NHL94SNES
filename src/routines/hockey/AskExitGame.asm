@@ -3,7 +3,7 @@ AskExitGame:
 	lda.w #$0000
 	sta.w $1DB9
 CODE_9FF011:
-	jsl.l CODE_9FF063
+	jsl.l DrawExitPrompt
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017

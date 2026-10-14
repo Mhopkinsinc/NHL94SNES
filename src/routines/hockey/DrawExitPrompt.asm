@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FF063:
+; Draw the exit question and the Yes and No lines.
+DrawExitPrompt:
 	lda.b $8F
 	pha
 	lda.b a1
