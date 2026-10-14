@@ -50,7 +50,7 @@ PrintLetterSprites:
 	tax
 	phx
 	phy
-	lda.w #$0092
+	lda.w #LetterSprites>>16
 	sta.b $12
 	lda.w #LetterSprites
 	sta.b $10

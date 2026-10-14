@@ -11,14 +11,14 @@ ScoutTeamCity:
 	adc.b [a1],y
 	sta.b a1
 ScoutAppend:
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $97
 	lda.w #mesarea
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
 	jsl.l appstring
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1

@@ -11,7 +11,7 @@ ShowScoringSummary:
 	sta.w $1DC1
 	ldx.w #$005E
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #ScoringLabel>>16
 	sta.b $8F
 	lda.w #ScoringLabel
 	sta.b a1
@@ -28,7 +28,7 @@ ShowScoringSummary:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScoringSummaryHead>>16
 	sta.b $8F
 	lda.w #ScoringSummaryHead
 	sta.b a1

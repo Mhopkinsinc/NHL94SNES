@@ -4,7 +4,7 @@ DrawEditLinesTop:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawEditLinesTopPos>>16
 	sta.b $8F
 	lda.w #DrawEditLinesTopPos
 	sta.b a1
@@ -25,7 +25,7 @@ DrawEditLinesTop:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawEditLinesTopPos2>>16
 	sta.b $8F
 	lda.w #DrawEditLinesTopPos2
 	sta.b a1

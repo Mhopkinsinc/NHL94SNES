@@ -4,7 +4,7 @@ ClearEditLinesMenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ClearEditLinesMenuPos>>16
 	sta.b $8F
 	lda.w #ClearEditLinesMenuPos
 	sta.b a1

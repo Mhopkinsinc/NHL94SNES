@@ -9,7 +9,7 @@ MarkGameStatRows:
 	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
-	lda.w #$009C
+	lda.w #LineBraces>>16
 	sta.b $8F
 	lda.w #LineBraces
 	sta.b a1
@@ -29,7 +29,7 @@ MarkGameStatRows:
 	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
-	lda.w #$009C
+	lda.w #LineBraces>>16
 	sta.b $8F
 	lda.w #LineBraces+3
 	sta.b a1

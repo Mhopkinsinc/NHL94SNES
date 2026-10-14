@@ -30,7 +30,7 @@ DrawPenaltyPage:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #NoPenalties>>16
 	sta.b $8F
 	lda.w #NoPenalties
 	sta.b a1

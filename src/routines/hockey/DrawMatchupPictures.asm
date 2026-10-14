@@ -18,7 +18,7 @@ DrawMatchupPictures:
 	sta.b $0E
 	lda.w #$7780
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap2>>16
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10
@@ -57,7 +57,7 @@ DrawMatchupPictures:
 	sta.b $0E
 	lda.w #$7700
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap2>>16
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10
@@ -83,7 +83,7 @@ DrawMatchupPictures:
 	sta.b $0E
 	lda.w #$7780
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap2>>16
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10
@@ -122,7 +122,7 @@ DrawMatchupPictures:
 	sta.b $0E
 	lda.w #$7700
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap2>>16
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10

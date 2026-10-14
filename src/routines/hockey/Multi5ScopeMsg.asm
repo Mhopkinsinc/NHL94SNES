@@ -4,7 +4,7 @@ Multi5ScopeMsg:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #TheMultiPlayer5IsNotTxt>>16
 	sta.b $8F
 	lda.w #TheMultiPlayer5IsNotTxt
 	sta.b a1
@@ -17,7 +17,7 @@ Multi5ScopeMsg:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DesignedForUseWithTheTxt>>16
 	sta.b $8F
 	lda.w #DesignedForUseWithTheTxt
 	sta.b a1
@@ -30,7 +30,7 @@ Multi5ScopeMsg:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #SuperNesSuperScopeTxt>>16
 	sta.b $8F
 	lda.w #SuperNesSuperScopeTxt
 	sta.b a1

@@ -4,7 +4,7 @@ PrintScrollHint:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintScrollHintPos>>16
 	sta.b $8F
 	lda.w #PrintScrollHintPos
 	sta.b a1
@@ -28,7 +28,7 @@ PrintScrollHint:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScrollHint>>16
 	sta.b $8F
 	lda.w #ScrollHint
 	sta.b a1

@@ -710,7 +710,7 @@ org $9BB001
 	lda.l playoffRoundIdx
 	cmp.w #$0002
 	bcc .t1xxxxxxxxx
-	lda.w #$0093
+	lda.w #PlayoffSong>>16
 	sta.b $0E
 	lda.w #PlayoffSong
 	sta.b $0C
@@ -718,7 +718,7 @@ org $9BB001
 	jmp.w .1xxxxxxxxxxxxxx
 
 .t1xxxxxxxxx:
-	lda.w #$0090
+	lda.w #MenuSong>>16
 	sta.b $0E
 	lda.w #MenuSong
 	sta.b $0C

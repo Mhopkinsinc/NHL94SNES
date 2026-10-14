@@ -54,7 +54,7 @@ FillPenaltyPage:
 	lsr a
 	lsr a
 	sta.b d0
-	lda.w #$0080
+	lda.w #PerLabels>>16
 	sta.b $8F
 	lda.w #PerLabels
 	sta.b a1
@@ -110,7 +110,7 @@ FillPenaltyPage:
 	tay
 	lda.w #PenaltyList
 	sta.b a1
-	lda.w #$0080
+	lda.w #PenaltyList>>16
 	sta.b $8F
 	lda.b [a1],y
 	clc

@@ -83,7 +83,7 @@ lcfound2:
 	lda.w #$0C00
 	tsb.w $0D0D
 .4:
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
@@ -93,7 +93,7 @@ lcfound2:
 	sta.w printx
 	lda.w #$4000
 	tsb.w $0D0D
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1

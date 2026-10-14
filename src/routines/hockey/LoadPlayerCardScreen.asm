@@ -1,7 +1,7 @@
 ; Set up the player card screen: fade out, the logo sprites, fonts, card graphics, map and palettes, clear text maps, sprites on
 LoadPlayerCardScreen:
 	jsl.l FadeOut
-	lda.w #$0081
+	lda.w #TeamLogoSprites>>16
 	sta.b $0E
 	lda.w #TeamLogoSprites
 	sta.b $0C
@@ -32,7 +32,7 @@ LoadPlayerCardScreen:
 	sta.l $7E35AC
 	jsl.l ClearTextMap
 	jsl.l ClearTextMap2
-	lda.w #$0096
+	lda.w #DATA8_96A103>>16
 	sta.b $0E
 	lda.w #DATA8_96A103
 	sta.b $0C
@@ -59,23 +59,23 @@ LoadPlayerCardScreen:
 	sta.b $8B
 	lda.w #$0000
 	sta.b a0
-	lda.w #$0080
+	lda.w #PixelRemap8F>>16
 	sta.b $8F
 	lda.w #PixelRemap8F
 	sta.b a1
 	jsl.l RemapTiles
-	lda.w #$009C
+	lda.w #FramerTiles>>16
 	sta.b $8B
 	lda.w #FramerTiles
 	sta.b a0
-	lda.w #$0080
+	lda.w #PixelRemap87>>16
 	sta.b $8F
 	lda.w #PixelRemap87
 	sta.b a1
 	lda.w #$0004
 	sta.b d0
 	jsl.l RemapTiles
-	lda.w #$009A
+	lda.w #DATA8_9AC1F3>>16
 	sta.b $0E
 	lda.w #DATA8_9AC1F3
 	sta.b $0C
@@ -108,7 +108,7 @@ LoadPlayerCardScreen:
 	jsl.l DMAToVRAM
 	lda.w #$0000
 	sta.l $7E35B2
-	lda.w #$0093
+	lda.w #DATA8_93B217>>16
 	sta.b $0E
 	lda.w #DATA8_93B217
 	sta.b $0C
@@ -152,7 +152,7 @@ LoadPlayerCardScreen:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9AEA15>>16
 	sta.b $0E
 	lda.w #DATA8_9AEA15
 	sta.b $0C
@@ -192,7 +192,7 @@ LoadPlayerCardScreen:
 	sta.b $10
 	dex
 	bne .loop
-	lda.w #$0096
+	lda.w #DATA8_96C61F>>16
 	sta.b $0E
 	lda.w #DATA8_96C61F
 	sta.b $0C
@@ -205,7 +205,7 @@ LoadPlayerCardScreen:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap2>>16
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10
@@ -221,7 +221,7 @@ LoadPlayerCardScreen:
 	clc
 	adc.w #$1000
 	jsl.l PasteMap
-	lda.w #$009A
+	lda.w #DATA8_9ADE57>>16
 	sta.b $0E
 	lda.w #DATA8_9ADE57
 	sta.b $0C
@@ -258,7 +258,7 @@ LoadPlayerCardScreen:
 	ldy.w #$0040
 	ldx.w #$0010
 	jsl.l SetColours
-	lda.w #$009A
+	lda.w #DATA8_9AD1B6>>16
 	sta.b $0E
 	lda.w #DATA8_9AD1B6
 	sta.b $0C
@@ -272,7 +272,7 @@ LoadPlayerCardScreen:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #SwitchCardsYSwitchTeamsTxt>>16
 	sta.b $8F
 	lda.w #SwitchCardsYSwitchTeamsTxt
 	sta.b a1

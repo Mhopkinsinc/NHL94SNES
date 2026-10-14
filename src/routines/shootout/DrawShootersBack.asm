@@ -4,7 +4,7 @@ DrawShootersBack:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawShootersBackPos>>16
 	sta.b $8F
 	lda.w #DrawShootersBackPos
 	sta.b a1
@@ -24,7 +24,7 @@ DrawShootersBack:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawShootersBackPos2>>16
 	sta.b $8F
 	lda.w #DrawShootersBackPos2
 	sta.b a1
@@ -44,7 +44,7 @@ DrawShootersBack:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #LineupTxt2>>16
 	sta.b $8F
 	lda.w #LineupTxt2
 	sta.b a1
@@ -53,7 +53,7 @@ DrawShootersBack:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w #$009A
+	lda.w #DATA8_9ABA95>>16
 	sta.b $0E
 	lda.w #DATA8_9ABA95
 	sta.b $0C
@@ -66,7 +66,7 @@ DrawShootersBack:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap2>>16
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10

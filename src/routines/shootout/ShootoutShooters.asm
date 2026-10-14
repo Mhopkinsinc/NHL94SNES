@@ -92,7 +92,7 @@ ShootersSetup:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShootoutShootersPos>>16
 	sta.b $8F
 	lda.w #ShootoutShootersPos
 	sta.b a1
@@ -112,7 +112,7 @@ ShootersSetup:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShootoutShootersPos2>>16
 	sta.b $8F
 	lda.w #ShootoutShootersPos2
 	sta.b a1
@@ -132,7 +132,7 @@ ShootersSetup:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #LineupTxt>>16
 	sta.b $8F
 	lda.w #LineupTxt
 	sta.b a1

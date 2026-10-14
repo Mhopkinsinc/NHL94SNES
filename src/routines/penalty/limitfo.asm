@@ -16,7 +16,7 @@ limitfo:
 	pha
 	lda.b $8F
 	pha
-	lda.w #$0000
+	lda.w #PenBuf>>16
 	sta.b $8B
 	lda.w #PenBuf
 	sta.b a0

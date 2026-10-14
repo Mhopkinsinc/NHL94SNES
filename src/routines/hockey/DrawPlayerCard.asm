@@ -5,7 +5,7 @@ DrawPlayerCard:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawPlayerCardPos>>16
 	sta.b $8F
 	lda.w #DrawPlayerCardPos
 	sta.b a1
@@ -85,7 +85,7 @@ DrawPlayerCard:
 	jmp.w .t4
 
 .t2x:
-	lda.w #$009D
+	lda.w #RosterGroups>>16
 	sta.b $8F
 	lda.w #RosterGroups+18
 	sta.b a1
@@ -104,12 +104,12 @@ DrawPlayerCard:
 	jsl.l FindGoalieStrengths
 	ldx.w #$0038
 	ldy.w #$007A
-	lda.w #$009C
+	lda.w #StrengthsLabel>>16
 	sta.b $8F
 	lda.w #StrengthsLabel
 	sta.b a1
 	jsl.l PrintSmallLetterSprites
-	lda.w #$009D
+	lda.w #RatingNames>>16
 	sta.b $8F
 	lda.w #RatingNames+178
 	sta.b a1
@@ -124,7 +124,7 @@ DrawPlayerCard:
 	ldx.w #$0040
 	ldy.w #$0084
 	jsl.l PrintSmallLetterSprites
-	lda.w #$009D
+	lda.w #RatingNames>>16
 	sta.b $8F
 	lda.w #RatingNames+178
 	sta.b a1
@@ -145,7 +145,7 @@ DrawPlayerCard:
 	ldx.w #$0040
 	ldy.w #$008E
 	jsl.l PrintSmallLetterSprites
-	lda.w #$009D
+	lda.w #RatingNames>>16
 	sta.b $8F
 	lda.w #RatingNames+178
 	sta.b a1
@@ -181,14 +181,14 @@ DrawPlayerCard:
 org $9DC002
 	beq .t1x2
 	bmi .t1x2
-	lda.w #$009D
+	lda.w #RosterGroups>>16
 	sta.b $8F
 	lda.w #RosterGroups
 	sta.b a1
 	bra .3
 
 .t1x2:
-	lda.w #$009D
+	lda.w #RosterGroups>>16
 	sta.b $8F
 	lda.w #RosterGroups+9
 	sta.b a1
@@ -208,12 +208,12 @@ org $9DC002
 	jsl.l FindSkaterStrengths
 	ldx.w #$0038
 	ldy.w #$007A
-	lda.w #$009C
+	lda.w #StrengthsLabelB>>16
 	sta.b $8F
 	lda.w #StrengthsLabelB
 	sta.b a1
 	jsl.l PrintSmallLetterSprites
-	lda.w #$009D
+	lda.w #RatingNames>>16
 	sta.b $8F
 	lda.w #RatingNames
 	sta.b a1
@@ -224,7 +224,7 @@ org $9DC002
 	ldx.w #$0040
 	ldy.w #$0084
 	jsl.l PrintSmallLetterSprites
-	lda.w #$009D
+	lda.w #RatingNames>>16
 	sta.b $8F
 	lda.w #RatingNames
 	sta.b a1
@@ -238,7 +238,7 @@ org $9DC002
 	ldx.w #$0040
 	ldy.w #$008E
 	jsl.l PrintSmallLetterSprites
-	lda.w #$009D
+	lda.w #RatingNames>>16
 	sta.b $8F
 	lda.w #RatingNames
 	sta.b a1
@@ -255,7 +255,7 @@ org $9DC002
 .4:
 	ldx.w #$0098
 	ldy.w #$007A
-	lda.w #$009C
+	lda.w #OverallRating>>16
 	sta.b $8F
 	lda.w #OverallRating
 	sta.b a1
@@ -280,7 +280,7 @@ org $9DC002
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawPlayerCardPos2>>16
 	sta.b $8F
 	lda.w #DrawPlayerCardPos2
 	sta.b a1
@@ -368,7 +368,7 @@ org $9DC002
 	jsl.l PrintLineSlotName
 	ldx.w #$0066
 	ldy.w #$0098
-	lda.w #$009C
+	lda.w #TeamRating>>16
 	sta.b $8F
 	lda.w #TeamRating
 	sta.b a1

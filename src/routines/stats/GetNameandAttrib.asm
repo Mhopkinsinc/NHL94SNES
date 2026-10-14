@@ -40,7 +40,7 @@ GetNameandAttrib:
 	sta.l $7E35F2
 	jsl.l CalcAttrib
 .2:
-	lda.w #$009F
+	lda.w #attribjmp>>16
 	sta.b $8B
 	lda.w #attribjmp
 	sta.b a0

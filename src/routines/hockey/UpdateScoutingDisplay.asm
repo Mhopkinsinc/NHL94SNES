@@ -16,7 +16,7 @@ UpdateScoutingDisplay:
 	dec.w ScoutingReportTimer
 	bpl UpdateScoutingDisplay_rtl
 .1:
-	lda.w #$0097
+	lda.w #PregameText>>16
 	sta.b $8F
 	lda.w #PregameText
 	sta.b a1

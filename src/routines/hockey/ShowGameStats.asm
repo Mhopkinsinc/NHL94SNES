@@ -7,7 +7,7 @@ ShowGameStats:
 	jsl.l SetupScreen
 	ldx.w #$0050
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #GameStats>>16
 	sta.b $8F
 	lda.w #GameStats
 	sta.b a1
@@ -16,7 +16,7 @@ ShowGameStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowGameStatsPos>>16
 	sta.b $8F
 	lda.w #ShowGameStatsPos
 	sta.b a1
@@ -32,7 +32,7 @@ ShowGameStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowGameStatsPos2>>16
 	sta.b $8F
 	lda.w #ShowGameStatsPos2
 	sta.b a1

@@ -73,7 +73,7 @@ doshot:
 	asl a
 	asl a
 	tay
-	lda.w #$009E
+	lda.w #shotsets>>16
 	sta.b $8B
 	lda.w #shotsets
 	sta.b a0

@@ -20,7 +20,7 @@ ScoutingReport:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScoutingReportPos>>16
 	sta.b $8F
 	lda.w #ScoutingReportPos
 	sta.b a1
@@ -132,7 +132,7 @@ ScoutingReport:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScoutingReportPos2>>16
 	sta.b $8F
 	lda.w #ScoutingReportPos2
 	sta.b a1

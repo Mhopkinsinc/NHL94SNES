@@ -11,7 +11,7 @@ ShowPenaltySummary:
 	sta.w $1DC1
 	ldx.w #$0058
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #PenaltiesLabel>>16
 	sta.b $8F
 	lda.w #PenaltiesLabel
 	sta.b a1
@@ -28,7 +28,7 @@ ShowPenaltySummary:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PenaltySummaryHead>>16
 	sta.b $8F
 	lda.w #PenaltySummaryHead
 	sta.b a1

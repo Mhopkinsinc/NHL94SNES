@@ -4,7 +4,7 @@ ScoutNamePos:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScoutNamePosAt>>16
 	sta.b $8F
 	lda.w #ScoutNamePosAt+5
 	sta.b a1

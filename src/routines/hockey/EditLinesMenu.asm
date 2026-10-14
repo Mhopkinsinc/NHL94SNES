@@ -5,7 +5,7 @@ EditLinesMenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ReturnToGameTxt>>16
 	sta.b $8F
 	lda.w #ReturnToGameTxt
 	sta.b a1
@@ -18,7 +18,7 @@ EditLinesMenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #RestoreDefaultLinesTxt>>16
 	sta.b $8F
 	lda.w #RestoreDefaultLinesTxt
 	sta.b a1
@@ -39,7 +39,7 @@ EditLinesMenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #EditLinesMenuPos>>16
 	sta.b $8F
 	lda.w #EditLinesMenuPos
 	sta.b a1
@@ -55,7 +55,7 @@ EditLinesMenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #EditLinesMenuPos2>>16
 	sta.b $8F
 	lda.w #EditLinesMenuPos2
 	sta.b a1
@@ -69,7 +69,7 @@ EditLinesMenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ReturnToGame>>16
 	sta.b $8F
 	lda.w #ReturnToGame
 	sta.b a1
@@ -85,7 +85,7 @@ EditLinesMenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #EditLinesMenuPos3>>16
 	sta.b $8F
 	lda.w #EditLinesMenuPos3
 	sta.b a1
@@ -101,7 +101,7 @@ EditLinesMenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #EditLinesMenuPos4>>16
 	sta.b $8F
 	lda.w #EditLinesMenuPos4
 	sta.b a1
@@ -115,7 +115,7 @@ EditLinesMenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #RestoreDefaultLines>>16
 	sta.b $8F
 	lda.w #RestoreDefaultLines
 	sta.b a1

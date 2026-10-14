@@ -35,7 +35,7 @@ setoptions:
 	rep #$20
 	ldx.w #$004F
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #GameSetupTitle>>16
 	sta.b $8F
 	lda.w #GameSetupTitle
 	sta.b a1
@@ -59,7 +59,7 @@ setoptions:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #setoptionsPos>>16
 	sta.b $8F
 	lda.w #setoptionsPos
 	sta.b a1
@@ -197,7 +197,7 @@ setoptions:
 	sta.l $7E34BC
 	sta.l $7E34CA
 .5:
-	lda.w #$009A
+	lda.w #DATA8_9AB610>>16
 	sta.b $0E
 	lda.w #DATA8_9AB610
 	sta.b $0C
@@ -419,7 +419,7 @@ setoptions:
 .4xx:
 	lda.w #$3800
 	sta.w $0D0D
-	lda.w #$009D
+	lda.w #GameSetupNames>>16
 	sta.b $8F
 	lda.w #GameSetupNames
 	sta.b a1
@@ -436,7 +436,7 @@ setoptions:
 	cmp.w #$0000
 	beq .6x
 	bpl .2xxxxx
-	lda.w #$009D
+	lda.w #PlayoffSetupNames>>16
 	sta.b $8F
 	lda.w #PlayoffSetupNames
 	sta.b a1
@@ -579,7 +579,7 @@ setoptions:
 	jsr.w .t2xxx
 	ldx.w #$004F
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #GameSetupAlt>>16
 	sta.b $8F
 	lda.w #GameSetupAlt
 	sta.b a1
@@ -621,7 +621,7 @@ setoptions:
 .3xxxxx:
 	lda.l $7E3454
 	bpl .4xxx
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1

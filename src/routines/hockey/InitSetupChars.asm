@@ -8,7 +8,7 @@ InitSetupChars:
 	ldy.w #$3000
 	ldx.w #$0020
 	jsl.l FillVRAM
-	lda.w #$0096
+	lda.w #DATA8_96A103>>16
 	sta.b $0E
 	lda.w #DATA8_96A103
 	sta.b $0C

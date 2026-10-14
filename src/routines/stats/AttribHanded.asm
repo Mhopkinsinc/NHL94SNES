@@ -4,7 +4,7 @@ AttribHanded:
 	and.w #$0001
 	eor.w #$0001
 	sta.b d0
-	lda.w #$009F
+	lda.w #HandedTextTbl>>16
 	sta.b $8F
 	lda.w #HandedTextTbl
 	sta.b a1

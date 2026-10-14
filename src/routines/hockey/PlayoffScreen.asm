@@ -27,7 +27,7 @@ PlayoffScreen:
 .loop:
 	lda.w MusicOn
 	bne .loop
-	lda.w #$0093
+	lda.w #PlayoffSong>>16
 	sta.b $0E
 	lda.w #PlayoffSong
 	sta.b $0C
@@ -70,7 +70,7 @@ PlayoffScreen:
 	sta.b $0C
 	ldy.w #$3000
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9ABA95>>16
 	sta.b $0E
 	lda.w #DATA8_9ABA95
 	sta.b $0C
@@ -89,7 +89,7 @@ PlayoffScreen:
 	tax
 	ldy.w #$0920
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9AE121>>16
 	sta.b $0E
 	lda.w #DATA8_9AE121
 	sta.b $0C
@@ -101,7 +101,7 @@ PlayoffScreen:
 	ldy.w #$0000
 	ldx.w #$0010
 	jsl.l DMAToCGRAM
-	lda.w #$009A
+	lda.w #DATA8_9AE8BF>>16
 	sta.b $0E
 	lda.w #DATA8_9AE8BF
 	sta.b $0C
@@ -123,16 +123,16 @@ PlayoffScreen:
 	sta.b $0C
 	ldy.w #$1000
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9AE027>>16
 	sta.b $0E
 	lda.w #DATA8_9AE027
 	sta.b $0C
-	lda.w #$007E
+	lda.w #palbuffer>>16
 	sta.b $12
 	lda.w #palbuffer
 	sta.b $10
 	jsl.l Decompress
-	lda.w #$0096
+	lda.w #DATA8_96A103>>16
 	sta.b $0E
 	lda.w #DATA8_96A103
 	sta.b $0C
@@ -154,12 +154,12 @@ PlayoffScreen:
 	sta.b $8B
 	lda.w #$0000
 	sta.b a0
-	lda.w #$0080
+	lda.w #PixelRemap8F>>16
 	sta.b $8F
 	lda.w #PixelRemap8F
 	sta.b a1
 	jsl.l RemapTiles
-	lda.w #$0096
+	lda.w #DATA8_96A103>>16
 	sta.b $0E
 	lda.w #DATA8_96A103
 	sta.b $0C
@@ -252,7 +252,7 @@ PlayoffScreen:
 	ldx.w #$0E00
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9AE884>>16
 	sta.b $0E
 	lda.w #DATA8_9AE884
 	sta.b $0C
@@ -271,7 +271,7 @@ PlayoffScreen:
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
-	lda.w #$0096
+	lda.w #DATA8_968C02>>16
 	sta.b $0E
 	lda.w #DATA8_968C02
 	sta.b $0C
@@ -286,7 +286,7 @@ PlayoffScreen:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9AB610>>16
 	sta.b $0E
 	lda.w #DATA8_9AB610
 	sta.b $0C
@@ -341,7 +341,7 @@ PlayoffScreen:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PlayoffScreenPos>>16
 	sta.b $8F
 	lda.w #PlayoffScreenPos
 	sta.b a1
@@ -537,7 +537,7 @@ org $9D9000
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PlayoffScreenPos2>>16
 	sta.b $8F
 	lda.w #PlayoffScreenPos2
 	sta.b a1
@@ -566,7 +566,7 @@ org $9D9000
 	asl a
 	asl a
 	sta.w printy
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
@@ -617,7 +617,7 @@ org $9D9000
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #N8hTxt>>16
 	sta.b $8F
 	lda.w #N8hTxt
 	sta.b a1

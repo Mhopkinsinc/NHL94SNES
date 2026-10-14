@@ -27,7 +27,7 @@ prefmes:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #prefmesPos>>16
 	sta.b $8F
 	lda.w #prefmesPos
 	sta.b a1
@@ -55,7 +55,7 @@ prefmes:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #prefmesPos2>>16
 	sta.b $8F
 	lda.w #prefmesPos2
 	sta.b a1
@@ -64,7 +64,7 @@ prefmes:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w #$0080
+	lda.w #PenaltyList>>16
 	sta.b $8F
 	lda.w #PenaltyList
 	sta.b a1
@@ -144,7 +144,7 @@ prefmes:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #prefmesPos3>>16
 	sta.b $8F
 	lda.w #prefmesPos3
 	sta.b a1
@@ -153,7 +153,7 @@ prefmes:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w #$0080
+	lda.w #PenaltyList>>16
 	sta.b $8F
 	lda.w #PenaltyList
 	sta.b a1

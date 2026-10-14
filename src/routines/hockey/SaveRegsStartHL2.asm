@@ -53,7 +53,7 @@ StartHL2:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #HighlightFrom>>16
 	sta.b $8F
 	lda.w #HighlightFrom
 	sta.b a1
@@ -335,7 +335,7 @@ org $9F9001
 	lda.l playoffRoundIdx
 	cmp.w #$0002
 	bcc .t2
-	lda.w #$0093
+	lda.w #PlayoffSong>>16
 	sta.b $0E
 	lda.w #PlayoffSong
 	sta.b $0C
@@ -343,7 +343,7 @@ org $9F9001
 	bra .10
 
 .t2:
-	lda.w #$0090
+	lda.w #MenuSong>>16
 	sta.b $0E
 	lda.w #MenuSong
 	sta.b $0C
@@ -353,7 +353,7 @@ org $9F9001
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #SaveRegsStartHL2Pos>>16
 	sta.b $8F
 	lda.w #SaveRegsStartHL2Pos
 	sta.b a1
@@ -439,7 +439,7 @@ org $9F9001
 	trb.w sflags3
 .13:
 	jsl.l LoadCenterIce
-	lda.w #$0096
+	lda.w #DATA8_96B2CF>>16
 	sta.b $0E
 	lda.w #DATA8_96B2CF
 	sta.b $0C

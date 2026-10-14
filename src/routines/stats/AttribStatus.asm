@@ -22,7 +22,7 @@ AttribStatus:
 	lda.w #$0003
 	sta.b d0
 .4:
-	lda.w #$009F
+	lda.w #StatusTextTbl>>16
 	sta.b $8F
 	lda.w #StatusTextTbl
 	sta.b a1
@@ -45,7 +45,7 @@ AttribStatus:
 	lda.w #$0005
 	sta.b d0
 .1x:
-	lda.w #$009F
+	lda.w #StatusTextTbl>>16
 	sta.b $8F
 	lda.w #StatusTextTbl
 	sta.b a1

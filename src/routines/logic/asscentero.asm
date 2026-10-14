@@ -93,7 +93,7 @@ asscentero:
 	lda.b d2
 	sta.w $1083,x
 	tay
-	lda.w #$009E
+	lda.w #CenterOSpots>>16
 	sta.b $8B
 	lda.w #CenterOSpots
 	sta.b a0

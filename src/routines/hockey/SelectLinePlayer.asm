@@ -4,7 +4,7 @@ SelectLinePlayer:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #SelectLinePlayerPos>>16
 	sta.b $8F
 	lda.w #SelectLinePlayerPos
 	sta.b a1
@@ -21,7 +21,7 @@ SelectLinePlayer:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.w #$009A
+	lda.w #DATA8_9AE9C7>>16
 	sta.b $0E
 	lda.w #DATA8_9AE9C7
 	sta.b $0C
@@ -34,7 +34,7 @@ SelectLinePlayer:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap2>>16
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10
@@ -217,7 +217,7 @@ SelectLinePlayer:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #SelectLinePlayerPos2>>16
 	sta.b $8F
 	lda.w #SelectLinePlayerPos2
 	sta.b a1
@@ -248,7 +248,7 @@ SelectLinePlayer:
 	bne .3x
 	lda.w #AttribMenuGoalie
 	sta.b a1
-	lda.w #$0080
+	lda.w #AttribMenuGoalie>>16
 	sta.b $8F
 	bra .3x
 .2x:
@@ -282,7 +282,7 @@ org $9B9001
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PlayerTxt>>16
 	sta.b $8F
 	lda.w #PlayerTxt
 	sta.b a1
@@ -298,7 +298,7 @@ org $9B9001
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #LeftArrowTxt>>16
 	sta.b $8F
 	lda.w #LeftArrowTxt
 	sta.b a1
@@ -319,7 +319,7 @@ org $9B9001
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #RightArrowTxt>>16
 	sta.b $8F
 	lda.w #RightArrowTxt
 	sta.b a1

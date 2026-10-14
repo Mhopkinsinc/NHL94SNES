@@ -7,7 +7,7 @@ Framer:
 	adc.l printfontset
 	ora.w $0D0D
 	sta.b tmp0
-	lda.w #$009C
+	lda.w #FramerMap>>16
 	sta.b $0E
 	lda.w #FramerMap+6
 	sta.b $0C

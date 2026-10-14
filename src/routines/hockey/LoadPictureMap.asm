@@ -1,6 +1,6 @@
 ; Unpack the 7 x 7 picture map (DATA8_9AE9F0) to $7F7780 and add the second font tile base and palette 3 to each word
 LoadPictureMap:
-	lda.w #$009A
+	lda.w #DATA8_9AE9F0>>16
 	sta.b $0E
 	lda.w #DATA8_9AE9F0
 	sta.b $0C

@@ -11,7 +11,7 @@ ShowPlayerStats:
 	jsl.l SetupScreen
 	ldx.w #$0049
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #PlayerStatsTitle>>16
 	sta.b $8F
 	lda.w #PlayerStatsTitle
 	sta.b a1
@@ -22,7 +22,7 @@ ShowPlayerStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowPlayerStatsPos>>16
 	sta.b $8F
 	lda.w #ShowPlayerStatsPos
 	sta.b a1
@@ -42,7 +42,7 @@ ShowPlayerStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #YSwitchTeamsTxt>>16
 	sta.b $8F
 	lda.w #YSwitchTeamsTxt
 	sta.b a1
@@ -123,7 +123,7 @@ ShowPlayerStats_redraw:
 	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
-	lda.w #$009C
+	lda.w #LineBraces>>16
 	sta.b $8F
 	lda.w #LineBraces
 	sta.b a1
@@ -146,7 +146,7 @@ ShowPlayerStats_redraw:
 	sta.w printy
 	lda.w #$2000
 	sta.w $0D0D
-	lda.w #$009C
+	lda.w #LineBraces>>16
 	sta.b $8F
 	lda.w #LineBraces+3
 	sta.b a1

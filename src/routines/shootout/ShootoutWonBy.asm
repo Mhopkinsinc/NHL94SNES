@@ -75,7 +75,7 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	beq .t1xx
 	cmp.w #$000D
 	beq .t1xx
-	lda.w #$009C
+	lda.w #WinsMark>>16
 	sta.b $8F
 	lda.w #WinsMark
 	sta.b a1
@@ -83,7 +83,7 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	bra .2
 
 .t1xx:
-	lda.w #$009C
+	lda.w #WinMark>>16
 	sta.b $8F
 	lda.w #WinMark
 	sta.b a1

@@ -14,7 +14,7 @@ PauseTimeout:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PauseTimeoutPos>>16
 	sta.b $8F
 	lda.w #PauseTimeoutPos
 	sta.b a1
@@ -32,7 +32,7 @@ PauseTimeout:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #TimeoutTxt>>16
 	sta.b $8F
 	lda.w #TimeoutTxt
 	sta.b a1

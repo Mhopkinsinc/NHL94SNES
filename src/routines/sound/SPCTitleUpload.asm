@@ -14,7 +14,7 @@ SPCTitleUpload:
 	sep #$20
 	inc.w SoundLock
 	rep #$20
-	lda.w #$009B
+	lda.w #MenuSfxTable>>16
 	sta.b $36
 	lda.w #MenuSfxTable
 	sta.b $34

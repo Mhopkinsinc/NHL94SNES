@@ -4,7 +4,7 @@ PrintLinePlayerList:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintLinePlayerListPos>>16
 	sta.b $8F
 	lda.w #PrintLinePlayerListPos
 	sta.b a1
@@ -25,7 +25,7 @@ PrintLinePlayerList:
 	sta.b a3
 	lda.w #PositionNames
 	sta.b $9D
-	lda.w #$0080
+	lda.w #PositionNames>>16
 	sta.b $9F
 	lda.w $1DAF
 	dec a

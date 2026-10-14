@@ -11,7 +11,7 @@ NewTicker3:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #NewTicker3Pos>>16
 	sta.b $8F
 	lda.w #NewTicker3Pos
 	sta.b a1
@@ -27,7 +27,7 @@ NewTicker3:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #NewTicker3Pos2>>16
 	sta.b $8F
 	lda.w #NewTicker3Pos2
 	sta.b a1
@@ -65,7 +65,7 @@ NewTicker3:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #NewTicker3Pos3>>16
 	sta.b $8F
 	lda.w #NewTicker3Pos3
 	sta.b a1
@@ -83,7 +83,7 @@ NewTicker3:
 	bne .1
 	stz.b d0
 .1:
-	lda.w #$0080
+	lda.w #GameLabels>>16
 	sta.b $8F
 	lda.w #GameLabels
 	sta.b a1
@@ -96,7 +96,7 @@ NewTicker3:
 	lda.l $7E3568,x
 	dec a
 	sta.b d0
-	lda.w #$0080
+	lda.w #PerLabels>>16
 	sta.b $8F
 	lda.w #PerLabels
 	sta.b a1

@@ -31,7 +31,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos>>16
 	sta.b $8F
 	lda.w #printscores1Pos
 	sta.b a1
@@ -52,7 +52,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos2>>16
 	sta.b $8F
 	lda.w #printscores1Pos2
 	sta.b a1
@@ -82,7 +82,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #RoundTxt>>16
 	sta.b $8F
 	lda.w #RoundTxt
 	sta.b a1
@@ -110,7 +110,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos3>>16
 	sta.b $8F
 	lda.w #printscores1Pos3
 	sta.b a1
@@ -128,7 +128,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos4>>16
 	sta.b $8F
 	lda.w #printscores1Pos4
 	sta.b a1
@@ -144,7 +144,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos5>>16
 	sta.b $8F
 	lda.w #printscores1Pos5
 	sta.b a1
@@ -171,7 +171,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos6>>16
 	sta.b $8F
 	lda.w #printscores1Pos6
 	sta.b a1
@@ -189,7 +189,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos7>>16
 	sta.b $8F
 	lda.w #printscores1Pos7
 	sta.b a1
@@ -228,7 +228,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos8>>16
 	sta.b $8F
 	lda.w #printscores1Pos8
 	sta.b a1
@@ -244,7 +244,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos9>>16
 	sta.b $8F
 	lda.w #printscores1Pos9
 	sta.b a1
@@ -263,7 +263,7 @@ printscores1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #printscores1Pos10>>16
 	sta.b $8F
 	lda.w #printscores1Pos10
 	sta.b a1

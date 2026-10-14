@@ -9,7 +9,7 @@ PrintScrollArrows:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #RightArrowTxt2>>16
 	sta.b $8F
 	lda.w #RightArrowTxt2
 	sta.b a1
@@ -25,7 +25,7 @@ PrintScrollArrows:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintScrollArrowsPos>>16
 	sta.b $8F
 	lda.w #PrintScrollArrowsPos
 	sta.b a1
@@ -42,7 +42,7 @@ PrintScrollArrows:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #LeftArrowTxt2>>16
 	sta.b $8F
 	lda.w #LeftArrowTxt2
 	sta.b a1
@@ -58,7 +58,7 @@ PrintScrollArrows:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintScrollArrowsPos2>>16
 	sta.b $8F
 	lda.w #PrintScrollArrowsPos2
 	sta.b a1

@@ -60,7 +60,7 @@ EditLinesScreen:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #EditLinesScreenPos>>16
 	sta.b $8F
 	lda.w #EditLinesScreenPos
 	sta.b a1
@@ -71,13 +71,13 @@ EditLinesScreen:
 	sta.b $8F
 	lda.w SelectedPlayerIdx
 	sta.b d0
-	lda.w #$009B
+	lda.w #LineMenuNames>>16
 	sta.b $8F
 	lda.w #LineMenuNames
 	sta.b a1
 	lda.l $7E34C6
 	bne .2
-	lda.w #$009B
+	lda.w #BestLineNames>>16
 	sta.b $8F
 	lda.w #BestLineNames
 	sta.b a1
@@ -89,7 +89,7 @@ EditLinesScreen:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #EditLinesScreenPos2>>16
 	sta.b $8F
 	lda.w #EditLinesScreenPos2
 	sta.b a1

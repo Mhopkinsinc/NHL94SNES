@@ -47,7 +47,7 @@ Restart:
 	lda.w MusicOn
 	bne .loop
 .1:
-	lda.w #$0090
+	lda.w #MenuSong>>16
 	sta.b $0E
 	lda.w #MenuSong
 	sta.b $0C

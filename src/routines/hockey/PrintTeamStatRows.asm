@@ -31,14 +31,14 @@ PrintTeamStatRows:
 	sta.w printx
 	lda.w $1DB9
 	sta.b d0
-	lda.w #$009C
+	lda.w #TeamStatNames>>16
 	sta.b $8F
 	lda.w #TeamStatNames
 	sta.b a1
 	lda.l OptPen
 	bne .2
 .1:
-	lda.w #$009C
+	lda.w #TeamStatNames>>16
 	sta.b $8F
 	lda.w #TeamStatNamesNoPen
 org $9C9000
@@ -60,7 +60,7 @@ org $9C9000
 	rts
 
 .t1:
-	lda.w #$009C
+	lda.w #TeamStatSources>>16
 	sta.b $8B
 	lda.w #TeamStatSources
 	sta.b a0
@@ -143,14 +143,14 @@ org $9C9000
 .4:
 	sta.b d0
 	jsl.l PushNumber
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $97
 	lda.w #mesarea
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
 	jsl.l appstring
-	lda.w #$009C
+	lda.w #StatPercent>>16
 	sta.b $8F
 	lda.w #StatPercent
 	sta.b a1
@@ -172,14 +172,14 @@ org $9C9000
 	jsl.l PushNumber
 	lda.b [a0]
 	sta.b d1
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $97
 	lda.w #mesarea
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
 	jsl.l appstring
-	lda.w #$009C
+	lda.w #StatSlash>>16
 	sta.b $8F
 	lda.w #StatSlash
 	sta.b a1

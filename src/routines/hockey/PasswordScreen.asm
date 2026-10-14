@@ -14,7 +14,7 @@ PasswordScreen:
 	jsl.l SpriteFrameStart
 	ldx.w #$0053
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #PasswordLabel>>16
 	sta.b $8F
 	lda.w #PasswordLabel
 	sta.b a1
@@ -30,7 +30,7 @@ PasswordScreen:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PasswordScreenPos>>16
 	sta.b $8F
 	lda.w #PasswordScreenPos
 	sta.b a1
@@ -48,7 +48,7 @@ PasswordScreen:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PasswordTxt>>16
 	sta.b $8F
 	lda.w #PasswordTxt
 	sta.b a1
@@ -59,7 +59,7 @@ PasswordScreen:
 	sta.b $8F
 	dec.w printx
 	dec.w printx
-	lda.w #$009B
+	lda.w #PasstoText>>16
 	sta.b $8B
 	lda.w #PasstoText
 	sta.b a0
@@ -68,7 +68,7 @@ PasswordScreen:
 .loop:
 	lda.w #$0005
 	sta.b d1
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
@@ -86,7 +86,7 @@ PasswordScreen:
 	inc.b a1
 	dec.b d1
 	bpl .loop2
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
@@ -135,7 +135,7 @@ PasswordRedraw:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PasswordScreenPos2>>16
 	sta.b $8F
 	lda.w #PasswordScreenPos2
 	sta.b a1

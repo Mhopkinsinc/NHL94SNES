@@ -7,7 +7,7 @@ ShootersBackground:
 	jsl.l SpriteFrameStart
 	ldx.w #$0058
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #ShootoutLabel>>16
 	sta.b $8F
 	lda.w #ShootoutLabel
 	sta.b a1
@@ -16,7 +16,7 @@ ShootersBackground:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShootersBackgroundPos>>16
 	sta.b $8F
 	lda.w #ShootersBackgroundPos
 	sta.b a1

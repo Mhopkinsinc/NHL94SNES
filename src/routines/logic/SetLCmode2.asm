@@ -48,7 +48,7 @@ SetLCmode2:
 	lda.w tmline,y
 	sta.b d0
 .1x:
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
@@ -65,7 +65,7 @@ SetLCmode2:
 	jsl.l print
 	lda.b d0
 	pha
-	lda.w #$0080
+	lda.w #linelist>>16
 	sta.b $8F
 	lda.w #linelist
 	sta.b a1

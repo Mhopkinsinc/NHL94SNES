@@ -53,7 +53,7 @@ FillScoringPage:
 	lsr a
 	lsr a
 	sta.b d0
-	lda.w #$0080
+	lda.w #PerLabels>>16
 	sta.b $8F
 	lda.w #PerLabels
 	sta.b a1
@@ -109,7 +109,7 @@ FillScoringPage:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScoringPP2>>16
 	sta.b $8F
 	lda.w #ScoringPP2
 	sta.b a1
@@ -125,7 +125,7 @@ FillScoringPage:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScoringPP>>16
 	sta.b $8F
 	lda.w #ScoringPP
 	sta.b a1
@@ -141,7 +141,7 @@ FillScoringPage:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScoringSH>>16
 	sta.b $8F
 	lda.w #ScoringSH
 	sta.b a1
@@ -157,7 +157,7 @@ FillScoringPage:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScoringSH2>>16
 	sta.b $8F
 	lda.w #ScoringSH2
 	sta.b a1

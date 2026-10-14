@@ -122,7 +122,7 @@ UpdateHatTrick:
 	clc
 	adc.w #$03C5
 	sta.b $00
-	lda.w #$0082
+	lda.w #SpriteFrames>>16
 	sta.b $12
 	lda.w #SpriteFrames
 	sta.b $10

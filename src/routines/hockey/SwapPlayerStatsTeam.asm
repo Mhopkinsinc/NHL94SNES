@@ -12,7 +12,7 @@ SwapPlayerStatsTeam:
 	sta.l $7E3454
 	ldx.w #$0049
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #PlayerStatsHeading>>16
 	sta.b $8F
 	lda.w #PlayerStatsHeading
 	sta.b a1

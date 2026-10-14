@@ -1,6 +1,6 @@
 ; Unpack IceRinkMap to $7FC800 and copy the home team's centre ice logo map (CenterIceTable+4) into its middle
 BuildRinkMap:
-	lda.w #$0092
+	lda.w #IceRinkMap>>16
 	sta.b $0E
 	lda.w #IceRinkMap
 	sta.b $0C

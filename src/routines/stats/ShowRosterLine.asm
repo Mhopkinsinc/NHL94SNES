@@ -4,7 +4,7 @@ ShowRosterLine:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowRosterLinePos>>16
 	sta.b $8F
 	lda.w #ShowRosterLinePos
 	sta.b a1
@@ -15,7 +15,7 @@ ShowRosterLine:
 	sta.b $8F
 	lda.w SelectedPlayerIdx
 	sta.b d0
-	lda.w #$009D
+	lda.w #RosterLineNames>>16
 	sta.b $8F
 	lda.w #RosterLineNames
 	sta.b a1
@@ -26,7 +26,7 @@ ShowRosterLine:
 	lda.w #$0009
 	sta.w printy
 .col:
-	lda.w #$0080
+	lda.w #AttribMenuSkater>>16
 	sta.b $8F
 	lda.w #AttribMenuSkater
 	sta.b a1
@@ -34,7 +34,7 @@ ShowRosterLine:
 	sta.b d0
 	lda.w SelectedPlayerIdx
 	bne .top
-	lda.w #$0080
+	lda.w #AttribMenuGoalie>>16
 	sta.b $8F
 	lda.w #AttribMenuGoalie
 	sta.b a1
@@ -67,7 +67,7 @@ ShowRosterLine:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowRosterLinePos2>>16
 	sta.b $8F
 	lda.w #ShowRosterLinePos2
 	sta.b a1
@@ -87,7 +87,7 @@ ShowRosterLine:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #YSwitchTeamsTxt2>>16
 	sta.b $8F
 	lda.w #YSwitchTeamsTxt2
 	sta.b a1
@@ -100,11 +100,11 @@ ShowRosterLine:
 	lda.b d0
 	dec a
 	sta.b d1
-	lda.w #$009D
+	lda.w #RosterGoalieMarks>>16
 	sta.b $9F
 	lda.w #RosterGoalieMarks
 	sta.b $9D
-	lda.w #$009D
+	lda.w #RosterGoalieList>>16
 	sta.b $97
 	lda.w #RosterGoalieList
 	sta.b a3
@@ -127,7 +127,7 @@ ShowRosterLine:
 	sec
 	adc.b d0
 	sta.b a3
-	lda.w #$0080
+	lda.w #PositionNames>>16
 	sta.b $9F
 	lda.w #PositionNames
 	sta.b $9D

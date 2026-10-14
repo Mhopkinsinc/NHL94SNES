@@ -16,7 +16,7 @@ ShowMP5Warning:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowMP5WarningPos>>16
 	sta.b $8F
 	lda.w #ShowMP5WarningPos
 	sta.b a1
@@ -40,22 +40,22 @@ ShowMP5Warning:
 	jmp.w .1
 
 .t1:
-	lda.w #$009F
+	lda.w #MultiPlayer5Text>>16
 	sta.b $8F
 	lda.w #MultiPlayer5Text
 	sta.b a1
 	jsl.l PrintMP5Line1
-	lda.w #$009F
+	lda.w #MP5MustConnect>>16
 	sta.b $8F
 	lda.w #MP5MustConnect
 	sta.b a1
 	jsl.l PrintMP5Line2
-	lda.w #$009F
+	lda.w #MP5ToController>>16
 	sta.b $8F
 	lda.w #MP5ToController
 	sta.b a1
 	jsl.l PrintMP5Line3
-	lda.w #$009F
+	lda.w #MP5Socket2>>16
 	sta.b $8F
 	lda.w #MP5Socket2
 	sta.b a1
@@ -63,22 +63,22 @@ ShowMP5Warning:
 	bra .1
 
 .t2:
-	lda.w #$009F
+	lda.w #MP5ScopeHead>>16
 	sta.b $8F
 	lda.w #MP5ScopeHead
 	sta.b a1
 	jsl.l PrintMP5Line1
-	lda.w #$009F
+	lda.w #MP5ScopeNot>>16
 	sta.b $8F
 	lda.w #MP5ScopeNot
 	sta.b a1
 	jsl.l PrintMP5Line2
-	lda.w #$009F
+	lda.w #MP5ScopeWith>>16
 	sta.b $8F
 	lda.w #MP5ScopeWith
 	sta.b a1
 	jsl.l PrintMP5Line3
-	lda.w #$009F
+	lda.w #MP5SuperScope>>16
 	sta.b $8F
 	lda.w #MP5SuperScope
 	sta.b a1
@@ -86,22 +86,22 @@ ShowMP5Warning:
 	bra .1
 
 .t3:
-	lda.w #$009F
+	lda.w #MP5MouseHead>>16
 	sta.b $8F
 	lda.w #MP5MouseHead
 	sta.b a1
 	jsl.l PrintMP5Line1
-	lda.w #$009F
+	lda.w #MP5MouseNot>>16
 	sta.b $8F
 	lda.w #MP5MouseNot
 	sta.b a1
 	jsl.l PrintMP5Line2
-	lda.w #$009F
+	lda.w #MP5MouseWith>>16
 	sta.b $8F
 	lda.w #MP5MouseWith
 	sta.b a1
 	jsl.l PrintMP5Line3
-	lda.w #$009F
+	lda.w #MP5Mouse>>16
 	sta.b $8F
 	lda.w #MP5Mouse
 	sta.b a1

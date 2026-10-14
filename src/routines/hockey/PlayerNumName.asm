@@ -26,7 +26,7 @@ PlayerNumName:
 	inc a
 	inc a
 	sta.b a1
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $97
 	sta.b $8F
 	lda.w #$0004
@@ -39,7 +39,7 @@ PlayerNumName:
 	and.w #$00FF
 	sta.b d0
 	jsl.l PutDigits2
-	lda.w #$009C
+	lda.w #PlayerNumNamePos>>16
 	sta.b $8F
 	lda.w #PlayerNumNamePos
 	sta.b a1
@@ -49,7 +49,7 @@ PlayerNumName:
 	pla
 	sta.b a1
 	jsl.l appstring
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1

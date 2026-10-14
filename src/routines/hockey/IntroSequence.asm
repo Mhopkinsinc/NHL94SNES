@@ -64,7 +64,7 @@ IntroSequence:
 	rep #$20
 	lda.w #DATA8_9AEE1C
 	sta.b $0C
-	lda.w #$009A
+	lda.w #DATA8_9AEE1C>>16
 	sta.b $0E
 	ldy.w #$0030
 	ldx.w #$0010
@@ -74,7 +74,7 @@ IntroSequence:
 	jsl.l DMAToCGRAM
 	lda.w #DATA8_9AEE3C
 	sta.b $0C
-	lda.w #$009A
+	lda.w #DATA8_9AEE3C>>16
 	sta.b $0E
 	ldy.w #$0040
 	ldx.w #$0010
@@ -109,7 +109,7 @@ IntroSequence:
 	jsl.l Decompress
 	lda.w #DATA8_9ADC8D
 	sta.b $0C
-	lda.w #$009A
+	lda.w #DATA8_9ADC8D>>16
 	sta.b $0E
 	lda.w #$4000
 	sta.b $10
@@ -153,7 +153,7 @@ IntroSequence:
 	rep #$20
 	lda.w #DATA8_94F8EC
 	sta.b $0C
-	lda.w #$0094
+	lda.w #DATA8_94F8EC>>16
 	sta.b $0E
 	lda.w #$4A40
 	sta.b $10
@@ -276,7 +276,7 @@ IntroSequence:
 .2xx:
 	lda.w #DATA8_9ADBD3
 	sta.b $0C
-	lda.w #$009A
+	lda.w #DATA8_9ADBD3>>16
 	sta.b $0E
 	jsl.l .26
 	lda.w #$00C0
@@ -316,7 +316,7 @@ IntroSequence:
 .2xxx:
 	lda.w #DATA8_9ADB19
 	sta.b $0C
-	lda.w #$009A
+	lda.w #DATA8_9ADB19>>16
 	sta.b $0E
 	jsl.l .26
 	lda.w #$00C0
@@ -404,7 +404,7 @@ IntroSequence:
 .t1xxxxxxx:
 	lda.w #DATA8_9AEE1C
 	sta.b $0C
-	lda.w #$009A
+	lda.w #DATA8_9AEE1C>>16
 	sta.b $0E
 	lda.w #$0030
 	sta.b tmp0
@@ -425,7 +425,7 @@ IntroSequence:
 .t1xxxxxxxx:
 	lda.w #DATA8_9AEE3C
 	sta.b $0C
-	lda.w #$009A
+	lda.w #DATA8_9AEE3C>>16
 	sta.b $0E
 	lda.w #$0040
 	sta.b tmp0
@@ -443,7 +443,7 @@ IntroSequence:
 .t1xxxxxxxxx:
 	lda.w #DATA8_9AEE5C
 	sta.b $0C
-	lda.w #$009A
+	lda.w #DATA8_9AEE5C>>16
 	sta.b $0E
 	lda.w #$0020
 	sta.b tmp0

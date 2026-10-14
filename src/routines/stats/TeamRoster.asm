@@ -15,7 +15,7 @@ TeamRoster:
 	jsl.l SetupScreen
 	ldx.w #$004C
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #TeamRosterTitle>>16
 	sta.b $8F
 	lda.w #TeamRosterTitle
 	sta.b a1
@@ -23,7 +23,7 @@ TeamRoster:
 	jsl.l FadeIn
 	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $12
 	lda.w #textmap
 	sta.b $10
@@ -36,7 +36,7 @@ TeamRoster:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PlayerRatingTxt>>16
 	sta.b $8F
 	lda.w #PlayerRatingTxt
 	sta.b a1
@@ -56,7 +56,7 @@ TeamRoster:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #TeamRosterPos>>16
 	sta.b $8F
 	lda.w #TeamRosterPos
 	sta.b a1
@@ -77,7 +77,7 @@ TeamRosterRedraw:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #TeamRosterPos2>>16
 	sta.b $8F
 	lda.w #TeamRosterPos2
 	sta.b a1

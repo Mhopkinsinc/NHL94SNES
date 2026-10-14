@@ -9,7 +9,7 @@ SwapRosterTeam:
 	sta.l $7E3454
 	ldx.w #$004C
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #TeamRosterSwap>>16
 	sta.b $8F
 	lda.w #TeamRosterSwap
 	sta.b a1

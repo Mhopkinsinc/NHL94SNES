@@ -105,7 +105,7 @@ SetScore:
 .4:
 	asl.b d0
 	asl.b d0
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b $8F
 	lda.w #TeamList
 	sta.b a1
@@ -135,7 +135,7 @@ SetScore:
 	sta.w $0CFF
 	asl.b d1
 	asl.b d1
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b $8F
 	lda.w #TeamList
 	sta.b a1

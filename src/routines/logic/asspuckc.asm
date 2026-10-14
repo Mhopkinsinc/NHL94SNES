@@ -69,7 +69,7 @@ asspuckc:
 	clc
 	adc.w $1043,x
 	sta.b d0
-	lda.w #$0080
+	lda.w #PuckcSpots>>16
 	sta.b $8B
 	lda.w #PuckcSpots
 	sta.b a0

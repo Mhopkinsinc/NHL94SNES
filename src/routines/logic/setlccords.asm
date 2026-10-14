@@ -9,7 +9,7 @@ setlccords:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #setlccordsPos>>16
 	sta.b $8F
 	lda.w #setlccordsPos
 	sta.b a1

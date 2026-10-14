@@ -40,7 +40,7 @@ AddPenalty2:
 .2:
 	sta.l crowdlevel
 .3:
-	lda.w #$0000
+	lda.w #PenBuf>>16
 	sta.b $8F
 	lda.w #PenBuf
 	sta.b a1
@@ -68,7 +68,7 @@ AddPenalty2:
 	and.w #$FF00
 	ora.b d0
 	sta.b [a1]
-	lda.w #$0080
+	lda.w #PenaltyList>>16
 	sta.b $8B
 	lda.w #PenaltyList
 	sta.b a0

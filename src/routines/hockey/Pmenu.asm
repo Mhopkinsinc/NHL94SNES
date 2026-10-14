@@ -4,7 +4,7 @@ Pmenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PmenuPos>>16
 	sta.b $8F
 	lda.w #PmenuPos
 	sta.b a1
@@ -28,42 +28,42 @@ Pmenu:
 	bra .t2
 
 .t1:
-	lda.w #$009F
+	lda.w #PauseMenuItems>>16
 	sta.b $8B
 	lda.w #PauseMenuItems
 	sta.b a0
 	bra .t7
 
 .t2:
-	lda.w #$009F
+	lda.w #PauseMenuItems>>16
 	sta.b $8B
 	lda.w #PauseMenuItems+210
 	sta.b a0
 	bra .t7
 
 .t3:
-	lda.w #$009F
+	lda.w #PauseMenuItems>>16
 	sta.b $8B
 	lda.w #PauseMenuItems+429
 	sta.b a0
 	bra .t7
 
 .t4:
-	lda.w #$009F
+	lda.w #PauseMenuItems>>16
 	sta.b $8B
 	lda.w #PauseMenuItems+626
 	sta.b a0
 	bra .t7
 
 .t5:
-	lda.w #$009F
+	lda.w #PauseMenuItems>>16
 	sta.b $8B
 	lda.w #PauseMenuItems+732
 	sta.b a0
 	bra .t7
 
 .t6:
-	lda.w #$009F
+	lda.w #PauseMenuItems>>16
 	sta.b $8B
 	lda.w #PauseMenuItems+808
 	sta.b a0
@@ -94,7 +94,7 @@ Pmenu:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PmenuPos2>>16
 	sta.b $8F
 	lda.w #PmenuPos2
 	sta.b a1
@@ -103,7 +103,7 @@ Pmenu:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
@@ -139,7 +139,7 @@ Pmenu:
 	rtl
 
 .t3x:
-	lda.w #$009F
+	lda.w #PmenuValueItems>>16
 	sta.b $97
 	lda.w #PmenuValueItems
 	sta.b a3
@@ -204,7 +204,7 @@ PmenuAppend:
 PmenuRtl:
 	rtl
 PmenuGoalieValue:
-	lda.w #$009F
+	lda.w #PmenuValueItems>>16
 	sta.b $97
 	lda.w #PmenuValueItems+12
 	sta.b a3
@@ -223,14 +223,14 @@ PmenuGoalieValue:
 	ldy.b a2
 	lda.w $1C90,y
 	beq .t1
-	lda.w #$009F
+	lda.w #GoalieOptionText>>16
 	sta.b $9B
 	lda.w #GoalieOptionText+18
 	sta.b a4
 	bra .1
 
 .t1:
-	lda.w #$009F
+	lda.w #GoalieOptionText>>16
 	sta.b $9B
 	lda.w #GoalieOptionText
 	sta.b a4
@@ -239,7 +239,7 @@ PmenuGoalieValue:
 	jsl.l PmenuAppend
 	rtl
 PmenuDefValue:
-	lda.w #$009F
+	lda.w #PmenuValueItems>>16
 	sta.b $97
 	lda.w #PmenuValueItems+24
 	sta.b a3
@@ -258,14 +258,14 @@ PmenuDefValue:
 	ldy.b a2
 	lda.w $1C94,y
 	beq .t1
-	lda.w #$009F
+	lda.w #GoalieOptionText>>16
 	sta.b $9B
 	lda.w #GoalieOptionText+39
 	sta.b a4
 	bra .1
 
 .t1:
-	lda.w #$009F
+	lda.w #GoalieOptionText>>16
 	sta.b $9B
 	lda.w #GoalieOptionText+43
 	sta.b a4

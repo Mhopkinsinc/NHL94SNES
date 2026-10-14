@@ -18,7 +18,7 @@ GetPlayerBaseRating:
 	pha
 	lda.b $8F
 	pha
-	lda.w #$0080
+	lda.w #AttribMenuSkater>>16
 	sta.b $8F
 	lda.w #AttribMenuSkater
 	sta.b a1
@@ -27,7 +27,7 @@ GetPlayerBaseRating:
 	lda.w $1D9B
 	cmp.b d0
 	bpl .1
-	lda.w #$0080
+	lda.w #AttribMenuGoalie>>16
 	sta.b $8F
 	lda.w #AttribMenuGoalie
 	sta.b a1

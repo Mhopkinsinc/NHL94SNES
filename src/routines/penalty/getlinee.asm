@@ -34,7 +34,7 @@ getlinee:
 	sta.b a1
 	stz.b $08
 	stz.b $04
-	lda.w #$0080
+	lda.w #priolist>>16
 	sta.b $8B
 	lda.w #priolist
 	sta.b a0

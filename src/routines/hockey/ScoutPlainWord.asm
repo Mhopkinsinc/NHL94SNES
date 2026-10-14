@@ -2,7 +2,7 @@
 ScoutPlainWord:
 	lda.w #$FFFF
 	sta.w PlayerScrollCtr
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8B
 	lda.w #mesarea+2
 	sta.b a0
@@ -51,7 +51,7 @@ ScoutPlainWord:
 	inc a
 	inc a
 	sta.w mesarea
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
@@ -89,7 +89,7 @@ ScoutTypeWord:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ScoutNamePosAt>>16
 	sta.b $8F
 	lda.w #ScoutNamePosAt
 	sta.b a1

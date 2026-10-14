@@ -105,7 +105,7 @@ PlayerSelect:
 	jsl.l SendTextMap
 	pla
 	sta.b d1
-	lda.w #$009A
+	lda.w #DATA8_9ACEB6>>16
 	sta.b $0E
 	lda.w #DATA8_9ACEB6
 	sta.b $0C
@@ -118,7 +118,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #NotTxt>>16
 	sta.b $8F
 	lda.w #NotTxt
 	sta.b a1
@@ -131,7 +131,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PlayingTxt>>16
 	sta.b $8F
 	lda.w #PlayingTxt
 	sta.b a1
@@ -147,7 +147,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #NotTxt2>>16
 	sta.b $8F
 	lda.w #NotTxt2
 	sta.b a1
@@ -160,7 +160,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PlayingTxt2>>16
 	sta.b $8F
 	lda.w #PlayingTxt2
 	sta.b a1
@@ -176,7 +176,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #UseToSelectTeamTxt>>16
 	sta.b $8F
 	lda.w #UseToSelectTeamTxt
 	sta.b a1
@@ -189,7 +189,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PressStartWhenDoneTxt>>16
 	sta.b $8F
 	lda.w #PressStartWhenDoneTxt
 	sta.b a1
@@ -313,7 +313,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #AtLeastOnePersonMustTxt>>16
 	sta.b $8F
 	lda.w #AtLeastOnePersonMustTxt
 	sta.b a1
@@ -326,7 +326,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PlayInPlayoffModeTxt>>16
 	sta.b $8F
 	lda.w #PlayInPlayoffModeTxt
 	sta.b a1
@@ -344,7 +344,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #OnlyOnePlayerPerTeamTxt>>16
 	sta.b $8F
 	lda.w #OnlyOnePlayerPerTeamTxt
 	sta.b a1
@@ -357,7 +357,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #IsAllowedInShootoutTxt>>16
 	sta.b $8F
 	lda.w #IsAllowedInShootoutTxt
 	sta.b a1
@@ -390,7 +390,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #UseToSelectTeamTxt2>>16
 	sta.b $8F
 	lda.w #UseToSelectTeamTxt2
 	sta.b a1
@@ -403,7 +403,7 @@ PlayerSelect:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PressStartWhenDoneTxt2>>16
 	sta.b $8F
 	lda.w #PressStartWhenDoneTxt2
 	sta.b a1
@@ -479,7 +479,7 @@ PlayerSelect:
 .1xxxxxxx:
 	ldx.w #$0047
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #PlayerSelectTitle>>16
 	sta.b $8F
 	lda.w #PlayerSelectTitle
 	sta.b a1
@@ -490,7 +490,7 @@ PlayerSelect:
 	pha
 	lda.b $12
 	pha
-	lda.w #$0082
+	lda.w #SpriteFrames>>16
 	sta.b $12
 	lda.w #SpriteFrames
 	sta.b $10

@@ -114,7 +114,7 @@ asswingd:
 	lda.b d2
 	sta.b d1
 .7:
-	lda.w #$009E
+	lda.w #rtss>>16
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0

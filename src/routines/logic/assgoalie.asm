@@ -72,7 +72,7 @@ assgoalie:
 	cmp.w #$00D3
 	bcs .10
 .7:
-	lda.w #$009E
+	lda.w #rtss>>16
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0
@@ -108,7 +108,7 @@ assgoalie:
 .10:
 	jmp.w .13
 .11:
-	lda.w #$009E
+	lda.w #rtss>>16
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0
@@ -828,7 +828,7 @@ assgoalie:
 	dec.b d0
 .42:
 	asl.b d0
-	lda.w #$009E
+	lda.w #GoalieSaveList>>16
 	sta.b $8F
 	lda.w #GoalieSaveList
 	sta.b a1

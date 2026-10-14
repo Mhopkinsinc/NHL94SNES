@@ -3,13 +3,13 @@ PickShooterRow:
 	lda.w $1DB9
 	bne ShooterSelectList
 	jsl.l GoalieCount
-	lda.w #$0000
+	lda.w #homeshooters>>16
 	sta.b $8F
 	lda.w #homeshooters
 	sta.b a1
 	lda.b a2
 	beq .2
-	lda.w #$0000
+	lda.w #awayshooters>>16
 	sta.b $8F
 	lda.w #awayshooters
 	sta.b a1

@@ -4,7 +4,7 @@ ReloadRink:
 	lda.w #$FFFF
 	sta.w $07C6
 	jsl.l BuildRinkMap
-	lda.w #$0081
+	lda.w #IceRinkTiles>>16
 	sta.b $0E
 	lda.w #IceRinkTiles
 	sta.b $0C
@@ -31,7 +31,7 @@ ReloadRink:
 	lda.b #$03
 	sta.w OBSEL
 	rep #$20
-	lda.w #$007E
+	lda.w #palbuffer>>16
 	sta.b $0E
 	lda.w #palbuffer
 	sta.b $0C
@@ -80,7 +80,7 @@ ReloadRink:
 	adc.w #$1000
 	tay
 	jsl.l DMAToVRAM
-	lda.w #$0096
+	lda.w #DATA8_96B2CF>>16
 	sta.b $0E
 	lda.w #DATA8_96B2CF
 	sta.b $0C
@@ -101,7 +101,7 @@ ReloadRink:
 	adc.w #$1000
 	tay
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9AC98B>>16
 	sta.b $0E
 	lda.w #DATA8_9AC98B
 	sta.b $0C
@@ -134,7 +134,7 @@ ReloadRink:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #$0096
+	lda.w #DATA8_96A103>>16
 	sta.b $0E
 	lda.w #DATA8_96A103
 	sta.b $0C
@@ -161,23 +161,23 @@ ReloadRink:
 	sta.b $8B
 	lda.w #$0000
 	sta.b a0
-	lda.w #$0080
+	lda.w #PixelRemap83>>16
 	sta.b $8F
 	lda.w #PixelRemap83
 	sta.b a1
 	jsl.l RemapTiles
-	lda.w #$009C
+	lda.w #FramerTiles>>16
 	sta.b $8B
 	lda.w #FramerTiles
 	sta.b a0
-	lda.w #$0080
+	lda.w #PixelRemap87>>16
 	sta.b $8F
 	lda.w #PixelRemap87
 	sta.b a1
 	lda.w #$0004
 	sta.b d0
 	jsl.l RemapTiles
-	lda.w #$0096
+	lda.w #DATA8_96BABD>>16
 	sta.b $0E
 	lda.w #DATA8_96BABD
 	sta.b $0C
@@ -201,7 +201,7 @@ ReloadRink:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9AC1F3>>16
 	sta.b $0E
 	lda.w #DATA8_9AC1F3
 	sta.b $0C

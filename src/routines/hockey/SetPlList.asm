@@ -158,7 +158,7 @@ SetPlList:
 	and.w #$00FF
 	asl a
 	sta.b d0
-	lda.w #$0080
+	lda.w #sublist>>16
 	sta.b $8B
 	lda.w #sublist
 	sta.b a0

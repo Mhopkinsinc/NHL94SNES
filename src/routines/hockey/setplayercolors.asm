@@ -1,7 +1,7 @@
 ; Set both teams' colours (SetTeamColors) and send the whole palette (palbuffer) to CGRAM
 setplayercolors:
 	jsl.l SetTeamColors
-	lda.w #$007E
+	lda.w #palbuffer>>16
 	sta.b $0E
 	lda.w #palbuffer
 	sta.b $0C
@@ -25,13 +25,13 @@ SetTeamColors:
 	sta.b $0C
 	lda.w #HomeUniformPalettes>>16
 	sta.b $0E
-	lda.w #$007E
+	lda.w #palbuffer>>16
 	sta.b $12
 	lda.w #palbuffer+$180
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
-	lda.w #$007E
+	lda.w #palbuffer>>16
 	sta.b $12
 	lda.w #palbuffer+$040
 	sta.b $10
@@ -48,23 +48,23 @@ SetTeamColors:
 	sta.b $0C
 	lda.w #AwayUniformPalettes>>16
 	sta.b $0E
-	lda.w #$007E
+	lda.w #palbuffer>>16
 	sta.b $12
 	lda.w #palbuffer+$1A0
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
-	lda.w #$007E
+	lda.w #palbuffer>>16
 	sta.b $12
 	lda.w #palbuffer+$060
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
-	lda.w #$009A
+	lda.w #DATA8_9ACEB6>>16
 	sta.b $0E
 	lda.w #DATA8_9ACEB6
 	sta.b $0C
-	lda.w #$007E
+	lda.w #palbuffer>>16
 	sta.b $12
 	lda.w #palbuffer+$140
 	sta.b $10

@@ -4,7 +4,7 @@ Multi5SocketMsg:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #TheMultiPlayer5MustBeTxt>>16
 	sta.b $8F
 	lda.w #TheMultiPlayer5MustBeTxt
 	sta.b a1
@@ -17,7 +17,7 @@ Multi5SocketMsg:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ConnectedToControllerTxt>>16
 	sta.b $8F
 	lda.w #ConnectedToControllerTxt
 	sta.b a1
@@ -30,7 +30,7 @@ Multi5SocketMsg:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #Socket2Txt>>16
 	sta.b $8F
 	lda.w #Socket2Txt
 	sta.b a1

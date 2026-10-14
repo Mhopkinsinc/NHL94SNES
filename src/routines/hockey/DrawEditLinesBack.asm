@@ -5,7 +5,7 @@ DrawEditLinesBack:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawEditLinesBackPos>>16
 	sta.b $8F
 	lda.w #DrawEditLinesBackPos
 	sta.b a1
@@ -25,7 +25,7 @@ DrawEditLinesBack:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawEditLinesBackPos2>>16
 	sta.b $8F
 	lda.w #DrawEditLinesBackPos2
 	sta.b a1
@@ -41,7 +41,7 @@ DrawEditLinesBack:
 	lda.w #$0003
 	sta.b d1
 	jsl.l FramerOutline
-	lda.w #$009A
+	lda.w #DATA8_9ABA95>>16
 	sta.b $0E
 	lda.w #DATA8_9ABA95
 	sta.b $0C
@@ -54,7 +54,7 @@ DrawEditLinesBack:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap2>>16
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10

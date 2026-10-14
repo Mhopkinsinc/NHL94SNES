@@ -7,7 +7,7 @@ EASNLogo:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #EASNLogoPos>>16
 	sta.b $8F
 	lda.w #EASNLogoPos
 	sta.b a1
@@ -16,11 +16,11 @@ EASNLogo:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w #$009A
+	lda.w #DATA8_9AEA3A>>16
 	sta.b $0E
 	lda.w #DATA8_9AEA3A
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $12
 	lda.w #textmap
 	sta.b $10

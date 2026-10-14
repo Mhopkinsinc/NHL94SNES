@@ -211,7 +211,7 @@ FillPlayerStatsPage:
 	jsl.l PrintToStatsPage
 	lda.w #$001E
 	sta.w printx
-	lda.w #$009C
+	lda.w #PercentSign>>16
 	sta.b $8F
 	lda.w #PercentSign
 	sta.b a1

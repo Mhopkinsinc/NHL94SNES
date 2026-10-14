@@ -1,7 +1,7 @@
 ; Pause mode: save the screen, stop the sound, show the pause menu, then restore
 Pausemode:
 	phx
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $0E
 	lda.w #textmap
 	sta.b $0C
@@ -37,7 +37,7 @@ Pausemode:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PausemodePos>>16
 	sta.b $8F
 	lda.w #PausemodePos
 	sta.b a1
@@ -67,7 +67,7 @@ Pausemode:
 	sta.b $0E
 	lda.w #$4F7E
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $12
 	lda.w #textmap
 	sta.b $10

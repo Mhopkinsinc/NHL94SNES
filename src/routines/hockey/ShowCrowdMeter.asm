@@ -5,7 +5,7 @@ ShowCrowdMeter:
 	lda.w HomeTeam
 	sta.l $7E3452
 	jsl.l SetupScreen
-	lda.w #$009C
+	lda.w #DATA8_9C8328>>16
 	sta.b $0E
 	lda.w #DATA8_9C8328
 	sta.b $0C
@@ -26,7 +26,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowCrowdMeterPos>>16
 	sta.b $8F
 	lda.w #ShowCrowdMeterPos
 	sta.b a1
@@ -42,7 +42,7 @@ ShowCrowdMeter:
 	lda.w #$0005
 	sta.b d1
 	jsl.l FramerNineTile
-	lda.w #$0096
+	lda.w #DATA8_96D7AC>>16
 	sta.b $0E
 	lda.w #DATA8_96D7AC
 	sta.b $0C
@@ -70,7 +70,7 @@ ShowCrowdMeter:
 	adc.w #$1000
 	tay
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9ACFB6>>16
 	sta.b $0E
 	lda.w #DATA8_9ACFB6
 	sta.b $0C
@@ -86,7 +86,7 @@ ShowCrowdMeter:
 	jsl.l SpriteFrameStart
 	ldx.w #$0048
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #CrowdMeter>>16
 	sta.b $8F
 	lda.w #CrowdMeter
 	sta.b a1
@@ -134,7 +134,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #CurrentTxt>>16
 	sta.b $8F
 	lda.w #CurrentTxt
 	sta.b a1
@@ -147,7 +147,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DbTxt>>16
 	sta.b $8F
 	lda.w #DbTxt
 	sta.b a1
@@ -163,7 +163,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #CurrentTxt2>>16
 	sta.b $8F
 	lda.w #CurrentTxt2
 	sta.b a1
@@ -176,7 +176,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DbTxt2>>16
 	sta.b $8F
 	lda.w #DbTxt2
 	sta.b a1
@@ -203,7 +203,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PeakTxt>>16
 	sta.b $8F
 	lda.w #PeakTxt
 	sta.b a1
@@ -216,7 +216,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DbTxt3>>16
 	sta.b $8F
 	lda.w #DbTxt3
 	sta.b a1
@@ -232,7 +232,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PeakTxt2>>16
 	sta.b $8F
 	lda.w #PeakTxt2
 	sta.b a1
@@ -245,7 +245,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DbTxt4>>16
 	sta.b $8F
 	lda.w #DbTxt4
 	sta.b a1
@@ -272,7 +272,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #AverageTxt>>16
 	sta.b $8F
 	lda.w #AverageTxt
 	sta.b a1
@@ -285,7 +285,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DbTxt5>>16
 	sta.b $8F
 	lda.w #DbTxt5
 	sta.b a1
@@ -301,7 +301,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #AverageTxt2>>16
 	sta.b $8F
 	lda.w #AverageTxt2
 	sta.b a1
@@ -314,7 +314,7 @@ ShowCrowdMeter:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DbTxt6>>16
 	sta.b $8F
 	lda.w #DbTxt6
 	sta.b a1
@@ -412,14 +412,14 @@ ShowCrowdMeter:
 .2xx:
 	lda.w #$0000
 	sta.b $04
-	lda.w #$009A
+	lda.w #DATA8_9ADFCB>>16
 	sta.b $0E
 	lda.w #DATA8_9ADFCB
 	sta.b $0C
 	bra .3x
 
 .t1xxxxx:
-	lda.w #$009A
+	lda.w #DATA8_9AE919>>16
 	sta.b $0E
 	lda.w #DATA8_9AE919
 	sta.b $0C
@@ -435,7 +435,7 @@ ShowCrowdMeter:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $12
 	lda.w #textmap
 	sta.b $10
@@ -457,7 +457,7 @@ ShowCrowdMeter:
 	sta.w $1DD1
 	beq .rtl
 .1xxxx:
-	lda.w #$009A
+	lda.w #DATA8_9AE8EC>>16
 	sta.b $0E
 	lda.w #DATA8_9AE8EC
 	sta.b $0C
@@ -470,7 +470,7 @@ ShowCrowdMeter:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $12
 	lda.w #textmap
 	sta.b $10

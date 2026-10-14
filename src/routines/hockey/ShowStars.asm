@@ -26,7 +26,7 @@ ShowStars:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowStarsPos>>16
 	sta.b $8F
 	lda.w #ShowStarsPos
 	sta.b a1
@@ -46,7 +46,7 @@ ShowStars:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowStarsPos2>>16
 	sta.b $8F
 	lda.w #ShowStarsPos2
 	sta.b a1
@@ -64,7 +64,7 @@ ShowStars:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #StarsOfTheGame>>16
 	sta.b $8F
 	lda.w #StarsOfTheGame
 	sta.b a1

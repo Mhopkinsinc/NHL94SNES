@@ -26,7 +26,7 @@ ShowInjuryBox:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowInjuryBoxPos>>16
 	sta.b $8F
 	lda.w #ShowInjuryBoxPos
 	sta.b a1
@@ -44,7 +44,7 @@ ShowInjuryBox:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #InjuryToOutForPeriodTxt>>16
 	sta.b $8F
 	lda.w #InjuryToOutForPeriodTxt
 	sta.b a1
@@ -62,7 +62,7 @@ ShowInjuryBox:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #TheGameTxt>>16
 	sta.b $8F
 	lda.w #TheGameTxt
 	sta.b a1

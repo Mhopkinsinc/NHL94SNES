@@ -36,7 +36,7 @@ PushRef:
 	ldx.w #$0070
 	jsl.l Mul8U
 	sta.b d0
-	lda.w #$0096
+	lda.w #DATA8_96F15D>>16
 	sta.b $8B
 	lda.w #DATA8_96F15D
 	sta.b a0
@@ -51,7 +51,7 @@ PushRef:
 	sta.b tmp0
 	lda.w #$03DA
 	sta.b tmp1
-	lda.w #$0095
+	lda.w #DATA8_95DB8E>>16
 	sta.b $8B
 	lda.w #DATA8_95DB8E+6
 	sta.b a0

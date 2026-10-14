@@ -4,7 +4,7 @@ PrintShooterRows:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintShooterRowsPos>>16
 	sta.b $8F
 	lda.w #PrintShooterRowsPos
 	sta.b a1
@@ -23,7 +23,7 @@ PrintShooterRows:
 	lda.w $1DA7
 	inc a
 	sta.b a3
-	lda.w #$0080
+	lda.w #PositionNames>>16
 	sta.b $9F
 	lda.w #PositionNames
 	sta.b $9D

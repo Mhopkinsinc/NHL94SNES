@@ -4,22 +4,22 @@ SPCTitleToMenu:
 	jsl.l SPCCmd04
 	jsl.l SPCCmd04
 	jsl.l SPCCmd04
-	lda.w #$0094
+	lda.w #DATA8_94BEAC>>16
 	sta.b $0E
 	lda.w #DATA8_94BEAC
 	sta.b $0C
 	jsl.l SPCUploadBlock
-	lda.w #$0093
+	lda.w #DATA8_93DFAD>>16
 	sta.b $0E
 	lda.w #DATA8_93DFAD
 	sta.b $0C
 	jsl.l SPCUploadBlock
-	lda.w #$009A
+	lda.w #DATA8_9A8000>>16
 	sta.b $0E
 	lda.w #DATA8_9A8000
 	sta.b $0C
 	jsl.l SPCUploadBlock
-	lda.w #$0093
+	lda.w #DATA8_9390FA>>16
 	sta.b $0E
 	lda.w #DATA8_9390FA
 	sta.b $0C

@@ -6,7 +6,7 @@ ScoutExtremely:
 	jmp.w ScoutPlainWord
 
 .t1:
-	lda.w #$009E
+	lda.w #ScoutFragments>>16
 	sta.b $8F
 	lda.w #ScoutFragments
 	sta.b a1

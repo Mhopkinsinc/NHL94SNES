@@ -7,7 +7,7 @@ DrawEditLinesTitle:
 	jsl.l SpriteFrameStart
 	ldx.w #$0058
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #EditLinesLabel>>16
 	sta.b $8F
 	lda.w #EditLinesLabel
 	sta.b a1
@@ -16,7 +16,7 @@ DrawEditLinesTitle:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawEditLinesTitlePos>>16
 	sta.b $8F
 	lda.w #DrawEditLinesTitlePos
 	sta.b a1

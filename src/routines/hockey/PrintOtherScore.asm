@@ -25,7 +25,7 @@ PrintOtherScore:
 .1:
 	inc.b d0
 .2:
-	lda.w #$0080
+	lda.w #PerLabels>>16
 	sta.b $8B
 	lda.w #PerLabels
 	sta.b a0

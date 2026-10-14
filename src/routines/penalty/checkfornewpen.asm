@@ -30,7 +30,7 @@ checkfornewpen:
 	and.w #$00FF
 	sta.b d0
 	tay
-	lda.w #$0080
+	lda.w #PenaltyList>>16
 	sta.b $8F
 	lda.w #PenaltyList
 	sta.b a1
@@ -82,7 +82,7 @@ checkfornewpen:
 	and.w #$00FF
 	sta.b d0
 	tay
-	lda.w #$0080
+	lda.w #PenaltyList>>16
 	sta.b $8F
 	lda.w #PenaltyList
 	sta.b a1

@@ -4,7 +4,7 @@ RedrawPlayerSelect:
 	jsl.l SpriteFrameStart
 	ldx.w #$0047
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #PlayerSelectAlt>>16
 	sta.b $8F
 	lda.w #PlayerSelectAlt
 	sta.b a1

@@ -31,7 +31,7 @@ ClrHor:
 	sta.w textdirtyhi
 	jsl.l printscores1
 .2:
-	lda.w #$007E
+	lda.w #palbuffer>>16
 	sta.b $0E
 	lda.w #palbuffer
 	sta.b $0C

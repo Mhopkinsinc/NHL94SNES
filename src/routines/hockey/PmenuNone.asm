@@ -1,6 +1,6 @@
 ; Append "None" (GoalieOptionText) to the pause item text
 PmenuNone:
-	lda.w #$009F
+	lda.w #GoalieOptionText>>16
 	sta.b $9B
 	lda.w #GoalieOptionText+33
 	sta.b a4

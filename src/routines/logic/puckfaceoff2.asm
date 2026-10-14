@@ -465,7 +465,7 @@ puckfaceoff2:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #puckfaceoff2Pos>>16
 	sta.b $8F
 	lda.w #puckfaceoff2Pos
 	sta.b a1
@@ -593,7 +593,7 @@ puckfaceoff2:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #VersusText>>16
 	sta.b $8F
 	lda.w #VersusText
 	sta.b a1
@@ -624,7 +624,7 @@ puckfaceoff2:
 	sta.w printy
 	lda.w $1D81
 	beq .t1xxx
-	lda.w #$009C
+	lda.w #ShootoutPenShot>>16
 	sta.b $8F
 	lda.w #ShootoutPenShot
 	sta.b a1
@@ -632,7 +632,7 @@ puckfaceoff2:
 	bra .17
 
 .t1xxx:
-	lda.w #$009C
+	lda.w #ShootoutPenShot>>16
 	sta.b $8F
 	lda.w #ShootoutPenShot+10
 	sta.b a1
@@ -669,7 +669,7 @@ puckfaceoff2:
 	inc.w printx
 	dec.w printy
 	dec.w printy
-	lda.w #$0080
+	lda.w #linelist>>16
 	sta.b $8F
 	lda.w #linelist
 	sta.b a1
@@ -680,7 +680,7 @@ puckfaceoff2:
 	inc.w printx
 	lda.b d1
 	sta.b d0
-	lda.w #$0080
+	lda.w #linelist>>16
 	sta.b $8F
 	lda.w #linelist
 	sta.b a1

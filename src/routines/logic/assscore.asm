@@ -58,7 +58,7 @@ assscore:
 	lda.w Vpos
 	sta.w $1063,x
 .3:
-	lda.w #$009E
+	lda.w #rtss>>16
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0

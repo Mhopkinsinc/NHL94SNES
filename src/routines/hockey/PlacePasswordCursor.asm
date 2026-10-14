@@ -4,7 +4,7 @@ PlacePasswordCursor:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PlacePasswordCursorPos>>16
 	sta.b $8F
 	lda.w #PlacePasswordCursorPos
 	sta.b a1

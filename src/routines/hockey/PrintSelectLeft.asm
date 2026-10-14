@@ -4,7 +4,7 @@ PrintSelectLeft:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintSelectLeftPos>>16
 	sta.b $8F
 	lda.w #PrintSelectLeftPos
 	sta.b a1
@@ -21,7 +21,7 @@ PrintSelectLeft:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #SelectLeft>>16
 	sta.b $8F
 	lda.w #SelectLeft
 	sta.b a1

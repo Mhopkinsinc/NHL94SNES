@@ -7,7 +7,7 @@ GetTeamLongName:
 	asl a
 	asl a
 	tay
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b $8F
 	lda.w #TeamList
 	sta.b a1
@@ -20,14 +20,14 @@ GetTeamLongName:
 	bra .1
 
 .t1:
-	lda.w #$009B
+	lda.w #LongNYIslanders>>16
 	sta.b $8F
 	lda.w #LongNYIslanders
 	sta.b a1
 	bra .1
 
 .t2:
-	lda.w #$009B
+	lda.w #LongNYRangers>>16
 	sta.b $8F
 	lda.w #LongNYRangers
 	sta.b a1

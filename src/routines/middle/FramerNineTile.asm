@@ -6,7 +6,7 @@ FramerNineTile:
 	clc
 	adc.l printfontset
 	sta.b tmp0
-	lda.w #$009C
+	lda.w #FramerNineTileMap>>16
 	sta.b $0E
 	lda.w #FramerNineTileMap+6
 	sta.b $0C

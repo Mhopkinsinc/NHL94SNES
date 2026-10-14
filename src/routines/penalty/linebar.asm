@@ -23,7 +23,7 @@ linebar:
 	sta.w $0A2E
 	sta.w $0A2F
 	sta.w $0A30
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1

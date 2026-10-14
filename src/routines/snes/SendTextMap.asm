@@ -1,6 +1,6 @@
 ; Send the text map to video memory
 SendTextMap:
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $0E
 	lda.w #textmap
 	sta.b $0C

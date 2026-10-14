@@ -4,7 +4,7 @@ StatsReport:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #StatsReportPos>>16
 	sta.b $8F
 	lda.w #StatsReportPos
 	sta.b a1
@@ -24,7 +24,7 @@ StatsReport:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #StatsReportPos2>>16
 	sta.b $8F
 	lda.w #StatsReportPos2
 	sta.b a1

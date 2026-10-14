@@ -4,7 +4,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintShooterNamesPos>>16
 	sta.b $8F
 	lda.w #PrintShooterNamesPos
 	sta.b a1
@@ -24,7 +24,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintShooterNamesPos2>>16
 	sta.b $8F
 	lda.w #PrintShooterNamesPos2
 	sta.b a1
@@ -53,13 +53,13 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	asl a
 	asl a
 	sta.b d0
-	lda.w #$0000
+	lda.w #homeshooters>>16
 	sta.b $97
 	lda.w #homeshooters
 	sta.b a3
 	lda.b a2
 	beq .1
-	lda.w #$0000
+	lda.w #awayshooters>>16
 	sta.b $97
 	lda.w #awayshooters
 	sta.b a3

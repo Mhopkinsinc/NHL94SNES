@@ -58,11 +58,11 @@ DrawPlayerPicture:
 	jsl.l LinearToPlanar
 	jsl.l .6
 	bne .t1xx
-	lda.w #$0092
+	lda.w #DATA8_92FFB0>>16
 	sta.b $0E
 	lda.w #DATA8_92FFB0
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $12
 	lda.w #textmap
 	sta.b $10
@@ -82,11 +82,11 @@ DrawPlayerPicture:
 	bra .3
 
 .t1xx:
-	lda.w #$0092
+	lda.w #DATA8_92FFB0>>16
 	sta.b $0E
 	lda.w #DATA8_92FFB0
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $12
 	lda.w #textmap
 	sta.b $10
@@ -221,7 +221,7 @@ DrawPlayerPicture:
 	and.w #$0001
 	rtl
 .8:
-	lda.w #$0080
+	lda.w #AttribMenuSkater>>16
 	sta.b $8F
 	lda.w #AttribMenuSkater
 	sta.b a1
@@ -287,11 +287,11 @@ DrawPlayerPicture:
 	adc.l MatchupPhotoOffsets,x
 	sta.l $7E3470
 .2x:
-	lda.w #$0092
+	lda.w #DATA8_92FFB0>>16
 	sta.b $0E
 	lda.w #DATA8_92FFB0
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $12
 	lda.w #textmap
 	sta.b $10

@@ -4,7 +4,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowMatchupsPos>>16
 	sta.b $8F
 	lda.w #ShowMatchupsPos
 	sta.b a1
@@ -23,7 +23,7 @@ ShowMatchups:
 	jsl.l SpriteFrameStart
 	ldx.w #$0056
 	ldy.w #$0010
-	lda.w #$009C
+	lda.w #MatchupsLabel>>16
 	sta.b $8F
 	lda.w #MatchupsLabel
 	sta.b a1
@@ -32,7 +32,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowMatchupsPos2>>16
 	sta.b $8F
 	lda.w #ShowMatchupsPos2
 	sta.b a1
@@ -48,7 +48,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowMatchupsPos3>>16
 	sta.b $8F
 	lda.w #ShowMatchupsPos3
 	sta.b a1
@@ -86,7 +86,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowMatchupsPos4>>16
 	sta.b $8F
 	lda.w #ShowMatchupsPos4
 	sta.b a1
@@ -112,7 +112,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowMatchupsPos5>>16
 	sta.b $8F
 	lda.w #ShowMatchupsPos5
 	sta.b a1
@@ -130,7 +130,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowMatchupsPos6>>16
 	sta.b $8F
 	lda.w #ShowMatchupsPos6
 	sta.b a1
@@ -156,7 +156,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowMatchupsPos7>>16
 	sta.b $8F
 	lda.w #ShowMatchupsPos7
 	sta.b a1
@@ -189,7 +189,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #OverallTxt>>16
 	sta.b $8F
 	lda.w #OverallTxt
 	sta.b a1
@@ -210,7 +210,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #OverallTxt2>>16
 	sta.b $8F
 	lda.w #OverallTxt2
 	sta.b a1
@@ -231,7 +231,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowMatchupsPos8>>16
 	sta.b $8F
 	lda.w #ShowMatchupsPos8
 	sta.b a1
@@ -242,7 +242,7 @@ ShowMatchups:
 	sta.b $8F
 	lda.w $1DB9
 	sta.b d0
-	lda.w #$009D
+	lda.w #LineSlotNames>>16
 	sta.b $8F
 	lda.w #LineSlotNames
 	sta.b a1
@@ -252,7 +252,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #AdvantageTxt>>16
 	sta.b $8F
 	lda.w #AdvantageTxt
 	sta.b a1
@@ -271,7 +271,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #UpArrowsTxt>>16
 	sta.b $8F
 	lda.w #UpArrowsTxt
 	sta.b a1
@@ -287,7 +287,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DownArrowsTxt>>16
 	sta.b $8F
 	lda.w #DownArrowsTxt
 	sta.b a1
@@ -303,7 +303,7 @@ ShowMatchups:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #NoneTxt>>16
 	sta.b $8F
 	lda.w #NoneTxt
 	sta.b a1

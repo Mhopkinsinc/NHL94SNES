@@ -4,7 +4,7 @@ DrawExitPrompt:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawExitPromptPos>>16
 	sta.b $8F
 	lda.w #DrawExitPromptPos
 	sta.b a1
@@ -26,7 +26,7 @@ DrawExitPrompt:
 	lda.w #$0006
 	sta.w printx
 	sty.w printy
-	lda.w #$009F
+	lda.w #ExitPromptClear>>16
 	sta.b $8F
 	lda.w #ExitPromptClear
 	sta.b a1
@@ -39,7 +39,7 @@ DrawExitPrompt:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawExitPromptPos2>>16
 	sta.b $8F
 	lda.w #DrawExitPromptPos2
 	sta.b a1
@@ -50,13 +50,13 @@ DrawExitPrompt:
 	sta.b $8F
 	lda.w #$2400
 	sta.w $0D0D
-	lda.w #$009F
+	lda.w #ExitGameAsk>>16
 	sta.b $8F
 	lda.w #ExitGameAsk
 	sta.b a1
 	lda.w $1D81
 	beq .1
-	lda.w #$009F
+	lda.w #ExitShootoutAsk>>16
 	sta.b $8F
 	lda.w #ExitShootoutAsk
 	sta.b a1
@@ -66,7 +66,7 @@ DrawExitPrompt:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawExitPromptPos3>>16
 	sta.b $8F
 	lda.w #DrawExitPromptPos3
 	sta.b a1
@@ -82,7 +82,7 @@ DrawExitPrompt:
 	lda.w #$2000
 	sta.w $0D0D
 .2:
-	lda.w #$009F
+	lda.w #ExitNo>>16
 	sta.b $8F
 	lda.w #ExitNo
 	sta.b a1
@@ -91,7 +91,7 @@ DrawExitPrompt:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawExitPromptPos4>>16
 	sta.b $8F
 	lda.w #DrawExitPromptPos4
 	sta.b a1
@@ -107,7 +107,7 @@ DrawExitPrompt:
 	lda.w #$2000
 	sta.w $0D0D
 .3:
-	lda.w #$009F
+	lda.w #ExitYes>>16
 	sta.b $8F
 	lda.w #ExitYes
 	sta.b a1

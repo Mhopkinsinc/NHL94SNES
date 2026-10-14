@@ -4,7 +4,7 @@ PrintLinePlayers:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintLinePlayersPos>>16
 	sta.b $8F
 	lda.w #PrintLinePlayersPos
 	sta.b a1
@@ -24,7 +24,7 @@ PrintLinePlayers:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintLinePlayersPos2>>16
 	sta.b $8F
 	lda.w #PrintLinePlayersPos2
 	sta.b a1
@@ -39,7 +39,7 @@ PrintLinePlayers:
 	sta.b d1
 	lda.w #LineGoalieMarks
 	sta.b $9D
-	lda.w #$009B
+	lda.w #LineGoalieMarks>>16
 	sta.b $9F
 	lda.w #.4
 	sta.b a3
@@ -59,7 +59,7 @@ PrintLinePlayers:
 	sta.b a3
 	lda.w #PositionNames
 	sta.b $9D
-	lda.w #$0080
+	lda.w #PositionNames>>16
 	sta.b $9F
 	lda.w #$0004
 	sta.b d1

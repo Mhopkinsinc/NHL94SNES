@@ -29,7 +29,7 @@ burst:
 	asl a
 	asl a
 	tay
-	lda.w #$0080
+	lda.w #dirtab>>16
 	sta.b $8B
 	lda.w #dirtab
 	sta.b a0

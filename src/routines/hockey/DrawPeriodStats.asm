@@ -5,7 +5,7 @@ DrawPeriodStats:
 	jsl.l WaitDMAQueue
 	ldx.w #$004C
 	ldy.w #$0018
-	lda.w #$009C
+	lda.w #PeriodStats>>16
 	sta.b $8F
 	lda.w #PeriodStats
 	sta.b a1
@@ -14,7 +14,7 @@ DrawPeriodStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawPeriodStatsPos>>16
 	sta.b $8F
 	lda.w #DrawPeriodStatsPos
 	sta.b a1
@@ -34,7 +34,7 @@ DrawPeriodStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawPeriodStatsPos2>>16
 	sta.b $8F
 	lda.w #DrawPeriodStatsPos2
 	sta.b a1
@@ -50,7 +50,7 @@ DrawPeriodStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #DrawPeriodStatsPos3>>16
 	sta.b $8F
 	lda.w #DrawPeriodStatsPos3
 	sta.b a1
@@ -100,7 +100,7 @@ DrawPeriodStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #TotalShotsLine>>16
 	sta.b $8F
 	lda.w #TotalShotsLine
 	sta.b a1
@@ -119,7 +119,7 @@ DrawPeriodStats:
 	jmp.w .3
 
 .t2:
-	lda.w #$0080
+	lda.w #PerLabels>>16
 	sta.b $8F
 	lda.w #PerLabels
 	sta.b a1
@@ -161,7 +161,7 @@ DrawPeriodStats:
 	sta.w $0D0D
 	ldx.w #$0068
 	ldy.w #$0040
-	lda.w #$009C
+	lda.w #TotalShotsLine>>16
 	sta.b $8F
 	lda.w #TotalShotsLine+7
 	sta.b a1
@@ -170,7 +170,7 @@ DrawPeriodStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #TotalShotsLine>>16
 	sta.b $8F
 	lda.w #TotalShotsLine+14
 	sta.b a1
@@ -204,7 +204,7 @@ DrawPeriodStats:
 	jsl.l print
 	ldx.w #$0068
 	ldy.w #$0040
-	lda.w #$009C
+	lda.w #GoalsLabel>>16
 	sta.b $8F
 	lda.w #GoalsLabel
 	sta.b a1
@@ -213,7 +213,7 @@ DrawPeriodStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #YShotsTxt>>16
 	sta.b $8F
 	lda.w #YShotsTxt
 	sta.b a1

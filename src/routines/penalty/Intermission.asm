@@ -69,7 +69,7 @@ Intermission:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #IntermissionPos>>16
 	sta.b $8F
 	lda.w #IntermissionPos+5
 	sta.b a1

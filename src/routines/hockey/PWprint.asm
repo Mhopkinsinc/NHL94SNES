@@ -26,11 +26,11 @@ PWprint:
 	pha
 	lda.b $93
 	pha
-	lda.w #$009B
+	lda.w #PasstoText>>16
 	sta.b $93
 	lda.w #PasstoText
 	sta.b a2
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
@@ -54,7 +54,7 @@ PWprint:
 	inc.b a1
 	dec.b d1
 	bpl .loop
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1

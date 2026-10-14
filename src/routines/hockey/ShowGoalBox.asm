@@ -40,7 +40,7 @@ ShowGoalBox:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowGoalBoxPos>>16
 	sta.b $8F
 	lda.w #ShowGoalBoxPos
 	sta.b a1
@@ -72,7 +72,7 @@ ShowGoalBox:
 	inc.b a2
 	inc.b a2
 .2:
-	lda.w #$009F
+	lda.w #GoalBoxText>>16
 	sta.b $8F
 	lda.w #GoalBoxText
 	sta.b a1
@@ -124,7 +124,7 @@ ShowGoalBox:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #AssistByTxt>>16
 	sta.b $8F
 	lda.w #AssistByTxt
 	sta.b a1
@@ -145,7 +145,7 @@ ShowGoalBox:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ShowGoalBoxPos2>>16
 	sta.b $8F
 	lda.w #ShowGoalBoxPos2
 	sta.b a1

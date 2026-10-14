@@ -13,7 +13,7 @@ BadPasswordPrompt:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #BadPassword>>16
 	sta.b $8F
 	lda.w #BadPassword
 	sta.b a1
@@ -26,7 +26,7 @@ BadPasswordPrompt:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #ARetryTxt>>16
 	sta.b $8F
 	lda.w #ARetryTxt
 	sta.b a1
@@ -39,7 +39,7 @@ BadPasswordPrompt:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #YExitScreenTxt>>16
 	sta.b $8F
 	lda.w #YExitScreenTxt
 	sta.b a1
@@ -52,7 +52,7 @@ BadPasswordPrompt:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #BadPasswordPromptPos>>16
 	sta.b $8F
 	lda.w #BadPasswordPromptPos
 	sta.b a1
@@ -75,7 +75,7 @@ BadPasswordPrompt:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #BadPasswordPromptPos2>>16
 	sta.b $8F
 	lda.w #BadPasswordPromptPos2
 	sta.b a1

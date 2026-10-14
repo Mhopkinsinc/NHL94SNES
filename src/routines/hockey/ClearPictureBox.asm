@@ -1,6 +1,6 @@
 ; Blank the 6 x 6 picture area at x, y of the text map (under a logo sprite)
 ClearPictureBox:
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $12
 	lda.w #textmap
 	sta.b $10

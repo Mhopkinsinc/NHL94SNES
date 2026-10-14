@@ -13,7 +13,7 @@ PlayerShortName:
 	lda.b $8B
 	pha
 	jsl.l GetPlayerRecord
-	lda.w #$0000
+	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1

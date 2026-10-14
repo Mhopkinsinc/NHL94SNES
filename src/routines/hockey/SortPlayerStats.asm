@@ -6,7 +6,7 @@ SortPlayerStats:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #SortPlayerStatsPos>>16
 	sta.b $8F
 	lda.w #SortPlayerStatsPos
 	sta.b a1
@@ -15,7 +15,7 @@ SortPlayerStats:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w #$009C
+	lda.w #StatColumnNames>>16
 	sta.b $8F
 	lda.w #StatColumnNames
 	sta.b a1

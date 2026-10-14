@@ -3,7 +3,7 @@ addframe:		; draw SpriteFrames frame $0CCD (at most $3D0) at $0CCF, $0CD1
 	lda.w $0CCD
 	cmp.w #$03D1
 	bcs .rtl
-	lda.w #$0082
+	lda.w #SpriteFrames>>16
 	sta.b $12
 	lda.w #SpriteFrames
 	sta.b $10

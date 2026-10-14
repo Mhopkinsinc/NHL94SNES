@@ -20,7 +20,7 @@ PeriodOver:
 	lda.l playoffRoundIdx
 	cmp.w #$0002
 	bcc .t1
-	lda.w #$0093
+	lda.w #PlayoffSong>>16
 	sta.b $0E
 	lda.w #PlayoffSong
 	sta.b $0C
@@ -28,7 +28,7 @@ PeriodOver:
 	jmp.w .5
 
 .t1:
-	lda.w #$0090
+	lda.w #MenuSong>>16
 	sta.b $0E
 	lda.w #MenuSong
 	sta.b $0C

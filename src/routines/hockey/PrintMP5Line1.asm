@@ -4,7 +4,7 @@ PrintMP5Line1:
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
+	lda.w #PrintMP5Line1Pos>>16
 	sta.b $8F
 	lda.w #PrintMP5Line1Pos
 	sta.b a1

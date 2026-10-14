@@ -82,7 +82,7 @@ DrawTeamBlocks:
 
 .t1x:
 	ldy.w #$0000
-	lda.w #$009A
+	lda.w #DATA8_9AE99D>>16
 	sta.b $93
 	lda.w #DATA8_9AE99D+6
 	sta.b a2

@@ -21,7 +21,7 @@ ShooterSelectList:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.w #$009A
+	lda.w #DATA8_9AE9C7>>16
 	sta.b $0E
 	lda.w #DATA8_9AE9C7
 	sta.b $0C
@@ -34,7 +34,7 @@ ShooterSelectList:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap2>>16
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10

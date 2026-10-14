@@ -134,7 +134,7 @@ TitleScreen:
 	jsl.l TitleWait
 	jsr.w TitleWindowWipe
 	jsl.l SPCTitleToMenu
-	lda.w #$008F
+	lda.w #TitleSong>>16
 	sta.b $0E
 	lda.w #TitleSong
 	sta.b $0C
@@ -205,7 +205,7 @@ TitleScreen:
 	sta.w $0BF3
 	lda.w #$F0C0
 	sta.w $0BEB
-	lda.w #$0096
+	lda.w #DATA8_96A5E5>>16
 	sta.b $0E
 	lda.w #DATA8_96A5E5
 	sta.b $0C
@@ -434,7 +434,7 @@ TitleScreen:
 	rep #$20
 	rtl
 .7:
-	lda.w #$009A
+	lda.w #DATA8_9ACCA9>>16
 	sta.b $0E
 	lda.w #DATA8_9ACCA9
 	sta.b $0C
@@ -443,7 +443,7 @@ TitleScreen:
 	lda.w #$0000
 	sta.b $10
 	jsl.l Decompress
-	lda.w #$009A
+	lda.w #DATA8_9AE0D5>>16
 	sta.b $0E
 	lda.w #DATA8_9AE0D5
 	sta.b $0C
@@ -478,7 +478,7 @@ TitleScreen:
 	sta.b $0C
 	ldy.w #$0000
 	jsl.l DMAToVRAMHigh
-	lda.w #$008A
+	lda.w #DATA8_8AFF7A>>16
 	sta.b $0E
 	lda.w #DATA8_8AFF7A
 	sta.b $0C
@@ -487,7 +487,7 @@ TitleScreen:
 	ldx.w #$003C
 	ldy.w #$003C
 	jsl.l Mode7MapToVRAM
-	lda.w #$0094
+	lda.w #DATA8_948000>>16
 	sta.b $0E
 	lda.w #DATA8_948000
 	sta.b $0C
@@ -502,7 +502,7 @@ TitleScreen:
 	sta.b $0C
 	ldy.w #$4000
 	jsl.l DMAToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9ADDC6>>16
 	sta.b $0E
 	lda.w #DATA8_9ADDC6
 	sta.b $0C
@@ -520,7 +520,7 @@ TitleScreen:
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapToVRAM
-	lda.w #$009A
+	lda.w #DATA8_9AD88C>>16
 	sta.b $0E
 	lda.w #DATA8_9AD88C
 	sta.b $0C
@@ -547,7 +547,7 @@ TitleScreen:
 	lda.w #$0000
 	sta.b $10
 	jsl.l Decompress
-	lda.w #$009A
+	lda.w #DATA8_9ADEE0>>16
 	sta.b $0E
 	lda.w #DATA8_9ADEE0
 	sta.b $0C
