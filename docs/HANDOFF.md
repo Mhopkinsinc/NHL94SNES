@@ -34,6 +34,8 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 
 - `CODE_9EE220` is the shot release `ShotMode` jumps to. It is not a clean match for 93S `doshot`, so the name stays. `$14E3` is `pfalock` from the `setplayer` pair with `SPA`.
 - asstab entries left unnamed: `CODE_9EB0B8` (entry 8) has most of the 93S `assscore` body (the entry 8 slot is 93S 7, ascore), but `assscore` is on the rejected list, so it waits for a decision. `CODE_9EE463` (entry 10) and `CODE_9EED8D` (entry 14, set by `assnearest`) are 94 assignments with no 93S counterpart.
+- Rejected names that the later passes found strong evidence for, left for a decision: `CODE_9EE220` (`doshot`: with its tail folded most of the 93S body agrees, and it calls `shotdiradj` where 93S `doshot` does), `CODE_9ECE2B` (`printbig`), `CODE_9ECFC6` (`PrintStringFromList`, called where 93S calls it from two named routines), `CODE_9D8000` (`Framer`: `ShootoutWonBy` calls it with the arguments 94G `ShootoutWonBy` gives `Framer`).
+- Same job as a 93S routine but a rewritten body, so left `CODE_`: `CODE_9C9A7F` (`sfx`, called where 93S calls `sfx` from three routines), `CODE_9BC174` (`setpads`), and the ones under Calls above.
 - `$0AD9` (`shotPlIdx`): in every routine named from 93S it is where 93S has `puckc` (the puck carrier; `asspuckc` starts by comparing X with it). Renaming it needs a decision because `shotPlIdx` is an approved equate.
 - `CODE_9EB3C4`, `CODE_9FD459` and `CODE_9FA1B7` are entries other slices jump to, so they stay global.
 - `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
