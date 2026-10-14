@@ -2,7 +2,7 @@
 CODE_9E882A:
 	lda.w gmclock
 	beq .t2
-	jmp.w CODE_9E8BD7
+	jmp.w assnothing
 
 .t2:
 	jsl.l check4bench

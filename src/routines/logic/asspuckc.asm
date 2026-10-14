@@ -11,7 +11,7 @@ asspuckc:
 	rtl
 .2:
 	jsl.l CODE_9E8000
-	jmp.w CODE_9E8BD7
+	jmp.w assnothing
 .clk:
 	lda.w gmclock
 	bne .2

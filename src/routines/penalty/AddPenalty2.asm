@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EB88A:
+; Call penalty d0 on player X without the checks
+AddPenalty2:
 	lda.w sfhormode
 	beq .t2
 	jmp.w CODE_9EB94B

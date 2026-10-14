@@ -25,5 +25,5 @@ CODE_9EDD90:
 	dec.w $10BF
 	bpl CODE_9EDDBD
 .1:
-	jsl.l CODE_9EB88A
+	jsl.l AddPenalty2
 	bra CODE_9EDDBD

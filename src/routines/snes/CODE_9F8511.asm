@@ -99,7 +99,7 @@ CODE_9F85D3:
 	adc.w #$0096
 	sta.w $0CE9
 .1:
-	jsl.l CODE_9F8625
+	jsl.l DoGameFrame
 	jsl.l CODE_9F967B
 	lda.w sflags
 	bit.w #$0001

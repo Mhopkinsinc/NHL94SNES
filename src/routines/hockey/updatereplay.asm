@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BA8DB:
+; Save this frame into the replay buffer
+updatereplay:
 	lda.w gmode
 	bit.w #$0010
 	bne .1

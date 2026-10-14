@@ -98,5 +98,5 @@ CODE_80C9F8:
 	lda.w #$0010
 	sta.b d0
 CODE_80CA05:
-	jsl.l CODE_9EB88A
+	jsl.l AddPenalty2
 	rtl

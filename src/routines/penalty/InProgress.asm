@@ -1,10 +1,10 @@
-; Unidentified routine.
-CODE_9EB4C1:
+; The referee's work after a whistle
+InProgress:
 	lda.b [a0]
 	inc.b a0
 	inc.b a0
 	cmp.w #$0000
-	bne CODE_9EB4C1
+	bne InProgress
 	dec.b a0
 	dec.b a0
 	dec.b a0

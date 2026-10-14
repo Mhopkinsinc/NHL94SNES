@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FA2A6:
+; Between periods: the scores of the other games, then the highlights
+Intermission:
 	jsl.l SetupTeamForIntermission
 	lda.w #$0000
 	ldy.w #$001E
@@ -28,7 +28,7 @@ CODE_9FA2A6:
 	sec
 	sbc.w #$0150
 	sta.w $0D33
-	jsl.l CODE_9FA37A
+	jsl.l InitTicker
 	lda.w $0D31
 	sta.l $7E35DC
 	stz.w $0D13

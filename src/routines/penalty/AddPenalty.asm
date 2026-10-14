@@ -6,16 +6,16 @@ AddPenalty:
 	bne .rtl
 	lda.b d0
 	cmp.w #PenIcing
-	beq CODE_9EB88A
+	beq AddPenalty2
 	cmp.w #$0024
-	beq CODE_9EB88A
+	beq AddPenalty2
 	lda.l OptPen
 	beq .rtl
 	lda.w gmode
 	bit.w #gmoffs
-	bne CODE_9EB88A
+	bne AddPenalty2
 	lda.b d0
 	cmp.w #PenOffsides
-	bne CODE_9EB88A
+	bne AddPenalty2
 .rtl:
 	rtl

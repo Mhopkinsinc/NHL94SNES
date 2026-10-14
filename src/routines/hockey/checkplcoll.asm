@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E9484:
+; Check object X against the objects near it in y
+checkplcoll:
 	lda.w pflags,x
 	bit.w #$8000
 	bne .rtl

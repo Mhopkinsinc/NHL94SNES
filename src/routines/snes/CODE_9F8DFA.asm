@@ -266,7 +266,7 @@ org $9F9001
 .7:
 	lda.b d7
 	pha
-	jsl.l CODE_9F8625
+	jsl.l DoGameFrame
 	pla
 	sta.b d7
 	sta.w $0ADB

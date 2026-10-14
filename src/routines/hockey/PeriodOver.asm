@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F8CB1:
+; End of a period: the next period, overtime, or game over
+PeriodOver:
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9C9786
 	jsl.l WaitFrame
@@ -79,7 +79,7 @@ CODE_9F8D0B:
 .3:
 	jsl.l CODE_9FC683
 	jsl.l UpdateScores
-	jsl.l CODE_9FA2A6
+	jsl.l Intermission
 	lda.w gsp
 	cmp.w #$0004
 	bne .t1

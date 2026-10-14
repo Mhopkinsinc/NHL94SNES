@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FA37A:
+; Start the score ticker for the other games of the round
+InitTicker:
 	lda.w $0D31
 	bmi .1
 	ora.l $7E35D6

@@ -24,14 +24,14 @@ puckfaceoff:
 	lda.w gameclock
 	bne .t2x
 .1xx:
-	jml.l CODE_9F8CB1
+	jml.l PeriodOver
 
 .t2x:
 	lda.w gmode
 	bit.w #$0040
 	beq .t1xx
 .1x2:
-	jml.l CODE_9F8CB1
+	jml.l PeriodOver
 
 .t1xx:
 	lda.w gsp

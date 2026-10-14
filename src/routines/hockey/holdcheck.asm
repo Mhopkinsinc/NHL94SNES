@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EA2F1:
+; a2 holds or hooks X: both slow down, and a penalty may be called
+holdcheck:
 	lda.w position,x
 	beq .t1
 	lda.w pfalock,x

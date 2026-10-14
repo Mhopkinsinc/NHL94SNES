@@ -21,7 +21,7 @@ updatepentime:
 	sta.w pentimer
 	lda.w #$0020
 	tsb.w sflags3
-	jsl.l CODE_9EB198
+	jsl.l chkatop
 	jsl.l CODE_9EB1C9
 	stz.b a2
 	jsl.l .1

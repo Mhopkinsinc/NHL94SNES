@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EB198:
+; Add to the attack zone time of the team with the puck past the blue line
+chkatop:
 	stz.b d1
 	lda.w pucky
 	sec

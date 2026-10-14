@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E8BD7:
+; A computer player stands still
+assnothing:
 	lda.w $19D4,x
 	bpl .t1
 	lda.w #$0008

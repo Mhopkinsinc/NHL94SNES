@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FDFA6:
+; Draw the energy bar of line d0
+linebar:
 	jsl.l getlinee
 	lda.w $0D0D
 	pha

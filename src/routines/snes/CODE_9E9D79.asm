@@ -80,15 +80,15 @@ CODE_9E9D79:
 .2:
 	lda.w position,x
 	bne .t2
-	jmp.w CODE_9EB88A
+	jmp.w AddPenalty2
 
 .t2:
 	lda.l OptPen
 	bne .t1
-	jmp.w CODE_9EB88A
+	jmp.w AddPenalty2
 
 .t1:
 	lda.w #$0014
 	sta.b d0
-	jsl.l CODE_9EB88A
+	jsl.l AddPenalty2
 	jmp.w Stop4Pen

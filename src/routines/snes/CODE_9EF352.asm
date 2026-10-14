@@ -83,7 +83,7 @@ CODE_9EF3CC:
 	lda.w #$0000
 .2:
 	sta.l $7E35E0
-	bra CODE_9EF424
+	bra Goal
 
 .t1:
 	inc a
@@ -97,7 +97,7 @@ CODE_9EF3CC:
 	sta.b $81
 	lda.w #$0003
 	jsl.l CODE_9C9B5F
-CODE_9EF424:
+Goal:
 	lda.b $83
 	sta.w $0D2B
 	jsl.l CODE_9EC791
@@ -231,7 +231,7 @@ CODE_9EF424:
 	tax
 	inc.w $18EE,x
 .11:
-	jsl.l CODE_9EB94C
+	jsl.l PenGoalStuff
 	jsl.l printscores1
 	lda.w #$0008
 	sta.b d0
@@ -279,7 +279,7 @@ CODE_9EF424:
 	stx.b a3
 	lda.w #$000E
 	sta.b d0
-	jsl.l CODE_9EB88A
+	jsl.l AddPenalty2
 	ldx.w #$001C
 	stx.b a3
 	rtl

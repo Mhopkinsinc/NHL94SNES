@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EB94C:
+; After a power play goal, let the first player whose penalty is not coincidental out of the box
+PenGoalStuff:
 	lda.b d0
 	pha
 	lda.b $A7

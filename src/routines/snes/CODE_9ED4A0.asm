@@ -7,7 +7,7 @@ CODE_9ED4A0:
 	bpl CODE_9ED4B4
 	lda.w #$0008
 	sta.b d0
-	jsl.l CODE_9EB88A
+	jsl.l AddPenalty2
 CODE_9ED4B4:
 	lda.w $1543,x
 	beq .t1

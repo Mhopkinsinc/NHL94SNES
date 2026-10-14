@@ -117,11 +117,11 @@ CODE_9F8C43:
 .1:
 	lda.w #$0004
 	sta.b d0
-	jsl.l CODE_9EB88A
+	jsl.l AddPenalty2
 	lda.b $0C
 	beq .rtl
 	lda.w #$0032
 	sta.b d0
-	jsl.l CODE_9EB88A
+	jsl.l AddPenalty2
 .rtl:
 	rtl

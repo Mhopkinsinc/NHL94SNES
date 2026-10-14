@@ -72,7 +72,7 @@ CODE_9FD35A:
 	jsl.l CODE_9ECFC6
 	pla
 	sta.b d0
-	jsl.l CODE_9FDFA6
+	jsl.l linebar
 .2:
 	dec.w printy
 .3:

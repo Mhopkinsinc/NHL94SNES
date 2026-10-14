@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F8686:
+; Animation, speed, position, input and assignment for every object
+updateplayers:
 	lda.w #$FFFF
 	sta.w $0B9D
 	sta.w $0B9F
@@ -453,7 +453,7 @@ CODE_9F8A44:
 	jmp.w CODE_9F8AD1
 
 .t1:
-	jsl.l CODE_9E8C35
+	jsl.l checkcoll
 	cpx.w #$0018
 	bcs CODE_9F8AD1
 	lda.w position,x

@@ -113,5 +113,5 @@ CODE_9EB4A1:
 	cmp.w #$0034
 	beq .loop
 	cmp.w #$0000
-	bne CODE_9EB4C1
+	bne InProgress
 	jmp.w CODE_9EB6B8

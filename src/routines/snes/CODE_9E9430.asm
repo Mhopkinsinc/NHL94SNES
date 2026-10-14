@@ -42,4 +42,4 @@ CODE_9E9430:
 	pla
 	lda.w #$0008
 	sta.b d0
-	jmp.w CODE_9EB88A
+	jmp.w AddPenalty2

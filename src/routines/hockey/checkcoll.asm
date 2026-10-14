@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E8C35:
+; Move object X to its new x / y, checking wall and player collisions
+checkcoll:
 	stz.w $0CDB
 	lda.w sfhormode
 	beq .1
@@ -49,7 +49,7 @@ CODE_9E8C35:
 	sta.b d3
 	lda.w position,x
 	bmi .3
-	jsl.l CODE_9E9484
+	jsl.l checkplcoll
 .3:
 	lda.w $0CDB
 	beq .t2
