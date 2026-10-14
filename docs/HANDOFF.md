@@ -39,7 +39,7 @@
 - `SetLCmode` (its callers `doinput` and `puckfaceoff` became visible once their parts were folded).
 - `SPCGameUpload` (93S; the in-game sample set `setupice` loads) and `PlayTeamSong` (`TeamSongs` slot A of the home team, else a random `DefaultSongs`).
 - Stats screens: `SetupScrollIRQ` with its hooks `IRQ_StatsScroll1`-`3` (the split BG1 scroll), `SetPlayerStatsRange`, `InitStatsOrder`, `PrintScrollArrows`.
-- `Gameloop` (`StartPer` calls it as in 93S). `CODE_9F967B` stays: besides the 93S `demoread` job it checks every controller for a pause.
+- `Gameloop` (`StartPer` calls it as in 93S). `CODE_9F967B` is `demoread`: it holds the 93S body and Gameloop calls it at the 93S point; the 94 version also lets Start on any controller with a side pause in mode 4.
 - `DecompressHuffman` is one routine now: its table builders, bit readers, the per-bit-position decoder fragments and their jump tables were only used by it and are its locals. Data tables that only one routine reads (for example the direction table of `doplayeracc`, the 93S `.ftab`) are folded into that routine the same way.
 - `setsortcords` (the whole routine matches once folded) and `burst`.
 - `Readjoy1` (93S: pad 1 into d0-d3 from the `ReadPads` values), `CheckPAL`, `BlankScreen` and `ResetPPURegs` (the two halves of `forceblack`), `Mul16x8_Zero`, `Mul16x8U_Pre`.
@@ -91,6 +91,7 @@
 - `Create_HotCold_Table` (94G: called from StartGame, the same job), and from behavior `SetPauseMode`, `PauseFromPad`, `PauseFromPad1`; equate `sfpz` (93S pause mode bit).
 - `ChkOffsides` (93S: pucknorm calls it at the 93S point). chkprogress: its penalty tail CODE_9EB3C5 folded in, `chkprogress_find` (93S .find); InProgress: its exit CODE_9EB6B8 folded in as `InProgress_exit` / `InProgress_coin` / `InProgress_rtl` (InProgress and chkprogress jump to them).
 - From behavior: `PenBoxSpot` (the 93S asspenalty inline box spot as a routine), `SeatPenaltyBox`.
+- `demoread` (93S body plus a mode 4 check; was unsure), `startpause` and `startpause1` (93S; first named SetPauseMode / PauseFromPad1 from behavior).
 
 ## Unsure
 

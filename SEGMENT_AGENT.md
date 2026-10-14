@@ -735,3 +735,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Create_HotCold_Table, pause mode helpers, sfpz. MATCH.
 - ChkOffsides; chkprogress and InProgress tails folded. MATCH.
 - PenBoxSpot, SeatPenaltyBox. MATCH.
+- demoread, startpause, startpause1. MATCH.

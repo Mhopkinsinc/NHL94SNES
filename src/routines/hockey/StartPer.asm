@@ -39,7 +39,7 @@ StartPer:
 	bne .3
 	stz.w pausepad
 .3:
-	jsl.l SetPauseMode
+	jsl.l startpause
 .4:
 	ldx.w #$001C
 	stx.b a3

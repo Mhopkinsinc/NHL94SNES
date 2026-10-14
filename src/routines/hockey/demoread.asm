@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F967B:
+; In the demo, Start pauses and any other button ends it (back through Restart); in mode 4 with controller sides, Start on any of them pauses from that pad
+demoread:
 	lda.l $7E34BC
 	cmp.w #$0004
 	bne .2
@@ -41,7 +41,7 @@ CODE_9F967B:
 	lda.b d1
 	bit.w #$1000
 	beq .t1x
-	jmp.w PauseFromPad1
+	jmp.w startpause1
 
 .t1x:
 	lda.b d1

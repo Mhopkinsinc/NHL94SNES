@@ -3154,11 +3154,11 @@ $9F9A79,.t1,CODE_9F9A79,new,continued in the previous routine,src/routines/snes/
 $9F9A33,.t1,CODE_9F9A33,new,continued in the previous routine,src/routines/snes/CODE_9F9987.asm
 $9F98A8,AttribFighting,CODE_9F98A8,93S,attribjmp entry 4; falls into AttribRating,src/routines/stats/AttribFighting.asm
 $9F9789,.t1,CODE_9F9789,new,continued in the previous routine,src/routines/stats/GetNameandAttrib.asm
-$9F96D7,.t1,CODE_9F96D7,new,continued in the previous routine,src/routines/snes/CODE_9F967B.asm
-$9F96AF,.t1,CODE_9F96AF,new,continued in the previous routine,src/routines/snes/CODE_9F967B.asm
+$9F96D7,.t1,CODE_9F96D7,new,continued in the previous routine,src/routines/hockey/demoread.asm
+$9F96AF,.t1,CODE_9F96AF,new,continued in the previous routine,src/routines/hockey/demoread.asm
 $9F95A1,.t1,CODE_9F95A1,new,continued in the previous routine,src/routines/snes/CODE_9F9559.asm
 $9F954B,.t1,CODE_9F954B,new,continued in the previous routine,src/routines/snes/CODE_9F9531.asm
-$9F9378,.t1,CODE_9F9378,new,continued in the previous routine,src/routines/hockey/PauseFromPad1.asm
+$9F9378,.t1,CODE_9F9378,new,continued in the previous routine,src/routines/hockey/startpause1.asm
 $9F91C1,.t1,CODE_9F91C1,new,continued in the previous routine,src/routines/snes/CODE_9F9125.asm
 $9F8E8E,.t1,CODE_9F8E8E,new,continued in the previous routine,src/routines/snes/CODE_9F8E3E.asm
 $9F8E27,.t1,CODE_9F8E27,new,continued in the previous routine,src/routines/hockey/SaveRegsStartHL2.asm
@@ -4168,10 +4168,10 @@ $9F955B,.5,CODE_9F955B,new,branch target only used in this routine,src/routines/
 $9F9564,.6,CODE_9F9564,new,branch target only used in this routine,src/routines/hockey/ResolveGames.asm
 $9F95C2,.7,CODE_9F95C2,new,branch target only used in this routine,src/routines/hockey/ResolveGames.asm
 $9F961E,.8,CODE_9F961E,new,branch target only used in this routine,src/routines/hockey/ResolveGames.asm
-$9F9698,.1,CODE_9F9698,new,branch target only used in this routine,src/routines/snes/CODE_9F967B.asm
-$9F96B8,.2,CODE_9F96B8,new,continued in the previous routine,src/routines/snes/CODE_9F967B.asm
-$9F96DB,.3,CODE_9F96DB,new,branch target only used in this routine,src/routines/snes/CODE_9F967B.asm
-$9F96DC,.4,CODE_9F96DC,new,continued in the previous routine,src/routines/snes/CODE_9F967B.asm
+$9F9698,.1,CODE_9F9698,new,branch target only used in this routine,src/routines/hockey/demoread.asm
+$9F96B8,.2,CODE_9F96B8,new,continued in the previous routine,src/routines/hockey/demoread.asm
+$9F96DB,.3,CODE_9F96DB,new,branch target only used in this routine,src/routines/hockey/demoread.asm
+$9F96DC,.4,CODE_9F96DC,new,continued in the previous routine,src/routines/hockey/demoread.asm
 $9F9978,.11,CODE_9F9978,new,branch target only used in this routine,src/routines/stats/CalcAttrib.asm
 $9F9A5C,.12,CODE_9F9A5C,new,branch target only used in this routine,src/routines/stats/CalcAttrib.asm
 $9F9A7D,.13,CODE_9F9A7D,new,branch target only used in this routine,src/routines/stats/CalcAttrib.asm
@@ -5717,9 +5717,9 @@ $9FCB5C,AssignPadIfFree,CODE_9FCB5C,new,Behavior: called from puckglue and dopas
 $9FCB16,PuckCarrierPad,CODE_9FCB16,new,Behavior: called from puckglue,src/routines/logic/PuckCarrierPad.asm
 $9FCD2A,PadTakeGoalie,CODE_9FCD2A,new,Behavior: called from doinput and CODE_9FAFBE,src/routines/logic/PadTakeGoalie.asm
 $9FCD69,PadTakePosition,CODE_9FCD69,new,"pad d4 takes the player of its team ($1C84 side) at position d1, if he has no pad and is not locked (pflags bit 12); counts it in $0ADD",src/routines/snes/CODE_9FCD4D.asm
-$9F9365,SetPauseMode,CODE_9F9365,new,Behavior: sfpz is the 93S pause mode bit; called from StartPer and the pause entries,src/routines/hockey/SetPauseMode.asm
+$9F9365,startpause,CODE_9F9365,93S,"The 93S startpause body (lda #sfpz, tsb sflags, rtl); startpause1 and PauseFromPad end in it as 93S startpause1 / startpause2 do",src/routines/hockey/startpause.asm
 $9F936C,PauseFromPad,CODE_9F936C,new,Behavior: doinput and CODE_9F967B jump here on a start press,src/routines/hockey/PauseFromPad.asm
-$9F9372,PauseFromPad1,CODE_9F9372,new,Behavior: CODE_9F967B jumps here,src/routines/hockey/PauseFromPad1.asm
+$9F9372,startpause1,CODE_9F9372,93S,"93S startpause1 job (pause from controller 1, then startpause); demoread jumps to it on Start as in 93S",src/routines/hockey/startpause1.asm
 $9FE0E8,Create_HotCold_Table,CODE_9FE0E8,94G,The 94G Create_HotCold_Table job (random signed hot / cold values per player attribute); StartGame calls it as 94G StartGame does,src/routines/hockey/Create_HotCold_Table.asm
 $9EF78A,ChkOffsides,CODE_9EF78A,93S,"pucknorm calls it where 93S pucknorm calls ChkOffsides; ClearOffsidesIfAllPlayers for both teams, then the blue line tests as 93S",src/routines/logic/ChkOffsides.asm
 $9EB3C5,.2,CODE_9EB3C5,new,chkprogress: a penalty is on (folded into chkprogress),src/routines/penalty/chkprogress.asm
@@ -5730,3 +5730,4 @@ $9EB6CC,InProgress_coin,CODE_9EB6CC,new,InProgress: coinsearch for both teams an
 $9EB6F6,InProgress_rtl,CODE_9EB6F6,new,InProgress: the rtl,src/routines/penalty/InProgress.asm
 $9EBEA1,PenBoxSpot,CODE_9EBEA1,new,"Behavior: the computation 93S asspenalty does inline before its muls16 (d0 by team, the box count + 3); called from asspenalty and SeatPenaltyBox",src/routines/penalty/PenBoxSpot.asm
 $9EBF11,SeatPenaltyBox,CODE_9EBF11,new,Behavior: not in a shootout; called from puckfaceoff2 and chkprogress,src/routines/penalty/SeatPenaltyBox.asm
+$9F967B,demoread,CODE_9F967B,93S,"Contains the 93S demoread body (no controller sides: Readjoy1, Start to startpause1, another button ends the demo); Gameloop calls it after DoGameFrame where 93S Gameloop calls demoread. Was on the unsure list because of the added mode 4 check",src/routines/hockey/demoread.asm

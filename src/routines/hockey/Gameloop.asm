@@ -100,7 +100,7 @@ Gameloop:
 	sta.w $0CE9
 .1xx:
 	jsl.l DoGameFrame
-	jsl.l CODE_9F967B
+	jsl.l demoread
 	lda.w sflags
 	bit.w #$0001
 	bne .2xx
