@@ -208,7 +208,7 @@ updateplayers:
 	tax
 	jsl.l Mul8U
 	ldx.b $E4
-	sta.w $0B3D,x
+	sta.w puckdist2,x
 	lda.w pucky
 	sec
 	sbc.w Ypos,x
@@ -224,8 +224,8 @@ updateplayers:
 	jsl.l Mul8U
 	ldx.b $E4
 	clc
-	adc.w $0B3D,x
-	sta.w $0B3D,x
+	adc.w puckdist2,x
+	sta.w puckdist2,x
 	cpx.w #$0018
 	bcs .12
 	sta.b $14
@@ -255,7 +255,7 @@ updateplayers:
 	pla
 	jsl.l CODE_9CA568
 	ldx.b $E4
-	sta.w $0B1D,x
+	sta.w puckdist,x
 	cpx.w #$0018
 	bcs .14
 	cmp.w #$001E
@@ -287,7 +287,7 @@ updateplayers:
 	trb.w iflags
 .14:
 	jsl.l vtoa
-	sta.w $0B5D,x
+	sta.w puckdir,x
 	dex
 	dex
 	bmi .t1xxxx

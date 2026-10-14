@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FC988:
-	jsl.l CODE_9CA58C
+	jsl.l CalcPuckDistances
 	lda.w $1E9B
 	bne .2
 	ldy.w #$0008

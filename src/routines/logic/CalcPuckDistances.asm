@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9CA58C:
+; For each of the 16 objects: puckdist2 (about (dx^2 + dy^2) / 4), puckdist (ApproxLength) and puckdir (vtoa) to the puck
+CalcPuckDistances:
 	ldx.w #$0000
 .loop:
 	stx.b $E4
@@ -17,7 +17,7 @@ CODE_9CA58C:
 	tax
 	jsl.l Mul8U
 	ldx.b $E4
-	sta.w $0B3D,x
+	sta.w puckdist2,x
 	lda.w pucky
 	sec
 	sbc.w Ypos,x
@@ -33,15 +33,15 @@ CODE_9CA58C:
 	jsl.l Mul8U
 	ldx.b $E4
 	clc
-	adc.w $0B3D,x
-	sta.w $0B3D,x
+	adc.w puckdist2,x
+	sta.w puckdist2,x
 	ply
 	pla
 	jsl.l CODE_9CA568
 	ldx.b $E4
-	sta.w $0B1D,x
+	sta.w puckdist,x
 	jsl.l vtoa
-	sta.w $0B5D,x
+	sta.w puckdir,x
 	inx
 	inx
 	cpx.w #$0020

@@ -84,7 +84,7 @@ chk4shot:
 .2:
 	lda.w position,y
 	beq .4
-	lda.w $0B5D,y
+	lda.w puckdir,y
 	sec
 	sbc.w #$0004
 	and.w #$0007

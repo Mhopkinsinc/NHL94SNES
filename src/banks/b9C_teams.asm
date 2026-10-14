@@ -63,7 +63,7 @@ incsrc "../routines/video/InitSortObjects.asm"
 incsrc "../routines/hockey/SuperDiv.asm"
 incsrc "../routines/hockey/SuperMult.asm"
 incsrc "../routines/snes/ApproxLength.asm"
-incsrc "../routines/snes/CODE_9CA58C.asm"
+incsrc "../routines/logic/CalcPuckDistances.asm"
 incsrc "../data/teamdata94s.asm"
 org $9CEF59
 incsrc "../data/text/WinsMark.asm"

@@ -251,7 +251,7 @@ assgoalie:
 	lda.w pflags,y
 	bit.w #$1000
 	bne .3xx
-	lda.w $0B1D,y
+	lda.w puckdist,y
 	cmp.w #$0023
 	bcc .19
 .3xx:
@@ -346,7 +346,7 @@ assgoalie:
 	jsl.l RandomWord
 	cmp.w #$0A00
 	bcs .t2xxx
-	lda.w $0B1D,x
+	lda.w puckdist,x
 	cmp.w #$0023
 	bcs .24
 	lda.w pucky
@@ -359,7 +359,7 @@ assgoalie:
 .t1xxxxxx:
 	lda.w $1063,x
 	bne .t2xxx
-	lda.w $0B1D,x
+	lda.w puckdist,x
 	cmp.w #$002D
 	bcs .24
 	lda.w pucky
@@ -774,7 +774,7 @@ assgoalie:
 	sta.b d0
 	jmp.w .42
 .40:
-	lda.w $0B5D,x
+	lda.w puckdir,x
 	sec
 	sbc.w facedir,x
 	and.w #$0007

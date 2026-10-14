@@ -20,7 +20,7 @@ findpc:
 	bmi .t1
 	lda.w pfalock,x
 	bne .t1
-	lda.w $0B3D,x
+	lda.w puckdist2,x
 	cmp.w #$0064
 	bcs .t1
 	jmp.w .10
@@ -84,7 +84,7 @@ findpc:
 	lda.b $00
 	cmp.w #$0008
 	beq .7
-	eor.w $0B5D,x
+	eor.w puckdir,x
 	cmp.w #$0004
 	bcc .6
 	eor.w #$FFFF
@@ -102,7 +102,7 @@ findpc:
 	adc.b $14
 	sta.b $14
 .7:
-	lda.w $0B1D,x
+	lda.w puckdist,x
 	clc
 	adc.b $14
 	bcs .8

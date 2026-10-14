@@ -1109,9 +1109,9 @@ $9C992F,.rtl,CODE_9C992F,new,branch target only used in this routine,src/routine
 $9B9942,.loop,CODE_9B9942,new,branch target only used in this routine,src/routines/hockey/FillPenaltyPage.asm
 $9B9947,.1,CODE_9B9947,new,branch target only used in this routine,src/routines/hockey/FillPenaltyPage.asm
 $9FF623,.1,CODE_9FF623,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9CA58F,.loop,CODE_9CA58F,new,branch target only used in this routine,src/routines/snes/CODE_9CA58C.asm
-$9CA5A0,.1,CODE_9CA5A0,new,branch target only used in this routine,src/routines/snes/CODE_9CA58C.asm
-$9CA5BC,.2,CODE_9CA5BC,new,branch target only used in this routine,src/routines/snes/CODE_9CA58C.asm
+$9CA58F,.loop,CODE_9CA58F,new,branch target only used in this routine,src/routines/logic/CalcPuckDistances.asm
+$9CA5A0,.1,CODE_9CA5A0,new,branch target only used in this routine,src/routines/logic/CalcPuckDistances.asm
+$9CA5BC,.2,CODE_9CA5BC,new,branch target only used in this routine,src/routines/logic/CalcPuckDistances.asm
 $9EE7B0,.1,CODE_9EE7B0,new,branch target only used in this routine,src/routines/logic/asspassrec.asm
 $9EDFCC,.1,CODE_9EDFCC,new,branch target only used in this routine,src/routines/logic/chk4shot.asm
 $9EDFEB,.2,CODE_9EDFEB,new,branch target only used in this routine,src/routines/logic/chk4shot.asm
@@ -5757,3 +5757,4 @@ $9FC79F,InitializeGameStructures,CODE_9FC79F,94G,"The 94G InitializeGameStructur
 $9FAFBE,SetupPenaltyShot,CODE_9FAFBE,94G,The 94G SetupPenaltyShot job (the shooter alone with the puck at centre); puckfaceoff2 jumps to it after Endfaceoff when a penalty shot is pending ($1E9B),src/routines/logic/SetupPenaltyShot.asm
 $9EC72D,StartPenaltyShot,CODE_9EC72D,new,Behavior: called from InProgress (a penalty shot call) and PlayShootout (each shootout attempt); SetupPenaltyShot then plays it,src/routines/logic/StartPenaltyShot.asm
 $9EC791,EndPenaltyShot,CODE_9EC791,new,"Behavior: called on the stop events (Goal, the puck frozen or out, the clock), as 94G UpdatePenaltyShotEnd / EndPenaltyShotPlay end the attempt",src/routines/logic/EndPenaltyShot.asm
+$9CA58C,CalcPuckDistances,CODE_9CA58C,new,"Behavior; called from CODE_9FC988 (puckfaceoff2); updateplayers, chk4pass, findpc and the goalie code read the tables",src/routines/logic/CalcPuckDistances.asm

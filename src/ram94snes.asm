@@ -201,3 +201,6 @@ CrowdPeak = $19C4	; the highest CurCrowdMeter of the game
 palbuffer = $7E35F4	; the palette buffer (256 colours) sent to CGRAM
 textmap2 = $7E3FF4	; the second text map (ClearTextMap2, SendTextMap2)
 blankchar = $7E35D0	; vram tile of the blank character (eraser fills with it)
+puckdist = $0B1D	; per object: distance to the puck (ApproxLength)
+puckdist2 = $0B3D	; per object: about (dx^2 + dy^2) / 4 to the puck
+puckdir = $0B5D		; per object: direction to the puck (vtoa)

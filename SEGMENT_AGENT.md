@@ -744,3 +744,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - InitializeGameStructures. MATCH.
 - SetupPenaltyShot. MATCH.
 - StartPenaltyShot, EndPenaltyShot. MATCH.
+- CalcPuckDistances and the puck distance RAM. MATCH.

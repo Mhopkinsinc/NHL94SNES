@@ -100,6 +100,7 @@
 - `InitializeGameStructures` (94G: the other games' random team pairs, called from FigureJoy).
 - `SetupPenaltyShot` (94G job: puckfaceoff2 jumps to it when a penalty shot is pending).
 - From behavior: `StartPenaltyShot`, `EndPenaltyShot` (the 94 penalty shot / shootout attempt state).
+- `CalcPuckDistances` (from behavior) and RAM `puckdist`, `puckdist2`, `puckdir` (the per object tables it fills).
 
 ## Unsure
 

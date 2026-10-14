@@ -41,7 +41,7 @@ dopass:
 	lda.w pflags,y
 	bit.w #$1000
 	bne .5
-	lda.w $0B5D,y
+	lda.w puckdir,y
 	sec
 	sbc.w passdir
 	sec
@@ -59,7 +59,7 @@ dopass:
 .4:
 	lda.b $00
 	clc
-	adc.w $0B3D,y
+	adc.w puckdist2,y
 	bcs .5
 	cmp.b d4
 	bcs .5

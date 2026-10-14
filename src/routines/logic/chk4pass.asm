@@ -84,12 +84,12 @@ chk4pass:
 	cmp.w #$FFF1
 	bmi .t1
 .3x:
-	lda.w $0B5D,y
+	lda.w puckdir,y
 	sec
 	sbc.w #$0004
 	and.w #$0007
 	sta.w passdir
-	lda.w $0B3D,y
+	lda.w puckdist2,y
 	sta.b d2
 	lda.w #$0005
 	sta.b d3
@@ -100,9 +100,9 @@ chk4pass:
 	ldy.w #$000C
 .4x:
 	lda.b d2
-	cmp.w $0B3D,y
+	cmp.w puckdist2,y
 	bcc .5
-	lda.w $0B5D,y
+	lda.w puckdir,y
 	sec
 	sbc.w #$0004
 	and.w #$0007
