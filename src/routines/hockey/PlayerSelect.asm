@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DA0D5:
+; The player select screen after the game setup: each pad moves its icon under the visitors or home team ($1C84-$1C8C), start goes on
+PlayerSelect:
 	stz.w $1C84
 	stz.w $1C86
 	stz.w $1C88
@@ -71,7 +71,7 @@ CODE_9DA0D5:
 .3:
 	lda.b d1
 	pha
-	jsl.l CODE_9DB0FD
+	jsl.l ClearTextMapBottom
 	jsr.w CODE_9DAF5B
 	ldx.w #$0000
 	lda.w #$0000
@@ -92,7 +92,7 @@ CODE_9DA0D5:
 	lda.b $AB
 	pha
 	bne .1x
-	jsr.w CODE_9DAE6D
+	jsr.w DrawSelectTeam
 .1x:
 	pla
 	sta.b $AB
@@ -100,7 +100,7 @@ CODE_9DA0D5:
 	sta.w printx
 	lda.w HomeTeam
 	sta.b d1
-	jsr.w CODE_9DAE6D
+	jsr.w DrawSelectTeam
 	jsr.w CODE_9DB0AB
 	jsl.l SendTextMap
 	pla
@@ -220,18 +220,18 @@ CODE_9DA0D5:
 	bra .t6
 
 .t1xx:
-	jsl.l CODE_9DAF84
-	jsl.l CODE_9DAFB2
+	jsl.l RedrawPlayerSelect
+	jsl.l Multi5SocketMsg
 	bra .t6
 
 .t2x:
-	jsl.l CODE_9DAF84
-	jsl.l CODE_9DB005
+	jsl.l RedrawPlayerSelect
+	jsl.l Multi5ScopeMsg
 	bra .t6
 
 .t3:
-	jsl.l CODE_9DAF84
-	jsl.l CODE_9DB058
+	jsl.l RedrawPlayerSelect
+	jsl.l Multi5MouseMsg
 	bra .t6
 
 .t4:

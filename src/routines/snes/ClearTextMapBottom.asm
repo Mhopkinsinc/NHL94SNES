@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB0FD:
+; Fill the text map from row 12 down with the blank tile
+ClearTextMapBottom:
 	lda.w #$007E
 	sta.b $12
 	lda.w #$3AF4

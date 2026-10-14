@@ -696,3 +696,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - DrawMatchupPictures, DrawPlayerPicture, ClearPictureBox, MenuScreenHDMA. MATCH.
 - Player card helpers; ShowPlayerCards tails folded. MATCH.
 - ClearTextMap2, LoadPlayerCardScreen. MATCH.
+- PlayerSelect and its helpers. MATCH.

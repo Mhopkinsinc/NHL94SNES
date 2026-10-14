@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB005:
+; Print "The MultiPlayer 5 is not designed for use with the Super NES Super Scope."
+Multi5ScopeMsg:
 	lda.b $8F
 	pha
 	lda.b a1

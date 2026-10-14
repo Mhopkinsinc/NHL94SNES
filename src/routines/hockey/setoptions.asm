@@ -131,23 +131,23 @@ setoptions:
 	bra .t6
 
 .t1:
-	jsl.l CODE_9DAFAD
-	jsl.l CODE_9DAFB2
+	jsl.l ClearMessageArea
+	jsl.l Multi5SocketMsg
 	bra .t6
 
 .t2:
-	jsl.l CODE_9DAFAD
-	jsl.l CODE_9DB005
+	jsl.l ClearMessageArea
+	jsl.l Multi5ScopeMsg
 	bra .t6
 
 .t3:
-	jsl.l CODE_9DAFAD
-	jsl.l CODE_9DB058
+	jsl.l ClearMessageArea
+	jsl.l Multi5MouseMsg
 	bra .t6
 
 .t4:
 	jsl.l Multi5Init
-	jsl.l CODE_9DB0FD
+	jsl.l ClearTextMapBottom
 	jsr.w .10
 	stz.b d1
 	jmp.w .6
@@ -249,7 +249,7 @@ setoptions:
 	ora.l PassWord
 	sta.l PassWord
 	jsl.l maketree
-	jmp.w CODE_9DA0D5
+	jmp.w PlayerSelect
 .6:
 	lda.b d1
 	bit.w #$1000

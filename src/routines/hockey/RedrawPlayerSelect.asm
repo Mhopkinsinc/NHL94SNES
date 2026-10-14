@@ -1,6 +1,6 @@
-; Unidentified routine.
-CODE_9DAF84:
-	jsl.l CODE_9DB0FD
+; Clear the message rows and redraw the PlayerSelectAlt title and the team pictures
+RedrawPlayerSelect:
+	jsl.l ClearTextMapBottom
 	jsl.l SpriteFrameStart
 	ldx.w #$0047
 	ldy.w #$0018

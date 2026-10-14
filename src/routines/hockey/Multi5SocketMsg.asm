@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DAFB2:
+; Print "The MultiPlayer 5 must be connected to Controller Socket #2."
+Multi5SocketMsg:
 	lda.b $8F
 	pha
 	lda.b a1

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DAE6D:
+; Draw team d1 on the player select screen at printx: its palette, logo tiles and city name (TeamPlaceNames)
+DrawSelectTeam:
 	lda.b a2
 	pha
 	phx

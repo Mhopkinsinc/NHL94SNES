@@ -52,6 +52,7 @@
 - `DrawMatchupPictures`, `DrawPlayerPicture` (94G: same job, callers pair with the 94G ones), and from behavior `ClearPictureBox`, `MenuScreenHDMA`.
 - Player card helpers from behavior: `FindSkaterStrengths`, `FindGoalieStrengths`, `AddStrength`, `DrawLogoSprite`, `PrintLineSlotName`; the ShowPlayerCards loop labels `PlayerCardsRedraw` / `PlayerCardsLoop`, and its tails CODE_9DBDA8 / CODE_9DBDAA folded in as `PlayerCardsWait` / `PlayerCardsExit`.
 - From behavior: `ClearTextMap2` (ClearTextMap for the second map), `LoadPlayerCardScreen`.
+- From behavior: `PlayerSelect` (the screen with PlayerSelectTitle), `DrawSelectTeam`, `RedrawPlayerSelect`, `ClearMessageArea`, `ClearTextMapBottom`, and the MultiPlayer 5 messages `Multi5SocketMsg` / `Multi5ScopeMsg` / `Multi5MouseMsg` (named from their strings).
 
 ## Unsure
 

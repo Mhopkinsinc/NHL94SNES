@@ -1441,7 +1441,7 @@ $80A3CB,.loop,CODE_80A3CB,new,branch target only used in this routine,src/routin
 $80D061,.1,CODE_80D061,new,branch target only used in this routine,src/routines/shootout/PrintShooterList.asm
 $9FBF59,.1,CODE_9FBF59,new,branch target only used in this routine,src/routines/snes/CODE_9FBEFD.asm
 $9FBF74,.rtl,CODE_9FBF74,new,branch target only used in this routine,src/routines/snes/CODE_9FBEFD.asm
-$9DA496,.1,CODE_9DA496,new,branch target only used in this routine,src/routines/snes/CODE_9DA0D5.asm
+$9DA496,.1,CODE_9DA496,new,branch target only used in this routine,src/routines/hockey/PlayerSelect.asm
 $9DBA23,.rts,CODE_9DBA23,new,branch target only used in this routine,src/routines/snes/CODE_9DBA13.asm
 $9F983A,.1,CODE_9F983A,new,branch target only used in this routine,src/routines/stats/AttribStatus.asm
 $9E9A38,.1,CODE_9E9A38,new,branch target only used in this routine,src/routines/snes/CODE_9E9A11.asm
@@ -2197,7 +2197,7 @@ $9DA33F,.loop2,CODE_9DA33F,new,branch target only used in this routine,src/routi
 $9DA34D,.loop3,CODE_9DA34D,new,branch target only used in this routine,src/routines/snes/CODE_9DA316.asm
 $9DA35C,.2,CODE_9DA35C,new,branch target only used in this routine,src/routines/snes/CODE_9DA316.asm
 $9DA35F,.3,CODE_9DA35F,new,branch target only used in this routine,src/routines/snes/CODE_9DA316.asm
-$9DAE96,.1,CODE_9DAE96,new,branch target only used in this routine,src/routines/snes/CODE_9DAE6D.asm
+$9DAE96,.1,CODE_9DAE96,new,branch target only used in this routine,src/routines/hockey/DrawSelectTeam.asm
 $9EE030,.1,CODE_9EE030,new,branch target only used in this routine,src/routines/snes/CODE_9EE022.asm
 $9EE04C,.2,CODE_9EE04C,new,branch target only used in this routine,src/routines/snes/CODE_9EE022.asm
 $9EE072,.3,CODE_9EE072,new,branch target only used in this routine,src/routines/snes/CODE_9EE022.asm
@@ -2802,7 +2802,7 @@ $9DB7CF,.t1,CODE_9DB7CF,new,continued in the previous routine,src/routines/snes/
 $9DB7B4,.t1,CODE_9DB7B4,new,continued in the previous routine,src/routines/snes/CODE_9DB7A0.asm
 $9DB42C,.t1,CODE_9DB42C,new,continued in the previous routine,src/routines/hockey/TitleScreen.asm
 $9DB3F7,.t1,CODE_9DB3F7,new,continued in the previous routine,src/routines/hockey/TitleScreen.asm
-$9DAEC9,.t1,CODE_9DAEC9,new,continued in the previous routine,src/routines/snes/CODE_9DAE6D.asm
+$9DAEC9,.t1,CODE_9DAEC9,new,continued in the previous routine,src/routines/hockey/DrawSelectTeam.asm
 $9DAC6C,.t1,CODE_9DAC6C,new,continued in the previous routine,src/routines/hockey/setoptions.asm
 $9DAC22,.t1,CODE_9DAC22,new,continued in the previous routine,src/routines/snes/CODE_9DABC1.asm
 $9DAB18,.t1,CODE_9DAB18,new,continued in the previous routine,src/routines/snes/CODE_9DAB04.asm
@@ -2814,7 +2814,7 @@ $9DA886,.t1,CODE_9DA886,new,continued in the previous routine,src/routines/snes/
 $9DA7A3,.t1,CODE_9DA7A3,new,continued in the previous routine,src/routines/snes/CODE_9DA793.asm
 $9DA770,.t1,CODE_9DA770,new,continued in the previous routine,src/routines/snes/CODE_9DA768.asm
 $9DA73A,.t1,CODE_9DA73A,new,continued in the previous routine,src/routines/snes/CODE_9DA724.asm
-$9DA49E,.t1,CODE_9DA49E,new,continued in the previous routine,src/routines/snes/CODE_9DA0D5.asm
+$9DA49E,.t1,CODE_9DA49E,new,continued in the previous routine,src/routines/hockey/PlayerSelect.asm
 $9DA3FC,.t1,CODE_9DA3FC,new,continued in the previous routine,src/routines/snes/CODE_9DA3A1.asm
 $9DA363,.t1,CODE_9DA363,new,continued in the previous routine,src/routines/snes/CODE_9DA316.asm
 $9DA30B,.t1,CODE_9DA30B,new,continued in the previous routine,src/routines/snes/CODE_9DA2EE.asm
@@ -3499,7 +3499,7 @@ $9DAB04,.t1,CODE_9DAB04,new,continued in the previous routine,src/routines/hocke
 $9DA74E,.t3,CODE_9DA74E,new,continued in the previous routine,src/routines/snes/CODE_9DA724.asm
 $9DA316,.t3,CODE_9DA316,new,continued in the previous routine,src/routines/snes/CODE_9DA2E6.asm
 $9DA2D5,.t3,CODE_9DA2D5,new,continued in the previous routine,src/routines/snes/CODE_9DA2AB.asm
-$9DA0EB,.t1,CODE_9DA0EB,new,continued in the previous routine,src/routines/snes/CODE_9DA0D5.asm
+$9DA0EB,.t1,CODE_9DA0EB,new,continued in the previous routine,src/routines/hockey/PlayerSelect.asm
 $9D9BB6,.t3,CODE_9D9BB6,new,continued in the previous routine,src/routines/snes/CODE_9D9A5C.asm
 $9D9AA8,.t2,CODE_9D9AA8,new,continued in the previous routine,src/routines/snes/CODE_9D9A5C.asm
 $9D9977,.t3,CODE_9D9977,new,continued in the previous routine,src/routines/hockey/FigureJoy.asm
@@ -3606,7 +3606,7 @@ $9BAF56,.t5,CODE_9BAF56,new,continued in the previous routine,src/routines/snes/
 $9C8CA1,.t5,CODE_9C8CA1,new,continued in the previous routine,src/routines/snes/CODE_9C8C22.asm
 $9DBED6,.t2,CODE_9DBED6,new,continued in the previous routine,src/routines/snes/CODE_9DBE79.asm
 $9DA724,.t5,CODE_9DA724,new,continued in the previous routine,src/routines/hockey/setoptions.asm
-$9DA2AB,.t5,CODE_9DA2AB,new,continued in the previous routine,src/routines/snes/CODE_9DA0D5.asm
+$9DA2AB,.t5,CODE_9DA2AB,new,continued in the previous routine,src/routines/hockey/PlayerSelect.asm
 $9ECA37,.t5,CODE_9ECA37,new,continued in the previous routine,src/routines/hockey/UpdateScoutingDisplay.asm
 $9EC265,.t5,CODE_9EC265,new,continued in the previous routine,src/routines/penalty/prefmes.asm
 $9FEA8E,.t5,CODE_9FEA8E,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
@@ -3616,7 +3616,7 @@ $80CFEE,.t6,CODE_80CFEE,new,continued in the previous routine,src/routines/snes/
 $9BAE9D,.t1,CODE_9BAE9D,new,continued in the previous routine,src/routines/hockey/ReplayMode.asm
 $9C8CE5,.t6,CODE_9C8CE5,new,continued in the previous routine,src/routines/snes/CODE_9C8C22.asm
 $9DA768,.t6,CODE_9DA768,new,continued in the previous routine,src/routines/hockey/setoptions.asm
-$9DA2E6,.t6,CODE_9DA2E6,new,continued in the previous routine,src/routines/snes/CODE_9DA0D5.asm
+$9DA2E6,.t6,CODE_9DA2E6,new,continued in the previous routine,src/routines/hockey/PlayerSelect.asm
 $9FEA9A,.t6,CODE_9FEA9A,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
 $9FE259,.t6,CODE_9FE259,new,continued in the previous routine,src/routines/snes/CODE_9FE1FA.asm
 $9FE16F,.t6,CODE_9FE16F,new,continued in the previous routine,src/routines/snes/CODE_9FE11D.asm
@@ -4408,7 +4408,7 @@ $9D94DD,.4,CODE_9D94DD,new,branch target only used in this routine,src/routines/
 $9D94F2,.5,CODE_9D94F2,new,branch target only used in this routine,src/routines/hockey/PlayoffScreen.asm
 $9D9FFB,.2,CODE_9D9FFB,new,branch target only used in this routine,src/routines/snes/CODE_9D9F28.asm
 $9D9FFD,.3,CODE_9D9FFD,new,branch target only used in this routine,src/routines/snes/CODE_9D9F28.asm
-$9DA3DD,.4,CODE_9DA3DD,new,branch target only used in this routine,src/routines/snes/CODE_9DA0D5.asm
+$9DA3DD,.4,CODE_9DA3DD,new,branch target only used in this routine,src/routines/hockey/PlayerSelect.asm
 $9DA704,.2,CODE_9DA704,new,branch target only used in this routine,src/routines/hockey/setoptions.asm
 $9DAACC,.1,CODE_9DAACC,new,branch target only used in this routine,src/routines/hockey/setoptions.asm
 $9DAB0B,.5,CODE_9DAB0B,new,branch target only used in this routine,src/routines/hockey/setoptions.asm
@@ -5136,14 +5136,14 @@ $9D8292,.10,CODE_9D8292,new,"part of CODE_9D8129, used only by it",src/routines/
 $9D8330,.11,CODE_9D8330,new,"part of CODE_9D8129, used only by it",src/routines/hockey/ScoutingReport.asm
 $9D842F,.12,CODE_9D842F,new,"part of CODE_9D8129, used only by it",src/routines/hockey/ScoutingReport.asm
 $9D9494,.7,CODE_9D9494,new,"part of CODE_9D93E3, used only by it",src/routines/hockey/PlayoffScreen.asm
-$9DA18A,.3,CODE_9DA18A,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
-$9DA29C,.4,CODE_9DA29C,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
-$9DA2F5,.5,CODE_9DA2F5,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
-$9DA44B,.6,CODE_9DA44B,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
-$9DA45A,.7,CODE_9DA45A,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
-$9DA462,.8,CODE_9DA462,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
-$9DA46E,.9,CODE_9DA46E,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
-$9DA486,.10,CODE_9DA486,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
+$9DA18A,.3,CODE_9DA18A,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
+$9DA29C,.4,CODE_9DA29C,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
+$9DA2F5,.5,CODE_9DA2F5,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
+$9DA44B,.6,CODE_9DA44B,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
+$9DA45A,.7,CODE_9DA45A,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
+$9DA462,.8,CODE_9DA462,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
+$9DA46E,.9,CODE_9DA46E,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
+$9DA486,.10,CODE_9DA486,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
 $9DA8B8,.7,CODE_9DA8B8,new,"part of CODE_9DA5CA, used only by it",src/routines/hockey/setoptions.asm
 $9DA920,.8,CODE_9DA920,new,"part of CODE_9DA5CA, used only by it",src/routines/hockey/setoptions.asm
 $9DA921,.9,CODE_9DA921,new,"part of CODE_9DA5CA, used only by it",src/routines/hockey/setoptions.asm
@@ -5383,8 +5383,8 @@ $9D9B9B,.9,CODE_9D9B9B,new,"part of CODE_9D9A5C, used only by it",src/routines/s
 $9D9BFC,.10,CODE_9D9BFC,new,"part of CODE_9D9A5C, used only by it",src/routines/snes/CODE_9D9A5C.asm
 $9D9C2A,.11,CODE_9D9C2A,new,"part of CODE_9D9A5C, used only by it",src/routines/snes/CODE_9D9A5C.asm
 $9D9CC2,.1,DATA8_9D9CC2,new,"part of CODE_9D9C97, used only by it",src/routines/hockey/DefaultMenus.asm
-$9DA570,.11,DATA8_9DA570,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
-$9DA580,.12,DATA8_9DA580,new,"part of CODE_9DA0D5, used only by it",src/routines/snes/CODE_9DA0D5.asm
+$9DA570,.11,DATA8_9DA570,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
+$9DA580,.12,DATA8_9DA580,new,"part of CODE_9DA0D5, used only by it",src/routines/hockey/PlayerSelect.asm
 $9DAC7F,.13,DATA8_9DAC7F,new,"part of CODE_9DA5CA, used only by it",src/routines/hockey/setoptions.asm
 $9DACD1,.14,DATA8_9DACD1,new,"part of CODE_9DA5CA, used only by it",src/routines/hockey/setoptions.asm
 $9DACDF,.15,DATA8_9DACDF,new,"part of CODE_9DA5CA, used only by it",src/routines/hockey/setoptions.asm
@@ -5553,3 +5553,11 @@ $9DBDA8,PlayerCardsWait,CODE_9DBDA8,new,"ShowPlayerCards: no key, back to the lo
 $9DBDAA,PlayerCardsExit,CODE_9DBDAA,new,ShowPlayerCards: start leaves (folded into ShowPlayerCards),src/routines/hockey/ShowPlayerCards.asm
 $9DD992,ClearTextMap2,CODE_9DD992,new,Behavior: ClearTextMap for the second map ($7E35AC blank tile),src/routines/snes/ClearTextMap2.asm
 $9DC697,LoadPlayerCardScreen,CODE_9DC697,new,Behavior: called only from the start of ShowPlayerCards,src/routines/hockey/LoadPlayerCardScreen.asm
+$9DA0D5,PlayerSelect,CODE_9DA0D5,new,"Behavior: setoptions jumps to it; prints PlayerSelectTitle, DrawMatchupPictures, FigureJoy with the chosen sides, the MultiPlayer 5 checks (Multi5Init)",src/routines/hockey/PlayerSelect.asm
+$9DAE6D,DrawSelectTeam,CODE_9DAE6D,new,Behavior: PlayerSelect calls it for the visitors and the home team,src/routines/hockey/DrawSelectTeam.asm
+$9DAF84,RedrawPlayerSelect,CODE_9DAF84,new,Behavior: PlayerSelect calls it before a MultiPlayer 5 message,src/routines/hockey/RedrawPlayerSelect.asm
+$9DAFAD,ClearMessageArea,CODE_9DAFAD,new,Behavior: setoptions calls it before a MultiPlayer 5 message,src/routines/hockey/ClearMessageArea.asm
+$9DB0FD,ClearTextMapBottom,CODE_9DB0FD,new,Behavior: MemFill of $500 bytes from $7E3AF4 (textmap + 12 rows),src/routines/snes/ClearTextMapBottom.asm
+$9DAFB2,Multi5SocketMsg,CODE_9DAFB2,new,Behavior: the three strings it prints,src/routines/hockey/Multi5SocketMsg.asm
+$9DB005,Multi5ScopeMsg,CODE_9DB005,new,Behavior: the three strings it prints,src/routines/hockey/Multi5ScopeMsg.asm
+$9DB058,Multi5MouseMsg,CODE_9DB058,new,Behavior: the three strings it prints,src/routines/hockey/Multi5MouseMsg.asm
