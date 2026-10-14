@@ -233,7 +233,7 @@ RenderBigText:
 	bne .loop2
 .1xx:
 	ldy.b $02
-	and.w $9B8B,y
+	and.w .8+16,y
 	ora.l $7E4EF4,x
 	sta.l $7E4EF4,x
 	inx

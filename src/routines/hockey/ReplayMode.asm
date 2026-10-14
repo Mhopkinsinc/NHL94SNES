@@ -400,11 +400,11 @@ ReplayMode:
 	xba
 	and.w #$FF00
 	sta.w $0EC3,x
-	lda.w $AE59,y
+	lda.w .14+2,y
 	clc
 	adc.w $0DD7
 	sta.b d3
-	lda.w $AE59,y
+	lda.w .14+2,y
 	xba
 	and.w #$FF00
 	sta.w $0EE3,x

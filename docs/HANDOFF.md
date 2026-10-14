@@ -72,6 +72,7 @@
 - Entry and exit labels: `Mul8U_mul`, `Mul8U_res`, `Mul8XS_x`, `Mul8XS_neg`, `Mul8S_swap`, `DrawSpriteExit`, `GameStatsKeys`, `GameStatsRtl`; the four one-instruction CODE_ files among them folded into the routine before them.
 - Player stats from behavior: `DrawPlayerStatsPage`, `SortPlayerStats`, `ComparePlayerStats`, `FillPlayerStatsPage`, `SetStatColumnPal`.
 - Sprite text from behavior: `PrintTeamSprites` (its raw `$9649` table is TeamPlaceNames now), `PrintStringSprites`, `PrintSmallLetterSprites`.
+- Raw table reads under phk / plb written as locals: ReplayMode `.14+2` (the y steps), RenderBigText `.8+16` (the second mask half). The DrawSprite `$E67C`-style operands are left: DB is not $80 there, so they are not the bank $80 credit names they would resolve to.
 
 ## Unsure
 
