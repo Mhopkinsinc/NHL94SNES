@@ -658,3 +658,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Tails: `CODE_` files reached only by a branch or jump from the routine before them are folded into it; labels used only in one scope are locals (name_map rows "continued in the previous routine" / "branch target only used in this routine"). MATCH.
 - Locals: `CODE_` labels inside a routine file that nothing outside its scope uses are locals (named labels stay global). MATCH.
 - Whole bodies: nine routines named from the unused 93S routine whose whole body and callers agree (Endfaceoff, NewPO, resetplstuff, puckglue, InitSortObjects, shotdiradj, CalcAngleOffset, printteamname, PrintTeamNameAndScore). MATCH.
+- Calls: updateanim, wallcollb, doinput, dopass and ResetClock named from the 93S routine called at the same place. MATCH.

@@ -13,7 +13,7 @@ CODE_9F8433:
 	stz.w $0CC7
 	jsl.l CODE_8086A9
 	jsl.l CODE_9FB8B4
-	jsl.l CODE_9FC683
+	jsl.l ResetClock
 	jsl.l CODE_9B9B6B
 	lda.w $1EBB
 	beq .4

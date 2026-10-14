@@ -132,7 +132,7 @@ checkwallcoll:
 	lda.w #$00FF
 .4:
 	sta.b d1
-	jsl.l CODE_9E8E91
+	jsl.l wallcollb
 .6:
 	pla
 	sta.b d2
@@ -151,7 +151,7 @@ checkwallcoll:
 	lda.b d3
 	dec a
 	cmp.b d5
-	bpl CODE_9E8E91
+	bpl wallcollb
 	lda.w #$FF01
 	sta.b d0
 	lda.w #$0000
@@ -159,14 +159,14 @@ checkwallcoll:
 	sbc.b d5
 	dec a
 	cmp.b d3
-	bpl CODE_9E8E91
+	bpl wallcollb
 	stz.b d0
 	lda.w #$FF01
 	sta.b d1
 	lda.b d2
 	dec a
 	cmp.b d4
-	bpl CODE_9E8E91
+	bpl wallcollb
 	lda.w #$00FF
 	sta.b d1
 	lda.w #$0000
@@ -174,6 +174,6 @@ checkwallcoll:
 	sbc.b d4
 	dec a
 	cmp.b d2
-	bpl CODE_9E8E91
+	bpl wallcollb
 .rtl:
 	rtl

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FC683:
+; Set the period length and stop the clock
+ResetClock:
 	jsl.l GetPeriodTime
 	lda.w $1D81
 	beq .t1

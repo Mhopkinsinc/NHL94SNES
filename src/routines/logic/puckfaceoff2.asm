@@ -386,7 +386,7 @@ puckfaceoff2:
 	lda.w #$EA1A
 .15:
 	jsl.l SetSPAFromA
-	jsl.l CODE_9EA419
+	jsl.l updateanim
 .16:
 	inc.b a3
 	inc.b a3

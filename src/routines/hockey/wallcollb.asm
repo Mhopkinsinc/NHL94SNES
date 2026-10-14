@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E8E91:
+; Object X hits a wall: the puck may go over the glass and out of play, else it bounces
+wallcollb:
 	cpx.w #$001C
 	bne CODE_9E8E8B
 	lda.w $0DF9

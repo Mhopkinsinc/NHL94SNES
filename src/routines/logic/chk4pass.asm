@@ -113,7 +113,7 @@ chk4pass:
 	iny
 	dec.b d3
 	bpl .4x
-	jsl.l CODE_9EE9BF
+	jsl.l dopass
 	lda.w position,x
 	beq .t1
 	pla

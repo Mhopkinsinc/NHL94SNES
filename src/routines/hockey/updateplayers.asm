@@ -42,7 +42,7 @@ updateplayers:
 .t3:
 	stx.w $0B9D
 .8:
-	jsl.l CODE_9EA419
+	jsl.l updateanim
 	lda.w $1203,x
 	sec
 	sbc.w $0ADB
@@ -373,7 +373,7 @@ updateplayers:
 	iny
 	iny
 	sty.b d4
-	jsl.l CODE_9FC1B9
+	jsl.l doinput
 	bra .t1xxxxx
 
 .t1xxxxx:

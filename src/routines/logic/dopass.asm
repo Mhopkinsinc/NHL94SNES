@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EE9BF:
+; Pass the puck in the pass direction, to the best teammate there if any
+dopass:
 	stz.w $0BAB
 	lda.w #$0004
 	trb.w sflags

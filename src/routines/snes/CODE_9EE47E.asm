@@ -118,7 +118,7 @@ CODE_9EE47E:
 	lda.w #$EF6E
 .7:
 	jsl.l SetSPAFromA
-	jsl.l CODE_9EA419
+	jsl.l updateanim
 	lda.w #$0002
 	sta.w SPAcnt,x
 	jsl.l CODE_9EE220

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FC1B9:
+; Pad input for player X
+doinput:
 	jsl.l CODE_9BC174
 	dec.b d4
 	dec.b d4

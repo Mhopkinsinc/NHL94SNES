@@ -77,7 +77,7 @@ PeriodOver:
 	lda.w #$0004
 	sta.w gsp
 .3:
-	jsl.l CODE_9FC683
+	jsl.l ResetClock
 	jsl.l UpdateScores
 	jsl.l Intermission
 	lda.w gsp
