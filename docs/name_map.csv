@@ -6066,3 +6066,163 @@ $9CEFE0,EditLinesScreenPos2,DATA8_9CEFE0,new,"print position string, named from 
 $9CEFE5,PrintLineNamesPos,DATA8_9CEFE5,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
 $9CEFEA,DrawEditLinesTopPos,DATA8_9CEFEA,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
 $9CEFEF,DrawEditLinesTopPos2,DATA8_9CEFEF,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$99C64E,NoPicGoalie,DATA8_99C64E,94G,"generic photo used by 28 PlayerPhotoTable slots, as 94G NoPicSkater / NoPicGoalie",src/data/gfx/NoPicGoalie.asm
+$99E1E8,NoPicSkater1,DATA8_99E1E8,94G,"generic photo used by 169 PlayerPhotoTable slots, as 94G NoPicSkater / NoPicGoalie",src/data/gfx/NoPicSkater1.asm
+$9AB13D,NoPicSkater2,DATA8_9AB13D,94G,"generic photo used by 161 PlayerPhotoTable slots, as 94G NoPicSkater / NoPicGoalie",src/data/gfx/NoPicSkater2.asm
+$8FFE74,NoPicSkater3,DATA8_8FFE74,94G,"generic photo used by 167 PlayerPhotoTable slots, as 94G NoPicSkater / NoPicGoalie",src/data/gfx/NoPicSkater3.asm
+$99AC36,CardGuyHebert,DATA8_99AC36,94G,the photo of Guy Hebert (PlayerPhotoTable Anaheim 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardGuyHebert.asm
+$979931,CardTroyLoney,DATA8_979931,94G,the photo of Troy Loney (PlayerPhotoTable Anaheim 3); named Card<player> as 94G names its player pictures,src/data/gfx/CardTroyLoney.asm
+$98BCF3,CardTerryYake,DATA8_98BCF3,94G,the photo of Terry Yake (PlayerPhotoTable Anaheim 5); named Card<player> as 94G names its player pictures,src/data/gfx/CardTerryYake.asm
+$98D19D,CardAnatoliSemenov,DATA8_98D19D,94G,the photo of Anatoli Semenov (PlayerPhotoTable Anaheim 7); named Card<player> as 94G names its player pictures,src/data/gfx/CardAnatoliSemenov.asm
+$98CD0A,CardAlexeiKasatonov,DATA8_98CD0A,94G,the photo of Alexei Kasatonov (PlayerPhotoTable Anaheim 11); named Card<player> as 94G names its player pictures,src/data/gfx/CardAlexeiKasatonov.asm
+$99BFD5,CardRandyLadouceur,DATA8_99BFD5,94G,the photo of Randy Ladouceur (PlayerPhotoTable Anaheim 13); named Card<player> as 94G names its player pictures,src/data/gfx/CardRandyLadouceur.asm
+$97F28A,CardAndyMoog,DATA8_97F28A,94G,the photo of Andy Moog (PlayerPhotoTable Boston 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardAndyMoog.asm
+$98F814,CardAdamOates,DATA8_98F814,94G,"the photo of Adam Oates (PlayerPhotoTable Boston 2, AllStarsEast 6); named Card<player> as 94G names its player pictures",src/data/gfx/CardAdamOates.asm
+$98E3CD,CardJoeJuneau,DATA8_98E3CD,94G,the photo of Joe Juneau (PlayerPhotoTable Boston 6); named Card<player> as 94G names its player pictures,src/data/gfx/CardJoeJuneau.asm
+$999867,CardCamNeely,DATA8_999867,94G,the photo of Cam Neely (PlayerPhotoTable Boston 11); named Card<player> as 94G names its player pictures,src/data/gfx/CardCamNeely.asm
+$998000,CardRayBourque,DATA8_998000,94G,"the photo of Ray Bourque (PlayerPhotoTable Boston 17, AllStarsEast 18); named Card<player> as 94G names its player pictures",src/data/gfx/CardRayBourque.asm
+$99D102,CardDonSweeney,DATA8_99D102,94G,the photo of Don Sweeney (PlayerPhotoTable Boston 18); named Card<player> as 94G names its player pictures,src/data/gfx/CardDonSweeney.asm
+$998D5D,CardGrantFuhr,DATA8_998D5D,94G,"the photo of Grant Fuhr (PlayerPhotoTable Buffalo 0, AllStarsEast 1); named Card<player> as 94G names its player pictures",src/data/gfx/CardGrantFuhr.asm
+$99B2C7,CardPatLaFontaine,DATA8_99B2C7,94G,"the photo of Pat LaFontaine (PlayerPhotoTable Buffalo 3, AllStarsEast 9); named Card<player> as 94G names its player pictures",src/data/gfx/CardPatLaFontaine.asm
+$989A18,CardDaleHawerchuk,DATA8_989A18,94G,the photo of Dale Hawerchuk (PlayerPhotoTable Buffalo 4); named Card<player> as 94G names its player pictures,src/data/gfx/CardDaleHawerchuk.asm
+$99C1FE,CardAlexnderMogilny,DATA8_99C1FE,94G,"the photo of Alexnder Mogilny (PlayerPhotoTable Buffalo 12, AllStarsEast 15); named Card<player> as 94G names its player pictures",src/data/gfx/CardAlexnderMogilny.asm
+$98A5CD,CardDougBodger,DATA8_98A5CD,94G,the photo of Doug Bodger (PlayerPhotoTable Buffalo 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardDougBodger.asm
+$98B16A,CardPetrSvoboda,DATA8_98B16A,94G,the photo of Petr Svoboda (PlayerPhotoTable Buffalo 17); named Card<player> as 94G names its player pictures,src/data/gfx/CardPetrSvoboda.asm
+$97BA0D,CardMikeVernon,DATA8_97BA0D,94G,the photo of Mike Vernon (PlayerPhotoTable Calgary 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardMikeVernon.asm
+$99CCBA,CardJoeNieuwendyk,DATA8_99CCBA,94G,the photo of Joe Nieuwendyk (PlayerPhotoTable Calgary 2); named Card<player> as 94G names its player pictures,src/data/gfx/CardJoeNieuwendyk.asm
+$99AA05,CardGaryRoberts,DATA8_99AA05,94G,"the photo of Gary Roberts (PlayerPhotoTable Calgary 5, AllStarsWest 9); named Card<player> as 94G names its player pictures",src/data/gfx/CardGaryRoberts.asm
+$97EB52,CardTheorenFleury,DATA8_97EB52,94G,"the photo of Theoren Fleury (PlayerPhotoTable Calgary 10, AllStarsWest 11); named Card<player> as 94G names its player pictures",src/data/gfx/CardTheorenFleury.asm
+$978E95,CardGarySuter,DATA8_978E95,94G,"the photo of Gary Suter (PlayerPhotoTable Calgary 14, AllStarsWest 17); named Card<player> as 94G names its player pictures",src/data/gfx/CardGarySuter.asm
+$97E8E8,CardAlMacInnis,DATA8_97E8E8,94G,the photo of Al MacInnis (PlayerPhotoTable Calgary 15); named Card<player> as 94G names its player pictures,src/data/gfx/CardAlMacInnis.asm
+$97A600,CardEdBelfour,DATA8_97A600,94G,"the photo of Ed Belfour (PlayerPhotoTable Chicago 0, AllStarsWest 0); named Card<player> as 94G names its player pictures",src/data/gfx/CardEdBelfour.asm
+$98EA95,CardJeremyRoenick,DATA8_98EA95,94G,"the photo of Jeremy Roenick (PlayerPhotoTable Chicago 2, AllStarsWest 5); named Card<player> as 94G names its player pictures",src/data/gfx/CardJeremyRoenick.asm
+$98A821,CardMichelGoulet,DATA8_98A821,94G,the photo of Michel Goulet (PlayerPhotoTable Chicago 6); named Card<player> as 94G names its player pictures,src/data/gfx/CardMichelGoulet.asm
+$97CDF3,CardSteveLarmer,DATA8_97CDF3,94G,the photo of Steve Larmer (PlayerPhotoTable Chicago 10); named Card<player> as 94G names its player pictures,src/data/gfx/CardSteveLarmer.asm
+$99B4F7,CardChrisChelios,DATA8_99B4F7,94G,"the photo of Chris Chelios (PlayerPhotoTable Chicago 16, AllStarsWest 20); named Card<player> as 94G names its player pictures",src/data/gfx/CardChrisChelios.asm
+$998B25,CardSteveSmith,DATA8_998B25,94G,"the photo of Steve Smith (PlayerPhotoTable Chicago 17, AllStarsWest 23); named Card<player> as 94G names its player pictures",src/data/gfx/CardSteveSmith.asm
+$96FD81,CardJonCasey,DATA8_96FD81,94G,the photo of Jon Casey (PlayerPhotoTable Dallas 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardJonCasey.asm
+$97AD8B,CardMikeModano,DATA8_97AD8B,94G,"the photo of Mike Modano (PlayerPhotoTable Dallas 2, AllStarsWest 4); named Card<player> as 94G names its player pictures",src/data/gfx/CardMikeModano.asm
+$9A8C2C,CardDaveGagner,DATA8_9A8C2C,94G,the photo of Dave Gagner (PlayerPhotoTable Dallas 3); named Card<player> as 94G names its player pictures,src/data/gfx/CardDaveGagner.asm
+$97F023,CardRussCourtnall,DATA8_97F023,94G,the photo of Russ Courtnall (PlayerPhotoTable Dallas 9); named Card<player> as 94G names its player pictures,src/data/gfx/CardRussCourtnall.asm
+$98ECD6,CardMarkTinordi,DATA8_98ECD6,94G,the photo of Mark Tinordi (PlayerPhotoTable Dallas 15); named Card<player> as 94G names its player pictures,src/data/gfx/CardMarkTinordi.asm
+$98A120,CardTommySjodin,DATA8_98A120,94G,the photo of Tommy Sjodin (PlayerPhotoTable Dallas 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardTommySjodin.asm
+$98F5D7,CardTimCheveldae,DATA8_98F5D7,94G,"the photo of Tim Cheveldae (PlayerPhotoTable Detroit 0, AllStarsWest 1); named Card<player> as 94G names its player pictures",src/data/gfx/CardTimCheveldae.asm
+$99C426,CardSteveYzerman,DATA8_99C426,94G,"the photo of Steve Yzerman (PlayerPhotoTable Detroit 2, AllStarsWest 3); named Card<player> as 94G names its player pictures",src/data/gfx/CardSteveYzerman.asm
+$90FDE2,CardSergeiFedorov,DATA8_90FDE2,94G,the photo of Sergei Fedorov (PlayerPhotoTable Detroit 3); named Card<player> as 94G names its player pictures,src/data/gfx/CardSergeiFedorov.asm
+$979BC5,CardDinoCiccarelli,DATA8_979BC5,94G,the photo of Dino Ciccarelli (PlayerPhotoTable Detroit 12); named Card<player> as 94G names its player pictures,src/data/gfx/CardDinoCiccarelli.asm
+$9A940F,CardPaulCoffey,DATA8_9A940F,94G,"the photo of Paul Coffey (PlayerPhotoTable Detroit 17, AllStarsWest 19); named Card<player> as 94G names its player pictures",src/data/gfx/CardPaulCoffey.asm
+$99FAB4,CardSteveChiasson,DATA8_99FAB4,94G,"the photo of Steve Chiasson (PlayerPhotoTable Detroit 18, AllStarsWest 24); named Card<player> as 94G names its player pictures",src/data/gfx/CardSteveChiasson.asm
+$9993FD,CardBillRanford,DATA8_9993FD,94G,the photo of Bill Ranford (PlayerPhotoTable Edmonton 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardBillRanford.asm
+$98D876,CardDougWeight,DATA8_98D876,94G,the photo of Doug Weight (PlayerPhotoTable Edmonton 1); named Card<player> as 94G names its player pictures,src/data/gfx/CardDougWeight.asm
+$97BC8C,CardShayneCorson,DATA8_97BC8C,94G,the photo of Shayne Corson (PlayerPhotoTable Edmonton 7); named Card<player> as 94G names its player pictures,src/data/gfx/CardShayneCorson.asm
+$97C682,CardPetrKlima,DATA8_97C682,94G,the photo of Petr Klima (PlayerPhotoTable Edmonton 13); named Card<player> as 94G names its player pictures,src/data/gfx/CardPetrKlima.asm
+$98898F,CardDaveManson,DATA8_98898F,94G,"the photo of Dave Manson (PlayerPhotoTable Edmonton 15, AllStarsWest 22); named Card<player> as 94G names its player pictures",src/data/gfx/CardDaveManson.asm
+$99B097,CardIgorKravchuk,DATA8_99B097,94G,the photo of Igor Kravchuk (PlayerPhotoTable Edmonton 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardIgorKravchuk.asm
+$97C188,CardJohnVanbiesbrk,DATA8_97C188,94G,the photo of John Vanbiesbrk (PlayerPhotoTable Florida 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardJohnVanbiesbrk.asm
+$998479,CardScottMellanby,DATA8_998479,94G,the photo of Scott Mellanby (PlayerPhotoTable Florida 3); named Card<player> as 94G names its player pictures,src/data/gfx/CardScottMellanby.asm
+$989EC9,CardBrianSkrudland,DATA8_989EC9,94G,the photo of Brian Skrudland (PlayerPhotoTable Florida 4); named Card<player> as 94G names its player pictures,src/data/gfx/CardBrianSkrudland.asm
+$97A0E8,CardAndreiLomakin,DATA8_97A0E8,94G,the photo of Andrei Lomakin (PlayerPhotoTable Florida 7); named Card<player> as 94G names its player pictures,src/data/gfx/CardAndreiLomakin.asm
+$97F9BC,CardJoeCirella,DATA8_97F9BC,94G,the photo of Joe Cirella (PlayerPhotoTable Florida 11); named Card<player> as 94G names its player pictures,src/data/gfx/CardJoeCirella.asm
+$97D06C,CardGordMurphy,DATA8_97D06C,94G,the photo of Gord Murphy (PlayerPhotoTable Florida 13); named Card<player> as 94G names its player pictures,src/data/gfx/CardGordMurphy.asm
+$98DD01,CardSeanBurke,DATA8_98DD01,94G,the photo of Sean Burke (PlayerPhotoTable Hartford 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardSeanBurke.asm
+$99EE68,CardAndrewCassels,DATA8_99EE68,94G,the photo of Andrew Cassels (PlayerPhotoTable Hartford 3); named Card<player> as 94G names its player pictures,src/data/gfx/CardAndrewCassels.asm
+$98ACC7,CardGeoffSanderson,DATA8_98ACC7,94G,the photo of Geoff Sanderson (PlayerPhotoTable Hartford 7); named Card<player> as 94G names its player pictures,src/data/gfx/CardGeoffSanderson.asm
+$98B608,CardPatVerbeek,DATA8_98B608,94G,the photo of Pat Verbeek (PlayerPhotoTable Hartford 12); named Card<player> as 94G names its player pictures,src/data/gfx/CardPatVerbeek.asm
+$999F04,CardZarleyZalapski,DATA8_999F04,94G,"the photo of Zarley Zalapski (PlayerPhotoTable Hartford 17, AllStarsEast 23); named Card<player> as 94G names its player pictures",src/data/gfx/CardZarleyZalapski.asm
+$98AF19,CardEricWeinrich,DATA8_98AF19,94G,the photo of Eric Weinrich (PlayerPhotoTable Hartford 18); named Card<player> as 94G names its player pictures,src/data/gfx/CardEricWeinrich.asm
+$97E40B,CardKellyHrudey,DATA8_97E40B,94G,the photo of Kelly Hrudey (PlayerPhotoTable LosAngeles 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardKellyHrudey.asm
+$97DF28,CardWayneGretzky,DATA8_97DF28,94G,"the photo of Wayne Gretzky (PlayerPhotoTable LosAngeles 3, AllStarsWest 8); named Card<player> as 94G names its player pictures",src/data/gfx/CardWayneGretzky.asm
+$98D62E,CardLucRobitaille,DATA8_98D62E,94G,"the photo of Luc Robitaille (PlayerPhotoTable LosAngeles 7, AllStarsWest 10); named Card<player> as 94G names its player pictures",src/data/gfx/CardLucRobitaille.asm
+$97D7CC,CardTomasSandstrom,DATA8_97D7CC,94G,the photo of Tomas Sandstrom (PlayerPhotoTable LosAngeles 11); named Card<player> as 94G names its player pictures,src/data/gfx/CardTomasSandstrom.asm
+$97A887,CardRobBlake,DATA8_97A887,94G,the photo of Rob Blake (PlayerPhotoTable LosAngeles 15); named Card<player> as 94G names its player pictures,src/data/gfx/CardRobBlake.asm
+$97C8FE,CardMartyMcSorley,DATA8_97C8FE,94G,the photo of Marty McSorley (PlayerPhotoTable LosAngeles 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardMartyMcSorley.asm
+$9A862E,CardPatrickRoy,DATA8_9A862E,94G,"the photo of Patrick Roy (PlayerPhotoTable Montreal 0, AllStarsEast 0); named Card<player> as 94G names its player pictures",src/data/gfx/CardPatrickRoy.asm
+$99F8AC,CardKirkMuller,DATA8_99F8AC,94G,"the photo of Kirk Muller (PlayerPhotoTable Montreal 2, AllStarsEast 5); named Card<player> as 94G names its player pictures",src/data/gfx/CardKirkMuller.asm
+$97D557,CardVincentDamphousse,DATA8_97D557,94G,the photo of Vincent Damphousse (PlayerPhotoTable Montreal 6); named Card<player> as 94G names its player pictures,src/data/gfx/CardVincentDamphousse.asm
+$98CAC0,CardBrianBellows,DATA8_98CAC0,94G,the photo of Brian Bellows (PlayerPhotoTable Montreal 11); named Card<player> as 94G names its player pictures,src/data/gfx/CardBrianBellows.asm
+$9988EC,CardEricDesjardins,DATA8_9988EC,94G,the photo of Eric Desjardins (PlayerPhotoTable Montreal 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardEricDesjardins.asm
+$99DFCF,CardMattSchneider,DATA8_99DFCF,94G,the photo of Matt Schneider (PlayerPhotoTable Montreal 17); named Card<player> as 94G names its player pictures,src/data/gfx/CardMattSchneider.asm
+$9AA329,CardChrisTerreri,DATA8_9AA329,94G,the photo of Chris Terreri (PlayerPhotoTable NewJersey 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardChrisTerreri.asm
+$99D545,CardAlexnderSemak,DATA8_99D545,94G,the photo of Alexnder Semak (PlayerPhotoTable NewJersey 2); named Card<player> as 94G names its player pictures,src/data/gfx/CardAlexnderSemak.asm
+$9AA6D6,CardStephaneRicher,DATA8_9AA6D6,94G,the photo of Stephane Richer (PlayerPhotoTable NewJersey 11); named Card<player> as 94G names its player pictures,src/data/gfx/CardStephaneRicher.asm
+$97AB0A,CardClaudeLemieux,DATA8_97AB0A,94G,the photo of Claude Lemieux (PlayerPhotoTable NewJersey 12); named Card<player> as 94G names its player pictures,src/data/gfx/CardClaudeLemieux.asm
+$98F158,CardScottStevens,DATA8_98F158,94G,"the photo of Scott Stevens (PlayerPhotoTable NewJersey 17, AllStarsEast 22); named Card<player> as 94G names its player pictures",src/data/gfx/CardScottStevens.asm
+$988264,CardVachslavFetisov,DATA8_988264,94G,the photo of Vachslav Fetisov (PlayerPhotoTable NewJersey 18); named Card<player> as 94G names its player pictures,src/data/gfx/CardVachslavFetisov.asm
+$9986B3,CardGlennHealy,DATA8_9986B3,94G,the photo of Glenn Healy (PlayerPhotoTable NYIslanders 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardGlennHealy.asm
+$9A8225,CardPierreTurgeon,DATA8_9A8225,94G,"the photo of Pierre Turgeon (PlayerPhotoTable NYIslanders 1, AllStarsEast 8); named Card<player> as 94G names its player pictures",src/data/gfx/CardPierreTurgeon.asm
+$9991C8,CardBenoitHogue,DATA8_9991C8,94G,the photo of Benoit Hogue (PlayerPhotoTable NYIslanders 2); named Card<player> as 94G names its player pictures,src/data/gfx/CardBenoitHogue.asm
+$98A377,CardSteveThomas,DATA8_98A377,94G,the photo of Steve Thomas (PlayerPhotoTable NYIslanders 7); named Card<player> as 94G names its player pictures,src/data/gfx/CardSteveThomas.asm
+$99F079,CardVladimirMalakhov,DATA8_99F079,94G,the photo of Vladimir Malakhov (PlayerPhotoTable NYIslanders 14); named Card<player> as 94G names its player pictures,src/data/gfx/CardVladimirMalakhov.asm
+$97C405,CardDariusKasparitis,DATA8_97C405,94G,the photo of Darius Kasparitis (PlayerPhotoTable NYIslanders 15); named Card<player> as 94G names its player pictures,src/data/gfx/CardDariusKasparitis.asm
+$9A8E26,CardMikeRichter,DATA8_9A8E26,94G,the photo of Mike Richter (PlayerPhotoTable NYRangers 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardMikeRichter.asm
+$98BF41,CardMarkMessier,DATA8_98BF41,94G,"the photo of Mark Messier (PlayerPhotoTable NYRangers 1, AllStarsEast 4); named Card<player> as 94G names its player pictures",src/data/gfx/CardMarkMessier.asm
+$97B28D,CardEsaTikkanen,DATA8_97B28D,94G,the photo of Esa Tikkanen (PlayerPhotoTable NYRangers 5); named Card<player> as 94G names its player pictures,src/data/gfx/CardEsaTikkanen.asm
+$98CF54,CardMikeGartner,DATA8_98CF54,94G,"the photo of Mike Gartner (PlayerPhotoTable NYRangers 9, AllStarsEast 13); named Card<player> as 94G names its player pictures",src/data/gfx/CardMikeGartner.asm
+$979406,CardBrianLeetch,DATA8_979406,94G,"the photo of Brian Leetch (PlayerPhotoTable NYRangers 15, AllStarsEast 19); named Card<player> as 94G names its player pictures",src/data/gfx/CardBrianLeetch.asm
+$9884C8,CardJamesPatrick,DATA8_9884C8,94G,the photo of James Patrick (PlayerPhotoTable NYRangers 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardJamesPatrick.asm
+$8CFDEC,CardPeterSidorkwicz,DATA8_8CFDEC,94G,the photo of Peter Sidorkwicz (PlayerPhotoTable Ottawa 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardPeterSidorkwicz.asm
+$99E619,CardJamieBaker,DATA8_99E619,94G,the photo of Jamie Baker (PlayerPhotoTable Ottawa 2); named Card<player> as 94G names its player pictures,src/data/gfx/CardJamieBaker.asm
+$99AE67,CardSylvainTurgeon,DATA8_99AE67,94G,the photo of Sylvain Turgeon (PlayerPhotoTable Ottawa 9); named Card<player> as 94G names its player pictures,src/data/gfx/CardSylvainTurgeon.asm
+$99F498,CardBobKudelski,DATA8_99F498,94G,the photo of Bob Kudelski (PlayerPhotoTable Ottawa 14); named Card<player> as 94G names its player pictures,src/data/gfx/CardBobKudelski.asm
+$99EA44,CardNormMaciver,DATA8_99EA44,94G,the photo of Norm Maciver (PlayerPhotoTable Ottawa 18); named Card<player> as 94G names its player pictures,src/data/gfx/CardNormMaciver.asm
+$99DB9B,CardBradShaw,DATA8_99DB9B,94G,the photo of Brad Shaw (PlayerPhotoTable Ottawa 19); named Card<player> as 94G names its player pictures,src/data/gfx/CardBradShaw.asm
+$988E50,CardTommySoderstrom,DATA8_988E50,94G,the photo of Tommy Soderstrom (PlayerPhotoTable Philadelphia 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardTommySoderstrom.asm
+$98DABC,CardEricLindros,DATA8_98DABC,94G,the photo of Eric Lindros (PlayerPhotoTable Philadelphia 3); named Card<player> as 94G names its player pictures,src/data/gfx/CardEricLindros.asm
+$98FC8E,CardRodBrindAmour,DATA8_98FC8E,94G,the photo of Rod BrindAmour (PlayerPhotoTable Philadelphia 4); named Card<player> as 94G names its player pictures,src/data/gfx/CardRodBrindAmour.asm
+$9897BF,CardMarkRecchi,DATA8_9897BF,94G,"the photo of Mark Recchi (PlayerPhotoTable Philadelphia 13, AllStarsEast 16); named Card<player> as 94G names its player pictures",src/data/gfx/CardMarkRecchi.asm
+$98C18E,CardGarryGalley,DATA8_98C18E,94G,the photo of Garry Galley (PlayerPhotoTable Philadelphia 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardGarryGalley.asm
+$99E831,CardDimitriYushkevich,DATA8_99E831,94G,the photo of Dimitri Yushkevich (PlayerPhotoTable Philadelphia 17); named Card<player> as 94G names its player pictures,src/data/gfx/CardDimitriYushkevich.asm
+$99F6A3,CardTomBarrasso,DATA8_99F6A3,94G,"the photo of Tom Barrasso (PlayerPhotoTable Pittsburgh 0, AllStarsEast 2); named Card<player> as 94G names its player pictures",src/data/gfx/CardTomBarrasso.asm
+$9AA500,CardMarioLemieux,DATA8_9AA500,94G,"the photo of Mario Lemieux (PlayerPhotoTable Pittsburgh 2, AllStarsEast 3); named Card<player> as 94G names its player pictures",src/data/gfx/CardMarioLemieux.asm
+$98E610,CardKevinStevens,DATA8_98E610,94G,"the photo of Kevin Stevens (PlayerPhotoTable Pittsburgh 6, AllStarsEast 10); named Card<player> as 94G names its player pictures",src/data/gfx/CardKevinStevens.asm
+$9A9F70,CardJaromirJagr,DATA8_9A9F70,94G,"the photo of Jaromir Jagr (PlayerPhotoTable Pittsburgh 9, AllStarsEast 11); named Card<player> as 94G names its player pictures",src/data/gfx/CardJaromirJagr.asm
+$9A8A31,CardLarryMurphy,DATA8_9A8A31,94G,"the photo of Larry Murphy (PlayerPhotoTable Pittsburgh 15, AllStarsEast 17); named Card<player> as 94G names its player pictures",src/data/gfx/CardLarryMurphy.asm
+$989566,CardUlfSamuelsson,DATA8_989566,94G,the photo of Ulf Samuelsson (PlayerPhotoTable Pittsburgh 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardUlfSamuelsson.asm
+$98EF17,CardRonHextall,DATA8_98EF17,94G,the photo of Ron Hextall (PlayerPhotoTable Quebec 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardRonHextall.asm
+$99A5A0,CardJoeSakic,DATA8_99A5A0,94G,"the photo of Joe Sakic (PlayerPhotoTable Quebec 2, AllStarsEast 7); named Card<player> as 94G names its player pictures",src/data/gfx/CardJoeSakic.asm
+$9A901F,CardMatsSundin,DATA8_9A901F,94G,the photo of Mats Sundin (PlayerPhotoTable Quebec 11); named Card<player> as 94G names its player pictures,src/data/gfx/CardMatsSundin.asm
+$9A801F,CardOwenNolan,DATA8_9A801F,94G,the photo of Owen Nolan (PlayerPhotoTable Quebec 12); named Card<player> as 94G names its player pictures,src/data/gfx/CardOwenNolan.asm
+$99D325,CardSteveDuchesne,DATA8_99D325,94G,"the photo of Steve Duchesne (PlayerPhotoTable Quebec 15, AllStarsEast 20); named Card<player> as 94G names its player pictures",src/data/gfx/CardSteveDuchesne.asm
+$97A374,CardCurtisLeschyshyn,DATA8_97A374,94G,the photo of Curtis Leschyshyn (PlayerPhotoTable Quebec 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardCurtisLeschyshyn.asm
+$98AA74,CardArtursIrbe,DATA8_98AA74,94G,the photo of Arturs Irbe (PlayerPhotoTable SanJose 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardArtursIrbe.asm
+$98B3B9,CardKellyKisio,DATA8_98B3B9,94G,the photo of Kelly Kisio (PlayerPhotoTable SanJose 3); named Card<player> as 94G names its player pictures,src/data/gfx/CardKellyKisio.asm
+$98FA51,CardJohanGarpenlov,DATA8_98FA51,94G,the photo of Johan Garpenlov (PlayerPhotoTable SanJose 8); named Card<player> as 94G names its player pictures,src/data/gfx/CardJohanGarpenlov.asm
+$98930C,CardPatFalloon,DATA8_98930C,94G,"the photo of Pat Falloon (PlayerPhotoTable SanJose 12, AllStarsWest 15); named Card<player> as 94G names its player pictures",src/data/gfx/CardPatFalloon.asm
+$98872C,CardDougWilson,DATA8_98872C,94G,the photo of Doug Wilson (PlayerPhotoTable SanJose 15); named Card<player> as 94G names its player pictures,src/data/gfx/CardDougWilson.asm
+$97F757,CardNeilWilkinson,DATA8_97F757,94G,the photo of Neil Wilkinson (PlayerPhotoTable SanJose 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardNeilWilkinson.asm
+$9A9218,CardCurtisJoseph,DATA8_9A9218,94G,the photo of Curtis Joseph (PlayerPhotoTable StLouis 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardCurtisJoseph.asm
+$9A99C9,CardCraigJanney,DATA8_9A99C9,94G,the photo of Craig Janney (PlayerPhotoTable StLouis 1); named Card<player> as 94G names its player pictures,src/data/gfx/CardCraigJanney.asm
+$99A36C,CardBrendanShanahan,DATA8_99A36C,94G,the photo of Brendan Shanahan (PlayerPhotoTable StLouis 9); named Card<player> as 94G names its player pictures,src/data/gfx/CardBrendanShanahan.asm
+$98F399,CardBrettHull,DATA8_98F399,94G,"the photo of Brett Hull (PlayerPhotoTable StLouis 10, AllStarsWest 12); named Card<player> as 94G names its player pictures",src/data/gfx/CardBrettHull.asm
+$98E18A,CardJeffBrown,DATA8_98E18A,94G,"the photo of Jeff Brown (PlayerPhotoTable StLouis 14, AllStarsWest 18); named Card<player> as 94G names its player pictures",src/data/gfx/CardJeffBrown.asm
+$99E401,CardGarthButcher,DATA8_99E401,94G,the photo of Garth Butcher (PlayerPhotoTable StLouis 15); named Card<player> as 94G names its player pictures,src/data/gfx/CardGarthButcher.asm
+$97EDBC,CardWendellYoung,DATA8_97EDBC,94G,the photo of Wendell Young (PlayerPhotoTable TampaBay 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardWendellYoung.asm
+$99BDAC,CardBrianBradley,DATA8_99BDAC,94G,"the photo of Brian Bradley (PlayerPhotoTable TampaBay 3, AllStarsWest 6); named Card<player> as 94G names its player pictures",src/data/gfx/CardBrianBradley.asm
+$99A138,CardChrisKontos,DATA8_99A138,94G,the photo of Chris Kontos (PlayerPhotoTable TampaBay 4); named Card<player> as 94G names its player pictures,src/data/gfx/CardChrisKontos.asm
+$99F289,CardMikaelAndersson,DATA8_99F289,94G,the photo of Mikael Andersson (PlayerPhotoTable TampaBay 10); named Card<player> as 94G names its player pictures,src/data/gfx/CardMikaelAndersson.asm
+$988000,CardBobBeers,DATA8_988000,94G,the photo of Bob Beers (PlayerPhotoTable TampaBay 17); named Card<player> as 94G names its player pictures,src/data/gfx/CardBobBeers.asm
+$9A8832,CardRomanHamrlik,DATA8_9A8832,94G,the photo of Roman Hamrlik (PlayerPhotoTable TampaBay 18); named Card<player> as 94G names its player pictures,src/data/gfx/CardRomanHamrlik.asm
+$998F93,CardFelixPotvin,DATA8_998F93,94G,"the photo of Felix Potvin (PlayerPhotoTable Toronto 0, AllStarsWest 2); named Card<player> as 94G names its player pictures",src/data/gfx/CardFelixPotvin.asm
+$9AA8AB,CardDougGilmour,DATA8_9AA8AB,94G,"the photo of Doug Gilmour (PlayerPhotoTable Toronto 2, AllStarsWest 7); named Card<player> as 94G names its player pictures",src/data/gfx/CardDougGilmour.asm
+$99FCBA,CardDaveAndreychuk,DATA8_99FCBA,94G,the photo of Dave Andreychuk (PlayerPhotoTable Toronto 7); named Card<player> as 94G names its player pictures,src/data/gfx/CardDaveAndreychuk.asm
+$979E57,CardNikolaiBorshevsky,DATA8_979E57,94G,the photo of Nikolai Borshevsky (PlayerPhotoTable Toronto 11); named Card<player> as 94G names its player pictures,src/data/gfx/CardNikolaiBorshevsky.asm
+$98D3E6,CardToddGill,DATA8_98D3E6,94G,the photo of Todd Gill (PlayerPhotoTable Toronto 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardToddGill.asm
+$99D981,CardDaveEllett,DATA8_99D981,94G,the photo of Dave Ellett (PlayerPhotoTable Toronto 17); named Card<player> as 94G names its player pictures,src/data/gfx/CardDaveEllett.asm
+$98C3DB,CardKirkMcLean,DATA8_98C3DB,94G,the photo of Kirk McLean (PlayerPhotoTable Vancouver 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardKirkMcLean.asm
+$99B954,CardCliffRonning,DATA8_99B954,94G,the photo of Cliff Ronning (PlayerPhotoTable Vancouver 2); named Card<player> as 94G names its player pictures,src/data/gfx/CardCliffRonning.asm
+$98BAA5,CardGeoffCourtnall,DATA8_98BAA5,94G,the photo of Geoff Courtnall (PlayerPhotoTable Vancouver 5); named Card<player> as 94G names its player pictures,src/data/gfx/CardGeoffCourtnall.asm
+$98B857,CardPavelBure,DATA8_98B857,94G,"the photo of Pavel Bure (PlayerPhotoTable Vancouver 11, AllStarsWest 13); named Card<player> as 94G names its player pictures",src/data/gfx/CardPavelBure.asm
+$99DDB5,CardJyrkiLumme,DATA8_99DDB5,94G,the photo of Jyrki Lumme (PlayerPhotoTable Vancouver 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardJyrkiLumme.asm
+$97BF0A,CardDougLidster,DATA8_97BF0A,94G,the photo of Doug Lidster (PlayerPhotoTable Vancouver 17); named Card<player> as 94G names its player pictures,src/data/gfx/CardDougLidster.asm
+$97DCB5,CardDonBeaupre,DATA8_97DCB5,94G,the photo of Don Beaupre (PlayerPhotoTable Washington 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardDonBeaupre.asm
+$97B00C,CardMikeRidley,DATA8_97B00C,94G,the photo of Mike Ridley (PlayerPhotoTable Washington 2); named Card<player> as 94G names its player pictures,src/data/gfx/CardMikeRidley.asm
+$988BF0,CardDimitriKhristich,DATA8_988BF0,94G,the photo of Dimitri Khristich (PlayerPhotoTable Washington 3); named Card<player> as 94G names its player pictures,src/data/gfx/CardDimitriKhristich.asm
+$99EC56,CardPeterBondra,DATA8_99EC56,94G,"the photo of Peter Bondra (PlayerPhotoTable Washington 11, AllStarsEast 12); named Card<player> as 94G names its player pictures",src/data/gfx/CardPeterBondra.asm
+$98E853,CardKevinHatcher,DATA8_98E853,94G,the photo of Kevin Hatcher (PlayerPhotoTable Washington 16); named Card<player> as 94G names its player pictures,src/data/gfx/CardKevinHatcher.asm
+$98C628,CardAlIafrate,DATA8_98C628,94G,"the photo of Al Iafrate (PlayerPhotoTable Washington 17, AllStarsEast 21); named Card<player> as 94G names its player pictures",src/data/gfx/CardAlIafrate.asm
+$999632,CardBobEssensa,DATA8_999632,94G,the photo of Bob Essensa (PlayerPhotoTable Winnipeg 0); named Card<player> as 94G names its player pictures,src/data/gfx/CardBobEssensa.asm
+$99A7D3,CardAlexeiZhamnov,DATA8_99A7D3,94G,the photo of Alexei Zhamnov (PlayerPhotoTable Winnipeg 2); named Card<player> as 94G names its player pictures,src/data/gfx/CardAlexeiZhamnov.asm
+$97D2E2,CardThomasSteen,DATA8_97D2E2,94G,the photo of Thomas Steen (PlayerPhotoTable Winnipeg 3); named Card<player> as 94G names its player pictures,src/data/gfx/CardThomasSteen.asm
+$9A842A,CardTeemuSelanne,DATA8_9A842A,94G,"the photo of Teemu Selanne (PlayerPhotoTable Winnipeg 12, AllStarsWest 14); named Card<player> as 94G names its player pictures",src/data/gfx/CardTeemuSelanne.asm
+$9A9D91,CardPhilHousley,DATA8_9A9D91,94G,"the photo of Phil Housley (PlayerPhotoTable Winnipeg 17, AllStarsWest 21); named Card<player> as 94G names its player pictures",src/data/gfx/CardPhilHousley.asm
+$99823D,CardTeppoNumminen,DATA8_99823D,94G,the photo of Teppo Numminen (PlayerPhotoTable Winnipeg 18); named Card<player> as 94G names its player pictures,src/data/gfx/CardTeppoNumminen.asm

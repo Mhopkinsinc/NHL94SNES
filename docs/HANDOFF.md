@@ -127,6 +127,7 @@
 - Tables: `BigFontIndex` and `MaxSpeed` (93S; MaxSpeed written as (n*261)^2 like the 93S (n*266)^2), `CrowdAnimTable` (showcrowd's per object entries folded in as locals, their 63 raw self-pointers as label+offset).
 - Tables: `shotsets`, `FramerTiles`, `FramerMap` (93S), and from their readers `PauseMenuHandlers`, `TeamStatSources`, `PmenuValueItems`, `LetterWidths`, `StreamSfxSounds`, `MatchupPhotoOffsets`, `OAMHighMasks`, `LineChangeButtons`, the Framer variant tiles and maps, `CenterOSpots`, `TeamBlockPalettes` (its raw long pointers as label+offset). The asset file names in Extracted/ stay as they are.
 - Print strings (188, in DrawEditLinesTitlePos.asm, formerly DATA8_9CF000.asm, and WinsMark.asm): `...Txt` names from their text (as upstream's ReturnToGame / MatchupsLabel), the d-pad glyphs { } [ ] as Left / Right / Up / Down arrows, and `<Routine>Pos` for the position-only strings, after the one routine that prints them.
+- Player photos (160): each photo used by one player is `Card<FirstLast>` after the team database name of its PlayerPhotoTable slot (as 94G names its player pictures; BOS 0 / 2 are Andy Moog / Adam Oates in both); the four shared ones are `NoPicGoalie` (slot 1 of every team) and `NoPicSkater1`-`3`. Asset file names in Extracted/ are unchanged.
 
 ## Unsure
 
