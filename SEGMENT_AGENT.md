@@ -711,3 +711,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Stats page helpers. MATCH.
 - Crowd meter routines and RAM. MATCH.
 - LoadCenterIce, BuildRinkMap. MATCH.
+- PWprint, PrintPasswordHelp. MATCH.

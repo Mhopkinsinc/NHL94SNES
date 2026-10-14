@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BCBD8:
+; Print the password screen keys: Select, A Next, Y Back, Press start
+PrintPasswordHelp:
 	lda.b $8F
 	pha
 	lda.b a1

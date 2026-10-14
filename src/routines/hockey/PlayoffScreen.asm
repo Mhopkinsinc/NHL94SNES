@@ -628,7 +628,7 @@ org $9D9000
 	sta.b $8F
 	lda.w #$6E82
 	sta.w printm
-	jsl.l CODE_9BC6C9
+	jsl.l PWprint
 	lda.w #$0080
 	sta.l $7EA670
 	sta.l $7EC676

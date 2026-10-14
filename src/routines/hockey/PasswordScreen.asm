@@ -129,7 +129,7 @@ PasswordScreen:
 	lda.w #$000A
 	sta.w fadestep
 CODE_9BC946:
-	jsr.w CODE_9BCBD8
+	jsr.w PrintPasswordHelp
 .1:
 	lda.b $8F
 	pha
@@ -144,7 +144,7 @@ CODE_9BC946:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9BC6C9
+	jsl.l PWprint
 	jsl.l QueueTextDMA
 .loop:
 	jsl.l WaitFrame

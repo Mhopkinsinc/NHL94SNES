@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC6C9:
+; Print the password (PassWord through PasstoText into mesarea), unless it is hidden (bit 7)
+PWprint:
 	lda.l PassWord
 	bit.w #$0080
 	beq .t1
@@ -34,9 +34,9 @@ CODE_9BC6C9:
 	sta.b $8F
 	lda.w #mesarea
 	sta.b a1
-	lda.w #$007E
+	lda.w #PassWord>>16
 	sta.b $8B
-	lda.w #$34F4
+	lda.w #PassWord
 	sta.b a0
 	lda.w #$0012
 	sta.b [a1]

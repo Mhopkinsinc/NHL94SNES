@@ -2642,7 +2642,7 @@ $9BCBCD,.t1,CODE_9BCBCD,new,continued in the previous routine,src/routines/snes/
 $9BC9FD,.t1,CODE_9BC9FD,new,continued in the previous routine,src/routines/snes/CODE_9BC9CD.asm
 $9BC9C0,.t1,CODE_9BC9C0,new,continued in the previous routine,src/routines/snes/CODE_9BC989.asm
 $9BC7D5,.t1,CODE_9BC7D5,new,continued in the previous routine,src/routines/snes/CODE_9BC767.asm
-$9BC6D5,.t1,CODE_9BC6D5,new,continued in the previous routine,src/routines/snes/CODE_9BC6C9.asm
+$9BC6D5,.t1,CODE_9BC6D5,new,continued in the previous routine,src/routines/hockey/PWprint.asm
 $9BC6BE,.t1,CODE_9BC6BE,new,continued in the previous routine,src/routines/hockey/WritePassBits.asm
 $9BC5D0,.t1,CODE_9BC5D0,new,continued in the previous routine,src/routines/hockey/GetTeamLongName.asm
 $9BC4DB,.t1,CODE_9BC4DB,new,continued in the previous routine,src/routines/snes/CODE_9BC49A.asm
@@ -4369,7 +4369,7 @@ $9BB273,.6,CODE_9BB273,new,branch target only used in this routine,src/routines/
 $9BB300,.7,CODE_9BB300,new,branch target only used in this routine,src/routines/hockey/RestoreReplayFrame.asm
 $9BB348,.8,CODE_9BB348,new,branch target only used in this routine,src/routines/hockey/RestoreReplayFrame.asm
 $9BC5E6,.1,CODE_9BC5E6,new,branch target only used in this routine,src/routines/hockey/GetTeamLongName.asm
-$9BC75D,.1,CODE_9BC75D,new,branch target only used in this routine,src/routines/snes/CODE_9BC6C9.asm
+$9BC75D,.1,CODE_9BC75D,new,branch target only used in this routine,src/routines/hockey/PWprint.asm
 $9C884E,.1,CODE_9C884E,new,branch target only used in this routine,src/routines/snes/SetPlayerStatsRange.asm
 $9C8912,.1,CODE_9C8912,new,branch target only used in this routine,src/routines/snes/CODE_9C88A0.asm
 $9C8957,.1,CODE_9C8957,new,branch target only used in this routine,src/routines/snes/CODE_9C8934.asm
@@ -5624,3 +5624,5 @@ $9BA89F,LowerHotColdTable,CODE_9BA89F,new,Behavior,src/routines/hockey/LowerHotC
 $9B9B6B,InitCrowdExcite,CODE_9B9B6B,new,Behavior: called from StartPer,src/routines/hockey/InitCrowdExcite.asm
 $9BC17C,LoadCenterIce,CODE_9BC17C,new,Behavior: called from setupice and SaveRegsStartHL2,src/routines/hockey/LoadCenterIce.asm
 $9BC1D5,BuildRinkMap,CODE_9BC1D5,new,Behavior: called from LoadCenterIce and CODE_9FE79F,src/routines/hockey/BuildRinkMap.asm
+$9BC6C9,PWprint,CODE_9BC6C9,93S,"Same body as 93S PWprint: the hidden bit, PasstoText, mesarea, length 18, 16 characters, print; called from PasswordScreen and PlayoffScreen",src/routines/hockey/PWprint.asm
+$9BCBD8,PrintPasswordHelp,CODE_9BCBD8,new,Behavior: the four strings it prints; called from PasswordScreen and BadPasswordPrompt,src/routines/hockey/PrintPasswordHelp.asm

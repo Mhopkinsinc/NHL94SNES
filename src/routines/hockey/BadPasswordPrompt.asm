@@ -91,7 +91,7 @@ BadPasswordPrompt:
 	lda.l $7E35D0
 	sta.b d2
 	jsl.l eraser
-	jsr.w CODE_9BCBD8
+	jsr.w PrintPasswordHelp
 	jsl.l QueueTextDMA
 	jsl.l WaitNoButtons
 	jmp.w CODE_9BC946
