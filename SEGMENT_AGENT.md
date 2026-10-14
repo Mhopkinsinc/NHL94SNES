@@ -646,3 +646,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Bank $9E: the eight slices are `src/banks/b9E_game.asm`, split the same way. Matched 93S names are in `routines/logic/` and `routines/penalty/`. MATCH.
 - Bank $9F: the eight slices are `src/banks/b9F_flow.asm`, split the same way. `setteams` stays in `ClearTeamStats.asm` (that routine falls through into it). Two entries with no label are `CODE_9F9901` and `CODE_9FA835`. MATCH.
 - Bank $80: the eight slices are `src/banks/b80_engine.asm`, split the same way. ShootoutWonBy, ShootoutShooters, InitShooters and ShooterSelectList are in `routines/shootout/`. The internal header and vectors are `src/header/snes_header.asm`. MATCH.
+- Animation sequences from bank `$9D` are `src/data/frames94s.asm`. The 94G SPA names are not applied: the frame numbers do not match the 94G SPF values. MATCH.

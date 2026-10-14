@@ -7,11 +7,13 @@
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
 - `adda43` shares a file with `CODE_9BB176` because that routine falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
 - Two entries in bank `$9F` had no label. They are `CODE_9F9901` and `CODE_9FA835` (rows in `docs/name_map.csv`).
-- Next: build `src/data/frames94s.asm` from the bank `$9D` animation sequences. Extraction, SPA symbols and the doc rewrite are still ahead.
+- Next: replace raw pointers and immediates with labels where the bytes stay the same, then the header sweep and the doc rewrite. Extraction is still ahead.
+- Sprite animation sequences are `src/data/frames94s.asm` (the label is still `DATA8_9DE0FC`).
 
 ## Unsure
 
-- None yet. Auto `CODE_` / `DATA8_` labels stay as they are until a 93S or 94G match is clear.
+- The animation list in `src/data/frames94s.asm` has the same shape as the 94G list (eight direction pointers, then frame and time words) but the frame numbers are not the 94G SPF values, so those SPA names are not applied. `DATA8_9DE0FC` stays until that match is clear.
+- Auto `CODE_` / `DATA8_` labels stay as they are until a 93S or 94G match is clear.
 
 ## State
 

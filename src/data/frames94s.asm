@@ -1,5 +1,6 @@
-; sprite animation sequences (see the file header); code points at DATA8_9DE0FC+2
-DATA8_9DE0FC:		; sprite animation sequences (see the file header); code points at DATA8_9DE0FC+2
+; Sprite animation sequences. Eight word pointers, one per direction, then frame and time
+; words. A negative time is the last pair. Code reads a sequence from the second word.
+DATA8_9DE0FC:
 	dw $0000,$E110,$E124,$E138,$E14C,$E160,$E174,$E188
 	dw $E19C,$0001,$0216,$00B4,$0286,$0014,$0216,$000A
 	dw $0287,$0014,$0216,$FFF6,$0219,$0082,$0288,$000A
