@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE4BF:
+; Use the longer pause menu when this side still has a timeout, otherwise the standard menu.
+ChoosePauseMenu:
 	ldx.w $0AC6
 	bmi .t1
 	lda.w gmclock

@@ -58,6 +58,6 @@ PauseTimeout:
 	ldx.w #$0096
 	ldy.w #$0000
 	jsl.l WaitFrames_Inc
-	jsl.l CODE_9FE4BF
+	jsl.l ChoosePauseMenu
 .1:
 	jmp.w PauseMenuPoll

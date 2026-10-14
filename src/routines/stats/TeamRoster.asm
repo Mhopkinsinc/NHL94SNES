@@ -120,11 +120,11 @@ CODE_9D9E2D:
 	stz.b d0
 	inc.b d0
 	bit.w #$0100
-	bne CODE_9D9E89
+	bne MoveRosterColumn
 	dec.b d0
 	dec.b d0
 	bit.w #$0200
-	bne CODE_9D9E89
+	bne MoveRosterColumn
 	bit.w #$0800
 	bne .1
 	inc.b d0

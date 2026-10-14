@@ -100,7 +100,7 @@ PasswordScreen:
 	dec.b d0
 	bpl .loop
 	stz.b d4
-	jsl.l CODE_9BCA7A
+	jsl.l PrintSelectLeft
 	stz.b d5
 	lda.l PassWord
 	and.w #$00FF
@@ -108,7 +108,7 @@ PasswordScreen:
 	bcs .1
 	sta.b d5
 .1:
-	jsl.l CODE_9BCAB8
+	jsl.l PlacePasswordCursor
 	jsl.l CODE_9D80DD
 	lda.w #$0003
 	sta.w $0A4A
@@ -193,7 +193,7 @@ CODE_9BC949:
 
 .t2:
 	sta.b d4
-	jsl.l CODE_9BCA7A
+	jsl.l PrintSelectLeft
 	lda.w #$007E
 	sta.b $8B
 	lda.w #$34F4
@@ -217,7 +217,7 @@ CODE_9BC9F0:
 
 .t1:
 	pha
-	jsl.l CODE_9BCAB8
+	jsl.l PlacePasswordCursor
 	lda.l $7E35D0
 	sta.b d2
 	jsl.l eraser
@@ -239,7 +239,7 @@ CODE_9BC9F0:
 	jsl.l print
 	pla
 	sta.b d5
-	jsl.l CODE_9BCAB8
+	jsl.l PlacePasswordCursor
 	jsl.l CODE_9D80DD
 	phx
 	ldy.b d5

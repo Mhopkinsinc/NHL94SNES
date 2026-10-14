@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D9E89:
+; Move the roster attribute column by d0 and redraw.
+MoveRosterColumn:
 	lda.b d0
 	clc
 	adc.w $0D47

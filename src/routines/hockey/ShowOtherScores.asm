@@ -26,7 +26,7 @@ ShowOtherScores:
 	lda.b d1
 	inc a
 	sta.w $1DC1
-	jsl.l CODE_9BC49A
+	jsl.l FillOtherScores
 	jsl.l CODE_9DD923
 	lda.w #$0050
 	ldx.w #$00C0
@@ -48,11 +48,11 @@ CODE_9BC2C9:
 	bit.w #$0800
 	beq .t1
 .1:
-	jmp.w CODE_9BC3DA
+	jmp.w ScrollOtherScoresUp
 
 .t1:
 	bit.w #DMA_OAM
-	bne CODE_9BC35C
+	bne ScrollOtherScoresDown
 CODE_9BC2E4:
 	lda.w $1DBD
 	beq .3

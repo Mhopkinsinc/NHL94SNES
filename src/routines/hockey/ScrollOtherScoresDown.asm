@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC35C:
+; Scroll the other-scores list down one page.
+ScrollOtherScoresDown:
 	jsr.w CODE_9BC4F3
 	lda.w #$0006
 	sta.w $1DC5

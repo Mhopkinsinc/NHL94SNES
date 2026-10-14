@@ -49,7 +49,7 @@ CODE_9FE712:
 	lda.b d1
 	ora.b d3
 	bne .t1
-	jmp.w CODE_9FE618
+	jmp.w SelectPauseController
 
 .t1:
 	lda.w $1C84

@@ -17,7 +17,7 @@ PauseMenu:
 	bra .t1
 
 .t1:
-	jsl.l CODE_9FE4BF
+	jsl.l ChoosePauseMenu
 	bra .t7
 
 .t2:
@@ -60,7 +60,7 @@ PauseMenu:
 	sta.l $7F76FE
 PauseMenuPoll:
 	jsl.l CODE_9FEA24
-	jsl.l CODE_9FE618
+	jsl.l SelectPauseController
 	lda.b d3
 	bit.w #$1000
 	beq .t3

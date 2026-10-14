@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE618:
+; Pick the controller that owns the pause menu, and rebuild the menu when it changes.
+SelectPauseController:
 	jsl.l ShowMP5Warning
 	jsr.w CODE_9FE75E
 	jsl.l IntermissionTick
@@ -64,6 +64,6 @@ CODE_9FE618:
 	bra CODE_9FE6AD
 
 .t1x:
-	jsl.l CODE_9FE4BF
+	jsl.l ChoosePauseMenu
 CODE_9FE6AD:
 	rtl
