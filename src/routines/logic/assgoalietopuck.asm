@@ -94,9 +94,9 @@ assgoalietopuck:
 	cmp.w #$0096
 	bcc .6
 .8:
-	jsr.w CODE_9EDC44
+	jsr.w GoaliePuckVector
 	jsl.l vtoa
-	jsl.l CODE_9EDC06
+	jsl.l AdjustFacingDirection
 	asl.w $12E3,x
 	jsl.l .t2
 	lsr.w $12E3,x

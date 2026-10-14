@@ -121,6 +121,7 @@
 - `StartCredits` / `RollCredits` (the title credits: CreditTitles and CreditNames as letter sprites).
 - `StartBenchCheer` / `UpdateBenchCheer` with RAM `benchcheer` / `benchframe`, and `DrawLicenceNHL` / `DrawLicenceNHLPA` (named from the rendered sprite frames, confirmed by the user).
 - `assdumpin` (asstab $14), `DumpInTarget`, `StartDumpIn`, RAM `dumpinplayer` / `dumpintarget` (Y with the puck dumps it in; confirmed by the user); its y table folded in as `.ytab`.
+- `AdjustFacingDirection` (93S turn step at the 93S point; the earlier note that it did not match was about the other helper) and `GoaliePuckVector` (from behavior, where 93S calls ClampYPosition). No `CODE_` files are left.
 
 ## Unsure
 
@@ -140,7 +141,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.
 - Animations that are new in 94 or not certain keep auto labels in `SPAList`.
 - The remaining `CODE_` entries did not uniquely match a 93S or 94G routine. Opcode identity across the two ROMs is rare, and several names collided on the same prologue, so those stay placeholders until a caller shows the job.
-- Left after the 2026-10-14 pass (2 files): the goalie helpers `CODE_9EDC06` / `CODE_9EDC44` (not 93S `ClampYPosition` / `AdjustFacingDirection`).
+- After the 2026-10-14 pass no `CODE_` files are left; the remaining `CODE_` labels are entry points inside named routines.
 - `DATA8_` blocks that are still cursors, packed bytes, or a second copy of a named table stay unnamed. `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. Phrases in `DATA8_9CF000` that are a title are named. Cursor-only records in that bank stay `DATA8_`.
 - `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `AttribRating` has no 94 counterpart, and the distance code uses `ApproxLength` (the larger part plus a share of the smaller), not a square root; `sroot` exists only for the crowd meter (`UpdateCrowdMeter`). `StreamSfx` (was CODE_9C9A7F) asks for one of six streamed sound effects; `UpdateStreamSfx` streams its sample to the sound CPU and plays it.
 - `$7E35D0` is the blank tile `EraseScoutName` stores the way 93S stores `blankchar`. Not named.

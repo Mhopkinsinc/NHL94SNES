@@ -428,9 +428,9 @@ assgoalie:
 .1xxxxxxx:
 	cpx.w puckc
 	beq .t1xxxxxxxx
-	jsr.w CODE_9EDC44
+	jsr.w GoaliePuckVector
 	jsl.l vtoa
-	jsl.l CODE_9EDC06
+	jsl.l AdjustFacingDirection
 	bra .2xxxxx
 
 .t1xxxxxxxx:
@@ -441,7 +441,7 @@ assgoalie:
 	asl a
 	asl a
 	sta.b d0
-	jsl.l CODE_9EDC06
+	jsl.l AdjustFacingDirection
 .2xxxxx:
 	lda.w Ypos,x
 	cmp.w #$FEFB

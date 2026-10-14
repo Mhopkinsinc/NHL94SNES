@@ -43,7 +43,7 @@ assdumpin:
 	beq .t1x
 	lda.w passdir
 	sta.b d0
-	jsl.l CODE_9EDC06
+	jsl.l AdjustFacingDirection
 	rtl
 
 .t1x:

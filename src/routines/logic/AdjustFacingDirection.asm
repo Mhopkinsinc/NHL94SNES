@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EDC06:
+; Turn goalie X's facing one step toward d0, at most one step per 6 ticks ($0BCB,x)
+AdjustFacingDirection:
 	lda.w facedir,x
 	sta.b $14
 	lda.w $0BCB,x

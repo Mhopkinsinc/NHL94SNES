@@ -2895,7 +2895,7 @@ $9EDF0C,.t1,CODE_9EDF0C,new,continued in the previous routine,src/routines/snes/
 $9EDDCB,.t1,CODE_9EDDCB,new,continued in the previous routine,src/routines/logic/pucknorm.asm
 $9EDD65,.t1,CODE_9EDD65,new,continued in the previous routine,src/routines/logic/pucknorm.asm
 $9EDC7A,.t1,CODE_9EDC7A,new,continued in the previous routine,src/routines/snes/CODE_9EDC5A.asm
-$9EDC32,.t1,CODE_9EDC32,new,continued in the previous routine,src/routines/snes/CODE_9EDC06.asm
+$9EDC32,.t1,CODE_9EDC32,new,continued in the previous routine,src/routines/logic/AdjustFacingDirection.asm
 $9EDBBD,.t1,CODE_9EDBBD,new,continued in the previous routine,src/routines/logic/assgoalie.asm
 $9EDB36,.t1,CODE_9EDB36,new,continued in the previous routine,src/routines/snes/CODE_9EDAA1.asm
 $9EDA59,.t1,CODE_9EDA59,new,continued in the previous routine,src/routines/logic/assgoalie.asm
@@ -3331,7 +3331,7 @@ $9EE23C,.t2,CODE_9EE23C,new,continued in the previous routine,src/routines/logic
 $9EE156,.t2,CODE_9EE156,new,continued in the previous routine,src/routines/logic/assshoot.asm
 $9EDFFF,.t2,CODE_9EDFFF,new,continued in the previous routine,src/routines/logic/shotdiradj.asm
 $9EDEE4,.t2,CODE_9EDEE4,new,continued in the previous routine,src/routines/logic/chk4shot.asm
-$9EDC5A,.t1,CODE_9EDC5A,new,continued in the previous routine,src/routines/snes/CODE_9EDC44.asm
+$9EDC5A,.t1,CODE_9EDC5A,new,continued in the previous routine,src/routines/logic/GoaliePuckVector.asm
 $9EDAA1,.t2,CODE_9EDAA1,new,continued in the previous routine,src/routines/logic/assgoalie.asm
 $9ED87E,.t2,CODE_9ED87E,new,continued in the previous routine,src/routines/snes/CODE_9ED808.asm
 $9ED6C9,.t1,CODE_9ED6C9,new,continued in the previous routine,src/routines/logic/assgoalie.asm
@@ -4464,7 +4464,7 @@ $9ED514,.3,CODE_9ED514,new,branch target only used in this routine,src/routines/
 $9ED67C,.2,CODE_9ED67C,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
 $9ED853,.5,CODE_9ED853,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
 $9EDAA4,.7,CODE_9EDAA4,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
-$9EDC67,.1,CODE_9EDC67,new,branch target only used in this routine,src/routines/snes/CODE_9EDC44.asm
+$9EDC67,.1,CODE_9EDC67,new,branch target only used in this routine,src/routines/logic/GoaliePuckVector.asm
 $9EE0C7,.5,CODE_9EE0C7,new,branch target only used in this routine,src/routines/logic/shotdiradj.asm
 $9EE0CC,.6,CODE_9EE0CC,new,branch target only used in this routine,src/routines/logic/shotdiradj.asm
 $9EE387,.6,CODE_9EE387,new,branch target only used in this routine,src/routines/logic/doshot.asm
@@ -5175,9 +5175,9 @@ $9EAF67,.4,CODE_9EAF67,new,"part of CODE_9EAF34, used only by it",src/routines/l
 $9EAF70,.5,CODE_9EAF70,new,"part of CODE_9EAF34, used only by it",src/routines/logic/avdgoal.asm
 $9EAF7D,.6,CODE_9EAF7D,new,"part of CODE_9EAF34, used only by it",src/routines/logic/avdgoal.asm
 $9EAF92,.7,CODE_9EAF92,new,"part of CODE_9EAF34, used only by it",src/routines/logic/avdgoal.asm
-$9EDC80,.2,CODE_9EDC80,new,"part of CODE_9EDC44, used only by it",src/routines/snes/CODE_9EDC44.asm
-$9EDC85,.3,CODE_9EDC85,new,"part of CODE_9EDC44, used only by it",src/routines/snes/CODE_9EDC44.asm
-$9EDC86,.4,CODE_9EDC86,new,"part of CODE_9EDC44, used only by it",src/routines/snes/CODE_9EDC44.asm
+$9EDC80,.2,CODE_9EDC80,new,"part of CODE_9EDC44, used only by it",src/routines/logic/GoaliePuckVector.asm
+$9EDC85,.3,CODE_9EDC85,new,"part of CODE_9EDC44, used only by it",src/routines/logic/GoaliePuckVector.asm
+$9EDC86,.4,CODE_9EDC86,new,"part of CODE_9EDC44, used only by it",src/routines/logic/GoaliePuckVector.asm
 $9EE471,.2,CODE_9EE471,new,"part of CODE_9EE463, used only by it",src/routines/logic/assbreakaway.asm
 $9EE47E,.8,CODE_9EE47E,new,"part of CODE_9EE463, used only by it",src/routines/logic/assbreakaway.asm
 $9EE593,.9,CODE_9EE593,new,"part of CODE_9EE463, used only by it",src/routines/logic/assbreakaway.asm
@@ -5815,3 +5815,5 @@ $9EECF6,DumpInTarget,CODE_9EECF6,new,Behavior (user confirmed),src/routines/logi
 $9EED85,StartDumpIn,CODE_9EED85,new,Behavior: chk4shot calls it at random (1 in 4) for a computer carrier,src/routines/logic/StartDumpIn.asm
 $9EEF1C,.ytab,DATA8_9EEF1C,new,assdumpin: the target y table (folded into assdumpin),src/routines/logic/assdumpin.asm
 $9EEACC,dopass_swing,CODE_9EEACC,new,dopass once the puck velocity is set: the goalie direction fix and the pass animation; assdumpin jumps here,src/routines/logic/dopass.asm
+$9EDC06,AdjustFacingDirection,CODE_9EDC06,93S,"The 93S AdjustFacingDirection turn step (d0 - facedir, negate, and 4, lsr, dec: +-1, add, and 7) at the same point in assgoalie (vtoa, then the turn); 94 adds the tick delay and drops the clamp at the sides of the net",src/routines/logic/AdjustFacingDirection.asm
+$9EDC44,GoaliePuckVector,CODE_9EDC44,new,"Behavior: assgoalie and assgoalietopuck call it before vtoa and AdjustFacingDirection, where 93S assgoalie calls ClampYPosition (the same step, different maths)",src/routines/logic/GoaliePuckVector.asm
