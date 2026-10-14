@@ -174,7 +174,7 @@ CODE_9D906E:
 	jsl.l ScreenOn
 .2:
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	lda.w $0AB8
 	ora.w $0ABA
 	cmp.w #$1000

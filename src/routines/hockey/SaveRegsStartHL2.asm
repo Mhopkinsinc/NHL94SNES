@@ -244,7 +244,7 @@ org $9F9001
 	sta.w $0CE1
 	stx.w $0D35
 	stx.w $0D01
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	lda.w sflags
 	bit.w #$0001
 	bne .7

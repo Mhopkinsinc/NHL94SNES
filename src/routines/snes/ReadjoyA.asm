@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B84DC:
+; Read pad A: d0 = direction, d1 = new presses, d2 = changed buttons, d3 = buttons held
+ReadjoyA:
 	phx
 	asl a
 	tax

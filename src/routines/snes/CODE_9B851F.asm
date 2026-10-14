@@ -2,4 +2,4 @@
 CODE_9B851F:
 	lda.w $0AC6
 	lsr a
-	jmp.w CODE_9B84DC
+	jmp.w ReadjoyA

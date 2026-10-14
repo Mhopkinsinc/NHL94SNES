@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B8017:
+; Once per frame: each pad's direction, changed buttons and new presses
+ReadPads:
 	lda.w JoyPad
 	xba
 	and.w #$000F

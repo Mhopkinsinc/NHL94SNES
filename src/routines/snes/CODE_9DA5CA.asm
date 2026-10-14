@@ -51,7 +51,7 @@ CODE_9DA5CA:
 	jsl.l CODE_9DE0D4
 	jsl.l SpriteFrameEnd
 	jsl.l CODE_9DD923
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	jsl.l CODE_9B8526
 	lda.w #$0000
 	sta.w $0CCB
@@ -89,7 +89,7 @@ CODE_9DA5CA:
 	jsr.w CODE_9DAC4F
 	jsr.w CODE_9DA973
 	jsr.w CODE_9DAA83
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 	lda.w #$0008
@@ -158,7 +158,7 @@ CODE_9DA5CA:
 	jmp.w .2
 
 .t1x:
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	lda.b $83
 	sta.w $0D35
 	sta.w $0D01

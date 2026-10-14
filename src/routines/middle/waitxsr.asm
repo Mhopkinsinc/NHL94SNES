@@ -12,7 +12,7 @@ waitxsr:
 	lda.w $1C84,y
 	beq .1
 	txa
-	jsl.l CODE_9B84DC
+	jsl.l ReadjoyA
 	lda.b d3
 	bne .2
 .1:
@@ -26,7 +26,7 @@ waitxsr:
 .loop3:
 	cmp.b $83
 	beq .loop3
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	pla
 	dec a
 	pha

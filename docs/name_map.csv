@@ -4742,3 +4742,5 @@ $9FE3DC,.1,CODE_9FE3DC,new,branch target only used in this routine,src/routines/
 $9FE3DD,.2,CODE_9FE3DD,new,branch target only used in this routine,src/routines/hockey/PauseGoalie.asm
 $9FE3E7,.3,CODE_9FE3E7,new,branch target only used in this routine,src/routines/hockey/PauseGoalie.asm
 $9FE3EB,.4,CODE_9FE3EB,new,continued in the previous routine,src/routines/hockey/PauseGoalie.asm
+$9B8017,ReadPads,CODE_9B8017,93S,"waitxsr and the menus call it as 93S calls ReadPads; per pad the direction, changed buttons and new presses, from the pad words the NMI reads",src/routines/middle/ReadPads.asm
+$9B84DC,ReadjoyA,CODE_9B84DC,new,"93S Readjoy1 for pad A: d0 direction, d1 new presses, d2 changed, d3 held; waitxsr calls it where 93S calls Readjoy1",src/routines/snes/ReadjoyA.asm

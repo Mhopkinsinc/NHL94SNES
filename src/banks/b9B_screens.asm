@@ -2,14 +2,14 @@
 
 org $9B8000
 incsrc "../routines/snes/CODE_9B8000.asm"
-incsrc "../routines/snes/CODE_9B8017.asm"
+incsrc "../routines/middle/ReadPads.asm"
 incsrc "../data/tables/PadDirection.asm"
 incsrc "../routines/snes/Multi5Bios.asm"
 incsrc "../routines/snes/CODE_9B8309.asm"
 incsrc "../routines/snes/Multi5Init.asm"
 incsrc "../routines/snes/Multi5ConnectCheck.asm"
 incsrc "../routines/snes/CODE_9B8472.asm"
-incsrc "../routines/snes/CODE_9B84DC.asm"
+incsrc "../routines/snes/ReadjoyA.asm"
 incsrc "../routines/snes/CODE_9B84F5.asm"
 incsrc "../routines/snes/CODE_9B851F.asm"
 incsrc "../routines/snes/CODE_9B8526.asm"

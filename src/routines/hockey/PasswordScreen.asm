@@ -9,7 +9,7 @@ PasswordScreen:
 	stz.w textdirtylo
 	lda.w #$03FF
 	sta.w textdirtyhi
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	jsl.l CODE_9B8526
 	jsl.l SpriteFrameStart
 	ldx.w #$0053
@@ -148,7 +148,7 @@ CODE_9BC946:
 	jsl.l CODE_9FBF75
 .loop:
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	jsl.l CODE_9B84F5
 	jsl.l ProcessInputWithRepeat
 	lda.b d1

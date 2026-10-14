@@ -667,3 +667,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - forceblack, StartPer, Restart, PlayoffScreen, ReplayMode, RestoreReplayFrame, addframe, avdgoal from 93S callers and job; ScreenOn and IniDispShadow from what they do. MATCH.
 - setupice, revplayeracc, faceoffinput; attribjmp and its handlers AttribStatus, AttribEnergy, AttribHanded, AttribFighting, AttribRating by the table order. MATCH.
 - Puck collisions: checkpuckcoll, checkpuckcoll_ccx, puckstick, puckgoalie, deflect; waitxsr. MATCH.
+- Pads: ReadPads (93S) and ReadjoyA (Readjoy1 for any pad). MATCH.

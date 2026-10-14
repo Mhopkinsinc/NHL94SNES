@@ -27,6 +27,7 @@
 - Screens and flow: `forceblack`, `StartPer`, `Restart`, `PlayoffScreen`, `ReplayMode`, `RestoreReplayFrame`, `addframe`, `avdgoal` (callers and job as in 93S). `ScreenOn` sets `IniDispShadow` (`$0762`, written to `INIDISP` by the NMI) to full brightness. Proposals turned down because the 94 routine does something else: `CODE_9C9786` (a music fade, not `sndqreset`), `CODE_9F936C` (not `faceoffinput`), `CODE_9F9E24` (team names, not `QueueTextDMA`), `CODE_9CA054` (not `setsortcords`), `CODE_9C9ABC` (the positioned sound, not `passtoa0`).
 - `setupice` (the 93S rink setup in order, called from `StartGame`), `revplayeracc`, `faceoffinput`. `DATA8_9F97CE` is `attribjmp`: the roster column handlers as offsets in the 93S order (entry 3 is the already named `AttribWeight`), so its entries are `AttribStatus`, `AttribEnergy`, `AttribHanded`, `AttribFighting` (falls into `AttribRating`) and `AttribRating`, written `Label-attribjmp`. `CODE_9FE79F` (the rink rebuilt after each pause screen) is not 93S `PauseExit` and stays unnamed.
 - Puck collisions: `checkpuckcoll` and `checkpuckcoll_ccx` (the 93S pair; 94 reaches them through a routine `pucknorm` calls), `puckstick` (a 94 goalie test, then the 93S body), `puckgoalie`, `deflect`; also `waitxsr`.
+- Pads: `ReadPads` (once per frame, each pad's direction, changed buttons and new presses, from the pad words the NMI reads) and `ReadjoyA` (93S `Readjoy1` for any pad: the callers pass the pad in A).
 
 ## Unsure
 

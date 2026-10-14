@@ -40,7 +40,7 @@ CODE_9D8129:
 CODE_9D8195:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	ldx.w #$0002
 	lda.w $0AB8
 	sta.b $14

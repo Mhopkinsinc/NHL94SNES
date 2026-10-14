@@ -244,7 +244,7 @@ CODE_9DA29C:
 	jmp.w CODE_9DA29C
 
 .t1x:
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	ldx.w #$0000
 CODE_9DA2F5:
 	lda.w $1A0E
@@ -369,7 +369,7 @@ CODE_9DA2F5:
 	jsl.l CODE_9FBF75
 	jsl.l CODE_9B8682
 .4:
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	ldx.w #$0008
 .loopx:
 	lda.w $1A0E

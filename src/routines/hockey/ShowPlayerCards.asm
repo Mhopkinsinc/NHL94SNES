@@ -21,7 +21,7 @@ CODE_9DBD7B:
 	jsl.l CODE_9DD923
 CODE_9DBD7F:
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	jsl.l CODE_9B851F
 	jsl.l ProcessInputWithRepeat
 	lda.b d1

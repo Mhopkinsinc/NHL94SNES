@@ -20,7 +20,7 @@ CODE_9BACE5:
 .2:
 	ldy.w #$0000
 	jsl.l WaitFrames_Inc
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	jsl.l CODE_9B851F
 	lda.w #$0001
 	sta.b d7

@@ -113,7 +113,7 @@ ShooterSelectList:
 	jsl.l CODE_9DD923
 	jsl.l CODE_9DD94D
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	jsl.l CODE_9B851F
 	jsl.l ProcessInputWithRepeat
 	lda.b d1

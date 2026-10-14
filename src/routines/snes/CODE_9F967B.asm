@@ -16,7 +16,7 @@ CODE_9F967B:
 	beq .t1
 	txa
 	lsr a
-	jsl.l CODE_9B84DC
+	jsl.l ReadjoyA
 	lda.b d3
 	bit.w #$1000
 	beq .t1

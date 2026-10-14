@@ -63,7 +63,7 @@ BadPasswordPrompt:
 	sta.b $8F
 	jsl.l CODE_9FBF75
 .loop2:
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	jsl.l CODE_9B84F5
 	lda.b d3
 	beq .loop2

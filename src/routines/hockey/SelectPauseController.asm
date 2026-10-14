@@ -11,7 +11,7 @@ SelectPauseController:
 	jsl.l setvideo
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	lda.w $0AC6
 	bpl .4
 	lda.w #$0000
@@ -26,7 +26,7 @@ SelectPauseController:
 	lda.w $1C84,x
 	beq .1
 	lda.b $01,s
-	jsl.l CODE_9B84DC
+	jsl.l ReadjoyA
 	lda.b d3
 	bne .t2
 .1:
@@ -74,7 +74,7 @@ SelectPauseController:
 	txa
 .4:
 	lsr a
-	jsl.l CODE_9B84DC
+	jsl.l ReadjoyA
 	dec.w $0AC4
 	dec.w $0AC4
 	jsl.l ProcessInputWithRepeat

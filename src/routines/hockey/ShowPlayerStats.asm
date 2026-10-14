@@ -71,7 +71,7 @@ ShowPlayerStats:
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 CODE_9C8644:
-	jsl.l CODE_9B8017
+	jsl.l ReadPads
 	jsl.l CODE_9B851F
 	jsl.l ProcessInputWithRepeat
 	lda.b d3
