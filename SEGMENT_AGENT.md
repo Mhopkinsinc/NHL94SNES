@@ -695,3 +695,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - GetTeamRating and the scouting screen helpers. MATCH.
 - DrawMatchupPictures, DrawPlayerPicture, ClearPictureBox, MenuScreenHDMA. MATCH.
 - Player card helpers; ShowPlayerCards tails folded. MATCH.
+- ClearTextMap2, LoadPlayerCardScreen. MATCH.

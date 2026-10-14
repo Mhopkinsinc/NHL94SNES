@@ -4,7 +4,7 @@ ShowPlayerCards:
 	lda.b a2
 	pha
 	stz.w $07C6
-	jsl.l CODE_9DC697
+	jsl.l LoadPlayerCardScreen
 	pla
 	sta.b a2
 	lda.b a2

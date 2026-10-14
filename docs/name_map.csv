@@ -2047,8 +2047,8 @@ $9EC460,.1,CODE_9EC460,new,branch target only used in this routine,src/routines/
 $9EC471,.2,CODE_9EC471,new,branch target only used in this routine,src/routines/snes/CODE_9EC453.asm
 $9FC804,.1,CODE_9FC804,new,branch target only used in this routine,src/routines/snes/CODE_9FC79F.asm
 $9C8671,.1,CODE_9C8671,new,branch target only used in this routine,src/routines/snes/CODE_9C866A.asm
-$9DC83B,.loop,CODE_9DC83B,new,branch target only used in this routine,src/routines/snes/CODE_9DC697.asm
-$9DC83F,.loop2,CODE_9DC83F,new,branch target only used in this routine,src/routines/snes/CODE_9DC697.asm
+$9DC83B,.loop,CODE_9DC83B,new,branch target only used in this routine,src/routines/hockey/LoadPlayerCardScreen.asm
+$9DC83F,.loop2,CODE_9DC83F,new,branch target only used in this routine,src/routines/hockey/LoadPlayerCardScreen.asm
 $9FBB4F,.rtl,CODE_9FBB4F,new,branch target only used in this routine,src/routines/snes/CODE_9FBB01.asm
 $9EEB0B,.1,CODE_9EEB0B,new,branch target only used in this routine,src/routines/snes/CODE_9EEADD.asm
 $9EEB2D,.rtl,CODE_9EEB2D,new,branch target only used in this routine,src/routines/snes/CODE_9EEADD.asm
@@ -5551,3 +5551,5 @@ $9DBD7B,PlayerCardsRedraw,CODE_9DBD7B,new,ShowPlayerCards: send the text map and
 $9DBD7F,PlayerCardsLoop,CODE_9DBD7F,new,ShowPlayerCards: the frame and pad loop,src/routines/hockey/ShowPlayerCards.asm
 $9DBDA8,PlayerCardsWait,CODE_9DBDA8,new,"ShowPlayerCards: no key, back to the loop (folded into ShowPlayerCards)",src/routines/hockey/ShowPlayerCards.asm
 $9DBDAA,PlayerCardsExit,CODE_9DBDAA,new,ShowPlayerCards: start leaves (folded into ShowPlayerCards),src/routines/hockey/ShowPlayerCards.asm
+$9DD992,ClearTextMap2,CODE_9DD992,new,Behavior: ClearTextMap for the second map ($7E35AC blank tile),src/routines/snes/ClearTextMap2.asm
+$9DC697,LoadPlayerCardScreen,CODE_9DC697,new,Behavior: called only from the start of ShowPlayerCards,src/routines/hockey/LoadPlayerCardScreen.asm

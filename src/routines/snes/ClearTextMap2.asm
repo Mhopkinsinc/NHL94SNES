@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DD992:
+; Fill the second text map ($7E3FF4, the one SendTextMap2 sends) with the blank tile
+ClearTextMap2:
 	lda.w #$007E
 	sta.b $12
 	lda.w #$3FF4

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DC697:
+; Set up the player card screen: fade out, the logo sprites, fonts, card graphics, map and palettes, clear text maps, sprites on
+LoadPlayerCardScreen:
 	jsl.l FadeOut
 	lda.w #$0081
 	sta.b $0E
@@ -31,7 +31,7 @@ CODE_9DC697:
 	lda.w #$0000
 	sta.l $7E35AC
 	jsl.l ClearTextMap
-	jsl.l CODE_9DD992
+	jsl.l ClearTextMap2
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96A103
