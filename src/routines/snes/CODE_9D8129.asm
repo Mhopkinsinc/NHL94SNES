@@ -14,8 +14,8 @@ CODE_9D8129:
 	jsl.l CODE_9DCCF5
 	stz.w $1DB9
 	stz.w $1E3D
-	jsl.l CODE_9D8292
-	jsl.l CODE_9D842F
+	jsl.l .10
+	jsl.l .12
 	lda.b $8F
 	pha
 	lda.b a1
@@ -148,5 +148,233 @@ CODE_9D8129:
 	lda.l $7E35D0
 	sta.b d2
 	jsl.l eraser
-	jsl.l CODE_9D842F
+	jsl.l .12
 	bra .4
+.10:
+	lda.w #$FFFF
+	sta.w $1E49
+	sta.w $1E4B
+	sta.w $1E4D
+	sta.w $1E4F
+	sta.w $1E51
+	sta.w $1E53
+	sta.w $1E55
+	sta.w $1E57
+	sta.w $1E59
+	sta.w $1E5B
+	sta.w $1E5D
+	sta.w $1E5F
+	lda.w #$FF06
+	sta.w $1E61
+	sta.w $1E65
+	sta.w $1E69
+	sta.w $1E63
+	sta.w $1E67
+	sta.w $1E6B
+	lda.w #$00FA
+	sta.w $1E6D
+	sta.w $1E71
+	sta.w $1E75
+	sta.w $1E6F
+	sta.w $1E73
+	sta.w $1E77
+	stz.w $1E45
+	stz.w $1E47
+	stz.b a2
+	jsl.l .11
+	lda.w #$0002
+	sta.b a2
+	jsl.l .11
+	lda.w HomeTeam
+	sta.w $1E41
+	lda.w #$0001
+	sta.w $1E43
+	lda.w $1E45
+	sec
+	sbc.w $1E47
+	bmi .t1x
+	bra .1xxxx
+
+.t1x:
+	lda.w VisTeam
+	sta.w $1E41
+	lda.w $1E47
+	sec
+	sbc.w $1E45
+.1xxxx:
+	cmp.w #$0008
+	bcs .rtl
+	stz.w $1E43
+	cmp.w #$0004
+	bcs .rtl
+	lda.w #$FFFF
+	sta.w $1E41
+.rtl:
+	rtl
+.11:
+	jsl.l GetPlayerCount
+	lda.b d0
+	sta.b d4
+	ldx.w #$0000
+.loopx:
+	stx.w $1D9B
+	lda.w #$0001
+	sta.b d1
+	jsl.l CODE_9DC5FC
+	lda.b d0
+	sta.b d2
+	lda.w #$0001
+	sta.b d1
+	jsl.l CODE_9DC561
+	lda.b d0
+	sec
+	sbc.b d2
+	sta.b d0
+	ldy.b a2
+	lda.w $1E45,y
+	clc
+	adc.b d0
+	sta.w $1E45,y
+	stx.b d3
+	jsl.l .t1xx
+	inx
+	cpx.b d4
+	bmi .loopx
+	rtl
+
+.t1xx:
+	lda.b d3
+	sta.b d1
+	lda.b d0
+	sta.b $08
+	cmp.w $1E61,y
+	beq .1xxxxx
+	bpl .t2
+.1xxxxx:
+	cmp.w $1E65,y
+	beq .2xx
+	bpl .3x
+.2xx:
+	cmp.w $1E69,y
+	beq .5x
+	bpl .4x
+	bra .5x
+
+.t2:
+	lda.w $1E61,y
+	sta.b $00
+	lda.w $1E49,y
+	sta.b $04
+	lda.b d0
+	sta.w $1E61,y
+	lda.b d1
+	sta.w $1E49,y
+	lda.b $00
+	sta.b d0
+	lda.b $04
+	sta.b d1
+.3x:
+	lda.w $1E65,y
+	sta.b $00
+	lda.w $1E4D,y
+	sta.b $04
+	lda.b d0
+	sta.w $1E65,y
+	lda.b d1
+	sta.w $1E4D,y
+	lda.b $00
+	sta.b d0
+	lda.b $04
+	sta.b d1
+.4x:
+	lda.b d0
+	sta.w $1E69,y
+	lda.b d1
+	sta.w $1E51,y
+.5x:
+	lda.b d3
+	sta.b d1
+	lda.b $08
+	sta.b d0
+	cmp.w $1E6D,y
+	bmi .t1xxx
+	cmp.w $1E71,y
+	bmi .6x
+	cmp.w $1E75,y
+	bmi .7x
+	bra .8x
+
+.t1xxx:
+	lda.w $1E6D,y
+	sta.b $00
+	lda.w $1E55,y
+	sta.b $04
+	lda.b d0
+	sta.w $1E6D,y
+	lda.b d1
+	sta.w $1E55,y
+	lda.b $00
+	sta.b d0
+	lda.b $04
+	sta.b d1
+.6x:
+	lda.w $1E71,y
+	sta.b $00
+	lda.w $1E59,y
+	sta.b $04
+	lda.b d0
+	sta.w $1E71,y
+	lda.b d1
+	sta.w $1E59,y
+	lda.b $00
+	sta.b d0
+	lda.b $04
+	sta.b d1
+.7x:
+	lda.b d0
+	sta.w $1E75,y
+	lda.b d1
+	sta.w $1E5D,y
+.8x:
+	rtl
+.12:
+	jsl.l InitScoutDisplay
+	lda.w #$001D
+	sta.b [a0]
+	inc.b a0
+	inc.b a0
+	lda.w #$001C
+	sta.b [a0]
+	inc.b a0
+	inc.b a0
+	lda.w $1E41
+	bmi .1xxxxxx
+	lda.w #$001E
+	sta.b [a0]
+	inc.b a0
+	inc.b a0
+.1xxxxxx:
+	lda.w HomeTeam
+	sta.b d0
+	lda.w #$001F
+	sta.b [a0]
+	inc.b a0
+	inc.b a0
+	lda.w VisTeam
+	cmp.b d0
+	beq .2xxx
+	lda.w #$0020
+	sta.b [a0]
+	inc.b a0
+	inc.b a0
+.2xxx:
+	lda.w #$0021
+	sta.b [a0]
+	inc.b a0
+	inc.b a0
+	lda.w #$FFFF
+	sta.b [a0]
+	stz.w $1D5E
+	lda.w #$7FFF
+	sta.w $0D41
+	rtl

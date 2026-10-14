@@ -48,7 +48,7 @@ CODE_9B8C7A:
 	cmp.w $1D8F
 	bne .t1x
 	dec.b a3
-	jsr.w CODE_9B8D32
+	jsr.w .5
 	bra .4
 
 .t1x:
@@ -82,7 +82,7 @@ CODE_9B8C7A:
 	jsr.w CODE_9B8D72
 	cmp.w $1D8F
 	bne .4
-	jsr.w CODE_9B8D32
+	jsr.w .5
 	bra .4
 .2:
 	lda.b d0
@@ -93,7 +93,7 @@ CODE_9B8C7A:
 	cmp.w $1D8F
 	bne .4
 	dec.b a3
-	jsr.w CODE_9B8D32
+	jsr.w .5
 .4:
 	lda.b d0
 	clc
@@ -102,4 +102,16 @@ CODE_9B8C7A:
 	sta.b a3
 	lda.w $1D8F
 	jsr.w CODE_9B8D7C
+	rts
+.5:
+	jsr.w CODE_9B8D72
+	sta.w $1D93
+	inc.b a3
+	jsr.w CODE_9B8D72
+	dec.b a3
+	jsr.w CODE_9B8D7C
+	inc.b a3
+	lda.w $1D93
+	jsr.w CODE_9B8D7C
+	dec.b a3
 	rts

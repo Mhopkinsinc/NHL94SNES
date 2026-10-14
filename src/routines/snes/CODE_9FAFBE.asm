@@ -18,12 +18,12 @@ CODE_9FAFBE:
 .1:
 	lda.w #$0010
 	sta.b d0
-	jsl.l CODE_9FB06C
-	jsl.l CODE_9FB06C
-	jsl.l CODE_9FB06C
-	jsl.l CODE_9FB06C
-	jsl.l CODE_9FB06C
-	jsl.l CODE_9FB06C
+	jsl.l .4
+	jsl.l .4
+	jsl.l .4
+	jsl.l .4
+	jsl.l .4
+	jsl.l .4
 org $9FB003
 	ldx.b d4
 	lda.w $19D0,x
@@ -73,4 +73,17 @@ org $9FB003
 	lda.w #$03E8
 	sta.w $1E9F
 	jsl.l ClearPenaltyBuffer
+	rtl
+.4:
+	stx.w puckc
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	jsl.l assinsert
+	inx
+	inx
 	rtl

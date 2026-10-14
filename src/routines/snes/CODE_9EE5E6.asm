@@ -41,16 +41,16 @@ CODE_9EE5E6:
 .4:
 	lda.w Xpos,x
 	cmp.w #$0020
-	bpl CODE_9EE690
+	bpl .8
 	cmp.w #$FFE0
-	bmi CODE_9EE690
+	bmi .8
 	jsl.l RandomWord
 	and.w #$00C0
 	beq .t1x
 	lda.w attribute,x
 	bit.w #$0800
 	bne .1xx
-	bra CODE_9EE66B
+	bra .5
 
 .t1x:
 	jsl.l RandomWord
@@ -59,7 +59,29 @@ CODE_9EE5E6:
 	lda.w #$007F
 	sec
 	sbc.b d0
-	bmi CODE_9EE66B
+	bmi .5
 .1xx:
 	lda.w #$002C
-	bra CODE_9EE66E
+	bra .6
+.5:
+	lda.w #$FFD4
+.6:
+	ldy.w pfgoal,x
+	bne .1xxx
+	eor.w #$FFFF
+	inc a
+.1xxx:
+	sta.w $1EA9
+	sta.w $1EA1
+.7:
+	lda.w #$0002
+	sta.w $1EA7
+	lda.w #$0097
+	sta.w $1EA3
+	lda.w #$0086
+	sta.w $1EA5
+	rts
+.8:
+	sta.w $1EA9
+	stz.w $1EA1
+	bra .7

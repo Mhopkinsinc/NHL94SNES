@@ -62,7 +62,7 @@ CODE_9DB118:
 	lda.w #$0011
 	sta.w $0BD3
 	stz.w $0BFF
-	jsr.w CODE_9DB5B6
+	jsr.w .7
 	jsr.w CODE_9DBC8B
 	stz.w $0BEB
 	stz.w $0BE9
@@ -93,33 +93,33 @@ CODE_9DB118:
 	ldx.w #$001E
 	jsl.l CODE_9DBCEB
 	lda.w #$0000
-	jsr.w CODE_9DB73F
+	jsr.w .9
 	lda.w #$0001
-	jsr.w CODE_9DB73F
+	jsr.w .9
 	lda.w #$0002
-	jsr.w CODE_9DB73F
+	jsr.w .9
 	lda.w #$0034
 	jsl.l CODE_80A200
 	lda.w #$0042
 	sta.w $0BCD
 	jsr.w CODE_9DB891
 	lda.w #$0003
-	jsr.w CODE_9DB73F
+	jsr.w .9
 	lda.w #$0004
-	jsr.w CODE_9DB73F
+	jsr.w .9
 	lda.w #$0005
-	jsr.w CODE_9DB73F
+	jsr.w .9
 	lda.w #$0034
 	jsl.l CODE_80A200
 	lda.w #$007D
 	sta.w $0BCD
 	jsr.w CODE_9DB891
 	lda.w #$0006
-	jsr.w CODE_9DB73F
+	jsr.w .9
 	lda.w #$0007
-	jsr.w CODE_9DB73F
+	jsr.w .9
 	lda.w #$0008
-	jsr.w CODE_9DB73F
+	jsr.w .9
 	lda.w #$0034
 	jsl.l CODE_80A200
 	lda.w #$00FF
@@ -249,7 +249,7 @@ CODE_9DB118:
 .t1:
 	jsr.w CODE_9DB9B4
 .2:
-	jsr.w CODE_9DB430
+	jsr.w .5
 	bra .1
 .3:
 	stz.w $0764
@@ -262,7 +262,7 @@ CODE_9DB118:
 	lda.w $0BE9
 	bne .4
 	jsr.w CODE_9DBA13
-	jsr.w CODE_9DB430
+	jsr.w .5
 	bra .loopx
 .4:
 	lda.w brightness
@@ -272,5 +272,318 @@ CODE_9DB118:
 	bra .4
 
 .t1x:
-	jsr.w CODE_9DB72F
+	jsr.w .8
 	rtl
+.5:
+	lda.w $0BFF
+	bit.w #$0001
+	beq .rts
+	stz.w $0BEF
+	stz.w $0BF1
+	jsr.w CODE_9DBD36
+	jsr.w CODE_9DBB14
+	lda.w #$0001
+	trb.w $0BFF
+.rts:
+	rts
+.6:
+	php
+	rep #$30
+	lda.w $0BFF
+	bit.w #$0002
+	beq .4x
+	bit.w #$0001
+	bne .1x
+	lda.w $0BF1
+	clc
+	adc.w #$0C00
+	sta.w $0BF1
+	bcc .1x
+	inc.w $0BEF
+.1x:
+	sep #$20
+	lda.w $0BEF
+	xba
+	lda.w $0BF2
+	rep #$20
+	cmp.w #$0500
+	bcc .2x
+	lda.w #$0001
+	tsb.w $0BFF
+	lda.w $0BFD
+	eor.w #$0001
+	sta.w $0BFD
+	lda.w #$0000
+.2x:
+	asl a
+	tax
+	lda.l $7F8000,x
+	sta.w $0BFB
+	lda.l $7F8A00,x
+	ldy.w $0BFD
+	beq .3x
+	eor.w #$FFFF
+	inc a
+.3x:
+	clc
+	adc.w #$0190
+	sta.w $0BF7
+	lda.l $7F9400,x
+	sta.w $0BF9
+.4x:
+	plp
+	rts
+	lda.w JoyPad
+	bit.w $0BEB
+	beq .5x
+	lda.w #$0001
+	sta.w $0BE9
+.5x:
+	sep #$20
+	lda.w brightness
+	sta.w INIDISP
+	lda.b #$17
+	sta.w TM
+	lda.b #$54
+	sta.w BG1SC
+	lda.b #$44
+	sta.w BG12NBA
+	lda.b #$C3
+	sta.w W12SEL
+	lda.w $0BD1
+	sta.w BGMODE
+	lda.w $0BCB
+	sta.w WH1
+	lda.w $0BCD
+	sta.w WH3
+	rep #$20
+	lda.w #$009D
+	sta.w $0791
+	lda.w #$B50C
+	sta.w $078F
+	lda.w #$0046
+	sta.w VTIMEL
+	lda.w #$0000
+	sta.w HTIMEL
+	jsr.w .6
+	rtl
+	sep #$20
+	lda.w $0BCF
+	sta.w WH3
+	rep #$20
+	lda.w #$009D
+	sta.w $0791
+	lda.w #$B52F
+	sta.w $078F
+	lda.w #$0050
+	sta.w VTIMEL
+	lda.w #$00A0
+	sta.w HTIMEL
+	rtl
+	sep #$20
+	lda.b #$07
+	sta.w BGMODE
+	lda.b #$00
+	sta.w BG1SC
+	lda.b #$00
+	sta.w BG12NBA
+	stz.w W12SEL
+	lda.w $0BD3
+	sta.w TM
+	lda.w $0BF3
+	sta.w M7X
+	lda.w $0BF4
+	sta.w M7X
+	lda.w $0BF5
+	sta.w M7Y
+	lda.w $0BF6
+	sta.w M7Y
+	lda.w $0BF7
+	sta.w BG1HOFS
+	lda.w $0BF8
+	sta.w BG1HOFS
+	lda.w $0BF9
+	sta.w BG1VOFS
+	lda.w $0BFA
+	sta.w BG1VOFS
+	lda.w $0BFB
+	sta.w M7A
+	lda.w $0BFC
+	sta.w M7A
+	lda.w $0BFB
+	sta.w M7D
+	lda.w $0BFC
+	sta.w M7D
+	rep #$20
+	lda.w #$009D
+	sta.w $0791
+	lda.w #$B5AC
+	sta.w $078F
+	lda.w #$00B0
+	sta.w VTIMEL
+	lda.w #$0000
+	sta.w HTIMEL
+	rtl
+	sep #$20
+	lda.b #$11
+	sta.w TM
+	rep #$20
+	rtl
+.7:
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9ACCA9
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9AE0D5
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0100
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$0000
+	ldx.w #$0100
+	jsl.l DMAToCGRAM
+	lda.w #$0000
+	ldx.w #$4000
+	ldy.w #$0000
+	jsl.l FillVRAMSplit
+	lda.w #DATA8_95F8C6>>16
+	sta.b $0E
+	lda.w #DATA8_95F8C6
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$0000
+	jsl.l DMAToVRAMHigh
+	lda.w #$008A
+	sta.b $0E
+	lda.w #DATA8_8AFF7A
+	sta.b $0C
+	lda.w #$0000
+	sta.w $079C
+	ldx.w #$003C
+	ldy.w #$003C
+	jsl.l Mode7MapToVRAM
+	lda.w #$0094
+	sta.b $0E
+	lda.w #DATA8_948000
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$4000
+	jsl.l DMAToVRAM
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9ADDC6
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	lda.w #$5400
+	sta.w $079C
+	ldx.w #$0000
+	ldy.w #$0000
+	jsl.l MapToVRAM
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9AD88C
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	lda.w #$5800
+	sta.w $079C
+	ldx.w #$0000
+	ldy.w #$0000
+	jsl.l MapToVRAM
+	lda.w #DATA8_87FF91>>16
+	sta.b $0E
+	lda.w #DATA8_87FF91
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9ADEE0
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$4000
+	sta.b $10
+	jsl.l Decompress
+	lda.b $10
+	clc
+	adc.w #$0006
+	sta.b $10
+	lda.w #$8080
+	jsl.l MemOr
+	lda.w #DATA8_91B188>>16
+	sta.b $0E
+	lda.w #DATA8_91B188
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$5000
+	sta.b $10
+	jsl.l Decompress
+	rts
+.8:
+	ldx.w #$0BCB
+	lda.w #$0000
+.loopxx:
+	sta.b $00,x
+	inx
+	inx
+	cpx.w #$0C01
+	bcc .loopxx
+	rts
+.9:
+	pha
+	jsl.l SpriteFrameStart
+	pla
+	jsr.w CODE_9DB754
+	jsl.l SpriteFrameEnd
+	ldx.w #$0004
+	jsl.l CODE_9DBCEB
+	rts

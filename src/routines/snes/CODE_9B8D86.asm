@@ -129,7 +129,7 @@ CODE_9B8D86:
 	sbc.w $1D9B
 .4:
 	sta.w $1D9B
-	jsl.l CODE_9B8F7B
+	jsl.l .10
 .5:
 	jsl.l SendTextMap
 	jsl.l CODE_9DD94D
@@ -176,7 +176,7 @@ CODE_9B8D86:
 	cmp.w $1DAF
 	bpl .9
 	sta.w $1D9B
-	jsl.l CODE_9B8F7B
+	jsl.l .10
 .6:
 	jmp.w .5
 .7:
@@ -186,7 +186,7 @@ CODE_9B8D86:
 	sta.b d0
 	bmi .6
 	sta.w $0D47
-	jsl.l CODE_9B8F7B
+	jsl.l .10
 	bra .6
 .8:
 	lda.w $1DA7
@@ -197,7 +197,7 @@ CODE_9B8D86:
 	cmp.w $1DA3
 	bpl .6
 	inc.w $1DA7
-	jsl.l CODE_9B8F7B
+	jsl.l .10
 	lda.w #$FFFF
 	sta.w $07E0
 	bra .6
@@ -206,9 +206,128 @@ CODE_9B8D86:
 	cmp.w $1DAB
 	beq .6
 	dec.w $1DA7
-	jsl.l CODE_9B8F7B
+	jsl.l .10
 	lda.w #$FFFF
 	sta.w $07E0
 	lda.w #$FFFF
 	sta.w $07D8
 	jmp.w .6
+.10:
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF081
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	lda.w #$0020
+	sta.b d0
+	lda.w #$000D
+	sta.b d1
+	lda.l $7E35D0
+	sta.b d2
+	jsl.l eraser
+	lda.w #$0011
+	sta.w printx
+	lda.w #$0002
+	sta.w printy
+.1xx:
+	lda.w #SkaterAttribColumns
+	sta.b a1
+	lda.w #$009B
+	sta.b $8F
+	lda.w $0D47
+	sta.b d0
+	lda.w SelectedPlayerIdx
+	bne .3x
+	lda.w #$D8CD
+	sta.b a1
+	lda.w #$0080
+	sta.b $8F
+	bra .3x
+.2x:
+	lda.b a1
+	clc
+	adc.b [a1]
+	adc.w #$0004
+	sta.b a1
+.3x:
+	lda.b [a1]
+	bmi .1xxx
+	dec.b d0
+	bpl .2x
+.1xxx:
+	lda.b [a1]
+	bpl .t1xxx
+	dec.w $0D47
+	bra .1xx
+
+.t1xxx:
+	lda.w #$3800
+	sta.w $0D0D
+	jsl.l print
+	lda.b [a1]
+	sta.b $B7
+	ldy.w #$0002
+org $9B9001
+	lda.b [a1],y
+	sta.b d4
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF086
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	lda.w $1DA7
+	cmp.w $1DAB
+	beq .1xxxx
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF091
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+.1xxxx:
+	lda.w $1DA7
+	sec
+	sbc.w $1DAB
+	clc
+	adc.w $1DAF
+	cmp.w $1DA3
+	bpl .2xx
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF097
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+.2xx:
+	jsr.w CODE_9B9249
+	rtl

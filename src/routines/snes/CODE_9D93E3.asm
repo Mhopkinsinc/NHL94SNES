@@ -38,7 +38,7 @@ CODE_9D93E3:
 	adc.w #$0020
 	tax
 	sep #$20
-	jsr.w CODE_9D9494
+	jsr.w .7
 	rep #$20
 	rts
 
@@ -105,5 +105,70 @@ CODE_9D93E3:
 	inx
 	dey
 	bpl .2
+	pla
+	rts
+.7:
+	lda.b #$01
+	pha
+	ldy.w #$0007
+.1x:
+	phx
+	lda.b $03,s
+	and.b #$01
+	beq .t1xxxxx
+	lda.b #$FF
+	sta.l $7F6700,x
+	bra .2x
+
+.t1xxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.2x:
+	inx
+	lda.b $03,s
+	and.b #$02
+	beq .t1xxxxxx
+	lda.b #$FF
+	sta.l $7F6700,x
+	bra .3x
+
+.t1xxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.3x:
+	txa
+	clc
+	adc.b #$0F
+	tax
+	lda.b $03,s
+	and.b #$04
+	beq .t1xxxxxxx
+	lda.b #$FF
+	sta.l $7F6700,x
+	bra .4x
+
+.t1xxxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.4x:
+	inx
+	lda.b $03,s
+	and.b #$08
+	beq .t1xxxxxxxx
+	lda.b #$FF
+	sta.l $7F6700,x
+	bra .5x
+
+.t1xxxxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.5x:
+	lda.b $00
+	sta.b $03,s
+	plx
+	inx
+	inx
+	dey
+	bpl .1x
 	pla
 	rts

@@ -68,7 +68,7 @@ CODE_9DA0D5:
 .2:
 	lda.w #$0001
 	sta.w $1C84
-CODE_9DA18A:
+.3:
 	lda.b d1
 	pha
 	jsl.l CODE_9DB0FD
@@ -91,9 +91,9 @@ CODE_9DA18A:
 	sta.b d1
 	lda.b $AB
 	pha
-	bne .1
+	bne .1x
 	jsr.w CODE_9DAE6D
-.1:
+.1x:
 	pla
 	sta.b $AB
 	lda.w #$0016
@@ -113,7 +113,7 @@ CODE_9DA18A:
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.b $AB
-	beq .t1
+	beq .t1x
 	lda.b $8F
 	pha
 	lda.b a1
@@ -142,7 +142,7 @@ CODE_9DA18A:
 	sta.b $8F
 	bra .t2
 
-.t1:
+.t1x:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -199,7 +199,7 @@ CODE_9DA18A:
 	pla
 	sta.b $8F
 	jsl.l QueueTextDMA
-CODE_9DA29C:
+.4:
 	jsl.l WaitFrame
 	ldx.w $1A0E
 	txa
@@ -212,19 +212,19 @@ CODE_9DA29C:
 	txa
 	beq .t4
 	bit.w #$0001
-	bne .t1
+	bne .t1xx
 	bit.w #$0002
-	bne .t2
+	bne .t2x
 	bit.w #$0004
 	bne .t3
 	bra .t6
 
-.t1:
+.t1xx:
 	jsl.l CODE_9DAF84
 	jsl.l CODE_9DAFB2
 	bra .t6
 
-.t2:
+.t2x:
 	jsl.l CODE_9DAF84
 	jsl.l CODE_9DB005
 	bra .t6
@@ -236,58 +236,58 @@ CODE_9DA29C:
 
 .t4:
 	jsl.l Multi5Init
-	jmp.w CODE_9DA18A
+	jmp.w .3
 
 .t6:
 	lda.w $1A0E
-	beq .t1x
-	jmp.w CODE_9DA29C
+	beq .t1xxx
+	jmp.w .4
 
-.t1x:
+.t1xxx:
 	jsl.l ReadPads
 	ldx.w #$0000
-CODE_9DA2F5:
+.5:
 	lda.w $1A0E
-	bne .1
+	bne .1xx
 	lda.w JoyPad,x
 	and.w #$000F
-	beq .t1
-.1:
+	beq .t1xxxx
+.1xx:
 	lda.w #$0000
 	sta.w $1C84,x
-	jmp.w CODE_9DA486
+	jmp.w .10
 
-.t1:
+.t1xxxx:
 	lda.w $0AB8,x
 	bit.w #$1000
-	bne .t3
-	jmp.w CODE_9DA44B
+	bne .t3x
+	jmp.w .6
 
-.t3:
+.t3x:
 	lda.b $AB
-	beq .1x
+	beq .1xxx
 	ldx.w #$0000
 	lda.w #$0000
-.loop:
+.loopx:
 	ora.w $1C84,x
 	inx
 	inx
 	cpx.w #$000A
-	bcc .loop
+	bcc .loopx
 	bit.w #$0001
-	beq .t1x
+	beq .t1xxxxx
 	jsl.l FigureJoy
-.1x:
+.1xxx:
 	lda.l $7E34BC
 	cmp.w #$0004
-	bne .3
+	bne .3x
 	ldx.w #$0005
 .loop2:
 	txa
 	asl a
 	tay
 	lda.w $1C84,y
-	beq .2
+	beq .2x
 	sta.b $14
 	txa
 	dec a
@@ -298,17 +298,17 @@ CODE_9DA2F5:
 	tay
 	lda.w $1C84,y
 	cmp.b $14
-	beq .t2
+	beq .t2xx
 	dec.b $16
 	bpl .loop3
-.2:
+.2x:
 	dex
 	bne .loop2
-.3:
+.3x:
 	stz.w $0AD7
 	rtl
 
-.t1x:
+.t1xxxxx:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -337,9 +337,9 @@ CODE_9DA2F5:
 	sta.b $8F
 	jsl.l QueueTextDMA
 	jsl.l CODE_9B8682
-	bra .4
+	bra .4x
 
-.t2:
+.t2xx:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -368,24 +368,24 @@ CODE_9DA2F5:
 	sta.b $8F
 	jsl.l QueueTextDMA
 	jsl.l CODE_9B8682
-.4:
+.4x:
 	jsl.l ReadPads
 	ldx.w #$0008
-.loopx:
+.loopxx:
 	lda.w $1A0E
-	bne .1xx
+	bne .1xxxx
 	lda.w JoyPad,x
 	bit.w #$000F
-	bne .1xx
+	bne .1xxxx
 	and.w #$FFF0
-	bne .t1xx
-.1xx:
+	bne .t1xxxxxx
+.1xxxx:
 	dex
 	dex
-	bpl .loopx
-	bra .4
+	bpl .loopxx
+	bra .4x
 
-.t1xx:
+.t1xxxxxx:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -413,16 +413,159 @@ CODE_9DA2F5:
 	pla
 	sta.b $8F
 	jsl.l QueueTextDMA
-.loopxx:
+.loopxxx:
 	ldx.w #$0008
 .loop2x:
 	lda.w JoyPad,x
 	bit.w #$000F
-	bne .1xxx
+	bne .1xxxxx
 	bit.w #$1000
-	bne .loopxx
-.1xxx:
+	bne .loopxxx
+.1xxxxx:
 	dex
 	dex
 	bpl .loop2x
-	jmp.w CODE_9DA29C
+	jmp.w .4
+.6:
+	bit.w #$0200
+	beq .9
+	lda.w $1C84,x
+	beq .8
+	cmp.w #$0001
+	bne .10
+.7:
+	lda.w #$0000
+	sta.w $1C84,x
+	bra .10
+.8:
+	lda.b $AB
+	bne .10
+	lda.w #$0002
+	sta.w $1C84,x
+	bra .10
+.9:
+	bit.w #$0100
+	beq .10
+	lda.w $1C84,x
+	cmp.w #$0001
+	beq .10
+	cmp.w #$0002
+	beq .7
+	lda.w #$0001
+	sta.w $1C84,x
+.10:
+	inx
+	inx
+	lda.l $7E34BC
+	cmp.w #$0004
+	bne .1xxxxxx
+	cpx.w #$0004
+	bcs .t1xxxxxxx
+.1xxxxxx:
+	cpx.w #$000A
+	bcs .t1xxxxxxx
+	jmp.w .5
+
+.t1xxxxxxx:
+	jsl.l SpriteFrameStart
+	lda.w VisTeam
+	sta.l $7E3454
+	lda.w HomeTeam
+	sta.l $7E3452
+	lda.b $AB
+	beq .1xxxxxxx
+	lda.w #$001C
+	sta.l $7E3454
+.1xxxxxxx:
+	ldx.w #$0047
+	ldy.w #$0018
+	lda.w #$009C
+	sta.b $8F
+	lda.w #PlayerSelectTitle
+	sta.b a1
+	jsl.l PrintLetterSprites
+	jsl.l CODE_9DDDB3
+	jsl.l SendColours
+	lda.b $10
+	pha
+	lda.b $12
+	pha
+	lda.w #$0082
+	sta.b $12
+	lda.w #SpriteFrames
+	sta.b $10
+	ldy.w #$0000
+.loopxxxx:
+	phy
+	lda.w $1A0E
+	bne .2xx
+	lda.w JoyPad,y
+	and.w #$000F
+	bne .2xx
+	tya
+	lsr a
+	clc
+	adc.w #$0185
+	sta.b $00
+	lda.b $AB
+	asl a
+	asl a
+	clc
+	adc.w $1C84,y
+	asl a
+	tax
+	lda.l DATA8_9DA570,x
+	pha
+	tyx
+	lda.l DATA8_9DA580,x
+	tay
+	plx
+	lda.w #$2600
+	jsl.l DrawSprite
+	ply
+	phy
+	tya
+	lsr a
+	clc
+	adc.w #$01B1
+	sta.b $00
+	lda.b $AB
+	asl a
+	asl a
+	clc
+	adc.w $1C84,y
+	asl a
+	tax
+	lda.l DATA8_9DA570,x
+	pha
+	tyx
+	lda.l DATA8_9DA580,x
+	tay
+	plx
+	dey
+	dey
+	dex
+	dex
+	dex
+	lda.w #$2000
+	jsl.l DrawSprite
+.2xx:
+	ply
+	iny
+	iny
+	lda.l $7E34BC
+	cmp.w #$0004
+	bne .3xx
+	cpy.w #$0004
+	bcs .4xx
+.3xx:
+	cpy.w #$000A
+	bcc .loopxxxx
+.4xx:
+	pla
+	sta.b $12
+	pla
+	sta.b $10
+	jsl.l WaitFrame
+	jsl.l SpriteFrameEnd
+	jmp.w .4

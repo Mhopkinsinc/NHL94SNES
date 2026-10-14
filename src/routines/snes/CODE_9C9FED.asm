@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9C9FED:
 	lda.w $0C23
-	beq CODE_9CA04D
+	beq .5
 	lda.w $0C29
 	and.w #$0007
 	sta.w $0C29
@@ -15,19 +15,40 @@ org $9CA002
 	sta.w $0C27
 	lda.w $0C25
 	cmp.w #$0004
-	beq CODE_9CA037
+	beq .2
 	lda.w $0C29
 	inc a
 	cmp.w #$0006
-	bne CODE_9CA03D
+	bne .3
 	lda.w $0C25
 	inc a
 	sta.w $0C25
 	cmp.w #$0004
-	beq CODE_9CA040
+	beq .4
 	lda.w #$0002
-	bra CODE_9CA03D
+	bra .3
 
 .t1:
 	sta.w $0C27
-	bra CODE_9CA040
+	bra .4
+.1:
+	stz.w $0C23
+	bra .5
+.2:
+	lda.w $0C29
+	dec a
+	bmi .1
+.3:
+	sta.w $0C29
+.4:
+	lda.w $0C23
+	asl a
+	asl a
+	asl a
+	adc.w $0C29
+	sta.w $0C29
+	rtl
+.5:
+	lda.w #$FFFF
+	sta.w $0C29
+	rtl

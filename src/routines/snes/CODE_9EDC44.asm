@@ -21,9 +21,9 @@ CODE_9EDC44:
 	sta.b d1
 .1:
 	lda.w Ypos,x
-	bpl CODE_9EDC86
+	bpl .4
 	cmp.w #$FEF8
-	bmi CODE_9EDC85
+	bmi .3
 	lda.w pucky
 	cmp.w #$FEF8
 	bmi .t1x
@@ -32,4 +32,16 @@ CODE_9EDC44:
 .t1x:
 	lda.w #$0001
 	sta.b d1
+	rts
+.2:
+	lda.w #$FFFF
+	sta.b d1
+.3:
+	rts
+.4:
+	cmp.w #$0108
+	bpl .3
+	lda.w pucky
+	cmp.w #$0108
+	bpl .2
 	rts
