@@ -110,7 +110,7 @@ CODE_9DBA13:
 	sta.b $8F
 	ldx.w #$0080
 	ldy.w $0BDF
-	jsl.l CODE_9C9415
+	jsl.l PrintStringSprites
 	lda.w $0BE1
 	asl a
 	tax
@@ -120,6 +120,6 @@ CODE_9DBA13:
 	sta.b $8F
 	ldx.w #$0080
 	ldy.w $0BE3
-	jsl.l CODE_9C9415
+	jsl.l PrintStringSprites
 	jsl.l SpriteFrameEnd
 	rts

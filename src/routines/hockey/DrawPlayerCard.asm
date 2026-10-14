@@ -108,7 +108,7 @@ DrawPlayerCard:
 	sta.b $8F
 	lda.w #StrengthsLabel
 	sta.b a1
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	lda.w #$009D
 	sta.b $8F
 	lda.w #RatingNames+178
@@ -123,7 +123,7 @@ DrawPlayerCard:
 	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$0084
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	lda.w #$009D
 	sta.b $8F
 	lda.w #RatingNames+178
@@ -144,7 +144,7 @@ DrawPlayerCard:
 	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$008E
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	lda.w #$009D
 	sta.b $8F
 	lda.w #RatingNames+178
@@ -166,7 +166,7 @@ DrawPlayerCard:
 	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$0098
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	jmp.w .4
 
 .t4:
@@ -212,7 +212,7 @@ org $9DC002
 	sta.b $8F
 	lda.w #StrengthsLabelB
 	sta.b a1
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	lda.w #$009D
 	sta.b $8F
 	lda.w #RatingNames
@@ -223,7 +223,7 @@ org $9DC002
 	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$0084
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	lda.w #$009D
 	sta.b $8F
 	lda.w #RatingNames
@@ -237,7 +237,7 @@ org $9DC002
 	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$008E
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	lda.w #$009D
 	sta.b $8F
 	lda.w #RatingNames
@@ -251,7 +251,7 @@ org $9DC002
 	jsl.l AdvanceStringPtr
 	ldx.w #$0040
 	ldy.w #$0098
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 .4:
 	ldx.w #$0098
 	ldy.w #$007A
@@ -259,7 +259,7 @@ org $9DC002
 	sta.b $8F
 	lda.w #OverallRating
 	sta.b a1
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	lda.w #$0001
 	sta.b d1
 	jsl.l GetPlayerRating
@@ -268,7 +268,7 @@ org $9DC002
 	jsl.l PushNumberWrap
 	ldx.w #$00A0
 	ldy.w #$0084
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	jmp.w .6
 .5:
 	ldx.w #$000D
@@ -372,14 +372,14 @@ org $9DC002
 	sta.b $8F
 	lda.w #TeamRating
 	sta.b a1
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	jsl.l GetTeamRating
 	lda.w #$0004
 	sta.b d1
 	jsl.l PushNumberWrap
 	ldx.w #$0070
 	ldy.w #$00A2
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 .6:
 	lda.w $1DB9
 	beq .t1xxxx

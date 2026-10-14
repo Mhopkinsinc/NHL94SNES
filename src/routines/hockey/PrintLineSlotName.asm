@@ -19,5 +19,5 @@ PrintLineSlotName:
 	adc.b d1
 	tax
 	ldy.w printy
-	jsl.l CODE_9C9590
+	jsl.l PrintSmallLetterSprites
 	rtl

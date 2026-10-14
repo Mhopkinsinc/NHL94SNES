@@ -617,7 +617,7 @@ setoptions:
 	sta.b d1
 	ldx.w #$0008
 	ldy.w #$0043
-	jsl.l CODE_9C943E
+	jsl.l PrintTeamSprites
 .3xxxxx:
 	lda.l $7E3454
 	bpl .4xxx
@@ -631,7 +631,7 @@ setoptions:
 	sta.b d1
 	ldx.w #$0008
 	ldy.w #$0043
-	jsl.l CODE_9C943E
+	jsl.l PrintTeamSprites
 .4xxx:
 	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd

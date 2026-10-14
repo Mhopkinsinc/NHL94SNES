@@ -41,7 +41,7 @@ CODE_9FBE08:
 	iny
 	iny
 .2:
-	jsl.l CODE_9C943E
+	jsl.l PrintTeamSprites
 	lda.l $7E3462
 	beq .t2
 	lda.l $7E3460

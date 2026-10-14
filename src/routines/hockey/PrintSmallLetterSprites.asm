@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C9590:
+; Draw string [a1] with the small letter sprites at X / Y
+PrintSmallLetterSprites:
 	stx.w $1E17
 	sty.w $1E1B
 	ldy.w #$0002

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C943E:
+; Draw the place name of team d1 (TeamPlaceNames), or string [a1] when d1 is negative, as letter sprites at X / Y
+PrintTeamSprites:
 	phb
 	phk
 	plb
@@ -12,10 +12,10 @@ CODE_9C943E:
 	bmi .t1
 	asl a
 	tay
-	lda.w $9649,y
+	lda.w TeamPlaceNames,y
 	sta.b d1
 	ldy.w #$0000
-	bra CODE_9C9479
+	bra PrintTeamSprites_go
 
 .t1:
 	inc.b $16
@@ -35,7 +35,7 @@ CODE_9C943E:
 	lda.w #$0000
 	sta.b (d1),y
 	ldy.w #$0000
-CODE_9C9479:
+PrintTeamSprites_go:
 	lda.b (d1),y
 	and.w #$00FF
 	beq .4
@@ -84,7 +84,7 @@ CODE_9C9479:
 	sta.b $14
 .3:
 	iny
-	bra CODE_9C9479
+	bra PrintTeamSprites_go
 .4:
 	ldy.w #$0000
 	lda.b $16

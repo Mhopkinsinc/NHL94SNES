@@ -2737,14 +2737,14 @@ $9C999F,.t1,CODE_9C999F,new,continued in the previous routine,src/routines/snes/
 $9C9967,.t1,CODE_9C9967,new,continued in the previous routine,src/routines/video/updatesound.asm
 $9C95DE,.t1,CODE_9C95DE,new,continued in the previous routine,src/routines/snes/CODE_9C95CE.asm
 $9C95BA,.t1,CODE_9C95BA,new,continued in the previous routine,src/routines/snes/CODE_9C95B0.asm
-$9C95A1,.t1,CODE_9C95A1,new,continued in the previous routine,src/routines/snes/CODE_9C9590.asm
+$9C95A1,.t1,CODE_9C95A1,new,continued in the previous routine,src/routines/hockey/PrintSmallLetterSprites.asm
 $9C9563,.t1,CODE_9C9563,new,continued in the previous routine,src/routines/snes/CODE_9C953D.asm
 $9C9528,.t1,CODE_9C9528,new,continued in the previous routine,src/routines/snes/CODE_9C951E.asm
 $9C950F,.t1,CODE_9C950F,new,continued in the previous routine,src/routines/snes/CODE_9C9502.asm
-$9C94EA,.t1,CODE_9C94EA,new,continued in the previous routine,src/routines/snes/CODE_9C943E.asm
+$9C94EA,.t1,CODE_9C94EA,new,continued in the previous routine,src/routines/hockey/PrintTeamSprites.asm
 $9C94BB,.t1,CODE_9C94BB,new,continued in the previous routine,src/routines/snes/CODE_9C94A7.asm
 $9C9499,.t1,CODE_9C9499,new,continued in the previous routine,src/routines/snes/CODE_9C948F.asm
-$9C945C,.t1,CODE_9C945C,new,continued in the previous routine,src/routines/snes/CODE_9C943E.asm
+$9C945C,.t1,CODE_9C945C,new,continued in the previous routine,src/routines/hockey/PrintTeamSprites.asm
 $9C93B0,.t1,CODE_9C93B0,new,continued in the previous routine,src/routines/snes/CODE_9C93A0.asm
 $9C938C,.t1,CODE_9C938C,new,continued in the previous routine,src/routines/snes/CODE_9C937D.asm
 $9C90B8,.t1,CODE_9C90B8,new,continued in the previous routine,src/routines/snes/CODE_9C9086.asm
@@ -3487,7 +3487,7 @@ $9B8792,.t3,CODE_9B8792,new,continued in the previous routine,src/routines/snes/
 $9C9DD4,.t1,CODE_9C9DD4,new,continued in the previous routine,src/routines/snes/CODE_9C9D25.asm
 $9C95EE,.t3,CODE_9C95EE,new,continued in the previous routine,src/routines/snes/CODE_9C95B0.asm
 $9C951E,.t3,CODE_9C951E,new,continued in the previous routine,src/routines/snes/CODE_9C9502.asm
-$9C948F,.t3,CODE_9C948F,new,continued in the previous routine,src/routines/snes/CODE_9C943E.asm
+$9C948F,.t3,CODE_9C948F,new,continued in the previous routine,src/routines/hockey/PrintTeamSprites.asm
 $9C93C0,.t3,CODE_9C93C0,new,continued in the previous routine,src/routines/snes/CODE_9C937D.asm
 $9C9067,.t3,CODE_9C9067,new,continued in the previous routine,src/routines/snes/CODE_9C8FD7.asm
 $9C8C80,.t3,CODE_9C8C80,new,continued in the previous routine,src/routines/hockey/ComparePlayerStats.asm
@@ -3571,8 +3571,8 @@ $9BAF4C,.t4,CODE_9BAF4C,new,continued in the previous routine,src/routines/snes/
 $9B95F5,.t4,CODE_9B95F5,new,continued in the previous routine,src/routines/hockey/FillScoringPage.asm
 $9B8CFD,.t4,CODE_9B8CFD,new,continued in the previous routine,src/routines/hockey/SetLineSlot.asm
 $9C9D25,.t1,CODE_9C9D25,new,continued in the previous routine,src/routines/snes/CODE_9C9BAB.asm
-$9C95B0,.t4,CODE_9C95B0,new,continued in the previous routine,src/routines/snes/CODE_9C9590.asm
-$9C9502,.t4,CODE_9C9502,new,continued in the previous routine,src/routines/snes/CODE_9C943E.asm
+$9C95B0,.t4,CODE_9C95B0,new,continued in the previous routine,src/routines/hockey/PrintSmallLetterSprites.asm
+$9C9502,.t4,CODE_9C9502,new,continued in the previous routine,src/routines/hockey/PrintTeamSprites.asm
 $9C937D,.t4,CODE_9C937D,new,continued in the previous routine,src/routines/snes/PrintLetterSprites.asm
 $9C8FD7,.t2,CODE_9C8FD7,new,continued in the previous routine,src/routines/snes/CODE_9C8F9B.asm
 $9C8C91,.t4,CODE_9C8C91,new,continued in the previous routine,src/routines/hockey/ComparePlayerStats.asm
@@ -4002,20 +4002,20 @@ $9C9375,.1,CODE_9C9375,new,branch target only used in this routine,src/routines/
 $9C93E5,.2,CODE_9C93E5,new,branch target only used in this routine,src/routines/snes/PrintLetterSprites.asm
 $9C93EC,.3,CODE_9C93EC,new,branch target only used in this routine,src/routines/snes/PrintLetterSprites.asm
 $9C93F0,.4,CODE_9C93F0,new,continued in the previous routine,src/routines/snes/PrintLetterSprites.asm
-$9C94C2,.1,CODE_9C94C2,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
-$9C94CA,.2,CODE_9C94CA,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
-$9C94CF,.3,CODE_9C94CF,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
-$9C94D2,.4,CODE_9C94D2,new,continued in the previous routine,src/routines/snes/CODE_9C943E.asm
-$9C94F8,.5,CODE_9C94F8,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
-$9C9545,.6,CODE_9C9545,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
-$9C956D,.7,CODE_9C956D,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
-$9C9580,.8,CODE_9C9580,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
-$9C9587,.9,CODE_9C9587,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
-$9C958B,.10,CODE_9C958B,new,continued in the previous routine,src/routines/snes/CODE_9C943E.asm
-$9C9599,.1,CODE_9C9599,new,branch target only used in this routine,src/routines/snes/CODE_9C9590.asm
-$9C9617,.2,CODE_9C9617,new,branch target only used in this routine,src/routines/snes/CODE_9C9590.asm
-$9C961E,.3,CODE_9C961E,new,branch target only used in this routine,src/routines/snes/CODE_9C9590.asm
-$9C9622,.4,CODE_9C9622,new,continued in the previous routine,src/routines/snes/CODE_9C9590.asm
+$9C94C2,.1,CODE_9C94C2,new,branch target only used in this routine,src/routines/hockey/PrintTeamSprites.asm
+$9C94CA,.2,CODE_9C94CA,new,branch target only used in this routine,src/routines/hockey/PrintTeamSprites.asm
+$9C94CF,.3,CODE_9C94CF,new,branch target only used in this routine,src/routines/hockey/PrintTeamSprites.asm
+$9C94D2,.4,CODE_9C94D2,new,continued in the previous routine,src/routines/hockey/PrintTeamSprites.asm
+$9C94F8,.5,CODE_9C94F8,new,branch target only used in this routine,src/routines/hockey/PrintTeamSprites.asm
+$9C9545,.6,CODE_9C9545,new,branch target only used in this routine,src/routines/hockey/PrintTeamSprites.asm
+$9C956D,.7,CODE_9C956D,new,branch target only used in this routine,src/routines/hockey/PrintTeamSprites.asm
+$9C9580,.8,CODE_9C9580,new,branch target only used in this routine,src/routines/hockey/PrintTeamSprites.asm
+$9C9587,.9,CODE_9C9587,new,branch target only used in this routine,src/routines/hockey/PrintTeamSprites.asm
+$9C958B,.10,CODE_9C958B,new,continued in the previous routine,src/routines/hockey/PrintTeamSprites.asm
+$9C9599,.1,CODE_9C9599,new,branch target only used in this routine,src/routines/hockey/PrintSmallLetterSprites.asm
+$9C9617,.2,CODE_9C9617,new,branch target only used in this routine,src/routines/hockey/PrintSmallLetterSprites.asm
+$9C961E,.3,CODE_9C961E,new,branch target only used in this routine,src/routines/hockey/PrintSmallLetterSprites.asm
+$9C9622,.4,CODE_9C9622,new,continued in the previous routine,src/routines/hockey/PrintSmallLetterSprites.asm
 $9C9DBC,.1,CODE_9C9DBC,new,branch target only used in this routine,src/routines/hockey/ShowStars.asm
 $9C9DC6,.2,CODE_9C9DC6,new,branch target only used in this routine,src/routines/hockey/ShowStars.asm
 $9C9DD6,.3,CODE_9C9DD6,new,branch target only used in this routine,src/routines/hockey/ShowStars.asm
@@ -5640,3 +5640,7 @@ $9C8B69,SortPlayerStats,CODE_9C8B69,new,Behavior: called from ShowPlayerStats an
 $9C8C22,ComparePlayerStats,CODE_9C8C22,new,"Behavior: the per column compares of the stat tables ($18EE, $1922, $1956, $198A); called from SortPlayerStats",src/routines/hockey/ComparePlayerStats.asm
 $9C8934,FillPlayerStatsPage,CODE_9C8934,new,Behavior: as FillOtherScores for the player stats; called from SortPlayerStats,src/routines/hockey/FillPlayerStatsPage.asm
 $9C8D17,SetStatColumnPal,CODE_9C8D17,new,Behavior: called from FillPlayerStatsPage,src/routines/hockey/SetStatColumnPal.asm
+$9C943E,PrintTeamSprites,CODE_9C943E,new,Behavior: called from setoptions and CODE_9FBE08,src/routines/hockey/PrintTeamSprites.asm
+$9C9415,PrintStringSprites,CODE_9C9415,new,Behavior: enters PrintTeamSprites_go; called from PrintCopyright and the title,src/routines/hockey/PrintStringSprites.asm
+$9C9590,PrintSmallLetterSprites,CODE_9C9590,new,"Behavior: PrintLetterSprites with the small letter set (space 3, a period); called from DrawPlayerCard and PrintLineSlotName",src/routines/hockey/PrintSmallLetterSprites.asm
+$9C9479,PrintTeamSprites_go,CODE_9C9479,new,PrintTeamSprites: the letter loop; PrintStringSprites enters here,src/routines/hockey/PrintTeamSprites.asm

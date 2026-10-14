@@ -715,3 +715,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - GetFrameHot. MATCH.
 - Multiply entries, DrawSpriteExit, GameStatsKeys / GameStatsRtl; tails folded. MATCH.
 - Player stats helpers. MATCH.
+- Sprite text routines. MATCH.

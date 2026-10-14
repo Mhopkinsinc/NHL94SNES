@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C9415:
+; Draw string a1 as letter sprites at X / Y (the PrintTeamSprites letter loop)
+PrintStringSprites:
 	phb
 	phk
 	plb
@@ -20,4 +20,4 @@ CODE_9C9415:
 	plb
 	rep #$30
 	ldy.w #$0000
-	bra CODE_9C9479
+	bra PrintTeamSprites_go
