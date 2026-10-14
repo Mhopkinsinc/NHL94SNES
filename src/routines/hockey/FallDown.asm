@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E9B52:
+; Player a2 falls or stumbles from a hit
+FallDown:
 	lda.w $19BE
 	clc
 	adc.w #$000F

@@ -34,8 +34,8 @@ CODE_9E9649:
 	pha
 	lda.b d3
 	pha
-	jsl.l CODE_9EBA4F
-	jsl.l CODE_9E9FF9
+	jsl.l checkint
+	jsl.l checkcheck
 	pla
 	sta.b d3
 	pla

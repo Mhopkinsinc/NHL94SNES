@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EBC24:
+; Player a2 body checks a3: a3 falls if he is in front, and a charging penalty may be called
+Bcheck:
 	ldy.b a2
 	lda.w pfalock,x
 	bne .t1
@@ -39,7 +39,7 @@ CODE_9EBC24:
 	ldy.b a3
 	sty.b a2
 	stx.b a3
-	jsl.l CODE_9E9B52
+	jsl.l FallDown
 	jsl.l CODE_9EC042
 	beq .t2
 	lda.w $1E8D

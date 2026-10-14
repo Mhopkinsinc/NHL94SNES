@@ -654,3 +654,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Calls: 24 routines named from the 93S routine called at the same place by an already named routine, where the body agrees (assexit, chk4lc, chk4shot, chk4pass, CompLine, AvgCline, getlinee, SuperMult, PushBits ...). MATCH.
 - Call graph: 16 routines named from the unused 93S routine whose named calls they make in the same order, where the body agrees (DoGameFrame, updateplayers, updatereplay, PeriodOver, Intermission, InitTicker, Goal, InProgress, checkcoll ...). MATCH.
 - Wrong labels: immediates that had taken a hardware register name by value (`DMA_OAM`, `INIDISP`, one `DMA_CGRAM`, one `DMA_VRAMWORD`) outside DMA setup and register loops are numbers again. MATCH.
+- Collisions: Bcheck, FallDown, checkcheck (with .cc), checkint (with .ci) and puckbody named from 93S by body and calls. MATCH.

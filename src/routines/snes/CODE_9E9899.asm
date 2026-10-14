@@ -37,7 +37,7 @@ CODE_9E9899:
 	ldx.b a3
 	cmp.w #$0041
 	bcs CODE_9E98EC
-	jsl.l CODE_9EEF7F
+	jsl.l puckbody
 CODE_9E98EC:
 	stx.b xsave
 	ldx.w #$001A

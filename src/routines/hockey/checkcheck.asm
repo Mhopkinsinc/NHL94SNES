@@ -1,25 +1,50 @@
-; Unidentified routine.
-CODE_9EA021:
+; Two players are in contact: check what happens each way
+checkcheck:
+	lda.b d4
+	pha
+	lda.b a2
+	pha
+	lda.b a3
+org $9EA001
+	pha
+	jsl.l .cc
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
+	jsl.l .cc
+	pla
+	sta.b a3
+	pla
+	sta.b a2
+	pla
+	sta.b d4
+	ldx.b a3
+.rtl:
+	rtl
+.1:
+	jmp.w holdcheck
+.cc:
 	ldy.b a2
 	lda.w SPA,y
 	cmp.w #$F374
-	beq CODE_9EA01E
+	beq .1
 	cmp.w #$F864
-	beq CODE_9EA01E
+	beq .1
 	cmp.w #$F208
 	bne .t1
-	jmp.w CODE_9EBC24
+	jmp.w Bcheck
 
 .t1:
 	lda.w SPA,x
 	cmp.w #$F342
-	bne CODE_9EA01D
+	bne .rtl
 	lda.w gmclock
-	beq .1
+	beq .1x
 	lda.w #$0100
 	sta.w $0F23,x
 	sta.w $0F23,y
-.1:
+.1x:
 	lda.w Xpos,y
 	sec
 	sbc.w Xpos,x
@@ -41,7 +66,7 @@ CODE_9EA021:
 	sta.b a0
 	sta.w $1543,x
 	cpy.w #$0000
-	bne CODE_9EA0B1
+	bne .3
 	lda.w Xpos,x
 	cmp.w #$0050
 	bpl .t2
@@ -54,27 +79,27 @@ CODE_9EA021:
 	bpl .t2
 	lda.w $0792
 	and.w #$00F0
-	beq CODE_9EA0B1
-	bra CODE_9EA0AD
+	beq .3
+	bra .2
 
 .t2:
 	lda.w $0792
 	and.w #$0030
-	beq CODE_9EA0B1
-CODE_9EA0AD:
+	beq .3
+.2:
 	iny
 	iny
 	sty.b d0
-CODE_9EA0B1:
+.3:
 	lda.b [a0],y
 	jsl.l SetSPAFromA
 	ldy.b a2
 	lda.w position,y
-	beq .t1
+	beq .t1x
 	lda.b d4
 	sec
 	sbc.w #$0020
-	bmi .t1
+	bmi .t1x
 	lda.w #$0078
 	sta.b d0
 	lda.b d0
@@ -85,21 +110,21 @@ CODE_9EA0B1:
 	lsr a
 	sec
 	sbc.w $0F23,y
-	beq .t2
-	bmi .t2
+	beq .t2x
+	bmi .t2x
 	sta.b d0
 	jsl.l randomd0
 	lda.b d0
 	sec
 	sbc.w $1483,x
-	bmi .t2
+	bmi .t2x
 	jsl.l checkagr
 	lda.b d0
 	cmp.w #$0001
-	bcs .t1
+	bcs .t1x
 	lda.w gmode
 	bit.w #$0010
-	bne .t1
+	bne .t1x
 	lda.w $0793
 	and.w #$0002
 	clc
@@ -107,28 +132,28 @@ CODE_9EA0B1:
 	sta.b d0
 	jmp.w AddPenalty
 
-.t1:
+.t1x:
 	rtl
 
-.t2:
+.t2x:
 	jsl.l checkagr
 	lda.b d0
 	cmp.w #$0001
-	bcs .1
+	bcs .1xx
 	lda.w gmode
 	bit.w #$0010
-	bne .1
+	bne .1xx
 	lda.w $0793
 	and.w #$0002
 	clc
 	adc.w #$001C
 	sta.b d0
 	jsl.l AddPenalty
-.1:
+.1xx:
 	jsl.l CODE_9EC042
-	beq .2
+	beq .2x
 	lda.w $1E8D
-	bpl .2
+	bpl .2x
 	ldy.b a2
 	sty.w $1E8D
 	lda.w $19D4,y
@@ -136,5 +161,5 @@ CODE_9EA0B1:
 	lda.w #$0024
 	sta.b d0
 	jsl.l AddPenalty
-.2:
-	jmp.w CODE_9E9B52
+.2x:
+	jmp.w FallDown

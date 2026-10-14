@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EEF7F:
+; The puck hits player a2: a fast high puck knocks him down, a slower one is caught
+puckbody:
 	lda.w $0DF9
 	cmp.w #$0008
 	bpl .t2
@@ -75,4 +75,4 @@ org $9EF000
 	lda.w $0DF9
 	cmp.w #$000C
 	bmi CODE_9EF02A
-	jmp.w CODE_9E9B52
+	jmp.w FallDown
