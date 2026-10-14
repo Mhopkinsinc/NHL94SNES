@@ -22,7 +22,7 @@ chk4shot:
 	lda.w $0792
 	and.w #$0003
 	bne .t1
-	jmp.w CODE_9EED85
+	jmp.w StartDumpIn
 
 .t1:
 	lda.w #$0020

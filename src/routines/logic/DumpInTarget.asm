@@ -1,6 +1,6 @@
-; Unidentified routine.
-CODE_9EECF6:
-	stx.w $0BA3
+; assdumpin: dumpinplayer = X; pick the dump-in target (dumpintarget) and passdir from where he is
+DumpInTarget:
+	stx.w dumpinplayer
 	lda.w position,x
 	beq .t4
 	lda.w pfgoal,x
@@ -14,12 +14,12 @@ CODE_9EECF6:
 	lda.w Xpos,x
 	bmi .t1
 	lda.w #$000A
-	sta.w $0BA5
+	sta.w dumpintarget
 	rtl
 
 .t1:
 	lda.w #$0006
-	sta.w $0BA5
+	sta.w dumpintarget
 	rtl
 
 .t2:
@@ -29,7 +29,7 @@ CODE_9EECF6:
 	and.w #$0007
 	sta.w passdir
 	lda.w #$0008
-	sta.w $0BA5
+	sta.w dumpintarget
 	rtl
 
 .t3:
@@ -41,12 +41,12 @@ CODE_9EECF6:
 	lda.w Xpos,x
 	bmi .t1x
 	lda.w #$0016
-	sta.w $0BA5
+	sta.w dumpintarget
 	rtl
 
 .t1x:
 	lda.w #$0012
-	sta.w $0BA5
+	sta.w dumpintarget
 	rtl
 
 .t2x:
@@ -56,16 +56,16 @@ CODE_9EECF6:
 	and.w #$0007
 	sta.w passdir
 	lda.w #$0014
-	sta.w $0BA5
+	sta.w dumpintarget
 	rtl
 
 .t4:
-	stz.w $0BA5
+	stz.w dumpintarget
 	stz.w passdir
 	lda.w pfgoal,x
 	bne .rtl
 	lda.w #$000C
-	sta.w $0BA5
+	sta.w dumpintarget
 	lda.w #$0004
 	sta.w passdir
 .rtl:

@@ -5,6 +5,6 @@ asstab:
 	dd assscore,assstanley,asseben,assepen
 	dd assbench,asspenalty,assdopen,assgoalietopuck
 	dd assbreakaway,asspuckc,assnearest,assshoot
-	dd CODE_9EED8D,asspassrec,assfaceoff,assfaceoffpl
+	dd assdumpin,asspassrec,assfaceoff,assfaceoffpl
 	dd pucknorm,puckshadow,pucknothing,puckfaceoff
 	dd puckfaceoff2

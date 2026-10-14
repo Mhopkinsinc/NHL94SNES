@@ -136,7 +136,7 @@ FaceoffPads:
 	dex
 	dex
 	bpl .loop8
-	sta.w $0BA3
+	sta.w dumpinplayer
 	ldx.w #$0008
 .loop9:
 	sta.w $19EC,x

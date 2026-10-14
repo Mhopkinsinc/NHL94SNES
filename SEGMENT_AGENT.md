@@ -764,3 +764,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Title path tables. MATCH.
 - Title credits. MATCH.
 - Bench cheer and licence screen. MATCH.
+- assdumpin. MATCH.

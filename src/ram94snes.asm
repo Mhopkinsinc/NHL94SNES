@@ -212,3 +212,5 @@ Framercset = $7E35BC	; vram tiles for the Framer box
 scorechars = $7E35CE	; vram tiles for the scoreboard / team block maps
 benchcheer = $0C23	; the bench that is cheering (StartBenchCheer), 0 none
 benchframe = $0C29	; bench cheer frame: set * 8 + step, drawn by setsortcords; negative = none (kept in the replay)
+dumpinplayer = $0BA3	; the player dumping the puck in (assdumpin), -1 none
+dumpintarget = $0BA5	; assdumpin: the target index (DumpInTarget), a word offset into its x / y tables

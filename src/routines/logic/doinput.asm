@@ -148,7 +148,7 @@ doinput:
 	bne .t1x
 	bit.w #$0008
 	bne .t2x
-	lda.w $0BA3
+	lda.w dumpinplayer
 	cmp.b $E4
 	beq .23
 	lda.b d1

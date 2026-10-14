@@ -1,17 +1,17 @@
-; Unidentified routine.
-CODE_9EED8D:
+; Assignment $14: the puck carrier dumps the puck in: shoot when close in (CompShoot), else lift it (puckflip) toward the target DumpInTarget picked (over the blue line, a corner or the front of the net) and let go of it
+assdumpin:
 	cpx.w puckc
 	bne .t2
 	lda.w pflags,x
 	bit.w #$0002
 	beq .t3
-	jsl.l CODE_9EECF6
+	jsl.l DumpInTarget
 	lda.w pflags,x
 	and.w #$FFFD
 	sta.w pflags,x
 	lda.w $19D4,x
 	bpl .t3
-	lda.w $0BA5
+	lda.w dumpintarget
 	cmp.w #$0014
 	beq .t1
 	cmp.w #$0008
@@ -52,8 +52,8 @@ CODE_9EED8D:
 .1:
 	tya
 	asl a
-	adc.w $0BA5
-	sta.w $0BA5
+	adc.w dumpintarget
+	sta.w dumpintarget
 	lda.w facedir,x
 	sta.w passdir
 .2:
@@ -68,7 +68,7 @@ CODE_9EED8D:
 	sbc.w $13A3,x
 	asl a
 	sta.b d4
-	ldy.w $0BA5
+	ldy.w dumpintarget
 	lda.w .6,y
 	clc
 	adc.b d4
@@ -83,7 +83,7 @@ CODE_9EED8D:
 	adc.b d4
 	jsl.l randomd0s
 	clc
-	adc.w DATA8_9EEF1C,y
+	adc.w .ytab,y
 	sec
 	sbc.w pucky
 	sta.b d1
@@ -151,7 +151,7 @@ CODE_9EED8D:
 	jsl.l puckflip
 	ldx.b $E4
 	lda.w #$FFFF
-	sta.w $0BA3
+	sta.w dumpinplayer
 	sta.w puckc
 	lda.w #$001E
 	sta.w $1203,x
@@ -159,9 +159,11 @@ CODE_9EED8D:
 	lsr a
 	sta.w $0CF3
 	jmp.w CODE_9EEACC
-.6:
+.6:		; by target: the x spread (plus the rating term)
 	dw 25,25,25,25,20,25,25,25,25,25,20,25
-.7:
+.7:		; by target: the y spread
 	dw 20,25,25,70,20,70,20,25,25,70,20,70
-.8:
+.8:		; by target: x
 	dw 0,-80,80,-80,0,80,0,80,-80,-80,0,80
+.ytab:		; by target: y (toward the goal; the second half for the other end)
+	dw -105,-115,-115,-180,-215,-180,105,115,115,180,215,180
