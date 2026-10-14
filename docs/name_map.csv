@@ -5814,3 +5814,4 @@ $9EED8D,assdumpin,CODE_9EED8D,new,"Behavior, confirmed by the user (Y with the p
 $9EECF6,DumpInTarget,CODE_9EECF6,new,Behavior (user confirmed),src/routines/logic/DumpInTarget.asm
 $9EED85,StartDumpIn,CODE_9EED85,new,Behavior: chk4shot calls it at random (1 in 4) for a computer carrier,src/routines/logic/StartDumpIn.asm
 $9EEF1C,.ytab,DATA8_9EEF1C,new,assdumpin: the target y table (folded into assdumpin),src/routines/logic/assdumpin.asm
+$9EEACC,dopass_swing,CODE_9EEACC,new,dopass once the puck velocity is set: the goalie direction fix and the pass animation; assdumpin jumps here,src/routines/logic/dopass.asm

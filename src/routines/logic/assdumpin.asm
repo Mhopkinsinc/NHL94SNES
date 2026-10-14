@@ -158,7 +158,7 @@ assdumpin:
 	txa
 	lsr a
 	sta.w $0CF3
-	jmp.w CODE_9EEACC
+	jmp.w dopass_swing
 .6:		; by target: the x spread (plus the rating term)
 	dw 25,25,25,25,20,25,25,25,25,25,20,25
 .7:		; by target: the y spread

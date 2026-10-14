@@ -80,7 +80,7 @@ dopass:
 	jsl.l CODE_9EEB2E
 	lda.w #$0000
 	jsl.l PuckSfx
-	jmp.w CODE_9EEACC
+	jmp.w dopass_swing
 
 .t2:
 	lda.w passdir
@@ -125,7 +125,8 @@ dopass:
 	jsl.l RandomWord
 	and.w #$0FFF
 	sta.w $0E01
-CODE_9EEACC:
+; dopass once the puck velocity is set: a goalie never passes back toward his net, then the pass animation (SPAgswing / SPApassf); assdumpin ends here too
+dopass_swing:
 	lda.w position,x
 	bne .2
 	lda.w pfgoal,x
