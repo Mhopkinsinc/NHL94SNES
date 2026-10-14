@@ -5,4 +5,4 @@ CODE_9ED4BC:
 	sbc.b $C1
 	sta.w $1003,x
 	bmi CODE_9ED4CA
-	jmp.w $DB21
+	jmp.w CODE_9EDB21

@@ -11,4 +11,4 @@ DATA8_9E8553:
 	bne CODE_9E858C
 	lda.w #$0006
 	sta.b $A5
-	jmp.w $8C18
+	jmp.w CODE_9E8C18

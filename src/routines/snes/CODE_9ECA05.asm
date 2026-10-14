@@ -6,4 +6,4 @@ CODE_9ECA05:
 	and.w #$00FF
 	cmp.w #$0072
 	bne CODE_9ECA17
-	jmp.w $CC4B
+	jmp.w CODE_9ECC4B

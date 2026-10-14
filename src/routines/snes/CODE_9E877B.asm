@@ -67,7 +67,7 @@ CODE_9E87E9:
 	lda.w #CODE_9ED0FC
 	sta.b $89
 	jsl.l CODE_9EA5A4
-	jmp.w $A164
+	jmp.w CODE_9EA164
 	cpx.w $0AD9
 	beq CODE_9E8822
 	ldy.w $0AD9
@@ -77,4 +77,4 @@ CODE_9E87E9:
 	beq CODE_9E882A
 	lda.w #$0002
 	sta.b $A5
-	jmp.w $8C18
+	jmp.w CODE_9E8C18

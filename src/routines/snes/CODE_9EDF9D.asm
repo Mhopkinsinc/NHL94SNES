@@ -44,4 +44,4 @@ CODE_9EDFEB:
 	lda.w sflags
 	bit.w #$8000
 	bne CODE_9EDFF6
-	jmp.w $E10B
+	jmp.w CODE_9EE10B

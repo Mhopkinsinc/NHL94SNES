@@ -15,4 +15,4 @@ CODE_9D9E9C:
 	sta.b $8D
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3
-	jmp.w $9DE2
+	jmp.w CODE_9D9DE2

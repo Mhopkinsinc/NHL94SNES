@@ -29,7 +29,7 @@ CODE_9EE134:
 	sta.w $10A3,x
 	lda.w #$0013
 	sta.b $A5
-	jmp.w $8C18
+	jmp.w CODE_9E8C18
 	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9EE156

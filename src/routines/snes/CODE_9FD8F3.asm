@@ -8,4 +8,4 @@ CODE_9FD8F3:
 	sbc.w #$0020
 	beq CODE_9FD907
 	bmi CODE_9FD907
-	jmp.w $D99D
+	jmp.w CODE_9FD99D

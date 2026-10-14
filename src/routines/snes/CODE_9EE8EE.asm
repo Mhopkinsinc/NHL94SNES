@@ -83,4 +83,4 @@ CODE_9EE98A:
 	sep #$20
 	pla
 	rep #$30
-	jmp.w $8BE6
+	jmp.w CODE_9E8BE6

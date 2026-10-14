@@ -20,5 +20,5 @@ CODE_9FF89C:
 	lda.b #$01
 	sta.w M7D
 	rep #$20
-	jsr.w $F8D4
+	jsr.w CODE_9FF8D4
 	rts

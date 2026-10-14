@@ -35,4 +35,4 @@ CODE_9EA6CC:
 	sta.w $1163,x
 	lda.w #$0014
 	sta.w $14E3,x
-	jmp.w $A719
+	jmp.w CODE_9EA719

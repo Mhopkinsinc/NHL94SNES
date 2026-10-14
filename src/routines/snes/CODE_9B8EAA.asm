@@ -19,4 +19,4 @@ CODE_9B8EBC:
 	bit.w #$1000
 	beq CODE_9B8EE1
 	lda.w #$FFFF
-	jmp.w $91A1
+	jmp.w CODE_9B91A1

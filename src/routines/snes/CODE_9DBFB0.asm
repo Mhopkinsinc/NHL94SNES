@@ -12,4 +12,4 @@ CODE_9DBFB0:
 	sta.b $A5
 	bpl CODE_9DBFD2
 CODE_9DBFCF:
-	jmp.w $C0BB
+	jmp.w CODE_9DC0BB

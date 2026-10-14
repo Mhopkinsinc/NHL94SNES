@@ -12,7 +12,7 @@ CODE_9D9ACB:
 	sta.b $04
 	sta.b $06
 	lda.l $7E3466
-	jsr.w $9BFC
+	jsr.w CODE_9D9BFC
 	lda.b $08
 	asl a
 	clc
@@ -27,7 +27,7 @@ CODE_9D9ACB:
 	sta.b $04
 	lda.l $7E3466
 	inc a
-	jsr.w $9BFC
+	jsr.w CODE_9D9BFC
 	ldx.b $08
 	lda.l DATA8_9C9623,x
 	and.w #$00FF
@@ -55,7 +55,7 @@ CODE_9D9B0F:
 	asl a
 	sta.b $0A
 	lda.l $7E3466
-	jsr.w $9C2A
+	jsr.w CODE_9D9C2A
 	lda.b $08
 	asl a
 	clc
@@ -70,7 +70,7 @@ CODE_9D9B0F:
 	sta.b $04
 	lda.l $7E3466
 	inc a
-	jsr.w $9C2A
+	jsr.w CODE_9D9C2A
 CODE_9D9B59:
 	ldx.b $08
 	cmp.w #$0020

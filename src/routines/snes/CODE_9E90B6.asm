@@ -40,4 +40,4 @@ CODE_9E90C0:
 	bmi CODE_9E9117
 	lda.w $0DFF
 	sta.w $0DF9
-	jmp.w $92AE
+	jmp.w CODE_9E92AE

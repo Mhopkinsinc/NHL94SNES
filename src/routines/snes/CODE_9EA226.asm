@@ -9,4 +9,4 @@ CODE_9EA233:
 	lda.w $0793
 	and.w #$0007
 	bne CODE_9EA23E
-	jmp.w $A222
+	jmp.w CODE_9EA222

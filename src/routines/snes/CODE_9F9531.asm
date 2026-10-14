@@ -9,4 +9,4 @@ CODE_9F9531:
 	beq CODE_9F954B
 	cmp.l $7E3558,x
 	beq CODE_9F954B
-	jmp.w $961E
+	jmp.w CODE_9F961E

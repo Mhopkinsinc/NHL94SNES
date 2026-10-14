@@ -52,4 +52,4 @@ CODE_9EB25F:
 	tya
 	bit.w #$0080
 	beq CODE_9EB274
-	jmp.w $B1F2
+	jmp.w CODE_9EB1F2

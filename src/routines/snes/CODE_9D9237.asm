@@ -22,4 +22,4 @@ CODE_9D9237:
 	bne CODE_9D927C
 	lda.b $B3
 	bne CODE_9D9281
-	jmp.w $9221
+	jmp.w CODE_9D9221

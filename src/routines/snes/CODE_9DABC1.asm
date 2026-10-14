@@ -17,7 +17,7 @@ CODE_9DABD5:
 	lda.w #$FFFF
 	sta.l $7E3452
 	ldx.w #$0000
-	jsr.w $AC22
+	jsr.w CODE_9DAC22
 CODE_9DABF4:
 	lda.l $7E3454
 	cmp.w #$001C
@@ -25,7 +25,7 @@ CODE_9DABF4:
 	lda.w #$FFFF
 	sta.l $7E3454
 	ldx.w #$0002
-	jsr.w $AC22
+	jsr.w CODE_9DAC22
 CODE_9DAC0A:
 	stz.b $91
 	lda.l $7E345E

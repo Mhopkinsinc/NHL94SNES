@@ -33,5 +33,5 @@ CODE_9B8849:
 	ldy.w #$0002
 	lda.b [$8D],y
 	sta.b $B5
-	jsr.w $8B60
+	jsr.w CODE_9B8B60
 	rtl

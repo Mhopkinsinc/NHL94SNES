@@ -24,4 +24,4 @@ CODE_9EC444:
 	sta.b $A9
 	lda.w pfgoal,x
 	beq CODE_9EC453
-	jmp.w $C4D4
+	jmp.w CODE_9EC4D4

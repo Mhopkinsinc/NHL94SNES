@@ -20,4 +20,4 @@ CODE_9DA486:
 CODE_9DA496:
 	cpx.w #$000A
 	bcs CODE_9DA49E
-	jmp.w $A2F5
+	jmp.w CODE_9DA2F5

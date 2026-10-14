@@ -57,4 +57,4 @@ CODE_9CA186:
 	lda.b $99
 	cmp.w #$15D3
 	beq CODE_9CA192
-	jmp.w $A0B6
+	jmp.w CODE_9CA0B6

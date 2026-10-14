@@ -12,4 +12,4 @@ CODE_9FF7C5:
 	tsb.b $C3
 	lda.w #$000D
 	sta.b $B7
-	jmp.w $F898
+	jmp.w CODE_9FF898

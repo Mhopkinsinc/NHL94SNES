@@ -62,4 +62,4 @@ CODE_9C9E8E:
 CODE_9C9EBC:
 	cpx.w #$0034
 	bpl CODE_9C9EC4
-	jmp.w $9DA1
+	jmp.w CODE_9C9DA1

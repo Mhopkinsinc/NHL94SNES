@@ -4,5 +4,5 @@ CODE_9FF6BA:
 	bne CODE_9FF6CA
 	lda.w #$0000
 	jsl.l CODE_80A200
-	jsr.w $F8DC
+	jsr.w CODE_9FF8DC
 	bra CODE_9FF6CD

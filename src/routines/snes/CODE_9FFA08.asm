@@ -16,4 +16,4 @@ CODE_9FFA0B:
 	jsl.l CODE_9FF92E
 	lda.w #$0080
 	trb.b $C3
-	jmp.w $FA6B
+	jmp.w CODE_9FFA6B

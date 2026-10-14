@@ -9,4 +9,4 @@ CODE_9FF6B3:
 	lda.b $B9
 	sta.b $B7
 CODE_9FF6B7:
-	jmp.w $F898
+	jmp.w CODE_9FF898

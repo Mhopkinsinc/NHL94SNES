@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9B8A15:
-	jsr.w $89E6
+	jsr.w CODE_9B89E6
 	lda.b $8F
 	pha
 	lda.b $8D

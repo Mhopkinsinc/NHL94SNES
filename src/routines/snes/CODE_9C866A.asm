@@ -4,4 +4,4 @@ CODE_9C866A:
 	bit.w #$0200
 	beq CODE_9C8674
 CODE_9C8671:
-	jmp.w $8796
+	jmp.w CODE_9C8796

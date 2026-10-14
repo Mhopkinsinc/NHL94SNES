@@ -21,4 +21,4 @@ lcfound:
 	lda.w #$FFFF
 	sta.w $1D55,y
 	jsl.l setpersonel
-	jmp.w $DE13
+	jmp.w CODE_9FDE13

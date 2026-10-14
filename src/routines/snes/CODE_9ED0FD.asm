@@ -20,4 +20,4 @@ CODE_9ED116:
 	bne CODE_9ED12F
 	lda.l $7E3138
 	sta.b $A9
-	jmp.w $D130
+	jmp.w CODE_9ED130

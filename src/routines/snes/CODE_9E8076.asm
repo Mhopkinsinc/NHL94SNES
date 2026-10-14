@@ -29,4 +29,4 @@ CODE_9E8086:
 	sta.b $A5
 	jsl.l assinsert
 	ldx.b $E4
-	jmp.w $8BE6
+	jmp.w CODE_9E8BE6

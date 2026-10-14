@@ -91,4 +91,4 @@ CODE_9E8430:
 	inc.b $89
 	dec.b $B5
 	bmi CODE_9E843B
-	jmp.w $83BF
+	jmp.w CODE_9E83BF

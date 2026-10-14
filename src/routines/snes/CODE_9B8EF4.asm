@@ -24,4 +24,4 @@ CODE_9B8F14:
 	sta.w $1D9B
 	jsl.l CODE_9B8F7B
 CODE_9B8F28:
-	jmp.w $8EBC
+	jmp.w CODE_9B8EBC

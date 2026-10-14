@@ -7,7 +7,7 @@
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
 - `adda43` shares a file with `CODE_9BB176` because that routine falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
 - Two entries in bank `$9F` had no label. They are `CODE_9F9901` and `CODE_9FA835` (rows in `docs/name_map.csv`).
-- Next: replace raw pointers and immediates with labels where the bytes stay the same, then the header sweep and the doc rewrite. Extraction is still ahead.
+- Next: plain-English headers on the routines that already have a 93S or 94G name, then the doc rewrite. Extraction is still ahead. Raw `jmp`/`jsr` targets and long pointers that already had a label now use that label.
 - Sprite animation sequences are `src/data/frames94s.asm` (the label is still `DATA8_9DE0FC`).
 
 ## Unsure

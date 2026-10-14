@@ -28,4 +28,4 @@ CODE_9EF1CE:
 	bit.w #$1000
 	bne CODE_9EF1CB
 	stz.w $0E01
-	jmp.w $9A49
+	jmp.w CODE_9E9A49

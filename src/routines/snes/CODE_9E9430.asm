@@ -42,4 +42,4 @@ CODE_9E945C:
 	pla
 	lda.w #$0008
 	sta.b $A5
-	jmp.w $B88A
+	jmp.w CODE_9EB88A

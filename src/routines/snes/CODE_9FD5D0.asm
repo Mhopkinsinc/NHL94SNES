@@ -53,4 +53,4 @@ CODE_9FD625:
 	and.w #$00FF
 	sta.b $B1
 	bne CODE_9FD633
-	jmp.w $D6B8
+	jmp.w CODE_9FD6B8

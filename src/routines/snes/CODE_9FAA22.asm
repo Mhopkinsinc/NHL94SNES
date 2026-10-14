@@ -9,4 +9,4 @@ CODE_9FAA22:
 	lda.w position,x
 	sta.b $A9
 	bpl CODE_9FAA3D
-	jmp.w $ABA2
+	jmp.w CODE_9FABA2

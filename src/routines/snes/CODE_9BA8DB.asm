@@ -8,4 +8,4 @@ CODE_9BA8DB:
 	dec a
 	bne CODE_9BA8EE
 CODE_9BA8EB:
-	jmp.w $AA5F
+	jmp.w CODE_9BAA5F

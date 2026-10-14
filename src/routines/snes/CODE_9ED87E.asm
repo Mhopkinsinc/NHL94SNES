@@ -14,4 +14,4 @@ CODE_9ED87E:
 	cmp.w #$0109
 	bmi CODE_9ED8A4
 CODE_9ED89E:
-	jmp.w $DA2C
+	jmp.w CODE_9EDA2C

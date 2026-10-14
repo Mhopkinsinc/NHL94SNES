@@ -1,3 +1,3 @@
 ; Unidentified routine.
 CODE_9CA0FE:
-	jmp.w $A186
+	jmp.w CODE_9CA186

@@ -109,4 +109,4 @@ CODE_9D851D:
 	sta.w printx
 	jsl.l CODE_9EC7BE
 	inc.w $1DB9
-	jmp.w $86AA
+	jmp.w CODE_9D86AA

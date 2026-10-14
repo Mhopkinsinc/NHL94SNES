@@ -25,4 +25,4 @@ CODE_9F9C05:
 	lda.w sflags3
 	bit.w #$0001
 	beq CODE_9F9C10
-	jmp.w $9CD8
+	jmp.w CODE_9F9CD8

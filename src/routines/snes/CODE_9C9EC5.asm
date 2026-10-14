@@ -26,7 +26,7 @@ CODE_9C9ED8:
 	sta.b $0A
 	lda.w #$71B0
 	sta.b $08
-	jsr.w $9FC7
+	jsr.w CODE_9C9FC7
 CODE_9C9F04:
 	sep #$20
 	lda.w $18EE,x
@@ -36,7 +36,7 @@ CODE_9C9F04:
 	ldx.w #$2AF8
 	jsl.l Mul16U
 	plx
-	jsr.w $9FC7
+	jsr.w CODE_9C9FC7
 	sep #$20
 	lda.w $1922,x
 	rep #$20
@@ -45,7 +45,7 @@ CODE_9C9F04:
 	ldx.w #$2774
 	jsl.l Mul16U
 	plx
-	jsr.w $9FC7
+	jsr.w CODE_9C9FC7
 	sep #$20
 	lda.w $1956,x
 	rep #$20
@@ -54,5 +54,5 @@ CODE_9C9F04:
 	ldx.w #$000A
 	jsl.l Mul16U
 	plx
-	jsr.w $9FC7
+	jsr.w CODE_9C9FC7
 	bra CODE_9C9FB0

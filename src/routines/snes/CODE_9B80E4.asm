@@ -21,4 +21,4 @@ CODE_9B80E4:
 	beq CODE_9B811A
 	dec a
 	sta.w $1A02
-	jmp.w $81F3
+	jmp.w CODE_9B81F3

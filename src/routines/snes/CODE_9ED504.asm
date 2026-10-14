@@ -8,4 +8,4 @@ CODE_9ED50F:
 	cpx.w $0AD9
 	beq CODE_9ED517
 CODE_9ED514:
-	jmp.w $D5A7
+	jmp.w CODE_9ED5A7

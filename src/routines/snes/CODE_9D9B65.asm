@@ -9,4 +9,4 @@ CODE_9D9B6C:
 	sta.b $14
 	ply
 	iny
-	jmp.w $9A94
+	jmp.w CODE_9D9A94

@@ -24,4 +24,4 @@ CODE_9EFA36:
 	lda.b $A5
 	cmp.w #$0040
 	bne CODE_9EFA5F
-	jmp.w $FAF7
+	jmp.w CODE_9EFAF7

@@ -12,4 +12,4 @@ CODE_9FEB32:
 	lda.b [$95]
 	cmp.b $A5
 	beq CODE_9FEB4E
-	jmp.w $EBA5
+	jmp.w CODE_9FEBA5

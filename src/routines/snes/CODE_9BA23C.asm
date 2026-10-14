@@ -109,4 +109,4 @@ CODE_9BA312:
 	dex
 	dex
 	bmi CODE_9BA31B
-	jmp.w $A1B8
+	jmp.w CODE_9BA1B8

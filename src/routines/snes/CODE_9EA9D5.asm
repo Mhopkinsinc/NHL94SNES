@@ -95,4 +95,4 @@ CODE_9EAA98:
 	lda.b $B1
 	cmp.w #$0003
 	bcc CODE_9EAAA2
-	jmp.w $AB64
+	jmp.w CODE_9EAB64

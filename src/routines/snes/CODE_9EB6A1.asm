@@ -6,4 +6,4 @@ CODE_9EB6A5:
 	sta.b [$89]
 	lda.w sfhormode
 	beq CODE_9EB6B2
-	jmp.w $B4A1
+	jmp.w CODE_9EB4A1

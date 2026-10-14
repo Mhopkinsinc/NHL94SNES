@@ -11,4 +11,4 @@ CODE_9ED8A4:
 	lda.w $0B05,x
 	bit.w #$0002
 	beq CODE_9ED8C3
-	jmp.w $D992
+	jmp.w CODE_9ED992

@@ -26,4 +26,4 @@ CODE_9EA132:
 	sta.b $A5
 	jsl.l AddPenalty
 CODE_9EA151:
-	jmp.w $9B52
+	jmp.w CODE_9E9B52

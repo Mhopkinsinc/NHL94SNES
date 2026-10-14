@@ -3,4 +3,4 @@ CODE_9EBADA:
 	lda.w pflags,x
 	bit.w #$0002
 	bne CODE_9EBAE5
-	jmp.w $BB35
+	jmp.w CODE_9EBB35

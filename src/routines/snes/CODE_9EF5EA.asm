@@ -5,4 +5,4 @@ CODE_9EF5EA:
 	sta.w pflags,y
 	ldy.w $0AD9
 	bpl CODE_9EF5FB
-	jmp.w $F69A
+	jmp.w CODE_9EF69A

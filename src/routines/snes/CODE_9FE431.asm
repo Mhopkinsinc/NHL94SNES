@@ -60,4 +60,4 @@ CODE_9FE431:
 	jsl.l WaitFrames_Inc
 	jsl.l CODE_9FE4BF
 CODE_9FE4BC:
-	jmp.w $E19E
+	jmp.w CODE_9FE19E

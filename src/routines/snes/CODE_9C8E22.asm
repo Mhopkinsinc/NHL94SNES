@@ -8,4 +8,4 @@ CODE_9C8E22:
 	bne CODE_9C8E9C
 	bit.w #$0400
 	beq CODE_9C8E3A
-	jmp.w $8EDD
+	jmp.w CODE_9C8EDD

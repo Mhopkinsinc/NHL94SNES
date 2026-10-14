@@ -13,4 +13,4 @@ CODE_9FDC8F:
 	sta.w newpos,x
 	lda.w position
 	sta.b $A5
-	jmp.w $CED0
+	jmp.w Setplass

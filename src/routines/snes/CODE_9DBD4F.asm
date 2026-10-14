@@ -33,4 +33,4 @@ CODE_9DBD7F:
 	bne CODE_9DBDAE
 	bit.w #$4000
 	beq CODE_9DBDA8
-	jmp.w $BE5B
+	jmp.w CODE_9DBE5B

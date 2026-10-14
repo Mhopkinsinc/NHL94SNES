@@ -5,4 +5,4 @@ CODE_9ED263:
 	sbc.b $C1
 	sta.w $1023,x
 	bmi CODE_9ED271
-	jmp.w $D2F7
+	jmp.w CODE_9ED2F7

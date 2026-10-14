@@ -7,4 +7,4 @@ CODE_9C9599:
 	tya
 	cmp.b [$8D]
 	bne CODE_9C95A1
-	jmp.w $9622
+	jmp.w CODE_9C9622

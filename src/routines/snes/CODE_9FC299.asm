@@ -11,4 +11,4 @@ CODE_9FC2A9:
 	bpl CODE_9FC298
 	lda.b $B5
 	sta.w $1D55,y
-	jmp.w $D2FE
+	jmp.w CODE_9FD2FE

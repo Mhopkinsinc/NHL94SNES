@@ -27,4 +27,4 @@ CODE_9E9528:
 	jsl.l CODE_9CA554
 	cmp.w #$0010
 	bmi CODE_9E955F
-	jmp.w $976E
+	jmp.w CODE_9E976E

@@ -40,4 +40,4 @@ CODE_9DBDF2:
 	sta.w $1DB9
 CODE_9DBDFF:
 	jsl.l CODE_9DBE79
-	jmp.w $BD7B
+	jmp.w CODE_9DBD7B

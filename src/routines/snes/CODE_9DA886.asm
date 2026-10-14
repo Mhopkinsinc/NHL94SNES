@@ -4,7 +4,7 @@ CODE_9DA886:
 	beq CODE_9DA899
 	lda.w #$FFFE
 	sta.b $A5
-	jsr.w $AC4F
-	jsr.w $A973
+	jsr.w CODE_9DAC4F
+	jsr.w CODE_9DA973
 CODE_9DA896:
-	jmp.w $A6FF
+	jmp.w CODE_9DA6FF

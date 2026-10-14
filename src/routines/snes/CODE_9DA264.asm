@@ -33,4 +33,4 @@ CODE_9DA29C:
 	txa
 	eor.b $AD
 	bne CODE_9DA2AB
-	jmp.w $A2E6
+	jmp.w CODE_9DA2E6

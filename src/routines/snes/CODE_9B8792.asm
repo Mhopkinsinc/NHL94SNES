@@ -23,4 +23,4 @@ CODE_9B87B2:
 	bpl CODE_9B880D
 	sta.w $1D8B
 	jsl.l CODE_9B8810
-	jmp.w $880D
+	jmp.w CODE_9B880D

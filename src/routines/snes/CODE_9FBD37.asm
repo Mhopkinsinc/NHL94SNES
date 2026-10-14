@@ -13,4 +13,4 @@ CODE_9FBD47:
 	dec.b $91
 	dec.b $91
 	bmi CODE_9FBD50
-	jmp.w $BC6E
+	jmp.w CODE_9FBC6E

@@ -40,4 +40,4 @@ CODE_9ED55D:
 	lda.w $0AD9
 	bmi CODE_9ED58C
 CODE_9ED574:
-	jmp.w $D6AE
+	jmp.w CODE_9ED6AE

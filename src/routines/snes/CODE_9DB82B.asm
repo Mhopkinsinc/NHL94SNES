@@ -28,5 +28,5 @@ CODE_9DB82B:
 	adc.w #$0180
 	sta.w $0BF9
 	ldx.w #$03E8
-	jsr.w $B884
+	jsr.w CODE_9DB884
 	bra CODE_9DB82B

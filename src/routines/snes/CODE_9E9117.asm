@@ -99,4 +99,4 @@ CODE_9E91C4:
 	cmp.w #$0017
 	bmi CODE_9E9212
 CODE_9E91E9:
-	jmp.w $92BE
+	jmp.w CODE_9E92BE

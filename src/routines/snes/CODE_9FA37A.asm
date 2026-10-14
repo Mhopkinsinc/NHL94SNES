@@ -10,4 +10,4 @@ CODE_9FA385:
 	sta.w $0D31
 	bmi CODE_9FA379
 CODE_9FA390:
-	jmp.w $A461
+	jmp.w CODE_9FA461

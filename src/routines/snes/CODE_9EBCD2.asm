@@ -32,4 +32,4 @@ CODE_9EBD1D:
 	sta.w $1083,x
 	bpl CODE_9EBD45
 CODE_9EBD29:
-	jmp.w $BDC9
+	jmp.w CODE_9EBDC9

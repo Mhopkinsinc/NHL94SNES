@@ -80,4 +80,4 @@ CODE_9E9DF2:
 CODE_9E9E3C:
 	lda.w position,x
 	bne CODE_9E9E44
-	jmp.w $B88A
+	jmp.w CODE_9EB88A

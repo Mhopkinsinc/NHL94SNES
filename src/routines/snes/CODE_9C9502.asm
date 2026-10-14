@@ -4,4 +4,4 @@ CODE_9C9502:
 	bne CODE_9C9514
 	cpy.w #$0000
 	bne CODE_9C950F
-	jmp.w $9587
+	jmp.w CODE_9C9587

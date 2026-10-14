@@ -71,4 +71,4 @@ CODE_9EEA50:
 	inc.b $8D
 	dec.b $B1
 	bmi CODE_9EEA5B
-	jmp.w $EA08
+	jmp.w CODE_9EEA08

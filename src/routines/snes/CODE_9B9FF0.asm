@@ -7,4 +7,4 @@ CODE_9B9FF0:
 	lda.w $0C2B,x
 	beq CODE_9BA003
 org $9BA000
-	jmp.w $A110
+	jmp.w CODE_9BA110

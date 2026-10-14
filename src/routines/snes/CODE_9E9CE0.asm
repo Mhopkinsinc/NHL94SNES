@@ -16,4 +16,4 @@ CODE_9E9CE0:
 	sta.w $0EE3,y
 CODE_9E9D04:
 	lda.w #$FCD8
-	jmp.w $9C7C
+	jmp.w CODE_9E9C7C

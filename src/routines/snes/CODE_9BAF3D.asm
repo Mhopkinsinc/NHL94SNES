@@ -4,4 +4,4 @@ CODE_9BAF3D:
 	sta.w $0CAB
 	lda.w #$0020
 	trb.w sflags
-	jmp.w $ACE5
+	jmp.w CODE_9BACE5

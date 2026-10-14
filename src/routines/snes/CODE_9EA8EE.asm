@@ -7,4 +7,4 @@ CODE_9EA8EE:
 	sta.b $AD
 	cpx.w $0AD9
 	bne CODE_9EA8FE
-	jmp.w $A9AD
+	jmp.w CODE_9EA9AD

@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9DAB18:
 	jsl.l SpriteFrameStart
-	jsr.w $ABC1
+	jsr.w CODE_9DABC1
 	ldx.w #$004F
 	ldy.w #$0018
 	lda.w #$009C

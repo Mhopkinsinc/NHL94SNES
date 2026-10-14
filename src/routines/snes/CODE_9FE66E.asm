@@ -13,7 +13,7 @@ CODE_9FE66E:
 	stz.w $0D13
 	jsl.l CODE_9FEA24
 	jsl.l CODE_9DD923
-	jsr.w $E9FD
+	jsr.w CODE_9FE9FD
 	lda.w #$003C
 	sta.w $0AC8
 	lda.w #$0014

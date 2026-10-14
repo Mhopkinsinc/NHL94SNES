@@ -29,4 +29,4 @@ CODE_9ED70A:
 	pha
 	lda.b $A5
 	pha
-	jmp.w $D7F1
+	jmp.w CODE_9ED7F1

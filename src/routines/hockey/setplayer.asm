@@ -74,4 +74,4 @@ CODE_9FCF55:
 	stz.w HmAwBonus
 	lda.w position,x
 	bne CODE_9FCF91
-	jmp.w $D01F
+	jmp.w CODE_9FD01F

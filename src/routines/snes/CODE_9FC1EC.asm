@@ -32,4 +32,4 @@ CODE_9FC222:
 	bne CODE_9FC299
 	cpx.w $0AD9
 	bne CODE_9FC231
-	jmp.w $C2CE
+	jmp.w CODE_9FC2CE

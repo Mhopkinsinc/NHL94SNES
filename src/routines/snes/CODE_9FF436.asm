@@ -19,9 +19,9 @@ CODE_9FF436:
 	lda.w #$009F
 	sta.b $0E
 	jsl.l CODE_9FFAB4
-	jsr.w $F4D8
+	jsr.w CODE_9FF4D8
 	stz.b $C3
-	jsr.w $F5E3
+	jsr.w CODE_9FF5E3
 	stz.w $0AD1
 	stz.w $0AD3
 	jsl.l SpriteFrameStart
@@ -42,7 +42,7 @@ CODE_9FF499:
 	jsl.l CODE_80855E
 CODE_9FF4AA:
 	jsl.l RandomWord
-	jsr.w $F613
+	jsr.w CODE_9FF613
 	bne CODE_9FF4BB
 	lda.b $3C
 	cmp.b $3A

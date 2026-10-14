@@ -32,4 +32,4 @@ CODE_9FB56F:
 	ora.w #$FF00
 	sta.w $1003,y
 	ldx.b $95
-	jmp.w $D325
+	jmp.w CODE_9FD325

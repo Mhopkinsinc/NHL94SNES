@@ -24,7 +24,7 @@ CODE_9DBBB8:
 	sta.w $0BE7
 CODE_9DBBCD:
 	phx
-	jsr.w $BBF1
+	jsr.w CODE_9DBBF1
 	lda.w $0BE5
 	clc
 	adc.w #$0020

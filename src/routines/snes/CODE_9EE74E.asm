@@ -13,4 +13,4 @@ CODE_9EE762:
 	and.w #$0080
 	bne CODE_9EE779
 	inc.w $0BAB
-	jmp.w $E797
+	jmp.w CODE_9EE797

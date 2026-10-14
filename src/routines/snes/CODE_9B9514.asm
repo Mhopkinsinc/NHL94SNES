@@ -6,7 +6,7 @@ CODE_9B9514:
 	sta.w $1DBD
 	lda.w #$0006
 	sta.w $1DC5
-	jsr.w $9562
+	jsr.w CODE_9B9562
 	jsl.l WaitFrame
 	lda.w #$0015
 	sta.w $1DF3
@@ -22,8 +22,8 @@ CODE_9B9536:
 	jsl.l CODE_9B9AB2
 	lda.w #$0005
 	sta.w $1DC5
-	jsr.w $9562
+	jsr.w CODE_9B9562
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w $94A5
+	jmp.w CODE_9B94A5

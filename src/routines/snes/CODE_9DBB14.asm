@@ -20,7 +20,7 @@ CODE_9DBB14:
 	sta.b $0C
 	lda.l CenterIceTable+6,x
 	sta.b $0E
-	jsr.w $BC25
+	jsr.w CODE_9DBC25
 	txa
 	lsr a
 	eor.w #$FFFF
@@ -56,7 +56,7 @@ CODE_9DBB14:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	jsr.w $BBA8
+	jsr.w CODE_9DBBA8
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$A000

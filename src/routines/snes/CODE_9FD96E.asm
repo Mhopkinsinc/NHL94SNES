@@ -21,4 +21,4 @@ CODE_9FD987:
 	lda.w newpnum,x
 	sta.b $B1
 	jsl.l CODE_9FD9CB
-	jmp.w $CEF6
+	jmp.w setplayer

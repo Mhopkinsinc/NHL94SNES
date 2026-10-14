@@ -4,4 +4,4 @@ CODE_9E8F9E:
 	trb.w sflags
 	lda.b $AD
 	bmi CODE_9E8FAB
-	jmp.w $9091
+	jmp.w CODE_9E9091

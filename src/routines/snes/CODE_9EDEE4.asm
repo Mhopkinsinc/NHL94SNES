@@ -14,4 +14,4 @@ CODE_9EDEE4:
 	lda.w $0792
 	and.w #$0003
 	bne CODE_9EDF0C
-	jmp.w $ED85
+	jmp.w CODE_9EED85

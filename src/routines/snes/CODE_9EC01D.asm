@@ -4,4 +4,4 @@ CODE_9EC01D:
 	sta.w tmpdst,y
 	bit.w #$0800
 	bne CODE_9EC029
-	jmp.w $BF9E
+	jmp.w CODE_9EBF9E

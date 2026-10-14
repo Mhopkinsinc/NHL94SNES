@@ -32,4 +32,4 @@ CODE_9EB274:
 	lda.b $A9
 	sta.w Pencntdwn
 CODE_9EB2B1:
-	jmp.w $B1F2
+	jmp.w CODE_9EB1F2

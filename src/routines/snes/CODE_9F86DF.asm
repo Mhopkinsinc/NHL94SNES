@@ -49,4 +49,4 @@ CODE_9F8742:
 	lda.w SPA,x
 	cmp.w #$F90E
 	bne CODE_9F874D
-	jmp.w $8834
+	jmp.w CODE_9F8834

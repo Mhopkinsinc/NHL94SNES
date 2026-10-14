@@ -6,4 +6,4 @@ CODE_9EEF7F:
 	lda.b $A5
 	and.w #$000F
 	beq CODE_9EEF91
-	jmp.w $F02A
+	jmp.w CODE_9EF02A

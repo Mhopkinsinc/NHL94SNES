@@ -17,7 +17,7 @@ CODE_9E860B:
 	sta.b $8B
 	lda.w #CODE_9ED0FC
 	sta.b $89
-	jmp.w $A5A4
+	jmp.w CODE_9EA5A4
 	ldy.w $0AD9
 	bmi CODE_9E8631
 	lda.w pfteam,x
@@ -25,4 +25,4 @@ CODE_9E860B:
 	bne CODE_9E8631
 	lda.w #$0001
 	sta.b $A5
-	jmp.w $8C18
+	jmp.w CODE_9E8C18

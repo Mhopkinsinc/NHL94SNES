@@ -10,4 +10,4 @@ CODE_9EDDBD:
 	and.w #$FF00
 	ora.w $0DF9
 	beq CODE_9EDDCB
-	jmp.w $9788
+	jmp.w CODE_9E9788

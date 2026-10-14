@@ -3,7 +3,7 @@ CODE_9BC4DB:
 	lda.w $1DB9
 	cmp.w $1DC1
 	beq CODE_9BC4F2
-	jsr.w $C543
+	jsr.w CODE_9BC543
 	inc.w printy
 CODE_9BC4E9:
 	lda.w $1DB9

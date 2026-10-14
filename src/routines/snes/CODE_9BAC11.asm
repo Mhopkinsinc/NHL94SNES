@@ -22,4 +22,4 @@ CODE_9BAC30:
 	txa
 	lsr a
 	sta.w $0AF3
-	jmp.w $ACCD
+	jmp.w CODE_9BACCD

@@ -11,4 +11,4 @@ CODE_9F8B79:
 	lda.w gsp
 	cmp.w #$0002
 	bcs CODE_9F8B9B
-	jmp.w $8C96
+	jmp.w CODE_9F8C96

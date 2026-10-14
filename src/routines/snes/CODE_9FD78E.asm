@@ -10,4 +10,4 @@ CODE_9FD78E:
 	sta.w tmflags,y
 	lda.w #$FFFF
 	sta.w $1D55,y
-	jmp.w $DE13
+	jmp.w CODE_9FDE13

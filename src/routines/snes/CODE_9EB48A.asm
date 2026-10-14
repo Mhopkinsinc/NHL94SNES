@@ -28,4 +28,4 @@ CODE_9EB4AB:
 	beq CODE_9EB4AB
 	cmp.w #$0000
 	bne CODE_9EB4C1
-	jmp.w $B6B8
+	jmp.w CODE_9EB6B8

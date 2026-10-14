@@ -38,4 +38,4 @@ CODE_9E9B5E:
 	bmi CODE_9E9BB3
 	lda.w #$003C
 	sta.w $1223,y
-	jmp.w $9D59
+	jmp.w CODE_9E9D59

@@ -10,4 +10,4 @@ CODE_9DBE5B:
 	adc.w #$0006
 	sta.w $1DC1
 	jsl.l CODE_9DBE79
-	jmp.w $BD7B
+	jmp.w CODE_9DBD7B

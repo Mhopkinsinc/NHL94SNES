@@ -48,4 +48,4 @@ CODE_9B8C1A:
 	inc.w printy
 	dec.b $A9
 	bmi CODE_9B8C65
-	jmp.w $8BFD
+	jmp.w CODE_9B8BFD

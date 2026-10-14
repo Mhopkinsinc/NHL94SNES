@@ -42,4 +42,4 @@ CODE_9C8C63:
 	beq CODE_9C8CA1
 	cmp.w #$0004
 	bne CODE_9C8C75
-	jmp.w $8CE5
+	jmp.w CODE_9C8CE5

@@ -2,7 +2,7 @@
 CODE_9FC80A:
 	lda.b $A5
 	and.w #$000F
-	jsr.w $C822
+	jsr.w CODE_9FC822
 	lda.b $B1
 	bit.w $1EB3
 	beq CODE_9FC81C

@@ -10,4 +10,4 @@ CODE_9E88E5:
 	sbc.b $A9
 	sta.b $A9
 CODE_9E88F2:
-	jmp.w $A5A4
+	jmp.w CODE_9EA5A4

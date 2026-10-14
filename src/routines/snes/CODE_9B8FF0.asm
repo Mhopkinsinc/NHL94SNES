@@ -60,5 +60,5 @@ CODE_9B9041:
 	pla
 	sta.b $8F
 CODE_9B906B:
-	jsr.w $9249
+	jsr.w CODE_9B9249
 	rtl

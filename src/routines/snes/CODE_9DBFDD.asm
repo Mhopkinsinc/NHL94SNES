@@ -4,4 +4,4 @@ CODE_9DBFDD:
 	ldx.w #$0040
 	ldy.w #$0098
 	jsl.l CODE_9C9590
-	jmp.w $C0BB
+	jmp.w CODE_9DC0BB

@@ -179,4 +179,4 @@ CODE_9D9221:
 	ora.w $0ABA
 	cmp.w #$1000
 	bne CODE_9D9237
-	jmp.w $9064
+	jmp.w CODE_9D9064

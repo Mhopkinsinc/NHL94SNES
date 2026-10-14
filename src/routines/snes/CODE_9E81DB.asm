@@ -12,4 +12,4 @@ CODE_9E81E8:
 	lda.w #CODE_9ED0FC
 	sta.b $89
 	jsl.l CODE_9EA5A4
-	jmp.w $A164
+	jmp.w CODE_9EA164

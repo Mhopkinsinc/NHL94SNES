@@ -18,4 +18,4 @@ CODE_9EBCB8:
 	lda.w pflags,x
 	bit.w #$0002
 	bne CODE_9EBCD2
-	jmp.w $BD1D
+	jmp.w CODE_9EBD1D

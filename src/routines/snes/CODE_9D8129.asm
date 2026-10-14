@@ -68,4 +68,4 @@ CODE_9D81CC:
 	bne CODE_9D8240
 	bit.w #$0040
 	beq CODE_9D81DE
-	jmp.w $825E
+	jmp.w CODE_9D825E

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9BC35C:
-	jsr.w $C4F3
+	jsr.w CODE_9BC4F3
 	lda.w #$0006
 	sta.w $1DC5
 	jsl.l CODE_9BC44B
@@ -13,4 +13,4 @@ CODE_9BC35C:
 	adc.w $1DE9
 	cmp.w $1DC1
 	bmi CODE_9BC382
-	jmp.w $C2E4
+	jmp.w CODE_9BC2E4

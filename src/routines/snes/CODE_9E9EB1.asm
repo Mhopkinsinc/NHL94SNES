@@ -6,4 +6,4 @@ CODE_9E9EB4:
 	jsl.l CODE_9EA3F1
 	ldx.b $95
 	ldy.b $91
-	jmp.w $9D79
+	jmp.w CODE_9E9D79

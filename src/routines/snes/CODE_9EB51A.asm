@@ -8,4 +8,4 @@ CODE_9EB523:
 	and.w #$00FF
 	sta.b $AD
 	bne CODE_9EB52F
-	jmp.w $B6A5
+	jmp.w CODE_9EB6A5

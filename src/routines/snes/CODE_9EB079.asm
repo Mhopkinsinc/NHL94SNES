@@ -30,4 +30,4 @@ CODE_9EB09F:
 	bcc CODE_9EB070
 	cmp.w #$0028
 	bcs CODE_9EB0B6
-	jmp.w $A242
+	jmp.w CODE_9EA242

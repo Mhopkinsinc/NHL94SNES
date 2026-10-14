@@ -55,4 +55,4 @@ CODE_9EDBA1:
 	bcc CODE_9EDBBD
 	lda.w #$000F
 	sta.b $A5
-	jmp.w $8C0E
+	jmp.w assinsert

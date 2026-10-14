@@ -24,4 +24,4 @@ CODE_9FD8AB:
 	cmp.w pnum,x
 	bne CODE_9FD8B6
 CODE_9FD8B3:
-	jmp.w $D9C2
+	jmp.w CODE_9FD9C2

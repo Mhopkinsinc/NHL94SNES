@@ -11,4 +11,4 @@ CODE_9EB1F2:
 	beq CODE_9EB1F2
 	tay
 	bne CODE_9EB206
-	jmp.w $B2B4
+	jmp.w CODE_9EB2B4

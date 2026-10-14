@@ -14,4 +14,4 @@ CODE_9EAB74:
 	sta.b $12
 	lda.w position,x
 	bne CODE_9EAB93
-	jmp.w $ADCF
+	jmp.w CODE_9EADCF

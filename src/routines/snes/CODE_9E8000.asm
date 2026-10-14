@@ -25,4 +25,4 @@ CODE_9E802A:
 	sta.b $A5
 	lda.w $19D4,x
 	bpl CODE_9E8041
-	jmp.w $8C0E
+	jmp.w assinsert

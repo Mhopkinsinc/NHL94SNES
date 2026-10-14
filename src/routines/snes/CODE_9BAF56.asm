@@ -15,4 +15,4 @@ CODE_9BAF6E:
 	sta.b $C1
 	lda.w #$0002
 	trb.w sflags3
-	jmp.w $ABAB
+	jmp.w CODE_9BABAB

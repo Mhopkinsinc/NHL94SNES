@@ -5,4 +5,4 @@ CODE_9FF7E6:
 CODE_9FF7EA:
 	lda.w #$0005
 	sta.b $B7
-	jmp.w $F898
+	jmp.w CODE_9FF898

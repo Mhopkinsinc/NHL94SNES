@@ -9,4 +9,4 @@ CODE_9FE418:
 	eor.w #$0001
 	sta.w $1C94,y
 CODE_9FE42E:
-	jmp.w $E19E
+	jmp.w CODE_9FE19E

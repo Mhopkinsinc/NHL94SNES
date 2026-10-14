@@ -8,4 +8,4 @@ CODE_9D9281:
 	adc.b $B3
 	cmp.b $AF
 	bcs CODE_9D928E
-	jmp.w $9394
+	jmp.w CODE_9D9394

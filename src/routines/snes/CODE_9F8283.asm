@@ -64,4 +64,4 @@ CODE_9F8309:
 	bne CODE_9F8330
 	jsl.l CODE_80C81C
 	stz.w $07C6
-	jmp.w $82D2
+	jmp.w CODE_9F82D2

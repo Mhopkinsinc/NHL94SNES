@@ -20,5 +20,5 @@ CODE_9FF5E3:
 	clc
 	adc.w #$00F0
 	sta.b $C1
-	jsr.w $F89C
+	jsr.w CODE_9FF89C
 	rts

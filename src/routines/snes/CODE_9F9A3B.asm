@@ -23,4 +23,4 @@ CODE_9F9A5C:
 	inc a
 	cmp.w #$000F
 	bpl CODE_9F9A67
-	jmp.w $9978
+	jmp.w CODE_9F9978

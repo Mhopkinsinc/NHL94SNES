@@ -5,4 +5,4 @@ CODE_9BC9C0:
 	adc.b $A5
 	cmp.w #$0010
 	bcc CODE_9BC9CD
-	jmp.w $C949
+	jmp.w CODE_9BC949

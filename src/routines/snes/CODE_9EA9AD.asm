@@ -19,4 +19,4 @@ CODE_9EA9B0:
 	ldx.b $95
 	cmp.w #$0000
 	bne CODE_9EA9D5
-	jmp.w $AAB3
+	jmp.w CODE_9EAAB3

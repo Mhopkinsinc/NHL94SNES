@@ -27,4 +27,4 @@ CODE_9EAAC9:
 	sta.b $A5
 	cmp.w #$0004
 	bcs CODE_9EAAF4
-	jmp.w $A4F7
+	jmp.w CODE_9EA4F7

@@ -29,4 +29,4 @@ CODE_9FE660:
 	cmp.w #$0005
 	bcc CODE_9FE645
 	pla
-	jmp.w $E6F2
+	jmp.w CODE_9FE6F2

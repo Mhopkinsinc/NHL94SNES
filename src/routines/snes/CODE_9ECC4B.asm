@@ -16,4 +16,4 @@ CODE_9ECC4B:
 	jsl.l AdvanceStringPtr
 	pla
 	sta.b $A5
-	jmp.w $CD19
+	jmp.w CODE_9ECD19

@@ -25,4 +25,4 @@ CODE_9F86A4:
 	cpx.w #$001A
 	bne CODE_9F86CB
 CODE_9F86C8:
-	jmp.w $875F
+	jmp.w CODE_9F875F

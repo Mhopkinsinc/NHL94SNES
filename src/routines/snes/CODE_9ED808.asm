@@ -48,4 +48,4 @@ CODE_9ED853:
 	bit.w #$0080
 	bne CODE_9ED8A4
 CODE_9ED86E:
-	jmp.w $DA2C
+	jmp.w CODE_9EDA2C

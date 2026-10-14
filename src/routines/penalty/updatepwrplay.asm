@@ -11,4 +11,4 @@ updatepwrplay:
 	sbc.w $17A8
 	sta.b $A5
 	bne CODE_9EB753
-	jmp.w $B851
+	jmp.w updatepwrplay_clr

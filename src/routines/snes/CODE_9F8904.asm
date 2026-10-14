@@ -45,4 +45,4 @@ CODE_9F895A:
 	sta.b $E6
 	lda.w position,x
 	bpl CODE_9F8967
-	jmp.w $8ADD
+	jmp.w CODE_9F8ADD

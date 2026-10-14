@@ -4,4 +4,4 @@ CODE_9ECC7B:
 	sta.b $8F
 	lda.w #DATA8_9ECC88
 	sta.b $8D
-	jmp.w $CD19
+	jmp.w CODE_9ECD19

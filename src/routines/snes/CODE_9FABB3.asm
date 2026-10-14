@@ -160,4 +160,4 @@ CODE_9FACCF:
 	tax
 	dec.b $C8
 	bne CODE_9FACC9
-	jmp.w $ADB5
+	jmp.w CODE_9FADB5

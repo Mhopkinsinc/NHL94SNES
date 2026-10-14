@@ -58,4 +58,4 @@ CODE_9EF6F4:
 	lda.b $AD
 	cmp.w #$0025
 	bcc CODE_9EF714
-	jmp.w $F699
+	jmp.w CODE_9EF699

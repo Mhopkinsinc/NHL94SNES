@@ -10,6 +10,6 @@ CODE_9DA899:
 	lda.w #$FFFF
 	sta.b $AD
 CODE_9DA8AF:
-	jsr.w $A8B8
-	jsr.w $A973
-	jmp.w $A6FF
+	jsr.w CODE_9DA8B8
+	jsr.w CODE_9DA973
+	jmp.w CODE_9DA6FF

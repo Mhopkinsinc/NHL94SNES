@@ -13,4 +13,4 @@ CODE_9E805C:
 	lda.w pfteam,y
 	eor.w pfteam,x
 	bne CODE_9E8076
-	jmp.w $8086
+	jmp.w CODE_9E8086

@@ -121,4 +121,4 @@ CODE_9FAA14:
 	bmi CODE_9FAA22
 	bit.w #$1000
 	bne CODE_9FAA22
-	jmp.w $ABA2
+	jmp.w CODE_9FABA2

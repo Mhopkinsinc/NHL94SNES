@@ -19,5 +19,5 @@ CODE_9DBCB6:
 CODE_9DBCD5:
 	tya
 	ldx.w #$0200
-	jsr.w $B884
+	jsr.w CODE_9DB884
 	bra CODE_9DBCB6

@@ -32,4 +32,4 @@ CODE_9DBF33:
 	sta.b $A5
 	bpl CODE_9DBF83
 CODE_9DBF80:
-	jmp.w $C0BB
+	jmp.w CODE_9DC0BB

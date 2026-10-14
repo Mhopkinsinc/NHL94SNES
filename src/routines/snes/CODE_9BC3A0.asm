@@ -21,4 +21,4 @@ CODE_9BC3B7:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w $C2C9
+	jmp.w CODE_9BC2C9

@@ -47,4 +47,4 @@ CODE_9EA0B1:
 	clc
 	adc.w #$0018
 	sta.b $A5
-	jmp.w $B85E
+	jmp.w AddPenalty

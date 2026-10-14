@@ -40,4 +40,4 @@ CODE_9B8AF0:
 	bit.w #$0800
 	bne CODE_9B8B32
 CODE_9B8B2F:
-	jmp.w $8A5A
+	jmp.w CODE_9B8A5A

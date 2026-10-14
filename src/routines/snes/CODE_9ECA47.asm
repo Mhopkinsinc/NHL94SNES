@@ -2,4 +2,4 @@
 CODE_9ECA47:
 	cmp.w #$0074
 	bne CODE_9ECA4F
-	jmp.w $CCA1
+	jmp.w CODE_9ECCA1

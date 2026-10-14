@@ -7,5 +7,5 @@ CODE_9DB7BE:
 	bcs CODE_9DB7CF
 	sta.w $0BFB
 	ldx.w #$0200
-	jsr.w $B884
+	jsr.w CODE_9DB884
 	bra CODE_9DB7BE

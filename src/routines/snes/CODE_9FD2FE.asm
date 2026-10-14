@@ -12,4 +12,4 @@ CODE_9FD2FE:
 	sta.w tmflags,y
 	lda.w #$000C
 	trb.w sflags
-	jmp.w $D325
+	jmp.w CODE_9FD325

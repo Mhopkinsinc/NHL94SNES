@@ -23,4 +23,4 @@ CODE_9E957C:
 	adc.b $AB
 	sta.b $AB
 	bpl CODE_9E95AE
-	jmp.w $9784
+	jmp.w CODE_9E9784

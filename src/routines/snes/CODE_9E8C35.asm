@@ -53,4 +53,4 @@ CODE_9E8C99:
 CODE_9E8CA8:
 	lda.w $0CDB
 	beq CODE_9E8CB0
-	jmp.w $8D29
+	jmp.w CODE_9E8D29

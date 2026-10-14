@@ -26,10 +26,10 @@ CODE_9C9002:
 	stz.b $91
 	lda.w #$001C
 	sta.w printx
-	jsr.w $902A
+	jsr.w CODE_9C902A
 	lda.w #$0002
 	sta.b $91
 	lda.w #$0007
 	sta.w printx
-	jsr.w $902A
+	jsr.w CODE_9C902A
 	rts

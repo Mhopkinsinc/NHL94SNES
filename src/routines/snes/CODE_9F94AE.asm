@@ -16,4 +16,4 @@ CODE_9F94AE:
 	lda.w $0ACF
 	cmp.w #$0007
 	bne CODE_9F94DA
-	jmp.w $961F
+	jmp.w CODE_9F961F

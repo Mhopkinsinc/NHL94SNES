@@ -9,7 +9,7 @@ CODE_9ED6C9:
 CODE_9ED6D8:
 	cpx.w $0AD9
 	beq CODE_9ED6EA
-	jsr.w $DC44
+	jsr.w CODE_9EDC44
 	jsl.l vtoa
 	jsl.l CODE_9EDC06
 	bra CODE_9ED6FD

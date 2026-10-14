@@ -37,4 +37,4 @@ CODE_9E8D3E:
 	lda.w #$001A
 	sta.b $91
 	jsl.l CODE_9E90AE
-	jmp.w $8E3A
+	jmp.w CODE_9E8E3A

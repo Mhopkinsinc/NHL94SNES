@@ -20,7 +20,7 @@ CODE_9B95DB:
 	cmp.w $1DC1
 	beq CODE_9B95F3
 CODE_9B95E0:
-	jsr.w $95F5
+	jsr.w CODE_9B95F5
 	lda.b $95
 	clc
 	adc.w #$0006
