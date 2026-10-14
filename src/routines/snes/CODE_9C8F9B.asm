@@ -33,14 +33,14 @@ CODE_9C8F9B:
 	sta.b d0
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9C9168
+	lda.w #TeamStatNames
 	sta.b a1
 	lda.l OptPen
 	bne .2
 .1:
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$9258
+	lda.w #TeamStatNamesNoPen
 org $9C9000
 	sta.b a1
 .2:

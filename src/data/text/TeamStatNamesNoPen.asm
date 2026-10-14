@@ -1,17 +1,13 @@
-DATA8_9C9168:		; stat names: a word (2 + the text), then the text
+; Team stat names used when penalties are off
+TeamStatNamesNoPen:		; stat names, the second list
 	%String("    Score    ")
 	%String("    Shots    ")
 	%String("Shooting Pct.")
-	%String("  Power Play ")
-	%String("  PP Minutes ")
-	%String("  PP Shots   ")
-	%String("  SH Goals   ")
 	%String(" Breakaways  ")
 	%String(" One timers  ")
 	%String("Penalty Shots")
 	%String("  Faceoffs   ")
 	%String(" Body Checks ")
-	%String("  Penalties  ")
 	%String(" Attack Zone ")
 	%String("   Passing   ")
 	%String(" Passing Pct.")

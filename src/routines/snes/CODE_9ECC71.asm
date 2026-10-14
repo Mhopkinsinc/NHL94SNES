@@ -8,6 +8,6 @@ CODE_9ECC71:
 .t1:
 	lda.w #$009E
 	sta.b $8F
-	lda.w #DATA8_9ECC88
+	lda.w #ScoutFragments
 	sta.b a1
 	jmp.w CODE_9ECD19

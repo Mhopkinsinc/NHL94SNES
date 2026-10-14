@@ -1,24 +1,25 @@
-DATA8_9FF35F:		; the MultiPlayer 5 messages
+; MultiPlayer 5 warnings: controller socket, Super Scope, and mouse
+MultiPlayer5Text:		; the MultiPlayer 5 messages
 	%String("The MultiPlayer 5")
-DATA8_9FF372:
+MP5MustConnect:
 	%String("must be connected")
-DATA8_9FF385:
+MP5ToController:
 	%String("to Controller")
-DATA8_9FF394:
+MP5Socket2:
 	%String("Socket #2.")
-DATA8_9FF3A0:
+MP5ScopeHead:
 	%String("The MultiPlayer 5 is")
-DATA8_9FF3B6:
+MP5ScopeNot:
 	%String("not designed for use")
-DATA8_9FF3CC:
+MP5ScopeWith:
 	%String("with the Super NES")
-DATA8_9FF3E0:
+MP5SuperScope:
 	%String("Super Scope.")
-DATA8_9FF3EE:
+MP5MouseHead:
 	%String("The MultiPlayer 5 is")
-DATA8_9FF404:
+MP5MouseNot:
 	%String("not designed for use")
-DATA8_9FF41A:
+MP5MouseWith:
 	%String("with the Super NES")
-DATA8_9FF42E:
+MP5Mouse:
 	%String("Mouse.")

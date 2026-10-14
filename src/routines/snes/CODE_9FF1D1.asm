@@ -42,22 +42,22 @@ CODE_9FF1D1:
 .t1:
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF35F
+	lda.w #MultiPlayer5Text
 	sta.b a1
 	jsl.l CODE_9FF2D5
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF372
+	lda.w #MP5MustConnect
 	sta.b a1
 	jsl.l CODE_9FF2F1
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF385
+	lda.w #MP5ToController
 	sta.b a1
 	jsl.l CODE_9FF30D
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF394
+	lda.w #MP5Socket2
 	sta.b a1
 	jsl.l CODE_9FF329
 	bra CODE_9FF2CC
@@ -65,22 +65,22 @@ CODE_9FF1D1:
 .t2:
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF3A0
+	lda.w #MP5ScopeHead
 	sta.b a1
 	jsl.l CODE_9FF2D5
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF3B6
+	lda.w #MP5ScopeNot
 	sta.b a1
 	jsl.l CODE_9FF2F1
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF3CC
+	lda.w #MP5ScopeWith
 	sta.b a1
 	jsl.l CODE_9FF30D
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF3E0
+	lda.w #MP5SuperScope
 	sta.b a1
 	jsl.l CODE_9FF329
 	bra CODE_9FF2CC
@@ -88,22 +88,22 @@ CODE_9FF1D1:
 .t3:
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF3EE
+	lda.w #MP5MouseHead
 	sta.b a1
 	jsl.l CODE_9FF2D5
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF404
+	lda.w #MP5MouseNot
 	sta.b a1
 	jsl.l CODE_9FF2F1
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF41A
+	lda.w #MP5MouseWith
 	sta.b a1
 	jsl.l CODE_9FF30D
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FF42E
+	lda.w #MP5Mouse
 	sta.b a1
 	jsl.l CODE_9FF329
 CODE_9FF2CC:

@@ -2,7 +2,7 @@
 CODE_9DB954:
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80E2E0
+	lda.w #CopyrightLines
 	sta.b a1
 	lda.w #$0000
 	ldx.w #$0080

@@ -79,7 +79,7 @@ CODE_9C8B26:
 	sta.w printx
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9C8D2B
+	lda.w #PercentSign
 	sta.b a1
 	jsl.l CODE_9EC894
 	pla
