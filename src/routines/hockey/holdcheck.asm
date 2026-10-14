@@ -56,7 +56,7 @@ holdcheck:
 	sta.w $0EE3,y
 	tya
 	sta.w $0F03,x
-	lda.w #DATA8_9DF46A
+	lda.w #SPAflail
 	sta.w pfalock,x
 	jsl.l SetSPAFromA
 	ldx.b a2
@@ -65,12 +65,12 @@ holdcheck:
 	stx.b a3
 	tya
 	sta.w $0F03,x
-	lda.w #DATA8_9DF3A6
+	lda.w #SPAHold2
 	sta.w pfalock,x
 	ldy.w SPA,x
 	cpy.w #SPAHold
 	beq .1
-	lda.w #DATA8_9DF3D8
+	lda.w #SPAhook2
 .1:
 	jsl.l SetSPAFromA
 	jsl.l PenShotChk
@@ -94,7 +94,7 @@ holdcheck:
 	lda.w #$0028
 	sta.b d0
 	lda.w SPA,x
-	cmp.w #DATA8_9DF3A6
+	cmp.w #SPAHold2
 	beq .1x
 	lda.w #$0020
 	sta.b d0

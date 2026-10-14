@@ -133,6 +133,7 @@
 - Graphics with 93S names from the 93S load order and tile counts: `FaceOffTiles` (55), `RefTilesHor` (104), `RefTiles` (117), `SmallFontTiles` (PixelRemap83), `RinkLogoTiles` (setupice position; 12 tiles for 14), and the maps `RefsMap` / `RefsMapHor` (PushRef), `BigFontMap` (printbig), `TeamBlocksMap` (DrawTeamBlocks), `EASNLogoMap`.
 - Graphics named from rendering them and from their readers: `BigLetterTiles` / `BigLetterMap`, `BigFontTiles`, `MenuBackTiles` / `MenuBackMap`, `PlayoffTiles`, `RonBarrTiles` / `RonBarrMap`, `SmallFontMap`, `PlayoffBracketMap`, `SetupBackTiles` / `SetupBackMap`, `PhotoMap`, `PictureMap`, `CardPictureMap`, `PlayerListMap`, `TitleLogoTiles`.
 - `LogoPaletteASE` / `LogoPaletteASW` / `PhotoPaletteAllStars` (their palette table slots); LogoPaletteTable's two raw trailing pointers as LogoPaletteWPG+$20 / +$40.
+- SPA entries from the 93S call points: `SPAsiren` (Goal), `SPAcatch` (puckbody), `SPAbglass` (wallcollb), `SPAflail` / `SPAHold2` / `SPAhook2` (holdcheck, in the 93S order), `SPApump2` (assscore's scorer animation; the 93S-identical SPApump copy is unused). The 94-only FallDown, goalie and pass receiver animations stay DATA8_.
 
 ## Unsure
 

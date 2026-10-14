@@ -777,3 +777,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - setupice / PushRef / font graphics named as 93S. MATCH.
 - More graphics named. MATCH.
 - All-star palettes. MATCH.
+- SPA entries from 93S call points. MATCH.

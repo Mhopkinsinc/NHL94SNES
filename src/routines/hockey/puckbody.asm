@@ -84,7 +84,7 @@ org $9EF000
 	bne .3
 	inc a
 	sta.w $1543,y
-	lda.w #DATA8_9DF896
+	lda.w #SPAcatch
 	ldx.b a2
 	jsl.l SetSPAFromA
 	ldx.b a3

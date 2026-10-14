@@ -6265,3 +6265,10 @@ $948000,TitleLogoTiles,DATA8_948000,new,rendered: the title logo pieces with the
 $9AEF1C,LogoPaletteASE,DATA8_9AEF1C,new,LogoPaletteTable entry 26 (East all-stars),src/data/gfx/LogoPaletteASE.asm
 $9AEEFC,LogoPaletteASW,DATA8_9AEEFC,new,LogoPaletteTable entry 27 (West all-stars),src/data/gfx/LogoPaletteASW.asm
 $9AEB3C,PhotoPaletteAllStars,DATA8_9AEB3C,new,PhotoPaletteTable entries 26 and 27,src/data/gfx/PhotoPaletteAllStars.asm
+$9DF644,SPAsiren,DATA8_9DF644,93S,Goal starts it where 93S Goal starts SPAsiren,src/data/frames94s.asm
+$9DF896,SPAcatch,DATA8_9DF896,93S,puckbody starts it where 93S puckbody starts SPAcatch,src/data/frames94s.asm
+$9DF8E8,SPAbglass,DATA8_9DF8E8,93S,wallcollb starts it (the puck over the glass) where 93S wallcollb starts SPAbglass,src/data/frames94s.asm
+$9DF46A,SPAflail,DATA8_9DF46A,93S,"holdcheck: the first of its animations, where 93S holdcheck uses SPAflail",src/data/frames94s.asm
+$9DF3A6,SPAHold2,DATA8_9DF3A6,93S,"holdcheck: second and fifth, where 93S holdcheck uses SPAHold2 both times; also checkplcoll and check4check",src/data/frames94s.asm
+$9DF3D8,SPAhook2,DATA8_9DF3D8,93S,"holdcheck: fourth, where 93S holdcheck uses SPAhook2",src/data/frames94s.asm
+$9DFA84,SPApump2,DATA8_9DFA84,93S,assscore gives the scorer it where 93S assscore gives SPApump (other frames; the 93S-identical SPApump at $9DFA12 has no reader),src/data/frames94s.asm

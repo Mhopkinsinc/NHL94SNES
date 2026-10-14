@@ -302,7 +302,7 @@ Goal:
 	jsl.l assreplace
 	inx
 	inx
-	lda.w #DATA8_9DF644
+	lda.w #SPAsiren
 	jsl.l SetSPAFromA
 	ldy.b a2
 	ldx.w tmsort,y

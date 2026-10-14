@@ -36,7 +36,7 @@ wallcollb:
 	inx
 	inx
 	stx.b a3
-	lda.w #DATA8_9DF8E8
+	lda.w #SPAbglass
 	sta.b d1
 	jsl.l SetSPA
 	plx

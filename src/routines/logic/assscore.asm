@@ -77,7 +77,7 @@ assscore:
 	cpx.w $0D29
 	bne .5
 .4:
-	lda.w #DATA8_9DFA84
+	lda.w #SPApump2
 	sta.b d1
 	lda.w #$FFFF
 	sta.w $0D29

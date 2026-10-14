@@ -28,7 +28,7 @@ check4check:
 	lda.w position,y
 	beq .5
 	lda.w SPA,y
-	cmp.w #DATA8_9DF3A6
+	cmp.w #SPAHold2
 	bcc .3
 	cmp.w #$F46B
 	bcc .7
@@ -78,7 +78,7 @@ check4check:
 	bpl .5x
 .2x:
 	lda.w SPA,y
-	cmp.w #DATA8_9DF3A6
+	cmp.w #SPAHold2
 	bcc .1x
 	cmp.w #$F46B
 	bcc .8
