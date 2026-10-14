@@ -3055,7 +3055,7 @@ $9FEBD9,.t1,CODE_9FEBD9,new,continued in the previous routine,src/routines/snes/
 $9FEB82,.t1,CODE_9FEB82,new,continued in the previous routine,src/routines/snes/CODE_9FEB5C.asm
 $9FEB4E,.t1,CODE_9FEB4E,new,continued in the previous routine,src/routines/snes/CODE_9FEB32.asm
 $9FEA5E,.t1,CODE_9FEA5E,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
-$9FE780,.t1,CODE_9FE780,new,continued in the previous routine,src/routines/snes/CODE_9FE75E.asm
+$9FE780,.t1,CODE_9FE780,new,continued in the previous routine,src/routines/hockey/PulsePauseSide.asm
 $9FE757,.t1,CODE_9FE757,new,continued in the previous routine,src/routines/snes/CODE_9FE74B.asm
 $9FE71B,.t1,CODE_9FE71B,new,continued in the previous routine,src/routines/snes/CODE_9FE6EC.asm
 $9FE6A9,.t1,CODE_9FE6A9,new,continued in the previous routine,src/routines/snes/CODE_9FE66E.asm
@@ -4224,9 +4224,9 @@ $9FE6B8,.4,CODE_9FE6B8,new,branch target only used in this routine,src/routines/
 $9FE6F2,.5,CODE_9FE6F2,new,branch target only used in this routine,src/routines/hockey/SelectPauseController.asm
 $9FE70D,.6,CODE_9FE70D,new,branch target only used in this routine,src/routines/hockey/SelectPauseController.asm
 $9FE712,.7,CODE_9FE712,new,branch target only used in this routine,src/routines/hockey/SelectPauseController.asm
-$9FE78D,.1,CODE_9FE78D,new,branch target only used in this routine,src/routines/snes/CODE_9FE75E.asm
-$9FE793,.2,CODE_9FE793,new,continued in the previous routine,src/routines/snes/CODE_9FE75E.asm
-$9FE79E,.3,CODE_9FE79E,new,branch target only used in this routine,src/routines/snes/CODE_9FE75E.asm
+$9FE78D,.1,CODE_9FE78D,new,branch target only used in this routine,src/routines/hockey/PulsePauseSide.asm
+$9FE793,.2,CODE_9FE793,new,continued in the previous routine,src/routines/hockey/PulsePauseSide.asm
+$9FE79E,.3,CODE_9FE79E,new,branch target only used in this routine,src/routines/hockey/PulsePauseSide.asm
 $9FF011,.1,CODE_9FF011,new,branch target only used in this routine,src/routines/hockey/AskExitGame.asm
 $9FF05B,.2,CODE_9FF05B,new,branch target only used in this routine,src/routines/hockey/AskExitGame.asm
 $9EBCB8,.2,CODE_9EBCB8,new,branch target only used in this routine,src/routines/hockey/Bcheck.asm
@@ -5376,7 +5376,7 @@ $9D8BB5,.4,DATA8_9D8BB5,new,"part of CODE_9D8B49, used only by it",src/routines/
 $9D93AD,.8,DATA8_9D93AD,new,"part of PlayoffScreen, used only by it",src/routines/hockey/PlayoffScreen.asm
 $9D93E3,.9,CODE_9D93E3,new,"part of PlayoffScreen, used only by it",src/routines/hockey/PlayoffScreen.asm
 $9D94FE,.10,DATA8_9D94FE,new,"part of PlayoffScreen, used only by it",src/routines/hockey/PlayoffScreen.asm
-$9D977D,.1,DATA8_9D977D,new,"part of CODE_9D96A9, used only by it",src/routines/snes/CODE_9D96A9.asm
+$9D977D,.1,DATA8_9D977D,new,"part of CODE_9D96A9, used only by it",src/routines/snes/PulseColour.asm
 $9D9A28,.5,DATA8_9D9A28,new,"part of FigureJoy, used only by it",src/routines/hockey/FigureJoy.asm
 $9D9B7B,.8,DATA8_9D9B7B,new,"part of CODE_9D9A5C, used only by it",src/routines/hockey/RenderBigText.asm
 $9D9B9B,.9,CODE_9D9B9B,new,"part of CODE_9D9A5C, used only by it",src/routines/hockey/RenderBigText.asm
@@ -5575,3 +5575,5 @@ $9D9A5C,RenderBigText,CODE_9D9A5C,new,"Behavior: PlayoffScreen and DrawSelectTea
 $9D9C53,BigLetterPlayoff,CODE_9D9C53,new,RenderBigText letter hook of PlayoffScreen (was only an immediate in the jmlvector setup),src/routines/hockey/RenderBigText.asm
 $9D9C76,BigLetterSelect,CODE_9D9C76,new,RenderBigText letter hook of DrawSelectTeam (was only an immediate in the jmlvector setup),src/routines/hockey/RenderBigText.asm
 $9DDF73,LoadPictureMap,CODE_9DDF73,new,Behavior: the map DrawMatchupPictures pastes for a player picture; called from LoadScoutingScreen and SetupScreen (LoadPlayerCardScreen does the same inline with DATA8_9AEA15),src/routines/hockey/LoadPictureMap.asm
+$9D96A9,PulseColour,CODE_9D96A9,new,"Behavior: $83 mod 30 and the half picked by ($83 / 30) mod 2, Mul16S / Div32S per 5 bit component; PlayoffScreen and PulsePauseSide use it",src/routines/snes/PulseColour.asm
+$9FE75E,PulsePauseSide,CODE_9FE75E,new,"Behavior: pausepad, its $1C84 side; called from SelectPauseController",src/routines/hockey/PulsePauseSide.asm

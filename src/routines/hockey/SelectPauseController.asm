@@ -1,7 +1,7 @@
 ; Pick the controller that owns the pause menu, and rebuild the menu when it changes.
 SelectPauseController:
 	jsl.l ShowMP5Warning
-	jsr.w CODE_9FE75E
+	jsr.w PulsePauseSide
 	jsl.l IntermissionTick
 	beq .t1
 	jmp.w .6

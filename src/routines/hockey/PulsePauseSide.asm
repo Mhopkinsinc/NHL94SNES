@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE75E:
+; Pulse the palette colour of the pausing pad's side ($7F76DE or $7F76FE, PulseColour), the other side white; both white with no side
+PulsePauseSide:
 	lda.l $7E34CC
 	beq .2
 	ldx.w pausepad
@@ -20,7 +20,7 @@ CODE_9FE75E:
 	lda.w #$FFFF
 	sta.l $7F76DE
 .1:
-	jsl.l CODE_9D96A9
+	jsl.l PulseColour
 	bra .3
 .2:
 	lda.w #$FFFF

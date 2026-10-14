@@ -701,3 +701,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - ShowRosterLine; CODE_9D9F28 folded. MATCH.
 - RenderBigText and its letter hooks. MATCH.
 - LoadPictureMap. MATCH.
+- PulseColour, PulsePauseSide. MATCH.

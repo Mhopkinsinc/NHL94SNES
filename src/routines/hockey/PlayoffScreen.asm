@@ -706,7 +706,7 @@ org $9D9000
 	sta.b d7
 	ldx.w #$3622
 	ldy.w #$007E
-	jsl.l CODE_9D96A9
+	jsl.l PulseColour
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$3614

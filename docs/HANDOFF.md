@@ -57,6 +57,7 @@
 - `ShowRosterLine` (93S: the TeamRoster .show block as its own routine); its tail CODE_9D9F28 folded in; CODE_9DA04C named `RosterRtl` (TeamRoster jumps to that rtl).
 - `RenderBigText` (from behavior) and its two jmlvector letter hooks, now labels `BigLetterPlayoff` / `BigLetterSelect` instead of raw immediates in PlayoffScreen and DrawSelectTeam.
 - `LoadPictureMap` (from behavior: the 7 x 7 map DrawMatchupPictures pastes).
+- From behavior: `PulseColour` (white / $7E10 colour pulse), `PulsePauseSide`.
 
 ## Unsure
 

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D96A9:
+; Store at [y:x] the colour for frame $83 of a 60 frame pulse: white to $7E10 and back, each component interpolated over 30 frames
+PulseColour:
 	phx
 	phy
 	lda.b $83
