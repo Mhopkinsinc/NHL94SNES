@@ -341,5 +341,5 @@ LoadScoutingScreen:
 	lda.w #$6000
 	jsl.l InitSprites
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9DDF73
+	jsl.l LoadPictureMap
 	rtl

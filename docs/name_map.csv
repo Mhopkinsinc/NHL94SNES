@@ -1154,8 +1154,8 @@ $80B113,.1,CODE_80B113,new,branch target only used in this routine,src/routines/
 $9EE677,.1,CODE_9EE677,new,branch target only used in this routine,src/routines/snes/CODE_9EE463.asm
 $9BB186,.1,CODE_9BB186,new,branch target only used in this routine,src/routines/snes/CODE_9BB176.asm
 $9BB19C,.rtl,CODE_9BB19C,new,branch target only used in this routine,src/routines/snes/CODE_9BB176.asm
-$9DDF9F,.loop,CODE_9DDF9F,new,branch target only used in this routine,src/routines/snes/CODE_9DDF73.asm
-$9DDFA3,.loop2,CODE_9DDFA3,new,branch target only used in this routine,src/routines/snes/CODE_9DDF73.asm
+$9DDF9F,.loop,CODE_9DDF9F,new,branch target only used in this routine,src/routines/hockey/LoadPictureMap.asm
+$9DDFA3,.loop2,CODE_9DDFA3,new,branch target only used in this routine,src/routines/hockey/LoadPictureMap.asm
 $9C8F2D,.loop,CODE_9C8F2D,new,branch target only used in this routine,src/routines/snes/CODE_9C8F27.asm
 $9D99FA,.loop,CODE_9D99FA,new,branch target only used in this routine,src/routines/snes/CODE_9D99C7.asm
 $9D9A05,.1,CODE_9D9A05,new,branch target only used in this routine,src/routines/snes/CODE_9D99C7.asm
@@ -5574,3 +5574,4 @@ $9DA04C,RosterRtl,CODE_9DA04C,new,the rtl that ends ShowRosterLine; TeamRoster l
 $9D9A5C,RenderBigText,CODE_9D9A5C,new,"Behavior: PlayoffScreen and DrawSelectTeam call it for the TeamPlaceNames strings, each with its own letter hook",src/routines/hockey/RenderBigText.asm
 $9D9C53,BigLetterPlayoff,CODE_9D9C53,new,RenderBigText letter hook of PlayoffScreen (was only an immediate in the jmlvector setup),src/routines/hockey/RenderBigText.asm
 $9D9C76,BigLetterSelect,CODE_9D9C76,new,RenderBigText letter hook of DrawSelectTeam (was only an immediate in the jmlvector setup),src/routines/hockey/RenderBigText.asm
+$9DDF73,LoadPictureMap,CODE_9DDF73,new,Behavior: the map DrawMatchupPictures pastes for a player picture; called from LoadScoutingScreen and SetupScreen (LoadPlayerCardScreen does the same inline with DATA8_9AEA15),src/routines/hockey/LoadPictureMap.asm

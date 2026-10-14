@@ -394,7 +394,7 @@ SetupScreen:
 	lda.w #$6000
 	jsl.l InitSprites
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9DDF73
+	jsl.l LoadPictureMap
 	lda.w #$3568
 	sta.l $7F7500
 	jsl.l DrawMatchupPictures
