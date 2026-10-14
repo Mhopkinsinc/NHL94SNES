@@ -116,7 +116,7 @@ PlayoffScreen:
 	lsr a
 	lsr a
 	lsr a
-	sta.l $7E35B6
+	sta.l smallfontchars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -148,7 +148,7 @@ PlayoffScreen:
 	lsr a
 	lsr a
 	sta.b d0
-	adc.l $7E35B6
+	adc.l smallfontchars
 	sta.l $7E35AE
 	lda.w #$007F
 	sta.b $8B
@@ -175,7 +175,7 @@ PlayoffScreen:
 	lsr a
 	lsr a
 	adc.l $7E35AE
-	sta.l $7E35CE
+	sta.l scorechars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -241,7 +241,7 @@ PlayoffScreen:
 	plx
 	dex
 	bpl .loopx
-	lda.l $7E35CE
+	lda.l scorechars
 	clc
 	adc.w #$0070
 	sta.l $7E35C6
@@ -421,7 +421,7 @@ PlayoffScreen:
 	sta.b tmp1
 	lda.b [a2]
 	clc
-	adc.l $7E35CE
+	adc.l scorechars
 	sta.l $7EA676,x
 	ora.w #$4000
 	sta.l $7EA686,x
@@ -431,7 +431,7 @@ PlayoffScreen:
 	inc.b a2
 	lda.b [a2]
 	clc
-	adc.l $7E35CE
+	adc.l scorechars
 .loop3:
 	sta.l $7EA676,x
 	inx
@@ -442,7 +442,7 @@ PlayoffScreen:
 	inc.b a2
 	lda.b [a2]
 	clc
-	adc.l $7E35CE
+	adc.l scorechars
 	ora.w #$8000
 	sta.l $7EA766,x
 	ora.w #$C000
@@ -453,7 +453,7 @@ PlayoffScreen:
 	inc.b a2
 	lda.b [a2]
 	clc
-	adc.l $7E35CE
+	adc.l scorechars
 	ora.w #$8000
 .loop4:
 	sta.l $7EA766,x

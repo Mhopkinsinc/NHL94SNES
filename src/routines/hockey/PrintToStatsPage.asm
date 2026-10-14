@@ -19,7 +19,7 @@ PrintToStatsPage:
 	sta.b $10
 	ldy.w printy
 	ldx.w printx
-	lda.l $7E35B6
+	lda.l smallfontchars
 	clc
 	adc.l printfontset
 	ora.w $0D0D

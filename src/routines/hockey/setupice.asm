@@ -132,7 +132,7 @@ setupice:
 	adc.l $7E35CA
 	sta.l blankchar
 	inc a
-	sta.l $7E35B6
+	sta.l smallfontchars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -155,8 +155,8 @@ setupice:
 	lsr a
 	lsr a
 	sta.b d0
-	adc.l $7E35B6
-	sta.l $7E35BC
+	adc.l smallfontchars
+	sta.l Framercset
 	adc.w #$0004
 	sta.l $7E35AE
 	lda.w #$007F
@@ -192,7 +192,7 @@ setupice:
 	lsr a
 	sta.b d0
 	adc.l $7E35AE
-	sta.l $7E35CE
+	sta.l scorechars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -210,7 +210,7 @@ setupice:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35CE
+	adc.l scorechars
 	sta.l $7E35C2
 	lda.w #$007F
 	sta.b $0E

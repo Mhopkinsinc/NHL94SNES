@@ -1,9 +1,9 @@
-; Unidentified routine.
-CODE_9DE074:
+; Game setup screen tiles: blankchar = $200, smallfontchars = $201, clear their VRAM, unpack the font (DATA8_96A103), then Framercset after it and scorechars 4 tiles further
+InitSetupChars:
 	lda.w #$0200
 	sta.l blankchar
 	inc a
-	sta.l $7E35B6
+	sta.l smallfontchars
 	lda.w #$0000
 	ldy.w #$3000
 	ldx.w #$0020
@@ -24,8 +24,8 @@ CODE_9DE074:
 	lsr a
 	lsr a
 	sta.b d0
-	adc.l $7E35B6
-	sta.l $7E35BC
+	adc.l smallfontchars
+	sta.l Framercset
 	adc.w #$0004
-	sta.l $7E35CE
+	sta.l scorechars
 	rtl

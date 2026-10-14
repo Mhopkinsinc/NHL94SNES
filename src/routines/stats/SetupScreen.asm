@@ -32,7 +32,7 @@ SetupScreen:
 	sta.l printfontset
 	lda.w #$0000
 	sta.l $7E35AC
-	lda.l $7E35B6
+	lda.l smallfontchars
 	sta.l $7E35C4
 	asl a
 	asl a
@@ -59,7 +59,7 @@ SetupScreen:
 	clc
 	adc.l $7E35C4
 	sta.l $7E35C4
-	sta.l $7E35BC
+	sta.l Framercset
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
@@ -82,7 +82,7 @@ SetupScreen:
 	clc
 	adc.l $7E35C4
 	sta.l $7E35C4
-	sta.l $7E35CE
+	sta.l scorechars
 	jsl.l RemapTiles
 	lda.w #$009A
 	sta.b $0E

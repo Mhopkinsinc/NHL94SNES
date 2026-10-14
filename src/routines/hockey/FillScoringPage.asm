@@ -5,7 +5,7 @@ FillScoringPage:
 	lda.w #$2780
 	sta.b $10
 	ldx.w #$4D80
-	lda.l $7E35B6
+	lda.l smallfontchars
 	clc
 	adc.l printfontset
 	jsl.l MemFill

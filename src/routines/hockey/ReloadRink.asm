@@ -150,7 +150,7 @@ ReloadRink:
 	lsr a
 	lsr a
 	sta.b d0
-	lda.l $7E35B6
+	lda.l smallfontchars
 	asl a
 	asl a
 	asl a
@@ -194,7 +194,7 @@ ReloadRink:
 	lsr a
 	sta.b d0
 	adc.l $7E35AE
-	sta.l $7E35CE
+	sta.l scorechars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -212,7 +212,7 @@ ReloadRink:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35CE
+	adc.l scorechars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000

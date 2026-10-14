@@ -1134,7 +1134,7 @@ $9FA7F8,.loop2,CODE_9FA7F8,new,branch target only used in this routine,src/routi
 $9DCCD8,.loop,CODE_9DCCD8,new,branch target only used in this routine,src/routines/hockey/ClearPictureBox.asm
 $9D8453,.1,CODE_9D8453,new,branch target only used in this routine,src/routines/hockey/ScoutingReport.asm
 $9D8471,.2,CODE_9D8471,new,branch target only used in this routine,src/routines/hockey/ScoutingReport.asm
-$9DC2E8,.1,CODE_9DC2E8,new,branch target only used in this routine,src/routines/snes/CODE_9DC2DE.asm
+$9DC2E8,.1,CODE_9DC2E8,new,branch target only used in this routine,src/routines/hockey/SetCardTeamColours.asm
 $9F81A6,.1,CODE_9F81A6,new,branch target only used in this routine,src/routines/snes/CODE_9F8183.asm
 $808F1E,.loop,CODE_808F1E,new,branch target only used in this routine,src/routines/snes/CODE_808F19.asm
 $9EEE54,.1,CODE_9EEE54,new,branch target only used in this routine,src/routines/snes/CODE_9EEE04.asm
@@ -5796,3 +5796,5 @@ $9DBCB2,TitleStub,CODE_9DBCB2,new,Behavior: a lone rts,src/routines/hockey/Title
 $80CA0A,ShootoutStub,CODE_80CA0A,new,Behavior: a lone rtl,src/routines/shootout/ShootoutStub.asm
 $9DAF5B,ClearBigText,CODE_9DAF5B,new,Behavior: PlayerSelect calls it before drawing the team names,src/routines/hockey/ClearBigText.asm
 $9DB0AB,SendBigText,CODE_9DB0AB,new,Behavior: PlayerSelect calls it after DrawSelectTeam,src/routines/hockey/SendBigText.asm
+$9DE074,InitSetupChars,CODE_9DE074,new,"Behavior: setoptions calls it before SetupScreen; the three bases are the 93S smallfontchars / Framercset / scorechars (print, Framer and DrawTeamBlocks add them as in 93S)",src/routines/hockey/InitSetupChars.asm
+$9DC2DE,SetCardTeamColours,CODE_9DC2DE,new,Behavior: DrawPlayerCard calls it before SendColours,src/routines/hockey/SetCardTeamColours.asm

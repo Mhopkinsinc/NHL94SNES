@@ -27,7 +27,7 @@ DrawPeriodStats:
 	sta.b d0
 	lda.w #$0013
 	sta.b d1
-	lda.l $7E35B6
+	lda.l smallfontchars
 	sta.b d2
 	jsl.l eraser
 	lda.b $8F

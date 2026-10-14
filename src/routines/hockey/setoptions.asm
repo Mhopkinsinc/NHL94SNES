@@ -16,7 +16,7 @@ setoptions:
 	sta.l $7E345E
 	jsl.l forceblack
 	jsl.l ClearTextMap
-	jsl.l CODE_9DE074
+	jsl.l InitSetupChars
 	lda.l $7E34BE
 	sta.w HomeTeam
 	lda.l $7E34C0

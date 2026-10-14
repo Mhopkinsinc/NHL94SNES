@@ -13,7 +13,7 @@ print:
 	asl a
 	adc.w printm
 	tax
-	lda.l $7E35B6
+	lda.l smallfontchars
 	adc.l printfontset
 	ora.w $0D0D
 	sta.b $14

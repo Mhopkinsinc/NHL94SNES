@@ -2,7 +2,7 @@
 Framer:
 	phx
 	phy
-	lda.l $7E35BC
+	lda.l Framercset
 	clc
 	adc.l printfontset
 	ora.w $0D0D

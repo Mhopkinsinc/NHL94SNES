@@ -63,7 +63,7 @@ DrawSelectTeam:
 .loop:
 	lda.b [a2],y
 	clc
-	adc.l $7E35CE
+	adc.l scorechars
 	clc
 	adc.l printfontset
 	clc
@@ -78,7 +78,7 @@ DrawSelectTeam:
 .loop2:
 	lda.b [a2],y
 	clc
-	adc.l $7E35CE
+	adc.l scorechars
 	clc
 	adc.l printfontset
 	clc

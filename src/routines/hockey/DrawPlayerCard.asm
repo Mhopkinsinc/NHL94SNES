@@ -431,7 +431,7 @@ org $9DC002
 .t1xxxx:
 	jsl.l SendTextMap2
 .7:
-	jsl.l CODE_9DC2DE
+	jsl.l SetCardTeamColours
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	lda.w #$3568

@@ -207,3 +207,6 @@ puckdir = $0B5D		; per object: direction to the puck (vtoa)
 streamsfx = $7E35E6	; the streamed sound effect asked for (1-6, StreamSfx), 0 none
 streamstate = $7E35E8	; UpdateStreamSfx: 0 start, 1 streaming, 2 playing, 3 done
 streamloaded = $7E35EA	; the streamed sound whose sample is in sound RAM
+smallfontchars = $7E35B6	; vram tiles for the small font (print)
+Framercset = $7E35BC	; vram tiles for the Framer box
+scorechars = $7E35CE	; vram tiles for the scoreboard / team block maps

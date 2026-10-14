@@ -40,7 +40,7 @@ LoadPlayerCardScreen:
 	sta.b $12
 	lda.w #$0000
 	sta.b $10
-	lda.l $7E35B6
+	lda.l smallfontchars
 	asl a
 	asl a
 	asl a
@@ -90,7 +90,7 @@ LoadPlayerCardScreen:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35CE
+	adc.l scorechars
 	sec
 	sbc.w #$0100
 	sta.l $7E35D2
@@ -98,7 +98,7 @@ LoadPlayerCardScreen:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.l $7E35CE
+	lda.l scorechars
 	asl a
 	asl a
 	asl a

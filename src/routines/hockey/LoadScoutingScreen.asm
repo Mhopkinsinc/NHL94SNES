@@ -38,7 +38,7 @@ LoadScoutingScreen:
 	sta.w VMADDL
 	lda.l blankchar
 	inc a
-	sta.l $7E35B6
+	sta.l smallfontchars
 	sta.l $7E35C0
 	lda.w #$0000
 	ldy.w #$FFFF
@@ -65,8 +65,8 @@ LoadScoutingScreen:
 	sta.l $7E35C0
 	lda.b d0
 	clc
-	adc.l $7E35B6
-	sta.l $7E35BC
+	adc.l smallfontchars
+	sta.l Framercset
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
@@ -91,8 +91,8 @@ LoadScoutingScreen:
 	sta.l $7E35C0
 	lda.b d0
 	clc
-	adc.l $7E35BC
-	sta.l $7E35CE
+	adc.l Framercset
+	sta.l scorechars
 	jsl.l RemapTiles
 	lda.w #$009A
 	sta.b $0E
@@ -116,7 +116,7 @@ LoadScoutingScreen:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.l $7E35CE
+	lda.l scorechars
 	asl a
 	asl a
 	asl a
