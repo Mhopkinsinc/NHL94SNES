@@ -1089,8 +1089,8 @@ $9FF543,.loop,CODE_9FF543,new,branch target only used in this routine,src/routin
 $9FF58E,.loop2,CODE_9FF58E,new,branch target only used in this routine,src/routines/snes/CODE_9FF4D8.asm
 $9FF5AA,.loop3,CODE_9FF5AA,new,branch target only used in this routine,src/routines/snes/CODE_9FF4D8.asm
 $9EC9BD,.1,CODE_9EC9BD,new,branch target only used in this routine,src/routines/hockey/UpdateScoutingDisplay.asm
-$9F8551,.1,CODE_9F8551,new,branch target only used in this routine,src/routines/snes/CODE_9F8511.asm
-$9F85A8,.2,CODE_9F85A8,new,branch target only used in this routine,src/routines/snes/CODE_9F8511.asm
+$9F8551,.1,CODE_9F8551,new,branch target only used in this routine,src/routines/hockey/Gameloop.asm
+$9F85A8,.2,CODE_9F85A8,new,branch target only used in this routine,src/routines/hockey/Gameloop.asm
 $80BB84,.1,CODE_80BB84,new,branch target only used in this routine,src/routines/snes/DecompressPairs.asm
 $808823,.loop,CODE_808823,new,branch target only used in this routine,src/routines/snes/CODE_808820.asm
 $80882C,.1,CODE_80882C,new,branch target only used in this routine,src/routines/snes/CODE_808820.asm
@@ -3449,7 +3449,7 @@ $9F8A63,.t1,CODE_9F8A63,new,continued in the previous routine,src/routines/snes/
 $9F8967,.t2,CODE_9F8967,new,continued in the previous routine,src/routines/snes/CODE_9F88D6.asm
 $9F8755,.t2,CODE_9F8755,new,continued in the previous routine,src/routines/snes/CODE_9F86DF.asm
 $9F86CB,.t2,CODE_9F86CB,new,continued in the previous routine,src/routines/hockey/updateplayers.asm
-$9F85AA,.t1,CODE_9F85AA,new,continued in the previous routine,src/routines/snes/CODE_9F8511.asm
+$9F85AA,.t1,CODE_9F85AA,new,continued in the previous routine,src/routines/hockey/Gameloop.asm
 $9F83EB,.t1,CODE_9F83EB,new,continued in the previous routine,src/routines/hockey/StartGame.asm
 $9F8183,.t2,CODE_9F8183,new,continued in the previous routine,src/routines/snes/CODE_9F813E.asm
 $9F8055,.t2,CODE_9F8055,new,continued in the previous routine,src/routines/snes/CODE_9F8000.asm
@@ -4490,7 +4490,7 @@ $9F83DE,.2,CODE_9F83DE,new,branch target only used in this routine,src/routines/
 $9F83F3,.3,CODE_9F83F3,new,branch target only used in this routine,src/routines/hockey/StartGame.asm
 $9F8427,.4,CODE_9F8427,new,branch target only used in this routine,src/routines/hockey/StartGame.asm
 $9F84EB,.5,CODE_9F84EB,new,branch target only used in this routine,src/routines/hockey/StartPer.asm
-$9F85D3,.4,CODE_9F85D3,new,branch target only used in this routine,src/routines/snes/CODE_9F8511.asm
+$9F85D3,.4,CODE_9F85D3,new,branch target only used in this routine,src/routines/hockey/Gameloop.asm
 $9F9133,.10,CODE_9F9133,new,branch target only used in this routine,src/routines/hockey/SaveRegsStartHL2.asm
 $9F9794,.2,CODE_9F9794,new,branch target only used in this routine,src/routines/snes/CODE_9F9745.asm
 $9F98B1,AttribRating,CODE_9F98B1,93S,attribjmp entry 5; prints a rating,src/routines/stats/AttribFighting.asm
@@ -5198,3 +5198,4 @@ $9BCE61,IRQ_StatsScroll3,CODE_9BCE61,new,iRQ hook: the last BG1 scroll split,src
 $9C8826,SetPlayerStatsRange,CODE_9C8826,new,the first and last row of the player stats list: the goalies or the skaters,src/routines/snes/SetPlayerStatsRange.asm
 $9C8B54,InitStatsOrder,CODE_9C8B54,new,"fill the stats row order with 0, 1, 2 ...",src/routines/snes/InitStatsOrder.asm
 $9B9AB2,PrintScrollArrows,CODE_9B9AB2,new,"show or clear the scroll arrows beside a summary list, then send the text map",src/routines/snes/PrintScrollArrows.asm
+$9F8511,Gameloop,CODE_9F8511,93S,"StartPer calls it as in 93S; ReadPads and DoGameFrame in the 93S places, with the 94 music and pause handling",src/routines/hockey/Gameloop.asm

@@ -39,6 +39,7 @@
 - `SetLCmode` (its callers `doinput` and `puckfaceoff` became visible once their parts were folded).
 - `SPCGameUpload` (93S; the in-game sample set `setupice` loads) and `PlayTeamSong` (`TeamSongs` slot A of the home team, else a random `DefaultSongs`).
 - Stats screens: `SetupScrollIRQ` with its hooks `IRQ_StatsScroll1`-`3` (the split BG1 scroll), `SetPlayerStatsRange`, `InitStatsOrder`, `PrintScrollArrows`.
+- `Gameloop` (`StartPer` calls it as in 93S). `CODE_9F967B` stays: besides the 93S `demoread` job it checks every controller for a pause.
 
 ## Unsure
 

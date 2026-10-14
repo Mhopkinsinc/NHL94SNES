@@ -1,9 +1,9 @@
-; Unidentified routine.
-CODE_9F8511:
+; Main game loop: wait for a frame, the clock, the music, one frame of game logic, the pause
+Gameloop:
 	lda.b $83
 	sec
 	sbc.w $0D01
-	beq CODE_9F8511
+	beq Gameloop
 	inc.w $1D6D
 	lda.w #$003C
 	ldx.w $1D6D
@@ -121,4 +121,4 @@ CODE_9F8511:
 	rtl
 
 .t1x:
-	jmp.w CODE_9F8511
+	jmp.w Gameloop

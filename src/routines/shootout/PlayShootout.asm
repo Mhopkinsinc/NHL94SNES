@@ -131,5 +131,5 @@ PlayShootout:
 	sta.w $1E8D
 	stz.w $1E91
 .4:
-	jsl.l CODE_9F8511
+	jsl.l Gameloop
 	rtl

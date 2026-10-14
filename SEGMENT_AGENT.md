@@ -683,3 +683,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - SetLCmode from 93S. MATCH.
 - SPCGameUpload (93S) and PlayTeamSong. MATCH.
 - Stats screen scroll IRQ and list helpers named from what they do. MATCH.
+- Gameloop from 93S. MATCH.

@@ -84,5 +84,5 @@ StartPer:
 	lda.w #$6000
 	jsl.l InitSprites
 	lda.w $1D81
-	beq CODE_9F8511
+	beq Gameloop
 	rtl
