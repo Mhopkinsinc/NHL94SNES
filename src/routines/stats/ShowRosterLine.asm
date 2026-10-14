@@ -106,7 +106,7 @@ ShowRosterLine:
 	sta.b $9D
 	lda.w #$009D
 	sta.b $97
-	lda.w #DATA8_9DA04D
+	lda.w #RosterGoalieList
 	sta.b a3
 	lda.w SelectedPlayerIdx
 	dec a
@@ -184,5 +184,5 @@ org $9DA000
 	bpl .3
 RosterRtl:
 	rtl
-DATA8_9DA04D:
+RosterGoalieList:	; the roster players shown on the goalie page (with RosterGoalieMarks): 1-4, the goalies come first
 	db $01,$02,$03,$04

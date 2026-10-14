@@ -5877,3 +5877,4 @@ $9C81D8,FramerNineTileMap,DATA8_9C81D8,new,the FramerNineTile box map,src/data/t
 $9C81F0,FramerOutlineTiles,DATA8_9C81F0,new,the FramerOutline box tiles,src/data/tables/FramerOutlineTiles.asm
 $9C8310,FramerOutlineMap,DATA8_9C8310,new,the FramerOutline box map,src/data/tables/FramerOutlineMap.asm
 $9E8553,CenterOSpots,DATA8_9E8553,new,"asscentero: four words per zone ($1083,x)",src/routines/snes/CenterOSpots.asm
+$9DA04D,RosterGoalieList,DATA8_9DA04D,new,"ShowRosterLine: the roster players of the goalie page (1-4, the goalies come first), with RosterGoalieMarks",src/routines/stats/ShowRosterLine.asm
