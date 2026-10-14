@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EF213:
+; If a shot was taken, add it to the shooting team's shots
+ChkShotStat:
 	lda.w #$1000
 	trb.w sflags
 	bne .t1

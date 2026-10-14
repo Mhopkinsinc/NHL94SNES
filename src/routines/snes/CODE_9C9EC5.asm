@@ -82,7 +82,7 @@ CODE_9C9EC5:
 	and.w #$00FF
 	phx
 	ldx.w #$0064
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	sta.b $08
 	jsl.l Div16U
 	plx

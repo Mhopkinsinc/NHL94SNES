@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FBC5F:
+; Draw the objects tied to rink scrolling (the pad labels)
+setffo:
 	lda.w #$0082
 	sta.b $12
 	lda.w #SpriteFrames

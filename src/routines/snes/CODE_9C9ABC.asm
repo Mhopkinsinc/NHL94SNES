@@ -26,7 +26,7 @@ sfx:
 	ora.w #$FF00
 .1:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	sta.b $64
 	lda.b $0F
 	and.w #$00FF
@@ -35,7 +35,7 @@ sfx:
 	ora.w #$FF00
 .2:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	clc
 	adc.b $64
 	lsr a
@@ -59,7 +59,7 @@ sfx:
 	and.w #$003F
 	clc
 	adc.w #$00C0
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	lda.b $09
 	sta.b $0C
 	lda.b $12

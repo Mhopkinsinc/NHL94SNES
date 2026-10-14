@@ -29,7 +29,7 @@ CODE_9EF69A:
 	lda.w $1403,y
 	phx
 	ldx.w #$02BC
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	lda.b $08
 	sta.b d1
 	plx

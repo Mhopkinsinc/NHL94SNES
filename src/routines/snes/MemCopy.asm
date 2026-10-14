@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808F2F:
+; Copy X bytes from [$0C] to [$10]
+MemCopy:
 	txa
 	txy
 	lsr a

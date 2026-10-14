@@ -129,7 +129,7 @@ org $9C9000
 	cmp.b d1
 	bpl .t1xxx
 	ldx.w #$0064
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	tax
 	lda.b d1
 	beq .4

@@ -2,7 +2,7 @@
 checkgoal:
 	cpx.w #$001C
 	beq .t3
-	jmp.w CODE_9E92F8
+	jmp.w checkgoalp
 
 .t3:
 	ldy.w puckc

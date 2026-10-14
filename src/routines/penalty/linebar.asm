@@ -14,7 +14,7 @@ linebar:
 	sta.b d0
 	tax
 	lda.w #$002F
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	lda.b $0A
 	clc
 	adc.w #$001D
@@ -29,7 +29,7 @@ linebar:
 	sta.b a1
 	ldx.b d0
 	lda.w #$0054
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	plx
 	lda.b $0A
 	inc a

@@ -71,7 +71,7 @@ CODE_9BACE5:
 	ora.w #$E000
 .2x:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	sta.b d0
 	lda.b d3
 	lsr a
@@ -82,7 +82,7 @@ CODE_9BACE5:
 	ora.w #$E000
 .3:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	clc
 	adc.b d0
 	cmp.b $B7

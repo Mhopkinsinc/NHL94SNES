@@ -92,7 +92,7 @@ CODE_9BA1A1:
 	lsr a
 	lsr a
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	ldx.b d4
 	sta.b d2
 	asl a

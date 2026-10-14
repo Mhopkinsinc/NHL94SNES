@@ -789,8 +789,8 @@ $9D9C3B,.loop2,CODE_9D9C3B,new,branch target only used in this routine,src/routi
 $9D9E70,.1,CODE_9D9E70,new,branch target only used in this routine,src/routines/snes/CODE_9D9E4B.asm
 $9ED088,.1,CODE_9ED088,new,branch target only used in this routine,src/routines/snes/CODE_9ED050.asm
 $9ED08B,.2,CODE_9ED08B,new,branch target only used in this routine,src/routines/snes/CODE_9ED050.asm
-$808F3D,.1,CODE_808F3D,new,branch target only used in this routine,src/routines/snes/CODE_808F2F.asm
-$808F3F,.loop,CODE_808F3F,new,branch target only used in this routine,src/routines/snes/CODE_808F2F.asm
+$808F3D,.1,CODE_808F3D,new,branch target only used in this routine,src/routines/snes/MemCopy.asm
+$808F3F,.loop,CODE_808F3F,new,branch target only used in this routine,src/routines/snes/MemCopy.asm
 $9EDB57,.1,CODE_9EDB57,new,branch target only used in this routine,src/routines/snes/CODE_9EDB3E.asm
 $9EDB68,.2,CODE_9EDB68,new,branch target only used in this routine,src/routines/snes/CODE_9EDB3E.asm
 $9EDB7D,.3,CODE_9EDB7D,new,branch target only used in this routine,src/routines/snes/CODE_9EDB3E.asm
@@ -841,8 +841,8 @@ $9EEFD1,.1,CODE_9EEFD1,new,branch target only used in this routine,src/routines/
 $9B9284,.loop,CODE_9B9284,new,branch target only used in this routine,src/routines/snes/CODE_9B9249.asm
 $9B929B,.1,CODE_9B929B,new,branch target only used in this routine,src/routines/snes/CODE_9B9249.asm
 $9B92C4,.2,CODE_9B92C4,new,branch target only used in this routine,src/routines/snes/CODE_9B9249.asm
-$9FBCD3,.1,CODE_9FBCD3,new,branch target only used in this routine,src/routines/snes/CODE_9FBC5F.asm
-$9FBD0A,.2,CODE_9FBD0A,new,branch target only used in this routine,src/routines/snes/CODE_9FBC5F.asm
+$9FBCD3,.1,CODE_9FBCD3,new,branch target only used in this routine,src/routines/video/setffo.asm
+$9FBD0A,.2,CODE_9FBD0A,new,branch target only used in this routine,src/routines/video/setffo.asm
 $9EBBEF,.1,CODE_9EBBEF,new,branch target only used in this routine,src/routines/snes/CODE_9EBBD7.asm
 $9EBBF1,.loop,CODE_9EBBF1,new,branch target only used in this routine,src/routines/snes/CODE_9EBBD7.asm
 $9EBC09,.2,CODE_9EBC09,new,branch target only used in this routine,src/routines/snes/CODE_9EBBD7.asm
@@ -2407,9 +2407,9 @@ $9ED243,.2,CODE_9ED243,new,branch target only used in this routine,src/routines/
 $9CA12F,.1,CODE_9CA12F,new,branch target only used in this routine,src/routines/snes/CODE_9CA101.asm
 $9CA15D,.1,CODE_9CA15D,new,branch target only used in this routine,src/routines/snes/CODE_9CA101.asm
 $9FC2E1,.1,CODE_9FC2E1,new,branch target only used in this routine,src/routines/snes/CODE_9FC2CE.asm
-$9FB220,.loop,CODE_9FB220,new,branch target only used in this routine,src/routines/snes/CODE_9FB1FD.asm
-$9FB24E,.1,CODE_9FB24E,new,branch target only used in this routine,src/routines/snes/CODE_9FB1FD.asm
-$9FB269,.rtl,CODE_9FB269,new,branch target only used in this routine,src/routines/snes/CODE_9FB1FD.asm
+$9FB220,.loop,CODE_9FB220,new,branch target only used in this routine,src/routines/video/checkfo.asm
+$9FB24E,.1,CODE_9FB24E,new,branch target only used in this routine,src/routines/video/checkfo.asm
+$9FB269,.rtl,CODE_9FB269,new,branch target only used in this routine,src/routines/video/checkfo.asm
 $9DBE31,.loop,CODE_9DBE31,new,branch target only used in this routine,src/routines/snes/CODE_9DBE06.asm
 $9DBE37,.loop2,CODE_9DBE37,new,branch target only used in this routine,src/routines/snes/CODE_9DBE06.asm
 $9DBE54,.1,CODE_9DBE54,new,branch target only used in this routine,src/routines/snes/CODE_9DBE06.asm
@@ -2682,7 +2682,7 @@ $9BA15B,.t1,CODE_9BA15B,new,continued in the previous routine,src/routines/snes/
 $9BA13C,.t1,CODE_9BA13C,new,continued in the previous routine,src/routines/snes/CODE_9BA110.asm
 $9BA10F,.t1,CODE_9BA10F,new,continued in the previous routine,src/routines/snes/CODE_9BA0A2.asm
 $9BA003,.t1,CODE_9BA003,new,continued in the previous routine,src/routines/snes/CODE_9B9FF0.asm
-$9B9FBD,.t1,CODE_9B9FBD,new,continued in the previous routine,src/routines/snes/CODE_9B9FAF.asm
+$9B9FBD,.t1,CODE_9B9FBD,new,continued in the previous routine,src/routines/video/showcrowd.asm
 $9B9F91,.t1,CODE_9B9F91,new,continued in the previous routine,src/routines/hockey/updatecrowdf.asm
 $9B9C16,.t1,CODE_9B9C16,new,continued in the previous routine,src/routines/snes/CODE_9B9BF8.asm
 $9B9B16,.t1,CODE_9B9B16,new,continued in the previous routine,src/routines/snes/CODE_9B9ADA.asm
@@ -2861,7 +2861,7 @@ $9EF3C3,.t1,CODE_9EF3C3,new,continued in the previous routine,src/routines/snes/
 $9EF33C,.t1,CODE_9EF33C,new,continued in the previous routine,src/routines/snes/CODE_9EF328.asm
 $9EF29E,.t1,CODE_9EF29E,new,continued in the previous routine,src/routines/snes/CODE_9EF28A.asm
 $9EF281,.t1,CODE_9EF281,new,continued in the previous routine,src/routines/snes/CODE_9EF226.asm
-$9EF21E,.t1,CODE_9EF21E,new,continued in the previous routine,src/routines/snes/CODE_9EF213.asm
+$9EF21E,.t1,CODE_9EF21E,new,continued in the previous routine,src/routines/penalty/ChkShotStat.asm
 $9EF14A,.t1,CODE_9EF14A,new,continued in the previous routine,src/routines/snes/CODE_9EF142.asm
 $9EF124,.t1,CODE_9EF124,new,continued in the previous routine,src/routines/snes/CODE_9EF0EC.asm
 $9EF04D,.t1,CODE_9EF04D,new,continued in the previous routine,src/routines/snes/CODE_9EF042.asm
@@ -2945,7 +2945,7 @@ $9EC2CF,.t1,CODE_9EC2CF,new,continued in the previous routine,src/routines/snes/
 $9EC222,.t1,CODE_9EC222,new,continued in the previous routine,src/routines/snes/CODE_9EC20E.asm
 $9EC206,.t1,CODE_9EC206,new,continued in the previous routine,src/routines/snes/CODE_9EC1FE.asm
 $9EC1F6,.t1,CODE_9EC1F6,new,continued in the previous routine,src/routines/snes/CODE_9EC1C2.asm
-$9EC180,.t1,CODE_9EC180,new,continued in the previous routine,src/routines/snes/CODE_9EC160.asm
+$9EC180,.t1,CODE_9EC180,new,continued in the previous routine,src/routines/penalty/prefmes.asm
 $9EC068,.t1,CODE_9EC068,new,continued in the previous routine,src/routines/snes/CODE_9EC059.asm
 $9EC038,.t1,CODE_9EC038,new,continued in the previous routine,src/routines/snes/CODE_9EC029.asm
 $9EBFF4,.t1,CODE_9EBFF4,new,continued in the previous routine,src/routines/snes/CODE_9EBFDE.asm
@@ -3241,7 +3241,7 @@ $9BA54A,.t2,CODE_9BA54A,new,continued in the previous routine,src/routines/snes/
 $9BA3B1,.t2,CODE_9BA3B1,new,continued in the previous routine,src/routines/snes/CODE_9BA355.asm
 $9BA23C,.t2,CODE_9BA23C,new,continued in the previous routine,src/routines/snes/CODE_9BA1C3.asm
 $9BA149,.t2,CODE_9BA149,new,continued in the previous routine,src/routines/snes/CODE_9BA110.asm
-$9B9FF0,.t2,CODE_9B9FF0,new,continued in the previous routine,src/routines/snes/CODE_9B9FAF.asm
+$9B9FF0,.t2,CODE_9B9FF0,new,continued in the previous routine,src/routines/video/showcrowd.asm
 $9B9ADA,.t1,CODE_9B9ADA,new,continued in the previous routine,src/routines/snes/CODE_9B9AB2.asm
 $9B995F,.t2,CODE_9B995F,new,continued in the previous routine,src/routines/snes/CODE_9B9917.asm
 $9B96C8,.t2,CODE_9B96C8,new,continued in the previous routine,src/routines/snes/CODE_9B95F5.asm
@@ -3421,9 +3421,9 @@ $9FC822,.t2,CODE_9FC822,new,continued in the previous routine,src/routines/snes/
 $9FC315,.t2,CODE_9FC315,new,continued in the previous routine,src/routines/snes/CODE_9FC2CE.asm
 $9FC1EC,.t2,CODE_9FC1EC,new,continued in the previous routine,src/routines/snes/CODE_9FC1CE.asm
 $9FC123,.t1,CODE_9FC123,new,continued in the previous routine,src/routines/hockey/checkwindow.asm
-$9FBFA6,.t2,CODE_9FBFA6,new,continued in the previous routine,src/routines/snes/CODE_9FBFA0.asm
+$9FBFA6,.t2,CODE_9FBFA6,new,continued in the previous routine,src/routines/video/ShowRinkRows.asm
 $9FBE56,.t2,CODE_9FBE56,new,continued in the previous routine,src/routines/snes/CODE_9FBE08.asm
-$9FBD37,.t1,CODE_9FBD37,new,continued in the previous routine,src/routines/snes/CODE_9FBC5F.asm
+$9FBD37,.t1,CODE_9FBD37,new,continued in the previous routine,src/routines/video/setffo.asm
 $9FBB56,.t2,CODE_9FBB56,new,continued in the previous routine,src/routines/snes/CODE_9FBB01.asm
 $9FB64A,.t2,CODE_9FB64A,new,continued in the previous routine,src/routines/penalty/limitfo.asm
 $9FB58F,.t2,CODE_9FB58F,new,continued in the previous routine,src/routines/snes/CODE_9FB518.asm
@@ -3512,7 +3512,7 @@ $9EF84D,.t1,CODE_9EF84D,new,continued in the previous routine,src/routines/snes/
 $9EF7AD,.t2,CODE_9EF7AD,new,continued in the previous routine,src/routines/snes/CODE_9EF78A.asm
 $9EF3A3,.t1,CODE_9EF3A3,new,continued in the previous routine,src/routines/snes/CODE_9EF352.asm
 $9EF328,.t3,CODE_9EF328,new,continued in the previous routine,src/routines/snes/CODE_9EF319.asm
-$9EF226,.t3,CODE_9EF226,new,continued in the previous routine,src/routines/snes/CODE_9EF213.asm
+$9EF226,.t3,CODE_9EF226,new,continued in the previous routine,src/routines/penalty/ChkShotStat.asm
 $9EF0EC,.t2,CODE_9EF0EC,new,continued in the previous routine,src/routines/snes/CODE_9EF042.asm
 $9EEDC0,.t3,CODE_9EEDC0,new,continued in the previous routine,src/routines/snes/CODE_9EED8D.asm
 $9EED38,.t3,CODE_9EED38,new,continued in the previous routine,src/routines/snes/CODE_9EECF6.asm
@@ -3586,7 +3586,7 @@ $9ED676,.t4,CODE_9ED676,new,continued in the previous routine,src/routines/snes/
 $9ED050,.t4,CODE_9ED050,new,continued in the previous routine,src/routines/logic/goalieacc.asm
 $9ECA77,.t4,CODE_9ECA77,new,continued in the previous routine,src/routines/snes/CODE_9ECA37.asm
 $9EC656,.t4,CODE_9EC656,new,continued in the previous routine,src/routines/snes/CODE_9EC64B.asm
-$9EC1C2,.t4,CODE_9EC1C2,new,continued in the previous routine,src/routines/snes/CODE_9EC160.asm
+$9EC1C2,.t4,CODE_9EC1C2,new,continued in the previous routine,src/routines/penalty/prefmes.asm
 $9EB4F9,.t4,CODE_9EB4F9,new,continued in the previous routine,src/routines/penalty/InProgress.asm
 $9EA8B2,.t4,CODE_9EA8B2,new,continued in the previous routine,src/routines/logic/doplayeracc.asm
 $9FF1E4,.t4,CODE_9FF1E4,new,continued in the previous routine,src/routines/snes/CODE_9FF1D1.asm
@@ -3608,7 +3608,7 @@ $9DBED6,.t2,CODE_9DBED6,new,continued in the previous routine,src/routines/snes/
 $9DA724,.t5,CODE_9DA724,new,continued in the previous routine,src/routines/snes/CODE_9DA5CA.asm
 $9DA2AB,.t5,CODE_9DA2AB,new,continued in the previous routine,src/routines/snes/CODE_9DA0D5.asm
 $9ECA37,.t5,CODE_9ECA37,new,continued in the previous routine,src/routines/snes/CODE_9EC9CB.asm
-$9EC265,.t5,CODE_9EC265,new,continued in the previous routine,src/routines/snes/CODE_9EC160.asm
+$9EC265,.t5,CODE_9EC265,new,continued in the previous routine,src/routines/penalty/prefmes.asm
 $9FEA8E,.t5,CODE_9FEA8E,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
 $9FE24D,.t5,CODE_9FE24D,new,continued in the previous routine,src/routines/snes/CODE_9FE1FA.asm
 $9FE161,.t5,CODE_9FE161,new,continued in the previous routine,src/routines/snes/CODE_9FE11D.asm
@@ -4189,12 +4189,12 @@ $9FB197,.9,CODE_9FB197,new,branch target only used in this routine,src/routines/
 $9FB1A4,.10,CODE_9FB1A4,new,continued in the previous routine,src/routines/logic/Endfaceoff.asm
 $9FB1A9,.11,CODE_9FB1A9,new,branch target only used in this routine,src/routines/logic/Endfaceoff.asm
 $9FB1B1,.12,CODE_9FB1B1,new,branch target only used in this routine,src/routines/logic/Endfaceoff.asm
-$9FBC6E,.1,CODE_9FBC6E,new,branch target only used in this routine,src/routines/snes/CODE_9FBC5F.asm
-$9FBC78,.2,CODE_9FBC78,new,branch target only used in this routine,src/routines/snes/CODE_9FBC5F.asm
-$9FBC7B,.3,CODE_9FBC7B,new,continued in the previous routine,src/routines/snes/CODE_9FBC5F.asm
-$9FBD10,.4,CODE_9FBD10,new,branch target only used in this routine,src/routines/snes/CODE_9FBC5F.asm
-$9FBD3F,.5,CODE_9FBD3F,new,branch target only used in this routine,src/routines/snes/CODE_9FBC5F.asm
-$9FBD47,.6,CODE_9FBD47,new,branch target only used in this routine,src/routines/snes/CODE_9FBC5F.asm
+$9FBC6E,.1,CODE_9FBC6E,new,branch target only used in this routine,src/routines/video/setffo.asm
+$9FBC78,.2,CODE_9FBC78,new,branch target only used in this routine,src/routines/video/setffo.asm
+$9FBC7B,.3,CODE_9FBC7B,new,continued in the previous routine,src/routines/video/setffo.asm
+$9FBD10,.4,CODE_9FBD10,new,branch target only used in this routine,src/routines/video/setffo.asm
+$9FBD3F,.5,CODE_9FBD3F,new,branch target only used in this routine,src/routines/video/setffo.asm
+$9FBD47,.6,CODE_9FBD47,new,branch target only used in this routine,src/routines/video/setffo.asm
 $9FC748,.1,CODE_9FC748,new,continued in the previous routine,src/routines/hockey/GetPlayerRecord.asm
 $9FC752,.2,CODE_9FC752,new,branch target only used in this routine,src/routines/hockey/GetPlayerRecord.asm
 $9FC845,.1,CODE_9FC845,new,branch target only used in this routine,src/routines/penalty/InitScores.asm
@@ -4453,7 +4453,7 @@ $9EAE31,.2,CODE_9EAE31,new,branch target only used in this routine,src/routines/
 $9EBFFB,.1,CODE_9EBFFB,new,branch target only used in this routine,src/routines/snes/CODE_9EBFDE.asm
 $9EC000,.2,CODE_9EC000,new,branch target only used in this routine,src/routines/snes/CODE_9EBFDE.asm
 $9EC070,.1,CODE_9EC070,new,branch target only used in this routine,src/routines/snes/CODE_9EC042.asm
-$9EC2AE,.3,CODE_9EC2AE,new,branch target only used in this routine,src/routines/snes/CODE_9EC160.asm
+$9EC2AE,.3,CODE_9EC2AE,new,branch target only used in this routine,src/routines/penalty/prefmes.asm
 $9EC6E0,.3,CODE_9EC6E0,new,branch target only used in this routine,src/routines/snes/CODE_9EC64B.asm
 $9EC6E6,.4,CODE_9EC6E6,new,branch target only used in this routine,src/routines/snes/CODE_9EC64B.asm
 $9EC74B,.1,CODE_9EC74B,new,branch target only used in this routine,src/routines/snes/CODE_9EC72D.asm
@@ -4478,8 +4478,8 @@ $9EEB7D,.2,CODE_9EEB7D,new,branch target only used in this routine,src/routines/
 $9EEC19,.3,CODE_9EEC19,new,branch target only used in this routine,src/routines/snes/CODE_9EEB2E.asm
 $9EEC4D,.4,CODE_9EEC4D,new,branch target only used in this routine,src/routines/snes/CODE_9EEB2E.asm
 $9EEE70,.5,CODE_9EEE70,new,branch target only used in this routine,src/routines/snes/CODE_9EED8D.asm
-$9EF2A5,.6,CODE_9EF2A5,new,branch target only used in this routine,src/routines/snes/CODE_9EF213.asm
-$9EF318,.7,CODE_9EF318,new,branch target only used in this routine,src/routines/snes/CODE_9EF213.asm
+$9EF2A5,.6,CODE_9EF2A5,new,branch target only used in this routine,src/routines/penalty/ChkShotStat.asm
+$9EF318,.7,CODE_9EF318,new,branch target only used in this routine,src/routines/penalty/ChkShotStat.asm
 $9EF3A7,.3,CODE_9EF3A7,new,branch target only used in this routine,src/routines/snes/CODE_9EF352.asm
 $9EF3AE,.4,CODE_9EF3AE,new,branch target only used in this routine,src/routines/snes/CODE_9EF352.asm
 $9EF3CC,.5,CODE_9EF3CC,new,branch target only used in this routine,src/routines/snes/CODE_9EF352.asm
@@ -4613,3 +4613,21 @@ $9DFA12,SPApump,DATA8_9DFA12,93S,93S SPApump: same frames and times as 93S (no r
 $9DE8F4,SPAwallright,DATA8_9DE8F4,93S,93S SPAwallright: set where 93S asseben sets it,src/data/frames94s.asm
 $9DE936,SPAwallleft,DATA8_9DE936,93S,93S SPAwallleft: set where 93S assepen sets it,src/data/frames94s.asm
 $9EDBF4,GoalieSaveList,DATA8_9EDBF4,93S,"the save animation by save type: the six 93S entries in the 93S order, read by the goalie code as in 93S; entries 6-8 are new in 94",src/data/tables/GoalieSaveList.asm
+$9FBFA0,ShowRinkRows,CODE_9FBFA0,93S,setvideo calls it as in 93S; most instructions as 93S ShowRinkRows,src/routines/video/ShowRinkRows.asm
+$9FB1FD,checkfo,CODE_9FB1FD,93S,setvideo calls it as in 93S; draws the face off sprites as 93S checkfo,src/routines/video/checkfo.asm
+$9E92F8,checkgoalp,CODE_9E92F8,93S,checkgoal jumps here where 93S jumps to checkgoalp; the 93S body for the most part,src/routines/hockey/checkgoalp.asm
+$9FBC5F,setffo,CODE_9FBC5F,93S,setvideo calls it as in 93S; draws the pad labels from ButtonLabelCharTable as 93S setffo,src/routines/video/setffo.asm
+$9EC160,prefmes,CODE_9EC160,93S,PushRef and SetPA call it as in 93S; prints from the penalty message table,src/routines/penalty/prefmes.asm
+$9EF213,ChkShotStat,CODE_9EF213,93S,"called from Goal, puckglue and the goalie code as in 93S; clears the shot flag and adds the shot",src/routines/penalty/ChkShotStat.asm
+$9FDCEB,makepde,CODE_9FDCEB,93S,doshot and the stick code call it as in 93S; rating times the getpde energy,src/routines/hockey/makepde.asm
+$9B9FAF,showcrowd,CODE_9B9FAF,93S,setvideo calls it as in 93S; steps the crowd sprites by crowdlevel,src/routines/video/showcrowd.asm
+$9EA539,StopNA,CODE_9EA539,93S,dostop falls in and goalieacc jumps here as in 93S; slows the player on each axis without an animation change,src/routines/logic/dostop.asm
+$80D322,UpdateCwdExcite,CODE_80D322,93S,periodicevents calls it where 93S calls UpdateCwdExcite; does nothing in both,src/routines/hockey/UpdateCwdExcite.asm
+$80D323,CheckLateGameSong,CODE_80D323,93S,periodicevents calls it where 93S calls CheckLateGameSong; does nothing in both,src/routines/hockey/CheckLateGameSong.asm
+$808F4C,Mul8U,CODE_808F4C,new,"A * X with the 8 by 8 hardware multiplier, unsigned",src/routines/snes/Mul8U.asm
+$808F5D,Mul8XS,CODE_808F5D,new,"A * X, 8 by 8, X signed",src/routines/snes/Mul8XS.asm
+$808F7D,Mul8S,CODE_808F7D,new,"A * X, 8 by 8, both signed",src/routines/snes/Mul8S.asm
+$808F98,Mul16x8U,CODE_808F98,new,"X (16 bits) * A (8 bits) into $08-$0A, unsigned",src/routines/snes/Mul16x8U.asm
+$808FC9,Mul16x8XS,CODE_808FC9,new,"X (16 bits) * A (8 bits), X signed",src/routines/snes/Mul16x8XS.asm
+$808FEB,Mul16x8S,CODE_808FEB,new,"X (16 bits) * A (8 bits), both signed",src/routines/snes/Mul16x8S.asm
+$808F2F,MemCopy,CODE_808F2F,new,copy X bytes from [$0C] to [$10],src/routines/snes/MemCopy.asm

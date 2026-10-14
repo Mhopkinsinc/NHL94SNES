@@ -20,7 +20,7 @@ asseben:
 	phx
 	tax
 	lda.w #$000E
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	plx
 	lda.b $08
 	sta.w Ypos,x

@@ -51,7 +51,7 @@ CODE_9ED7F1:
 	sta.b d1
 	tax
 	lda.b d4
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	lda.b d2
 	sta.b $04
 	jsl.l Div32S
@@ -61,7 +61,7 @@ CODE_9ED7F1:
 	adc.w #$0006
 	sta.b d4
 	ldx.b d0
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	lda.b d2
 	sta.b $04
 	jsl.l Div32S

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9FAF:
+; Draw the crowd sprites
+showcrowd:
 	lda.w sflags
 	and.w #$0800
 	beq .t1

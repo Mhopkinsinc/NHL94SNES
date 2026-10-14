@@ -9,7 +9,7 @@ CODE_9ED44E:
 	lda.w $0AA4,y
 	cmp.w #$0008
 	bne CODE_9ED46A
-	jsl.l CODE_9EA539
+	jsl.l StopNA
 CODE_9ED46A:
 	lda.w $1543,x
 	bne .1

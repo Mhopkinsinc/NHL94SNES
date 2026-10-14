@@ -202,7 +202,7 @@ CODE_9EDB21:
 	sbc.w #$0007
 	beq .t1
 	bmi .t1
-	jmp.w CODE_9EA539
+	jmp.w StopNA
 
 .t1:
 	jml.l playeracc

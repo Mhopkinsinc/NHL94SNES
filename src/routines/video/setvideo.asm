@@ -11,15 +11,15 @@ setvideo:
 	bne .loop
 	ldx.b xsave
 	jsl.l show_rink
-	jsl.l CODE_9FB1FD
+	jsl.l checkfo
 	jsl.l .t3
 	jsl.l CODE_9CA054
-	jsl.l CODE_9FBC5F
+	jsl.l setffo
 	jsl.l showclock
 	jsl.l showzam
-	jsl.l CODE_9B9FAF
+	jsl.l showcrowd
 	jsl.l showref
-	jsl.l CODE_9FBFA0
+	jsl.l ShowRinkRows
 	lda.w sfhormode
 	beq .1
 	jsl.l CODE_9F9E24

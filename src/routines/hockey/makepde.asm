@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FDCEB:
+; d0 = rating A scaled by player a0's energy
+makepde:
 	pha
 	lda.b d1
 	pha

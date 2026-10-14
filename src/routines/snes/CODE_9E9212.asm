@@ -24,7 +24,7 @@ CODE_9E9212:
 	cmp.w #$FFEF
 	bpl CODE_9E920F
 .1:
-	jsl.l CODE_9EF213
+	jsl.l ChkShotStat
 	stz.w $1E8B
 	stz.w $1E89
 	lda.w #$0009

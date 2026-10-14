@@ -10,7 +10,7 @@ Pausemode:
 	lda.w #$4F7E
 	sta.b $10
 	ldx.w #$0800
-	jsl.l CODE_808F2F
+	jsl.l MemCopy
 	plx
 	jsl.l CODE_9C9786
 	lda.w sfhormode
@@ -72,7 +72,7 @@ Pausemode:
 	lda.w #$37F4
 	sta.b $10
 	ldx.w #$0800
-	jsl.l CODE_808F2F
+	jsl.l MemCopy
 	plx
 	stz.w textdirtylo
 	lda.w #$03FF

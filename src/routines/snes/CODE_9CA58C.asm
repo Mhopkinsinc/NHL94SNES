@@ -15,7 +15,7 @@ CODE_9CA58C:
 	lsr a
 	lsr a
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	ldx.b $E4
 	sta.w $0B3D,x
 	lda.w pucky
@@ -30,7 +30,7 @@ CODE_9CA58C:
 	lsr a
 	lsr a
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	ldx.b $E4
 	clc
 	adc.w $0B3D,x

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EC160:
+; Print the message for penalty d0, or clear it
+prefmes:
 	lda.b d0
 	pha
 	lda.b $A7

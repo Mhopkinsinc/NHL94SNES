@@ -48,7 +48,7 @@ CODE_9C8A83:
 	and.w #$00FF
 	phx
 	ldx.w #$0064
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	sta.b $08
 	plx
 	sep #$20

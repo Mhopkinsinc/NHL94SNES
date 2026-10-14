@@ -56,11 +56,11 @@ chk4shot:
 	inc a
 	pha
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	sta.b d0
 	lda.b d1
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	ldx.b $E4
 	clc
 	adc.b d0

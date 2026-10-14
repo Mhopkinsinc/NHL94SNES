@@ -55,7 +55,7 @@ org $9ED002
 	jml.l playeracc
 
 .t3:
-	jmp.w CODE_9EA539
+	jmp.w StopNA
 
 .t4:
 	lda.w $0BCB,x

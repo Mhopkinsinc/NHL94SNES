@@ -95,7 +95,7 @@ dopass:
 	ror a
 	tax
 	lda.w #$0050
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	asl a
 	sta.b $14
 	ldx.b $E4
@@ -112,7 +112,7 @@ dopass:
 	ror a
 	tax
 	lda.w #$0050
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	asl a
 	sta.b $14
 	ldx.b $E4

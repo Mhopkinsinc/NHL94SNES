@@ -62,10 +62,10 @@ playeracc:
 	lda.b d2
 	pha
 	ldx.b d0
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	tax
 	lda.b d7
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	ldx.b $E4
 	lda.b $08
 	adc.w $0EC3,x
@@ -77,14 +77,14 @@ playeracc:
 	ora.w #$FF00
 .1xx:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	sta.b d3
 	pla
 	ldx.b d1
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	tax
 	lda.b d7
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	ldx.b $E4
 	lda.b $08
 	adc.w $0EE3,x
@@ -96,7 +96,7 @@ playeracc:
 	ora.w #$FF00
 .2x:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	clc
 	adc.b d3
 	sta.b d3
@@ -124,7 +124,7 @@ playeracc:
 	asl a
 	asl a
 	asl a
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	lda.b $0A
 	asl a
 	asl a

@@ -7,7 +7,7 @@ CODE_9BB387:
 	and.w #$00FF
 	tax
 	pla
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	plx
 	xba
 	and.w #$00FF

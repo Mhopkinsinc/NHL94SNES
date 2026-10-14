@@ -21,7 +21,7 @@ CODE_9EF5EA:
 	lda.w position,y
 	beq CODE_9EF5E9
 	lda.w $1403,y
-	jsl.l CODE_9FDCEB
+	jsl.l makepde
 	lda.b d0
 	pha
 	lda.b a0
@@ -30,7 +30,7 @@ CODE_9EF5EA:
 	sta.b a2
 	lda.w $1403,y
 	sta.b d0
-	jsl.l CODE_9FDCEB
+	jsl.l makepde
 	lda.b a0
 	ldy.b a2
 	sty.b a0
@@ -46,7 +46,7 @@ CODE_9EF5EA:
 .1:
 	ldy.b a0
 	lda.w $1403,y
-	jsl.l CODE_9FDCEB
+	jsl.l makepde
 	lda.b d0
 	adc.w #$0014
 	ldy.b a0
@@ -56,7 +56,7 @@ CODE_9EF5EA:
 	sty.b a0
 	sta.b a2
 	lda.w $1403,y
-	jsl.l CODE_9FDCEB
+	jsl.l makepde
 	lda.b d0
 	adc.w #$0014
 	ldy.b a0

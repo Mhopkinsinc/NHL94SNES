@@ -28,7 +28,7 @@ setlccords:
 	phx
 	lda.w #$0015
 	ldx.b d0
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	plx
 	adc.w printy
 	sta.w printy

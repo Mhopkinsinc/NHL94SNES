@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808F7D:
+; A * X, 8 by 8 bits, both signed, into A
+Mul8S:
 	phy
 	tay
 	bpl CODE_808F5E

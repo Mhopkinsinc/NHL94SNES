@@ -119,7 +119,7 @@ CODE_9EED8D:
 .5:
 	sta.b d3
 	ldx.b d0
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	lda.b d2
 	sta.b $04
 	jsl.l Div32S
@@ -129,7 +129,7 @@ CODE_9EED8D:
 	sta.w puckvx
 	lda.b d3
 	ldx.b d1
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	lda.b d2
 	sta.b $04
 	jsl.l Div32S

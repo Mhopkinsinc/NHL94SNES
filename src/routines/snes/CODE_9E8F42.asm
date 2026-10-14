@@ -14,12 +14,12 @@ CODE_9E8F42:
 	pha
 	txy
 	ldx.w $0EE3,y
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $09
 	sta.b d0
 	ldx.w $0EC3,y
 	lda.b d1
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b d0
 	sec
 	sbc.b $09
@@ -28,12 +28,12 @@ CODE_9E8F42:
 	sta.b d2
 	ldx.w $0EC3,y
 	lda.b $01,s
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $09
 	sta.b d0
 	ldx.w $0EE3,y
 	lda.b d1
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $09
 	clc
 	adc.b d0

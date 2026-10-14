@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808F5D:
+; A * X, 8 by 8 bits, X signed, into A
+Mul8XS:
 	phy
 CODE_808F5E:
 	cpx.w #$0000

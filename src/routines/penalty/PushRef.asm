@@ -34,7 +34,7 @@ PushRef:
 .1:
 	lda.b d0
 	ldx.w #$0070
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	sta.b d0
 	lda.w #$0096
 	sta.b $8B
@@ -119,7 +119,7 @@ PushRef:
 	tsb.w sflags
 	lda.w #$FFFF
 	sta.b d0
-	jsl.l CODE_9EC160
+	jsl.l prefmes
 	lda.w #$0000
 	sta.l $7E344A
 .5:

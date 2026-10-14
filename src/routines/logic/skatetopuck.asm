@@ -105,7 +105,7 @@ org $9EB000
 	ora.w #$E000
 .1x:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	sta.b d0
 	lda.b d1
 	lsr a
@@ -116,7 +116,7 @@ org $9EB000
 	ora.w #$E000
 .2x:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	ldx.b a3
 	clc
 	adc.b d0

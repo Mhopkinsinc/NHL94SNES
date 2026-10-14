@@ -35,12 +35,12 @@ CODE_9E900A:
 CODE_9E904D:
 	lda.b $01,s
 	ldx.b d3
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $09
 	sta.b tmp0
 	lda.b $03,s
 	ldx.b d2
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b tmp0
 	sec
 	sbc.b $09
@@ -48,12 +48,12 @@ CODE_9E904D:
 	sta.w $0EC3,x
 	lda.b $03,s
 	ldx.b d3
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $09
 	sta.b d3
 	lda.b $01,s
 	ldx.b d2
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $09
 	clc
 	adc.b d3

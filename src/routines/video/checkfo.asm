@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FB1FD:
+; Draw the face off sprites
+checkfo:
 	lda.w sfhormode
 	bne .rtl
 	lda.w $1E9B

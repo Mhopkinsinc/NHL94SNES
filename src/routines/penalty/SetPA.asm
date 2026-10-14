@@ -3,7 +3,7 @@ SetPA:
 	lda.b d0
 	sta.w RefPen
 	stz.w RefStep
-	jsl.l CODE_9EC160
+	jsl.l prefmes
 	lda.b d0
 	cmp.w #PenGoal
 	bne .0

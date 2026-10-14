@@ -133,14 +133,14 @@ checkplcoll:
 	pha
 	lda.b d3
 	ldx.b d1
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $0A
 	sta.b $AB
 	lda.b $08
 	sta.b d1
 	lda.b d2
 	ldx.b d0
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	ldx.b a3
 	lda.b $08
 	clc

@@ -19,7 +19,7 @@ CODE_9DCC36:
 	lda.w HomeTeam,x
 	sta.l $7E346C,x
 	ldx.w #$001A
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	clc
 	adc.b d0
 	asl a

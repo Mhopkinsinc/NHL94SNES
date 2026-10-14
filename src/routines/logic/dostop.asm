@@ -9,7 +9,7 @@ dostop:
 	cmp.w #$EFFF
 	bmi .1
 	cmp.w #$1001
-	bmi CODE_9EA539
+	bmi StopNA
 .1:
 	lda.w #SPAglide
 	ldy.w $1523,x
@@ -27,7 +27,7 @@ dostop:
 	sta.w $1543,x
 .3:
 	jsl.l SetSPAFromA
-CODE_9EA539:
+StopNA:
 	lda.w position,x
 	bne .t1
 	lda.w $19D4,x
@@ -50,7 +50,7 @@ CODE_9EA539:
 	clc
 	adc.w $12E3,x
 	ldx.w $0ADB
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	sta.b $08
 	plx
 	lda.w $0EC3,x

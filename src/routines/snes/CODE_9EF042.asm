@@ -82,7 +82,7 @@ CODE_9EF042:
 	jmp.w CODE_9EF1CA
 
 .t2:
-	jsl.l CODE_9EF213
+	jsl.l ChkShotStat
 	jsl.l a2touchpuck
 	lda.w #$0006
 	jsl.l CODE_9C9ABC

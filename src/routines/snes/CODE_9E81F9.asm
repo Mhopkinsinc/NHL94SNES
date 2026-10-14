@@ -38,7 +38,7 @@ CODE_9E81F9:
 	iny
 	tax
 	lda.b $D7
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	ldx.b a3
 	clc
 	adc.w $0EC3,x
@@ -46,7 +46,7 @@ CODE_9E81F9:
 	lda.b [a0],y
 	tax
 	lda.b $D7
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	ldx.b a3
 	clc
 	adc.w $0EE3,x

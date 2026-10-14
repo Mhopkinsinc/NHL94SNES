@@ -19,14 +19,14 @@ assscore:
 	lda.w $0EC3,x
 	tax
 	lda.w #$00C0
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	ldx.b a3
 	lda.b $09
 	sta.w $0EC3,x
 	lda.w $0EE3,x
 	tax
 	lda.w #$00C0
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	ldx.b a3
 	lda.b $09
 	sta.w $0EE3,x

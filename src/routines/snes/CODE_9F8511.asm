@@ -7,7 +7,7 @@ CODE_9F8511:
 	inc.w $1D6D
 	lda.w #$003C
 	ldx.w $1D6D
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	lda.w $0764
 	sta.b $04
 	jsl.l Div32U

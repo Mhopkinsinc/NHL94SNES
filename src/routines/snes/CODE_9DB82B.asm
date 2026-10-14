@@ -9,7 +9,7 @@ CODE_9DB82B:
 	sbc.w #$0100
 	pha
 	ldx.w #$0070
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	xba
 	and.w #$00FF
 	eor.w #$FFFF
@@ -19,7 +19,7 @@ CODE_9DB82B:
 	sta.w $0BF7
 	pla
 	ldx.w #$0040
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	xba
 	and.w #$00FF
 	eor.w #$FFFF

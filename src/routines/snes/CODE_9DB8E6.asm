@@ -8,7 +8,7 @@ CODE_9DB8E6:
 	sbc.w #$0480
 	tax
 	lda.w #$00C6
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	lda.w #$0080
 	sta.b $04
 	jsl.l Div16U
@@ -21,7 +21,7 @@ CODE_9DB8E6:
 	pha
 	tax
 	lda.w #$000A
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	lda.w #$0050
 	sta.b $04
 	jsl.l Div16U
@@ -34,7 +34,7 @@ CODE_9DB8E6:
 	jsl.l Sin
 	tax
 	pla
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	lda.b $09
 .1:
 	ply

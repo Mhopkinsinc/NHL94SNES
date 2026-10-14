@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FBFA0:
+; Queue the rink map rows that the vertical scroll brought on screen
+ShowRinkRows:
 	lda.w sfhormode
 	beq .t2
 	rtl

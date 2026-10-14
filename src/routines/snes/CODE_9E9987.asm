@@ -74,17 +74,17 @@ CODE_9E9987:
 .t1:
 	lda.b d0
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	sta.b d0
 	lda.b d1
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	clc
 	adc.b d0
 	sta.b d0
 	lda.b d2
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	ldx.b $E4
 	sta.b d1
 	lda.w $121F

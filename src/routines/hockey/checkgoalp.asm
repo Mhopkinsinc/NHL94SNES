@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E92F8:
+; Player X runs into the goal a2
+checkgoalp:
 	lda.w pflags,x
 	bit.w #$8000
 	bne CODE_9E9305

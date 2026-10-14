@@ -26,11 +26,11 @@ CODE_9E9899:
 	sta.b d1
 	lda.b d0
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	sta.b d0
 	lda.b d1
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	clc
 	adc.b d0
 	sta.b d0

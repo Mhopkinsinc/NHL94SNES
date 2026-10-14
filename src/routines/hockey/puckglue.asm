@@ -57,7 +57,7 @@ puckglue:
 	ldy.b a2
 	lda.w position,y
 	bne .6
-	jsl.l CODE_9EF213
+	jsl.l ChkShotStat
 	ldy.b a2
 	lda.w #$008C
 	sta.w $1083,y

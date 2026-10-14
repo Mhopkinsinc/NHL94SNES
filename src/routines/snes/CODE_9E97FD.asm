@@ -52,11 +52,11 @@ CODE_9E97FD:
 	sta.b d1
 	lda.b d0
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	sta.b d0
 	lda.b d1
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	ldx.b $E4
 	clc
 	adc.b d0

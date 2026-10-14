@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808F4C:
+; A * X, 8 by 8 bits, unsigned, into A
+Mul8U:
 	phy
 CODE_808F4D:
 	sep #$30

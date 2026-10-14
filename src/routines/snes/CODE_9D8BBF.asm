@@ -270,7 +270,7 @@ CODE_9D8BBF:
 	lda.w #$3654
 	sta.b $10
 	ldx.w #$0020
-	jsl.l CODE_808F2F
+	jsl.l MemCopy
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_968C02

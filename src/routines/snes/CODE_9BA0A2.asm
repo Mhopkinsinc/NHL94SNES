@@ -10,7 +10,7 @@ CODE_9BA0A2:
 	bmi CODE_9BA076
 	tax
 	lda.b [$10]
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	ldy.w #$0004
 	clc
 	adc.b [$10],y

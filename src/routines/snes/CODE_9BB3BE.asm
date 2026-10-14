@@ -70,7 +70,7 @@ CODE_9BB3BE:
 	beq .t2xx
 	pha
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	cmp.b d0
 	bcc .t1xx
 	pla

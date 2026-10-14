@@ -27,7 +27,7 @@ ScrollDisplayUp:
 	clc
 	adc.w #$0040
 	sta.b $0C
-	jsl.l CODE_808F2F
+	jsl.l MemCopy
 	lda.b $0C
 	sta.b $10
 	dec.b $14

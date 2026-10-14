@@ -152,7 +152,7 @@ CODE_9EEB2E:
 	adc.b d5
 	sta.b d5
 	ldx.b d2
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	lda.b d4
 	sta.b $04
 	jsl.l Div32S
@@ -162,7 +162,7 @@ CODE_9EEB2E:
 	sta.w puckvx
 	lda.b d5
 	ldx.b d3
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	lda.b d4
 	sta.b $04
 	jsl.l Div32S

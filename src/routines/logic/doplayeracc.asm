@@ -154,7 +154,7 @@ doplayeracc:
 .t2xx:
 	tax
 	lda.b d7
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	ldx.b a3
 	sta.b tmp0
 	lda.w $0EC3,x
@@ -165,7 +165,7 @@ doplayeracc:
 	ora.w #$FF00
 .1xxx:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	sta.b d4
 	ldx.b a3
 	lda.w $0EE3,x
@@ -176,7 +176,7 @@ doplayeracc:
 	ora.w #$FF00
 .2x:
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	clc
 	adc.b d4
 	sta.b d3
@@ -192,7 +192,7 @@ doplayeracc:
 .3x:
 	lda.b tmp0
 	ldx.b d4
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $0A
 	sta.b $B7
 	lda.b $08

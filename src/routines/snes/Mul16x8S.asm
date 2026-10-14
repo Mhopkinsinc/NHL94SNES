@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808FEB:
+; X (16 bits) * A (8 bits) into $08-$0A, both signed
+Mul16x8S:
 	phy
 	tay
 	beq CODE_808FC3

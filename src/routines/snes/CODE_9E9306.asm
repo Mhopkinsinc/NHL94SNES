@@ -42,7 +42,7 @@ CODE_9E9306:
 	sta.b d1
 	sta.b $04
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	sta.b $08
 	ldx.b a3
 	lsr a
@@ -53,7 +53,7 @@ CODE_9E9306:
 	lda.b d3
 	sta.b $06
 	tax
-	jsl.l CODE_808F7D
+	jsl.l Mul8S
 	asl a
 	sta.b $0A
 	ldx.b a3

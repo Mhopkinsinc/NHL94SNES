@@ -39,11 +39,11 @@ doshot:
 .2:
 	lda.w $1363,x
 	stx.b a0
-	jsl.l CODE_9FDCEB
+	jsl.l makepde
 	adc.w #$0014
 	tax
 	lda.w passspeed
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	ldx.b $08
 	lda.w #$2570
 	jsl.l Mul16U
@@ -173,7 +173,7 @@ doshot:
 .6:
 	ldx.w passspeed
 	lda.w #$0044
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	plx
 	jsl.l Mul16S
 	lda.b d3
@@ -184,7 +184,7 @@ doshot:
 	sta.w puckvx
 	ldx.w passspeed
 	lda.w #$0044
-	jsl.l CODE_808F5D
+	jsl.l Mul8XS
 	plx
 	jsl.l Mul16S
 	lda.b d3
@@ -198,10 +198,10 @@ doshot:
 	beq .7
 	tax
 	lda.w passspeed
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	ldx.b $08
 	lda.w #$0044
-	jsl.l CODE_808F98
+	jsl.l Mul16x8U
 	lda.b d3
 	sta.b $04
 	jsl.l Div32U

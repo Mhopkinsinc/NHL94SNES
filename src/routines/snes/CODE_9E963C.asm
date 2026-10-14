@@ -56,14 +56,14 @@ CODE_9E9692:
 .t1:
 	lda.b d2
 	ldx.b d1
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $0A
 	sta.b $AB
 	lda.b $08
 	sta.b d1
 	lda.b d3
 	ldx.b d0
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $08
 	sec
 	sbc.b d1
@@ -89,7 +89,7 @@ CODE_9E9692:
 	sta.b d1
 	lda.b d0
 	ldx.b d4
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	lda.b d1
 	sta.b $04
 	jsl.l Div32S
@@ -98,12 +98,12 @@ CODE_9E9692:
 	sta.b d1
 	lda.b d3
 	ldx.b d5
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $08
 	sta.b tmp0
 	lda.b d2
 	ldx.b d0
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $08
 	clc
 	adc.b tmp0
@@ -113,12 +113,12 @@ CODE_9E9692:
 	sta.w $0EC3,x
 	lda.b d2
 	ldx.b d5
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $08
 	sta.b tmp0
 	lda.b d3
 	ldx.b d0
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $08
 	sec
 	sbc.b tmp0
@@ -128,14 +128,14 @@ CODE_9E9692:
 	sta.w $0EE3,x
 	lda.b d2
 	ldx.b d1
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $08
 	clc
 	adc.w $0EC3,y
 	sta.w $0EC3,y
 	lda.b d3
 	ldx.b d1
-	jsl.l CODE_808FEB
+	jsl.l Mul16x8S
 	lda.b $08
 	clc
 	adc.w $0EE3,y

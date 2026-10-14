@@ -156,7 +156,7 @@ CODE_9DBB14:
 	sta.l $7FA000,x
 	lda.b d0
 	ldx.b $A7
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	clc
 	adc.w #$0006
 	sta.b d1

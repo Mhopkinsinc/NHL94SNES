@@ -180,6 +180,6 @@ CODE_9DAA83:
 	lda.w #$0A5C
 	sta.b $10
 	ldx.w #$0031
-	jsl.l CODE_808F2F
+	jsl.l MemCopy
 .rtsx:
 	rts

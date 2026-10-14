@@ -173,7 +173,7 @@ InProgress:
 	ldx.w #$003C
 	lda.b d2
 	and.w #$00FF
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	ora.w #$2000
 	sta.b d2
 	plx

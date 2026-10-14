@@ -132,7 +132,7 @@ CODE_9F992E:
 	beq .t1
 	lda.w #$0012
 	ldx.b d3
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	clc
 	adc.b $14
 	bpl .9
@@ -159,7 +159,7 @@ CODE_9F992E:
 	tax
 	lda.l DATA8_9F9AD8,x
 	ldx.b d3
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	clc
 	adc.b d0
 	sta.b d0

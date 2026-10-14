@@ -15,8 +15,8 @@ periodicevents:
 	adc.w #$0018
 	sta.w $0CF7
 	jsl.l ChkGoalies
-	jsl.l CODE_80D322
-	jsl.l CODE_80D323
+	jsl.l UpdateCwdExcite
+	jsl.l CheckLateGameSong
 	jsl.l RestoreBenchEnergy
 	jsl.l CheckInjury
 	jsl.l updatepwrplay

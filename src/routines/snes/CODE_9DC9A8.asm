@@ -23,7 +23,7 @@ CODE_9DC9A8:
 	sta.b d0
 	lda.w HomeTeam,y
 	ldx.w #$001A
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	clc
 	adc.b d0
 	asl a

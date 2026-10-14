@@ -130,7 +130,7 @@ updateplayers:
 	beq .1xxx
 	tax
 	lda.b $0C
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	ldx.b $E4
 	lda.b $08
 	clc
@@ -144,7 +144,7 @@ updateplayers:
 	beq .2xx
 	tax
 	lda.b $0C
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	ldx.b $E4
 	lda.b $08
 	clc
@@ -168,7 +168,7 @@ updateplayers:
 	sta.w $0E01
 	tax
 	lda.w $0CDF
-	jsl.l CODE_808FC9
+	jsl.l Mul16x8XS
 	ldx.b $E4
 	lda.b $08
 	clc
@@ -206,7 +206,7 @@ updateplayers:
 	lsr a
 	lsr a
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	ldx.b $E4
 	sta.w $0B3D,x
 	lda.w pucky
@@ -221,7 +221,7 @@ updateplayers:
 	lsr a
 	lsr a
 	tax
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	ldx.b $E4
 	clc
 	adc.w $0B3D,x

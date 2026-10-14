@@ -3,7 +3,7 @@ CODE_9EF352:
 	lda.w $1E91
 	beq CODE_9EF34B
 CODE_9EF357:
-	jsl.l CODE_9EF213
+	jsl.l ChkShotStat
 	jsl.l freezewindow
 	lda.w #$001E
 	sta.w $0CA9
