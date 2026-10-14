@@ -5791,3 +5791,8 @@ $80AC7B,UpdateSfxVoices,CODE_80AC7B,new,Behavior: SoundUpdate calls it; UpdateVo
 $80B76C,FreeCacheEntryA,CODE_80B76C,new,FreeCacheEntry with the entry number in the high byte of A; FreeFrameTiles branches here (folded into FreeFrameTiles.asm),src/routines/snes/FreeFrameTiles.asm
 $80B77B,FreeCacheEntry_go,CODE_80B77B,new,FreeCacheEntry after the slot byte is cleared; FreeFrameTiles enters here,src/routines/snes/FreeFrameTiles.asm
 $9EE463,assbreakaway,CODE_9EE463,94G,"The 94G assbreakaway job (the puck carrier when the breakaway flag is set, else exit); 94S asspuckc gives it when the breakaway flag $1E8B (StartBreakaway) is on and the carrier is within $90 of the goal",src/routines/logic/assbreakaway.asm
+$9F8282,ResetStub,CODE_9F8282,new,Behavior: a lone rtl,src/routines/snes/ResetStub.asm
+$9DBCB2,TitleStub,CODE_9DBCB2,new,Behavior: a lone rts,src/routines/hockey/TitleStub.asm
+$80CA0A,ShootoutStub,CODE_80CA0A,new,Behavior: a lone rtl,src/routines/shootout/ShootoutStub.asm
+$9DAF5B,ClearBigText,CODE_9DAF5B,new,Behavior: PlayerSelect calls it before drawing the team names,src/routines/hockey/ClearBigText.asm
+$9DB0AB,SendBigText,CODE_9DB0AB,new,Behavior: PlayerSelect calls it after DrawSelectTeam,src/routines/hockey/SendBigText.asm

@@ -72,7 +72,7 @@ PlayerSelect:
 	lda.b d1
 	pha
 	jsl.l ClearTextMapBottom
-	jsr.w CODE_9DAF5B
+	jsr.w ClearBigText
 	ldx.w #$0000
 	lda.w #$0000
 .loop:
@@ -101,7 +101,7 @@ PlayerSelect:
 	lda.w HomeTeam
 	sta.b d1
 	jsr.w DrawSelectTeam
-	jsr.w CODE_9DB0AB
+	jsr.w SendBigText
 	jsl.l SendTextMap
 	pla
 	sta.b d1

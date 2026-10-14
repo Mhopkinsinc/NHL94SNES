@@ -125,7 +125,7 @@ TitleScreen:
 	lda.w #$00FF
 	sta.w $0BCD
 	jsr.w TitleBlankSprites
-	jsr.w CODE_9DBCB2
+	jsr.w TitleStub
 	lda.w #$0001
 	sta.w $0BD1
 	lda.w #$0036

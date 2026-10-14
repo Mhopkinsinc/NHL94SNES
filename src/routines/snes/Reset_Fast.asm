@@ -102,7 +102,7 @@ Reset_Fast:
 	dex
 	bne .loop9
 .1:
-	jsl.l CODE_9F8282
+	jsl.l ResetStub
 	sep #$20
 	rep #$10
 	lda.b #$8F

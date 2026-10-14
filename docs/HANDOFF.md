@@ -114,6 +114,7 @@
 - `UpdateSfxVoices` (from behavior: the sound effect half of the voice update).
 - Tile cache: CODE_80B76C folded into FreeFrameTiles as `FreeCacheEntryA`, with `FreeCacheEntry_go`.
 - `assbreakaway` (94G: asstab $10, the puck carrier on a breakaway).
+- Stubs `ResetStub`, `TitleStub`, `ShootoutStub` (lone returns, named for their only caller); `ClearBigText` / `SendBigText` (the RenderBigText buffers on the player select screen).
 
 ## Unsure
 

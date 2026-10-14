@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB0AB:
+; Send the RenderBigText map ($7EA676, the BigLetterSelect map) and the letter tiles ($7E4EF4, $7E3466 letters) to VRAM
+SendBigText:
 	lda.w #$0020
 	sta.l $7EA676
 	sta.l $7EA678

@@ -34,7 +34,7 @@ PlayShootout:
 	lda.w #$0002
 	sta.b a1
 	jsl.l .t1
-	jsl.l CODE_80CA0A
+	jsl.l ShootoutStub
 	inc.w shootoutround
 	lda.w shootoutround
 	cmp.w #$0006
