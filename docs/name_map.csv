@@ -3807,3 +3807,9 @@ $9FF2F1,PrintMP5Line2,CODE_9FF2F1,new,cursor row under the warning frame,src/rou
 $9FF30D,PrintMP5Line3,CODE_9FF30D,new,cursor row under the warning frame,src/routines/hockey/PrintMP5Line3.asm
 $9FF329,PrintMP5Line4,CODE_9FF329,new,cursor row under the warning frame,src/routines/hockey/PrintMP5Line4.asm
 $9FF345,PrintCentered,CODE_9FF345,new,the four MultiPlayer 5 line printers fall through here,src/routines/hockey/PrintCentered.asm
+$9FE618,SelectPauseController,CODE_9FE618,new,PauseMenu calls it each pass; also draws the MultiPlayer 5 warning,src/routines/hockey/SelectPauseController.asm
+$9FE4BF,ChoosePauseMenu,CODE_9FE4BF,new,"menu id 5 while $17E2 is nonzero, else menu id 0",src/routines/hockey/ChoosePauseMenu.asm
+$9BCA7A,PrintSelectLeft,CODE_9BCA7A,new,PasswordScreen calls it,src/routines/hockey/PrintSelectLeft.asm
+$9BCAB8,PlacePasswordCursor,CODE_9BCAB8,new,divides the character index by 6 to pick the row,src/routines/hockey/PlacePasswordCursor.asm
+$9D9E89,MoveRosterColumn,CODE_9D9E89,new,left and right from TeamRoster,src/routines/stats/MoveRosterColumn.asm
+$9B865F,WaitButtonRelease,CODE_9B865F,new,AskExitGame and EditLinesMenu call it before returning,src/routines/hockey/WaitButtonRelease.asm

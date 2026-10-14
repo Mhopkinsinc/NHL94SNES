@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B865F:
+; Wait until the active controller's buttons are up.
+WaitButtonRelease:
 	phx
 	pha
 	ldx.w $0AC6

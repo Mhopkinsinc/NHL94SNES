@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BCAB8:
+; Move the password cursor to character d5.
+PlacePasswordCursor:
 	lda.b $8F
 	pha
 	lda.b a1

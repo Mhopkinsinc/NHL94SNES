@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BCA7A:
+; Print the Select Left hint on the password screen.
+PrintSelectLeft:
 	lda.b $8F
 	pha
 	lda.b a1

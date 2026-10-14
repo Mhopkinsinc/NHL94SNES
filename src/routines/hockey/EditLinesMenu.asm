@@ -28,7 +28,7 @@ EditLinesMenu:
 	pla
 	sta.b $8F
 	jsl.l CODE_9DD923
-	jsl.l CODE_9B865F
+	jsl.l WaitButtonRelease
 	lda.w #$0000
 	sta.w $1D97
 CODE_9B8A5A:
