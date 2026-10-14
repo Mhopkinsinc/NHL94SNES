@@ -27,7 +27,7 @@ EditLinesMenu:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitButtonRelease
 	lda.w #$0000
 	sta.w $1D97
@@ -124,7 +124,7 @@ EditLinesMenu:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	jsl.l CODE_9B851F

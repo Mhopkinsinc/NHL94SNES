@@ -38,7 +38,7 @@ CODE_9D8129:
 	jsl.l CODE_9D8B49
 	jsl.l ScreenOn
 .3:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	ldx.w #$0002

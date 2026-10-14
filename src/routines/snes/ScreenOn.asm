@@ -1,10 +1,10 @@
 ; Full brightness, no forced blank
 ScreenOn:
 	pha
-	lda.w $0AD3
+	lda.w brightness
 	cmp.w #$000F
 	beq .1
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 .1:
 	sep #$20
 	lda.b #$0F

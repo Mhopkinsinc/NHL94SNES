@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FF436:
-	stz.w $0AD3
+	stz.w brightness
 	jsl.l forceblack
 	jsl.l CODE_9B8000
 	jsl.l CODE_9C97E9
@@ -22,13 +22,13 @@ CODE_9FF436:
 	jsr.w CODE_9FF4D8
 	stz.b $C3
 	jsr.w CODE_9FF5E3
-	stz.w $0AD1
-	stz.w $0AD3
+	stz.w fadestep
+	stz.w brightness
 	jsl.l SpriteFrameStart
 	jsl.l SpriteFrameEnd
 	ldx.w #$009F
 	lda.w #$FA17
-	jsl.l CODE_80855E
+	jsl.l SetNMIHook
 	jsl.l ScreenOn
 	lda.w #$7000
 	sta.b $64
@@ -39,7 +39,7 @@ CODE_9FF436:
 	bpl .loop
 	ldx.w #$009F
 	lda.w #$FA17
-	jsl.l CODE_80855E
+	jsl.l SetNMIHook
 .loop2:
 	jsl.l RandomWord
 	jsr.w CODE_9FF613

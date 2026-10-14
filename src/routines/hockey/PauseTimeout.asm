@@ -54,7 +54,7 @@ PauseTimeout:
 	adc.w #$0010
 	sta.w printx
 	jsl.l print
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	ldx.w #$0096
 	ldy.w #$0000
 	jsl.l WaitFrames_Inc

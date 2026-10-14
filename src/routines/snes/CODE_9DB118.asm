@@ -66,9 +66,9 @@ CODE_9DB118:
 	jsr.w CODE_9DBC8B
 	stz.w $0BEB
 	stz.w $0BE9
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 .loop:
-	lda.w $0AD3
+	lda.w brightness
 	cmp.w #$000F
 	bcc .loop
 	lda.w #$B50C
@@ -79,11 +79,11 @@ CODE_9DB118:
 	jsl.l CODE_808520
 	lda.w #$B4B2
 	ldx.w #$009D
-	jsl.l CODE_80855E
+	jsl.l SetNMIHook
 	jsl.l WaitFrame
 	jsl.l WaitFrame
 	lda.w #$000F
-	sta.w $0AD3
+	sta.w brightness
 	sta.w IniDispShadow
 	jsr.w CODE_9DB7A0
 	lda.w #$7000
@@ -265,9 +265,9 @@ CODE_9DB118:
 	jsr.w CODE_9DB430
 	bra .loopx
 .4:
-	lda.w $0AD3
+	lda.w brightness
 	beq .t1x
-	dec.w $0AD3
+	dec.w brightness
 	jsl.l WaitFrame
 	bra .4
 

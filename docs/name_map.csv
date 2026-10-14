@@ -1470,7 +1470,7 @@ $9EED0B,.1,CODE_9EED0B,new,branch target only used in this routine,src/routines/
 $9ED81F,.1,CODE_9ED81F,new,branch target only used in this routine,src/routines/snes/CODE_9ED808.asm
 $9ED86E,.1,CODE_9ED86E,new,branch target only used in this routine,src/routines/snes/CODE_9ED808.asm
 $80B765,.1,CODE_80B765,new,branch target only used in this routine,src/routines/snes/CODE_80B719.asm
-$80874E,.1,CODE_80874E,new,branch target only used in this routine,src/routines/snes/CODE_808723.asm
+$80874E,.1,CODE_80874E,new,branch target only used in this routine,src/routines/snes/DMAToCGRAM.asm
 $9B97DF,.1,CODE_9B97DF,new,branch target only used in this routine,src/routines/snes/CODE_9B9768.asm
 $9B97E3,.2,CODE_9B97E3,new,branch target only used in this routine,src/routines/snes/CODE_9B9768.asm
 $9F843C,.1,CODE_9F843C,new,branch target only used in this routine,src/routines/hockey/StartPer.asm
@@ -1737,7 +1737,7 @@ $9EBDA0,.3,CODE_9EBDA0,new,branch target only used in this routine,src/routines/
 $9EBDA7,.4,CODE_9EBDA7,new,branch target only used in this routine,src/routines/snes/CODE_9EBD45.asm
 $9EBDAE,.5,CODE_9EBDAE,new,branch target only used in this routine,src/routines/snes/CODE_9EBD45.asm
 $9FB39E,.1,CODE_9FB39E,new,branch target only used in this routine,src/routines/snes/CODE_9FB396.asm
-$9DE0C5,.loop,CODE_9DE0C5,new,branch target only used in this routine,src/routines/snes/CODE_9DE0BD.asm
+$9DE0C5,.loop,CODE_9DE0C5,new,branch target only used in this routine,src/routines/snes/SetColours.asm
 $8087FE,.1,CODE_8087FE,new,branch target only used in this routine,src/routines/snes/CODE_8087EA.asm
 $9FCD00,.loop,CODE_9FCD00,new,branch target only used in this routine,src/routines/logic/findpc.asm
 $9EBD29,.1,CODE_9EBD29,new,branch target only used in this routine,src/routines/snes/CODE_9EBCD2.asm
@@ -2171,7 +2171,7 @@ $80AFFB,.1,CODE_80AFFB,new,branch target only used in this routine,src/routines/
 $9D9C06,.loop,CODE_9D9C06,new,branch target only used in this routine,src/routines/snes/CODE_9D9BFC.asm
 $9D9C0E,.loop2,CODE_9D9C0E,new,branch target only used in this routine,src/routines/snes/CODE_9D9BFC.asm
 $9D9C12,.1,CODE_9D9C12,new,branch target only used in this routine,src/routines/snes/CODE_9D9BFC.asm
-$808EE2,.loop,CODE_808EE2,new,branch target only used in this routine,src/routines/snes/CODE_808EDF.asm
+$808EE2,.loop,CODE_808EE2,new,branch target only used in this routine,src/routines/snes/MemFill.asm
 $9BACAE,.1,CODE_9BACAE,new,branch target only used in this routine,src/routines/snes/CODE_9BAC9A.asm
 $9BACB1,.2,CODE_9BACB1,new,branch target only used in this routine,src/routines/snes/CODE_9BAC9A.asm
 $9BACB6,.3,CODE_9BACB6,new,branch target only used in this routine,src/routines/snes/CODE_9BAC9A.asm
@@ -2615,7 +2615,7 @@ $80A297,.t1,CODE_80A297,new,continued in the previous routine,src/routines/snes/
 $80A24F,.t1,CODE_80A24F,new,continued in the previous routine,src/routines/snes/CODE_80A200.asm
 $80A1E5,.t1,CODE_80A1E5,new,continued in the previous routine,src/routines/sound/QueueSound.asm
 $808F19,.t1,CODE_808F19,new,continued in the previous routine,src/routines/snes/CODE_808F03.asm
-$808EEB,.t1,CODE_808EEB,new,continued in the previous routine,src/routines/snes/CODE_808EDF.asm
+$808EEB,.t1,CODE_808EEB,new,continued in the previous routine,src/routines/snes/MemFill.asm
 $808ED2,.t1,CODE_808ED2,new,continued in the previous routine,src/routines/snes/CODE_808E7C.asm
 $808DED,.t1,CODE_808DED,new,continued in the previous routine,src/routines/snes/CODE_808D43.asm
 $808C1C,.t1,CODE_808C1C,new,continued in the previous routine,src/routines/snes/CODE_808BED.asm
@@ -2625,7 +2625,7 @@ $8089C7,.t1,CODE_8089C7,new,continued in the previous routine,src/routines/snes/
 $8088BA,.t1,CODE_8088BA,new,continued in the previous routine,src/routines/snes/CODE_808862.asm
 $808820,.t1,CODE_808820,new,continued in the previous routine,src/routines/snes/CODE_8087EA.asm
 $80877D,.t1,CODE_80877D,new,continued in the previous routine,src/routines/snes/CODE_808766.asm
-$808751,.t1,CODE_808751,new,continued in the previous routine,src/routines/snes/CODE_808723.asm
+$808751,.t1,CODE_808751,new,continued in the previous routine,src/routines/snes/DMAToCGRAM.asm
 $808683,.t1,CODE_808683,new,continued in the previous routine,src/routines/snes/RandomWord.asm
 $808627,.t1,CODE_808627,new,continued in the previous routine,src/routines/snes/CODE_808615.asm
 $80860A,.t1,CODE_80860A,new,continued in the previous routine,src/routines/snes/CODE_8085FF.asm
@@ -3468,7 +3468,7 @@ $80AA14,.t3,CODE_80AA14,new,continued in the previous routine,src/routines/snes/
 $80A8A8,.t3,CODE_80A8A8,new,continued in the previous routine,src/routines/snes/CODE_80A86F.asm
 $80A725,.t1,CODE_80A725,new,continued in the previous routine,src/routines/snes/CODE_80A697.asm
 $80A603,.t3,CODE_80A603,new,continued in the previous routine,src/routines/snes/CODE_80A58E.asm
-$808766,.t3,CODE_808766,new,continued in the previous routine,src/routines/snes/CODE_808723.asm
+$808766,.t3,CODE_808766,new,continued in the previous routine,src/routines/snes/DMAToCGRAM.asm
 $8085CD,.t2,CODE_8085CD,new,continued in the previous routine,src/routines/snes/CODE_8085A3.asm
 $9BC989,.t3,CODE_9BC989,new,continued in the previous routine,src/routines/snes/CODE_9BC7FB.asm
 $9BB3ED,.t3,CODE_9BB3ED,new,continued in the previous routine,src/routines/snes/CODE_9BB3BE.asm
@@ -4782,3 +4782,16 @@ $9EC827,.4,CODE_9EC827,new,branch target only used in this routine,src/routines/
 $9EC881,.5,CODE_9EC881,new,branch target only used in this routine,src/routines/middle/print.asm
 $9EC888,.6,CODE_9EC888,new,continued in the previous routine,src/routines/middle/print.asm
 $9ECF91,.9,CODE_9ECF91,new,continued in the previous routine,src/routines/middle/printbig.asm
+$9C9971,BrightnessHook,9C9971,new,the NMI hook FadeIn and FadeOut install: writes brightness to INIDISP,src/routines/snes/BrightnessHook.asm
+$9F96F7,FadeOut,CODE_9F96F7,new,fadestep = $FFFF and the BrightnessHook: the NMI lowers brightness to 0,src/routines/snes/FadeOut.asm
+$9F96E6,FadeIn,CODE_9F96E6,new,fadestep = 5 and the BrightnessHook: after the delay the NMI raises brightness to 15,src/routines/snes/FadeIn.asm
+$9F9708,WaitFadeOut,CODE_9F9708,new,waits frames until brightness is 0,src/routines/snes/WaitFadeOut.asm
+$80855E,SetNMIHook,CODE_80855E,new,stores X:A as the routine the next NMI runs,src/routines/snes/SetNMIHook.asm
+$808EDF,MemFill,CODE_808EDF,new,fills X bytes at [$10] with A,src/routines/snes/MemFill.asm
+$808723,DMAToCGRAM,CODE_808723,new,DMA of colours from [$0C] to CGRAM at Y,src/routines/snes/DMAToCGRAM.asm
+$9DE0BD,SetColours,CODE_9DE0BD,new,copies X colours from [$0C] into the colour buffer $7F7500 at colour Y,src/routines/snes/SetColours.asm
+$9DE0D4,SendColours,CODE_9DE0D4,new,DMAToCGRAM of the colour buffer $7F7500,src/routines/snes/SendColours.asm
+$9DD923,SendTextMap,CODE_9DD923,new,DMAToVRAM of the text map,src/routines/snes/SendTextMap.asm
+$9DD977,ClearTextMap,CODE_9DD977,new,MemFill of the text map with the blank tile,src/routines/snes/ClearTextMap.asm
+$0AD1,fadestep,$0AD1,new,"RAM; the NMI fade: counts down to a fade in, $FFFF fades out",src/ram94snes.asm
+$0AD3,brightness,$0AD3,new,"RAM; the brightness the fade sets, written to INIDISP by BrightnessHook",src/ram94snes.asm

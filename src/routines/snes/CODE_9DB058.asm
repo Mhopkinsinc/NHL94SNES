@@ -39,5 +39,5 @@ CODE_9DB058:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	rtl

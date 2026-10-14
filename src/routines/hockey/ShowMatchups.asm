@@ -79,7 +79,7 @@ ShowMatchups:
 	jsl.l CODE_9DDDB3
 	lda.w #$3568
 	sta.l $7F7500
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	lda.w #$0002
 	sta.b a2
 	lda.b $8F
@@ -182,7 +182,7 @@ ShowMatchups:
 	lda.w VisTeam
 	sta.l $7E3454
 	jsl.l CODE_9DDDB3
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	lda.w #$0002
 	sta.b a2
 	lda.b $8F

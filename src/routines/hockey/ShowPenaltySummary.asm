@@ -23,7 +23,7 @@ ShowPenaltySummary:
 	sta.l $7F7502
 	lda.w #$6F7B
 	sta.l $7F7522
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	lda.b $8F
 	pha
 	lda.b a1
@@ -46,7 +46,7 @@ ShowPenaltySummary:
 	jsl.l PrintScrollHint
 .2:
 	jsr.w CODE_9B9917
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	lda.w #$0058
 	ldx.w #$00D0
 	ldy.w #$00E0

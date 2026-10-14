@@ -123,7 +123,7 @@ CODE_9DAA83:
 .4:
 	jsl.l CODE_9DDDB3
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	rts
 
 .t2:

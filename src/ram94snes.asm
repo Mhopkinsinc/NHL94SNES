@@ -182,3 +182,5 @@ ScoutingReportTimer = $0D45	; scouting report timer
 TestList = $7E347C		; scouting report text list
 crowdlevel = $7E35E0	; crowd noise level: raised by the play, fades every frame
 IniDispShadow = $0762	; INIDISP value the NMI writes (forced blank, brightness)
+fadestep = $0AD1	; fade: a delay counting down to a fade in, or $FFFF to fade out (NMI)
+brightness = $0AD3	; screen brightness 0-15 the fade sets; BrightnessHook writes it to INIDISP

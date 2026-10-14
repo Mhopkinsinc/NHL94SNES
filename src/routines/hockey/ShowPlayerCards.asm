@@ -18,7 +18,7 @@ ShowPlayerCards:
 	jsl.l ScreenOn
 	jsl.l DrawPlayerCard
 CODE_9DBD7B:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 CODE_9DBD7F:
 	jsl.l WaitFrame
 	jsl.l ReadPads

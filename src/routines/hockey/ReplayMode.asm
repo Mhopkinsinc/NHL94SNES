@@ -113,12 +113,12 @@ ReplayMode:
 	ldy.w #$01C0
 	lda.w #$6000
 	jsl.l InitSprites
-	stz.w $0AD3
+	stz.w brightness
 	lda.w #$000A
-	sta.w $0AD1
-	ldx.w #$009C
-	lda.w #$9971
-	jsl.l CODE_80855E
+	sta.w fadestep
+	ldx.w #BrightnessHook>>16
+	lda.w #BrightnessHook
+	jsl.l SetNMIHook
 	jsl.l ScreenOn
 	jsl.l SprSort
 	jsl.l SpriteFrameStart

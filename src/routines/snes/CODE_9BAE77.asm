@@ -225,10 +225,10 @@ org $9BB001
 	stz.w textdirtylo
 	lda.w #$03FF
 	sta.w textdirtyhi
-	jsl.l CODE_9F96F7
+	jsl.l FadeOut
 	jsl.l CODE_9C9786
 .loop:
-	lda.w $0AD3
+	lda.w brightness
 	bne .loop
 	lda.w SoundFadeSpeed
 	bne .loop

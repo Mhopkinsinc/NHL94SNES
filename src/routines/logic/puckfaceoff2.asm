@@ -45,15 +45,15 @@ puckfaceoff2:
 	lda.w #$0258
 	sta.l crowdlevel
 .1:
-	lda.w $0AD3
+	lda.w brightness
 	beq .2
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
-	stz.w $0AD3
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
+	stz.w brightness
 .2:
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	lda.w #$000A
-	sta.w $0AD1
+	sta.w fadestep
 	lda.w MusicOn
 	bne .4
 	lda.w PBnum

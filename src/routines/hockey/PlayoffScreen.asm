@@ -100,7 +100,7 @@ PlayoffScreen:
 	sta.b $0C
 	ldy.w #$0000
 	ldx.w #$0010
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AE8BF
@@ -311,14 +311,14 @@ PlayoffScreen:
 	sta.b $10
 	lda.w #$0000
 	ldx.w #$8000
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	lda.w #$007E
 	sta.b $12
 	lda.w #$A676
 	sta.b $10
 	lda.w #$0000
 	ldx.w #$4002
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	lda.w #$007E
 	sta.b $8F
 	lda.w #$34D2

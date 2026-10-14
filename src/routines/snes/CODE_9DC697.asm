@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9DC697:
-	jsl.l CODE_9F96F7
+	jsl.l FadeOut
 	lda.w #$0081
 	sta.b $0E
 	lda.w #TeamLogoSprites
@@ -10,7 +10,7 @@ CODE_9DC697:
 	lda.w #$7800
 	sta.b $10
 	jsl.l Decompress
-	jsl.l CODE_9F9708
+	jsl.l WaitFadeOut
 	jsl.l forceblack
 	sep #$20
 	lda.b #$00
@@ -30,7 +30,7 @@ CODE_9DC697:
 	stz.w printm
 	lda.w #$0000
 	sta.l $7E35AC
-	jsl.l CODE_9DD977
+	jsl.l ClearTextMap
 	jsl.l CODE_9DD992
 	lda.w #$0096
 	sta.b $0E
@@ -236,7 +236,7 @@ CODE_9DC697:
 	sta.b $0C
 	ldy.w #$0000
 	ldx.w #$0040
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	sep #$20
 	stz.w CGADD
 	stz.w CGDATA
@@ -257,17 +257,17 @@ CODE_9DC697:
 	sta.b $0C
 	ldy.w #$0040
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AD1B6
 	sta.b $0C
 	ldy.w #$0080
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.w #$0000
 	sta.l $7F7500
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	lda.b $8F
 	pha
 	lda.b a1

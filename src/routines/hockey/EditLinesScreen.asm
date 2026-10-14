@@ -25,7 +25,7 @@ EditLinesScreen:
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 .3:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	jsl.l CODE_9B851F
@@ -84,7 +84,7 @@ EditLinesScreen:
 .2:
 	jsl.l AdvanceStringPtr
 	jsl.l print
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	lda.b $8F
 	pha
 	lda.b a1

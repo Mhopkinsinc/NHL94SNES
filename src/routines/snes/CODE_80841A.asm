@@ -1,4 +1,4 @@
 ; Unidentified routine.
 CODE_80841A:
-	inc.w $0AD1
+	inc.w fadestep
 	bra CODE_80843E

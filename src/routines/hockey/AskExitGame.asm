@@ -4,7 +4,7 @@ AskExitGame:
 	sta.w $1DB9
 .1:
 	jsl.l DrawExitPrompt
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	jsl.l CODE_9B851F

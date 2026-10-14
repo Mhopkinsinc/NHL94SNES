@@ -26,7 +26,7 @@ CODE_9DAE6D:
 	lda.l DATA8_9C850F,x
 	sta.b $0C
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.w HomeTeam
 	cmp.w VisTeam
 	bne .t1

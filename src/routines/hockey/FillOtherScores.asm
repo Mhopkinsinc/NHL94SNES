@@ -8,7 +8,7 @@ FillOtherScores:
 	lda.l $7E35B6
 	clc
 	adc.l printfontset
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	lda.w $1DC1
 	cmp.w #$0001
 	beq .4

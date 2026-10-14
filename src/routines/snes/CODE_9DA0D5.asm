@@ -12,8 +12,8 @@ CODE_9DA0D5:
 .t1:
 	lda.w #$FFFF
 	sta.w $0AD7
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
 	jsl.l forceblack
 	sep #$20
 	lda.b #$09
@@ -33,7 +33,7 @@ CODE_9DA0D5:
 	sta.b $10
 	lda.w #$0000
 	ldx.w #$0800
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$A676
@@ -44,9 +44,9 @@ CODE_9DA0D5:
 	jsl.l DMAToVRAM
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	lda.w #$000A
-	sta.w $0AD1
+	sta.w fadestep
 	stz.b d1
 	stz.b $AB
 	lda.l $7E34BC
@@ -102,7 +102,7 @@ CODE_9DA18A:
 	sta.b d1
 	jsr.w CODE_9DAE6D
 	jsr.w CODE_9DB0AB
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	pla
 	sta.b d1
 	lda.w #$009A
@@ -111,7 +111,7 @@ CODE_9DA18A:
 	sta.b $0C
 	ldy.w #$0090
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.b $AB
 	beq .t1
 	lda.b $8F

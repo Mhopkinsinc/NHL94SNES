@@ -41,7 +41,7 @@ CODE_9DA486:
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	lda.b $10
 	pha
 	lda.b $12

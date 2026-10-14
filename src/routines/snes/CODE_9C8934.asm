@@ -8,7 +8,7 @@ CODE_9C8934:
 	lda.l $7E35B6
 	clc
 	adc.l printfontset
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	ldy.w $1DBD
 	tya
 	dec a

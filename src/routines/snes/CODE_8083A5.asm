@@ -35,19 +35,19 @@ CODE_8083DD:
 .1:
 	inc.b $85
 .2:
-	lda.w $0AD1
+	lda.w fadestep
 	beq CODE_80843E
 	bmi CODE_80841F
 	cmp.w #$0001
 	bne .t1
-	lda.w $0AD3
+	lda.w brightness
 	cmp.w #$000F
 	bcs CODE_808435
 	lda.w STAT77
 	bmi CODE_80843E
-	inc.w $0AD3
+	inc.w brightness
 	bra CODE_80843E
 
 .t1:
-	dec.w $0AD1
+	dec.w fadestep
 	bra CODE_80843E

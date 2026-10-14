@@ -128,6 +128,6 @@ Reset_Fast:
 	sta.w NMITIMEN
 	rep #$30
 	jsl.l SoundInit
-	stz.w $0AD3
+	stz.w brightness
 	jsl.l forceblack
 	jml.l CODE_9F8283

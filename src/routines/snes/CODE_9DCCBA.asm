@@ -22,7 +22,7 @@ CODE_9DCCBA:
 	clc
 	adc.l $7E35AA
 	ldx.w #$000C
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	lda.b $10
 	clc
 	adc.w #$0040

@@ -170,7 +170,7 @@ CODE_9D906E:
 	sta.b $0C
 	ldy.w #$0010
 	ldx.w #$0070
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	jsl.l ScreenOn
 .2:
 	jsl.l WaitFrame
@@ -195,7 +195,7 @@ CODE_9D906E:
 	sta.b $0C
 	ldy.w #$0010
 	ldx.w #$0010
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	lda.w JoyPad
 	ora.w $0778
 	bit.w #$0200

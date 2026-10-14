@@ -8,9 +8,9 @@ PauseReplay:
 .t1:
 	lda.w MusicOn
 	sta.w $0CBB
-	jsl.l CODE_9F96F7
+	jsl.l FadeOut
 	jsl.l CODE_9C9786
-	jsl.l CODE_9F9708
+	jsl.l WaitFadeOut
 	jsl.l forceblack
 	lda.b d7
 	pha
@@ -19,7 +19,7 @@ PauseReplay:
 	dec a
 	sta.w $0D53
 	jsl.l ReplayMode
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	jsl.l ScreenOn
 	pla
 	sta.b d7

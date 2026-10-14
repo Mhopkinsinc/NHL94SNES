@@ -49,6 +49,6 @@ CODE_9F967B:
 .3:
 	rtl
 .4:
-	stz.w $0AD1
+	stz.w fadestep
 	stz.w $07C6
 	jml.l Restart

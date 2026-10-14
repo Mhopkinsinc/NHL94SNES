@@ -416,7 +416,7 @@ org $9DC002
 	tay
 	ldx.w #$0600
 	jsl.l DMAToVRAM
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$7780
@@ -436,5 +436,5 @@ org $9DC002
 	jsl.l SpriteFrameEnd
 	lda.w #$3568
 	sta.l $7F7500
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	rtl

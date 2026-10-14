@@ -8,7 +8,7 @@ PrintTeamStatRows:
 	lda.l $7E35B6
 	clc
 	adc.l printfontset
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	lda.w #$0000
 	sta.w printy
 	lda.w #$0000

@@ -24,7 +24,7 @@ CODE_9DB5B6:
 	sta.b $0C
 	ldy.w #$0000
 	ldx.w #$0100
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	lda.w #$0000
 	ldx.w #$4000
 	ldy.w #$0000

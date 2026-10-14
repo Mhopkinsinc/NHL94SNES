@@ -11,7 +11,7 @@ CODE_9F9243:
 	lda.l $7E35D0
 	sta.b d2
 	jsl.l eraser
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l CODE_9F9307
 	jsl.l CODE_9F9298

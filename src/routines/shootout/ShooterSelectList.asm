@@ -110,7 +110,7 @@ ShooterSelectList:
 	sta.w $1D9B
 	jsl.l PrintShooterList
 .2:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l CODE_9DD94D
 	jsl.l WaitFrame
 	jsl.l ReadPads

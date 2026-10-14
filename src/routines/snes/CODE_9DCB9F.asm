@@ -70,5 +70,5 @@ CODE_9DCB9F:
 	ldy.w #$0050
 .3:
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	rtl

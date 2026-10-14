@@ -12,20 +12,20 @@ CODE_9FF4D8:
 	sta.b $0E
 	ldy.w #$0030
 	ldx.w #$0010
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	ldy.w #$00B0
 	ldx.w #$0010
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	lda.w #DATA8_9AEE3C
 	sta.b $0C
 	lda.w #$009A
 	sta.b $0E
 	ldy.w #$0040
 	ldx.w #$0010
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	ldy.w #$00C0
 	ldx.w #$0010
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	lda.w #$FFFF
 	ldx.w #$000F
 	ldy.w #$0020

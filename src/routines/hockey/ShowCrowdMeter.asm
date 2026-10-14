@@ -20,8 +20,8 @@ ShowCrowdMeter:
 	sta.b $0C
 	ldy.w #$0050
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
-	jsl.l CODE_9DE0D4
+	jsl.l SetColours
+	jsl.l SendColours
 	lda.b $8F
 	pha
 	lda.b a1
@@ -76,10 +76,10 @@ ShowCrowdMeter:
 	sta.b $0C
 	ldy.w #$0070
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.w #$6F7B
 	sta.l $7F75C2
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	stz.w $1DB9
 	jsl.l ScreenOn
 .1:
@@ -95,7 +95,7 @@ ShowCrowdMeter:
 	jsl.l CODE_9BA563
 	jsl.l SpriteFrameEnd
 .2:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	jsl.l CODE_9B851F

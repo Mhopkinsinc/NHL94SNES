@@ -72,8 +72,8 @@ StartHL2:
 
 .t1x:
 	stz.w $0AC2
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
 	jsl.l forceblack
 	jsl.l CODE_9C9786
 	lda.w $1D68
@@ -313,8 +313,8 @@ org $9F9001
 	inx
 	cpx.w #$0018
 	bcc .loop5
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
 	jsl.l forceblack
 	jsl.l CODE_9F9307
 	jsl.l CODE_9FB901
@@ -369,7 +369,7 @@ org $9F9001
 	jsl.l Framer
 	jsl.l printscores1
 	jsl.l CODE_9FEA24
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	jsl.l ScreenOn
 	stx.b xsave
 	ldx.w #$001A

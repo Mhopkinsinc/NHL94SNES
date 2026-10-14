@@ -40,5 +40,5 @@ CODE_9DAFB2:
 	pla
 	sta.b $8F
 org $9DB000
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	rtl

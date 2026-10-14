@@ -46,5 +46,5 @@ CODE_9B8970:
 	lda.w #$0000
 	sta.l $7E3468
 .4:
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	rtl

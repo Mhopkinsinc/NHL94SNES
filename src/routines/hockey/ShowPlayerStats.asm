@@ -17,7 +17,7 @@ ShowPlayerStats:
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	lda.b $8F
 	pha
 	lda.b a1
@@ -66,7 +66,7 @@ ShowPlayerStats:
 	sta.w $1DF5
 	lda.w #$0001
 	sta.l $7E3478
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l CODE_9C88A0
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn

@@ -7,7 +7,7 @@ CODE_9F8334:
 CODE_9F833C:
 	lda.w #$FFFF
 	sta.w $07C6
-	jsl.l CODE_9F96F7
+	jsl.l FadeOut
 	ldx.w #$0AD7
 	lda.w #$0000
 .loop:

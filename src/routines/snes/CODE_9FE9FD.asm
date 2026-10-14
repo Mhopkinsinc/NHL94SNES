@@ -8,7 +8,7 @@ CODE_9FE9FD:
 	ldy.w #$00E0
 	ldx.w #$0020
 	jsl.l WaitFrame
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	ldx.w $0AC6
 	lda.w JoyPad,x
 	bit.w #$8080

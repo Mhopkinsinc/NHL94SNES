@@ -32,7 +32,7 @@ CODE_9FFA08:
 	sta.b $0E
 	ldy.b tmp0
 	ldx.b tmp1
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	lda.b $C3
 	bit.w #$0200
 	beq .2
@@ -43,7 +43,7 @@ CODE_9FFA08:
 	sta.b $0E
 	ldy.b $CD
 	ldx.b $CF
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 .2:
 	pla
 	sta.b $0E

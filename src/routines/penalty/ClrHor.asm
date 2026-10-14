@@ -10,13 +10,13 @@ ClrHor:
 	cpx.w #$0038
 	bne .loop
 	ldx.b xsave
-	lda.w $0AD3
+	lda.w brightness
 	beq .1
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
-	jsl.l CODE_9F96E6
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
+	jsl.l FadeIn
 	lda.w #$000A
-	sta.w $0AD1
+	sta.w fadestep
 .1:
 	stz.w sfhormode
 	lda.w #$03E7
@@ -25,7 +25,7 @@ ClrHor:
 	lda.w sflags
 	bit.w #$0001
 	bne .2
-	jsl.l CODE_9DD977
+	jsl.l ClearTextMap
 	stz.w textdirtylo
 	lda.w #$03FF
 	sta.w textdirtyhi
@@ -37,7 +37,7 @@ ClrHor:
 	sta.b $0C
 	ldy.w #$0000
 	ldx.w #$0080
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	stx.b xsave
 	ldx.w #$0036
 .loop2:

@@ -41,7 +41,7 @@ CODE_9DDDB3:
 	sta.b $0C
 	ldy.w #$00A0
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.w #$007F
 	sta.b $12
 	lda.w #$7800
@@ -106,7 +106,7 @@ CODE_9DDDB3:
 	sta.b $0C
 	ldy.w #$00B0
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.w #$007F
 	sta.b $12
 	lda.w #$7800

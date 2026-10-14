@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_808435:
 	lda.w #$000F
-	sta.w $0AD3
+	sta.w brightness
 CODE_80843B:
-	stz.w $0AD1
+	stz.w fadestep
 CODE_80843E:
 	rep #$20
 	lda.w $0787

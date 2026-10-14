@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FF878:
-	lda.w $0AD3
+	lda.w brightness
 	cmp.w #$000F
 	bne CODE_9FF898
 	lda.b $83

@@ -46,10 +46,10 @@ CODE_9EB3C5:
 	beq .loop
 	lda.w #$0400
 	tsb.w sflags
-	lda.w $0AD3
+	lda.w brightness
 	beq .1
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
 .1:
 	jsl.l SetHor
 	lda.w #$FF00
@@ -70,7 +70,7 @@ CODE_9EB3C5:
 	sta.w RefCnt
 	stz.b d0
 	jsl.l PushRef
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	jsl.l ScreenOn
 	rtl
 

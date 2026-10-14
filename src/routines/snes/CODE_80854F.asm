@@ -4,7 +4,7 @@ CODE_80854F:
 	phx
 	ldx.w #$0080
 	lda.w #NullHook
-	jsl.l CODE_80855E
+	jsl.l SetNMIHook
 	plx
 	pla
 	rtl

@@ -13,7 +13,7 @@ ShowOtherScores:
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	stz.w $1DB9
 	lda.w #$0000
 	cmp.l $7E35D6
@@ -27,7 +27,7 @@ ShowOtherScores:
 	inc a
 	sta.w $1DC1
 	jsl.l FillOtherScores
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	lda.w #$0050
 	ldx.w #$00C0
 	ldy.w #$00D8

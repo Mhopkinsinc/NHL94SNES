@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808723:
+; DMA X bytes of colours from [$0C] to CGRAM at colour Y
+DMAToCGRAM:
 	sep #$20
 	lda.w IniDispShadow
 	bpl .t1

@@ -49,7 +49,7 @@ StartPer:
 	lda.w #$001B
 	sta.b d0
 	jsl.l assreplace
-	jsl.l CODE_9DD977
+	jsl.l ClearTextMap
 	lda.w #$0400
 	tsb.w sflags
 	lda.w #$FFFF

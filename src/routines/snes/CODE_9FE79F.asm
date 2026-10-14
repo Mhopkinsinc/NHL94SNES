@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FE79F:
-	jsl.l CODE_9F96F7
+	jsl.l FadeOut
 	lda.w #$FFFF
 	sta.w $07C6
 	jsl.l CODE_9BC1D5
@@ -14,7 +14,7 @@ CODE_9FE79F:
 	sta.b $10
 	jsl.l Decompress
 	phx
-	jsl.l CODE_9F9708
+	jsl.l WaitFadeOut
 	jsl.l forceblack
 	jsl.l SpriteFrameStart
 	jsl.l SpriteFrameEnd
@@ -37,7 +37,7 @@ CODE_9FE79F:
 	sta.b $0C
 	ldy.w #$0000
 	ldx.w #$0040
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	lda.w #$FF00
 	sta.l $7E35AA
 	lda.w #$0000
@@ -233,6 +233,6 @@ CODE_9FE79F:
 	jsl.l SpriteFrameStart
 	jsl.l setvideo
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	jsl.l ScreenOn
 	rtl

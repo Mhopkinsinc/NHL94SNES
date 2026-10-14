@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DD977:
+; Fill the text map with the blank tile
+ClearTextMap:
 	lda.w #$007E
 	sta.b $12
 	lda.w #$37F4
@@ -8,5 +8,5 @@ CODE_9DD977:
 	clc
 	adc.l $7E35AA
 	ldx.w #$0800
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	rtl

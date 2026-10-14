@@ -3,7 +3,7 @@ CODE_9DD9AD:
 	stz.w $07C6
 	lda.b a2
 	pha
-	jsl.l CODE_9F96F7
+	jsl.l FadeOut
 	lda.w #$0081
 	sta.b $0E
 	lda.w #TeamLogoSprites
@@ -13,7 +13,7 @@ CODE_9DD9AD:
 	lda.w #$7800
 	sta.b $10
 	jsl.l Decompress
-	jsl.l CODE_9F9708
+	jsl.l WaitFadeOut
 	jsl.l forceblack
 	sep #$20
 	lda.b #$00
@@ -236,7 +236,7 @@ CODE_9DD9AD:
 	sta.b $0C
 	ldy.w #$0000
 	ldx.w #$0030
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.l $7E3454
 	cmp.w #$0021
 	bcs .t1
@@ -307,14 +307,14 @@ CODE_9DD9AD:
 	sta.b $0C
 	ldy.w #$0000
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.b $0C
 	clc
 	adc.w #$0020
 	sta.b $0C
 	ldy.w #$0010
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AE972
@@ -330,7 +330,7 @@ CODE_9DD9AD:
 	sta.b $0C
 	ldy.w #$0020
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 .3:
 	sep #$20
 	stz.w CGADD
@@ -352,7 +352,7 @@ CODE_9DD9AD:
 	sta.b $0C
 	ldy.w #$0030
 	ldx.w #$0020
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.l $7E35BE
 	clc
 	adc.w #$1400
@@ -378,15 +378,15 @@ CODE_9DD9AD:
 	sta.b $0C
 	ldy.w #$0080
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
+	jsl.l SetColours
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AF15C
 	sta.b $0C
 	ldy.w #$00C0
 	ldx.w #$0010
-	jsl.l CODE_9DE0BD
-	jsl.l CODE_9DD977
+	jsl.l SetColours
+	jsl.l ClearTextMap
 	jsl.l CODE_9DD94D
 	jsl.l WaitFrame
 	ldx.w #$0000

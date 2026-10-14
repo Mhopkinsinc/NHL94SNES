@@ -1,11 +1,11 @@
 ; Password entry screen
 PasswordScreen:
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
 	lda.w #$FF7F
 	and.l PassWord
 	sta.l PassWord
-	jsl.l CODE_9DD977
+	jsl.l ClearTextMap
 	stz.w textdirtylo
 	lda.w #$03FF
 	sta.w textdirtyhi
@@ -25,7 +25,7 @@ PasswordScreen:
 	sta.l $7E3452
 	jsl.l CODE_9DDDB3
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	lda.b $8F
 	pha
 	lda.b a1
@@ -127,7 +127,7 @@ PasswordScreen:
 	dec.w printy
 	jsl.l print
 	lda.w #$000A
-	sta.w $0AD1
+	sta.w fadestep
 CODE_9BC946:
 	jsr.w CODE_9BCBD8
 .1:

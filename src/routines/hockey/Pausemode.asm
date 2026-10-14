@@ -17,15 +17,15 @@ Pausemode:
 	pha
 	lda.w sflags
 	pha
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
 	jsl.l forceblack
 	jsl.l SetHor
 	ldx.w #$0000
 	ldy.w #$01C0
 	lda.w #$6000
 	jsl.l InitSprites
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	jsl.l ScreenOn
 	jsl.l SpriteFrameStart
 	jsl.l setvideo
@@ -58,8 +58,8 @@ Pausemode:
 	sta.l $7E3476
 	stz.w $1EBB
 	stz.w $1D60
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
 	jsl.l forceblack
 	jsl.l SoundInit
 	phx
@@ -91,7 +91,7 @@ Pausemode:
 	ldy.w #$01C0
 	lda.w #$6000
 	jsl.l InitSprites
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	jsl.l ScreenOn
 	jsl.l SpriteFrameStart
 	jsl.l setvideo

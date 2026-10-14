@@ -20,7 +20,7 @@ TeamRoster:
 	lda.w #TeamRosterTitle
 	sta.b a1
 	jsl.l CODE_9C936C
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 	lda.w #$007E
@@ -31,7 +31,7 @@ TeamRoster:
 	clc
 	adc.l $7E35AA
 	ldx.w #$0800
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	lda.b $8F
 	pha
 	lda.b a1
@@ -101,10 +101,10 @@ CODE_9D9DE2:
 	sta.l $7F7502
 	lda.w #$FFFF
 	sta.l $7F7542
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	jsl.l CODE_9D9ECB
 CODE_9D9E2D:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	jsl.l CODE_9B851F

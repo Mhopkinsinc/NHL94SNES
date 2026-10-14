@@ -8,5 +8,5 @@ CODE_9DB0FD:
 	clc
 	adc.l $7E35AA
 	ldx.w #$0500
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	rtl

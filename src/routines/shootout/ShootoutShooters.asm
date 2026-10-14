@@ -24,7 +24,7 @@ ShootoutShooters:
 	sta.l $7E3452
 	jsl.l CODE_9DD9AD
 	jsl.l CODE_80CAE1
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	jsl.l ShootersBackground
 	stz.w $1DB9
 	lda.w #$0001
@@ -37,7 +37,7 @@ ShootoutShooters:
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 ShootersLoop:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	jsl.l CODE_9B851F

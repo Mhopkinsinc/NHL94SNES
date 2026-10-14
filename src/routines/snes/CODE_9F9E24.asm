@@ -40,7 +40,7 @@ CODE_9F9E24:
 	sta.b $0C
 	ldy.w #$0060
 	ldx.w #$0020
-	jsl.l CODE_808723
+	jsl.l DMAToCGRAM
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$76C0
@@ -48,6 +48,6 @@ CODE_9F9E24:
 	ldy.w #$00E0
 	ldx.w #$0020
 	jsl.l WaitFrame
-	jsl.l CODE_808723
-	jsl.l CODE_9DD923
+	jsl.l DMAToCGRAM
+	jsl.l SendTextMap
 	rtl

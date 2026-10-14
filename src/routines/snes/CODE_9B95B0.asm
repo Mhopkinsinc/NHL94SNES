@@ -8,7 +8,7 @@ CODE_9B95B0:
 	lda.l $7E35B6
 	clc
 	adc.l printfontset
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	lda.w #$007E
 	sta.b $97
 	lda.w #$313C

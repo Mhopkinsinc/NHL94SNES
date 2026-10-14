@@ -49,7 +49,7 @@ ShowGameStats:
 	sta.l $7F7542
 	lda.w #$2BFF
 	sta.l $7F7522
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	stz.w $1DBD
 	lda.w #$0006
 	sta.w $1DC5
@@ -75,5 +75,5 @@ ShowGameStats:
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 	jsr.w PrintTeamStatRows
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	bra MarkGameStatRows

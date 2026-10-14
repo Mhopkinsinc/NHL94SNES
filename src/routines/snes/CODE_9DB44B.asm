@@ -53,7 +53,7 @@ CODE_9DB44B:
 	sta.w $0BE9
 .5:
 	sep #$20
-	lda.w $0AD3
+	lda.w brightness
 	sta.w INIDISP
 	lda.b #$17
 	sta.w TM

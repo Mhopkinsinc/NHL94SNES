@@ -131,7 +131,7 @@ CODE_9B8D86:
 	sta.w $1D9B
 	jsl.l CODE_9B8F7B
 .5:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l CODE_9DD94D
 	jsl.l WaitFrame
 	jsl.l ReadPads

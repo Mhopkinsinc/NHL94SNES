@@ -107,6 +107,6 @@ ShowMP5Warning:
 	sta.b a1
 	jsl.l PrintMP5Line4
 .1:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	rtl

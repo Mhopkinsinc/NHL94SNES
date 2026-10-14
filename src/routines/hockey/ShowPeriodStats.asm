@@ -6,7 +6,7 @@ ShowPeriodStats:
 	sta.l $7E3452
 	jsl.l CODE_9DD9AD
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	stz.w $1DBD
 	lda.w #$0006
 	sta.w $1DC5
@@ -15,7 +15,7 @@ ShowPeriodStats:
 	jsl.l ScreenOn
 	jsl.l DrawPeriodStats
 .1:
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	jsl.l CODE_9B851F

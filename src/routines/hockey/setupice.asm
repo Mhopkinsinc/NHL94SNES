@@ -1,6 +1,6 @@
 ; Set up the rink: the rink and text graphics, the palettes and the objects
 setupice:
-	lda.w $0AD3
+	lda.w brightness
 	bne setupice
 	jsl.l forceblack
 	lda.w #$FF00
@@ -245,7 +245,7 @@ CODE_9FB8B4:
 	bpl .loop
 .1:
 	jsl.l CODE_9FB901
-	stz.w $0AD1
-	jsl.l CODE_9F96E6
+	stz.w fadestep
+	jsl.l FadeIn
 	jsl.l ScreenOn
 	rtl

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9DA5CA:
-	jsl.l CODE_9F96F7
+	jsl.l FadeOut
 	lda.w #$0001
 	sta.l $7E3474
 	lda.w #$0000
@@ -15,7 +15,7 @@ CODE_9DA5CA:
 	lda.w #$0005
 	sta.l $7E345E
 	jsl.l forceblack
-	jsl.l CODE_9DD977
+	jsl.l ClearTextMap
 	jsl.l CODE_9DE074
 	lda.l $7E34BE
 	sta.w HomeTeam
@@ -48,9 +48,9 @@ CODE_9DA5CA:
 	sta.l $7F7682
 	lda.w #$6F7B
 	sta.l $7F75C2
-	jsl.l CODE_9DE0D4
+	jsl.l SendColours
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	jsl.l ReadPads
 	jsl.l CODE_9B8526
 	lda.w #$0000
@@ -95,7 +95,7 @@ CODE_9DA5CA:
 	lda.w #$0008
 	ldx.w #$0040
 	jsl.l CODE_9DCCF5
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	ldx.w #$0000
 	jsl.l CODE_9DCC36
 	ldx.w #$0002
