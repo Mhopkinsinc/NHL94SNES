@@ -53,7 +53,7 @@ ChkShotStat:
 	bne .t2
 	lda.w tmap
 	sec
-	sbc.w $17A8
+	sbc.w tmap+2
 	beq .6
 	bmi .t1x
 	lda.w $175A
@@ -68,7 +68,7 @@ ChkShotStat:
 	bra .6
 
 .t2:
-	lda.w $17A8
+	lda.w tmap+2
 	sec
 	sbc.w tmap
 	beq .6

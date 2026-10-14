@@ -105,7 +105,7 @@ a2touchpuck:
 	bmi .6
 	lda.w tmap
 	sec
-	sbc.w $17A8
+	sbc.w tmap+2
 	sta.b d0
 	lda.w pfteam,y
 	beq .2x

@@ -256,7 +256,7 @@ puckfaceoff2:
 	ldx.b a3
 	lda.w pfteam,x
 	beq .6
-	lda.w $17A8
+	lda.w tmap+2
 	sta.b d4
 .6:
 	lda.b d4

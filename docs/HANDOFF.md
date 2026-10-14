@@ -105,6 +105,7 @@
 - `PassPadToTeammate` (from behavior, asspenalty).
 - `PadTakeLeftDefense` / `PadTakeRightDefense` (doinput calls them on L / R; pfgoal flips LD / RD so each takes the defenseman on that side of the screen).
 - `PenShotChk` (94G job: the hit puck carrier on a breakaway gets a penalty shot; called before AddPenalty), and from behavior `CheckBreakaway`, `StartBreakaway`, `CollisionSfx`.
+- `CountPowerPlayTime` (from behavior); `$17A8` written as `tmap+2`.
 
 ## Unsure
 

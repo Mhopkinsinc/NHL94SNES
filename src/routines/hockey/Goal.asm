@@ -60,7 +60,7 @@ Goal:
 	sta.w $178E,y
 	lda.w tmap
 	sec
-	sbc.w $17A8
+	sbc.w tmap+2
 	beq .4
 	bmi .t1x
 	ldy.b a2

@@ -22,7 +22,7 @@ updatepentime:
 	lda.w #$0020
 	tsb.w sflags3
 	jsl.l chkatop
-	jsl.l CODE_9EB1C9
+	jsl.l CountPowerPlayTime
 	stz.b a2
 	jsl.l .1
 	lda.w #$0002

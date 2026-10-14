@@ -1583,8 +1583,8 @@ $9ECB47,.loop,CODE_9ECB47,new,branch target only used in this routine,src/routin
 $9EC7BD,.rtl,CODE_9EC7BD,new,branch target only used in this routine,src/routines/logic/EndPenaltyShot.asm
 $8086CA,.1,CODE_8086CA,new,branch target only used in this routine,src/routines/snes/ScreenOn.asm
 $9BA8EB,.1,CODE_9BA8EB,new,branch target only used in this routine,src/routines/hockey/updatereplay.asm
-$9EB1DB,.1,CODE_9EB1DB,new,branch target only used in this routine,src/routines/snes/CODE_9EB1C9.asm
-$9EB1E4,.rtl,CODE_9EB1E4,new,branch target only used in this routine,src/routines/snes/CODE_9EB1C9.asm
+$9EB1DB,.1,CODE_9EB1DB,new,branch target only used in this routine,src/routines/penalty/CountPowerPlayTime.asm
+$9EB1E4,.rtl,CODE_9EB1E4,new,branch target only used in this routine,src/routines/penalty/CountPowerPlayTime.asm
 $80817D,.1,CODE_80817D,new,branch target only used in this routine,src/routines/snes/CODE_808160.asm
 $9BA785,.1,CODE_9BA785,new,branch target only used in this routine,src/routines/hockey/ShowCrowdMeter.asm
 $9BA78E,.2,CODE_9BA78E,new,branch target only used in this routine,src/routines/hockey/ShowCrowdMeter.asm
@@ -5766,3 +5766,4 @@ $9EC64B,CheckBreakaway,CODE_9EC64B,new,"Behavior: called from doshot, PenShotChk
 $9EC6E7,StartBreakaway,CODE_9EC6E7,new,Behavior: called from ChkOffsides,src/routines/logic/StartBreakaway.asm
 $9E9B0E,CollisionSfx,CODE_9E9B0E,new,Behavior: called from checkplcoll and FallDown,src/routines/sound/CollisionSfx.asm
 $9EC042,PenShotChk,CODE_9EC042,94G,"The 94G PenShotChk job (player hit on a breakaway: a penalty shot); Bcheck, checkcheck and holdcheck call it just before AddPenalty, as 94G calls PenShotChk before AddPenalty",src/routines/penalty/PenShotChk.asm
+$9EB1C9,CountPowerPlayTime,CODE_9EB1C9,new,"Behavior: updatepentime calls it on each tick, where 93S runs its per team loop",src/routines/penalty/CountPowerPlayTime.asm
