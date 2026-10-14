@@ -5695,4 +5695,4 @@ $9FC427,PlayerInitialName,CODE_9FC427,new,"Behavior: GetPlayerRecord, then the n
 $9FB901,setplayercolors,CODE_9FB901,93S,"Same job as 93S setplayercolors (SetTeamColors, then the whole CGRAM from palbuffer); setupice and SaveRegsStartHL2 call it as 93S setupice and StartHL2 do",src/routines/hockey/setplayercolors.asm
 $9FBD65,nullrtl,CODE_9FBD65,93S,"setupice calls it right after InitSortObjects, where 93S setupice calls nullrtl",src/routines/hockey/nullrtl.asm
 $9FE79F,ReloadRink,CODE_9FE79F,new,Behavior: every pause menu item handler calls it when its screen closes,src/routines/hockey/ReloadRink.asm
-$9FB914,SetTeamColors,CODE_9FB901_t1,93S,"setplayercolors: the uniform colours of both teams into palbuffer, as 93S SetTeamColors (was the local .t1)",src/routines/hockey/setplayercolors.asm
+$9FB91A,SetTeamColors,CODE_9FB91A,93S,"setplayercolors: the uniform colours of both teams into palbuffer, as 93S SetTeamColors (was the local .t1)",src/routines/hockey/setplayercolors.asm
