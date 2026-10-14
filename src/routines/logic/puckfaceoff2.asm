@@ -460,7 +460,7 @@ puckfaceoff2:
 	bpl .loop3
 .6x:
 	ldx.b a3
-	jsl.l CODE_9FC988
+	jsl.l FaceoffPads
 	lda.b $8F
 	pha
 	lda.b a1
