@@ -596,56 +596,56 @@ $9EB791,.uppt,CODE_9EB791,93S,updatepwrplay print,src/routines/penalty/updatepwr
 $9EB7CE,.one,CODE_9EB7CE,new,updatepwrplay one second left,src/routines/penalty/updatepwrplay.asm
 $9EB7F8,.wide,CODE_9EB7F8,new,updatepwrplay back to 16-bit,src/routines/penalty/updatepwrplay.asm
 $9EB7FB,.time,CODE_9EB7FB,new,updatepwrplay time and team name,src/routines/penalty/updatepwrplay.asm
-$9FD325,SetLCmode2,CODE_9FD325,93S,Draw the line change box for team a2, one row per line it can change to,src/routines/logic/SetLCmode2.asm
+$9FD325,SetLCmode2,CODE_9FD325,93S,"Draw the line change box for team a2, one row per line it can change to",src/routines/logic/SetLCmode2.asm
 $9F9712,UpdateScores,CODE_9F9712,93S,Update the ticker scores of the other playoff games,src/routines/penalty/UpdateScores.asm
 $9FA636,DoHiLights,CODE_9FA636,93S,Playoffs: play the highlight of each game of the round that has one,src/routines/hockey/DoHiLights.asm
-$9F8DB6,GameOver,CODE_9F8DB6,93S,After a game: the password and the playoff screen, then the next game or the start,src/routines/hockey/GameOver.asm
+$9F8DB6,GameOver,CODE_9F8DB6,93S,"After a game: the password and the playoff screen, then the next game or the start",src/routines/hockey/GameOver.asm
 $9EB1E5,checkfornewpen,CODE_9EB1E5,93S,Look for a new penalty call and stop play when it should be called,src/routines/penalty/checkfornewpen.asm
-$9FA393,IntermissionTick,CODE_9FA393,93S,During the intermission, show the next ticker score, then the highlights,src/routines/penalty/IntermissionTick.asm
+$9FA393,IntermissionTick,CODE_9FA393,93S,"During the intermission, show the next ticker score, then the highlights",src/routines/penalty/IntermissionTick.asm
 $9B852C,ProcessInputWithRepeat,CODE_9B852C,93S,Read the pads with key repeat. A held button repeats after a delay,src/routines/middle/ProcessInputWithRepeat.asm
 $9F94AE,ResolveGames,CODE_9F94AE,93S,Record the played playoff game and the series wins,src/routines/hockey/ResolveGames.asm
-$9F8B79,clockcont_0,CODE_9F8B79,93S,End of a period: the winners celebrate, and the clock moves on,src/routines/hockey/clockcont_0.asm
+$9F8B79,clockcont_0,CODE_9F8B79,93S,"End of a period: the winners celebrate, and the clock moves on",src/routines/hockey/clockcont_0.asm
 $9EE10B,CompShoot,CODE_9EE10B,93S,Computer player X shoots,src/routines/logic/CompShoot.asm
 $9EAAB3,noturn0,CODE_9EAAB3,93S,The wanted direction needs no turn,src/routines/logic/noturn0.asm
 $9FDDCD,RestoreBenchEnergy,CODE_9FDDCD,93S,Players on the bench get some energy back,src/routines/hockey/RestoreBenchEnergy.asm
 $9FC833,InitScores,CODE_9FC833,93S,Playoffs: give the other games of the round scores so far,src/routines/penalty/InitScores.asm
 $9EF8C4,ClearOffsidesIfAllPlayers,CODE_9EF8C4,93S,Clear team a2's offsides flag once none of its skaters is past the blue line,src/routines/logic/ClearOffsidesIfAllPlayers.asm
-$9BC75E,EncodePW,CODE_9BC75E,93S,After a playoff game, work out the winners and the new password,src/routines/hockey/EncodePW.asm
+$9BC75E,EncodePW,CODE_9BC75E,93S,"After a playoff game, work out the winners and the new password",src/routines/hockey/EncodePW.asm
 $9EC7BE,print,CODE_9EC7BE,93S,Print string [a1] into the text map at printx / printy,src/routines/middle/print.asm
 $9FA5AD,showzam,CODE_9FA5AD,93S,Draw the zamboni moving across the horizontal rink,src/routines/video/showzam.asm
 $9ED130,CPgoalie,CODE_9ED130,93S,Should the computer pull its goalie in the last minute of the third period when it is behind,src/routines/logic/CPgoalie.asm
 $9D9783,maketree,CODE_9D9783,93S,Build the playoff tree from the seeds and the series wins,src/routines/hockey/maketree.asm
-$9EAFB5,skatetopuck,CODE_9EAFB5,93S,Player X skates to the puck, slowing down near it,src/routines/logic/skatetopuck.asm
-$9BC623,WritePassBits,CODE_9BC623,93S,Turn the playoff state into the password bits, with a checksum,src/routines/hockey/WritePassBits.asm
+$9EAFB5,skatetopuck,CODE_9EAFB5,93S,"Player X skates to the puck, slowing down near it",src/routines/logic/skatetopuck.asm
+$9BC623,WritePassBits,CODE_9BC623,93S,"Turn the playoff state into the password bits, with a checksum",src/routines/hockey/WritePassBits.asm
 $9EC95C,UpdateScoutingDisplay,CODE_9EC95C,93S,Every frame of the scouting report: print the next word when its timer runs out,src/routines/hockey/UpdateScoutingDisplay.asm
 $9FA835,puckfaceoff2,CODE_9FA835,93S,Assignment: the face off and the setup for play,src/routines/logic/puckfaceoff2.asm
 $9BC10F,projxy,CODE_9BC10F,93S,Project a rink position to screen coordinates,src/routines/video/projxy.asm
-$9EE17A,SetShotMode,CODE_9EE17A,93S,Start a shot by player X: shot mode, aim at the goal, shot animation,src/routines/logic/SetShotMode.asm
-$9E8D3E,checkwallcoll,CODE_9E8D3E,93S,Collision of object X with the corners, the goals and the boards,src/routines/hockey/checkwallcoll.asm
+$9EE17A,SetShotMode,CODE_9EE17A,93S,"Start a shot by player X: shot mode, aim at the goal, shot animation",src/routines/logic/SetShotMode.asm
+$9E8D3E,checkwallcoll,CODE_9E8D3E,93S,"Collision of object X with the corners, the goals and the boards",src/routines/hockey/checkwallcoll.asm
 $9F8646,periodicevents,CODE_9F8646,93S,Run every game loop; the slower checks once a second,src/routines/hockey/periodicevents.asm
 $9EA164,check4check,CODE_9EA164,93S,Look for a good chance to check an opponent,src/routines/logic/check4check.asm
 $9EF751,puckIChk,CODE_9EF751,93S,Watch for icing: the loose puck crossing the far goal line,src/routines/logic/puckIChk.asm
-$9EB2C9,Stop4Pen,CODE_9EB2C9,93S,Stop play for a penalty: stop the clock, set the face off spot and blow the whistle,src/routines/penalty/Stop4Pen.asm
+$9EB2C9,Stop4Pen,CODE_9EB2C9,93S,"Stop play for a penalty: stop the clock, set the face off spot and blow the whistle",src/routines/penalty/Stop4Pen.asm
 $9FD733,lineinput,CODE_9FD733,93S,Pad input while the line change box is open,src/routines/logic/lineinput.asm
 $9FCBB6,findpc,CODE_9FCBB6,93S,When and where the puck will cross each goal line,src/routines/logic/findpc.asm
 $9BCD30,BitstoPW,CODE_9BCD30,93S,Turn the password bits into the password characters,src/routines/hockey/BitstoPW.asm
-$9FDC4C,check4bench,CODE_9FDC4C,93S,If a line change wants player X off, send him to the bench,src/routines/logic/check4bench.asm
+$9FDC4C,check4bench,CODE_9FDC4C,93S,"If a line change wants player X off, send him to the bench",src/routines/logic/check4bench.asm
 $9FC090,checkwindow,CODE_9FC090,93S,Move the view so the screen follows the puck,src/routines/hockey/checkwindow.asm
 $9ECD9D,ScrollDisplayUp,CODE_9ECD9D,93S,The next line of the scouting report; scroll the text box up when it is full,src/routines/hockey/ScrollDisplayUp.asm
 $9BCC41,ReadPassBits,CODE_9BCC41,93S,Turn the password bits back into the playoff state,src/routines/hockey/ReadPassBits.asm
 $9EC2D0,setInjuryType,CODE_9EC2D0,93S,Player a2 is injured: the crowd reacts and the injury box gets his name,src/routines/hockey/setInjuryType.asm
-$9F9901,AttribWeight,CODE_9F9901,93S,The player's weight in pounds, from his weight rating,src/routines/stats/AttribWeight.asm
+$9F9901,AttribWeight,CODE_9F9901,93S,"The player's weight in pounds, from his weight rating",src/routines/stats/AttribWeight.asm
 $9EDE5E,puckflip,CODE_9EDE5E,93S,Start the puck spinning,src/routines/logic/puckflip.asm
 $9FAF1E,updatefaceoff,CODE_9FAF1E,93S,Step the puck drop animation,src/routines/logic/updatefaceoff.asm
 $9F8E1C,StartHL2,CODE_9F8E1C,93S,Play the highlight of playoff game a0,src/routines/snes/CODE_9F8DFA.asm
-$9FC63B,PushNumberWidth,CODE_9FC63B,93S,a1 = d0 as a decimal string, right aligned,src/routines/snes/CODE_9FC639.asm
+$9FC63B,PushNumberWidth,CODE_9FC63B,93S,"a1 = d0 as a decimal string, right aligned",src/routines/snes/CODE_9FC639.asm
 $9EE495,assnearest,CODE_9EE495,93S,Assignment: the player nearest the puck who does not have it,src/routines/snes/CODE_9EE47E.asm
 $9FA078,showclock,CODE_9FA078,93S,Draw the game clock unless a replay is playing,src/routines/video/showclock.asm
-$9E82A7,asseben,CODE_9E82A7,93S,From the bench: wait out the lock, then take the assignment,src/routines/logic/asseben.asm
-$9EC124,checkagr,CODE_9EC124,93S,How hard a check is, from the player's checking rating,src/routines/hockey/checkagr.asm
+$9E82A7,asseben,CODE_9E82A7,93S,"From the bench: wait out the lock, then take the assignment",src/routines/logic/asseben.asm
+$9EC124,checkagr,CODE_9EC124,93S,"How hard a check is, from the player's checking rating",src/routines/hockey/checkagr.asm
 $9FC5A6,EraseScoutName,CODE_9FC5A6,93S,Erase the scouting report name line,src/routines/hockey/EraseScoutName.asm
-$9EB188,PenaltyManager,CODE_9EB188,93S,Run the penalty work once a frame: times, new calls, the referee,src/routines/penalty/PenaltyManager.asm
-$9FA626,clockcont,CODE_9FA626,93S,When the clock runs out, freeze the view and end the period,src/routines/hockey/clockcont.asm
+$9EB188,PenaltyManager,CODE_9EB188,93S,"Run the penalty work once a frame: times, new calls, the referee",src/routines/penalty/PenaltyManager.asm
+$9FA626,clockcont,CODE_9FA626,93S,"When the clock runs out, freeze the view and end the period",src/routines/hockey/clockcont.asm
 $9FBA97,freezewindow,CODE_9FBA97,93S,Lock the view at its current position,src/routines/hockey/freezewindow.asm
 $9BCD8F,ClrPassBits,CODE_9BCD8F,93S,Clear the password bits,src/routines/hockey/ClrPassBits.asm
 $9CA41B,SuperDiv,CODE_9CA41B,93S,Password bits divided by d0 with the remainder in d0,src/routines/hockey/SuperDiv.asm
