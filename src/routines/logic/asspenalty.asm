@@ -161,7 +161,7 @@ asspenalty:
 
 .t1x:
 	sta.b d4
-	jsl.l CODE_9FCD0A
+	jsl.l PassPadToTeammate
 	rtl
 .4xx:
 	cpy.w #$0003

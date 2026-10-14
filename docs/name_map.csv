@@ -1970,8 +1970,8 @@ $9EBF23,.loop,CODE_9EBF23,new,branch target only used in this routine,src/routin
 $9EBF3B,.1,CODE_9EBF3B,new,branch target only used in this routine,src/routines/penalty/SeatPenaltyBox.asm
 $9EBF43,.rtl,CODE_9EBF43,new,branch target only used in this routine,src/routines/penalty/SeatPenaltyBox.asm
 $9B80B6,.loop,CODE_9B80B6,new,branch target only used in this routine,src/routines/snes/Multi5Bios.asm
-$9FCD15,.1,CODE_9FCD15,new,branch target only used in this routine,src/routines/snes/CODE_9FCD0A.asm
-$9FCD1F,.2,CODE_9FCD1F,new,branch target only used in this routine,src/routines/snes/CODE_9FCD0A.asm
+$9FCD15,.1,CODE_9FCD15,new,branch target only used in this routine,src/routines/logic/PassPadToTeammate.asm
+$9FCD1F,.2,CODE_9FCD1F,new,branch target only used in this routine,src/routines/logic/PassPadToTeammate.asm
 $808E58,.loop,CODE_808E58,new,branch target only used in this routine,src/routines/snes/PasteMap.asm
 $808E5D,.loop2,CODE_808E5D,new,branch target only used in this routine,src/routines/snes/PasteMap.asm
 $9E829C,.1,CODE_9E829C,new,branch target only used in this routine,src/routines/snes/CODE_9E828B.asm
@@ -3100,7 +3100,7 @@ $9FCF91,.t1,CODE_9FCF91,new,continued in the previous routine,src/routines/hocke
 $9FCEEE,.t1,CODE_9FCEEE,new,continued in the previous routine,src/routines/hockey/Setplass.asm
 $9FCD90,.t1,CODE_9FCD90,new,continued in the previous routine,src/routines/snes/CODE_9FCD5E.asm
 $9FCD40,.t1,CODE_9FCD40,new,continued in the previous routine,src/routines/snes/CODE_9FCD2F.asm
-$9FCD23,.t1,CODE_9FCD23,new,continued in the previous routine,src/routines/snes/CODE_9FCD0A.asm
+$9FCD23,.t1,CODE_9FCD23,new,continued in the previous routine,src/routines/logic/PassPadToTeammate.asm
 $9FCBEB,.t1,CODE_9FCBEB,new,continued in the previous routine,src/routines/logic/findpc.asm
 $9FC82F,.t1,CODE_9FC82F,new,continued in the previous routine,src/routines/snes/CODE_9FC822.asm
 $9FC80A,.t1,CODE_9FC80A,new,continued in the previous routine,src/routines/hockey/InitializeGameStructures.asm
@@ -5759,3 +5759,4 @@ $9EC72D,StartPenaltyShot,CODE_9EC72D,new,Behavior: called from InProgress (a pen
 $9EC791,EndPenaltyShot,CODE_9EC791,new,"Behavior: called on the stop events (Goal, the puck frozen or out, the clock), as 94G UpdatePenaltyShotEnd / EndPenaltyShotPlay end the attempt",src/routines/logic/EndPenaltyShot.asm
 $9CA58C,CalcPuckDistances,CODE_9CA58C,new,"Behavior; called from CODE_9FC988 (puckfaceoff2); updateplayers, chk4pass, findpc and the goalie code read the tables",src/routines/logic/CalcPuckDistances.asm
 $9FC988,FaceoffPads,CODE_9FC988,new,Behavior: called from puckfaceoff2,src/routines/logic/FaceoffPads.asm
+$9FCD0A,PassPadToTeammate,CODE_9FCD0A,new,Behavior: asspenalty calls it when the penalized player had a pad ($19D4),src/routines/logic/PassPadToTeammate.asm

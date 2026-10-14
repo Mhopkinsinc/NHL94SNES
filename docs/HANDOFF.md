@@ -102,6 +102,7 @@
 - From behavior: `StartPenaltyShot`, `EndPenaltyShot` (the 94 penalty shot / shootout attempt state).
 - `CalcPuckDistances` (from behavior) and RAM `puckdist`, `puckdist2`, `puckdir` (the per object tables it fills).
 - `FaceoffPads` (from behavior: puckfaceoff2 resets the pad control with it).
+- `PassPadToTeammate` (from behavior, asspenalty).
 
 ## Unsure
 

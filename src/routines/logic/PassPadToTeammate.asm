@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FCD0A:
+; Pad d4 (of a penalized player X) takes the first teammate on the ice with no pad (PadTakePosition with his position)
+PassPadToTeammate:
 	ldy.w #$0000
 	cpx.w #$000C
 	bcc .1
