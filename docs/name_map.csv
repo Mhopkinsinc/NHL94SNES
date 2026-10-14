@@ -1366,9 +1366,9 @@ $9BA30A,.4,CODE_9BA30A,new,branch target only used in this routine,src/routines/
 $9D833B,.loop,CODE_9D833B,new,branch target only used in this routine,src/routines/hockey/ScoutingReport.asm
 $9FCB29,.1,CODE_9FCB29,new,branch target only used in this routine,src/routines/logic/PuckCarrierPad.asm
 $9FCB38,.2,CODE_9FCB38,new,branch target only used in this routine,src/routines/logic/PuckCarrierPad.asm
-$9EE6F1,.1,CODE_9EE6F1,new,branch target only used in this routine,src/routines/snes/CODE_9EE6D2.asm
-$9EE6F6,.2,CODE_9EE6F6,new,branch target only used in this routine,src/routines/snes/CODE_9EE6D2.asm
-$9EE705,.rtl,CODE_9EE705,new,branch target only used in this routine,src/routines/snes/CODE_9EE6D2.asm
+$9EE6F1,.1,CODE_9EE6F1,new,branch target only used in this routine,src/routines/logic/setpassmode.asm
+$9EE6F6,.2,CODE_9EE6F6,new,branch target only used in this routine,src/routines/logic/setpassmode.asm
+$9EE705,.rtl,CODE_9EE705,new,branch target only used in this routine,src/routines/logic/setpassmode.asm
 $9EE720,.3,CODE_9EE720,new,branch target only used in this routine,src/routines/logic/asspassrec.asm
 $9EE748,.4,CODE_9EE748,new,branch target only used in this routine,src/routines/logic/asspassrec.asm
 $9EDA7F,.1,CODE_9EDA7F,new,branch target only used in this routine,src/routines/snes/CODE_9EDA59.asm
@@ -5732,3 +5732,4 @@ $9EBEA1,PenBoxSpot,CODE_9EBEA1,new,"Behavior: the computation 93S asspenalty doe
 $9EBF11,SeatPenaltyBox,CODE_9EBF11,new,Behavior: not in a shootout; called from puckfaceoff2 and chkprogress,src/routines/penalty/SeatPenaltyBox.asm
 $9F967B,demoread,CODE_9F967B,93S,"Contains the 93S demoread body (no controller sides: Readjoy1, Start to startpause1, another button ends the demo); Gameloop calls it after DoGameFrame where 93S Gameloop calls demoread. Was on the unsure list because of the added mode 4 check",src/routines/hockey/demoread.asm
 $9EA24C,holdplayer,CODE_9EA24C,93S,"The 93S holdplayer job (choose the player to hold, then Acheck); doinput dispatches it from its button table as 93S doinput does; 93S picks the last player who hit X instead",src/routines/logic/holdplayer.asm
+$9EE6D2,setpassmode,CODE_9EE6D2,93S,"The 93S doinput .setpassmode block (the goalie test, |x| < 16 and |y| $108-$10F, passdir = facedir, sfspdir) as its own routine; doinput jumps to it",src/routines/logic/setpassmode.asm

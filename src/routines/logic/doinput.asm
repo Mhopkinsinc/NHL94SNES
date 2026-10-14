@@ -175,7 +175,7 @@ doinput:
 	jml.l assinsert
 
 .t4:
-	jml.l CODE_9EE6D2
+	jml.l setpassmode
 .19:
 	jml.l findpc
 .20:

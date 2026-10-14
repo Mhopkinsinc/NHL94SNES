@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EE6D2:
+; Set the pass direction from player X's facing (passdir, sflags sfspdir), unless he is the goalie holding the puck behind the net
+setpassmode:
 	lda.w position,x
 	bne .2
 	lda.w $0D71
@@ -19,7 +19,7 @@ CODE_9EE6D2:
 	lda.w facedir,x
 	and.w #$0007
 	sta.w passdir
-	lda.w #$0004
+	lda.w #sfspdir
 	tsb.w sflags
 .rtl:
 	rtl
