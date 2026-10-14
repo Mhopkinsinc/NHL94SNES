@@ -2,7 +2,7 @@
 CODE_9FE75E:
 	lda.l $7E34CC
 	beq .2
-	ldx.w $0AC6
+	ldx.w pausepad
 	bmi .2
 	lda.w $1C84,x
 	beq .2

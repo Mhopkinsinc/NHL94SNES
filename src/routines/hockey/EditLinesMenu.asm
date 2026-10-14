@@ -127,7 +127,7 @@ EditLinesMenu:
 	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$9080

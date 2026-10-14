@@ -28,7 +28,7 @@ CODE_9DA5CA:
 	sta.l $7E3454
 	lda.w HomeTeam
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	sep #$20
 	lda.b #$01
 	sta.w BGMODE
@@ -39,7 +39,7 @@ CODE_9DA5CA:
 	sta.b $8F
 	lda.w #GameSetupTitle
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.w #$1D47
 	sta.l $7F750A
 	lda.w #$FFFF

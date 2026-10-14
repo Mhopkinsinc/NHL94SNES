@@ -4,7 +4,7 @@ ShowPeriodStats:
 	sta.l $7E3454
 	lda.w HomeTeam
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
 	stz.w $1DBD
@@ -18,7 +18,7 @@ ShowPeriodStats:
 	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000

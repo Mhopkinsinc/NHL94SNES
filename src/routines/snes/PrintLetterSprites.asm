@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C936C:
+; Draw string [a1] with the letter sprites at X / Y
+PrintLetterSprites:
 	stx.w $1E17
 	sty.w $1E1B
 	ldy.w #$0002
@@ -61,7 +61,7 @@ CODE_9C936C:
 	jsl.l DrawSprite
 	ply
 	plx
-	lda.l DATA8_9C93F1,x
+	lda.l LetterSpriteWidths,x
 	and.w #$00FF
 .2:
 	clc

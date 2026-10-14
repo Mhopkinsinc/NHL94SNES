@@ -9,7 +9,7 @@ CODE_9FE9FD:
 	ldx.w #$0020
 	jsl.l WaitFrame
 	jsl.l DMAToCGRAM
-	ldx.w $0AC6
+	ldx.w pausepad
 	lda.w JoyPad,x
 	bit.w #$8080
 	bne CODE_9FE9FD

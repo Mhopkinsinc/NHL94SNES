@@ -18,7 +18,7 @@ PasswordScreen:
 	sta.b $8F
 	lda.w #PasswordLabel
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.w #$001C
 	sta.l $7E3454
 	lda.w #$001D

@@ -34,7 +34,7 @@ Intermission:
 	stz.w $0D13
 	stz.w $0D15
 	lda.w #$FFFF
-	sta.w $0AC6
+	sta.w pausepad
 	ldy.w #$FFFE
 .loopx:
 	iny
@@ -45,7 +45,7 @@ Intermission:
 	beq .loopx
 	eor.w #$FFFF
 	inc a
-	sta.w $0AC6
+	sta.w pausepad
 .1:
 	lda.w $1C84
 	ora.w $1C86
@@ -53,7 +53,7 @@ Intermission:
 	ora.w $1C8A
 	ora.w $1C8C
 	bne .2
-	stz.w $0AC6
+	stz.w pausepad
 .2:
 	lda.w #$0001
 	sta.w $1A10

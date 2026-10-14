@@ -3,7 +3,7 @@ CODE_9FC76C:
 	stz.b a2
 	lda.w #$0001
 	sta.b $93
-	ldx.w $0AC6
+	ldx.w pausepad
 	bpl .t1
 	txa
 	eor.w #$FFFF

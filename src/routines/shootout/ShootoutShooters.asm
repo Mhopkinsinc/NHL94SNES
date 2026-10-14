@@ -22,7 +22,7 @@ ShootoutShooters:
 	sta.l $7E3454
 	lda.w #$FFFF
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	jsl.l CODE_80CAE1
 	jsl.l SendColours
 	jsl.l ShootersBackground
@@ -40,7 +40,7 @@ ShootersLoop:
 	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$0800

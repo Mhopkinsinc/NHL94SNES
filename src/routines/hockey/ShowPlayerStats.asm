@@ -8,14 +8,14 @@ ShowPlayerStats:
 	sta.l $7E3454
 	lda.w #$001D
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	ldx.w #$0049
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
 	lda.w #PlayerStatsTitle
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
 	lda.b $8F
@@ -72,7 +72,7 @@ ShowPlayerStats:
 	jsl.l ScreenOn
 CODE_9C8644:
 	jsl.l ReadPads
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d3
 	bit.w #$1000

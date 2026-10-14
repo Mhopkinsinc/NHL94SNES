@@ -16,7 +16,7 @@ SwapPlayerStatsTeam:
 	sta.b $8F
 	lda.w #PlayerStatsHeading
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l CODE_9DDDB3
 	jsl.l WaitFrame
 	jsl.l CODE_9C88A0

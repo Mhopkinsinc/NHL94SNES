@@ -18,7 +18,7 @@ StartPer:
 	lda.w $1EBB
 	beq .4
 	lda.w #$FFFF
-	sta.w $0AC6
+	sta.w pausepad
 	ldy.w #$FFFE
 .loop:
 	iny
@@ -29,7 +29,7 @@ StartPer:
 	beq .loop
 	eor.w #$FFFF
 	inc a
-	sta.w $0AC6
+	sta.w pausepad
 .2:
 	lda.w $1C84
 	ora.w $1C86
@@ -37,7 +37,7 @@ StartPer:
 	ora.w $1C8A
 	ora.w $1C8C
 	bne .3
-	stz.w $0AC6
+	stz.w pausepad
 .3:
 	jsl.l CODE_9F9365
 .4:

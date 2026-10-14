@@ -1,6 +1,6 @@
 ; Use the longer pause menu when this side still has a timeout, otherwise the standard menu.
 ChoosePauseMenu:
-	ldx.w $0AC6
+	ldx.w pausepad
 	bmi .t1
 	lda.w gmclock
 	beq .t1

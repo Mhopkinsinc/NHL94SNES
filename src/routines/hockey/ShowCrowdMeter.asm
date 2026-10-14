@@ -4,7 +4,7 @@ ShowCrowdMeter:
 	sta.l $7E3454
 	lda.w HomeTeam
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	lda.w #$009C
 	sta.b $0E
 	lda.w #DATA8_9C8328
@@ -90,7 +90,7 @@ ShowCrowdMeter:
 	sta.b $8F
 	lda.w #CrowdMeter
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l CODE_9DDDB3
 	jsl.l CODE_9BA563
 	jsl.l SpriteFrameEnd
@@ -98,7 +98,7 @@ ShowCrowdMeter:
 	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000

@@ -2769,7 +2769,7 @@ $9C8674,.t1,CODE_9C8674,new,continued in the previous routine,src/routines/snes/
 $9C8662,.t1,CODE_9C8662,new,continued in the previous routine,src/routines/snes/CODE_9C865A.asm
 $9DDF63,.t1,CODE_9DDF63,new,continued in the previous routine,src/routines/snes/CODE_9DDEA9.asm
 $9DDDFF,.t1,CODE_9DDDFF,new,continued in the previous routine,src/routines/snes/CODE_9DDDB3.asm
-$9DDC18,.t1,CODE_9DDC18,new,continued in the previous routine,src/routines/snes/CODE_9DD9AD.asm
+$9DDC18,.t1,CODE_9DDC18,new,continued in the previous routine,src/routines/stats/SetupScreen.asm
 $9DCC8D,.t1,CODE_9DCC8D,new,continued in the previous routine,src/routines/snes/CODE_9DCC42.asm
 $9DCC2B,.t1,CODE_9DCC2B,new,continued in the previous routine,src/routines/snes/CODE_9DCBC3.asm
 $9DCB9B,.t1,CODE_9DCB9B,new,continued in the previous routine,src/routines/snes/CODE_9DCB72.asm
@@ -3573,7 +3573,7 @@ $9B8CFD,.t4,CODE_9B8CFD,new,continued in the previous routine,src/routines/snes/
 $9C9D25,.t1,CODE_9C9D25,new,continued in the previous routine,src/routines/snes/CODE_9C9BAB.asm
 $9C95B0,.t4,CODE_9C95B0,new,continued in the previous routine,src/routines/snes/CODE_9C9590.asm
 $9C9502,.t4,CODE_9C9502,new,continued in the previous routine,src/routines/snes/CODE_9C943E.asm
-$9C937D,.t4,CODE_9C937D,new,continued in the previous routine,src/routines/snes/CODE_9C936C.asm
+$9C937D,.t4,CODE_9C937D,new,continued in the previous routine,src/routines/snes/PrintLetterSprites.asm
 $9C8FD7,.t2,CODE_9C8FD7,new,continued in the previous routine,src/routines/snes/CODE_9C8F9B.asm
 $9C8C91,.t4,CODE_9C8C91,new,continued in the previous routine,src/routines/snes/CODE_9C8C22.asm
 $9DBFEE,.t4,CODE_9DBFEE,new,continued in the previous routine,src/routines/snes/CODE_9DBED6.asm
@@ -3998,10 +3998,10 @@ $9C8D11,.8,CODE_9C8D11,new,branch target only used in this routine,src/routines/
 $9C9039,.3,CODE_9C9039,new,branch target only used in this routine,src/routines/hockey/PrintTeamStatRows.asm
 $9C90BF,.4,CODE_9C90BF,new,branch target only used in this routine,src/routines/hockey/PrintTeamStatRows.asm
 $9C90F0,.5,CODE_9C90F0,new,continued in the previous routine,src/routines/hockey/PrintTeamStatRows.asm
-$9C9375,.1,CODE_9C9375,new,branch target only used in this routine,src/routines/snes/CODE_9C936C.asm
-$9C93E5,.2,CODE_9C93E5,new,branch target only used in this routine,src/routines/snes/CODE_9C936C.asm
-$9C93EC,.3,CODE_9C93EC,new,branch target only used in this routine,src/routines/snes/CODE_9C936C.asm
-$9C93F0,.4,CODE_9C93F0,new,continued in the previous routine,src/routines/snes/CODE_9C936C.asm
+$9C9375,.1,CODE_9C9375,new,branch target only used in this routine,src/routines/snes/PrintLetterSprites.asm
+$9C93E5,.2,CODE_9C93E5,new,branch target only used in this routine,src/routines/snes/PrintLetterSprites.asm
+$9C93EC,.3,CODE_9C93EC,new,branch target only used in this routine,src/routines/snes/PrintLetterSprites.asm
+$9C93F0,.4,CODE_9C93F0,new,continued in the previous routine,src/routines/snes/PrintLetterSprites.asm
 $9C94C2,.1,CODE_9C94C2,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
 $9C94CA,.2,CODE_9C94CA,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
 $9C94CF,.3,CODE_9C94CF,new,branch target only used in this routine,src/routines/snes/CODE_9C943E.asm
@@ -4431,7 +4431,7 @@ $9DCBD5,.2,CODE_9DCBD5,new,branch target only used in this routine,src/routines/
 $9DCC2E,.3,CODE_9DCC2E,new,branch target only used in this routine,src/routines/snes/CODE_9DCB9F.asm
 $9DCC48,.1,CODE_9DCC48,new,branch target only used in this routine,src/routines/snes/CODE_9DCC36.asm
 $9DCC90,.2,CODE_9DCC90,new,branch target only used in this routine,src/routines/snes/CODE_9DCC36.asm
-$9DDCF3,.3,CODE_9DDCF3,new,branch target only used in this routine,src/routines/snes/CODE_9DD9AD.asm
+$9DDCF3,.3,CODE_9DDCF3,new,branch target only used in this routine,src/routines/stats/SetupScreen.asm
 $9DDE63,.2,CODE_9DDE63,new,branch target only used in this routine,src/routines/snes/CODE_9DDDB3.asm
 $9DDF0D,.3,CODE_9DDF0D,new,branch target only used in this routine,src/routines/snes/CODE_9DDDB3.asm
 $9DDF67,.4,CODE_9DDF67,new,branch target only used in this routine,src/routines/snes/CODE_9DDDB3.asm
@@ -4795,3 +4795,8 @@ $9DD923,SendTextMap,CODE_9DD923,new,DMAToVRAM of the text map,src/routines/snes/
 $9DD977,ClearTextMap,CODE_9DD977,new,MemFill of the text map with the blank tile,src/routines/snes/ClearTextMap.asm
 $0AD1,fadestep,$0AD1,new,"RAM; the NMI fade: counts down to a fade in, $FFFF fades out",src/ram94snes.asm
 $0AD3,brightness,$0AD3,new,"RAM; the brightness the fade sets, written to INIDISP by BrightnessHook",src/ram94snes.asm
+$9C936C,PrintLetterSprites,CODE_9C936C,new,"each character of [a1] drawn with DrawSprite from LetterSprites, advancing by LetterSpriteWidths",src/routines/snes/PrintLetterSprites.asm
+$9C93F1,LetterSpriteWidths,DATA8_9C93F1,new,the advance PrintLetterSprites uses per letter,src/data/tables/LetterSpriteWidths.asm
+$9DD9AD,SetupScreen,CODE_9DD9AD,94G,"the common start of the stats screens, called first as 94G calls SetupScreen (ShootoutShooters and the stats screens)",src/routines/stats/SetupScreen.asm
+$9B851F,ReadPausePad,CODE_9B851F,new,ReadjoyA for pausepad,src/routines/snes/ReadPausePad.asm
+$0AC6,pausepad,$0AC6,new,RAM; set by SelectPauseController and StartPer: the controller that owns the pause menu,src/ram94snes.asm

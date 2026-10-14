@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DD9AD:
+; Common start of the stats screens: blank, the fonts, the team logos and the background
+SetupScreen:
 	stz.w $07C6
 	lda.b a2
 	pha

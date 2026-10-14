@@ -11,7 +11,7 @@ CODE_9B8970:
 	sta.b $8F
 	lda.w #EditLinesLabel
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.b $8F
 	pha
 	lda.b a1

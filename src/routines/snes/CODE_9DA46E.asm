@@ -39,7 +39,7 @@ CODE_9DA486:
 	sta.b $8F
 	lda.w #PlayerSelectTitle
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l CODE_9DDDB3
 	jsl.l SendColours
 	lda.b $10

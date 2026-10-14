@@ -4,14 +4,14 @@ ShowOtherScores:
 	sta.l $7E3454
 	lda.w #$001D
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	ldx.w #$0049
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
 	lda.w #OtherScores
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
 	stz.w $1DB9
@@ -38,7 +38,7 @@ ShowOtherScores:
 	sta.w $1DC5
 	jsl.l DrawOtherScoresPage
 CODE_9BC2C9:
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	lda.b d3
 	bit.w #$1000
 	beq .t2

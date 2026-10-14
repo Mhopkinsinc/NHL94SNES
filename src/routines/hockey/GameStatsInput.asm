@@ -1,7 +1,7 @@
 ; Game stats input. Start leaves, up and down scroll the rows.
 GameStatsInput:
 	jsl.l WaitFrame
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	lda.b d3
 	bit.w #$1000
 	beq .t1

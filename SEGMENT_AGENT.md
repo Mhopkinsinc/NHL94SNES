@@ -671,3 +671,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Acheck, SPAhook, SPAHold, QueueTextDMA, QueueSound from their 93S callers and job; DMAToVRAM from what it does. MATCH.
 - Shootout setup: ShootersBackground, PrintShooterNames, PrintShooterList, ShootersLoop, ShootersExit (94G). MATCH.
 - Screen helpers from what they do: FadeOut, FadeIn, WaitFadeOut, BrightnessHook, SetNMIHook, SetColours, SendColours, DMAToCGRAM, SendTextMap, ClearTextMap, MemFill; RAM fadestep and brightness. MATCH.
+- SetupScreen (94G), PrintLetterSprites, LetterSpriteWidths, ReadPausePad and pausepad. MATCH.

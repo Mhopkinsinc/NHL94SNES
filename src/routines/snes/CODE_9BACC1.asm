@@ -21,7 +21,7 @@ CODE_9BACE5:
 	ldy.w #$0000
 	jsl.l WaitFrames_Inc
 	jsl.l ReadPads
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	lda.w #$0001
 	sta.b d7
 	lda.b d0
@@ -110,7 +110,7 @@ CODE_9BACE5:
 .t1:
 	phk
 	plb
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	lda.w #$FFFE
 	sta.w $0CAB
 	lda.w #$0020

@@ -4,7 +4,7 @@ ShowPenaltySummary:
 	sta.l $7E3454
 	lda.w HomeTeam
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	lda.w #$0000
 	sta.w $1DB9
 	sta.w $1DBD
@@ -15,7 +15,7 @@ ShowPenaltySummary:
 	sta.b $8F
 	lda.w #PenaltiesLabel
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l SpriteFrameEnd
 	lda.w #$FFFF
 	sta.l $7F75C2
@@ -57,7 +57,7 @@ ShowPenaltySummary:
 	sta.w $1DC5
 	jsr.w DrawPenaltyPage
 CODE_9B9808:
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d3
 	bit.w #$1000

@@ -9,7 +9,7 @@ DrawPeriodStats:
 	sta.b $8F
 	lda.w #PeriodStats
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.b $8F
 	pha
 	lda.b a1
@@ -165,7 +165,7 @@ DrawPeriodStats:
 	sta.b $8F
 	lda.w #$F7C9
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.b $8F
 	pha
 	lda.b a1
@@ -208,7 +208,7 @@ DrawPeriodStats:
 	sta.b $8F
 	lda.w #GoalsLabel
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.b $8F
 	pha
 	lda.b a1

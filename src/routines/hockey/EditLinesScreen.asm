@@ -12,7 +12,7 @@ EditLinesScreen:
 	sta.l $7E3454
 	lda.w #$FFFF
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	jsl.l CODE_9B890F
 	lda.w #$0005
 	sta.w $1D9F
@@ -28,7 +28,7 @@ EditLinesScreen:
 	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000

@@ -71,7 +71,7 @@ CODE_9DAA83:
 	sta.b $8F
 	lda.w #GameSetupAlt
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.l $7E3454
 	cmp.w #$001C
 	bpl .1x

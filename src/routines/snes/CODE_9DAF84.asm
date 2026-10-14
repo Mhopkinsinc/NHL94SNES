@@ -8,7 +8,7 @@ CODE_9DAF84:
 	sta.b $8F
 	lda.w #PlayerSelectAlt
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l CODE_9DDDB3
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd

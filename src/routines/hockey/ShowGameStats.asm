@@ -4,14 +4,14 @@ ShowGameStats:
 	sta.l $7E3454
 	lda.w HomeTeam
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	ldx.w #$0050
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
 	lda.w #GameStats
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.b $8F
 	pha
 	lda.b a1

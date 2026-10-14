@@ -135,7 +135,7 @@ CODE_9B8D86:
 	jsl.l CODE_9DD94D
 	jsl.l WaitFrame
 	jsl.l ReadPads
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000

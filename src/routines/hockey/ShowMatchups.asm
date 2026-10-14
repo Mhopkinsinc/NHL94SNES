@@ -27,7 +27,7 @@ ShowMatchups:
 	sta.b $8F
 	lda.w #MatchupsLabel
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.b $8F
 	pha
 	lda.b a1

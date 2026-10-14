@@ -13,6 +13,6 @@ SwapRosterTeam:
 	sta.b $8F
 	lda.w #TeamRosterSwap
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l CODE_9DDDB3
 	jmp.w CODE_9D9DE2

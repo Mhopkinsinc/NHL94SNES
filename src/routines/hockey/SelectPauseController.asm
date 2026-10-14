@@ -12,7 +12,7 @@ SelectPauseController:
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	jsl.l ReadPads
-	lda.w $0AC6
+	lda.w pausepad
 	bpl .4
 	lda.w #$0000
 	pha
@@ -45,9 +45,9 @@ SelectPauseController:
 	lda.w $1C84,x
 	eor.w #$FFFF
 	inc a
-	cmp.w $0AC6
+	cmp.w pausepad
 	beq .3
-	stx.w $0AC6
+	stx.w pausepad
 	stz.w $0D15
 	stz.w $0D13
 	jsl.l CODE_9FEA24
@@ -68,7 +68,7 @@ SelectPauseController:
 .2:
 	rtl
 .3:
-	stx.w $0AC6
+	stx.w pausepad
 	lda.w #$003C
 	sta.w $0AC8
 	txa
@@ -89,11 +89,11 @@ SelectPauseController:
 	bpl .5
 .1x:
 	stz.w $0AC8
-	ldx.w $0AC6
+	ldx.w pausepad
 	lda.w $1C84,x
 	eor.w #$FFFF
 	inc a
-	sta.w $0AC6
+	sta.w pausepad
 	rtl
 
 .t1xx:

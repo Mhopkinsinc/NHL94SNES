@@ -12,14 +12,14 @@ TeamRoster:
 	sta.l $7E3454
 	lda.w #$001D
 	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	jsl.l SetupScreen
 	ldx.w #$004C
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
 	lda.w #TeamRosterTitle
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l FadeIn
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
@@ -107,7 +107,7 @@ CODE_9D9E2D:
 	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
-	jsl.l CODE_9B851F
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000
