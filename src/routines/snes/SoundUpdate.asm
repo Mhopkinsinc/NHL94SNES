@@ -38,6 +38,6 @@ SoundUpdate:		; per frame: fade, envelopes, and the song ticks that are due; not
 	jsr.w CODE_80AC7B
 	lda.w MusicOn
 	beq .6
-	jsr.w CODE_80AC4A
+	jsr.w SequencerTick
 .6:
 	rts

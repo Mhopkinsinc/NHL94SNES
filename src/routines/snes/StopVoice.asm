@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80ABC7:
+; Stop voice Y
+StopVoice:
 	rep #$20
 	lda.w $092A,x
 	cmp.w #$E1C0
@@ -18,4 +18,4 @@ CODE_80ABC7:
 	sta.w $08FA,y
 	lda.b #$9F
 	sta.b $5B
-	jmp.w CODE_80A44A
+	jmp.w SeqCmd0C

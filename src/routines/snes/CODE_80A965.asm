@@ -29,7 +29,7 @@ CODE_80A965:
 	asl a
 	tax
 	rep #$20
-	jsr.w CODE_80ABF7
+	jsr.w ReleaseVoice
 	sep #$20
 	plx
 .2:
@@ -65,7 +65,7 @@ CODE_80A965:
 	sep #$20
 	lda.b $5E
 	sta.w $07E7
-	jsr.w CODE_80ADE9
+	jsr.w SeqCmd08
 	rep #$20
 	jmp.w CODE_80ABA5
 
@@ -75,7 +75,7 @@ CODE_80A965:
 	sep #$20
 	lda.b $5E
 	sta.w $07EA
-	jsr.w CODE_80ADE9
+	jsr.w SeqCmd08
 	rep #$20
 	jmp.w CODE_80ABA5
 
@@ -85,7 +85,7 @@ CODE_80A965:
 	sep #$20
 	lda.b $5E
 	sta.w $07EB
-	jsr.w CODE_80ADE9
+	jsr.w SeqCmd08
 	rep #$20
 	jmp.w CODE_80ABA5
 
@@ -95,7 +95,7 @@ CODE_80A965:
 	sep #$20
 	lda.b $5E
 	sta.w $07EC
-	jsr.w CODE_80ADE9
+	jsr.w SeqCmd08
 	rep #$20
 	jmp.w CODE_80ABA5
 

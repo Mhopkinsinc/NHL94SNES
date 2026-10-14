@@ -14,7 +14,7 @@ CODE_80AC7B:
 	lda.w $08FA,y
 	cmp.b #$10
 	bcc .1
-	jsr.w CODE_80A51C
+	jsr.w UpdateVoice
 .1:
 	rep #$20
 	lda.w $092A,x
@@ -118,7 +118,7 @@ CODE_80AC7B:
 	bne .7
 	sep #$20
 	ldy.b $4B
-	jsr.w CODE_80A4FD
+	jsr.w SeqCmd0B
 .6:
 	jmp.w .8
 .7:
@@ -133,19 +133,19 @@ CODE_80AC7B:
 	bcs .t1xxx
 	sep #$20
 	ldy.b $4B
-	jsr.w CODE_80ABC7
+	jsr.w StopVoice
 	bra .8
 
 .t1xxx:
 	sep #$20
 	ldy.b $4B
-	jsr.w CODE_80A4FD
+	jsr.w SeqCmd0B
 	bra .8
 
 .t2x:
 	sep #$20
 	ldy.b $4B
-	jsr.w CODE_80A4E3
+	jsr.w SeqCmd0C0B
 .8:
 	sep #$20
 	inx

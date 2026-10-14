@@ -1,7 +1,7 @@
-; Unidentified routine.
-CODE_80A465:
+; Sequencer: sound driver command $07 with the instrument data that follows
+SeqCmd07:
 	lda.w APUIO0
-	bne CODE_80A465
+	bne SeqCmd07
 	lda.b $4B
 	sta.w APUIO1
 	lda.w $07FC

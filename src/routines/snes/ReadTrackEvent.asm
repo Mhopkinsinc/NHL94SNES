@@ -1,8 +1,8 @@
-; Unidentified routine.
-CODE_80A58E:
+; Read the next event of the track at $4C
+ReadTrackEvent:
 	lda.b $4C
 	sta.b $56
-	jsr.w CODE_80A568
+	jsr.w ReadVarLen
 	lda.b [$56]
 	inc.b $56
 	tay
@@ -71,7 +71,7 @@ CODE_80A58E:
 	inc.b $56
 	tay
 	sty.b $5A
-	jsr.w CODE_80A568
+	jsr.w ReadVarLen
 	sta.b $5E
 .2:
 	rts

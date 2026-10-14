@@ -15,7 +15,7 @@ CODE_9C9A7F:
 	asl a
 	tax
 	lda.l DATA8_9C9A73-2,x
-	jsl.l CODE_80A2A8
+	jsl.l StopSound
 .1:
 	lda.w #$0000
 	sta.l $7E35E8

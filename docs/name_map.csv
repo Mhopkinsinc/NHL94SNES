@@ -777,8 +777,8 @@ $9E8D3D,.rtl,CODE_9E8D3D,new,branch target only used in this routine,src/routine
 $9E90C0,.1,CODE_9E90C0,new,branch target only used in this routine,src/routines/snes/CODE_9E90B6.asm
 $9D9FF7,.1,CODE_9D9FF7,new,branch target only used in this routine,src/routines/snes/CODE_9D9F43.asm
 $80BC9B,.1,CODE_80BC9B,new,branch target only used in this routine,src/routines/snes/CODE_80BC83.asm
-$80A4F5,.loop,CODE_80A4F5,new,branch target only used in this routine,src/routines/snes/CODE_80A4E3.asm
-$80A513,.loop,CODE_80A513,new,branch target only used in this routine,src/routines/snes/CODE_80A4E3.asm
+$80A4F5,.loop,CODE_80A4F5,new,branch target only used in this routine,src/routines/snes/SeqCmd0C0B.asm
+$80A513,.loop,CODE_80A513,new,branch target only used in this routine,src/routines/snes/SeqCmd0C0B.asm
 $9DBC91,.loop,CODE_9DBC91,new,branch target only used in this routine,src/routines/snes/CODE_9DBC8B.asm
 $80CC65,.1,CODE_80CC65,new,branch target only used in this routine,src/routines/shootout/ShootersBackground.asm
 $80CC88,.rtl,CODE_80CC88,new,branch target only used in this routine,src/routines/shootout/ShootersBackground.asm
@@ -830,9 +830,9 @@ $9F964E,.2,CODE_9F964E,new,branch target only used in this routine,src/routines/
 $9BC412,.loop,CODE_9BC412,new,branch target only used in this routine,src/routines/snes/CODE_9BC3F4.asm
 $9EFB21,.1,CODE_9EFB21,new,branch target only used in this routine,src/routines/snes/CODE_9EFAF7.asm
 $9ECE60,.1,CODE_9ECE60,new,branch target only used in this routine,src/routines/snes/CODE_9ECE53.asm
-$80AC50,.loop,CODE_80AC50,new,branch target only used in this routine,src/routines/snes/CODE_80AC4A.asm
-$80AC66,.loop2,CODE_80AC66,new,branch target only used in this routine,src/routines/snes/CODE_80AC4A.asm
-$80AC71,.1,CODE_80AC71,new,branch target only used in this routine,src/routines/snes/CODE_80AC4A.asm
+$80AC50,.loop,CODE_80AC50,new,branch target only used in this routine,src/routines/snes/SequencerTick.asm
+$80AC66,.loop2,CODE_80AC66,new,branch target only used in this routine,src/routines/snes/SequencerTick.asm
+$80AC71,.1,CODE_80AC71,new,branch target only used in this routine,src/routines/snes/SequencerTick.asm
 $80B576,.loop,CODE_80B576,new,branch target only used in this routine,src/routines/snes/CODE_80B3CE.asm
 $80C851,.loop,CODE_80C851,new,branch target only used in this routine,src/routines/snes/CODE_80C81C.asm
 $80C86D,.1,CODE_80C86D,new,branch target only used in this routine,src/routines/snes/CODE_80C81C.asm
@@ -865,7 +865,7 @@ $9F9E86,.1,CODE_9F9E86,new,branch target only used in this routine,src/routines/
 $9DBBB8,.loop,CODE_9DBBB8,new,branch target only used in this routine,src/routines/snes/CODE_9DBBA8.asm
 $9DBBCD,.loop2,CODE_9DBBCD,new,branch target only used in this routine,src/routines/snes/CODE_9DBBA8.asm
 $80A1DC,.1,CODE_80A1DC,new,branch target only used in this routine,src/routines/sound/QueueSound.asm
-$80A542,.rts,CODE_80A542,new,branch target only used in this routine,src/routines/snes/CODE_80A51C.asm
+$80A542,.rts,CODE_80A542,new,branch target only used in this routine,src/routines/snes/UpdateVoice.asm
 $9EF193,.1,CODE_9EF193,new,branch target only used in this routine,src/routines/snes/CODE_9EF14A.asm
 $9EF1A0,.2,CODE_9EF1A0,new,branch target only used in this routine,src/routines/snes/CODE_9EF14A.asm
 $9EF1A8,.3,CODE_9EF1A8,new,branch target only used in this routine,src/routines/snes/CODE_9EF14A.asm
@@ -944,12 +944,12 @@ $9DDF1F,.1,CODE_9DDF1F,new,branch target only used in this routine,src/routines/
 $9ED4DA,.1,CODE_9ED4DA,new,branch target only used in this routine,src/routines/snes/CODE_9ED4CA.asm
 $9ED501,.2,CODE_9ED501,new,branch target only used in this routine,src/routines/snes/CODE_9ED4CA.asm
 $9D9D03,.loop,CODE_9D9D03,new,branch target only used in this routine,src/routines/middle/WeightedRandomSelect.asm
-$80ADEC,.loop,CODE_80ADEC,new,branch target only used in this routine,src/routines/snes/CODE_80ADE9.asm
-$80AE0E,.loop2,CODE_80AE0E,new,branch target only used in this routine,src/routines/snes/CODE_80ADE9.asm
-$80AE27,.loop3,CODE_80AE27,new,branch target only used in this routine,src/routines/snes/CODE_80ADE9.asm
-$80AE34,.loop4,CODE_80AE34,new,branch target only used in this routine,src/routines/snes/CODE_80ADE9.asm
-$80AE58,.loop5,CODE_80AE58,new,branch target only used in this routine,src/routines/snes/CODE_80ADE9.asm
-$80AE6F,.loop6,CODE_80AE6F,new,branch target only used in this routine,src/routines/snes/CODE_80ADE9.asm
+$80ADEC,.loop,CODE_80ADEC,new,branch target only used in this routine,src/routines/snes/SeqCmd08.asm
+$80AE0E,.loop2,CODE_80AE0E,new,branch target only used in this routine,src/routines/snes/SeqCmd08.asm
+$80AE27,.loop3,CODE_80AE27,new,branch target only used in this routine,src/routines/snes/SeqCmd08.asm
+$80AE34,.loop4,CODE_80AE34,new,branch target only used in this routine,src/routines/snes/SeqCmd08.asm
+$80AE58,.loop5,CODE_80AE58,new,branch target only used in this routine,src/routines/snes/SeqCmd08.asm
+$80AE6F,.loop6,CODE_80AE6F,new,branch target only used in this routine,src/routines/snes/SeqCmd08.asm
 $9FADBD,.1,CODE_9FADBD,new,branch target only used in this routine,src/routines/snes/CODE_9FADA7.asm
 $9FADF9,.2,CODE_9FADF9,new,branch target only used in this routine,src/routines/snes/CODE_9FADA7.asm
 $9FAE2E,.3,CODE_9FAE2E,new,branch target only used in this routine,src/routines/snes/CODE_9FADA7.asm
@@ -962,8 +962,8 @@ $9FC782,.loop,CODE_9FC782,new,branch target only used in this routine,src/routin
 $9DB44A,.rts,CODE_9DB44A,new,branch target only used in this routine,src/routines/snes/CODE_9DB430.asm
 $9EA738,.1,CODE_9EA738,new,branch target only used in this routine,src/routines/logic/playeracc.asm
 $9EA743,.2,CODE_9EA743,new,branch target only used in this routine,src/routines/logic/playeracc.asm
-$80A54C,.loop,CODE_80A54C,new,branch target only used in this routine,src/routines/snes/CODE_80A549.asm
-$80A560,.1,CODE_80A560,new,branch target only used in this routine,src/routines/snes/CODE_80A549.asm
+$80A54C,.loop,CODE_80A54C,new,branch target only used in this routine,src/routines/snes/UpdateVoices.asm
+$80A560,.1,CODE_80A560,new,branch target only used in this routine,src/routines/snes/UpdateVoices.asm
 $9BA715,.1,CODE_9BA715,new,branch target only used in this routine,src/routines/snes/CODE_9BA6BE.asm
 $9B8FE7,.1,CODE_9B8FE7,new,branch target only used in this routine,src/routines/snes/CODE_9B8F7B.asm
 $9C97C6,.loop,CODE_9C97C6,new,branch target only used in this routine,src/routines/snes/CODE_9C978E.asm
@@ -1234,13 +1234,13 @@ $9FDD43,.loop,CODE_9FDD43,new,branch target only used in this routine,src/routin
 $9FDD5C,.1,CODE_9FDD5C,new,branch target only used in this routine,src/routines/penalty/AvgCline.asm
 $9FDD68,.2,CODE_9FDD68,new,branch target only used in this routine,src/routines/penalty/AvgCline.asm
 $9FDD84,.3,CODE_9FDD84,new,branch target only used in this routine,src/routines/penalty/AvgCline.asm
-$80A480,.loop,CODE_80A480,new,branch target only used in this routine,src/routines/snes/CODE_80A465.asm
-$80A49E,.loop2,CODE_80A49E,new,branch target only used in this routine,src/routines/snes/CODE_80A465.asm
-$80A4A6,.loop3,CODE_80A4A6,new,branch target only used in this routine,src/routines/snes/CODE_80A465.asm
-$80A4BE,.loop4,CODE_80A4BE,new,branch target only used in this routine,src/routines/snes/CODE_80A465.asm
-$80A4C9,.loop5,CODE_80A4C9,new,branch target only used in this routine,src/routines/snes/CODE_80A465.asm
-$80A4D8,.loop6,CODE_80A4D8,new,branch target only used in this routine,src/routines/snes/CODE_80A465.asm
-$80A4E0,.1,CODE_80A4E0,new,branch target only used in this routine,src/routines/snes/CODE_80A465.asm
+$80A480,.loop,CODE_80A480,new,branch target only used in this routine,src/routines/snes/SeqCmd07.asm
+$80A49E,.loop2,CODE_80A49E,new,branch target only used in this routine,src/routines/snes/SeqCmd07.asm
+$80A4A6,.loop3,CODE_80A4A6,new,branch target only used in this routine,src/routines/snes/SeqCmd07.asm
+$80A4BE,.loop4,CODE_80A4BE,new,branch target only used in this routine,src/routines/snes/SeqCmd07.asm
+$80A4C9,.loop5,CODE_80A4C9,new,branch target only used in this routine,src/routines/snes/SeqCmd07.asm
+$80A4D8,.loop6,CODE_80A4D8,new,branch target only used in this routine,src/routines/snes/SeqCmd07.asm
+$80A4E0,.1,CODE_80A4E0,new,branch target only used in this routine,src/routines/snes/SeqCmd07.asm
 $80BAB6,.1,CODE_80BAB6,new,branch target only used in this routine,src/routines/snes/CODE_80BAA9.asm
 $9F9991,.1,CODE_9F9991,new,branch target only used in this routine,src/routines/snes/CODE_9F9987.asm
 $9F9993,.2,CODE_9F9993,new,branch target only used in this routine,src/routines/snes/CODE_9F9987.asm
@@ -1285,8 +1285,8 @@ $9ECDC9,.loop,CODE_9ECDC9,new,branch target only used in this routine,src/routin
 $9FB281,.1,CODE_9FB281,new,branch target only used in this routine,src/routines/snes/CODE_9FB27B.asm
 $9C8E60,.1,CODE_9C8E60,new,branch target only used in this routine,src/routines/snes/CODE_9C8E3A.asm
 $9C8E91,.2,CODE_9C8E91,new,branch target only used in this routine,src/routines/snes/CODE_9C8E3A.asm
-$80A429,.loop,CODE_80A429,new,branch target only used in this routine,src/routines/snes/CODE_80A3F5.asm
-$80A441,.loop2,CODE_80A441,new,branch target only used in this routine,src/routines/snes/CODE_80A3F5.asm
+$80A429,.loop,CODE_80A429,new,branch target only used in this routine,src/routines/snes/SeqCmd08Init.asm
+$80A441,.loop2,CODE_80A441,new,branch target only used in this routine,src/routines/snes/SeqCmd08Init.asm
 $9B98D1,.1,CODE_9B98D1,new,branch target only used in this routine,src/routines/snes/CODE_9B98C9.asm
 $9EDF24,.1,CODE_9EDF24,new,branch target only used in this routine,src/routines/snes/CODE_9EDF0C.asm
 $808ED6,.loop,CODE_808ED6,new,branch target only used in this routine,src/routines/snes/CODE_808ED2.asm
@@ -1847,7 +1847,7 @@ $80AC96,.1,CODE_80AC96,new,branch target only used in this routine,src/routines/
 $80ACBF,.2,CODE_80ACBF,new,branch target only used in this routine,src/routines/snes/CODE_80AC8B.asm
 $9FDFBF,.1,CODE_9FDFBF,new,branch target only used in this routine,src/routines/penalty/linebar.asm
 $9EB523,.1,CODE_9EB523,new,branch target only used in this routine,src/routines/snes/CODE_9EB51A.asm
-$80A45C,.loop,CODE_80A45C,new,branch target only used in this routine,src/routines/snes/CODE_80A44A.asm
+$80A45C,.loop,CODE_80A45C,new,branch target only used in this routine,src/routines/snes/SeqCmd0C.asm
 $9DBDD8,.loop,CODE_9DBDD8,new,branch target only used in this routine,src/routines/snes/CODE_9DBDAE.asm
 $9DBDE2,.loop2,CODE_9DBDE2,new,branch target only used in this routine,src/routines/snes/CODE_9DBDAE.asm
 $9DBDF2,.1,CODE_9DBDF2,new,branch target only used in this routine,src/routines/snes/CODE_9DBDAE.asm
@@ -1877,7 +1877,7 @@ $80C339,.loop,CODE_80C339,new,branch target only used in this routine,src/routin
 $80C352,.loop,CODE_80C352,new,branch target only used in this routine,src/routines/snes/DecompressRLE.asm
 $80C35C,.loop2,CODE_80C35C,new,branch target only used in this routine,src/routines/snes/DecompressRLE.asm
 $80C372,.rts,CODE_80C372,new,branch target only used in this routine,src/routines/snes/DecompressRLE.asm
-$80A3E6,.loop,CODE_80A3E6,new,branch target only used in this routine,src/routines/snes/CODE_80A3D8.asm
+$80A3E6,.loop,CODE_80A3E6,new,branch target only used in this routine,src/routines/snes/ClearTracks.asm
 $9DA03A,.1,CODE_9DA03A,new,branch target only used in this routine,src/routines/snes/CODE_9D9FF9.asm
 $9B947C,.1,CODE_9B947C,new,branch target only used in this routine,src/routines/snes/CODE_9B9474.asm
 $9B9480,.2,CODE_9B9480,new,branch target only used in this routine,src/routines/snes/CODE_9B9474.asm
@@ -1987,7 +1987,7 @@ $9EB09F,.2,CODE_9EB09F,new,branch target only used in this routine,src/routines/
 $9ED522,.1,CODE_9ED522,new,branch target only used in this routine,src/routines/snes/CODE_9ED517.asm
 $9ED54B,.2,CODE_9ED54B,new,branch target only used in this routine,src/routines/snes/CODE_9ED517.asm
 $9ED55D,.3,CODE_9ED55D,new,branch target only used in this routine,src/routines/snes/CODE_9ED517.asm
-$80ABE4,.1,CODE_80ABE4,new,branch target only used in this routine,src/routines/snes/CODE_80ABC7.asm
+$80ABE4,.1,CODE_80ABE4,new,branch target only used in this routine,src/routines/snes/StopVoice.asm
 $80B077,.1,CODE_80B077,new,branch target only used in this routine,src/routines/snes/CODE_80B069.asm
 $9DA4BB,.1,CODE_9DA4BB,new,branch target only used in this routine,src/routines/snes/CODE_9DA49E.asm
 $9DA4EA,.loop,CODE_9DA4EA,new,branch target only used in this routine,src/routines/snes/CODE_9DA49E.asm
@@ -2303,8 +2303,8 @@ $9FA121,.2,CODE_9FA121,new,branch target only used in this routine,src/routines/
 $9BA33C,.1,CODE_9BA33C,new,branch target only used in this routine,src/routines/snes/CODE_9BA1A1.asm
 $9DA302,.1,CODE_9DA302,new,branch target only used in this routine,src/routines/snes/CODE_9DA2EE.asm
 $9FCD58,.1,CODE_9FCD58,new,branch target only used in this routine,src/routines/snes/CODE_9FCD4D.asm
-$80A573,.loop,CODE_80A573,new,branch target only used in this routine,src/routines/snes/CODE_80A568.asm
-$80A58D,.rts,CODE_80A58D,new,branch target only used in this routine,src/routines/snes/CODE_80A568.asm
+$80A573,.loop,CODE_80A573,new,branch target only used in this routine,src/routines/snes/ReadVarLen.asm
+$80A58D,.rts,CODE_80A58D,new,branch target only used in this routine,src/routines/snes/ReadVarLen.asm
 $808794,.loop,CODE_808794,new,branch target only used in this routine,src/routines/snes/CODE_80878B.asm
 $9C8FF8,.1,CODE_9C8FF8,new,branch target only used in this routine,src/routines/snes/CODE_9C8FD7.asm
 $9C9002,.2,CODE_9C9002,new,branch target only used in this routine,src/routines/snes/CODE_9C8FD7.asm
@@ -2325,8 +2325,8 @@ $9FBE23,.1,CODE_9FBE23,new,branch target only used in this routine,src/routines/
 $9BC294,.1,CODE_9BC294,new,branch target only used in this routine,src/routines/snes/CODE_9BC25A.asm
 $9BC295,.2,CODE_9BC295,new,branch target only used in this routine,src/routines/snes/CODE_9BC25A.asm
 $808D86,.loop,CODE_808D86,new,branch target only used in this routine,src/routines/snes/Mode7MapToVRAM.asm
-$80A2C5,.loop,CODE_80A2C5,new,branch target only used in this routine,src/routines/snes/CODE_80A2A8.asm
-$80A2CF,.1,CODE_80A2CF,new,branch target only used in this routine,src/routines/snes/CODE_80A2A8.asm
+$80A2C5,.loop,CODE_80A2C5,new,branch target only used in this routine,src/routines/snes/StopSound.asm
+$80A2CF,.1,CODE_80A2CF,new,branch target only used in this routine,src/routines/snes/StopSound.asm
 $9F89D5,.1,CODE_9F89D5,new,branch target only used in this routine,src/routines/snes/CODE_9F89B2.asm
 $9C9ED8,.1,CODE_9C9ED8,new,branch target only used in this routine,src/routines/snes/CODE_9C9EC5.asm
 $9C9F04,.2,CODE_9C9F04,new,branch target only used in this routine,src/routines/snes/CODE_9C9EC5.asm
@@ -2585,7 +2585,7 @@ $80AD80,.t1,CODE_80AD80,new,continued in the previous routine,src/routines/snes/
 $80AD4A,.t1,CODE_80AD4A,new,continued in the previous routine,src/routines/snes/CODE_80AD2A.asm
 $80AD25,.t1,CODE_80AD25,new,continued in the previous routine,src/routines/snes/CODE_80ACC2.asm
 $80AC8B,.t1,CODE_80AC8B,new,continued in the previous routine,src/routines/snes/CODE_80AC7B.asm
-$80AC7A,.t1,CODE_80AC7A,new,continued in the previous routine,src/routines/snes/CODE_80AC4A.asm
+$80AC7A,.t1,CODE_80AC7A,new,continued in the previous routine,src/routines/snes/SequencerTick.asm
 $80AC36,.t1,CODE_80AC36,new,continued in the previous routine,src/routines/snes/CODE_80AC2E.asm
 $80ABB3,.t1,CODE_80ABB3,new,continued in the previous routine,src/routines/snes/CODE_80AB63.asm
 $80AB47,.t1,CODE_80AB47,new,continued in the previous routine,src/routines/snes/CODE_80A965.asm
@@ -2606,10 +2606,10 @@ $80A831,.t1,CODE_80A831,new,continued in the previous routine,src/routines/snes/
 $80A770,.t1,CODE_80A770,new,continued in the previous routine,src/routines/snes/CODE_80A725.asm
 $80A6ED,.t1,CODE_80A6ED,new,continued in the previous routine,src/routines/snes/CODE_80A6D7.asm
 $80A6BD,.t1,CODE_80A6BD,new,continued in the previous routine,src/routines/snes/CODE_80A697.asm
-$80A66E,.t1,CODE_80A66E,new,continued in the previous routine,src/routines/snes/CODE_80A610.asm
+$80A66E,.t1,CODE_80A66E,new,continued in the previous routine,src/routines/snes/FindFreeVoice.asm
 $80A5F4,.t1,CODE_80A5F4,new,continued in the previous routine,src/routines/snes/CODE_80A5DF.asm
-$80A5B1,.t1,CODE_80A5B1,new,continued in the previous routine,src/routines/snes/CODE_80A58E.asm
-$80A543,.t1,CODE_80A543,new,continued in the previous routine,src/routines/snes/CODE_80A51C.asm
+$80A5B1,.t1,CODE_80A5B1,new,continued in the previous routine,src/routines/snes/ReadTrackEvent.asm
+$80A543,.t1,CODE_80A543,new,continued in the previous routine,src/routines/snes/UpdateVoice.asm
 $80A333,.t1,CODE_80A333,new,continued in the previous routine,src/routines/snes/MusicStart.asm
 $80A297,.t1,CODE_80A297,new,continued in the previous routine,src/routines/snes/CODE_80A26E.asm
 $80A24F,.t1,CODE_80A24F,new,continued in the previous routine,src/routines/snes/CODE_80A200.asm
@@ -3199,7 +3199,7 @@ $80B116,.t2,CODE_80B116,new,continued in the previous routine,src/routines/snes/
 $80B044,.t2,CODE_80B044,new,continued in the previous routine,src/routines/snes/CODE_80B01E.asm
 $80AD89,.t2,CODE_80AD89,new,continued in the previous routine,src/routines/snes/CODE_80AC7B.asm
 $80AD2A,.t2,CODE_80AD2A,new,continued in the previous routine,src/routines/snes/CODE_80ACC2.asm
-$80AC2E,.t2,CODE_80AC2E,new,continued in the previous routine,src/routines/snes/CODE_80ABF7.asm
+$80AC2E,.t2,CODE_80AC2E,new,continued in the previous routine,src/routines/snes/ReleaseVoice.asm
 $80ABB7,.t2,CODE_80ABB7,new,continued in the previous routine,src/routines/snes/CODE_80AB63.asm
 $80AAB9,.t2,CODE_80AAB9,new,continued in the previous routine,src/routines/snes/CODE_80AA7B.asm
 $80AA4F,.t2,CODE_80AA4F,new,continued in the previous routine,src/routines/snes/CODE_80AA48.asm
@@ -3207,10 +3207,10 @@ $80AA2E,.t2,CODE_80AA2E,new,continued in the previous routine,src/routines/snes/
 $80A9EE,.t2,CODE_80A9EE,new,continued in the previous routine,src/routines/snes/CODE_80A9C8.asm
 $80A9A4,.t2,CODE_80A9A4,new,continued in the previous routine,src/routines/snes/CODE_80A965.asm
 $80A8C1,.t2,CODE_80A8C1,new,continued in the previous routine,src/routines/snes/CODE_80A8A8.asm
-$80A881,.t1,CODE_80A881,new,continued in the previous routine,src/routines/snes/CODE_80A86F.asm
+$80A881,.t1,CODE_80A881,new,continued in the previous routine,src/routines/snes/StepTrack.asm
 $80A80C,.t2,CODE_80A80C,new,continued in the previous routine,src/routines/snes/CODE_80A725.asm
 $80A6D7,.t2,CODE_80A6D7,new,continued in the previous routine,src/routines/snes/CODE_80A697.asm
-$80A5DF,.t2,CODE_80A5DF,new,continued in the previous routine,src/routines/snes/CODE_80A58E.asm
+$80A5DF,.t2,CODE_80A5DF,new,continued in the previous routine,src/routines/snes/ReadTrackEvent.asm
 $80A26E,.t1,CODE_80A26E,new,continued in the previous routine,src/routines/snes/CODE_80A200.asm
 $80878B,.t2,CODE_80878B,new,continued in the previous routine,src/routines/snes/CODE_808766.asm
 $808615,.t2,CODE_808615,new,continued in the previous routine,src/routines/snes/WaitNoButtons.asm
@@ -3465,9 +3465,9 @@ $80B161,.t3,CODE_80B161,new,continued in the previous routine,src/routines/snes/
 $80ACC2,.t3,CODE_80ACC2,new,continued in the previous routine,src/routines/snes/CODE_80AC7B.asm
 $80AA7B,.t3,CODE_80AA7B,new,continued in the previous routine,src/routines/snes/CODE_80AA48.asm
 $80AA14,.t3,CODE_80AA14,new,continued in the previous routine,src/routines/snes/CODE_80A9C8.asm
-$80A8A8,.t3,CODE_80A8A8,new,continued in the previous routine,src/routines/snes/CODE_80A86F.asm
+$80A8A8,.t3,CODE_80A8A8,new,continued in the previous routine,src/routines/snes/StepTrack.asm
 $80A725,.t1,CODE_80A725,new,continued in the previous routine,src/routines/snes/CODE_80A697.asm
-$80A603,.t3,CODE_80A603,new,continued in the previous routine,src/routines/snes/CODE_80A58E.asm
+$80A603,.t3,CODE_80A603,new,continued in the previous routine,src/routines/snes/ReadTrackEvent.asm
 $808766,.t3,CODE_808766,new,continued in the previous routine,src/routines/snes/DMAToCGRAM.asm
 $8085CD,.t2,CODE_8085CD,new,continued in the previous routine,src/routines/snes/CODE_8085A3.asm
 $9BC989,.t3,CODE_9BC989,new,continued in the previous routine,src/routines/snes/CODE_9BC7FB.asm
@@ -3915,19 +3915,19 @@ $808E1C,.2,CODE_808E1C,new,continued in the previous routine,src/routines/snes/M
 $80A19D,.1,CODE_80A19D,new,branch target only used in this routine,src/routines/sound/QueueSound.asm
 $80A1A4,.2,CODE_80A1A4,new,branch target only used in this routine,src/routines/sound/QueueSound.asm
 $80A1E9,.3,CODE_80A1E9,new,continued in the previous routine,src/routines/sound/QueueSound.asm
-$80A61A,.1,CODE_80A61A,new,branch target only used in this routine,src/routines/snes/CODE_80A610.asm
-$80A61F,.2,CODE_80A61F,new,branch target only used in this routine,src/routines/snes/CODE_80A610.asm
-$80A643,.3,CODE_80A643,new,branch target only used in this routine,src/routines/snes/CODE_80A610.asm
-$80A67B,.4,CODE_80A67B,new,branch target only used in this routine,src/routines/snes/CODE_80A610.asm
-$80A68E,.5,CODE_80A68E,new,continued in the previous routine,src/routines/snes/CODE_80A610.asm
+$80A61A,.1,CODE_80A61A,new,branch target only used in this routine,src/routines/snes/FindFreeVoice.asm
+$80A61F,.2,CODE_80A61F,new,branch target only used in this routine,src/routines/snes/FindFreeVoice.asm
+$80A643,.3,CODE_80A643,new,branch target only used in this routine,src/routines/snes/FindFreeVoice.asm
+$80A67B,.4,CODE_80A67B,new,branch target only used in this routine,src/routines/snes/FindFreeVoice.asm
+$80A68E,.5,CODE_80A68E,new,continued in the previous routine,src/routines/snes/FindFreeVoice.asm
 $80AA71,.4,CODE_80AA71,new,branch target only used in this routine,src/routines/snes/CODE_80A965.asm
 $80AAEB,.5,CODE_80AAEB,new,branch target only used in this routine,src/routines/snes/CODE_80A965.asm
 $80AAF3,.6,CODE_80AAF3,new,branch target only used in this routine,src/routines/snes/CODE_80A965.asm
 $80AAFE,.7,CODE_80AAFE,new,branch target only used in this routine,src/routines/snes/CODE_80A965.asm
 $80AB06,.8,CODE_80AB06,new,continued in the previous routine,src/routines/snes/CODE_80A965.asm
-$80AC3E,.1,CODE_80AC3E,new,continued in the previous routine,src/routines/snes/CODE_80ABF7.asm
-$80AC40,.2,CODE_80AC40,new,branch target only used in this routine,src/routines/snes/CODE_80ABF7.asm
-$80AC45,.3,CODE_80AC45,new,branch target only used in this routine,src/routines/snes/CODE_80ABF7.asm
+$80AC3E,.1,CODE_80AC3E,new,continued in the previous routine,src/routines/snes/ReleaseVoice.asm
+$80AC40,.2,CODE_80AC40,new,branch target only used in this routine,src/routines/snes/ReleaseVoice.asm
+$80AC45,.3,CODE_80AC45,new,branch target only used in this routine,src/routines/snes/ReleaseVoice.asm
 $80AC7E,.3,CODE_80AC7E,new,branch target only used in this routine,src/routines/snes/CODE_80AC7B.asm
 $80AD4D,.4,CODE_80AD4D,new,branch target only used in this routine,src/routines/snes/CODE_80AC7B.asm
 $80AD55,.5,CODE_80AD55,new,branch target only used in this routine,src/routines/snes/CODE_80AC7B.asm
@@ -4314,8 +4314,8 @@ $80CA05,.3,CODE_80CA05,new,branch target only used in this routine,src/routines/
 $80A256,.1,CODE_80A256,new,branch target only used in this routine,src/routines/snes/CODE_80A200.asm
 $80A28B,.2,CODE_80A28B,new,branch target only used in this routine,src/routines/snes/CODE_80A200.asm
 $80A29E,.3,CODE_80A29E,new,branch target only used in this routine,src/routines/snes/CODE_80A200.asm
-$80A546,.1,CODE_80A546,new,branch target only used in this routine,src/routines/snes/CODE_80A51C.asm
-$80A60F,.2,CODE_80A60F,new,branch target only used in this routine,src/routines/snes/CODE_80A58E.asm
+$80A546,.1,CODE_80A546,new,branch target only used in this routine,src/routines/snes/UpdateVoice.asm
+$80A60F,.2,CODE_80A60F,new,branch target only used in this routine,src/routines/snes/ReadTrackEvent.asm
 $80A6D9,.4,CODE_80A6D9,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
 $80A6EF,.5,CODE_80A6EF,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
 $80A728,.6,CODE_80A728,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
@@ -4325,7 +4325,7 @@ $80A840,.9,CODE_80A840,new,branch target only used in this routine,src/routines/
 $80A8F3,.2,CODE_80A8F3,new,branch target only used in this routine,src/routines/snes/CODE_80A8D4.asm
 $80AB4E,.3,CODE_80AB4E,new,branch target only used in this routine,src/routines/snes/CODE_80A965.asm
 $80AB51,.4,CODE_80AB51,new,branch target only used in this routine,src/routines/snes/CODE_80A965.asm
-$80AE77,.1,CODE_80AE77,new,branch target only used in this routine,src/routines/snes/CODE_80ADE9.asm
+$80AE77,.1,CODE_80AE77,new,branch target only used in this routine,src/routines/snes/SeqCmd08.asm
 $80B1FD,.2,CODE_80B1FD,new,branch target only used in this routine,src/routines/snes/CODE_80B1A7.asm
 $80B256,.3,CODE_80B256,new,branch target only used in this routine,src/routines/snes/CODE_80B1A7.asm
 $80B26F,.4,CODE_80B26F,new,branch target only used in this routine,src/routines/snes/CODE_80B1A7.asm
@@ -4665,7 +4665,7 @@ $808B96,.4,CODE_808B96,new,continued in the previous routine,src/routines/snes/M
 $808CBF,.5,CODE_808CBF,new,continued in the previous routine,src/routines/snes/MapPartToVRAM.asm
 $808DB3,.3,CODE_808DB3,new,continued in the previous routine,src/routines/snes/Mode7MapToVRAM.asm
 $80AB0B,.9,CODE_80AB0B,new,continued in the previous routine,src/routines/snes/CODE_80A965.asm
-$80AC46,.4,CODE_80AC46,new,continued in the previous routine,src/routines/snes/CODE_80ABF7.asm
+$80AC46,.4,CODE_80AC46,new,continued in the previous routine,src/routines/snes/ReleaseVoice.asm
 $80B56E,.5,CODE_80B56E,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
 $80B863,.3,CODE_80B863,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
 $80C1B8,.1,CODE_80C1B8,new,branch target only used in this routine,src/routines/snes/CODE_80C1B0.asm
@@ -4822,3 +4822,20 @@ $8083DD,NMI_Tick,CODE_8083DD,new,nMI: the frame counters and the fade step,src/r
 $808507,IRQOff,CODE_808507,new,"turn the IRQ off, the NMI and pad reading on",src/routines/snes/IRQOff.asm
 $808520,SetIRQ,CODE_808520,new,turn on an IRQ at line Y with the routine at X:A,src/routines/snes/SetIRQ.asm
 $8085FF,WaitNoButtons,CODE_8085FF,new,wait until no button is held on pad 1,src/routines/snes/WaitNoButtons.asm
+$80A44A,SeqCmd0C,CODE_80A44A,new,"sequencer: sound driver command $0C (A = $5B, Y)",src/routines/snes/SeqCmd0C.asm
+$80A4FD,SeqCmd0B,CODE_80A4FD,new,"sequencer: sound driver command $0B (word $60, Y)",src/routines/snes/SeqCmd0C0B.asm
+$80A4E3,SeqCmd0C0B,CODE_80A4E3,new,"sequencer: sound driver command $0C, then $0B",src/routines/snes/SeqCmd0C0B.asm
+$80A465,SeqCmd07,CODE_80A465,new,sequencer: sound driver command $07 with the instrument data that follows,src/routines/snes/SeqCmd07.asm
+$80ADE9,SeqCmd08,CODE_80ADE9,new,"sequencer: sound driver command $08 with the values $07F8, $07E7-$07E9",src/routines/snes/SeqCmd08.asm
+$80A3F5,SeqCmd08Init,CODE_80A3F5,new,"sequencer: clear the command $08 values, then send command $08",src/routines/snes/SeqCmd08Init.asm
+$80A568,ReadVarLen,CODE_80A568,new,"read a variable length number (7 bits a byte, top bit = more) from the track at [$56]",src/routines/snes/ReadVarLen.asm
+$80A58E,ReadTrackEvent,CODE_80A58E,new,read the next event of the track at $4C,src/routines/snes/ReadTrackEvent.asm
+$80A86F,StepTrack,CODE_80A86F,new,"track X: count down its wait, or play its events until the next wait",src/routines/snes/StepTrack.asm
+$80AC4A,SequencerTick,CODE_80AC4A,new,advance the tempo: update the voices and step every track,src/routines/snes/SequencerTick.asm
+$80A549,UpdateVoices,CODE_80A549,new,update each active voice,src/routines/snes/UpdateVoices.asm
+$80A51C,UpdateVoice,CODE_80A51C,new,update voice Y: release it when its sound has ended,src/routines/snes/UpdateVoice.asm
+$80A610,FindFreeVoice,CODE_80A610,new,"find a free voice, starting after the last one used",src/routines/snes/FindFreeVoice.asm
+$80A2A8,StopSound,CODE_80A2A8,new,stop every voice that plays sound A,src/routines/snes/StopSound.asm
+$80ABC7,StopVoice,CODE_80ABC7,new,stop voice Y,src/routines/snes/StopVoice.asm
+$80ABF7,ReleaseVoice,CODE_80ABF7,new,put voice Y into its release,src/routines/snes/ReleaseVoice.asm
+$80A3D8,ClearTracks,CODE_80A3D8,new,clear the track pointers and waits of tracks Y up to X,src/routines/snes/ClearTracks.asm

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A568:
+; Read a variable length number (7 bits a byte, top bit = more) from the track at [$56]
+ReadVarLen:
 	lda.b [$56]
 	inc.b $56
 	tax

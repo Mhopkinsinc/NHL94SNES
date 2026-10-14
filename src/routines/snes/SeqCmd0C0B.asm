@@ -1,7 +1,7 @@
-; Unidentified routine.
-CODE_80A4E3:
+; Sequencer: sound driver command $0C, then $0B
+SeqCmd0C0B:
 	lda.w APUIO0
-	bne CODE_80A4E3
+	bne SeqCmd0C0B
 	lda.b $5B
 	sta.w APUIO2
 	sty.w APUIO1
@@ -11,9 +11,9 @@ CODE_80A4E3:
 	cmp.w APUIO0
 	bne .loop
 	stz.w APUIO0
-CODE_80A4FD:
+SeqCmd0B:
 	lda.w APUIO0
-	bne CODE_80A4FD
+	bne SeqCmd0B
 	rep #$20
 	lda.b $60
 	sta.w APUIO2

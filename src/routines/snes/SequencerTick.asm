@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80AC4A:
+; Advance the tempo: update the voices and step every track
+SequencerTick:
 	lda.w $07F5
 	clc
 	adc.b #$40
@@ -7,14 +7,14 @@ CODE_80AC4A:
 	sta.w $07F5
 	cmp.w $07F6
 	bcc .t1
-	jsr.w CODE_80A549
+	jsr.w UpdateVoices
 	lda.w $07F1
 	bne .1
 	ldx.w $0801
 	beq .t1
 	dex
 .loop2:
-	jsr.w CODE_80A86F
+	jsr.w StepTrack
 	lda.w MusicOn
 	beq .t1
 	dex

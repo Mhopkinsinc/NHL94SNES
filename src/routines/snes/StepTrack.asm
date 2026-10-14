@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A86F:
+; Track X: count down its wait, or play its events until the next wait
+StepTrack:
 	txa
 	sta.b $4A
 	asl a
@@ -15,7 +15,7 @@ CODE_80A877:
 	lda.w $0804,x
 	sta.b $4C
 CODE_80A886:
-	jsr.w CODE_80A58E
+	jsr.w ReadTrackEvent
 	lda.b $56
 	sta.b $4C
 	ldx.w $07FF

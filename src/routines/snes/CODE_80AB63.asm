@@ -37,7 +37,7 @@ CODE_80AB63:
 	rep #$20
 	jsr.w CODE_80A697
 CODE_80ABA5:
-	jsr.w CODE_80A568
+	jsr.w ReadVarLen
 	ldx.w $07FF
 	cmp.w #$0000
 	bne .t2

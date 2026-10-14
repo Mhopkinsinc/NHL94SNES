@@ -88,7 +88,7 @@ CODE_80A226:
 	lda.w $092A,x
 	cmp.b $4E
 	bne .t1xx
-	jsr.w CODE_80ABF7
+	jsr.w ReleaseVoice
 	bra .3
 
 .t1xx:

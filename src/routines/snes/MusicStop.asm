@@ -14,7 +14,7 @@ MusicStop:		; stop the song: release its voices and clear its tracks
 	bcs .1
 	lda.w $08F2,y
 	beq .1
-	jsr.w CODE_80ABC7
+	jsr.w StopVoice
 .1:
 	dex
 	dex
@@ -22,7 +22,7 @@ MusicStop:		; stop the song: release its voices and clear its tracks
 	bpl .loop
 	ldy.b #$00
 	ldx.b #$10
-	jsr.w CODE_80A3D8
+	jsr.w ClearTracks
 	stz.w SoundLock
 	plp
 	rtl

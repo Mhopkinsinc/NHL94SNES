@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80ABF7:
+; Put voice Y into its release
+ReleaseVoice:
 	sep #$20
 	lda.w $08F2,y
 	beq .3
@@ -43,9 +43,9 @@ CODE_80ABF7:
 	lda.b #$81
 .2:
 	sta.b $5B
-	jsr.w CODE_80A44A
+	jsr.w SeqCmd0C
 .3:
 	rts
 .4:
-	jsr.w CODE_80ABC7
+	jsr.w StopVoice
 	rts

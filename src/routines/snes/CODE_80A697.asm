@@ -15,7 +15,7 @@ CODE_80A697:
 	beq .3
 .2:
 	sep #$30
-	jsr.w CODE_80A610
+	jsr.w FindFreeVoice
 	stx.b $4B
 	txa
 	bpl .t1
@@ -236,7 +236,7 @@ CODE_80A697:
 	sta.w $0CAF
 .1xxx:
 	sep #$20
-	jsr.w CODE_80A465
+	jsr.w SeqCmd07
 	tya
 	plp
 	rts

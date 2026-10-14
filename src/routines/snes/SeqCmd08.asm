@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80ADE9:
+; Sequencer: sound driver command $08 with the values $07F8, $07E7-$07E9
+SeqCmd08:
 	php
 	sep #$30
 .loop:

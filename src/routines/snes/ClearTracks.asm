@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A3D8:
+; Clear the track pointers and waits of tracks Y up to X
+ClearTracks:
 	php
 	sep #$30
 	stx.b $52

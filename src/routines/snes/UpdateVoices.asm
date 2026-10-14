@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A549:
+; Update each active voice
+UpdateVoices:
 	ldx.b #$00
 	txy
 .loop:
@@ -10,7 +10,7 @@ CODE_80A549:
 	lda.w $08FA,y
 	cmp.b #$10
 	bcs .1
-	jsr.w CODE_80A51C
+	jsr.w UpdateVoice
 .1:
 	inx
 	inx

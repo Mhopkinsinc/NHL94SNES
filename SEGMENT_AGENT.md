@@ -676,3 +676,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - wallcoll and the RAM Wallcos / Wallsin from 93S. MATCH.
 - VRAM and map helpers named from what they do (PasteMap, MapToVRAM, FillVRAM, QueueVRAMDMA ...). MATCH.
 - NMI and IRQ helpers named from what they do (NMI_SendOAM, NMI_Tick, SetFrameHook, ClearFrameHook, ClearNMIHook, SetIRQ, IRQOff, WaitNoButtons). MATCH.
+- Sound sequencer routines and its command senders named from what they do. Vault labels are a last resort; these names come from the code. MATCH.

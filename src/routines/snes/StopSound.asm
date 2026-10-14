@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A2A8:
+; Stop every voice that plays sound A
+StopSound:
 	phx
 	phy
 	phb
@@ -24,7 +24,7 @@ CODE_80A2A8:
 	lda.w $092A,x
 	cmp.b $4E
 	bne .1
-	jsr.w CODE_80ABC7
+	jsr.w StopVoice
 .1:
 	inx
 	inx

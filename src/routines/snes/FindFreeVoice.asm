@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A610:
+; Find a free voice, starting after the last one used
+FindFreeVoice:
 	lda.b $66
 	inc a
 	and.b #$07
@@ -65,7 +65,7 @@ CODE_80A610:
 	bne .3
 	ldx.b $4B
 	txy
-	jmp.w CODE_80A44A
+	jmp.w SeqCmd0C
 .5:
 	lda.b ($4E)
 	and.l ByteBitMasks,x

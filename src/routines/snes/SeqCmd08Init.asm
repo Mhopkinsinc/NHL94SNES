@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A3F5:
+; Sequencer: clear the command $08 values, then send command $08
+SeqCmd08Init:
 	jsl.l SPCCmd0D
 	sep #$30
 	lda.b #$00

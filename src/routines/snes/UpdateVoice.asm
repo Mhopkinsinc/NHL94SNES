@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A51C:
+; Update voice Y: release it when its sound has ended
+UpdateVoice:
 	rep #$20
 	lda.w $091A,x
 	bmi .1
@@ -16,7 +16,7 @@ CODE_80A51C:
 	cmp.b #$00
 	bne .rts
 	rep #$20
-	jsr.w CODE_80ABF7
+	jsr.w ReleaseVoice
 	sep #$20
 .rts:
 	rts

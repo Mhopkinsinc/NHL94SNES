@@ -18,14 +18,14 @@ SoundInit:		; silence everything and reset the player; SoundVolume = $5000
 	sep #$10
 	ldy.b #$00
 	ldx.b #$11
-	jsr.w CODE_80A3D8
+	jsr.w ClearTracks
 	ldy.b #$F6
 .loop2:
 	dex
 	bne .loop2
 	dey
 	bne .loop2
-	jsr.w CODE_80A3F5
+	jsr.w SeqCmd08Init
 	lda.b #$12
 	sta.w $07F6
 	stz.w SoundLock
