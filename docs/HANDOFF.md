@@ -94,6 +94,7 @@
 - `demoread` (93S body plus a mode 4 check; was unsure), `startpause` and `startpause1` (93S; first named SetPauseMode / PauseFromPad1 from behavior).
 - `holdplayer` (93S job and doinput slot; falls into `Acheck`).
 - `setpassmode` (the 93S doinput .setpassmode block as a routine); equate `sfspdir`.
+- Cross-file entry labels inside named screens: the page loops of the other scores, scoring and penalty summaries, `SendGameStatsPage`, the pause, password, StartGame and TeamRoster re-entry points (each named for where it sits and who jumps there).
 
 ## Unsure
 

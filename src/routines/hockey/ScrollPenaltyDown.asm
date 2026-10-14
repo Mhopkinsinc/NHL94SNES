@@ -9,7 +9,7 @@ ScrollPenaltyDown:
 	clc
 	adc.w #$0005
 	cmp.w $1DC1
-	bpl CODE_9B9822
+	bpl PenaltySummaryWait
 	sec
 	sbc.w #$0004
 	sta.w $1DBD
@@ -29,4 +29,4 @@ ScrollPenaltyDown:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	bra CODE_9B9808
+	bra PenaltySummaryLoop

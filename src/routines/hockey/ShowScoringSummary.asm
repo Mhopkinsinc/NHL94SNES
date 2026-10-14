@@ -67,7 +67,7 @@ ShowScoringSummary:
 	lda.w #$0005
 	sta.w $1DC5
 	jsr.w DrawScoringPage
-CODE_9B94A5:
+ScoringSummaryLoop:
 	jsl.l ReadPausePad
 	lda.b d3
 	bit.w #$1000
@@ -79,6 +79,6 @@ CODE_9B94A5:
 	bne ScrollScoringUp
 	bit.w #$0400
 	bne ScrollScoringDown
-CODE_9B94BB:
+ScoringSummaryWait:
 	jsl.l WaitFrame
-	bra CODE_9B94A5
+	bra ScoringSummaryLoop

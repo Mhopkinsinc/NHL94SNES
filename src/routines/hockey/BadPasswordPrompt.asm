@@ -2,7 +2,7 @@
 BadPasswordPrompt:
 	jsl.l DecodePW
 	lda.l $7E34D0
-	bpl CODE_9BCAF7
+	bpl PasswordCursorRtl
 .loop:
 	lda.w JoyPad
 	bit.w #$4000
@@ -94,7 +94,7 @@ BadPasswordPrompt:
 	jsr.w PrintPasswordHelp
 	jsl.l QueueTextDMA
 	jsl.l WaitNoButtons
-	jmp.w CODE_9BC946
+	jmp.w PasswordRedraw
 
 .t1:
 	lda.w #$0002

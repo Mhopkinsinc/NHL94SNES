@@ -25,4 +25,4 @@ GameOver:
 	jmp.w StartGame
 
 .t1x:
-	jml.l CODE_9F8334
+	jml.l StartGame_scout

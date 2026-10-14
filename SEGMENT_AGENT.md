@@ -738,3 +738,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - demoread, startpause, startpause1. MATCH.
 - holdplayer. MATCH.
 - setpassmode, sfspdir. MATCH.
+- Screen re-entry labels. MATCH.

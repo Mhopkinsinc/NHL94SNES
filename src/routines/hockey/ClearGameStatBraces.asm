@@ -28,7 +28,7 @@ ClearGameStatBraces:
 	jsl.l PrintToStatsPage
 	rts
 
-CODE_9C8F7D:
+SendGameStatsPage:
 	lda.w $1DBD
 	xba
 	lsr a

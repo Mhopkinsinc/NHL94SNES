@@ -4,14 +4,14 @@ ScrollOtherScoresUp:
 	lda.w $1DBD
 	dec a
 	bpl .t2
-	jmp.w CODE_9BC2E4
+	jmp.w OtherScoresNext
 
 .t2:
 	cmp.l $7E35D6
 	bne .1
 	cmp.w #$0000
 	bne .t1
-	jmp.w CODE_9BC2E4
+	jmp.w OtherScoresNext
 
 .t1:
 	dec a
@@ -38,4 +38,4 @@ ScrollOtherScoresUp:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w CODE_9BC2C9
+	jmp.w OtherScoresLoop

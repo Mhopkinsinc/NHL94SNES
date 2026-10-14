@@ -1,10 +1,10 @@
 ; Reset the game state for a new game, then start the first period
 StartGame:
 	jsl.l PlayoffScreen
-CODE_9F8334:
+StartGame_scout:
 	jsl.l Create_HotCold_Table
 	jsl.l ScoutingReport
-CODE_9F833C:
+StartGame_go:
 	lda.w #$FFFF
 	sta.w $07C6
 	jsl.l FadeOut

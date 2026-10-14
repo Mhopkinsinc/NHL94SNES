@@ -15,4 +15,4 @@ SwapRosterTeam:
 	sta.b a1
 	jsl.l PrintLetterSprites
 	jsl.l DrawMatchupPictures
-	jmp.w CODE_9D9DE2
+	jmp.w TeamRosterRedraw

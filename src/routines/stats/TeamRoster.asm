@@ -72,7 +72,7 @@ TeamRoster:
 	lda.w #$0003
 	sta.b d1
 	jsl.l CODE_9D80DD
-CODE_9D9DE2:
+TeamRosterRedraw:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -103,7 +103,7 @@ CODE_9D9DE2:
 	sta.l $7F7542
 	jsl.l SendColours
 	jsl.l ShowRosterLine
-CODE_9D9E2D:
+TeamRosterLoop:
 	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads
@@ -130,16 +130,16 @@ CODE_9D9E2D:
 	inc.b d0
 	inc.b d0
 	bit.w #$0400
-	beq CODE_9D9E86
+	beq TeamRosterShowLine
 .1:
 	lda.b d0
 	clc
 	adc.w SelectedPlayerIdx
 	sta.b d0
-	bmi CODE_9D9E86
+	bmi TeamRosterShowLine
 	cmp.w #$0008
-	bcs CODE_9D9E86
+	bcs TeamRosterShowLine
 	sta.w SelectedPlayerIdx
 	jsl.l ShowRosterLine
-CODE_9D9E86:
-	jmp.w CODE_9D9E2D
+TeamRosterShowLine:
+	jmp.w TeamRosterLoop

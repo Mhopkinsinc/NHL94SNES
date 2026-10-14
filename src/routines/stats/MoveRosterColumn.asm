@@ -4,7 +4,7 @@ MoveRosterColumn:
 	clc
 	adc.w $0D47
 	sta.b d0
-	bmi CODE_9D9E86
+	bmi TeamRosterShowLine
 	sta.w $0D47
 	jsl.l ShowRosterLine
-	bra CODE_9D9E86
+	bra TeamRosterShowLine

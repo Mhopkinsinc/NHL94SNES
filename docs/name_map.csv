@@ -5733,3 +5733,19 @@ $9EBF11,SeatPenaltyBox,CODE_9EBF11,new,Behavior: not in a shootout; called from 
 $9F967B,demoread,CODE_9F967B,93S,"Contains the 93S demoread body (no controller sides: Readjoy1, Start to startpause1, another button ends the demo); Gameloop calls it after DoGameFrame where 93S Gameloop calls demoread. Was on the unsure list because of the added mode 4 check",src/routines/hockey/demoread.asm
 $9EA24C,holdplayer,CODE_9EA24C,93S,"The 93S holdplayer job (choose the player to hold, then Acheck); doinput dispatches it from its button table as 93S doinput does; 93S picks the last player who hit X instead",src/routines/logic/holdplayer.asm
 $9EE6D2,setpassmode,CODE_9EE6D2,93S,"The 93S doinput .setpassmode block (the goalie test, |x| < 16 and |y| $108-$10F, passdir = facedir, sfspdir) as its own routine; doinput jumps to it",src/routines/logic/setpassmode.asm
+$9C8F7D,SendGameStatsPage,CODE_9C8F7D,new,game stats: send the visible rows of the stats page buffer (scroll $1DBD) to VRAM; MarkGameStatRows and the scroll routines call it,src/routines/hockey/ClearGameStatBraces.asm
+$9BC2C9,OtherScoresLoop,CODE_9BC2C9,new,ShowOtherScores: draw the page and read the keys; the scroll routines come back here,src/routines/hockey/ShowOtherScores.asm
+$9BC2E4,OtherScoresNext,CODE_9BC2E4,new,ShowOtherScores: after the up / down tests (the scroll routines also return here),src/routines/hockey/ShowOtherScores.asm
+$9B9808,PenaltySummaryLoop,CODE_9B9808,new,ShowPenaltySummary: draw the page and read the keys; the scroll routines come back here,src/routines/hockey/ShowPenaltySummary.asm
+$9B9822,PenaltySummaryWait,CODE_9B9822,new,"ShowPenaltySummary: no key, wait a frame and loop",src/routines/hockey/ShowPenaltySummary.asm
+$9B94A5,ScoringSummaryLoop,CODE_9B94A5,new,ShowScoringSummary: draw the page and read the keys; the scroll routines come back here,src/routines/hockey/ShowScoringSummary.asm
+$9B94BB,ScoringSummaryWait,CODE_9B94BB,new,"ShowScoringSummary: no key, wait a frame and loop",src/routines/hockey/ShowScoringSummary.asm
+$9FE73D,PauseResumeRtl,CODE_9FE73D,new,PauseResume: A = 0 and rtl; PauseMenu leaves through it on Start,src/routines/hockey/PauseResume.asm
+$9FE42E,PauseDefStore,CODE_9FE42E,new,PauseDefControl: store the new setting ($1C94) and back to PauseMenuPoll; PauseTimeout shares it,src/routines/hockey/PauseDefControl.asm
+$9BC946,PasswordRedraw,CODE_9BC946,new,PasswordScreen: print the key help and the password again; BadPasswordPrompt comes back here,src/routines/hockey/PasswordScreen.asm
+$9BCAF7,PasswordCursorRtl,CODE_9BCAF7,new,"PlacePasswordCursor: the end (d1, rtl); BadPasswordPrompt jumps here",src/routines/hockey/PlacePasswordCursor.asm
+$9F8334,StartGame_scout,CODE_9F8334,new,StartGame after the playoff screen: Create_HotCold_Table and ScoutingReport; GameOver enters here,src/routines/hockey/StartGame.asm
+$9F833C,StartGame_go,CODE_9F833C,new,StartGame after the scouting report: fade out and set the game up; PlayShootout enters here,src/routines/hockey/StartGame.asm
+$9D9DE2,TeamRosterRedraw,CODE_9D9DE2,new,TeamRoster: redraw the screen; SwapRosterTeam comes back here,src/routines/stats/TeamRoster.asm
+$9D9E2D,TeamRosterLoop,CODE_9D9E2D,new,TeamRoster: the key loop,src/routines/stats/TeamRoster.asm
+$9D9E86,TeamRosterShowLine,CODE_9D9E86,new,"TeamRoster: ShowRosterLine, then the loop; MoveRosterColumn comes back here",src/routines/stats/TeamRoster.asm

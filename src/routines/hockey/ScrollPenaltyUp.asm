@@ -2,7 +2,7 @@
 ScrollPenaltyUp:
 	lda.w $1DBD
 	dec a
-	bmi CODE_9B9822
+	bmi PenaltySummaryWait
 	sta.w $1DBD
 	lda.w #$0006
 	sta.w $1DC5
@@ -26,4 +26,4 @@ ScrollPenaltyUp:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w CODE_9B9808
+	jmp.w PenaltySummaryLoop

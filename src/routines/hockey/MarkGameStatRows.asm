@@ -35,7 +35,7 @@ MarkGameStatRows:
 	sta.b a1
 	jsl.l PrintToStatsPage
 .2:
-	jsr.w CODE_9C8F7D
+	jsr.w SendGameStatsPage
 	jsl.l WaitFrame
 	jmp.w GameStatsInput
 ; The rtl the game stats screen leaves through

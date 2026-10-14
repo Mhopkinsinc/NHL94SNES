@@ -30,5 +30,5 @@ PlacePasswordCursor:
 	lda.w #$0003
 	sta.b d0
 	sta.b d1
-CODE_9BCAF7:
+PasswordCursorRtl:
 	rtl

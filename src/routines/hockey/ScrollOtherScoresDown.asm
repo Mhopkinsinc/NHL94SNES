@@ -13,7 +13,7 @@ ScrollOtherScoresDown:
 	adc.w $1DE9
 	cmp.w $1DC1
 	bmi .t2
-	jmp.w CODE_9BC2E4
+	jmp.w OtherScoresNext
 
 .t2:
 	sec
@@ -29,7 +29,7 @@ ScrollOtherScoresDown:
 	adc.w $1DE9
 	cmp.w $1DC1
 	bmi .t1
-	jmp.w CODE_9BC2E4
+	jmp.w OtherScoresNext
 
 .t1:
 	sec
@@ -53,4 +53,4 @@ ScrollOtherScoresDown:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w CODE_9BC2C9
+	jmp.w OtherScoresLoop

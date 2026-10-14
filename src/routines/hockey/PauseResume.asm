@@ -2,9 +2,9 @@
 PauseResume:
 	lda.b d1
 	bit.w #$9080
-	bne CODE_9FE73D
+	bne PauseResumeRtl
 	jmp.w PauseMenuPoll
 
-CODE_9FE73D:
+PauseResumeRtl:
 	lda.w #$0000
 	rtl

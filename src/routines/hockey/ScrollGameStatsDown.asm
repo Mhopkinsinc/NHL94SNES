@@ -10,7 +10,7 @@ ScrollGameStatsDown:
 
 .t2:
 	inc.w $1DC5
-	jsr.w CODE_9C8F7D
+	jsr.w SendGameStatsPage
 	dec.w $1DC5
 	jsl.l WaitFrame
 	inc.w $1DBD
@@ -23,7 +23,7 @@ ScrollGameStatsDown:
 	lda.w $1DF3
 	cmp.w #$000D
 	bne .loop
-	jsr.w CODE_9C8F7D
+	jsr.w SendGameStatsPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3

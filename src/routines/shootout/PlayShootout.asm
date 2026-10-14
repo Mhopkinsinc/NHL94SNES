@@ -12,7 +12,7 @@ PlayShootout:
 	lda.w #$0002
 	sta.b a2
 	jsl.l InitShooters
-	jsl.l CODE_9F833C
+	jsl.l StartGame_go
 	jsl.l StartPer
 	jsl.l Pausemode
 	lda.w #$0001

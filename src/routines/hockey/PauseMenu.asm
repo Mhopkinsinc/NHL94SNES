@@ -64,7 +64,7 @@ PauseMenuPoll:
 	lda.b d3
 	bit.w #$1000
 	beq .t3
-	jmp.w CODE_9FE73D
+	jmp.w PauseResumeRtl
 
 .t3:
 	lda.b d1

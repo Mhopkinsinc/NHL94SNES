@@ -56,7 +56,7 @@ ShowPenaltySummary:
 	lda.w #$0005
 	sta.w $1DC5
 	jsr.w DrawPenaltyPage
-CODE_9B9808:
+PenaltySummaryLoop:
 	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d3
@@ -69,6 +69,6 @@ CODE_9B9808:
 	bne ScrollPenaltyUp
 	bit.w #$0400
 	bne ScrollPenaltyDown
-CODE_9B9822:
+PenaltySummaryWait:
 	jsl.l WaitFrame
-	bra CODE_9B9808
+	bra PenaltySummaryLoop

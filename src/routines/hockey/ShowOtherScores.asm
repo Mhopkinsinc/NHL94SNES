@@ -37,7 +37,7 @@ ShowOtherScores:
 	lda.w #$0005
 	sta.w $1DC5
 	jsl.l DrawOtherScoresPage
-CODE_9BC2C9:
+OtherScoresLoop:
 	jsl.l ReadPausePad
 	lda.b d3
 	bit.w #$1000
@@ -53,7 +53,7 @@ CODE_9BC2C9:
 .t1:
 	bit.w #$0400
 	bne ScrollOtherScoresDown
-CODE_9BC2E4:
+OtherScoresNext:
 	lda.w $1DBD
 	beq .3
 	dec a
@@ -104,4 +104,4 @@ CODE_9BC2E4:
 .4:
 	jsl.l DrawOtherScoresPage
 	jsl.l WaitFrame
-	jmp.w CODE_9BC2C9
+	jmp.w OtherScoresLoop

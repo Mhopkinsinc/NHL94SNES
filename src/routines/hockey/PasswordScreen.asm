@@ -128,7 +128,7 @@ PasswordScreen:
 	jsl.l print
 	lda.w #$000A
 	sta.w fadestep
-CODE_9BC946:
+PasswordRedraw:
 	jsr.w PrintPasswordHelp
 .1:
 	lda.b $8F

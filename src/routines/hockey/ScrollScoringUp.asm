@@ -2,7 +2,7 @@
 ScrollScoringUp:
 	lda.w $1DBD
 	dec a
-	bmi CODE_9B94BB
+	bmi ScoringSummaryWait
 	sta.w $1DBD
 	lda.w #$0006
 	sta.w $1DC5
@@ -26,4 +26,4 @@ ScrollScoringUp:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w CODE_9B94A5
+	jmp.w ScoringSummaryLoop

@@ -2,7 +2,7 @@
 PauseTimeout:
 	lda.b d1
 	bit.w #$8080
-	beq CODE_9FE42E
+	beq PauseDefStore
 	jsl.l GetPadTeam
 	ldy.b a2
 	lda.w $17E2,y
