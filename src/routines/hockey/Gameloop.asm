@@ -75,13 +75,13 @@ Gameloop:
 	sta.w $1634
 	bcs .2x
 	dec.w gameclock
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$FFFD
 	bmi .1x
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .1x:
-	jsl.l CODE_9B9BF8
+	jsl.l CheckCrowdMeter
 .2x:
 	dex
 	bne .loop

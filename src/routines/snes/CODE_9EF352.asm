@@ -108,21 +108,21 @@ Goal:
 	asl a
 	asl a
 	tax
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$001E
 	bmi .1
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .1:
 	lda.b a2
 	beq .2
 	inx
 	inx
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$FFCE
 	bmi .2
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .2:
 	lda.w $177E,x
 	inc a

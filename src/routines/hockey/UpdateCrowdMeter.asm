@@ -1,13 +1,13 @@
-; Unidentified routine.
-CODE_9B9BA5:
+; d0 = the crowd meter: sroot(CwdExciteLvl * 4) + 65, at most 128; keeps CrowdPeak and the running average $19C6
+UpdateCrowdMeter:
 	phx
 	phy
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	asl a
 	asl a
 	stz.b $A7
 	sta.b d0
-	jsl.l CODE_9BB3BE
+	jsl.l sroot
 	lda.b d0
 	clc
 	adc.w #$0041
@@ -16,9 +16,9 @@ CODE_9B9BA5:
 	lda.w #$0080
 .1:
 	sta.b d0
-	cmp.w $19C4
+	cmp.w CrowdPeak
 	bmi .2
-	sta.w $19C4
+	sta.w CrowdPeak
 .2:
 	lda.w $19CA
 	clc

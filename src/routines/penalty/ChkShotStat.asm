@@ -144,10 +144,10 @@ ChkShotStat:
 	sta.b $8F
 	pla
 	sta.b a1
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$000A
 	bmi .7
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .7:
 	rtl

@@ -190,7 +190,7 @@ ShowCrowdMeter:
 	sta.w printx
 	lda.w #$0011
 	sta.w printy
-	lda.w $19C2
+	lda.w CurCrowdMeter
 	sta.b d0
 	lda.w #$0004
 	sta.b d1
@@ -259,7 +259,7 @@ ShowCrowdMeter:
 	sta.w printx
 	lda.w #$0013
 	sta.w printy
-	lda.w $19C4
+	lda.w CrowdPeak
 	sta.b d0
 	lda.w #$0004
 	sta.b d1
@@ -343,11 +343,11 @@ ShowCrowdMeter:
 	bra .5
 
 .t1xxxx:
-	lda.w $19C4
+	lda.w CrowdPeak
 	bra .5
 
 .t2x:
-	lda.w $19C2
+	lda.w CurCrowdMeter
 .5:
 	jsl.l .8
 	rtl

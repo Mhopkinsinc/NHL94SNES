@@ -14,7 +14,7 @@ StartPer:
 	jsl.l forceblack
 	jsl.l CODE_9FB8B4
 	jsl.l ResetClock
-	jsl.l CODE_9B9B6B
+	jsl.l InitCrowdExcite
 	lda.w $1EBB
 	beq .4
 	lda.w #$FFFF

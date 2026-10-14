@@ -92,11 +92,11 @@ puckgoalie:
 	cmp.w #$D000
 	bpl .5
 .1x:
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$000A
 	bmi .2x
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .2x:
 	ldy.b a2
 	lda.w pfteam,y

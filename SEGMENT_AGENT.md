@@ -709,3 +709,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Line editor routines; Div16S_divneg wrong-bank jsr fixed. MATCH.
 - Pad RAM and helpers. MATCH.
 - Stats page helpers. MATCH.
+- Crowd meter routines and RAM. MATCH.

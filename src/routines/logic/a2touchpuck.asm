@@ -31,11 +31,11 @@ a2touchpuck:
 	sta.w tmflags,y
 	cpy.w #$0000
 	bne .3
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$000A
 	bmi .2
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .2:
 	bra .3
 

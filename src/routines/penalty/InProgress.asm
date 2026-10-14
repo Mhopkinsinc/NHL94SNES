@@ -96,11 +96,11 @@ InProgress:
 	stz.b a1
 	lda.w #$0002
 	sta.b a2
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$0014
 	bmi .1x
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .1x:
 	ldy.b a2
 	lda.w $174A,y

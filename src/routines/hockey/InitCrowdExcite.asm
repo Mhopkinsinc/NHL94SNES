@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9B6B:
+; At a period start (not overtime): CwdExciteLvl = $10 per playoff stage (0 outside the playoffs)
+InitCrowdExcite:
 	lda.w gsp
 	cmp.w #$0003
 	beq .rtl
@@ -24,6 +24,6 @@ CODE_9B9B6B:
 	asl a
 	asl a
 	asl a
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .rtl:
 	rtl

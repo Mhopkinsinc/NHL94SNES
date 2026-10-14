@@ -391,11 +391,11 @@ assgoalie:
 	jsl.l SetSPAFromA
 	lda.w #$0168
 	sta.w $0BEB,x
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$000A
 	bmi .1xxxxxx
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .1xxxxxx:
 	lda.w #$0096
 	sta.w pfalock,x

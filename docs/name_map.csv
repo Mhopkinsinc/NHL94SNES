@@ -1531,8 +1531,8 @@ $9EA3CA,.1,CODE_9EA3CA,new,branch target only used in this routine,src/routines/
 $9FDBEB,.1,CODE_9FDBEB,new,branch target only used in this routine,src/routines/logic/chk4lc.asm
 $9FDC09,.2,CODE_9FDC09,new,branch target only used in this routine,src/routines/logic/chk4lc.asm
 $9FDC25,.3,CODE_9FDC25,new,branch target only used in this routine,src/routines/logic/chk4lc.asm
-$9B9B9B,.1,CODE_9B9B9B,new,branch target only used in this routine,src/routines/snes/CODE_9B9B6B.asm
-$9B9BA4,.rtl,CODE_9B9BA4,new,branch target only used in this routine,src/routines/snes/CODE_9B9B6B.asm
+$9B9B9B,.1,CODE_9B9B9B,new,branch target only used in this routine,src/routines/hockey/InitCrowdExcite.asm
+$9B9BA4,.rtl,CODE_9B9BA4,new,branch target only used in this routine,src/routines/hockey/InitCrowdExcite.asm
 $80C13E,.1,CODE_80C13E,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
 $80AEF6,.1,CODE_80AEF6,new,branch target only used in this routine,src/routines/snes/InitSprites.asm
 $80AF0A,.loop,CODE_80AF0A,new,branch target only used in this routine,src/routines/snes/InitSprites.asm
@@ -1931,8 +1931,8 @@ $9E872B,.10,CODE_9E872B,new,branch target only used in this routine,src/routines
 $9E8738,.11,CODE_9E8738,new,branch target only used in this routine,src/routines/snes/CODE_9E8667.asm
 $9E8747,.12,CODE_9E8747,new,branch target only used in this routine,src/routines/snes/CODE_9E8667.asm
 $9E8762,.13,CODE_9E8762,new,branch target only used in this routine,src/routines/snes/CODE_9E8667.asm
-$9BA8AA,.loop,CODE_9BA8AA,new,branch target only used in this routine,src/routines/snes/CODE_9BA89F.asm
-$9BA8DA,.rtl,CODE_9BA8DA,new,branch target only used in this routine,src/routines/snes/CODE_9BA89F.asm
+$9BA8AA,.loop,CODE_9BA8AA,new,branch target only used in this routine,src/routines/hockey/LowerHotColdTable.asm
+$9BA8DA,.rtl,CODE_9BA8DA,new,branch target only used in this routine,src/routines/hockey/LowerHotColdTable.asm
 $9BA3DD,.1,CODE_9BA3DD,new,branch target only used in this routine,src/routines/snes/CODE_9BA3B1.asm
 $9BA3FA,.2,CODE_9BA3FA,new,branch target only used in this routine,src/routines/snes/CODE_9BA3B1.asm
 $9FC1E1,.1,CODE_9FC1E1,new,branch target only used in this routine,src/routines/logic/doinput.asm
@@ -2206,9 +2206,9 @@ $9DCAE6,.loop,CODE_9DCAE6,new,branch target only used in this routine,src/routin
 $9DCAEB,.loop2,CODE_9DCAEB,new,branch target only used in this routine,src/routines/hockey/DrawPlayerPicture.asm
 $9F93DB,.loop,CODE_9F93DB,new,branch target only used in this routine,src/routines/hockey/Pausemode.asm
 $9F945E,.1,CODE_9F945E,new,branch target only used in this routine,src/routines/hockey/Pausemode.asm
-$9B9BC2,.1,CODE_9B9BC2,new,branch target only used in this routine,src/routines/snes/CODE_9B9BA5.asm
-$9B9BCC,.2,CODE_9B9BCC,new,branch target only used in this routine,src/routines/snes/CODE_9B9BA5.asm
-$9B9BDA,.3,CODE_9B9BDA,new,branch target only used in this routine,src/routines/snes/CODE_9B9BA5.asm
+$9B9BC2,.1,CODE_9B9BC2,new,branch target only used in this routine,src/routines/hockey/UpdateCrowdMeter.asm
+$9B9BCC,.2,CODE_9B9BCC,new,branch target only used in this routine,src/routines/hockey/UpdateCrowdMeter.asm
+$9B9BDA,.3,CODE_9B9BDA,new,branch target only used in this routine,src/routines/hockey/UpdateCrowdMeter.asm
 $9FCD3A,.1,CODE_9FCD3A,new,branch target only used in this routine,src/routines/snes/CODE_9FCD2F.asm
 $9E9491,.rtl,CODE_9E9491,new,branch target only used in this routine,src/routines/hockey/checkplcoll.asm
 $9E811C,.1,CODE_9E811C,new,branch target only used in this routine,src/routines/logic/assnearest.asm
@@ -2652,9 +2652,9 @@ $9BC3F4,.t1,CODE_9BC3F4,new,continued in the previous routine,src/routines/snes/
 $9BC3A0,.t1,CODE_9BC3A0,new,continued in the previous routine,src/routines/snes/CODE_9BC382.asm
 $9BC2DF,.t1,CODE_9BC2DF,new,continued in the previous routine,src/routines/snes/CODE_9BC2D7.asm
 $9BC16E,.t1,CODE_9BC16E,new,continued in the previous routine,src/routines/snes/CODE_9BC128.asm
-$9BB43C,.t1,CODE_9BB43C,new,continued in the previous routine,src/routines/snes/CODE_9BB3BE.asm
+$9BB43C,.t1,CODE_9BB43C,new,continued in the previous routine,src/routines/middle/sroot.asm
 $9BB413,.t1,CODE_9BB413,new,continued in the previous routine,src/routines/snes/CODE_9BB3ED.asm
-$9BB3DB,.t1,CODE_9BB3DB,new,continued in the previous routine,src/routines/snes/CODE_9BB3BE.asm
+$9BB3DB,.t1,CODE_9BB3DB,new,continued in the previous routine,src/routines/middle/sroot.asm
 $9BB330,.t1,CODE_9BB330,new,continued in the previous routine,src/routines/snes/CODE_9BB2FE.asm
 $9BB271,.t1,CODE_9BB271,new,continued in the previous routine,src/routines/snes/CODE_9BB260.asm
 $9BB176,.t1,CODE_9BB176,new,continued in the previous routine,src/routines/snes/CODE_9BB167.asm
@@ -2684,7 +2684,7 @@ $9BA10F,.t1,CODE_9BA10F,new,continued in the previous routine,src/routines/video
 $9BA003,.t1,CODE_9BA003,new,continued in the previous routine,src/routines/snes/CODE_9B9FF0.asm
 $9B9FBD,.t1,CODE_9B9FBD,new,continued in the previous routine,src/routines/video/showcrowd.asm
 $9B9F91,.t1,CODE_9B9F91,new,continued in the previous routine,src/routines/hockey/updatecrowdf.asm
-$9B9C16,.t1,CODE_9B9C16,new,continued in the previous routine,src/routines/snes/CODE_9B9BF8.asm
+$9B9C16,.t1,CODE_9B9C16,new,continued in the previous routine,src/routines/hockey/CheckCrowdMeter.asm
 $9B9B16,.t1,CODE_9B9B16,new,continued in the previous routine,src/routines/snes/CODE_9B9ADA.asm
 $9B995D,.t1,CODE_9B995D,new,continued in the previous routine,src/routines/hockey/FillPenaltyPage.asm
 $9B98F8,.t1,CODE_9B98F8,new,continued in the previous routine,src/routines/snes/CODE_9B98C9.asm
@@ -3224,9 +3224,9 @@ $9BC3E6,.t2,CODE_9BC3E6,new,continued in the previous routine,src/routines/snes/
 $9BC382,.t2,CODE_9BC382,new,continued in the previous routine,src/routines/snes/CODE_9BC35C.asm
 $9BC2D7,.t2,CODE_9BC2D7,new,continued in the previous routine,src/routines/snes/CODE_9BC25A.asm
 $9BC128,.t1,CODE_9BC128,new,continued in the previous routine,src/routines/video/projxy.asm
-$9BB441,.t2,CODE_9BB441,new,continued in the previous routine,src/routines/snes/CODE_9BB3BE.asm
+$9BB441,.t2,CODE_9BB441,new,continued in the previous routine,src/routines/middle/sroot.asm
 $9BB418,.t2,CODE_9BB418,new,continued in the previous routine,src/routines/snes/CODE_9BB3ED.asm
-$9BB3E0,.t2,CODE_9BB3E0,new,continued in the previous routine,src/routines/snes/CODE_9BB3BE.asm
+$9BB3E0,.t2,CODE_9BB3E0,new,continued in the previous routine,src/routines/middle/sroot.asm
 $9BB2FE,.t1,CODE_9BB2FE,new,continued in the previous routine,src/routines/snes/CODE_9BB260.asm
 $9BB167,.t2,CODE_9BB167,new,continued in the previous routine,src/routines/hockey/adda4.asm
 $9BB0FF,.t2,CODE_9BB0FF,new,continued in the previous routine,src/routines/hockey/suba4.asm
@@ -3471,7 +3471,7 @@ $80A603,.t3,CODE_80A603,new,continued in the previous routine,src/routines/snes/
 $808766,.t3,CODE_808766,new,continued in the previous routine,src/routines/snes/DMAToCGRAM.asm
 $8085CD,.t2,CODE_8085CD,new,continued in the previous routine,src/routines/snes/CODE_8085A3.asm
 $9BC989,.t3,CODE_9BC989,new,continued in the previous routine,src/routines/snes/CODE_9BC7FB.asm
-$9BB3ED,.t3,CODE_9BB3ED,new,continued in the previous routine,src/routines/snes/CODE_9BB3BE.asm
+$9BB3ED,.t3,CODE_9BB3ED,new,continued in the previous routine,src/routines/middle/sroot.asm
 $9BB260,.t1,CODE_9BB260,new,continued in the previous routine,src/routines/hockey/RestoreReplayFrame.asm
 $9BB12F,.t3,CODE_9BB12F,new,continued in the previous routine,src/routines/hockey/suba4.asm
 $9BAF3D,.t3,CODE_9BAF3D,new,continued in the previous routine,src/routines/snes/CODE_9BAE9D.asm
@@ -3985,10 +3985,10 @@ $9BAF6E,.11,CODE_9BAF6E,new,branch target only used in this routine,src/routines
 $9BAF80,.12,CODE_9BAF80,new,continued in the previous routine,src/routines/hockey/ReplayMode.asm
 $9BAFD8,.13,CODE_9BAFD8,new,branch target only used in this routine,src/routines/hockey/ReplayMode.asm
 $9BB01D,.14,CODE_9BB01D,new,branch target only used in this routine,src/routines/hockey/ReplayMode.asm
-$9BB3F0,.1,CODE_9BB3F0,new,branch target only used in this routine,src/routines/snes/CODE_9BB3BE.asm
-$9BB3F4,.2,CODE_9BB3F4,new,branch target only used in this routine,src/routines/snes/CODE_9BB3BE.asm
-$9BB41C,.3,CODE_9BB41C,new,continued in the previous routine,src/routines/snes/CODE_9BB3BE.asm
-$9BB423,.4,CODE_9BB423,new,branch target only used in this routine,src/routines/snes/CODE_9BB3BE.asm
+$9BB3F0,.1,CODE_9BB3F0,new,branch target only used in this routine,src/routines/middle/sroot.asm
+$9BB3F4,.2,CODE_9BB3F4,new,branch target only used in this routine,src/routines/middle/sroot.asm
+$9BB41C,.3,CODE_9BB41C,new,continued in the previous routine,src/routines/middle/sroot.asm
+$9BB423,.4,CODE_9BB423,new,branch target only used in this routine,src/routines/middle/sroot.asm
 $9BC4D0,.2,CODE_9BC4D0,new,branch target only used in this routine,src/routines/hockey/FillOtherScores.asm
 $9BC4E9,.3,CODE_9BC4E9,new,branch target only used in this routine,src/routines/hockey/FillOtherScores.asm
 $9BC4F2,.4,CODE_9BC4F2,new,continued in the previous routine,src/routines/hockey/FillOtherScores.asm
@@ -4352,7 +4352,7 @@ $9B9331,.1,CODE_9B9331,new,branch target only used in this routine,src/routines/
 $9B96FE,.3,CODE_9B96FE,new,branch target only used in this routine,src/routines/hockey/FillScoringPage.asm
 $9B9AF4,.1,CODE_9B9AF4,new,branch target only used in this routine,src/routines/snes/PrintScrollArrows.asm
 $9B9B30,.2,CODE_9B9B30,new,branch target only used in this routine,src/routines/snes/PrintScrollArrows.asm
-$9B9C22,.1,CODE_9B9C22,new,branch target only used in this routine,src/routines/snes/CODE_9B9BF8.asm
+$9B9C22,.1,CODE_9B9C22,new,branch target only used in this routine,src/routines/hockey/CheckCrowdMeter.asm
 $9BA5D2,.2,CODE_9BA5D2,new,branch target only used in this routine,src/routines/hockey/ShowCrowdMeter.asm
 $9BA662,.3,CODE_9BA662,new,branch target only used in this routine,src/routines/hockey/ShowCrowdMeter.asm
 $9BA6F2,.4,CODE_9BA6F2,new,branch target only used in this routine,src/routines/hockey/ShowCrowdMeter.asm
@@ -5617,3 +5617,8 @@ $9BC543,PrintOtherScore,CODE_9BC543,new,Behavior: called from FillOtherScores,sr
 $9B9B35,PrintTeamAbbrev,CODE_9B9B35,new,Behavior: the second team data String; called from FillScoringPage and FillPenaltyPage,src/routines/hockey/PrintTeamAbbrev.asm
 $9B95B0,FillScoringPage,CODE_9B95B0,new,"Behavior: called from ShowScoringSummary, as FillOtherScores for the other scores",src/routines/hockey/FillScoringPage.asm
 $9B9917,FillPenaltyPage,CODE_9B9917,new,"Behavior: called from ShowPenaltySummary, as FillScoringPage",src/routines/hockey/FillPenaltyPage.asm
+$9BB3BE,sroot,CODE_9BB3BE,93S,"Same job as 93S sroot (binary search on the square, rewritten with narrowed ranges); UpdateCrowdMeter uses it as 94G Crowd_Noise uses sroot",src/routines/middle/sroot.asm
+$9B9BA5,UpdateCrowdMeter,CODE_9B9BA5,94G,"The 94G Crowd_Noise .meter step (sroot(CwdExciteLvl * 4) + $41, CrowdPeak) plus an average",src/routines/hockey/UpdateCrowdMeter.asm
+$9B9BF8,CheckCrowdMeter,CODE_9B9BF8,new,Behavior: called from Gameloop,src/routines/hockey/CheckCrowdMeter.asm
+$9BA89F,LowerHotColdTable,CODE_9BA89F,new,Behavior,src/routines/hockey/LowerHotColdTable.asm
+$9B9B6B,InitCrowdExcite,CODE_9B9B6B,new,Behavior: called from StartPer,src/routines/hockey/InitCrowdExcite.asm

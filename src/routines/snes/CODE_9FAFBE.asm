@@ -53,11 +53,11 @@ org $9FB003
 	sta.w tmtouch1,y
 	sta.w tmtouch2,y
 	sta.w tmtouch3,y
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$0014
 	bmi .1x
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .1x:
 	lda.w $1E8D
 	sta.w puckc

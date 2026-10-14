@@ -1,10 +1,10 @@
 ; Player a2 falls or stumbles from a hit
 FallDown:
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$000F
 	bmi .1
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .1:
 	ldy.b a2
 	cpy.w #$0018
@@ -138,11 +138,11 @@ FallDown:
 	ldx.b a2
 	sta.w pfalock,x
 	jsl.l CODE_9EA403
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$000A
 	bmi .1xx
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .1xx:
 	stz.w $0C23
 	ldy.b a2
@@ -321,11 +321,11 @@ FallDown:
 	sta.w InjCntDown
 	lda.w #$0016
 	sta.b d0
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$001E
 	bmi .2xx
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .2xx:
 	lda.w position,x
 	bne .t2x
@@ -365,11 +365,11 @@ FallDown:
 	sta.b $81
 	rtl
 .26:
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$000A
 	bmi .1xxxxxx
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .1xxxxxx:
 	ldx.b a2
 	lda.w #$FF7E

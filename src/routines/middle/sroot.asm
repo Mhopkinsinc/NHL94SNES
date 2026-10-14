@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BB3BE:
+; d0 = the square root of $A7:d0 (binary search, the range narrowed first)
+sroot:
 	phx
 	lda.b $A7
 	beq .3

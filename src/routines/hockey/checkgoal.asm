@@ -206,11 +206,11 @@ checkgoal:
 	sta.l crowdlevel
 	lda.w #$003C
 	sta.b $81
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$0028
 	bmi .2x
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .2x:
 	jsl.l RandomWord
 	and.w #$0FFF

@@ -11,11 +11,11 @@ CODE_9EC6E7:
 	lda.w #$0005
 	jsl.l QueueSound
 .1:
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$0014
 	bmi .2
-	sta.w $19BE
+	sta.w CwdExciteLvl
 .2:
 	phy
 	ldy.w #$0000

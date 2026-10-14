@@ -43,11 +43,11 @@ wallcollb:
 	sta.l crowdlevel
 	lda.w #$005A
 	sta.b $81
-	lda.w $19BE
+	lda.w CwdExciteLvl
 	clc
 	adc.w #$000F
 	bmi CODE_9E8F05
-	sta.w $19BE
+	sta.w CwdExciteLvl
 CODE_9E8F05:
 	lda.w #$0040
 	tsb.w sflags

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BA89F:
+; While $19CE is not 0: lower four hot / cold bytes of each of 52 entries ($1A12, 12 bytes apart) by 2, and count $19CE down
+LowerHotColdTable:
 	lda.w $19CE
 	beq .rtl
 	ldy.w #$0033
