@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9CA054:
+; Draw the sorted objects in display order, hiding ones that are off screen
+setsortcords:
 	lda.w $0C29
 	bmi .10
 	lda.w sfhormode

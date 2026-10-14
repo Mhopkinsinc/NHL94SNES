@@ -3,7 +3,7 @@
 org $9E8000
 incsrc "../routines/snes/CODE_9E8000.asm"
 incsrc "../routines/logic/assnearest.asm"
-incsrc "../routines/snes/CODE_9E81F9.asm"
+incsrc "../routines/logic/burst.asm"
 incsrc "../routines/logic/chkpk.asm"
 incsrc "../routines/logic/chkpk2.asm"
 incsrc "../routines/logic/asspuckc.asm"

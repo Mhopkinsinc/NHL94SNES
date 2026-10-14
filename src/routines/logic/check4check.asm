@@ -100,4 +100,4 @@ check4check:
 	bne .8
 	jmp.w .3x
 .8:
-	jml.l CODE_9E81F9
+	jml.l burst

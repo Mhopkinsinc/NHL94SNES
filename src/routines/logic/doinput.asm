@@ -124,7 +124,7 @@ doinput:
 	sta.w $1D55,y
 	jmp.w SetLCmode
 .16:
-	jml.l CODE_9E81F9
+	jml.l burst
 .17:
 	ldy.w #$0000
 	cpx.w #$000C

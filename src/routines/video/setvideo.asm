@@ -13,7 +13,7 @@ setvideo:
 	jsl.l show_rink
 	jsl.l checkfo
 	jsl.l .t3
-	jsl.l CODE_9CA054
+	jsl.l setsortcords
 	jsl.l setffo
 	jsl.l showclock
 	jsl.l showzam

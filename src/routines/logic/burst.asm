@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E81F9:
+; Check button: a speed burst in the facing direction, which costs energy
+burst:
 	lda.w pfalock,x
 	beq .t1
 	rtl

@@ -2261,10 +2261,10 @@ $9FB15B,.8,CODE_9FB15B,new,branch target only used in this routine,src/routines/
 $9FB5B6,.1,CODE_9FB5B6,new,branch target only used in this routine,src/routines/snes/CODE_9FB5A3.asm
 $9FB5C9,.2,CODE_9FB5C9,new,branch target only used in this routine,src/routines/snes/CODE_9FB5A3.asm
 $9B8016,.rtl,CODE_9B8016,new,branch target only used in this routine,src/routines/snes/CODE_9B8000.asm
-$9CA0C7,.1,CODE_9CA0C7,new,branch target only used in this routine,src/routines/snes/CODE_9CA054.asm
-$9CA0CF,.2,CODE_9CA0CF,new,branch target only used in this routine,src/routines/snes/CODE_9CA054.asm
-$9CA0E4,.3,CODE_9CA0E4,new,branch target only used in this routine,src/routines/snes/CODE_9CA054.asm
-$9CA0F1,.4,CODE_9CA0F1,new,branch target only used in this routine,src/routines/snes/CODE_9CA054.asm
+$9CA0C7,.1,CODE_9CA0C7,new,branch target only used in this routine,src/routines/video/setsortcords.asm
+$9CA0CF,.2,CODE_9CA0CF,new,branch target only used in this routine,src/routines/video/setsortcords.asm
+$9CA0E4,.3,CODE_9CA0E4,new,branch target only used in this routine,src/routines/video/setsortcords.asm
+$9CA0F1,.4,CODE_9CA0F1,new,branch target only used in this routine,src/routines/video/setsortcords.asm
 $80B1DD,.1,CODE_80B1DD,new,branch target only used in this routine,src/routines/snes/DrawSprite.asm
 $9E80D2,.1,CODE_9E80D2,new,branch target only used in this routine,src/routines/logic/assnearest.asm
 $9E80EC,.2,CODE_9E80EC,new,branch target only used in this routine,src/routines/logic/assnearest.asm
@@ -2720,7 +2720,7 @@ $9CA580,.t1,CODE_9CA580,new,continued in the previous routine,src/routines/snes/
 $9CA49F,.t1,CODE_9CA49F,new,continued in the previous routine,src/routines/snes/CODE_9CA467.asm
 $9CA2EE,.t1,CODE_9CA2EE,new,continued in the previous routine,src/routines/video/InitSortObjects.asm
 $9CA192,.t1,CODE_9CA192,new,continued in the previous routine,src/routines/snes/CODE_9CA101.asm
-$9CA0FE,.t1,CODE_9CA0FE,new,continued in the previous routine,src/routines/snes/CODE_9CA054.asm
+$9CA0FE,.t1,CODE_9CA0FE,new,continued in the previous routine,src/routines/video/setsortcords.asm
 $9CA02D,.t1,CODE_9CA02D,new,continued in the previous routine,src/routines/snes/CODE_9C9FED.asm
 $9C9F48,.t1,CODE_9C9F48,new,continued in the previous routine,src/routines/hockey/ShowStars.asm
 $9C9EC4,.t1,CODE_9C9EC4,new,continued in the previous routine,src/routines/hockey/ShowStars.asm
@@ -3030,7 +3030,7 @@ $9E8552,.t1,CODE_9E8552,new,continued in the previous routine,src/routines/snes/
 $9E843B,.t1,CODE_9E843B,new,continued in the previous routine,src/routines/logic/asspuckc.asm
 $9E830D,.t1,CODE_9E830D,new,continued in the previous routine,src/routines/logic/asspuckc.asm
 $9E829F,.t1,CODE_9E829F,new,continued in the previous routine,src/routines/snes/CODE_9E828B.asm
-$9E81FF,.t1,CODE_9E81FF,new,continued in the previous routine,src/routines/snes/CODE_9E81F9.asm
+$9E81FF,.t1,CODE_9E81FF,new,continued in the previous routine,src/routines/logic/burst.asm
 $9E81DB,.t1,CODE_9E81DB,new,continued in the previous routine,src/routines/logic/assnearest.asm
 $9E8076,.t1,CODE_9E8076,new,continued in the previous routine,src/routines/snes/CODE_9E8054.asm
 $9E8041,.t1,CODE_9E8041,new,continued in the previous routine,src/routines/logic/assnearest.asm
@@ -3257,7 +3257,7 @@ $9B8384,.t1,CODE_9B8384,new,continued in the previous routine,src/routines/snes/
 $9B825A,.t2,CODE_9B825A,new,continued in the previous routine,src/routines/snes/Multi5Bios.asm
 $9B80E4,.t2,CODE_9B80E4,new,continued in the previous routine,src/routines/snes/Multi5Bios.asm
 $9CA467,.t2,CODE_9CA467,new,continued in the previous routine,src/routines/hockey/SuperDiv.asm
-$9CA101,.t2,CODE_9CA101,new,continued in the previous routine,src/routines/snes/CODE_9CA054.asm
+$9CA101,.t2,CODE_9CA101,new,continued in the previous routine,src/routines/video/setsortcords.asm
 $9C9E15,.t1,CODE_9C9E15,new,continued in the previous routine,src/routines/hockey/ShowStars.asm
 $9C9DEC,.t1,CODE_9C9DEC,new,continued in the previous routine,src/routines/snes/CODE_9C9DD4.asm
 $9C9DBA,.t2,CODE_9C9DBA,new,continued in the previous routine,src/routines/snes/CODE_9C9D25.asm
@@ -4027,11 +4027,11 @@ $9C9E0B,.8,CODE_9C9E0B,new,continued in the previous routine,src/routines/hockey
 $9C9E0D,.9,CODE_9C9E0D,new,branch target only used in this routine,src/routines/hockey/ShowStars.asm
 $9C9E17,.10,CODE_9C9E17,new,branch target only used in this routine,src/routines/hockey/ShowStars.asm
 $9C9E27,.11,CODE_9C9E27,new,branch target only used in this routine,src/routines/hockey/ShowStars.asm
-$9CA0B6,.5,CODE_9CA0B6,new,branch target only used in this routine,src/routines/snes/CODE_9CA054.asm
-$9CA107,.6,CODE_9CA107,new,branch target only used in this routine,src/routines/snes/CODE_9CA054.asm
-$9CA151,.7,CODE_9CA151,new,branch target only used in this routine,src/routines/snes/CODE_9CA054.asm
-$9CA186,.8,CODE_9CA186,new,branch target only used in this routine,src/routines/snes/CODE_9CA054.asm
-$9CA193,.9,CODE_9CA193,new,continued in the previous routine,src/routines/snes/CODE_9CA054.asm
+$9CA0B6,.5,CODE_9CA0B6,new,branch target only used in this routine,src/routines/video/setsortcords.asm
+$9CA107,.6,CODE_9CA107,new,branch target only used in this routine,src/routines/video/setsortcords.asm
+$9CA151,.7,CODE_9CA151,new,branch target only used in this routine,src/routines/video/setsortcords.asm
+$9CA186,.8,CODE_9CA186,new,branch target only used in this routine,src/routines/video/setsortcords.asm
+$9CA193,.9,CODE_9CA193,new,continued in the previous routine,src/routines/video/setsortcords.asm
 $9CA1C6,.1,CODE_9CA1C6,new,continued in the previous routine,src/routines/hockey/SprSort.asm
 $9CA1D3,.2,CODE_9CA1D3,new,branch target only used in this routine,src/routines/hockey/SprSort.asm
 $9D99D1,.2,CODE_9D99D1,new,branch target only used in this routine,src/routines/hockey/FigureJoy.asm
@@ -5364,10 +5364,10 @@ $9BACE5,.13,CODE_9BACE5,new,"part of ReplayMode, used only by it",src/routines/h
 $9BAE57,.14,DATA8_9BAE57,new,"part of ReplayMode, used only by it",src/routines/hockey/ReplayMode.asm
 $9BAE77,.16,CODE_9BAE77,new,"part of ReplayMode, used only by it",src/routines/hockey/ReplayMode.asm
 $9C9A5B,.7,DATA8_9C9A5B,new,"part of CODE_9C9981, used only by it",src/routines/snes/CODE_9C9981.asm
-$9CA099,.1,DATA8_9CA099,new,"part of CODE_9CA054, used only by it",src/routines/snes/CODE_9CA054.asm
-$9CA0A1,.2,DATA8_9CA0A1,new,"part of CODE_9CA054, used only by it",src/routines/snes/CODE_9CA054.asm
-$9CA0A9,.3,DATA8_9CA0A9,new,"part of CODE_9CA054, used only by it",src/routines/snes/CODE_9CA054.asm
-$9CA0B1,.10,CODE_9CA0B1,new,"part of CODE_9CA054, used only by it",src/routines/snes/CODE_9CA054.asm
+$9CA099,.1,DATA8_9CA099,new,"part of CODE_9CA054, used only by it",src/routines/video/setsortcords.asm
+$9CA0A1,.2,DATA8_9CA0A1,new,"part of CODE_9CA054, used only by it",src/routines/video/setsortcords.asm
+$9CA0A9,.3,DATA8_9CA0A9,new,"part of CODE_9CA054, used only by it",src/routines/video/setsortcords.asm
+$9CA0B1,.10,CODE_9CA0B1,new,"part of CODE_9CA054, used only by it",src/routines/video/setsortcords.asm
 $9CA2FB,.3,DATA8_9CA2FB,new,"part of InitSortObjects, used only by it",src/routines/video/InitSortObjects.asm
 $9D8BA1,.1,DATA8_9D8BA1,new,"part of CODE_9D8B49, used only by it",src/routines/snes/CODE_9D8B49.asm
 $9D8BA9,.2,DATA8_9D8BA9,new,"part of CODE_9D8B49, used only by it",src/routines/snes/CODE_9D8B49.asm
@@ -5505,3 +5505,5 @@ $9FF992,.30,CODE_9FF992,new,"part of CODE_9FF436, used only by it",src/routines/
 $9FF9F5,.31,CODE_9FF9F5,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
 $9FFA08,.32,CODE_9FFA08,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
 $9FFAB4,.33,CODE_9FFAB4,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
+$9CA054,setsortcords,CODE_9CA054,93S,"setvideo calls it as in 93S; after a 94 extra sprite, the 93S loop over OOlist with projxy and addframe",src/routines/video/setsortcords.asm
+$9E81F9,burst,CODE_9E81F9,93S,"check4check and doinput call it as in 93S; getpde / setpde, dirtab speed, SPAburst",src/routines/logic/burst.asm
