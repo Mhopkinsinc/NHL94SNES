@@ -1104,8 +1104,8 @@ $9EC4DB,.loop,CODE_9EC4DB,new,branch target only used in this routine,src/routin
 $9EC4E9,.1,CODE_9EC4E9,new,branch target only used in this routine,src/routines/logic/checkob.asm
 $9C8729,.loop,CODE_9C8729,new,branch target only used in this routine,src/routines/snes/CODE_9C8712.asm
 $9FB623,.loop,CODE_9FB623,new,branch target only used in this routine,src/routines/penalty/limitfo.asm
-$9C9914,.loop,CODE_9C9914,new,branch target only used in this routine,src/routines/snes/CODE_9C98DF.asm
-$9C992F,.rtl,CODE_9C992F,new,branch target only used in this routine,src/routines/snes/CODE_9C98DF.asm
+$9C9914,.loop,CODE_9C9914,new,branch target only used in this routine,src/routines/sound/SPCGameUpload.asm
+$9C992F,.rtl,CODE_9C992F,new,branch target only used in this routine,src/routines/sound/SPCGameUpload.asm
 $9B9942,.loop,CODE_9B9942,new,branch target only used in this routine,src/routines/snes/CODE_9B9917.asm
 $9B9947,.1,CODE_9B9947,new,branch target only used in this routine,src/routines/snes/CODE_9B9917.asm
 $9FF623,.1,CODE_9FF623,new,branch target only used in this routine,src/routines/snes/CODE_9FF613.asm
@@ -2729,7 +2729,7 @@ $9C9DFC,.t1,CODE_9C9DFC,new,continued in the previous routine,src/routines/snes/
 $9C9DE2,.t1,CODE_9C9DE2,new,continued in the previous routine,src/routines/snes/CODE_9C9DD4.asm
 $9C9DC4,.t1,CODE_9C9DC4,new,continued in the previous routine,src/routines/snes/CODE_9C9DBA.asm
 $9C9DAA,.t1,CODE_9C9DAA,new,continued in the previous routine,src/routines/snes/CODE_9C9D25.asm
-$9C9B8B,.t1,CODE_9C9B8B,new,continued in the previous routine,src/routines/snes/CODE_9C9B5F.asm
+$9C9B8B,.t1,CODE_9C9B8B,new,continued in the previous routine,src/routines/snes/PlayTeamSong.asm
 $9C9B14,.t1,CODE_9C9B14,new,continued in the previous routine,src/routines/snes/CODE_9C9ABC.asm
 $9C9A53,.t1,CODE_9C9A53,new,continued in the previous routine,src/routines/snes/CODE_9C9981.asm
 $9C99CA,.t1,CODE_9C99CA,new,continued in the previous routine,src/routines/snes/CODE_9C99B1.asm
@@ -4380,8 +4380,8 @@ $9C99A2,.2,CODE_9C99A2,new,branch target only used in this routine,src/routines/
 $9C99E4,.3,CODE_9C99E4,new,branch target only used in this routine,src/routines/snes/CODE_9C9981.asm
 $9C9A5A,.1,CODE_9C9A5A,new,branch target only used in this routine,src/routines/snes/CODE_9C9981.asm
 $9C9B19,.3,CODE_9C9B19,new,branch target only used in this routine,src/routines/snes/CODE_9C9ABC.asm
-$9C9BA5,.1,CODE_9C9BA5,new,branch target only used in this routine,src/routines/snes/CODE_9C9B5F.asm
-$9C9BA9,.2,CODE_9C9BA9,new,branch target only used in this routine,src/routines/snes/CODE_9C9B5F.asm
+$9C9BA5,.1,CODE_9C9BA5,new,branch target only used in this routine,src/routines/snes/PlayTeamSong.asm
+$9C9BA9,.2,CODE_9C9BA9,new,branch target only used in this routine,src/routines/snes/PlayTeamSong.asm
 $9C9FB0,.3,CODE_9C9FB0,new,branch target only used in this routine,src/routines/hockey/ShowStars.asm
 $9D831C,.1,CODE_9D831C,new,branch target only used in this routine,src/routines/snes/CODE_9D8129.asm
 $9D83AD,.3,CODE_9D83AD,new,branch target only used in this routine,src/routines/snes/CODE_9D8129.asm
@@ -5189,3 +5189,5 @@ $9FB06C,.4,CODE_9FB06C,new,"part of CODE_9FAFBE, used only by it",src/routines/s
 $9FC7D7,.1,CODE_9FC7D7,new,"part of CODE_9FC79F, used only by it",src/routines/snes/CODE_9FC79F.asm
 $9FC7EC,.2,CODE_9FC7EC,new,"part of CODE_9FC79F, used only by it",src/routines/snes/CODE_9FC79F.asm
 $9FD2FE,SetLCmode,CODE_9FD2FE,93S,"doinput and puckfaceoff call it as in 93S; the option test, loadTeamStruct, tmflags, then SetLCmode2 as in 93S",src/routines/logic/SetLCmode2.asm
+$9C98DF,SPCGameUpload,CODE_9C98DF,93S,"setupice calls it as 93S setupice calls SPCGameUpload; SoundInit, then the in-game block list (DATA8_80DD16) and its effect table",src/routines/sound/SPCGameUpload.asm
+$9C9B5F,PlayTeamSong,CODE_9C9B5F,new,"TeamSongs slot A of HomeTeam, else a random DefaultSongs entry; Goal, the game loop and the face off call it",src/routines/snes/PlayTeamSong.asm

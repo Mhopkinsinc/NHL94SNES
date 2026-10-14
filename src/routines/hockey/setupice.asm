@@ -33,7 +33,7 @@ setupice:
 .loop2:
 	lda.w SoundFadeSpeed
 	bne .loop2
-	jsl.l CODE_9C98DF
+	jsl.l SPCGameUpload
 	lda.w #$0081
 	sta.b $0E
 	lda.w #IceRinkTiles

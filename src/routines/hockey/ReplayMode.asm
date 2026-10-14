@@ -2,7 +2,7 @@
 ReplayMode:
 	lda.w SoundFadeSpeed
 	bne ReplayMode
-	jsl.l CODE_9C98DF
+	jsl.l SPCGameUpload
 	lda.w #$0000
 	sta.l crowdlevel
 	lda.w #$0800

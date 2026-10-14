@@ -96,7 +96,7 @@ CODE_9EF357:
 	lda.w #$0078
 	sta.b $81
 	lda.w #$0003
-	jsl.l CODE_9C9B5F
+	jsl.l PlayTeamSong
 Goal:
 	lda.b $83
 	sta.w $0D2B

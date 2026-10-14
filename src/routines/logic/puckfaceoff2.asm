@@ -70,12 +70,12 @@ puckfaceoff2:
 	bcs .t1
 .3:
 	lda.w #$0004
-	jsl.l CODE_9C9B5F
+	jsl.l PlayTeamSong
 	bra .4
 
 .t1:
 	lda.w #$0001
-	jsl.l CODE_9C9B5F
+	jsl.l PlayTeamSong
 	bra .4
 
 .t3:
@@ -94,7 +94,7 @@ puckfaceoff2:
 .2x:
 	lda.w #$0002
 .3x:
-	jsl.l CODE_9C9B5F
+	jsl.l PlayTeamSong
 	stz.w $0CC1
 .4:
 	lda.w #$000D

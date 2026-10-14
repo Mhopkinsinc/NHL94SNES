@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C9B5F:
+; Play song slot A of the home team, or a random default song
+PlayTeamSong:
 	phx
 	ldx.w MusicOn
 	bne .2

@@ -22,7 +22,7 @@ CODE_9F8511:
 	and.w #$0FFF
 	bne .1
 	lda.w #$0005
-	jsl.l CODE_9C9B5F
+	jsl.l PlayTeamSong
 .1:
 	jsl.l RandomWord
 	lda.b $83

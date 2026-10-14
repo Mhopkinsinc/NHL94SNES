@@ -79,7 +79,7 @@ StartHL2:
 	lda.w $1D68
 	cmp.w #$0001
 	beq .1
-	jsl.l CODE_9C98DF
+	jsl.l SPCGameUpload
 .1:
 	ldx.b a0
 	lda.l $7E3528,x

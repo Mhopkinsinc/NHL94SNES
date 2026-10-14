@@ -94,7 +94,7 @@ PeriodOver:
 .loopxx:
 	lda.w SoundFadeSpeed
 	bne .loopxx
-	jsl.l CODE_9C98DF
+	jsl.l SPCGameUpload
 	lda.w #$FFFF
 	sta.w $1E8D
 	jmp.w StartPer

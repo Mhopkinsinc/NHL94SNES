@@ -681,3 +681,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Private parts: CODE_ files used only by the named routine before them folded into it. MATCH.
 - Private parts of still unnamed routines folded the same way. MATCH.
 - SetLCmode from 93S. MATCH.
+- SPCGameUpload (93S) and PlayTeamSong. MATCH.

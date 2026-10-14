@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C98DF:
+; Upload the in-game sample set, unless it is the one loaded
+SPCGameUpload:
 	lda.w $1D68
 	cmp.w #$0001
 	beq .rtl
