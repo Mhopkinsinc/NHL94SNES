@@ -3,7 +3,7 @@ puckgoalie:
 	lda.w gmode
 	bit.w #$0010
 	beq .t1
-	jmp.w CODE_9EF1CA
+	jmp.w .7
 
 .t1:
 	stz.b d2
@@ -79,7 +79,7 @@ puckgoalie:
 	lda.w $0DF9
 	cmp.w #$0005
 	bmi .t2
-	jmp.w CODE_9EF1CA
+	jmp.w .7
 
 .t2:
 	jsl.l ChkShotStat
@@ -119,12 +119,12 @@ puckgoalie:
 .1xx:
 	sta.b d2
 	bpl .t2x
-	jmp.w CODE_9EF1CE
+	jmp.w .9
 
 .t2x:
 	cpx.w puckc
 	bne .t1xx
-	jmp.w CODE_9EF1CE
+	jmp.w .9
 
 .t1xx:
 	lda.w #$FF00
@@ -140,7 +140,7 @@ puckgoalie:
 	sta.w $0CF3
 	lda.w #$000C
 	trb.w sflags
-CODE_9EF168:
+.6:
 	stz.w $0E01
 	ldy.b a2
 	lda.w #$000A
@@ -155,30 +155,30 @@ CODE_9EF168:
 	sec
 	sbc.w Ypos,y
 	sta.b d1
-	bne .1
+	bne .1xxx
 	lda.b a2
 	jsl.l GetHot
-.1:
+.1xxx:
 	lda.b d1
 	and.w #$00FF
 	bit.w #$0080
-	beq .2
+	beq .2xx
 	ora.w #$FF00
-.2:
+.2xx:
 	sta.b d1
 	lda.b d1
-	beq .3
+	beq .3x
 	inc.b d1
-.3:
+.3x:
 	ldy.b a2
 	lda.w $0EE3,y
 	eor.b d1
-	bmi .4
+	bmi .4x
 	lda.w #$0000
 	sec
 	sbc.b d1
 	sta.b d1
-.4:
+.4x:
 	sep #$20
 	lda.b d0
 	sta.w $0EC4,x
@@ -186,5 +186,37 @@ CODE_9EF168:
 	sta.w $0EE4,x
 	rep #$20
 	jmp.w puckflip
-CODE_9EF1CA:
+.7:
 	rtl
+.8:
+	jmp.w .6
+.9:
+	lda.w #$0002
+	clc
+	adc.w $1363,y
+	xba
+	and.w #$FF00
+	asl a
+	jsl.l randoma
+	adc.w #$2000
+	sta.b d0
+	cmp.w puckvx
+	bmi .8
+	lda.b d0
+	cmp.w puckvy
+	bmi .8
+	lda.w #$0000
+	sec
+	sbc.b d0
+	sta.b d0
+	cmp.w puckvx
+	bpl .8
+	lda.b d0
+	cmp.w puckvy
+	bpl .8
+	ldy.b a2
+	lda.w pflags,y
+	bit.w #$1000
+	bne .8
+	stz.w $0E01
+	jmp.w puckglue

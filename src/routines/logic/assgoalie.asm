@@ -70,7 +70,7 @@ assgoalie:
 	cmp.w #$010F
 	bcs .7
 	cmp.w #$00D3
-	bcs CODE_9ED41E
+	bcs .10
 .7:
 	lda.w #$009E
 	sta.b $8B
@@ -99,11 +99,976 @@ assgoalie:
 	bne .t1x
 	cpx.w puckc
 	beq .t1x
-	jmp.w CODE_9ED44E
+	jmp.w .12
 
 .t1x:
 	lda.w $0B05,x
 	ora.w #$0001
 	sta.w $0B05,x
-CODE_9ED41E:
-	jmp.w CODE_9ED46A
+.10:
+	jmp.w .13
+.11:
+	lda.w #$009E
+	sta.b $8B
+	lda.w #rtss
+	sta.b a0
+	ldy.w #$0004
+	lda.w Xpos,x
+	bpl .1x
+	ldy.w #$FFFC
+.1x:
+	sty.b d0
+	lda.w #$00F9
+	sta.b d1
+	lda.w pfgoal,x
+	beq .2x
+	lda.w #$FF07
+	sta.b d1
+.2x:
+	stz.w $1023,x
+	jml.l skateto
+.12:
+	lda.w $0B05,x
+	bit.w #$0001
+	bne .10
+	bit.w #$0002
+	bne .11
+	ldy.w $19D4,x
+	lda.w $0AA4,y
+	cmp.w #$0008
+	bne .13
+	jsl.l StopNA
+.13:
+	lda.w $1543,x
+	bne .1xx
+	lda.w #SPAgready
+	jsl.l SetSPAFromA
+.1xx:
+	lda.w gmclock
+	bne .14
+	lda.w $1083,x
+	bmi .16
+	cpx.w puckc
+	bne .t1xx
+	lda.w Ypos,x
+	cmp.w #$00BB
+	bpl .15
+	cmp.w #$FF45
+	bmi .15
+	stz.w $1083,x
+	bra .15
+
+.t1xx:
+	lda.w #$FFFF
+	sta.w $1083,x
+	bra .16
+.14:
+	rtl
+.15:
+	lda.w $1083,x
+	sec
+	sbc.b d7
+	sta.w $1083,x
+	bpl .16
+	lda.w #$0008
+	sta.b d0
+	jsl.l AddPenalty2
+.16:
+	lda.w $1543,x
+	beq .t1xxx
+	jmp.w .14
+
+.t1xxx:
+	lda.w $1003,x
+	sec
+	sbc.b d7
+	sta.w $1003,x
+	bmi .t2x
+	jmp.w .45
+
+.t2x:
+	lda.w $1343,x
+	lsr a
+	clc
+	adc.w $1003,x
+	cmp.w #$0000
+	bpl .1xxx
+	lda.w #$0000
+.1xxx:
+	sta.w $1003,x
+	lda.w $19D4,x
+	bpl .3x
+	lda.w pucky
+	sta.b d0
+	lda.w Ypos,x
+	eor.b d0
+	sta.b d1
+	bpl .t1xxxx
+	stz.b d0
+	lda.w #$00F4
+	sta.b d2
+	lda.w pfgoal,x
+	beq .2xx
+	lda.w #$FF0C
+	sta.b d2
+.2xx:
+	jmp.w .44
+
+.t1xxxx:
+	dec.w $1063,x
+	bpl .1xxxx
+	lda.w #$FFFF
+	sta.w $1063,x
+.1xxxx:
+	cpx.w puckc
+	beq .17
+.3x:
+	jmp.w .23
+.17:
+	lda.w $1083,x
+	bpl .1xxxxx
+	lda.w #$005A
+	sta.w $1083,x
+.1xxxxx:
+	lda.w #$FFFF
+	sta.w $1063,x
+	lda.w $1083,x
+	sec
+	sbc.w #$005A
+	bpl .18
+	jsl.l RandomWord
+	cmp.w #$C000
+	bcc .18
+	lda.w #$0005
+	sta.b d0
+	stz.b a0
+	lda.w pfteam,x
+	bne .2xxx
+	lda.w #$000C
+	sta.b a0
+.2xxx:
+	ldy.b a0
+	lda.w pflags,y
+	bit.w #$1000
+	bne .3xx
+	lda.w $0B1D,y
+	cmp.w #$0023
+	bcc .19
+.3xx:
+	inc.b a0
+	inc.b a0
+	dec.b d0
+	bpl .2xxx
+	lda.w #$0001
+	sta.w $0D2D
+	jsl.l chk4pass
+	lda.w puckc
+	bmi .20
+.18:
+	jmp.w .24
+.19:
+	ldy.w #$0000
+	cmp.w #$0014
+	bcs .18
+	lda.w #$005A
+	sta.w $1543,x
+	lda.w #DATA8_9DE66C
+	jsl.l SetSPAFromA
+.20:
+	rtl
+.21:
+	jsl.l vtoa
+	lda.b d0
+.22:
+	sta.w facedir,x
+	sta.w pfalock,x
+	lda.w #DATA8_9DE528
+	jsl.l SetSPAFromA
+	lda.w #$00F0
+	sta.w $0BEB,x
+	rtl
+.23:
+	ldy.w $19D4,x
+	bmi .t3
+	lda.w $0ADD,y
+	cmp.w #$0001
+	bne .t3
+	cpx.w puckc
+	beq .18
+	lda.w $0D71
+	sec
+	sbc.w Xpos,x
+	sta.b d0
+	lda.w pucky
+	sec
+	sbc.w Ypos,x
+	sta.b d1
+	lda.w JoyPad,y
+	bit.w #$4000
+	bne .t2xx
+	lda.w $0AB8,y
+	bit.w #$0040
+	beq .18
+	lda.w $0AA4,y
+	cmp.w #$0008
+	beq .21
+	and.w #$0007
+	bra .22
+
+.t2xx:
+	lda.w $0AA4,y
+	cmp.w #$0008
+	bne .t1xxxxx
+	jmp.w .t4
+
+.t1xxxxx:
+	and.w #$0007
+	jmp.w .2xxxx
+
+.t3:
+	lda.w $0D71
+	sec
+	sbc.w Xpos,x
+	sta.b d0
+	lda.w pucky
+	sec
+	sbc.w Ypos,x
+	sta.b d1
+	lda.w puckc
+	bmi .t1xxxxxx
+	lsr a
+	tay
+	lda.w pfteam,y
+	cmp.w pfteam,x
+	beq .t2xxx
+	lda.w $0BEB,x
+	bne .t2xxx
+	jsl.l RandomWord
+	cmp.w #$0A00
+	bcs .t2xxx
+	lda.w $0B1D,x
+	cmp.w #$0023
+	bcs .24
+	lda.w pucky
+	cmp.w #$FEF7
+	bmi .24
+	cmp.w #$0109
+	bpl .24
+	jmp.w .21
+
+.t1xxxxxx:
+	lda.w $1063,x
+	bne .t2xxx
+	lda.w $0B1D,x
+	cmp.w #$002D
+	bcs .24
+	lda.w pucky
+	cmp.w #$FEF7
+	bmi .24
+	cmp.w #$0109
+	bpl .24
+	lda.b a2
+	eor.w #$0002
+	tay
+	lda.w $17AE,y
+	cmp.w #$003C
+	bcs .24
+	jsl.l RandomWord
+	cmp.w #$0800
+	bcs .24
+	bra .t4
+
+.t2xxx:
+	jmp.w .24
+
+.t4:
+	jsl.l vtoa
+	lda.b d0
+.2xxxx:
+	sta.w facedir,x
+	ldy.w #SPAgdive
+	tya
+	jsl.l SetSPAFromA
+	lda.w #$0168
+	sta.w $0BEB,x
+	lda.w $19BE
+	clc
+	adc.w #$000A
+	bmi .1xxxxxx
+	sta.w $19BE
+.1xxxxxx:
+	lda.w #$0096
+	sta.w pfalock,x
+	clc
+	adc.l crowdlevel
+	sta.l crowdlevel
+	lda.w #$001E
+	sta.b $81
+	rtl
+.24:
+	lda.w pfgoal,x
+	bne .t1xxxxxxx
+	lda.w #$0000
+	sta.b $8B
+	lda.w #$0D17
+	sta.b a0
+	lda.w #$0104
+	sta.b d3
+	lda.w #$0108
+	sta.b d4
+	bra .1xxxxxxx
+
+.t1xxxxxxx:
+	lda.w #$0D1B
+	sta.b a0
+	lda.w #$FEFC
+	sta.b d3
+	lda.w #$FEF8
+	sta.b d4
+.1xxxxxxx:
+	cpx.w puckc
+	beq .t1xxxxxxxx
+	jsr.w CODE_9EDC44
+	jsl.l vtoa
+	jsl.l CODE_9EDC06
+	bra .2xxxxx
+
+.t1xxxxxxxx:
+	lda.w $19D4,x
+	bpl .2xxxxx
+	lda.w pfgoal,x
+	eor.w #$0001
+	asl a
+	asl a
+	sta.b d0
+	jsl.l CODE_9EDC06
+.2xxxxx:
+	lda.w Ypos,x
+	cmp.w #$FEFB
+	bmi .4x
+	cmp.w #$0105
+	bpl .4x
+.3xxx:
+	lda.w $0D71
+	sta.b d0
+	lda.w pucky
+	sta.b d1
+	jsl.l .49
+	lda.b d1
+	cmp.w #$FFD2
+	bmi .25
+	cmp.w #$002E
+	bpl .25
+	lda.b d1
+	pha
+	lda.b d0
+	pha
+	jmp.w .31
+.4x:
+	lda.w $19D4,x
+	bpl .3xxx
+	stz.b d2
+	stz.b d0
+	lda.w Xpos,x
+	cmp.w #$FFD3
+	bmi .1xxxxxxxx
+	cmp.w #$002D
+	bpl .1xxxxxxxx
+	lda.w #$0088
+	sta.b d0
+	lda.w Xpos,x
+	bpl .1xxxxxxxx
+	lda.w #$FF78
+	sta.b d0
+.1xxxxxxxx:
+	jmp.w .44
+.25:
+	lda.w puckvy
+	xba
+	lsr a
+	and.w #$007F
+	bit.w #$0040
+	beq .1xxxxxxxxx
+	ora.w #$FF80
+.1xxxxxxxxx:
+	sta.b $14
+	cmp.w #$8000
+	ror a
+	adc.b $14
+	clc
+	adc.w pucky
+	sta.b d1
+	lda.b d1
+	cmp.w #$00E0
+	bpl .2xxxxxx
+	lda.b d1
+	cmp.w #$FF20
+	bpl .28
+.2xxxxxx:
+	lda.w $0D07
+	bpl .27
+	lda.w puckc
+	bmi .27
+	lda.w $0792
+	and.w #$0180
+	beq .29
+.26:
+	lda.w puckvx
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .1xxxxxxxxxx
+	ora.w #$FF00
+.1xxxxxxxxxx:
+	sta.b $14
+	cmp.w #$8000
+	ror a
+	adc.b $14
+	clc
+	adc.w $0D71
+	sta.b d0
+	bra .30
+.27:
+	lda.w puckvx
+	xba
+	lsr a
+	and.w #$007F
+	bit.w #$0040
+	beq .1xxxxxxxxxxx
+	ora.w #$FF80
+.1xxxxxxxxxxx:
+	clc
+	adc.w $0D71
+	sta.b d0
+	bra .30
+.28:
+	lda.w $0792
+	and.w #$0380
+	beq .26
+.29:
+	lda.w puckvx
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .1xxxxxxxxxxxx
+	ora.w #$FF00
+.1xxxxxxxxxxxx:
+	clc
+	adc.w $0D71
+	sta.b d0
+.30:
+	jsl.l .49
+	lda.b d1
+	pha
+	lda.b d0
+	pha
+.31:
+	lda.b d0
+	ldy.b d1
+	jsl.l ApproxLength
+	sta.b d0
+	cmp.w #$001E
+	bcs .t1xxxxxxxxx
+	pla
+	sta.b d0
+	pla
+	sta.b d1
+	bra .5x
+
+.t1xxxxxxxxx:
+	lda.b d0
+	inc a
+	sta.b d2
+	lda.w #$0014
+	sta.b d4
+	lda.w sflags
+	bit.w #$0008
+	beq .1xxxxxxxxxxxxx
+	lda.w #$001C
+	sta.b d4
+.1xxxxxxxxxxxxx:
+	pla
+	sta.b d0
+	pla
+	sta.b d1
+	tax
+	lda.b d4
+	jsl.l Mul16x8XS
+	lda.b d2
+	sta.b $04
+	jsl.l Div32S
+	lda.b $00
+	sta.b d1
+	lda.b d4
+	adc.w #$0006
+	sta.b d4
+	ldx.b d0
+	jsl.l Mul16x8XS
+	lda.b d2
+	sta.b $04
+	jsl.l Div32S
+	lda.b $00
+	sta.b d0
+	ldx.b $E4
+.5x:
+	lda.b d1
+	clc
+	adc.b d3
+	sta.b d1
+	sta.b d2
+	ldy.w $19D4,x
+	bmi .t1xxxxxxxxxx
+	cpx.w puckc
+	beq .1xxxxxxxxxxxxxx
+	lda.w JoyPad,y
+	bit.w #$0080
+	bne .t3x
+.1xxxxxxxxxxxxxx:
+	jmp.w .43
+
+.t1xxxxxxxxxx:
+	ldy.w #$0002
+	lda.b [a0],y
+	cmp.w #$0023
+	bcc .t2xxxx
+	jmp.w .44
+
+.t2xxxx:
+	lda.b [a0]
+	cmp.w #$FFE7
+	bmi .t1xxxxxxxxxxx
+	cmp.w #$0019
+	bpl .t1xxxxxxxxxxx
+	lda.b [a0],y
+	cmp.w #$0013
+	bcs .1xxxxxxxxxxxxxxx
+	lda.w pucky
+	cmp.w #$FEF7
+	bmi .1xxxxxxxxxxxxxxx
+	cmp.w #$0109
+	bmi .t3x
+.1xxxxxxxxxxxxxxx:
+	jmp.w .43
+
+.t1xxxxxxxxxxx:
+	jmp.w .48
+
+.t3x:
+	lda.w $0EC3,x
+	cmp.w #$8000
+	ror a
+	sta.w $0EC3,x
+	lda.w $0EE3,x
+	cmp.w #$8000
+	ror a
+	sta.w $0EE3,x
+	lda.w $0B05,x
+	bit.w #$0002
+	beq .t1x2
+	jmp.w .40
+
+.t1x2:
+	lda.w puckvx
+	xba
+	lsr a
+	lsr a
+	and.w #$003F
+	bit.w #$0020
+	beq .1x2
+	ora.w #$FFC0
+.1x2:
+	clc
+	adc.w $0D71
+	sec
+	sbc.w Xpos,x
+	sta.b d0
+	sta.b $02
+	bit.w #$8000
+	beq .2xxxxxxx
+	eor.w #$FFFF
+	inc a
+.2xxxxxxx:
+	sta.b $00
+	lda.w puckvy
+	xba
+	lsr a
+	lsr a
+	and.w #$003F
+	bit.w #$0020
+	beq .3xxxx
+	ora.w #$FFC0
+.3xxxx:
+	clc
+	adc.w pucky
+	sec
+	sbc.w Ypos,x
+	sta.b d1
+	bit.w #$8000
+	beq .4xx
+	eor.w #$FFFF
+	inc a
+.4xx:
+	sta.b $04
+	jsl.l vtoa
+	lda.b d0
+	cmp.w #$0008
+	beq .33
+	sec
+	sbc.w facedir,x
+	and.w #$0007
+	sta.b d3
+	beq .33
+	jmp.w .41
+.32:
+	lda.w puckvy
+	cmp.w #$0800
+	bpl .33
+	cmp.w #$F800
+	bmi .33
+	lda.w #$0008
+	sta.b d0
+	jmp.w .42
+.33:
+	lda.w facedir,x
+	beq .t1xxxxxxxxxxxx
+	cmp.w #$0004
+	beq .35
+	cmp.w #$0001
+	beq .37
+	cmp.w #$0005
+	beq .37
+	cmp.w #$0007
+	beq .38
+	cmp.w #$0003
+	beq .38
+	lda.w $0792
+	and.w #$0001
+	bra .41
+
+.t1xxxxxxxxxxxx:
+	lda.b $02
+	bpl .36
+.34:
+	lda.w #$0007
+	bra .41
+.35:
+	lda.b $02
+	bpl .34
+.36:
+	lda.w #$0001
+	bra .41
+.37:
+	lda.b $00
+	cmp.b $04
+	bpl .36
+	bra .34
+.38:
+	lda.b $04
+	cmp.b $00
+	bpl .36
+	bra .34
+.39:
+	lda.b d0
+	clc
+	adc.w #$0006
+	sta.b d0
+	jmp.w .42
+.40:
+	lda.w $0B5D,x
+	sec
+	sbc.w facedir,x
+	and.w #$0007
+	sta.b d3
+	beq .33
+.41:
+	cmp.w #$0004
+	beq .32
+	lsr a
+	lsr a
+	sta.b d0
+	lda.w attribute,x
+	bit.w #$0800
+	beq .1xxxxxxxxxxxxxxxx
+	lda.b d0
+	eor.w #$0001
+	sta.b d0
+.1xxxxxxxxxxxxxxxx:
+	lda.b d3
+	cmp.w #$0004
+	bcc .2xxxxxxxx
+	eor.w #$FFFF
+	adc.w #$0008
+.2xxxxxxxx:
+	cmp.w #$0002
+	bcs .39
+	lda.w $0DF9
+	sec
+	sbc.w #$0008
+	bpl .42
+	lda.w $0E01
+	sec
+	sbc.w #$0800
+	bpl .42
+	lda.b d0
+	clc
+	adc.w #$0004
+	sta.b d0
+	ldy.w #$0002
+	lda.b [a0],y
+	cmp.w #$0009
+	bcc .42
+	lda.w facedir,x
+	cmp.w #$0002
+	beq .42
+	cmp.w #$0006
+	beq .42
+	lda.w puckc
+	bmi .42
+	dec.b d0
+	dec.b d0
+.42:
+	asl.b d0
+	lda.w #$009E
+	sta.b $8F
+	lda.w #GoalieSaveList
+	sta.b a1
+	ldy.b d0
+	lda.b [a1],y
+	sta.w pfalock,x
+	jsl.l SetSPAFromA
+	lda.l crowdlevel
+	clc
+	adc.w #$0096
+	sta.l crowdlevel
+	lda.w #$001E
+	sta.b $81
+.43:
+	lda.b [a0]
+	sta.b d0
+	lda.w pucky
+	sec
+	sbc.w #$00FC
+	bpl .1xxxxxxxxxxxxxxxxx
+	lda.w pucky
+	sec
+	sbc.w #$FF04
+	bpl .44
+.1xxxxxxxxxxxxxxxxx:
+	lda.w #$0018
+	sta.b d0
+	lda.w $0D71
+	bpl .44
+	lda.w #$FFE8
+	sta.b d0
+.44:
+	lda.w $19D4,x
+	bmi .t1xxxxxxxxxxxxx
+	jmp.w .50
+
+.t1xxxxxxxxxxxxx:
+	ldy.w puckc
+	bmi .7x
+	lda.w pfteam,x
+	cmp.w pfteam,y
+	beq .7x
+	lda.w SPA,y
+	cmp.w #SPAshotf
+	bcc .t2xxxxx
+	cmp.w #$F021
+	bcs .t2xxxxx
+	lda.w $0EE3,y
+	bit.w #$8000
+	beq .1xxxxxxxxxxxxxxxxxx
+	eor.w #$FFFF
+	inc a
+.1xxxxxxxxxxxxxxxxxx:
+	sta.b $00
+	lda.w $0EC3,y
+	bit.w #$8000
+	beq .2xxxxxxxxx
+	eor.w #$FFFF
+	inc a
+.2xxxxxxxxx:
+	lsr a
+	cmp.b $00
+	bcs .t2xxxxx
+	lda.w $0BA1
+	bne .7x
+	stz.w $0EC3,x
+	stz.w $0EE3,x
+	inc.w $0BA1
+	rtl
+
+.t2xxxxx:
+	stz.w $0BA1
+.7x:
+	lda.b d2
+	sta.b d1
+	pha
+	lda.b d0
+	pha
+	lda.w $0EC3,x
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .1xxxxxxxxxxxxxxxxxxx
+	ora.w #$FF00
+.1xxxxxxxxxxxxxxxxxxx:
+	eor.w #$FFFF
+	inc a
+	sta.b d0
+	pla
+	clc
+	adc.b d0
+	sec
+	sbc.w Xpos,x
+	sta.b d0
+	lda.w $0EE3,x
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .2xxxxxxxxxx
+	ora.w #$FF00
+.2xxxxxxxxxx:
+	eor.w #$FFFF
+	inc a
+	sta.b d1
+	pla
+	clc
+	adc.b d1
+	sec
+	sbc.w Ypos,x
+	sta.b d1
+	lda.w #$0005
+	sta.b tmp0
+	cpx.w puckc
+	bne .3xxxxx
+	asl.b tmp0
+.3xxxxx:
+	lda.b d0
+	bit.w #$8000
+	beq .4xxx
+	eor.w #$FFFF
+	inc a
+.4xxx:
+	cmp.b tmp0
+	bcs .6x
+	lda.b d1
+	bit.w #$8000
+	beq .5xx
+	eor.w #$FFFF
+	inc a
+.5xx:
+	cmp.b tmp0
+	bcs .6x
+	stz.b d0
+	stz.b d1
+.6x:
+	jsl.l vtoa
+	lda.b d0
+	sta.w $10A3,x
+.45:
+	ldy.w $19D4,x
+	bpl .47
+	lda.w $10A3,x
+	sta.b d2
+	sec
+	sbc.w #$0007
+	beq .t1xxxxxxxxxxxxxx
+	bmi .t1xxxxxxxxxxxxxx
+	jmp.w StopNA
+
+.t1xxxxxxxxxxxxxx:
+	jml.l playeracc
+.46:
+	jmp.w .44
+.47:
+	rtl
+.48:
+	lda.w puckc
+	bpl .46
+	lda.w iflags
+	bit.w #$0004
+	bne .46
+	lda.w $0D71
+	bit.w #$8000
+	beq .1xxxxxxxxxxxxxxxxxxxx
+	eor.w #$FFFF
+	inc a
+.1xxxxxxxxxxxxxxxxxxxx:
+	cmp.w #$0068
+	bmi .46
+	lda.w puckvy
+	bit.w #$8000
+	beq .2xxxxxxxxxxx
+	eor.w #$FFFF
+	inc a
+.2xxxxxxxxxxx:
+	cmp.w #$3800
+	bmi .46
+	lda.w pucky
+	cmp.w #$00B8
+	bpl .3xxxxxx
+	lda.w pucky
+	cmp.w #$FF48
+	bpl .46
+.3xxxxxx:
+	lda.w puckvy
+	ldy.w pfgoal,x
+	beq .4xxxx
+	eor.w #$FFFF
+	inc a
+.4xxxx:
+	cmp.w #$FC00
+	bmi .46
+	stz.b a1
+	lda.w #$0002
+	sta.b a2
+	lda.w pfteam,x
+	beq .5xxx
+	stz.b a2
+	lda.w #$0002
+	sta.b a1
+.5xxx:
+	ldy.b a1
+	lda.w $17AE,y
+	cmp.w #$0132
+	bcc .t1xxxxxxxxxxxxxxx
+	ldy.b a2
+	lda.w $17AE,y
+	cmp.w #$0132
+	bcc .t1xxxxxxxxxxxxxxx
+	lda.w #$000F
+	sta.b d0
+	jmp.w assinsert
+
+.t1xxxxxxxxxxxxxxx:
+	jmp.w .44
+.49:
+	lda.w Ypos,x
+	cmp.w #$0108
+	bpl .3xxxxxxx
+	cmp.w #$FEF8
+	bmi .3xxxxxxx
+	cpx.w puckc
+	bne .1xxxxxxxxxxxxxxxxxxxxx
+	stz.b d0
+.1xxxxxxxxxxxxxxxxxxxxx:
+	lda.b d1
+	cmp.w #$0103
+	bmi .2xxxxxxxxxxxx
+	lda.w #$0103
+	sta.b d1
+.2xxxxxxxxxxxx:
+	lda.b d1
+	cmp.w #$FEFD
+	bpl .3xxxxxxx
+	lda.w #$FEFD
+	sta.b d1
+.3xxxxxxx:
+	lda.b d1
+	sec
+	sbc.b d3
+	sta.b d1
+.50:
+	rtl

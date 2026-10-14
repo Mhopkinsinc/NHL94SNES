@@ -24,17 +24,17 @@ StartHL2:
 	lda.w sflags3
 	bit.w #$0008
 	beq .t1
-	jmp.w CODE_9F9276
+	jmp.w .15
 
 .t1:
-	jsl.l CODE_9F92CB
+	jsl.l .18
 	lda.b d1
 	sta.b d3
 	jsl.l NewTicker3
 	lda.w sflags3
 	bit.w #$0008
 	beq .t3
-	jmp.w CODE_9F9243
+	jmp.w .14
 
 .t3:
 	lda.w #$0004
@@ -68,7 +68,7 @@ StartHL2:
 	lda.b d3
 	bit.w #$1000
 	beq .t1x
-	jmp.w CODE_9F9243
+	jmp.w .14
 
 .t1x:
 	stz.w $0AC2
@@ -161,10 +161,10 @@ StartHL2:
 	stz.w Hpos
 	jsl.l ResetBench
 	stz.b a2
-	jsl.l CODE_9F927D
+	jsl.l .16
 	lda.w #$0002
 	sta.b a2
-	jsl.l CODE_9F927D
+	jsl.l .16
 	jsl.l resetplstuff
 	lda.w #$0000
 	sta.l $7E3448
@@ -316,7 +316,7 @@ org $9F9001
 	jsl.l FadeOut
 	jsl.l WaitFadeOut
 	jsl.l forceblack
-	jsl.l CODE_9F9307
+	jsl.l .19
 	jsl.l CODE_9FB901
 	jsl.l SetHor
 	jsl.l SpriteFrameStart
@@ -429,8 +429,145 @@ org $9F9001
 	jsl.l waitxsr
 	lda.b d1
 	bit.w #$1000
-	beq CODE_9F91E8
-CODE_9F91E0:
+	beq .12
+.11:
 	lda.w #$0008
 	tsb.w sflags3
-	bra CODE_9F91EE
+	bra .13
+.12:
+	lda.w #$0008
+	trb.w sflags3
+.13:
+	jsl.l CODE_9BC17C
+	lda.w #$0096
+	sta.b $0E
+	lda.w #DATA8_96B2CF
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	lda.l $7E35BA
+	asl a
+	asl a
+	asl a
+	asl a
+	adc.w #$1000
+	tay
+	jsl.l DMAToVRAM
+	stx.b xsave
+	ldx.w #$001A
+.loopxx:
+	pla
+	sta.b a0,x
+	dex
+	dex
+	bpl .loopxx
+	ldx.b xsave
+	stx.b xsave
+	ldx.w #$001E
+.loop2xx:
+	pla
+	sta.b d0,x
+	dex
+	dex
+	bpl .loop2xx
+	ldx.b xsave
+	ldx.b a3
+	rtl
+.14:
+	lda.w #$0004
+	sta.w printx
+	lda.w #$0014
+	sta.w printy
+	lda.w #$0018
+	sta.b d0
+	lda.w #$0003
+	sta.b d1
+	lda.l $7E35D0
+	sta.b d2
+	jsl.l eraser
+	jsl.l SendTextMap
+	jsl.l WaitFrame
+	jsl.l .19
+	jsl.l .17
+	jmp.w .11
+.15:
+	jsl.l .17
+	jmp.w .12
+.16:
+	jsl.l reenergizeteam
+	jsl.l setpersonel
+	jsl.l forcepldata
+	ldy.b a2
+	lda.w #$FFFF
+	sta.w tmtouch1,y
+	sta.w tmtouch2,y
+	sta.w tmtouch3,y
+	rtl
+.17:
+	ldx.b a0
+	lda.l $7E3578,x
+	cmp.l $7E3588,x
+	bne .1x
+	jsl.l RandomWord
+	and.w #$0001
+	ldx.b a0
+	pha
+	clc
+	adc.l $7E3578,x
+	sta.l $7E3578,x
+	pla
+	eor.w #$0001
+	adc.l $7E3588,x
+	sta.l $7E3588,x
+.1x:
+	lda.w #$0005
+	sta.l $7E3568,x
+	rtl
+.18:
+	ldx.w #$0000
+.loopxxx:
+	lda.w $15D3,x
+	sta.l $7E47F4,x
+	inx
+	inx
+	cpx.w #$0781
+	bcc .loopxxx
+	lda.l $7E313A
+	sta.l $7E47F4,x
+	inx
+	inx
+	stz.w tmgoalie
+	stz.w $17AC
+	stz.w $19D0
+	stz.w $19D2
+	lda.w #$FFFF
+	ldx.w #$0000
+.loop2xxx:
+	sta.w $19D4,x
+	inx
+	inx
+	cpx.w #$0018
+	bcc .loop2xxx
+	jsl.l ClearPenaltyBuffer
+	rtl
+.19:
+	ldx.w #$0000
+.loopxxxx:
+	lda.l $7E47F4,x
+	sta.w $15D3,x
+	inx
+	inx
+	cpx.w #$0781
+	bcc .loopxxxx
+	lda.l $7E47F4,x
+	inx
+	inx
+	sta.l $7E313A
+	rtl

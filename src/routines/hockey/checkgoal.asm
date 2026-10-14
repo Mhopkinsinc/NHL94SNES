@@ -45,7 +45,7 @@ checkgoal:
 	bmi .t2
 	lda.w $0DFF
 	sta.w $0DF9
-	jmp.w CODE_9E92AE
+	jmp.w .10
 
 .t1:
 	rtl
@@ -148,6 +148,127 @@ checkgoal:
 	bmi .6
 	lda.b d2
 	cmp.w #$0017
-	bmi CODE_9E9212
+	bmi .9
 .6:
-	jmp.w CODE_9E92BE
+	jmp.w .11
+.7:
+	lda.w puckvy
+	cmp.w #$0800
+	bpl .1xx
+	cmp.w #$F800
+	bmi .1xx
+	cmp.w #$0000
+	bpl .t1x
+	lda.w #$F800
+	sta.w puckvy
+	bra .1xx
+
+.t1x:
+	lda.w #$0800
+	sta.w puckvy
+.1xx:
+	jmp.w wallcoll
+.8:
+	jmp.w CODE_9EF319
+.9:
+	stz.b d1
+	lda.w pucky
+	eor.b $0C
+	bmi .7
+	lda.w #$0000
+	sec
+	sbc.b $0C
+	sta.b $0C
+	lda.w #$0000
+	sec
+	sbc.b d0
+	sta.b d0
+	lda.w $14DF
+	bne .7
+	lda.w $0DF9
+	cmp.w #$000D
+	beq .1xxx
+	lda.b d2
+	cmp.w #$0012
+	bpl .1xxx
+	lda.b d2
+	cmp.w #$FFEF
+	bpl .8
+.1xxx:
+	jsl.l ChkShotStat
+	stz.w $1E8B
+	stz.w $1E89
+	lda.w #$0009
+	jsl.l CODE_9C9ABC
+	lda.l crowdlevel
+	clc
+	adc.w #$012C
+	sta.l crowdlevel
+	lda.w #$003C
+	sta.b $81
+	lda.w $19BE
+	clc
+	adc.w #$0028
+	bmi .2x
+	sta.w $19BE
+.2x:
+	jsl.l RandomWord
+	and.w #$0FFF
+	sta.b d0
+	lda.w pucky
+	bmi .3x
+	lda.w #$0000
+	sec
+	sbc.b d0
+	sta.b d0
+.3x:
+	lda.b d0
+	sta.w puckvy
+	jsl.l RandomWord
+	and.w #$1FFF
+	sec
+	sbc.w #$1000
+	sta.w puckvx
+	jsl.l RandomWord
+	and.w #$1FFF
+	sec
+	sbc.w #$1000
+	sta.w $0E01
+	jmp.w puckflip
+.10:
+	lda.w $0E01
+	bit.w #$8000
+	beq .1xxxx
+	eor.w #$FFFF
+	inc a
+.1xxxx:
+	sta.w $0E01
+	rtl
+.11:
+	lda.w puckvx
+	cmp.w #$0800
+	bpl .2xx
+	cmp.w #$F800
+	bmi .2xx
+	cmp.w #$0000
+	bpl .t1xx
+	lda.w #$F800
+	sta.w puckvx
+	bra .2xx
+
+.t1xx:
+	lda.w #$0800
+	sta.w puckvx
+.2xx:
+	stz.b d0
+	lda.w #$00FF
+	sta.b d1
+	lda.w $0D71
+	sec
+	sbc.w $0E5F
+	sta.b d2
+	bmi .1xxxxx
+	lda.w #$FF01
+	sta.b d1
+.1xxxxx:
+	jmp.w wallcoll

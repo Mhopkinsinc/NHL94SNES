@@ -678,3 +678,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - NMI and IRQ helpers named from what they do (NMI_SendOAM, NMI_Tick, SetFrameHook, ClearFrameHook, ClearNMIHook, SetIRQ, IRQOff, WaitNoButtons). MATCH.
 - Sound sequencer routines and its command senders named from what they do. Vault labels are a last resort; these names come from the code. MATCH.
 - Sprite tile cache, shootout and IRQ routines named from the descriptions on their labels. MATCH.
+- Private parts: CODE_ files used only by the named routine before them folded into it. MATCH.

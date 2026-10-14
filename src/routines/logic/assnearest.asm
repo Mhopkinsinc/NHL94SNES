@@ -33,7 +33,7 @@ assnearest:
 	sbc.b d7
 	sta.w $1003,x
 	bmi .t2x
-	jmp.w CODE_9E814E
+	jmp.w .9
 
 .t2x:
 	adc.w $1323,x
@@ -90,7 +90,7 @@ assnearest:
 	bcs .1xx
 	stz.b d1
 	lda.w position,x
-	beq CODE_9E814E
+	beq .9
 .1xx:
 	lda.w sflags
 	bit.w #$2000
@@ -112,6 +112,129 @@ assnearest:
 	sta.b tmp0
 .loop:
 	dec.b tmp0
-	bmi CODE_9E813D
+	bmi .8
 	asl.b d0
 	bra .loop
+.4:
+	rtl
+.5:
+	ldy.w puckc
+	bmi .7
+	lda.w position,y
+	bne .7
+	lda.w $0D71
+	sta.b d0
+	lda.w #$0058
+	ldy.w pfgoal,x
+	bne .1xxx
+	lda.w #$FFA8
+.1xxx:
+	sta.b d1
+	lda.w #$009E
+	sta.b $8B
+	lda.w #rtss
+	sta.b a0
+	jsl.l skateto
+	jmp.w check4check
+.6:
+	jsl.l CODE_9E8000
+	jmp.w assnothing
+.7:
+	jsl.l skatetopuck
+	jmp.w check4check
+.8:
+	jsl.l randomd0
+	lda.b d0
+	cmp.w #$0002
+	bcs .9
+	lda.w #$00F0
+	sta.w $1043,x
+.9:
+	lda.w $19D4,x
+	bpl .4
+	lda.w gmclock
+	bne .6
+	ldy.b a2
+	lda.w tmflags,y
+	bit.w #$0002
+	bne .1xxxx
+	lda.w puckc
+	bmi .5
+	lda.w $1043,x
+	sec
+	sbc.b d7
+	sta.w $1043,x
+	cmp.w #$0000
+	bpl .5
+	stz.w $1043,x
+.1xxxx:
+	jsl.l skatetopuckinit
+	lda.b d1
+	pha
+	lda.b d0
+	pha
+	eor.w #$FFFF
+	inc a
+	sta.b d0
+	lda.b d1
+	eor.w #$FFFF
+	inc a
+	clc
+	adc.w #$00F4
+	sta.b d1
+	lda.w pfgoal,x
+	beq .2xx
+	lda.b d1
+	sec
+	sbc.w #$01E8
+	sta.b d1
+.2xx:
+	lda.b d0
+	pha
+	asl a
+	pla
+	ror a
+	sta.b d0
+	lda.b d1
+	pha
+	asl a
+	pla
+	ror a
+	sta.b d1
+	pla
+	clc
+	adc.b d0
+	sta.b d0
+	pla
+	clc
+	adc.b d1
+	sta.b d1
+	ldy.b a2
+	lda.w tmflags,y
+	bit.w #$0002
+	beq .4x
+.3x:
+	lda.w pfgoal,x
+	beq .t1xx
+	lda.b d1
+	sec
+	sbc.w #$0053
+	bmi .4x
+	lda.w #$0044
+	sta.b d1
+	bra .4x
+
+.t1xx:
+	lda.b d1
+	sec
+	sbc.w #$FFAD
+	bpl .4x
+	lda.w #$FFBC
+	sta.b d1
+.4x:
+	lda.w #$009E
+	sta.b $8B
+	lda.w #rtss
+	sta.b a0
+	jsl.l skateto
+	jmp.w check4check

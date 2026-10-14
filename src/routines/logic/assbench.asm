@@ -38,7 +38,7 @@ assbench:
 	cmp.w pnum,x
 	bne .t3
 .3:
-	jmp.w CODE_9FD9C2
+	jmp.w .7
 
 .t3:
 	lda.w position,x
@@ -147,7 +147,7 @@ assbench:
 	sta.w tmpdst,y
 	lda.w newpnum,x
 	sta.b d3
-	jsl.l CODE_9FD9CB
+	jsl.l .8
 	jmp.w setplayer
 .6:
 	lda.w $1563,x
@@ -164,3 +164,16 @@ assbench:
 	lda.w #$8904
 	sta.b a0
 	jml.l skateto
+.7:
+	lda.w pflags,x
+	and.w #$EFFF
+	sta.w pflags,x
+.8:
+	lda.w newpos,x
+	sta.b d0
+	sta.w position,x
+	jsl.l Setplass
+	lda.w #$FFFF
+	sta.w newpnum,x
+	sta.w newpos,x
+	rtl

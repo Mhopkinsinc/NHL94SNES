@@ -3,7 +3,7 @@ checkob:
 	lda.w gmode
 	bit.w #$0020
 	bne .t2
-	jmp.w CODE_9EC4BB
+	jmp.w .5
 
 .t2:
 	lda.b d0
@@ -30,7 +30,7 @@ checkob:
 	sta.b d1
 	lda.w pfgoal,x
 	beq .t1
-	jmp.w CODE_9EC4D4
+	jmp.w .7
 
 .t1:
 	lda.w #$FFA4
@@ -38,7 +38,7 @@ checkob:
 	sec
 	sbc.w pucky
 	beq .1x
-	bpl CODE_9EC479
+	bpl .3
 .1x:
 	ldy.b a0
 	lda.w position,y
@@ -47,20 +47,20 @@ checkob:
 	sec
 	sbc.w Ypos,y
 	beq .2
-	bpl CODE_9EC4BC
+	bpl .6
 .2:
 	inc.b a0
 	inc.b a0
 	dec.b d0
 	bpl .1x
-CODE_9EC479:
+.3:
 	lda.w #$0040
 	sta.b d0
 	lda.w #$8000
 	trb.w sflags
-	beq CODE_9EC4A9
+	beq .4
 	lda.l $7E344A
-	bne CODE_9EC4A9
+	bne .4
 	lda.w #$0005
 	sta.b d0
 	lda.w #$0005
@@ -71,7 +71,7 @@ CODE_9EC479:
 	sta.w printx
 	sta.w printy
 	jsl.l eraser
-CODE_9EC4A9:
+.4:
 	pla
 	sta.b $8B
 	pla
@@ -84,5 +84,32 @@ CODE_9EC4A9:
 	sta.b $A7
 	pla
 	sta.b d0
-CODE_9EC4BB:
+.5:
 	rtl
+.6:
+	lda.w #$0006
+	sta.b d0
+	lda.w #$8000
+	tsb.w sflags
+	bne .4
+	lda.w RefCnt
+	bpl .4
+	jsl.l PushRef
+	bra .4
+.7:
+	lda.b d1
+	cmp.w pucky
+	bmi .3
+.loop:
+	ldy.b a0
+	lda.w position,y
+	bmi .1xx
+	lda.b d1
+	cmp.w Ypos,y
+	bmi .6
+.1xx:
+	inc.b a0
+	inc.b a0
+	dec.b d0
+	bpl .loop
+	bra .3

@@ -25,7 +25,7 @@ CODE_9EDCC3:
 	bpl .1
 	adc.w #$0005
 	sta.w $101F
-	jsl.l CODE_9EDDD2
+	jsl.l .14
 .1:
 	lda.w puckc
 	bmi .4
@@ -134,3 +134,73 @@ CODE_9EDCC3:
 .t1x:
 	jsl.l pucknothing
 	jmp.w checkpuckcoll
+.14:
+	phx
+	lda.w #$0108
+	sta.b d4
+	ldy.w #$0000
+	jsl.l .16
+	lda.w #$FEF8
+	sta.b d4
+	ldy.w #$0004
+	jsl.l .16
+	plx
+	rtl
+.15:
+	jmp.w .17
+.16:
+	lda.b d4
+	sec
+	sbc.w pucky
+	sta.b d0
+	lda.w puckvy
+	beq .15
+	eor.b d0
+	bmi .15
+	lda.b d0
+	stz.b $08
+	lsr a
+	ror.b $08
+	lsr a
+	ror.b $08
+	lsr a
+	ror.b $08
+	lsr a
+	ror.b $08
+	bit.w #$0800
+	beq .1xx
+	ora.w #$F000
+.1xx:
+	sta.b $0A
+	lda.w puckvy
+	sta.b $04
+	jsl.l Div32S
+	lda.b $00
+	sta.w $0D19,y
+	lda.b $00
+	asl a
+	asl a
+	asl a
+	asl a
+	ldx.w puckvx
+	jsl.l Mul16XS
+	adc.w $0D71
+	sta.b d0
+	cmp.w #$0088
+	bmi .2x
+	lda.w #$0088
+	sta.b d0
+.2x:
+	lda.b d0
+	cmp.w #$FF78
+	bpl .3x
+	lda.w #$FF78
+	sta.b d0
+.3x:
+	lda.b d0
+	sta.w $0D17,y
+	rtl
+.17:
+	lda.w #$FFFF
+	sta.w $0D19,y
+	rtl

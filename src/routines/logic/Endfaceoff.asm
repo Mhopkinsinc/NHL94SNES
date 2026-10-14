@@ -110,7 +110,7 @@ Endfaceoff:
 	sta.w $0EE3,x
 	lda.w #$0004
 	ldy.w #$0000
-	jsr.w CODE_9FB1DE
+	jsr.w .13
 	bmi .12
 	lda.w puckvy
 	bpl .10
@@ -119,7 +119,7 @@ Endfaceoff:
 .9:
 	lda.w #$0004
 	ldy.w #$000C
-	jsr.w CODE_9FB1DE
+	jsr.w .13
 	bmi .12
 	bra .11
 .10:
@@ -145,3 +145,19 @@ Endfaceoff:
 	lda.w #$0018
 	sta.b d0
 	jml.l assreplace
+.13:
+	pha
+	lda.w #$0006
+	sta.b d0
+	pla
+.loop:
+	cmp.w position,y
+	beq .1x
+	iny
+	iny
+	dec.b d0
+	bne .loop
+	ldy.w #$FFFF
+.1x:
+	cpy.w #$0000
+	rts

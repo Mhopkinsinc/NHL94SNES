@@ -38,7 +38,7 @@ FallDown:
 	bmi .t2
 	lda.w #$003C
 	sta.w $1223,y
-	jmp.w CODE_9E9D59
+	jmp.w .21
 
 .t1:
 	rtl
@@ -73,17 +73,475 @@ FallDown:
 	jsl.l vtoa
 	lda.w Xpos,y
 	cmp.w #$0068
-	bpl CODE_9E9C16
+	bpl .7
 	cmp.w #$FF98
-	bmi CODE_9E9C43
+	bmi .10
 	lda.w Ypos,y
 	cmp.w #$0112
-	bpl CODE_9E9C10
+	bpl .5
 	cmp.w #$FEED
-	bmi CODE_9E9C0D
-CODE_9E9C0A:
-	jmp.w CODE_9E9D0D
-CODE_9E9C0D:
-	jmp.w CODE_9E9CE0
-CODE_9E9C10:
-	jmp.w CODE_9E9CB6
+	bmi .4
+.3:
+	jmp.w .20
+.4:
+	jmp.w .17
+.5:
+	jmp.w .15
+.6:
+	jmp.w .27
+.7:
+	lda.w Ypos,y
+	cmp.w #$00F0
+	bpl .6
+	cmp.w #$FF0A
+	bmi .6
+	lda.b d0
+	cmp.w #$0005
+	bcc .3
+	lda.w #$0082
+	sta.w Xpos,y
+	lda.w #$0000
+	sta.w $0EC3,y
+.8:
+	lda.w attribute,y
+	bit.w #$0800
+	bne .12
+.9:
+	lda.w #DATA8_9DFD3A
+	bra .13
+.10:
+	lda.w Ypos,y
+	cmp.w #$00F0
+	bpl .6
+	cmp.w #$FF0A
+	bmi .6
+	lda.b d0
+	dec a
+	cmp.w #$0003
+	bcs .3
+	lda.w #$FF7E
+	sta.w Xpos,y
+	lda.w #$0000
+	sta.w $0EC3,y
+	lda.w Ypos,y
+	cmp.w #$0058
+	bpl .11
+	cmp.w #$FFA8
+	bpl .14
+.11:
+	lda.w attribute,y
+	bit.w #$0800
+	bne .9
+.12:
+	lda.w #DATA8_9DFD9C
+.13:
+	ldx.b a2
+	sta.w pfalock,x
+	jsl.l CODE_9EA403
+	lda.w $19BE
+	clc
+	adc.w #$000A
+	bmi .1xx
+	sta.w $19BE
+.1xx:
+	stz.w $0C23
+	ldy.b a2
+	lda.w pfteam,y
+	beq .2x
+	lda.w #$0002
+.2x:
+	clc
+	adc.w #$0006
+	jsl.l CODE_9C9FD5
+	lda.w #$0002
+	sta.w $0C25
+	ldx.b a3
+	ldy.b a2
+	jmp.w .24
+.14:
+	jmp.w .26
+.15:
+	lda.w Xpos,y
+	cmp.w #$0050
+	bpl .19
+	cmp.w #$FFB0
+	bmi .19
+	lda.b d0
+	inc a
+	inc a
+	and.w #$0007
+	cmp.w #$0005
+	bcc .20
+	lda.w #$0128
+	sta.w Ypos,y
+	lda.w #$0000
+	sta.w $0EE3,y
+.16:
+	lda.w #DATA8_9DFC76
+	bra .13
+.17:
+	lda.w Xpos,y
+	cmp.w #$0050
+	bpl .19
+	cmp.w #$FFB0
+	bmi .19
+	lda.b d0
+	inc a
+	and.w #$0007
+	cmp.w #$0003
+	bcs .20
+	lda.w #$FED8
+	sta.w Ypos,y
+	lda.w #$0000
+	sta.w $0EE3,y
+.18:
+	lda.w #DATA8_9DFCD8
+	jmp.w .13
+.19:
+	jmp.w .27
+.20:
+	ldy.b a3
+	lda.w pfteam,y
+	beq .1xxx
+	lda.w #$0002
+.1xxx:
+	inc a
+	inc a
+	jsl.l CODE_9C9FD5
+	lda.w #$0002
+	sta.w $0C25
+	lda.w #SPAfallback
+	sta.b d1
+	ldy.b a2
+	lda.b d0
+	sec
+	sbc.w facedir,y
+	inc a
+	and.w #$0007
+	cmp.w #$0003
+	bcc .21
+	lda.w #SPAfallfwd
+	sta.b d1
+	lda.w facedir,y
+	and.w #$0003
+	bne .21
+	lda.w $1483,x
+	sec
+	sbc.w #$000A
+	bmi .21
+	cpx.w #$0018
+	bcs .21
+	lda.w #SPAflip
+	sta.b d1
+.21:
+	ldx.b a2
+	lda.w #$0001
+	sta.w pfalock,x
+	jsl.l SetSPA
+	ldx.b a3
+	lda.w position,x
+	bne .24
+	cpx.w #$0018
+	bcs .24
+	bra .24
+.22:
+	jmp.w CODE_9E9B0E
+.23:
+	jmp.w .25
+.24:
+	lda.l crowdlevel
+	clc
+	adc.w #$012C
+	sta.l crowdlevel
+	lda.w #$002D
+	sta.b $81
+	lda.w puckc
+	sta.b d0
+	bmi .22
+	cpy.b d0
+	bne .22
+	lda.w gmode
+	bit.w #$0010
+	bne .23
+	lda.l $7E34BC
+	cmp.w #$0004
+	beq .23
+	lda.w position,x
+	beq .23
+	lda.w SPA,y
+	cmp.w #SPAfallback
+	bne .23
+	lda.w facedir,y
+	and.w #$0003
+	bne .23
+	lda.w pflags,y
+	bit.w #$4000
+	bne .23
+	lda.w #$0096
+	jsl.l randoma8
+	asl a
+	ldy.b a2
+	sec
+	sbc.w $0F23,y
+	bpl .23
+	lda.w gmclock
+	bne .23
+	lda.w position,y
+	bmi .25
+	beq .25
+	lda.w #$FFFF
+	sta.w puckc
+	stz.w $0C23
+	ldy.b a2
+	lda.w pfteam,y
+	beq .1xxxx
+	lda.w #$0002
+.1xxxx:
+	clc
+	adc.w #$0006
+	jsl.l CODE_9C9FD5
+	ldx.b a2
+	lda.w #SPAinjury1
+	jsl.l SetSPAFromA
+	ldx.b a3
+	lda.w $0EC3,x
+	eor.w #$FFFF
+	inc a
+	cmp.w #$8000
+	ror a
+	sta.w $0EC3,x
+	lda.w $0EE3,x
+	eor.w #$FFFF
+	inc a
+	cmp.w #$8000
+	ror a
+	sta.w $0EE3,x
+	jsl.l setInjuryType
+	lda.w #$0004
+	sta.w InjCntDown
+	lda.w #$0016
+	sta.b d0
+	lda.w $19BE
+	clc
+	adc.w #$001E
+	bmi .2xx
+	sta.w $19BE
+.2xx:
+	lda.w position,x
+	bne .t2x
+	jmp.w AddPenalty2
+
+.t2x:
+	lda.l OptPen
+	bne .t1x
+	jmp.w AddPenalty2
+
+.t1x:
+	lda.w #$0014
+	sta.b d0
+	jsl.l AddPenalty2
+	jmp.w Stop4Pen
+.25:
+	ldy.b a2
+	lda.w SPA,y
+	cmp.w #SPAstumble
+	beq .1xxxxx
+	lda.w #$FFFF
+	sta.w puckc
+.1xxxxx:
+	ldy.b a2
+	lda.w pfteam,y
+	bne .t1xx
+	lda.w #$0003
+	jsl.l CODE_9C9A7F
+	rtl
+
+.t1xx:
+	lda.l crowdlevel
+	clc
+	adc.w #$0258
+	sta.l crowdlevel
+	lda.w #$002D
+	sta.b $81
+	rtl
+.26:
+	lda.w $19BE
+	clc
+	adc.w #$000A
+	bmi .1xxxxxx
+	sta.w $19BE
+.1xxxxxx:
+	ldx.b a2
+	lda.w #$FF7E
+	sta.w Xpos,x
+	lda.w #$0000
+	sta.w $0EC3,x
+	lda.w attribute,x
+	bit.w #$0800
+	bne .t1xxx
+	lda.w #DATA8_9DFE60
+	bra .2xxx
+
+.t1xxx:
+	lda.w #DATA8_9DFDFE
+.2xxx:
+	sta.w pfalock,x
+	jsl.l SetSPAFromA
+	ldx.b a3
+	ldy.b a2
+	jmp.w .24
+.27:
+	lda.b d0
+	sta.b d5
+	lda.w Xpos,y
+	sta.b d2
+	lda.w Ypos,y
+	sta.b d3
+	ldx.w #$0048
+	ldy.w #$00EA
+	lda.b d2
+	bpl .1xxxxxxx
+	ldx.w #$FFB8
+.1xxxxxxx:
+	lda.b d3
+	bpl .2xxxx
+	ldy.w #$FF16
+.2xxxx:
+	stx.b $A7
+	sty.b $AB
+	lda.b d2
+	sec
+	sbc.b $A7
+	sta.b d0
+	lda.b d3
+	sec
+	sbc.b $AB
+	sta.b d1
+	ldy.b d0
+	jsl.l ApproxLength
+	ldy.b a2
+	sta.b d4
+	cmp.w #$0014
+	bcs .t1xxxx
+	ldx.b a3
+	jmp.w .20
+
+.t1xxxx:
+	lda.b d0
+	xba
+	tax
+	lda.b d4
+	jsl.l DivX8S
+	lsr a
+	lsr a
+	bit.w #$2000
+	beq .1xxxxxxxx
+	ora.w #$C000
+.1xxxxxxxx:
+	sta.b d0
+	bit.w #$8000
+	beq .2xxxxx
+	eor.w #$FFFF
+	inc a
+.2xxxxx:
+	sta.b $AF
+	lda.b d1
+	xba
+	tax
+	lda.b d4
+	jsl.l DivX8S
+	ldx.b a3
+	lsr a
+	lsr a
+	bit.w #$2000
+	beq .3x
+	ora.w #$C000
+.3x:
+	sta.b d1
+	bit.w #$8000
+	beq .4x
+	eor.w #$FFFF
+	inc a
+.4x:
+	cmp.b $AF
+	bcs .30
+	lda.b $A7
+	bpl .29
+	lda.b d5
+	dec a
+	cmp.w #$0003
+	bcs .28
+	lda.b d0
+	clc
+	adc.w #$0006
+	clc
+	adc.b $A7
+	sta.w Xpos,y
+	lda.b d1
+	clc
+	adc.b $AB
+	sta.w Ypos,y
+	lda.w #$0000
+	sta.w $0EC3,y
+	sta.w $0EE3,y
+	jmp.w .11
+.28:
+	jmp.w .20
+.29:
+	lda.b d5
+	cmp.w #$0005
+	bcc .28
+	lda.b d0
+	sec
+	sbc.w #$0006
+	clc
+	adc.b $A7
+	sta.w Xpos,y
+	lda.b d1
+	clc
+	adc.b $AB
+	sta.w Ypos,y
+	lda.w #$0000
+	sta.w $0EC3,y
+	sta.w $0EE3,y
+	jmp.w .8
+.30:
+	lda.b $AB
+	bpl .t1xxxxx
+	lda.b d5
+	inc a
+	and.w #$0007
+	cmp.w #$0003
+	bcs .28
+	lda.b d0
+	clc
+	adc.b $A7
+	sta.w Xpos,y
+	lda.b d1
+	clc
+	adc.b $AB
+	sta.w Ypos,y
+	lda.w #$0000
+	sta.w $0EC3,y
+	sta.w $0EE3,y
+	jmp.w .18
+
+.t1xxxxx:
+	lda.b d5
+	inc a
+	inc a
+	and.w #$0007
+	cmp.w #$0005
+	bcc .28
+	lda.b d0
+	clc
+	adc.b $A7
+	sta.w Xpos,y
+	lda.b d1
+	clc
+	adc.b $AB
+	sta.w Ypos,y
+	lda.w #$0000
+	sta.w $0EC3,y
+	sta.w $0EE3,y
+	jmp.w .16

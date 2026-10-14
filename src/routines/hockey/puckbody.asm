@@ -6,7 +6,7 @@ puckbody:
 	lda.b d0
 	and.w #$000F
 	beq .t2
-	jmp.w CODE_9EF02A
+	jmp.w .3
 
 .t2:
 	jsl.l a2touchpuck
@@ -50,7 +50,7 @@ puckbody:
 	jsl.l puckflip
 	lda.w $0DF9
 	cmp.w #$0008
-	bmi CODE_9EF02A
+	bmi .3
 	lda.b d2
 	tax
 	jsl.l Mul16S
@@ -71,8 +71,21 @@ org $9EF000
 	adc.b $AF
 	sta.b $AF
 	cmp.w #$0900
-	bcc CODE_9EF02B
+	bcc .4
 	lda.w $0DF9
 	cmp.w #$000C
-	bmi CODE_9EF02A
+	bmi .3
 	jmp.w FallDown
+.3:
+	rtl
+.4:
+	ldy.b a2
+	lda.w pfalock,y
+	bne .3
+	inc a
+	sta.w $1543,y
+	lda.w #DATA8_9DF896
+	ldx.b a2
+	jsl.l SetSPAFromA
+	ldx.b a3
+	rtl

@@ -187,7 +187,7 @@ org $9FD000
 	adc.b $00
 	lsr a
 	ldy.w #$0000
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $12E3,x
 	ldy.w #$0002
 	lda.b [a0],y
@@ -202,7 +202,7 @@ org $9FD000
 	adc.b $00
 	lsr a
 	ldy.w #$0001
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $1303,x
 	ldy.w #$0002
 	lda.b [a0],y
@@ -221,7 +221,7 @@ org $9FD000
 	clc
 	adc.w $0CE5
 	ldy.w #$0002
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	eor.w #$000F
 	clc
 	adc.w #$000F
@@ -242,7 +242,7 @@ org $9FD000
 	clc
 	adc.w HmAwBonus
 	ldy.w #$0003
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	pha
 	lda.w position,x
 	beq .t1x
@@ -270,7 +270,7 @@ org $9FD000
 	adc.b $00
 	lsr a
 	ldy.w #$0004
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $1363,x
 	ldy.w #$0004
 	lda.b [a0],y
@@ -287,7 +287,7 @@ org $9FD000
 	clc
 	adc.w $0CE5
 	ldy.w #$0005
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $1483,x
 	lda.w attribute,x
 	and.w #$F7FF
@@ -324,7 +324,7 @@ org $9FD000
 	clc
 	adc.w HmAwBonus
 	ldy.w #$0006
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $1403,x
 	ldy.w #$0005
 	lda.b [a0],y
@@ -341,7 +341,7 @@ org $9FD000
 	clc
 	adc.w HmAwBonus
 	ldy.w #$0007
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $1383,x
 	ldy.w #$0006
 	lda.b [a0],y
@@ -356,7 +356,7 @@ org $9FD000
 	adc.b $00
 	lsr a
 	ldy.w #$0008
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $1423,x
 	ldy.w #$0006
 	lda.b [a0],y
@@ -371,7 +371,7 @@ org $9FD000
 	clc
 	adc.w $0CE5
 	ldy.w #$0009
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $13E3,x
 	ldy.w #$0007
 	lda.b [a0],y
@@ -390,7 +390,7 @@ org $9FD000
 	clc
 	adc.w HmAwBonus
 	ldy.w #$000A
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $13A3,x
 	ldy.w #$0007
 	lda.b [a0],y
@@ -401,8 +401,34 @@ org $9FD000
 	adc.b $00
 	lsr a
 	ldy.w #$000B
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	sta.w $1443,x
 	ply
 	plx
+	rtl
+.8:
+	sta.b $16
+	tya
+	clc
+	adc.b $14
+	tay
+	sep #$20
+	lda.w $1A12,y
+	lsr a
+	lsr a
+	bit.b #$00
+	beq .1xx
+	ora.b #$00
+.1xx:
+	clc
+	adc.b $16
+	bpl .2x
+	lda.b #$00
+.2x:
+	cmp.b #$0F
+	bcc .3x
+	lda.b #$0F
+.3x:
+	rep #$20
+	and.w #$00FF
 	rtl

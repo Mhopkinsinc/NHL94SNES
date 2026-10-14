@@ -36,18 +36,57 @@ NMI_Tick:
 	inc.b $85
 .2:
 	lda.w fadestep
-	beq CODE_80843E
-	bmi CODE_80841F
+	beq .7
+	bmi .4
 	cmp.w #$0001
 	bne .t1
 	lda.w brightness
 	cmp.w #$000F
-	bcs CODE_808435
+	bcs .5
 	lda.w STAT77
-	bmi CODE_80843E
+	bmi .7
 	inc.w brightness
-	bra CODE_80843E
+	bra .7
 
 .t1:
 	dec.w fadestep
-	bra CODE_80843E
+	bra .7
+.3:
+	inc.w fadestep
+	bra .7
+.4:
+	cmp.w #$FFFF
+	bne .3
+	lda.w STAT77
+	bmi .7
+	dec.w brightness
+	bmi .1x
+	bne .7
+.1x:
+	stz.w brightness
+	bra .6
+.5:
+	lda.w #$000F
+	sta.w brightness
+.6:
+	stz.w fadestep
+.7:
+	rep #$20
+	lda.w $0787
+	bne .1xx
+	inc.w $0764
+.1xx:
+	sep #$10
+	rep #$20
+	ldx.w $0771
+	beq .2x
+	lda.w $0770
+	sta.w $0789
+	stz.w $0770
+	ldx.w $0772
+	stx.w $078B
+.2x:
+	ldx.b #$80
+	phx
+	pea.w NMI_FrameHookReturn-1		; rtl from the hook lands on the next line
+	jml [$0789]

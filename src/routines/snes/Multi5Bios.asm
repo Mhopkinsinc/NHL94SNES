@@ -225,7 +225,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	ldx.w $1A0C
 	beq .2xx
 .1xx:
-	jsr.w CODE_9B8309
+	jsr.w .12
 .2xx:
 	lda.w $0ACB
 	cmp.b #$01
@@ -235,7 +235,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	ldx.w $1A0C
 	beq .8
 .3x:
-	jsr.w CODE_9B8309
+	jsr.w .12
 .4x:
 	lda.w $1A0C
 	beq .8
@@ -245,21 +245,21 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	beq .6x
 	ldx.w #$000F
 	stx.w $077A
-	jsr.w CODE_9B8309
+	jsr.w .12
 .6x:
 	lda.w $0ACD
 	cmp.b #$01
 	beq .7x
 	ldx.w #$000F
 	stx.w $077C
-	jsr.w CODE_9B8309
+	jsr.w .12
 .7x:
 	lda.w $0ACE
 	cmp.b #$01
 	beq .8
 	ldx.w #$000F
 	stx.w $077E
-	jsr.w CODE_9B8309
+	jsr.w .12
 .8:
 	lda.w $1A0E
 	beq .11
@@ -285,3 +285,20 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 .11:
 	plp
 	rtl
+.12:
+	and.b #$1E
+	cmp.b #$02
+	bne .t1xxxx
+	lda.b #$04
+	tsb.w $1A0E
+	bra .1xxx
+
+.t1xxxx:
+	cmp.b #$1E
+	bne .1xxx
+	lda.b #$02
+	tsb.w $1A0E
+.1xxx:
+	rts
+	db "MODIFIED FROM SHVC MULTI5 BIOS Ver2.00"
+	db "END OF MULTI5 BIOS"

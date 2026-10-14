@@ -41,9 +41,9 @@ assgoalietopuck:
 	sta.w $0B05,x
 .4:
 	lda.w $19D4,x
-	bpl CODE_9ED214
+	bpl .6
 	lda.w gmclock
-	bne CODE_9ED214
+	bne .6
 	jsl.l check4bench
 	lda.w pflags,x
 	bit.w #$0002
@@ -57,12 +57,125 @@ assgoalietopuck:
 	sec
 	sbc.b d7
 	sta.w $1003,x
-	bpl CODE_9ED24D
+	bpl .8
 	lda.w $1343,x
 	lsr a
 	lsr a
 	clc
 	adc.w $1003,x
-	bpl CODE_9ED217
+	bpl .7
 	lda.w #$0000
-	bra CODE_9ED217
+	bra .7
+.6:
+	jmp.w assexit
+.7:
+	sta.w $1003,x
+	lda.w puckc
+	bpl .6
+	lda.w puckvy
+	ldy.w pfgoal,x
+	beq .1x
+	eor.w #$FFFF
+	inc a
+.1x:
+	cmp.w #$F800
+	bmi .6
+	stz.b a1
+	lda.w #$0002
+	sta.b a2
+	lda.w pfteam,x
+	beq .2x
+	stz.b a2
+	lda.w #$0002
+	sta.b a1
+.2x:
+	ldy.b a2
+	lda.w $17AE,y
+	cmp.w #$0096
+	bcc .6
+.8:
+	jsr.w CODE_9EDC44
+	jsl.l vtoa
+	jsl.l CODE_9EDC06
+	asl.w $12E3,x
+	jsl.l .t2
+	lsr.w $12E3,x
+	rtl
+
+.t2:
+	lda.w $1023,x
+	sec
+	sbc.b d7
+	sta.w $1023,x
+	bmi .t1
+	jmp.w .5x
+
+.t1:
+	adc.w #$0005
+	sta.w $1023,x
+	lda.w puckvx
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .1xx
+	ora.w #$FF00
+.1xx:
+	clc
+	adc.w $0D71
+	sta.b d0
+	lda.w puckvy
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .2xx
+	ora.w #$FF00
+.2xx:
+	clc
+	adc.w pucky
+	sta.b d1
+	jsl.l avdgoal
+	lda.b d1
+	pha
+	lda.b d0
+	pha
+	txa
+	jsl.l GetHot
+	lda.b d0
+	eor.w #$FFFF
+	inc a
+	sec
+	sbc.w $0EC4,x
+	and.w #$00FF
+	bit.w #$0080
+	beq .3x
+	ora.w #$FF00
+.3x:
+	clc
+	adc.b $01,s
+	sec
+	sbc.w Xpos,x
+	sta.b d0
+	lda.b d1
+	eor.w #$FFFF
+	inc a
+	sec
+	sbc.w $0EE4,x
+	and.w #$00FF
+	bit.w #$0080
+	beq .4x
+	ora.w #$FF00
+.4x:
+	clc
+	adc.b $03,s
+	sec
+	sbc.w Ypos,x
+	sta.b d1
+	pla
+	pla
+	jsl.l vtoa
+	lda.b d0
+	sta.w $10A3,x
+.5x:
+	lda.w $10A3,x
+	sta.b d0
+	jml.l doplayeracc

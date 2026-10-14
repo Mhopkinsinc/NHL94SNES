@@ -109,7 +109,7 @@ checkplcoll:
 	jsl.l ApproxLength
 	cmp.w #$0010
 	bmi .t1x
-	jmp.w CODE_9E976E
+	jmp.w .10
 
 .t1x:
 	ldy.b a2
@@ -124,7 +124,7 @@ checkplcoll:
 	lda.b d0
 	ora.b d1
 	bne .t2x
-	jmp.w CODE_9E976E
+	jmp.w .10
 
 .t2x:
 	lda.b d1
@@ -150,7 +150,7 @@ checkplcoll:
 	adc.b $AB
 	sta.b $AB
 	bpl .t1xx
-	jmp.w CODE_9E9784
+	jmp.w .11
 
 .t1xx:
 	lda.w SPA,x
@@ -195,7 +195,7 @@ checkplcoll:
 	sta.b d1
 	lda.w pfteam,x
 	cmp.w pfteam,y
-	beq CODE_9E9692
+	beq .9
 	lda.b d1
 	lsr a
 	lsr a
@@ -208,12 +208,176 @@ checkplcoll:
 	sta.b d4
 	lda.w SPA,x
 	cmp.w #SPAsweepchk
-	bcc CODE_9E963C
+	bcc .7
 	cmp.w #$F343
-	bcs CODE_9E963C
-CODE_9E9633:
+	bcs .7
+.6:
 	lda.b d4
 	lsr a
 	adc.b d4
 	sta.b d4
-	bra CODE_9E9649
+	bra .8
+.7:
+	lda.w SPA,y
+	cmp.w #SPAsweepchk
+	bcc .8
+	cmp.w #$F343
+	bcc .6
+.8:
+	lda.b d4
+	clc
+	adc.w $0F23,x
+	sta.w $0F23,x
+	lda.b d4
+	clc
+	adc.w $0F23,y
+	sta.w $0F23,y
+	txa
+	sta.w $0F03,y
+	tya
+	sta.w $0F03,x
+	lda.b d4
+	cmp.w #$0014
+	bcc .2x
+	cpx.w puckc
+	beq .1xx
+	cpy.w puckc
+	bne .2x
+.1xx:
+	jsl.l CODE_9E9B0E
+.2x:
+	lda.b d1
+	pha
+	lda.b d2
+	pha
+	lda.b d3
+	pha
+	jsl.l checkint
+	jsl.l checkcheck
+	pla
+	sta.b d3
+	pla
+	sta.b d2
+	pla
+	sta.b d1
+.9:
+	lda.b d1
+	sta.b d4
+	pla
+	sta.b d0
+	pla
+	sta.b d1
+	lda.w $0CDB
+	bpl .t1xxx
+	jmp.w .10
+
+.t1xxx:
+	lda.b d2
+	ldx.b d1
+	jsl.l Mul16x8S
+	lda.b $0A
+	sta.b $AB
+	lda.b $08
+	sta.b d1
+	lda.b d3
+	ldx.b d0
+	jsl.l Mul16x8S
+	lda.b $08
+	sec
+	sbc.b d1
+	sta.b d1
+	lda.b $0A
+	sbc.b $AB
+	sta.b $AB
+	lda.b $AA
+	sta.b d5
+	ldx.b a3
+	lda.w $12C3,x
+	clc
+	adc.w #$008C
+	sta.b d0
+	ldy.b a2
+	lda.w $12C3,y
+	clc
+	adc.w #$008C
+	sta.b d1
+	lda.b d1
+	clc
+	adc.b d0
+	sta.b d1
+	lda.b d0
+	ldx.b d4
+	jsl.l Mul16x8XS
+	lda.b d1
+	sta.b $04
+	jsl.l Div32S
+	lda.b $00
+	sta.b d0
+	sta.b d1
+	lda.b d3
+	ldx.b d5
+	jsl.l Mul16x8S
+	lda.b $08
+	sta.b tmp0
+	lda.b d2
+	ldx.b d0
+	jsl.l Mul16x8S
+	lda.b $08
+	clc
+	adc.b tmp0
+	ldx.b a3
+	clc
+	adc.w $0EC3,y
+	sta.w $0EC3,x
+	lda.b d2
+	ldx.b d5
+	jsl.l Mul16x8S
+	lda.b $08
+	sta.b tmp0
+	lda.b d3
+	ldx.b d0
+	jsl.l Mul16x8S
+	lda.b $08
+	sec
+	sbc.b tmp0
+	ldx.b a3
+	clc
+	adc.w $0EE3,y
+	sta.w $0EE3,x
+	lda.b d2
+	ldx.b d1
+	jsl.l Mul16x8S
+	lda.b $08
+	clc
+	adc.w $0EC3,y
+	sta.w $0EC3,y
+	lda.b d3
+	ldx.b d1
+	jsl.l Mul16x8S
+	lda.b $08
+	clc
+	adc.w $0EE3,y
+	sta.w $0EE3,y
+	ldx.b a3
+	lda.w #$FFFF
+	sta.w $0CDB
+.10:
+	pla
+	sta.b d5
+	pla
+	sta.b d4
+	pla
+	sta.b d3
+	pla
+	sta.b d2
+	pla
+	sta.b $AB
+	pla
+	sta.b d1
+	pla
+	sta.b d0
+	rtl
+.11:
+	pla
+	pla
+	bra .10
