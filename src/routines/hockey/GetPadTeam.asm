@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FC76C:
+; a2 = the team of the controller that paused (0 home, 2 visitors), from its side ($1C84)
+GetPadTeam:
 	stz.b a2
 	lda.w #$0001
 	sta.b $93

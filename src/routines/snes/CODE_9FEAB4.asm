@@ -74,7 +74,7 @@ CODE_9FEAB4:
 	jmp.w CODE_9FEBA5
 
 .t1:
-	jsl.l CODE_9FC76C
+	jsl.l GetPadTeam
 	ldy.b a2
 	lda.w tmgoalie,y
 	bpl .t2
@@ -139,13 +139,13 @@ CODE_9FEBA6:
 	jmp.w CODE_9FEBA5
 
 .t2:
-	jsl.l CODE_9FC76C
+	jsl.l GetPadTeam
 	ldy.b a2
 	lda.w $1C90,y
 	beq .t1
 	lda.w #$009F
 	sta.b $9B
-	lda.w #$EC42
+	lda.w #GoalieOptionText+18
 	sta.b a4
 	bra .1
 
@@ -174,20 +174,20 @@ CODE_9FEBEB:
 	jmp.w CODE_9FEBA5
 
 .t2:
-	jsl.l CODE_9FC76C
+	jsl.l GetPadTeam
 	ldy.b a2
 	lda.w $1C94,y
 	beq .t1
 	lda.w #$009F
 	sta.b $9B
-	lda.w #$EC57
+	lda.w #GoalieOptionText+39
 	sta.b a4
 	bra .1
 
 .t1:
 	lda.w #$009F
 	sta.b $9B
-	lda.w #$EC5B
+	lda.w #GoalieOptionText+43
 	sta.b a4
 .1:
 	ldy.w #$0001

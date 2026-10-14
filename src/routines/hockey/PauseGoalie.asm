@@ -1,8 +1,8 @@
 ; Pause menu: cycle the goalie
 PauseGoalie:
-	jsl.l CODE_9FC76C
+	jsl.l GetPadTeam
 	jsl.l GoalieCount
-	jsl.l CODE_9FC76C
+	jsl.l GetPadTeam
 	ldy.b a2
 	lda.b d1
 	bit.w #$8180

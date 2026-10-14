@@ -958,7 +958,7 @@ $9FAE87,.5,CODE_9FAE87,new,branch target only used in this routine,src/routines/
 $9FAE97,.loop,CODE_9FAE97,new,branch target only used in this routine,src/routines/snes/CODE_9FADA7.asm
 $9FAEA5,.loop2,CODE_9FAEA5,new,branch target only used in this routine,src/routines/snes/CODE_9FADA7.asm
 $9BC2DC,.1,CODE_9BC2DC,new,branch target only used in this routine,src/routines/snes/CODE_9BC2D7.asm
-$9FC782,.loop,CODE_9FC782,new,branch target only used in this routine,src/routines/snes/CODE_9FC76C.asm
+$9FC782,.loop,CODE_9FC782,new,branch target only used in this routine,src/routines/hockey/GetPadTeam.asm
 $9DB44A,.rts,CODE_9DB44A,new,branch target only used in this routine,src/routines/hockey/TitleScreen.asm
 $9EA738,.1,CODE_9EA738,new,branch target only used in this routine,src/routines/logic/playeracc.asm
 $9EA743,.2,CODE_9EA743,new,branch target only used in this routine,src/routines/logic/playeracc.asm
@@ -3104,7 +3104,7 @@ $9FCD23,.t1,CODE_9FCD23,new,continued in the previous routine,src/routines/snes/
 $9FCBEB,.t1,CODE_9FCBEB,new,continued in the previous routine,src/routines/logic/findpc.asm
 $9FC82F,.t1,CODE_9FC82F,new,continued in the previous routine,src/routines/snes/CODE_9FC822.asm
 $9FC80A,.t1,CODE_9FC80A,new,continued in the previous routine,src/routines/snes/CODE_9FC79F.asm
-$9FC792,.t1,CODE_9FC792,new,continued in the previous routine,src/routines/snes/CODE_9FC76C.asm
+$9FC792,.t1,CODE_9FC792,new,continued in the previous routine,src/routines/hockey/GetPadTeam.asm
 $9FC764,.t1,CODE_9FC764,new,continued in the previous routine,src/routines/penalty/loadTeamStruct.asm
 $9FC693,.t1,CODE_9FC693,new,continued in the previous routine,src/routines/hockey/ResetClock.asm
 $9FC639,.t1,CODE_9FC639,new,continued in the previous routine,src/routines/middle/PushNumberWrap.asm
@@ -4503,7 +4503,7 @@ $9FBB89,.7,CODE_9FBB89,new,branch target only used in this routine,src/routines/
 $9FBE43,.2,CODE_9FBE43,new,branch target only used in this routine,src/routines/hockey/DrawTeamBlocks.asm
 $9FBEF8,.3,CODE_9FBEF8,new,branch target only used in this routine,src/routines/hockey/DrawTeamBlocks.asm
 $9FC6A6,.1,CODE_9FC6A6,new,branch target only used in this routine,src/routines/hockey/ResetClock.asm
-$9FC79E,.1,CODE_9FC79E,new,branch target only used in this routine,src/routines/snes/CODE_9FC76C.asm
+$9FC79E,.1,CODE_9FC79E,new,branch target only used in this routine,src/routines/hockey/GetPadTeam.asm
 $9FCDAA,.2,CODE_9FCDAA,new,branch target only used in this routine,src/routines/snes/CODE_9FCD4D.asm
 $9FD2BC,.1,CODE_9FD2BC,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
 $9FD2D7,.2,CODE_9FD2D7,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
@@ -5696,3 +5696,5 @@ $9FB901,setplayercolors,CODE_9FB901,93S,"Same job as 93S setplayercolors (SetTea
 $9FBD65,nullrtl,CODE_9FBD65,93S,"setupice calls it right after InitSortObjects, where 93S setupice calls nullrtl",src/routines/hockey/nullrtl.asm
 $9FE79F,ReloadRink,CODE_9FE79F,new,Behavior: every pause menu item handler calls it when its screen closes,src/routines/hockey/ReloadRink.asm
 $9FB91A,SetTeamColors,CODE_9FB91A,93S,"setplayercolors: the uniform colours of both teams into palbuffer, as 93S SetTeamColors (was the local .t1)",src/routines/hockey/setplayercolors.asm
+$9FC76C,GetPadTeam,CODE_9FC76C,93S,"The 93S GetPadTeam test (team 1 = home, a2 = 0, else 2) on the 94 per pad sides; the pause goalie, timeout and defense items call it as 93S PauseMenu does",src/routines/hockey/GetPadTeam.asm
+$9FE9FD,PulseUntilRelease,CODE_9FE9FD,new,Behavior: called from SelectPauseController,src/routines/hockey/PulseUntilRelease.asm

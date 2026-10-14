@@ -52,7 +52,7 @@ SelectPauseController:
 	stz.w $0D13
 	jsl.l CODE_9FEA24
 	jsl.l SendTextMap
-	jsr.w CODE_9FE9FD
+	jsr.w PulseUntilRelease
 	lda.w #$003C
 	sta.w $0AC8
 	lda.w #$0014

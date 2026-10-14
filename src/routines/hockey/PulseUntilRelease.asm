@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE9FD:
+; While the pause pad holds A or B: pulse the side colour (PulsePauseSide) and send it to CGRAM each frame
+PulseUntilRelease:
 	jsr.w PulsePauseSide
 	lda.w #$007F
 	sta.b $0E
@@ -12,5 +12,5 @@ CODE_9FE9FD:
 	ldx.w pausepad
 	lda.w JoyPad,x
 	bit.w #$8080
-	bne CODE_9FE9FD
+	bne PulseUntilRelease
 	rts

@@ -83,6 +83,7 @@
 - `DrawTeamBlocks` (93S: the 9 x 2 team block at printx / printy, with 94 name sprites), `PlayerInitialName` (from behavior).
 - `setplayercolors` and `SetTeamColors` (93S: the uniform colours, then the whole palette), `nullrtl` (93S: setupice calls it at the same point), RAM `palbuffer` ($7E35F4), `HomeUniformPalettes` / `AwayUniformPalettes` by label; from behavior `ReloadRink` (the pause screens return through it).
 - RAM `textmap2` ($7E3FF4, the second text map); 25 raw `#$37F4` / `#$3FF4` buffer addresses paired with bank $7E are `#textmap` / `#textmap2` now.
+- `GetPadTeam` (93S test on the 94 pad sides), `PulseUntilRelease` (from behavior); four GoalieOptionText string pointers (raw `#$EC42`-`#$EC5B` with the a4 bank) as label+offset.
 
 ## Unsure
 
