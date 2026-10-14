@@ -240,7 +240,7 @@ CODE_9DD9AD:
 	lda.l $7E3454
 	cmp.w #$0021
 	bcs .t1
-	jmp.w CODE_9DDCF3
+	jmp.w .3
 
 .t1:
 	sbc.w #$0021
@@ -331,7 +331,7 @@ CODE_9DD9AD:
 	ldy.w #$0020
 	ldx.w #$0010
 	jsl.l CODE_9DE0BD
-CODE_9DDCF3:
+.3:
 	sep #$20
 	stz.w CGADD
 	stz.w CGDATA
@@ -363,9 +363,9 @@ CODE_9DDCF3:
 	sta.l $7E35C0
 	lda.w HomeTeam
 	cmp.w #$0018
-	bcs .1
+	bcs .1x
 	stz.b a2
-.1:
+.1x:
 	lda.w VisTeam
 	cmp.w #$0018
 	bcs .2

@@ -17,10 +17,10 @@ assdopen:
 	bne .t1
 	lda.w #$0171
 	sta.w $0D97,x
-	bra CODE_9EBF10
+	bra .2
 
 .t1:
 	lda.w #$0170
 	sta.w $0D97,x
-CODE_9EBF10:
+.2:
 	rtl

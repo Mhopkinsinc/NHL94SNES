@@ -10,13 +10,13 @@ CODE_80A8D4:
 	sta.w $07FB
 	iny
 	lda.b ($4E),y
-	bra CODE_80A8F3
+	bra .2
 
 .t1:
 	ldy.b #$17
 	lda.b ($4E),y
 	sta.w $07FB
-CODE_80A8F3:
+.2:
 	sta.w $07FD
 	ldx.b $4A
 	lda.w $07FB

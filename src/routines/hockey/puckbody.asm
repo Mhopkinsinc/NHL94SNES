@@ -15,12 +15,12 @@ puckbody:
 	bmi .t1
 	lda.w #$0005
 	jsl.l CODE_9C9A7F
-	bra CODE_9EEFAD
+	bra .2
 
 .t1:
 	lda.w #$0008
 	jsl.l CODE_9C9ABC
-CODE_9EEFAD:
+.2:
 	stz.w $0E01
 	ldy.b a2
 	lda.w #$0008

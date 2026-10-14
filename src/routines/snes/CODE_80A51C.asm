@@ -2,7 +2,7 @@
 CODE_80A51C:
 	rep #$20
 	lda.w $091A,x
-	bmi CODE_80A546
+	bmi .1
 	bne .t1
 	sep #$20
 	lda.w $08F2,y
@@ -23,6 +23,6 @@ CODE_80A51C:
 
 .t1:
 	dec.w $091A,x
-CODE_80A546:
+.1:
 	sep #$20
 	rts

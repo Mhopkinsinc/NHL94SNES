@@ -24,16 +24,16 @@ CODE_9DAA83:
 	jsl.l eraser
 	lda.w #$0001
 	sta.l $7E3460
-	bra CODE_9DAACC
+	bra .1
 
 .t1:
 	lda.w VisTeam
 	sta.l $7E3454
-CODE_9DAACC:
+.1:
 	dex
 	dex
 	lda.l DATA8_9DAC7F,x
-	bne .t1
+	bne .t1x
 	lda.w #$001D
 	sta.l $7E3452
 	lda.w #$0016
@@ -49,20 +49,20 @@ CODE_9DAACC:
 	jsl.l eraser
 	lda.w #$0001
 	sta.l $7E3460
-	bra CODE_9DAB0B
+	bra .5
 
-.t1:
+.t1x:
 	lda.w HomeTeam
 	sta.l $7E3452
-CODE_9DAB0B:
+.5:
 	lda.l $7E3458
 	dec a
 	dec a
 	sta.l $7E3458
-	bmi .t1
+	bmi .t1xx
 	rts
 
-.t1:
+.t1xx:
 	jsl.l SpriteFrameStart
 	jsr.w .t2
 	ldx.w #$004F
@@ -74,7 +74,7 @@ CODE_9DAB0B:
 	jsl.l CODE_9C936C
 	lda.l $7E3454
 	cmp.w #$001C
-	bpl .1
+	bpl .1x
 	lda.w #$0001
 	sta.w printx
 	lda.w #$000A
@@ -82,7 +82,7 @@ CODE_9DAB0B:
 	lda.w VisTeam
 	sta.b d1
 	jsl.l CODE_9FBE08
-.1:
+.1x:
 	lda.l $7E3452
 	cmp.w #$001C
 	bpl .2
@@ -132,9 +132,9 @@ CODE_9DAB0B:
 	lda.l $7E345E
 	inc a
 	cmp.w #$0007
-	bcc .1x
+	bcc .1xx
 	lda.w #$0000
-.1x:
+.1xx:
 	sta.l $7E345E
 	cmp.w #$0006
 	beq .rts
@@ -144,7 +144,7 @@ CODE_9DAB0B:
 	lda.w #$FFFF
 	sta.l $7E3452
 	ldx.w #$0000
-	jsr.w .t1x
+	jsr.w .t1xxx
 .2x:
 	lda.l $7E3454
 	cmp.w #$001C
@@ -152,7 +152,7 @@ CODE_9DAB0B:
 	lda.w #$FFFF
 	sta.l $7E3454
 	ldx.w #$0002
-	jsr.w .t1x
+	jsr.w .t1xxx
 .3x:
 	stz.b a2
 	lda.l $7E345E
@@ -164,7 +164,7 @@ CODE_9DAB0B:
 .rts:
 	rts
 
-.t1x:
+.t1xxx:
 	stx.b a2
 	lda.l $7E345E
 	jsl.l CODE_9DC973

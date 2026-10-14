@@ -14,7 +14,7 @@ ShowPeriodStats:
 	jsl.l CODE_9DDFF6
 	jsl.l CODE_8086BD
 	jsl.l DrawPeriodStats
-CODE_9F8032:
+.1:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
@@ -25,7 +25,7 @@ CODE_9F8032:
 	bne .t1
 	bit.w #$4000
 	bne .t2
-	bra CODE_9F8032
+	bra .1
 
 .t1:
 	rtl
@@ -35,4 +35,4 @@ CODE_9F8032:
 	eor.w #$0001
 	sta.w $1DB9
 	jsl.l DrawPeriodStats
-	bra CODE_9F8032
+	bra .1

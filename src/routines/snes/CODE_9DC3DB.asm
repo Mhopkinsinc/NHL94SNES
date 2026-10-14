@@ -6,10 +6,10 @@ CODE_9DC3DB:
 	cmp.w $1E7B
 	bpl .t1
 	cmp.w $1E7F
-	bpl CODE_9DC40F
+	bpl .1
 	cmp.w $1E83
-	bpl CODE_9DC42B
-	bra CODE_9DC435
+	bpl .2
+	bra .3
 
 .t1:
 	lda.w $1E7B
@@ -24,7 +24,7 @@ CODE_9DC3DB:
 	sta.b d0
 	lda.b $04
 	sta.b d1
-CODE_9DC40F:
+.1:
 	lda.w $1E7F
 	sta.b $00
 	lda.w $1E7D
@@ -37,10 +37,10 @@ CODE_9DC40F:
 	sta.b d0
 	lda.b $04
 	sta.b d1
-CODE_9DC42B:
+.2:
 	lda.b d0
 	sta.w $1E83
 	lda.b d1
 	sta.w $1E81
-CODE_9DC435:
+.3:
 	rtl

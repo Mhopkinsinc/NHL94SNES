@@ -12,12 +12,12 @@ CODE_9DC9A8:
 	beq .t2
 	lda.w #$2400
 	sta.w $1E87
-	bra CODE_9DC9C7
+	bra .1
 
 .t2:
 	lda.w #$3400
 	sta.w $1E87
-CODE_9DC9C7:
+.1:
 	lda.b d0
 	ldy.b a2
 	sta.b d0
@@ -40,48 +40,24 @@ CODE_9DC9C7:
 	jsl.l Decompress
 	stx.b $00
 	lda.b a2
-	beq .t1
+	beq .t1x
 	lda.w #$6900
 	sta.b $10
 	sta.l $7E3472
-	bra CODE_9DCA11
+	bra .2
 
-.t1:
+.t1x:
 	lda.w #$6F00
 	sta.b $10
 	sta.l $7E3470
-CODE_9DCA11:
+.2:
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
 	jsl.l LinearToPlanar
 	jsl.l CODE_9DCB1C
-	bne .t1
-	lda.w #$0092
-	sta.b $0E
-	lda.w #DATA8_92FFB0
-	sta.b $0C
-	lda.w #$007E
-	sta.b $12
-	lda.w #$37F4
-	sta.b $10
-	lda.w #$0020
-	sta.b $24
-	lda.l $7E35D2
-	clc
-	adc.w $1E87
-	ldy.b a2
-	beq .1
-	clc
-	adc.w #$0030
-.1:
-	plx
-	ply
-	jsl.l CODE_808E2D
-	bra CODE_9DCA85
-
-.t1:
+	bne .t1xx
 	lda.w #$0092
 	sta.b $0E
 	lda.w #DATA8_92FFB0
@@ -102,8 +78,32 @@ CODE_9DCA11:
 .1x:
 	plx
 	ply
+	jsl.l CODE_808E2D
+	bra .3
+
+.t1xx:
+	lda.w #$0092
+	sta.b $0E
+	lda.w #DATA8_92FFB0
+	sta.b $0C
+	lda.w #$007E
+	sta.b $12
+	lda.w #$37F4
+	sta.b $10
+	lda.w #$0020
+	sta.b $24
+	lda.l $7E35D2
+	clc
+	adc.w $1E87
+	ldy.b a2
+	beq .1xx
+	clc
+	adc.w #$0030
+.1xx:
+	plx
+	ply
 	jsl.l CODE_9DCAB7
-CODE_9DCA85:
+.3:
 	ldy.b a2
 	lda.w HomeTeam,y
 	asl a
@@ -120,13 +120,13 @@ CODE_9DCA85:
 	lda.b [a1]
 	sta.b $0E
 	lda.b a2
-	beq .t1
+	beq .t1xxx
 	ldy.w #$0010
-	bra CODE_9DCAAF
+	bra .4
 
-.t1:
+.t1xxx:
 	ldy.w #$0050
-CODE_9DCAAF:
+.4:
 	ldx.w #$0010
 	jsl.l CODE_9DE0BD
 	rtl

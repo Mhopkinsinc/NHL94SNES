@@ -32,7 +32,7 @@ CODE_9ED4B4:
 .1:
 	sta.w $1003,x
 	lda.w $19D4,x
-	bpl CODE_9ED514
+	bpl .3
 	lda.w pucky
 	sta.b d0
 	lda.w Ypos,x
@@ -57,5 +57,5 @@ CODE_9ED4B4:
 .1x:
 	cpx.w shotPlIdx
 	beq CODE_9ED517
-CODE_9ED514:
+.3:
 	jmp.w CODE_9ED5A7

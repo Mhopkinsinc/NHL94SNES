@@ -32,24 +32,24 @@ CODE_80D21C:		; print the rows of the list from $1DA7, the row at the cursor ($1
 	lda.w SelectedPlayerIdx
 	sec
 	sbc.w #$0005
-	beq CODE_80D269
+	beq .3
 	bmi .t1
-	bvc CODE_80D267
-	bra CODE_80D269
+	bvc .1
+	bra .3
 
 .t1:
-	bvc CODE_80D269
-CODE_80D267:
+	bvc .3
+.1:
 	dec.b d1
-CODE_80D269:
+.3:
 	lda.w #$3800
 	sta.w $0D0D
 	lda.b d1
 	cmp.w $1D9B
-	bne .1
+	bne .1x
 	lda.w #$2000
 	sta.w $0D0D
-.1:
+.1x:
 	lda.b $8F
 	sta.b $9F
 	lda.b a1
@@ -75,7 +75,7 @@ CODE_80D269:
 	inc.b a3
 	inc.w printy
 	dec.b d1
-	bpl CODE_80D269
+	bpl .3
 	lda.w #$2000
 	sta.w $0D0D
 	rtl

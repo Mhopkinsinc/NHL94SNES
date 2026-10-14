@@ -25,22 +25,22 @@ CODE_9EE797:
 	sec
 	sbc.w $0BA9
 	sta.b d1
-	bra CODE_9EE7DA
+	bra .2
 
 .t1:
 	lda.w #$0108
 	sec
 	sbc.w $0BA9
 	sta.b d1
-CODE_9EE7DA:
+.2:
 	jsl.l vtoa
 	jsl.l Findhittype
-	beq .t1
+	beq .t1x
 	lda.w #$F020
-	bra CODE_9EE7EC
+	bra .3
 
-.t1:
+.t1x:
 	lda.w #$EF6E
-CODE_9EE7EC:
+.3:
 	jsl.l SetSPAFromA
 	jmp.w CODE_9EE796

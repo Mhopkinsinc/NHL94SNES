@@ -28,7 +28,7 @@ CODE_9DC374:
 	lda.w #$0009
 	sta.b d1
 	jsl.l CODE_9DC3DB
-	bra CODE_9DC3DA
+	bra .1
 
 .t1:
 	lda.w #$0007
@@ -37,5 +37,5 @@ CODE_9DC374:
 	lda.w #$000A
 	sta.b d1
 	jsl.l CODE_9DC3DB
-CODE_9DC3DA:
+.1:
 	rtl

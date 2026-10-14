@@ -36,14 +36,14 @@ CODE_80D2BD:		; put the player at the cursor in shooter row $1DB9; if that playe
 	iny
 	cpy.w #$0007
 	bmi .loop
-	bra CODE_80D313
+	bra .2
 
 .t1:
 	lda.b d1
 	sep #$20
 	sta.b [a1],y
 	rep #$20
-CODE_80D313:
+.2:
 	ldy.w $1DB9
 	lda.b d0
 	sep #$20

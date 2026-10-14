@@ -8,12 +8,12 @@ CODE_80CE0A:		; button on a row: the goalie row cycles the goalie, a shooter row
 	lda.w #homeshooters
 	sta.b a1
 	lda.b a2
-	beq CODE_80CE2B
+	beq .2
 	lda.w #$0000
 	sta.b $8F
 	lda.w #awayshooters
 	sta.b a1
-CODE_80CE2B:
+.2:
 	lda.b [a1]
 	and.w #$00FF
 	inc a

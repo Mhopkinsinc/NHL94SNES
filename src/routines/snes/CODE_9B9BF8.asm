@@ -8,17 +8,17 @@ CODE_9B9BF8:
 	cmp.w #$0069
 	bmi .t1
 	cmp.w #$006E
-	bmi CODE_9B9C22
+	bmi .1
 	lda.w #$0001
 	sta.w $19C0
-	bra CODE_9B9C22
+	bra .1
 
 .t1:
 	lda.w $19C0
-	beq CODE_9B9C22
+	beq .1
 	jsl.l CODE_9BA89F
 	stz.w $19C0
-CODE_9B9C22:
+.1:
 	pla
 	sta.b d0
 	rtl

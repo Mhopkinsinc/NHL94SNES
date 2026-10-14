@@ -32,7 +32,7 @@ CODE_80ADE9:
 	bne .loop3
 	stz.w APUIO0
 	lda.w $07E7
-	beq CODE_80AE77
+	beq .1
 .loop4:
 	lda.w APUIO0
 	bne .loop4
@@ -62,7 +62,7 @@ CODE_80ADE9:
 	cpx.w APUIO0
 	bne .loop6
 	stz.w APUIO0
-CODE_80AE77:
+.1:
 	rep #$30
 	plp
 	rts

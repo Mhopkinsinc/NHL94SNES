@@ -80,23 +80,23 @@ CODE_80C81C:		; the shootout: both shooter lists, then a turn for each team ever
 	bcc .loopx
 	lda.w #$FFFF
 	sta.w $1E93
-	bra CODE_80C8E5
+	bra .3
 
 .t2:
 	sty.w $1E93
-CODE_80C8E5:
+.3:
 	jsl.l CODE_9EC72D
 	lda.b a2
-	beq .t2
+	beq .t2x
 	lda.w shootoutround
-.loop:
+.loopxx:
 	cmp.w #$0006
-	bmi .t1
+	bmi .t1x
 	sec
 	sbc.w #$0005
-	bra .loop
+	bra .loopxx
 
-.t1:
+.t1x:
 	tay
 	sep #$20
 	lda.w awayshooters,y
@@ -108,18 +108,18 @@ CODE_80C8E5:
 	sta.w $1E8D
 	lda.w #$0002
 	sta.w $1E91
-	bra CODE_80C93E
+	bra .4
 
-.t2:
+.t2x:
 	lda.w shootoutround
-.loopx:
+.loopxxx:
 	cmp.w #$0006
-	bmi .t1x
+	bmi .t1xx
 	sec
 	sbc.w #$0005
-	bra .loopx
+	bra .loopxxx
 
-.t1x:
+.t1xx:
 	tay
 	sep #$20
 	lda.w homeshooters,y
@@ -130,6 +130,6 @@ CODE_80C8E5:
 	lda.w #$0000
 	sta.w $1E8D
 	stz.w $1E91
-CODE_80C93E:
+.4:
 	jsl.l CODE_9F8511
 	rtl

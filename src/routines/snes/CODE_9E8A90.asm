@@ -22,7 +22,7 @@ CODE_9E8A90:
 	sbc.b d7
 	sta.w $1003,x
 	bmi .t1
-	jmp.w CODE_9E8B79
+	jmp.w .7
 
 .t1:
 	clc
@@ -87,7 +87,7 @@ CODE_9E8A90:
 	bne .6
 	lda.w $0792
 	cmp.w #$0200
-	bcs CODE_9E8B79
+	bcs .7
 .6:
 	lda.b d2
 	sta.w $1083,x
@@ -114,21 +114,21 @@ CODE_9E8A90:
 	jsl.l randomd0s
 	adc.b [a0],y
 	sta.w $1063,x
-CODE_9E8B79:
+.7:
 	lda.w $1043,x
 	sta.b d0
 	lda.w position,x
 	cmp.w #$0005
-	beq .1
+	beq .1xx
 	lda.w #$0000
 	sec
 	sbc.b d0
 	sta.b d0
-.1:
+.1xx:
 	lda.w $1063,x
 	sta.b d1
 	lda.w pfgoal,x
-	bne .2
+	bne .2x
 	lda.w #$0000
 	sec
 	sbc.b d0
@@ -137,12 +137,12 @@ CODE_9E8B79:
 	sec
 	sbc.b d1
 	sta.b d1
-.2:
+.2x:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #$8904
 	sta.b a0
 	jml.l CODE_9EA5A4
 
-.t1:
+.t1x:
 	rtl

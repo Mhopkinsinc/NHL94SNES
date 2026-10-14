@@ -102,7 +102,7 @@ CODE_9B95B0:
 	cmp.w #$0001
 	beq .t2
 	cmp.w #$0002
-	beq CODE_9B96FE
+	beq .3
 	cmp.w #$0003
 	beq .t1x
 	lda.b $8F
@@ -118,7 +118,7 @@ CODE_9B95B0:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9B96FE
+	bra .3
 
 .t1x:
 	lda.b $8F
@@ -134,7 +134,7 @@ CODE_9B95B0:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9B96FE
+	bra .3
 
 .t2:
 	lda.b $8F
@@ -150,7 +150,7 @@ CODE_9B95B0:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9B96FE
+	bra .3
 
 .t3:
 	lda.b $8F
@@ -166,7 +166,7 @@ CODE_9B95B0:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9B96FE:
+.3:
 	ply
 	iny
 	sep #$20
@@ -190,13 +190,13 @@ CODE_9B96FE:
 	inc.w printy
 	and.w #$00FF
 	cmp.w #$00FF
-	beq .1
+	beq .1xx
 	sta.b d0
 	lda.w #$0010
 	sta.w printx
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC894
-.1:
+.1xx:
 	ply
 	iny
 	sep #$20

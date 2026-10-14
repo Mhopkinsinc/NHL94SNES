@@ -22,7 +22,7 @@ CODE_9E8462:
 	sbc.b d7
 	sta.w $1003,x
 	bmi .t1
-	jmp.w CODE_9E852D
+	jmp.w .6
 
 .t1:
 	clc
@@ -69,7 +69,7 @@ CODE_9E8462:
 	bne .5
 	lda.w $0794
 	cmp.w #$0200
-	bcs CODE_9E852D
+	bcs .6
 .5:
 	lda.b d2
 	sta.w $1083,x
@@ -96,23 +96,23 @@ CODE_9E8462:
 	jsl.l randomd0s
 	adc.b [a0],y
 	sta.w $1063,x
-CODE_9E852D:
+.6:
 	lda.w $1043,x
 	sta.b d0
 	lda.w $1063,x
 	sta.b d1
 	lda.w pfgoal,x
-	bne .1
+	bne .1xx
 	lda.w #$0000
 	sec
 	sbc.b d1
 	sta.b d1
-.1:
+.1xx:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #$8904
 	sta.b a0
 	jml.l CODE_9EA5A4
 
-.t1:
+.t1x:
 	rtl

@@ -6,10 +6,10 @@ checkwindow:
 	sta.b d3
 	lda.w sflags
 	bit.w #$0040
-	bne CODE_9FC102
+	bne .3
 	ldx.w #$001C
 	lda.w shotPlIdx
-	bmi CODE_9FC0DB
+	bmi .2
 	tax
 	lda.w pfgoal,x
 	beq .t1
@@ -17,10 +17,10 @@ checkwindow:
 	adc.w $0CDD
 	sta.w $0D4F
 	cmp.w #$0032
-	bmi CODE_9FC0DB
+	bmi .2
 	lda.w #$0032
 	sta.w $0D4F
-	bra CODE_9FC0DB
+	bra .2
 
 .t1:
 	lda.w $0D4F
@@ -28,10 +28,10 @@ checkwindow:
 	sbc.w $0CDD
 	sta.w $0D4F
 	cmp.w #$FFCF
-	bpl CODE_9FC0DB
+	bpl .2
 	lda.w #$FFCE
 	sta.w $0D4F
-CODE_9FC0DB:
+.2:
 	lda.w $0EE3,x
 	lsr a
 	lsr a
@@ -53,103 +53,103 @@ CODE_9FC0DB:
 	lda.w Xpos,x
 	sta.b d3
 	sta.w xc1
-CODE_9FC102:
+.3:
 	lda.b d2
 	sec
 	sbc.w Vpos
 	sta.b d0
 	cmp.w #$FFF7
-	bpl .t1
+	bpl .t1x
 	lda.b d2
 	sec
 	sbc.w #$FFF6
 	sta.b d1
 	cmp.w #$FF39
-	bpl CODE_9FC13C
+	bpl .4
 	lda.w #$FF39
 	sta.b d1
-	bra CODE_9FC13C
+	bra .4
 
-.t1:
+.t1x:
 	lda.b d0
 	cmp.w #$000B
-	bmi CODE_9FC15D
+	bmi .5
 	lda.b d2
 	sec
 	sbc.w #$000A
 	sta.b d1
 	cmp.w #$0100
-	bmi CODE_9FC13C
+	bmi .4
 	lda.w #$0100
 	sta.b d1
-CODE_9FC13C:
+.4:
 	lda.b d1
 	sec
 	sbc.w Vpos
-	beq CODE_9FC15D
+	beq .5
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	bit.w #$0800
-	beq .1
+	beq .1x
 	ora.w #$F000
-.1:
+.1x:
 	cmp.w #$0000
-	bne .2
+	bne .2x
 	inc a
-.2:
+.2x:
 	clc
 	adc.w Vpos
 	sta.w Vpos
-CODE_9FC15D:
+.5:
 	lda.b d3
 	sec
 	sbc.w Hpos
 	sta.b d0
 	cmp.w #$FFD8
-	bpl .t1
+	bpl .t1xx
 	lda.b d3
 	sec
 	sbc.w #$FFD8
 	sta.b d1
 	cmp.w #$FFC4
-	bpl CODE_9FC197
+	bpl .6
 	lda.w #$FFC4
 	sta.b d1
-	bra CODE_9FC197
+	bra .6
 
-.t1:
+.t1xx:
 	lda.b d0
 	cmp.w #$0029
-	bmi CODE_9FC1B8
+	bmi .7
 	lda.b d3
 	sec
 	sbc.w #$0028
 	sta.b d1
 	cmp.w #$003D
-	bmi CODE_9FC197
+	bmi .6
 	lda.w #$003C
 	sta.b d1
-CODE_9FC197:
+.6:
 	lda.b d1
 	sec
 	sbc.w Hpos
-	beq CODE_9FC1B8
+	beq .7
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	bit.w #$0800
-	beq .1
+	beq .1xx
 	ora.w #$F000
-.1:
+.1xx:
 	cmp.w #$0000
-	bne .2
+	bne .2xx
 	inc a
-.2:
+.2xx:
 	clc
 	adc.w Hpos
 	sta.w Hpos
-CODE_9FC1B8:
+.7:
 	rtl

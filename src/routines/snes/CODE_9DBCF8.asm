@@ -3,11 +3,11 @@ CODE_9DBCF8:
 	stz.w $0BD5
 	ldx.w #$0000
 	lda.w #$0000
-CODE_9DBD01:
+.1:
 	jsl.l RandomWord
 	and.w #$001F
 	cmp.w #$001A
-	bcs CODE_9DBD01
+	bcs .1
 	phx
 	ldx.w #$0000
 .loop:
@@ -21,7 +21,7 @@ CODE_9DBD01:
 
 .t1:
 	plx
-	bra CODE_9DBD01
+	bra .1
 
 .t2:
 	plx
@@ -30,6 +30,6 @@ CODE_9DBD01:
 	inx
 	stx.w $0BD5
 	cpx.w #$0034
-	bcc CODE_9DBD01
+	bcc .1
 	stz.w $0BD5
 	rts

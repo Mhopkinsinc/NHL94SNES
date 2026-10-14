@@ -18,13 +18,13 @@ CODE_9FC76C:
 	inx
 	cpx.w #$000A
 	bcc .loop
-	bra CODE_9FC79E
+	bra .1
 
 .t1:
 	lda.w $1C84,x
 	cmp.w #$0001
-	beq CODE_9FC79E
+	beq .1
 	inc.b a2
 	inc.b a2
-CODE_9FC79E:
+.1:
 	rtl

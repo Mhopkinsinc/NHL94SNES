@@ -10,7 +10,7 @@ CODE_9DCC36:
 	lda.b d0
 	pha
 	ldx.w #$000A
-CODE_9DCC48:
+.1:
 	phx
 	txa
 	lsr a
@@ -38,13 +38,13 @@ CODE_9DCC48:
 	lda.b $01,s
 	tax
 	lda.b a2
-	beq .t1
+	beq .t1x
 	lda.w #$2D00
-	bra CODE_9DCC90
+	bra .2
 
-.t1:
+.t1x:
 	lda.w #$5100
-CODE_9DCC90:
+.2:
 	clc
 	adc.l DATA8_9DCCAE,x
 	sta.b $10
@@ -56,7 +56,7 @@ CODE_9DCC90:
 	plx
 	dex
 	dex
-	bpl CODE_9DCC48
+	bpl .1
 	pla
 	sta.b d0
 	rtl

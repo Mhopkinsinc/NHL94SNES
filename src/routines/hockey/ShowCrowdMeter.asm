@@ -82,7 +82,7 @@ ShowCrowdMeter:
 	jsl.l CODE_9DE0D4
 	stz.w $1DB9
 	jsl.l CODE_8086BD
-CODE_9BA4FE:
+.1:
 	jsl.l SpriteFrameStart
 	ldx.w #$0048
 	ldy.w #$0018
@@ -94,7 +94,7 @@ CODE_9BA4FE:
 	jsl.l CODE_9DDDB3
 	jsl.l CODE_9BA563
 	jsl.l SpriteFrameEnd
-CODE_9BA522:
+.2:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
@@ -107,7 +107,7 @@ CODE_9BA522:
 	bne .t2
 	bit.w #$0400
 	bne .t3
-	bra CODE_9BA522
+	bra .2
 
 .t1:
 	rtl
@@ -115,14 +115,14 @@ CODE_9BA522:
 .t2:
 	lda.w $1DB9
 	dec a
-	bmi CODE_9BA522
+	bmi .2
 	sta.w $1DB9
-	bra CODE_9BA4FE
+	bra .1
 
 .t3:
 	lda.w $1DB9
 	inc a
 	cmp.w #$0003
-	bcs CODE_9BA522
+	bcs .2
 	sta.w $1DB9
-	bra CODE_9BA4FE
+	bra .1

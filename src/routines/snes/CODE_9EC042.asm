@@ -19,9 +19,9 @@ CODE_9EC042:
 
 .t1:
 	lda.w #$FFFF
-	bra CODE_9EC070
+	bra .1
 
 .t3:
 	lda.w #$0000
-CODE_9EC070:
+.1:
 	rtl

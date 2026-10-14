@@ -11,7 +11,7 @@ ClearOffsidesIfAllPlayers:
 	sta.b a0
 	lda.w #$0005
 	sta.b d1
-CODE_9EF8DB:
+.2:
 	ldy.b a0
 	lda.w position,y
 	bmi .1
@@ -29,12 +29,12 @@ CODE_9EF8DB:
 	lda.b d0
 	sec
 	sbc.w #$0058
-	bmi .t1
+	bmi .t1x
 	jmp.w CODE_9EF829
 
-.t1:
+.t1x:
 	dec.b d1
-	bpl CODE_9EF8DB
+	bpl .2
 	ldy.b a2
 	lda.w tmflags,y
 	and.w #$FFEF

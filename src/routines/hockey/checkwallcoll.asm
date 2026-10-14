@@ -37,7 +37,7 @@ checkwallcoll:
 	lda.w #$001A
 	sta.b a2
 	jsl.l CODE_9E90AE
-	jmp.w CODE_9E8E3A
+	jmp.w .6
 
 .t1:
 	lda.w #$0000
@@ -59,7 +59,7 @@ checkwallcoll:
 	sta.b a2
 	jsl.l CODE_9E90AE
 .1:
-	jmp.w CODE_9E8E3A
+	jmp.w .6
 
 .t2:
 	lda.b d2
@@ -91,15 +91,15 @@ checkwallcoll:
 	lsr a
 	lsr a
 	adc.b $D7
-	bra CODE_9E8DEF
+	bra .5
 
 .t1x:
 	lsr a
 	lsr a
 	adc.b $CD
-CODE_9E8DEF:
+.5:
 	cmp.w #$0041
-	bcc CODE_9E8E3A
+	bcc .6
 	sta.b d3
 	lda.b d0
 	xba
@@ -108,13 +108,13 @@ CODE_9E8DEF:
 	lda.b d3
 	jsl.l DivX8S
 	cmp.w #$FF01
-	bpl .1
+	bpl .1xx
 	lda.w #$FF01
-.1:
+.1xx:
 	cmp.w #$00FF
-	bmi .2
+	bmi .2x
 	lda.w #$00FF
-.2:
+.2x:
 	sta.b d0
 	lda.b d1
 	xba
@@ -133,7 +133,7 @@ CODE_9E8DEF:
 .4:
 	sta.b d1
 	jsl.l CODE_9E8E91
-CODE_9E8E3A:
+.6:
 	pla
 	sta.b d2
 	pla

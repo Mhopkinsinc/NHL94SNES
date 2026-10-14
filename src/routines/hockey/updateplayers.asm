@@ -10,7 +10,7 @@ updateplayers:
 	lda.w $0DF9
 	sta.w $0DFF
 	ldx.w #$001E
-CODE_9F86A4:
+.2:
 	stx.b $E4
 	lda.w Xpos,x
 	sta.w $0E43,x
@@ -25,37 +25,37 @@ CODE_9F86A4:
 	cpx.w #$001A
 	bne .t2
 .1:
-	jmp.w CODE_9F875F
+	jmp.w .9
 
 .t2:
 	lda.w position,x
 	bpl .t1
-	jmp.w CODE_9F8834
+	jmp.w .11
 
 .t1:
-	bne CODE_9F86E2
+	bne .8
 	lda.w Ypos,x
 	bpl .t3
 	stx.w $0B9F
-	bra CODE_9F86E2
+	bra .8
 
 .t3:
 	stx.w $0B9D
-CODE_9F86E2:
+.8:
 	jsl.l CODE_9EA419
 	lda.w $1203,x
 	sec
 	sbc.w $0ADB
-	bpl .1
+	bpl .1x
 	lda.w #$0000
-.1:
+.1x:
 	sta.w $1203,x
 	lda.w $1223,x
 	sec
 	sbc.w $0ADB
-	bpl .2
+	bpl .2x
 	lda.w #$0000
-.2:
+.2x:
 	sta.w $1223,x
 	lda.w sflags3
 	bit.w #$0020
@@ -84,36 +84,36 @@ CODE_9F86E2:
 	cpx.w $0D07
 	bne .7
 	lda.w $1E89
-	bne CODE_9F8796
+	bne .10
 .7:
 	lda.w SPA,x
 	cmp.w #$F90E
-	bne .t1
-	jmp.w CODE_9F8834
+	bne .t1x
+	jmp.w .11
 
-.t1:
+.t1x:
 	cmp.w #$FC76
-	bcc .t2
-	jmp.w CODE_9F8834
+	bcc .t2x
+	jmp.w .11
 
-.t2:
+.t2x:
 	cpx.w #$001C
-	bne CODE_9F875F
+	bne .9
 	lda.w $0DF9
-	bne CODE_9F8796
-CODE_9F875F:
+	bne .10
+.9:
 	txy
 	ldx.w $0ADB
-	lda.l CODE_9F8B64,x
+	lda.l .20,x
 	and.w #$00FF
 	sta.b d2
 	lda.w pflags,y
 	bit.w #$0001
-	beq .1
+	beq .1xx
 	lda.l DATA8_9F8B6F-1,x
 	and.w #$00FF
 	sta.b d2
-.1:
+.1xx:
 	ldx.w $0EC3,y
 	lda.b d2
 	jsl.l Mul16x8HiXS
@@ -123,11 +123,11 @@ CODE_9F875F:
 	jsl.l Mul16x8HiXS
 	sta.w $0EE3,y
 	tyx
-CODE_9F8796:
+.10:
 	lda.w $0CDF
 	sta.b $0C
 	lda.w $0EC3,x
-	beq .1
+	beq .1xxx
 	tax
 	lda.b $0C
 	jsl.l CODE_808FC9
@@ -139,9 +139,9 @@ CODE_9F8796:
 	lda.b $0A
 	adc.w Xpos,x
 	sta.w Xpos,x
-.1:
+.1xxx:
 	lda.w $0EE3,x
-	beq .2
+	beq .2xx
 	tax
 	lda.b $0C
 	jsl.l CODE_808FC9
@@ -153,15 +153,15 @@ CODE_9F8796:
 	lda.b $0A
 	adc.w Ypos,x
 	sta.w Ypos,x
-.2:
+.2xx:
 	cpx.w #$001C
-	bne CODE_9F8834
+	bne .11
 	lda.w $0DF9
-	bmi CODE_9F8834
-	bne .3
+	bmi .11
+	bne .3x
 	lda.w $0E01
-	beq CODE_9F8834
-.3:
+	beq .11
+.3x:
 	lda.w $0E01
 	sec
 	sbc.w $0CE1
@@ -177,7 +177,7 @@ CODE_9F8796:
 	lda.b $0A
 	adc.w $0DF9
 	sta.w $0DF9
-	bpl CODE_9F8834
+	bpl .11
 	stz.w $0DF9
 	stz.w $0DFD
 	lda.w $0E01
@@ -186,22 +186,22 @@ CODE_9F8796:
 	lsr a
 	sta.w $0E01
 	cmp.w #$0200
-	bmi CODE_9F8834
+	bmi .11
 	asl a
 	asl a
 	sta.b $0C
 	stz.b $0E
 	lda.w #$0007
 	jsl.l CODE_9C9AD0
-CODE_9F8834:
+.11:
 	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0
-	bpl .1
+	bpl .1xxxx
 	eor.w #$FFFF
 	inc a
-.1:
+.1xxxx:
 	pha
 	lsr a
 	lsr a
@@ -213,10 +213,10 @@ CODE_9F8834:
 	sec
 	sbc.w Ypos,x
 	sta.b d1
-	bpl .2
+	bpl .2xxx
 	eor.w #$FFFF
 	inc a
-.2:
+.2xxx:
 	pha
 	lsr a
 	lsr a
@@ -227,84 +227,84 @@ CODE_9F8834:
 	adc.w $0B3D,x
 	sta.w $0B3D,x
 	cpx.w #$0018
-	bcs CODE_9F88A8
+	bcs .12
 	sta.b $14
 	lda.w position,x
-	bmi CODE_9F88A8
-	beq CODE_9F88A8
+	bmi .12
+	beq .12
 	lda.w pflags,x
 	and.w #$1000
 	ora.w pfalock,x
-	bne CODE_9F88A8
+	bne .12
 	lda.b $14
 	cpx.w #$000C
-	bcs .t1
+	bcs .t1xx
 	cmp.w $17AE
-	bcs CODE_9F88A8
+	bcs .12
 	sta.w $17AE
 	stx.w $17B2
-	bra CODE_9F88A8
+	bra .12
 
-.t1:
+.t1xx:
 	cmp.w $17B0
-	bcs CODE_9F88A8
+	bcs .12
 	sta.w $17B0
 	stx.w $17B4
-CODE_9F88A8:
+.12:
 	ply
 	pla
 	jsl.l CODE_9CA568
 	ldx.b $E4
 	sta.w $0B1D,x
 	cpx.w #$0018
-	bcs CODE_9F88F6
+	bcs .14
 	cmp.w #$001E
-	bcs CODE_9F88F6
+	bcs .14
 	lda.w iflags
 	bit.w #$0004
-	beq CODE_9F88F6
+	beq .14
 	bit.w #$0001
-	bne CODE_9F88F6
+	bne .14
 	and.w #$0002
-	beq .t1
+	beq .t1xxx
 	lda.w pfgoal,x
-	bne CODE_9F88F6
-	bra CODE_9F88DB
+	bne .14
+	bra .13
 
-.t1:
+.t1xxx:
 	lda.w pfgoal,x
-	beq CODE_9F88F6
-CODE_9F88DB:
+	beq .14
+.13:
 	lda.w $0DF9
 	cmp.w #$000D
-	bcs CODE_9F88F6
+	bcs .14
 	lda.w puckvy
 	cmp.w #$2400
-	bcs CODE_9F88F6
+	bcs .14
 	cmp.w #$DC00
-	bmi CODE_9F88F6
+	bmi .14
 	lda.w #$0005
 	trb.w iflags
-CODE_9F88F6:
+.14:
 	jsl.l vtoa
 	sta.w $0B5D,x
 	dex
 	dex
-	bmi .t1
-	jmp.w CODE_9F86A4
+	bmi .t1xxxx
+	jmp.w .2
 
-.t1:
+.t1xxxx:
 	lda.w $0DCF
 	cmp.w #$011F
-	bmi .1
+	bmi .1xxxxx
 	lda.w #$011F
-.1:
+.1xxxxx:
 	sta.w $0DCF
 	lda.w $0DD1
 	cmp.w #$FED2
-	bpl .2
+	bpl .2xxxx
 	lda.w #$FED2
-.2:
+.2xxxx:
 	sta.w $0DD1
 	ldy.w #$000C
 	lda.w #$000F
@@ -325,41 +325,41 @@ CODE_9F88F6:
 	lda.w #$0002
 	sta.b $EC
 	ldx.w #$0000
-CODE_9F8947:
+.15:
 	stx.b a3
 	stx.b $E4
 	cpx.w #$000C
-	bne .1
+	bne .1xxxxxx
 	lda.w #$0002
 	sta.b $EA
 	lda.w #$0000
 	sta.b $EC
-.1:
+.1xxxxxx:
 	lda.w #$FFFF
 	sta.b $E6
 	lda.w position,x
-	bpl .t2
-	jmp.w CODE_9F8ADD
+	bpl .t2xx
+	jmp.w .19
 
-.t2:
+.t2xx:
 	txa
 	lsr a
 	sta.b d6
 	cpx.w shotPlIdx
-	bne .1x
+	bne .1xxxxxxx
 	lda.w sfhormode
-	bne .1x
+	bne .1xxxxxxx
 	lda.w #$0000
 	sta.b d4
 	jsl.l CODE_9BC174
-.1x:
+.1xxxxxxx:
 	cpx.w #$0018
-	bcs .t1
+	bcs .t1xxxxx
 	lda.w $19D4,x
-	bmi .t1
+	bmi .t1xxxxx
 	tay
 	lda.w $0ADD,y
-	bne .t1
+	bne .t1xxxxx
 	lda.w #$0001
 	sta.w $0ADD,y
 	lda.w JoyPad,y
@@ -374,11 +374,11 @@ CODE_9F8947:
 	iny
 	sty.b d4
 	jsl.l CODE_9FC1B9
-	bra .t1
+	bra .t1xxxxx
 
-.t1:
+.t1xxxxx:
 	lda.w pfalock,x
-	bne .1xx
+	bne .1xxxxxxxx
 	lda.w $0B7D,x
 	asl a
 	asl a
@@ -390,55 +390,55 @@ CODE_9F8947:
 	ldx.b $E4
 	jsl.l CODE_9FC757
 	jsl.l $001D59
-.1xx:
+.1xxxxxxxx:
 	lda.w position,x
 	ora.w gmclock
-	bne CODE_9F8A44
+	bne .17
 	cpx.w #$0018
-	bcs CODE_9F8A44
+	bcs .17
 	cpx.w shotPlIdx
-	beq CODE_9F8A44
+	beq .17
 	lda.w $0B05,x
 	bit.w #$0001
-	bne CODE_9F8A44
+	bne .17
 	lda.w Xpos,x
 	cmp.w #$FFD5
-	bpl .t3
+	bpl .t3x
 	cmp.w #$FFCF
-	bmi CODE_9F8A14
+	bmi .16
 	lda.w #$FFD5
 	stz.w $0EC3,x
-	bra CODE_9F8A14
+	bra .16
 
-.t3:
+.t3x:
 	cmp.w #$002C
-	bmi CODE_9F8A14
+	bmi .16
 	cmp.w #$0031
-	bpl CODE_9F8A14
+	bpl .16
 	lda.w #$002B
 	stz.w $0EC3,x
-CODE_9F8A14:
+.16:
 	sta.w Xpos,x
 	lda.w Ypos,x
-	bpl .t1
+	bpl .t1xxxxxx
 	cmp.w #$FF1C
-	bmi CODE_9F8A44
+	bmi .17
 	cmp.w #$FF21
-	bpl CODE_9F8A44
+	bpl .17
 	lda.w #$FF1B
 	sta.w Ypos,x
 	stz.w $0EE3,x
-	bra CODE_9F8A44
+	bra .17
 
-.t1:
+.t1xxxxxx:
 	cmp.w #$00E5
-	bpl CODE_9F8A44
+	bpl .17
 	cmp.w #$00E0
-	bmi CODE_9F8A44
+	bmi .17
 	lda.w #$00E5
 	sta.w Ypos,x
 	stz.w $0EE3,x
-CODE_9F8A44:
+.17:
 	stz.w $1103,x
 	stz.w $1123,x
 	lda.w Ypos,x
@@ -446,123 +446,123 @@ CODE_9F8A44:
 	lda.w Xpos,x
 	sta.b d2
 	cmp.w $0E43,x
-	bne .t1
+	bne .t1xxxxxxx
 	lda.b d3
 	cmp.w $0E83,x
-	bne .t1
-	jmp.w CODE_9F8AD1
+	bne .t1xxxxxxx
+	jmp.w .18
 
-.t1:
+.t1xxxxxxx:
 	jsl.l checkcoll
 	cpx.w #$0018
-	bcs CODE_9F8AD1
+	bcs .18
 	lda.w position,x
-	beq CODE_9F8AD1
+	beq .18
 	lda.w pflags,x
 	and.w #$8000
 	ora.w sfhormode
-	bne CODE_9F8AD1
+	bne .18
 	lda.w Xpos,x
 	cmp.w #$FFE7
-	bmi CODE_9F8AD1
+	bmi .18
 	cmp.w #$0019
-	bpl CODE_9F8AD1
+	bpl .18
 	lda.w Ypos,x
 	bit.w #$8000
-	beq .1
+	beq .1xxxxxxxxx
 	eor.w #$FFFF
 	inc a
-.1:
+.1xxxxxxxxx:
 	sec
 	sbc.w #$010D
 	sta.b $00
 	lda.w $0E83,x
 	bit.w #$8000
-	beq .2
+	beq .2xxxxx
 	eor.w #$FFFF
 	inc a
-.2:
+.2xxxxx:
 	sec
 	sbc.w #$010D
 	eor.b $00
-	bmi .4
+	bmi .4x
 	lda.w Ypos,x
 	bit.w #$8000
-	beq .3
+	beq .3xx
 	eor.w #$FFFF
 	inc a
-.3:
+.3xx:
 	cmp.w #$0103
-	bcc CODE_9F8AD1
+	bcc .18
 	cmp.w #$0117
-	bcs CODE_9F8AD1
-.4:
+	bcs .18
+.4x:
 	lda.w $0E43,x
 	sta.w Xpos,x
 	lda.w $0E83,x
 	sta.w Ypos,x
-CODE_9F8AD1:
+.18:
 	lda.w $0F23,x
 	sec
 	sbc.w $0CDD
-	bpl CODE_9F8ADD
+	bpl .19
 	lda.w #$0000
-CODE_9F8ADD:
+.19:
 	sta.w $0F23,x
 	inx
 	inx
 	cpx.w #$0020
-	beq .t1
-	jmp.w CODE_9F8947
+	beq .t1xxxxxxxx
+	jmp.w .15
 
-.t1:
+.t1xxxxxxxx:
 	lda.w $0DF9
 	cmp.w #$0018
-	bcs .2
+	bcs .2xxxxxx
 	lda.w $0D71
 	cmp.w #$FF78
-	bpl .1
+	bpl .1xxxxxxxxxx
 	lda.w #$FF78
 	sta.w $0D71
 	ldx.w $0DB3
 	cpx.w #$018C
-	bne .1
+	bne .1xxxxxxxxxx
 	sta.w $0D73
-.1:
+.1xxxxxxxxxx:
 	lda.w $0D71
 	cmp.w #$0088
-	bmi .2
+	bmi .2xxxxxx
 	lda.w #$0088
 	sta.w $0D71
 	ldx.w $0DB3
 	cpx.w #$018C
-	bne .2
+	bne .2xxxxxx
 	sta.w $0D73
-.2:
+.2xxxxxx:
 	lda.w $0DF9
-	bne .4
+	bne .4xx
 	lda.w pucky
 	cmp.w #$FEC2
-	bmi .4
+	bmi .4xx
 	cmp.w #$013E
-	bpl .4
+	bpl .4xx
 	lda.w pucky
 	cmp.w #$FEDB
-	bpl .3
+	bpl .3xxx
 	lda.w #$FEDB
 	sta.w pucky
 	sta.w $0DD5
-.3:
+.3xxx:
 	lda.w pucky
 	cmp.w #$012A
-	bmi .4
+	bmi .4xx
 	lda.w #$012A
 	sta.w pucky
 	sta.w $0DD5
-.4:
+.4xx:
 	lda.w shotPlIdx
-	bmi CODE_9F8B64
+	bmi .20
 	lda.w pucky
 	sta.l $7E30F4
-CODE_9F8B64:
+.20:
 	rtl

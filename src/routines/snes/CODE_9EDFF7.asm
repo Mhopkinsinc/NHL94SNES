@@ -2,7 +2,7 @@
 CODE_9EDFF7:
 	lda.w $19D4,x
 	bmi .t2
-	jmp.w CODE_9EE0CC
+	jmp.w .6
 
 .t2:
 	lda.w #$0008
@@ -21,7 +21,7 @@ org $9EE002
 	iny
 	dec.b d1
 	bpl .1
-	jmp.w CODE_9EE0C7
+	jmp.w .5
 
 .t1:
 	lda.w $0EC4,y
@@ -87,9 +87,9 @@ org $9EE002
 	stz.b d0
 	lda.b d4
 	cmp.w #$FFD3
-	bmi CODE_9EE0C7
+	bmi .5
 	cmp.w #$002D
-	bpl CODE_9EE0C7
+	bpl .5
 	lda.w pfgoal,x
 	beq .4
 	lda.w #$0000
@@ -102,13 +102,13 @@ org $9EE002
 	inc a
 	sta.b d0
 	lda.b d4
-	bpl CODE_9EE0C7
+	bpl .5
 	lda.b d0
 	clc
 	adc.w #$0004
 	sta.b d0
-CODE_9EE0C7:
+.5:
 	lda.b d0
 	sta.w passdir
-CODE_9EE0CC:
+.6:
 	rtl

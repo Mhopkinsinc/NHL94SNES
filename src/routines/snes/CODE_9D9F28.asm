@@ -71,7 +71,7 @@ CODE_9D9F32:
 	lda.w SelectedPlayerIdx
 	dec a
 	sta.b d0
-	bmi CODE_9D9FFD
+	bmi .3
 	asl a
 	asl a
 	asl a
@@ -96,17 +96,17 @@ CODE_9D9F32:
 	lda.w SelectedPlayerIdx
 	sec
 	sbc.w #$0005
-	beq CODE_9D9FFD
+	beq .3
 	bmi .t1
-	bvc CODE_9D9FFB
+	bvc .2
 .1x:
-	bra CODE_9D9FFD
+	bra .3
 
 .t1:
-	bvc CODE_9D9FFD
-CODE_9D9FFB:
+	bvc .3
+.2:
 	dec.b d1
-CODE_9D9FFD:
+.3:
 	lda.w #$0001
 org $9DA000
 	sta.w printx
@@ -131,16 +131,16 @@ org $9DA000
 	jsl.l GoalieCount
 	lda.b $04
 	cmp.b d0
-	bpl .1
+	bpl .1xx
 	lda.w #$0010
 	sta.b $08
-.1:
+.1xx:
 	lda.b $04
 	sta.b d0
 	jsl.l CODE_9F9745
 	inc.w printy
 	inc.w printy
 	dec.b d1
-	bpl CODE_9D9FFD
+	bpl .3
 CODE_9DA04C:
 	rtl

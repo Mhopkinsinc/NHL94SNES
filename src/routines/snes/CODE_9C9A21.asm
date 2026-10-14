@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9C9A21:
 	cmp.w #$0003
-	beq CODE_9C9A5A
+	beq .1
 	jsl.l SPCStreamNext
 	cmp.w #$0000
 	beq .t1
@@ -22,5 +22,5 @@ CODE_9C9A21:
 .t1:
 	lda.w #$0003
 	sta.l $7E35E8
-CODE_9C9A5A:
+.1:
 	rtl

@@ -5,17 +5,17 @@ CODE_9FC683:
 	beq .t1
 	lda.w #$0019
 	sta.b d0
-	bra CODE_9FC6A6
+	bra .1
 
 .t1:
 	lda.w gsp
 	cmp.w #$0003
-	bmi CODE_9FC6A6
+	bmi .1
 	lda.l $7E34BC
-	bne CODE_9FC6A6
+	bne .1
 	lda.w #$012C
 	sta.b d0
-CODE_9FC6A6:
+.1:
 	lda.b d0
 	sta.w gameclock
 	sta.w PerTimeTotal

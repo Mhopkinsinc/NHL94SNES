@@ -1,19 +1,19 @@
 ; Unidentified routine.
 CODE_9EC72D:
 	lda.w $1E9B
-	bne CODE_9EC790
+	bne .2
 	lda.w $1E8D
 	cmp.w #$000C
 	bmi .t1
 	lda.w #$0002
 	sta.w $1E91
 	inc.w $17CC
-	bra CODE_9EC74B
+	bra .1
 
 .t1:
 	stz.w $1E91
 	inc.w $17CA
-CODE_9EC74B:
+.1:
 	phy
 	lda.w $1E91
 	eor.w #$0002
@@ -39,5 +39,5 @@ CODE_9EC74B:
 	sta.l $7E3136
 	lda.w #$0000
 	sta.l $7E3138
-CODE_9EC790:
+.2:
 	rtl

@@ -28,11 +28,11 @@ SpriteFrameStart:	; start filling OAMDrawBuf after the reserved entries; free th
 	adc.w OAMDrawBuf
 	sta.w OAMNext
 	lda.w $07BA
-	beq CODE_80AFDC
+	beq .2
 	dec a
 	asl a
 	tax
-CODE_80AFB9:
+.1:
 	lda.w $2D40,x
 	bmi .t1
 	lsr a
@@ -53,7 +53,7 @@ CODE_80AFB9:
 .t1:
 	dex
 	dex
-	bpl CODE_80AFB9
-CODE_80AFDC:
+	bpl .1
+.2:
 	plb
 	rtl

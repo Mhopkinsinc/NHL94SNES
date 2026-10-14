@@ -32,11 +32,11 @@ CODE_9D8BBF:
 	lda.w #DATA8_93ED31
 	sta.b $0C
 	jsl.l MusicStart
-	jmp.w CODE_9D8C19
+	jmp.w .2
 
 .t2:
 	jsl.l CODE_8086A9
-CODE_9D8C19:
+.2:
 	sep #$20
 	lda.b #$09
 	sta.w BGMODE
@@ -192,7 +192,7 @@ CODE_9D8C19:
 	lda.w #$3674
 	sta.b $10
 	ldx.w #$001B
-.loop:
+.loopx:
 	phx
 	txa
 	asl a
@@ -240,7 +240,7 @@ CODE_9D8C19:
 	jsr.w CODE_9D93E3
 	plx
 	dex
-	bpl .loop
+	bpl .loopx
 	lda.l $7E35CE
 	clc
 	adc.w #$0070
@@ -463,10 +463,10 @@ CODE_9D8C19:
 	bne .loop4
 org $9D9000
 	dec.b d4
-	beq .t1
+	beq .t1x
 	jmp.w .loop2
 
-.t1:
+.t1x:
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$4EF4
@@ -480,7 +480,7 @@ org $9D9000
 	asl a
 	tax
 	jsl.l CODE_80891F
-.loopx:
+.loopxx:
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
@@ -511,4 +511,4 @@ org $9D9000
 	tax
 	dey
 	bne .loop2x
-	bra .loopx
+	bra .loopxx

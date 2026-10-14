@@ -15,7 +15,7 @@ CODE_9DB8E6:
 	lda.b $00
 	clc
 	adc.w #$0066
-	bra CODE_9DB931
+	bra .1
 
 .t1:
 	pha
@@ -36,7 +36,7 @@ CODE_9DB8E6:
 	pla
 	jsl.l CODE_808FC9
 	lda.b $09
-CODE_9DB931:
+.1:
 	ply
 	plx
 	rts

@@ -37,7 +37,7 @@ ShowMP5Warning:
 	bne .t2
 	bit.w #$0004
 	bne .t3
-	jmp.w CODE_9FF2CC
+	jmp.w .1
 
 .t1:
 	lda.w #$009F
@@ -60,7 +60,7 @@ ShowMP5Warning:
 	lda.w #MP5Socket2
 	sta.b a1
 	jsl.l PrintMP5Line4
-	bra CODE_9FF2CC
+	bra .1
 
 .t2:
 	lda.w #$009F
@@ -83,7 +83,7 @@ ShowMP5Warning:
 	lda.w #MP5SuperScope
 	sta.b a1
 	jsl.l PrintMP5Line4
-	bra CODE_9FF2CC
+	bra .1
 
 .t3:
 	lda.w #$009F
@@ -106,7 +106,7 @@ ShowMP5Warning:
 	lda.w #MP5Mouse
 	sta.b a1
 	jsl.l PrintMP5Line4
-CODE_9FF2CC:
+.1:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame
 	rtl

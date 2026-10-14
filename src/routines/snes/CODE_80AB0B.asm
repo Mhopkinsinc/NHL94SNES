@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_80AB0B:
 	cpy.b #$DC
-	bne CODE_80AB51
+	bne .4
 	lda.b $5A
 	and.w #$00FF
 	cmp.w #$006A
@@ -29,22 +29,22 @@ CODE_80AB0B:
 	sta.w $08AE,x
 	iny
 	lda.b ($4E),y
-	bra CODE_80AB4E
+	bra .3
 
 .t1:
 	ldy.b #$17
 	lda.b ($4E),y
 	sta.w $08AE,x
-CODE_80AB4E:
+.3:
 	sta.w $08BF,x
-CODE_80AB51:
+.4:
 	rep #$20
 	cpy.b #$EA
-	bne .2
-.1:
+	bne .2x
+.1x:
 	lda.b $5A
 	and.w #$00FF
 	sta.b $62
-.2:
+.2x:
 	rep #$20
 	jmp.w CODE_80ABA5

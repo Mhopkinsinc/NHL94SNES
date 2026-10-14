@@ -64,25 +64,25 @@ CODE_9F833C:
 	stz.w $19D0
 	stz.w $19D2
 	ldx.w #$0008
-CODE_9F83DE:
+.2:
 	lda.w $1C84,x
 	cmp.w #$0001
 	bne .t1
 	inc.w $19D0
-	bra CODE_9F83F3
+	bra .3
 
 .t1:
 	cmp.w #$0002
-	bne CODE_9F83F3
+	bne .3
 	inc.w $19D2
-CODE_9F83F3:
+.3:
 	dex
 	dex
-	bpl CODE_9F83DE
+	bpl .2
 	jsl.l CODE_9FB69E
 	stz.w $1EBB
 	ldx.w #$0000
-.loop:
+.loopx:
 	lda.w $1C84,x
 	dec a
 	asl a
@@ -90,21 +90,21 @@ CODE_9F83F3:
 	inx
 	inx
 	cpx.w #$000A
-	bcc .loop
+	bcc .loopx
 	ldx.w #$0000
-.loop2:
+.loop2x:
 	lda.w $1C84,x
-	bne .t1
+	bne .t1x
 	inx
 	inx
 	cpx.w #$000A
-	bcc .loop2
-	bra CODE_9F8427
+	bcc .loop2x
+	bra .4
 
-.t1:
+.t1x:
 	lda.w #$0001
 	sta.w $1EBB
-CODE_9F8427:
+.4:
 	lda.w #$FFFF
 	sta.w $1E8D
 	lda.w $1D81

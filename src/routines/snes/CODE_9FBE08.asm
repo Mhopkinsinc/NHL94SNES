@@ -29,7 +29,7 @@ CODE_9FBE08:
 	bne .t1
 	lda.l $7E3464
 	bne .t1
-	bra CODE_9FBE43
+	bra .2
 
 .t1:
 	inx
@@ -40,13 +40,13 @@ CODE_9FBE08:
 	iny
 	iny
 	iny
-CODE_9FBE43:
+.2:
 	jsl.l CODE_9C943E
 	lda.l $7E3462
 	beq .t2
 	lda.l $7E3460
 	bne .t2
-	jmp.w CODE_9FBEF8
+	jmp.w .3
 
 .t2:
 	lda.w #$1800
@@ -54,11 +54,11 @@ CODE_9FBE43:
 	ldy.w #$0060
 	lda.b d1
 	cmp.w HomeTeam
-	bne .1
+	bne .1x
 	ldx.w #$1C00
 	stx.b $14
 	ldy.w #$0070
-.1:
+.1x:
 	asl a
 	asl a
 	tax
@@ -70,17 +70,17 @@ CODE_9FBE43:
 	jsl.l CODE_9DE0BD
 	lda.w HomeTeam
 	cmp.w VisTeam
-	bne .t1
+	bne .t1x
 	lda.b $14
 	cmp.w #$1800
-	beq .t1
+	beq .t1x
 	lda.w #$1800
 	sta.b $14
 	ldy.w #$0060
 	lda.b d1
-	bra .1
+	bra .1x
 
-.t1:
+.t1x:
 	ldy.w #$0000
 	lda.w #$009A
 	sta.b $93
@@ -129,7 +129,7 @@ CODE_9FBE43:
 	inx
 	dec.b tmp1
 	bne .loop2
-CODE_9FBEF8:
+.3:
 	plx
 	pla
 	sta.b a2

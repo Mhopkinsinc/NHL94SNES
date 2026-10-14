@@ -124,42 +124,42 @@ PauseMenuPoll:
 	sta.b $8B
 	lda.w #DATA8_9FE504
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t2x:
 	lda.w #$009F
 	sta.b $8B
 	lda.w #$E544
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t3x:
 	lda.w #$009F
 	sta.b $8B
 	lda.w #$E588
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t4:
 	lda.w #$009F
 	sta.b $8B
 	lda.w #$E5C4
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t5:
 	lda.w #$009F
 	sta.b $8B
 	lda.w #$E5E8
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t6:
 	lda.w #$009F
 	sta.b $8B
 	lda.w #$E600
 	sta.b a0
-CODE_9FE263:
+.1:
 	lda.b [a0],y
 	sta.w $1D5A
 	iny

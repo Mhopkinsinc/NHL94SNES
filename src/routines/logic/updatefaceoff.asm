@@ -64,7 +64,7 @@ updatefaceoff:
 	sta.b d0
 	inc a
 	sta.b d1
-	bra CODE_9FAFAD
+	bra .5
 
 .t1:
 	lda.w #$0001
@@ -75,7 +75,7 @@ updatefaceoff:
 	sta.b d0
 	lda.w #$0008
 	sta.b d1
-CODE_9FAFAD:
+.5:
 	lda.l $7E35D0
 	sta.b d2
 	jsl.l eraser

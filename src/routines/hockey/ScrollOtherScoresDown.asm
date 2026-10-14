@@ -21,7 +21,7 @@ ScrollOtherScoresDown:
 	sec
 	sbc.w $1DE9
 	cmp.l $7E35D6
-	bne CODE_9BC3A8
+	bne .2
 .1:
 	clc
 	adc.w #$0005
@@ -36,7 +36,7 @@ ScrollOtherScoresDown:
 	sbc.w #$0004
 	sec
 	sbc.w $1DE9
-CODE_9BC3A8:
+.2:
 	sta.w $1DBD
 	lda.w #$0001
 	sta.w $1DF3

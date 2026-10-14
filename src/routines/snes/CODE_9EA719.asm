@@ -36,7 +36,7 @@ CODE_9EA719:
 	adc.b d2
 	sta.b d2
 	lda.w position,x
-	bne CODE_9EA78C
+	bne .7
 	lda.w $19D4,x
 	bmi .t1
 	cpx.w shotPlIdx
@@ -46,7 +46,7 @@ CODE_9EA719:
 	adc.b d2
 	adc.w #$0008
 	sta.b d2
-	bra CODE_9EA78C
+	bra .7
 
 .t1:
 	lda.b d2
@@ -58,7 +58,7 @@ CODE_9EA719:
 	clc
 	adc.w #$0008
 	sta.b d2
-CODE_9EA78C:
+.7:
 	lda.b d2
 	pha
 	ldx.b d0
@@ -73,9 +73,9 @@ CODE_9EA78C:
 	xba
 	and.w #$00FF
 	cmp.w #$0080
-	bcc .1
+	bcc .1xx
 	ora.w #$FF00
-.1:
+.1xx:
 	tax
 	jsl.l CODE_808F7D
 	sta.b d3
@@ -92,9 +92,9 @@ CODE_9EA78C:
 	xba
 	and.w #$00FF
 	cmp.w #$0080
-	bcc .2
+	bcc .2x
 	ora.w #$FF00
-.2:
+.2x:
 	tax
 	jsl.l CODE_808F7D
 	clc
@@ -162,10 +162,10 @@ CODE_9EA78C:
 	sta.w $0EE3,x
 .5:
 	lda.l $7E34C6
-	beq .t1
+	beq .t1x
 	lda.w $0792
 	and.w #$003F
-	bne .t1
+	bne .t1x
 	jsl.l CODE_9FDCB2
 	lda.b d0
 	sec
@@ -181,5 +181,5 @@ CODE_9EA78C:
 .6:
 	jml.l setpde
 
-.t1:
+.t1x:
 	rtl

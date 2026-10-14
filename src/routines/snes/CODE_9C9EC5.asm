@@ -55,7 +55,7 @@ CODE_9C9EC5:
 	jsl.l Mul16U
 	plx
 	jsr.w CODE_9C9FC7
-	bra CODE_9C9FB0
+	bra .3
 
 .t1:
 	lda.b d0
@@ -74,7 +74,7 @@ CODE_9C9EC5:
 	rep #$20
 	and.w #$00FF
 	cmp.b d1
-	bmi CODE_9C9FB0
+	bmi .3
 	sta.b $04
 	sep #$20
 	lda.w $18EE,x
@@ -88,7 +88,7 @@ CODE_9C9EC5:
 	plx
 	lda.b $00
 	cmp.w #$0003
-	bpl CODE_9C9FB0
+	bpl .3
 	lda.w #$0000
 	sta.b $0A
 	lda.w #$7D00
@@ -96,13 +96,13 @@ CODE_9C9EC5:
 	jsr.w CODE_9C9FC7
 	lda.b $00
 	cmp.w #$0000
-	bne CODE_9C9FB0
+	bne .3
 	lda.w #$0001
 	sta.b $0A
 	lda.w #$24F8
 	sta.b $08
 	jsr.w CODE_9C9FC7
-CODE_9C9FB0:
+.3:
 	lda.b $A7
 	asl a
 	sta.b $A7

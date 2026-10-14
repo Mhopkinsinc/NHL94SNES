@@ -2,7 +2,7 @@
 AddPenalty2:
 	lda.w sfhormode
 	beq .t2
-	jmp.w CODE_9EB94B
+	jmp.w .5
 
 .t2:
 	lda.b d1
@@ -57,7 +57,7 @@ AddPenalty2:
 	beq .t1
 	dec.b d1
 	bpl .loop
-	bra CODE_9EB939
+	bra .4
 
 .t1:
 	dec.b a1
@@ -78,17 +78,17 @@ AddPenalty2:
 	sta.b a0
 	lda.b [a0]
 	and.w #$00FF
-	beq CODE_9EB939
+	beq .4
 	lda.w pflags,x
 	pha
 	ora.w #$4000
 	sta.w pflags,x
 	pla
 	bit.w #$4000
-	beq CODE_9EB939
+	beq .4
 	lda.w #$0000
 	sta.b [a1]
-CODE_9EB939:
+.4:
 	pla
 	sta.b $8F
 	pla
@@ -101,5 +101,5 @@ CODE_9EB939:
 	sta.b $AB
 	pla
 	sta.b d1
-CODE_9EB94B:
+.5:
 	rtl

@@ -4,10 +4,10 @@ CODE_9C8D17:
 	beq .t1
 	lda.w #$2400
 	sta.w $0D0D
-	bra CODE_9C8D2A
+	bra .1
 
 .t1:
 	lda.w #$2000
 	sta.w $0D0D
-CODE_9C8D2A:
+.1:
 	rtl

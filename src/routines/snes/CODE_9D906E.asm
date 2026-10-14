@@ -172,7 +172,7 @@ CODE_9D906E:
 	ldx.w #$0070
 	jsl.l CODE_808723
 	jsl.l CODE_8086BD
-CODE_9D9221:
+.2:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
 	lda.w $0AB8
@@ -184,7 +184,7 @@ CODE_9D9221:
 .t2:
 	lda.b $83
 	cmp.b d7
-	beq CODE_9D9221
+	beq .2
 	sta.b d7
 	ldx.w #$3622
 	ldy.w #$007E
@@ -203,39 +203,39 @@ CODE_9D9221:
 	bit.w #$0100
 	bne .t3
 	lda.b $B3
-	bne CODE_9D9281
-	jmp.w CODE_9D9221
+	bne .3
+	jmp.w .2
 
 .t1:
 	lda.w #$FFFE
 	sta.b $B3
-	jmp.w CODE_9D9281
+	jmp.w .3
 
 .t3:
 	lda.w #$0002
 	sta.b $B3
-CODE_9D9281:
+.3:
 	lda.w Hscroll
 	clc
 	adc.b $B3
 	cmp.b $AF
-	bcs .t2
-	jmp.w CODE_9D9394
+	bcs .t2x
+	jmp.w .5
 
-.t2:
+.t2x:
 	cmp.b $A7
-	bcc .t1
-	jmp.w CODE_9D9394
+	bcc .t1x
+	jmp.w .5
 
-.t1:
+.t1x:
 	sta.w Hscroll
 	and.w #$0007
-	beq .t3
-	jmp.w CODE_9D936E
+	beq .t3x
+	jmp.w .4
 
-.t3:
+.t3x:
 	lda.b $B3
-	bmi .t2x
+	bmi .t2xx
 	lda.w Hscroll
 	lsr a
 	lsr a
@@ -243,10 +243,10 @@ CODE_9D9281:
 	clc
 	adc.w #$002F
 	cmp.w #$0080
-	bcc .t1x
-	jmp.w CODE_9D936E
+	bcc .t1xx
+	jmp.w .4
 
-.t1x:
+.t1xx:
 	sta.b $24
 	pha
 	lda.w #$007E
@@ -283,16 +283,16 @@ CODE_9D9281:
 	sta.b $1A
 	ldy.w #$0000
 	jsl.l CODE_808BED
-	bra CODE_9D936E
+	bra .4
 
-.t2x:
+.t2xx:
 	lda.w Hscroll
 	lsr a
 	lsr a
 	lsr a
 	sec
 	sbc.w #$0010
-	bcc CODE_9D936E
+	bcc .4
 	sta.b $24
 	pha
 	lda.w #$007E
@@ -329,25 +329,25 @@ CODE_9D9281:
 	sta.b $1A
 	ldy.w #$0000
 	jsl.l CODE_808BED
-CODE_9D936E:
+.4:
 	lda.w Hscroll
 	cmp.w #$0058
-	beq CODE_9D9394
+	beq .5
 	cmp.w #$00B0
-	beq CODE_9D9394
+	beq .5
 	cmp.w #$0108
-	beq CODE_9D9394
+	beq .5
 	cmp.w #$0180
-	beq CODE_9D9394
+	beq .5
 	cmp.w #$01F8
-	beq CODE_9D9394
+	beq .5
 	cmp.w #$0250
-	beq CODE_9D9394
+	beq .5
 	cmp.w #$02A8
-	bne CODE_9D9396
-CODE_9D9394:
+	bne .6
+.5:
 	stz.b $B3
-CODE_9D9396:
+.6:
 	lda.w Hscroll
 	sec
 	sbc.w #$0100
@@ -356,4 +356,4 @@ CODE_9D9396:
 	sec
 	sbc.w #$0080
 	sta.w $07DA
-	jmp.w CODE_9D9221
+	jmp.w .2

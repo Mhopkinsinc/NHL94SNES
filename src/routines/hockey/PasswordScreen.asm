@@ -130,7 +130,7 @@ PasswordScreen:
 	sta.w $0AD1
 CODE_9BC946:
 	jsr.w CODE_9BCBD8
-CODE_9BC949:
+.1:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -168,20 +168,20 @@ CODE_9BC949:
 	bit.w #$8080
 	bne .t1
 	bit.w #$0100
-	bne CODE_9BC9F0
+	bne .2
 	stz.b d0
 	dec.b d0
 	bit.w #$0200
-	bne CODE_9BC9F0
+	bne .2
 	ldy.w #$0006
 	sty.b d0
 	bit.w #$0400
-	bne CODE_9BC9F0
+	bne .2
 	ldy.w #$FFFA
 	sty.b d0
 	bit.w #$0800
-	bne CODE_9BC9F0
-	jmp.w CODE_9BC949
+	bne .2
+	jmp.w .1
 
 .t1:
 	lda.b d4
@@ -189,7 +189,7 @@ CODE_9BC949:
 	adc.b d0
 	cmp.w #$0010
 	bcc .t2
-	jmp.w CODE_9BC949
+	jmp.w .1
 
 .t2:
 	sta.b d4
@@ -203,19 +203,19 @@ CODE_9BC949:
 	lda.b [a0],y
 	and.w #$00FF
 	cmp.w #$001E
-	bcs CODE_9BC9F0
+	bcs .2
 	sec
 	sbc.b d5
 	sta.b d0
-CODE_9BC9F0:
+.2:
 	lda.b d5
 	clc
 	adc.b d0
 	cmp.w #$001E
-	bcc .t1
-	jmp.w CODE_9BC949
+	bcc .t1x
+	jmp.w .1
 
-.t1:
+.t1x:
 	pha
 	jsl.l PlacePasswordCursor
 	lda.l $7E35D0
@@ -264,4 +264,4 @@ CODE_9BC9F0:
 	lda.b d5
 	sta.b [a0],y
 	rep #$30
-	jmp.w CODE_9BC949
+	jmp.w .1

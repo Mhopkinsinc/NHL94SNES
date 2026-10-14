@@ -36,9 +36,9 @@ CODE_9BB020:
 	bne .loop
 	jsl.l CODE_8086A9
 	lda.w $1D81
-	bne CODE_9BB0C4
+	bne .1
 	lda.w $0CBB
-	beq CODE_9BB0C4
+	beq .1
 	jsl.l CODE_9C978E
 	lda.l $7E34BC
 	beq .t1
@@ -52,7 +52,7 @@ CODE_9BB020:
 	lda.w #DATA8_93ED31
 	sta.b $0C
 	jsl.l MusicStart
-	jmp.w CODE_9BB0C4
+	jmp.w .1
 
 .t1:
 	lda.w #$0090
@@ -60,5 +60,5 @@ CODE_9BB020:
 	lda.w #DATA8_90C20C
 	sta.b $0C
 	jsl.l MusicStart
-CODE_9BB0C4:
+.1:
 	rtl

@@ -95,21 +95,21 @@ CODE_9BB19D:
 	sta.w $0DF9
 	bpl .t1
 	lda.b #$FF
-	bra CODE_9BB262
+	bra .5
 
 .t1:
 	lda.b #$00
-CODE_9BB262:
+.5:
 	sta.w $0DFA
 	lda.w WMDATA
 	sta.w $0DFB
-	bpl .t1
+	bpl .t1x
 	lda.b #$FF
-	bra CODE_9BB273
+	bra .6
 
-.t1:
+.t1x:
 	lda.b #$00
-CODE_9BB273:
+.6:
 	sta.w $0DFC
 	lda.w WMDATA
 	sta.w $0CAD
@@ -165,17 +165,17 @@ CODE_9BB273:
 	sta.l $7E35E1
 	lda.w WMDATA
 	sta.w PBnum
-	bpl .t1
+	bpl .t1xx
 	lda.b #$FF
-	bra CODE_9BB300
+	bra .7
 
-.t1:
+.t1xx:
 	lda.b #$00
-CODE_9BB300:
+.7:
 	sta.w $1625
 	lda.w sflags
 	bit.b #$20
-	bne .t1
+	bne .t1xxx
 	lda.w WMDATA
 	sta.w Hpos
 	lda.w WMDATA
@@ -188,9 +188,9 @@ CODE_9BB300:
 	sta.w $0C29
 	lda.w WMDATA
 	sta.w $0C2A
-	bra CODE_9BB348
+	bra .8
 
-.t1:
+.t1xxx:
 	lda.w WMDATA
 	lda.w WMDATA
 	lda.w WMDATA
@@ -199,21 +199,21 @@ CODE_9BB300:
 	sta.w $0C29
 	lda.w WMDATA
 	sta.w $0C2A
-CODE_9BB348:
+.8:
 	rep #$20
 	lda.w $0CAD
 	and.w #$00FF
 	cmp.w #$0080
-	bcc .1
+	bcc .1x
 	ora.w #$FF00
-.1:
+.1x:
 	sta.w $0CAD
 	lda.w $0CB3
 	and.w #$00FF
 	cmp.w #$0080
-	bcc .2
+	bcc .2x
 	ora.w #$FF00
-.2:
+.2x:
 	sta.w $0CB3
 	pla
 	sta.b d1

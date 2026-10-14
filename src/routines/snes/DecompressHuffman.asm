@@ -19,7 +19,7 @@ DecompressHuffman:	; Huffman data at [$0C] to WRAM at [$10]
 	lda.w #$0010
 	sta.b $14
 	ldx.b #$FE
-CODE_80BBD9:
+.2:
 	inx
 	inx
 	dec.b $14
@@ -40,7 +40,7 @@ CODE_80BBD9:
 	lda.b $6F
 	bne .t1
 	stz.w $0740,x
-	bra CODE_80BBD9
+	bra .2
 
 .t1:
 	lda.b $75
@@ -55,7 +55,7 @@ CODE_80BBD9:
 .1:
 	lda.b $00
 	sta.w $0740,x
-	bcc CODE_80BBD9
+	bcc .2
 	txa
 	lsr a
 	sta.b $79

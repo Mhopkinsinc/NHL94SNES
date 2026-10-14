@@ -16,12 +16,12 @@ SetLCmode2:
 	bmi .t1
 	lda.w #$0001
 	tsb.w sflags3
-	bra CODE_9FD35A
+	bra .4
 
 .t1:
 	jsl.l CODE_9FA669
 	jsl.l setlccords
-CODE_9FD35A:
+.4:
 	jsl.l CODE_9D8000
 	dec.w printy
 	dec.w printy
@@ -41,13 +41,13 @@ CODE_9FD35A:
 	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0008
-	bne .1
+	bne .1x
 	lda.b d4
 	cmp.w $17E6,y
 	bne .2
 	lda.w tmline,y
 	sta.b d0
-.1:
+.1x:
 	lda.w #$0000
 	sta.b $8F
 	lda.w #mesarea

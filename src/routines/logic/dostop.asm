@@ -58,31 +58,31 @@ CODE_9EA539:
 	clc
 	adc.b $08
 	sta.w $0EC3,x
-	bmi CODE_9EA589
-	bra CODE_9EA586
+	bmi .2
+	bra .1
 
 .t2:
 	sec
 	sbc.b $08
 	sta.w $0EC3,x
-	bpl CODE_9EA589
-CODE_9EA586:
+	bpl .2
+.1:
 	stz.w $0EC3,x
-CODE_9EA589:
+.2:
 	lda.w $0EE3,x
-	bpl .t1
+	bpl .t1x
 	clc
 	adc.b $08
 	sta.w $0EE3,x
-	bmi CODE_9EA5A3
-	bra CODE_9EA5A0
+	bmi .4
+	bra .3
 
-.t1:
+.t1x:
 	sec
 	sbc.b $08
 	sta.w $0EE3,x
-	bpl CODE_9EA5A3
-CODE_9EA5A0:
+	bpl .4
+.3:
 	stz.w $0EE3,x
-CODE_9EA5A3:
+.4:
 	rtl

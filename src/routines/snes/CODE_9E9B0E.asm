@@ -20,14 +20,14 @@ CODE_9E9B0E:
 	sta.b $0C
 	lda.w $0EE3,x
 	sta.b $0E
-	bra CODE_9E9B46
+	bra .1
 
 .t1:
 	lda.w $0EC3,y
 	sta.b $0C
 	lda.w $0EE3,y
 	sta.b $0E
-CODE_9E9B46:
+.1:
 	asl.b $0C
 	asl.b $0E
 	lda.w #$000F

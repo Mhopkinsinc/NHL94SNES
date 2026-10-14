@@ -74,19 +74,19 @@ setplayer:
 	stz.w HmAwBonus
 	lda.w position,x
 	bne .t1
-	jmp.w CODE_9FD01F
+	jmp.w .6
 
 .t1:
 	lda.w sflags
 	bit.w #$2000
-	beq CODE_9FCFBF
+	beq .5
 	jsl.l chkpk2
 	beq .t2
 	ldy.w #$0001
 	lda.b [a0],y
 	and.w #$000F
 	sta.w PPBonus
-	bra CODE_9FCFBF
+	bra .5
 
 .t2:
 	ldy.w #$0001
@@ -99,7 +99,7 @@ setplayer:
 	eor.w #$FFFF
 	inc a
 	sta.w PKBonus
-CODE_9FCFBF:
+.5:
 	ldy.w #$0002
 	lda.b [a0],y
 	and.w #$000F
@@ -121,7 +121,7 @@ CODE_9FCFBF:
 	lda.w gsp
 	sec
 	sbc.w #$0002
-	bmi CODE_9FD01F
+	bmi .6
 	bne .2
 	jsl.l GetPeriodTime
 	lsr.b d0
@@ -129,7 +129,7 @@ CODE_9FCFBF:
 	sec
 	sbc.w gameclock
 	beq .2
-	bpl CODE_9FD01F
+	bpl .6
 .2:
 	lda.w $178E
 org $9FD000
@@ -145,11 +145,11 @@ org $9FD000
 	sta.b tmp0
 .3:
 	lda.b tmp0
-	bpl CODE_9FD01F
+	bpl .6
 .4:
 	lda.w #$0002
 	sta.w $0CE5
-CODE_9FD01F:
+.6:
 	pla
 	sta.b $8B
 	pla
@@ -245,22 +245,22 @@ CODE_9FD01F:
 	jsl.l CODE_9FD22B
 	pha
 	lda.w position,x
-	beq .t1
+	beq .t1x
 	pla
 	eor.w #$000F
 	clc
 	adc.w #$0007
 	sta.w $1343,x
-	bra CODE_9FD0FA
+	bra .7
 
-.t1:
+.t1x:
 	pla
 	eor.w #$000F
 	clc
 	adc.w #$000F
 	lsr a
 	sta.w $1343,x
-CODE_9FD0FA:
+.7:
 	ldy.w #$0003
 	lda.b [a0],y
 	and.w #$0007
@@ -297,11 +297,11 @@ CODE_9FD0FA:
 	and.w #$0001
 	eor.w #$0001
 	sta.w $14A3,x
-	bne .1
+	bne .1x
 	lda.w attribute,x
 	ora.w #$0800
 	sta.w attribute,x
-.1:
+.1x:
 	lda.b [a0],y
 	and.w #$000E
 	sta.w $1463,x

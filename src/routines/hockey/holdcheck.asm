@@ -84,13 +84,13 @@ holdcheck:
 	lda.w #$0024
 	sta.b d0
 	jsl.l AddPenalty
-	bra CODE_9EA3CE
+	bra .2
 
 .t1x:
 	jsl.l checkagr
 	lda.b d0
 	cmp.w #$0001
-	bcs CODE_9EA3CE
+	bcs .2
 	lda.w #$0028
 	sta.b d0
 	lda.w SPA,x
@@ -100,7 +100,7 @@ holdcheck:
 	sta.b d0
 .1x:
 	jsl.l AddPenalty
-CODE_9EA3CE:
+.2:
 	ldx.b a2
 	ldy.b a3
 	sty.b a2

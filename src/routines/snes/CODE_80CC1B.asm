@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_80CC1B:
 	lda.l $7E3468
-	beq CODE_80CC25
+	beq .2
 	jsl.l CODE_80CB5C
-CODE_80CC25:
+.2:
 	jsl.l SpriteFrameStart
 	ldx.w #$0058
 	ldy.w #$0018

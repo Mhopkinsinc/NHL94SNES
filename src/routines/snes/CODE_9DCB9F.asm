@@ -15,7 +15,7 @@ CODE_9DCB9F:
 	clc
 	adc.l DATA8_9DCCAE,x
 	sta.l $7E3472
-	bra CODE_9DCBD5
+	bra .2
 
 .t1:
 	lda.w #$3400
@@ -24,7 +24,7 @@ CODE_9DCB9F:
 	clc
 	adc.l DATA8_9DCCAE,x
 	sta.l $7E3470
-CODE_9DCBD5:
+.2:
 	lda.w #$0092
 	sta.b $0E
 	lda.w #DATA8_92FFB0
@@ -62,13 +62,13 @@ CODE_9DCBD5:
 	lda.b [a1]
 	sta.b $0E
 	lda.b a2
-	beq .t1
+	beq .t1x
 	ldy.w #$0010
-	bra CODE_9DCC2E
+	bra .3
 
-.t1:
+.t1x:
 	ldy.w #$0050
-CODE_9DCC2E:
+.3:
 	ldx.w #$0010
 	jsl.l CODE_9DE0BD
 	rtl

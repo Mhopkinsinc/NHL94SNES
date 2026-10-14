@@ -16,12 +16,12 @@ CODE_9FFA08:
 	jsl.l CODE_9FF92E
 	lda.w #$0080
 	trb.b $C3
-	jmp.w CODE_9FFA6B
+	jmp.w .3
 
 .t1:
 	lda.b $C3
 	bit.w #$0008
-	beq CODE_9FFA6B
+	beq .3
 	lda.b $0C
 	pha
 	lda.b $0E
@@ -51,10 +51,10 @@ CODE_9FFA08:
 	sta.b $0C
 	lda.w #$0208
 	trb.b $C3
-CODE_9FFA6B:
+.3:
 	lda.b $C3
 	bit.w #$0010
-	beq .1
+	beq .1x
 	sep #$20
 	lda.b $D5
 	sta.w BG1HOFS
@@ -67,7 +67,7 @@ CODE_9FFA6B:
 	rep #$20
 	lda.w #$0010
 	trb.b $C3
-.1:
+.1x:
 	lda.b $C3
 	bit.w #$0040
 	beq .rtl

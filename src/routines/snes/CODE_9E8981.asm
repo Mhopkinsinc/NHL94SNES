@@ -48,18 +48,18 @@ CODE_9E8981:
 	lda.w #$FFB2
 	sta.b d2
 	lda.w position,y
-	beq CODE_9E8A4B
+	beq .6
 	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0010
-	bne CODE_9E8A4B
+	bne .6
 	lda.b d2
 	sec
 	sbc.w pucky
 	bpl .t2
 	lda.w pucky
 	sta.b d1
-	bra CODE_9E8A4F
+	bra .7
 
 .t1:
 	rtl
@@ -69,8 +69,8 @@ CODE_9E8981:
 	sta.b d2
 	sec
 	sbc.w pucky
-	bmi CODE_9E8A4F
-	bra CODE_9E8A4B
+	bmi .7
+	bra .6
 
 .t3:
 	lda.w #$009E
@@ -78,29 +78,29 @@ CODE_9E8981:
 	lda.w #$004E
 	sta.b d2
 	lda.w position,y
-	beq CODE_9E8A4B
+	beq .6
 	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0010
-	bne CODE_9E8A4B
+	bne .6
 	lda.b d2
 	sec
 	sbc.w pucky
 	bmi .t1x
 	lda.w pucky
 	sta.b d1
-	bra CODE_9E8A4F
+	bra .7
 
 .t1x:
 	lda.w #$0108
 	sta.b d2
 	sec
 	sbc.w pucky
-	bpl CODE_9E8A4F
-CODE_9E8A4B:
+	bpl .7
+.6:
 	lda.b d2
 	sta.b d1
-CODE_9E8A4F:
+.7:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #rtss
@@ -108,8 +108,8 @@ CODE_9E8A4F:
 	lda.w $0D71
 	eor.b d0
 	sta.b d2
-	bmi .1
+	bmi .1x
 	lda.w $0D71
 	sta.b d0
-.1:
+.1x:
 	jmp.w CODE_9EA5A4

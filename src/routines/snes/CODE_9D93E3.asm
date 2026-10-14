@@ -46,64 +46,64 @@ CODE_9D93E3:
 	lda.b #$01
 	pha
 	ldy.w #$0007
-CODE_9D9430:
+.2:
 	phx
 	lda.b $03,s
 	and.b #$01
-	beq .t1
+	beq .t1x
 	lda.b #$FF
 	sta.l $7F6700,x
-	bra CODE_9D9445
+	bra .3
 
-.t1:
+.t1x:
 	lda.b #$80
 	sta.l $7F6700,x
-CODE_9D9445:
+.3:
 	inx
 	lda.b $03,s
 	and.b #$02
-	beq .t1
+	beq .t1xx
 	lda.b #$7F
 	sta.l $7F6700,x
-	bra CODE_9D945A
+	bra .4
 
-.t1:
+.t1xx:
 	lda.b #$00
 	sta.l $7F6700,x
-CODE_9D945A:
+.4:
 	txa
 	clc
 	adc.b #$0F
 	tax
 	lda.b $03,s
 	and.b #$04
-	beq .t1
+	beq .t1xxx
 	lda.b #$7F
 	sta.l $7F6700,x
-	bra CODE_9D9473
+	bra .5
 
-.t1:
+.t1xxx:
 	lda.b #$00
 	sta.l $7F6700,x
-CODE_9D9473:
+.5:
 	inx
 	lda.b $03,s
 	and.b #$08
-	beq .t1
+	beq .t1xxxx
 	lda.b #$7F
 	sta.l $7F6700,x
-	bra CODE_9D9488
+	bra .6
 
-.t1:
+.t1xxxx:
 	lda.b #$00
 	sta.l $7F6700,x
-CODE_9D9488:
+.6:
 	lda.b $00
 	sta.b $03,s
 	plx
 	inx
 	inx
 	dey
-	bpl CODE_9D9430
+	bpl .2
 	pla
 	rts

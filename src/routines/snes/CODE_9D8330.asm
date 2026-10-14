@@ -41,12 +41,12 @@ CODE_9D8330:
 .1:
 	cmp.w $1E65,y
 	beq .2
-	bpl CODE_9D83AD
+	bpl .3
 .2:
 	cmp.w $1E69,y
-	beq CODE_9D83D3
-	bpl CODE_9D83C9
-	bra CODE_9D83D3
+	beq .5
+	bpl .4
+	bra .5
 
 .t2:
 	lda.w $1E61,y
@@ -61,7 +61,7 @@ CODE_9D8330:
 	sta.b d0
 	lda.b $04
 	sta.b d1
-CODE_9D83AD:
+.3:
 	lda.w $1E65,y
 	sta.b $00
 	lda.w $1E4D,y
@@ -74,25 +74,25 @@ CODE_9D83AD:
 	sta.b d0
 	lda.b $04
 	sta.b d1
-CODE_9D83C9:
+.4:
 	lda.b d0
 	sta.w $1E69,y
 	lda.b d1
 	sta.w $1E51,y
-CODE_9D83D3:
+.5:
 	lda.b d3
 	sta.b d1
 	lda.b $08
 	sta.b d0
 	cmp.w $1E6D,y
-	bmi .t1
+	bmi .t1x
 	cmp.w $1E71,y
-	bmi CODE_9D8408
+	bmi .6
 	cmp.w $1E75,y
-	bmi CODE_9D8424
-	bra CODE_9D842E
+	bmi .7
+	bra .8
 
-.t1:
+.t1x:
 	lda.w $1E6D,y
 	sta.b $00
 	lda.w $1E55,y
@@ -105,7 +105,7 @@ CODE_9D83D3:
 	sta.b d0
 	lda.b $04
 	sta.b d1
-CODE_9D8408:
+.6:
 	lda.w $1E71,y
 	sta.b $00
 	lda.w $1E59,y
@@ -118,10 +118,10 @@ CODE_9D8408:
 	sta.b d0
 	lda.b $04
 	sta.b d1
-CODE_9D8424:
+.7:
 	lda.b d0
 	sta.w $1E75,y
 	lda.b d1
 	sta.w $1E5D,y
-CODE_9D842E:
+.8:
 	rtl

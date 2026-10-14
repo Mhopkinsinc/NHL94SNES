@@ -23,14 +23,14 @@ CODE_9FEBEB:
 	sta.b $9B
 	lda.w #$EC57
 	sta.b a4
-	bra CODE_9FEC28
+	bra .1
 
 .t1:
 	lda.w #$009F
 	sta.b $9B
 	lda.w #$EC5B
 	sta.b a4
-CODE_9FEC28:
+.1:
 	ldy.w #$0001
 	jsl.l CODE_9FEB90
 	rtl

@@ -11,7 +11,7 @@ CODE_9FF64D:
 	bpl .t1
 	lda.w #$0040
 	tsb.b $C3
-	bra CODE_9FF673
+	bra .1
 
 .t1:
 	jsr.w CODE_9FF8D4
@@ -19,5 +19,5 @@ CODE_9FF64D:
 	tsb.b $C3
 	lda.b d5
 	sta.b $B7
-CODE_9FF673:
+.1:
 	jmp.w CODE_9FF898

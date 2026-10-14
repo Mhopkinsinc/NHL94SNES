@@ -69,26 +69,26 @@ CODE_9E814E:
 	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0002
-	beq CODE_9E81E8
+	beq .4
 .3:
 	lda.w pfgoal,x
 	beq .t1
 	lda.b d1
 	sec
 	sbc.w #$0053
-	bmi CODE_9E81E8
+	bmi .4
 	lda.w #$0044
 	sta.b d1
-	bra CODE_9E81E8
+	bra .4
 
 .t1:
 	lda.b d1
 	sec
 	sbc.w #$FFAD
-	bpl CODE_9E81E8
+	bpl .4
 	lda.w #$FFBC
 	sta.b d1
-CODE_9E81E8:
+.4:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #rtss

@@ -340,7 +340,7 @@ org $9F9001
 	lda.w #DATA8_93ED31
 	sta.b $0C
 	jsl.l MusicStart
-	bra CODE_9F9133
+	bra .10
 
 .t2:
 	lda.w #$0090
@@ -348,7 +348,7 @@ org $9F9001
 	lda.w #DATA8_90C20C
 	sta.b $0C
 	jsl.l MusicStart
-CODE_9F9133:
+.10:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -373,52 +373,52 @@ CODE_9F9133:
 	jsl.l CODE_8086BD
 	stx.b xsave
 	ldx.w #$001A
-.loop:
+.loopx:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl .loop
+	bpl .loopx
 	ldx.b xsave
 	stx.b xsave
 	ldx.w #$001E
-.loop2:
+.loop2x:
 	pla
 	sta.b d0,x
 	dex
 	dex
-	bpl .loop2
+	bpl .loop2x
 	ldx.b xsave
 	ldx.b a3
 	stx.b xsave
 	ldx.w #$0000
-.loop3:
+.loop3x:
 	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0020
-	bne .loop3
+	bne .loop3x
 	ldx.b xsave
 	stx.b xsave
 	ldx.w #$0000
-.loop4:
+.loop4x:
 	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$001C
-	bne .loop4
+	bne .loop4x
 	ldx.b xsave
 	ldx.b a0
 	lda.w #$0004
 	sta.l $7E3568,x
 	lda.l $7E3578,x
 	cmp.l $7E3588,x
-	bne .t1
+	bne .t1xx
 	jmp.w StartHL2
 
-.t1:
+.t1xx:
 	lda.w #$0005
 	sta.l $7E3568,x
 	lda.b d1

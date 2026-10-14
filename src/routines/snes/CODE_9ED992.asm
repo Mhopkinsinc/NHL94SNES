@@ -93,10 +93,10 @@ CODE_9EDA51:
 
 .t1:
 	ldy.w shotPlIdx
-	bmi CODE_9EDAA4
+	bmi .7
 	lda.w pfteam,x
 	cmp.w pfteam,y
-	beq CODE_9EDAA4
+	beq .7
 	lda.w SPA,y
 	cmp.w #$ED4A
 	bcc .t2
@@ -119,7 +119,7 @@ CODE_9EDA51:
 	cmp.b $00
 	bcs .t2
 	lda.w $0BA1
-	bne CODE_9EDAA4
+	bne .7
 	stz.w $0EC3,x
 	stz.w $0EE3,x
 	inc.w $0BA1
@@ -127,7 +127,7 @@ CODE_9EDA51:
 
 .t2:
 	stz.w $0BA1
-CODE_9EDAA4:
+.7:
 	lda.b d2
 	sta.b d1
 	pha
@@ -137,9 +137,9 @@ CODE_9EDAA4:
 	xba
 	and.w #$00FF
 	bit.w #$0080
-	beq .1
+	beq .1x
 	ora.w #$FF00
-.1:
+.1x:
 	eor.w #$FFFF
 	inc a
 	sta.b d0
@@ -153,9 +153,9 @@ CODE_9EDAA4:
 	xba
 	and.w #$00FF
 	bit.w #$0080
-	beq .2
+	beq .2x
 	ora.w #$FF00
-.2:
+.2x:
 	eor.w #$FFFF
 	inc a
 	sta.b d1

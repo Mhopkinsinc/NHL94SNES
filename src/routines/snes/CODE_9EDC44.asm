@@ -10,7 +10,7 @@ CODE_9EDC44:
 	sec
 	sbc.w Ypos,x
 	sta.b d1
-	bra CODE_9EDC67
+	bra .1
 
 .t1:
 	lda.w $0D71
@@ -19,17 +19,17 @@ CODE_9EDC44:
 	sec
 	sbc.b d4
 	sta.b d1
-CODE_9EDC67:
+.1:
 	lda.w Ypos,x
 	bpl CODE_9EDC86
 	cmp.w #$FEF8
 	bmi CODE_9EDC85
 	lda.w pucky
 	cmp.w #$FEF8
-	bmi .t1
+	bmi .t1x
 	rts
 
-.t1:
+.t1x:
 	lda.w #$0001
 	sta.b d1
 	rts

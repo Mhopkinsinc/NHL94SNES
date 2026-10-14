@@ -18,7 +18,7 @@ CODE_9B9AB2:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9B9AF4
+	bra .1
 
 .t1:
 	lda.b $8F
@@ -34,10 +34,10 @@ CODE_9B9AB2:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9B9AF4:
+.1:
 	lda.w $1DBD
 	dec a
-	bmi .t1
+	bmi .t1x
 	lda.b $8F
 	pha
 	lda.b a1
@@ -51,9 +51,9 @@ CODE_9B9AF4:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9B9B30
+	bra .2
 
-.t1:
+.t1x:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -67,6 +67,6 @@ CODE_9B9AF4:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9B9B30:
+.2:
 	jsl.l CODE_9FBF75
 	rtl

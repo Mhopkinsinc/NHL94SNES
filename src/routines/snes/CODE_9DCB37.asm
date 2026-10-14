@@ -4,12 +4,12 @@ CODE_9DCB37:
 	bne .t1
 	lda.w #$0005
 	sta.b d1
-	bra CODE_9DCB49
+	bra .1
 
 .t1:
 	lda.w #$0004
 	sta.b d1
-CODE_9DCB49:
+.1:
 	jsl.l CODE_9DC561
 	lda.b d0
 	and.w #$0001

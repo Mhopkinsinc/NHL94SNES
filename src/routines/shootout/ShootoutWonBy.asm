@@ -2,21 +2,21 @@
 ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	lda.w $1D81
 	bne .t1
-	jmp.w CODE_80CA05
+	jmp.w .3
 
 .t1:
 	lda.w #$000A
 	sta.b d0
 	lda.w $1D89
 	bne .t3
-	jmp.w CODE_80CA05
+	jmp.w .3
 
 .t3:
 	lda.w $178E
 	sec
 	sbc.w $1790
 	bne .t1x
-	jmp.w CODE_80CA05
+	jmp.w .3
 
 .t1x:
 	phx
@@ -30,11 +30,11 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	sbc.w $1790
 	bmi .t2
 	ldy.w #$0000
-	bra CODE_80C97D
+	bra .1
 
 .t2:
 	ldy.w #$0002
-CODE_80C97D:
+.1:
 	phy
 	lda.w HomeTeam,y
 	jsl.l CODE_9BC5AB
@@ -72,23 +72,23 @@ CODE_80C97D:
 	ply
 	lda.w HomeTeam,y
 	cmp.w #$000E
-	beq .t1
+	beq .t1xx
 	cmp.w #$000D
-	beq .t1
+	beq .t1xx
 	lda.w #$009C
 	sta.b $8F
 	lda.w #WinsMark
 	sta.b a1
 	jsl.l CODE_9ECE15
-	bra CODE_80C9F8
+	bra .2
 
-.t1:
+.t1xx:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #WinMark
 	sta.b a1
 	jsl.l CODE_9ECE15
-CODE_80C9F8:
+.2:
 	pla
 	sta.b a1
 	pla
@@ -97,6 +97,6 @@ CODE_80C9F8:
 	plx
 	lda.w #$0010
 	sta.b d0
-CODE_80CA05:
+.3:
 	jsl.l AddPenalty2
 	rtl

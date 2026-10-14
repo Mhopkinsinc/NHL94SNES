@@ -60,20 +60,20 @@ CODE_9FD252:
 	sta.b d2
 	ldx.w tmsort,y
 	stx.b a3
-CODE_9FD2BC:
+.1:
 	stz.w $1543,x
 	lda.w pflags,x
 	and.w #$2FFF
 	sta.w pflags,x
 	lda.w position,x
-	bmi CODE_9FD2F3
-	bne .t1
+	bmi .3
+	bne .t1x
 	lda.w #$E0FE
-	bra CODE_9FD2D7
+	bra .2
 
-.t1:
+.t1x:
 	lda.w #$EA1A
-CODE_9FD2D7:
+.2:
 	jsl.l SetSPAFromA
 	stz.w $0F23,x
 	stz.w $1203,x
@@ -83,10 +83,10 @@ CODE_9FD2D7:
 	stz.w $1563,x
 	stz.w $1523,x
 	stz.w pfalock,x
-CODE_9FD2F3:
+.3:
 	inc.b a3
 	inc.b a3
 	ldx.b a3
 	dec.b d2
-	bpl CODE_9FD2BC
+	bpl .1
 	rtl

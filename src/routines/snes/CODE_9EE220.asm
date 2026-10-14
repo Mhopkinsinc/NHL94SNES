@@ -9,7 +9,7 @@ CODE_9EE220:
 	stx.w $0D29
 	cpx.w shotPlIdx
 	beq .t2
-	jmp.w CODE_9EE408
+	jmp.w .7
 
 .t2:
 	lda.w #$0001
@@ -104,7 +104,7 @@ CODE_9EE220:
 	lda.w gmode
 	bit.w #$0010
 	beq .t1
-	jmp.w CODE_9EE387
+	jmp.w .6
 
 .t1:
 	lda.b d3
@@ -114,7 +114,7 @@ CODE_9EE220:
 	adc.w $1383,x
 	jsl.l CODE_9BB385
 	cmp.w #$000F
-	bcs CODE_9EE387
+	bcs .6
 .1x:
 	lda.w passspeed
 	lsr a
@@ -170,7 +170,7 @@ CODE_9EE220:
 	jsl.l CODE_9BB370
 	adc.b $05,s
 	sta.b $05,s
-CODE_9EE387:
+.6:
 	ldx.w passspeed
 	lda.w #$0044
 	jsl.l CODE_808F5D
@@ -195,7 +195,7 @@ CODE_9EE387:
 	sta.w puckvy
 	ldx.b $E4
 	pla
-	beq CODE_9EE408
+	beq .7
 	tax
 	lda.w passspeed
 	jsl.l CODE_808F98
@@ -219,30 +219,30 @@ CODE_9EE387:
 	lsr a
 	adc.b d1
 	cmp.w #$1801
-	bcc .1
+	bcc .1xx
 	lda.w #$1800
-.1:
+.1xx:
 	sta.w $0E01
-CODE_9EE408:
+.7:
 	pla
 	jsl.l CODE_9C9ABC
 	ldx.b a3
 	ldy.w #$0108
 	lda.w pfgoal,x
-	bne .1
+	bne .1xxx
 	ldy.w #$FEF8
-.1:
+.1xxx:
 	sty.b tmp0
 	tya
 	sec
 	sbc.w pucky
 	eor.w puckvy
-	bpl .2
+	bpl .2xx
 	lda.w #$0000
 	sec
 	sbc.w puckvy
 	sta.w puckvy
-.2:
+.2xx:
 	lda.w $163A
 	beq .rtl
 	lda.w #$0012

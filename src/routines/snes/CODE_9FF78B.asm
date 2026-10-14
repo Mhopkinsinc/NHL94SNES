@@ -3,11 +3,11 @@ CODE_9FF78B:
 	lda.b $BB
 	bne .t1
 	jsr.w CODE_9FF8DC
-	bra CODE_9FF797
+	bra .2
 
 .t1:
 	jsr.w CODE_9FF8D4
-CODE_9FF797:
+.2:
 	jsl.l CODE_9FF8E4
 	lda.w #DATA8_9AEE5C
 	sta.b tmp2

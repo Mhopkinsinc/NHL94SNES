@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9DCB1C:
 	jsl.l CODE_9DCB72
-	beq CODE_9DCB36
+	beq .1
 	jsl.l CODE_9DCB37
 	sta.b $14
 	jsl.l CODE_9DCB53
@@ -12,5 +12,5 @@ CODE_9DCB1C:
 .t1:
 	lda.b $14
 	eor.w #$0001
-CODE_9DCB36:
+.1:
 	rtl

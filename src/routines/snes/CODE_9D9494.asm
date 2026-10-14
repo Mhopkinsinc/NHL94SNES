@@ -3,64 +3,64 @@ CODE_9D9494:
 	lda.b #$01
 	pha
 	ldy.w #$0007
-CODE_9D949A:
+.1:
 	phx
 	lda.b $03,s
 	and.b #$01
 	beq .t1
 	lda.b #$FF
 	sta.l $7F6700,x
-	bra CODE_9D94AF
+	bra .2
 
 .t1:
 	lda.b #$00
 	sta.l $7F6700,x
-CODE_9D94AF:
+.2:
 	inx
 	lda.b $03,s
 	and.b #$02
-	beq .t1
+	beq .t1x
 	lda.b #$FF
 	sta.l $7F6700,x
-	bra CODE_9D94C4
+	bra .3
 
-.t1:
+.t1x:
 	lda.b #$00
 	sta.l $7F6700,x
-CODE_9D94C4:
+.3:
 	txa
 	clc
 	adc.b #$0F
 	tax
 	lda.b $03,s
 	and.b #$04
-	beq .t1
+	beq .t1xx
 	lda.b #$FF
 	sta.l $7F6700,x
-	bra CODE_9D94DD
+	bra .4
 
-.t1:
+.t1xx:
 	lda.b #$00
 	sta.l $7F6700,x
-CODE_9D94DD:
+.4:
 	inx
 	lda.b $03,s
 	and.b #$08
-	beq .t1
+	beq .t1xxx
 	lda.b #$FF
 	sta.l $7F6700,x
-	bra CODE_9D94F2
+	bra .5
 
-.t1:
+.t1xxx:
 	lda.b #$00
 	sta.l $7F6700,x
-CODE_9D94F2:
+.5:
 	lda.b $00
 	sta.b $03,s
 	plx
 	inx
 	inx
 	dey
-	bpl CODE_9D949A
+	bpl .1
 	pla
 	rts

@@ -46,12 +46,12 @@ CODE_9C9AD0:
 	bcs .t1
 	xba
 	sta.b $64
-	bra CODE_9C9B19
+	bra .3
 
 .t1:
 	lda.w #$7000
 	sta.b $64
-CODE_9C9B19:
+.3:
 	ldy.w #$0002
 	lda.b [$4E],y
 	tax
@@ -69,7 +69,7 @@ CODE_9C9B19:
 	dec.w SoundLock
 	lda.w $08F2,y
 	cmp.b #$02
-	bne .1
+	bne .1x
 	lda.b #$03
 	sta.w $08F2,y
 	rep #$20
@@ -79,7 +79,7 @@ CODE_9C9B19:
 	lda.b $0C
 	sta.w $094A,y
 	sta.w $0CAF
-.1:
+.1x:
 	sep #$20
 	inc.w SoundLock
 	rep #$20

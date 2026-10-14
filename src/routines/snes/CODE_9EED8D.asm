@@ -110,13 +110,13 @@ CODE_9EED8D:
 .3:
 	lda.w #$0010
 .4:
-	bra CODE_9EEE70
+	bra .5
 
 .t1xx:
 	cmp.w #$0020
-	bcs CODE_9EEE70
+	bcs .5
 	lda.w #$0020
-CODE_9EEE70:
+.5:
 	sta.b d3
 	ldx.b d0
 	jsl.l CODE_808FC9

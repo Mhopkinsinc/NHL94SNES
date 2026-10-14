@@ -98,7 +98,7 @@ ShooterSelectList:
 	sta.w $1DA7
 .zero:
 	lda.w #$0000
-	bra CODE_80CF41
+	bra .1
 
 .t1:
 	lda.w $1DA7
@@ -106,10 +106,10 @@ ShooterSelectList:
 	adc.w #$0008
 	sec
 	sbc.w $1D9B
-CODE_80CF41:
+.1:
 	sta.w $1D9B
 	jsl.l CODE_80D004
-CODE_80CF48:
+.2:
 	jsl.l CODE_9DD923
 	jsl.l CODE_9DD94D
 	jsl.l WaitFrame
@@ -118,39 +118,39 @@ CODE_80CF48:
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000
-	bne .1
+	bne .1x
 	bit.w #$0800
 	bne .t4
 	bit.w #$0400
 	bne .t3
 	bit.w #$0100
-	bne .t1
+	bne .t1x
 	bit.w #$0200
 	bne .t2
 	bit.w #$8080
-	beq CODE_80CF48
+	beq .2
 	jsl.l CODE_80D2BD
-.1:
+.1x:
 	lda.w #$0001
 	sta.l $7E3468
 	rtl
 
-.t1:
+.t1x:
 	lda.w $0D47
 	inc a
 	cmp.w #$0010
-	bpl CODE_80CF48
+	bpl .2
 	sta.w $0D47
 	jsl.l CODE_80D004
-	bra CODE_80CF48
+	bra .2
 
 .t2:
 	lda.w $0D47
 	dec a
-	bmi CODE_80CF48
+	bmi .2
 	sta.w $0D47
 	jsl.l CODE_80D004
-	jmp.w CODE_80CF48
+	jmp.w .2
 
 .t3:
 	lda.w $1D9B
@@ -158,7 +158,7 @@ CODE_80CF48:
 	bmi .t5
 	sta.w $1D9B
 	jsl.l CODE_80D004
-	jmp.w CODE_80CF48
+	jmp.w .2
 
 .t4:
 	lda.w $1D9B
@@ -167,7 +167,7 @@ CODE_80CF48:
 	bpl .t6
 	sta.w $1D9B
 	jsl.l CODE_80D004
-	jmp.w CODE_80CF48
+	jmp.w .2
 
 .t5:
 	lda.w $1DA7
@@ -176,23 +176,23 @@ CODE_80CF48:
 	clc
 	adc.w #$0009
 	cmp.w $1DA3
-	bmi .t1x
-	jmp.w CODE_80CF48
+	bmi .t1xx
+	jmp.w .2
 
-.t1x:
+.t1xx:
 	inc.w $1DA7
 	jsl.l CODE_80D004
-	jmp.w CODE_80CF48
+	jmp.w .2
 
 .t6:
 	lda.w $1DA7
 	dec a
 	cmp.w $1DAB
 	bpl .t1x2
-	jmp.w CODE_80CF48
+	jmp.w .2
 
 .t1x2:
 	dec.w $1DA7
 	jsl.l CODE_80D004
 org $80D001
-	jmp.w CODE_80CF48
+	jmp.w .2

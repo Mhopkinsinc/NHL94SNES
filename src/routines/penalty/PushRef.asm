@@ -95,7 +95,7 @@ PushRef:
 	bne .loop
 	lda.w #$0200
 	tsb.w sflags
-	bra CODE_9EFB3B
+	bra .5
 
 .t2:
 	lda.w #$0007
@@ -122,7 +122,7 @@ PushRef:
 	jsl.l CODE_9EC160
 	lda.w #$0000
 	sta.l $7E344A
-CODE_9EFB3B:
+.5:
 	pla
 	sta.b $8F
 	pla

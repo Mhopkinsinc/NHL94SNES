@@ -3,7 +3,7 @@ CODE_9EC64B:
 	stz.w $1638
 	lda.w shotPlIdx
 	bpl .t4
-	jmp.w CODE_9EC6E6
+	jmp.w .4
 
 .t4:
 	lda.w gmode
@@ -23,7 +23,7 @@ CODE_9EC64B:
 .t2:
 	ldy.w shotPlIdx
 	lda.w Ypos,y
-	bpl CODE_9EC6E6
+	bpl .4
 	sec
 	sbc.w #$0004
 	sta.b d0
@@ -42,18 +42,18 @@ CODE_9EC64B:
 	lda.b d0
 	sec
 	sbc.w Ypos,y
-	bpl CODE_9EC6E6
+	bpl .4
 .2:
 	iny
 	iny
 	dec.b d2
 	bpl .loop
-	bra CODE_9EC6E0
+	bra .3
 
 .t3:
 	ldy.w shotPlIdx
 	lda.w Ypos,y
-	bmi CODE_9EC6E6
+	bmi .4
 	clc
 	adc.w #$0004
 	sta.b d0
@@ -72,14 +72,14 @@ CODE_9EC64B:
 	lda.b d0
 	sec
 	sbc.w Ypos,y
-	bmi CODE_9EC6E6
+	bmi .4
 .2x:
 	iny
 	iny
 	dec.b d2
 	bpl .loopx
-CODE_9EC6E0:
+.3:
 	stz.w $1638
 	inc.w $1638
-CODE_9EC6E6:
+.4:
 	rtl

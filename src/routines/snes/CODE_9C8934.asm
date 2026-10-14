@@ -14,7 +14,7 @@ CODE_9C8934:
 	dec a
 	asl a
 	sta.w printy
-CODE_9C8957:
+.1:
 	inc.w printy
 	inc.w printy
 	sep #$20
@@ -25,13 +25,13 @@ CODE_9C8957:
 	lda.w $1DF9
 	beq .t1
 	jsl.l CODE_9C8980
-	bra CODE_9C8977
+	bra .2
 
 .t1:
 	jsl.l CODE_9C8A83
-CODE_9C8977:
+.2:
 	iny
 	cpy.w $1DC1
-	beq CODE_9C8957
-	bcc CODE_9C8957
+	beq .1
+	bcc .1
 	rtl

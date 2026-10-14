@@ -48,7 +48,7 @@ CODE_9FB601:
 .t2:
 	and.w #$00FF
 	cmp.w #$0034
-	beq CODE_9FB69D
+	beq .3
 	lda.b [a0]
 	xba
 	and.w #$007F
@@ -61,18 +61,18 @@ CODE_9FB601:
 	lda.w #$FFA8
 	sta.b d1
 	cmp.l $7E3138
-	bmi CODE_9FB69D
+	bmi .3
 	lda.w #$FFBF
 	sta.l $7E3138
-	bra CODE_9FB687
+	bra .2
 
 .t1:
 	lda.b d1
 	cmp.l $7E3138
-	bpl CODE_9FB69D
+	bpl .3
 	lda.w #$0041
 	sta.l $7E3138
-CODE_9FB687:
+.2:
 	lda.w #$0046
 	sta.b d0
 	lda.l $7E3136
@@ -82,5 +82,5 @@ CODE_9FB687:
 .1:
 	lda.b d0
 	sta.l $7E3136
-CODE_9FB69D:
+.3:
 	rtl

@@ -31,11 +31,11 @@ CODE_9EEB2E:
 	lda.w #$0000
 	sec
 	sbc.w facedir,y
-	bra CODE_9EEB7D
+	bra .2
 
 .t1:
 	lda.w facedir,y
-CODE_9EEB7D:
+.2:
 	and.w #$0007
 	asl a
 	tax
@@ -95,23 +95,23 @@ CODE_9EEB7D:
 	lda.w #$0003
 	jsl.l DivX8U
 	cmp.w #$0040
-	bcc .t1
+	bcc .t1x
 	cmp.w #$0050
-	bcc CODE_9EEC4D
+	bcc .4
 	ldx.b d4
 	lda.w #$0005
 	jsl.l DivX8U
 	sta.b d6
 	lda.w #$0050
-	bra CODE_9EEC19
+	bra .3
 
-.t1:
+.t1x:
 	lda.b d4
 	lsr a
 	lsr a
 	sta.b d6
 	lda.w #$0040
-CODE_9EEC19:
+.3:
 	pha
 	lda.b d6
 	asl a
@@ -140,7 +140,7 @@ CODE_9EEC19:
 	jsl.l CODE_9CA554
 	sta.b d4
 	pla
-CODE_9EEC4D:
+.4:
 	sta.b d5
 	sta.w passspeed
 	ldx.b $E4

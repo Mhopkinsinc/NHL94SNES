@@ -34,19 +34,19 @@ CODE_9FCD69:
 	inx
 	dec.b d0
 	bpl .loop
-	bra CODE_9FCDAA
+	bra .2
 
 .t1:
 	lda.w $19D4,x
-	bpl CODE_9FCDAA
+	bpl .2
 	lda.w pflags,x
 	bit.w #$1000
-	bne CODE_9FCDAA
+	bne .2
 	lda.w $0ADD,y
 	inc a
 	sta.w $0ADD,y
 	stx.b d0
 	jsl.l CODE_9FCB68
-CODE_9FCDAA:
+.2:
 	plx
 	rtl

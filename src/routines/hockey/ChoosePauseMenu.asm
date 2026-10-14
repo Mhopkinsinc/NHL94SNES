@@ -15,14 +15,14 @@ ChoosePauseMenu:
 	sta.w $1EB9
 	lda.w #$0005
 	sta.w $1EB7
-	bra CODE_9FE4F4
+	bra .1
 
 .t1:
 	lda.w #$0010
 	sta.w $1EB9
 	lda.w #$0000
 	sta.w $1EB7
-CODE_9FE4F4:
+.1:
 	lda.w $0D13
 	clc
 	adc.w #$0005

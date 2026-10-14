@@ -110,13 +110,13 @@ DrawPeriodStats:
 	pla
 	sta.b $8F
 	inc.w printy
-	bra CODE_9F8197
+	bra .2
 
 .t1:
 	cpx.w $1EAD
 	beq .t2
 	bmi .t2
-	jmp.w CODE_9F8281
+	jmp.w .3
 
 .t2:
 	lda.w #$0080
@@ -126,7 +126,7 @@ DrawPeriodStats:
 	stx.b d0
 	jsl.l AdvanceStringPtr
 	jsl.l print
-CODE_9F8197:
+.2:
 	txa
 	asl a
 	asl a
@@ -134,7 +134,7 @@ CODE_9F8197:
 	lda.w #$2000
 	sta.w $0D0D
 	lda.w $1DB9
-	beq .t1
+	beq .t1x
 .1:
 	lda.b d4
 	sta.w printx
@@ -179,9 +179,9 @@ CODE_9F8197:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9F8281
+	bra .3
 
-.t1:
+.t1x:
 	lda.b d4
 	sta.w printx
 	lda.w #$000F
@@ -222,5 +222,5 @@ CODE_9F8197:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9F8281:
+.3:
 	rtl

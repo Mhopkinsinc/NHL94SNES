@@ -10,7 +10,7 @@ CODE_9FF676:
 	bne .t1
 	lda.w #$0008
 	tsb.b $C3
-	bra CODE_9FF6A6
+	bra .1
 
 .t1:
 	lda.w #$4000
@@ -22,5 +22,5 @@ CODE_9FF676:
 	tsb.b $C3
 	lda.b d5
 	sta.b $B7
-CODE_9FF6A6:
+.1:
 	jmp.w CODE_9FF898

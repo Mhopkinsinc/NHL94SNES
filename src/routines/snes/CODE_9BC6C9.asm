@@ -3,7 +3,7 @@ CODE_9BC6C9:
 	lda.l PassWord
 	bit.w #$0080
 	beq .t1
-	jmp.w CODE_9BC75D
+	jmp.w .1
 
 .t1:
 	lda.b d0
@@ -79,5 +79,5 @@ CODE_9BC6C9:
 	sta.b $A7
 	pla
 	sta.b d0
-CODE_9BC75D:
+.1:
 	rtl

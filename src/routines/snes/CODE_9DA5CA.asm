@@ -103,10 +103,10 @@ CODE_9DA5CA:
 CODE_9DA6FF:
 	lda.w #$12C0
 	sta.b d6
-CODE_9DA704:
+.2:
 	jsl.l WaitFrame
 	lda.w OAMReady
-	bne CODE_9DA704
+	bne .2
 	inc.w $0792
 	bne .1
 	inc.w $0794
@@ -155,7 +155,7 @@ CODE_9DA704:
 .t6:
 	lda.w $1A0E
 	beq .t1x
-	jmp.w CODE_9DA704
+	jmp.w .2
 
 .t1x:
 	jsl.l CODE_9B8017
@@ -177,7 +177,7 @@ CODE_9DA704:
 	dec.b d6
 	dec.b d6
 	bmi .t1xx
-	jmp.w CODE_9DA704
+	jmp.w .2
 
 .t1xx:
 	lda.w #$001C

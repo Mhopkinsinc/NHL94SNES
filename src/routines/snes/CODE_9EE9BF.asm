@@ -127,21 +127,21 @@ CODE_9EE9BF:
 	sta.w $0E01
 CODE_9EEACC:
 	lda.w position,x
-	bne CODE_9EEAE9
+	bne .2
 	lda.w pfgoal,x
 	beq .t1
 	lda.w puckvy
-	bmi CODE_9EEAE2
-	bra CODE_9EEAE9
+	bmi .1
+	bra .2
 
 .t1:
 	lda.w puckvy
-	bmi CODE_9EEAE9
-CODE_9EEAE2:
+	bmi .2
+.1:
 	eor.w #$FFFF
 	inc a
 	sta.w puckvy
-CODE_9EEAE9:
+.2:
 	lda.w puckvx
 	sta.b d0
 	lda.w puckvy
@@ -149,12 +149,12 @@ CODE_9EEAE9:
 	jsl.l vtoa
 	ldy.w #$E34E
 	lda.w position,x
-	beq .1
+	beq .1x
 	ldy.w #$EC66
 	jsl.l Findhittype
-	beq .1
+	beq .1x
 	ldy.w #$ECD8
-.1:
+.1x:
 	sty.b d1
 	jsl.l SetSPA
 	lda.w #$0001

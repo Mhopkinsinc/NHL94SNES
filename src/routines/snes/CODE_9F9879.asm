@@ -26,14 +26,14 @@ CODE_9F9879:
 	lda.w #$0064
 .3:
 	sta.b d0
-	bra CODE_9F98B1
+	bra .4
 
 .t1:
 	lda.b d0
 	and.w #$000E
 	sta.b d0
 	dec.b d1
-CODE_9F98B1:
+.4:
 	lda.w #$0004
 	sta.b d1
 	jsl.l CODE_9FC623

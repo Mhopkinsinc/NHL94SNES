@@ -23,14 +23,14 @@ CODE_9FEBA6:
 	sta.b $9B
 	lda.w #$EC42
 	sta.b a4
-	bra CODE_9FEBE3
+	bra .1
 
 .t1:
 	lda.w #$009F
 	sta.b $9B
 	lda.w #GoalieOptionText
 	sta.b a4
-CODE_9FEBE3:
+.1:
 	ldy.w #$0001
 	jsl.l CODE_9FEB90
 	rtl

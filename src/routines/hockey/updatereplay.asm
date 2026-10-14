@@ -4,15 +4,15 @@ updatereplay:
 	bit.w #$0010
 	bne .1
 	lda.w $0CA9
-	beq CODE_9BA8F1
+	beq .5
 	dec a
 	bne .t1
 .1:
-	jmp.w CODE_9BAA5F
+	jmp.w .6
 
 .t1:
 	sta.w $0CA9
-CODE_9BA8F1:
+.5:
 	lda.w sflags
 	bit.w #$0400
 	bne .2
@@ -20,9 +20,9 @@ CODE_9BA8F1:
 	clc
 	adc.w #$007A
 	sta.w ReplayBufferPtr
-	bcc .1
+	bcc .1x
 	inc.w $0D21
-.1:
+.1x:
 	cmp.w #$E676
 	bne .2
 	lda.w $0D21
@@ -170,5 +170,5 @@ CODE_9BA8F1:
 	lda.w #$FFFF
 	sta.w $0CAD
 	sta.w $0CB3
-CODE_9BAA5F:
+.6:
 	rtl

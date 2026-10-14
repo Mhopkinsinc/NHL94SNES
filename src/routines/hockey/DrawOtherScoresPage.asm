@@ -18,7 +18,7 @@ DrawOtherScoresPage:
 	pla
 	sta.b $8F
 	jsl.l CODE_9FBF75
-	bra CODE_9BC499
+	bra .2
 
 .t1:
 	lda.w $1DBD
@@ -40,5 +40,5 @@ DrawOtherScoresPage:
 	tax
 	ldy.w #$0140
 	jsl.l CODE_80891F
-CODE_9BC499:
+.2:
 	rtl

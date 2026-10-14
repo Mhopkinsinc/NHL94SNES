@@ -35,23 +35,23 @@ CODE_80A697:
 	lda.b ($4E),y
 	bpl .t2
 	lda.b #$02
-	bra CODE_80A6D9
+	bra .4
 
 .t2:
 	lda.b #$01
-CODE_80A6D9:
+.4:
 	sta.w $08F2,x
 	ldx.w $0800
 	rep #$20
 	lda.b $4E
 	cmp.w #$E130
-	bne .t1
+	bne .t1x
 	lda.w #$002D
-	bra CODE_80A6EF
+	bra .5
 
-.t1:
+.t1x:
 	lda.b $5E
-CODE_80A6EF:
+.5:
 	dec a
 	sta.w $091A,x
 	stz.w $096A,x
@@ -71,13 +71,13 @@ CODE_80A6EF:
 	stz.w $09EA,x
 	ldy.b #$2D
 	lda.b ($4E),y
-	bmi .t1
+	bmi .t1xx
 	lda.w #$FFFF
-	bra CODE_80A728
+	bra .6
 
-.t1:
+.t1xx:
 	lda.w #$0000
-CODE_80A728:
+.6:
 	sta.w $09FA,x
 	ldy.b #$0A
 	lda.b ($4E),y
@@ -86,13 +86,13 @@ CODE_80A728:
 	lda.b $4A
 	and.w #$00FF
 	cmp.w #$0010
-	bne .1
+	bne .1x
 	lda.w sflags
 	bit.w #$0800
-	bne .1
+	bne .1x
 	lda.b $5C
 	sta.w $0CB1
-.1:
+.1x:
 	lda.b $4E
 	sta.w $092A,x
 	sep #$20
@@ -100,16 +100,16 @@ CODE_80A728:
 	lda.l VolumeCurve,x
 	and.b #$FF
 	cmp.b #$40
-	bne .t1
+	bne .t1xxx
 	ldx.b $4A
 	lda.w $08AE,x
 	sta.w $07FC
 	iny
 	lda.w $08BF,x
 	sta.w $07FE
-	jmp.w CODE_80A790
+	jmp.w .7
 
-.t1:
+.t1xxx:
 	asl a
 	sta.b $5A
 	ldx.b $4B
@@ -124,19 +124,19 @@ CODE_80A728:
 	lda.w $08BF,x
 	jsr.w MulFrac8
 	sta.w $07FE
-CODE_80A790:
+.7:
 	lda.w $0802
-	beq .1
+	beq .1xx
 	lda.b $4A
 	cmp.b #$10
-	beq .1
+	beq .1xx
 	lsr.w $07FE
 	lsr.w $07FC
 	lda.w $0802
-	bpl .1
+	bpl .1xx
 	lsr.w $07FE
 	lsr.w $07FC
-.1:
+.1xx:
 	ldy.b #$04
 	lda.b $60
 	clc
@@ -146,11 +146,11 @@ CODE_80A790:
 	sta.w $090A,x
 	ldx.b $4A
 	cpx.b #$09
-	bne .2
+	bne .2x
 	lda.b #$3F
 	clc
 	adc.b ($4E),y
-.2:
+.2x:
 	asl a
 	tax
 	rep #$20
@@ -161,10 +161,10 @@ CODE_80A790:
 	sep #$20
 	ldy.b $4A
 	lda.w $089D,y
-	beq CODE_80A840
+	beq .9
 	lda.w $088C,y
-	beq CODE_80A840
-	bmi .t2
+	beq .9
+	bmi .t2x
 	lda.b $60
 	clc
 	adc.w $089D,y
@@ -184,9 +184,9 @@ CODE_80A790:
 	clc
 	adc.b $5A
 	sta.b $5A
-	bra CODE_80A840
+	bra .9
 
-.t2:
+.t2x:
 	lda.b $60
 	sec
 	sbc.w $089D,y
@@ -201,23 +201,23 @@ CODE_80A790:
 	lda.b #$00
 	sec
 	sbc.w $088C,y
-	bpl .t1
+	bpl .t1xxxx
 	rep #$20
 	lda.b $5E
 	sta.b $43
-	bra CODE_80A839
+	bra .8
 
-.t1:
+.t1xxxx:
 	tay
 	rep #$20
 	lda.b $5E
 	jsr.w MulFrac16
-CODE_80A839:
+.8:
 	lda.b $5A
 	sec
 	sbc.b $43
 	sta.b $5A
-CODE_80A840:
+.9:
 	rep #$20
 	ldy.b #$02
 	lda.b ($4E),y
@@ -228,13 +228,13 @@ CODE_80A840:
 	lda.b $4A
 	and.w #$00FF
 	cmp.w #$0010
-	bne .1
+	bne .1xxx
 	lda.w sflags
 	bit.w #$0800
-	bne .1
+	bne .1xxx
 	lda.w $094A,x
 	sta.w $0CAF
-.1:
+.1xxx:
 	sep #$20
 	jsr.w CODE_80A465
 	tya

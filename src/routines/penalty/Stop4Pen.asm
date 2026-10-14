@@ -3,7 +3,7 @@ Stop4Pen:
 	lda.w #$FFFF
 	tsb.w gmclock
 	beq .t1
-	jmp.w CODE_9EB388
+	jmp.w .6
 
 .t1:
 	stz.b d0
@@ -89,18 +89,18 @@ Stop4Pen:
 	lda.b d1
 	sta.l $7E3138
 	jsl.l CODE_9FB601
-CODE_9EB388:
+.6:
 	lda.b $83
 	sec
 	sbc.w $0D2B
 	cmp.w #$003C
-	bcc .1
-.1:
+	bcc .1x
+.1x:
 	lda.w $0CA9
-	bne .2
+	bne .2x
 	lda.w #$001E
 	sta.w $0CA9
-.2:
+.2x:
 	lda.w #$7000
 	sta.b $64
 	lda.w #$0015

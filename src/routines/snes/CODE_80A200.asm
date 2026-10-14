@@ -42,13 +42,13 @@ CODE_80A226:
 	sta.w $08BE
 	iny
 	lda.b ($4E),y
-	bra CODE_80A256
+	bra .1
 
 .t1:
 	ldy.b #$17
 	lda.b ($4E),y
 	sta.w $08BE
-CODE_80A256:
+.1:
 	sta.w $08CF
 	lda.b $65
 	sta.b $5A
@@ -63,7 +63,7 @@ CODE_80A256:
 	plx
 	rtl
 
-.t1:
+.t1x:
 	phx
 	phy
 	phb
@@ -84,20 +84,20 @@ CODE_80A256:
 	sta.b $4E
 	ldx.b #$00
 	txy
-CODE_80A28B:
+.2:
 	lda.w $092A,x
 	cmp.b $4E
-	bne .t1
+	bne .t1xx
 	jsr.w CODE_80ABF7
-	bra CODE_80A29E
+	bra .3
 
-.t1:
+.t1xx:
 	inx
 	inx
 	iny
 	cpy.b #$08
-	bne CODE_80A28B
-CODE_80A29E:
+	bne .2
+.3:
 	sep #$20
 	inc.w SoundLock
 	plp

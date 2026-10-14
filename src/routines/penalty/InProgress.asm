@@ -56,7 +56,7 @@ InProgress:
 	and.w #$00FF
 	sta.b d2
 	bne .t1x
-	jmp.w CODE_9EB6A5
+	jmp.w .10
 
 .t1x:
 	lda.b d0
@@ -247,13 +247,13 @@ InProgress:
 
 .t3:
 	jsl.l CODE_9EC72D
-CODE_9EB6A5:
+.10:
 	lda.w #$0000
 	sta.b [a0]
 	lda.w sfhormode
-	beq .t1
+	beq .t1xx
 	jmp.w CODE_9EB4A1
 
-.t1:
+.t1xx:
 	jsl.l SetPA
 	bra CODE_9EB6CC

@@ -33,13 +33,13 @@ CODE_9F9745:
 	lda.b d4
 	cmp.w #$0003
 	bcs .t1
-	jmp.w CODE_9F9794
+	jmp.w .2
 
 .t1:
 	lda.w #$0001
 	sta.l $7E35F2
 	jsl.l CODE_9F992E
-CODE_9F9794:
+.2:
 	lda.w #$009F
 	sta.b $8B
 	lda.w #DATA8_9F97CE
@@ -63,11 +63,11 @@ CODE_9F9794:
 	sta.b a0
 	stx.b xsave
 	ldx.w #$0012
-.loop:
+.loopx:
 	pla
 	sta.b d0,x
 	dex
 	dex
-	bpl .loop
+	bpl .loopx
 	ldx.b xsave
 	rtl

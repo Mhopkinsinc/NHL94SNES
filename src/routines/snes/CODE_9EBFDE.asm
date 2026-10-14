@@ -4,25 +4,25 @@ CODE_9EBFDE:
 	sta.b d0
 	lda.b d1
 	cmp.w #$0001
-	beq CODE_9EC000
+	beq .2
 	lda.b d1
 	bne .t1
-	jsl.l CODE_9EC000
-	bra CODE_9EBFFB
+	jsl.l .2
+	bra .1
 
 .t1:
 	lda.b d1
 	cmp.w #$FFFF
 	bne CODE_9EBFDD
-CODE_9EBFFB:
+.1:
 	lda.w mesarea+2
 	sta.b d0
 org $9EC000
-CODE_9EC000:
+.2:
 	lda.b a2
-	beq .1
+	beq .1x
 	lda.w #$0034
-.1:
+.1x:
 	clc
 	adc.b d0
 	tay

@@ -2,7 +2,7 @@
 CODE_9C9B5F:
 	phx
 	ldx.w MusicOn
-	bne CODE_9C9BA9
+	bne .2
 	sta.b $14
 	inc a
 	pha
@@ -21,7 +21,7 @@ CODE_9C9B5F:
 	lda.l TeamSongs,x
 	sta.b $0C
 	jsl.l MusicStart
-	bra CODE_9C9BA5
+	bra .1
 
 .t1:
 	lda.w #$0008
@@ -34,9 +34,9 @@ CODE_9C9B5F:
 	lda.l DefaultSongs+2,x
 	sta.b $0E
 	jsl.l MusicStart
-CODE_9C9BA5:
+.1:
 	pla
 	sta.w $0CC3
-CODE_9C9BA9:
+.2:
 	plx
 	rtl

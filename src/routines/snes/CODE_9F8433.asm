@@ -65,13 +65,13 @@ CODE_9F8433:
 	sta.w $0D21
 	lda.w #$577E
 	sta.w ReplayBufferPtr
-	bra CODE_9F84EB
+	bra .5
 
 .t1:
 	lda.w $1EBB
-	bne CODE_9F84EB
+	bne .5
 	stz.w $0CC1
-CODE_9F84EB:
+.5:
 	lda.w #$FFFF
 	sta.w textdirtylo
 	stz.w textdirtyhi

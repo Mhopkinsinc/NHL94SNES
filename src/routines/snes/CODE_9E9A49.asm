@@ -76,11 +76,11 @@ CODE_9E9A49:
 	sta.b d4
 	bmi .t1
 	jsl.l CODE_9FCB5C
-	bra CODE_9E9B07
+	bra .7
 
 .t1:
 	jsl.l CODE_9FCB16
-CODE_9E9B07:
+.7:
 	lda.w #$FFFF
 	sta.w $0D07
 	rtl

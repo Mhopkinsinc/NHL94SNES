@@ -27,7 +27,7 @@ CODE_9C88A0:
 	ldy.w #$00E0
 	ldx.w #$00C0
 	jsl.l CODE_80891F
-	bra CODE_9C8912
+	bra .1
 
 .t1:
 	lda.b $8F
@@ -52,7 +52,7 @@ CODE_9C88A0:
 	ldy.w #$00E0
 	ldx.w #$04C0
 	jsl.l CODE_80891F
-CODE_9C8912:
+.1:
 	lda.w $1DB9
 	xba
 	lsr a

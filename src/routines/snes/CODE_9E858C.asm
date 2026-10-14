@@ -38,7 +38,7 @@ CODE_9E858C:
 	lda.w #$FFA8
 	sec
 	sbc.w pucky
-	bpl CODE_9E860B
+	bpl .3
 	lda.w #$FF80
 	clc
 	adc.w pucky
@@ -47,7 +47,7 @@ CODE_9E858C:
 	pla
 	ror a
 	sta.b d1
-	bra CODE_9E860B
+	bra .3
 
 .t1:
 	rtl
@@ -56,7 +56,7 @@ CODE_9E858C:
 	lda.w #$0058
 	sec
 	sbc.w pucky
-	bmi CODE_9E860B
+	bmi .3
 	lda.b d1
 	clc
 	adc.w pucky
@@ -65,7 +65,7 @@ CODE_9E858C:
 	pla
 	ror a
 	sta.b d1
-CODE_9E860B:
+.3:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #rtss

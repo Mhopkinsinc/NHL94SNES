@@ -26,7 +26,7 @@ CODE_80B286:
 	sbc.w $07CA
 	sec
 	sbc.w #$000F
-	bra CODE_80B2C7
+	bra .2
 
 .t1:
 	lda.b $1E
@@ -34,13 +34,13 @@ CODE_80B286:
 	sbc.w $07CA
 	sec
 	sbc.w #$0007
-CODE_80B2C7:
+.2:
 	cmp.w #$FFF0
 	bmi .1
 	cmp.w #$00E0
 	bmi .t2
 .1:
-	jmp.w CODE_80B37D
+	jmp.w .6
 
 .t2:
 	sta.b $26
@@ -48,31 +48,31 @@ CODE_80B2C7:
 	and.w #$4000
 	beq .t3
 	lda.w $07CE
-	beq .t1
+	beq .t1x
 	lda.b $1C
 	sec
 	sbc.w $07C8
 	sec
 	sbc.w #$000F
-	bra CODE_80B300
+	bra .3
 
-.t1:
+.t1x:
 	lda.b $1C
 	sec
 	sbc.w $07C8
 	sec
 	sbc.w #$0007
-	bra CODE_80B300
+	bra .3
 
 .t3:
 	lda.w $07C8
 	clc
 	adc.b $1C
-CODE_80B300:
+.3:
 	cmp.w #$0100
-	bpl CODE_80B37D
+	bpl .6
 	cmp.w #$FFF0
-	bmi CODE_80B37D
+	bmi .6
 	sta.b $20
 	sta.w $0000,x
 	lda.b $26
@@ -86,69 +86,69 @@ CODE_80B300:
 	ldx.w OAMHiShift
 	sep #$20
 	lda.b $21
-	bpl .t2
+	bpl .t2x
 	lda.w $07CE
-	beq .t1
+	beq .t1xx
 	lda.w $0000,y
 	ora.w $E688,x
-	bra CODE_80B359
+	bra .4
 
-.t1:
+.t1xx:
 	lda.w $0000,y
 	and.w $E67C,x
 	ora.w $E680,x
-	bra CODE_80B359
+	bra .4
 
-.t2:
+.t2x:
 	lda.w $07CE
-	beq .t1x
+	beq .t1xxx
 	lda.w $0000,y
 	and.w $E67C,x
 	ora.w $E684,x
-	bra CODE_80B359
+	bra .4
 
-.t1x:
+.t1xxx:
 	lda.w $0000,y
 	and.w $E67C,x
-CODE_80B359:
+.4:
 	sta.w $0000,y
 	rep #$20
 	dec.w SpritesLeft
 	dex
-	bpl .t1
+	bpl .t1xxxx
 	lda.w #$0003
 	sta.w OAMHiShift
 	inc.w OAMHiPtr
-	bra CODE_80B372
+	bra .5
 
-.t1:
+.t1xxxx:
 	stx.w OAMHiShift
-CODE_80B372:
+.5:
 	lda.w OAMNext
 	clc
 	adc.w #$0004
 	sta.w OAMNext
 	tax
-CODE_80B37D:
+.6:
 	ldy.w $07D0
 	dec.b $00
-	beq .t1
+	beq .t1xxxxx
 	jmp.w CODE_80B286
 
-.t1:
+.t1xxxxx:
 	plb
 	rtl
 
-.t2:		; make sure the tiles of the frame at [$0C] are in VRAM; A = its tile cache entry, negative if no room
+.t2xx:		; make sure the tiles of the frame at [$0C] are in VRAM; A = its tile cache entry, negative if no room
 	phx
 	phy
 	phb
 	pea.w $7E7E
 	plb
 	plb
-	jmp.w CODE_80B3B1
+	jmp.w .7
 
-.t1x:		; the same for frame A of the sprite set at [$10]
+.t1xxxxxx:		; the same for frame A of the sprite set at [$10]
 	phx
 	phy
 	sta.w $07C4
@@ -168,7 +168,7 @@ CODE_80B37D:
 	pea.w $7E7E
 	plb
 	plb
-CODE_80B3B1:
+.7:
 	ldy.w $07BA
 	beq CODE_80B3E1
 	ldx.w $07C6

@@ -174,7 +174,7 @@ ShowMatchups:
 	sta.w printx
 	jsl.l print
 	inc.w $1DB9
-	jmp.w CODE_9D86AA
+	jmp.w .1
 
 .t2:
 	lda.w HomeTeam
@@ -226,7 +226,7 @@ ShowMatchups:
 	sta.b d1
 	jsl.l CODE_9FC623
 	jsl.l print
-CODE_9D86AA:
+.1:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -265,8 +265,8 @@ CODE_9D86AA:
 	sta.b d0
 	pla
 	cmp.b d0
-	beq .t2
-	bmi .t1
+	beq .t2x
+	bmi .t1x
 	lda.b $8F
 	pha
 	lda.b a1
@@ -280,9 +280,9 @@ CODE_9D86AA:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9D8751
+	bra .2
 
-.t1:
+.t1x:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -296,9 +296,9 @@ CODE_9D86AA:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9D8751
+	bra .2
 
-.t2:
+.t2x:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -312,7 +312,7 @@ CODE_9D86AA:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9D8751:
+.2:
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	rtl

@@ -13,7 +13,7 @@ CODE_9DB8A1:
 	jsl.l Div16S
 	asl.b $00
 	lda.w #$0F00
-	bra CODE_9DB8E0
+	bra .1
 
 .t1:
 	sec
@@ -27,7 +27,7 @@ CODE_9DB8A1:
 	jsl.l Div16S
 	asl.b $00
 	lda.w #$0100
-CODE_9DB8E0:
+.1:
 	sec
 	sbc.b $00
 	ply

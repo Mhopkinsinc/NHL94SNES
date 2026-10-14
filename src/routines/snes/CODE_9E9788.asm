@@ -3,7 +3,7 @@ CODE_9E9788:
 	lda.w $0DF9
 	sec
 	sbc.w #$0010
-	bpl CODE_9E97DC
+	bpl .1
 	ldy.w $15BF
 .loop:
 	sty.b d1
@@ -25,7 +25,7 @@ CODE_9E9788:
 
 .t1:
 	ldy.w $15BF
-	beq CODE_9E97DC
+	beq .1
 .loopx:
 	sty.b d1
 	lda.w $15C2,y
@@ -36,10 +36,10 @@ CODE_9E9788:
 	sbc.w Ylist,y
 	sec
 	sbc.w #$0028
-	bpl CODE_9E97DC
+	bpl .1
 	jsl.l CODE_9E97DD
 	ldy.b d1
 	dey
 	bne .loopx
-CODE_9E97DC:
+.1:
 	rtl

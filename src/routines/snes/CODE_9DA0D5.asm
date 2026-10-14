@@ -337,7 +337,7 @@ CODE_9DA2F5:
 	sta.b $8F
 	jsl.l CODE_9FBF75
 	jsl.l CODE_9B8682
-	bra CODE_9DA3DD
+	bra .4
 
 .t2:
 	lda.b $8F
@@ -368,24 +368,24 @@ CODE_9DA2F5:
 	sta.b $8F
 	jsl.l CODE_9FBF75
 	jsl.l CODE_9B8682
-CODE_9DA3DD:
+.4:
 	jsl.l CODE_9B8017
 	ldx.w #$0008
-.loop:
+.loopx:
 	lda.w $1A0E
-	bne .1
+	bne .1xx
 	lda.w JoyPad,x
 	bit.w #$000F
-	bne .1
+	bne .1xx
 	and.w #$FFF0
-	bne .t1
-.1:
+	bne .t1xx
+.1xx:
 	dex
 	dex
-	bpl .loop
-	bra CODE_9DA3DD
+	bpl .loopx
+	bra .4
 
-.t1:
+.t1xx:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -413,16 +413,16 @@ CODE_9DA3DD:
 	pla
 	sta.b $8F
 	jsl.l CODE_9FBF75
-.loopx:
+.loopxx:
 	ldx.w #$0008
-.loop2:
+.loop2x:
 	lda.w JoyPad,x
 	bit.w #$000F
-	bne .1x
+	bne .1xxx
 	bit.w #$1000
-	bne .loopx
-.1x:
+	bne .loopxx
+.1xxx:
 	dex
 	dex
-	bpl .loop2
+	bpl .loop2x
 	jmp.w CODE_9DA29C

@@ -42,7 +42,7 @@ CODE_9D8292:
 	sec
 	sbc.w $1E47
 	bmi .t1
-	bra CODE_9D831C
+	bra .1
 
 .t1:
 	lda.w VisTeam
@@ -50,7 +50,7 @@ CODE_9D8292:
 	lda.w $1E47
 	sec
 	sbc.w $1E45
-CODE_9D831C:
+.1:
 	cmp.w #$0008
 	bcs .rtl
 	stz.w $1E43

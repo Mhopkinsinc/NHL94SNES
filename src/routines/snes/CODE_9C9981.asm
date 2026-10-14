@@ -3,21 +3,21 @@ CODE_9C9981:
 	rep #$30
 	lda.w SoundLock
 	and.w #$00FF
-	bne CODE_9C99E4
+	bne .3
 	lda.w $1D68
 	cmp.w #$0002
-	beq CODE_9C99E4
+	beq .3
 	lda.w gmclock
-	bne CODE_9C99A2
+	bne .2
 	lda.w MusicOn
 	beq .t1
-	bra CODE_9C99A2
+	bra .2
 
 .t1:
 	stz.w $0CC3
-CODE_9C99A2:
+.2:
 	lda.l $7E35E6
-	beq CODE_9C99E4
+	beq .3
 	lda.l $7E35E8
 	beq .t2
 	jmp.w CODE_9C9A21
@@ -25,7 +25,7 @@ CODE_9C99A2:
 .t2:
 	lda.l $7E35E6
 	cmp.l $7E35EA
-	beq .t1
+	beq .t1x
 .loop:
 	jsl.l SPCCmd02
 	cmp.w #$0015
@@ -34,7 +34,7 @@ CODE_9C99A2:
 	jsl.l SPCCmd04
 	bra .loop
 
-.t1:
+.t1x:
 	lda.l $7E35E6
 	asl a
 	tax
@@ -44,5 +44,5 @@ CODE_9C99A2:
 	jsl.l CODE_80A17D
 	lda.w #$0003
 	sta.l $7E35E8
-CODE_9C99E4:
+.3:
 	rtl

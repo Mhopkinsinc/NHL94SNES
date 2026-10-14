@@ -5,14 +5,14 @@ CODE_9B8309:
 	bne .t1
 	lda.b #$04
 	tsb.w $1A0E
-	bra CODE_9B831F
+	bra .1
 
 .t1:
 	cmp.b #$1E
-	bne CODE_9B831F
+	bne .1
 	lda.b #$02
 	tsb.w $1A0E
-CODE_9B831F:
+.1:
 	rts
 	db "MODIFIED FROM SHVC MULTI5 BIOS Ver2.00"
 	db "END OF MULTI5 BIOS"

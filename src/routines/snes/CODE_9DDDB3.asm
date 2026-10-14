@@ -28,7 +28,7 @@ CODE_9DDDB3:
 	ldy.w #$0001
 	lda.w #$0000
 	jsl.l CODE_808E2D
-	bra CODE_9DDE63
+	bra .2
 
 .t1:
 	lda.l $7E3454
@@ -67,14 +67,14 @@ CODE_9DDDB3:
 	ldy.w #$0001
 	lda.w #$0000
 	jsl.l CODE_808E2D
-CODE_9DDE63:
+.2:
 	lda.l $7E3452
 	sta.b $00
-	bpl .t1
+	bpl .t1x
 	lda.l $7E3454
-	bpl .1
+	bpl .1x
 	stz.b a2
-.1:
+.1x:
 	lda.l $7E345A
 	ldx.w #$0018
 	ldy.w #$0001
@@ -93,9 +93,9 @@ CODE_9DDE63:
 	ldy.w #$0001
 	lda.w #$0000
 	jsl.l CODE_808E2D
-	bra CODE_9DDF0D
+	bra .3
 
-.t1:
+.t1x:
 	lda.l $7E3452
 	asl a
 	asl a
@@ -132,14 +132,14 @@ CODE_9DDE63:
 	ldy.w #$0001
 	lda.w #$0000
 	jsl.l CODE_808E2D
-CODE_9DDF0D:
+.3:
 	lda.l $7E3478
-	bne CODE_9DDF6F
+	bne .5
 	lda.l $7E3454
-	bmi .1
+	bmi .1xx
 	lda.l $7E3452
-	bpl .t1
-.1:
+	bpl .t1xx
+.1xx:
 	lda.w #$007F
 	sta.b $0E
 	lda.l $7E3470
@@ -169,14 +169,14 @@ CODE_9DDF0D:
 	tay
 	ldx.w #$0600
 	jsl.l CODE_80891F
-	bra CODE_9DDF67
+	bra .4
 
-.t1:
+.t1xx:
 	jsl.l WaitFrame
-CODE_9DDF67:
+.4:
 	jsl.l CODE_9DD938
 	jsl.l CODE_9DD962
-CODE_9DDF6F:
+.5:
 	pla
 	sta.b a2
 	rtl

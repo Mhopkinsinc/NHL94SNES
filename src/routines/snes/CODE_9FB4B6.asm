@@ -28,7 +28,7 @@ CODE_9FB4B6:
 	lda.w tmflags,y
 	ply
 	bit.w #$0008
-	beq CODE_9FB50F
+	beq .3
 	lda.w pfteam,x
 	beq .t1
 	lda.w #$0168
@@ -36,7 +36,7 @@ CODE_9FB4B6:
 	txa
 	lsr a
 	sta.w $1063,y
-	bra CODE_9FB50F
+	bra .3
 
 .t1:
 	lda.w #$0258
@@ -44,7 +44,7 @@ CODE_9FB4B6:
 	txa
 	lsr a
 	sta.w $1043,y
-CODE_9FB50F:
+.3:
 	ldx.b a2
 	ldy.b a3
 	sty.b a2

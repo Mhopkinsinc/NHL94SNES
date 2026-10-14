@@ -11,7 +11,7 @@ PeriodOver:
 	bne .loop
 	jsl.l CODE_8086A9
 	lda.w $1D81
-	bne CODE_9F8D0B
+	bne .5
 	jsl.l CODE_9C978E
 	lda.l $7E34BC
 	beq .t1
@@ -25,7 +25,7 @@ PeriodOver:
 	lda.w #DATA8_93ED31
 	sta.b $0C
 	jsl.l MusicStart
-	jmp.w CODE_9F8D0B
+	jmp.w .5
 
 .t1:
 	lda.w #$0090
@@ -33,12 +33,12 @@ PeriodOver:
 	lda.w #DATA8_90C20C
 	sta.b $0C
 	jsl.l MusicStart
-CODE_9F8D0B:
+.5:
 	lda.w gmode
 	eor.w #$0002
 	sta.w gmode
 	ldy.w #$0000
-.loop:
+.loopx:
 	lda.w tmpdst,y
 	cmp.w #$FFFD
 	bne .1
@@ -48,7 +48,7 @@ CODE_9F8D0B:
 	iny
 	iny
 	cpy.w #$0068
-	bcc .loop
+	bcc .loopx
 	jsl.l SetHor
 	ldx.w #$0000
 	ldy.w #$01C0
@@ -82,18 +82,18 @@ CODE_9F8D0B:
 	jsl.l Intermission
 	lda.w gsp
 	cmp.w #$0004
-	bne .t1
+	bne .t1x
 .4:
 	jml.l GameOver
 
-.t1:
+.t1x:
 	lda.w gsp
 	sta.w $1EAD
 	jsl.l CODE_9C9786
 	jsl.l CODE_9F96F7
-.loopx:
+.loopxx:
 	lda.w SoundFadeSpeed
-	bne .loopx
+	bne .loopxx
 	jsl.l CODE_9C98DF
 	lda.w #$FFFF
 	sta.w $1E8D

@@ -8,14 +8,14 @@ ScrollOtherScoresUp:
 
 .t2:
 	cmp.l $7E35D6
-	bne CODE_9BC3F5
+	bne .1
 	cmp.w #$0000
 	bne .t1
 	jmp.w CODE_9BC2E4
 
 .t1:
 	dec a
-CODE_9BC3F5:
+.1:
 	sta.w $1DBD
 	lda.w #$0006
 	sta.w $1DC5

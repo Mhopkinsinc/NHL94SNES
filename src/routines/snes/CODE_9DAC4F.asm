@@ -3,7 +3,7 @@ CODE_9DAC4F:
 	phx
 	lda.b d7
 	sta.b d3
-CODE_9DAC54:
+.2:
 	lda.b d7
 	clc
 	adc.b d0
@@ -16,7 +16,7 @@ CODE_9DAC54:
 	bcc .t1
 	lda.b d3
 	sta.b d7
-	bra CODE_9DAC7D
+	bra .3
 
 .t1:
 	lda.l $7E34BC
@@ -27,7 +27,7 @@ CODE_9DAC54:
 	adc.b d7
 	tax
 	lda.l DATA8_9DAC7F,x
-	beq CODE_9DAC54
-CODE_9DAC7D:
+	beq .2
+.3:
 	plx
 	rts

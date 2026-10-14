@@ -39,7 +39,7 @@ CODE_9ED24D:
 	sbc.b d7
 	sta.w $1023,x
 	bmi .t1
-	jmp.w CODE_9ED2F7
+	jmp.w .5
 
 .t1:
 	adc.w #$0005
@@ -106,7 +106,7 @@ CODE_9ED24D:
 	jsl.l vtoa
 	lda.b d0
 	sta.w $10A3,x
-CODE_9ED2F7:
+.5:
 	lda.w $10A3,x
 	sta.b d0
 	jml.l doplayeracc

@@ -61,12 +61,12 @@ CODE_9C8A83:
 	jsl.l Div16U
 	lda.b $00
 	sta.b d0
-	bra CODE_9C8B26
+	bra .2
 
 .t1:
 	lda.w #$0064
 	sta.b d0
-CODE_9C8B26:
+.2:
 	lda.w #$0064
 	sec
 	sbc.b d0

@@ -31,61 +31,61 @@ CODE_9EF357:
 	lda.w tmap
 	sec
 	sbc.w $17A8
-	beq CODE_9EF3AE
+	beq .4
 	bmi .t1
 	ldy.b a2
-	beq CODE_9EF3AE
-	bra CODE_9EF3A7
+	beq .4
+	bra .3
 
 .t1:
 	ldy.b a2
-	bne CODE_9EF3AE
-CODE_9EF3A7:
+	bne .4
+.3:
 	lda.w $1762,y
 	inc a
 	sta.w $1762,y
-CODE_9EF3AE:
+.4:
 	lda.w $1E9B
-	bne .t1
+	bne .t1x
 	lda.w $1E8B
-	beq CODE_9EF3CC
+	beq .5
 	ldy.b a2
 	lda.w $17C6,y
 	inc a
 	sta.w $17C6,y
-	bra CODE_9EF3CC
+	bra .5
 
-.t1:
+.t1x:
 	ldy.b a2
 	lda.w $17CE,y
 	inc a
 	sta.w $17CE,y
-CODE_9EF3CC:
+.5:
 	lda.w $1E89
-	beq .1
+	beq .1x
 	ldy.b a2
 	lda.w $17DA,y
 	inc a
 	sta.w $17DA,y
-.1:
+.1x:
 	jsl.l MusicStop
 	lda.w #$0002
 	jsl.l CODE_9C9A7F
 	stz.w $0C23
 	ldy.b a2
-	beq .t1
+	beq .t1xx
 	lda.w #$0004
 	jsl.l CODE_9C9FD5
 	lda.l $7E35E0
 	sec
 	sbc.w #$0300
-	bpl .2
+	bpl .2x
 	lda.w #$0000
-.2:
+.2x:
 	sta.l $7E35E0
 	bra Goal
 
-.t1:
+.t1xx:
 	inc a
 	inc a
 	jsl.l CODE_9C9FD5

@@ -17,14 +17,14 @@ CODE_9BA77C:
 	sta.b $0E
 	lda.w #DATA8_9ADFCB
 	sta.b $0C
-	bra CODE_9BA7A9
+	bra .3
 
 .t1:
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AE919
 	sta.b $0C
-CODE_9BA7A9:
+.3:
 	lda.b $04
 	pha
 	lda.w #$007F
@@ -57,7 +57,7 @@ CODE_9BA7A9:
 	sta.b $04
 	sta.w $1DD1
 	beq .rtl
-.1:
+.1x:
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AE8EC

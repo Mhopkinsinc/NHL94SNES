@@ -48,7 +48,7 @@ org $9ED002
 .2x:
 	lda.b d0
 	cmp.w facedir,x
-	beq CODE_9ED07A
+	beq .3
 	sta.b d2
 	lda.w #$E0FE
 	jsl.l SetSPAFromA
@@ -59,12 +59,12 @@ org $9ED002
 
 .t4:
 	lda.w $0BCB,x
-	bne CODE_9ED07A
+	bne .3
 	lda.b d0
 	sec
 	sbc.w facedir,x
 	sta.b d0
-	beq CODE_9ED07A
+	beq .3
 	eor.w #$FFFF
 	inc a
 	and.w #$0004
@@ -77,25 +77,25 @@ org $9ED002
 	sta.w facedir,x
 	lda.w #$0006
 	sta.w $0BCB,x
-CODE_9ED07A:
+.3:
 	lda.w $0BCB,x
-	beq .2
+	beq .2xx
 	sec
 	sbc.w $0ADB
-	bpl .1
+	bpl .1xx
 	lda.w #$0000
-.1:
+.1xx:
 	sta.w $0BCB,x
-.2:
+.2xx:
 	lda.w $0B05,x
 	bit.w #$0002
-	bne .t1
+	bne .t1x
 	lda.w #$E0FE
-	bra CODE_9ED09B
+	bra .4
 
-.t1:
+.t1x:
 	lda.w #$E3C0
-CODE_9ED09B:
+.4:
 	jsl.l SetSPAFromA
 	lda.w facedir,x
 	sta.b d2

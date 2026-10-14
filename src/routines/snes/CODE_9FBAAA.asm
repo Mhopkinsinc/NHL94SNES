@@ -91,7 +91,7 @@ CODE_9FBAAA:
 	sec
 	sbc.w #$00C5
 	sta.b d1
-	bra CODE_9FBB89
+	bra .7
 
 .t1x:
 	lda.b d0
@@ -102,14 +102,14 @@ CODE_9FBAAA:
 	sec
 	sbc.w Vpos
 	sta.b d1
-CODE_9FBB89:
+.7:
 	stz.b d2
 	lda.b d0
 	cmp.w #$0074
-	bmi .1
+	bmi .1x
 	lda.w #$0008
 	sta.b d2
-.1:
+.1x:
 	lda.b d0
 	cmp.w #$FF8D
 	bpl .2

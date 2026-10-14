@@ -29,7 +29,7 @@ CODE_9BA563:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9BA5D2
+	bra .2
 
 .t1:
 	lda.b $8F
@@ -58,7 +58,7 @@ CODE_9BA563:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9BA5D2:
+.2:
 	lda.w #$0014
 	sta.w printx
 	lda.w #$0011
@@ -71,7 +71,7 @@ CODE_9BA5D2:
 	jsl.l print
 	lda.w $1DB9
 	cmp.w #$0001
-	beq .t1
+	beq .t1x
 	lda.b $8F
 	pha
 	lda.b a1
@@ -98,9 +98,9 @@ CODE_9BA5D2:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9BA662
+	bra .3
 
-.t1:
+.t1x:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -127,7 +127,7 @@ CODE_9BA5D2:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9BA662:
+.3:
 	lda.w #$0014
 	sta.w printx
 	lda.w #$0013
@@ -140,7 +140,7 @@ CODE_9BA662:
 	jsl.l print
 	lda.w $1DB9
 	cmp.w #$0002
-	beq .t1
+	beq .t1xx
 	lda.b $8F
 	pha
 	lda.b a1
@@ -167,9 +167,9 @@ CODE_9BA662:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9BA6F2
+	bra .4
 
-.t1:
+.t1xx:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -196,7 +196,7 @@ CODE_9BA662:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9BA6F2:
+.4:
 	lda.w #$0014
 	sta.w printx
 	lda.w #$0015
@@ -209,18 +209,18 @@ CODE_9BA6F2:
 	jsl.l print
 	lda.w $1DB9
 	beq .t2
-.1:
+.1x:
 	cmp.w #$0001
-	beq .t1
+	beq .t1xxx
 	lda.w $19C6
-	bra CODE_9BA727
+	bra .5
 
-.t1:
+.t1xxx:
 	lda.w $19C4
-	bra CODE_9BA727
+	bra .5
 
 .t2:
 	lda.w $19C2
-CODE_9BA727:
+.5:
 	jsl.l CODE_9BA77C
 	rtl

@@ -51,7 +51,7 @@ Bcheck:
 	lda.w #$0024
 	sta.b d0
 	jsl.l AddPenalty
-	bra CODE_9EBCB8
+	bra .2
 
 .t1:
 	rtl
@@ -60,11 +60,11 @@ Bcheck:
 	jsl.l checkagr
 	lda.b d0
 	cmp.w #$0005
-	bcs CODE_9EBCB8
+	bcs .2
 	lda.w #$0022
 	sta.b d0
 	jsl.l AddPenalty
-CODE_9EBCB8:
+.2:
 	ldx.b a2
 	ldy.b a3
 	sty.b a2

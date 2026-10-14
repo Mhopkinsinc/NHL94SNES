@@ -656,3 +656,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Wrong labels: immediates that had taken a hardware register name by value (`DMA_OAM`, `INIDISP`, one `DMA_CGRAM`, one `DMA_VRAMWORD`) outside DMA setup and register loops are numbers again. MATCH.
 - Collisions: Bcheck, FallDown, checkcheck (with .cc), checkint (with .ci) and puckbody named from 93S by body and calls. MATCH.
 - Tails: `CODE_` files reached only by a branch or jump from the routine before them are folded into it; labels used only in one scope are locals (name_map rows "continued in the previous routine" / "branch target only used in this routine"). MATCH.
+- Locals: `CODE_` labels inside a routine file that nothing outside its scope uses are locals (named labels stay global). MATCH.

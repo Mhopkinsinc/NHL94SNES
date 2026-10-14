@@ -17,19 +17,19 @@ CODE_9BC5AB:
 	clc
 	adc.b [a1],y
 	sta.b a1
-	bra CODE_9BC5E6
+	bra .1
 
 .t1:
 	lda.w #$009B
 	sta.b $8F
 	lda.w #LongNYIslanders
 	sta.b a1
-	bra CODE_9BC5E6
+	bra .1
 
 .t2:
 	lda.w #$009B
 	sta.b $8F
 	lda.w #LongNYRangers
 	sta.b a1
-CODE_9BC5E6:
+.1:
 	rtl

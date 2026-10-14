@@ -22,16 +22,16 @@ SetPlList:
 	sta.b a0
 	lda.b a2
 	cmp.w $1E91
-	bne CODE_9FD5A3
+	bne .1
 	inc.b a0
-	bra CODE_9FD5A3
+	bra .1
 
 .t1:
 	ldy.b a2
 	lda.w tmgoalie,y
-	bpl CODE_9FD5A3
+	bpl .1
 	inc.b a0
-CODE_9FD5A3:
+.1:
 	lda.b $97
 	pha
 	lda.b a3

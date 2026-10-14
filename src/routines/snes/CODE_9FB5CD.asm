@@ -10,9 +10,9 @@ CODE_9FB5CD:
 	cpy.w #$000A
 	bcc .loop
 	lda.w #$FFFF
-	bra CODE_9FB5E4
+	bra .1
 
 .t1:
 	tya
-CODE_9FB5E4:
+.1:
 	rtl

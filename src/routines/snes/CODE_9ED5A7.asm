@@ -35,7 +35,7 @@ CODE_9ED5A7:
 
 .t1:
 	and.w #$0007
-	jmp.w CODE_9ED67C
+	jmp.w .2
 
 .t3:
 	lda.w $0D71
@@ -96,7 +96,7 @@ CODE_9ED5A7:
 .t4:
 	jsl.l vtoa
 	lda.b d0
-CODE_9ED67C:
+.2:
 	sta.w facedir,x
 	ldy.w #$E4B6
 	tya

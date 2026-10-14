@@ -9,14 +9,14 @@ CODE_9C8826:
 	jsl.l GetPlayerCount
 	lda.b d0
 	sta.w $1DC1
-	bra CODE_9C884E
+	bra .1
 
 .t1:
 	stz.w $1DBD
 	jsl.l GoalieCount
 	lda.b d0
 	sta.w $1DC1
-CODE_9C884E:
+.1:
 	dec.w $1DC1
 	lda.w $1DBD
 	sta.w $1DB9

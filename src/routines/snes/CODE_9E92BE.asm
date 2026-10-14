@@ -2,19 +2,19 @@
 CODE_9E92BE:
 	lda.w puckvx
 	cmp.w #$0800
-	bpl CODE_9E92DE
+	bpl .2
 	cmp.w #$F800
-	bmi CODE_9E92DE
+	bmi .2
 	cmp.w #$0000
 	bpl .t1
 	lda.w #$F800
 	sta.w puckvx
-	bra CODE_9E92DE
+	bra .2
 
 .t1:
 	lda.w #$0800
 	sta.w puckvx
-CODE_9E92DE:
+.2:
 	stz.b d0
 	lda.w #$00FF
 	sta.b d1

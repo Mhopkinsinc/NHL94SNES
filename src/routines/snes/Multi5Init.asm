@@ -14,22 +14,22 @@ Multi5Init:		; check for the multitap, then clear the multitap pads and state
 	beq .t1
 	lda.w #$0001
 	tsb.w $1A0E
-	bra CODE_9B838A
+	bra .1
 
 .t1:
 	lda.w #$0001
 	trb.w $1A0E
-CODE_9B838A:
+.1:
 	lda.w $1A00
 	and.w #$0040
-	beq .t1
+	beq .t1x
 	lda.w #$0001
 	tsb.w $1A0C
-	bra CODE_9B83A0
+	bra .2
 
-.t1:
+.t1x:
 	lda.w #$0001
 	trb.w $1A0C
-CODE_9B83A0:
+.2:
 	rtl
 	db "START OF MULTI5 CONNECT CHECK"

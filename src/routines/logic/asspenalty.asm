@@ -3,7 +3,7 @@ asspenalty:
 	lda.w pflags,x
 	bit.w #$0002
 	bne .t1
-	jmp.w CODE_9EBD1D
+	jmp.w .2
 
 .t1:
 	jsl.l CODE_9EBDF8
@@ -31,7 +31,7 @@ asspenalty:
 	stz.w $1123,x
 	lda.w #$0384
 	sta.w $1083,x
-CODE_9EBD1D:
+.2:
 	lda.w $1083,x
 	sec
 	sbc.w $0ADB

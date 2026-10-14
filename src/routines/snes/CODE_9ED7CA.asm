@@ -31,7 +31,7 @@ CODE_9ED7F1:
 	sta.b d0
 	pla
 	sta.b d1
-	bra CODE_9ED853
+	bra .5
 
 .t1:
 	lda.b d0
@@ -68,23 +68,23 @@ CODE_9ED7F1:
 	lda.b $00
 	sta.b d0
 	ldx.b $E4
-CODE_9ED853:
+.5:
 	lda.b d1
 	clc
 	adc.b d3
 	sta.b d1
 	sta.b d2
 	ldy.w $19D4,x
-	bmi .t1
+	bmi .t1x
 	cpx.w shotPlIdx
-	beq .1
+	beq .1x
 	lda.w JoyPad,y
 	bit.w #$0080
 	bne .t3
-.1:
+.1x:
 	jmp.w CODE_9EDA2C
 
-.t1:
+.t1x:
 	ldy.w #$0002
 	lda.b [a0],y
 	cmp.w #$0023
@@ -94,21 +94,21 @@ CODE_9ED853:
 .t2:
 	lda.b [a0]
 	cmp.w #$FFE7
-	bmi .t1x
+	bmi .t1xx
 	cmp.w #$0019
-	bpl .t1x
+	bpl .t1xx
 	lda.b [a0],y
 	cmp.w #$0013
-	bcs .1x
+	bcs .1xx
 	lda.w pucky
 	cmp.w #$FEF7
-	bmi .1x
+	bmi .1xx
 	cmp.w #$0109
 	bmi .t3
-.1x:
+.1xx:
 	jmp.w CODE_9EDA2C
 
-.t1x:
+.t1xx:
 	jmp.w CODE_9EDB3E
 
 .t3:

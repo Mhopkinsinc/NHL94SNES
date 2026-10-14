@@ -10,7 +10,7 @@ CODE_9EE635:
 	beq .t1
 	lda.w attribute,x
 	bit.w #$0800
-	bne CODE_9EE666
+	bne .1
 	bra CODE_9EE66B
 
 .t1:
@@ -21,6 +21,6 @@ CODE_9EE635:
 	sec
 	sbc.b d0
 	bmi CODE_9EE66B
-CODE_9EE666:
+.1:
 	lda.w #$002C
 	bra CODE_9EE66E

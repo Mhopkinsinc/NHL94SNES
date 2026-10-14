@@ -5,11 +5,11 @@ CODE_9FF6BA:
 	lda.w #$0000
 	jsl.l CODE_80A200
 	jsr.w CODE_9FF8DC
-	bra CODE_9FF6CD
+	bra .2
 
 .t1:
 	jsr.w CODE_9FF8D4
-CODE_9FF6CD:
+.2:
 	lda.w #DATA8_9ADBD3
 	sta.b $0C
 	lda.w #$009A

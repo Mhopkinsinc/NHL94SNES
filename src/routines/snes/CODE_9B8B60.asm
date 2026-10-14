@@ -48,7 +48,7 @@ CODE_9B8B60:
 	lda.w SelectedPlayerIdx
 	dec a
 	sta.b d0
-	bmi CODE_9B8BFD
+	bmi .3
 	asl a
 	asl a
 	asl a
@@ -66,29 +66,29 @@ CODE_9B8B60:
 	lda.w SelectedPlayerIdx
 	sec
 	sbc.w #$0005
-	beq CODE_9B8BFD
+	beq .3
 	bmi .t1
 .1:
-	bvc CODE_9B8BFB
-	bra CODE_9B8BFD
+	bvc .2
+	bra .3
 
 .t1:
-	bvc CODE_9B8BFD
-CODE_9B8BFB:
+	bvc .3
+.2:
 	dec.b d1
-CODE_9B8BFD:
+.3:
 	lda.w #$3800
 	sta.w $0D0D
 	lda.b d1
 	cmp.w $1D8B
-	bne .1
+	bne .1x
 	lda.w #$2000
 	sta.w $0D0D
 	lda.b [a3]
 	and.w #$00FF
 	dec a
 	sta.l $7E345A
-.1:
+.1x:
 	lda.w #$0005
 	sta.w printx
 	lda.b $9D
@@ -120,9 +120,9 @@ CODE_9B8BFD:
 	inc.w printy
 	inc.w printy
 	dec.b d1
-	bmi .t1
-	jmp.w CODE_9B8BFD
+	bmi .t1x
+	jmp.w .3
 
-.t1:
+.t1x:
 	jsl.l CODE_9B8970
 	rts

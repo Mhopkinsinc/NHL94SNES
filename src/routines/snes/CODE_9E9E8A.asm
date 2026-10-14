@@ -15,11 +15,11 @@ CODE_9E9E8A:
 	bit.w #$0800
 	bne .t1
 	lda.w #$FE60
-	bra CODE_9E9EB4
+	bra .2
 
 .t1:
 	lda.w #$FDFE
-CODE_9E9EB4:
+.2:
 	sta.w pfalock,x
 	jsl.l SetSPAFromA
 	ldx.b a3

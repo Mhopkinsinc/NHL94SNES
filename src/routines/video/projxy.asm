@@ -12,7 +12,7 @@ projxy:
 	sec
 	sbc.w #$00C5
 	sta.b d1
-	bra CODE_9BC138
+	bra .1
 
 .t1:
 	lda.b d0
@@ -23,12 +23,12 @@ projxy:
 	sec
 	sbc.w Vpos
 	sta.b d1
-CODE_9BC138:
+.1:
 	lda.b d0
 	cmp.w #$FF6F
-	bmi .t1
+	bmi .t1x
 	cmp.w #$0091
-	bpl .t1
+	bpl .t1x
 	lda.b d0
 	clc
 	adc.w #$0080
@@ -45,16 +45,16 @@ CODE_9BC138:
 	adc.b d1
 	sta.b d1
 	cmp.w #$FF6F
-	bmi .t1
+	bmi .t1x
 	cmp.w #$0091
-	bpl .t1
+	bpl .t1x
 	lda.w #$0070
 	sec
 	sbc.b d1
 	sta.b d1
 	rtl
 
-.t1:
+.t1x:
 	lda.w #$4E20
 	sta.b d1
 	rtl

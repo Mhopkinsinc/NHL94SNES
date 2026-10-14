@@ -8,7 +8,7 @@ CODE_80B56E:
 	lda.b $16
 	sec
 	sbc.w $2F40,x
-	beq CODE_80B5AA
+	beq .1
 	bmi .t1
 	sta.b $16
 	lda.b #$C8
@@ -37,7 +37,7 @@ CODE_80B56E:
 	tay
 	pla
 	sta.w $2FB9,y
-CODE_80B5AA:
+.1:
 	lda.b $16
 	ora.b #$80
 	sta.w $2F40,x
@@ -92,7 +92,7 @@ CODE_80B5AA:
 	adc.w #$0008
 	and.w #$03FF
 	ldy.w $07CA
-	bne .t1
+	bne .t1x
 	sta.b $3C
 	plb
 	ply
@@ -102,7 +102,7 @@ CODE_80B5AA:
 	asl a
 	rtl
 
-.t1:
+.t1x:
 	tax
 	lda.b $04
 	sta.w $0100,x

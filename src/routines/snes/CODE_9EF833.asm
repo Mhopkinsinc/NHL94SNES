@@ -12,21 +12,21 @@ CODE_9EF833:
 	sec
 	sbc.w $0E9F
 	bpl CODE_9EF829
-	bra CODE_9EF855
+	bra .3
 
 .t1:
 	lda.b d0
 	sec
 	sbc.w $0E9F
 	bmi CODE_9EF829
-CODE_9EF855:
+.3:
 	jsl.l CODE_9EC6E7
 	lda.w gmode
 	bit.w #$0020
-	bne .t1
+	bne .t1x
 	jmp.w CODE_9EF829
 
-.t1:
+.t1x:
 	lda.b d0
 	sec
 	sbc.w #$000A
@@ -47,35 +47,35 @@ CODE_9EF855:
 	cmp.w #$000C
 	bpl .t2
 	lda.b a2
-	beq CODE_9EF894
+	beq .4
 	bra CODE_9EF829
 
 .t2:
 	lda.b a2
 	beq CODE_9EF829
-CODE_9EF894:
+.4:
 	lda.w #$0005
 	sta.b d2
 	ldy.b a2
 	lda.w tmsort,y
 	sta.b a0
-CODE_9EF8A0:
+.5:
 	ldy.b a0
 	lda.w position,y
-	bmi .t1
+	bmi .t1xx
 	lda.b d0
 	sec
 	sbc.w Ypos,y
-	bmi .t1
+	bmi .t1xx
 	ldy.b a2
 	lda.w tmflags,y
 	ora.w #$0010
 	sta.w tmflags,y
 	rtl
 
-.t1:
+.t1xx:
 	inc.b a0
 	inc.b a0
 	dec.b d2
-	bpl CODE_9EF8A0
+	bpl .5
 	rtl

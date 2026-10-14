@@ -5,7 +5,7 @@ SetScore:
 	lda.l $7E3568,x
 	cmp.w #$0004
 	bcc .t3
-	jmp.w CODE_9F9F8F
+	jmp.w .3
 
 .t3:
 	lda.b d0
@@ -39,16 +39,16 @@ SetScore:
 	inc a
 .1:
 	cmp.w #$0002
-	bcs CODE_9F9F77
+	bcs .2
 	lda.w gsp
 	cmp.w #$0004
 	bne .t1
 	lda.l $7E3578,x
 	cmp.l $7E3588,x
-	bne CODE_9F9F77
+	bne .2
 	inc a
 	sta.l $7E3578,x
-	bra CODE_9F9F77
+	bra .2
 
 .t1:
 	lda.w #$0003
@@ -56,7 +56,7 @@ SetScore:
 	lda.l $7E3598,x
 	ora.w #$0002
 	sta.l $7E3598,x
-	bra CODE_9F9F77
+	bra .2
 
 .t2:
 	lda.l $7E3568,x
@@ -82,7 +82,7 @@ SetScore:
 	clc
 	adc.b d0
 	sta.l $7E3588,x
-CODE_9F9F77:
+.2:
 	pla
 	sta.b $8F
 	pla
@@ -99,6 +99,6 @@ CODE_9F9F77:
 	sta.b $A7
 	pla
 	sta.b d0
-CODE_9F9F8F:
+.3:
 	plx
 	rtl

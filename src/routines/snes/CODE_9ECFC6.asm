@@ -2,7 +2,7 @@
 CODE_9ECFC6:
 	lda.b d0
 	sta.b $10
-CODE_9ECFCA:
+.1:
 	lda.b d0
 	bne .t1
 	jmp.w print
@@ -13,4 +13,4 @@ CODE_9ECFCA:
 	adc.b a1
 	sta.b a1
 	dec.b d0
-	bra CODE_9ECFCA
+	bra .1

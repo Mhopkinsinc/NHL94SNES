@@ -3,12 +3,12 @@ CODE_9EF213:
 	lda.w #$1000
 	trb.w sflags
 	bne .t1
-	jmp.w CODE_9EF318
+	jmp.w .7
 
 .t1:
 	lda.w gmclock
 	beq .t3
-	jmp.w CODE_9EF318
+	jmp.w .7
 
 .t3:
 	lda.b a1
@@ -54,44 +54,44 @@ CODE_9EF213:
 	lda.w tmap
 	sec
 	sbc.w $17A8
-	beq CODE_9EF2A5
+	beq .6
 	bmi .t1x
 	lda.w $175A
 	inc a
 	sta.w $175A
-	bra CODE_9EF2A5
+	bra .6
 
 .t1x:
 	lda.w $175E
 	inc a
 	sta.w $175E
-	bra CODE_9EF2A5
+	bra .6
 
 .t2:
 	lda.w $17A8
 	sec
 	sbc.w tmap
-	beq CODE_9EF2A5
+	beq .6
 	bmi .t1xx
 	lda.w $175C
 	inc a
 	sta.w $175C
-	bra CODE_9EF2A5
+	bra .6
 
 .t1xx:
 	lda.w $1760
 	inc a
 	sta.w $1760
-CODE_9EF2A5:
+.6:
 	lda.w gsp
 	asl a
 	asl a
 	tax
 	lda.b a2
-	beq .1
+	beq .1x
 	inx
 	inx
-.1:
+.1x:
 	lda.w $176A,x
 	inc a
 	sta.w $176A,x
@@ -99,9 +99,9 @@ CODE_9EF2A5:
 	lda.w pnum,x
 	sta.b d0
 	lda.b a2
-	beq .2
+	beq .2x
 	lda.w #$001A
-.2:
+.2x:
 	clc
 	adc.b d0
 	ldx.b a2
@@ -147,7 +147,7 @@ CODE_9EF2A5:
 	lda.w $19BE
 	clc
 	adc.w #$000A
-	bmi CODE_9EF318
+	bmi .7
 	sta.w $19BE
-CODE_9EF318:
+.7:
 	rtl

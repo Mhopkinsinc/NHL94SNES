@@ -17,7 +17,7 @@ CODE_9EADCF:
 	stx.b $14
 	sty.b $16
 	lda.b tmp2
-	bne CODE_9EAE31
+	bne .2
 	ldx.b $E4
 	plb
 	rtl
@@ -43,19 +43,19 @@ CODE_9EADCF:
 .1:
 	lda.b tmp1
 	bit.w #$000A
-	beq CODE_9EAE31
+	beq .2
 	eor.w #$000A
 	sta.b tmp1
-CODE_9EAE31:
+.2:
 	lda.b tmp1
-	beq .t1
+	beq .t1x
 	ldx.b tmp0
 	jsr (DATA8_9EAF1A,x)
 	ldx.b $E4
 	plb
 	rtl
 
-.t1:
+.t1x:
 	jsr.w .t3
 	ldx.b $E4
 	plb
@@ -65,13 +65,13 @@ CODE_9EAE31:
 	ldx.b $E4
 	lda.b $0E
 	cmp.w #$FEF8
-	bpl .t1x
+	bpl .t1xx
 	lda.b $12
 	cmp.w #$FEF8
 	bmi .t2
 	bra CODE_9EAE78
 
-.t1x:
+.t1xx:
 	lda.b $12
 	cmp.w #$FEF8
 	bpl .t2
@@ -80,7 +80,7 @@ CODE_9EAE31:
 .t2:
 	rts
 
-.t1xx:
+.t1xxx:
 	cmp.w Xpos,y
 	bpl CODE_9EAEBB
 	lda.b $16

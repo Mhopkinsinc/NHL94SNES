@@ -47,9 +47,9 @@ CODE_9F8511:
 	jsl.l CODE_9B8017
 	lda.w sflags
 	bit.w #$0001
-	bne CODE_9F85D3
+	bne .4
 	lda.w gmclock
-	bne CODE_9F85D3
+	bne .4
 	lda.w $1D81
 	bne .t1
 	lda.w $163A
@@ -62,7 +62,7 @@ CODE_9F8511:
 	bne .2
 	jsl.l CODE_9EC791
 .2:
-	bra CODE_9F85D3
+	bra .4
 
 .t1:
 	ldx.b d7
@@ -85,25 +85,25 @@ CODE_9F8511:
 .2x:
 	dex
 	bne .loop
-CODE_9F85D3:
+.4:
 	lda.w $0CE7
-	beq .1
+	beq .1xx
 	lda.b $83
 	sec
 	sbc.w $0CE9
 	cmp.w #$0096
-	bcc .1
+	bcc .1xx
 	dec.w $0CE7
 	lda.w $0CE9
 	clc
 	adc.w #$0096
 	sta.w $0CE9
-.1:
+.1xx:
 	jsl.l DoGameFrame
 	jsl.l CODE_9F967B
 	lda.w sflags
 	bit.w #$0001
-	bne .2
+	bne .2xx
 	lda.w $1A0E
 	beq .3
 	lda.w gmode
@@ -111,14 +111,14 @@ CODE_9F85D3:
 	bne .3
 	lda.w #$0001
 	tsb.w sflags
-.2:
+.2xx:
 	jsl.l CODE_9F937B
 .3:
 	lda.w $1D81
-	beq .t1
+	beq .t1x
 	lda.w $1D87
-	beq .t1
+	beq .t1x
 	rtl
 
-.t1:
+.t1x:
 	jmp.w CODE_9F8511

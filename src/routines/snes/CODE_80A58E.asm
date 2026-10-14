@@ -16,17 +16,17 @@ CODE_80A58E:
 	sec
 	adc.b $56
 	sta.b $56
-	jmp.w CODE_80A60F
+	jmp.w .2
 
 .t1:
 	cpy.b #$D9
-	beq CODE_80A60F
+	beq .2
 	cpy.b #$DA
-	beq CODE_80A60F
+	beq .2
 	cpy.b #$DB
-	beq CODE_80A60F
+	beq .2
 	cpy.b #$E3
-	beq CODE_80A60F
+	beq .2
 	cpy.b #$DC
 	beq .1
 	cpy.b #$EA
@@ -42,7 +42,7 @@ CODE_80A58E:
 	inc.b $56
 	tay
 	sty.b $5A
-	jmp.w CODE_80A60F
+	jmp.w .2
 
 .t2:
 	cpy.b #$DF
@@ -55,16 +55,16 @@ CODE_80A58E:
 	inc.b $56
 	tay
 	sty.b $5E
-	jmp.w CODE_80A60F
+	jmp.w .2
 
 .t1x:
 	cpy.b #$E5
-	bne CODE_80A60F
+	bne .2
 	lda.b [$56]
 	inc.b $56
 	inc.b $56
 	sta.b $5E
-	jmp.w CODE_80A60F
+	jmp.w .2
 
 .t3:
 	lda.b [$56]
@@ -73,5 +73,5 @@ CODE_80A58E:
 	sty.b $5A
 	jsr.w CODE_80A568
 	sta.b $5E
-CODE_80A60F:
+.2:
 	rts

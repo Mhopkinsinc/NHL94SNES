@@ -5,22 +5,22 @@ SoundUpdate:		; per frame: fade, envelopes, and the song ticks that are due; not
 	pha
 	plb
 	lda.w SoundLock
-	bne CODE_80ADE8
+	bne .6
 	rep #$20
 	lda.w SoundFadeSpeed
-	beq CODE_80ADC6
+	beq .5
 	lda.w SoundVolume
 	sec
 	sbc.w SoundFadeSpeed
 	sta.w SoundVolume
 	bcs .t1
 	jsl.l SoundInit
-	bra CODE_80ADC6
+	bra .5
 
 .t1:
 	sep #$20
 	jsr.w CODE_80A40F
-CODE_80ADC6:
+.5:
 	sep #$20
 	lda.w $07F1
 	beq .2
@@ -37,7 +37,7 @@ CODE_80ADC6:
 .4:
 	jsr.w CODE_80AC7B
 	lda.w MusicOn
-	beq CODE_80ADE8
+	beq .6
 	jsr.w CODE_80AC4A
-CODE_80ADE8:
+.6:
 	rts

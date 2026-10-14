@@ -2,7 +2,7 @@
 EncodePW:
 	lda.l $7E34BC
 	bne .t2
-	jmp.w CODE_9BC7FA
+	jmp.w .4
 
 .t2:
 	lda.w #$0001
@@ -17,10 +17,10 @@ EncodePW:
 	lda.l $7E34CE
 	sec
 	sbc.w #$0002
-	bmi CODE_9BC7D9
+	bmi .3
 	lda.l playoffRoundIdx
 	cmp.w #$0001
-	bne CODE_9BC7D9
+	bne .3
 	lda.l $7E34F2
 	eor.w #$0001
 	sta.l $7E34F2
@@ -46,7 +46,7 @@ EncodePW:
 
 .t1:
 	jsl.l ResetPassWord
-CODE_9BC7D9:
+.3:
 	lda.w #$0080
 	ora.l PassWord
 	sta.l PassWord
@@ -54,8 +54,8 @@ CODE_9BC7D9:
 	sta.l $7E34BC
 	lda.w $0ACF
 	cmp.w #$0007
-	beq CODE_9BC7FA
+	beq .4
 	lda.w #$0003
 	sta.l $7E34BC
-CODE_9BC7FA:
+.4:
 	rtl

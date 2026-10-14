@@ -45,7 +45,7 @@ SetPA2:
 	sta.w $1D83
 .skip:
 	lda.w RefStep
-	bra CODE_9EFA0F
+	bra .2
 
 .t1:
 	sta.b d0
@@ -83,7 +83,7 @@ SetPA2:
 	and.w #$00FF
 	sta.b d0
 	jsl.l PushRef
-CODE_9EFA0F:
+.2:
 	pla
 	sta.b $8F
 	pla
