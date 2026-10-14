@@ -3745,3 +3745,11 @@ $9CF7DE,GoalsLabel,DATA8_9CF7DE,new,Goals,src/data/text/DATA8_9CF000.asm
 $9CF7F3,HighlightFrom,DATA8_9CF7F3,new,Highlight from game:,src/data/text/DATA8_9CF000.asm
 $9CF8B3,VersusText,DATA8_9CF8B3,new,vs.,src/data/text/DATA8_9CF000.asm
 $9CF8B8,ShootoutPenShot,DATA8_9CF8B8,new,Shootout Pen. Shot,src/data/text/DATA8_9CF000.asm
+$9BA428,ShowCrowdMeter,CODE_9BA428,new,crowd meter screen,src/routines/hockey/ShowCrowdMeter.asm
+$9BC25A,ShowOtherScores,CODE_9BC25A,new,other scores screen,src/routines/hockey/ShowOtherScores.asm
+$9BC7FB,PasswordScreen,CODE_9BC7FB,new,password entry screen,src/routines/hockey/PasswordScreen.asm
+$9BCAF8,BadPasswordPrompt,CODE_9BCAF8,new,bad password prompt,src/routines/hockey/BadPasswordPrompt.asm
+$9C8D2E,ShowGameStats,CODE_9C8D2E,new,game stats screen,src/routines/hockey/ShowGameStats.asm
+$9D8489,ShowMatchups,CODE_9D8489,new,matchups screen,src/routines/hockey/ShowMatchups.asm
+$9B8A15,EditLinesMenu,CODE_9B8A15,new,edit lines menu,src/routines/hockey/EditLinesMenu.asm
+$9C9BAB,ShowStars,CODE_9C9BAB,new,stars of the game,src/routines/hockey/ShowStars.asm

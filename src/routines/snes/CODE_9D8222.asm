@@ -9,6 +9,6 @@ CODE_9D8222:
 	sta.w $1DB9
 .1:
 	sta.w $1DB9
-	jsl.l CODE_9D8489
+	jsl.l ShowMatchups
 	stz.w $1E3D
 	bra CODE_9D8217

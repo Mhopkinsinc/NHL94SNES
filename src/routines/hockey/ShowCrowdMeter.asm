@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BA428:
+; Crowd meter screen
+ShowCrowdMeter:
 	lda.w VisTeam
 	sta.l $7E3454
 	lda.w HomeTeam

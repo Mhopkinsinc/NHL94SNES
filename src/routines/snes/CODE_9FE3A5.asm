@@ -6,6 +6,6 @@ CODE_9FE3A5:
 	jmp.w CODE_9FE19E
 
 .t1:
-	jsl.l CODE_9BA428
+	jsl.l ShowCrowdMeter
 	jsl.l CODE_9FE79F
 	jmp.w CODE_9FE2AE

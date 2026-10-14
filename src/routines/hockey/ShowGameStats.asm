@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C8D2E:
+; Game stats screen: both teams and the stat rows
+ShowGameStats:
 	lda.w VisTeam
 	sta.l $7E3454
 	lda.w HomeTeam

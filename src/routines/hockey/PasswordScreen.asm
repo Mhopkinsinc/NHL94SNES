@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC7FB:
+; Password entry screen
+PasswordScreen:
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
 	lda.w #$FF7F
@@ -156,7 +156,7 @@ CODE_9BC949:
 	sta.b d1
 	bit.w #$1000
 	beq .t3
-	jmp.w CODE_9BCAF8
+	jmp.w BadPasswordPrompt
 
 .t3:
 	stz.b d0

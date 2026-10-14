@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B8A15:
+; Edit Lines menu: Return to Game and Restore default lines
+EditLinesMenu:
 	jsr.w CODE_9B89E6
 	lda.b $8F
 	pha

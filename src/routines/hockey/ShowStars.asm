@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C9BAB:
+; Stars of the Game
+ShowStars:
 	phx
 	phy
 	stx.b xsave

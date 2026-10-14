@@ -34,7 +34,7 @@ CODE_9D8129:
 	lda.w #$000B
 	sta.b d1
 	jsl.l CODE_9D80DD
-	jsl.l CODE_9D8489
+	jsl.l ShowMatchups
 	jsl.l CODE_9D8B49
 	jsl.l CODE_8086BD
 CODE_9D8195:

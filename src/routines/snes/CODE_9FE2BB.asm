@@ -6,6 +6,6 @@ CODE_9FE2BB:
 	jmp.w CODE_9FE19E
 
 .t1:
-	jsl.l CODE_9C8D2E
+	jsl.l ShowGameStats
 	jsl.l CODE_9FE79F
 	bra CODE_9FE2AE

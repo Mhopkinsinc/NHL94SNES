@@ -50,7 +50,7 @@ CODE_9EB4C1:
 .t2:
 	cmp.w #$D434
 	bne .1
-	jsl.l CODE_9C9BAB
+	jsl.l ShowStars
 .1:
 	lda.b [a1]
 	and.w #$00FF
