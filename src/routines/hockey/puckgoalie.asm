@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EF042:
+; The puck hits goalie a2: a save or not, by his save ratings
+puckgoalie:
 	lda.w gmode
 	bit.w #$0010
 	beq .t1

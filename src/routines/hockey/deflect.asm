@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EF722:
+; Send the puck off in a random direction after a deflection
+deflect:
 	lda.w #$FFFF
 	sta.w puckc
 	jsl.l RandomWord

@@ -72,5 +72,5 @@ CODE_9E97FD:
 	lda.b d1
 	cmp.b d0
 	bcc CODE_9E9899
-	jsl.l CODE_9EF5DA
+	jsl.l puckstick
 	bra CODE_9E98EC

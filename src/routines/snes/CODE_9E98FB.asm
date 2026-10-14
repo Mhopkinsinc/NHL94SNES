@@ -16,5 +16,5 @@ CODE_9E98FB:
 	bmi CODE_9E98EC
 	cmp.w #$000B
 	bpl CODE_9E98EC
-	jsl.l CODE_9EF042
+	jsl.l puckgoalie
 	bra CODE_9E98EC

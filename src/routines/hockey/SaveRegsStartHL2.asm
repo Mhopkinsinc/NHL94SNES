@@ -64,7 +64,7 @@ StartHL2:
 	sta.b $8F
 	lda.w #$00B4
 	sta.b d0
-	jsl.l CODE_9FA5EA
+	jsl.l waitxsr
 	lda.b d3
 	bit.w #$1000
 	beq .t1x
@@ -426,7 +426,7 @@ org $9F9001
 	jsl.l NewTicker3
 	lda.w #$00B4
 	sta.b d0
-	jsl.l CODE_9FA5EA
+	jsl.l waitxsr
 	lda.b d1
 	bit.w #$1000
 	beq CODE_9F91E8

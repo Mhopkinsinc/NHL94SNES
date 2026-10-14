@@ -1,5 +1,14 @@
-; Unidentified routine.
-CODE_9EF5EA:
+; The puck hits player a2's stick
+puckstick:
+	ldy.b a2
+	lda.w position,y
+	bne .2
+	lda.w gmode
+	bit.w #$0010
+	beq .2
+.1:
+	rtl
+.2:
 	lda.w pflags,y
 	and.w #$FFFE
 	sta.w pflags,y
@@ -11,15 +20,15 @@ CODE_9EF5EA:
 	lda.w pfteam,y
 	ldy.b a2
 	cmp.w pfteam,y
-	beq CODE_9EF5E9
+	beq .1
 	lda.b d0
 	cmp.w #$0025
-	bcs CODE_9EF5E9
+	bcs .1
 	lda.w position,y
-	beq .1
+	beq .1x
 	ldy.b a0
 	lda.w position,y
-	beq CODE_9EF5E9
+	beq .1
 	lda.w $1403,y
 	jsl.l makepde
 	lda.b d0
@@ -42,8 +51,8 @@ CODE_9EF5EA:
 	adc.w #$0024
 	jsl.l randoma
 	cmp.w #$0003
-	bcs CODE_9EF5E9
-.1:
+	bcs .1
+.1x:
 	ldy.b a0
 	lda.w $1403,y
 	jsl.l makepde
@@ -74,4 +83,4 @@ CODE_9EF68B:
 	lda.w #$0003
 	jsl.l CODE_9C9ABC
 	jsl.l a2touchpuck
-	jmp.w CODE_9EF722
+	jmp.w deflect

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FA5EA:
+; Wait d0 frames or until a button in d1 is pressed
+waitxsr:
 	phx
 	lda.b d0
 	pha

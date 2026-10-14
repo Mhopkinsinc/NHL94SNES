@@ -97,6 +97,6 @@ CODE_9E9987:
 	lda.b d1
 	cmp.b d0
 	bcc .3x
-	jsl.l CODE_9EF5DA
+	jsl.l puckstick
 .3x:
 	jmp.w CODE_9E98FB

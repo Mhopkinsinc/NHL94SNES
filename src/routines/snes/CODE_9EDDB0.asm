@@ -10,8 +10,8 @@ CODE_9EDDBD:
 	and.w #$FF00
 	ora.w $0DF9
 	beq .t1
-	jmp.w CODE_9E9788
+	jmp.w checkpuckcoll
 
 .t1:
 	jsl.l pucknothing
-	jmp.w CODE_9E9788
+	jmp.w checkpuckcoll

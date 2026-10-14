@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E97DD:
+; Puck contact with a player's stick, body or the goalie
+checkpuckcoll_ccx:
 	sty.b a2
 	cpy.w puckc
 	beq .rtl

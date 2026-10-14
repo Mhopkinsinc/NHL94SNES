@@ -666,3 +666,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - More 93S names from the callers named last time (ShowRinkRows, checkfo, setffo, showcrowd, checkgoalp, StopNA, prefmes, ChkShotStat, makepde, UpdateCwdExcite, CheckLateGameSong); the 8 by 8 and 16 by 8 multiplies and MemCopy named from what they do. MATCH.
 - forceblack, StartPer, Restart, PlayoffScreen, ReplayMode, RestoreReplayFrame, addframe, avdgoal from 93S callers and job; ScreenOn and IniDispShadow from what they do. MATCH.
 - setupice, revplayeracc, faceoffinput; attribjmp and its handlers AttribStatus, AttribEnergy, AttribHanded, AttribFighting, AttribRating by the table order. MATCH.
+- Puck collisions: checkpuckcoll, checkpuckcoll_ccx, puckstick, puckgoalie, deflect; waitxsr. MATCH.

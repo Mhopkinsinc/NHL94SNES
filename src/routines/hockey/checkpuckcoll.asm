@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E9788:
+; Puck collision with the players near it
+checkpuckcoll:
 	lda.w $0DF9
 	sec
 	sbc.w #$0010
@@ -18,7 +18,7 @@ CODE_9E9788:
 	sec
 	sbc.w #$0028
 	bpl .t1
-	jsl.l CODE_9E97DD
+	jsl.l checkpuckcoll_ccx
 	ldy.b d1
 	iny
 	bra .loop
@@ -37,7 +37,7 @@ CODE_9E9788:
 	sec
 	sbc.w #$0028
 	bpl .1
-	jsl.l CODE_9E97DD
+	jsl.l checkpuckcoll_ccx
 	ldy.b d1
 	dey
 	bne .loopx

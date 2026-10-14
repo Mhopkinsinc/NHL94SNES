@@ -748,7 +748,7 @@ $9DABD5,.1,CODE_9DABD5,new,branch target only used in this routine,src/routines/
 $9DABF4,.2,CODE_9DABF4,new,branch target only used in this routine,src/routines/snes/CODE_9DABC1.asm
 $9DAC0A,.3,CODE_9DAC0A,new,branch target only used in this routine,src/routines/snes/CODE_9DABC1.asm
 $9DAC21,.rts,CODE_9DAC21,new,branch target only used in this routine,src/routines/snes/CODE_9DABC1.asm
-$9E97F6,.rtl,CODE_9E97F6,new,branch target only used in this routine,src/routines/snes/CODE_9E97DD.asm
+$9E97F6,.rtl,CODE_9E97F6,new,branch target only used in this routine,src/routines/hockey/checkpuckcoll_ccx.asm
 $9EAD2E,.1,CODE_9EAD2E,new,branch target only used in this routine,src/routines/snes/CODE_9EAD27.asm
 $9EDABB,.1,CODE_9EDABB,new,branch target only used in this routine,src/routines/snes/CODE_9EDAA1.asm
 $9EDADA,.2,CODE_9EDADA,new,branch target only used in this routine,src/routines/snes/CODE_9EDAA1.asm
@@ -1790,7 +1790,7 @@ $9FC2A9,.1,CODE_9FC2A9,new,branch target only used in this routine,src/routines/
 $808953,.loop,CODE_808953,new,branch target only used in this routine,src/routines/snes/CODE_808950.asm
 $80895D,.1,CODE_80895D,new,branch target only used in this routine,src/routines/snes/CODE_808950.asm
 $808998,.2,CODE_808998,new,branch target only used in this routine,src/routines/snes/CODE_808950.asm
-$9E9794,.loop,CODE_9E9794,new,branch target only used in this routine,src/routines/snes/CODE_9E9788.asm
+$9E9794,.loop,CODE_9E9794,new,branch target only used in this routine,src/routines/hockey/checkpuckcoll.asm
 $9EBEEE,.1,CODE_9EBEEE,new,branch target only used in this routine,src/routines/logic/assdopen.asm
 $9FD6C8,.loop,CODE_9FD6C8,new,branch target only used in this routine,src/routines/snes/CODE_9FD5D0.asm
 $9E9997,.1,CODE_9E9997,new,branch target only used in this routine,src/routines/snes/CODE_9E9987.asm
@@ -2084,11 +2084,11 @@ $9BAD6F,.3,CODE_9BAD6F,new,branch target only used in this routine,src/routines/
 $9BAD81,.4,CODE_9BAD81,new,branch target only used in this routine,src/routines/snes/CODE_9BAD08.asm
 $9FC470,.loop,CODE_9FC470,new,branch target only used in this routine,src/routines/snes/CODE_9FC427.asm
 $9FC47C,.loop2,CODE_9FC47C,new,branch target only used in this routine,src/routines/snes/CODE_9FC427.asm
-$9FA5EE,.loop,CODE_9FA5EE,new,branch target only used in this routine,src/routines/snes/CODE_9FA5EA.asm
-$9FA5F1,.loop2,CODE_9FA5F1,new,branch target only used in this routine,src/routines/snes/CODE_9FA5EA.asm
-$9FA602,.1,CODE_9FA602,new,branch target only used in this routine,src/routines/snes/CODE_9FA5EA.asm
-$9FA616,.loop3,CODE_9FA616,new,branch target only used in this routine,src/routines/snes/CODE_9FA5EA.asm
-$9FA623,.2,CODE_9FA623,new,branch target only used in this routine,src/routines/snes/CODE_9FA5EA.asm
+$9FA5EE,.loop,CODE_9FA5EE,new,branch target only used in this routine,src/routines/middle/waitxsr.asm
+$9FA5F1,.loop2,CODE_9FA5F1,new,branch target only used in this routine,src/routines/middle/waitxsr.asm
+$9FA602,.1,CODE_9FA602,new,branch target only used in this routine,src/routines/middle/waitxsr.asm
+$9FA616,.loop3,CODE_9FA616,new,branch target only used in this routine,src/routines/middle/waitxsr.asm
+$9FA623,.2,CODE_9FA623,new,branch target only used in this routine,src/routines/middle/waitxsr.asm
 $9E8F19,.1,CODE_9E8F19,new,branch target only used in this routine,src/routines/hockey/wallcollb.asm
 $9E8F37,.2,CODE_9E8F37,new,branch target only used in this routine,src/routines/hockey/wallcollb.asm
 $9ED436,.1,CODE_9ED436,new,branch target only used in this routine,src/routines/snes/CODE_9ED421.asm
@@ -2855,7 +2855,7 @@ $9EF864,.t1,CODE_9EF864,new,continued in the previous routine,src/routines/snes/
 $9EF7FF,.t1,CODE_9EF7FF,new,continued in the previous routine,src/routines/snes/CODE_9EF7D6.asm
 $9EF7BF,.t1,CODE_9EF7BF,new,continued in the previous routine,src/routines/snes/CODE_9EF7AD.asm
 $9EF714,.t1,CODE_9EF714,new,continued in the previous routine,src/routines/snes/CODE_9EF69A.asm
-$9EF5FB,.t1,CODE_9EF5FB,new,continued in the previous routine,src/routines/snes/CODE_9EF5EA.asm
+$9EF5FB,.t1,CODE_9EF5FB,new,continued in the previous routine,src/routines/hockey/puckstick.asm
 $9EF5B8,.t1,CODE_9EF5B8,new,continued in the previous routine,src/routines/snes/CODE_9EF406.asm
 $9EF3C3,.t1,CODE_9EF3C3,new,continued in the previous routine,src/routines/snes/CODE_9EF3A3.asm
 $9EF33C,.t1,CODE_9EF33C,new,continued in the previous routine,src/routines/snes/CODE_9EF328.asm
@@ -2864,7 +2864,7 @@ $9EF281,.t1,CODE_9EF281,new,continued in the previous routine,src/routines/snes/
 $9EF21E,.t1,CODE_9EF21E,new,continued in the previous routine,src/routines/penalty/ChkShotStat.asm
 $9EF14A,.t1,CODE_9EF14A,new,continued in the previous routine,src/routines/snes/CODE_9EF142.asm
 $9EF124,.t1,CODE_9EF124,new,continued in the previous routine,src/routines/snes/CODE_9EF0EC.asm
-$9EF04D,.t1,CODE_9EF04D,new,continued in the previous routine,src/routines/snes/CODE_9EF042.asm
+$9EF04D,.t1,CODE_9EF04D,new,continued in the previous routine,src/routines/hockey/puckgoalie.asm
 $9EEFA6,.t1,CODE_9EEFA6,new,continued in the previous routine,src/routines/snes/CODE_9EEF91.asm
 $9EEF54,.t1,CODE_9EEF54,new,continued in the previous routine,src/routines/logic/puckshadow.asm
 $9EEE68,.t1,CODE_9EEE68,new,continued in the previous routine,src/routines/snes/CODE_9EEE04.asm
@@ -3003,7 +3003,7 @@ $9E9BB2,.t1,CODE_9E9BB2,new,continued in the previous routine,src/routines/hocke
 $9E9B3C,.t1,CODE_9E9B3C,new,continued in the previous routine,src/routines/snes/CODE_9E9B0E.asm
 $9E9B03,.t1,CODE_9E9B03,new,continued in the previous routine,src/routines/hockey/puckglue.asm
 $9E9A11,.t1,CODE_9E9A11,new,continued in the previous routine,src/routines/snes/CODE_9E9987.asm
-$9E97B8,.t1,CODE_9E97B8,new,continued in the previous routine,src/routines/snes/CODE_9E9788.asm
+$9E97B8,.t1,CODE_9E97B8,new,continued in the previous routine,src/routines/hockey/checkpuckcoll.asm
 $9E96A4,.t1,CODE_9E96A4,new,continued in the previous routine,src/routines/snes/CODE_9E963C.asm
 $9E95AE,.t1,CODE_9E95AE,new,continued in the previous routine,src/routines/snes/CODE_9E957C.asm
 $9E955F,.t1,CODE_9E955F,new,continued in the previous routine,src/routines/snes/CODE_9E9528.asm
@@ -3513,7 +3513,7 @@ $9EF7AD,.t2,CODE_9EF7AD,new,continued in the previous routine,src/routines/snes/
 $9EF3A3,.t1,CODE_9EF3A3,new,continued in the previous routine,src/routines/snes/CODE_9EF352.asm
 $9EF328,.t3,CODE_9EF328,new,continued in the previous routine,src/routines/snes/CODE_9EF319.asm
 $9EF226,.t3,CODE_9EF226,new,continued in the previous routine,src/routines/penalty/ChkShotStat.asm
-$9EF0EC,.t2,CODE_9EF0EC,new,continued in the previous routine,src/routines/snes/CODE_9EF042.asm
+$9EF0EC,.t2,CODE_9EF0EC,new,continued in the previous routine,src/routines/hockey/puckgoalie.asm
 $9EEDC0,.t3,CODE_9EEDC0,new,continued in the previous routine,src/routines/snes/CODE_9EED8D.asm
 $9EED38,.t3,CODE_9EED38,new,continued in the previous routine,src/routines/snes/CODE_9EECF6.asm
 $9ED8A4,.t3,CODE_9ED8A4,new,continued in the previous routine,src/routines/snes/CODE_9ED808.asm
@@ -4157,7 +4157,7 @@ $9EE84A,.4,CODE_9EE84A,new,branch target only used in this routine,src/routines/
 $9EE891,.5,CODE_9EE891,new,continued in the previous routine,src/routines/snes/CODE_9EE7F6.asm
 $9EE8ED,.4,CODE_9EE8ED,new,branch target only used in this routine,src/routines/logic/chk4pass.asm
 $9EE8EE,.6,CODE_9EE8EE,new,continued in the previous routine,src/routines/logic/chk4pass.asm
-$9EF135,.5,CODE_9EF135,new,branch target only used in this routine,src/routines/snes/CODE_9EF042.asm
+$9EF135,.5,CODE_9EF135,new,branch target only used in this routine,src/routines/hockey/puckgoalie.asm
 $9EF779,.1,CODE_9EF779,new,branch target only used in this routine,src/routines/logic/puckIChk.asm
 $9EF77A,.2,CODE_9EF77A,new,continued in the previous routine,src/routines/logic/puckIChk.asm
 $9EF783,.3,CODE_9EF783,new,branch target only used in this routine,src/routines/logic/puckIChk.asm
@@ -4444,7 +4444,7 @@ $9E8A4F,.7,CODE_9E8A4F,new,branch target only used in this routine,src/routines/
 $9E8B79,.7,CODE_9E8B79,new,branch target only used in this routine,src/routines/snes/CODE_9E8A90.asm
 $9E920C,.1,CODE_9E920C,new,branch target only used in this routine,src/routines/snes/CODE_9E91EC.asm
 $9E92DE,.2,CODE_9E92DE,new,branch target only used in this routine,src/routines/snes/CODE_9E92BE.asm
-$9E97DC,.1,CODE_9E97DC,new,branch target only used in this routine,src/routines/snes/CODE_9E9788.asm
+$9E97DC,.1,CODE_9E97DC,new,branch target only used in this routine,src/routines/hockey/checkpuckcoll.asm
 $9E9B07,.7,CODE_9E9B07,new,branch target only used in this routine,src/routines/hockey/puckglue.asm
 $9E9B46,.1,CODE_9E9B46,new,branch target only used in this routine,src/routines/snes/CODE_9E9B0E.asm
 $9E9EB4,.2,CODE_9E9EB4,new,branch target only used in this routine,src/routines/snes/CODE_9E9E8A.asm
@@ -4649,3 +4649,11 @@ $9F98D9,AttribHanded,9F98D9,93S,attribjmp entry 2; prints from HandedTextTbl as 
 $9F9879,.5,CODE_9F9879,new,branch target only used in this routine,src/routines/stats/AttribEnergy.asm
 $9EAB64,revplayeracc,CODE_9EAB64,93S,doplayeracc and noturn0 call it as in 93S; same instructions as 93S revplayeracc,src/routines/logic/noturn0.asm
 $9FB30F,faceoffinput,CODE_9FB30F,93S,doinput jumps here (through a jml) where 93S jumps to faceoffinput; most instructions as 93S,src/routines/logic/faceoffinput.asm
+$9E9788,checkpuckcoll,CODE_9E9788,93S,"the 93S checkpuckcoll: the objects above and below the puck, checkpuckcoll_ccx for each; called through pucknorm",src/routines/hockey/checkpuckcoll.asm
+$9E97DD,checkpuckcoll_ccx,CODE_9E97DD,93S,"checkpuckcoll calls it twice as in 93S; most of the 93S body, with GetHot, puckstick, puckbody and puckgoalie in the 93S places",src/routines/hockey/checkpuckcoll_ccx.asm
+$9EF5DA,puckstick,CODE_9EF5DA,93S,"checkpuckcoll_ccx calls it where 93S calls puckstick; a 94 goalie test, then most of the 93S body",src/routines/hockey/puckstick.asm
+$9EF5EA,.2,CODE_9EF5EA,new,puckstick: the 93S body,src/routines/hockey/puckstick.asm
+$9EF5E9,.1,CODE_9EF5E9,new,branch target only used in this routine,src/routines/hockey/puckstick.asm
+$9EF042,puckgoalie,CODE_9EF042,93S,checkpuckcoll_ccx calls it where 93S calls puckgoalie; most of the 93S body and its calls,src/routines/hockey/puckgoalie.asm
+$9EF722,deflect,CODE_9EF722,93S,puckstick calls it as in 93S; same instructions for the most part,src/routines/hockey/deflect.asm
+$9FA5EA,waitxsr,CODE_9FA5EA,93S,the StartHL2 code calls it as in 93S; same instructions for the most part,src/routines/middle/waitxsr.asm
