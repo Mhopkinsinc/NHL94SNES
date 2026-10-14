@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_8086D5:
+; Reset the scroll, window and colour math registers and their copies
+ResetPPURegs:
 	pha
 	stz.w $07D6
 	stz.w $07DA

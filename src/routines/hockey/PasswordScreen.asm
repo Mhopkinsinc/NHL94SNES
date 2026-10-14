@@ -149,7 +149,7 @@ CODE_9BC946:
 .loop:
 	jsl.l WaitFrame
 	jsl.l ReadPads
-	jsl.l CODE_9B84F5
+	jsl.l Readjoy1
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	beq .loop

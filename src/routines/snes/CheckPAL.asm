@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B8000:
+; Set the frame time step for a 50 Hz (PAL) console
+CheckPAL:
 	lda.w #$0000
 	sta.l $7E35DA
 	lda.w STAT78

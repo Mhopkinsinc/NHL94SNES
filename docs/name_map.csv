@@ -2260,7 +2260,7 @@ $9FB142,.7,CODE_9FB142,new,branch target only used in this routine,src/routines/
 $9FB15B,.8,CODE_9FB15B,new,branch target only used in this routine,src/routines/logic/Endfaceoff.asm
 $9FB5B6,.1,CODE_9FB5B6,new,branch target only used in this routine,src/routines/snes/CODE_9FB5A3.asm
 $9FB5C9,.2,CODE_9FB5C9,new,branch target only used in this routine,src/routines/snes/CODE_9FB5A3.asm
-$9B8016,.rtl,CODE_9B8016,new,branch target only used in this routine,src/routines/snes/CODE_9B8000.asm
+$9B8016,.rtl,CODE_9B8016,new,branch target only used in this routine,src/routines/snes/CheckPAL.asm
 $9CA0C7,.1,CODE_9CA0C7,new,branch target only used in this routine,src/routines/video/setsortcords.asm
 $9CA0CF,.2,CODE_9CA0CF,new,branch target only used in this routine,src/routines/video/setsortcords.asm
 $9CA0E4,.3,CODE_9CA0E4,new,branch target only used in this routine,src/routines/video/setsortcords.asm
@@ -2709,7 +2709,7 @@ $9B87FB,.t1,CODE_9B87FB,new,continued in the previous routine,src/routines/snes/
 $9B8719,.t1,CODE_9B8719,new,continued in the previous routine,src/routines/snes/CODE_9B8711.asm
 $9B870B,.t1,CODE_9B870B,new,continued in the previous routine,src/routines/snes/CODE_9B869B.asm
 $9B8544,.t1,CODE_9B8544,new,continued in the previous routine,src/routines/middle/ProcessInputWithRepeat.asm
-$9B850A,.t1,CODE_9B850A,new,continued in the previous routine,src/routines/snes/CODE_9B84F5.asm
+$9B850A,.t1,CODE_9B850A,new,continued in the previous routine,src/routines/middle/Readjoy1.asm
 $9B839A,.t1,CODE_9B839A,new,continued in the previous routine,src/routines/snes/CODE_9B8384.asm
 $9B8316,.t1,CODE_9B8316,new,continued in the previous routine,src/routines/snes/Multi5Bios.asm
 $9B82F5,.t1,CODE_9B82F5,new,continued in the previous routine,src/routines/snes/Multi5Bios.asm
@@ -5507,3 +5507,9 @@ $9FFA08,.32,CODE_9FFA08,new,"part of CODE_9FF436, used only by it",src/routines/
 $9FFAB4,.33,CODE_9FFAB4,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
 $9CA054,setsortcords,CODE_9CA054,93S,"setvideo calls it as in 93S; after a 94 extra sprite, the 93S loop over OOlist with projxy and addframe",src/routines/video/setsortcords.asm
 $9E81F9,burst,CODE_9E81F9,93S,"check4check and doinput call it as in 93S; getpde / setpde, dirtab speed, SPAburst",src/routines/logic/burst.asm
+$9B84F5,Readjoy1,CODE_9B84F5,93S,the 93S Readjoy1 contract from the ReadPads values; the password screens call it as 93S does; .t1 is the same for pad 2,src/routines/middle/Readjoy1.asm
+$9B8000,CheckPAL,CODE_9B8000,new,STAT78 bit 4 picks the step NMI_Tick adds each frame,src/routines/snes/CheckPAL.asm
+$808684,BlankScreen,CODE_808684,new,the first half of forceblack,src/routines/snes/BlankScreen.asm
+$8086D5,ResetPPURegs,CODE_8086D5,new,the second half of forceblack,src/routines/snes/ResetPPURegs.asm
+$808FC3,Mul16x8_Zero,CODE_808FC3,new,"like Mul16_Zero, for the 16 by 8 multiplies",src/routines/snes/Mul16x8_Zero.asm
+$808F95,Mul16x8U_Pre,CODE_808F95,new,like Mul16U_Pre,src/routines/snes/Mul16x8U_Pre.asm

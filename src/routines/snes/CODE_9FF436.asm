@@ -2,7 +2,7 @@
 CODE_9FF436:
 	stz.w brightness
 	jsl.l forceblack
-	jsl.l CODE_9B8000
+	jsl.l CheckPAL
 	jsl.l CODE_9C97E9
 	sep #$20
 	lda.b #$FF

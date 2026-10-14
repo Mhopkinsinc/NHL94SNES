@@ -686,3 +686,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Gameloop from 93S. MATCH.
 - DecompressHuffman with its internal fragments and jump tables as one routine; private data tables folded into their routine. MATCH.
 - setsortcords and burst from 93S. MATCH.
+- Readjoy1 (93S), CheckPAL, BlankScreen, ResetPPURegs, Mul16x8_Zero, Mul16x8U_Pre. MATCH.

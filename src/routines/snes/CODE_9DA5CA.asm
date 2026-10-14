@@ -162,7 +162,7 @@ CODE_9DA5CA:
 	lda.b $83
 	sta.w $0D35
 	sta.w $0D01
-	jsl.l CODE_9B84F5
+	jsl.l Readjoy1
 	dec.w $0AC4
 	jsl.l ProcessInputWithRepeat
 	lda.b d1

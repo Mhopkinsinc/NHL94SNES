@@ -2,15 +2,15 @@
 Mul16x8XS:
 	phy
 	tay
-	beq CODE_808FC3
+	beq Mul16x8_Zero
 CODE_808FCD:
 	txa
-	beq CODE_808FC3
+	beq Mul16x8_Zero
 	bpl CODE_808F9F
 	eor.w #$FFFF
 	inc a
 CODE_808FD6:
-	jsl.l CODE_808F95
+	jsl.l Mul16x8U_Pre
 CODE_808FDA:
 	lda.w #$0000
 	sec

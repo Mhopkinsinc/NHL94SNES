@@ -13,7 +13,7 @@ CODE_9F8283:
 	bne .loop
 	lda.w #$005C
 	sta.w $1D59
-	jsl.l CODE_9B8000
+	jsl.l CheckPAL
 	jsl.l ResetPassWord
 	jsl.l CODE_9D9C97
 	jsl.l CODE_9B8526
@@ -56,7 +56,7 @@ Restart:
 	stz.w sfhormode
 	lda.w #$005C
 	sta.w $1D59
-	jsl.l CODE_9B8000
+	jsl.l CheckPAL
 	jsl.l CODE_9DA5CA
 	stz.w $1D81
 	lda.l $7E34BC

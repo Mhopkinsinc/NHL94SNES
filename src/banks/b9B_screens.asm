@@ -1,7 +1,7 @@
 ; Bank $9B: screen setup and the rink loader. Files in ROM order.
 
 org $9B8000
-incsrc "../routines/snes/CODE_9B8000.asm"
+incsrc "../routines/snes/CheckPAL.asm"
 incsrc "../routines/middle/ReadPads.asm"
 incsrc "../data/tables/PadDirection.asm"
 incsrc "../routines/snes/Multi5Bios.asm"
@@ -9,7 +9,7 @@ incsrc "../routines/snes/Multi5Init.asm"
 incsrc "../routines/snes/Multi5ConnectCheck.asm"
 incsrc "../routines/snes/CODE_9B8472.asm"
 incsrc "../routines/snes/ReadjoyA.asm"
-incsrc "../routines/snes/CODE_9B84F5.asm"
+incsrc "../routines/middle/Readjoy1.asm"
 incsrc "../routines/snes/ReadPausePad.asm"
 incsrc "../routines/snes/CODE_9B8526.asm"
 incsrc "../routines/middle/ProcessInputWithRepeat.asm"

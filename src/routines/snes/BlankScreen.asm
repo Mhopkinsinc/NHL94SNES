@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808684:
+; Wait for a frame, set the default hooks, turn the IRQ off, force blank and stop HDMA
+BlankScreen:
 	jsl.l WaitFrame
 	jsl.l IRQOff
 	jsl.l ClearFrameHook

@@ -2,13 +2,13 @@
 Mul16x8S:
 	phy
 	tay
-	beq CODE_808FC3
+	beq Mul16x8_Zero
 	bpl CODE_808FCD
 	eor.w #$FFFF
 	inc a
 	tay
 	txa
-	beq CODE_808FC3
+	beq Mul16x8_Zero
 	bpl CODE_808FD6
 	eor.w #$FFFF
 	inc a

@@ -2,9 +2,9 @@
 Mul16x8U:
 	phy
 	tay
-	beq CODE_808FC3
+	beq Mul16x8_Zero
 	txa
-	beq CODE_808FC3
+	beq Mul16x8_Zero
 CODE_808F9F:
 	sep #$20
 	sta.w WRMPYA

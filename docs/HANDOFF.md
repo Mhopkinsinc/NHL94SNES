@@ -42,6 +42,7 @@
 - `Gameloop` (`StartPer` calls it as in 93S). `CODE_9F967B` stays: besides the 93S `demoread` job it checks every controller for a pause.
 - `DecompressHuffman` is one routine now: its table builders, bit readers, the per-bit-position decoder fragments and their jump tables were only used by it and are its locals. Data tables that only one routine reads (for example the direction table of `doplayeracc`, the 93S `.ftab`) are folded into that routine the same way.
 - `setsortcords` (the whole routine matches once folded) and `burst`.
+- `Readjoy1` (93S: pad 1 into d0-d3 from the `ReadPads` values), `CheckPAL`, `BlankScreen` and `ResetPPURegs` (the two halves of `forceblack`), `Mul16x8_Zero`, `Mul16x8U_Pre`.
 
 ## Unsure
 

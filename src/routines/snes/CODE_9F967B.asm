@@ -37,7 +37,7 @@ CODE_9F967B:
 	ora.w $1C8A
 	ora.w $1C8C
 	bne .3
-	jsl.l CODE_9B84F5
+	jsl.l Readjoy1
 	lda.b d1
 	bit.w #$1000
 	beq .t1x
