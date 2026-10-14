@@ -12,7 +12,7 @@ findpc:
 	ldx.b xsave
 	lda.w #$0008
 	sta.b $00
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi CODE_9FCC06
 	lda.w position,x
 	beq .t1
@@ -79,7 +79,7 @@ CODE_9FCC06:
 	bne .8
 .5:
 	stz.b $14
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi .7
 	lda.b $00
 	cmp.w #$0008

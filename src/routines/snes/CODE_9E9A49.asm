@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9E9A49:
 	ldy.b a2
-	cpy.w $0AD9
+	cpy.w shotPlIdx
 	beq .1
 	lda.w #$0003
 	jsl.l CODE_9C9ABC
@@ -10,7 +10,7 @@ CODE_9E9A49:
 	stz.w $1E89
 .1:
 	ldy.b a2
-	sty.w $0AD9
+	sty.w shotPlIdx
 	sty.b d0
 	stz.b a0
 	lda.w #$0002

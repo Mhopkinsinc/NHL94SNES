@@ -110,7 +110,7 @@ CODE_9FA90C:
 	sta.w $0DF9
 	sta.w $0D07
 	asl a
-	sta.w $0AD9
+	sta.w shotPlIdx
 	lda.w #$8200
 	trb.w sflags
 	lda.w #$0000

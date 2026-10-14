@@ -17,7 +17,7 @@ CODE_9F8CB1:
 	beq .t1
 	cmp.w #$0004
 	beq .t1
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	cmp.w #$0002
 	bcc .t1
 	lda.w #$0093

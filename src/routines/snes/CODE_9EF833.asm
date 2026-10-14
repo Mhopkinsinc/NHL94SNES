@@ -39,7 +39,7 @@ CODE_9EF855:
 	sty.b a2
 	sta.b a1
 .1:
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bpl .2
 	lda.w $0CF3
 	asl a

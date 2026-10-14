@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FB06C:
-	stx.w $0AD9
+	stx.w shotPlIdx
 	jsl.l assinsert
 	jsl.l assinsert
 	jsl.l assinsert

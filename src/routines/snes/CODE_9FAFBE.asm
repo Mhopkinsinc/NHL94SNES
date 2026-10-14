@@ -60,7 +60,7 @@ CODE_9FB02A:
 	sta.w $19BE
 .1:
 	lda.w $1E8D
-	sta.w $0AD9
+	sta.w shotPlIdx
 	tay
 	lda.w $1E93
 	bmi .2

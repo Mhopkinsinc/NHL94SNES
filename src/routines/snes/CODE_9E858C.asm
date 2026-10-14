@@ -71,7 +71,7 @@ CODE_9E860B:
 	lda.w #CODE_9ED0FC
 	sta.b a0
 	jmp.w CODE_9EA5A4
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi CODE_9E8631
 	lda.w pfteam,x
 	cmp.w pfteam,y

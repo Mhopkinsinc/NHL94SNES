@@ -97,7 +97,7 @@ CODE_9ED331:
 .t2:
 	lda.w gmclock
 	bne .t1x
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq .t1x
 	jmp.w CODE_9ED44E
 

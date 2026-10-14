@@ -12,7 +12,7 @@ WritePassBits:
 	lda.w #$0008
 	sta.b d1
 	jsl.l .t1
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	sta.b d0
 	lda.w #$0004
 	sta.b d1

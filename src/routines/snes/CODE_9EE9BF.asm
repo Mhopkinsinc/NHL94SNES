@@ -4,7 +4,7 @@ CODE_9EE9BF:
 	lda.w #$0004
 	trb.w sflags
 	lda.w #$FFFF
-	sta.w $0AD9
+	sta.w shotPlIdx
 	lda.w #$0010
 	sta.w $1203,x
 	txa

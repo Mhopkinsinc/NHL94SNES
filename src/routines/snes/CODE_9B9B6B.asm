@@ -10,11 +10,11 @@ CODE_9B9B6B:
 	cmp.w #$0004
 	beq .1
 	inc.b $00
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	cmp.w #$0002
 	bmi .1
 	inc.b $00
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	cmp.w #$0003
 	bmi .1
 	inc.b $00

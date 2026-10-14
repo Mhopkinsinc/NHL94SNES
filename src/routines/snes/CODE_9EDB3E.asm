@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EDB3E:
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bpl CODE_9EDB3A
 	lda.w iflags
 	bit.w #$0004

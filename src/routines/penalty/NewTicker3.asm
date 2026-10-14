@@ -76,7 +76,7 @@ NewTicker3:
 	sta.b $8F
 	lda.b $01,s
 	sta.w printx
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	inc a
 	sta.b d0
 	lda.l $7E34BC

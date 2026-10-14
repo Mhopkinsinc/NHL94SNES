@@ -3825,3 +3825,8 @@ $9C8F36,ClearGameStatBraces,CODE_9C8F36,new,prints the blank from LineBraces bef
 $9BC4F3,ClearOtherScoreBraces,CODE_9BC4F3,new,prints the blank from LineBraces before that window moves,src/routines/hockey/ClearOtherScoreBraces.asm
 $9C9366,LineBraces+3,#$9366,new,"closing brace, the second string in LineBraces",src/data/text/LineBraces.asm
 $9C9369,LineBraces+6,#$9369,new,"blank that erases a brace, the third string in LineBraces",src/data/text/LineBraces.asm
+$0A48,mesareaEnd,#$0A48,new,end of decimal string in PushNumber and PushTime,src/ram94snes.asm
+$0AD9,shotPlIdx,$0AD9,new,player index on shot and highlight path,src/ram94snes.asm
+$1742,gmStatBase,$1742,new,team stat words cleared by ClearTeamStats,src/ram94snes.asm
+$7E35D4,playoffRoundIdx,$7E35D4,new,playoff round for other scores and passwords,src/ram94snes.asm
+$FFFC,rosterNone,#$FFFC,new,no roster slot beside TMPDOUT in bench checks,src/ram94snes.asm

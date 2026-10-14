@@ -41,7 +41,7 @@ CODE_9EA8A9:
 	lda.b d0
 	pha
 	sta.b d2
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .t2x
 	jmp.w CODE_9EA9AD
 

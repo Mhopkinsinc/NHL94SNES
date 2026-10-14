@@ -38,7 +38,7 @@ CODE_9EE6D2:
 	sbc.w $0ADB
 	sta.w $0BAD,x
 	bmi CODE_9EE77E
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bpl CODE_9EE77E
 	lda.w $0BAB
 	bne CODE_9EE797

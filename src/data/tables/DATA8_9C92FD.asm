@@ -4,7 +4,7 @@ DATA8_9C92FD:		; per stat of TeamStatNames: a kind word, then the RAM word of th
 	dw $0010,$178E,$FFFF
 	dw $0010,$177A,$FFFF
 	dw $0012,$178E,$177A
-	dw $0001,$1742,$1746
+	dw $0001,gmStatBase,$1746
 	dw $0003,$1756,$FFFF
 	dw $0000,$175A,$FFFF
 	dw $0000,$1762,$FFFF

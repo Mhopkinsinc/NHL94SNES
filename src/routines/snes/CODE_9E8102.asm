@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9E8102:
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi CODE_9E8136
 	lda.w position,y
 	bne CODE_9E8136

@@ -40,9 +40,9 @@ CODE_9EB9D5:
 	inc a
 	sta.w tmap,y
 	ldy.b a2
-	lda.w $1742,y
+	lda.w gmStatBase,y
 	inc a
-	sta.w $1742,y
+	sta.w gmStatBase,y
 	lda.w #$0001
 	tsb.w tmflags
 	tsb.w $17E0

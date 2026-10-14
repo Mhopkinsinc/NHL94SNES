@@ -19,7 +19,7 @@ TryAddPlayerToList:
 	lda.w tmpdst,y
 	cmp.w #TMPDOUT
 	beq .t1
-	cmp.w #$FFFC
+	cmp.w #rosterNone
 	beq .t1
 	lda.w #$0005
 	sta.b d0

@@ -143,3 +143,30 @@ Status in the table: **extracted** means the bytes are already a named file the 
 5. `data/text`, `data/tables`, `data/sound`, `data/gfx`: name `DATA8_` blocks that match a reference asset. Leave the rest on the Unsure list.
 6. SPA names in the animation list (`SPAboardfront`, `SPAboardback`, `SPAbenchcheckl`, `SPAbenchcheckr`, `SPAcrosscheck`, and the rest of the 94G list), frame numbers, RAM, sound IDs, team indexes, joypad bits, PPU equates. Long pointers that are bank `$00` in the ROM are `dl Label&$FFFF`.
 7. Headers: a short plain-English line on each routine file, a short story on each larger file. "new in 94" only for a major feature.
+8. **Unsure decisions (approved 14 Oct 2026).** Apply the equates and policies below before more bank renames. Details and ids are in `docs/HANDOFF.md` and the finish-plan canvas.
+
+### Equates to apply (source=new)
+
+| Name | Address | Where used |
+|---|---|---|
+| `mesareaEnd` | `$0A48` | `PushNumber`, `PushTime` only |
+| `shotPlIdx` | `$0AD9` | Shot / highlight / `ShotMode` path |
+| `gmStatBase` | `$1742` | `ClearTeamStats`, team stat pointers |
+| `playoffRoundIdx` | `$7E35D4` | `GetShifter`, passwords, other scores |
+| `rosterNone` | `$FFFC` | `cmp.w` beside `TMPDOUT` in `TryAddPlayerToList`, `ResetBench`, `reenergizeteam` |
+
+### Keep raw (do not equate globally)
+
+`$00` / `$04` / `$08` (divider and engine scratch). `$C3` in `vtoa`. `#$000B` / `#$000A` / `#$0012` in `setplayer`. `$14` and `$0CE5` scratch in `setplayer` until one owner is proven. Flag immediates `#$0800`, `#$0040`, `#$2000`, `#$4000` except the sites already converted. `PenOffsides` stays `$12` in this ROM (note 93S uses `$10`).
+
+### Defer until investigated
+
+`$7E34C6` (not `OptLine`; map bits or split before naming). `$163A` (penalty suppress, not `OptPen`). `$0B7D,x` (pass target on assist path). `#$0024` in `AddPenalty` (match 94G penalty id). `$7E35D0` / `blankchar` (compare stored tile to 93S before naming). `CODE_9EE220`, `CODE_9FD85F`, rejected 93S routine names — name from behavior one at a time.
+
+### DATA8 and sprites
+
+Mixed `DATA8_9CF000` cursors: stay `DATA8_` or `Cursor_…` only when tied to one screen. Optional: `StoppageMessages` for `DATA8_80D3EB` (not `PenaltyList`). `SpriteFrameN` and `DATA8_9DE0FC` stay numbered until SPF mapping is proven (project decision, not backlog).
+
+### Missing assets
+
+Identify from screen routines (title, password, summaries, rink DMA), extract with MATCH, or record N/A when SNES has no separate file (many 94G-only gfx). Do not force 94G filenames onto SNES packed streams.

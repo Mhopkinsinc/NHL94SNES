@@ -1,6 +1,6 @@
 ; Playoffs: give the other games of the round scores so far
 InitScores:
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	cmp.w #$0002
 	bcs CODE_9FC87B
 	jsl.l GetShifter

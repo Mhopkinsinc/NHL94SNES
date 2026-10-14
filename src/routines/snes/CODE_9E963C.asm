@@ -21,9 +21,9 @@ CODE_9E9649:
 	lda.b d4
 	cmp.w #$0014
 	bcc .2
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq .1
-	cpy.w $0AD9
+	cpy.w shotPlIdx
 	bne .2
 .1:
 	jsl.l CODE_9E9B0E

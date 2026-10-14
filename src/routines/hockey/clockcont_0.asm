@@ -18,7 +18,7 @@ clockcont_0:
 	sta.b d0
 	ldx.w #$0000
 	stx.b a3
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	cmp.w #$0003
 	bne .4
 	lda.w $0ACF

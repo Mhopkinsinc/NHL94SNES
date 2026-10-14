@@ -6,7 +6,7 @@ CODE_9E9D79:
 	sta.l $7E35E0
 	lda.w #$002D
 	sta.b $81
-	lda.w $0AD9
+	lda.w shotPlIdx
 	sta.b d0
 	bmi CODE_9E9D73
 	cpy.b d0
@@ -41,7 +41,7 @@ CODE_9E9D79:
 	bmi CODE_9E9E59
 	beq CODE_9E9E59
 	lda.w #$FFFF
-	sta.w $0AD9
+	sta.w shotPlIdx
 	stz.w $0C23
 	ldy.b a2
 	lda.w pfteam,y

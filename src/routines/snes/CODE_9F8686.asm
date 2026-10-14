@@ -345,7 +345,7 @@ CODE_9F8947:
 	txa
 	lsr a
 	sta.b d6
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .1x
 	lda.w sfhormode
 	bne .1x
@@ -396,7 +396,7 @@ CODE_9F8947:
 	bne CODE_9F8A44
 	cpx.w #$0018
 	bcs CODE_9F8A44
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq CODE_9F8A44
 	lda.w $0B05,x
 	bit.w #$0001
@@ -560,7 +560,7 @@ CODE_9F8ADD:
 	sta.w pucky
 	sta.w $0DD5
 .4:
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi CODE_9F8B64
 	lda.w pucky
 	sta.l $7E30F4

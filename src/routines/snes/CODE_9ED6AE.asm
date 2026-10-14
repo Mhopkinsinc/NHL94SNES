@@ -20,7 +20,7 @@ CODE_9ED6AE:
 	lda.w #$FEF8
 	sta.b d4
 CODE_9ED6D8:
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq .t1
 	jsr.w CODE_9EDC44
 	jsl.l vtoa

@@ -19,7 +19,7 @@ CODE_9E8000:
 .1:
 	lda.w position,x
 	beq .t2
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .t3
 	lda.w #$0011
 	sta.b d0
@@ -47,7 +47,7 @@ CODE_9E8000:
 	lda.w #$0000
 .1x:
 	sta.w $1003,x
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi .t1x
 	lda.w position,y
 	beq .t1x

@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9EE891:
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi .t1
 .1:
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq .t1
 	jmp.w CODE_9EE77E
 

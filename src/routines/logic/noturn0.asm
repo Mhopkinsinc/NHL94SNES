@@ -67,7 +67,7 @@ noturn0:
 	lda.w #$F7B2
 	sta.b d1
 .1x2:
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .2
 	ldy.w #$0000
 	lda.w #$EA4C

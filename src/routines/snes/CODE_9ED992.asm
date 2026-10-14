@@ -48,7 +48,7 @@ CODE_9ED9A0:
 	beq CODE_9EDA04
 	cmp.w #$0006
 	beq CODE_9EDA04
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi CODE_9EDA04
 	dec.b d0
 	dec.b d0
@@ -92,7 +92,7 @@ CODE_9EDA51:
 	jmp.w CODE_9EDBF3
 
 .t1:
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi CODE_9EDAA4
 	lda.w pfteam,x
 	cmp.w pfteam,y
@@ -167,7 +167,7 @@ CODE_9EDAA4:
 	sta.b d1
 	lda.w #$0005
 	sta.b tmp0
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .3
 	asl.b tmp0
 .3:

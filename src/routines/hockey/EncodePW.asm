@@ -9,7 +9,7 @@ EncodePW:
 	sta.l $7E34BC
 	jsl.l ResolveGames
 	jsl.l maketree
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	cmp.w #$0004
 	beq .t1
 	lda.l $7E35D6
@@ -18,7 +18,7 @@ EncodePW:
 	sec
 	sbc.w #$0002
 	bmi CODE_9BC7D9
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	cmp.w #$0001
 	bne CODE_9BC7D9
 	lda.l $7E34F2

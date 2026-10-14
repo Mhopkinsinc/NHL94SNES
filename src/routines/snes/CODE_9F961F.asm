@@ -39,7 +39,7 @@ CODE_9F961F:
 	jsl.l Mul16U
 	lda.b $08
 	tsb.w $0AD5
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	inc a
-	sta.l $7E35D4
+	sta.l playoffRoundIdx
 	rtl

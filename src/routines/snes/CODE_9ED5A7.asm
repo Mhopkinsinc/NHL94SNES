@@ -5,7 +5,7 @@ CODE_9ED5A7:
 	lda.w $0ADD,y
 	cmp.w #$0001
 	bne .t3
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq CODE_9ED574
 	lda.w $0D71
 	sec
@@ -46,7 +46,7 @@ CODE_9ED5A7:
 	sec
 	sbc.w Ypos,x
 	sta.b d1
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi .t1x
 	lsr a
 	tay

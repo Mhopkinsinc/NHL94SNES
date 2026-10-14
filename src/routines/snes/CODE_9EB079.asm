@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EB079:
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi CODE_9EB070
 	lda.b $00
 	lsr a
@@ -66,10 +66,10 @@ CODE_9EB079:
 	sta.w $0EE3,x
 	txa
 	lsr a
-	cmp.w $0AD9
+	cmp.w shotPlIdx
 	bne .1x2
 	lda.w #$FFFF
-	sta.w $0AD9
+	sta.w shotPlIdx
 	lda.w #$0708
 	sta.w $1203,x
 .1x2:
