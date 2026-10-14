@@ -7,9 +7,9 @@ CODE_80A4E3:
 	sty.w APUIO1
 	lda.b #$0C
 	sta.w APUIO0
-CODE_80A4F5:
+.loop:
 	cmp.w APUIO0
-	bne CODE_80A4F5
+	bne .loop
 	stz.w APUIO0
 CODE_80A4FD:
 	lda.w APUIO0
@@ -21,8 +21,8 @@ CODE_80A4FD:
 	sty.w APUIO1
 	lda.b #$0B
 	sta.w APUIO0
-CODE_80A513:
+.loop:
 	cmp.w APUIO0
-	bne CODE_80A513
+	bne .loop
 	stz.w APUIO0
 	rts

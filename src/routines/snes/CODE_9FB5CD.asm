@@ -1,13 +1,18 @@
 ; Unidentified routine.
 CODE_9FB5CD:
 	ldy.w #$0000
-CODE_9FB5D0:
+.loop:
 	lda.w $19F6,y
 	cmp.b a2
-	beq CODE_9FB5E3
+	beq .t1
 	iny
 	iny
 	cpy.w #$000A
-	bcc CODE_9FB5D0
+	bcc .loop
 	lda.w #$FFFF
 	bra CODE_9FB5E4
+
+.t1:
+	tya
+CODE_9FB5E4:
+	rtl

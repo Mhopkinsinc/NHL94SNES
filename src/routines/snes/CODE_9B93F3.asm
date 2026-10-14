@@ -40,11 +40,45 @@ CODE_9B93F3:
 	lda.w #$0000
 	sta.w $1DC1
 	lda.l $7E313A
-CODE_9B9466:
+.loop:
 	cmp.w #$0006
-	bmi CODE_9B9474
-CODE_9B946B:
+	bmi .t1
+.1:
 	inc.w $1DC1
 	sec
 	sbc.w #$0006
-	bra CODE_9B9466
+	bra .loop
+
+.t1:
+	lda.w $1DC1
+	cmp.w #$0006
+	bcc .2
+.1x:
+	jsl.l CODE_9B9A5D
+.2:
+	jsr.w CODE_9B95B0
+	jsl.l CODE_9DD923
+	lda.w #$0058
+	ldx.w #$00D0
+	ldy.w #$00E0
+	jsl.l CODE_9BCDF8
+	jsl.l CODE_9DDFF6
+	jsl.l CODE_8086BD
+	lda.w #$0005
+	sta.w $1DC5
+	jsr.w CODE_9B9562
+CODE_9B94A5:
+	jsl.l CODE_9B851F
+	lda.b d3
+	bit.w #$1000
+	beq .t1
+	rtl
+
+.t1:
+	bit.w #$0800
+	bne CODE_9B9514
+	bit.w #DMA_OAM
+	bne CODE_9B94C1
+CODE_9B94BB:
+	jsl.l WaitFrame
+	bra CODE_9B94A5

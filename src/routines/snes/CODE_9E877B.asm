@@ -3,32 +3,32 @@ CODE_9E877B:
 	sty.b a0
 	lda.w pflags,y
 	bit.w #$1000
-	bne CODE_9E87AE
+	bne .4
 	lda.w position,y
-	bmi CODE_9E87AE
+	bmi .4
 	lda.w $0EE3,y
-	bpl CODE_9E8792
+	bpl .1
 	lda.w #$0000
-CODE_9E8792:
+.1:
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	bit.w #DMA_OAM
-	beq CODE_9E879F
-CODE_9E879C:
+	beq .3
+.2:
 	ora.w #$F800
-CODE_9E879F:
+.3:
 	clc
 	adc.w Ypos,y
 	sta.b d1
 	sec
 	sbc.b d0
-	bmi CODE_9E87AE
+	bmi .4
 	lda.b d1
 	sta.b d0
-CODE_9E87AE:
+.4:
 	ldy.b a0
 	iny
 	iny
@@ -40,10 +40,10 @@ CODE_9E87AE:
 	sta.b d0
 	sec
 	sbc.w #$00BE
-	bmi CODE_9E87C9
+	bmi .5
 	lda.w #$00DC
 	sta.b d0
-CODE_9E87C9:
+.5:
 	lda.b d0
 	sta.w $1063,x
 	lda.w #$0000

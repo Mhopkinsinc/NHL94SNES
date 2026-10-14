@@ -23,10 +23,10 @@ CODE_9FDA53:
 	ldy.b a1
 	cmp.w tmap,y
 	beq CODE_9FDABF
-	bpl CODE_9FDA82
+	bpl .1
 	inc.b d0
 	inc.b d0
-CODE_9FDA82:
+.1:
 	lda.b d0
 	pha
 	jsl.l CODE_9FDF0C
@@ -39,11 +39,11 @@ CODE_9FDA82:
 	lda.b d1
 	sec
 	sbc.b d0
-	bpl CODE_9FDAA0
+	bpl .2
 	pla
 	inc a
 	pha
-CODE_9FDAA0:
+.2:
 	pla
 	ldy.b a2
 	sta.w tmline,y

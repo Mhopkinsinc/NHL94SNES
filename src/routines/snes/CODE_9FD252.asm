@@ -14,27 +14,27 @@ CODE_9FD252:
 	pha
 	stx.b xsave
 	ldx.w #$0000
-CODE_9FD269:
+.loop:
 	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0010
-	bne CODE_9FD269
+	bne .loop
 	ldx.b xsave
 	stz.b a2
-	jsl.l CODE_9FD2A7
+	jsl.l .t1
 	lda.w #$0002
 	sta.b a2
-	jsl.l CODE_9FD2A7
+	jsl.l .t1
 	stx.b xsave
 	ldx.w #$000E
-CODE_9FD289:
+.loop2:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9FD289
+	bpl .loop2
 	ldx.b xsave
 	pla
 	sta.b $AF
@@ -49,4 +49,44 @@ CODE_9FD289:
 	pla
 	sta.b d0
 	ldx.b a3
+	rtl
+
+.t1:
+	ldy.b a2
+	lda.w tmflags,y
+	and.w #$FFEF
+	sta.w tmflags,y
+	lda.w #$0005
+	sta.b d2
+	ldx.w tmsort,y
+	stx.b a3
+CODE_9FD2BC:
+	stz.w $1543,x
+	lda.w pflags,x
+	and.w #$2FFF
+	sta.w pflags,x
+	lda.w position,x
+	bmi CODE_9FD2F3
+	bne .t1
+	lda.w #$E0FE
+	bra CODE_9FD2D7
+
+.t1:
+	lda.w #$EA1A
+CODE_9FD2D7:
+	jsl.l CODE_9EA3F1
+	stz.w $0F23,x
+	stz.w $1203,x
+	lda.w pflags,x
+	and.w #$FFF6
+	sta.w pflags,x
+	stz.w $1563,x
+	stz.w $1523,x
+	stz.w pfalock,x
+CODE_9FD2F3:
+	inc.b a3
+	inc.b a3
+	ldx.b a3
+	dec.b d2
+	bpl CODE_9FD2BC
 	rtl

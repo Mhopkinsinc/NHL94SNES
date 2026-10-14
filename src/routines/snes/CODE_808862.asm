@@ -2,7 +2,7 @@
 CODE_808862:
 	sta.b $16
 	lda.w $0761
-	bpl CODE_8088BA
+	bpl .t1
 	txa
 	pha
 	sta.w DAS1L
@@ -37,4 +37,59 @@ CODE_808862:
 	sta.w MDMAEN
 	rep #$20
 	ply
+	rtl
+
+.t1:
+	txa
+	ldx.b $3C
+.loop:
+	pha
+	cmp.w #$1001
+	bcc .1
+	lda.w #$1000
+.1:
+	pha
+	sta.w $0104,x
+	tya
+	sta.w $0106,x
+	lda.w #$0016
+	sta.w $0101,x
+	sep #$20
+	stz.w $0103,x
+	lda.b #$FD
+	sta.w $0100,x
+	rep #$20
+	txa
+	clc
+	adc.w #$0008
+	and.w #$03FF
+	tax
+	pla
+	sta.w $0104,x
+	pha
+	tya
+	sta.w $0106,x
+	pla
+	clc
+	adc.w $0106,x
+	tay
+	lda.w #$0017
+	sta.w $0101,x
+	sep #$20
+	stz.w $0103,x
+	lda.b #$FC
+	sta.w $0100,x
+	rep #$20
+	txa
+	clc
+	adc.w #$0008
+	and.w #$03FF
+	tax
+	pla
+	sec
+	sbc.w #$1000
+	beq .2
+	bcs .loop
+.2:
+	stx.b $3C
 	rtl

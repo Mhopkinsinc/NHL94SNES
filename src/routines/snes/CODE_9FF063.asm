@@ -19,7 +19,7 @@ CODE_9FF063:
 	sta.b d1
 	jsl.l CODE_9D8000
 	ldy.w #$000D
-CODE_9FF08E:
+.loop:
 	phy
 	lda.w #$2400
 	sta.w $0D0D
@@ -34,7 +34,7 @@ CODE_9FF08E:
 	ply
 	iny
 	cpy.w #$0012
-	bcc CODE_9FF08E
+	bcc .loop
 	lda.b $8F
 	pha
 	lda.b a1
@@ -55,12 +55,12 @@ CODE_9FF08E:
 	lda.w #DATA8_9FF179
 	sta.b a1
 	lda.w $1D81
-	beq CODE_9FF0EC
+	beq .1
 	lda.w #$009F
 	sta.b $8F
 	lda.w #DATA8_9FF18F
 	sta.b a1
-CODE_9FF0EC:
+.1:
 	jsl.l print
 	lda.b $8F
 	pha
@@ -78,10 +78,10 @@ CODE_9FF0EC:
 	lda.w #$2400
 	sta.w $0D0D
 	lda.w $1DB9
-	bne CODE_9FF11B
+	bne .2
 	lda.w #$2000
 	sta.w $0D0D
-CODE_9FF11B:
+.2:
 	lda.w #$009F
 	sta.b $8F
 	lda.w #DATA8_9FF1BB
@@ -103,10 +103,10 @@ CODE_9FF11B:
 	lda.w #$2400
 	sta.w $0D0D
 	lda.w $1DB9
-	beq CODE_9FF154
+	beq .3
 	lda.w #$2000
 	sta.w $0D0D
-CODE_9FF154:
+.3:
 	lda.w #$009F
 	sta.b $8F
 	lda.w #DATA8_9FF1A5

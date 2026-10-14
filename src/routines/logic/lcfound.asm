@@ -7,7 +7,7 @@ lcfound:
 	sta.w $17E6,y
 	jsl.l getlchoice
 	lda.b d0
-	bmi CODE_9FE03E
+	bmi .t1
 	lda.w pflags,x
 	ora.w #$0008
 	sta.w pflags,x
@@ -22,3 +22,6 @@ lcfound:
 	sta.w $1D55,y
 	jsl.l setpersonel
 	jmp.w CODE_9FDE13
+
+.t1:
+	rtl

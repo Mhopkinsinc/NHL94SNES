@@ -6,11 +6,11 @@ showzam:
 	sta.b tmp0
 	tya
 	sbc.w $0D53
-	bne CODE_9FA5E9
+	bne .rtl
 	lda.w sfhormode
-	beq CODE_9FA5E9
+	beq .rtl
 	lda.w $1A10
-	beq CODE_9FA5E9
+	beq .rtl
 	stz.w $0CC5
 	stz.w $0CD3
 	lda.w #$2000
@@ -24,5 +24,5 @@ showzam:
 	lda.w #$01C0
 	sta.w $0CCD
 	jsl.l CODE_9BBFB9
-CODE_9FA5E9:
+.rtl:
 	rtl

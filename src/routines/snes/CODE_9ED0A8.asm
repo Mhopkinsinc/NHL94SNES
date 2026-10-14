@@ -5,11 +5,11 @@ CODE_9ED0A8:
 	stz.b a2
 	lda.w #$0002
 	sta.b a1
-	jsl.l CODE_9ED0BF
+	jsl.l .1
 	stz.b a1
 	lda.w #$0002
 	sta.b a2
-CODE_9ED0BF:
+.1:
 	ldy.b a2
 	lda.w tmgoalie,y
 	bmi CODE_9ED0FC
@@ -22,10 +22,18 @@ CODE_9ED0BF:
 	ldy.b a2
 	lda.w gmode
 	bit.w #$0008
-	bne CODE_9ED0EF
+	bne .t1
 	lda.w $19D0,y
 	bne CODE_9ED0FC
 	lda.w pucky
 	sta.b d1
 	jsl.l CPgoalie
+	rtl
+
+.t1:
+	lda.w tmgoalie,y
+	ora.w #$FF00
+	sta.w tmgoalie,y
+	jsl.l setpersonel
+CODE_9ED0FC:
 	rtl

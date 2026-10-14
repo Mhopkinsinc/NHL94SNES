@@ -10,12 +10,12 @@ CODE_9D842F:
 	inc.b a0
 	inc.b a0
 	lda.w $1E41
-	bmi CODE_9D8453
+	bmi .1
 	lda.w #$001E
 	sta.b [a0]
 	inc.b a0
 	inc.b a0
-CODE_9D8453:
+.1:
 	lda.w HomeTeam
 	sta.b d0
 	lda.w #$001F
@@ -24,12 +24,12 @@ CODE_9D8453:
 	inc.b a0
 	lda.w VisTeam
 	cmp.b d0
-	beq CODE_9D8471
+	beq .2
 	lda.w #$0020
 	sta.b [a0]
 	inc.b a0
 	inc.b a0
-CODE_9D8471:
+.2:
 	lda.w #$0021
 	sta.b [a0]
 	inc.b a0

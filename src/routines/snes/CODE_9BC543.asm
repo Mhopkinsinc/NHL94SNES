@@ -18,18 +18,18 @@ CODE_9BC543:
 	sta.b d0
 	lda.l $7E3578,x
 	cmp.l $7E3588,x
-	beq CODE_9BC584
+	beq .2
 	lda.b d0
 	cmp.w #$0004
-	bne CODE_9BC584
-CODE_9BC582:
+	bne .2
+.1:
 	inc.b d0
-CODE_9BC584:
+.2:
 	lda.w #$0080
 	sta.b $8B
 	lda.w #$D6E1
 	sta.b a0
-CODE_9BC58E:
+.loop:
 	lda.b $8B
 	sta.b $8F
 	lda.b a0
@@ -39,9 +39,9 @@ CODE_9BC58E:
 	adc.b a0
 	sta.b a0
 	dec.b d0
-	bmi CODE_9BC5A3
-	bne CODE_9BC58E
-CODE_9BC5A3:
+	bmi .3
+	bne .loop
+.3:
 	jsl.l CODE_9EC894
 	inc.w printy
 	rts

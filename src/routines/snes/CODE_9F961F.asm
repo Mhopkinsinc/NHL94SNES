@@ -1,32 +1,32 @@
 ; Unidentified routine.
 CODE_9F961F:
 	stz.b d3
-CODE_9F9621:
+.loop:
 	ldx.b a0
 	lda.l $7E3588,x
 	cmp.l $7E3578,x
-	bcc CODE_9F9637
+	bcc .1
 	lda.b d1
 	asl a
 	tax
 	lda.l DATA8_80DA26,x
 	tsb.b d3
-CODE_9F9637:
+.1:
 	ldx.b a0
 	lda.l $7E3598,x
 	bit.w #$0001
-	beq CODE_9F964E
+	beq .2
 	lda.b d1
 	asl a
 	tax
 	lda.l DATA8_80DA26,x
 	eor.b d3
 	sta.b d3
-CODE_9F964E:
+.2:
 	dec.b a0
 	dec.b a0
 	dec.b d1
-	bpl CODE_9F9621
+	bpl .loop
 	lda.b d2
 	asl a
 	tax

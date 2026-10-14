@@ -5,9 +5,9 @@ CODE_9ED7B2:
 	lsr a
 	and.w #$007F
 	bit.w #$0040
-	beq CODE_9ED7C2
+	beq .1
 	ora.w #$FF80
-CODE_9ED7C2:
+.1:
 	clc
 	adc.w $0D71
 	sta.b d0

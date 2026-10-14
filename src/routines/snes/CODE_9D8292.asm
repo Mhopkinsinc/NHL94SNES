@@ -41,5 +41,22 @@ CODE_9D8292:
 	lda.w $1E45
 	sec
 	sbc.w $1E47
-	bmi CODE_9D830F
+	bmi .t1
 	bra CODE_9D831C
+
+.t1:
+	lda.w VisTeam
+	sta.w $1E41
+	lda.w $1E47
+	sec
+	sbc.w $1E45
+CODE_9D831C:
+	cmp.w #$0008
+	bcs .rtl
+	stz.w $1E43
+	cmp.w #$0004
+	bcs .rtl
+	lda.w #$FFFF
+	sta.w $1E41
+.rtl:
+	rtl

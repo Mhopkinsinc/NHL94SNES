@@ -10,10 +10,10 @@ CODE_9B81F3:
 	and.b #$01
 	sta.w $1A0E
 	lda.w $1A04
-	beq CODE_9B8208
-CODE_9B8205:
+	beq .2
+.1:
 	dec.w $1A04
-CODE_9B8208:
+.2:
 	stz.w JOYSER0
 	lda.b #$01
 	sta.w JOYSER0
@@ -29,11 +29,40 @@ CODE_9B8208:
 	eor.w $1A08
 	stx.w $1A08
 	ora.w $1A0A
-	beq CODE_9B8235
-CODE_9B8230:
+	beq .4
+.3:
 	lda.b #$10
 	sta.w $1A04
-CODE_9B8235:
+.4:
 	lda.w $1A04
-	bne CODE_9B823C
+	bne .t1
 	bra CODE_9B8274
+
+.t1:
+	jsl.l Multi5ConnectCheck
+	ldx.w #$000F
+	stx.w $077A
+	stx.w $077C
+	stx.w $077E
+	lda.w $1A00
+	and.b #$80
+	beq .t2
+	lda.b #$01
+	tsb.w $1A0E
+	bra CODE_9B825F
+
+.t2:
+	lda.b #$01
+	trb.w $1A0E
+CODE_9B825F:
+	lda.w $1A00
+	and.b #$40
+	beq .t1
+	lda.b #$01
+	tsb.w $1A0C
+	bra CODE_9B8277
+
+.t1:
+	lda.b #$01
+	trb.w $1A0C
+	bra CODE_9B8277

@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9FBF75:
 	lda.w textdirtylo
-	bmi CODE_9FBF9F
+	bmi .rtl
 	tay
 	asl a
 	adc.w #$37F4
@@ -9,7 +9,7 @@ CODE_9FBF75:
 	lda.w #$007E
 	sta.b $0E
 	lda.w textdirtyhi
-	beq CODE_9FBF9F
+	beq .rtl
 	sec
 	sbc.w textdirtylo
 	inc a
@@ -19,5 +19,5 @@ CODE_9FBF75:
 	lda.w #$FFFF
 	sta.w textdirtylo
 	stz.w textdirtyhi
-CODE_9FBF9F:
+.rtl:
 	rtl

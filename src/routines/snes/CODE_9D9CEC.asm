@@ -12,14 +12,14 @@ CODE_9D9CF7:
 	lda.b d1
 	sta.b d0
 	jsl.l randomd0
-CODE_9D9D03:
+.loop:
 	dec.b a1
 	dec.b a1
 	lda.b d0
 	sec
 	sbc.b [a1]
 	sta.b d0
-	bpl CODE_9D9D03
+	bpl .loop
 	lda.b a1
 	sec
 	sbc.w #$0CF9

@@ -2,13 +2,13 @@
 CODE_9DC561:
 	stx.b xsave
 	ldx.w #$0000
-CODE_9DC566:
+.loop:
 	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0014
-	bne CODE_9DC566
+	bne .loop
 	ldx.b xsave
 	lda.b a0
 	pha
@@ -26,22 +26,61 @@ CODE_9DC566:
 	jsl.l GoalieCount
 	lda.w $1D9B
 	cmp.b d0
-	bpl CODE_9DC5A4
+	bpl .1
 	lda.w #$0080
 	sta.b $8F
 	lda.w #AttribMenuGoalie
 	sta.b a1
 	lda.w #$0010
 	sta.b $08
-CODE_9DC5A4:
+.1:
 	phx
 	ldx.b d1
-CODE_9DC5A7:
+.loop2:
 	dex
-	bmi CODE_9DC5B6
+	bmi .t1
 	lda.b a1
 	clc
 	adc.b [a1]
 	adc.w #$0004
 	sta.b a1
-	bra CODE_9DC5A7
+	bra .loop2
+
+.t1:
+	lda.b a1
+	clc
+	adc.b [a1]
+	sta.b a1
+	lda.b [a1]
+	sta.b $B7
+	ldy.w #$0002
+	lda.b [a1],y
+	sta.b d4
+	plx
+	lda.w $1D9B
+	sta.b d0
+	lda.w #$0001
+	sta.l $7E35F2
+	jsl.l CODE_9F992E
+	lda.b d0
+	sta.b $00
+	pla
+	sta.b $8F
+	pla
+	sta.b a1
+	pla
+	sta.b $8B
+	pla
+	sta.b a0
+	stx.b xsave
+	ldx.w #$0012
+.loopx:
+	pla
+	sta.b d0,x
+	dex
+	dex
+	bpl .loopx
+	ldx.b xsave
+	lda.b $00
+	sta.b d0
+	rtl

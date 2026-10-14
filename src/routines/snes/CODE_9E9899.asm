@@ -6,10 +6,10 @@ CODE_9E9899:
 	sec
 	sbc.w $0D71
 	bit.w #$8000
-	beq CODE_9E98AE
+	beq .1
 	eor.w #$FFFF
 	inc a
-CODE_9E98AE:
+.1:
 	cmp.w #$0009
 	bcs CODE_9E98EC
 	sta.b d0
@@ -17,10 +17,10 @@ CODE_9E98AE:
 	sec
 	sbc.w pucky
 	bit.w #$8000
-	beq CODE_9E98C5
+	beq .2
 	eor.w #$FFFF
 	inc a
-CODE_9E98C5:
+.2:
 	cmp.w #$0009
 	bcs CODE_9E98EC
 	sta.b d1
@@ -41,11 +41,11 @@ CODE_9E98C5:
 CODE_9E98EC:
 	stx.b xsave
 	ldx.w #$001A
-CODE_9E98F1:
+.loop:
 	pla
 	sta.b d0,x
 	dex
 	dex
-	bpl CODE_9E98F1
+	bpl .loop
 	ldx.b xsave
 	rtl

@@ -111,7 +111,7 @@ CODE_9DC0EE:
 	jsl.l CODE_9C9590
 CODE_9DC208:
 	lda.w $1DB9
-	beq CODE_9DC27C
+	beq .t1
 	lda.w $1D9B
 	ldx.w #$000D
 	ldy.w #$0004
@@ -156,3 +156,14 @@ CODE_9DC208:
 	ldy.w #$0004
 	jsl.l CODE_808ADF
 	bra CODE_9DC280
+
+.t1:
+	jsl.l CODE_9DD94D
+CODE_9DC280:
+	jsl.l CODE_9DC2DE
+	jsl.l WaitFrame
+	jsl.l SpriteFrameEnd
+	lda.w #$3568
+	sta.l $7F7500
+	jsl.l CODE_9DE0D4
+	rtl

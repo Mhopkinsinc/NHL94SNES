@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9ED517:
 	lda.w $1083,x
-	bpl CODE_9ED522
+	bpl .1
 	lda.w #$005A
 	sta.w $1083,x
-CODE_9ED522:
+.1:
 	lda.w #$FFFF
 	sta.w $1063,x
 	lda.w $1083,x
@@ -18,22 +18,22 @@ CODE_9ED522:
 	sta.b d0
 	stz.b a0
 	lda.w pfteam,x
-	bne CODE_9ED54B
+	bne .2
 	lda.w #$000C
 	sta.b a0
-CODE_9ED54B:
+.2:
 	ldy.b a0
 	lda.w pflags,y
 	bit.w #$1000
-	bne CODE_9ED55D
+	bne .3
 	lda.w $0B1D,y
 	cmp.w #$0023
 	bcc CODE_9ED577
-CODE_9ED55D:
+.3:
 	inc.b a0
 	inc.b a0
 	dec.b d0
-	bpl CODE_9ED54B
+	bpl .2
 	lda.w #$0001
 	sta.w $0D2D
 	jsl.l CODE_9EE89F

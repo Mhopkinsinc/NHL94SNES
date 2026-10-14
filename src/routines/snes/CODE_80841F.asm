@@ -5,8 +5,8 @@ CODE_80841F:
 	lda.w STAT77
 	bmi CODE_80843E
 	dec.w $0AD3
-	bmi CODE_808430
+	bmi .1
 	bne CODE_80843E
-CODE_808430:
+.1:
 	stz.w $0AD3
 	bra CODE_80843B

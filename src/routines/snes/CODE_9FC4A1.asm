@@ -11,12 +11,12 @@ CODE_9FC4A1:
 	stz.b a2
 	lda.w TempPlOffset
 	sta.b d0
-	bpl CODE_9FC4BF
+	bpl .1
 	and.w #$00FF
 	sta.b d0
 	inc.b a2
 	inc.b a2
-CODE_9FC4BF:
+.1:
 	jsl.l CODE_9FC4D0
 	pla
 	sta.b $93

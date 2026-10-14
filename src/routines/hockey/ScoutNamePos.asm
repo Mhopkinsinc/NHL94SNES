@@ -14,8 +14,8 @@ ScoutNamePos:
 	pla
 	sta.b $8F
 	lda.b a2
-	bne CODE_9ECE05
+	bne .rtl
 	lda.w #$0014
 	sta.w printx
-CODE_9ECE05:
+.rtl:
 	rtl

@@ -2,35 +2,35 @@
 CODE_9FB9A4:
 	stx.b xsave
 	ldx.w #$0000
-CODE_9FB9A9:
+.loop:
 	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0038
-	bne CODE_9FB9A9
+	bne .loop
 	ldx.b xsave
 	lda.w $0AD3
-	beq CODE_9FB9CC
+	beq .1
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
 	jsl.l CODE_9F96E6
 	lda.w #$000A
 	sta.w $0AD1
-CODE_9FB9CC:
+.1:
 	stz.w sfhormode
 	lda.w #$03E7
 	sta.w Oldrow
 	jsl.l SprSort
 	lda.w sflags
 	bit.w #$0001
-	bne CODE_9FB9F2
+	bne .2
 	jsl.l CODE_9DD977
 	stz.w textdirtylo
 	lda.w #$03FF
 	sta.w textdirtyhi
 	jsl.l CODE_9F9B36
-CODE_9FB9F2:
+.2:
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$35F4
@@ -40,12 +40,12 @@ CODE_9FB9F2:
 	jsl.l CODE_808723
 	stx.b xsave
 	ldx.w #$0036
-CODE_9FBA0B:
+.loop2:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9FBA0B
+	bpl .loop2
 	ldx.b xsave
 	ldx.b a3
 	rtl

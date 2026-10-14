@@ -4,7 +4,7 @@ CODE_9B9AB2:
 	clc
 	adc.w #$0005
 	cmp.w $1DC1
-	bpl CODE_9B9ADA
+	bpl .t1
 	lda.b $8F
 	pha
 	lda.b a1
@@ -19,3 +19,54 @@ CODE_9B9AB2:
 	pla
 	sta.b $8F
 	bra CODE_9B9AF4
+
+.t1:
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF151
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+CODE_9B9AF4:
+	lda.w $1DBD
+	dec a
+	bmi .t1
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF157
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	bra CODE_9B9B30
+
+.t1:
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF15D
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+CODE_9B9B30:
+	jsl.l CODE_9FBF75
+	rtl

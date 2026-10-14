@@ -24,6 +24,6 @@ CODE_9EDD90:
 	sta.b d0
 	dec.w $10BF
 	bpl CODE_9EDDBD
-CODE_9EDDAA:
+.1:
 	jsl.l CODE_9EB88A
 	bra CODE_9EDDBD

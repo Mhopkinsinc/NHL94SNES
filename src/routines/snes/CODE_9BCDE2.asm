@@ -5,9 +5,9 @@ CODE_9BCDE2:
 	sta.l PassWord
 	ldx.b #$0F
 	lda.b #$1E
-CODE_9BCDEE:
+.loop:
 	sta.l PassWord,x
 	dex
-	bne CODE_9BCDEE
+	bne .loop
 	rep #$30
 	rtl

@@ -2,9 +2,9 @@
 CODE_9EC9B1:
 	lda.w VertLineScrolling
 	cmp.w #$0001
-	bmi CODE_9EC9BD
+	bmi .1
 	jsl.l ScrollDisplayUp
-CODE_9EC9BD:
+.1:
 	jsl.l ScrollDisplayUp
 	lda.b $8F
 	sta.b $93

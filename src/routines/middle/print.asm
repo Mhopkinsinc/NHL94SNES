@@ -20,5 +20,41 @@ CODE_9EC7C2:
 CODE_9EC7DF:
 	tya
 	cmp.b [a1]
-	bne CODE_9EC7E7
+	bne .t2
 	jmp.w CODE_9EC881
+
+.t2:
+	lda.b [a1],y
+	bit.w #$0080
+	bne CODE_9EC827
+	and.w #$00FF
+	cmp.w #$0040
+	bne .t1
+	jmp.w CODE_9EC888
+
+.t1:
+	phx
+	asl a
+	tax
+	lda.l DATA8_9ACDB0+6,x
+	adc.b $14
+	plx
+CODE_9EC803:
+	cmp.l textmap,x
+	beq .2
+	sta.l textmap,x
+	txa
+	lsr a
+	cmp.w textdirtylo
+	bcs .1
+	sta.w textdirtylo
+.1:
+	cmp.w textdirtyhi
+	bcc .2
+	sta.w textdirtyhi
+.2:
+	inc.w printx
+	inx
+	inx
+	iny
+	bra CODE_9EC7DF

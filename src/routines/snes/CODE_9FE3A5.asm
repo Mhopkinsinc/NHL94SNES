@@ -2,5 +2,10 @@
 CODE_9FE3A5:
 	lda.b d1
 	bit.w #$8080
-	bne CODE_9FE3AF
+	bne .t1
 	jmp.w CODE_9FE19E
+
+.t1:
+	jsl.l CODE_9BA428
+	jsl.l CODE_9FE79F
+	jmp.w CODE_9FE2AE

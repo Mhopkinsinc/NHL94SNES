@@ -7,31 +7,31 @@ CODE_9EB9D5:
 	ldy.b a1
 	sec
 	sbc.w tmap,y
-	beq CODE_9EBA36
-	bmi CODE_9EBA36
+	beq .3
+	bmi .3
 	lda.b a1
-	beq CODE_9EB9EB
+	beq .1
 	lda.w #$001A
-CODE_9EB9EB:
+.1:
 	sta.b a0
-CODE_9EB9ED:
+.loop:
 	ldy.b a0
 	lda.w tmboxlist,y
 	inc.b a0
 	and.w #$00FF
 	sta.b d2
 	bit.w #$0080
-	bne CODE_9EBA36
+	bne .3
 	lda.b a1
-	beq CODE_9EBA05
+	beq .2
 	lda.w #$0034
-CODE_9EBA05:
+.2:
 	clc
 	adc.b d2
 	tay
 	lda.w tmpdst,y
 	bit.w #$4000
-	bne CODE_9EB9ED
+	bne .loop
 	lda.w #$0000
 	sta.w tmpdst,y
 	jsl.l RemovePlayerFromList
@@ -46,7 +46,7 @@ CODE_9EBA05:
 	lda.w #$0001
 	tsb.w tmflags
 	tsb.w $17E0
-CODE_9EBA36:
+.3:
 	pla
 	sta.b $8B
 	pla

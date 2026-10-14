@@ -2,8 +2,8 @@
 CODE_9FC287:
 	lda.w $0B05,x
 	bit.w #$0001
-	bne CODE_9FC294
+	bne .1
 	and.w #$0002
 	bne CODE_9FC298
-CODE_9FC294:
+.1:
 	jml.l CODE_9EA8A9

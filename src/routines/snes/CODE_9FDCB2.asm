@@ -5,13 +5,13 @@ CODE_9FDCB2:
 	asl a
 	sta.b d1
 	lda.w pfteam,x
-	beq CODE_9FDCC3
+	beq .1
 	lda.w #$0002
-CODE_9FDCC3:
+.1:
 	sta.b a2
-	beq CODE_9FDCCA
+	beq .2
 	lda.w #$0034
-CODE_9FDCCA:
+.2:
 	adc.b d1
 	tay
 	lda.w tmpde,y

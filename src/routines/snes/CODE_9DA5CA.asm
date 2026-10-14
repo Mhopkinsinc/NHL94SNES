@@ -108,12 +108,145 @@ CODE_9DA704:
 	lda.w OAMReady
 	bne CODE_9DA704
 	inc.w $0792
-	bne CODE_9DA715
+	bne .1
 	inc.w $0794
-CODE_9DA715:
+.1:
 	jsl.l WaitFrame
 	ldx.w $1A0E
 	txa
 	eor.b $AF
-	bne CODE_9DA724
-	jmp.w CODE_9DA768
+	bne .t5
+	jmp.w .t6
+
+.t5:
+	stx.b $AF
+	txa
+	beq .t4
+	bit.w #$0001
+	bne .t1
+	bit.w #$0002
+	bne .t2
+	bit.w #$0004
+	bne .t3
+	bra .t6
+
+.t1:
+	jsl.l CODE_9DAFAD
+	jsl.l CODE_9DAFB2
+	bra .t6
+
+.t2:
+	jsl.l CODE_9DAFAD
+	jsl.l CODE_9DB005
+	bra .t6
+
+.t3:
+	jsl.l CODE_9DAFAD
+	jsl.l CODE_9DB058
+	bra .t6
+
+.t4:
+	jsl.l Multi5Init
+	jsl.l CODE_9DB0FD
+	jsr.w CODE_9DA973
+	stz.b d1
+	jmp.w CODE_9DA869
+
+.t6:
+	lda.w $1A0E
+	beq .t1x
+	jmp.w CODE_9DA704
+
+.t1x:
+	jsl.l CODE_9B8017
+	lda.b $83
+	sta.w $0D35
+	sta.w $0D01
+	jsl.l CODE_9B84F5
+	dec.w $0AC4
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
+	and.w #$FFF0
+	sta.b d1
+	beq .t2x
+	jmp.w CODE_9DA869
+
+.t2x:
+	jsr.w CODE_9DAA83
+	jsl.l CODE_9FBF75
+	dec.b d6
+	dec.b d6
+	bmi .t1xx
+	jmp.w CODE_9DA704
+
+.t1xx:
+	lda.w #$001C
+	jsl.l CODE_9BB385
+	sta.l $7E34BE
+	sta.w HomeTeam
+.loop:
+	lda.w #$001C
+	jsl.l CODE_9BB385
+	cmp.l $7E34BE
+	beq .loop
+	sta.l $7E34C0
+	sta.w VisTeam
+	lda.w #$0000
+	sta.l $7E34CC
+	lda.w #$0000
+	sta.l $7E34BC
+	sta.l $7E34CA
+CODE_9DA7D7:
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9AB610
+	sta.b $0C
+	lda.w #$007E
+	sta.b $12
+	lda.w #$4EF4
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$4EF4
+	sta.b $0C
+	lda.w #$007E
+	sta.b $12
+	lda.w #$47F4
+	sta.b $10
+	stx.b $00
+	jsl.l LinearToPlanar
+	lda.w #$0000
+	sta.l $7E3474
+	lda.l $7E34BC
+	cmp.w #$0002
+	beq .1
+	cmp.w #$0003
+	bne .2
+.1:
+	jsl.l CODE_9D98D3
+.2:
+	lda.w #$0001
+	sta.l $7E34CA
+	lda.l $7E34BC
+	cmp.w #$0001
+	bcc .3
+	cmp.w #$0004
+	bcs .3
+	lda.w #$0005
+	sta.l $7E34CA
+.3:
+	lda.l $7E34CA
+	sec
+	sbc.w #$0005
+	sta.l $7E34CE
+	lda.l $7E34BC
+	cmp.w #$0001
+	bne .4
+	jsl.l CODE_9BC7FB
+.4:
+	lda.w #$0080
+	ora.l PassWord
+	sta.l PassWord
+	jsl.l maketree
+	jmp.w CODE_9DA0D5

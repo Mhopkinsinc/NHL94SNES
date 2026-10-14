@@ -30,14 +30,14 @@ CODE_9D906E:
 	sta.b $8F
 	lda.w $0ACF
 	cmp.w #$0007
-	beq CODE_9D910B
+	beq .1
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
 	sta.b d4
-	beq CODE_9D910B
+	beq .1
 	stz.b a2
-CODE_9D90B7:
+.loop:
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
@@ -69,8 +69,8 @@ CODE_9D90B7:
 	inc.b a2
 	inc.b a2
 	dec.b d4
-	bne CODE_9D90B7
-CODE_9D910B:
+	bne .loop
+.1:
 	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95FF9B
@@ -178,5 +178,182 @@ CODE_9D9221:
 	lda.w $0AB8
 	ora.w $0ABA
 	cmp.w #$1000
-	bne CODE_9D9237
+	bne .t2
 	jmp.w CODE_9D9064
+
+.t2:
+	lda.b $83
+	cmp.b d7
+	beq CODE_9D9221
+	sta.b d7
+	ldx.w #$3622
+	ldy.w #$007E
+	jsl.l CODE_9D96A9
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$3614
+	sta.b $0C
+	ldy.w #$0010
+	ldx.w #$0010
+	jsl.l CODE_808723
+	lda.w JoyPad
+	ora.w $0778
+	bit.w #$0200
+	bne .t1
+	bit.w #$0100
+	bne .t3
+	lda.b $B3
+	bne CODE_9D9281
+	jmp.w CODE_9D9221
+
+.t1:
+	lda.w #$FFFE
+	sta.b $B3
+	jmp.w CODE_9D9281
+
+.t3:
+	lda.w #$0002
+	sta.b $B3
+CODE_9D9281:
+	lda.w Hscroll
+	clc
+	adc.b $B3
+	cmp.b $AF
+	bcs .t2
+	jmp.w CODE_9D9394
+
+.t2:
+	cmp.b $A7
+	bcc .t1
+	jmp.w CODE_9D9394
+
+.t1:
+	sta.w Hscroll
+	and.w #$0007
+	beq .t3
+	jmp.w CODE_9D936E
+
+.t3:
+	lda.b $B3
+	bmi .t2x
+	lda.w Hscroll
+	lsr a
+	lsr a
+	lsr a
+	clc
+	adc.w #$002F
+	cmp.w #$0080
+	bcc .t1x
+	jmp.w CODE_9D936E
+
+.t1x:
+	sta.b $24
+	pha
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$A670
+	sta.b $0C
+	stz.w $079C
+	stz.b $26
+	lda.w #$0001
+	sta.b $18
+	lda.w #$001C
+	sta.b $1A
+	lda.b $24
+	sec
+	sbc.w #$0020
+	and.w #$003F
+	tax
+	phx
+	ldy.w #$0000
+	jsl.l CODE_808BED
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$C676
+	sta.b $0C
+	lda.w #$3800
+	sta.w $079C
+	plx
+	pla
+	sta.b $24
+	stz.b $26
+	lda.w #$0001
+	sta.b $18
+	lda.w #$0020
+	sta.b $1A
+	ldy.w #$0000
+	jsl.l CODE_808BED
+	bra CODE_9D936E
+
+.t2x:
+	lda.w Hscroll
+	lsr a
+	lsr a
+	lsr a
+	sec
+	sbc.w #$0010
+	bcc CODE_9D936E
+	sta.b $24
+	pha
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$A670
+	sta.b $0C
+	stz.w $079C
+	stz.b $26
+	lda.w #$0001
+	sta.b $18
+	lda.w #$001C
+	sta.b $1A
+	lda.b $24
+	sec
+	sbc.w #$0020
+	and.w #$003F
+	tax
+	phx
+	ldy.w #$0000
+	jsl.l CODE_808BED
+	lda.w #$007E
+	sta.b $0E
+	lda.w #$C676
+	sta.b $0C
+	lda.w #$3800
+	sta.w $079C
+	plx
+	pla
+	sta.b $24
+	stz.b $26
+	lda.w #$0001
+	sta.b $18
+	lda.w #$0020
+	sta.b $1A
+	ldy.w #$0000
+	jsl.l CODE_808BED
+CODE_9D936E:
+	lda.w Hscroll
+	cmp.w #$0058
+	beq CODE_9D9394
+	cmp.w #$00B0
+	beq CODE_9D9394
+	cmp.w #$0108
+	beq CODE_9D9394
+	cmp.w #$0180
+	beq CODE_9D9394
+	cmp.w #$01F8
+	beq CODE_9D9394
+	cmp.w #$0250
+	beq CODE_9D9394
+	cmp.w #$02A8
+	bne CODE_9D9396
+CODE_9D9394:
+	stz.b $B3
+CODE_9D9396:
+	lda.w Hscroll
+	sec
+	sbc.w #$0100
+	sta.w $07D6
+	sta.w $07DE
+	sec
+	sbc.w #$0080
+	sta.w $07DA
+	jmp.w CODE_9D9221

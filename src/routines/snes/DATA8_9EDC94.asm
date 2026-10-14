@@ -23,13 +23,13 @@ CODE_9EDCC3:
 	sec
 	sbc.b d7
 	sta.w $101F
-	bpl CODE_9EDCEA
+	bpl .1
 	adc.w #$0005
 	sta.w $101F
 	jsl.l CODE_9EDDD2
-CODE_9EDCEA:
+.1:
 	lda.w $0AD9
-	bmi CODE_9EDD3F
+	bmi .4
 	sta.b a2
 	jsl.l a2touchpuck
 	lda.b a2
@@ -43,9 +43,9 @@ CODE_9EDCEA:
 	lsr a
 	lsr a
 	bit.w #$2000
-	beq CODE_9EDD11
+	beq .2
 	ora.w #$C000
-CODE_9EDD11:
+.2:
 	clc
 	adc.w $0D71
 	sta.w $0D71
@@ -57,9 +57,9 @@ CODE_9EDD11:
 	lsr a
 	lsr a
 	bit.w #$2000
-	beq CODE_9EDD2C
+	beq .3
 	ora.w #$C000
-CODE_9EDD2C:
+.3:
 	clc
 	adc.w pucky
 	sta.w pucky
@@ -67,7 +67,7 @@ CODE_9EDD2C:
 	sta.w puckvx
 	lda.w $0EE3,y
 	sta.w puckvy
-CODE_9EDD3F:
+.4:
 	jsl.l puckIChk
 	jsl.l CODE_9EF78A
 	lda.w gmclock
@@ -78,8 +78,16 @@ CODE_9EDD3F:
 	beq CODE_9EDD89
 	lda.w gmode
 	bit.w #$0002
-	bne CODE_9EDD65
+	bne .t1
 	lda.w $1E91
 	beq CODE_9EDD71
-CODE_9EDD63:
+.5:
 	bra CODE_9EDD6A
+
+.t1:
+	lda.w $1E91
+	bne CODE_9EDD71
+CODE_9EDD6A:
+	lda.w puckvy
+	bmi CODE_9EDD89
+	bra CODE_9EDD77

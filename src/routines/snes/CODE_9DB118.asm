@@ -67,10 +67,10 @@ CODE_9DB118:
 	stz.w $0BEB
 	stz.w $0BE9
 	jsl.l CODE_9F96E6
-CODE_9DB1DD:
+.loop:
 	lda.w $0AD3
 	cmp.w #$000F
-	bcc CODE_9DB1DD
+	bcc .loop
 	lda.w #$B50C
 	ldx.w #$009D
 	ldy.w #$0000
@@ -242,6 +242,12 @@ CODE_9DB3E2:
 	bcs CODE_9DB3FF
 	lda.w $0764
 	cmp.w #$0078
-	bcs CODE_9DB3F7
+	bcs .t1
 	jsr.w CODE_9DB983
 	bra CODE_9DB3FA
+
+.t1:
+	jsr.w CODE_9DB9B4
+CODE_9DB3FA:
+	jsr.w CODE_9DB430
+	bra CODE_9DB3E2

@@ -21,7 +21,19 @@ CODE_9BC49A:
 	stz.w $1DE9
 CODE_9BC4D0:
 	cmp.l $7E35D6
-	bne CODE_9BC4DB
-CODE_9BC4D6:
+	bne .t1
+.1:
 	inc.w $1DE9
 	bra CODE_9BC4E9
+
+.t1:
+	lda.w $1DB9
+	cmp.w $1DC1
+	beq CODE_9BC4F2
+	jsr.w CODE_9BC543
+	inc.w printy
+CODE_9BC4E9:
+	lda.w $1DB9
+	inc a
+	sta.w $1DB9
+	bra CODE_9BC4D0

@@ -14,13 +14,13 @@ CODE_9FA697:
 	pha
 	stx.b xsave
 	ldx.w #$0000
-CODE_9FA6AE:
+.loop:
 	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0014
-	bne CODE_9FA6AE
+	bne .loop
 	ldx.b xsave
 	lda.w #$FFFF
 	sta.w $1D55
@@ -56,22 +56,22 @@ CODE_9FA6AE:
 	ldy.w #$0004
 	lda.b [a4],y
 	bit.w #$0080
-	bne CODE_9FA718
+	bne .1
 	inc.b d1
 	inc.b d1
 	lda.b [a4],y
-	bmi CODE_9FA718
+	bmi .1
 	inc.b d1
-CODE_9FA718:
+.1:
 	jsl.l CODE_9D8000
 	stz.b a2
 	ldy.w #$0002
 	lda.b [a4],y
 	bit.w #$0080
-	beq CODE_9FA72C
+	beq .2
 	inc.b a2
 	inc.b a2
-CODE_9FA72C:
+.2:
 	lda.w #$009F
 	sta.b $8F
 	lda.w #GoalBoxText
@@ -80,33 +80,33 @@ CODE_9FA72C:
 	lda.b [a4],y
 	and.w #$00FF
 	ldy.b a2
-	beq CODE_9FA746
+	beq .3
 	clc
 	adc.w #$001A
-CODE_9FA746:
+.3:
 	tay
 	lda.w $18EE,y
 	and.w #$00FF
 	cmp.w #$0003
-	bne CODE_9FA77B
+	bne .4
 	jsl.l GoalieCount
 	ldy.w #$0003
 	lda.b [a4],y
 	and.w #$00FF
 	cmp.b d0
-	bmi CODE_9FA77B
+	bmi .4
 	lda.b a1
 	clc
 	adc.b [a1]
 	sta.b a1
 	ldy.b a2
-	bne CODE_9FA77B
+	bne .4
 	jsl.l CODE_9BA189
 	lda.w Pencntdwn
 	clc
 	adc.w #$000A
 	sta.w Pencntdwn
-CODE_9FA77B:
+.4:
 	jsl.l CODE_9ECE15
 	ldy.w #$0003
 	lda.b [a4],y
@@ -119,7 +119,7 @@ CODE_9FA77B:
 	and.w #$00FF
 	sta.b d0
 	bit.w #$0080
-	bne CODE_9FA7F3
+	bne .5
 	lda.b $8F
 	pha
 	lda.b a1
@@ -140,7 +140,7 @@ CODE_9FA77B:
 	and.w #$00FF
 	sta.b d0
 	bit.w #$0080
-	bne CODE_9FA7F3
+	bne .5
 	lda.b $8F
 	pha
 	lda.b a1
@@ -156,15 +156,15 @@ CODE_9FA77B:
 	sta.b $8F
 	jsl.l CODE_9FC4D0
 	jsl.l print
-CODE_9FA7F3:
+.5:
 	stx.b xsave
 	ldx.w #$0012
-CODE_9FA7F8:
+.loop2:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9FA7F8
+	bpl .loop2
 	ldx.b xsave
 	pla
 	sta.b $AF

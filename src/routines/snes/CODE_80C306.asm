@@ -2,28 +2,28 @@
 CODE_80C306:
 	eor.b #$FF
 	tax
-CODE_80C309:
+.loop:
 	iny
 	lda.w $0000,y
 	sta.w WMDATA
 	dex
-	bpl CODE_80C309
+	bpl .loop
 CODE_80C313:
 	iny
 	lda.w $0000,y
 	bmi CODE_80C306
-	beq CODE_80C32E
-CODE_80C31B:
+	beq .rts
+.loop:
 	tax
 	iny
 	lda.w $0000,y
-CODE_80C320:
+.loop2:
 	sta.w WMDATA
 	dex
-	bpl CODE_80C320
+	bpl .loop2
 	iny
 	lda.w $0000,y
 	bmi CODE_80C306
-	bne CODE_80C31B
-CODE_80C32E:
+	bne .loop
+.rts:
 	rts

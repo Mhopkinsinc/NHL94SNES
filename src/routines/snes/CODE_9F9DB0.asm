@@ -21,10 +21,10 @@ CODE_9F9DB0:
 	jsl.l Div16x8U
 	plx
 	lda.b $00
-	beq CODE_9F9DED
+	beq .1
 	adc.w #$0030
 	sta.w mesarea+2
-CODE_9F9DED:
+.1:
 	lda.w RDMPYL
 	adc.w #$0030
 	sta.w $0A2D

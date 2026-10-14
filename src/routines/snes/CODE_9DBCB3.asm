@@ -1,23 +1,30 @@
 ; Unidentified routine.
 CODE_9DBCB3:
 	lda.w $07D6
-CODE_9DBCB6:
+.loop:
 	dec a
-	bmi CODE_9DBCDE
+	bmi .t1
 	sta.w $07D6
 	tay
 	eor.w #$FFFF
 	inc a
 	and.w #$00FF
-	beq CODE_9DBCD5
+	beq .1
 	sta.w $0BCB
 	sec
 	sbc.w #$0020
-	bmi CODE_9DBCD5
+	bmi .1
 	and.w #$00FF
 	sta.w $0BCF
-CODE_9DBCD5:
+.1:
 	tya
 	ldx.w #$0200
 	jsr.w CODE_9DB884
-	bra CODE_9DBCB6
+	bra .loop
+
+.t1:
+	stz.w $07D6
+	lda.w #$00FF
+	sta.w $0BCB
+	sta.w $0BCF
+	rts

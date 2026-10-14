@@ -23,10 +23,10 @@ CODE_808E2D:
 	clc
 	adc.w #$0006
 	sta.b $0C
-CODE_808E58:
+.loop:
 	ldx.b $18
 	ldy.w #$0000
-CODE_808E5D:
+.loop2:
 	lda.b [$0C],y
 	clc
 	adc.b $26
@@ -34,7 +34,7 @@ CODE_808E5D:
 	iny
 	iny
 	dex
-	bne CODE_808E5D
+	bne .loop2
 	lda.b $24
 	asl a
 	adc.b $10
@@ -44,5 +44,5 @@ CODE_808E5D:
 	adc.b $0C
 	sta.b $0C
 	dec.b $1A
-	bne CODE_808E58
+	bne .loop
 	rtl

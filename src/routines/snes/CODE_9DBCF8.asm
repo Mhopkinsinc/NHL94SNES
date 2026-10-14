@@ -10,11 +10,26 @@ CODE_9DBD01:
 	bcs CODE_9DBD01
 	phx
 	ldx.w #$0000
-CODE_9DBD11:
+.loop:
 	cpx.w $0BD5
-	bcs CODE_9DBD23
+	bcs .t2
 	cmp.l $7EF000,x
-	beq CODE_9DBD20
+	beq .t1
 	inx
 	inx
-	bra CODE_9DBD11
+	bra .loop
+
+.t1:
+	plx
+	bra CODE_9DBD01
+
+.t2:
+	plx
+	sta.l $7EF000,x
+	inx
+	inx
+	stx.w $0BD5
+	cpx.w #$0034
+	bcc CODE_9DBD01
+	stz.w $0BD5
+	rts

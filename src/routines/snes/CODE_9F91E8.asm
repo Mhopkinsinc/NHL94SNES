@@ -27,21 +27,21 @@ CODE_9F91EE:
 	jsl.l CODE_80891F
 	stx.b xsave
 	ldx.w #$001A
-CODE_9F9229:
+.loop:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9F9229
+	bpl .loop
 	ldx.b xsave
 	stx.b xsave
 	ldx.w #$001E
-CODE_9F9237:
+.loop2:
 	pla
 	sta.b d0,x
 	dex
 	dex
-	bpl CODE_9F9237
+	bpl .loop2
 	ldx.b xsave
 	ldx.b a3
 	rtl

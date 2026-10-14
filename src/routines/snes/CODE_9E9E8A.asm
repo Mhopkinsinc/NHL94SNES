@@ -3,9 +3,9 @@ CODE_9E9E8A:
 	lda.w $19BE
 	clc
 	adc.w #$000A
-	bmi CODE_9E9E96
+	bmi .1
 	sta.w $19BE
-CODE_9E9E96:
+.1:
 	ldx.b a2
 	lda.w #$FF7E
 	sta.w Xpos,x
@@ -13,6 +13,15 @@ CODE_9E9E96:
 	sta.w $0EC3,x
 	lda.w attribute,x
 	bit.w #$0800
-	bne CODE_9E9EB1
+	bne .t1
 	lda.w #$FE60
 	bra CODE_9E9EB4
+
+.t1:
+	lda.w #$FDFE
+CODE_9E9EB4:
+	sta.w pfalock,x
+	jsl.l CODE_9EA3F1
+	ldx.b a3
+	ldy.b a2
+	jmp.w CODE_9E9D79

@@ -20,12 +20,12 @@ CODE_9B8810:
 	lda.w #DATA8_9B8861
 	sta.b a1
 	lda.l $7E34C6
-	bne CODE_9B8849
+	bne .1
 	lda.w #$009B
 	sta.b $8F
 	lda.w #DATA8_9B88E9
 	sta.b a1
-CODE_9B8849:
+.1:
 	jsl.l AdvanceStringPtr
 	jsl.l print
 	lda.b [a1]

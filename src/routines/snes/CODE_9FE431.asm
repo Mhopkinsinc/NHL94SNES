@@ -7,7 +7,7 @@ CODE_9FE431:
 	ldy.b a2
 	lda.w $17E2,y
 	dec a
-	bmi CODE_9FE4BC
+	bmi .1
 	sta.w $17E2,y
 	jsl.l reenergizeteam
 	lda.b $8F
@@ -59,5 +59,5 @@ CODE_9FE431:
 	ldy.w #$0000
 	jsl.l WaitFrames_Inc
 	jsl.l CODE_9FE4BF
-CODE_9FE4BC:
+.1:
 	jmp.w CODE_9FE19E

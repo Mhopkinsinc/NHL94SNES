@@ -40,5 +40,64 @@ CODE_9E8F42:
 	sta.b d3
 	tyx
 	cpx.w #$001C
-	beq CODE_9E8F9E
+	beq .t2
 	jmp.w CODE_9E900A
+
+.t2:
+	lda.w #$1000
+	trb.w sflags
+	lda.b d2
+	bmi .t1
+	jmp.w CODE_9E9091
+
+.t1:
+	lsr a
+	lsr a
+	bit.w #$2000
+	beq .1
+	ora.w #$C000
+.1:
+	sta.b d2
+	sec
+	sbc.w #$FC00
+	bpl .3
+	jsl.l RandomWord
+	and.w #$07FF
+	eor.w #$FFFF
+	inc a
+	sta.w $0E01
+	sta.b d0
+	jsl.l puckflip
+	lda.w #$000A
+	ldy.w $0DF9
+	cpy.w #$000B
+	bcs .2
+	lda.w #$0004
+.2:
+	jsl.l CODE_9C9ABC
+.3:
+	lda.b d3
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$0200
+	beq .4
+	ora.w #$FC00
+.4:
+	sta.b d0
+	pha
+	asl a
+	pla
+	ror a
+	sta.b $A7
+	lda.b d3
+	sec
+	sbc.b d0
+org $9E9000
+	sec
+	sbc.b $A7
+	sta.b d3
+	bra CODE_9E904D

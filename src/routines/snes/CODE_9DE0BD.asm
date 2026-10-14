@@ -5,7 +5,7 @@ CODE_9DE0BD:		; copy X colours from [$0C] into the colour buffer $7F7500, from c
 	asl a
 	tax
 	ldy.w #$0000
-CODE_9DE0C5:
+.loop:
 	lda.b [$0C],y
 	sta.l $7F7500,x
 	iny
@@ -13,5 +13,5 @@ CODE_9DE0C5:
 	inx
 	inx
 	dec.b $16
-	bne CODE_9DE0C5
+	bne .loop
 	rtl

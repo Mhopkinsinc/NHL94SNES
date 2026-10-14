@@ -5,18 +5,18 @@ check4check:
 	sbc.w $1483,x
 	sta.b d0
 	lda.l OptPen
-	beq CODE_9EA175
+	beq .1
 	asl.b d0
-CODE_9EA175:
+.1:
 	lda.b d0
 	jsl.l CODE_9BB370
 	cmp.w #$0004
-	bcc CODE_9EA18B
+	bcc .2
 	lda.b d0
 	jsl.l CODE_9BB370
 	cmp.w #$0004
 	bcs CODE_9EA1BC
-CODE_9EA18B:
+.2:
 	lda.w #$0005
 	sta.b d2
 	ldy.w #$0000
@@ -29,10 +29,10 @@ CODE_9EA19B:
 	beq CODE_9EA1B4
 	lda.w SPA,y
 	cmp.w #$F3A6
-	bcc CODE_9EA1AF
+	bcc .3
 	cmp.w #$F46B
 	bcc CODE_9EA1BD
-CODE_9EA1AF:
+.3:
 	lda.w pfalock,y
 	beq CODE_9EA1BD
 CODE_9EA1B4:

@@ -8,10 +8,10 @@ SetShotMode:
 	lda.w #$0128
 	sta.b d1
 	lda.w pfgoal,x
-	bne CODE_9EE197
+	bne .1
 	lda.w #$FED8
 	sta.b d1
-CODE_9EE197:
+.1:
 	lda.b d0
 	sec
 	sbc.w Xpos,x
@@ -25,8 +25,8 @@ CODE_9EE197:
 	sta.w passspeed
 	ldy.w #$ED4A
 	jsl.l Findhittype
-	beq CODE_9EE1BD
+	beq .2
 	ldy.w #$EE5C
-CODE_9EE1BD:
+.2:
 	sty.b d1
 	jml.l SetSPA

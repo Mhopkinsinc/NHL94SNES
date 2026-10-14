@@ -2,7 +2,7 @@
 CODE_9FBEFD:
 	lda.w sflags
 	bit.w #$2000
-	bne CODE_9FBF74
+	bne .rtl
 	lda.b $8F
 	pha
 	lda.b a1
@@ -35,9 +35,9 @@ CODE_9FBEFD:
 	jsl.l CODE_808E2D
 	lda.w #$0321
 	cmp.w textdirtylo
-	bcs CODE_9FBF59
+	bcs .1
 	sta.w textdirtylo
-CODE_9FBF59:
+.1:
 	lda.l DATA8_9AEA3A+2
 	clc
 	adc.w #$0019
@@ -50,7 +50,7 @@ CODE_9FBF59:
 	clc
 	adc.l DATA8_9AEA3A
 	cmp.w textdirtyhi
-	bcc CODE_9FBF74
+	bcc .rtl
 	sta.w textdirtyhi
-CODE_9FBF74:
+.rtl:
 	rtl

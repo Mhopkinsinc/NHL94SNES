@@ -11,9 +11,9 @@ CODE_9FDF5A:
 	sta.b d3
 	inc.b $04
 	lda.b a2
-	beq CODE_9FDF75
+	beq .1
 	lda.w #$0034
-CODE_9FDF75:
+.1:
 	adc.b d3
 	tay
 	lda.w $17E8,y

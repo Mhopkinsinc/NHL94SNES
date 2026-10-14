@@ -5,10 +5,10 @@ CODE_80AB0B:
 	lda.b $5A
 	and.w #$00FF
 	cmp.w #$006A
-	bne CODE_80AB1C
-CODE_80AB19:
+	bne .2
+.1:
 	lda.w #$0014
-CODE_80AB1C:
+.2:
 	asl a
 	tay
 	lda.b [$34],y
@@ -23,10 +23,28 @@ CODE_80AB1C:
 	sta.w $089D,x
 	stz.w $088C,x
 	lda.w $07E3
-	bne CODE_80AB47
+	bne .t1
 	ldy.b #$12
 	lda.b ($4E),y
 	sta.w $08AE,x
 	iny
 	lda.b ($4E),y
 	bra CODE_80AB4E
+
+.t1:
+	ldy.b #$17
+	lda.b ($4E),y
+	sta.w $08AE,x
+CODE_80AB4E:
+	sta.w $08BF,x
+CODE_80AB51:
+	rep #$20
+	cpy.b #$EA
+	bne .2
+.1:
+	lda.b $5A
+	and.w #$00FF
+	sta.b $62
+.2:
+	rep #$20
+	jmp.w CODE_80ABA5

@@ -170,11 +170,11 @@ CODE_9DC697:
 	clc
 	adc.w #$0006
 	sta.b $10
-CODE_9DC83B:
+.loop:
 	ldy.b $14
 	dey
 	dey
-CODE_9DC83F:
+.loop2:
 	lda.b [$10],y
 	clc
 	adc.w $1E85
@@ -185,13 +185,13 @@ CODE_9DC83F:
 	sta.b [$10],y
 	dey
 	dey
-	bpl CODE_9DC83F
+	bpl .loop2
 	lda.b $10
 	clc
 	adc.b $14
 	sta.b $10
 	dex
-	bne CODE_9DC83B
+	bne .loop
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96C61F

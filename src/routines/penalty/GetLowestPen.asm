@@ -14,7 +14,7 @@ GetLowestPen:
 	and.w #$00FF
 	sta.b d2
 	bit.w #$0080
-	bne CODE_9EBBD7
+	bne .t1
 	lda.b a2
 	beq .h0
 	lda.w #$0034
@@ -36,3 +36,45 @@ GetLowestPen:
 	lda.b d2
 	sta.b d3
 	bra .top
+
+.t1:
+	ldy.b a3
+	lda.w tmap,y
+	cmp.w #$0006
+	beq .rtl
+	lda.b d0
+	sec
+	sbc.b d3
+	sta.b d0
+	lda.b a3
+	beq .1
+	lda.w #$001A
+.1:
+	sta.b a0
+.loop:
+	ldy.b a0
+	lda.w tmboxlist,y
+	inc.b a0
+	and.w #$00FF
+	sta.b d2
+	bit.w #$0080
+	bne .rtl
+	lda.b a3
+	beq .2
+	lda.w #$0034
+.2:
+	clc
+	adc.b d2
+	tay
+	lda.w tmpdst,y
+	bit.w #$4000
+	bne .loop
+	lda.b d0
+	cmp.w tmpdst,y
+	bmi .rtl
+	lda.b d0
+	clc
+	adc.b d3
+	sta.b d0
+.rtl:
+	rtl

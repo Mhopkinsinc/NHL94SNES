@@ -8,10 +8,10 @@ CODE_80891F:
 	lda.w #DMA_VRAMWORD
 	sta.w DMAP1
 	cpy.w #$0000
-	bmi CODE_80893C
+	bmi .1
 	sty.w VMADDL
 	sty.b $14
-CODE_80893C:
+.1:
 	sep #$20
 	lda.b $0E
 	sta.w A1B1

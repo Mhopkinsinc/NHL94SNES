@@ -8,7 +8,7 @@ CODE_808D72:
 	lda.b #$18
 	sta.w BBAD1
 	rep #$20
-CODE_808D86:
+.loop:
 	lda.b $18
 	sta.w DAS1L
 	stx.w A1T1L
@@ -26,7 +26,7 @@ CODE_808D86:
 	adc.w #$0080
 	tay
 	dec.b $1A
-	bne CODE_808D86
+	bne .loop
 	sep #$20
 	lda.b #$80
 	sta.w VMAIN

@@ -22,27 +22,27 @@ setInjuryType:
 	stz.b d1
 	stz.b a0
 	lda.w pfteam,y
-	beq CODE_9EC31A
+	beq .1
 	lda.w #$8000
 	sta.b d1
 	lda.w #$0002
 	sta.b a0
-CODE_9EC31A:
+.1:
 	lda.w pnum,y
 	and.w #$00FF
 	ora.b d1
 	sta.w TempPlOffset
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9EC330
+	beq .2
 	ora.w #$FF00
-CODE_9EC330:
+.2:
 	asl a
 	sta.b d1
 	lda.b a0
-	beq CODE_9EC33A
+	beq .3
 	lda.w #$0034
-CODE_9EC33A:
+.3:
 	adc.b d1
 	tay
 	lda.w #$FFFD
@@ -50,11 +50,11 @@ CODE_9EC33A:
 	lda.w #$0007
 	jsl.l CODE_9BB385
 	cmp.w #$0000
-	bne CODE_9EC35E
+	bne .rtl
 	lda.w #$FFFC
 	sta.w tmpdst,y
 	lda.w TempPlOffset
 	ora.w #$4000
 	sta.w TempPlOffset
-CODE_9EC35E:
+.rtl:
 	rtl

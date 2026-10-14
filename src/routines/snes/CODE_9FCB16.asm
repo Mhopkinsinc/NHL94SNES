@@ -6,17 +6,17 @@ CODE_9FCB16:
 	phx
 	ldx.w #$0000
 	cpy.w #$000C
-	bcc CODE_9FCB29
+	bcc .1
 	ldx.w #$0002
-CODE_9FCB29:
+.1:
 	lda.w $19D0,x
 	beq CODE_9FCB4D
 	ldy.w $0AFD,x
 	dey
 	dey
-	bpl CODE_9FCB38
+	bpl .2
 	ldy.w #$0008
-CODE_9FCB38:
+.2:
 	lda.w #$0005
 	sta.b $14
 	txa

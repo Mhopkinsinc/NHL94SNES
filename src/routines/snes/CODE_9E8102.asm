@@ -8,9 +8,9 @@ CODE_9E8102:
 	sta.b d0
 	lda.w #$0058
 	ldy.w pfgoal,x
-	bne CODE_9E811C
+	bne .1
 	lda.w #$FFA8
-CODE_9E811C:
+.1:
 	sta.b d1
 	lda.w #$009E
 	sta.b $8B

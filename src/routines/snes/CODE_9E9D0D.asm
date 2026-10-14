@@ -2,9 +2,9 @@
 CODE_9E9D0D:
 	ldy.b a3
 	lda.w pfteam,y
-	beq CODE_9E9D17
+	beq .1
 	lda.w #$0002
-CODE_9E9D17:
+.1:
 	inc a
 	inc a
 	jsl.l CODE_9C9FD5

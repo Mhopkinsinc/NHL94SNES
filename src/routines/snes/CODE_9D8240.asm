@@ -6,9 +6,9 @@ CODE_9D8246:
 	lda.w $1DB9
 	inc a
 	cmp.w #$0007
-	bcc CODE_9D8252
+	bcc .1
 	lda.w #$0000
-CODE_9D8252:
+.1:
 	sta.w $1DB9
 	jsl.l CODE_9D8489
 	stz.w $1E3D

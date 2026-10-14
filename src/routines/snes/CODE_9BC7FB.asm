@@ -65,7 +65,7 @@ CODE_9BC7FB:
 	sta.b a0
 	lda.w #$0004
 	sta.b d0
-CODE_9BC8AC:
+.loop:
 	lda.w #$0005
 	sta.b d1
 	lda.w #$0000
@@ -76,7 +76,7 @@ CODE_9BC8AC:
 	sta.b [a1]
 	inc.b a1
 	inc.b a1
-CODE_9BC8C4:
+.loop2:
 	lda.b [a0]
 	sta.b [a1]
 	inc.b a0
@@ -85,7 +85,7 @@ CODE_9BC8C4:
 	sta.b [a1]
 	inc.b a1
 	dec.b d1
-	bpl CODE_9BC8C4
+	bpl .loop2
 	lda.w #$0000
 	sta.b $8F
 	lda.w #mesarea
@@ -98,16 +98,16 @@ CODE_9BC8C4:
 	sbc.w #$000B
 	sta.w printx
 	dec.b d0
-	bpl CODE_9BC8AC
+	bpl .loop
 	stz.b d4
 	jsl.l CODE_9BCA7A
 	stz.b d5
 	lda.l PassWord
 	and.w #$00FF
 	cmp.w #$001E
-	bcs CODE_9BC90F
+	bcs .1
 	sta.b d5
-CODE_9BC90F:
+.1:
 	jsl.l CODE_9BCAB8
 	jsl.l CODE_9D80DD
 	lda.w #$0003
@@ -146,14 +146,122 @@ CODE_9BC949:
 	sta.b $8F
 	jsl.l CODE_9BC6C9
 	jsl.l CODE_9FBF75
-CODE_9BC96B:
+.loop:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B84F5
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
-	beq CODE_9BC96B
+	beq .loop
 	sta.b d1
 	bit.w #$1000
-	beq CODE_9BC989
+	beq .t3
 	jmp.w CODE_9BCAF8
+
+.t3:
+	stz.b d0
+	dec.b d0
+	bit.w #$4000
+	bne .t1
+	stz.b d0
+	inc.b d0
+	bit.w #$8080
+	bne .t1
+	bit.w #$0100
+	bne CODE_9BC9F0
+	stz.b d0
+	dec.b d0
+	bit.w #$0200
+	bne CODE_9BC9F0
+	ldy.w #$0006
+	sty.b d0
+	bit.w #DMA_OAM
+	bne CODE_9BC9F0
+	ldy.w #$FFFA
+	sty.b d0
+	bit.w #$0800
+	bne CODE_9BC9F0
+	jmp.w CODE_9BC949
+
+.t1:
+	lda.b d4
+	clc
+	adc.b d0
+	cmp.w #$0010
+	bcc .t2
+	jmp.w CODE_9BC949
+
+.t2:
+	sta.b d4
+	jsl.l CODE_9BCA7A
+	lda.w #$007E
+	sta.b $8B
+	lda.w #$34F4
+	sta.b a0
+	stz.b d0
+	ldy.b d4
+	lda.b [a0],y
+	and.w #$00FF
+	cmp.w #$001E
+	bcs CODE_9BC9F0
+	sec
+	sbc.b d5
+	sta.b d0
+CODE_9BC9F0:
+	lda.b d5
+	clc
+	adc.b d0
+	cmp.w #$001E
+	bcc .t1
+	jmp.w CODE_9BC949
+
+.t1:
+	pha
+	jsl.l CODE_9BCAB8
+	lda.l $7E35D0
+	sta.b d2
+	jsl.l eraser
+	lda.w #$0003
+	sta.w $0A4A
+	phx
+	ldy.b d5
+	tyx
+	lda.l PasstoText,x
+	plx
+	sta.w $0A4C
+	lda.w #$0000
+	sta.b $8F
+	lda.w #$0A4A
+	sta.b a1
+	inc.w printx
+	dec.w printy
+	dec.w printy
+	jsl.l print
+	pla
+	sta.b d5
+	jsl.l CODE_9BCAB8
+	jsl.l CODE_9D80DD
+	phx
+	ldy.b d5
+	tyx
+	lda.l PasstoText,x
+	plx
+	sta.w $0A4C
+	lda.w #$0000
+	sta.b $8F
+	lda.w #$0A4A
+	sta.b a1
+	inc.w printx
+	dec.w printy
+	dec.w printy
+	jsl.l print
+	lda.w #$007E
+	sta.b $8B
+	lda.w #$34F4
+	sta.b a0
+	ldy.b d4
+	sep #$20
+	lda.b d5
+	sta.b [a0],y
+	rep #$30
+	jmp.w CODE_9BC949

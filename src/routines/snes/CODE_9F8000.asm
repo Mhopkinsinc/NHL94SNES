@@ -22,7 +22,17 @@ CODE_9F8032:
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000
-	bne CODE_9F8054
+	bne .t1
 	bit.w #$4000
-	bne CODE_9F8055
+	bne .t2
+	bra CODE_9F8032
+
+.t1:
+	rtl
+
+.t2:
+	lda.w $1DB9
+	eor.w #$0001
+	sta.w $1DB9
+	jsl.l CODE_9F8064
 	bra CODE_9F8032

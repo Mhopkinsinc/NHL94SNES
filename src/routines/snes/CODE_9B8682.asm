@@ -2,18 +2,18 @@
 CODE_9B8682:
 	phx
 	pha
-CODE_9B8684:
+.loop:
 	ldx.w #$0008
-CODE_9B8687:
+.loop2:
 	lda.w JoyPad,x
 	bit.w #$000F
-	bne CODE_9B8694
+	bne .1
 	and.w #$FFF0
-	bne CODE_9B8684
-CODE_9B8694:
+	bne .loop
+.1:
 	dex
 	dex
-	bpl CODE_9B8687
+	bpl .loop2
 	pla
 	plx
 	rtl

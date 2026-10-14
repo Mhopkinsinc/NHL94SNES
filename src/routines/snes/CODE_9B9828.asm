@@ -17,13 +17,13 @@ CODE_9B9828:
 	sta.w $1DF3
 	lda.w #$0018
 	sta.w $1DF5
-CODE_9B9856:
+.loop:
 	jsl.l WaitFrame
 	inc.w $1DF3
 	inc.w $1DF3
 	lda.w $1DF3
 	cmp.w #$0017
-	bne CODE_9B9856
+	bne .loop
 	jsl.l CODE_9B9AB2
 	jsr.w CODE_9B98C9
 	jsl.l WaitFrame

@@ -1,29 +1,40 @@
 ; Unidentified routine.
 CODE_9CA554:
 	cmp.w #$0000
-	bpl CODE_9CA55D
+	bpl .1
 	eor.w #$FFFF
 	inc a
-CODE_9CA55D:
+.1:
 	sta.b $14
 	tya
-	bpl CODE_9CA566
+	bpl .2
 	eor.w #$FFFF
 	inc a
-CODE_9CA566:
+.2:
 	ldy.b $14
 CODE_9CA568:
 	sty.b $14
 	cmp.b $14
-	bcs CODE_9CA571
+	bcs .1
 	sta.b $14
 	tya
-CODE_9CA571:
+.1:
 	sta.b $16
 	lsr a
 	cmp.b $14
-	bcc CODE_9CA580
+	bcc .t1
 	lda.b $14
+	lsr a
+	lsr a
+	clc
+	adc.b $16
+	rtl
+
+.t1:
+	lda.b $14
+	lsr a
+	clc
+	adc.b $14
 	lsr a
 	lsr a
 	clc

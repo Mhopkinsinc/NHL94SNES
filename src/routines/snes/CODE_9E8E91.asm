@@ -53,13 +53,13 @@ CODE_9E8F05:
 	tsb.w sflags
 	sta.w $157F
 	lda.w pucky
-	bpl CODE_9E8F19
+	bpl .1
 	lda.w #$8000
 	tsb.w $0E1F
-CODE_9E8F19:
+.1:
 	stz.w $0DB5
 	lda.w gmclock
-	bne CODE_9E8F37
+	bne .2
 	lda.l $7E30F6
 	asl a
 	sta.b a3
@@ -69,7 +69,7 @@ CODE_9E8F19:
 	jsl.l ShootoutWonBy
 	ldx.w #$001C
 	stx.b a3
-CODE_9E8F37:
+.2:
 	jsl.l CODE_9EC791
 	stz.w $1E8B
 	stz.w $1E89

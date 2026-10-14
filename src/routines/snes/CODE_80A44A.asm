@@ -7,8 +7,8 @@ CODE_80A44A:
 	sty.w APUIO1
 	lda.b #$0C
 	sta.w APUIO0
-CODE_80A45C:
+.loop:
 	cmp.w APUIO0
-	bne CODE_80A45C
+	bne .loop
 	stz.w APUIO0
 	rts

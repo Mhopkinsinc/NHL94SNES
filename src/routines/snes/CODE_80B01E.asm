@@ -14,9 +14,25 @@ CODE_80B030:
 	lda.b #$80
 	pha
 	rep #$20
-	lda.w #CODE_80B044-1
+	lda.w #.t2-1
 	pha
 	phx
 	phy
 	phb
 	jmp.w CODE_80B3E1
+
+.t2:
+	cmp.w #$0000
+	bpl .t1
+.1:
+	pla
+	sta.b $14
+	lda.w #$FFFF
+	sta.w $07C0
+	rts
+
+.t1:
+	tax
+	pla
+	sta.b $14
+	bra CODE_80B05F

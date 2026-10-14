@@ -2,13 +2,13 @@
 CODE_9FC988:
 	jsl.l CODE_9CA58C
 	lda.w $1E9B
-	bne CODE_9FC9B2
+	bne .2
 	ldy.w #$0008
-CODE_9FC994:
+.loop:
 	lda.w $19F6,y
 	and.w #$FF00
 	cmp.w #$8000
-	bne CODE_9FC9AE
+	bne .1
 	lda.w $19F6,y
 	and.w #$00FF
 	sta.w $19F6,y
@@ -16,118 +16,118 @@ CODE_9FC994:
 	inc a
 	lsr a
 	sta.w $1C84,y
-CODE_9FC9AE:
+.1:
 	dey
 	dey
-	bpl CODE_9FC994
-CODE_9FC9B2:
+	bpl .loop
+.2:
 	lda.w $19D0
 	cmp.w #$0004
-	bcc CODE_9FCA12
+	bcc .6
 	ldx.w #$000A
 	ldy.w #$0000
-CODE_9FC9C0:
+.loop2:
 	lda.w position,x
-	beq CODE_9FC9C8
-	bmi CODE_9FC9C8
+	beq .3
+	bmi .3
 	iny
-CODE_9FC9C8:
+.3:
 	dex
 	dex
-	bpl CODE_9FC9C0
+	bpl .loop2
 	sty.b d0
 	ldx.w #$0008
 	ldy.w #$0000
-CODE_9FC9D4:
+.loop3:
 	lda.w $19F6,x
 	cmp.w #$0000
-	bne CODE_9FC9DD
+	bne .4
 	iny
-CODE_9FC9DD:
+.4:
 	dex
 	dex
-	bpl CODE_9FC9D4
+	bpl .loop3
 	cpy.b d0
-	bcs CODE_9FCA12
+	bcs .6
 	cpy.w $19D0
-	beq CODE_9FCA12
+	beq .6
 	ldy.w $0AF9
-CODE_9FC9ED:
+.loop4:
 	iny
 	iny
 	cpy.w #$000A
-	bne CODE_9FC9F7
+	bne .5
 	ldy.w #$0000
-CODE_9FC9F7:
+.5:
 	lda.w $19F6,y
-	bpl CODE_9FC9ED
+	bpl .loop4
 	and.w #$00FF
 	cmp.w #$0080
-	beq CODE_9FC9ED
+	beq .loop4
 	cmp.w #$0000
-	bne CODE_9FC9ED
+	bne .loop4
 	sta.w $19F6,y
 	inc a
 	inc a
 	lsr a
 	sta.w $1C84,y
-CODE_9FCA12:
+.6:
 	lda.w $19D2
 	cmp.w #$0004
-	bcc CODE_9FCA75
+	bcc .10
 	ldx.w #$0016
 	ldy.w #$0000
-CODE_9FCA20:
+.loop5:
 	lda.w position,x
-	beq CODE_9FCA28
-	bmi CODE_9FCA28
+	beq .7
+	bmi .7
 	iny
-CODE_9FCA28:
+.7:
 	dex
 	dex
 	cpx.w #$000C
-	bpl CODE_9FCA20
+	bpl .loop5
 	sty.b d0
 	ldx.w #$0008
 	ldy.w #$0000
-CODE_9FCA37:
+.loop6:
 	lda.w $19F6,x
 	cmp.w #$0002
-	bne CODE_9FCA40
+	bne .8
 	iny
-CODE_9FCA40:
+.8:
 	dex
 	dex
-	bpl CODE_9FCA37
+	bpl .loop6
 	cpy.b d0
-	bcs CODE_9FCA75
+	bcs .10
 	cpy.w $19D0
-	beq CODE_9FCA75
+	beq .10
 	ldy.w $0AFB
-CODE_9FCA50:
+.loop7:
 	iny
 	iny
 	cpy.w #$000A
-	bne CODE_9FCA5A
+	bne .9
 	ldy.w #$0000
-CODE_9FCA5A:
+.9:
 	lda.w $19F6,y
-	bpl CODE_9FCA50
+	bpl .loop7
 	and.w #$00FF
 	cmp.w #$0080
-	beq CODE_9FCA50
+	beq .loop7
 	cmp.w #$0002
-	bne CODE_9FCA50
+	bne .loop7
 	sta.w $19F6,y
 	inc a
 	inc a
 	lsr a
 	sta.w $1C84,y
-CODE_9FCA75:
+.10:
 	stz.w $0C23
 	ldx.w #$0016
 	lda.w #$FFFF
-CODE_9FCA7E:
+.loop8:
 	sta.w $19D4,x
 	stz.w $0B05,x
 	stz.w $0BCB,x
@@ -135,16 +135,16 @@ CODE_9FCA7E:
 	stz.w $0C0B,x
 	dex
 	dex
-	bpl CODE_9FCA7E
+	bpl .loop8
 	sta.w $0BA3
 	ldx.w #$0008
-CODE_9FCA97:
+.loop9:
 	sta.w $19EC,x
 	dex
 	dex
-	bpl CODE_9FCA97
+	bpl .loop9
 	lda.w $19D0
-	beq CODE_9FCAD8
+	beq .15
 	lda.w #$0005
 	sta.b $0C
 	ldx.w $0AF5
@@ -152,30 +152,30 @@ CODE_9FCA97:
 	sta.w $0AF5
 	dex
 	dex
-	bpl CODE_9FCAB8
+	bpl .11
 	ldx.w #$0008
-CODE_9FCAB8:
+.11:
 	lda.w $19F6,x
-	bne CODE_9FCACD
+	bne .13
 	stx.b d4
 	phx
 	lda.w $0AF5
-	bpl CODE_9FCAC8
+	bpl .12
 	stx.w $0AF5
-CODE_9FCAC8:
+.12:
 	jsl.l findpc
 	plx
-CODE_9FCACD:
+.13:
 	dex
 	dex
-	bpl CODE_9FCAD4
+	bpl .14
 	ldx.w #$0008
-CODE_9FCAD4:
+.14:
 	dec.b $0C
-	bne CODE_9FCAB8
-CODE_9FCAD8:
+	bne .11
+.15:
 	lda.w $19D2
-	beq CODE_9FCB15
+	beq .rtl
 	lda.w #$0005
 	sta.b $0C
 	ldx.w $0AF7
@@ -183,27 +183,27 @@ CODE_9FCAD8:
 	sta.w $0AF7
 	dex
 	dex
-	bpl CODE_9FCAF2
+	bpl .16
 	ldx.w #$0008
-CODE_9FCAF2:
+.16:
 	lda.w $19F6,x
 	cmp.w #$0002
-	bne CODE_9FCB0A
+	bne .18
 	stx.b d4
 	phx
 	lda.w $0AF7
-	bpl CODE_9FCB05
+	bpl .17
 	stx.w $0AF7
-CODE_9FCB05:
+.17:
 	jsl.l findpc
 	plx
-CODE_9FCB0A:
+.18:
 	dex
 	dex
-	bpl CODE_9FCB11
+	bpl .19
 	ldx.w #$0008
-CODE_9FCB11:
+.19:
 	dec.b $0C
-	bne CODE_9FCAF2
-CODE_9FCB15:
+	bne .16
+.rtl:
 	rtl

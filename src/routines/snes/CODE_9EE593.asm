@@ -12,12 +12,12 @@ CODE_9EE593:
 	lda.b [a0],y
 	sta.b d0
 	lda.w $1EA9
-	bpl CODE_9EE5B7
+	bpl .1
 	lda.w #$0000
 	sec
 	sbc.b d0
 	sta.b d0
-CODE_9EE5B7:
+.1:
 	lda.b d0
 	sta.w $1EA1
 	iny

@@ -10,13 +10,17 @@ CODE_9DCB72:
 	adc.b [a3],y
 	sta.b a3
 	ldy.w #$0005
-CODE_9DCB89:
+.loop:
 	lda.b [a3],y
 	and.w #$00FF
 	dec a
 	cmp.w $1D9B
-	beq CODE_9DCB9B
+	beq .t1
 	dey
-	bpl CODE_9DCB89
+	bpl .loop
 	lda.w #$0001
+	rtl
+
+.t1:
+	lda.w #$0000
 	rtl

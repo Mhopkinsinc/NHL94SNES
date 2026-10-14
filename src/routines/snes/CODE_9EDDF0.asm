@@ -19,9 +19,9 @@ CODE_9EDDF0:
 	lsr a
 	ror.b $08
 	bit.w #$0800
-	beq CODE_9EDE19
+	beq .1
 	ora.w #$F000
-CODE_9EDE19:
+.1:
 	sta.b $0A
 	lda.w puckvy
 	sta.b $04
@@ -38,16 +38,16 @@ CODE_9EDE19:
 	adc.w $0D71
 	sta.b d0
 	cmp.w #$0088
-	bmi CODE_9EDE45
+	bmi .2
 	lda.w #$0088
 	sta.b d0
-CODE_9EDE45:
+.2:
 	lda.b d0
 	cmp.w #$FF78
-	bpl CODE_9EDE51
+	bpl .3
 	lda.w #$FF78
 	sta.b d0
-CODE_9EDE51:
+.3:
 	lda.b d0
 	sta.w $0D17,y
 	rtl

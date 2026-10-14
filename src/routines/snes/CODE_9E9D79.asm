@@ -45,9 +45,9 @@ CODE_9E9D79:
 	stz.w $0C23
 	ldy.b a2
 	lda.w pfteam,y
-	beq CODE_9E9DF2
+	beq .1
 	lda.w #$0002
-CODE_9E9DF2:
+.1:
 	clc
 	adc.w #$0006
 	jsl.l CODE_9C9FD5
@@ -75,9 +75,20 @@ CODE_9E9DF2:
 	lda.w $19BE
 	clc
 	adc.w #$001E
-	bmi CODE_9E9E3C
+	bmi .2
 	sta.w $19BE
-CODE_9E9E3C:
+.2:
 	lda.w position,x
-	bne CODE_9E9E44
+	bne .t2
 	jmp.w CODE_9EB88A
+
+.t2:
+	lda.l OptPen
+	bne .t1
+	jmp.w CODE_9EB88A
+
+.t1:
+	lda.w #$0014
+	sta.b d0
+	jsl.l CODE_9EB88A
+	jmp.w Stop4Pen

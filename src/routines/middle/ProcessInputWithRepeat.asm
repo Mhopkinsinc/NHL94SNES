@@ -1,14 +1,19 @@
 ; Read the pads with key repeat. A held button repeats after a delay
 ProcessInputWithRepeat:
 	lda.b d3
-	beq CODE_9B8543
+	beq .rtl
 	lda.b d2
-	bne CODE_9B8544
+	bne .t1
 	dec.w $0AC4
-	bpl CODE_9B8543
+	bpl .rtl
 	lda.w #$0006
 	sta.w $0AC4
 	lda.b d3
 	sta.b d1
-CODE_9B8543:
+.rtl:
+	rtl
+
+.t1:
+	lda.w #$0014
+	sta.w $0AC4
 	rtl

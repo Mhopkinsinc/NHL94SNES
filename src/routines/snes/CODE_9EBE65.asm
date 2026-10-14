@@ -17,9 +17,9 @@ CODE_9EBE6F:
 	iny
 	iny
 	cpy.w #$000A
-	bne CODE_9EBE8D
+	bne .1
 	ldy.w #$0000
-CODE_9EBE8D:
+.1:
 	tya
 	sta.w $0AF9,x
 	ply

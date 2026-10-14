@@ -6,9 +6,9 @@ CODE_80C17C:
 	jsr.w CODE_80C232
 	beq CODE_80C195
 	ldy.b $08
-CODE_80C18A:
+.loop:
 	sty.w WMDATA
 	dec a
-	bne CODE_80C18A
+	bne .loop
 	lda.b $6C
 	jmp (DATA16_80BCF9,x)

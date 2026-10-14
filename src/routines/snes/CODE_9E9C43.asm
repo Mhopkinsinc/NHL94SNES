@@ -31,15 +31,15 @@ CODE_9E9C7C:
 	lda.w $19BE
 	clc
 	adc.w #$000A
-	bmi CODE_9E9C91
+	bmi .1
 	sta.w $19BE
-CODE_9E9C91:
+.1:
 	stz.w $0C23
 	ldy.b a2
 	lda.w pfteam,y
-	beq CODE_9E9C9E
+	beq .2
 	lda.w #$0002
-CODE_9E9C9E:
+.2:
 	clc
 	adc.w #$0006
 	jsl.l CODE_9C9FD5

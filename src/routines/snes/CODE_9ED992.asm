@@ -14,17 +14,17 @@ CODE_9ED9A0:
 	sta.b d0
 	lda.w attribute,x
 	bit.w #$0800
-	beq CODE_9ED9B8
+	beq .1
 	lda.b d0
 	eor.w #$0001
 	sta.b d0
-CODE_9ED9B8:
+.1:
 	lda.b d3
 	cmp.w #$0004
-	bcc CODE_9ED9C5
+	bcc .2
 	eor.w #$FFFF
 	adc.w #$0008
-CODE_9ED9C5:
+.2:
 	cmp.w #$0002
 	bcs CODE_9ED987
 	lda.w $0DF9
@@ -74,12 +74,12 @@ CODE_9EDA2C:
 	lda.w pucky
 	sec
 	sbc.w #$00FC
-	bpl CODE_9EDA42
+	bpl .1
 	lda.w pucky
 	sec
 	sbc.w #$FF04
 	bpl CODE_9EDA51
-CODE_9EDA42:
+.1:
 	lda.w #$0018
 	sta.b d0
 	lda.w $0D71
@@ -88,5 +88,121 @@ CODE_9EDA42:
 	sta.b d0
 CODE_9EDA51:
 	lda.w $19D4,x
-	bmi CODE_9EDA59
+	bmi .t1
 	jmp.w CODE_9EDBF3
+
+.t1:
+	ldy.w $0AD9
+	bmi CODE_9EDAA4
+	lda.w pfteam,x
+	cmp.w pfteam,y
+	beq CODE_9EDAA4
+	lda.w SPA,y
+	cmp.w #$ED4A
+	bcc .t2
+	cmp.w #$F021
+	bcs .t2
+	lda.w $0EE3,y
+	bit.w #$8000
+	beq .1
+	eor.w #$FFFF
+	inc a
+.1:
+	sta.b $00
+	lda.w $0EC3,y
+	bit.w #$8000
+	beq .2
+	eor.w #$FFFF
+	inc a
+.2:
+	lsr a
+	cmp.b $00
+	bcs .t2
+	lda.w $0BA1
+	bne CODE_9EDAA4
+	stz.w $0EC3,x
+	stz.w $0EE3,x
+	inc.w $0BA1
+	rtl
+
+.t2:
+	stz.w $0BA1
+CODE_9EDAA4:
+	lda.b d2
+	sta.b d1
+	pha
+	lda.b d0
+	pha
+	lda.w $0EC3,x
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .1
+	ora.w #$FF00
+.1:
+	eor.w #$FFFF
+	inc a
+	sta.b d0
+	pla
+	clc
+	adc.b d0
+	sec
+	sbc.w Xpos,x
+	sta.b d0
+	lda.w $0EE3,x
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .2
+	ora.w #$FF00
+.2:
+	eor.w #$FFFF
+	inc a
+	sta.b d1
+	pla
+	clc
+	adc.b d1
+	sec
+	sbc.w Ypos,x
+	sta.b d1
+	lda.w #$0005
+	sta.b tmp0
+	cpx.w $0AD9
+	bne .3
+	asl.b tmp0
+.3:
+	lda.b d0
+	bit.w #$8000
+	beq .4
+	eor.w #$FFFF
+	inc a
+.4:
+	cmp.b tmp0
+	bcs .6
+	lda.b d1
+	bit.w #$8000
+	beq .5
+	eor.w #$FFFF
+	inc a
+.5:
+	cmp.b tmp0
+	bcs .6
+	stz.b d0
+	stz.b d1
+.6:
+	jsl.l vtoa
+	lda.b d0
+	sta.w $10A3,x
+CODE_9EDB21:
+	ldy.w $19D4,x
+	bpl CODE_9EDB3D
+	lda.w $10A3,x
+	sta.b d2
+	sec
+	sbc.w #$0007
+	beq .t1
+	bmi .t1
+	jmp.w CODE_9EA539
+
+.t1:
+	jml.l CODE_9EA719

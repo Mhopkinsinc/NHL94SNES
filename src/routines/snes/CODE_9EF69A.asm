@@ -24,7 +24,7 @@ CODE_9EF69A:
 	stz.b d1
 	lda.w sflags
 	bit.w #$1000
-	bne CODE_9EF6E1
+	bne .1
 	ldy.b a2
 	lda.w $1403,y
 	phx
@@ -33,17 +33,17 @@ CODE_9EF69A:
 	lda.b $08
 	sta.b d1
 	plx
-CODE_9EF6E1:
+.1:
 	lda.b d1
 	clc
 	adc.w #$2710
 	ldy.w position,x
-	beq CODE_9EF6F1
+	beq .2
 	cpx.w $0D07
-	bne CODE_9EF6F4
-CODE_9EF6F1:
+	bne .3
+.2:
 	adc.w #$0BB8
-CODE_9EF6F4:
+.3:
 	phx
 	tax
 	jsl.l Mul16U
@@ -52,10 +52,19 @@ CODE_9EF6F4:
 	cmp.b d0
 	lda.b $0A
 	sbc.b $A7
-	bcs CODE_9EF71F
+	bcs .t2
 	lda.w position,x
-	beq CODE_9EF714
+	beq .t1
 	lda.b d2
 	cmp.w #$0025
-	bcc CODE_9EF714
+	bcc .t1
 	jmp.w CODE_9EF699
+
+.t1:
+	ldy.b a2
+	lda.w #$0008
+	sta.w $1203,y
+	jmp.w CODE_9EF68B
+
+.t2:
+	jmp.w CODE_9E9A49

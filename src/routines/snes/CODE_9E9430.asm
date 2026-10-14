@@ -7,9 +7,9 @@ CODE_9E9430:
 	lsr a
 	lsr a
 	bit.w #$1000
-	beq CODE_9E943F
+	beq .1
 	ora.w #$E000
-CODE_9E943F:
+.1:
 	sta.b d0
 	cmp.w #$8000
 	ror a
@@ -23,9 +23,9 @@ CODE_9E943F:
 	lsr a
 	lsr a
 	bit.w #$1000
-	beq CODE_9E945C
+	beq .2
 	ora.w #$E000
-CODE_9E945C:
+.2:
 	sta.b d1
 	cmp.w #$8000
 	ror a

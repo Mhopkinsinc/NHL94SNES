@@ -4,37 +4,56 @@ lineinput:
 	pha
 	stz.b a2
 	lda.w pfteam,x
-	beq CODE_9FD741
+	beq .1
 	inc.b a2
 	inc.b a2
-CODE_9FD741:
+.1:
 	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0001
-	beq CODE_9FD75F
+	beq .2
 	and.w #$FFFE
 	sta.w tmflags,y
 	lda.w #$FFFF
 	sta.w $1D55,y
 	jsl.l CODE_9FDE13
 	jsl.l SetLCmode2
-CODE_9FD75F:
+.2:
 	pla
 	sta.b d1
 	stz.b d2
 	bit.w #$4000
-	bne CODE_9FD7AF
+	bne .t3
 	inc.b d2
 	bit.w #$8000
-	bne CODE_9FD7AF
+	bne .t3
 	inc.b d2
 	bit.w #$0080
-	bne CODE_9FD7AF
+	bne .t3
 	bit.w #$2000
-	bne CODE_9FD78E
+	bne .t2
 	lda.w pflags,x
 	bit.w #$0008
-	beq CODE_9FD78D
+	beq .t1
 	lda.w pfalock,x
-	bne CODE_9FD78D
+	bne .t1
 	jml.l CODE_9EA8A9
+
+.t1:
+	rtl
+
+.t2:
+	lda.w pflags,x
+	ora.w #$0008
+	sta.w pflags,x
+	jsl.l CODE_9FC757
+	ldy.b a2
+	lda.w tmflags,y
+	and.w #$FFF7
+	sta.w tmflags,y
+	lda.w #$FFFF
+	sta.w $1D55,y
+	jmp.w CODE_9FDE13
+
+.t3:
+	jmp.w lcfound

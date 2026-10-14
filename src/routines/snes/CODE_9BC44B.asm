@@ -2,8 +2,8 @@
 CODE_9BC44B:
 	lda.w $1DC1
 	cmp.w #$0001
-	bne CODE_9BC473
-CODE_9BC453:
+	bne .t1
+.1:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -19,3 +19,26 @@ CODE_9BC453:
 	sta.b $8F
 	jsl.l CODE_9FBF75
 	bra CODE_9BC499
+
+.t1:
+	lda.w $1DBD
+	asl a
+	adc.w $1DBD
+	xba
+	lsr a
+	lsr a
+	adc.w #$2780
+	sta.b $0C
+	lda.w #$007F
+	sta.b $0E
+	lda.w $1DC5
+	asl a
+	adc.w $1DC5
+	xba
+	lsr a
+	lsr a
+	tax
+	ldy.w #$0140
+	jsl.l CODE_80891F
+CODE_9BC499:
+	rtl

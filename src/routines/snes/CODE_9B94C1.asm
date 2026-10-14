@@ -10,7 +10,7 @@ CODE_9B94C1:
 	adc.w #$0005
 	cmp.w $1DC1
 	bpl CODE_9B94BB
-CODE_9B94DC:
+.1:
 	sec
 	sbc.w #$0004
 	sta.w $1DBD
@@ -18,13 +18,13 @@ CODE_9B94DC:
 	sta.w $1DF3
 	lda.w #$0018
 	sta.w $1DF5
-CODE_9B94EF:
+.loop:
 	jsl.l WaitFrame
 	inc.w $1DF3
 	inc.w $1DF3
 	lda.w $1DF3
 	cmp.w #$0017
-	bne CODE_9B94EF
+	bne .loop
 	jsl.l CODE_9B9AB2
 	jsr.w CODE_9B9562
 	jsl.l WaitFrame

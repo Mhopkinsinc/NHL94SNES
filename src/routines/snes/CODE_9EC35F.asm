@@ -14,13 +14,13 @@ CODE_9EC35F:
 	pha
 	stx.b xsave
 	ldx.w #$0000
-CODE_9EC376:
+.loop:
 	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0014
-	bne CODE_9EC376
+	bne .loop
 	ldx.b xsave
 	lda.b $8F
 	pha
@@ -55,7 +55,7 @@ CODE_9EC376:
 	sta.b $8F
 	lda.w TempPlOffset
 	bit.w #$4000
-	beq CODE_9EC3EC
+	beq .1
 	and.w #$BFFF
 	sta.w TempPlOffset
 	lda.b $8F
@@ -71,17 +71,17 @@ CODE_9EC376:
 	sta.b a1
 	pla
 	sta.b $8F
-CODE_9EC3EC:
+.1:
 	jsl.l CODE_9FC4A1
 	jsl.l print
 	stx.b xsave
 	ldx.w #$0012
-CODE_9EC3F9:
+.loop2:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9EC3F9
+	bpl .loop2
 	ldx.b xsave
 	pla
 	sta.b $AF

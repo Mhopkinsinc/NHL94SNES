@@ -1,7 +1,7 @@
 ; Animate the referee, and reprint the penalty message line when its time runs out
 UpdatePA:
 	lda.w RefCnt
-	bmi CODE_9EF968
+	bmi .t1
 	sec
 	sbc.b d7
 	sta.w RefCnt
@@ -12,7 +12,7 @@ UpdatePA:
 	sec
 	sbc.b d7
 	sta.w penmsgtimer
-	bpl CODE_9EF968
+	bpl .t1
 	lda.w #$7FFF
 	sta.w penmsgtimer
 	jsl.l CODE_9EC913
@@ -38,3 +38,6 @@ UpdatePA:
 	sbc.b d0
 	sta.w printx
 	jmp.w print
+
+.t1:
+	rtl

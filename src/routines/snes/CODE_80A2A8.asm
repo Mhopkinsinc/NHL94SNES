@@ -20,17 +20,17 @@ CODE_80A2A8:
 	sta.b $4E
 	ldx.b #$00
 	txy
-CODE_80A2C5:
+.loop:
 	lda.w $092A,x
 	cmp.b $4E
-	bne CODE_80A2CF
+	bne .1
 	jsr.w CODE_80ABC7
-CODE_80A2CF:
+.1:
 	inx
 	inx
 	iny
 	cpy.b #$08
-	bne CODE_80A2C5
+	bne .loop
 	sep #$20
 	inc.w SoundLock
 	plp

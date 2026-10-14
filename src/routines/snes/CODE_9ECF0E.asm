@@ -11,9 +11,9 @@ CODE_9ECF0E:
 	txa
 	lsr a
 	cmp.w textdirtylo
-	bcs CODE_9ECF32
+	bcs .1
 	sta.w textdirtylo
-CODE_9ECF32:
+.1:
 	clc
 	adc.w #$0020
 	cmp.w textdirtyhi

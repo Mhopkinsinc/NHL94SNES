@@ -13,12 +13,12 @@ CODE_80B77B:
 	lda.w $2C40,x
 	sta.b $00
 	dec.w $07BA
-	beq CODE_80B7C0
+	beq .1
 	stx.b $02
 	lda.w $07BA
 	asl a
 	cmp.b $02
-	beq CODE_80B7C0
+	beq .1
 	tay
 	lda.w $2540,y
 	sta.w $2540,x
@@ -38,7 +38,63 @@ CODE_80B77B:
 	sep #$20
 	sta.w $2741,y
 	rep #$20
-CODE_80B7C0:
+.1:
 	ldx.b $00
-	bmi CODE_80B7C7
+	bmi .t2
 	jmp.w CODE_80B863
+
+.t2:
+	sep #$30
+	lda.w $2F40,x
+	and.b #$40
+	bne CODE_80B822
+	lda.w $2F40,x
+	and.b #$3F
+	sta.b $16
+	clc
+	adc.b $00
+	tay
+	and.b #$07
+	beq .1x
+	lda.w $2F40,y
+	bmi .1x
+	clc
+	adc.b $16
+	sta.b $16
+.1x:
+	txa
+	and.b #$07
+	beq .t1
+	lda.w $2FB9,x
+	bmi .t1
+	tay
+	lda.w $2F40,y
+	bmi .t1
+	clc
+	adc.b $16
+	sta.w $2F40,y
+	tya
+	adc.w $2F40,y
+	tax
+	tya
+	sta.w $2FB9,x
+	rep #$30
+	plb
+	ply
+	plx
+	rtl
+
+.t1:
+	lda.b $16
+	sta.w $2F40,x
+	txa
+	clc
+	adc.b $16
+	tay
+	txa
+	sta.w $2FB9,y
+	rep #$30
+	plb
+	ply
+	plx
+	rtl

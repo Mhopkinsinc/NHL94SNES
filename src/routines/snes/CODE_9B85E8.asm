@@ -12,46 +12,46 @@ CODE_9B85F4:
 	beq CODE_9B85DC
 	xba
 	tay
-CODE_9B85FA:
+.loop:
 	tya
 	asl a
-	bcc CODE_9B8603
+	bcc .1
 	tay
 	txa
 	tsb.b $15
 	tya
-CODE_9B8603:
+.1:
 	asl a
-	bcc CODE_9B860B
+	bcc .2
 	tay
 	txa
 	tsb.b $14
 	tya
-CODE_9B860B:
+.2:
 	asl a
-	bcc CODE_9B8613
+	bcc .3
 	tay
 	txa
 	tsb.b $17
 	tya
-CODE_9B8613:
+.3:
 	asl a
-	bcc CODE_9B861B
+	bcc .4
 	tay
 	txa
 	tsb.b $16
 	tya
-CODE_9B861B:
+.4:
 	tay
 	txa
 	lsr a
 	tax
 	cpx.w #$0010
-	bcs CODE_9B85FA
+	bcs .loop
 	cpx.w #$0000
 	beq CODE_9B8637
 	cpx.w #$0008
-	bcc CODE_9B85FA
+	bcc .loop
 	lda.b $04
 	asl a
 	asl a

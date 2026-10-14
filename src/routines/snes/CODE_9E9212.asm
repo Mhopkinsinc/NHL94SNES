@@ -16,14 +16,14 @@ CODE_9E9212:
 	bne CODE_9E91EC
 	lda.w $0DF9
 	cmp.w #$000D
-	beq CODE_9E9246
+	beq .1
 	lda.b d2
 	cmp.w #$0012
-	bpl CODE_9E9246
+	bpl .1
 	lda.b d2
 	cmp.w #$FFEF
 	bpl CODE_9E920F
-CODE_9E9246:
+.1:
 	jsl.l CODE_9EF213
 	stz.w $1E8B
 	stz.w $1E89
@@ -38,19 +38,19 @@ CODE_9E9246:
 	lda.w $19BE
 	clc
 	adc.w #$0028
-	bmi CODE_9E9274
+	bmi .2
 	sta.w $19BE
-CODE_9E9274:
+.2:
 	jsl.l RandomWord
 	and.w #$0FFF
 	sta.b d0
 	lda.w pucky
-	bmi CODE_9E928A
+	bmi .3
 	lda.w #$0000
 	sec
 	sbc.b d0
 	sta.b d0
-CODE_9E928A:
+.3:
 	lda.b d0
 	sta.w puckvy
 	jsl.l RandomWord

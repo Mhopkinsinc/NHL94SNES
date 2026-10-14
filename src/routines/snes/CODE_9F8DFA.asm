@@ -2,26 +2,435 @@
 CODE_9F8DFA:
 	stx.b xsave
 	ldx.w #$0000
-CODE_9F8DFF:
+.loop:
 	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0020
-	bne CODE_9F8DFF
+	bne .loop
 	ldx.b xsave
 	stx.b xsave
 	ldx.w #$0000
-CODE_9F8E10:
+.loop2:
 	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$001C
-	bne CODE_9F8E10
+	bne .loop2
 	ldx.b xsave
 StartHL2:
 	lda.w sflags3
 	bit.w #$0008
-	beq CODE_9F8E27
+	beq .t1
 	jmp.w CODE_9F9276
+
+.t1:
+	jsl.l CODE_9F92CB
+	lda.b d1
+	sta.b d3
+	jsl.l NewTicker3
+	lda.w sflags3
+	bit.w #$0008
+	beq .t3
+	jmp.w CODE_9F9243
+
+.t3:
+	lda.w #$0004
+	sta.w printx
+	lda.w #$0014
+	sta.w printy
+	lda.w #$0018
+	sta.b d0
+	lda.w #$0003
+	sta.b d1
+	jsl.l CODE_9D8000
+	inc.w printx
+	dec.w printy
+	dec.w printy
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF7F3
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	lda.w #$00B4
+	sta.b d0
+	jsl.l CODE_9FA5EA
+	lda.b d3
+	bit.w #$1000
+	beq .t1x
+	jmp.w CODE_9F9243
+
+.t1x:
+	stz.w $0AC2
+	jsl.l CODE_9F96F7
+	jsl.l CODE_9F9708
+	jsl.l CODE_8086A9
+	jsl.l CODE_9C9786
+	lda.w $1D68
+	cmp.w #$0001
+	beq .1
+	jsl.l CODE_9C98DF
+.1:
+	ldx.b a0
+	lda.l $7E3528,x
+	sta.w HomeTeam
+	lda.l $7E3538,x
+	sta.w VisTeam
+	lda.b a0
+	pha
+	lda.b $8B
+	pha
+	jsl.l ClearTeamStats
+	jsl.l restoreteams
+	lda.w #$0000
+	sta.b a2
+	jsl.l CODE_9B9334
+	lda.w #$0002
+	sta.b a2
+	jsl.l CODE_9B9334
+	stz.b a2
+	jsl.l reenergizeteam
+	lda.w #$0002
+	sta.b a2
+	jsl.l reenergizeteam
+	jsl.l CODE_9BC17C
+	ldx.w #$0008
+	lda.w #$FFFF
+.loop:
+	sta.w $19EC,x
+	sta.w $19F6,x
+	dex
+	dex
+	bpl .loop
+	stz.w $1C84
+	stz.w $1C86
+	stz.w $1C88
+	stz.w $1C8A
+	stz.w $1C8C
+	lda.w #$0078
+	jsl.l CODE_9BB385
+	adc.w #$0078
+	sta.w gameclock
+	pla
+	sta.b $8B
+	pla
+	sta.b a0
+	lda.b a0
+	pha
+	lda.b $8B
+	pha
+	ldx.b a0
+	lda.l $7E3568,x
+	dec a
+	sta.w gsp
+	lda.l $7E3578,x
+	sta.w $178E
+	lda.l $7E3588,x
+	sta.w $1790
+	lda.w #$0010
+	sta.w gmode
+	stz.w gmclock
+	lda.w gsp
+	lsr a
+	bcc .2
+	lda.w #$0002
+	tsb.w gmode
+.2:
+	stz.w sflags3
+	lda.w #DMA_OAM
+	sta.w sflags
+	stz.w sfhormode
+	stz.w iflags
+	lda.w #$FFFF
+	sta.w RefCnt
+	sta.w $0D19
+	sta.w $0D1D
+	jsl.l CODE_9FB8B4
+	jsl.l CODE_9FB9A4
+	stz.w Vpos
+	stz.w Hpos
+	jsl.l ResetBench
+	stz.b a2
+	jsl.l CODE_9F927D
+	lda.w #$0002
+	sta.b a2
+	jsl.l CODE_9F927D
+	jsl.l CODE_9FD252
+	lda.w #$0000
+	sta.l $7E3448
+	lda.w #$000B
+	sta.b d0
+	lda.w #$009F
+	sta.b $8B
+	lda.w #DATA8_9F9323
+	sta.b a0
+	stz.b a1
+.loop2:
+	ldx.b a1
+	lda.w position,x
+	sta.b d1
+	lda.w pfgoal,x
+	bne .3
+	lda.b d1
+	clc
+	adc.w #$0006
+	sta.b d1
+.3:
+	asl.b d1
+	asl.b d1
+	ldy.b d1
+	lda.b [a0],y
+	sta.w Xpos,x
+	iny
+	iny
+	lda.b [a0],y
+	sta.w Ypos,x
+	stz.w $0EC3,x
+	stz.w $0EE3,x
+	inc.b a1
+	inc.b a1
+	dec.b d0
+	bpl .loop2
+	lda.w $0AD9
+	bpl .4
+	lda.w #$000C
+	jsl.l CODE_9BB370
+	asl a
+	sta.w $0AD9
+.4:
+	tax
+	lda.w position,x
+	bne .5
+	dex
+	dex
+	txa
+	sta.w $0AD9
+.5:
+	jsl.l SprSort
+org $9F9001
+	lda.w #$00B4
+	pha
+	lda.b $83
+	sta.w $0D01
+.loop3:
+	lda.b $83
+	cmp.w $0D01
+	beq .loop3
+	tax
+	sec
+	sbc.w $0D01
+	sta.b d7
+	sta.w $0ADB
+	asl a
+	sta.w $0CDD
+	asl a
+	asl a
+	asl a
+	sta.w $0CDF
+	asl a
+	sta.w $0CE1
+	asl a
+	adc.w $0CE1
+	sta.w $0CE1
+	stx.w $0D35
+	stx.w $0D01
+	jsl.l CODE_9B8017
+	lda.w sflags
+	bit.w #$0001
+	bne .7
+	lda.w gmclock
+	bne .7
+	ldx.b d7
+.loop4:
+	lda.w gameclock
+	beq .6
+	lda.w $1634
+	sec
+	sbc.w #$0AAA
+	sta.w $1634
+	bcs .6
+	dec.w gameclock
+.6:
+	dex
+	bne .loop4
+.7:
+	lda.b d7
+	pha
+	jsl.l CODE_9F8625
+	pla
+	sta.b d7
+	sta.w $0ADB
+	lda.w gmclock
+	beq .8
+	pla
+	sec
+	sbc.b d7
+	pha
+	bmi .9
+.8:
+	jsl.l CODE_9B8526
+	lda.b d1
+	bit.w #$9080
+	beq .loop3
+	lda.w $178E
+	cmp.w $1790
+	bne .9
+	jsl.l RandomWord
+	and.w #$0002
+	tax
+	inc.w $178E,x
+.9:
+	pla
+	pla
+	sta.b $8B
+	pla
+	sta.b a0
+	jsl.l CODE_9C9786
+	ldx.b a0
+	lda.w $178E
+	sta.l $7E3578,x
+	lda.w $1790
+	sta.l $7E3588,x
+	jsl.l SetupTeamForIntermission
+	ldx.w #$0000
+.loop5:
+	lda.w #$FF10
+	sta.w Xpos,x
+	stz.w Ypos,x
+	lda.w #$0001
+	sta.w $0D97,x
+	inx
+	inx
+	cpx.w #$0018
+	bcc .loop5
+	jsl.l CODE_9F96F7
+	jsl.l CODE_9F9708
+	jsl.l CODE_8086A9
+	jsl.l CODE_9F9307
+	jsl.l CODE_9FB901
+	jsl.l SetHor
+	jsl.l SpriteFrameStart
+	jsl.l CODE_9FBAAA
+	jsl.l SpriteFrameEnd
+.loop6:
+	lda.w SoundFadeSpeed
+	bne .loop6
+	lda.w MusicOn
+	bne .loop6
+	jsl.l CODE_9C978E
+	lda.l $7E34BC
+	beq .t2
+	cmp.w #$0004
+	beq .t2
+	lda.l $7E35D4
+	cmp.w #$0002
+	bcc .t2
+	lda.w #$0093
+	sta.b $0E
+	lda.w #DATA8_93ED31
+	sta.b $0C
+	jsl.l MusicStart
+	bra CODE_9F9133
+
+.t2:
+	lda.w #$0090
+	sta.b $0E
+	lda.w #DATA8_90C20C
+	sta.b $0C
+	jsl.l MusicStart
+CODE_9F9133:
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF809
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	lda.w #$0016
+	sta.b d0
+	lda.w #$0007
+	sta.b d1
+	jsl.l CODE_9D8000
+	jsl.l CODE_9F9B36
+	jsl.l CODE_9FEA24
+	jsl.l CODE_9F96E6
+	jsl.l CODE_8086BD
+	stx.b xsave
+	ldx.w #$001A
+.loop:
+	pla
+	sta.b a0,x
+	dex
+	dex
+	bpl .loop
+	ldx.b xsave
+	stx.b xsave
+	ldx.w #$001E
+.loop2:
+	pla
+	sta.b d0,x
+	dex
+	dex
+	bpl .loop2
+	ldx.b xsave
+	ldx.b a3
+	stx.b xsave
+	ldx.w #$0000
+.loop3:
+	lda.b d0,x
+	pha
+	inx
+	inx
+	cpx.w #$0020
+	bne .loop3
+	ldx.b xsave
+	stx.b xsave
+	ldx.w #$0000
+.loop4:
+	lda.b a0,x
+	pha
+	inx
+	inx
+	cpx.w #$001C
+	bne .loop4
+	ldx.b xsave
+	ldx.b a0
+	lda.w #$0004
+	sta.l $7E3568,x
+	lda.l $7E3578,x
+	cmp.l $7E3588,x
+	bne .t1
+	jmp.w CODE_808E1C
+
+.t1:
+	lda.w #$0005
+	sta.l $7E3568,x
+	lda.b d1
+	sta.b d3
+	jsl.l NewTicker3
+	lda.w #$00B4
+	sta.b d0
+	jsl.l CODE_9FA5EA
+	lda.b d1
+	bit.w #$1000
+	beq CODE_9F91E8
+CODE_9F91E0:
+	lda.w #$0008
+	tsb.w sflags3
+	bra CODE_9F91EE

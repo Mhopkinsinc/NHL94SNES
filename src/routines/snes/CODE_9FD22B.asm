@@ -10,18 +10,18 @@ CODE_9FD22B:
 	lsr a
 	lsr a
 	bit.b #$00
-	beq CODE_9FD23F
+	beq .1
 	ora.b #$00
-CODE_9FD23F:
+.1:
 	clc
 	adc.b $16
-	bpl CODE_9FD246
+	bpl .2
 	lda.b #$00
-CODE_9FD246:
+.2:
 	cmp.b #$0F
-	bcc CODE_9FD24C
+	bcc .3
 	lda.b #$0F
-CODE_9FD24C:
+.3:
 	rep #$20
 	and.w #$00FF
 	rtl

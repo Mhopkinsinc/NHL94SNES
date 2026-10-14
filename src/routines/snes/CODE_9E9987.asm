@@ -4,10 +4,10 @@ CODE_9E9987:
 	jsl.l CODE_9BC074
 	lda.b d0
 	bit.w #$8000
-	beq CODE_9E9997
+	beq .1
 	eor.w #$FFFF
 	inc a
-CODE_9E9997:
+.1:
 	sta.b d2
 	asl a
 	tax
@@ -15,10 +15,10 @@ CODE_9E9997:
 	sta.b d4
 	lda.b d1
 	bit.w #$8000
-	beq CODE_9E99AC
+	beq .2
 	eor.w #$FFFF
 	inc a
-CODE_9E99AC:
+.2:
 	asl a
 	tax
 	lda.l DATA8_9E9927,x
@@ -33,12 +33,12 @@ CODE_9E99AC:
 	sec
 	sbc.w $0D71
 	bit.w #$8000
-	beq CODE_9E99D1
+	beq .3
 	eor.w #$FFFF
 	inc a
-CODE_9E99D1:
+.3:
 	cmp.b d2
-	bcs CODE_9E9A0E
+	bcs .6
 	sta.b d0
 	lda.b d1
 	clc
@@ -46,27 +46,57 @@ CODE_9E99D1:
 	sec
 	sbc.w pucky
 	bit.w #$8000
-	beq CODE_9E99EA
+	beq .4
 	eor.w #$FFFF
 	inc a
-CODE_9E99EA:
+.4:
 	cmp.b d2
-	bcs CODE_9E9A0E
+	bcs .6
 	sta.b d1
 	lda.b d3
 	clc
 	adc.b d4
 	cmp.w #$0005
-	bpl CODE_9E99FD
+	bpl .5
 	lda.w #$0005
-CODE_9E99FD:
+.5:
 	cmp.w $0DF9
-	bcc CODE_9E9A0E
+	bcc .6
 	lda.b d3
 	sec
 	sbc.b d4
-	bmi CODE_9E9A11
+	bmi .t1
 	cmp.w $0DF9
-	bcc CODE_9E9A11
-CODE_9E9A0E:
+	bcc .t1
+.6:
+	jmp.w CODE_9E98FB
+
+.t1:
+	lda.b d0
+	tax
+	jsl.l CODE_808F4C
+	sta.b d0
+	lda.b d1
+	tax
+	jsl.l CODE_808F4C
+	clc
+	adc.b d0
+	sta.b d0
+	lda.b d2
+	tax
+	jsl.l CODE_808F4C
+	ldx.b $E4
+	sta.b d1
+	lda.w $121F
+	bmi .2x
+	beq .2x
+.1x:
+	lsr.b d1
+	lsr.b d1
+.2x:
+	lda.b d1
+	cmp.b d0
+	bcc .3x
+	jsl.l CODE_9EF5DA
+.3x:
 	jmp.w CODE_9E98FB

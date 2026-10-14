@@ -1,8 +1,12 @@
 ; Unidentified routine.
 CODE_9F9E15:
 	lda.b d0
-CODE_9F9E17:
+.loop:
 	cmp.w #$0064
-	bcc CODE_9F9E21
+	bcc .t1
 	sbc.w #$0064
-	bra CODE_9F9E17
+	bra .loop
+
+.t1:
+	sta.b d0
+	rtl

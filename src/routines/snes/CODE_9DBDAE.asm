@@ -6,7 +6,7 @@ CODE_9DBDAE:
 	lda.w $1DB9
 	sec
 	sbc.w #$0007
-	bmi CODE_9DBDFF
+	bmi .2
 	inc a
 	inc a
 	sta.w $1D9B
@@ -19,25 +19,25 @@ CODE_9DBDAE:
 	clc
 	adc.b [a3],y
 	sta.b a3
-CODE_9DBDD8:
+.loop:
 	dec.w $1D9B
-	beq CODE_9DBDF2
-	bmi CODE_9DBDF2
+	beq .1
+	bmi .1
 	ldy.w #$0000
-CODE_9DBDE2:
+.loop2:
 	lda.b [a3],y
 	and.w #$00FF
 	cmp.w $1D9B
-	beq CODE_9DBDD8
+	beq .loop
 	iny
 	cpy.w #$0006
-	bmi CODE_9DBDE2
-CODE_9DBDF2:
+	bmi .loop2
+.1:
 	dec.w $1D9B
 	lda.w $1D9B
 	clc
 	adc.w #$0007
 	sta.w $1DB9
-CODE_9DBDFF:
+.2:
 	jsl.l CODE_9DBE79
 	jmp.w CODE_9DBD7B

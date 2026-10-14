@@ -1,16 +1,16 @@
 ; Unidentified routine.
 CODE_9CA58C:
 	ldx.w #$0000
-CODE_9CA58F:
+.loop:
 	stx.b $E4
 	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0
-	bpl CODE_9CA5A0
+	bpl .1
 	eor.w #$FFFF
 	inc a
-CODE_9CA5A0:
+.1:
 	pha
 	lsr a
 	lsr a
@@ -22,10 +22,10 @@ CODE_9CA5A0:
 	sec
 	sbc.w Ypos,x
 	sta.b d1
-	bpl CODE_9CA5BC
+	bpl .2
 	eor.w #$FFFF
 	inc a
-CODE_9CA5BC:
+.2:
 	pha
 	lsr a
 	lsr a
@@ -45,5 +45,5 @@ CODE_9CA5BC:
 	inx
 	inx
 	cpx.w #$0020
-	bne CODE_9CA58F
+	bne .loop
 	rtl
