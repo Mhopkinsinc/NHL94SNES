@@ -41,10 +41,10 @@ CODE_9B9768:
 	sta.w $1DC1
 	lda.w $1DC1
 	cmp.w #$0006
-	bcc CODE_9B97E3
-CODE_9B97DF:
+	bcc .2
+.1:
 	jsl.l CODE_9B9A5D
-CODE_9B97E3:
+.2:
 	jsr.w CODE_9B9917
 	jsl.l CODE_9DD923
 	lda.w #$0058
@@ -61,5 +61,14 @@ CODE_9B9808:
 	jsl.l ProcessInputWithRepeat
 	lda.b d3
 	bit.w #$1000
-	beq CODE_9B9818
+	beq .t1
 	rtl
+
+.t1:
+	bit.w #$0800
+	bne CODE_9B987B
+	bit.w #DMA_OAM
+	bne CODE_9B9828
+CODE_9B9822:
+	jsl.l WaitFrame
+	bra CODE_9B9808

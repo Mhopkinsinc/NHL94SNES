@@ -44,9 +44,9 @@ CODE_9C9E8E:
 	inx
 	lda.w $1E21
 	cmp.w #$001A
-	bpl CODE_9C9EBC
+	bpl .1
 	cpx.w #$001A
-	bmi CODE_9C9EBC
+	bmi .1
 	lda.w #$0002
 	sta.b a2
 	jsl.l GetPlayerCount
@@ -59,7 +59,10 @@ CODE_9C9E8E:
 	clc
 	adc.w #$001A
 	sta.w $1E23
-CODE_9C9EBC:
+.1:
 	cpx.w #$0034
-	bpl CODE_9C9EC4
+	bpl .t1
 	jmp.w CODE_9C9DA1
+
+.t1:
+	rtl

@@ -2,13 +2,13 @@
 CODE_9E9A49:
 	ldy.b a2
 	cpy.w $0AD9
-	beq CODE_9E9A61
+	beq .1
 	lda.w #$0003
 	jsl.l CODE_9C9ABC
 	jsl.l CODE_9EC791
 	stz.w $1E8B
 	stz.w $1E89
-CODE_9E9A61:
+.1:
 	ldy.b a2
 	sty.w $0AD9
 	sty.b d0
@@ -16,11 +16,11 @@ CODE_9E9A61:
 	lda.w #$0002
 	sta.b a1
 	lda.w pfteam,y
-	bne CODE_9E9A7B
+	bne .2
 	stz.b a1
 	lda.w #$0002
 	sta.b a0
-CODE_9E9A7B:
+.2:
 	ldy.b a0
 	lda.w #$FFFF
 	sta.w tmtouch2,y
@@ -30,7 +30,7 @@ CODE_9E9A7B:
 	sta.w tmflags,y
 	lda.w #$0010
 	trb.w sflags3
-	beq CODE_9E9AB1
+	beq .3
 	ldy.b a1
 	lda.w $1792,y
 	inc a
@@ -41,39 +41,46 @@ CODE_9E9A7B:
 	sta.l $7E35E0
 	lda.w #$0014
 	sta.b $81
-CODE_9E9AB1:
+.3:
 	lda.w gmclock
-	bne CODE_9E9AC6
+	bne .4
 	lda.b a2
 	cmp.w $0D07
-	bne CODE_9E9AC6
+	bne .4
 	ldy.b a1
 	lda.w $17BA,y
 	inc a
 	sta.w $17BA,y
-CODE_9E9AC6:
+.4:
 	lda.w #$000C
 	trb.w sflags
 	ldy.b a2
 	lda.w position,y
-	bne CODE_9E9AED
+	bne .6
 	jsl.l CODE_9EF213
 	ldy.b a2
 	lda.w #$008C
 	sta.w $1083,y
 	lda.w SPA,y
 	cmp.w #$E4B6
-	bne CODE_9E9AED
-CODE_9E9AE7:
+	bne .6
+.5:
 	lda.w #$0005
 	sta.w $1083,y
-CODE_9E9AED:
+.6:
 	lda.b a2
 	cmp.w $0D07
-	bne CODE_9E9B03
+	bne .t1
 	ldy.b a1
 	lda.w $0B01,y
 	sta.b d4
-	bmi CODE_9E9B03
+	bmi .t1
 	jsl.l CODE_9FCB5C
 	bra CODE_9E9B07
+
+.t1:
+	jsl.l CODE_9FCB16
+CODE_9E9B07:
+	lda.w #$FFFF
+	sta.w $0D07
+	rtl

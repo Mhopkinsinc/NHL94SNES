@@ -9,5 +9,9 @@ CODE_9EDDBD:
 	lda.w $0E01
 	and.w #$FF00
 	ora.w $0DF9
-	beq CODE_9EDDCB
+	beq .t1
+	jmp.w CODE_9E9788
+
+.t1:
+	jsl.l pucknothing
 	jmp.w CODE_9E9788

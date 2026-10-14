@@ -9,7 +9,7 @@ CODE_9C9FED:
 	sec
 	sbc.w $0ADB
 org $9CA002
-	bpl CODE_9CA02D
+	bpl .t1
 	clc
 	adc.w #$000B
 	sta.w $0C27
@@ -27,3 +27,7 @@ org $9CA002
 	beq CODE_9CA040
 	lda.w #$0002
 	bra CODE_9CA03D
+
+.t1:
+	sta.w $0C27
+	bra CODE_9CA040

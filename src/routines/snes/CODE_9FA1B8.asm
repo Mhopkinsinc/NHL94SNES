@@ -1,27 +1,54 @@
 ; Unidentified routine.
 CODE_9FA1B8:
 	lda.b a2
-	beq CODE_9FA1BF
+	beq .1
 	lda.w #$001A
-CODE_9FA1BF:
+.1:
 	sta.b a0
-CODE_9FA1C1:
+.loop:
 	ldy.b a0
 	lda.w tmboxlist,y
 	inc.b a0
 	and.w #$00FF
 	sta.b d0
 	bit.w #$0080
-	bne CODE_9FA1EB
+	bne .t1
 	lda.b a2
-	beq CODE_9FA1D9
+	beq .2
 	lda.w #$0034
-CODE_9FA1D9:
+.2:
 	clc
 	adc.b d0
 	tay
 	lda.w tmpdst,y
 	bit.w #$4000
-	bne CODE_9FA1C1
+	bne .loop
 	jsl.l pplpen
-	bra CODE_9FA1C1
+	bra .loop
+
+.t1:
+	lda.b a2
+	beq .1x
+	lda.w #$001A
+.1x:
+	sta.b a0
+.loopx:
+	ldy.b a0
+	lda.w tmboxlist,y
+	inc.b a0
+	and.w #$00FF
+	sta.b d0
+	bit.w #$0080
+	bne CODE_9FA1B7
+	lda.b a2
+	beq .2x
+	lda.w #$0034
+.2x:
+	clc
+	adc.b d0
+	tay
+	lda.w tmpdst,y
+	bit.w #$4000
+	beq .loopx
+	jsl.l pplpen
+	bra .loopx

@@ -33,18 +33,22 @@ CODE_9FF436:
 	lda.w #$7000
 	sta.b $64
 	ldx.w #$003C
-CODE_9FF499:
+.loop:
 	jsl.l WaitFrame
 	dex
-	bpl CODE_9FF499
+	bpl .loop
 	ldx.w #$009F
 	lda.w #$FA17
 	jsl.l CODE_80855E
-CODE_9FF4AA:
+.loop2:
 	jsl.l RandomWord
 	jsr.w CODE_9FF613
-	bne CODE_9FF4BB
+	bne .t1
 	lda.b $3C
 	cmp.b $3A
-	beq CODE_9FF4AA
-	bra CODE_9FF4AA
+	beq .loop2
+	bra .loop2
+
+.t1:
+	jsl.l CODE_8086A9
+	rtl

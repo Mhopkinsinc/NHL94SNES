@@ -3,12 +3,12 @@ CODE_9BCAF8:
 	jsl.l CODE_9BCD28
 	lda.l $7E34D0
 	bpl CODE_9BCAF7
-CODE_9BCB02:
+.loop:
 	lda.w JoyPad
 	bit.w #$4000
-	bne CODE_9BCB02
+	bne .loop
 	bit.w #$8080
-	bne CODE_9BCB02
+	bne .loop
 	lda.b $8F
 	pha
 	lda.b a1
@@ -62,15 +62,15 @@ CODE_9BCB02:
 	pla
 	sta.b $8F
 	jsl.l CODE_9FBF75
-CODE_9BCB7B:
+.loop2:
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B84F5
 	lda.b d3
-	beq CODE_9BCB7B
+	beq .loop2
 	bit.w #$4000
-	bne CODE_9BCBCD
+	bne .t1
 	bit.w #$8080
-	beq CODE_9BCB7B
+	beq .loop2
 	lda.b $8F
 	pha
 	lda.b a1
@@ -95,3 +95,8 @@ CODE_9BCB7B:
 	jsl.l CODE_9FBF75
 	jsl.l CODE_8085FF
 	jmp.w CODE_9BC946
+
+.t1:
+	lda.w #$0002
+	sta.l $7E34BC
+	jml.l CODE_9F82D2

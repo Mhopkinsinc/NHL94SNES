@@ -6,14 +6,14 @@ CODE_9ED72D:
 	stz.b d0
 	lda.w Xpos,x
 	cmp.w #$FFD3
-	bmi CODE_9ED752
+	bmi .1
 	cmp.w #$002D
-	bpl CODE_9ED752
+	bpl .1
 	lda.w #$0088
 	sta.b d0
 	lda.w Xpos,x
-	bpl CODE_9ED752
+	bpl .1
 	lda.w #$FF78
 	sta.b d0
-CODE_9ED752:
+.1:
 	jmp.w CODE_9EDA51

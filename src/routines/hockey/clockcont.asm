@@ -2,6 +2,9 @@
 clockcont:
 	lda.w gmclock
 	ora.w gameclock
-	bne CODE_9FA635
+	bne .t1
 	jsl.l freezewindow
 	jmp.w clockcont_0
+
+.t1:
+	rtl

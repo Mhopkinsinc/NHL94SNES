@@ -15,14 +15,14 @@ CODE_9ECCA1:
 	sta.b a1
 	lda.w $1E41
 	cmp.w #$000D
-	beq CODE_9ECCDC
+	beq .1
 	cmp.w #$000E
-	beq CODE_9ECCDC
+	beq .1
 	lda.w #$009E
 	sta.b $8F
 	lda.w #$CC94
 	sta.b a1
-CODE_9ECCDC:
+.1:
 	jsl.l appstring
 	lda.w #$0000
 	sta.b $8F

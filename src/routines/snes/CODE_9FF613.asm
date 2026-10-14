@@ -4,10 +4,16 @@ CODE_9FF613:
 	sta.b d4
 	lda.b d4
 	cmp.w #$000D
-	beq CODE_9FF623
+	beq .1
 	lda.w JoyPad
-	beq CODE_9FF623
-CODE_9FF623:
+	beq .1
+.1:
 	lda.b $C3
-	beq CODE_9FF62A
+	beq .t1
 	jmp.w CODE_9FF898
+
+.t1:
+	lda.b d4
+	asl a
+	tax
+	jmp (DATA8_9FF631,x)

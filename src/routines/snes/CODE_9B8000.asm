@@ -4,8 +4,8 @@ CODE_9B8000:
 	sta.l $7E35DA
 	lda.w STAT78
 	bit.w #$0010
-	beq CODE_9B8016
+	beq .rtl
 	lda.w #$3333
 	sta.l $7E35DA
-CODE_9B8016:
+.rtl:
 	rtl

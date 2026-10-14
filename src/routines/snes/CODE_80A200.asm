@@ -36,10 +36,72 @@ CODE_80A226:
 	sta.w $089D,x
 	stz.w $088C,x
 	lda.w $07E3
-	bne CODE_80A24F
+	bne .t1
 	ldy.b #$12
 	lda.b ($4E),y
 	sta.w $08BE
 	iny
 	lda.b ($4E),y
 	bra CODE_80A256
+
+.t1:
+	ldy.b #$17
+	lda.b ($4E),y
+	sta.w $08BE
+CODE_80A256:
+	sta.w $08CF
+	lda.b $65
+	sta.b $5A
+	ldy.b #$10
+	jsr.w CODE_80A697
+	and.b #$FF
+	sep #$20
+	inc.w SoundLock
+	plp
+	plb
+	ply
+	plx
+	rtl
+
+.t1:
+	phx
+	phy
+	phb
+	php
+	sep #$30
+	dec.w SoundLock
+	pha
+	lda.b $50
+	pha
+	plb
+	pla
+	asl a
+	tay
+	rep #$20
+	lda.b [$34],y
+	clc
+	adc.b $34
+	sta.b $4E
+	ldx.b #$00
+	txy
+CODE_80A28B:
+	lda.w $092A,x
+	cmp.b $4E
+	bne .t1
+	jsr.w CODE_80ABF7
+	bra CODE_80A29E
+
+.t1:
+	inx
+	inx
+	iny
+	cpy.b #$08
+	bne CODE_80A28B
+CODE_80A29E:
+	sep #$20
+	inc.w SoundLock
+	plp
+	plb
+	ply
+	plx
+	rtl

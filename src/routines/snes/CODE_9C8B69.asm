@@ -22,14 +22,14 @@ CODE_9C8B69:
 	jsl.l AdvanceStringPtr
 	jsl.l print
 	ldx.w $1DBD
-CODE_9C8B9D:
+.loop:
 	txy
-CODE_9C8B9E:
+.loop2:
 	iny
 	jsl.l CODE_9C8C22
 	lda.w $1DC9
-	beq CODE_9C8BBE
-CODE_9C8BA8:
+	beq .2
+.1:
 	sep #$20
 	lda.w $1DFB,y
 	sta.w $1DC9
@@ -38,11 +38,11 @@ CODE_9C8BA8:
 	lda.w $1DC9
 	sta.w $1DFB,x
 	rep #$20
-CODE_9C8BBE:
+.2:
 	cpy.w $1DC1
-	bcc CODE_9C8B9E
+	bcc .loop2
 	inx
 	cpx.w $1DC1
-	bcc CODE_9C8B9D
+	bcc .loop
 	jsl.l CODE_9C8934
 	rtl

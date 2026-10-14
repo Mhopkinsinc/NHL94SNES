@@ -11,7 +11,7 @@ CODE_9FC79F:
 	sta.b d0
 	jsr.w CODE_9FC7EC
 	ldx.w #$0000
-CODE_9FC7BD:
+.loop:
 	jsr.w CODE_9FC7D7
 	lda.b d0
 	sta.l $7E3528,x
@@ -21,5 +21,5 @@ CODE_9FC7BD:
 	inx
 	inx
 	cpx.w #$0010
-	bne CODE_9FC7BD
+	bne .loop
 	rtl

@@ -6,18 +6,18 @@ MusicStart:		; start the song at [$0C]: tempo from its second byte, tracks from 
 	dec.w SoundLock
 	lda.b #$1F
 	ldy.b #$10
-CODE_80A2EE:
+.loop:
 	sta.w $08E1,y
 	dey
-	bpl CODE_80A2EE
+	bpl .loop
 	rep #$10
 	ldy.w #$0001
 	ldx.w #$2760
 	lda.w STAT78
 	bit.b #$10
-	beq CODE_80A306
+	beq .1
 	ldx.w #$1FE0
-CODE_80A306:
+.1:
 	lda.b [$0C],y
 	jsl.l DivX8U
 	sta.w $07F6
@@ -29,9 +29,9 @@ CODE_80A306:
 	sta.w $07ED
 	ldx.b #$00
 	ldy.b #$08
-CODE_80A320:
+.loop2:
 	lda.b [$0C],y
-	beq CODE_80A333
+	beq .t1
 	clc
 	adc.b $0C
 	sta.w $0804,x
@@ -40,4 +40,16 @@ CODE_80A320:
 	iny
 	inx
 	inx
-	bra CODE_80A320
+	bra .loop2
+
+.t1:
+	stz.w $07EF
+	sep #$20
+	ldy.b #$06
+	lda.b [$0C],y
+	sta.w $0801
+	lda.b #$01
+	sta.w MusicOn
+	inc.w SoundLock
+	plp
+	rtl

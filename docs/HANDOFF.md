@@ -11,6 +11,7 @@
 - `data/text`, `data/tables`, `data/sound` and `data/gfx`: `DATA8_` blocks were compared with the 93S tables. The ones that match already have those names (the nine text tables, team data). The remaining blocks are mixed banks and stay `DATA8_`.
 - SPA names in `src/data/frames94s.asm` stay off. The list has the 94G shape, and the frame numbers are not the 94G SPF values.
 - Named routine files have a one-line header. `CODE_` files still say they are unidentified. That is the placeholder.
+- Branch targets that were only used inside one routine are 92-style locals (`.loop`, `.rtl`, `.1`). 1108 `CODE_` files that were only the next bytes of the previous routine were folded into that routine. `CODE_` labels left: 1933, in 1062 files.
 
 ## Unsure
 
@@ -36,7 +37,7 @@
 - SpriteFrameN labels stay numbered until a frame has an SPF name.
 - The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.
 - The animation list in `src/data/frames94s.asm` has the same shape as the 94G list (eight direction pointers, then frame and time words) but the frame numbers are not the 94G SPF values, so those SPA names are not applied. `DATA8_9DE0FC` stays until that match is clear.
-- The remaining `CODE_` entries (about 4900 labels, about 2170 files under `src/routines/snes`) did not uniquely match a 93S or 94G routine. Opcode identity across the two ROMs is rare, and several names collided on the same prologue, so those stay placeholders.
+- The remaining `CODE_` entries (1933 labels, 1062 files) did not uniquely match a 93S or 94G routine. Opcode identity across the two ROMs is rare, and several names collided on the same prologue, so those stay placeholders.
 - `DATA8_` blocks that are not already a 93S table stay unnamed. The attribute menus, roster lines and credits already have their own files, so the mixed string banks (`DATA8_80D0EA`, `DATA8_9B906F`, `DATA8_9B8861`, `DATA8_80E2E0`, `DATA8_9DACED`, `DATA8_9DADFD`, `DATA8_9FEC96`, `DATA8_9FF163`, `DATA8_9FF35F`, `DATA8_9CEF59`, `DATA8_9CF000`) were not given a second name.
 - Rejected matches, left as `CODE_`: `printbig`, `getpde`, `Pausemode`, `assscore`, `sroot`, `doshot`, `AttribRating`. `CODE_9B9F7A` is not `updatecrowdf`. `CODE_9C9930` is not `updatesound`. `CODE_9BB370` is the random range `randomd0` calls, and its body is an 8-bit path plus a 16-bit path, not 93S `randoma`. `CODE_9F8330` contains the `StartGame` penalty-option sequence and then the replay setup. `CODE_9FBAAA` builds the frame sprites (`show_rink`, `showclock`, `showzam`) without the 93S vblank gate. `CODE_9D8000` is called where 93S calls `Framer`. `CODE_9ECFC6` is called where 93S calls `PrintStringFromList`. `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `CODE_9F8DFA` is a shared register-save prologue, not one routine.
 - `$7E35D0` is the blank tile `EraseScoutName` stores the way 93S stores `blankchar`. Not named.

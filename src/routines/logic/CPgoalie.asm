@@ -2,32 +2,35 @@
 CPgoalie:
 	lda.w gsp
 	cmp.w #$0002
-	bne CODE_9ED178
+	bne .t1
 	ldy.b a1
 	lda.w $178E,y
 	ldy.b a2
 	sec
 	sbc.w $178E,y
-	bmi CODE_9ED178
-	beq CODE_9ED178
+	bmi .t1
+	beq .t1
 	cmp.w #$0003
-	bcs CODE_9ED178
+	bcs .t1
 	lda.w gameclock
 	cmp.w #$003D
-	bcs CODE_9ED178
+	bcs .t1
 	lda.w tmsort,y
 	tay
 	lda.w pfgoal,y
-	bne CODE_9ED165
+	bne .1
 	lda.w #$0000
 	sec
 	sbc.b d1
 	sta.b d1
-CODE_9ED165:
+.1:
 	lda.b d1
-	bmi CODE_9ED178
+	bmi .t1
 	ldy.b a2
 	lda.w tmgoalie,y
 	ora.w #$FF00
 	sta.w tmgoalie,y
 	jml.l setpersonel
+
+.t1:
+	rtl

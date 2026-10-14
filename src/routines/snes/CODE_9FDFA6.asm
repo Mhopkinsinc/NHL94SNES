@@ -8,9 +8,9 @@ CODE_9FDFA6:
 	sta.w $0D0D
 	lda.b d0
 	cmp.w #$1000
-	bcc CODE_9FDFBF
+	bcc .1
 	lda.w #$1000
-CODE_9FDFBF:
+.1:
 	sta.b d0
 	tax
 	lda.w #$002F

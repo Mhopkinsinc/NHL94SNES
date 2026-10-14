@@ -37,20 +37,20 @@ CODE_9FC427:
 	lda.w #$002E
 	sta.b [a1]
 	inc.b a1
-CODE_9FC470:
+.loop:
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
 	cmp.w #$0020
-	bne CODE_9FC470
-CODE_9FC47C:
+	bne .loop
+.loop2:
 	lda.b [a0]
 	inc.b a0
 	sta.b [a1]
 	inc.b a1
 	lda.b a0
 	cmp.b a2
-	bne CODE_9FC47C
+	bne .loop2
 	jsl.l MesAreaDone
 	pla
 	sta.b $8B

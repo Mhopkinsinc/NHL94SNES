@@ -86,7 +86,7 @@ ShooterSelectList:
 	adc.w $1DA7
 	sec
 	sbc.w $1D9B
-	bpl CODE_80CF36
+	bpl .t1
 	lda.w $1D9B
 	sec
 	sbc.w #$0008
@@ -99,3 +99,100 @@ ShooterSelectList:
 .zero:
 	lda.w #$0000
 	bra CODE_80CF41
+
+.t1:
+	lda.w $1DA7
+	clc
+	adc.w #$0008
+	sec
+	sbc.w $1D9B
+CODE_80CF41:
+	sta.w $1D9B
+	jsl.l CODE_80D004
+CODE_80CF48:
+	jsl.l CODE_9DD923
+	jsl.l CODE_9DD94D
+	jsl.l WaitFrame
+	jsl.l CODE_9B8017
+	jsl.l CODE_9B851F
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
+	bit.w #$1000
+	bne .1
+	bit.w #$0800
+	bne .t4
+	bit.w #DMA_OAM
+	bne .t3
+	bit.w #$0100
+	bne .t1
+	bit.w #$0200
+	bne .t2
+	bit.w #$8080
+	beq CODE_80CF48
+	jsl.l CODE_80D2BD
+.1:
+	lda.w #$0001
+	sta.l $7E3468
+	rtl
+
+.t1:
+	lda.w $0D47
+	inc a
+	cmp.w #$0010
+	bpl CODE_80CF48
+	sta.w $0D47
+	jsl.l CODE_80D004
+	bra CODE_80CF48
+
+.t2:
+	lda.w $0D47
+	dec a
+	bmi CODE_80CF48
+	sta.w $0D47
+	jsl.l CODE_80D004
+	jmp.w CODE_80CF48
+
+.t3:
+	lda.w $1D9B
+	dec a
+	bmi .t5
+	sta.w $1D9B
+	jsl.l CODE_80D004
+	jmp.w CODE_80CF48
+
+.t4:
+	lda.w $1D9B
+	inc a
+	cmp.w #$0009
+	bpl .t6
+	sta.w $1D9B
+	jsl.l CODE_80D004
+	jmp.w CODE_80CF48
+
+.t5:
+	lda.w $1DA7
+	sec
+	sbc.w $1DAB
+	clc
+	adc.w #$0009
+	cmp.w $1DA3
+	bmi .t1x
+	jmp.w CODE_80CF48
+
+.t1x:
+	inc.w $1DA7
+	jsl.l CODE_80D004
+	jmp.w CODE_80CF48
+
+.t6:
+	lda.w $1DA7
+	dec a
+	cmp.w $1DAB
+	bpl .t1x2
+	jmp.w CODE_80CF48
+
+.t1x2:
+	dec.w $1DA7
+	jsl.l CODE_80D004
+org $80D001
+	jmp.w CODE_80CF48

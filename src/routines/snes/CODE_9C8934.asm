@@ -23,6 +23,15 @@ CODE_9C8957:
 	and.w #$00FF
 	tax
 	lda.w $1DF9
-	beq CODE_9C8973
+	beq .t1
 	jsl.l CODE_9C8980
 	bra CODE_9C8977
+
+.t1:
+	jsl.l CODE_9C8A83
+CODE_9C8977:
+	iny
+	cpy.w $1DC1
+	beq CODE_9C8957
+	bcc CODE_9C8957
+	rtl

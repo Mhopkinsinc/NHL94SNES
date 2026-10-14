@@ -3,16 +3,16 @@ CODE_9EC4D4:
 	lda.b d1
 	cmp.w pucky
 	bmi CODE_9EC479
-CODE_9EC4DB:
+.loop:
 	ldy.b a0
 	lda.w position,y
-	bmi CODE_9EC4E9
+	bmi .1
 	lda.b d1
 	cmp.w Ypos,y
 	bmi CODE_9EC4BC
-CODE_9EC4E9:
+.1:
 	inc.b a0
 	inc.b a0
 	dec.b d0
-	bpl CODE_9EC4DB
+	bpl .loop
 	bra CODE_9EC479

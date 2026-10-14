@@ -3,7 +3,7 @@ CODE_80AB63:
 	sep #$20
 	lda.b $4A
 	cmp.b #$09
-	bne CODE_80AB9C
+	bne .1
 	asl a
 	tax
 	tya
@@ -30,7 +30,7 @@ CODE_80AB63:
 	lda.b [$4E],y
 	sta.w $089D,x
 	stz.w $088C,x
-CODE_80AB9C:
+.1:
 	lda.b $4A
 	asl a
 	tax
@@ -40,5 +40,20 @@ CODE_80ABA5:
 	jsr.w CODE_80A568
 	ldx.w $07FF
 	cmp.w #$0000
-	bne CODE_80ABB7
+	bne .t2
 	jmp.w CODE_80A886
+
+.t1:
+	rep #$20
+	bra CODE_80ABA5
+
+.t2:
+	sta.w $0848,x
+	lda.b $4C
+	sta.w $0804,x
+CODE_80ABBF:
+	dec.w $0848,x
+CODE_80ABC2:
+	sep #$30
+	ldx.b $4A
+	rts

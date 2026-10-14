@@ -5,10 +5,10 @@ CODE_9EC827:
 	pha
 	and.w #$0030
 	cmp.w #$0010
-	bne CODE_9EC838
+	bne .1
 	clc
 	adc.w #$0050
-CODE_9EC838:
+.1:
 	asl a
 	asl a
 	asl a

@@ -2,12 +2,12 @@
 CODE_9DB884:
 	phx
 	ldx.w $0BE9
-	bne CODE_9DB88F
+	bne .1
 	plx
-CODE_9DB88B:
+.loop:
 	dex
-	bne CODE_9DB88B
+	bne .loop
 	phx
-CODE_9DB88F:
+.1:
 	plx
 	rts

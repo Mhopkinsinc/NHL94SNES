@@ -58,13 +58,13 @@ CODE_9C8D2E:
 	lda.w #$0010
 	sta.w $1E15
 	lda.l OptPen
-	bne CODE_9C8DD7
-CODE_9C8DCB:
+	bne .2
+.1:
 	lda.w #$000B
 	sta.w $1DA3
 	lda.w #$0000
 	sta.w $1E15
-CODE_9C8DD7:
+.2:
 	dec.w $1DA3
 	lda.w #$0060
 	ldx.w #$00C8

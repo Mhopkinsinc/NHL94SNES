@@ -48,7 +48,7 @@ CODE_80CC89:		; print the goalie and shooter rows, the row at the cursor ($1DB9)
 	lda.w SelectedPlayerIdx
 	dec a
 	sta.b d0
-	bmi CODE_80CD22
+	bmi .2
 	asl a
 	asl a
 	asl a
@@ -58,26 +58,26 @@ CODE_80CC89:		; print the goalie and shooter rows, the row at the cursor ($1DB9)
 	lda.w #homeshooters
 	sta.b a3
 	lda.b a2
-	beq CODE_80CD13
+	beq .1
 	lda.w #$0000
 	sta.b $97
 	lda.w #awayshooters
 	sta.b a3
-CODE_80CD13:
+.1:
 	lda.w #$0080
 	sta.b $9F
 	lda.w #DATA8_80CDB6
 	sta.b $9D
 	lda.w #$0005
 	sta.b d1
-CODE_80CD22:
+.2:
 	lda.w #$3800
 	sta.w $0D0D
 	lda.w #$0005
 	sec
 	sbc.b d1
 	cmp.w $1DB9
-	bne CODE_80CD62
+	bne .5
 	lda.w #$2000
 	sta.w $0D0D
 	lda.b [a3]
@@ -88,8 +88,8 @@ CODE_80CD22:
 	ldx.b a2
 	lda.w HomeTeam,x
 	cmp.w #$0018
-	bcc CODE_80CD61
-CODE_80CD4E:
+	bcc .4
+.3:
 	ldx.w #$0000
 	lda.l $7E345A
 	lda.b $12
@@ -97,9 +97,9 @@ CODE_80CD4E:
 	lda.b $10
 	sta.b $0C
 	jsl.l CODE_80B719
-CODE_80CD61:
+.4:
 	plx
-CODE_80CD62:
+.5:
 	lda.w #$0005
 	sta.w printx
 	lda.b $9F
@@ -123,5 +123,9 @@ CODE_80CD62:
 	inc.w printy
 	inc.w printy
 	dec.b d1
-	bmi CODE_80CDA1
-	jmp.w CODE_80CD22
+	bmi .t1
+	jmp.w .2
+
+.t1:
+	jsl.l CODE_80CC1B
+	rtl

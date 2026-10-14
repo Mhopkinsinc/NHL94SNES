@@ -18,10 +18,10 @@ CODE_80CE2B:
 	and.w #$00FF
 	inc a
 	cmp.b d0
-	beq CODE_80CE3A
-	bmi CODE_80CE3A
+	beq .1
+	bmi .1
 	lda.w #$0001
-CODE_80CE3A:
+.1:
 	sep #$20
 	sta.b [a1]
 	rep #$20

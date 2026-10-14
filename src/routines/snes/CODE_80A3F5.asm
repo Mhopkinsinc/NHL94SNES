@@ -19,17 +19,17 @@ CODE_80A40F:
 	sta.w APUIO3
 	lda.b #$08
 	sta.w APUIO0
-CODE_80A429:
+.loop:
 	cmp.w APUIO0
-	bne CODE_80A429
+	bne .loop
 	lda.l $0007E8
 	sta.w APUIO1
 	lda.l $0007E7
 	sta.w APUIO2
 	ldx.b #$82
 	stx.w APUIO0
-CODE_80A441:
+.loop2:
 	cpx.w APUIO0
-	bne CODE_80A441
+	bne .loop2
 	stz.w APUIO0
 	rts

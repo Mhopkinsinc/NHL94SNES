@@ -19,13 +19,13 @@ CODE_80BCB1:
 	stx.b $00
 CODE_80BCBF:
 	ldx.b $00
-	beq CODE_80BCCB
+	beq .1
 	lda.b #$10
-CODE_80BCC5:
+.loop:
 	sta.w $0600,x
 	inx
-	bne CODE_80BCC5
-CODE_80BCCB:
+	bne .loop
+.1:
 	lda.b $79
 	asl a
 	tax

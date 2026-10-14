@@ -5,12 +5,12 @@ periodicevents:
 	jsl.l CODE_9C9930
 	jsl.l clockcont
 	lda.w sfhormode
-	bne CODE_9F8685
+	bne .rtl
 	lda.w $0CF7
 	sec
 	sbc.b d7
 	sta.w $0CF7
-	bpl CODE_9F8685
+	bpl .rtl
 	clc
 	adc.w #$0018
 	sta.w $0CF7
@@ -20,5 +20,5 @@ periodicevents:
 	jsl.l RestoreBenchEnergy
 	jsl.l CODE_9EC2C7
 	jsl.l updatepwrplay
-CODE_9F8685:
+.rtl:
 	rtl

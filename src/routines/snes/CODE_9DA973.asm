@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9DA973:
 	lda.l $7E3456
-	beq CODE_9DA992
+	beq .1
 	lda.l $7E34BE
 	sta.w HomeTeam
 	lda.l $7E34C0
@@ -9,7 +9,7 @@ CODE_9DA973:
 	jsl.l setteams
 	lda.w #$0000
 	sta.l $7E3456
-CODE_9DA992:
+.1:
 	lda.l $7E35D0
 	sta.b d2
 	lda.w #$0020
@@ -45,12 +45,12 @@ CODE_9DA9BE:
 	ldx.b d0
 	cmp.w #$0000
 	beq CODE_9DAA5A
-	bpl CODE_9DA9F2
+	bpl .2
 	lda.w #$009D
 	sta.b $8F
 	lda.w #DATA8_9DAE40
 	sta.b a1
-CODE_9DA9F2:
+.2:
 	lda.w #$0003
 	sta.w printx
 	txa
@@ -75,7 +75,7 @@ CODE_9DA9F2:
 	clc
 	adc.b [a0],y
 	sta.b a0
-CODE_9DAA29:
+.loop:
 	lda.b $8B
 	sta.b $8F
 	lda.b a0
@@ -84,12 +84,12 @@ CODE_9DAA29:
 	adc.b [a0]
 	sta.b a0
 	dec.b d3
-	bpl CODE_9DAA29
+	bpl .loop
 	cpx.b d6
-	bne CODE_9DAA44
+	bne .3
 	lda.w #$2000
 	sta.w $0D0D
-CODE_9DAA44:
+.3:
 	stx.b d7
 	cpx.w #$0002
 	beq CODE_9DAA69
@@ -103,5 +103,10 @@ CODE_9DAA5A:
 	inx
 	inx
 	cpx.w #$000E
-	bcs CODE_9DAA64
+	bcs .t1
 	jmp.w CODE_9DA9BE
+
+.t1:
+	lda.b d6
+	sta.b d7
+	rts

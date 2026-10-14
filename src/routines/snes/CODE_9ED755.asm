@@ -5,9 +5,9 @@ CODE_9ED755:
 	lsr a
 	and.w #$007F
 	bit.w #$0040
-	beq CODE_9ED765
+	beq .1
 	ora.w #$FF80
-CODE_9ED765:
+.1:
 	sta.b $14
 	cmp.w #$8000
 	ror a
@@ -17,11 +17,11 @@ CODE_9ED765:
 	sta.b d1
 	lda.b d1
 	cmp.w #$00E0
-	bpl CODE_9ED781
+	bpl .2
 	lda.b d1
 	cmp.w #$FF20
 	bpl CODE_9ED7CA
-CODE_9ED781:
+.2:
 	lda.w $0D07
 	bpl CODE_9ED7B2
 	lda.w $0AD9
@@ -34,9 +34,9 @@ CODE_9ED793:
 	xba
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9ED7A2
+	beq .1
 	ora.w #$FF00
-CODE_9ED7A2:
+.1:
 	sta.b $14
 	cmp.w #$8000
 	ror a

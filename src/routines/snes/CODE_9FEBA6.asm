@@ -11,5 +11,26 @@ CODE_9FEBA6:
 	sta.b a3
 	lda.b [a3]
 	cmp.b d0
-	beq CODE_9FEBC2
+	beq .t2
 	jmp.w CODE_9FEBA5
+
+.t2:
+	jsl.l CODE_9FC76C
+	ldy.b a2
+	lda.w $1C90,y
+	beq .t1
+	lda.w #$009F
+	sta.b $9B
+	lda.w #$EC42
+	sta.b a4
+	bra CODE_9FEBE3
+
+.t1:
+	lda.w #$009F
+	sta.b $9B
+	lda.w #DATA8_9FEC30
+	sta.b a4
+CODE_9FEBE3:
+	ldy.w #$0001
+	jsl.l CODE_9FEB90
+	rtl

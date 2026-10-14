@@ -6,11 +6,11 @@ CODE_9F8283:
 	jsl.l CODE_8086A9
 	lda.w #$0000
 	tax
-CODE_9F8295:
+.loop:
 	sta.l $7F0000,x
 	dex
 	dex
-	bne CODE_9F8295
+	bne .loop
 	lda.w #$005C
 	sta.w $1D59
 	jsl.l CODE_9B8000
@@ -23,11 +23,11 @@ CODE_9F8295:
 	stz.w $1D68
 	jsl.l CODE_9DB118
 	jsl.l CODE_9C9786
-CODE_9F82C8:
+.loop2:
 	lda.w $0AD3
-	bne CODE_9F82C8
+	bne .loop2
 	lda.w MusicOn
-	bne CODE_9F82C8
+	bne .loop2
 CODE_9F82D2:
 	lda.w #$0000
 	sta.l $7E35D4
@@ -38,21 +38,21 @@ CODE_9F82D2:
 	plb
 	jsl.l CODE_9C978E
 	lda.w MusicOn
-	beq CODE_9F82FB
+	beq .1
 	lda.w $07ED
 	cmp.w #$C20C
-	beq CODE_9F8309
+	beq .2
 	jsl.l CODE_9C9786
-CODE_9F82F6:
+.loop:
 	lda.w MusicOn
-	bne CODE_9F82F6
-CODE_9F82FB:
+	bne .loop
+.1:
 	lda.w #$0090
 	sta.b $0E
 	lda.w #DATA8_90C20C
 	sta.b $0C
 	jsl.l MusicStart
-CODE_9F8309:
+.2:
 	stz.w sfhormode
 	lda.w #$005C
 	sta.w $1D59

@@ -2,7 +2,7 @@
 CODE_9DBC8B:
 	ldx.w #$0000
 	ldy.w #$0000
-CODE_9DBC91:
+.loop:
 	tya
 	jsr.w CODE_9DB8A1
 	sta.l $7F8000,x
@@ -16,5 +16,5 @@ CODE_9DBC91:
 	inx
 	iny
 	cpy.w #$0500
-	bcc CODE_9DBC91
+	bcc .loop
 	rts

@@ -7,12 +7,12 @@ CODE_9EBA68:
 	bne CODE_9EBA67
 	lda.w $0AD9
 	cmp.b a3
-	beq CODE_9EBA84
+	beq .1
 	lda.w $0F23,x
 	sec
 	sbc.w #$001A
 	bmi CODE_9EBA67
-CODE_9EBA84:
+.1:
 	lda.w $0F23,x
 	sec
 	sbc.w #$0003

@@ -39,20 +39,24 @@ CODE_80A1A4:
 	sta.w $086A,x
 	lda.w sflags
 	bit.w #$0800
-	bne CODE_80A1E5
+	bne .t1
 	pla
 	phx
 	rep #$10
 	ldx.w $0CAD
-	bmi CODE_80A1DC
+	bmi .1
 	ldx.w $0CAD
 	stx.w $0CB3
 	ldx.w $0CAF
 	stx.w $0CB5
 	ldx.w $0CB1
 	stx.w $0CB7
-CODE_80A1DC:
+.1:
 	sta.w $0CAD
 	sep #$10
 	plx
+	jmp.w CODE_80A226
+
+.t1:
+	pla
 	jmp.w CODE_80A226

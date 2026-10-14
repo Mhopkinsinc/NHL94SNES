@@ -7,10 +7,10 @@ CODE_9FBD66:
 	lda.w #$009C
 	sta.b $8F
 	lda.b d3
-	beq CODE_9FBD7D
+	beq .1
 	lda.w $1CDE
 	sta.b a1
-CODE_9FBD7D:
+.1:
 	ldy.w #$0004
 	lda.b [a1],y
 	clc

@@ -2,11 +2,11 @@
 CODE_80B757:
 	lda.b $0C
 	cmp.w $2540,x
-	bne CODE_80B765
+	bne .1
 	lda.b $0E
 	cmp.w $2640,x
 	beq CODE_80B77B
-CODE_80B765:
+.1:
 	inx
 	inx
 	dey

@@ -5,5 +5,24 @@ GameOver:
 	jsl.l CODE_9D8BBF
 	lda.l $7E34BC
 	cmp.w #$0001
-	beq CODE_9F8DCE
+	beq .t1
 	jml.l CODE_9F82D2
+
+.t1:
+	lda.l $7E35D6
+	bpl .t2
+	jml.l CODE_9F82D2
+
+.t2:
+	lda.l PassWord
+	and.w #$7F7F
+	sta.l PassWord
+	jsl.l CODE_9BCD28
+	jsl.l maketree
+	lda.w #$0004
+	trb.w sflags3
+	beq .t1x
+	jmp.w CODE_9F8330
+
+.t1x:
+	jml.l CODE_9F8334

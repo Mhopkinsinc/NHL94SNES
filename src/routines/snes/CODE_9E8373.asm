@@ -4,26 +4,26 @@ CODE_9E8373:
 	lda.b d0
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9E8381
-CODE_9E837E:
+	beq .2
+.1:
 	ora.w #$FF00
-CODE_9E8381:
+.2:
 	sta.b d0
 	lda.w $0EC4,x
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9E8391
+	beq .3
 	ora.w #$FF00
-CODE_9E8391:
+.3:
 	clc
 	adc.w $0D71
 	sta.b d2
 	lda.w $0EE4,x
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9E83A5
+	beq .4
 	ora.w #$FF00
-CODE_9E83A5:
+.4:
 	clc
 	adc.w pucky
 	sta.b d3
@@ -32,40 +32,40 @@ CODE_9E83A5:
 	sta.b d4
 	stz.b a0
 	cpx.w #$000C
-	bcs CODE_9E83BF
-CODE_9E83BA:
+	bcs .6
+.5:
 	lda.w #$000C
 	sta.b a0
-CODE_9E83BF:
+.6:
 	ldy.b a0
 	lda.w $0EC4,y
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9E83CF
+	beq .7
 	ora.w #$FF00
-CODE_9E83CF:
+.7:
 	clc
 	adc.w Xpos,y
 	sec
 	sbc.b d2
 	cmp.w #$FFEB
-	bmi CODE_9E8430
+	bmi .9
 	cmp.w #$0015
-	bpl CODE_9E8430
+	bpl .9
 	lda.w $0EE4,y
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9E83EE
+	beq .8
 	ora.w #$FF00
-CODE_9E83EE:
+.8:
 	clc
 	adc.w Ypos,y
 	sec
 	sbc.b d3
 	cmp.w #$FFEB
-	bmi CODE_9E8430
+	bmi .9
 	cmp.w #$0015
-	bpl CODE_9E8430
+	bpl .9
 	inc.w $0D2D
 	lda.w Xpos,x
 	sec
@@ -79,16 +79,29 @@ CODE_9E83EE:
 	lda.w facedir,x
 	eor.w #$0004
 	cmp.b d0
-	bne CODE_9E8430
+	bne .9
 	lda.w $0794
 	and.w #$0001
 	clc
 	adc.b d0
 	and.w #$0007
 	sta.b d0
-CODE_9E8430:
+.9:
 	inc.b a0
 	inc.b a0
 	dec.b d4
-	bmi CODE_9E843B
-	jmp.w CODE_9E83BF
+	bmi .t1
+	jmp.w .6
+
+.t1:
+	rtl
+	cpx.w $0AD9
+	beq CODE_9E845A
+	ldy.w $0AD9
+	bmi CODE_9E8462
+	lda.w pfteam,x
+	cmp.w pfteam,y
+	beq CODE_9E8462
+	lda.w #$0005
+	sta.b d0
+	jmp.w assreplace

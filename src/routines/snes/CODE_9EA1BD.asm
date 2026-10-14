@@ -35,10 +35,10 @@ CODE_9EA1BD:
 CODE_9EA20D:
 	lda.w SPA,y
 	cmp.w #$F3A6
-	bcc CODE_9EA21A
+	bcc .1
 	cmp.w #$F46B
 	bcc CODE_9EA23E
-CODE_9EA21A:
+.1:
 	lda.w $0793
 	and.w #$0007
 	beq CODE_9EA23E

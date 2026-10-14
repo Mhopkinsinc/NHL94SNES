@@ -1,7 +1,0 @@
-; Unidentified routine.
-CODE_9FEB4E:
-	jsl.l CODE_9FC76C
-	ldy.b a2
-	lda.w tmgoalie,y
-	bpl CODE_9FEB5C
-	jmp.w CODE_9FEC60

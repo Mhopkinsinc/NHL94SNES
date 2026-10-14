@@ -11,12 +11,12 @@ CODE_9FC3F8:
 	stz.b a2
 	lda.w TempPlOffset
 	sta.b d0
-	bpl CODE_9FC416
+	bpl .1
 	and.w #$00FF
 	sta.b d0
 	inc.b a2
 	inc.b a2
-CODE_9FC416:
+.1:
 	jsl.l PlayerNumName
 	pla
 	sta.b $93

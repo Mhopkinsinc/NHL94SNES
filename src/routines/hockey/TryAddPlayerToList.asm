@@ -14,13 +14,13 @@ TryAddPlayerToList:
 	sec
 	sbc.w #$0000
 	beq .chk
-	bpl CODE_9FD72D
+	bpl .t1
 .chk:
 	lda.w tmpdst,y
 	cmp.w #TMPDOUT
-	beq CODE_9FD72D
+	beq .t1
 	cmp.w #$FFFC
-	beq CODE_9FD72D
+	beq .t1
 	lda.w #$0005
 	sta.b d0
 .s2:
@@ -31,7 +31,7 @@ TryAddPlayerToList:
 	lda.b d1
 	and.w #$00FF
 	cmp.b tmp0
-	beq CODE_9FD72D
+	beq .t1
 	dec.b d0
 	bpl .s2
 	ldy.b d4
@@ -41,4 +41,9 @@ TryAddPlayerToList:
 	rep #$20
 	lda.b d1
 	and.w #$00FF
+	rtl
+
+.t1:
+	lda.w #$0000
+	sta.b d1
 	rtl

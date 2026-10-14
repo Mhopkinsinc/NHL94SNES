@@ -7,13 +7,13 @@ CODE_9ECAB7:
 	lda.w #mesarea+2
 	sta.b a0
 	stz.b d1
-CODE_9ECAC9:
+.loop:
 	lda.b [a2]
 	and.w #$00FF
 	cmp.w #$000D
-	beq CODE_9ECB1A
+	beq .3
 	inc.b d0
-CODE_9ECAD5:
+.loop2:
 	sep #$20
 	lda.b [a2]
 	sta.b [a0]
@@ -23,30 +23,30 @@ CODE_9ECAD5:
 	lda.b [a2]
 	and.w #$00FF
 	cmp.w #$002C
-	beq CODE_9ECAF0
+	beq .1
 	cmp.w #$002E
-	bne CODE_9ECAFA
-CODE_9ECAF0:
+	bne .2
+.1:
 	lda.w ScoutingReportTimer
 	clc
 	adc.w #$0028
 	sta.w ScoutingReportTimer
-CODE_9ECAFA:
+.2:
 	lda.b [a2]
 	inc.b a2
 	and.w #$00FF
 	cmp.w #$0020
-	bne CODE_9ECAC9
+	bne .loop
 	lda.b [a2]
 	and.w #$00FF
 	cmp.w #$0020
-	beq CODE_9ECAD5
+	beq .loop2
 	lda.b a2
 	sec
 	sbc.b a1
 	sta.b a2
 	sta.w PlayerScrollCtr
-CODE_9ECB1A:
+.3:
 	lda.b d1
 	inc a
 	inc a

@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9B8970:
 	lda.l $7E3468
-	beq CODE_9B8979
+	beq .1
 	jsr.w Div16S_divneg
-CODE_9B8979:
+.1:
 	jsl.l SpriteFrameStart
 	ldx.w #$0058
 	ldy.w #$0018
@@ -28,23 +28,23 @@ CODE_9B8979:
 	lda.w HomeTeam
 	sta.b d1
 	lda.b a2
-	beq CODE_9B89BC
-CODE_9B89B4:
+	beq .3
+.2:
 	lda.w VisTeam
 	sta.b d1
 	lda.w #$0030
-CODE_9B89BC:
+.3:
 	sta.b d0
 	jsl.l CODE_9FBE08
 	jsl.l CODE_9DDDB3
 	jsl.l SpriteFrameEnd
 	lda.l $7E3468
-	beq CODE_9B89E1
+	beq .4
 	jsl.l WaitFrame
 	lda.w #$0068
 	sta.w $1DEF
 	lda.w #$0000
 	sta.l $7E3468
-CODE_9B89E1:
+.4:
 	jsl.l CODE_9DE0D4
 	rtl

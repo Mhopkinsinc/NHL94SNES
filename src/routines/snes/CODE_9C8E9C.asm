@@ -11,13 +11,13 @@ CODE_9C8E9C:
 	jsl.l WaitFrame
 	lda.w #$000D
 	sta.w $1DF3
-CODE_9C8EBB:
+.loop:
 	jsl.l WaitFrame
 	dec.w $1DF3
 	dec.w $1DF3
 	lda.w $1DF3
 	cmp.w #$0001
-	bne CODE_9C8EBB
+	bne .loop
 	jsr.w CODE_808F7D
 	jsl.l WaitFrame
 	lda.w #$FFFF

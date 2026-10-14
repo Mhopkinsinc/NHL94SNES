@@ -9,7 +9,7 @@ CODE_9CA1C6:
 CODE_9CA1D3:
 	stz.b d2
 	ldx.w #$0000
-CODE_9CA1D8:
+.loop:
 	lda.w $15C4,x
 	and.w #$00FF
 	sta.b d1
@@ -20,8 +20,8 @@ CODE_9CA1D8:
 	lda.w Ylist,y
 	ldy.b d1
 	cmp.w Ylist,y
-	bmi CODE_9CA208
-	beq CODE_9CA208
+	bmi .1
+	beq .1
 	lda.w OOlist,x
 	xba
 	sta.w OOlist,x
@@ -31,10 +31,10 @@ CODE_9CA1D8:
 	ldy.b d0
 	sta.w OOlistpos,y
 	inc.b d2
-CODE_9CA208:
+.1:
 	inx
 	cpx.w #$000F
-	bne CODE_9CA1D8
+	bne .loop
 	lda.b d2
 	bne CODE_9CA1D3
 	pla

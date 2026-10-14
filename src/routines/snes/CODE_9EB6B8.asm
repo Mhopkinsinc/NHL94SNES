@@ -9,21 +9,21 @@ CODE_9EB6B8:
 	jsl.l assreplace
 CODE_9EB6CC:
 	lda.w $1E9B
-	bne CODE_9EB6E0
+	bne .1
 	stz.b a2
 	jsl.l coinsearch
 	lda.w #$0002
 	sta.b a2
 	jsl.l coinsearch
-CODE_9EB6E0:
+.1:
 	stx.b xsave
 	ldx.w #$000E
-CODE_9EB6E5:
+.loop:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9EB6E5
+	bpl .loop
 	ldx.b xsave
 	pla
 	sta.b $A7

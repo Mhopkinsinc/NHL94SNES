@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9B8D4D:
 	lda.b d0
-CODE_9B8D4F:
+.1:
 	inc a
 	inc a
 	sta.b a3
@@ -17,4 +17,11 @@ CODE_9B8D4F:
 	inc.b a3
 	lda.w $1D93
 	jsr.w CODE_9B8D7C
+	rts
+
+.t1:
+	sep #$20
+	lda.b [a3]
+	rep #$20
+	and.w #$00FF
 	rts

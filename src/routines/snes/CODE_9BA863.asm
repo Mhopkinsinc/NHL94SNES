@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9BA863:
 	lda.w $19CE
-	bne CODE_9BA89E
+	bne .rtl
 	ldy.w #$0033
 	ldx.w #$0000
-CODE_9BA86E:
+.loop:
 	sep #$20
 	lda.w $1A13,x
 	inc a
@@ -28,7 +28,7 @@ CODE_9BA86E:
 	adc.w #$000C
 	tax
 	dey
-	bpl CODE_9BA86E
+	bpl .loop
 	inc.w $19CE
-CODE_9BA89E:
+.rtl:
 	rtl

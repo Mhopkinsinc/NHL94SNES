@@ -25,10 +25,10 @@ CODE_9DCAB7:
 	clc
 	adc.w #$0006
 	sta.b $0C
-CODE_9DCAE6:
+.loop:
 	ldx.b $18
 	ldy.w #$0000
-CODE_9DCAEB:
+.loop2:
 	tya
 	lsr a
 	eor.w #$FFFF
@@ -47,7 +47,7 @@ CODE_9DCAEB:
 	iny
 	iny
 	dex
-	bne CODE_9DCAEB
+	bne .loop2
 	lda.b $24
 	asl a
 	adc.b $10
@@ -57,5 +57,5 @@ CODE_9DCAEB:
 	adc.b $0C
 	sta.b $0C
 	dec.b $1A
-	bne CODE_9DCAE6
+	bne .loop
 	rtl

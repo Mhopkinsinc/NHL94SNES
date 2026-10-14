@@ -12,21 +12,21 @@ CODE_9B9BA5:
 	clc
 	adc.w #$0041
 	cmp.w #$0080
-	bcc CODE_9B9BC2
+	bcc .1
 	lda.w #$0080
-CODE_9B9BC2:
+.1:
 	sta.b d0
 	cmp.w $19C4
-	bmi CODE_9B9BCC
+	bmi .2
 	sta.w $19C4
-CODE_9B9BCC:
+.2:
 	lda.w $19CA
 	clc
 	adc.b d0
 	sta.w $19CA
-	bcc CODE_9B9BDA
+	bcc .3
 	inc.w $19CC
-CODE_9B9BDA:
+.3:
 	inc.w $19C8
 	lda.w $19CC
 	sta.b $0A

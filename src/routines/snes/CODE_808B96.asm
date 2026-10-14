@@ -21,12 +21,12 @@ CODE_808BAC:
 	inc.b $1E
 	lda.b $1E
 	cmp.w #$0020
-	bne CODE_808BC1
+	bne .1
 	tya
 	clc
 	adc.w $079E
 	tay
-CODE_808BC1:
+.1:
 	dec.b $1A
 	bne CODE_808B98
 	rtl

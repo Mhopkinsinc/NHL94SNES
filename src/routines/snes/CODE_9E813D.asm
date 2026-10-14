@@ -14,7 +14,7 @@ CODE_9E814E:
 	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0002
-	bne CODE_9E8178
+	bne .1
 	lda.w $0AD9
 	bmi CODE_9E8102
 	lda.w $1043,x
@@ -24,7 +24,7 @@ CODE_9E814E:
 	cmp.w #$0000
 	bpl CODE_9E8102
 	stz.w $1043,x
-CODE_9E8178:
+.1:
 	jsl.l skatetopuckinit
 	lda.b d1
 	pha
@@ -40,12 +40,12 @@ CODE_9E8178:
 	adc.w #$00F4
 	sta.b d1
 	lda.w pfgoal,x
-	beq CODE_9E81A1
+	beq .2
 	lda.b d1
 	sec
 	sbc.w #$01E8
 	sta.b d1
-CODE_9E81A1:
+.2:
 	lda.b d0
 	pha
 	asl a
@@ -70,9 +70,9 @@ CODE_9E81A1:
 	lda.w tmflags,y
 	bit.w #$0002
 	beq CODE_9E81E8
-CODE_9E81C7:
+.3:
 	lda.w pfgoal,x
-	beq CODE_9E81DB
+	beq .t1
 	lda.b d1
 	sec
 	sbc.w #$0053
@@ -80,3 +80,18 @@ CODE_9E81C7:
 	lda.w #$0044
 	sta.b d1
 	bra CODE_9E81E8
+
+.t1:
+	lda.b d1
+	sec
+	sbc.w #$FFAD
+	bpl CODE_9E81E8
+	lda.w #$FFBC
+	sta.b d1
+CODE_9E81E8:
+	lda.w #$009E
+	sta.b $8B
+	lda.w #CODE_9ED0FC
+	sta.b a0
+	jsl.l CODE_9EA5A4
+	jmp.w check4check

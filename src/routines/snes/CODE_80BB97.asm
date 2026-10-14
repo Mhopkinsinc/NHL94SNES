@@ -4,9 +4,9 @@ CODE_80BB97:
 	lda.w $0500,x
 	tax
 	lda.w $0100,x
-	beq CODE_80BBA4
+	beq .1
 	jsr.w CODE_80BB97
-CODE_80BBA4:
+.1:
 	txa
 	sta.w WMDATA
 	plx

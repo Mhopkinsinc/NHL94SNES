@@ -13,7 +13,7 @@ CODE_9EE47E:
 assnearest:
 	lda.w pflags,x
 	bit.w #$0002
-	beq CODE_9EE4BE
+	beq .1
 	and.w #$FFFD
 	sta.w pflags,x
 	stz.w $1003,x
@@ -25,7 +25,7 @@ assnearest:
 	and.w #$0003
 	sta.w $1043,x
 	jsr.w CODE_9EE5E6
-CODE_9EE4BE:
+.1:
 	lda.w $1EA5
 	bmi CODE_9EE502
 	lda.b d0
@@ -40,12 +40,12 @@ CODE_9EE4D3:
 	lda.w $1EA3
 	sta.b d1
 	lda.w pfgoal,x
-	bne CODE_9EE4EA
+	bne .1
 	lda.w #$0000
 	sec
 	sbc.b d1
 	sta.b d1
-CODE_9EE4EA:
+.1:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #$E592

@@ -7,8 +7,12 @@ CODE_9FF878:
 	cmp.b d7
 	bmi CODE_9FF898
 	lda.w JoyPad
-	bne CODE_9FF893
+	bne .t1
 	lda.b $83
 	cmp.b d6
 	bmi CODE_9FF898
-	bra CODE_9FF893
+	bra .t1
+
+.t1:
+	lda.w #$0001
+	bra CODE_9FF89B

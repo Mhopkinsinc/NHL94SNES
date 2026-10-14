@@ -4,19 +4,19 @@ CODE_9CA227:
 	phk
 	plb
 	ldx.w #$0000
-CODE_9CA22D:
+.loop:
 	stz.w Xpos,x
 	inx
 	inx
 	cpx.w #$076E
-	bne CODE_9CA22D
+	bne .loop
 	stz.b d6
 	stz.b a1
 	stz.b a2
 	stz.b a3
 	stz.b a4
 	stz.w $0DF9
-CODE_9CA244:
+.loop2:
 	ldx.b a2
 	ldy.b a3
 	lda.b d6
@@ -50,22 +50,22 @@ CODE_9CA244:
 	lda.w #$0000
 	sta.w $1563,y
 	cpy.w #$001E
-	bne CODE_9CA2A2
+	bne .1
 	lda.w #$0001
 	sta.w $1563,y
-CODE_9CA2A2:
+.1:
 	cpx.w #$006C
 	rol a
 	inc a
 	and.w #$0001
 	sta.w pfgoal,y
 	cpx.w #$006C
-	bcc CODE_9CA2BD
+	bcc .2
 	cpx.w #$00D8
-	bcs CODE_9CA2BD
+	bcs .2
 	lda.w #$0034
 	sta.w pfteam,y
-CODE_9CA2BD:
+.2:
 	inc.b a3
 	inc.b a3
 	sep #$20
@@ -87,5 +87,12 @@ CODE_9CA2BD:
 	sta.b a2
 	lda.b d6
 	cmp.w #$0010
-	beq CODE_9CA2EE
-	jmp.w CODE_9CA244
+	beq .t1
+	jmp.w .loop2
+
+.t1:
+	lda.w #$FFFF
+	sta.w $0F5B
+	sta.w $0F5D
+	plb
+	jmp.w SprSort

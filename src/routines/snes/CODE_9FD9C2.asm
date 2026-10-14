@@ -13,10 +13,10 @@ CODE_9FD9CB:
 	sta.w newpos,x
 	rtl
 	lda.w pfalock,x
-	bne CODE_9FDA33
+	bne .t1
 	lda.w pflags,x
 	bit.w #$0002
-	beq CODE_9FDA34
+	beq .t2
 	and.w #$FFFD
 	sta.w pflags,x
 	stz.w $0EC3,x
@@ -26,9 +26,9 @@ CODE_9FD9CB:
 	lsr a
 	sec
 	sbc.w #$0006
-	bmi CODE_9FDA06
+	bmi .1
 	inc a
-CODE_9FDA06:
+.1:
 	phx
 	tax
 	lda.w #$000E
@@ -43,8 +43,23 @@ CODE_9FDA06:
 	sta.w pfalock,x
 	lda.w #$E8F4
 	ldy.w position,x
-	bne CODE_9FDA2F
-CODE_9FDA2C:
+	bne .3
+.2:
 	lda.w #$E452
-CODE_9FDA2F:
+.3:
 	jml.l CODE_9EA403
+
+.t1:
+	rtl
+
+.t2:
+	lda.w #$0004
+	sta.w facedir,x
+	lda.w pflags,x
+	and.w #$6FFF
+	sta.w pflags,x
+	stz.w $1563,x
+	stz.w SPA,x
+	lda.w #$1000
+	sta.w $0EC3,x
+	jml.l CODE_9E8BE6

@@ -22,31 +22,31 @@ CODE_9EBD45:
 	adc.w #$0008
 	sta.w $1003,x
 	cpx.w $0AD9
-	bne CODE_9EBD87
-CODE_9EBD7B:
+	bne .2
+.1:
 	lda.w #$FFFF
 	sta.w $0AD9
 	lda.w #$003C
 	sta.w $1203,x
-CODE_9EBD87:
+.2:
 	lda.w #$EA1A
 	sta.w $1563,x
 	jsl.l CODE_9EA3F1
 	lda.w #$0006
 	sta.b d2
 	lda.w $14A3,x
-	beq CODE_9EBDA0
+	beq .3
 	lda.w #$0002
 	sta.b d2
-CODE_9EBDA0:
+.3:
 	lda.w facedir,x
 	cmp.b d2
-	beq CODE_9EBDAE
-CODE_9EBDA7:
+	beq .5
+.4:
 	inc a
 	and.w #$0007
 	sta.w facedir,x
-CODE_9EBDAE:
+.5:
 	stz.w $0EE3,x
 	lda.w #$1000
 	sta.w $0EC3,x

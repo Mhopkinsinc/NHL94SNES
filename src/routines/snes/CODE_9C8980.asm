@@ -12,10 +12,10 @@ CODE_9C8980:
 	jsl.l CODE_9EC894
 	stx.w $1DC9
 	lda.b a2
-	beq CODE_9C89A5
-CODE_9C89A2:
+	beq .2
+.1:
 	lda.w #$001A
-CODE_9C89A5:
+.2:
 	clc
 	adc.w $1DC9
 	tax

@@ -23,6 +23,38 @@ CODE_9EC894:
 	clc
 	adc.l printfontset
 	ora.w $0D0D
-	jsl.l CODE_9EC8CE
+	jsl.l .t1
 	plx
+	rtl
+
+.t1:
+	sta.b $26
+	stx.b $1C
+	tya
+	asl a
+	ldx.b $24
+	jsl.l Mul16U
+	lda.b $1C
+	asl a
+	clc
+	adc.b $08
+	adc.b $10
+	sta.b $10
+	ldy.w #$0000
+.loop:
+	lda.b [$0C]
+	and.w #$00FF
+	beq CODE_9EC902
+	asl a
+	tax
+	lda.l DATA8_9ACDB0+6,x
+	clc
+	adc.b $26
+	sta.b [$10],y
+	iny
+	iny
+	inc.b $0C
+	dec.b $22
+	bne .loop
+CODE_9EC901:
 	rtl

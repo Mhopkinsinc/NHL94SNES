@@ -14,17 +14,17 @@ CODE_9D8091:
 	lda.b tmp2
 	lsr a
 	cmp.w textdirtylo
-	bcs CODE_9D80B6
+	bcs .1
 	sta.w textdirtylo
-CODE_9D80B6:
+.1:
 	dec.b d1
 	dec.b d1
-CODE_9D80BA:
+.loop:
 	lda.w #$81E4
 	sta.b $0C
 	jsr.w CODE_9D804F
 	dec.b d1
-	bne CODE_9D80BA
+	bne .loop
 	lda.w #$81EA
 	sta.b $0C
 	jsr.w CODE_9D804F
@@ -33,9 +33,9 @@ CODE_9D80BA:
 	txa
 	lsr a
 	cmp.w textdirtyhi
-	bcc CODE_9D80DA
+	bcc .2
 	sta.w textdirtyhi
-CODE_9D80DA:
+.2:
 	ply
 	plx
 	rtl

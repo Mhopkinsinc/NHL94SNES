@@ -13,10 +13,10 @@ CODE_9F9811:
 	sta.b d0
 	lda.w #$4000
 	trb.b d1
-	beq CODE_9F983A
+	beq .1
 	lda.w #$0005
 	sta.b d0
-CODE_9F983A:
+.1:
 	lda.w #$009F
 	sta.b $8F
 	lda.w #StatusTextTbl

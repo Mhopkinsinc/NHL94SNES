@@ -29,11 +29,11 @@ CODE_9F9E24:
 	sta.l $7F76C2
 	sta.l $7F76E2
 	lda.l $7E3476
-	bne CODE_9F9E86
+	bne .1
 	lda.w #$FFFF
 	sta.l $7F76DE
 	sta.l $7F76FE
-CODE_9F9E86:
+.1:
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$75C0

@@ -102,9 +102,27 @@ CODE_9BA522:
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000
-	bne CODE_9BA549
+	bne .t1
 	bit.w #$0800
-	bne CODE_9BA54A
+	bne .t2
 	bit.w #DMA_OAM
-	bne CODE_9BA555
+	bne .t3
 	bra CODE_9BA522
+
+.t1:
+	rtl
+
+.t2:
+	lda.w $1DB9
+	dec a
+	bmi CODE_9BA522
+	sta.w $1DB9
+	bra CODE_9BA4FE
+
+.t3:
+	lda.w $1DB9
+	inc a
+	cmp.w #$0003
+	bcs CODE_9BA522
+	sta.w $1DB9
+	bra CODE_9BA4FE

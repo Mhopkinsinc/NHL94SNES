@@ -32,7 +32,7 @@ CODE_9F937B:
 	jsl.l SpriteFrameEnd
 	stz.w $0D13
 	stz.w $0D15
-CODE_9F93DB:
+.loop:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -53,7 +53,7 @@ CODE_9F93DB:
 	jsl.l CODE_9D8000
 	jsl.l CODE_9F9B36
 	jsl.l CODE_9FE11D
-	bne CODE_9F93DB
+	bne .loop
 	lda.w #$0000
 	sta.l $7E3476
 	stz.w $1EBB
@@ -81,9 +81,9 @@ CODE_9F93DB:
 	sta.w sflags
 	pla
 	sta.w sfhormode
-	bne CODE_9F945E
+	bne .1
 	jsl.l CODE_9FB9A4
-CODE_9F945E:
+.1:
 	lda.w #$0001
 	trb.w sflags
 	jsl.l CODE_9F9B36

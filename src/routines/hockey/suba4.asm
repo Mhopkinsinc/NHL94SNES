@@ -8,7 +8,7 @@ suba4:
 	bne .a4ne
 	lda.w sflags
 	bit.w #sfwrap
-	beq CODE_9BB12F
+	beq .t3
 	lda.w #ReplayBufferEnd>>16
 	sta.b a4+2
 	lda.w #ReplayBufferEnd
@@ -23,5 +23,37 @@ suba4:
 	sta.b a4+2
 	lda.b a4
 	cmp.w ReplayBufferPtr
-	beq CODE_9BB0FF
+	beq .t2
 	jml.l CODE_9BB19D
+
+.t2:
+	lda.b $9B
+	cmp.w $0D21
+	beq .t1
+	jml.l CODE_9BB19D
+
+.t1:
+	lda.b a4
+	clc
+	adc.w #$007A
+	sta.b a4
+	bcc .1
+	inc.b $9B
+.1:
+	cmp.w #$E676
+	bne .2
+	lda.b $9B
+	cmp.w #$007E
+	bne .2
+	lda.w #$007E
+	sta.b $9B
+	lda.w #$577E
+	sta.b a4
+.2:
+	stz.b d7
+	rtl
+
+.t3:
+	jsl.l CODE_9BB19D
+	stz.b d7
+	rtl

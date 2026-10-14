@@ -3,10 +3,10 @@ CODE_9EE66B:
 	lda.w #$FFD4
 CODE_9EE66E:
 	ldy.w pfgoal,x
-	bne CODE_9EE677
+	bne .1
 	eor.w #$FFFF
 	inc a
-CODE_9EE677:
+.1:
 	sta.w $1EA9
 	sta.w $1EA1
 CODE_9EE67D:

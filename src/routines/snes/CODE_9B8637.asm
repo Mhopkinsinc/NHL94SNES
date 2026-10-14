@@ -5,12 +5,12 @@ CODE_9B8637:
 	inc a
 	tay
 	and.w #$0010
-	beq CODE_9B8647
+	beq .1
 	tya
 	clc
 	adc.w #$0010
 	tay
-CODE_9B8647:
+.1:
 	sty.b $06
 	lda.b $16
 	sta.b ($10),y

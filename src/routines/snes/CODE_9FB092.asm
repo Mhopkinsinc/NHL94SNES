@@ -27,10 +27,10 @@ CODE_9FB092:
 	lda.l DATA8_9FB1F7-1,x
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9FB0E5
-CODE_9FB0E2:
+	beq .2
+.1:
 	ora.w #$FF00
-CODE_9FB0E5:
+.2:
 	eor.w #$FFFF
 	inc a
 	clc
@@ -41,10 +41,10 @@ CODE_9FB0E5:
 	lda.l DATA8_9FB1F7-1,x
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9FB102
-CODE_9FB0FF:
+	beq .4
+.3:
 	ora.w #$FF00
-CODE_9FB102:
+.4:
 	clc
 	adc.b d2
 	sta.b d2
@@ -52,28 +52,28 @@ CODE_9FB102:
 	and.w #$001F
 	inc a
 	cmp.b d2
-	bcs CODE_9FB118
+	bcs .5
 	lda.w #$0004
 	sta.b a1
-CODE_9FB118:
+.5:
 	ldx.b a1
 	lda.l $7E312C,x
 	bit.w #$0800
-	beq CODE_9FB12E
+	beq .6
 	lda.l $7E3124
 	sta.b d3
 	lda.w #$F800
 	sta.b d4
-CODE_9FB12E:
+.6:
 	lda.b d3
 	bit.w #$0008
-	bne CODE_9FB142
+	bne .7
 	and.w #$0007
 	sta.b d0
 	lda.w $0792
 	and.w #$0003
-	bne CODE_9FB15B
-CODE_9FB142:
+	bne .8
+.7:
 	lda.w #$0005
 	jsl.l CODE_9BB385
 	dec a
@@ -81,11 +81,11 @@ CODE_9FB142:
 	and.w #$0007
 	sta.b d0
 	lda.b d4
-	bmi CODE_9FB15B
+	bmi .8
 	lda.b d0
 	eor.w #$0004
 	sta.b d0
-CODE_9FB15B:
+.8:
 	asl.b d0
 	asl.b d0
 	ldx.b d0

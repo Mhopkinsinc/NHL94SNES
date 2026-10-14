@@ -23,12 +23,12 @@ CODE_9D804F:
 	ldy.b d0
 	dey
 	dey
-CODE_9D8077:
+.loop:
 	inx
 	inx
 	sta.l textmap,x
 	dey
-	bne CODE_9D8077
+	bne .loop
 	inc.b $0C
 	inc.b $0C
 	lda.b [$0C]

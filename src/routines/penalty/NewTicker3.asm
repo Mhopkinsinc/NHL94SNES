@@ -80,9 +80,9 @@ NewTicker3:
 	inc a
 	sta.b d0
 	lda.l $7E34BC
-	bne CODE_9FA52C
+	bne .1
 	stz.b d0
-CODE_9FA52C:
+.1:
 	lda.w #$0080
 	sta.b $8F
 	lda.w #GameLabels

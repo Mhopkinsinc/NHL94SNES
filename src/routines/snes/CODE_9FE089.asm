@@ -2,9 +2,9 @@
 CODE_9FE089:
 	stz.b d0
 	lda.b a2
-	bne CODE_9FE091
+	bne .1
 	inc.b d0
-CODE_9FE091:
+.1:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -20,11 +20,11 @@ CODE_9FE091:
 	sta.b $8F
 	lda.w gmode
 	bit.w #$0002
-	beq CODE_9FE0BA
+	beq .2
 	lda.b d0
 	eor.w #$0001
 	sta.b d0
-CODE_9FE0BA:
+.2:
 	phx
 	lda.w #$0015
 	ldx.b d0
@@ -38,10 +38,10 @@ CODE_9FE0BA:
 	lda.w #$0006
 	sta.b d1
 	lda.b d0
-	bpl CODE_9FE0E2
+	bpl .3
 	dec.b d1
 	inc.w printy
-CODE_9FE0E2:
+.3:
 	lda.w #$000C
 	sta.b d0
 	rtl

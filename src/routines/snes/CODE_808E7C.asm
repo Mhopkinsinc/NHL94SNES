@@ -26,10 +26,10 @@ CODE_808E7C:
 	adc.w #$0006
 	adc.b $0C
 	sta.b $0C
-CODE_808EAE:
+.loop:
 	ldx.b $18
 	ldy.w #$0000
-CODE_808EB3:
+.loop2:
 	lda.b [$0C],y
 	clc
 	adc.b $26
@@ -37,7 +37,7 @@ CODE_808EB3:
 	iny
 	iny
 	dex
-	bne CODE_808EB3
+	bne .loop2
 	lda.b $24
 	asl a
 	adc.b $10
@@ -47,5 +47,17 @@ CODE_808EB3:
 	adc.b $0C
 	sta.b $0C
 	dec.b $1A
-	bne CODE_808EAE
+	bne .loop
+	rtl
+
+.t1:
+	php
+	sep #$20
+	dey
+.loopx:
+	sta.b [$10],y
+	dey
+	bne .loopx
+	sta.b [$10]
+	plp
 	rtl

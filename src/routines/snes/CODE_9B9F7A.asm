@@ -1,15 +1,30 @@
 ; Unidentified routine.
 CODE_9B9F7A:
 	lda.b $81
-	beq CODE_9B9F91
+	beq .t1
 	cmp.w #$003C
-	bcc CODE_9B9F86
+	bcc .1
 	lda.w #$003C
-CODE_9B9F86:
+.1:
 	sec
 	sbc.b d7
-	bpl CODE_9B9F8E
+	bpl .2
 	lda.w #$0000
-CODE_9B9F8E:
+.2:
 	sta.b $81
+	rtl
+
+.t1:
+	lda.l $7E35E0
+	cmp.w #$0480
+	bcc .1x
+	lda.w #$0480
+.1x:
+	sec
+	sbc.w $0CDD
+	sta.l $7E35E0
+	bpl .rtl
+	lda.w #$0000
+	sta.l $7E35E0
+.rtl:
 	rtl

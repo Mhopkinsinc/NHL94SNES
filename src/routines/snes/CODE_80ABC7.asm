@@ -3,14 +3,14 @@ CODE_80ABC7:
 	rep #$20
 	lda.w $092A,x
 	cmp.w #$E1C0
-	bcc CODE_80ABE4
+	bcc .1
 	cmp.w #$E2B1
-	bcs CODE_80ABE4
+	bcs .1
 	lda.w #$0000
 	sta.l $7E35E8
 	lda.w #$0000
 	sta.l $7E35E6
-CODE_80ABE4:
+.1:
 	sep #$30
 	lda.b #$00
 	sta.w $08F2,y

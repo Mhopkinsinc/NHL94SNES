@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9EC791:
 	lda.w $163A
-	beq CODE_9EC7BD
+	beq .rtl
 	lda.w $1E9B
-	beq CODE_9EC7BD
+	beq .rtl
 	phx
 	stz.w $1E9B
 	lda.w #$FFFF
@@ -16,5 +16,5 @@ CODE_9EC791:
 	lda.w $1E99
 	sta.l $7E30FA
 	plx
-CODE_9EC7BD:
+.rtl:
 	rtl

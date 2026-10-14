@@ -8,6 +8,10 @@ CODE_9DCB53:
 	jsl.l GoalieCount
 	lda.w $1D9B
 	cmp.b d0
-	bpl CODE_9DCB6E
+	bpl .t1
 	lda.w #$0001
+	rtl
+
+.t1:
+	lda.w #$0000
 	rtl

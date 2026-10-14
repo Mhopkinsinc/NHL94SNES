@@ -14,24 +14,24 @@ CODE_9EDFAF:
 	lda.b d4
 	jsl.l CODE_9BB370
 	cmp.w #$0009
-	bcs CODE_9EDFF6
+	bcs .t1
 	lda.w pucky
 	sta.b d0
 	lda.w pfgoal,x
-	bne CODE_9EDFCC
+	bne .1
 	lda.w #$0000
 	sec
 	sbc.b d0
 	sta.b d0
-CODE_9EDFCC:
+.1:
 	lda.b d0
-	bmi CODE_9EDFF6
+	bmi .t1
 	lda.w #$0108
 	sec
 	sbc.b d0
-	bmi CODE_9EDFF6
+	bmi .t1
 	lda.w $163A
-	beq CODE_9EDFEB
+	beq .2
 	lda.w #$00B0
 	lsr a
 	lsr a
@@ -39,9 +39,12 @@ CODE_9EDFCC:
 	adc.w #$0058
 	sec
 	sbc.b d0
-	bpl CODE_9EDFF6
-CODE_9EDFEB:
+	bpl .t1
+.2:
 	lda.w sflags
 	bit.w #$8000
-	bne CODE_9EDFF6
+	bne .t1
 	jmp.w CompShoot
+
+.t1:
+	rtl

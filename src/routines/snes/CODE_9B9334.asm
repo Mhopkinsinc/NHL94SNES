@@ -23,7 +23,7 @@ CODE_9B9334:
 	sta.b a1
 	lda.w #$0000
 	sta.b d0
-CODE_9B9361:
+.loop:
 	sep #$20
 	lda.b [a1]
 	sta.b [a3]
@@ -34,9 +34,9 @@ CODE_9B9361:
 	inc a
 	sta.b d0
 	cmp.w #$0038
-	bmi CODE_9B9361
+	bmi .loop
 	lda.l $7E34C6
-	bne CODE_9B93B0
+	bne .1
 	jsl.l CODE_9B9320
 	ldy.b a2
 	lda.w #$009C
@@ -49,7 +49,7 @@ CODE_9B9361:
 	sta.b a1
 	lda.w #$0000
 	sta.b d0
-CODE_9B939A:
+.loop2:
 	sep #$20
 	lda.b [a1]
 	sta.b [a3]
@@ -60,8 +60,8 @@ CODE_9B939A:
 	inc a
 	sta.b d0
 	cmp.w #$0008
-	bmi CODE_9B939A
-CODE_9B93B0:
+	bmi .loop2
+.1:
 	ply
 	pla
 	sta.b d0

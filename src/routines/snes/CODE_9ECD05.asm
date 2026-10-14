@@ -24,11 +24,11 @@ CODE_9ECD19:
 	sta.b a1
 CODE_9ECD36:
 	ldy.w #$0003
-CODE_9ECD39:
+.loop:
 	lda.b [a1],y
 	and.w #$00FF
 	cmp.w #$0020
-	bne CODE_9ECD76
+	bne .2
 	lda.b [a1]
 	pha
 	tya
@@ -39,7 +39,7 @@ CODE_9ECD39:
 	sta.b [a1]
 	lda.b a1
 	pha
-	jsl.l CODE_9ECD7C
+	jsl.l .3
 	dec.w PlayerScrollCtr
 	pla
 	sta.b a1
@@ -53,17 +53,17 @@ CODE_9ECD39:
 	sta.b [a1]
 	lda.b d0
 	cmp.w #$0015
-	bmi CODE_9ECD73
+	bmi .1
 	lda.b d4
 	sta.b d0
-CODE_9ECD73:
+.1:
 	ldy.w #$0002
-CODE_9ECD76:
+.2:
 	iny
 	tya
 	cmp.b [a1]
-	bmi CODE_9ECD39
-CODE_9ECD7C:
+	bmi .loop
+.3:
 	inc.w PlayerScrollCtr
 	lda.b d0
 	clc
@@ -77,5 +77,9 @@ CODE_9ECD7C:
 	sta.b d1
 	lda.b [a1],y
 	and.w #$00FF
-	beq CODE_9ECD98
+	beq .t1
+	jmp.w CODE_9ECB2B
+
+.t1:
+	dec.b d1
 	jmp.w CODE_9ECB2B

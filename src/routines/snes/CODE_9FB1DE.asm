@@ -4,14 +4,14 @@ CODE_9FB1DE:
 	lda.w #$0006
 	sta.b d0
 	pla
-CODE_9FB1E5:
+.loop:
 	cmp.w position,y
-	beq CODE_9FB1F3
+	beq .1
 	iny
 	iny
 	dec.b d0
-	bne CODE_9FB1E5
+	bne .loop
 	ldy.w #$FFFF
-CODE_9FB1F3:
+.1:
 	cpy.w #$0000
 	rts

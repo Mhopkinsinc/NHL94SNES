@@ -7,16 +7,16 @@ SpriteFrameEnd:		; move the unused entries off screen, swap the OAM buffers and 
 	lda.w SpritesLeft
 	ldx.w OAMNext
 	lda.w #$E100
-CODE_80AFED:
+.loop:
 	cpx.w OAMHideEnd
-	bcs CODE_80AFFB
+	bcs .1
 	sta.w $0000,x
 	inx
 	inx
 	inx
 	inx
-	bne CODE_80AFED
-CODE_80AFFB:
+	bne .loop
+.1:
 	ldy.w OAMLastEnd
 	lda.w OAMNext
 org $80B001

@@ -30,17 +30,17 @@ CODE_9B9249:
 	lda.w $1DAF
 	dec a
 	sta.b d1
-CODE_9B9284:
+.loop:
 	lda.w #$3800
 	sta.w $0D0D
 	lda.b d1
 	sep #$20
 	cmp.w $1D9B
 	rep #$20
-	bne CODE_9B929B
+	bne .1
 	lda.w #$2000
 	sta.w $0D0D
-CODE_9B929B:
+.1:
 	lda.b a1
 	sta.b $9D
 	lda.b $8F
@@ -56,17 +56,17 @@ CODE_9B929B:
 	jsl.l GoalieCount
 	lda.b $04
 	cmp.b d0
-	bpl CODE_9B92C4
+	bpl .2
 	lda.w #$0010
 	sta.b $08
-CODE_9B92C4:
+.2:
 	lda.b $04
 	sta.b d0
 	jsl.l CODE_9F9745
 	inc.b a3
 	inc.w printy
 	dec.b d1
-	bpl CODE_9B9284
+	bpl .loop
 	lda.w #$3800
 	sta.w $0D0D
 	rts

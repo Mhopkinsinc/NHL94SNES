@@ -22,17 +22,17 @@ CODE_9FB69E:
 	sta.w TM
 	rep #$30
 	ldx.w #$00FE
-CODE_9FB6DA:
+.loop:
 	lda.l $9AD0B6,x
 	sta.l $7E35F4,x
 	sta.l $7E36F4,x
 	dex
 	dex
-	bpl CODE_9FB6DA
+	bpl .loop
 	jsl.l CODE_9C9786
-CODE_9FB6EE:
+.loop2:
 	lda.w SoundFadeSpeed
-	bne CODE_9FB6EE
+	bne .loop2
 	jsl.l CODE_9C98DF
 	lda.w #$0081
 	sta.b $0E
@@ -234,16 +234,16 @@ CODE_9FB8B4:
 	jsl.l CODE_9FBD65
 	lda.w gmode
 	bit.w #$0002
-	beq CODE_9FB8F1
+	beq .1
 	ldx.w #$0016
-CODE_9FB8E4:
+.loop:
 	lda.w pfgoal,x
 	eor.w #$0001
 	sta.w pfgoal,x
 	dex
 	dex
-	bpl CODE_9FB8E4
-CODE_9FB8F1:
+	bpl .loop
+.1:
 	jsl.l CODE_9FB901
 	stz.w $0AD1
 	jsl.l CODE_9F96E6

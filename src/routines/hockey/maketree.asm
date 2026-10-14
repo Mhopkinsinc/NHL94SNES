@@ -2,23 +2,23 @@
 maketree:
 	stx.b xsave
 	ldx.w #$0000
-CODE_9D9788:
+.loop:
 	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0014
-	bne CODE_9D9788
+	bne .loop
 	ldx.b xsave
 	stx.b xsave
 	ldx.w #$0000
-CODE_9D9799:
+.loop2:
 	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0010
-	bne CODE_9D9799
+	bne .loop2
 	ldx.b xsave
 	lda.l $7E34D0
 	asl a
@@ -38,19 +38,19 @@ CODE_9D9799:
 	sta.b $8F
 	ldy.w #$000E
 	sty.b d2
-CODE_9D97CB:
+.loop3:
 	lda.b [a1],y
 	sta.b [a0],y
 	dey
 	dey
-	bpl CODE_9D97CB
+	bpl .loop3
 	lda.w #$34E2
 	sta.b a1
 	lda.b $8B
 	sta.b $8F
 	lda.w $0AD5
 	sta.b d0
-CODE_9D97E1:
+.loop4:
 	lda.b d0
 	and.w #$0001
 	sta.b d1
@@ -64,10 +64,10 @@ CODE_9D97E1:
 	inc.b a0
 	lsr.b d0
 	dec.b d2
-	bpl CODE_9D97E1
+	bpl .loop4
 	jsl.l GetShifter
 	lda.b d1
-	bmi CODE_9D9840
+	bmi .1
 	lda.b d2
 	asl a
 	adc.w #$34D2
@@ -75,7 +75,7 @@ CODE_9D97E1:
 	lda.w #$007E
 	sta.b $8B
 	stz.b a1
-CODE_9D9814:
+.loop5:
 	ldx.b a1
 	lda.w #$0000
 	sta.l $7E3578,x
@@ -84,30 +84,65 @@ CODE_9D9814:
 	lda.l $7E3598,x
 	and.w #$FFFD
 	sta.l $7E3598,x
-	jsl.l CODE_9D985F
+	jsl.l .t2
 	inc.b a1
 	inc.b a1
 	dec.b d1
-	bpl CODE_9D9814
+	bpl .loop5
 	jsl.l CODE_9D995D
-CODE_9D9840:
+.1:
 	stx.b xsave
 	ldx.w #$000E
-CODE_9D9845:
+.loop6:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9D9845
+	bpl .loop6
 	ldx.b xsave
 	stx.b xsave
 	ldx.w #$0012
-CODE_9D9853:
+.loop7:
 	pla
 	sta.b d0,x
 	dex
 	dex
-	bpl CODE_9D9853
+	bpl .loop7
 	ldx.b xsave
 	ldx.b a3
+	rtl
+
+.t2:
+	lda.w $0ACF
+	cmp.w #$0002
+	beq .t1
+	cmp.w #$0003
+	beq .t1
+	cmp.w #$0005
+	beq .t1
+	lda.l $7E3598,x
+	ora.w #$0001
+	sta.l $7E3598,x
+	lda.b [a0]
+	inc.b a0
+	and.w #$00FF
+	sta.l $7E3538,x
+	lda.b [a0]
+	inc.b a0
+	and.w #$00FF
+	sta.l $7E3528,x
+	rtl
+
+.t1:
+	lda.l $7E3598,x
+	and.w #$FFFE
+	sta.l $7E3598,x
+	lda.b [a0]
+	inc.b a0
+	and.w #$00FF
+	sta.l $7E3528,x
+	lda.b [a0]
+	inc.b a0
+	and.w #$00FF
+	sta.l $7E3538,x
 	rtl

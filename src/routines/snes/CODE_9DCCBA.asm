@@ -17,7 +17,7 @@ CODE_9DCCBA:
 	sta.b $10
 	lda.w #$0006
 	sta.b $14
-CODE_9DCCD8:
+.loop:
 	lda.l $7E35D0
 	clc
 	adc.l $7E35AA
@@ -28,5 +28,5 @@ CODE_9DCCD8:
 	adc.w #$0040
 	sta.b $10
 	dec.b $14
-	bne CODE_9DCCD8
+	bne .loop
 	rtl

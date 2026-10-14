@@ -8,5 +8,15 @@ CODE_9FE3BA:
 	bit.w #$8180
 	bne CODE_9FE3EB
 	bit.w #$0200
-	bne CODE_9FE3D7
+	bne .t1
+	jmp.w CODE_9FE19E
+
+.t1:
+	lda.w tmgoalie,y
+	bmi CODE_9FE3E7
+CODE_9FE3DC:
+	dec a
+CODE_9FE3DD:
+	sta.w tmgoalie,y
+	jsl.l setpersonel
 	jmp.w CODE_9FE19E

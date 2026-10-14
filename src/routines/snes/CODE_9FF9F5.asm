@@ -2,12 +2,12 @@
 CODE_9FF9F5:
 	sep #$30
 	sty.w CGADD
-CODE_9FF9FA:
+.loop:
 	sta.w CGDATA
 	xba
 	sta.w CGDATA
 	xba
 	dex
-	bpl CODE_9FF9FA
+	bpl .loop
 	rep #$30
 	rtl

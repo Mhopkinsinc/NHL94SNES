@@ -2,13 +2,13 @@
 CODE_9E97FD:
 	stx.b xsave
 	ldx.w #$0000
-CODE_9E9802:
+.loop:
 	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$001C
-	bne CODE_9E9802
+	bne .loop
 	ldx.b xsave
 	lda.w pflags,y
 	bit.w #$1000
@@ -30,10 +30,10 @@ CODE_9E9802:
 	sec
 	sbc.w $0D71
 	bit.w #$8000
-	beq CODE_9E9845
+	beq .1
 	eor.w #$FFFF
 	inc a
-CODE_9E9845:
+.1:
 	cmp.w #$000F
 	bcs CODE_9E9899
 	sta.b d0
@@ -43,10 +43,10 @@ CODE_9E9845:
 	sec
 	sbc.w pucky
 	bit.w #$8000
-	beq CODE_9E985F
+	beq .2
 	eor.w #$FFFF
 	inc a
-CODE_9E985F:
+.2:
 	cmp.w #$000F
 	bcs CODE_9E9899
 	sta.b d1
@@ -64,11 +64,11 @@ CODE_9E985F:
 	lda.w #$00C4
 	sta.b d1
 	lda.w $121F
-	bmi CODE_9E988D
-	beq CODE_9E988D
+	bmi .3
+	beq .3
 	lsr.b d1
 	lsr.b d1
-CODE_9E988D:
+.3:
 	lda.b d1
 	cmp.b d0
 	bcc CODE_9E9899

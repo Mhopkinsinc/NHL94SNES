@@ -5,7 +5,7 @@ CODE_9EBEA1:
 	lda.w PBnum
 	sta.b d1
 	lda.w pfteam,x
-	bne CODE_9EBEBD
+	bne .1
 	lda.b d1
 	lsr a
 	lsr a
@@ -14,15 +14,15 @@ CODE_9EBEA1:
 	sta.b d1
 	lda.w #$FFF5
 	sta.b d0
-CODE_9EBEBD:
+.1:
 	lda.b d1
 	and.w #$000F
 	sta.b d1
 	cmp.w #$0003
-	bcc CODE_9EBECE
+	bcc .2
 	lda.w #$0002
 	sta.b d1
-CODE_9EBECE:
+.2:
 	inc.b d1
 	inc.b d1
 	inc.b d1

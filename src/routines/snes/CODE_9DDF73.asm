@@ -18,11 +18,11 @@ CODE_9DDF73:
 	clc
 	adc.w #$0006
 	sta.b $10
-CODE_9DDF9F:
+.loop:
 	ldy.b $14
 	dey
 	dey
-CODE_9DDFA3:
+.loop2:
 	lda.b [$10],y
 	clc
 	adc.l $7E35AC
@@ -31,11 +31,11 @@ CODE_9DDFA3:
 	sta.b [$10],y
 	dey
 	dey
-	bpl CODE_9DDFA3
+	bpl .loop2
 	lda.b $10
 	clc
 	adc.b $14
 	sta.b $10
 	dex
-	bne CODE_9DDF9F
+	bne .loop
 	rtl

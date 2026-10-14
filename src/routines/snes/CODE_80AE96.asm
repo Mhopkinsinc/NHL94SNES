@@ -4,9 +4,9 @@ CODE_80AE96:
 	lda.b [$0C],y
 	iny
 	xba
-CODE_80AE9B:
+.loop:
 	cmp.w APUIO0
-	bne CODE_80AE9B
+	bne .loop
 	inc a
 CODE_80AEA1:
 	rep #$20
@@ -14,12 +14,12 @@ CODE_80AEA1:
 	sep #$20
 	dex
 	bne CODE_80AE96
-CODE_80AEAB:
+.loop:
 	cmp.w APUIO0
-	bne CODE_80AEAB
-CODE_80AEB0:
+	bne .loop
+.loop2:
 	adc.b #$03
-	beq CODE_80AEB0
+	beq .loop2
 CODE_80AEB4:
 	pha
 	rep #$20
@@ -39,9 +39,9 @@ CODE_80AEB4:
 	adc.b #$7F
 	pla
 	sta.w APUIO0
-CODE_80AED4:
+.loop:
 	cmp.w APUIO0
-	bne CODE_80AED4
+	bne .loop
 	bvs CODE_80AE8E
 	stz.w APUIO0
 	rep #$30

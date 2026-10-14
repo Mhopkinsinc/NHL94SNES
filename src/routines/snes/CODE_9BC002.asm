@@ -19,42 +19,42 @@ CODE_9BC002:
 	lda.b [$0C],y
 	and.w #$00FF
 	cmp.w #$0080
-	bcc CODE_9BC02F
+	bcc .1
 	ora.w #$FF00
-CODE_9BC02F:
+.1:
 	sta.b d0
 	iny
 	lda.b [$0C],y
 	and.w #$00FF
 	cmp.w #$0080
-	bcc CODE_9BC03F
+	bcc .2
 	ora.w #$FF00
-CODE_9BC03F:
+.2:
 	sta.b d1
 	lda.w attribute,x
 	bit.w #$0800
-	beq CODE_9BC051
+	beq .3
 	lda.w #$0000
 	sec
 	sbc.b d0
 	sta.b d0
-CODE_9BC051:
+.3:
 	lda.w attribute,x
 	bit.w #$1000
-	bne CODE_9BC061
+	bne .4
 	lda.w #$0000
 	sec
 	sbc.b d1
 	sta.b d1
-CODE_9BC061:
+.4:
 	lda.w sfhormode
-	beq CODE_9BC072
+	beq .5
 	lda.b d0
 	ldy.b d1
 	eor.w #$FFFF
 	inc a
 	sta.b d1
 	sty.b d0
-CODE_9BC072:
+.5:
 	plx
 	rtl

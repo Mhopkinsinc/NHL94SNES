@@ -5,14 +5,14 @@ CODE_9FD96E:
 	sta.b d0
 	stz.b a0
 	lda.w pfteam,x
-	beq CODE_9FD980
+	beq .1
 	lda.w #$0002
 	sta.b a0
-CODE_9FD980:
+.1:
 	lda.b a0
-	beq CODE_9FD987
+	beq .2
 	lda.w #$0034
-CODE_9FD987:
+.2:
 	clc
 	adc.b d0
 	tay

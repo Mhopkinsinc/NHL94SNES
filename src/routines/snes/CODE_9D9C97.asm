@@ -12,11 +12,11 @@ CODE_9D9C97:
 	sta.b a1
 	ldy.w #$0000
 	ldx.w #$0007
-CODE_9D9CB8:
+.loop:
 	lda.b [a1],y
 	sta.b [a0],y
 	iny
 	iny
 	dex
-	bpl CODE_9D9CB8
+	bpl .loop
 	rtl

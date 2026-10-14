@@ -42,7 +42,7 @@ CODE_9FC00D:
 	sta.b tmp2
 	lda.b tmp1
 	sta.b $04
-CODE_9FC030:
+.loop:
 	lda.w #$007F
 	sta.b $0E
 	lda.b tmp0
@@ -71,7 +71,7 @@ CODE_9FC030:
 	ora.w #DMA_OAM
 	sta.b tmp2
 	dec.b $04
-	bne CODE_9FC030
+	bne .loop
 CODE_9FC072:
 	lda.w Hscroll
 	clc

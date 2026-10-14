@@ -21,7 +21,7 @@ CODE_9DC374:
 	jsl.l CODE_9DC561
 	lda.b d0
 	cmp.w #$0032
-	bcc CODE_9DC3C8
+	bcc .t1
 	lda.w #$0008
 	sta.b d1
 	jsl.l CODE_9DC3DB
@@ -29,3 +29,13 @@ CODE_9DC374:
 	sta.b d1
 	jsl.l CODE_9DC3DB
 	bra CODE_9DC3DA
+
+.t1:
+	lda.w #$0007
+	sta.b d1
+	jsl.l CODE_9DC3DB
+	lda.w #$000A
+	sta.b d1
+	jsl.l CODE_9DC3DB
+CODE_9DC3DA:
+	rtl

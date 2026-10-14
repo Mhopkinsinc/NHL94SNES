@@ -3,24 +3,27 @@ CODE_80AC4A:
 	lda.w $07F5
 	clc
 	adc.b #$40
-CODE_80AC50:
+.loop:
 	sta.w $07F5
 	cmp.w $07F6
-	bcc CODE_80AC7A
+	bcc .t1
 	jsr.w CODE_80A549
 	lda.w $07F1
-	bne CODE_80AC71
+	bne .1
 	ldx.w $0801
-	beq CODE_80AC7A
+	beq .t1
 	dex
-CODE_80AC66:
+.loop2:
 	jsr.w CODE_80A86F
 	lda.w MusicOn
-	beq CODE_80AC7A
+	beq .t1
 	dex
-	bpl CODE_80AC66
-CODE_80AC71:
+	bpl .loop2
+.1:
 	lda.w $07F5
 	sec
 	sbc.w $07F6
-	bra CODE_80AC50
+	bra .loop
+
+.t1:
+	rts

@@ -28,19 +28,19 @@ CODE_80CC25:
 	lda.w HomeTeam
 	sta.b d1
 	lda.b a2
-	beq CODE_80CC65
+	beq .1
 	lda.w VisTeam
 	sta.b d1
-CODE_80CC65:
+.1:
 	jsl.l CODE_9FBE08
 	jsl.l CODE_9DDDB3
 	jsl.l SpriteFrameEnd
 	lda.l $7E3468
-	beq CODE_80CC88
+	beq .rtl
 	jsl.l WaitFrame
 	lda.w #$0050
 	sta.w $1DEF
 	lda.w #$0000
 	sta.l $7E3468
-CODE_80CC88:
+.rtl:
 	rtl
