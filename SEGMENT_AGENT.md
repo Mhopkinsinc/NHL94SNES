@@ -659,3 +659,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Locals: `CODE_` labels inside a routine file that nothing outside its scope uses are locals (named labels stay global). MATCH.
 - Whole bodies: nine routines named from the unused 93S routine whose whole body and callers agree (Endfaceoff, NewPO, resetplstuff, puckglue, InitSortObjects, shotdiradj, CalcAngleOffset, printteamname, PrintTeamNameAndScore). MATCH.
 - Calls: updateanim, wallcollb, doinput, dopass and ResetClock named from the 93S routine called at the same place. MATCH.
+- Wrong labels: db/dw words that had taken a RAM or register equate name by value (animation data, sine, BCD, pitch and direction tables, sound driver bytes) are numbers again. MATCH.

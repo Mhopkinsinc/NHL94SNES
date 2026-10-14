@@ -233,7 +233,7 @@ Buffalo:
 Calgary:
 .0:	dw .pld-.0,.sr-.0,.tn-.0,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
 .sr:		; the scouting report
-	db $42,$00,$00,tmp2,$4B
+	db $42,$00,$00,$C9,$4B
 .sodds:
 	db 197,0
 .ls:		; -G,LD,RD,LW,-C,RW,XA,00: player numbers (1 = the first .pld entry)
@@ -476,7 +476,7 @@ Hartford:
 LosAngeles:
 .0:	dw .pld-.0,.sr-.0,.tn-.0,.ls+8-.0,.sr-.0,.sodds-.0,.ls-.0
 .sr:		; the scouting report
-	db $66,$12,$11,tmp2,$4A
+	db $66,$12,$11,$C9,$4A
 .sodds:
 	db 150,32
 .ls:		; -G,LD,RD,LW,-C,RW,XA,00: player numbers (1 = the first .pld entry)
