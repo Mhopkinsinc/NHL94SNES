@@ -1,21 +1,21 @@
-; Unidentified routine.
+; Call penalty d0 on player X, unless the clock is stopped or penalties (or offsides) are turned off
 AddPenalty:
-	lda.w $15D6
-	bne CODE_9EB889
+	lda.w gmclock
+	bne .rtl
 	lda.w $163A
-	bne CODE_9EB889
-	lda.b $A5
-	cmp.w #$000C
+	bne .rtl
+	lda.b d0
+	cmp.w #PenIcing
 	beq CODE_9EB88A
 	cmp.w #$0024
 	beq CODE_9EB88A
-	lda.l $7E34C4
-	beq CODE_9EB889
+	lda.l OptPen
+	beq .rtl
 	lda.w gmode
-	bit.w #$0020
+	bit.w #gmoffs
 	bne CODE_9EB88A
-	lda.b $A5
-	cmp.w #$0012
+	lda.b d0
+	cmp.w #PenOffsides
 	bne CODE_9EB88A
-CODE_9EB889:
+.rtl:
 	rtl

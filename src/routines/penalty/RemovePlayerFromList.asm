@@ -1,18 +1,18 @@
-; Unidentified routine.
+; Remove entry a0 from a penalty box list by moving the rest down
 RemovePlayerFromList:
 	lda.w #$FFFF
-	sta.b $AD
-CODE_9EA6FF:
-	inc.b $AD
-	lda.b $89
+	sta.b d2
+.loop:
+	inc.b d2
+	lda.b a0
 	clc
-	adc.b $AD
+	adc.b d2
 	tay
 	sep #$20
 	lda.w tmboxlist,y
-	sta.w $18B9,y
+	sta.w tmboxlist-1,y
 	rep #$30
 	bit.w #$0080
-	beq CODE_9EA6FF
-	dec.b $89
+	beq .loop
+	dec.b a0
 	rtl

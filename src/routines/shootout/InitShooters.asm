@@ -1,34 +1,34 @@
-; Unidentified routine.
-InitShooters:		; homeshooters or awayshooters (team $91) from the team data
+; Shootout: the 6 starters of the home or away team as the shooter list
+InitShooters:
 	lda.w #$0000
-	sta.b $97
+	sta.b a3+2
 	lda.w #homeshooters
-	sta.b $95
-	lda.b $91
-	beq CODE_80CDE0
+	sta.b a3
+	lda.b a2
+	beq .0
 	lda.w #$0000
-	sta.b $97
+	sta.b a3+2
 	lda.w #awayshooters
-	sta.b $95
-CODE_80CDE0:
-	ldy.b $91
-	lda.w #$009C
-	sta.b $8F
+	sta.b a3
+.0:
+	ldy.b a2
+	lda.w #TeamList>>16
+	sta.b a1+2
 	lda.w tmdata,y
-	sta.b $8D
+	sta.b a1
 	ldy.w #$000C
 	clc
-	adc.b [$8D],y
-	sta.b $8D
+	adc.b [a1],y
+	sta.b a1
 	lda.w #$0007
-	sta.b $A5
-CODE_80CDF9:
+	sta.b d0
+.loop:
 	sep #$20
-	lda.b [$8D]
-	sta.b [$95]
+	lda.b [a1]
+	sta.b [a3]
 	rep #$20
-	inc.b $8D
-	inc.b $95
-	dec.b $A5
-	bpl CODE_80CDF9
+	inc.b a1
+	inc.b a3
+	dec.b d0
+	bpl .loop
 	rtl

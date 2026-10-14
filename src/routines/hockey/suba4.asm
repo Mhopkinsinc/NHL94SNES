@@ -1,27 +1,27 @@
-; Unidentified routine.
+; Move the replay one frame back
 suba4:
-	lda.b $99
-	cmp.w #$577E
-	bne CODE_9BB0E5
-	lda.b $9B
-	cmp.w #$007E
-	bne CODE_9BB0E5
+	lda.b a4
+	cmp.w #ReplayBufferStart
+	bne .a4ne
+	lda.b a4+2
+	cmp.w #ReplayBufferStart>>16
+	bne .a4ne
 	lda.w sflags
-	bit.w #$0010
+	bit.w #sfwrap
 	beq CODE_9BB12F
-	lda.w #$007E
-	sta.b $9B
-	lda.w #$E676
-	sta.b $99
-CODE_9BB0E5:
-	lda.b $99
+	lda.w #ReplayBufferEnd>>16
+	sta.b a4+2
+	lda.w #ReplayBufferEnd
+	sta.b a4
+.a4ne:
+	lda.b a4
 	sec
-	sbc.w #$007A
-	sta.b $99
-	lda.b $9B
+	sbc.w #replaysize
+	sta.b a4
+	lda.b a4+2
 	sbc.w #$0000
-	sta.b $9B
-	lda.b $99
+	sta.b a4+2
+	lda.b a4
 	cmp.w ReplayBufferPtr
 	beq CODE_9BB0FF
 	jml.l CODE_9BB19D

@@ -506,3 +506,93 @@ $9BB47F,.3,CODE_9BB47F,93S,vtoa,src/routines/logic/vtoa.asm
 $9BB48D,.nodir,CODE_9BB48D,93S,vtoa no direction,src/routines/logic/vtoa.asm
 $9BB493,.dt,DATA8_9BB493,93S,vtoa direction table,src/routines/logic/vtoa.asm
 $9FD85F,CODE_9FD85F,DATA8_9FD820,new,code that followed the line-choice table,src/routines/snes/CODE_9FD85F.asm
+$9EB889,.rtl,CODE_9EB889,93S,AddPenalty return,src/routines/penalty/AddPenalty.asm
+$9EC116,.loop,CODE_9EC116,93S,ClearPenaltyBuffer,src/routines/penalty/ClearPenaltyBuffer.asm
+$9EBB9D,.a,CODE_9EBB9D,93S,GetLowestPen home offset,src/routines/penalty/GetLowestPen.asm
+$9EBB9F,.top,CODE_9EBB9F,93S,GetLowestPen box scan,src/routines/penalty/GetLowestPen.asm
+$9EBBB7,.h0,CODE_9EBBB7,93S,GetLowestPen home roster,src/routines/penalty/GetLowestPen.asm
+$9EB85D,.rtl,CODE_9EB85D,93S,updatepwrplay_clr return,src/routines/penalty/updatepwrplay_clr.asm
+$9FC97E,.add,CODE_9FC97E,93S,addteamstat,src/routines/penalty/addteamstat.asm
+$9EB701,.top,CODE_9EB701,93S,coinsearch,src/routines/penalty/coinsearch.asm
+$9EB708,.tm,CODE_9EB708,93S,coinsearch team,src/routines/penalty/coinsearch.asm
+$9EB727,.nap,CODE_9EB727,93S,coinsearch not a penalty,src/routines/penalty/coinsearch.asm
+$9EA6FF,.loop,CODE_9EA6FF,93S,RemovePlayerFromList,src/routines/penalty/RemovePlayerFromList.asm
+$9F9D8F,.list,CODE_9F9D8F,new,PrintPerLabel overtime adjusts the period index,src/routines/penalty/PrintPerLabel.asm
+$9F9D99,.next,CODE_9F9D99,93S,PrintPerLabel,src/routines/penalty/PrintPerLabel.asm
+$9FDDA2,.top,CODE_9FDDA2,93S,reenergizeteam,src/routines/penalty/reenergizeteam.asm
+$9FDDA9,.tm,CODE_9FDDA9,93S,reenergizeteam team,src/routines/penalty/reenergizeteam.asm
+$9FDDC6,.nb,CODE_9FDDC6,93S,reenergizeteam next,src/routines/penalty/reenergizeteam.asm
+$9EC076,.save,CODE_9EC076,93S,releasepl,src/routines/penalty/releasepl.asm
+$9EC087,.savea,CODE_9EC087,93S,releasepl,src/routines/penalty/releasepl.asm
+$9EC09A,.find,CODE_9EC09A,93S,releasepl,src/routines/penalty/releasepl.asm
+$9EC0CB,.tmgoaliepos,CODE_9EC0CB,93S,releasepl,src/routines/penalty/releasepl.asm
+$9EC0ED,.resta,CODE_9EC0ED,93S,releasepl,src/routines/penalty/releasepl.asm
+$9EC0FB,.restore,CODE_9EC0FB,93S,releasepl,src/routines/penalty/releasepl.asm
+$9FBA1C,.save,CODE_9FBA1C,93S,SetHor,src/routines/penalty/SetHor.asm
+$9FBA2D,.savea,CODE_9FBA2D,93S,SetHor,src/routines/penalty/SetHor.asm
+$9FBA7D,.resta,CODE_9FBA7D,93S,SetHor,src/routines/penalty/SetHor.asm
+$9FBA8B,.restore,CODE_9FBA8B,93S,SetHor,src/routines/penalty/SetHor.asm
+$9EF980,.0,CODE_9EF980,93S,SetPA,src/routines/penalty/SetPA.asm
+$9EF991,SetPA2,CODE_9EF991,93S,step the referee animation,src/routines/penalty/SetPA.asm
+$9EF9C0,.skip,CODE_9EF9C0,new,SetPA2 leaves the shootout flag clear,src/routines/penalty/SetPA.asm
+$9EF924,.1,CODE_9EF924,93S,UpdatePA message timer,src/routines/penalty/UpdatePA.asm
+$9FE05C,.team,CODE_9FE05C,93S,SetupTeamForIntermission,src/routines/penalty/SetupTeamForIntermission.asm
+$9FE088,.rtl,CODE_9FE088,93S,SetupTeamForIntermission return,src/routines/penalty/SetupTeamForIntermission.asm
+$9FA22D,.noa2,CODE_9FA22D,93S,pplpen home roster,src/routines/penalty/pplpen.asm
+$9FA24D,.find,CODE_9FA24D,93S,pplpen,src/routines/penalty/pplpen.asm
+$9FC6BD,.clr,CODE_9FC6BD,93S,ClearTeamStats,src/routines/hockey/ClearTeamStats.asm
+$9D98C4,.3,CODE_9D98C4,93S,GetShifter,src/routines/hockey/GetShifter.asm
+$9BB4B4,.carry,CODE_9BB4B4,93S,SuperAdd,src/routines/hockey/SuperAdd.asm
+$9BB4C6,.ex,CODE_9BB4C6,93S,SuperAdd return,src/routines/hockey/SuperAdd.asm
+$9FDCDA,.home,CODE_9FDCDA,93S,setpde,src/routines/hockey/setpde.asm
+$9FDCE7,.store,CODE_9FDCE7,93S,setpde,src/routines/hockey/setpde.asm
+$9FC70D,.r,CODE_9FC70D,93S,restoreteams one team,src/routines/hockey/restoreteams.asm
+$9FC71A,.0,CODE_9FC71A,93S,restoreteams,src/routines/hockey/restoreteams.asm
+$9FC721,.home,CODE_9FC721,93S,restoreteams,src/routines/hockey/restoreteams.asm
+$9CA1B7,.loop0,CODE_9CA1B7,93S,SprSort vertical,src/routines/hockey/SprSort.asm
+$9BCD70,.char,CODE_9BCD70,93S,PWtoBits,src/routines/hockey/PWtoBits.asm
+$9FC595,.home,CODE_9FC595,93S,GetPlayerNumInitial,src/routines/hockey/GetPlayerNumInitial.asm
+$9FD6E7,.idx,CODE_9FD6E7,93S,TryAddPlayerToList,src/routines/hockey/TryAddPlayerToList.asm
+$9FD6F5,.chk,CODE_9FD6F5,93S,TryAddPlayerToList,src/routines/hockey/TryAddPlayerToList.asm
+$9FD707,.s2,CODE_9FD707,93S,TryAddPlayerToList,src/routines/hockey/TryAddPlayerToList.asm
+$9FCDC4,.rb,CODE_9FCDC4,93S,ResetBench one team,src/routines/hockey/ResetBench.asm
+$9FCDC9,.rb1,CODE_9FCDC9,93S,ResetBench roster loop,src/routines/hockey/ResetBench.asm
+$9FCDD9,.idx,CODE_9FCDD9,93S,ResetBench index,src/routines/hockey/ResetBench.asm
+$9FCDFA,.nopen,CODE_9FCDFA,93S,ResetBench player not in the box,src/routines/hockey/ResetBench.asm
+$9FCE16,.next,CODE_9FCE16,93S,ResetBench next player,src/routines/hockey/ResetBench.asm
+$9FCE22,.save,CODE_9FCE22,93S,forcepldata,src/routines/hockey/forcepldata.asm
+$9FCE33,.savea,CODE_9FCE33,93S,forcepldata,src/routines/hockey/forcepldata.asm
+$9FCE4B,.top,CODE_9FCE4B,93S,forcepldata,src/routines/hockey/forcepldata.asm
+$9FCE5B,.pos,CODE_9FCE5B,93S,forcepldata,src/routines/hockey/forcepldata.asm
+$9FCE7C,.notnear,CODE_9FCE7C,93S,forcepldata,src/routines/hockey/forcepldata.asm
+$9FCE8E,.idx,CODE_9FCE8E,93S,forcepldata,src/routines/hockey/forcepldata.asm
+$9FCE9E,.next,CODE_9FCE9E,93S,forcepldata,src/routines/hockey/forcepldata.asm
+$9FCEB6,.resta,CODE_9FCEB6,93S,forcepldata,src/routines/hockey/forcepldata.asm
+$9FCEC4,.restore,CODE_9FCEC4,93S,forcepldata,src/routines/hockey/forcepldata.asm
+$9FD40C,.save,CODE_9FD40C,93S,setpersonel,src/routines/hockey/setpersonel.asm
+$9FD41D,.savea,CODE_9FD41D,93S,setpersonel,src/routines/hockey/setpersonel.asm
+$9FD435,.l0,CODE_9FD435,93S,setpersonel,src/routines/hockey/setpersonel.asm
+$9FD472,.2,CODE_9FD472,93S,setpersonel,src/routines/hockey/setpersonel.asm
+$9FCF0C,.0,CODE_9FCF0C,93S,setplayer,src/routines/hockey/setplayer.asm
+$9FCF23,.idx,CODE_9FCF23,93S,setplayer,src/routines/hockey/setplayer.asm
+$9FCF44,.da,CODE_9FCF44,93S,setplayer,src/routines/hockey/setplayer.asm
+$9FCF4E,.nda,CODE_9FCF4E,93S,setplayer,src/routines/hockey/setplayer.asm
+$9FCF55,.nda1,CODE_9FCF55,93S,setplayer,src/routines/hockey/setplayer.asm
+$9FA135,.save,CODE_9FA135,93S,ShowInjuryBox,src/routines/hockey/ShowInjuryBox.asm
+$9FA146,.savea,CODE_9FA146,93S,ShowInjuryBox,src/routines/hockey/ShowInjuryBox.asm
+$9FA19E,.resta,CODE_9FA19E,93S,ShowInjuryBox,src/routines/hockey/ShowInjuryBox.asm
+$9FA1AC,.restore,CODE_9FA1AC,93S,ShowInjuryBox,src/routines/hockey/ShowInjuryBox.asm
+$9BB0E5,.a4ne,CODE_9BB0E5,93S,suba4,src/routines/hockey/suba4.asm
+$80CDE0,.0,CODE_80CDE0,94G,InitShooters list chosen,src/routines/shootout/InitShooters.asm
+$80CDF9,.loop,CODE_80CDF9,94G,InitShooters copy,src/routines/shootout/InitShooters.asm
+$80CA1D,.team,CODE_80CA1D,new,ShootoutShooters team check,src/routines/shootout/ShootoutShooters.asm
+$80CEFF,.list,CODE_80CEFF,new,ShooterSelectList shooter list,src/routines/shootout/ShooterSelectList.asm
+$80CF31,.zero,CODE_80CF31,new,ShooterSelectList clamp,src/routines/shootout/ShooterSelectList.asm
+$9EB753,.ne,CODE_9EB753,93S,updatepwrplay teams differ,src/routines/penalty/updatepwrplay.asm
+$9EB769,.off,CODE_9EB769,new,updatepwrplay returns when the mode is 4,src/routines/penalty/updatepwrplay.asm
+$9EB76A,.t0,CODE_9EB76A,93S,updatepwrplay home leads,src/routines/penalty/updatepwrplay.asm
+$9EB784,.upp,CODE_9EB784,93S,updatepwrplay box,src/routines/penalty/updatepwrplay.asm
+$9EB791,.uppt,CODE_9EB791,93S,updatepwrplay print,src/routines/penalty/updatepwrplay.asm
+$9EB7CE,.one,CODE_9EB7CE,new,updatepwrplay one second left,src/routines/penalty/updatepwrplay.asm
+$9EB7F8,.wide,CODE_9EB7F8,new,updatepwrplay back to 16-bit,src/routines/penalty/updatepwrplay.asm
+$9EB7FB,.time,CODE_9EB7FB,new,updatepwrplay time and team name,src/routines/penalty/updatepwrplay.asm

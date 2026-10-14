@@ -1,27 +1,27 @@
-; Unidentified routine.
+; Make the list of the players team a2 wants on the ice now
 SetPlList:
-	lda.w #$007E
-	sta.b $9B
-	lda.w #$3114
-	sta.b $99
+	lda.w #PlList>>16
+	sta.b a4+2
+	lda.w #PlList
+	sta.b a4
 	lda.w #$0000
-	sta.b [$99]
+	sta.b [a4]
 	ldy.w #$0002
-	sta.b [$99],y
+	sta.b [a4],y
 	ldy.w #$0004
-	sta.b [$99],y
-	lda.w #$0080
-	sta.b $8B
-	lda.w #$D6B0
-	sta.b $89
+	sta.b [a4],y
+	lda.w #priolist>>16
+	sta.b a0+2
+	lda.w #priolist
+	sta.b a0
 	lda.w $1E9B
 	beq CODE_9FD59A
-	lda.w #$0080
-	sta.b $8B
-	lda.w #$D6B7
-	sta.b $89
-	lda.b $91
+	lda.w #priolist>>16
+	sta.b a0+2
+	lda.w #priolist+7
+	sta.b a0
+	lda.b a2
 	cmp.w $1E91
 	bne CODE_9FD5A3
-	inc.b $89
+	inc.b a0
 	bra CODE_9FD5A3

@@ -1,26 +1,26 @@
-; Unidentified routine.
+; Move the replay one frame forward
 adda4:
-	stz.b $C1
+	stz.b d7
 	lda.w sflags
-	bit.w #$0400
+	bit.w #sf2drec
 	beq CODE_9BB167
-	lda.b $9B
+	lda.b a4+2
 	pha
-	lda.b $99
+	lda.b a4
 	pha
 	jsl.l adda43
-	lda.b $9B
-	sta.b $C7
-	lda.b $99
-	sta.b $C5
+	lda.b a4+2
+	sta.b tmp1
+	lda.b a4
+	sta.b tmp0
 	pla
-	sta.b $99
+	sta.b a4
 	pla
-	sta.b $9B
-	lda.b $C5
+	sta.b a4+2
+	lda.b tmp0
 	cmp.w ReplayBufferPtr
 	bne CODE_9BB167
-	lda.b $C7
-	cmp.w $0D21
+	lda.b tmp1
+	cmp.w ReplayBufferPtr+2
 	bne CODE_9BB167
 	rtl

@@ -1,48 +1,48 @@
-; Unidentified routine.
+; Start the referee animation for penalty d0 and show its message
 SetPA:
-	lda.b $A5
-	sta.w $162E
+	lda.b d0
+	sta.w RefPen
 	stz.w RefStep
 	jsl.l CODE_9EC160
-	lda.b $A5
-	cmp.w #$000E
-	bne CODE_9EF980
+	lda.b d0
+	cmp.w #PenGoal
+	bne .0
 	jsl.l CODE_9FA697
-CODE_9EF980:
+.0:
 	lda.w #$7FFF
 	sta.w penmsgtimer
 	lda.w sfhormode
-	beq CODE_9EF991
+	beq SetPA2
 	lda.w #$003C
 	sta.w penmsgtimer
-CODE_9EF991:
+SetPA2:
 	phx
-	lda.b $A5
+	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
-	lda.b $89
+	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.w RefStep
 	bpl CODE_9EF9C5
 	lda.w $1D81
-	beq CODE_9EF9C0
+	beq .skip
 	lda.w #$0001
 	sta.w $1D83
-CODE_9EF9C0:
+.skip:
 	lda.w RefStep
 	bra CODE_9EFA0F

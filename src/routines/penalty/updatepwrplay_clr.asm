@@ -1,8 +1,8 @@
-; Unidentified routine.
+; Power play over: put the EASN logo back
 updatepwrplay_clr:
-	lda.w #$2000
+	lda.w #sf2pwrplay
 	trb.w sflags
-	beq CODE_9EB85D
+	beq .rtl
 	jsl.l CODE_9FBEFD
-CODE_9EB85D:
+.rtl:
 	rtl

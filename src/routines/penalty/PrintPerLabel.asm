@@ -1,25 +1,25 @@
-; Unidentified routine.
+; Print the label of the current period
 PrintPerLabel:
 	lda.w gsp
-	sta.b $A5
+	sta.b d0
 	cmp.w #$0004
-	bne CODE_9F9D8F
+	bne .list
 	dec.w printx
-	inc.b $A5
-CODE_9F9D8F:
-	lda.w #$0080
-	sta.b $8B
-	lda.w #$D6E1
-	sta.b $89
-CODE_9F9D99:
-	lda.b $8B
-	sta.b $8F
-	lda.b $89
-	sta.b $8D
-	lda.b [$89]
+	inc.b d0
+.list:
+	lda.w #PerLabels>>16
+	sta.b a0+2
+	lda.w #PerLabels
+	sta.b a0
+.next:
+	lda.b a0+2
+	sta.b a1+2
+	lda.b a0
+	sta.b a1
+	lda.b [a0]
 	clc
-	adc.b $89
-	sta.b $89
-	dec.b $A5
-	bpl CODE_9F9D99
+	adc.b a0
+	sta.b a0
+	dec.b d0
+	bpl .next
 	jml.l CODE_9EC7BE

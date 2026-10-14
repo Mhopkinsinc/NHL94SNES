@@ -1,12 +1,12 @@
-; Unidentified routine.
+; Reset the scouting report text scroll
 InitScoutDisplay:
 	lda.w #$FFFF
-	sta.w $0D49
-	sta.w $0D3F
-	stz.w $0D43
-	stz.w $0D45
-	lda.w #$007E
-	sta.b $8B
-	lda.w #$347C
-	sta.b $89
+	sta.w VertLineScrolling
+	sta.w PlayerScrollCtr
+	stz.w SelectedPlayerIdx
+	stz.w ScoutingReportTimer
+	lda.w #TestList>>16
+	sta.b a0+2
+	lda.w #TestList
+	sta.b a0
 	rtl

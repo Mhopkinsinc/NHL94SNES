@@ -1,16 +1,16 @@
-; Unidentified routine.
+; Clear the list of called penalties
 ClearPenaltyBuffer:
 	lda.w #$001F
-	sta.b $A5
+	sta.b d0
 	lda.w #$0000
-	sta.b $8B
-	lda.w #$15DE
-	sta.b $89
-CODE_9EC116:
+	sta.b a0+2
+	lda.w #PenBuf
+	sta.b a0
+.loop:
 	lda.w #$0000
-	sta.b [$89]
-	inc.b $89
-	inc.b $89
-	dec.b $A5
-	bpl CODE_9EC116
+	sta.b [a0]
+	inc.b a0
+	inc.b a0
+	dec.b d0
+	bpl .loop
 	rtl

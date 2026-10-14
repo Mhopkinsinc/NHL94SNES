@@ -120,3 +120,49 @@ tmfoffside = $0010	; team flagged offsides
 cbut = $0080		; shoot / check button in d2
 blueline = $58		; puck y past which a team can be offside
 PenOffsides = $12	; offsides penalty number
+PenIcing = $0C		; icing penalty number
+PenGoal = $0E		; goal
+
+gmpen = $0004		; penalty called, ref in progress
+sfwrap = $0010		; replay has wrapped around
+sf2drec = $0400		; disable replay record
+sf2pwrplay = $2000	; power play in progress
+sf2pwrtm = $4000	; 0 for team 1 in power play
+pf2inj = $0004		; injured
+TMPDBENCH = $FFFE	; on the bench
+TMPDOUT = $FFFD		; out of the game
+TMPDINJ = $1000		; injured: box time with this bit has no penalty
+TMPDICE = $FFFF		; on the ice
+PWrange = 30		; characters in PasstoText
+pwlength = 16		; password characters
+replaysize = $7A	; bytes per replay frame record
+
+xsave = $87		; X saved around the push/pop loops
+a4 = $99		; long pointer; a4+2 is the bank
+d3 = $B1
+d4 = $B5
+d5 = $B9
+d6 = $BD
+
+gmclock = $15D6		; nonzero: game clock is stopped
+PenBuf = $15DE		; up to 32 penalties: (penalty number, object) word pairs, 0 = free
+RefPen = $162E		; penalty number of the ref animation
+Oldrow = $0D23		; last rink map row
+vramrow = $0D25		; BG2 tile map row at the top of the ring buffer
+pfalock = $14E3		; nonzero: locked until the animation is done
+PerTimeTotal = $1C82	; length of this period (seconds)
+tmteam = $1CE0		; team number of each team struct
+TempPlOffset = $1636	; pnum of the penalized player, high bit set for the visitors
+OptPen = $7E34C4	; penalties (0 = off)
+PassWord = $7E34F4	; password characters
+passbits = $7E3508	; password bits, low word first
+PlList = $7E3114	; players wanted on the ice
+ReplayBufferStart = $7E577E	; first replay frame record
+ReplayBufferEnd = $7EE676	; replay buffer end
+priolist = $80D6B0	; priority list used when filling the ice
+PerLabels = $80D6E1	; period name strings
+VertLineScrolling = $0D49	; scouting report vertical scroll
+PlayerScrollCtr = $0D3F		; scouting report player scroll
+SelectedPlayerIdx = $0D43	; scouting report selected player
+ScoutingReportTimer = $0D45	; scouting report timer
+TestList = $7E347C		; scouting report text list

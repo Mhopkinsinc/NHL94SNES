@@ -1,32 +1,32 @@
-; Unidentified routine.
+; Before a period: reset the bench, refill energy and pick each team's starting line
 SetupTeamForIntermission:
 	jsl.l ResetBench
 	lda.w #$0001
 	sta.l $7E344E
-	stz.b $91
+	stz.b a2
 	lda.w #$0002
-	sta.b $95
-	jsl.l CODE_9FE05C
-	stz.b $95
+	sta.b a3
+	jsl.l .team
+	stz.b a3
 	lda.w #$0002
-	sta.b $91
-CODE_9FE05C:
+	sta.b a2
+.team:
 	jsl.l reenergizeteam
-	ldx.b $95
-	ldy.b $91
+	ldx.b a3
+	ldy.b a2
 	stz.w tmline,x
 	lda.l $7E34C6
-	beq CODE_9FE088
+	beq .rtl
 	lda.w tmap,x
 	sec
 	sbc.w tmap,y
-	sta.b $A5
-	beq CODE_9FE088
+	sta.b d0
+	beq .rtl
 	lda.w #$0003
 	sta.w tmline,x
-	lda.b $A5
-	bpl CODE_9FE088
+	lda.b d0
+	bpl .rtl
 	lda.w #$0005
 	sta.w tmline,x
-CODE_9FE088:
+.rtl:
 	rtl

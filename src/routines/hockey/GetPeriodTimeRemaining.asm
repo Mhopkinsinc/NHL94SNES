@@ -1,4 +1,4 @@
-; Unidentified routine.
+; d0 = the period and the time into it, for the goal and penalty logs
 GetPeriodTimeRemaining:
 	lda.w gsp
 	xba
@@ -9,8 +9,8 @@ GetPeriodTimeRemaining:
 	asl a
 	asl a
 	asl a
-	ora.w $1C82
+	ora.w PerTimeTotal
 	sec
 	sbc.w gameclock
-	sta.b $A5
+	sta.b d0
 	rtl

@@ -1,26 +1,26 @@
-; Unidentified routine.
+; Put both teams' players on the bench
 restoreteams:
-	stz.b $91
-	jsl.l CODE_9FC70D
+	stz.b a2
+	jsl.l .r
 	lda.w #$0002
-	sta.b $91
-CODE_9FC70D:
-	ldy.b $91
+	sta.b a2
+.r:
+	ldy.b a2
 	lda.w #$0006
 	sta.w tmap,y
 	lda.w #$0032
-	sta.b $A5
-CODE_9FC71A:
-	lda.b $91
-	beq CODE_9FC721
+	sta.b d0
+.0:
+	lda.b a2
+	beq .home
 	lda.w #$0034
-CODE_9FC721:
+.home:
 	clc
-	adc.b $A5
+	adc.b d0
 	tay
-	lda.w #$FFFE
+	lda.w #TMPDBENCH
 	sta.w tmpdst,y
-	dec.b $A5
-	dec.b $A5
-	bpl CODE_9FC71A
+	dec.b d0
+	dec.b d0
+	bpl .0
 	rtl
