@@ -45,7 +45,7 @@ EncodePW:
 	jml.l maketree
 
 .t1:
-	jsl.l CODE_9BCDE2
+	jsl.l ResetPassWord
 CODE_9BC7D9:
 	lda.w #$0080
 	ora.l PassWord

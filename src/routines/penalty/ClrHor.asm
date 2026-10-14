@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FB9A4:
+; Switch back from the horizontal rink to the vertical ice rink
+ClrHor:
 	stx.b xsave
 	ldx.w #$0000
 .loop:

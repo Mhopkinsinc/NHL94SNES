@@ -50,4 +50,4 @@ asseben:
 	stz.w SPA,x
 	lda.w #$1000
 	sta.w $0EC3,x
-	jml.l CODE_9E8BE6
+	jml.l assexit

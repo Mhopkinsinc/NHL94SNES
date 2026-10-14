@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EA4F7:
+; The player stops
+dostop:
 	lda.w $0EC3,x
 	cmp.w #$EFFF
 	bmi .1

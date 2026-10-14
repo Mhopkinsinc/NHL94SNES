@@ -7,7 +7,7 @@ CODE_9BAA60:
 	sta.l $7E35E0
 	lda.w #$0800
 	tsb.w sflags
-	jsl.l CODE_9FB9A4
+	jsl.l ClrHor
 	lda.w #$FFFF
 	sta.w textdirtylo
 	stz.w textdirtyhi

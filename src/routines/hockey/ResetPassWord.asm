@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BCDE2:
+; Blank the password
+ResetPassWord:
 	sep #$30
 	lda.b #$00
 	sta.l PassWord

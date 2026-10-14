@@ -11,7 +11,7 @@ assbench:
 	bit.w #$4000
 	beq .t1x
 .1x:
-	jml.l CODE_9E8BE6
+	jml.l assexit
 
 .t1x:
 	bit.w #$0002

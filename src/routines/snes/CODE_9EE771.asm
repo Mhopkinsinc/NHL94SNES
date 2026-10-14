@@ -14,4 +14,4 @@ CODE_9EE77E:
 	lda.w pflags,x
 	and.w #$FFFE
 	sta.w pflags,x
-	jmp.w CODE_9E8BE6
+	jmp.w assexit

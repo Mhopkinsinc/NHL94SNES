@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FDFA6:
-	jsl.l CODE_9FDF0C
+	jsl.l getlinee
 	lda.w $0D0D
 	pha
 	phx

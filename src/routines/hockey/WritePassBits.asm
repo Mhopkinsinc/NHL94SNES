@@ -55,7 +55,7 @@ WritePassBits:
 	sta.b d0
 	lda.w #$0200
 	sta.b d1
-	jsl.l CODE_9BCDB3
+	jsl.l PushBits
 	rtl
 
 .t1:
@@ -63,4 +63,4 @@ WritePassBits:
 	clc
 	adc.b d0
 	sta.b d7
-	jml.l CODE_9BCDB3
+	jml.l PushBits

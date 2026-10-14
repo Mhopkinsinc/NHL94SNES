@@ -69,4 +69,4 @@ assfaceoffpl:
 .t3:
 	lda.w #$0014
 	sta.w $1203,x
-	jml.l CODE_9E8BE6
+	jml.l assexit

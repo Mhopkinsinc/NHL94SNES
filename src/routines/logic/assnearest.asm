@@ -81,4 +81,4 @@ CODE_9E8086:
 	sta.b d0
 	jsl.l assinsert
 	ldx.b $E4
-	jmp.w CODE_9E8BE6
+	jmp.w assexit

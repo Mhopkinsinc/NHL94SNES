@@ -82,7 +82,7 @@ CODE_9F937B:
 	pla
 	sta.w sfhormode
 	bne .1
-	jsl.l CODE_9FB9A4
+	jsl.l ClrHor
 .1:
 	lda.w #$0001
 	trb.w sflags

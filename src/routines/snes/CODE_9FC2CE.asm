@@ -2,7 +2,7 @@
 CODE_9FC2CE:
 	lda.w pfalock,x
 	bne CODE_9FC26C
-	jsl.l CODE_9EC417
+	jsl.l checkob
 	lda.w position,x
 	bne .1
 	lda.w $1543,x
@@ -26,7 +26,7 @@ CODE_9FC2CE:
 	lda.b d1
 	bit.w #$0080
 	bne CODE_9FC32A
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 
 .t1:
 	jml.l passmode

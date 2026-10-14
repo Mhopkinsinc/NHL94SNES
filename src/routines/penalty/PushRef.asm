@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EFA36:
+; Draw a referee frame in the referee window
+PushRef:
 	phx
 	lda.b d0
 	pha

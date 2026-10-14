@@ -4,7 +4,7 @@ CODE_9E8BD7:
 	bpl .t1
 	lda.w #$0008
 	sta.b d0
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 
 .t1:
 	rtl

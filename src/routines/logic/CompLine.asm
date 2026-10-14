@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FDA53:
+; The computer team picks a line by the man advantage, the score and the line energies
+CompLine:
 	lda.b d0
 	pha
 	lda.b $A7
@@ -29,13 +29,13 @@ CODE_9FDA53:
 .1:
 	lda.b d0
 	pha
-	jsl.l CODE_9FDF0C
+	jsl.l getlinee
 	lda.b d0
 	sta.b d1
 	lda.b $01,s
 	inc a
 	sta.b d0
-	jsl.l CODE_9FDF0C
+	jsl.l getlinee
 	lda.b d1
 	sec
 	sbc.b d0

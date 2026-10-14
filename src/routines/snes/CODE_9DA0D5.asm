@@ -56,7 +56,7 @@ CODE_9DA0D5:
 	bcs .2
 	lda.w #$0001
 	sta.w $1C84
-	jsl.l CODE_9D995D
+	jsl.l FigureJoy
 	lda.w $1C84
 	dec a
 	beq .1
@@ -276,7 +276,7 @@ CODE_9DA2F5:
 	bcc .loop
 	bit.w #$0001
 	beq .t1x
-	jsl.l CODE_9D995D
+	jsl.l FigureJoy
 .1x:
 	lda.l $7E34BC
 	cmp.w #$0004

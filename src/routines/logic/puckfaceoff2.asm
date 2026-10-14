@@ -118,7 +118,7 @@ CODE_9FA90C:
 	sta.l $7E344C
 	lda.w #$0500
 	tsb.w sflags
-	jsl.l CODE_9FB9A4
+	jsl.l ClrHor
 	stz.w Vpos
 	stz.w Hpos
 	lda.l $7E3136

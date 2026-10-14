@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EC417:
+; Show the little warning referee when a teammate is over the blue line
+checkob:
 	lda.w gmode
 	bit.w #$0020
 	bne .t2

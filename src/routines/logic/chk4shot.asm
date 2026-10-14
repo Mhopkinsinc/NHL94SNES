@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EDED4:
+; A computer player looks for a shot
+chk4shot:
 	lda.w gmclock
 	bne .t2
 	lda.w gameclock

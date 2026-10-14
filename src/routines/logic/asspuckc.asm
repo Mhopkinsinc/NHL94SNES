@@ -5,7 +5,7 @@ asspuckc:
 	lda.w $19D4,x
 	bmi .clk
 .1:
-	jmp.w CODE_9E8BE6
+	jmp.w assexit
 
 .t1:
 	rtl
@@ -39,7 +39,7 @@ asspuckc:
 	lda.w #$0000
 .3x:
 	sta.w $1003,x
-	jsl.l CODE_9EC417
+	jsl.l checkob
 	lda.w $1E8B
 	beq .t1x
 	lda.w Ypos,x
@@ -58,12 +58,12 @@ asspuckc:
 	bra CODE_9E8373
 
 .t1x:
-	jsl.l CODE_9FDBD0
-	jsl.l CODE_9EDED4
+	jsl.l chk4lc
+	jsl.l chk4shot
 	lda.w $0B7D,x
 	cmp.w #$0011
 	bne .3
-	jsl.l CODE_9EE89F
+	jsl.l chk4pass
 .3:
 	lda.w #$0006
 	clc

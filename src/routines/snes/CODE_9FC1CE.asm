@@ -74,4 +74,4 @@ CODE_9FC1CE:
 	lda.b d1
 	bit.w #$0080
 	bne CODE_9FC2B6
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc

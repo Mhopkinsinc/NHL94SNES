@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ECFDC:
+; The goalie skates in direction d0, turning one step toward it
+goalieacc:
 	lda.w #$E0FE
 	sta.b d1
 	lda.b d0

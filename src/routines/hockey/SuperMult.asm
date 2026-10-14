@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9CA4CF:
+; password bits *= d0
+SuperMult:
 	phx
 	ldx.w #$000E
 .loop:

@@ -7,7 +7,7 @@ IntermissionTick:
 	sbc.w $0D33
 	cmp.w #$0150
 	bcc CODE_9FA3BA
-	jsl.l CODE_9FA3BE
+	jsl.l TickerNext
 	lda.l $7E35DC
 	cmp.w $0D31
 	bne IntermissionTick

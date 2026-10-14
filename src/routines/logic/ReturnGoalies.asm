@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ED0FD:
+; If the computer pulled its goalie, should he come back?
+ReturnGoalies:
 	stz.b a2
 	lda.w #$0002
 	sta.b a1

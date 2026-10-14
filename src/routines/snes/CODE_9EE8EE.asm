@@ -83,7 +83,7 @@ CODE_9EE8EE:
 	sep #$20
 	pla
 	rep #$30
-	jmp.w CODE_9E8BE6
+	jmp.w assexit
 
 .t1:
 	rtl

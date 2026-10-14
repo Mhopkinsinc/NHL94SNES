@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E8BE6:
+; End the player's current assignment and go back to the one under it
+assexit:
 	lda.w assnum,x
 	inc a
 	and.w #$0007

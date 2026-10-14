@@ -79,4 +79,4 @@ assepen:
 	sta.w $19EC,y
 .2x:
 	ldx.b $E4
-	jml.l CODE_9E8BE6
+	jml.l assexit

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ED0A8:
+; A computer team pulls its goalie on a delayed penalty, or late in a game it trails
+ChkGoalies:
 	lda.w gmclock
 	bne rtss
 	stz.b a2

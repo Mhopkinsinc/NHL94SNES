@@ -15,7 +15,7 @@ UpdateScores:
 	sta.l $7E3598,x
 	bit.w #$0004
 	bne .1
-	jsl.l CODE_9F9EB7
+	jsl.l SetScore
 .1:
 	dec.b a0
 	dec.b a0

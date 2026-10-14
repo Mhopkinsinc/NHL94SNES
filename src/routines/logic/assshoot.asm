@@ -11,7 +11,7 @@ assshoot:
 	lda.w sflags
 	bit.w #$0008
 	bne .t1
-	jmp.w CODE_9E8BE6
+	jmp.w assexit
 
 .t1:
 	lda.w $1003,x

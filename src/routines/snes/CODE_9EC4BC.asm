@@ -7,5 +7,5 @@ CODE_9EC4BC:
 	bne CODE_9EC4A9
 	lda.w RefCnt
 	bpl CODE_9EC4A9
-	jsl.l CODE_9EFA36
+	jsl.l PushRef
 	bra CODE_9EC4A9

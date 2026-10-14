@@ -5,7 +5,7 @@ PWtoBits:
 .char:
 	lda.w #PWrange
 	sta.b d0
-	jsl.l CODE_9CA4CF
+	jsl.l SuperMult
 	lda.l PassWord,x
 	and.w #$00FF
 	sta.b d0

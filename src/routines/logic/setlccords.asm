@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE089:
+; printx / printy and the size of team a2's line change box
+setlccords:
 	stz.b d0
 	lda.b a2
 	bne .1

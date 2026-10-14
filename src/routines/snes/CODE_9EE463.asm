@@ -5,7 +5,7 @@ CODE_9EE463:
 	lda.w $19D4,x
 	bmi CODE_9EE47E
 .1:
-	jmp.w CODE_9E8BE6
+	jmp.w assexit
 
 .t1:
 	rtl

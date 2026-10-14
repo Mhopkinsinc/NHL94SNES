@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FA3BE:
+; Go to the next ticker game
+TickerNext:
 	lda.w $0D31
 	bmi .1
 	ora.l $7E35D6

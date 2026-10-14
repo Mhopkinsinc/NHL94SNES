@@ -89,7 +89,7 @@ maketree:
 	inc.b a1
 	dec.b d1
 	bpl .loop5
-	jsl.l CODE_9D995D
+	jsl.l FigureJoy
 .1:
 	stx.b xsave
 	ldx.w #$000E

@@ -1,6 +1,6 @@
 ; Draw the line change box for team a2, one row per line it can change to
 SetLCmode2:
-	jsl.l CODE_9FE089
+	jsl.l setlccords
 	inc.b d0
 	inc.b d1
 	lda.l $7E35D0
@@ -9,7 +9,7 @@ SetLCmode2:
 	bne .1
 	jsl.l eraser
 .1:
-	jsl.l CODE_9FE089
+	jsl.l setlccords
 	lda.w printy
 	sec
 	sbc.w #$000F
@@ -20,7 +20,7 @@ SetLCmode2:
 
 .t1:
 	jsl.l CODE_9FA669
-	jsl.l CODE_9FE089
+	jsl.l setlccords
 CODE_9FD35A:
 	jsl.l CODE_9D8000
 	dec.w printy

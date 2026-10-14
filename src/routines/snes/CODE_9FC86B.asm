@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FC86B:
-	jsl.l CODE_9F9EB7
+	jsl.l SetScore
 CODE_9FC86F:
 	dec.b d0
 	bpl CODE_9FC86B

@@ -30,7 +30,7 @@ CODE_9FDB5E:
 	inc.b a0
 	inc.b a0
 	sta.b d0
-	jsl.l CODE_9FDF0C
+	jsl.l getlinee
 	lda.b d0
 	cmp.w #$0F34
 	bcs .2

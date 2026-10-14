@@ -1,6 +1,6 @@
-; Unidentified routine.
-CODE_9FDE13:
-	jsl.l CODE_9FE089
+; Close the line change box and redraw the scoreboard
+lcfound2:
+	jsl.l setlccords
 	lda.w printy
 	sec
 	sbc.w #$000F

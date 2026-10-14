@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D995D:
+; Set which team each controller plays
+FigureJoy:
 	lda.l $7E34CC
 	bne .t2
 	jmp.w CODE_9D9A23

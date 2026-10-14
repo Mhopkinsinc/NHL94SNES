@@ -45,7 +45,7 @@ CODE_9FDABF:
 	tay
 	lda.b [a0],y
 	sta.b d0
-	jsl.l CODE_9FDF0C
+	jsl.l getlinee
 	lda.b d0
 	cmp.w #$0C01
 	bcc CODE_9FDB5E

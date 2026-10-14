@@ -14,7 +14,7 @@ CODE_9F8283:
 	lda.w #$005C
 	sta.w $1D59
 	jsl.l CODE_9B8000
-	jsl.l CODE_9BCDE2
+	jsl.l ResetPassWord
 	jsl.l CODE_9D9C97
 	jsl.l CODE_9B8526
 	lda.w #$0000

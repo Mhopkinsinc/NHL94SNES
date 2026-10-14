@@ -23,7 +23,7 @@ CODE_9EED8D:
 	jmp.w CompShoot
 
 .t2:
-	jmp.w CODE_9E8BE6
+	jmp.w assexit
 
 .t3:
 	ldy.w #$0000
@@ -58,7 +58,7 @@ CODE_9EED8D:
 	sta.w passdir
 .2:
 	jsl.l .t2x
-	jmp.w CODE_9E8BE6
+	jmp.w assexit
 
 .t2x:
 	phk

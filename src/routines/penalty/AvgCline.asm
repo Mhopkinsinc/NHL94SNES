@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FDD19:
+; d0 = the average energy of team a2's current line
+AvgCline:
 	lda.b d1
 	pha
 	lda.b $AB

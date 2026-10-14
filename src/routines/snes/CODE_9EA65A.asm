@@ -26,4 +26,4 @@ CODE_9EA65E:
 CODE_9EA694:
 	lda.w $10A3,x
 	sta.b d0
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc

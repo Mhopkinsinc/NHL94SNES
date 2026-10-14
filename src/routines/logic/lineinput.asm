@@ -16,7 +16,7 @@ lineinput:
 	sta.w tmflags,y
 	lda.w #$FFFF
 	sta.w $1D55,y
-	jsl.l CODE_9FDE13
+	jsl.l lcfound2
 	jsl.l SetLCmode2
 .2:
 	pla
@@ -37,7 +37,7 @@ lineinput:
 	beq .t1
 	lda.w pfalock,x
 	bne .t1
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 
 .t1:
 	rtl
@@ -53,7 +53,7 @@ lineinput:
 	sta.w tmflags,y
 	lda.w #$FFFF
 	sta.w $1D55,y
-	jmp.w CODE_9FDE13
+	jmp.w lcfound2
 
 .t3:
 	jmp.w lcfound

@@ -14,7 +14,7 @@ periodicevents:
 	clc
 	adc.w #$0018
 	sta.w $0CF7
-	jsl.l CODE_9ED0A8
+	jsl.l ChkGoalies
 	jsl.l CODE_80D322
 	jsl.l CODE_80D323
 	jsl.l RestoreBenchEnergy

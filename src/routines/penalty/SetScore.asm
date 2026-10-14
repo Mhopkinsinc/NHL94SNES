@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F9EB7:
+; Play one period of a playoff game with random goals
+SetScore:
 	phx
 	ldx.b a0
 	lda.l $7E3568,x

@@ -69,7 +69,7 @@ CODE_9EB3C5:
 	lda.w #$0032
 	sta.w RefCnt
 	stz.b d0
-	jsl.l CODE_9EFA36
+	jsl.l PushRef
 	jsl.l CODE_9F96E6
 	jsl.l CODE_8086BD
 	rtl

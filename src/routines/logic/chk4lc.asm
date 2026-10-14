@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FDBD0:
+; Should the computer call a line change? Then shoot the puck in
+chk4lc:
 	lda.l $7E34C6
 	cmp.w #$0002
 	beq .t1
@@ -39,7 +39,7 @@ CODE_9FDBD0:
 	lda.w #$0002
 	sta.b a2
 .3:
-	jsl.l CODE_9FDD19
+	jsl.l AvgCline
 	lda.b d0
 	cmp.w #$0C01
 	bcs .t1
@@ -47,7 +47,7 @@ CODE_9FDBD0:
 	bne .t1
 	lda.l $7E34C6
 	beq .t1
-	jsl.l CODE_9FDA53
+	jsl.l CompLine
 	jsl.l setpersonel
 	jsl.l printscores1
 	jml.l CompShoot

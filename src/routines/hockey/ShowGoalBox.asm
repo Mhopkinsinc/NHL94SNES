@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FA697:
+; The goal box with the scorer and the assists
+ShowGoalBox:
 	lda.b d0
 	pha
 	lda.b $A7
@@ -26,10 +26,10 @@ CODE_9FA697:
 	sta.w $1D55
 	sta.w $1D57
 	stz.b a2
-	jsl.l CODE_9FDE13
+	jsl.l lcfound2
 	inc.b a2
 	inc.b a2
-	jsl.l CODE_9FDE13
+	jsl.l lcfound2
 	lda.w #$007E
 	sta.b $9B
 	lda.w #$3136

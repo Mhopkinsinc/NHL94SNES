@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FDF0C:
+; d0 = the average energy of line d0 of team a2
+getlinee:
 	lda.b d3
 	pha
 	lda.b $B3

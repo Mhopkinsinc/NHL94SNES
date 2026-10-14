@@ -7,7 +7,7 @@ SetPA:
 	lda.b d0
 	cmp.w #PenGoal
 	bne .0
-	jsl.l CODE_9FA697
+	jsl.l ShowGoalBox
 .0:
 	lda.w #$7FFF
 	sta.w penmsgtimer
@@ -82,7 +82,7 @@ SetPA2:
 	xba
 	and.w #$00FF
 	sta.b d0
-	jsl.l CODE_9EFA36
+	jsl.l PushRef
 CODE_9EFA0F:
 	pla
 	sta.b $8F

@@ -21,7 +21,7 @@ lcfound:
 	lda.w #$FFFF
 	sta.w $1D55,y
 	jsl.l setpersonel
-	jmp.w CODE_9FDE13
+	jmp.w lcfound2
 
 .t1:
 	rtl

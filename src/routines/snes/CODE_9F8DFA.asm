@@ -156,7 +156,7 @@ StartHL2:
 	sta.w $0D19
 	sta.w $0D1D
 	jsl.l CODE_9FB8B4
-	jsl.l CODE_9FB9A4
+	jsl.l ClrHor
 	stz.w Vpos
 	stz.w Hpos
 	jsl.l ResetBench

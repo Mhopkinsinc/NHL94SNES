@@ -27,7 +27,7 @@ noturn0:
 	sta.b d0
 	cmp.w #$0004
 	bcs .t2
-	jmp.w CODE_9EA4F7
+	jmp.w dostop
 
 .t2:
 	inc.w facedir,x

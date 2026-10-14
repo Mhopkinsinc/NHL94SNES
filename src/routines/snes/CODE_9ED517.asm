@@ -36,7 +36,7 @@ CODE_9ED517:
 	bpl .2
 	lda.w #$0001
 	sta.w $0D2D
-	jsl.l CODE_9EE89F
+	jsl.l chk4pass
 	lda.w shotPlIdx
 	bmi CODE_9ED58C
 CODE_9ED574:

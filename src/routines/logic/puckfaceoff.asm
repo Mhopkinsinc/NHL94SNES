@@ -51,7 +51,7 @@ puckfaceoff:
 	jml.l Stop4Pen
 
 .t1x2:
-	jsl.l CODE_9ED0FD
+	jsl.l ReturnGoalies
 	lda.w #$FFFF
 	sta.w $1003,x
 	sta.w $1023,x
@@ -82,7 +82,7 @@ puckfaceoff:
 	beq .1xx2
 	lda.w #$0040
 	tsb.w sflags
-	jsl.l CODE_9FB9A4
+	jsl.l ClrHor
 .1xx2:
 	lda.l $7E344E
 	bne .2

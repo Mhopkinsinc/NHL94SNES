@@ -1,8 +1,8 @@
-; Unidentified routine.
-CODE_9EA8A9:
+; The player skates in direction d0 (or glides or stops), turning toward it
+doplayeracc:
 	lda.w position,x
 	bne .t4
-	jml.l CODE_9ECFDC
+	jml.l goalieacc
 
 .t4:
 	lda.w SPA,x
@@ -25,7 +25,7 @@ CODE_9EA8A9:
 	lda.w $0EC3,x
 	ora.w $0EE3,x
 	beq .t1
-	jmp.w CODE_9EA4F7
+	jmp.w dostop
 
 .t1:
 	lda.w $1543,x

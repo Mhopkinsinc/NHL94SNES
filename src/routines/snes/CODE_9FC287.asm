@@ -6,4 +6,4 @@ CODE_9FC287:
 	and.w #$0002
 	bne CODE_9FC298
 .1:
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
