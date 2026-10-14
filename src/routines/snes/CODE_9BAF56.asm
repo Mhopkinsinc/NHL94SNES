@@ -2,7 +2,7 @@
 CODE_9BAF56:
 	jsl.l adda4
 	ldx.w #$0006
-	lda.b $B1
+	lda.b d3
 	bit.w #$0010
 	bne CODE_9BAF67
 	ldx.w #$000C
@@ -12,7 +12,7 @@ CODE_9BAF67:
 CODE_9BAF6E:
 	jsl.l SoundVoicesOff
 	lda.w #$0001
-	sta.b $C1
+	sta.b d7
 	lda.w #$0002
 	trb.w sflags3
 	jmp.w CODE_9BABAB

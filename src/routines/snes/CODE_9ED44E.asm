@@ -16,7 +16,7 @@ CODE_9ED46A:
 	lda.w #$E0FE
 	jsl.l CODE_9EA3F1
 CODE_9ED476:
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9ED49F
 	lda.w $1083,x
 	bmi CODE_9ED4B4

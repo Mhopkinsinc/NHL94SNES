@@ -1,14 +1,14 @@
 ; Unidentified routine.
 CODE_9EC20E:
-	lda.b [$8D],y
+	lda.b [a1],y
 	clc
-	adc.b $8D
+	adc.b a1
 	inc a
 	inc a
-	sta.b $8D
-	lda.b [$8D]
+	sta.b a1
+	lda.b [a1]
 	dec a
 	dec a
-	sta.b $A5
+	sta.b d0
 	bne CODE_9EC222
 	jmp.w CODE_80C2AE

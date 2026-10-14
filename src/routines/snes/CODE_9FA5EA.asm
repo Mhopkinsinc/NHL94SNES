@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9FA5EA:
 	phx
-	lda.b $A5
+	lda.b d0
 	pha
 CODE_9FA5EE:
 	ldx.w #$0000
@@ -13,7 +13,7 @@ CODE_9FA5F1:
 	beq CODE_9FA602
 	txa
 	jsl.l CODE_9B84DC
-	lda.b $B1
+	lda.b d3
 	bne CODE_9FA623
 CODE_9FA602:
 	inx

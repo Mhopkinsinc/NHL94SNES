@@ -91,7 +91,7 @@ CODE_8080E2:
 	lda.w InitTag,x
 	sta.w $0796,x
 	sta.w $1EBD,x
-	sta.l $7EE676,x
+	sta.l ReplayBufferEnd,x
 	dex
 	bpl CODE_8080E2
 	ldx.w #$0010

@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9FC7EC:
 	stz.w $1EAF
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w #$0010
 	bmi CODE_9FC80A

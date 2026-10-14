@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9C9B5F:
 	phx
-	ldx.w $07F3
+	ldx.w MusicOn
 	bne CODE_9C9BA9
 	sta.b $14
 	inc a

@@ -1,11 +1,11 @@
 ; Unidentified routine.
 CODE_9ED6C9:
 	lda.w #$0D1B
-	sta.b $89
+	sta.b a0
 	lda.w #$FEFC
-	sta.b $B1
+	sta.b d3
 	lda.w #$FEF8
-	sta.b $B5
+	sta.b d4
 CODE_9ED6D8:
 	cpx.w $0AD9
 	beq CODE_9ED6EA

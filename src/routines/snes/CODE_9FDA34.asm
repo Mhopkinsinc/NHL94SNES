@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9FDA34:
 	lda.w #$0004
-	sta.w $1163,x
+	sta.w facedir,x
 	lda.w pflags,x
 	and.w #$6FFF
 	sta.w pflags,x

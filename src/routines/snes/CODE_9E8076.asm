@@ -1,18 +1,18 @@
 ; Unidentified routine.
 CODE_9E8076:
-	ldy.b $91
+	ldy.b a2
 	lda.w $17AE,y
-	sta.b $AD
+	sta.b d2
 	lda.w $17B2,y
-	sta.b $8D
-	lda.b $AD
+	sta.b a1
+	lda.b d2
 	bmi CODE_9E80BF
 CODE_9E8086:
-	cpx.b $8D
+	cpx.b a1
 	beq CODE_9E80BF
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9E80BF
-	ldy.b $8D
+	ldy.b a1
 	lda.w pflags,y
 	bit.w #$1000
 	bne CODE_9E80BF
@@ -21,12 +21,12 @@ CODE_9E8086:
 	lda.w $0B7D,y
 	cmp.w #$0015
 	beq CODE_9E80BF
-	ldx.b $8D
+	ldx.b a1
 	lda.w pflags,x
 	and.w #$FFFE
 	sta.w pflags,x
 	lda.w #$0012
-	sta.b $A5
+	sta.b d0
 	jsl.l assinsert
 	ldx.b $E4
 	jmp.w CODE_9E8BE6

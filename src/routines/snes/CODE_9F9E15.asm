@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9F9E15:
-	lda.b $A5
+	lda.b d0
 CODE_9F9E17:
 	cmp.w #$0064
 	bcc CODE_9F9E21

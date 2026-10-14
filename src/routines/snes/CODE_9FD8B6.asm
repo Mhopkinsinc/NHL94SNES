@@ -8,7 +8,7 @@ CODE_9FD8B6:
 CODE_9FD8C4:
 	lda.w $1003,x
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $1003,x
 	bmi CODE_9FD8D2
 	jmp.w CODE_9FD99D

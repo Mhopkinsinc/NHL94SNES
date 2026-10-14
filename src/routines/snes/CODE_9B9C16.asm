@@ -6,5 +6,5 @@ CODE_9B9C16:
 	stz.w $19C0
 CODE_9B9C22:
 	pla
-	sta.b $A5
+	sta.b d0
 	rtl

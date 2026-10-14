@@ -1,6 +1,6 @@
 ; Turn the password characters into the password bits
 PWtoBits:
-	jsl.l CODE_9BCD8F
+	jsl.l ClrPassBits
 	ldx.w #$0000
 .char:
 	lda.w #PWrange

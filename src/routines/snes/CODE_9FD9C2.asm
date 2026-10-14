@@ -5,14 +5,14 @@ CODE_9FD9C2:
 	sta.w pflags,x
 CODE_9FD9CB:
 	lda.w newpos,x
-	sta.b $A5
+	sta.b d0
 	sta.w position,x
 	jsl.l Setplass
 	lda.w #$FFFF
 	sta.w newpnum,x
 	sta.w newpos,x
 	rtl
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9FDA33
 	lda.w pflags,x
 	bit.w #$0002
@@ -39,8 +39,8 @@ CODE_9FDA06:
 	lda.w #$FF78
 	sta.w Xpos,x
 	lda.w #$0002
-	sta.w $1163,x
-	sta.w $14E3,x
+	sta.w facedir,x
+	sta.w pfalock,x
 	lda.w #$E8F4
 	ldy.w position,x
 	bne CODE_9FDA2F

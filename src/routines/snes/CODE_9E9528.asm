@@ -1,29 +1,29 @@
 ; Unidentified routine.
 CODE_9E9528:
-	lda.b $A5
+	lda.b d0
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.b $AB
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
-	lda.b $B1
+	lda.b d3
 	pha
-	lda.b $B5
+	lda.b d4
 	pha
-	lda.b $B9
+	lda.b d5
 	pha
-	sty.b $91
+	sty.b a2
 	lda.w Xpos,y
 	sec
 	sbc.w Xpos,x
-	sta.b $AD
+	sta.b d2
 	lda.w Ypos,y
 	sec
 	sbc.w Ypos,x
-	sta.b $B1
-	ldy.b $AD
+	sta.b d3
+	ldy.b d2
 	jsl.l CODE_9CA554
 	cmp.w #$0010
 	bmi CODE_9E955F

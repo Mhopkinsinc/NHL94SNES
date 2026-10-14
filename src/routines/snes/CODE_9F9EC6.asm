@@ -1,22 +1,22 @@
 ; Unidentified routine.
 CODE_9F9EC6:
-	lda.b $A5
+	lda.b d0
 	pha
 	lda.b $A7
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.b $AB
 	pha
-	lda.b $89
+	lda.b a0
 	pha
 	lda.b $8B
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.b $8F
 	pha
-	ldx.b $89
+	ldx.b a0
 	lda.l $7E3568,x
 	cmp.w #$0003
 	bne CODE_9F9F34

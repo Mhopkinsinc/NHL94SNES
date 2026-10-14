@@ -5,7 +5,7 @@ CODE_9E9CB6:
 	bpl CODE_9E9D0A
 	cmp.w #$FFB0
 	bmi CODE_9E9D0A
-	lda.b $A5
+	lda.b d0
 	inc a
 	inc a
 	and.w #$0007

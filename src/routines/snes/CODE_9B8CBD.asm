@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9B8CBD:
-	lda.b $A5
+	lda.b d0
 	inc a
 	inc a
 	inc a

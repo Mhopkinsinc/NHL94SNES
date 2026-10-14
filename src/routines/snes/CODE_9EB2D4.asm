@@ -1,86 +1,86 @@
 ; Unidentified routine.
 CODE_9EB2D4:
-	stz.b $A5
-	stz.b $A9
-	dec.b $89
-	dec.b $89
-	lda.b ($89)
-	inc.b $89
-	inc.b $89
+	stz.b d0
+	stz.b d1
+	dec.b a0
+	dec.b a0
+	lda.b (a0)
+	inc.b a0
+	inc.b a0
 	and.w #$00FF
 	cmp.w #$000E
 	beq CODE_9EB326
 	pha
 	lda.l $7E30F8
-	sta.b $A5
+	sta.b d0
 	lda.l $7E30FA
-	sta.b $A9
+	sta.b d1
 	pla
 	cmp.w #$0006
 	beq CODE_9EB326
 	ldy.w $0D71
-	sty.b $A5
+	sty.b d0
 	ldy.w pucky
-	sty.b $A9
+	sty.b d1
 	cmp.w #$000C
 	bne CODE_9EB326
-	dec.b $89
-	lda.b ($89)
-	inc.b $89
+	dec.b a0
+	lda.b (a0)
+	inc.b a0
 	and.w #$00FF
 	asl a
 	tay
 	lda.w #$0258
-	sta.b $A9
+	sta.b d1
 	lda.w pfgoal,y
 	beq CODE_9EB326
 	lda.w #$FDA8
-	sta.b $A9
+	sta.b d1
 CODE_9EB326:
-	lda.b $A5
-	sta.b $C5
+	lda.b d0
+	sta.b tmp0
 	sec
 	sbc.w #$0046
 	bmi CODE_9EB335
 	lda.w #$0046
-	sta.b $A5
+	sta.b d0
 CODE_9EB335:
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w #$FFBA
 	bpl CODE_9EB342
 	lda.w #$FFBA
-	sta.b $A5
+	sta.b d0
 CODE_9EB342:
-	lda.b $A9
+	lda.b d1
 	sec
 	sbc.w #$00A6
 	bmi CODE_9EB35D
 	lda.w #$00CE
-	sta.b $A9
+	sta.b d1
 	lda.w #$0046
-	sta.b $A5
-	lda.b $C5
+	sta.b d0
+	lda.b tmp0
 	bpl CODE_9EB35D
 	lda.w #$FFBA
-	sta.b $A5
+	sta.b d0
 CODE_9EB35D:
-	lda.b $A9
+	lda.b d1
 	sec
 	sbc.w #$FF5A
 	bpl CODE_9EB378
 	lda.w #$FF32
-	sta.b $A9
+	sta.b d1
 	lda.w #$0046
-	sta.b $A5
-	lda.b $C5
+	sta.b d0
+	lda.b tmp0
 	bpl CODE_9EB378
 	lda.w #$FFBA
-	sta.b $A5
+	sta.b d0
 CODE_9EB378:
-	lda.b $A5
+	lda.b d0
 	sta.l $7E3136
-	lda.b $A9
+	lda.b d1
 	sta.l $7E3138
 	jsl.l CODE_9FB601
 CODE_9EB388:
@@ -103,5 +103,5 @@ CODE_9EB39E:
 	lda.w #$0004
 	tsb.w gmode
 	lda.w #$000A
-	sta.b $A5
+	sta.b d0
 	jml.l SetPA

@@ -9,21 +9,21 @@ CODE_9EE7F6:
 	jsl.l CODE_9BC002
 	lda.w Xpos,x
 	clc
-	adc.b $A5
+	adc.b d0
 	sec
 	sbc.w $0D71
-	sta.b $A5
+	sta.b d0
 	lda.w Ypos,x
 	clc
-	adc.b $A9
+	adc.b d1
 	sec
 	sbc.w pucky
-	sta.b $A9
-	ldy.b $A5
+	sta.b d1
+	ldy.b d0
 	jsl.l CODE_9CA554
 	cmp.w #$0008
 	bcs CODE_9EE891
-	stz.w $11E3,x
+	stz.w SPAcnt,x
 	cmp.w #$000C
 	bcs CODE_9EE891
 	stx.w $0AD9

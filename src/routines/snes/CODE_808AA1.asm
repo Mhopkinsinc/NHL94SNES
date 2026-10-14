@@ -17,7 +17,7 @@ CODE_808AAC:
 	bne CODE_808AAC
 	lda.b $01,s
 	clc
-	adc.w #$0400
+	adc.w #DMA_OAM
 	and.w #$FFE0
 	sta.w VMADDL
 	lda.b $18

@@ -12,21 +12,21 @@ CODE_9EAE01:
 	eor.w #$FFFF
 	inc a
 	sta.b $12
-	lda.b $C5
+	lda.b tmp0
 	bit.w #$000A
 	beq CODE_9EAE25
 	eor.w #$000A
-	sta.b $C5
+	sta.b tmp0
 CODE_9EAE25:
-	lda.b $C7
+	lda.b tmp1
 	bit.w #$000A
 	beq CODE_9EAE31
 	eor.w #$000A
-	sta.b $C7
+	sta.b tmp1
 CODE_9EAE31:
-	lda.b $C7
+	lda.b tmp1
 	beq CODE_9EAE3E
-	ldx.b $C5
+	ldx.b tmp0
 	jsr (DATA8_9EAF1A,x)
 	ldx.b $E4
 	plb

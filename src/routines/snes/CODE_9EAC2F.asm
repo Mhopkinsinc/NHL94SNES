@@ -11,6 +11,6 @@ CODE_9EAC2F:
 	cmp.w Xpos,y
 	bmi CODE_9EAC49
 	lda.b $16
-	sta.b $A9
+	sta.b d1
 CODE_9EAC49:
 	rts

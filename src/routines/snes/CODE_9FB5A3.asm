@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9FB5A3:
-	ldx.b $95
+	ldx.b a3
 	phx
-	ldx.b $A9
-	stx.b $95
+	ldx.b d1
+	stx.b a3
 	phy
 	ldy.w #$0000
 	lda.w pfteam,x
@@ -14,10 +14,10 @@ CODE_9FB5B6:
 	ply
 	bit.w #$0008
 	beq CODE_9FB5C9
-	stz.b $AD
+	stz.b d2
 	jsl.l lcfound
-	jsl.l CODE_9FD325
+	jsl.l SetLCmode2
 CODE_9FB5C9:
 	plx
-	stx.b $95
+	stx.b a3
 	rtl

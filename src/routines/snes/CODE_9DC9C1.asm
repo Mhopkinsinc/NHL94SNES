@@ -3,14 +3,14 @@ CODE_9DC9C1:
 	lda.w #$3400
 	sta.w $1E87
 CODE_9DC9C7:
-	lda.b $A5
-	ldy.b $91
-	sta.b $A5
+	lda.b d0
+	ldy.b a2
+	sta.b d0
 	lda.w HomeTeam,y
 	ldx.w #$001A
 	jsl.l CODE_808F4C
 	clc
-	adc.b $A5
+	adc.b d0
 	asl a
 	asl a
 	tax
@@ -24,7 +24,7 @@ CODE_9DC9C7:
 	sta.b $10
 	jsl.l Decompress
 	stx.b $00
-	lda.b $91
+	lda.b a2
 	beq CODE_9DCA08
 	lda.w #$6900
 	sta.b $10

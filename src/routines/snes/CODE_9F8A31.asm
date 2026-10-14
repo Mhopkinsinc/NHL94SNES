@@ -11,12 +11,12 @@ CODE_9F8A44:
 	stz.w $1103,x
 	stz.w $1123,x
 	lda.w Ypos,x
-	sta.b $B1
+	sta.b d3
 	lda.w Xpos,x
-	sta.b $AD
+	sta.b d2
 	cmp.w $0E43,x
 	bne CODE_9F8A63
-	lda.b $B1
+	lda.b d3
 	cmp.w $0E83,x
 	bne CODE_9F8A63
 	jmp.w CODE_9F8AD1

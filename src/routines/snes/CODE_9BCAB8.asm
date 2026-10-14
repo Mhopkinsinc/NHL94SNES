@@ -2,19 +2,19 @@
 CODE_9BCAB8:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF231
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	phx
-	ldx.b $B9
+	ldx.b d5
 	lda.w #$0006
 	jsl.l DivX8U
 	plx
@@ -28,7 +28,7 @@ CODE_9BCAB8:
 	dec a
 	sta.w printx
 	lda.w #$0003
-	sta.b $A5
-	sta.b $A9
+	sta.b d0
+	sta.b d1
 CODE_9BCAF7:
 	rtl

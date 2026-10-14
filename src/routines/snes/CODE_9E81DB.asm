@@ -1,15 +1,15 @@
 ; Unidentified routine.
 CODE_9E81DB:
-	lda.b $A9
+	lda.b d1
 	sec
 	sbc.w #$FFAD
 	bpl CODE_9E81E8
 	lda.w #$FFBC
-	sta.b $A9
+	sta.b d1
 CODE_9E81E8:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #CODE_9ED0FC
-	sta.b $89
+	sta.b a0
 	jsl.l CODE_9EA5A4
-	jmp.w CODE_9EA164
+	jmp.w check4check

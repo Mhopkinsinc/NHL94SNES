@@ -15,10 +15,10 @@ CODE_9FF8F8:
 	adc.w #$0037
 	asl a
 	tax
-	stz.b $A5
+	stz.b d0
 	sep #$20
 CODE_9FF90B:
-	lda.b $A9
+	lda.b d1
 	beq CODE_9FF911
 	lda.b [$0C],y
 CODE_9FF911:
@@ -26,8 +26,8 @@ CODE_9FF911:
 	iny
 	inx
 	inx
-	inc.b $A5
-	lda.b $A5
+	inc.b d0
+	lda.b d0
 	cmp.b #$12
 	bmi CODE_9FF90B
 	rep #$20

@@ -1,8 +1,8 @@
 ; Unidentified routine.
 CODE_9CA49F:
-	lda.l $7E3508
+	lda.l passbits
 	and.w #$3FFF
-	sta.b $A5
+	sta.b d0
 	phx
 	ldx.w #$0000
 CODE_9CA4AC:
@@ -11,7 +11,7 @@ CODE_9CA4AC:
 	asl a
 	xba
 	sep #$20
-	sta.l $7E3508,x
+	sta.l passbits,x
 	rep #$20
 	inx
 	cpx.w #$000E

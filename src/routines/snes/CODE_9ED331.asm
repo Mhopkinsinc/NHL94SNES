@@ -41,7 +41,7 @@ CODE_9ED381:
 	and.w $0B05,x
 	sta.w $0B05,x
 CODE_9ED391:
-	jsl.l CODE_9FDC4C
+	jsl.l check4bench
 	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9ED3B5
@@ -75,18 +75,18 @@ CODE_9ED3DD:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #CODE_9ED0FC
-	sta.b $89
+	sta.b a0
 	ldy.w #$0004
 	lda.w Xpos,x
 	bpl CODE_9ED3F2
 	ldy.w #$FFFC
 CODE_9ED3F2:
-	sty.b $A5
+	sty.b d0
 	lda.w #$00F4
-	sta.b $A9
+	sta.b d1
 	lda.w pfgoal,x
 	beq CODE_9ED403
 	lda.w #$FF0C
-	sta.b $A9
+	sta.b d1
 CODE_9ED403:
 	jml.l CODE_9EA5A4

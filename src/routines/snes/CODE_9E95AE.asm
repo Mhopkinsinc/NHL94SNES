@@ -5,7 +5,7 @@ CODE_9E95AE:
 	bcc CODE_9E95DC
 	cmp.w #$F46B
 	bcs CODE_9E95DC
-	stz.w $14E3,x
+	stz.w pfalock,x
 	stz.w $1543,x
 	ldy.w $0F03,x
 	lda.w SPA,y
@@ -14,10 +14,10 @@ CODE_9E95AE:
 	cmp.w #$F46B
 	bcs CODE_9E95DA
 	lda.w #$0000
-	sta.w $14E3,y
+	sta.w pfalock,y
 	sta.w $1543,y
 CODE_9E95DA:
-	ldy.b $91
+	ldy.b a2
 CODE_9E95DC:
 	lda.w SPA,y
 	cmp.w #$F3A6
@@ -25,7 +25,7 @@ CODE_9E95DC:
 	cmp.w #$F46B
 	bcs CODE_9E960A
 	lda.w #$0000
-	sta.w $14E3,y
+	sta.w pfalock,y
 	sta.w $1543,y
 	ldx.w $0F03,y
 	lda.w SPA,x
@@ -33,17 +33,17 @@ CODE_9E95DC:
 	bcc CODE_9E9608
 	cmp.w #$F46B
 	bcs CODE_9E9608
-	stz.w $14E3,x
+	stz.w pfalock,x
 	stz.w $1543,x
 CODE_9E9608:
-	ldx.b $95
+	ldx.b a3
 CODE_9E960A:
 	lda.b $AA
-	sta.b $A9
+	sta.b d1
 	lda.w pfteam,x
 	cmp.w pfteam,y
 	beq CODE_9E9692
-	lda.b $A9
+	lda.b d1
 	lsr a
 	lsr a
 	lsr a
@@ -52,15 +52,15 @@ CODE_9E960A:
 	bcs CODE_9E9624
 	lda.w #$0005
 CODE_9E9624:
-	sta.b $B5
+	sta.b d4
 	lda.w SPA,x
 	cmp.w #$F208
 	bcc CODE_9E963C
 	cmp.w #$F343
 	bcs CODE_9E963C
 CODE_9E9633:
-	lda.b $B5
+	lda.b d4
 	lsr a
-	adc.b $B5
-	sta.b $B5
+	adc.b d4
+	sta.b d4
 	bra CODE_9E9649

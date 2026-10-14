@@ -1,11 +1,11 @@
 ; Unidentified routine.
 CODE_9EB1ED:
-	lda.w #$15DE
-	sta.b $89
+	lda.w #PenBuf
+	sta.b a0
 CODE_9EB1F2:
-	lda.b ($89)
-	inc.b $89
-	inc.b $89
+	lda.b (a0)
+	inc.b a0
+	inc.b a0
 	and.w #$00FF
 	cmp.w #$0034
 	beq CODE_9EB1F2

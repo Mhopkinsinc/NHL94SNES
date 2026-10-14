@@ -5,22 +5,22 @@ CODE_9F9A9E:
 CODE_9F9AA2:
 	jsl.l DivX8U
 	clc
-	adc.b $A5
-	sta.b $A5
-	lda.b $A5
+	adc.b d0
+	sta.b d0
+	lda.b d0
 	bpl CODE_9F9AB4
-	stz.b $A5
+	stz.b d0
 	lda.w #$0000
 CODE_9F9AB4:
-	sta.b $A5
+	sta.b d0
 	plx
 	lda.b $08
 	beq CODE_9F9ABD
-	lsr.b $A5
+	lsr.b d0
 CODE_9F9ABD:
 	lda.b $A7
 	bne CODE_9F9AD7
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0064
 	bcc CODE_9F9ACB
 	lda.w #$0064
@@ -31,6 +31,6 @@ CODE_9F9ACB:
 	clc
 	adc.w #$0019
 CODE_9F9AD5:
-	sta.b $A5
+	sta.b d0
 CODE_9F9AD7:
 	rtl

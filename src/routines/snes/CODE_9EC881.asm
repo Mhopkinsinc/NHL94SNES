@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9EC881:
 	clc
-	adc.b $8D
-	sta.b $8D
+	adc.b a1
+	sta.b a1
 	plx
 	rtl

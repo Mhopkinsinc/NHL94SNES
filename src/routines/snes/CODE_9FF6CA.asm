@@ -12,7 +12,7 @@ CODE_9FF6CD:
 	lda.w #$0004
 	ldx.b $BB
 	bne CODE_9FF6EC
-	sta.b $B9
+	sta.b d5
 	lda.w #$0000
 CODE_9FF6EC:
 	sta.b $B7

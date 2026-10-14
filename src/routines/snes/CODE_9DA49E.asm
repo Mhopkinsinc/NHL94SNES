@@ -15,7 +15,7 @@ CODE_9DA4BB:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF588
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3
 	jsl.l CODE_9DE0D4
@@ -32,7 +32,7 @@ CODE_9DA4EA:
 	phy
 	lda.w $1A0E
 	bne CODE_9DA549
-	lda.w $0776,y
+	lda.w JoyPad,y
 	and.w #$000F
 	bne CODE_9DA549
 	tya

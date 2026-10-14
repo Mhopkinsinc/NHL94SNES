@@ -6,7 +6,7 @@ CODE_9FF6A9:
 	cmp.b $BF
 	bmi CODE_9FF6B7
 CODE_9FF6B3:
-	lda.b $B9
+	lda.b d5
 	sta.b $B7
 CODE_9FF6B7:
 	jmp.w CODE_9FF898

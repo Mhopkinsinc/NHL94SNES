@@ -2,13 +2,13 @@
 CODE_9F91C1:
 	lda.w #$0005
 	sta.l $7E3568,x
-	lda.b $A9
-	sta.b $B1
-	jsl.l CODE_9FA476
+	lda.b d1
+	sta.b d3
+	jsl.l NewTicker3
 	lda.w #$00B4
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FA5EA
-	lda.b $A9
+	lda.b d1
 	bit.w #$1000
 	beq CODE_9F91E8
 CODE_9F91E0:

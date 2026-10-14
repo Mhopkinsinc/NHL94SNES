@@ -25,23 +25,23 @@ CODE_9F91EE:
 	adc.w #$1000
 	tay
 	jsl.l CODE_80891F
-	stx.b $87
+	stx.b xsave
 	ldx.w #$001A
 CODE_9F9229:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
 	bpl CODE_9F9229
-	ldx.b $87
-	stx.b $87
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$001E
 CODE_9F9237:
 	pla
-	sta.b $A5,x
+	sta.b d0,x
 	dex
 	dex
 	bpl CODE_9F9237
-	ldx.b $87
-	ldx.b $95
+	ldx.b xsave
+	ldx.b a3
 	rtl

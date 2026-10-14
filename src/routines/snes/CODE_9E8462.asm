@@ -1,8 +1,8 @@
 ; Unidentified routine.
 CODE_9E8462:
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9E8457
-	jsl.l CODE_9FDC4C
+	jsl.l check4bench
 	lda.w $19D4,x
 	bpl CODE_9E8456
 	lda.w pflags,x
@@ -19,7 +19,7 @@ CODE_9E8462:
 CODE_9E8490:
 	lda.w $1003,x
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $1003,x
 	bmi CODE_9E849E
 	jmp.w CODE_9E852D

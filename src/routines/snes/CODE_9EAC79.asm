@@ -4,7 +4,7 @@ CODE_9EAC79:
 	cmp.w #$FEF8
 	bpl CODE_9EAC91
 	lda.b $22
-	sta.b $A9
+	sta.b d1
 	ldy.b $20
 	bmi CODE_9EACBA
 	lda.b $0C

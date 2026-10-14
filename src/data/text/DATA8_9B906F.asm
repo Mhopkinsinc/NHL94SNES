@@ -12,7 +12,7 @@ DATA8_9B906F:		; the player rating names: a word (2 + the text), the text, then 
 	%String("     [Handed]")
 	dw $0040,$0004
 	%String("[Off. Aware.]")
-	dw $0400,$000A
+	dw DMA_OAM,$000A
 	%String("[Def. Aware.]")
 	dw $0200,$000A
 	%String(" [Shot Power]")

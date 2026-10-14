@@ -2,26 +2,26 @@
 CODE_9FA840:
 	and.w #$FFFD
 	sta.w pflags,x
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
 CODE_9FA84B:
-	lda.b $A5,x
+	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0020
 	bne CODE_9FA84B
-	ldx.b $87
-	stx.b $87
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$0000
 CODE_9FA85C:
-	lda.b $89,x
+	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$001C
 	bne CODE_9FA85C
-	ldx.b $87
+	ldx.b xsave
 	lda.w #$7000
 	sta.b $64
 	lda.w #$0012
@@ -48,7 +48,7 @@ CODE_9FA8AB:
 	jsl.l CODE_9F96E6
 	lda.w #$000A
 	sta.w $0AD1
-	lda.w $07F3
+	lda.w MusicOn
 	bne CODE_9FA90C
 	lda.w PBnum
 	beq CODE_9FA8E3

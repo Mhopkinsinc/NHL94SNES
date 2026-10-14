@@ -7,11 +7,11 @@ CODE_9BB300:
 	bit.b #$20
 	bne CODE_9BB330
 	lda.w WMDATA
-	sta.w $0CEB
+	sta.w Hpos
 	lda.w WMDATA
 	sta.w $0CEC
 	lda.w WMDATA
-	sta.w $0D37
+	sta.w Vpos
 	lda.w WMDATA
 	sta.w $0D38
 	lda.w WMDATA

@@ -50,10 +50,10 @@ CODE_9F8D70:
 	sta.w gsp
 CODE_9F8D7E:
 	jsl.l CODE_9FC683
-	jsl.l CODE_9F9712
+	jsl.l UpdateScores
 	jsl.l CODE_9FA2A6
 	lda.w gsp
 	cmp.w #$0004
 	bne CODE_9F8D96
 CODE_9F8D92:
-	jml.l CODE_9F8DB6
+	jml.l GameOver

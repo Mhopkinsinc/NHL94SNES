@@ -42,7 +42,7 @@ CODE_9DDE63:
 	bpl CODE_9DDEA9
 	lda.l $7E3454
 	bpl CODE_9DDE73
-	stz.b $91
+	stz.b a2
 CODE_9DDE73:
 	lda.l $7E345A
 	ldx.w #$0018

@@ -16,7 +16,7 @@ CODE_9EF108:
 	bmi CODE_9EF114
 	sta.w $19BE
 CODE_9EF114:
-	ldy.b $91
+	ldy.b a2
 	lda.w pfteam,y
 	beq CODE_9EF124
 	lda.w #$0004

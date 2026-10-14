@@ -10,7 +10,7 @@ CODE_9FE9FD:
 	jsl.l WaitFrame
 	jsl.l CODE_808723
 	ldx.w $0AC6
-	lda.w $0776,x
+	lda.w JoyPad,x
 	bit.w #$8080
 	bne CODE_9FE9FD
 	rts

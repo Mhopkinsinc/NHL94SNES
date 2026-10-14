@@ -1,24 +1,24 @@
 ; Unidentified routine.
 CODE_9F9811:
-	lda.b $A5
+	lda.b d0
 	bit.w #$1000
 	bne CODE_9F97FE
-	lda.b $A5
-	sta.b $A9
+	lda.b d0
+	sta.b d1
 	and.w #$0FFF
-	sta.b $A5
+	sta.b d0
 	jsl.l PushTime
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	lda.w #$0004
-	sta.b $A5
+	sta.b d0
 	lda.w #$4000
-	trb.b $A9
+	trb.b d1
 	beq CODE_9F983A
 	lda.w #$0005
-	sta.b $A5
+	sta.b d0
 CODE_9F983A:
 	lda.w #$009F
 	sta.b $8F
 	lda.w #StatusTextTbl
-	sta.b $8D
+	sta.b a1
 	jml.l CODE_9ECFC6

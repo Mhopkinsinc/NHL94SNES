@@ -37,7 +37,7 @@ CODE_9DA0EB:
 	jsl.l CODE_9F96E6
 	lda.w #$000A
 	sta.w $0AD1
-	stz.b $A9
+	stz.b d1
 	stz.b $AB
 	lda.l $7E34BC
 	cmp.w #$0001
@@ -53,13 +53,13 @@ CODE_9DA0EB:
 	lda.w VisTeam
 	sta.w HomeTeam
 CODE_9DA180:
-	dec.b $A9
+	dec.b d1
 	inc.b $AB
 CODE_9DA184:
 	lda.w #$0001
 	sta.w $1C84
 CODE_9DA18A:
-	lda.b $A9
+	lda.b d1
 	pha
 	jsl.l CODE_9DB0FD
 	jsr.w CODE_9DAF5B
@@ -78,7 +78,7 @@ CODE_9DA19A:
 	lda.w #$000A
 	sta.w printy
 	lda.w VisTeam
-	sta.b $A9
+	sta.b d1
 	lda.b $AB
 	pha
 	bne CODE_9DA1C5
@@ -89,12 +89,12 @@ CODE_9DA1C5:
 	lda.w #$0016
 	sta.w printx
 	lda.w HomeTeam
-	sta.b $A9
+	sta.b d1
 	jsr.w CODE_9DAE6D
 	jsr.w CODE_9DB0AB
 	jsl.l CODE_9DD923
 	pla
-	sta.b $A9
+	sta.b d1
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ACEB6
@@ -106,28 +106,28 @@ CODE_9DA1C5:
 	beq CODE_9DA22E
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF481
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF489
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	bra CODE_9DA264

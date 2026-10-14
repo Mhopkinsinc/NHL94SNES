@@ -7,12 +7,12 @@ CODE_9F9794:
 	lda.w #$009F
 	sta.b $8B
 	lda.w #DATA8_9F97CE
-	sta.b $89
-	ldy.b $B5
-	lda.b [$89],y
+	sta.b a0
+	ldy.b d4
+	lda.b [a0],y
 	clc
-	adc.b $89
-	sta.b $89
+	adc.b a0
+	sta.b a0
 	sta.w $1D5A
 	lda.b $8A
 	sta.w $1D5B
@@ -20,18 +20,18 @@ CODE_9F9794:
 	pla
 	sta.b $8F
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8B
 	pla
-	sta.b $89
-	stx.b $87
+	sta.b a0
+	stx.b xsave
 	ldx.w #$0012
 CODE_9F97C4:
 	pla
-	sta.b $A5,x
+	sta.b d0,x
 	dex
 	dex
 	bpl CODE_9F97C4
-	ldx.b $87
+	ldx.b xsave
 	rtl

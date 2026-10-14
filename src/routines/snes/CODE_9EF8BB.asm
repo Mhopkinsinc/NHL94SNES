@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9EF8BB:
-	inc.b $89
-	inc.b $89
-	dec.b $AD
+	inc.b a0
+	inc.b a0
+	dec.b d2
 	bpl CODE_9EF8A0
 	rtl

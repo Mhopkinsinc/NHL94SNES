@@ -1,33 +1,33 @@
 ; Unidentified routine.
 CODE_9EF226:
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.b $8F
 	pha
-	lda.b $91
+	lda.b a2
 	pha
 	lda.b $93
 	pha
-	lda.b $95
+	lda.b a3
 	pha
 	lda.b $97
 	pha
-	lda.b $A5
+	lda.b d0
 	pha
 	lda.b $A7
 	pha
 	phx
 	ldx.w $0D29
-	stx.b $95
-	stz.b $91
+	stx.b a3
+	stz.b a2
 	lda.w #$0002
-	sta.b $8D
+	sta.b a1
 	txa
 	cmp.w #$000C
 	bmi CODE_9EF258
 	lda.w #$0002
-	sta.b $91
-	stz.b $8D
+	sta.b a2
+	stz.b a1
 CODE_9EF258:
 	ldy.w #$177A
 	lda.w pfteam,x
@@ -38,7 +38,7 @@ CODE_9EF262:
 	lda.w $0000,y
 	inc a
 	sta.w $0000,y
-	ldy.b $91
+	ldy.b a2
 	bne CODE_9EF28A
 	lda.w tmap
 	sec

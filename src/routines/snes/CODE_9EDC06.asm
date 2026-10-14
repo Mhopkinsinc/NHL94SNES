@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9EDC06:
-	lda.w $1163,x
+	lda.w facedir,x
 	sta.b $14
 	lda.w $0BCB,x
 	bne CODE_9EDC32
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.b $14
 	beq CODE_9EDC32
@@ -13,11 +13,11 @@ CODE_9EDC06:
 	and.w #$0004
 	lsr a
 	dec a
-	sta.b $A5
+	sta.b d0
 	clc
 	adc.b $14
 	and.w #$0007
-	sta.w $1163,x
+	sta.w facedir,x
 	lda.w #$0006
 	sta.w $0BCB,x
 	rtl

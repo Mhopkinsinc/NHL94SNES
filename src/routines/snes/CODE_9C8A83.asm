@@ -1,17 +1,17 @@
 ; Unidentified routine.
 CODE_9C8A83:
 	phy
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.w #$FFFF
 	jsl.l CODE_9C8D17
 	lda.w #$0003
 	sta.w printx
-	stx.b $A5
+	stx.b d0
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC894
 	stx.w $1DC9
-	lda.b $91
+	lda.b a2
 	beq CODE_9C8AA8
 	lda.w #$001A
 CODE_9C8AA8:
@@ -24,9 +24,9 @@ CODE_9C8AA8:
 	lda.w $18EE,x
 	rep #$20
 	and.w #$00FF
-	sta.b $A5
+	sta.b d0
 	lda.w #$0003
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FC623
 	jsl.l CODE_9EC894
 	lda.w #$0016
@@ -35,9 +35,9 @@ CODE_9C8AA8:
 	lda.w $1956,x
 	rep #$20
 	and.w #$00FF
-	sta.b $A5
+	sta.b d0
 	lda.w #$0003
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FC623
 	jsl.l CODE_9EC894
 	lda.w #$001B
@@ -60,5 +60,5 @@ CODE_9C8AA8:
 	beq CODE_9C8B21
 	jsl.l Div16U
 	lda.b $00
-	sta.b $A5
+	sta.b d0
 	bra CODE_9C8B26

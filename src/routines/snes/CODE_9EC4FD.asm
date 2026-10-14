@@ -7,15 +7,15 @@ CODE_9EC4FD:
 	tya
 	lsr a
 	sta.l $7E30F6
-	stz.b $89
+	stz.b a0
 	lda.w pfteam,y
 	beq CODE_9EC51C
-	inc.b $89
-	inc.b $89
+	inc.b a0
+	inc.b a0
 CODE_9EC51C:
 	lda.w pnum,y
-	sta.b $A5
-	ldy.b $89
+	sta.b d0
+	ldy.b a0
 	cmp.w tmtouch1,y
 	beq CODE_9EC565
 	lda.w tmflags,y

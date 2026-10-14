@@ -15,10 +15,10 @@ CODE_9FCC04:
 	sty.b $00
 CODE_9FCC06:
 	lda.w #$0006
-	sta.b $A9
-	ldy.b $B5
+	sta.b d1
+	ldy.b d4
 	lda.w #$FFFF
-	sta.b $AD
+	sta.b d2
 	ldx.w #$0000
 	lda.w $1C84,y
 	cmp.w #$0001
@@ -44,12 +44,12 @@ CODE_9FCC3C:
 CODE_9FCC46:
 	lda.w pflags,x
 	and.w #$1000
-	ora.w $14E3,x
+	ora.w pfalock,x
 	bne CODE_9FCC96
 CODE_9FCC51:
 	lda.w $19D4,x
 	bmi CODE_9FCC5A
-	cmp.b $B5
+	cmp.b d4
 	bne CODE_9FCC96
 CODE_9FCC5A:
 	stz.b $14
@@ -80,43 +80,43 @@ CODE_9FCC86:
 	clc
 	adc.b $14
 	bcs CODE_9FCC96
-	cmp.b $AD
+	cmp.b d2
 	bcs CODE_9FCC96
-	stx.b $B1
-	sta.b $AD
+	stx.b d3
+	sta.b d2
 CODE_9FCC96:
 	inx
 	inx
-	dec.b $A9
+	dec.b d1
 	bne CODE_9FCC20
-	ldx.b $95
-	lda.b $AD
+	ldx.b a3
+	lda.b d2
 	cmp.w #$FFFF
 	beq CODE_9FCCFB
-	ldy.b $B5
-	lda.b $B1
+	ldy.b d4
+	lda.b d3
 	cmp.w $19EC,y
 	bne CODE_9FCCF5
 CODE_9FCCAE:
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9FCCFB
-	lda.b $B5
+	lda.b d4
 	pha
 	lda.b $B7
 	pha
-	lda.b $B9
+	lda.b d5
 	pha
 	lda.b $BB
 	pha
-	lda.b $BD
+	lda.b d6
 	pha
 	lda.b $BF
 	pha
-	lda.b $89
+	lda.b a0
 	pha
 	lda.b $8B
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.b $8F
 	pha
@@ -124,21 +124,21 @@ CODE_9FCCAE:
 	pla
 	sta.b $8F
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8B
 	pla
-	sta.b $89
+	sta.b a0
 	pla
 	sta.b $BF
 	pla
-	sta.b $BD
+	sta.b d6
 	pla
 	sta.b $BB
 	pla
-	sta.b $B9
+	sta.b d5
 	pla
 	sta.b $B7
 	pla
-	sta.b $B5
+	sta.b d4
 	bra CODE_9FCCFB

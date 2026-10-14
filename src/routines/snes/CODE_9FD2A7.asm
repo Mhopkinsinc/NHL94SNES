@@ -1,13 +1,13 @@
 ; Unidentified routine.
 CODE_9FD2A7:
-	ldy.b $91
+	ldy.b a2
 	lda.w tmflags,y
 	and.w #$FFEF
 	sta.w tmflags,y
 	lda.w #$0005
-	sta.b $AD
+	sta.b d2
 	ldx.w tmsort,y
-	stx.b $95
+	stx.b a3
 CODE_9FD2BC:
 	stz.w $1543,x
 	lda.w pflags,x

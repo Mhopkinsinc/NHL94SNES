@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9DC3DB:
 	jsl.l CODE_9DC561
-	lda.b $A5
+	lda.b d0
 	dec a
 	cmp.w $1E7B
 	bpl CODE_9DC3F3

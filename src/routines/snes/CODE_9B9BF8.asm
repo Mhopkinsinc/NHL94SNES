@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9B9BF8:
-	lda.b $A5
+	lda.b d0
 	pha
 	jsl.l CODE_9B9BA5
-	lda.b $A5
+	lda.b d0
 	sta.w $19C2
 	cmp.w #$0069
 	bmi CODE_9B9C16

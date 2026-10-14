@@ -4,51 +4,51 @@ CODE_9EEFA6:
 	jsl.l CODE_9C9ABC
 CODE_9EEFAD:
 	stz.w $0E01
-	ldy.b $91
+	ldy.b a2
 	lda.w #$0008
 	sta.w $1203,y
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y
-	sta.b $A5
+	sta.b d0
 	lda.w Ypos,x
 	sec
 	sbc.w Ypos,y
-	sta.b $A9
+	sta.b d1
 	bne CODE_9EEFD1
 	tya
 	jsl.l CODE_9BC002
 CODE_9EEFD1:
 	lda.w $0EC3,x
-	sta.b $AD
+	sta.b d2
 	lda.w $0EE3,x
-	sta.b $B1
+	sta.b d3
 	sep #$20
-	lda.b $A5
+	lda.b d0
 	sta.w $0EC4,x
-	lda.b $A9
+	lda.b d1
 	sta.w $0EE4,x
 	rep #$30
-	jsl.l CODE_9EDE5E
+	jsl.l puckflip
 	lda.w $0DF9
 	cmp.w #$0008
 	bmi CODE_9EF02A
-	lda.b $AD
+	lda.b d2
 	tax
 	jsl.l Mul16S
 	lda.b $0A
 	sta.b $AF
 org $9EF000
 	lda.b $08
-	sta.b $AD
-	lda.b $B1
+	sta.b d2
+	lda.b d3
 	tax
 	jsl.l Mul16S
-	ldx.b $95
+	ldx.b a3
 	lda.b $08
 	clc
-	adc.b $AD
-	sta.b $AD
+	adc.b d2
+	sta.b d2
 	lda.b $0A
 	adc.b $AF
 	sta.b $AF

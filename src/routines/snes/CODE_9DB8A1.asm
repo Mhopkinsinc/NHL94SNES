@@ -2,7 +2,7 @@
 CODE_9DB8A1:
 	phx
 	phy
-	cmp.w #$0400
+	cmp.w #DMA_OAM
 	bcs CODE_9DB8C3
 	ldx.w #$0E00
 	jsl.l Mul16U

@@ -5,7 +5,7 @@ CODE_9DAC6C:
 	asl a
 	asl a
 	asl a
-	adc.b $C1
+	adc.b d7
 	tax
 	lda.l DATA8_9DAC7F,x
 	beq CODE_9DAC54

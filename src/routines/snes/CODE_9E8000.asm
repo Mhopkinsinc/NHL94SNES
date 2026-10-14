@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9E8000:
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9E800C
 	lda.w #$F0D2
 	jsl.l CODE_9EA3F1
@@ -22,7 +22,7 @@ CODE_9E802A:
 	cpx.w $0AD9
 	bne CODE_9E8046
 	lda.w #$0011
-	sta.b $A5
+	sta.b d0
 	lda.w $19D4,x
 	bpl CODE_9E8041
 	jmp.w assinsert

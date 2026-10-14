@@ -8,36 +8,36 @@ CODE_9DC2FB:
 	sta.w $1E81
 	sta.w $1E83
 	lda.w #$0004
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$0006
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$0008
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$000F
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$0007
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$000B
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$0009
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$0003
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$000A
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$000D
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$000E
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	rtl

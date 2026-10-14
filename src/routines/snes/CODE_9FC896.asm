@@ -2,35 +2,35 @@
 CODE_9FC896:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF8DA
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0020
-	sta.b $A5
+	sta.b d0
 	lda.w #$001D
-	sta.b $A9
+	sta.b d1
 	lda.l $7E35D0
-	sta.b $AD
+	sta.b d2
 	jsl.l eraser
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF8DF
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$007F
@@ -45,7 +45,7 @@ CODE_9FC896:
 	sta.b $18
 	lda.w #$001C
 	sta.b $1A
-	lda.w #$0400
+	lda.w #DMA_OAM
 	sta.w $079C
 	ldx.w #$0000
 	ldy.w #$0000

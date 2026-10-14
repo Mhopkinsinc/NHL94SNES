@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9DA2AB:
-	stx.b $AD
+	stx.b d2
 	txa
 	beq CODE_9DA2DF
 	bit.w #$0001

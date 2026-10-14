@@ -40,8 +40,8 @@ CODE_9FA90C:
 	lda.w #$0500
 	tsb.w sflags
 	jsl.l CODE_9FB9A4
-	stz.w $0D37
-	stz.w $0CEB
+	stz.w Vpos
+	stz.w Hpos
 	lda.l $7E3136
 	sta.w $0D71
 	lda.l $7E3138
@@ -67,19 +67,19 @@ CODE_9FA90C:
 	lda.w #$0040
 	trb.w sflags
 	lda.w #$0064
-	sta.b $B5
+	sta.b d4
 CODE_9FA9A4:
-	jsl.l CODE_9FC090
-	dec.b $B5
+	jsl.l checkwindow
+	dec.b d4
 	bpl CODE_9FA9A4
 	lda.w #$003C
 	sta.w $0D4F
 	jsl.l ResetBench
-	stz.b $91
+	stz.b a2
 	jsl.l setpersonel
 	jsl.l forcepldata
-	inc.b $91
-	inc.b $91
+	inc.b a2
+	inc.b a2
 	jsl.l setpersonel
 	jsl.l forcepldata
 	jsl.l CODE_9FD252
@@ -90,15 +90,15 @@ CODE_9FA9A4:
 	sta.w $17A4
 	lda.b $97
 	pha
-	lda.b $95
+	lda.b a3
 	pha
-	stz.b $95
+	stz.b a3
 	lda.w #$000B
-	sta.b $AD
-	lda.b $AD
+	sta.b d2
+	lda.b d2
 	pha
 CODE_9FA9EF:
-	ldx.b $95
+	ldx.b a3
 	cpx.w #$0018
 	bcs CODE_9FAA07
 	lda.w pfteam,x

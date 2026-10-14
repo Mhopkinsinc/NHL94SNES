@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9EEA5B:
-	ldx.b $95
-	lda.b $B5
+	ldx.b a3
+	lda.b d4
 	bmi CODE_9EEA6F
 	jsl.l CODE_9EEB2E
 	lda.w #$0000

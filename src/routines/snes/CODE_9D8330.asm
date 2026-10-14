@@ -1,31 +1,31 @@
 ; Unidentified routine.
 CODE_9D8330:
 	jsl.l GetPlayerCount
-	lda.b $A5
-	sta.b $B5
+	lda.b d0
+	sta.b d4
 	ldx.w #$0000
 CODE_9D833B:
 	stx.w $1D9B
 	lda.w #$0001
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC5FC
-	lda.b $A5
-	sta.b $AD
+	lda.b d0
+	sta.b d2
 	lda.w #$0001
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC561
-	lda.b $A5
+	lda.b d0
 	sec
-	sbc.b $AD
-	sta.b $A5
-	ldy.b $91
+	sbc.b d2
+	sta.b d0
+	ldy.b a2
 	lda.w $1E45,y
 	clc
-	adc.b $A5
+	adc.b d0
 	sta.w $1E45,y
-	stx.b $B1
+	stx.b d3
 	jsl.l CODE_9D8372
 	inx
-	cpx.b $B5
+	cpx.b d4
 	bmi CODE_9D833B
 	rtl

@@ -15,4 +15,4 @@ CODE_9EF722:
 	jsl.l RandomWord
 	and.w #$0FFF
 	sta.w $0E01
-	jmp.w CODE_9EDE5E
+	jmp.w puckflip

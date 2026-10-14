@@ -16,7 +16,7 @@ CODE_9F8511:
 	lda.w gsp
 	cmp.w #$0002
 	bne CODE_9F8551
-	lda.w $07F3
+	lda.w MusicOn
 	bne CODE_9F8551
 	jsl.l RandomWord
 	and.w #$0FFF
@@ -29,7 +29,7 @@ CODE_9F8551:
 	tax
 	sec
 	sbc.w $0D01
-	sta.b $C1
+	sta.b d7
 	sta.w $0ADB
 	asl a
 	sta.w $0CDD
@@ -48,16 +48,16 @@ CODE_9F8551:
 	lda.w sflags
 	bit.w #$0001
 	bne CODE_9F85D3
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9F85D3
 	lda.w $1D81
 	bne CODE_9F85AA
 	lda.w $163A
 	beq CODE_9F85AA
-	ldx.b $C1
+	ldx.b d7
 	lda.w $1E9F
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $1E9F
 	bne CODE_9F85A8
 	jsl.l CODE_9EC791

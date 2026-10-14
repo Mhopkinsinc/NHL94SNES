@@ -2,7 +2,7 @@
 SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else in a new block
 	cmp.w #$2000
 	bcc .bad
-	cmp.w #$2100
+	cmp.w #INIDISP
 	bcs .bad
 	stx.b $14
 	tax

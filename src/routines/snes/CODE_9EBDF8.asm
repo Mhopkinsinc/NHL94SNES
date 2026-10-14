@@ -1,13 +1,13 @@
 ; Unidentified routine.
 CODE_9EBDF8:
-	ldy.b $91
+	ldy.b a2
 	lda.w $19D0,y
 	cmp.w #$0004
 	bcc CODE_9EBE24
 CODE_9EBE02:
-	sta.b $A9
+	sta.b d1
 	lda.w #$0006
-	sta.b $A5
+	sta.b d0
 	lda.w tmsort,y
 	tax
 	ldy.w #$0000
@@ -19,9 +19,9 @@ CODE_9EBE10:
 CODE_9EBE18:
 	inx
 	inx
-	dec.b $A5
+	dec.b d0
 	bne CODE_9EBE10
-	cpy.b $A9
+	cpy.b d1
 	beq CODE_9EBE35
 	bcc CODE_9EBE35
 CODE_9EBE24:

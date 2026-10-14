@@ -1,29 +1,29 @@
 ; Unidentified routine.
 CODE_9EC9CB:
-	lda.b [$91]
-	inc.b $91
+	lda.b [a2]
+	inc.b a2
 	and.w #$00FF
 	cmp.w #$000D
 	bne CODE_9EC9CB
 CODE_9EC9D7:
-	dec.b $A5
+	dec.b d0
 	bpl CODE_9EC9CB
-	lda.b $91
+	lda.b a2
 	sec
-	sbc.b $8D
-	sta.b $A5
+	sbc.b a1
+	sta.b d0
 CODE_9EC9E2:
-	lda.b $8D
+	lda.b a1
 	clc
-	adc.b $A5
-	sta.b $91
+	adc.b d0
+	sta.b a2
 	lda.b $8F
 	sta.b $93
 	lda.w #$000A
-	sta.w $0D45
+	sta.w ScoutingReportTimer
 	lda.w $0D47
-	sta.b $A5
-	lda.b [$91]
+	sta.b d0
+	lda.b [a2]
 	and.w #$00FF
 	cmp.w #$0025
 	beq CODE_9ECA05

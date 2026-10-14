@@ -8,29 +8,29 @@ CODE_9E90C0:
 	lda.w $0DF9
 	cmp.w #$000D
 	bpl CODE_9E9116
-	ldy.b $91
-	lda.b $AD
+	ldy.b a2
+	lda.b d2
 	sec
 	sbc.w Xpos,y
-	sta.b $AD
+	sta.b d2
 	cmp.w #$0017
 	bpl CODE_9E9116
-	lda.b $AD
+	lda.b d2
 	cmp.w #$FFEA
 	bmi CODE_9E9116
 	lda.w #$0009
-	sta.b $B9
-	lda.b $B1
+	sta.b d5
+	lda.b d3
 	sec
 	sbc.w Ypos,y
-	sta.b $B1
+	sta.b d3
 	cmp.w #$000A
 	bpl CODE_9E9116
 	lda.w #$0000
 	sec
-	sbc.b $B9
-	sta.b $B9
-	lda.b $B1
+	sbc.b d5
+	sta.b d5
+	lda.b d3
 	cmp.w #$FFF7
 	bmi CODE_9E9116
 	lda.w #$FFFF

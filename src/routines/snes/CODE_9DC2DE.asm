@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9DC2DE:
 	ldx.w #$00CE
-	lda.b $91
+	lda.b a2
 	bne CODE_9DC2E8
 	ldx.w #$00EE
 CODE_9DC2E8:

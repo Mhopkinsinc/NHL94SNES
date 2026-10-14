@@ -7,7 +7,7 @@ CODE_9DAB18:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF5A8
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	lda.l $7E3454
 	cmp.w #$001C
@@ -17,7 +17,7 @@ CODE_9DAB18:
 	lda.w #$000A
 	sta.w printy
 	lda.w VisTeam
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FBE08
 CODE_9DAB51:
 	lda.l $7E3452
@@ -28,7 +28,7 @@ CODE_9DAB51:
 	lda.w #$000A
 	sta.w printy
 	lda.w HomeTeam
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FBE08
 CODE_9DAB6F:
 	lda.l $7E3452
@@ -36,10 +36,10 @@ CODE_9DAB6F:
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A5C
-	sta.b $8D
-	stz.b $91
+	sta.b a1
+	stz.b a2
 	lda.w #$FFFF
-	sta.b $A9
+	sta.b d1
 	ldx.w #$0008
 	ldy.w #$0043
 	jsl.l CODE_9C943E
@@ -48,12 +48,12 @@ CODE_9DAB90:
 	bpl CODE_9DABB4
 	lda.w #$0000
 	sta.b $8F
-	lda.w #$0A2A
-	sta.b $8D
+	lda.w #mesarea
+	sta.b a1
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	lda.w #$FFFF
-	sta.b $A9
+	sta.b d1
 	ldx.w #$0008
 	ldy.w #$0043
 	jsl.l CODE_9C943E

@@ -5,9 +5,9 @@ CODE_9EDC44:
 	lda.w $0D71
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	lda.w pucky
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	bra CODE_9EDC67

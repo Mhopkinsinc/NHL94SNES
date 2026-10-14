@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9F89B2:
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9F89D5
 	lda.w $0B7D,x
 	asl a
@@ -15,7 +15,7 @@ CODE_9F89B2:
 	jsl.l $001D59
 CODE_9F89D5:
 	lda.w position,x
-	ora.w $15D6
+	ora.w gmclock
 	bne CODE_9F8A44
 	cpx.w #$0018
 	bcs CODE_9F8A44

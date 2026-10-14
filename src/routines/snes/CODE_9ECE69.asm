@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9ECE69:
-	stz.b $AD
-	inc.b $AD
+	stz.b d2
+	inc.b d2
 	tax
 	lda.l DATA8_80D6FE,x
 	and.w #$00FF
@@ -13,55 +13,55 @@ CODE_9ECE7D:
 	bpl CODE_9ECE88
 	eor.w #$FFFF
 	inc a
-	stz.b $AD
+	stz.b d2
 CODE_9ECE88:
 	asl a
-	sta.b $A5
+	sta.b d0
 	tax
 	lda.l DATA8_9ABD3D+6,x
 	clc
 	adc.l $7E35AE
-	adc.l $7E35A8
+	adc.l printfontset
 	ora.w $0D0D
-	ldx.b $A9
-	sta.l $7E37F4,x
+	ldx.b d1
+	sta.l textmap,x
 	txa
 	lsr a
-	cmp.w $0CD5
+	cmp.w textdirtylo
 	bcs CODE_9ECEAC
-	sta.w $0CD5
+	sta.w textdirtylo
 CODE_9ECEAC:
 	clc
 	adc.w #$0021
-	cmp.w $0CD7
+	cmp.w textdirtyhi
 	bcc CODE_9ECEB8
-	sta.w $0CD7
+	sta.w textdirtyhi
 CODE_9ECEB8:
-	ldx.b $A5
+	ldx.b d0
 	lda.l $9ABDDB,x
 	clc
 	adc.l $7E35AE
-	adc.l $7E35A8
+	adc.l printfontset
 	ora.w $0D0D
-	ldx.b $A9
+	ldx.b d1
 	sta.l $7E3834,x
-	lda.b $AD
+	lda.b d2
 	beq CODE_9ECF07
-	ldx.b $A5
+	ldx.b d0
 	lda.l DATA8_9ABD3D+8,x
 	clc
 	adc.l $7E35AE
-	adc.l $7E35A8
+	adc.l printfontset
 	ora.w $0D0D
-	ldx.b $A9
+	ldx.b d1
 	sta.l $7E37F6,x
-	ldx.b $A5
+	ldx.b d0
 	lda.l $9ABDDD,x
 	clc
 	adc.l $7E35AE
-	adc.l $7E35A8
+	adc.l printfontset
 	ora.w $0D0D
-	ldx.b $A9
+	ldx.b d1
 	sta.l $7E3836,x
 	inc.w printx
 CODE_9ECF07:

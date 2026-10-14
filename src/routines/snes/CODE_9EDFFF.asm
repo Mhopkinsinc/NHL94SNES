@@ -2,9 +2,9 @@
 CODE_9EDFFF:
 	lda.w #$0008
 org $9EE002
-	sta.b $A5
+	sta.b d0
 	lda.w #$0005
-	sta.b $A9
+	sta.b d1
 	ldy.w #$0000
 	lda.w pfteam,x
 	bne CODE_9EE014
@@ -14,6 +14,6 @@ CODE_9EE014:
 	beq CODE_9EE022
 	iny
 	iny
-	dec.b $A9
+	dec.b d1
 	bpl CODE_9EE014
 	jmp.w CODE_9EE0C7

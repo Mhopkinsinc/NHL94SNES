@@ -7,7 +7,7 @@ CODE_9EADCF:
 	ldy.w #$011D
 	stx.b $14
 	sty.b $16
-	lda.b $C9
+	lda.b tmp2
 	bne CODE_9EAE01
 	ldx.w #$FEE4
 	ldy.w #$FEFE
@@ -16,7 +16,7 @@ CODE_9EADCF:
 	ldy.w #$FEFF
 	stx.b $14
 	sty.b $16
-	lda.b $C9
+	lda.b tmp2
 	bne CODE_9EAE31
 	ldx.b $E4
 	plb

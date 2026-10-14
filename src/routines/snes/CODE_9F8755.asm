@@ -9,20 +9,20 @@ CODE_9F875F:
 	ldx.w $0ADB
 	lda.l CODE_9F8B64,x
 	and.w #$00FF
-	sta.b $AD
+	sta.b d2
 	lda.w pflags,y
 	bit.w #$0001
 	beq CODE_9F877D
 	lda.l DATA8_9F8B6F-1,x
 	and.w #$00FF
-	sta.b $AD
+	sta.b d2
 CODE_9F877D:
 	ldx.w $0EC3,y
-	lda.b $AD
+	lda.b d2
 	jsl.l Mul16x8HiXS
 	sta.w $0EC3,y
 	ldx.w $0EE3,y
-	lda.b $AD
+	lda.b d2
 	jsl.l Mul16x8HiXS
 	sta.w $0EE3,y
 	tyx
@@ -100,7 +100,7 @@ CODE_9F8834:
 	lda.w $0D71
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	bpl CODE_9F8843
 	eor.w #$FFFF
 	inc a
@@ -115,7 +115,7 @@ CODE_9F8843:
 	lda.w pucky
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	bpl CODE_9F885F
 	eor.w #$FFFF
 	inc a
@@ -137,7 +137,7 @@ CODE_9F885F:
 	beq CODE_9F88A8
 	lda.w pflags,x
 	and.w #$1000
-	ora.w $14E3,x
+	ora.w pfalock,x
 	bne CODE_9F88A8
 	lda.b $14
 	cpx.w #$000C

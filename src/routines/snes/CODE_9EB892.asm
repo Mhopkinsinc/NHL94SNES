@@ -1,18 +1,18 @@
 ; Unidentified routine.
 CODE_9EB892:
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.b $AB
 	pha
-	lda.b $89
+	lda.b a0
 	pha
 	lda.b $8B
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.b $8F
 	pha
-	lda.b $A5
+	lda.b d0
 	cmp.w #$000E
 	bne CODE_9EB8AB
 CODE_9EB8AB:
@@ -37,19 +37,19 @@ CODE_9EB8D4:
 CODE_9EB8D8:
 	lda.w #$0000
 	sta.b $8F
-	lda.w #$15DE
-	sta.b $8D
+	lda.w #PenBuf
+	sta.b a1
 	lda.w #$001F
-	sta.b $A9
+	sta.b d1
 CODE_9EB8E7:
-	lda.b [$8D]
-	inc.b $8D
-	inc.b $8D
+	lda.b [a1]
+	inc.b a1
+	inc.b a1
 	and.w #$00FF
 	cmp.w #$0034
 	beq CODE_9EB8E7
 	tay
 	beq CODE_9EB8FE
-	dec.b $A9
+	dec.b d1
 	bpl CODE_9EB8E7
 	bra CODE_9EB939

@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9FE3FF:
-	lda.b $A9
+	lda.b d1
 	bit.w #$8380
 	beq CODE_9FE415
 	jsl.l CODE_9FC76C
-	ldy.b $91
+	ldy.b a2
 	lda.w $1C90,y
 	eor.w #$0001
 	sta.w $1C90,y

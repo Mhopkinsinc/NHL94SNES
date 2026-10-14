@@ -15,7 +15,7 @@ CODE_9B80B6:
 	txa
 	and.b #$0F
 	sta.w $0ACA
-	lda.w $4016
+	lda.w JOYSER0
 	lsr a
 	rol.w $0ACA
 	ldx.w JOY2L

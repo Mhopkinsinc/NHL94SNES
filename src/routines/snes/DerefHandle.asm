@@ -2,7 +2,7 @@
 DerefHandle:		; address of handle A in A, bank in X; 0 and 0 for a bad handle
 	cmp.w #$2000
 	bcc .bad
-	cmp.w #$2100
+	cmp.w #INIDISP
 	bcs .bad
 	stx.b $14
 	tax

@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9CA0B1:
-	lda.w #$15C3
-	sta.b $99
+	lda.w #OOlist
+	sta.b a4
 CODE_9CA0B6:
-	lda.b ($99)
+	lda.b (a4)
 	and.w #$00FF
 	tax
 	lda.w #$0000
@@ -15,7 +15,7 @@ CODE_9CA0C7:
 	bne CODE_9CA0CF
 	lda.w $0DFB
 CODE_9CA0CF:
-	sta.b $AD
+	sta.b d2
 	cpx.w #$0018
 	bcs CODE_9CA107
 	lda.l $7E34BC

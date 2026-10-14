@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9EA8EE:
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $A5
+	lda.b d0
 	pha
-	sta.b $AD
+	sta.b d2
 	cpx.w $0AD9
 	bne CODE_9EA8FE
 	jmp.w CODE_9EA9AD

@@ -10,7 +10,7 @@ CODE_9ED640:
 	bmi CODE_9ED6AE
 	cmp.w #$0109
 	bpl CODE_9ED6AE
-	lda.b $91
+	lda.b a2
 	eor.w #$0002
 	tay
 	lda.w $17AE,y

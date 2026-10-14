@@ -13,22 +13,22 @@ CODE_9ED7D2:
 CODE_9ED7E1:
 	clc
 	adc.w $0D71
-	sta.b $A5
+	sta.b d0
 CODE_9ED7E7:
 	jsl.l CODE_9EDBC0
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $A5
+	lda.b d0
 	pha
 CODE_9ED7F1:
-	lda.b $A5
-	ldy.b $A9
+	lda.b d0
+	ldy.b d1
 	jsl.l CODE_9CA554
-	sta.b $A5
+	sta.b d0
 	cmp.w #$001E
 	bcs CODE_9ED808
 	pla
-	sta.b $A5
+	sta.b d0
 	pla
-	sta.b $A9
+	sta.b d1
 	bra CODE_9ED853

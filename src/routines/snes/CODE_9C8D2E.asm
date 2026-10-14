@@ -10,39 +10,39 @@ CODE_9C8D2E:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF354
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF360
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w VisTeam
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FBE08
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF365
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w HomeTeam
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FBE08
 	jsl.l SpriteFrameEnd
 	lda.w #$FFFF
@@ -57,7 +57,7 @@ CODE_9C8D2E:
 	sta.w $1DA3
 	lda.w #$0010
 	sta.w $1E15
-	lda.l $7E34C4
+	lda.l OptPen
 	bne CODE_9C8DD7
 CODE_9C8DCB:
 	lda.w #$000B

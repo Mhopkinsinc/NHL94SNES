@@ -3,13 +3,13 @@ CODE_9EAFC7:
 	adc.w #$0005
 	sta.w $1023,x
 	jsl.l CODE_9EAB74
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $A5
+	lda.b d0
 	pha
 	txa
 	jsl.l CODE_9BC002
-	lda.b $A5
+	lda.b d0
 	eor.w #$FFFF
 	inc a
 	sec
@@ -23,8 +23,8 @@ CODE_9EAFF1:
 	adc.b $01,s
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
-	lda.b $A9
+	sta.b d0
+	lda.b d1
 	eor.w #$FFFF
 	inc a
 org $9EB000
@@ -39,48 +39,48 @@ CODE_9EB00F:
 	adc.b $03,s
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	pla
 	pla
 	jsl.l vtoa
-	lda.b $A5
+	lda.b d0
 	sta.w $10A3,x
 	lda.w position,x
 	beq CODE_9EB070
 	lda.w puckvx
-	sta.b $A5
+	sta.b d0
 	lda.w puckvy
-	sta.b $A9
+	sta.b d1
 	jsl.l vtoa
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0008
 	beq CODE_9EB045
 	eor.w #$0004
-	cmp.w $1163,x
+	cmp.w facedir,x
 	beq CODE_9EB070
 CODE_9EB045:
 	lda.w pucky
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	pha
 	lda.w $0D71
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	pha
 	jsl.l vtoa
-	lda.b $A5
-	sta.b $C5
+	lda.b d0
+	sta.b tmp0
 	pla
-	sta.b $A5
+	sta.b d0
 	sta.b $00
 	pla
-	sta.b $A9
-	lda.w $1163,x
-	cmp.b $C5
+	sta.b d1
+	lda.w facedir,x
+	cmp.b tmp0
 	beq CODE_9EB079
 CODE_9EB070:
 	lda.w $10A3,x
-	sta.b $A5
+	sta.b d0
 	jml.l CODE_9EA8A9

@@ -1,12 +1,12 @@
 ; Unidentified routine.
 CODE_9FC639:
-	sta.b $A5
-CODE_9FC63B:
+	sta.b d0
+PushNumberWidth:
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A8E
-	sta.b $8D
-	lda.b $A9
+	sta.b a1
+	lda.b d1
 	inc a
 	inc a
 	sta.w $0A8E
@@ -17,7 +17,7 @@ CODE_9FC63B:
 	sta.w $0A94
 	sta.w $0A96
 	phx
-	lda.b $A5
+	lda.b d0
 CODE_9FC65F:
 	sta.b $08
 	lda.w #$000A
@@ -34,6 +34,6 @@ CODE_9FC65F:
 	bne CODE_9FC65F
 	plx
 	pla
-	sta.b $A5
+	sta.b d0
 	lda.b $00
 	rtl

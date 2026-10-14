@@ -3,21 +3,21 @@ CODE_9FF1E4:
 	pha
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF92C
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0016
-	sta.b $A5
+	sta.b d0
 	lda.w #$0007
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D8000
 	pla
 	bit.w #$0001

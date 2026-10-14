@@ -12,8 +12,8 @@ CODE_9EB079:
 CODE_9EB08B:
 	tax
 	jsl.l CODE_808F7D
-	sta.b $A5
-	lda.b $A9
+	sta.b d0
+	lda.b d1
 	lsr a
 	lsr a
 	lsr a
@@ -23,9 +23,9 @@ CODE_9EB08B:
 CODE_9EB09F:
 	tax
 	jsl.l CODE_808F7D
-	ldx.b $95
+	ldx.b a3
 	clc
-	adc.b $A5
+	adc.b d0
 	cmp.w #$000E
 	bcc CODE_9EB070
 	cmp.w #$0028

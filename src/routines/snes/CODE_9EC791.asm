@@ -9,7 +9,7 @@ CODE_9EC791:
 	lda.w #$FFFF
 	sta.w $1E8D
 	lda.w #$000A
-	sta.b $A5
+	sta.b d0
 	jsl.l ShootoutWonBy
 	lda.w $1E97
 	sta.l $7E30F8

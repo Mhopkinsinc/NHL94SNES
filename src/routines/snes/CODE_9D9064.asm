@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9D9064:
-	stz.w $0CD7
+	stz.w textdirtyhi
 	lda.w #$FFFF
-	sta.w $0CD5
+	sta.w textdirtylo
 	rtl

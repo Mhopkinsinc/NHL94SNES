@@ -7,7 +7,7 @@ CODE_9EBE65:
 	ldy.w #$0000
 CODE_9EBE6F:
 	lda.w $19F6,y
-	cmp.b $91
+	cmp.b a2
 	bne CODE_9EBE65
 	ora.w #$FF00
 	sta.w $19F6,y

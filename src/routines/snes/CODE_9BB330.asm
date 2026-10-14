@@ -25,5 +25,5 @@ CODE_9BB358:
 CODE_9BB369:
 	sta.w $0CB3
 	pla
-	sta.b $A9
+	sta.b d1
 	rtl

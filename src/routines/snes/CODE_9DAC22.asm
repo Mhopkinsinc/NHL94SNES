@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9DAC22:
-	stx.b $91
+	stx.b a2
 	lda.l $7E345E
 	jsl.l CODE_9DC973
 	jsl.l CODE_9FC4D0
@@ -8,7 +8,7 @@ CODE_9DAC22:
 	bne CODE_9DAC4E
 	lda.b $8F
 	sta.b $0E
-	lda.b $8D
+	lda.b a1
 	sta.b $0C
 	lda.w #$0000
 	sta.b $12

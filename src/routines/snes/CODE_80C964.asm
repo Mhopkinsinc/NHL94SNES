@@ -2,9 +2,9 @@
 CODE_80C964:
 	phx
 	phy
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w $178E
 	sec

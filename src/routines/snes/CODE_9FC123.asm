@@ -1,20 +1,20 @@
 ; Unidentified routine.
 CODE_9FC123:
-	lda.b $A5
+	lda.b d0
 	cmp.w #$000B
 	bmi CODE_9FC15D
-	lda.b $AD
+	lda.b d2
 	sec
 	sbc.w #$000A
-	sta.b $A9
+	sta.b d1
 	cmp.w #$0100
 	bmi CODE_9FC13C
 	lda.w #$0100
-	sta.b $A9
+	sta.b d1
 CODE_9FC13C:
-	lda.b $A9
+	lda.b d1
 	sec
-	sbc.w $0D37
+	sbc.w Vpos
 	beq CODE_9FC15D
 	lsr a
 	lsr a
@@ -29,21 +29,21 @@ CODE_9FC150:
 	inc a
 CODE_9FC156:
 	clc
-	adc.w $0D37
-	sta.w $0D37
+	adc.w Vpos
+	sta.w Vpos
 CODE_9FC15D:
-	lda.b $B1
+	lda.b d3
 	sec
-	sbc.w $0CEB
-	sta.b $A5
+	sbc.w Hpos
+	sta.b d0
 	cmp.w #$FFD8
 	bpl CODE_9FC17E
-	lda.b $B1
+	lda.b d3
 	sec
 	sbc.w #$FFD8
-	sta.b $A9
+	sta.b d1
 	cmp.w #$FFC4
 	bpl CODE_9FC197
 	lda.w #$FFC4
-	sta.b $A9
+	sta.b d1
 	bra CODE_9FC197

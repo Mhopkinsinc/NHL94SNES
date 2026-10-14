@@ -3,12 +3,12 @@ CODE_9BC7FB:
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9F9708
 	lda.w #$FF7F
-	and.l $7E34F4
-	sta.l $7E34F4
+	and.l PassWord
+	sta.l PassWord
 	jsl.l CODE_9DD977
-	stz.w $0CD5
+	stz.w textdirtylo
 	lda.w #$03FF
-	sta.w $0CD7
+	sta.w textdirtyhi
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B8526
 	jsl.l SpriteFrameStart
@@ -17,7 +17,7 @@ CODE_9BC7FB:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF203
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	lda.w #$001C
 	sta.l $7E3454
@@ -28,33 +28,33 @@ CODE_9BC7FB:
 	jsl.l CODE_9DE0D4
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF20D
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0011
-	sta.b $A5
+	sta.b d0
 	lda.w #$0005
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D80DD
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF212
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	dec.w printx
@@ -62,58 +62,58 @@ CODE_9BC7FB:
 	lda.w #$009B
 	sta.b $8B
 	lda.w #PasstoText
-	sta.b $89
+	sta.b a0
 	lda.w #$0004
-	sta.b $A5
+	sta.b d0
 CODE_9BC8AC:
 	lda.w #$0005
-	sta.b $A9
+	sta.b d1
 	lda.w #$0000
 	sta.b $8F
-	lda.w #$0A2A
-	sta.b $8D
+	lda.w #mesarea
+	sta.b a1
 	lda.w #$000D
-	sta.b [$8D]
-	inc.b $8D
-	inc.b $8D
+	sta.b [a1]
+	inc.b a1
+	inc.b a1
 CODE_9BC8C4:
-	lda.b [$89]
-	sta.b [$8D]
-	inc.b $89
-	inc.b $8D
+	lda.b [a0]
+	sta.b [a1]
+	inc.b a0
+	inc.b a1
 	lda.w #$0020
-	sta.b [$8D]
-	inc.b $8D
-	dec.b $A9
+	sta.b [a1]
+	inc.b a1
+	dec.b d1
 	bpl CODE_9BC8C4
 	lda.w #$0000
 	sta.b $8F
-	lda.w #$0A2A
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	lda.w #mesarea
+	sta.b a1
+	jsl.l print
 	inc.w printy
 	inc.w printy
 	lda.w printx
 	sec
 	sbc.w #$000B
 	sta.w printx
-	dec.b $A5
+	dec.b d0
 	bpl CODE_9BC8AC
-	stz.b $B5
+	stz.b d4
 	jsl.l CODE_9BCA7A
-	stz.b $B9
-	lda.l $7E34F4
+	stz.b d5
+	lda.l PassWord
 	and.w #$00FF
 	cmp.w #$001E
 	bcs CODE_9BC90F
-	sta.b $B9
+	sta.b d5
 CODE_9BC90F:
 	jsl.l CODE_9BCAB8
 	jsl.l CODE_9D80DD
 	lda.w #$0003
 	sta.w $0A4A
 	phx
-	ldy.b $B9
+	ldy.b d5
 	tyx
 	lda.l PasstoText,x
 	plx
@@ -121,11 +121,11 @@ CODE_9BC90F:
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A4A
-	sta.b $8D
+	sta.b a1
 	inc.w printx
 	dec.w printy
 	dec.w printy
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	lda.w #$000A
 	sta.w $0AD1
 CODE_9BC946:
@@ -133,15 +133,15 @@ CODE_9BC946:
 CODE_9BC949:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF222
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	jsl.l CODE_9BC6C9
@@ -150,10 +150,10 @@ CODE_9BC96B:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B84F5
-	jsl.l CODE_9B852C
-	lda.b $A9
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
 	beq CODE_9BC96B
-	sta.b $A9
+	sta.b d1
 	bit.w #$1000
 	beq CODE_9BC989
 	jmp.w CODE_9BCAF8

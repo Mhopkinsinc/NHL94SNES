@@ -7,9 +7,9 @@ CODE_9DBF83:
 	lda.w #$009D
 	sta.b $8F
 	lda.w #$C4E8
-	sta.b $8D
+	sta.b a1
 	lda.w $1E7D
-	sta.b $A5
+	sta.b d0
 	bpl CODE_9DBFA5
 CODE_9DBFA2:
 	jmp.w CODE_9DC0BB

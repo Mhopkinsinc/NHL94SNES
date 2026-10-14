@@ -9,5 +9,5 @@ CODE_9E843B:
 	cmp.w pfteam,y
 	beq CODE_9E8462
 	lda.w #$0005
-	sta.b $A5
+	sta.b d0
 	jmp.w assreplace

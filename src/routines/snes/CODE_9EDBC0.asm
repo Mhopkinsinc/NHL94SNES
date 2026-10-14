@@ -7,23 +7,23 @@ CODE_9EDBC0:
 	bmi CODE_9EDBEC
 	cpx.w $0AD9
 	bne CODE_9EDBD4
-	stz.b $A5
+	stz.b d0
 CODE_9EDBD4:
-	lda.b $A9
+	lda.b d1
 	cmp.w #$0103
 	bmi CODE_9EDBE0
 	lda.w #$0103
-	sta.b $A9
+	sta.b d1
 CODE_9EDBE0:
-	lda.b $A9
+	lda.b d1
 	cmp.w #$FEFD
 	bpl CODE_9EDBEC
 	lda.w #$FEFD
-	sta.b $A9
+	sta.b d1
 CODE_9EDBEC:
-	lda.b $A9
+	lda.b d1
 	sec
-	sbc.b $B1
-	sta.b $A9
+	sbc.b d3
+	sta.b d1
 CODE_9EDBF3:
 	rtl

@@ -13,7 +13,7 @@ CODE_9ED8D4:
 	adc.w $0D71
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	sta.b $02
 	bit.w #$8000
 	beq CODE_9ED8E9
@@ -34,7 +34,7 @@ CODE_9ED8FC:
 	adc.w pucky
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	bit.w #$8000
 	beq CODE_9ED90F
 	eor.w #$FFFF
@@ -42,12 +42,12 @@ CODE_9ED8FC:
 CODE_9ED90F:
 	sta.b $04
 	jsl.l vtoa
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0008
 	beq CODE_9ED93F
 	sec
-	sbc.w $1163,x
+	sbc.w facedir,x
 	and.w #$0007
-	sta.b $B1
+	sta.b d3
 	beq CODE_9ED93F
 	jmp.w CODE_9ED9A0

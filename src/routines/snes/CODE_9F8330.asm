@@ -25,7 +25,7 @@ CODE_9F8357:
 	inc a
 	sta.l $7E347A
 	stz.w gmode
-	lda.l $7E34C4
+	lda.l OptPen
 	cmp.w #$0001
 	bne CODE_9F837C
 	lda.w #$0020
@@ -33,23 +33,23 @@ CODE_9F8357:
 CODE_9F837C:
 	jsl.l ClearTeamStats
 	jsl.l restoreteams
-	jsl.l CODE_9FC833
+	jsl.l InitScores
 	lda.w #$007E
 	sta.w $0D21
 	lda.w #$577E
 	sta.w ReplayBufferPtr
 	lda.w #$0010
 	trb.w sflags
-	lda.b $91
+	lda.b a2
 	pha
 	lda.w #$0000
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9B9334
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9B9334
 	pla
-	sta.b $91
+	sta.b a2
 	lda.l $7E34C8
 	sta.w $1C90
 	sta.w $1C92

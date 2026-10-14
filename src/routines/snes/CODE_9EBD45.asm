@@ -10,13 +10,13 @@ CODE_9EBD45:
 	lda.w Xpos,x
 	sec
 	sbc.w $1043,x
-	sta.b $A5
+	sta.b d0
 	sec
 	sbc.w #$FFE8
 	bmi CODE_9EBD2D
 	lda.w $1003,x
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $1003,x
 	bpl CODE_9EBD2C
 	adc.w #$0008
@@ -33,30 +33,30 @@ CODE_9EBD87:
 	sta.w $1563,x
 	jsl.l CODE_9EA3F1
 	lda.w #$0006
-	sta.b $AD
+	sta.b d2
 	lda.w $14A3,x
 	beq CODE_9EBDA0
 	lda.w #$0002
-	sta.b $AD
+	sta.b d2
 CODE_9EBDA0:
-	lda.w $1163,x
-	cmp.b $AD
+	lda.w facedir,x
+	cmp.b d2
 	beq CODE_9EBDAE
 CODE_9EBDA7:
 	inc a
 	and.w #$0007
-	sta.w $1163,x
+	sta.w facedir,x
 CODE_9EBDAE:
 	stz.w $0EE3,x
 	lda.w #$1000
 	sta.w $0EC3,x
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w #$FFF8
 	bmi CODE_9EBDF7
 	stz.w $0EC3,x
-	lda.w $1163,x
-	cmp.b $AD
+	lda.w facedir,x
+	cmp.b d2
 	bne CODE_9EBDF7
 CODE_9EBDC9:
 	lda.w $1063,x
@@ -64,13 +64,13 @@ CODE_9EBDC9:
 	lda.w #$0088
 	sta.w Xpos,x
 	lda.w #$0002
-	sta.w $1163,x
-	sta.w $14E3,x
+	sta.w facedir,x
+	sta.w pfalock,x
 	lda.w #$E8F4
 	jsl.l CODE_9EA3F1
 	lda.w pflags,x
 	and.w #$BFFF
 	sta.w pflags,x
 	lda.w #$000E
-	sta.b $A5
+	sta.b d0
 	jml.l assreplace

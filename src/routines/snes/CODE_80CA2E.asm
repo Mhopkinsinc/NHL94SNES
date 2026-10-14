@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_80CA2E:
-	ldx.b $91
+	ldx.b a2
 	lda.w HomeTeam,x
 	sta.l $7E3454
 	lda.w #$FFFF
@@ -11,7 +11,7 @@ CODE_80CA2E:
 	jsl.l CODE_80CC1B
 	stz.w $1DB9
 	lda.w #$0001
-	sta.w $0D43
+	sta.w SelectedPlayerIdx
 	stz.w $0D47
 	jsl.l CODE_80CC89
 	lda.w #$0005
@@ -24,11 +24,11 @@ CODE_80CA70:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B851F
-	jsl.l CODE_9B852C
-	lda.b $A9
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
 	bit.w #$0800
 	bne CODE_80CAB8
-	bit.w #$0400
+	bit.w #DMA_OAM
 	bne CODE_80CAC6
 	bit.w #$8080
 	bne CODE_80CAD7

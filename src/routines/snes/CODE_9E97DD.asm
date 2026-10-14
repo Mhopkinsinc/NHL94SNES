@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9E97DD:
-	sty.b $91
+	sty.b a2
 	cpy.w $0AD9
 	beq CODE_9E97F6
 	cpy.w #$0018

@@ -8,7 +8,7 @@ CODE_9EF2A5:
 	asl a
 	asl a
 	tax
-	lda.b $91
+	lda.b a2
 	beq CODE_9EF2B1
 	inx
 	inx
@@ -16,16 +16,16 @@ CODE_9EF2B1:
 	lda.w $176A,x
 	inc a
 	sta.w $176A,x
-	ldx.b $95
+	ldx.b a3
 	lda.w pnum,x
-	sta.b $A5
-	lda.b $91
+	sta.b d0
+	lda.b a2
 	beq CODE_9EF2C6
 	lda.w #$001A
 CODE_9EF2C6:
 	clc
-	adc.b $A5
-	ldx.b $91
+	adc.b d0
+	ldx.b a2
 	cmp.w tmgoalie,x
 	beq CODE_9EF2D8
 	tax
@@ -33,16 +33,16 @@ CODE_9EF2C6:
 	inc.w $1956,x
 	rep #$20
 CODE_9EF2D8:
-	ldx.b $8D
+	ldx.b a1
 	lda.w tmgoalie,x
-	sta.b $A5
+	sta.b d0
 	bmi CODE_9EF2F3
-	lda.b $8D
+	lda.b a1
 	beq CODE_9EF2E8
 	lda.w #$001A
 CODE_9EF2E8:
 	clc
-	adc.b $A5
+	adc.b d0
 	tax
 	sep #$20
 	inc.w $1956,x
@@ -52,19 +52,19 @@ CODE_9EF2F3:
 	pla
 	sta.b $A7
 	pla
-	sta.b $A5
+	sta.b d0
 	pla
 	sta.b $97
 	pla
-	sta.b $95
+	sta.b a3
 	pla
 	sta.b $93
 	pla
-	sta.b $91
+	sta.b a2
 	pla
 	sta.b $8F
 	pla
-	sta.b $8D
+	sta.b a1
 	lda.w $19BE
 	clc
 	adc.w #$000A

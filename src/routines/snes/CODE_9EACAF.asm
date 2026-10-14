@@ -1,8 +1,8 @@
 ; Unidentified routine.
 CODE_9EACAF:
 	lda.b $16
-	sta.b $A9
-	lda.b $C7
+	sta.b d1
+	lda.b tmp1
 	and.w #$0008
 	bne CODE_9EACD3
 CODE_9EACBA:
@@ -11,5 +11,5 @@ CODE_9EACBA:
 	cmp.w #$FFCB
 	bmi CODE_9EACD3
 	lda.w #$FFCA
-	sta.b $A5
+	sta.b d0
 	rts

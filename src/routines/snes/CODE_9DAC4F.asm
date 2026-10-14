@@ -1,19 +1,19 @@
 ; Unidentified routine.
 CODE_9DAC4F:
 	phx
-	lda.b $C1
-	sta.b $B1
+	lda.b d7
+	sta.b d3
 CODE_9DAC54:
-	lda.b $C1
+	lda.b d7
 	clc
-	adc.b $A5
-	sta.b $C1
+	adc.b d0
+	sta.b d7
 	bpl CODE_9DAC5F
-	stz.b $C1
+	stz.b d7
 CODE_9DAC5F:
-	lda.b $C1
+	lda.b d7
 	cmp.w #$000E
 	bcc CODE_9DAC6C
-	lda.b $B1
-	sta.b $C1
+	lda.b d3
+	sta.b d7
 	bra CODE_9DAC7D

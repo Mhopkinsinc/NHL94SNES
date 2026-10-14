@@ -38,7 +38,7 @@ CODE_9DA5CA:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF597
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	lda.w #$1D47
 	sta.l $7F750A
@@ -57,15 +57,15 @@ CODE_9DA5CA:
 	sta.w $0CCB
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF5A3
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	jsl.l CODE_9CA227
@@ -74,18 +74,18 @@ CODE_9DA5CA:
 	sta.w $0E4F
 	lda.w #$FFFF
 	sta.l $7E34CC
-	lda.b $91
+	lda.b a2
 	pha
 	lda.w #$0000
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9B9334
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9B9334
 	pla
-	sta.b $91
-	stz.b $C1
-	stz.b $A5
+	sta.b a2
+	stz.b d7
+	stz.b d0
 	jsr.w CODE_9DAC4F
 	jsr.w CODE_9DA973
 	jsr.w CODE_9DAA83
@@ -102,10 +102,10 @@ CODE_9DA5CA:
 	jsl.l CODE_9DCC36
 CODE_9DA6FF:
 	lda.w #$12C0
-	sta.b $BD
+	sta.b d6
 CODE_9DA704:
 	jsl.l WaitFrame
-	lda.w $0766
+	lda.w OAMReady
 	bne CODE_9DA704
 	inc.w $0792
 	bne CODE_9DA715

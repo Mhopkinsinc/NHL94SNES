@@ -1,22 +1,22 @@
 ; Unidentified routine.
 CODE_9E8DB5:
-	lda.b $AD
+	lda.b d2
 	sec
-	sbc.b $B5
-	sta.b $AD
+	sbc.b d4
+	sta.b d2
 	eor.w #$FFFF
 	inc a
-	sta.b $A9
+	sta.b d1
 	bit.w #$8000
 	beq CODE_9E8DCB
 	eor.w #$FFFF
 	inc a
 CODE_9E8DCB:
 	sta.b $CD
-	lda.b $B1
+	lda.b d3
 	sec
-	sbc.b $B9
-	sta.b $A5
+	sbc.b d5
+	sta.b d0
 	bit.w #$8000
 	beq CODE_9E8DDD
 	eor.w #$FFFF

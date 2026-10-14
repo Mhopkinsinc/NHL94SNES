@@ -3,7 +3,7 @@ CODE_80C8E2:
 	sty.w $1E93
 CODE_80C8E5:
 	jsl.l CODE_9EC72D
-	lda.b $91
+	lda.b a2
 	beq CODE_80C918
 	lda.w shootoutround
 CODE_80C8F0:

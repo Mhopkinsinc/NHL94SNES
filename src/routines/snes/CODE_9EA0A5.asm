@@ -6,20 +6,20 @@ CODE_9EA0A5:
 CODE_9EA0AD:
 	iny
 	iny
-	sty.b $A5
+	sty.b d0
 CODE_9EA0B1:
-	lda.b [$89],y
+	lda.b [a0],y
 	jsl.l CODE_9EA3F1
-	ldy.b $91
+	ldy.b a2
 	lda.w position,y
 	beq CODE_9EA10E
-	lda.b $B5
+	lda.b d4
 	sec
 	sbc.w #$0020
 	bmi CODE_9EA10E
 	lda.w #$0078
-	sta.b $A5
-	lda.b $A5
+	sta.b d0
+	lda.b d0
 	sec
 	sbc.w $12C3,x
 	clc
@@ -29,14 +29,14 @@ CODE_9EA0B1:
 	sbc.w $0F23,y
 	beq CODE_9EA10F
 	bmi CODE_9EA10F
-	sta.b $A5
+	sta.b d0
 	jsl.l randomd0
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w $1483,x
 	bmi CODE_9EA10F
-	jsl.l CODE_9EC124
-	lda.b $A5
+	jsl.l checkagr
+	lda.b d0
 	cmp.w #$0001
 	bcs CODE_9EA10E
 	lda.w gmode
@@ -46,5 +46,5 @@ CODE_9EA0B1:
 	and.w #$0002
 	clc
 	adc.w #$0018
-	sta.b $A5
+	sta.b d0
 	jmp.w AddPenalty

@@ -1,23 +1,23 @@
 ; Unidentified routine.
 CODE_9FBFE6:
-	stx.w $0D23
+	stx.w Oldrow
 	cmp.w #$0019
 	bcs CODE_9FBFDA
-	sta.b $C7
-	adc.w $0D25
+	sta.b tmp1
+	adc.w vramrow
 	and.w #$001F
-	sta.w $0D25
+	sta.w vramrow
 	adc.w #$001D
 	sec
-	sbc.b $C7
+	sbc.b tmp1
 	and.w #$001F
 org $9FC002
-	sta.b $C9
+	sta.b tmp2
 	txa
 	clc
 	adc.w #$001D
 	sec
-	sbc.b $C7
+	sbc.b tmp1
 	tax
 CODE_9FC00D:
 	txa
@@ -26,50 +26,50 @@ CODE_9FC00D:
 	asl a
 	asl a
 	asl a
-	sta.b $C5
+	sta.b tmp0
 	asl a
-	adc.b $C5
+	adc.b tmp0
 	adc.w #$C800
 	adc.w #$0006
-	sta.b $C5
-	lda.b $C9
+	sta.b tmp0
+	lda.b tmp2
 	asl a
 	asl a
 	asl a
 	asl a
 	asl a
-	adc.w #$0400
-	sta.b $C9
-	lda.b $C7
+	adc.w #DMA_OAM
+	sta.b tmp2
+	lda.b tmp1
 	sta.b $04
 CODE_9FC030:
 	lda.w #$007F
 	sta.b $0E
-	lda.b $C5
+	lda.b tmp0
 	sta.b $0C
-	ldy.b $C9
+	ldy.b tmp2
 	ldx.w #$0040
 	jsl.l CODE_80891F
-	lda.b $C5
+	lda.b tmp0
 	clc
 	adc.w #$0040
 	sta.b $0C
-	lda.b $C9
+	lda.b tmp2
 	clc
-	adc.w #$0400
+	adc.w #DMA_OAM
 	tay
 	ldx.w #$0020
 	jsl.l CODE_80891F
-	lda.b $C5
+	lda.b tmp0
 	clc
 	adc.w #$0060
-	sta.b $C5
-	lda.b $C9
+	sta.b tmp0
+	lda.b tmp2
 	clc
 	adc.w #$0020
 	and.w #$03FF
-	ora.w #$0400
-	sta.b $C9
+	ora.w #DMA_OAM
+	sta.b tmp2
 	dec.b $04
 	bne CODE_9FC030
 CODE_9FC072:
@@ -80,7 +80,7 @@ CODE_9FC072:
 	lda.w Vscroll
 	and.w #$0007
 	sta.b $14
-	lda.w $0D25
+	lda.w vramrow
 	asl a
 	asl a
 	asl a

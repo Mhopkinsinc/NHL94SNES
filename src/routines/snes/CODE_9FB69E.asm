@@ -31,7 +31,7 @@ CODE_9FB6DA:
 	bpl CODE_9FB6DA
 	jsl.l CODE_9C9786
 CODE_9FB6EE:
-	lda.w $07F9
+	lda.w SoundFadeSpeed
 	bne CODE_9FB6EE
 	jsl.l CODE_9C98DF
 	lda.w #$0081
@@ -99,7 +99,7 @@ CODE_9FB6EE:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
-	lda.w #$0095
+	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95E304
 	sta.b $0C
@@ -118,7 +118,7 @@ CODE_9FB6EE:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
-	lda.w #$0095
+	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95BA96
 	sta.b $0C
@@ -154,7 +154,7 @@ CODE_9FB6EE:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	adc.l $7E35B6
 	sta.l $7E35BC
 	adc.w #$0004
@@ -162,22 +162,22 @@ CODE_9FB6EE:
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3D0
-	sta.b $8D
+	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3E7
-	sta.b $8D
+	sta.b a1
 	lda.w #$0004
-	sta.b $A5
+	sta.b d0
 	jsl.l RemapTiles
 	lda.w #$0096
 	sta.b $0E
@@ -190,7 +190,7 @@ CODE_9FB6EE:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	adc.l $7E35AE
 	sta.l $7E35CE
 	lda.w #$007F
@@ -221,11 +221,11 @@ CODE_9FB6EE:
 CODE_9FB8B4:
 	jsl.l CODE_8086A9
 	lda.w #$03E7
-	sta.w $0D23
+	sta.w Oldrow
 	lda.w #$0001
 	trb.w sflags
-	stz.w $0CEB
-	stz.w $0D37
+	stz.w Hpos
+	stz.w Vpos
 	lda.b $85
 	dec a
 	dec a

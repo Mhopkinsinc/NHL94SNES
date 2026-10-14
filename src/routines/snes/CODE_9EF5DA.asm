@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EF5DA:
-	ldy.b $91
+	ldy.b a2
 	lda.w position,y
 	bne CODE_9EF5EA
 	lda.w gmode

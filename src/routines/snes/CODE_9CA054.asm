@@ -18,7 +18,7 @@ CODE_9CA054:
 	clc
 	adc.l DATA8_9CA099-2,x
 	sta.b $00
-	lda.w $0D37
+	lda.w Vpos
 	sec
 	sbc.l DATA8_9CA0A1-2,x
 	tay
@@ -26,7 +26,7 @@ CODE_9CA054:
 	pha
 	lda.w #$FFE2
 	sec
-	sbc.w $0CEB
+	sbc.w Hpos
 	tax
 	pla
 	jsl.l DrawSprite

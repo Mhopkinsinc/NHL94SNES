@@ -1,15 +1,15 @@
 ; Unidentified routine.
 CODE_9EF78A:
-	stz.b $8D
+	stz.b a1
 	lda.w #$0002
-	sta.b $91
-	jsl.l CODE_9EF8C4
-	stz.b $91
+	sta.b a2
+	jsl.l ClearOffsidesIfAllPlayers
+	stz.b a2
 	lda.w #$0002
-	sta.b $8D
-	jsl.l CODE_9EF8C4
+	sta.b a1
+	jsl.l ClearOffsidesIfAllPlayers
 	lda.w #$0054
-	sta.b $A5
+	sta.b d0
 	lda.w pucky
 	bpl CODE_9EF7AD
 	jmp.w CODE_9EF833

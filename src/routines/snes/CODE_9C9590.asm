@@ -5,6 +5,6 @@ CODE_9C9590:
 	ldy.w #$0002
 CODE_9C9599:
 	tya
-	cmp.b [$8D]
+	cmp.b [a1]
 	bne CODE_9C95A1
 	jmp.w CODE_9C9622

@@ -3,7 +3,7 @@ CODE_9FBE56:
 	lda.w #$1800
 	sta.b $14
 	ldy.w #$0060
-	lda.b $A9
+	lda.b d1
 	cmp.w HomeTeam
 	bne CODE_9FBE6D
 	ldx.w #$1C00
@@ -28,5 +28,5 @@ CODE_9FBE6D:
 	lda.w #$1800
 	sta.b $14
 	ldy.w #$0060
-	lda.b $A9
+	lda.b d1
 	bra CODE_9FBE6D

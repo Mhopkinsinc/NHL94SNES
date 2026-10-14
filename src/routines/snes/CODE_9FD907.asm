@@ -8,30 +8,30 @@ CODE_9FD912:
 	jsl.l CODE_9EA3F1
 	lda.w #$0001
 	sta.w $1563,x
-	lda.w $1163,x
+	lda.w facedir,x
 	cmp.w #$0004
 	beq CODE_9FD92B
 	inc a
 	and.w #$0007
-	sta.w $1163,x
+	sta.w facedir,x
 CODE_9FD92B:
 	stz.w $0EE3,x
 	lda.w #$F800
 	sta.w $0EC3,x
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w #$0010
 	beq CODE_9FD93E
 	bpl CODE_9FD96D
 CODE_9FD93E:
 	stz.w $0EC3,x
-	lda.w $1163,x
+	lda.w facedir,x
 	cmp.w #$0004
 	bne CODE_9FD96D
 	lda.w #$F800
 	sta.w $0EC3,x
 	lda.w #$0002
-	sta.w $1163,x
+	sta.w facedir,x
 	lda.w #$E936
 	ldy.w position,x
 	bne CODE_9FD960
@@ -40,6 +40,6 @@ CODE_9FD960:
 	jsl.l CODE_9EA3F1
 	lda.w #$0064
 	sta.w $1003,x
-	sta.w $14E3,x
+	sta.w pfalock,x
 CODE_9FD96D:
 	rtl

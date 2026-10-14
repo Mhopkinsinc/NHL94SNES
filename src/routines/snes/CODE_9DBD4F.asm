@@ -1,17 +1,17 @@
 ; Unidentified routine.
 CODE_9DBD4F:
 	jsl.l CODE_9DE0E9
-	lda.b $91
+	lda.b a2
 	pha
 	stz.w $07C6
 	jsl.l CODE_9DC697
 	pla
-	sta.b $91
-	lda.b $91
+	sta.b a2
+	lda.b a2
 	pha
 	stz.w $1DB9
 	jsl.l GetPlayerCount
-	lda.b $A5
+	lda.b d0
 	clc
 	adc.w #$0006
 	sta.w $1DC1
@@ -23,8 +23,8 @@ CODE_9DBD7F:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B851F
-	jsl.l CODE_9B852C
-	lda.b $A9
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
 	bit.w #$1000
 	bne CODE_9DBDAA
 	bit.w #$0100

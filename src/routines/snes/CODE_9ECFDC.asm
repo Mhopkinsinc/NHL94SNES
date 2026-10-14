@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9ECFDC:
 	lda.w #$E0FE
-	sta.b $A9
-	lda.b $A5
+	sta.b d1
+	lda.b d0
 	and.w #$000F
-	sta.b $A5
+	sta.b d0
 	cmp.w #$0008
 	bcc CODE_9ED009
 	ldy.w $19D4,x

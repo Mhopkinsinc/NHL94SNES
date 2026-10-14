@@ -2,13 +2,13 @@
 CODE_9F8967:
 	txa
 	lsr a
-	sta.b $BD
+	sta.b d6
 	cpx.w $0AD9
 	bne CODE_9F897E
 	lda.w sfhormode
 	bne CODE_9F897E
 	lda.w #$0000
-	sta.b $B5
+	sta.b d4
 	jsl.l CODE_9BC174
 CODE_9F897E:
 	cpx.w #$0018
@@ -20,16 +20,16 @@ CODE_9F897E:
 	bne CODE_9F89B2
 	lda.w #$0001
 	sta.w $0ADD,y
-	lda.w $0776,y
-	sta.b $B1
+	lda.w JoyPad,y
+	sta.b d3
 	lda.w $0AAE,y
-	sta.b $AD
+	sta.b d2
 	lda.w $0AB8,y
-	sta.b $A9
+	sta.b d1
 	lda.w $0AA4,y
-	sta.b $A5
+	sta.b d0
 	iny
 	iny
-	sty.b $B5
+	sty.b d4
 	jsl.l CODE_9FC1B9
 	bra CODE_9F89B2

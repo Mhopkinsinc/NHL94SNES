@@ -4,26 +4,26 @@ CODE_9D80DD:
 	phy
 	lda.l $7E35C0
 	clc
-	adc.l $7E35A8
-	sta.b $C5
+	adc.l printfontset
+	sta.b tmp0
 	lda.w #$009C
 	sta.b $0E
 	lda.w #$8316
 	sta.b $0C
 	jsr.w CODE_9D804F
-	lda.b $C9
+	lda.b tmp2
 	lsr a
-	cmp.w $0CD5
+	cmp.w textdirtylo
 	bcs CODE_9D8102
-	sta.w $0CD5
+	sta.w textdirtylo
 CODE_9D8102:
-	dec.b $A9
-	dec.b $A9
+	dec.b d1
+	dec.b d1
 CODE_9D8106:
 	lda.w #$831C
 	sta.b $0C
 	jsr.w CODE_9D804F
-	dec.b $A9
+	dec.b d1
 	bne CODE_9D8106
 	lda.w #$8322
 	sta.b $0C
@@ -32,9 +32,9 @@ CODE_9D8106:
 	inx
 	txa
 	lsr a
-	cmp.w $0CD7
+	cmp.w textdirtyhi
 	bcc CODE_9D8126
-	sta.w $0CD7
+	sta.w textdirtyhi
 CODE_9D8126:
 	ply
 	plx

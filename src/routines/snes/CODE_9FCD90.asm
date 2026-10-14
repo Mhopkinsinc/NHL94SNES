@@ -8,7 +8,7 @@ CODE_9FCD90:
 	lda.w $0ADD,y
 	inc a
 	sta.w $0ADD,y
-	stx.b $A5
+	stx.b d0
 	jsl.l CODE_9FCB68
 CODE_9FCDAA:
 	plx

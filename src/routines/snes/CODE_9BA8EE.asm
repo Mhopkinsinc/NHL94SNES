@@ -3,7 +3,7 @@ CODE_9BA8EE:
 	sta.w $0CA9
 CODE_9BA8F1:
 	lda.w sflags
-	bit.w #$0400
+	bit.w #DMA_OAM
 	bne CODE_9BA927
 	lda.w ReplayBufferPtr
 	clc
@@ -30,7 +30,7 @@ CODE_9BA927:
 	lda.w $0D21
 	sta.w WMADDH
 	lda.b #$0F
-	sta.b $AD
+	sta.b d2
 	ldx.w #$0000
 	ldy.w #$0001
 CODE_9BA93F:
@@ -62,10 +62,10 @@ CODE_9BA93F:
 	sta.w WMDATA
 	inx
 	inx
-	dec.b $AD
+	dec.b d2
 	bpl CODE_9BA93F
 	lda.b #$05
-	sta.b $AD
+	sta.b d2
 	ldx.w #$0000
 CODE_9BA985:
 	lda.w $13C3,x
@@ -92,7 +92,7 @@ CODE_9BA9A3:
 	inx
 	inx
 	inx
-	dec.b $AD
+	dec.b d2
 	bpl CODE_9BA985
 	lda.w $0DF9
 	sta.w WMDATA
@@ -114,7 +114,7 @@ CODE_9BA9A3:
 	sta.w WMDATA
 	lda.w $0CB8
 	sta.w WMDATA
-	lda.b $C1
+	lda.b d7
 	sta.w WMDATA
 	lda.w $0AE9
 	asl a
@@ -143,11 +143,11 @@ CODE_9BA9A3:
 	sta.w WMDATA
 	lda.w PBnum
 	sta.w WMDATA
-	lda.w $0CEB
+	lda.w Hpos
 	sta.w WMDATA
 	lda.w $0CEC
 	sta.w WMDATA
-	lda.w $0D37
+	lda.w Vpos
 	sta.w WMDATA
 	lda.w $0D38
 	sta.w WMDATA

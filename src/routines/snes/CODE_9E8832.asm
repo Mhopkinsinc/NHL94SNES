@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9E8832:
-	jsl.l CODE_9FDC4C
+	jsl.l check4bench
 	lda.w $19D4,x
 	bpl CODE_9E881E
 	lda.w pflags,x
@@ -15,7 +15,7 @@ CODE_9E8832:
 CODE_9E8855:
 	lda.w $1003,x
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $1003,x
 	bpl CODE_9E886C
 	clc
@@ -29,7 +29,7 @@ CODE_9E886C:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #$8904
-	sta.b $89
+	sta.b a0
 	ldy.w #$0050
 	lda.w position,x
 	cmp.w #$0002
@@ -43,9 +43,9 @@ CODE_9E8884:
 	inc a
 	tay
 CODE_9E888F:
-	sty.b $A5
+	sty.b d0
 	lda.w $0D71
-	eor.b $A5
+	eor.b d0
 	bmi CODE_9E889E
 	lda.w $0D71
 	bra CODE_9E88A8

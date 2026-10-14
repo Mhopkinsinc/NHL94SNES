@@ -1,15 +1,15 @@
 ; Unidentified routine.
 CODE_9FB9A4:
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
 CODE_9FB9A9:
-	lda.b $89,x
+	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0038
 	bne CODE_9FB9A9
-	ldx.b $87
+	ldx.b xsave
 	lda.w $0AD3
 	beq CODE_9FB9CC
 	jsl.l CODE_9F96F7
@@ -20,15 +20,15 @@ CODE_9FB9A9:
 CODE_9FB9CC:
 	stz.w sfhormode
 	lda.w #$03E7
-	sta.w $0D23
+	sta.w Oldrow
 	jsl.l SprSort
 	lda.w sflags
 	bit.w #$0001
 	bne CODE_9FB9F2
 	jsl.l CODE_9DD977
-	stz.w $0CD5
+	stz.w textdirtylo
 	lda.w #$03FF
-	sta.w $0CD7
+	sta.w textdirtyhi
 	jsl.l CODE_9F9B36
 CODE_9FB9F2:
 	lda.w #$007E
@@ -38,14 +38,14 @@ CODE_9FB9F2:
 	ldy.w #$0000
 	ldx.w #$0080
 	jsl.l CODE_808723
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0036
 CODE_9FBA0B:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
 	bpl CODE_9FBA0B
-	ldx.b $87
-	ldx.b $95
+	ldx.b xsave
+	ldx.b a3
 	rtl

@@ -2,7 +2,7 @@
 CODE_9C8C22:
 	phx
 	phy
-	lda.b $A5
+	lda.b d0
 	pha
 	sep #$20
 	lda.w $1DFB,y
@@ -15,7 +15,7 @@ CODE_9C8C22:
 	and.w #$00FF
 	tax
 	stx.w $1DC9
-	lda.b $91
+	lda.b a2
 	beq CODE_9C8C47
 CODE_9C8C44:
 	lda.w #$001A
@@ -24,7 +24,7 @@ CODE_9C8C47:
 	adc.w $1DC9
 	tax
 	sty.w $1DC9
-	lda.b $91
+	lda.b a2
 	beq CODE_9C8C56
 CODE_9C8C53:
 	lda.w #$001A

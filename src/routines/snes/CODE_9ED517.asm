@@ -15,14 +15,14 @@ CODE_9ED522:
 	cmp.w #$C000
 	bcc CODE_9ED574
 	lda.w #$0005
-	sta.b $A5
-	stz.b $89
+	sta.b d0
+	stz.b a0
 	lda.w pfteam,x
 	bne CODE_9ED54B
 	lda.w #$000C
-	sta.b $89
+	sta.b a0
 CODE_9ED54B:
-	ldy.b $89
+	ldy.b a0
 	lda.w pflags,y
 	bit.w #$1000
 	bne CODE_9ED55D
@@ -30,9 +30,9 @@ CODE_9ED54B:
 	cmp.w #$0023
 	bcc CODE_9ED577
 CODE_9ED55D:
-	inc.b $89
-	inc.b $89
-	dec.b $A5
+	inc.b a0
+	inc.b a0
+	dec.b d0
 	bpl CODE_9ED54B
 	lda.w #$0001
 	sta.w $0D2D

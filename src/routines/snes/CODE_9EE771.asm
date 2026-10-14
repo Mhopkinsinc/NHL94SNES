@@ -9,7 +9,7 @@ CODE_9EE779:
 CODE_9EE77E:
 	lda.w #$FFFF
 	sta.w $0D07
-	stz.w $14E3,x
+	stz.w pfalock,x
 	stz.w $0BAB
 	lda.w pflags,x
 	and.w #$FFFE

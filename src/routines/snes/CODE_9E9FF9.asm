@@ -1,24 +1,24 @@
 ; Unidentified routine.
 CODE_9E9FF9:
-	lda.b $B5
+	lda.b d4
 	pha
-	lda.b $91
+	lda.b a2
 	pha
-	lda.b $95
+	lda.b a3
 org $9EA001
 	pha
 	jsl.l CODE_9EA021
-	ldx.b $91
-	ldy.b $95
-	sty.b $91
-	stx.b $95
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
 	jsl.l CODE_9EA021
 	pla
-	sta.b $95
+	sta.b a3
 	pla
-	sta.b $91
+	sta.b a2
 	pla
-	sta.b $B5
-	ldx.b $95
+	sta.b d4
+	ldx.b a3
 CODE_9EA01D:
 	rtl

@@ -26,8 +26,8 @@ CODE_9DC697:
 	rep #$30
 	lda.w #$FF00
 	sta.l $7E35AA
-	sta.l $7E35A8
-	stz.w $0CD9
+	sta.l printfontset
+	stz.w printm
 	lda.w #$0000
 	sta.l $7E35AC
 	jsl.l CODE_9DD977
@@ -54,26 +54,26 @@ CODE_9DC697:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3D7
-	sta.b $8D
+	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3E7
-	sta.b $8D
+	sta.b a1
 	lda.w #$0004
-	sta.b $A5
+	sta.b d0
 	jsl.l RemapTiles
 	lda.w #$009A
 	sta.b $0E
@@ -137,7 +137,7 @@ CODE_9DC697:
 	tax
 	ldy.w #$1000
 	jsl.l CODE_80891F
-	lda.w #$0091
+	lda.w #a2
 	sta.b $0E
 	lda.w #DATA8_91DDAD
 	sta.b $0C
@@ -242,7 +242,7 @@ CODE_9DC83F:
 	stz.w CGDATA
 	stz.w CGDATA
 	rep #$20
-	lda.w #$0089
+	lda.w #a0
 	sta.b $0E
 	lda.w #DATA8_89FFC7
 	sta.b $0C
@@ -270,15 +270,15 @@ CODE_9DC83F:
 	jsl.l CODE_9DE0D4
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF6F2
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	jsl.l CODE_9DD94D

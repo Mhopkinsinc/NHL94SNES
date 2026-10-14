@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9FABB3:
 	pla
-	sta.b $AD
+	sta.b d2
 	jsl.l SprSort
 	pla
-	sta.b $95
+	sta.b a3
 	pla
 	sta.b $97
 	lda.w $1E9B
@@ -26,7 +26,7 @@ CODE_9FABDE:
 	bpl CODE_9FABC8
 	lda.w $1E91
 	eor.w #$0002
-	sta.b $A5
+	sta.b d0
 	tax
 	lda.w $19D0,x
 	beq CODE_9FAC25
@@ -39,17 +39,17 @@ CODE_9FABF3:
 	ldy.w #$0000
 CODE_9FABFD:
 	lda.w $19F6,y
-	cmp.b $A5
+	cmp.b d0
 	bne CODE_9FABF3
-	sty.b $A9
+	sty.b d1
 	tya
 	sta.w $0AFD,x
 	ldx.w #$0008
 CODE_9FAC0D:
 	lda.w $19F6,x
-	cmp.b $A5
+	cmp.b d0
 	bne CODE_9FAC21
-	cpx.b $A9
+	cpx.b d1
 	beq CODE_9FAC21
 CODE_9FAC18:
 	ora.w #$8000
@@ -60,29 +60,29 @@ CODE_9FAC21:
 	dex
 	bpl CODE_9FAC0D
 CODE_9FAC25:
-	ldx.b $95
+	ldx.b a3
 	jsl.l CODE_9FC988
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF8AE
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0036
-	sta.b $A5
+	sta.b d0
 	lda.l $7E3136
 	bpl CODE_9FAC55
 	lda.w #$00BE
-	sta.b $A5
+	sta.b d0
 CODE_9FAC55:
-	lda.b $A5
+	lda.b d0
 	sta.l $7E3126
 	sec
 	sbc.w #$002E
@@ -118,9 +118,9 @@ CODE_9FAC55:
 	jsl.l CODE_9EBF11
 	lda.w #$D6AC
 	sta.l $7E3120
-	sta.b $C5
+	sta.b tmp0
 	lda.w #$009A
-	sta.b $C7
+	sta.b tmp1
 	lda.w printy
 	asl a
 	asl a
@@ -140,11 +140,11 @@ CODE_9FACC9:
 	lda.l DATA8_9AD6A6
 	sta.b $CA
 CODE_9FACCF:
-	lda.b [$C5],y
+	lda.b [tmp0],y
 	clc
 	adc.l $7E35BA
 	adc.l $7E35AA
-	sta.l $7E37F4,x
+	sta.l textmap,x
 	iny
 	iny
 	inx

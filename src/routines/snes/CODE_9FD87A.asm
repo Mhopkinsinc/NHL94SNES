@@ -8,13 +8,13 @@ CODE_9FD87A:
 	lda.w #$0008
 	sta.w $10A3,x
 	lda.w #$0050
-	sta.b $A5
+	sta.b d0
 	lda.w pfteam,x
 	bne CODE_9FD89D
 	lda.w #$FFB0
-	sta.b $A5
+	sta.b d0
 CODE_9FD89D:
-	lda.b $A5
+	lda.b d0
 	sta.w $1063,x
 	lda.w #$FF70
 	sta.w $1043,x

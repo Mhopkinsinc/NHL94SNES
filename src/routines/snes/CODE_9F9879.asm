@@ -1,10 +1,10 @@
 ; Unidentified routine.
-	asl.b $A5
-	lda.b $91
+	asl.b d0
+	lda.b a2
 	beq CODE_9F9879
 	lda.w #$0034
 CODE_9F9879:
-	adc.b $A5
+	adc.b d0
 	tay
 	lda.w tmpde,y
 	sta.b $08
@@ -25,5 +25,5 @@ CODE_9F988F:
 	bcc CODE_9F98A4
 	lda.w #$0064
 CODE_9F98A4:
-	sta.b $A5
+	sta.b d0
 	bra CODE_9F98B1

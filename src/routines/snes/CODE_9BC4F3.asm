@@ -11,7 +11,7 @@ CODE_9BC4F3:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #$9369
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9EC894
 	lda.w #$0004
 	sta.w printx
@@ -29,6 +29,6 @@ CODE_9BC4F3:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #$9369
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9EC894
 	rts

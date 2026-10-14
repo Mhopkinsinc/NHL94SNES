@@ -2,10 +2,10 @@
 CODE_9ED050:
 	lda.w $0BCB,x
 	bne CODE_9ED07A
-	lda.b $A5
+	lda.b d0
 	sec
-	sbc.w $1163,x
-	sta.b $A5
+	sbc.w facedir,x
+	sta.b d0
 	beq CODE_9ED07A
 	eor.w #$FFFF
 	inc a
@@ -13,10 +13,10 @@ CODE_9ED050:
 	lsr a
 	dec a
 	clc
-	adc.w $1163,x
+	adc.w facedir,x
 	and.w #$0007
-	sta.b $A5
-	sta.w $1163,x
+	sta.b d0
+	sta.w facedir,x
 	lda.w #$0006
 	sta.w $0BCB,x
 CODE_9ED07A:

@@ -4,4 +4,4 @@ CODE_9FB3AA:
 	bit.w #$0008
 	beq CODE_9FB3B6
 CODE_9FB3B2:
-	jml.l CODE_9EB2C9
+	jml.l Stop4Pen

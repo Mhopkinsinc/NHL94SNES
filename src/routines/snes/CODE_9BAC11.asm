@@ -17,7 +17,7 @@ CODE_9BAC28:
 CODE_9BAC2D:
 	lda.w #$0100
 CODE_9BAC30:
-	sta.w $0D37
+	sta.w Vpos
 	sta.w $0CBF
 	txa
 	lsr a

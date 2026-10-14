@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EA43B:
-	lda.w $1163,x
+	lda.w facedir,x
 	dec a
 	dec a
 	bra CODE_9EA472

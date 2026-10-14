@@ -5,8 +5,8 @@ CODE_9F84E3:
 	stz.w $0CC1
 CODE_9F84EB:
 	lda.w #$FFFF
-	sta.w $0CD5
-	stz.w $0CD7
+	sta.w textdirtylo
+	stz.w textdirtyhi
 	stz.b $83
 	stz.b $85
 	stz.w $0D35

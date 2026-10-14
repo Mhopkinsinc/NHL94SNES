@@ -2,13 +2,13 @@
 CODE_9E94DE:
 	lda.w OOlistpos,x
 	beq CODE_9E9527
-	sta.b $A9
+	sta.b d1
 CODE_9E94E5:
-	ldy.b $A9
+	ldy.b d1
 	lda.w $15C2,y
 	and.w #$00FF
 	tay
-	lda.b $B1
+	lda.b d3
 	sec
 	sbc.w Ylist,y
 	sec
@@ -18,7 +18,7 @@ CODE_9E94E5:
 	bmi CODE_9E9523
 	lda.w Xpos,y
 	sec
-	sbc.b $AD
+	sbc.b d2
 	cmp.w #$FFF1
 	bmi CODE_9E9523
 	cmp.w #$000F
@@ -31,7 +31,7 @@ CODE_9E94E5:
 	bcs CODE_9E9523
 	jsl.l CODE_9E9528
 CODE_9E9523:
-	dec.b $A9
+	dec.b d1
 	bne CODE_9E94E5
 CODE_9E9527:
 	rtl

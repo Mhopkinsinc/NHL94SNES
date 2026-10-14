@@ -6,9 +6,9 @@ CODE_9DA770:
 	sta.w $0D01
 	jsl.l CODE_9B84F5
 	dec.w $0AC4
-	jsl.l CODE_9B852C
-	lda.b $A9
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
 	and.w #$FFF0
-	sta.b $A9
+	sta.b d1
 	beq CODE_9DA793
 	jmp.w CODE_9DA869

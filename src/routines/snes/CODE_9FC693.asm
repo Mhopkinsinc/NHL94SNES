@@ -6,10 +6,10 @@ CODE_9FC693:
 	lda.l $7E34BC
 	bne CODE_9FC6A6
 	lda.w #$012C
-	sta.b $A5
+	sta.b d0
 CODE_9FC6A6:
-	lda.b $A5
+	lda.b d0
 	sta.w gameclock
-	sta.w $1C82
-	sta.w $15D6
+	sta.w PerTimeTotal
+	sta.w gmclock
 	rtl

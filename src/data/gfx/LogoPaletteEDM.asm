@@ -1,7 +1,7 @@
 ; Colours for one team.
 
 LogoPaletteEDM:		; the 16 colours of the Edmonton logo (TeamLogoSprites and the centre ice logo)
-	dw $0400,$01FF,$809A,$8014,$7FFF,$EB5A,$5294,$BDEF
+	dw DMA_OAM,$01FF,$809A,$8014,$7FFF,$EB5A,$5294,$BDEF
 	dw $A94A,$1084,$F2D6,$F16B,$7000,$5800,$4000,$2800
 	dw $5AD6,$8DF2,$9213,$1A77,$1EB8,$A2DA,$A71C,$2F5E
 	dw $2F5E,$271C,$22DA,$9EB8,$9A77,$1655,$1213,$0DF2

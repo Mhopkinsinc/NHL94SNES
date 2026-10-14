@@ -1,8 +1,8 @@
 ; Unidentified routine.
 CODE_9ECFD1:
-	lda.b [$8D]
+	lda.b [a1]
 	clc
-	adc.b $8D
-	sta.b $8D
-	dec.b $A5
+	adc.b a1
+	sta.b a1
+	dec.b d0
 	bra CODE_9ECFCA

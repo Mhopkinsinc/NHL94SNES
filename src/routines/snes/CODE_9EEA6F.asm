@@ -4,10 +4,10 @@ CODE_9EEA6F:
 	asl a
 	asl a
 	adc.w #$DA08
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8B
-	lda.b [$89]
+	lda.b [a0]
 	cmp.w #$8000
 	ror a
 	tax
@@ -22,9 +22,9 @@ CODE_9EEA6F:
 	clc
 	adc.b $14
 	sta.w puckvy
-	dec.b $89
-	dec.b $89
-	lda.b [$89]
+	dec.b a0
+	dec.b a0
+	lda.b [a0]
 	cmp.w #$8000
 	ror a
 	tax

@@ -5,7 +5,7 @@ CODE_9DA2EE:
 CODE_9DA2F5:
 	lda.w $1A0E
 	bne CODE_9DA302
-	lda.w $0776,x
+	lda.w JoyPad,x
 	and.w #$000F
 	beq CODE_9DA30B
 CODE_9DA302:

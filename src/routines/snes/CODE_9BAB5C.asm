@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9BAB5C:
 	pla
-	lda.w $0CEB
+	lda.w Hpos
 	sta.w $0CBD
-	lda.w $0D37
+	lda.w Vpos
 	sta.w $0CBF
 	ldx.w #$0000
 	ldy.w #$01C0
@@ -21,7 +21,7 @@ CODE_9BAB5C:
 	jsl.l CODE_9FBAAA
 	jsl.l SpriteFrameEnd
 	lda.w #$0001
-	sta.b $C1
+	sta.b d7
 	lda.w #$0002
 	trb.w sflags3
 	jmp.w CODE_9BACE5

@@ -6,7 +6,7 @@ CODE_9ED6EA:
 	eor.w #$0001
 	asl a
 	asl a
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9EDC06
 CODE_9ED6FD:
 	lda.w Ypos,x
@@ -16,17 +16,17 @@ CODE_9ED6FD:
 	bpl CODE_9ED72D
 CODE_9ED70A:
 	lda.w $0D71
-	sta.b $A5
+	sta.b d0
 	lda.w pucky
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9EDBC0
-	lda.b $A9
+	lda.b d1
 	cmp.w #$FFD2
 	bmi CODE_9ED755
 	cmp.w #$002E
 	bpl CODE_9ED755
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $A5
+	lda.b d0
 	pha
 	jmp.w CODE_9ED7F1

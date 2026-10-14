@@ -1,14 +1,14 @@
 ; Unidentified routine.
 CODE_9C9145:
-	lda.b [$89]
+	lda.b [a0]
 	clc
-	adc.b $91
+	adc.b a2
 	tay
 	lda.w $0000,y
-	sta.b $A5
+	sta.b d0
 	jsl.l PushTime
 CODE_9C9154:
-	lda.b [$8D]
+	lda.b [a1]
 	inc a
 	lsr a
 	eor.w #$FFFF

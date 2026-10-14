@@ -2,25 +2,25 @@
 CODE_9F9E24:
 	lda.w #$0001
 	sta.l $7E3462
-	lda.b $91
+	lda.b a2
 	pha
-	stz.b $91
+	stz.b a2
 	lda.w HomeTeam
-	sta.b $A9
+	sta.b d1
 	lda.w #$0014
 	sta.w printx
 	lda.w #$0002
 	sta.w printy
 	jsl.l CODE_9FBE08
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	lda.w #$0003
 	sta.w printx
 	lda.w VisTeam
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FBE08
 	pla
-	sta.b $91
+	sta.b a2
 	lda.w #$0000
 	sta.l $7E3462
 	lda.w #$0000

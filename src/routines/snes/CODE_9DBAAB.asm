@@ -22,7 +22,7 @@ CODE_9DBABA:
 	asl a
 	tax
 	lda.l CreditTitles,x
-	sta.b $8D
+	sta.b a1
 	lda.w #$0080
 	sta.b $8F
 	ldx.w #$0080
@@ -32,7 +32,7 @@ CODE_9DBABA:
 	asl a
 	tax
 	lda.l CreditNames,x
-	sta.b $8D
+	sta.b a1
 	lda.w #$0080
 	sta.b $8F
 	ldx.w #$0080

@@ -1,52 +1,52 @@
 ; Unidentified routine.
 CODE_9FD252:
-	lda.b $A5
+	lda.b d0
 	pha
 	lda.b $A7
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.b $AB
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
 	lda.b $AF
 	pha
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
 CODE_9FD269:
-	lda.b $89,x
+	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0010
 	bne CODE_9FD269
-	ldx.b $87
-	stz.b $91
+	ldx.b xsave
+	stz.b a2
 	jsl.l CODE_9FD2A7
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9FD2A7
-	stx.b $87
+	stx.b xsave
 	ldx.w #$000E
 CODE_9FD289:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
 	bpl CODE_9FD289
-	ldx.b $87
+	ldx.b xsave
 	pla
 	sta.b $AF
 	pla
-	sta.b $AD
+	sta.b d2
 	pla
 	sta.b $AB
 	pla
-	sta.b $A9
+	sta.b d1
 	pla
 	sta.b $A7
 	pla
-	sta.b $A5
-	ldx.b $95
+	sta.b d0
+	ldx.b a3
 	rtl

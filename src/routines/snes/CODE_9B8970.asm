@@ -10,31 +10,31 @@ CODE_9B8979:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CEFF4
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF000
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w HomeTeam
-	sta.b $A9
-	lda.b $91
+	sta.b d1
+	lda.b a2
 	beq CODE_9B89BC
 CODE_9B89B4:
 	lda.w VisTeam
-	sta.b $A9
+	sta.b d1
 	lda.w #$0030
 CODE_9B89BC:
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FBE08
 	jsl.l CODE_9DDDB3
 	jsl.l SpriteFrameEnd

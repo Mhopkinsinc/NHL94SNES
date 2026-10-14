@@ -2,35 +2,35 @@
 CODE_9DA3FC:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF54E
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF56B
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	jsl.l CODE_9FBF75
 CODE_9DA434:
 	ldx.w #$0008
 CODE_9DA437:
-	lda.w $0776,x
+	lda.w JoyPad,x
 	bit.w #$000F
 	bne CODE_9DA444
 	bit.w #$1000

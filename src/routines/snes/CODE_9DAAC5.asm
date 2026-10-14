@@ -14,11 +14,11 @@ CODE_9DAACC:
 	lda.w #$000A
 	sta.w printy
 	lda.w #$000A
-	sta.b $A5
+	sta.b d0
 	lda.w #$0002
-	sta.b $A9
+	sta.b d1
 	lda.l $7E35D0
-	sta.b $AD
+	sta.b d2
 	jsl.l eraser
 	lda.w #$0001
 	sta.l $7E3460

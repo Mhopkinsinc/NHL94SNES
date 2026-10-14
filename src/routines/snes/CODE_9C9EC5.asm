@@ -1,20 +1,20 @@
 ; Unidentified routine.
 CODE_9C9EC5:
-	stz.b $91
+	stz.b a2
 	lda.w #$0002
-	sta.b $8D
+	sta.b a1
 	cpx.w #$001A
 	bmi CODE_9C9ED8
 	lda.w #$0002
-	sta.b $91
-	stz.b $8D
+	sta.b a2
+	stz.b a1
 CODE_9C9ED8:
-	ldy.b $91
+	ldy.b a2
 	lda.w $178E,y
-	ldy.b $8D
+	ldy.b a1
 	sec
 	sbc.w $178E,y
-	sta.b $A5
+	sta.b d0
 	lda.w #$0000
 	sbc.w #$0000
 	sta.b $A7

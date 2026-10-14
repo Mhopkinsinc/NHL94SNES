@@ -1,13 +1,13 @@
 ; Unidentified routine.
 CODE_9EF3C3:
-	ldy.b $91
+	ldy.b a2
 	lda.w $17CE,y
 	inc a
 	sta.w $17CE,y
 CODE_9EF3CC:
 	lda.w $1E89
 	beq CODE_9EF3DA
-	ldy.b $91
+	ldy.b a2
 	lda.w $17DA,y
 	inc a
 	sta.w $17DA,y
@@ -16,7 +16,7 @@ CODE_9EF3DA:
 	lda.w #$0002
 	jsl.l CODE_9C9A7F
 	stz.w $0C23
-	ldy.b $91
+	ldy.b a2
 	beq CODE_9EF406
 	lda.w #$0004
 	jsl.l CODE_9C9FD5

@@ -3,22 +3,22 @@ CODE_9CA4CF:
 	phx
 	ldx.w #$000E
 CODE_9CA4D3:
-	lda.l $7E3508,x
+	lda.l passbits,x
 	sta.b $DD,x
 	lda.w #$0000
-	sta.l $7E3508,x
+	sta.l passbits,x
 	dex
 	dex
 	bpl CODE_9CA4D3
-	lda.b $A5
+	lda.b d0
 	sta.b $CD
 CODE_9CA4E8:
 	lsr.b $CD
 	bcc CODE_9CA53D
-	lda.l $7E3508
+	lda.l passbits
 	clc
 	adc.b $DD
-	sta.l $7E3508
+	sta.l passbits
 	lda.l $7E350A
 	adc.b $DF
 	sta.l $7E350A

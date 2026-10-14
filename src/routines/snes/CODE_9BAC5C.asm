@@ -15,7 +15,7 @@ CODE_9BAC73:
 	bmi CODE_9BAC7B
 	lda.w #$0040
 CODE_9BAC7B:
-	sta.w $0CEB
+	sta.w Hpos
 	sta.w $0CBD
 	lda.w $0DD7
 	cmp.w $0CBF

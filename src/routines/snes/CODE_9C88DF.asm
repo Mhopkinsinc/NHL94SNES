@@ -2,19 +2,19 @@
 CODE_9C88DF:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF32C
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w $1DC1
-	sta.b $A9
+	sta.b d1
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$39B4
@@ -30,7 +30,7 @@ CODE_9C8912:
 	sta.b $0C
 	lda.w #$007F
 	sta.b $0E
-	lda.b $A9
+	lda.b d1
 	xba
 	lsr a
 	adc.w #$0040
@@ -38,5 +38,5 @@ CODE_9C8912:
 	ldy.w #$0160
 	jsl.l CODE_80891F
 	pla
-	sta.b $A9
+	sta.b d1
 	rtl

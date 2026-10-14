@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9DB8C3:
 	sec
-	sbc.w #$0400
+	sbc.w #DMA_OAM
 	ldx.w #$00C0
 	jsl.l Mul16U
 	lda.b $09

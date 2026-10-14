@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9E9D0D:
-	ldy.b $95
+	ldy.b a3
 	lda.w pfteam,y
 	beq CODE_9E9D17
 	lda.w #$0002
@@ -11,18 +11,18 @@ CODE_9E9D17:
 	lda.w #$0002
 	sta.w $0C25
 	lda.w #$F54E
-	sta.b $A9
-	ldy.b $91
-	lda.b $A5
+	sta.b d1
+	ldy.b a2
+	lda.b d0
 	sec
-	sbc.w $1163,y
+	sbc.w facedir,y
 	inc a
 	and.w #$0007
 	cmp.w #$0003
 	bcc CODE_9E9D59
 	lda.w #$F49C
-	sta.b $A9
-	lda.w $1163,y
+	sta.b d1
+	lda.w facedir,y
 	and.w #$0003
 	bne CODE_9E9D59
 	lda.w $1483,x
@@ -32,13 +32,13 @@ CODE_9E9D17:
 	cpx.w #$0018
 	bcs CODE_9E9D59
 	lda.w #$F6C0
-	sta.b $A9
+	sta.b d1
 CODE_9E9D59:
-	ldx.b $91
+	ldx.b a2
 	lda.w #$0001
-	sta.w $14E3,x
+	sta.w pfalock,x
 	jsl.l SetSPA
-	ldx.b $95
+	ldx.b a3
 	lda.w position,x
 	bne CODE_9E9D79
 	cpx.w #$0018

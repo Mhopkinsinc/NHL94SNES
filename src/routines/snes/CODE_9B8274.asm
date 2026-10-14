@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9B8274:
-	stz.w $4016
+	stz.w JOYSER0
 CODE_9B8277:
 	lda.w $0ACA
 	cmp.b #$01

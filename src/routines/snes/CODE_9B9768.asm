@@ -14,7 +14,7 @@ CODE_9B9768:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF0F9
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd
 	lda.w #$FFFF
@@ -26,15 +26,15 @@ CODE_9B9768:
 	jsl.l CODE_9DE0D4
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF104
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w $163C
@@ -58,8 +58,8 @@ CODE_9B97E3:
 	jsr.w CODE_9B98C9
 CODE_9B9808:
 	jsl.l CODE_9B851F
-	jsl.l CODE_9B852C
-	lda.b $B1
+	jsl.l ProcessInputWithRepeat
+	lda.b d3
 	bit.w #$1000
 	beq CODE_9B9818
 	rtl

@@ -48,7 +48,7 @@ SpriteFrame373:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame373
 	db $01,$02,$03,$04
-	dw -13,-7,$0400 : db $FF
+	dw -13,-7,DMA_OAM : db $FF
 	dw -5,-7,$4400 : db $FF
 	dw -4,9,$0402 : db $00
 .tiles:
@@ -60,7 +60,7 @@ SpriteFrame374:
 	dw $00A0,$0080
 	dw .tiles-SpriteFrame374
 	db $01,$02,$03,$04
-	dw -15,-5,$0400 : db $FF
+	dw -15,-5,DMA_OAM : db $FF
 	dw 1,-5,$0402 : db $00
 	dw 1,3,$0403 : db $00
 	dw -16,11,$0412 : db $00
@@ -75,7 +75,7 @@ SpriteFrame375:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame375
 	db $01,$02,$03,$04
-	dw -18,-12,$0400 : db $FF
+	dw -18,-12,DMA_OAM : db $FF
 	dw -18,-4,$8400 : db $FF
 	dw -2,-8,$0402 : db $00
 	dw -2,0,$4402 : db $00
@@ -88,7 +88,7 @@ SpriteFrame376:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame376
 	db $01,$02,$03,$04
-	dw -13,-7,$0400 : db $FF
+	dw -13,-7,DMA_OAM : db $FF
 	dw -5,-7,$4400 : db $FF
 	dw -4,9,$0402 : db $00
 .tiles:
@@ -100,7 +100,7 @@ SpriteFrame377:
 	dw $00A0,$0080
 	dw .tiles-SpriteFrame377
 	db $01,$02,$03,$04
-	dw -15,-5,$0400 : db $FF
+	dw -15,-5,DMA_OAM : db $FF
 	dw 1,-5,$0402 : db $00
 	dw 1,3,$0403 : db $00
 	dw -16,11,$0412 : db $00
@@ -115,7 +115,7 @@ SpriteFrame378:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame378
 	db $01,$02,$03,$04
-	dw -18,-12,$0400 : db $FF
+	dw -18,-12,DMA_OAM : db $FF
 	dw -18,-4,$8400 : db $FF
 	dw -2,-8,$0402 : db $00
 	dw -2,0,$4402 : db $00
@@ -128,7 +128,7 @@ SpriteFrame379:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame379
 	db $01,$02,$03,$04
-	dw -13,-7,$0400 : db $FF
+	dw -13,-7,DMA_OAM : db $FF
 	dw -5,-7,$4400 : db $FF
 	dw -4,9,$0402 : db $00
 .tiles:
@@ -140,7 +140,7 @@ SpriteFrame380:
 	dw $00A0,$0080
 	dw .tiles-SpriteFrame380
 	db $01,$02,$03,$04
-	dw -15,-5,$0400 : db $FF
+	dw -15,-5,DMA_OAM : db $FF
 	dw 1,-5,$0402 : db $00
 	dw 1,3,$0403 : db $00
 	dw -16,11,$0412 : db $00
@@ -155,7 +155,7 @@ SpriteFrame381:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame381
 	db $01,$02,$03,$04
-	dw -18,-12,$0400 : db $FF
+	dw -18,-12,DMA_OAM : db $FF
 	dw -18,-4,$8400 : db $FF
 	dw -2,-8,$0402 : db $00
 	dw -2,0,$4402 : db $00
@@ -168,7 +168,7 @@ SpriteFrame382:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame382
 	db $01,$02,$03,$04
-	dw -13,-7,$0400 : db $FF
+	dw -13,-7,DMA_OAM : db $FF
 	dw -5,-7,$4400 : db $FF
 	dw -4,9,$0402 : db $00
 .tiles:
@@ -180,7 +180,7 @@ SpriteFrame383:
 	dw $00A0,$0080
 	dw .tiles-SpriteFrame383
 	db $01,$02,$03,$04
-	dw -15,-5,$0400 : db $FF
+	dw -15,-5,DMA_OAM : db $FF
 	dw 1,-5,$0402 : db $00
 	dw 1,3,$0403 : db $00
 	dw -16,11,$0412 : db $00
@@ -196,7 +196,7 @@ SpriteFrame384:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame384
 	db $01,$02,$03,$04
-	dw -18,-12,$0400 : db $FF
+	dw -18,-12,DMA_OAM : db $FF
 	dw -18,-4,$8400 : db $FF
 	dw -2,-8,$0402 : db $00
 	dw -2,0,$4402 : db $00
@@ -209,7 +209,7 @@ SpriteFrame385:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame385
 	db $01,$02,$03,$04
-	dw -13,-7,$0400 : db $FF
+	dw -13,-7,DMA_OAM : db $FF
 	dw -5,-7,$4400 : db $FF
 	dw -4,9,$0402 : db $00
 .tiles:
@@ -221,7 +221,7 @@ SpriteFrame386:
 	dw $00A0,$0080
 	dw .tiles-SpriteFrame386
 	db $01,$02,$03,$04
-	dw -15,-5,$0400 : db $FF
+	dw -15,-5,DMA_OAM : db $FF
 	dw 1,-5,$0402 : db $00
 	dw 1,3,$0403 : db $00
 	dw -16,11,$0412 : db $00
@@ -236,7 +236,7 @@ SpriteFrame387:
 	dw $0060,$0040
 	dw .tiles-SpriteFrame387
 	db $01,$02,$03,$04
-	dw -18,-12,$0400 : db $FF
+	dw -18,-12,DMA_OAM : db $FF
 	dw -18,-4,$8400 : db $FF
 	dw -2,-8,$0402 : db $00
 	dw -2,0,$4402 : db $00
@@ -260,7 +260,7 @@ SpriteFrame389:
 	dw $0040,$0040
 	dw .tiles-SpriteFrame389
 	db $01,$02,$03,$04
-	dw -16,-5,$0400 : db $FF
+	dw -16,-5,DMA_OAM : db $FF
 	dw 0,-5,$4400 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames87.bin":5519..5647
@@ -271,7 +271,7 @@ SpriteFrame390:
 	dw $0040,$0040
 	dw .tiles-SpriteFrame390
 	db $01,$02,$03,$04
-	dw -16,-5,$0400 : db $FF
+	dw -16,-5,DMA_OAM : db $FF
 	dw 0,-5,$4400 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames87.bin":5683..5811
@@ -282,7 +282,7 @@ SpriteFrame391:
 	dw $0040,$0040
 	dw .tiles-SpriteFrame391
 	db $01,$02,$03,$04
-	dw -16,-5,$0400 : db $FF
+	dw -16,-5,DMA_OAM : db $FF
 	dw 0,-5,$4400 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames87.bin":5847..5975
@@ -293,7 +293,7 @@ SpriteFrame392:
 	dw $0040,$0040
 	dw .tiles-SpriteFrame392
 	db $01,$02,$03,$04
-	dw -16,-5,$0400 : db $FF
+	dw -16,-5,DMA_OAM : db $FF
 	dw 0,-5,$4400 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames87.bin":6011..6139
@@ -304,7 +304,7 @@ SpriteFrame393:
 	dw $0040,$0040
 	dw .tiles-SpriteFrame393
 	db $01,$02,$03,$04
-	dw -16,-5,$0400 : db $FF
+	dw -16,-5,DMA_OAM : db $FF
 	dw 0,-5,$4400 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames87.bin":6175..6303
@@ -315,7 +315,7 @@ SpriteFrame394:
 	dw $0040,$0000
 	dw .tiles-SpriteFrame394
 	db $01,$01,$03,$03
-	dw -16,-6,$0400 : db $00
+	dw -16,-6,DMA_OAM : db $00
 	dw -16,2,$0401 : db $00
 	dw 8,-6,$4400 : db $00
 	dw 8,2,$4401 : db $00

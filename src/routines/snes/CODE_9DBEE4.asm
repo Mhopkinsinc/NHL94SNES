@@ -6,19 +6,19 @@ CODE_9DBEE4:
 	lda.w #$009D
 	sta.b $8F
 	lda.w #DATA8_9DC298
-	sta.b $8D
-	lda.b [$8D],y
+	sta.b a1
+	lda.b [a1],y
 	and.w #$00FF
 	tay
-	lda.b [$95],y
+	lda.b [a3],y
 	and.w #$00FF
 	dec a
 	sta.w $1D9B
 CODE_9DBF02:
 	lda.w $1D9B
-	sta.b $A5
-	jsl.l CODE_9FC372
-	lda.b [$8D]
+	sta.b d0
+	jsl.l PlayerNumName
+	lda.b [a1]
 	dec a
 	dec a
 	lsr a
@@ -29,9 +29,9 @@ CODE_9DBF02:
 	sta.w printx
 	lda.w #$000C
 	sta.w printy
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	jsl.l GoalieCount
 	lda.w $1D9B
-	cmp.b $A5
+	cmp.b d0
 	bmi CODE_9DBF33
 	jmp.w CODE_9DBFEE

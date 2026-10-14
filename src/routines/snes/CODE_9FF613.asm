@@ -1,11 +1,11 @@
 ; Unidentified routine.
 CODE_9FF613:
 	lda.b $B7
-	sta.b $B5
-	lda.b $B5
+	sta.b d4
+	lda.b d4
 	cmp.w #$000D
 	beq CODE_9FF623
-	lda.w $0776
+	lda.w JoyPad
 	beq CODE_9FF623
 CODE_9FF623:
 	lda.b $C3

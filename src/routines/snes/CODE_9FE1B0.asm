@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9FE1B0:
-	lda.b $A9
+	lda.b d1
 	bit.w #$8080
 	bne CODE_9FE1FA
-	bit.w #$0400
+	bit.w #DMA_OAM
 	beq CODE_9FE1DD
 	inc.w $0D15
 	lda.w $1EB9

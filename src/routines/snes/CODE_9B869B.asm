@@ -1,13 +1,13 @@
 ; Unidentified routine.
 CODE_9B869B:
 	jsl.l CODE_9DE0E9
-	ldy.b $91
+	ldy.b a2
 	lda.w tmline,y
 	inc a
-	sta.b $A5
-	sta.w $0D43
+	sta.b d0
+	sta.w SelectedPlayerIdx
 	stz.w $0D47
-	ldx.b $91
+	ldx.b a2
 	lda.w HomeTeam,x
 	sta.l $7E3454
 	lda.w #$FFFF
@@ -29,8 +29,8 @@ CODE_9B86E5:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B851F
-	jsl.l CODE_9B852C
-	lda.b $A9
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
 	bit.w #$1000
 	beq CODE_9B8711
 	jsr.w CODE_9B8A15

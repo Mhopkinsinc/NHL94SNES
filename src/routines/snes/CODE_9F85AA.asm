@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9F85AA:
-	ldx.b $C1
+	ldx.b d7
 CODE_9F85AC:
 	lda.w gameclock
 	beq CODE_9F85D0

@@ -22,4 +22,4 @@ PrintPerLabel:
 	sta.b a0
 	dec.b d0
 	bpl .next
-	jml.l CODE_9EC7BE
+	jml.l print

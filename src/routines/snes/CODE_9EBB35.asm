@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9EBB35:
 	lda.w #$0004
-	sta.w $1163,x
+	sta.w facedir,x
 	lda.w #$FFFF
 	sta.w newpnum,x
 	sta.w newpos,x
@@ -11,7 +11,7 @@ CODE_9EBB35:
 	stz.w $1563,x
 	lda.w #$F000
 	sta.w $0EC3,x
-	ldx.b $91
+	ldx.b a2
 	lda.w $19D0,x
 	cmp.w #$0004
 	bcc CODE_9EBB8C
@@ -26,7 +26,7 @@ CODE_9EBB6D:
 	lda.w $19F6,y
 	bpl CODE_9EBB63
 	and.w #$00FF
-	cmp.b $91
+	cmp.b a2
 	bne CODE_9EBB63
 	sta.w $19F6,y
 	inc a

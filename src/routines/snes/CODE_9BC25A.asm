@@ -10,7 +10,7 @@ CODE_9BC25A:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF1E1
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd
 	jsl.l CODE_9DE0D4
@@ -23,7 +23,7 @@ CODE_9BC294:
 CODE_9BC295:
 	sta.w $1DBD
 	jsl.l GetShifter
-	lda.b $A9
+	lda.b d1
 	inc a
 	sta.w $1DC1
 	jsl.l CODE_9BC49A
@@ -39,7 +39,7 @@ CODE_9BC295:
 	jsl.l CODE_9BC44B
 CODE_9BC2C9:
 	jsl.l CODE_9B851F
-	lda.b $B1
+	lda.b d3
 	bit.w #$1000
 	beq CODE_9BC2D7
 	jmp.w CODE_9BC43B

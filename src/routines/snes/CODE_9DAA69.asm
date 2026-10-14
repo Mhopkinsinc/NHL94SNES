@@ -1,12 +1,12 @@
 ; Unidentified routine.
 CODE_9DAA69:
-	ldy.b $C1
+	ldy.b d7
 	lda.w #$007E
 	sta.b $8F
 	lda.w #$34BC
-	sta.b $8D
-	lda.b [$8D],y
-	sta.b $B1
+	sta.b a1
+	lda.b [a1],y
+	sta.b d3
 	jsl.l CODE_9BC5AB
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	bra CODE_9DAA54

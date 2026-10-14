@@ -1,25 +1,25 @@
 ; Unidentified routine.
 CODE_9C88A0:
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.w $1DF9
 	beq CODE_9C88DF
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF309
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w $1DC5
-	sta.b $A9
-	dec.b $A9
+	sta.b d1
+	dec.b d1
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$39B4

@@ -8,10 +8,10 @@ CODE_9C9415:
 	stz.b $14
 	lda.w #$0001
 	sta.b $16
-	lda.b $8D
-	sta.b $A9
+	lda.b a1
+	sta.b d1
 	lda.w #$FFFF
-	sta.b $91
+	sta.b a2
 	sta.b $93
 	pha
 	sep #$30

@@ -3,8 +3,8 @@ CODE_9BC7D5:
 	jsl.l CODE_9BCDE2
 CODE_9BC7D9:
 	lda.w #$0080
-	ora.l $7E34F4
-	sta.l $7E34F4
+	ora.l PassWord
+	sta.l PassWord
 	lda.w #$0002
 	sta.l $7E34BC
 	lda.w $0ACF

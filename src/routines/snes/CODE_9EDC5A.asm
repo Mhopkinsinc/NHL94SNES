@@ -1,11 +1,11 @@
 ; Unidentified routine.
 CODE_9EDC5A:
 	lda.w $0D71
-	sta.b $A5
+	sta.b d0
 	lda.w pucky
 	sec
-	sbc.b $B5
-	sta.b $A9
+	sbc.b d4
+	sta.b d1
 CODE_9EDC67:
 	lda.w Ypos,x
 	bpl CODE_9EDC86

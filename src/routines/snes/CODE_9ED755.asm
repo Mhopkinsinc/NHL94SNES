@@ -14,11 +14,11 @@ CODE_9ED765:
 	adc.b $14
 	clc
 	adc.w pucky
-	sta.b $A9
-	lda.b $A9
+	sta.b d1
+	lda.b d1
 	cmp.w #$00E0
 	bpl CODE_9ED781
-	lda.b $A9
+	lda.b d1
 	cmp.w #$FF20
 	bpl CODE_9ED7CA
 CODE_9ED781:
@@ -43,5 +43,5 @@ CODE_9ED7A2:
 	adc.b $14
 	clc
 	adc.w $0D71
-	sta.b $A5
+	sta.b d0
 	bra CODE_9ED7E7

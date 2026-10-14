@@ -4,35 +4,35 @@ CODE_9EB987:
 	lda.w #$0080
 	sta.b $8F
 	lda.w #DATA8_80D3EB
-	sta.b $8D
-	lda.b [$8D],y
+	sta.b a1
+	lda.b [a1],y
 	clc
-	adc.b $8D
-	sta.b $8D
-	lda.b [$8D]
+	adc.b a1
+	sta.b a1
+	lda.b [a1]
 	and.w #$00FF
 	beq CODE_9EB9C2
-	dec.b $89
-	dec.b $89
+	dec.b a0
+	dec.b a0
 	lda.w #$0000
-	sta.b $A5
-	lda.b ($89)
-	inc.b $89
-	inc.b $89
+	sta.b d0
+	lda.b (a0)
+	inc.b a0
+	inc.b a0
 	and.w #$FF00
 	cmp.w #$0600
 	bcc CODE_9EB9BC
 	lda.w #$0002
-	sta.b $A5
+	sta.b d0
 CODE_9EB9BC:
-	lda.b $91
-	cmp.b $A5
+	lda.b a2
+	cmp.b d0
 	beq CODE_9EB971
 CODE_9EB9C2:
-	dec.b $89
-	dec.b $89
+	dec.b a0
+	dec.b a0
 	lda.w #$0034
-	sta.b ($89)
-	inc.b $89
-	inc.b $89
+	sta.b (a0)
+	inc.b a0
+	inc.b a0
 	bra CODE_9EB971

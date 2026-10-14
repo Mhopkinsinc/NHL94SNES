@@ -1,6 +1,6 @@
 ; Unidentified routine.
 randomd0:
-	lda.b $A5
+	lda.b d0
 	jsl.l CODE_9BB370
-	sta.b $A5
+	sta.b d0
 	rtl

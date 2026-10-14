@@ -3,7 +3,7 @@ CODE_9F927D:
 	jsl.l reenergizeteam
 	jsl.l setpersonel
 	jsl.l forcepldata
-	ldy.b $91
+	ldy.b a2
 	lda.w #$FFFF
 	sta.w tmtouch1,y
 	sta.w tmtouch2,y

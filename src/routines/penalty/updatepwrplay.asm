@@ -49,7 +49,7 @@ updatepwrplay:
 	sta.b a1+2
 	lda.w #DATA8_9CF718
 	sta.b a1
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	pla
 	sta.b a1
 	pla
@@ -92,7 +92,7 @@ updatepwrplay:
 	plx
 .time:
 	jsl.l PushTime
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	ldx.b a3
 	lda.w tmdata,x
 	sta.b a0
@@ -100,7 +100,7 @@ updatepwrplay:
 	sta.b a0+2
 	lda.w #$0000
 	sta.b a3+2
-	lda.w #$0A2A
+	lda.w #mesarea
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
@@ -124,5 +124,5 @@ updatepwrplay:
 	sta.b a1+2
 	lda.b a3
 	sta.b a1
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	rtl

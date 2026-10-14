@@ -10,11 +10,11 @@ CODE_9FD2D7:
 	sta.w pflags,x
 	stz.w $1563,x
 	stz.w $1523,x
-	stz.w $14E3,x
+	stz.w pfalock,x
 CODE_9FD2F3:
-	inc.b $95
-	inc.b $95
-	ldx.b $95
-	dec.b $AD
+	inc.b a3
+	inc.b a3
+	ldx.b a3
+	dec.b d2
 	bpl CODE_9FD2BC
 	rtl

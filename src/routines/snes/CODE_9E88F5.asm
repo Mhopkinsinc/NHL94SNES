@@ -5,7 +5,7 @@ CODE_9E88F5:
 	beq CODE_9E8900
 	ldy.w #$FF9E
 CODE_9E8900:
-	sty.b $A9
+	sty.b d1
 	bra CODE_9E88F2
 	lda.w $0AD9
 	bmi CODE_9E8967
@@ -44,9 +44,9 @@ CODE_9E893F:
 	lda.w Xpos,x
 	sec
 	sbc.w $0D71
-	sta.b $A5
+	sta.b d0
 	lda.w Ypos,x
 	sec
 	sbc.w pucky
-	sta.b $A9
+	sta.b d1
 	jml.l vtoa

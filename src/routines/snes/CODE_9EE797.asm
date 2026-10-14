@@ -18,11 +18,11 @@ CODE_9EE7B0:
 	lda.w #$0000
 	sec
 	sbc.w $0BA7
-	sta.b $A5
+	sta.b d0
 	lda.w pfgoal,x
 	bne CODE_9EE7D1
 	lda.w #$FEF8
 	sec
 	sbc.w $0BA9
-	sta.b $A9
+	sta.b d1
 	bra CODE_9EE7DA

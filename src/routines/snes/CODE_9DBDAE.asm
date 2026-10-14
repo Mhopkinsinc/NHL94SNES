@@ -10,22 +10,22 @@ CODE_9DBDAE:
 	inc a
 	inc a
 	sta.w $1D9B
-	ldy.b $91
+	ldy.b a2
 	lda.w #$009C
 	sta.b $97
 	lda.w tmdata,y
-	sta.b $95
+	sta.b a3
 	ldy.w #$000C
 	clc
-	adc.b [$95],y
-	sta.b $95
+	adc.b [a3],y
+	sta.b a3
 CODE_9DBDD8:
 	dec.w $1D9B
 	beq CODE_9DBDF2
 	bmi CODE_9DBDF2
 	ldy.w #$0000
 CODE_9DBDE2:
-	lda.b [$95],y
+	lda.b [a3],y
 	and.w #$00FF
 	cmp.w $1D9B
 	beq CODE_9DBDD8

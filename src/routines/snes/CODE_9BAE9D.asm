@@ -27,7 +27,7 @@ CODE_9BAEC9:
 CODE_9BAECC:
 	sta.w $0DD7
 CODE_9BAECF:
-	lda.b $A9
+	lda.b d1
 	bit.w #$8000
 	beq CODE_9BAF03
 	lda.l $7E35F0
@@ -46,17 +46,17 @@ CODE_9BAEFA:
 	eor.w #$0002
 	sta.w sflags3
 CODE_9BAF03:
-	lda.b $B1
+	lda.b d3
 	bit.w #$0020
 	bne CODE_9BAF31
 	bit.w #$0050
 	bne CODE_9BAF56
-	lda.b $A9
+	lda.b d1
 	bit.w #$2000
 	bne CODE_9BAF3D
 	bit.w #$1000
 	bne CODE_9BAF3A
-	lda.b $B1
+	lda.b d3
 	bit.w #$0080
 	bne CODE_9BAF4C
 	bit.w #$4000

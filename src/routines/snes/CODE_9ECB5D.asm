@@ -2,28 +2,28 @@
 CODE_9ECB5D:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF796
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w $0D47
 	clc
 	adc.w printx
 	sta.w printx
-	lda.w $0D49
+	lda.w VertLineScrolling
 	clc
 	adc.w printy
 	sta.w printy
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	lda.w $0D47
 	clc
-	adc.b $A9
+	adc.b d1
 	sta.w $0D47
 	rtl

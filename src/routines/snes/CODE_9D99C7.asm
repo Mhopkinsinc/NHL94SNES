@@ -1,25 +1,25 @@
 ; Unidentified routine.
 CODE_9D99C7:
-	stz.b $A5
+	stz.b d0
 	lda.l $7E3538,x
 	sta.l $7E34C0
 CODE_9D99D1:
-	lda.b $A5
+	lda.b d0
 	clc
 	adc.l $7E34CE
-	sta.b $A5
-	lda.b $A9
+	sta.b d0
+	lda.b d1
 	sta.l $7E35D6
 	lda.l $7E3528,x
 	sta.w HomeTeam
 	lda.l $7E3538,x
 	sta.w VisTeam
-	asl.b $A5
-	asl.b $A5
+	asl.b d0
+	asl.b d0
 	phb
 	phk
 	plb
-	ldy.b $A5
+	ldy.b d0
 	ldx.w #$0000
 CODE_9D99FA:
 	lda.w $1C84,x

@@ -6,29 +6,29 @@ CODE_9EEE04:
 	sec
 	sbc.w $13A3,x
 	asl a
-	sta.b $B5
+	sta.b d4
 	ldy.w $0BA5
 	lda.w DATA8_9EEED4,y
 	clc
-	adc.b $B5
-	jsl.l CODE_9BB3A4
+	adc.b d4
+	jsl.l randomd0s
 	clc
 	adc.w DATA8_9EEF04,y
 	sec
 	sbc.w $0D71
-	sta.b $A5
+	sta.b d0
 	lda.w DATA8_9EEEEC,y
 	clc
-	adc.b $B5
-	jsl.l CODE_9BB3A4
+	adc.b d4
+	jsl.l randomd0s
 	clc
 	adc.w DATA8_9EEF1C,y
 	sec
 	sbc.w pucky
-	sta.b $A9
-	ldy.b $A5
+	sta.b d1
+	ldy.b d0
 	jsl.l CODE_9CA554
-	sta.b $AD
+	sta.b d2
 	asl a
 	asl a
 	asl a

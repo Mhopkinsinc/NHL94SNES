@@ -16,7 +16,7 @@ CODE_9EE6F1:
 	cmp.w #$0110
 	bcc CODE_9EE705
 CODE_9EE6F6:
-	lda.w $1163,x
+	lda.w facedir,x
 	and.w #$0007
 	sta.w passdir
 	lda.w #$0004

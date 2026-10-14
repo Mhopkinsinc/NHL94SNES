@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9B8E3D:
 	jsl.l CODE_9B92DC
-	lda.b $A5
+	lda.b d0
 	sta.w $1DA3
 	jsl.l GoalieCount
-	lda.b $A5
+	lda.b d0
 	sta.w $1DAB
 CODE_9B8E4F:
 	sta.w $1DA7
@@ -15,21 +15,21 @@ CODE_9B8E4F:
 	lda.w $1DA3
 CODE_9B8E5F:
 	sta.w $1DAF
-	lda.w $0D43
+	lda.w SelectedPlayerIdx
 	dec a
 	asl a
 	asl a
 	asl a
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9B9320
-	lda.b $95
+	lda.b a3
 	clc
-	adc.b $A5
+	adc.b d0
 	clc
 	adc.w $1D9F
 	sec
 	sbc.w $1D8B
-	sta.b $95
+	sta.b a3
 	jsr.w CODE_808D72
 	sta.w $1D9B
 	lda.w $1DAF

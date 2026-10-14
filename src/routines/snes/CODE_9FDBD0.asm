@@ -4,15 +4,15 @@ CODE_9FDBD0:
 	cmp.w #$0002
 	beq CODE_9FDC4B
 	lda.w pucky
-	sta.b $A5
+	sta.b d0
 	lda.w pfgoal,x
 	bne CODE_9FDBEB
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
+	sbc.b d0
+	sta.b d0
 CODE_9FDBEB:
-	lda.b $A5
+	lda.b d0
 	bmi CODE_9FDC4B
 	sec
 	sbc.w #$0058
@@ -30,17 +30,17 @@ CODE_9FDC09:
 	ply
 	bit.w #$0008
 	bne CODE_9FDC4B
-	stz.b $91
+	stz.b a2
 	lda.w #$0002
-	sta.b $8D
+	sta.b a1
 	lda.w pfteam,x
 	beq CODE_9FDC25
-	stz.b $8D
+	stz.b a1
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 CODE_9FDC25:
 	jsl.l CODE_9FDD19
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0C01
 	bcs CODE_9FDC4B
 	lda.w $163A
@@ -50,4 +50,4 @@ CODE_9FDC25:
 	jsl.l CODE_9FDA53
 	jsl.l setpersonel
 	jsl.l CODE_9F9B36
-	jml.l CODE_9EE10B
+	jml.l CompShoot

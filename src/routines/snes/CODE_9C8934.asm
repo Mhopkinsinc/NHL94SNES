@@ -7,7 +7,7 @@ CODE_9C8934:
 	ldx.w #$4D80
 	lda.l $7E35B6
 	clc
-	adc.l $7E35A8
+	adc.l printfontset
 	jsl.l CODE_808EDF
 	ldy.w $1DBD
 	tya

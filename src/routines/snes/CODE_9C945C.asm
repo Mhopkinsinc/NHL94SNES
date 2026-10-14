@@ -6,19 +6,19 @@ CODE_9C945C:
 	pha
 	plb
 	rep #$30
-	lda.b ($8D)
+	lda.b (a1)
 	tay
 	dey
 	dey
-	lda.b $8D
+	lda.b a1
 	inc a
 	inc a
-	sta.b $A9
+	sta.b d1
 	lda.w #$0000
-	sta.b ($A9),y
+	sta.b (d1),y
 	ldy.w #$0000
 CODE_9C9479:
-	lda.b ($A9),y
+	lda.b (d1),y
 	and.w #$00FF
 	beq CODE_9C94D2
 	cmp.w #$0020

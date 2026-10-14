@@ -14,31 +14,31 @@ CODE_9D9007:
 	tax
 	jsl.l CODE_80891F
 CODE_9D9022:
-	lda.b [$89]
-	inc.b $89
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
 	cmp.w #$00FF
 	beq CODE_9D906E
 	asl a
 	adc.w #$B72C
-	sta.b $C5
-	lda.w #$0099
-	sta.b $C7
-	lda.b [$89]
-	inc.b $89
+	sta.b tmp0
+	lda.w #a4
+	sta.b tmp1
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
 	asl a
 	tax
 	lda.l DATA8_99B726+2
 	tay
 CODE_9D9047:
-	lda.b [$C5]
+	lda.b [tmp0]
 	sta.l $7EA876,x
-	lda.b $C5
+	lda.b tmp0
 	clc
 	adc.l DATA8_99B726
 	adc.l DATA8_99B726
-	sta.b $C5
+	sta.b tmp0
 	txa
 	adc.w #$0100
 	tax

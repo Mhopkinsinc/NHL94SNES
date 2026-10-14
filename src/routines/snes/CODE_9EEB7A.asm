@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EEB7A:
-	lda.w $1163,y
+	lda.w facedir,y
 CODE_9EEB7D:
 	and.w #$0007
 	asl a
@@ -8,41 +8,41 @@ CODE_9EEB7D:
 	lda.l $9DEF6E,x
 	tax
 	lda.l $9D0000,x
-	ldx.b $95
-	ldy.b $89
+	ldx.b a3
+	ldy.b a0
 	sta.w $0D97,y
-	lda.b $89
+	lda.b a0
 	jsl.l CODE_9BC002
-	ldy.b $89
+	ldy.b a0
 	pla
 	sta.w $0D97,y
-	lda.b $A9
+	lda.b d1
 	clc
 	adc.w Ypos,y
 	sec
 	sbc.w pucky
-	sta.b $A9
-	lda.b $A5
+	sta.b d1
+	lda.b d0
 	clc
 	adc.w Xpos,y
 	sec
 	sbc.w $0D71
-	sta.b $A5
+	sta.b d0
 	lda.w #$0018
-	sta.b $BD
-	lda.b $BD
+	sta.b d6
+	lda.b d6
 	asl a
 	asl a
 	asl a
 	asl a
-	ldy.b $89
+	ldy.b a0
 	ldx.w $0EC3,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
-	adc.b $A5
-	sta.b $AD
-	lda.b $BD
+	adc.b d0
+	sta.b d2
+	lda.b d6
 	asl a
 	asl a
 	asl a
@@ -51,11 +51,11 @@ CODE_9EEB7D:
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
-	adc.b $A9
-	sta.b $B1
-	ldy.b $AD
+	adc.b d1
+	sta.b d3
+	ldy.b d2
 	jsl.l CODE_9CA554
-	sta.b $B5
+	sta.b d4
 	asl a
 	tax
 	lda.w #$0003
@@ -64,9 +64,9 @@ CODE_9EEB7D:
 	bcc CODE_9EEC10
 	cmp.w #$0050
 	bcc CODE_9EEC4D
-	ldx.b $B5
+	ldx.b d4
 	lda.w #$0005
 	jsl.l DivX8U
-	sta.b $BD
+	sta.b d6
 	lda.w #$0050
 	bra CODE_9EEC19

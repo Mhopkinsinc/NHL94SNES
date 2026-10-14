@@ -9,7 +9,7 @@ ShooterSelectList:
 	sta.b a1+2
 	lda.w #DATA8_9CEFB5
 	sta.b a1
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	pla
 	sta.b a1
 	pla

@@ -6,14 +6,14 @@ CODE_9EBCD2:
 	ora.w #$1000
 	sta.w pflags,x
 	lda.w #$0000
-	sta.b $B5
+	sta.b d4
 	jsl.l CODE_9BC174
 	stz.w $1023,x
 	lda.w #$0008
 	sta.w $10A3,x
 	jsl.l CODE_9EBEA1
 	lda.b $08
-	sta.b $A9
+	sta.b d1
 	sta.w $1063,x
 	lda.w #$0088
 	sta.w $1043,x

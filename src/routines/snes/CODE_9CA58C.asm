@@ -6,7 +6,7 @@ CODE_9CA58F:
 	lda.w $0D71
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	bpl CODE_9CA5A0
 	eor.w #$FFFF
 	inc a
@@ -21,7 +21,7 @@ CODE_9CA5A0:
 	lda.w pucky
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	bpl CODE_9CA5BC
 	eor.w #$FFFF
 	inc a

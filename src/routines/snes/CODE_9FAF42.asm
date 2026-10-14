@@ -4,15 +4,15 @@ CODE_9FAF42:
 	bne CODE_9FAF97
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF8CD
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.l $7E3126
@@ -40,7 +40,7 @@ CODE_9FAF87:
 CODE_9FAF8A:
 	sta.w printy
 	lda.w #$000C
-	sta.b $A5
+	sta.b d0
 	inc a
-	sta.b $A9
+	sta.b d1
 	bra CODE_9FAFAD

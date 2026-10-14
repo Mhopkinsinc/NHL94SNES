@@ -12,7 +12,7 @@ CODE_9C8E3A:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9C9363
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9EC894
 CODE_9C8E60:
 	lda.w $1DBD
@@ -32,7 +32,7 @@ CODE_9C8E60:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #$9366
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9EC894
 CODE_9C8E91:
 	jsr.w CODE_808F7D
