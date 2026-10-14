@@ -379,11 +379,11 @@ puckfaceoff2:
 	stz.w SPA,x
 	lda.w position,x
 	bne .t3x
-	lda.w #$E0FE
+	lda.w #SPAgready
 	bra .15
 
 .t3x:
-	lda.w #$EA1A
+	lda.w #SPAglide
 .15:
 	jsl.l SetSPAFromA
 	jsl.l updateanim

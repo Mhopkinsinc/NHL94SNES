@@ -62,7 +62,7 @@ puckglue:
 	lda.w #$008C
 	sta.w $1083,y
 	lda.w SPA,y
-	cmp.w #$E4B6
+	cmp.w #SPAgdive
 	bne .6
 .5:
 	lda.w #$0005

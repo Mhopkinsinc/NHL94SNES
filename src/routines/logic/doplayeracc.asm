@@ -6,13 +6,13 @@ doplayeracc:
 
 .t4:
 	lda.w SPA,x
-	cmp.w #$F208
+	cmp.w #SPAsweepchk
 	beq .t2
-	lda.w #$EA1A
+	lda.w #SPAglide
 	sta.b d1
 	lda.w $1523,x
 	beq .1
-	lda.w #$F0D2
+	lda.w #SPAglideback
 	sta.b d1
 .1:
 	lda.b d0
@@ -235,7 +235,7 @@ doplayeracc:
 .6:
 	lda.b d1
 	clc
-	adc.w #$EBE2
+	adc.w #SPAturnr
 	sta.b d1
 .7:
 	lda.w $1543,x

@@ -29,11 +29,11 @@ asseben:
 	lda.w #$0002
 	sta.w facedir,x
 	sta.w pfalock,x
-	lda.w #$E8F4
+	lda.w #SPAwallright
 	ldy.w position,x
 	bne .3
 .2:
-	lda.w #$E452
+	lda.w #DATA8_9DE452
 .3:
 	jml.l CODE_9EA403
 

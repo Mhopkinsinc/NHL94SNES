@@ -2,7 +2,7 @@
 CODE_9E9E59:
 	ldy.b a2
 	lda.w SPA,y
-	cmp.w #$F7B2
+	cmp.w #SPAstumble
 	beq .1
 	lda.w #$FFFF
 	sta.w puckc

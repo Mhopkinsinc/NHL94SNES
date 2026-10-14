@@ -56,7 +56,7 @@ holdcheck:
 	sta.w $0EE3,y
 	tya
 	sta.w $0F03,x
-	lda.w #$F46A
+	lda.w #DATA8_9DF46A
 	sta.w pfalock,x
 	jsl.l SetSPAFromA
 	ldx.b a2
@@ -65,12 +65,12 @@ holdcheck:
 	stx.b a3
 	tya
 	sta.w $0F03,x
-	lda.w #$F3A6
+	lda.w #DATA8_9DF3A6
 	sta.w pfalock,x
 	ldy.w SPA,x
-	cpy.w #$F374
+	cpy.w #DATA8_9DF374
 	beq .1
-	lda.w #$F3D8
+	lda.w #DATA8_9DF3D8
 .1:
 	jsl.l SetSPAFromA
 	jsl.l CODE_9EC042
@@ -94,7 +94,7 @@ holdcheck:
 	lda.w #$0028
 	sta.b d0
 	lda.w SPA,x
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	beq .1x
 	lda.w #$0020
 	sta.b d0

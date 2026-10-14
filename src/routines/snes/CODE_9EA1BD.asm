@@ -34,7 +34,7 @@ CODE_9EA1BD:
 	bpl .5
 .2:
 	lda.w SPA,y
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc .1
 	cmp.w #$F46B
 	bcc CODE_9EA23E

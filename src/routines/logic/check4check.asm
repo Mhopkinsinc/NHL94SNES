@@ -28,7 +28,7 @@ CODE_9EA19B:
 	lda.w position,y
 	beq CODE_9EA1B4
 	lda.w SPA,y
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc .3
 	cmp.w #$F46B
 	bcc CODE_9EA1BD

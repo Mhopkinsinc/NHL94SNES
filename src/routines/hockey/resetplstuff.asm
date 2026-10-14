@@ -68,11 +68,11 @@ resetplstuff:
 	lda.w position,x
 	bmi .3
 	bne .t1x
-	lda.w #$E0FE
+	lda.w #SPAgready
 	bra .2
 
 .t1x:
-	lda.w #$EA1A
+	lda.w #SPAglide
 .2:
 	jsl.l SetSPAFromA
 	stz.w $0F23,x

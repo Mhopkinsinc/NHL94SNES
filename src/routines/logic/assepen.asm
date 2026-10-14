@@ -34,7 +34,7 @@ assepen:
 	lda.w #$0002
 	sta.w facedir,x
 	sta.w pfalock,x
-	lda.w #$E936
+	lda.w #SPAwallleft
 	jsl.l SetSPAFromA
 	jml.l SprSort
 

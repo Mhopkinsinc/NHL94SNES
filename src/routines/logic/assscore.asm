@@ -71,13 +71,13 @@ assscore:
 	sbc.b d7
 	sta.w $1003,x
 	bpl .t1x
-	lda.w #$F940
+	lda.w #SPAcelebrate
 	sta.b d1
 	sta.w pfalock,x
 	cpx.w $0D29
 	bne .5
 .4:
-	lda.w #$FA84
+	lda.w #DATA8_9DFA84
 	sta.b d1
 	lda.w #$FFFF
 	sta.w $0D29

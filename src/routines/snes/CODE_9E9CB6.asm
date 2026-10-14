@@ -16,5 +16,5 @@ CODE_9E9CB6:
 	lda.w #$0000
 	sta.w $0EE3,y
 CODE_9E9CDB:
-	lda.w #$FC76
+	lda.w #DATA8_9DFC76
 	bra CODE_9E9C7C

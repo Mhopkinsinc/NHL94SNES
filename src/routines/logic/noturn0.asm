@@ -40,7 +40,7 @@ noturn0:
 	lda.w facedir,x
 	and.w #$0007
 	sta.w facedir,x
-	lda.w #$EA1A
+	lda.w #SPAglide
 	sta.b d1
 	lda.w $1523,x
 	bne .t1
@@ -48,29 +48,29 @@ noturn0:
 
 .t1:
 	ldy.w #$0001
-	lda.w #$F0D2
+	lda.w #SPAglideback
 	jml.l SetSPAFromA
 
 .t3:
 	ldy.w #$0001
-	lda.w #$F104
+	lda.w #SPAskateback
 	sta.b d1
 	lda.w $1523,x
 	bne .2
 	ldy.w #$0000
-	lda.w #$EAFE
+	lda.w #SPAskate
 	sta.b d1
 	lda.w pflags,x
 	bit.w #$0004
 	beq .1x2
 	ldy.w #$0001
-	lda.w #$F7B2
+	lda.w #SPAstumble
 	sta.b d1
 .1x2:
 	cpx.w puckc
 	bne .2
 	ldy.w #$0000
-	lda.w #$EA4C
+	lda.w #SPAskatewp
 	sta.b d1
 .2:
 	lda.w $1543,x

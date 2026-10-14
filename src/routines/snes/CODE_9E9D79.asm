@@ -20,7 +20,7 @@ CODE_9E9D79:
 	lda.w position,x
 	beq CODE_9E9D76
 	lda.w SPA,y
-	cmp.w #$F54E
+	cmp.w #SPAfallback
 	bne CODE_9E9D76
 	lda.w facedir,y
 	and.w #$0003
@@ -52,7 +52,7 @@ CODE_9E9D79:
 	adc.w #$0006
 	jsl.l CODE_9C9FD5
 	ldx.b a2
-	lda.w #$F90E
+	lda.w #SPAinjury1
 	jsl.l SetSPAFromA
 	ldx.b a3
 	lda.w $0EC3,x

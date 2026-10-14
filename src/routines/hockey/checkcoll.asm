@@ -119,7 +119,7 @@ checkcoll:
 
 .t3:
 	lda.w SPA,x
-	cmp.w #$FC76
+	cmp.w #DATA8_9DFC76
 	bcs .rtl
 	lda.w $0E43,x
 	sta.w Xpos,x

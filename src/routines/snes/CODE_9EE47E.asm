@@ -111,11 +111,11 @@ CODE_9EE47E:
 	jsl.l vtoa
 	jsl.l Findhittype
 	beq .t1xx
-	lda.w #$F020
+	lda.w #DATA8_9DF020
 	bra .7
 
 .t1xx:
-	lda.w #$EF6E
+	lda.w #DATA8_9DEF6E
 .7:
 	jsl.l SetSPAFromA
 	jsl.l updateanim

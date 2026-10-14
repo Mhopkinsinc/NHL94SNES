@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9E963C:
 	lda.w SPA,y
-	cmp.w #$F208
+	cmp.w #SPAsweepchk
 	bcc CODE_9E9649
 	cmp.w #$F343
 	bcc CODE_9E9633

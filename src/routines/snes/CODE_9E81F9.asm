@@ -51,6 +51,6 @@ CODE_9E81F9:
 	clc
 	adc.w $0EE3,x
 	sta.w $0EE3,x
-	lda.w #$F342
+	lda.w #SPAburst
 	sta.w pfalock,x
 	jml.l SetSPAFromA

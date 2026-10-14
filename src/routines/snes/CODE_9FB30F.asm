@@ -23,11 +23,11 @@ CODE_9FB30F:
 	beq .t1
 	lda.w #$0001
 	sta.w $1543,x
-	lda.w #$F600
+	lda.w #SPAfaceoff
 	jml.l SetSPAFromA
 
 .t1:
-	lda.w #$F62A
+	lda.w #SPAfaceoffr
 	jml.l SetSPAFromA
 
 .t2:

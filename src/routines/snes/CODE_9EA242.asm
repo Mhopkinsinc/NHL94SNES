@@ -1,5 +1,5 @@
 ; Unidentified routine.
 CODE_9EA242:
-	lda.w #$F208
+	lda.w #SPAsweepchk
 	sta.w $1543,x
 	jml.l SetSPAFromA

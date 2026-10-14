@@ -58,12 +58,12 @@ findpc:
 	bit.w #$1000
 	bne .8
 	lda.w SPA,x
-	cmp.w #$EBB0
+	cmp.w #SPAturnl
 	bcc .2x
 	cmp.w #$EBE3
 	bcc .4
 .2x:
-	cmp.w #$F196
+	cmp.w #DATA8_9DF196
 	bcc .3
 	cmp.w #$F343
 	bcc .4

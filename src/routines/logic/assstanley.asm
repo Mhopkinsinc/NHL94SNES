@@ -14,7 +14,7 @@ assstanley:
 .1:
 	lda.w Vpos
 	sta.w $1063,x
-	lda.w #$F68E
+	lda.w #SPAstanley
 	sta.w pfalock,x
 	jsl.l SetSPAFromA
 .2:

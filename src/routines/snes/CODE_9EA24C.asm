@@ -5,7 +5,7 @@ CODE_9EA24C:
 	lda.w pfalock,x
 	beq .t1
 	lda.w SPA,x
-	cmp.w #$F342
+	cmp.w #SPAburst
 	bne .t1
 .rtl:
 	rtl
@@ -65,7 +65,7 @@ CODE_9EA24C:
 	dec.b d2
 	bne .loop
 CODE_9EA2CB:
-	lda.w #$F864
+	lda.w #DATA8_9DF864
 	sta.b d1
 	sta.w pfalock,x
 	ldy.b a0
@@ -78,7 +78,7 @@ CODE_9EA2CB:
 	and.w #$0007
 	cmp.w #$0005
 	bcc .1
-	lda.w #$F374
+	lda.w #DATA8_9DF374
 	sta.b d1
 .1:
 	jml.l SetSPA

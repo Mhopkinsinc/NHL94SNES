@@ -27,17 +27,17 @@ org $9EA001
 .cc:
 	ldy.b a2
 	lda.w SPA,y
-	cmp.w #$F374
+	cmp.w #DATA8_9DF374
 	beq .1
-	cmp.w #$F864
+	cmp.w #DATA8_9DF864
 	beq .1
-	cmp.w #$F208
+	cmp.w #SPAsweepchk
 	bne .t1
 	jmp.w Bcheck
 
 .t1:
 	lda.w SPA,x
-	cmp.w #$F342
+	cmp.w #SPAburst
 	bne .rtl
 	lda.w gmclock
 	beq .1x

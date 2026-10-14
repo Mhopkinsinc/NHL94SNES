@@ -47,7 +47,7 @@ CODE_9ED577:
 	bcs CODE_9ED574
 	lda.w #$005A
 	sta.w $1543,x
-	lda.w #$E66C
+	lda.w #DATA8_9DE66C
 	jsl.l SetSPAFromA
 CODE_9ED58C:
 	rtl

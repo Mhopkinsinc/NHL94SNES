@@ -17,5 +17,5 @@ CODE_9E9C36:
 	bit.w #$0800
 	bne CODE_9E9C79
 CODE_9E9C3E:
-	lda.w #$FD3A
+	lda.w #DATA8_9DFD3A
 	bra CODE_9E9C7C

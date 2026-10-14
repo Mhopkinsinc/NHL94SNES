@@ -147,13 +147,13 @@ CODE_9EEACC:
 	lda.w puckvy
 	sta.b d1
 	jsl.l vtoa
-	ldy.w #$E34E
+	ldy.w #SPAgswing
 	lda.w position,x
 	beq .1x
-	ldy.w #$EC66
+	ldy.w #SPApassf
 	jsl.l Findhittype
 	beq .1x
-	ldy.w #$ECD8
+	ldy.w #SPApassb
 .1x:
 	sty.b d1
 	jsl.l SetSPA

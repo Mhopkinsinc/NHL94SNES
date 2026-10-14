@@ -11,7 +11,7 @@ dostop:
 	cmp.w #$1001
 	bmi CODE_9EA539
 .1:
-	lda.w #$EA1A
+	lda.w #SPAglide
 	ldy.w $1523,x
 	bne .3
 	cpx.w puckc
@@ -23,7 +23,7 @@ dostop:
 	lda.w #$0011
 	jsl.l sfx
 .2:
-	lda.w #$EC14
+	lda.w #SPAstop
 	sta.w $1543,x
 .3:
 	jsl.l SetSPAFromA

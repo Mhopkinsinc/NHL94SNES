@@ -30,7 +30,7 @@ wallcollb:
 	inx
 	inx
 	stx.b a3
-	lda.w #$F8E8
+	lda.w #DATA8_9DF8E8
 	sta.b d1
 	jsl.l SetSPA
 	plx

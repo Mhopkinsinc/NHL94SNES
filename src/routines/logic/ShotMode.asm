@@ -3,7 +3,7 @@ ShotMode:
 	cpx.w puckc
 	bne .off
 	lda.w SPA,x
-	cmp.w #$ED4A
+	cmp.w #SPAshotf
 	bcc .off
 	cmp.w #$F021
 	bcs .off

@@ -10,17 +10,17 @@ FallDown:
 	cpy.w #$0018
 	bcs .t1
 	lda.w SPA,y
-	cmp.w #$F90E
+	cmp.w #SPAinjury1
 	beq .t1
-	cmp.w #$F7B2
+	cmp.w #SPAstumble
 	beq .t1
-	cmp.w #$F49C
+	cmp.w #SPAfallfwd
 	beq .t1
-	cmp.w #$F54E
+	cmp.w #SPAfallback
 	beq .t1
-	cmp.w #$F6C0
+	cmp.w #SPAflip
 	beq .t1
-	lda.w #$F7B2
+	lda.w #SPAstumble
 	sta.b d1
 	lda.w gmclock
 	bne .t2

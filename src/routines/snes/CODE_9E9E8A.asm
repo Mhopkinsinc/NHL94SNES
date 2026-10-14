@@ -14,11 +14,11 @@ CODE_9E9E8A:
 	lda.w attribute,x
 	bit.w #$0800
 	bne .t1
-	lda.w #$FE60
+	lda.w #DATA8_9DFE60
 	bra .2
 
 .t1:
-	lda.w #$FDFE
+	lda.w #DATA8_9DFDFE
 .2:
 	sta.w pfalock,x
 	jsl.l SetSPAFromA

@@ -164,7 +164,7 @@ Status in the table: **extracted** means the bytes are already a named file the 
 
 ### DATA8 and sprites
 
-Mixed `DATA8_9CF000` cursors: stay `DATA8_` or `Cursor_…` only when tied to one screen. Optional: `StoppageMessages` for `DATA8_80D3EB` (not `PenaltyList`). `SpriteFrameN` and `DATA8_9DE0FC` stay numbered until SPF mapping is proven (project decision, not backlog).
+Mixed `DATA8_9CF000` cursors: stay `DATA8_` or `Cursor_…` only when tied to one screen. Optional: `StoppageMessages` for `DATA8_80D3EB` (not `PenaltyList`). `SpriteFrameN` stays numbered until SPF mapping is proven. The animation list is `SPAList`; animations that match 93S take the 93S SPA names.
 
 ### Missing assets
 

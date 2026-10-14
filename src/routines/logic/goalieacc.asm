@@ -1,6 +1,6 @@
 ; The goalie skates in direction d0, turning one step toward it
 goalieacc:
-	lda.w #$E0FE
+	lda.w #SPAgready
 	sta.b d1
 	lda.b d0
 	and.w #$000F
@@ -41,16 +41,16 @@ org $9ED002
 	ldy.w $19D4,x
 	bmi .2x
 	lda.w SPA,x
-	cmp.w #$E4B6
+	cmp.w #SPAgdive
 	bcc .2x
-	cmp.w #$F90E
+	cmp.w #SPAinjury1
 	bcc .t3
 .2x:
 	lda.b d0
 	cmp.w facedir,x
 	beq .3
 	sta.b d2
-	lda.w #$E0FE
+	lda.w #SPAgready
 	jsl.l SetSPAFromA
 	jml.l playeracc
 
@@ -90,11 +90,11 @@ org $9ED002
 	lda.w $0B05,x
 	bit.w #$0002
 	bne .t1x
-	lda.w #$E0FE
+	lda.w #SPAgready
 	bra .4
 
 .t1x:
-	lda.w #$E3C0
+	lda.w #SPAgskate
 .4:
 	jsl.l SetSPAFromA
 	lda.w facedir,x

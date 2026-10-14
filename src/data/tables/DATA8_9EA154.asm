@@ -1,3 +1,3 @@
 ; Data table.
 DATA8_9EA154:		; word pointers into this bank, not identified yet
-	dw $F196,$F2AC,$F310,$F310,$F310,$F2DE,$F2DE,$F27A
+	dw DATA8_9DF196&$FFFF,DATA8_9DF2AC&$FFFF,SPAshoulderchkl&$FFFF,SPAshoulderchkl&$FFFF,SPAshoulderchkl&$FFFF,SPAhipchkr&$FFFF,SPAhipchkr&$FFFF,SPAshoulderchkr&$FFFF

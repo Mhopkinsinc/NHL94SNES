@@ -23,7 +23,7 @@ CODE_9E9C71:
 	bit.w #$0800
 	bne CODE_9E9C3E
 CODE_9E9C79:
-	lda.w #$FD9C
+	lda.w #DATA8_9DFD9C
 CODE_9E9C7C:
 	ldx.b a2
 	sta.w pfalock,x

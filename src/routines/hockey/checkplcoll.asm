@@ -154,7 +154,7 @@ checkplcoll:
 
 .t1xx:
 	lda.w SPA,x
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc .2
 	cmp.w #$F46B
 	bcs .2
@@ -162,7 +162,7 @@ checkplcoll:
 	stz.w $1543,x
 	ldy.w $0F03,x
 	lda.w SPA,y
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc .1x2
 	cmp.w #$F46B
 	bcs .1x2
@@ -173,7 +173,7 @@ checkplcoll:
 	ldy.b a2
 .2:
 	lda.w SPA,y
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc .4
 	cmp.w #$F46B
 	bcs .4
@@ -182,7 +182,7 @@ checkplcoll:
 	sta.w $1543,y
 	ldx.w $0F03,y
 	lda.w SPA,x
-	cmp.w #$F3A6
+	cmp.w #DATA8_9DF3A6
 	bcc .3
 	cmp.w #$F46B
 	bcs .3
@@ -207,7 +207,7 @@ checkplcoll:
 .5:
 	sta.b d4
 	lda.w SPA,x
-	cmp.w #$F208
+	cmp.w #SPAsweepchk
 	bcc CODE_9E963C
 	cmp.w #$F343
 	bcs CODE_9E963C

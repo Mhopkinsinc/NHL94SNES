@@ -29,7 +29,7 @@ CODE_9EBD45:
 	lda.w #$003C
 	sta.w $1203,x
 .2:
-	lda.w #$EA1A
+	lda.w #SPAglide
 	sta.w $1563,x
 	jsl.l SetSPAFromA
 	lda.w #$0006
@@ -66,7 +66,7 @@ CODE_9EBDC9:
 	lda.w #$0002
 	sta.w facedir,x
 	sta.w pfalock,x
-	lda.w #$E8F4
+	lda.w #SPAwallright
 	jsl.l SetSPAFromA
 	lda.w pflags,x
 	and.w #$BFFF

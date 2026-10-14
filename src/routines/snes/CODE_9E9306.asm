@@ -124,7 +124,7 @@ CODE_9E9306:
 	and.w #$01C0
 	bne .1x
 	lda.w SPA,x
-	cmp.w #$F342
+	cmp.w #SPAburst
 	bne .1x
 	ldy.b a2
 	lda.w pucky

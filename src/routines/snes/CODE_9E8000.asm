@@ -2,7 +2,7 @@
 CODE_9E8000:
 	lda.w pfalock,x
 	bne .rtl
-	lda.w #$F0D2
+	lda.w #SPAglideback
 	jsl.l SetSPAFromA
 .rtl:
 	rtl

@@ -98,7 +98,7 @@ CODE_9ED5A7:
 	lda.b d0
 .2:
 	sta.w facedir,x
-	ldy.w #$E4B6
+	ldy.w #SPAgdive
 	tya
 	jsl.l SetSPAFromA
 	lda.w #$0168

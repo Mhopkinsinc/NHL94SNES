@@ -23,10 +23,10 @@ SetShotMode:
 	jsl.l vtoa
 	lda.w #$000F
 	sta.w passspeed
-	ldy.w #$ED4A
+	ldy.w #SPAshotf
 	jsl.l Findhittype
 	beq .2
-	ldy.w #$EE5C
+	ldy.w #SPAshotb
 .2:
 	sty.b d1
 	jml.l SetSPA

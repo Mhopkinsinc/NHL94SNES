@@ -83,10 +83,10 @@ assbench:
 	jmp.w CODE_9FD99D
 
 .t1xx:
-	lda.w #$EA1A
+	lda.w #SPAglide
 	ldy.w position,x
 	bne .1x2x
-	lda.w #$E0FE
+	lda.w #SPAgready
 .1x2x:
 	jsl.l SetSPAFromA
 	lda.w #$0001
@@ -115,10 +115,10 @@ assbench:
 	sta.w $0EC3,x
 	lda.w #$0002
 	sta.w facedir,x
-	lda.w #$E936
+	lda.w #SPAwallleft
 	ldy.w position,x
 	bne .4
-	lda.w #$E484
+	lda.w #DATA8_9DE484
 .4:
 	jsl.l SetSPAFromA
 	lda.w #$0064

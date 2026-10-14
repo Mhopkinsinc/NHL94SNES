@@ -17,7 +17,7 @@ doshot:
 	lda.w #$1000
 	tsb.w sflags
 	lda.w SPA,x
-	cmp.w #$EE5C
+	cmp.w #SPAshotb
 	bne .1
 	lda.w #$0001
 	sta.b $01,s

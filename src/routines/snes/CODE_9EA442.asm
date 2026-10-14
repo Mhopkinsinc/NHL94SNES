@@ -11,7 +11,7 @@ CODE_9EA442:
 	bne CODE_9EA425
 CODE_9EA456:
 	lda.w SPA,x
-	cmp.w #$FDFE
+	cmp.w #DATA8_9DFDFE
 	bcs .t1
 	lda.w attribute,x
 	bit.w #$0800
@@ -54,9 +54,9 @@ CODE_9EA472:
 	stz.w $1543,x
 	stz.w pfalock,x
 	lda.w SPA,x
-	cmp.w #$FEC2
+	cmp.w #DATA8_9DFEC2
 	bcs .1
-	cmp.w #$FDFE
+	cmp.w #DATA8_9DFDFE
 	bcs .6
 .1:
 	lda.b d1
@@ -85,6 +85,6 @@ CODE_9EA472:
 	lda.w #$0002
 	sta.w facedir,x
 	sta.w pfalock,x
-	lda.w #$E8F4
+	lda.w #SPAwallright
 	jsl.l CODE_9EA403
 	bra .5

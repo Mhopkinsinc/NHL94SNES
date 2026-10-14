@@ -56,7 +56,7 @@ CODE_9EDA04:
 	asl.b d0
 	lda.w #$009E
 	sta.b $8F
-	lda.w #DATA8_9EDBF4
+	lda.w #GoalieSaveList
 	sta.b a1
 	ldy.b d0
 	lda.b [a1],y
@@ -98,7 +98,7 @@ CODE_9EDA51:
 	cmp.w pfteam,y
 	beq .7
 	lda.w SPA,y
-	cmp.w #$ED4A
+	cmp.w #SPAshotf
 	bcc .t2
 	cmp.w #$F021
 	bcs .t2

@@ -87,12 +87,12 @@ updateplayers:
 	bne .10
 .7:
 	lda.w SPA,x
-	cmp.w #$F90E
+	cmp.w #SPAinjury1
 	bne .t1x
 	jmp.w .11
 
 .t1x:
-	cmp.w #$FC76
+	cmp.w #DATA8_9DFC76
 	bcc .t2x
 	jmp.w .11
 

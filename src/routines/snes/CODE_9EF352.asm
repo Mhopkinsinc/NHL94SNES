@@ -272,7 +272,7 @@ Goal:
 	jsl.l assreplace
 	inx
 	inx
-	lda.w #$F644
+	lda.w #DATA8_9DF644
 	jsl.l SetSPAFromA
 	ldy.b a2
 	ldx.w tmsort,y

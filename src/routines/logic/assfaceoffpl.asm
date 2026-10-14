@@ -47,7 +47,7 @@ assfaceoffpl:
 	pla
 	cmp.w #$0000
 	bne .t2
-	lda.w #$F600
+	lda.w #SPAfaceoff
 	sta.b d1
 	lda.w $101F
 	cmp.w #$0011
@@ -56,7 +56,7 @@ assfaceoffpl:
 	and.w #$0007
 	sta.b d0
 	beq .4
-	lda.w #$F62A
+	lda.w #SPAfaceoffr
 	sta.b d1
 .4:
 	lda.w #$0001
