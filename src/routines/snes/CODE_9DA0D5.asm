@@ -41,7 +41,7 @@ CODE_9DA0D5:
 	lda.w #$0000
 	ldx.w #$0800
 	ldy.w #$0800
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 	jsl.l CODE_9F96E6
@@ -198,7 +198,7 @@ CODE_9DA18A:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 CODE_9DA29C:
 	jsl.l WaitFrame
 	ldx.w $1A0E
@@ -335,7 +335,7 @@ CODE_9DA2F5:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 	jsl.l CODE_9B8682
 	bra .4
 
@@ -366,7 +366,7 @@ CODE_9DA2F5:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 	jsl.l CODE_9B8682
 .4:
 	jsl.l ReadPads
@@ -412,7 +412,7 @@ CODE_9DA2F5:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 .loopxx:
 	ldx.w #$0008
 .loop2x:

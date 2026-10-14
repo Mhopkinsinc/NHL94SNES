@@ -31,9 +31,9 @@ puckfaceoff2:
 	lda.w #$7000
 	sta.b $64
 	lda.w #$0012
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	lda.w #$0013
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	lda.w #$FFFF
 	sta.w $0CAD
 	sta.w $0CB3

@@ -63,7 +63,7 @@ sfx:
 	lda.b $09
 	sta.b $0C
 	lda.b $12
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	tay
 	sep #$20
 	dec.w SoundLock

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80A17D:
+; Queue sound A for the sound driver
+QueueSound:
 	phx
 	phy
 	phb

@@ -38,6 +38,6 @@ CODE_9BC17C:
 	asl a
 	adc.w #$1000
 	tay
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	jsl.l CODE_9BC1D5
 	rtl

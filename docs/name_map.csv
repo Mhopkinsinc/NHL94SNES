@@ -864,7 +864,7 @@ $9DBFDA,.1,CODE_9DBFDA,new,branch target only used in this routine,src/routines/
 $9F9E86,.1,CODE_9F9E86,new,branch target only used in this routine,src/routines/snes/CODE_9F9E24.asm
 $9DBBB8,.loop,CODE_9DBBB8,new,branch target only used in this routine,src/routines/snes/CODE_9DBBA8.asm
 $9DBBCD,.loop2,CODE_9DBBCD,new,branch target only used in this routine,src/routines/snes/CODE_9DBBA8.asm
-$80A1DC,.1,CODE_80A1DC,new,branch target only used in this routine,src/routines/snes/CODE_80A17D.asm
+$80A1DC,.1,CODE_80A1DC,new,branch target only used in this routine,src/routines/sound/QueueSound.asm
 $80A542,.rts,CODE_80A542,new,branch target only used in this routine,src/routines/snes/CODE_80A51C.asm
 $9EF193,.1,CODE_9EF193,new,branch target only used in this routine,src/routines/snes/CODE_9EF14A.asm
 $9EF1A0,.2,CODE_9EF1A0,new,branch target only used in this routine,src/routines/snes/CODE_9EF14A.asm
@@ -1572,7 +1572,7 @@ $9F8738,.6,CODE_9F8738,new,branch target only used in this routine,src/routines/
 $9F8742,.7,CODE_9F8742,new,branch target only used in this routine,src/routines/snes/CODE_9F86DF.asm
 $80BBA4,.1,CODE_80BBA4,new,branch target only used in this routine,src/routines/snes/CODE_80BB97.asm
 $9B87B2,.1,CODE_9B87B2,new,branch target only used in this routine,src/routines/snes/CODE_9B8792.asm
-$80893C,.1,CODE_80893C,new,branch target only used in this routine,src/routines/snes/CODE_80891F.asm
+$80893C,.1,CODE_80893C,new,branch target only used in this routine,src/routines/snes/DMAToVRAM.asm
 $9FB6DA,.loop,CODE_9FB6DA,new,branch target only used in this routine,src/routines/hockey/setupice.asm
 $9FB6EE,.loop2,CODE_9FB6EE,new,branch target only used in this routine,src/routines/hockey/setupice.asm
 $9FB8E4,.loop,CODE_9FB8E4,new,branch target only used in this routine,src/routines/hockey/setupice.asm
@@ -2431,7 +2431,7 @@ $9DAB51,.1,CODE_9DAB51,new,branch target only used in this routine,src/routines/
 $9DAB6F,.2,CODE_9DAB6F,new,branch target only used in this routine,src/routines/snes/CODE_9DAB18.asm
 $9DAB90,.3,CODE_9DAB90,new,branch target only used in this routine,src/routines/snes/CODE_9DAB18.asm
 $9DABB4,.4,CODE_9DABB4,new,branch target only used in this routine,src/routines/snes/CODE_9DAB18.asm
-$9FBF9F,.rtl,CODE_9FBF9F,new,branch target only used in this routine,src/routines/snes/CODE_9FBF75.asm
+$9FBF9F,.rtl,CODE_9FBF9F,new,branch target only used in this routine,src/routines/video/QueueTextDMA.asm
 $9B8C1A,.1,CODE_9B8C1A,new,branch target only used in this routine,src/routines/snes/CODE_9B8BF9.asm
 $9FAA50,.1,CODE_9FAA50,new,branch target only used in this routine,src/routines/snes/CODE_9FAA3D.asm
 $9FAA59,.2,CODE_9FAA59,new,branch target only used in this routine,src/routines/snes/CODE_9FAA3D.asm
@@ -2613,7 +2613,7 @@ $80A543,.t1,CODE_80A543,new,continued in the previous routine,src/routines/snes/
 $80A333,.t1,CODE_80A333,new,continued in the previous routine,src/routines/snes/MusicStart.asm
 $80A297,.t1,CODE_80A297,new,continued in the previous routine,src/routines/snes/CODE_80A26E.asm
 $80A24F,.t1,CODE_80A24F,new,continued in the previous routine,src/routines/snes/CODE_80A200.asm
-$80A1E5,.t1,CODE_80A1E5,new,continued in the previous routine,src/routines/snes/CODE_80A17D.asm
+$80A1E5,.t1,CODE_80A1E5,new,continued in the previous routine,src/routines/sound/QueueSound.asm
 $808F19,.t1,CODE_808F19,new,continued in the previous routine,src/routines/snes/CODE_808F03.asm
 $808EEB,.t1,CODE_808EEB,new,continued in the previous routine,src/routines/snes/CODE_808EDF.asm
 $808ED2,.t1,CODE_808ED2,new,continued in the previous routine,src/routines/snes/CODE_808E7C.asm
@@ -3912,9 +3912,9 @@ $808D16,.3,CODE_808D16,new,continued in the previous routine,src/routines/snes/C
 $808D72,.1,CODE_808D72,new,continued in the previous routine,src/routines/snes/CODE_808D43.asm
 $808E1B,.1,CODE_808E1B,new,branch target only used in this routine,src/routines/snes/CODE_808D43.asm
 $808E1C,.2,CODE_808E1C,new,continued in the previous routine,src/routines/snes/CODE_808D43.asm
-$80A19D,.1,CODE_80A19D,new,branch target only used in this routine,src/routines/snes/CODE_80A17D.asm
-$80A1A4,.2,CODE_80A1A4,new,branch target only used in this routine,src/routines/snes/CODE_80A17D.asm
-$80A1E9,.3,CODE_80A1E9,new,continued in the previous routine,src/routines/snes/CODE_80A17D.asm
+$80A19D,.1,CODE_80A19D,new,branch target only used in this routine,src/routines/sound/QueueSound.asm
+$80A1A4,.2,CODE_80A1A4,new,branch target only used in this routine,src/routines/sound/QueueSound.asm
+$80A1E9,.3,CODE_80A1E9,new,continued in the previous routine,src/routines/sound/QueueSound.asm
 $80A61A,.1,CODE_80A61A,new,branch target only used in this routine,src/routines/snes/CODE_80A610.asm
 $80A61F,.2,CODE_80A61F,new,branch target only used in this routine,src/routines/snes/CODE_80A610.asm
 $80A643,.3,CODE_80A643,new,branch target only used in this routine,src/routines/snes/CODE_80A610.asm
@@ -4744,3 +4744,9 @@ $9FE3E7,.3,CODE_9FE3E7,new,branch target only used in this routine,src/routines/
 $9FE3EB,.4,CODE_9FE3EB,new,continued in the previous routine,src/routines/hockey/PauseGoalie.asm
 $9B8017,ReadPads,CODE_9B8017,93S,"waitxsr and the menus call it as 93S calls ReadPads; per pad the direction, changed buttons and new presses, from the pad words the NMI reads",src/routines/middle/ReadPads.asm
 $9B84DC,ReadjoyA,CODE_9B84DC,new,"93S Readjoy1 for pad A: d0 direction, d1 new presses, d2 changed, d3 held; waitxsr calls it where 93S calls Readjoy1",src/routines/snes/ReadjoyA.asm
+$9EA2CB,Acheck,CODE_9EA2CB,93S,"check4check calls it as in 93S; the hook animation, or the hold one by the angle, then SetSPA, as 93S Acheck",src/routines/snes/CODE_9EA24C.asm
+$9FBF75,QueueTextDMA,CODE_9FBF75,93S,setvideo and the screens call it as in 93S; sends the textdirtylo-textdirtyhi part of the text map and resets them,src/routines/video/QueueTextDMA.asm
+$80A17D,QueueSound,CODE_80A17D,93S,sfx calls it as 93S sfx calls QueueSound; sound A through the effect table to the driver,src/routines/sound/QueueSound.asm
+$80891F,DMAToVRAM,CODE_80891F,new,DMA of X bytes from [$0C] to video memory at Y,src/routines/snes/DMAToVRAM.asm
+$9DF864,SPAhook,DATA8_9DF864,93S,"the animation Acheck sets first, as 93S Acheck sets SPAhook; same shape and times as 93S SPAhook",src/data/frames94s.asm
+$9DF374,SPAHold,DATA8_9DF374,93S,"the animation Acheck sets by the angle, as 93S Acheck sets SPAHold; the 93S frames and times, frame numbers 8 higher",src/data/frames94s.asm

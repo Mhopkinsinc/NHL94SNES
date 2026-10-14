@@ -61,7 +61,7 @@ BadPasswordPrompt:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 .loop2:
 	jsl.l ReadPads
 	jsl.l CODE_9B84F5
@@ -92,7 +92,7 @@ BadPasswordPrompt:
 	sta.b d2
 	jsl.l eraser
 	jsr.w CODE_9BCBD8
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 	jsl.l CODE_8085FF
 	jmp.w CODE_9BC946
 

@@ -9,7 +9,7 @@ CODE_9EC6E7:
 	lda.w #$7000
 	sta.b $64
 	lda.w #$0005
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 .1:
 	lda.w $19BE
 	clc

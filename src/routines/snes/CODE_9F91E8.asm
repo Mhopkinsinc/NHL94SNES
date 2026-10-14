@@ -24,7 +24,7 @@ CODE_9F91EE:
 	asl a
 	adc.w #$1000
 	tay
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	stx.b xsave
 	ldx.w #$001A
 .loop:

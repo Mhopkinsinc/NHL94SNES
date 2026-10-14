@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80891F:
+; DMA X bytes from [$0C] to video memory at Y
+DMAToVRAM:
 	lda.w $0761
 	bpl CODE_808950
 	stx.w DAS1L

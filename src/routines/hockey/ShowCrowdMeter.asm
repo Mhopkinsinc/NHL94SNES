@@ -69,7 +69,7 @@ ShowCrowdMeter:
 	clc
 	adc.w #$1000
 	tay
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ACFB6

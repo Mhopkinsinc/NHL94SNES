@@ -105,7 +105,7 @@ CODE_9DC697:
 	asl a
 	adc.w #$1000
 	tay
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$0000
 	sta.l $7E35B2
 	lda.w #$0093
@@ -136,7 +136,7 @@ CODE_9DC697:
 	sta.b $0C
 	tax
 	ldy.w #$1000
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #DATA8_91DDAD>>16
 	sta.b $0E
 	lda.w #DATA8_91DDAD
@@ -151,7 +151,7 @@ CODE_9DC697:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AEA15

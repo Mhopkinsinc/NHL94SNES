@@ -68,7 +68,7 @@ holdcheck:
 	lda.w #DATA8_9DF3A6
 	sta.w pfalock,x
 	ldy.w SPA,x
-	cpy.w #DATA8_9DF374
+	cpy.w #SPAHold
 	beq .1
 	lda.w #DATA8_9DF3D8
 .1:

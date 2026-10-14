@@ -48,7 +48,7 @@ CODE_9FE79F:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$1000
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w HomeTeam
 	asl a
 	asl a
@@ -79,7 +79,7 @@ CODE_9FE79F:
 	asl a
 	adc.w #$1000
 	tay
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96B2CF
@@ -100,7 +100,7 @@ CODE_9FE79F:
 	asl a
 	adc.w #$1000
 	tay
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AC98B
@@ -111,7 +111,7 @@ CODE_9FE79F:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #DATA8_95E304>>16
 	sta.b $0E
 	lda.w #DATA8_95E304
@@ -122,7 +122,7 @@ CODE_9FE79F:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #DATA8_95BA96>>16
 	sta.b $0E
 	lda.w #DATA8_95BA96
@@ -133,7 +133,7 @@ CODE_9FE79F:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96A103
@@ -200,7 +200,7 @@ CODE_9FE79F:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AC1F3
@@ -218,7 +218,7 @@ CODE_9FE79F:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w $0CC7
 	adc.w #$003C
 	sta.w $0CC7

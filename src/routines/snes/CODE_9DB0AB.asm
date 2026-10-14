@@ -31,5 +31,5 @@ CODE_9DB0AB:
 	asl a
 	asl a
 	tax
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	rts

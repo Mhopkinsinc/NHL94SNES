@@ -17,7 +17,7 @@ DrawOtherScoresPage:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 	bra .2
 
 .t1:
@@ -39,6 +39,6 @@ DrawOtherScoresPage:
 	lsr a
 	tax
 	ldy.w #$0140
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 .2:
 	rtl

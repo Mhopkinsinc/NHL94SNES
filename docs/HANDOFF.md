@@ -28,6 +28,7 @@
 - `setupice` (the 93S rink setup in order, called from `StartGame`), `revplayeracc`, `faceoffinput`. `DATA8_9F97CE` is `attribjmp`: the roster column handlers as offsets in the 93S order (entry 3 is the already named `AttribWeight`), so its entries are `AttribStatus`, `AttribEnergy`, `AttribHanded`, `AttribFighting` (falls into `AttribRating`) and `AttribRating`, written `Label-attribjmp`. `CODE_9FE79F` (the rink rebuilt after each pause screen) is not 93S `PauseExit` and stays unnamed.
 - Puck collisions: `checkpuckcoll` and `checkpuckcoll_ccx` (the 93S pair; 94 reaches them through a routine `pucknorm` calls), `puckstick` (a 94 goalie test, then the 93S body), `puckgoalie`, `deflect`; also `waitxsr`.
 - Pads: `ReadPads` (once per frame, each pad's direction, changed buttons and new presses, from the pad words the NMI reads) and `ReadjoyA` (93S `Readjoy1` for any pad: the callers pass the pad in A).
+- Callee pairs (a named routine's one unnamed callee against its 93S routine's unused callee): `Acheck` (with the animations it sets, `SPAhook` and `SPAHold`), `QueueTextDMA`, `QueueSound`; `DMAToVRAM` is the VRAM DMA `QueueTextDMA` uses.
 
 ## Unsure
 

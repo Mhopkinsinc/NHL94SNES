@@ -49,7 +49,7 @@ CODE_9FC00D:
 	sta.b $0C
 	ldy.b tmp2
 	ldx.w #$0040
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.b tmp0
 	clc
 	adc.w #$0040
@@ -59,7 +59,7 @@ CODE_9FC00D:
 	adc.w #$0400
 	tay
 	ldx.w #$0020
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.b tmp0
 	clc
 	adc.w #$0060

@@ -27,9 +27,9 @@ org $9EA001
 .cc:
 	ldy.b a2
 	lda.w SPA,y
-	cmp.w #DATA8_9DF374
+	cmp.w #SPAHold
 	beq .1
-	cmp.w #DATA8_9DF864
+	cmp.w #SPAhook
 	beq .1
 	cmp.w #SPAsweepchk
 	bne .t1

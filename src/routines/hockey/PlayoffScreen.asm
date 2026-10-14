@@ -69,7 +69,7 @@ PlayoffScreen:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$3000
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ABA95
@@ -82,13 +82,13 @@ PlayoffScreen:
 	phx
 	ldx.w #$0240
 	ldy.w #$0800
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	pla
 	sec
 	sbc.w #$0240
 	tax
 	ldy.w #$0920
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AE121
@@ -122,7 +122,7 @@ PlayoffScreen:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$1000
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AE027
@@ -181,7 +181,7 @@ PlayoffScreen:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$031A
 	sta.l $7E3676
 	sta.l $7E3696
@@ -251,7 +251,7 @@ PlayoffScreen:
 	sta.b $0C
 	ldx.w #$0E00
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AE884
@@ -285,7 +285,7 @@ PlayoffScreen:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AB610
@@ -479,7 +479,7 @@ org $9D9000
 	asl a
 	asl a
 	tax
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 .loopxx:
 	lda.b [a0]
 	inc.b a0

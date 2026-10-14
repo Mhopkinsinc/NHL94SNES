@@ -154,7 +154,7 @@ CODE_9DDDB3:
 	tay
 	ldx.w #$0600
 	jsl.l WaitFrame
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$007F
 	sta.b $0E
 	lda.l $7E3472
@@ -168,7 +168,7 @@ CODE_9DDDB3:
 	adc.w #$2300
 	tay
 	ldx.w #$0600
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	bra .4
 
 .t1xx:

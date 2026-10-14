@@ -64,8 +64,8 @@ CODE_9EA24C:
 	iny
 	dec.b d2
 	bne .loop
-CODE_9EA2CB:
-	lda.w #DATA8_9DF864
+Acheck:
+	lda.w #SPAhook
 	sta.b d1
 	sta.w pfalock,x
 	ldy.b a0
@@ -78,7 +78,7 @@ CODE_9EA2CB:
 	and.w #$0007
 	cmp.w #$0005
 	bcc .1
-	lda.w #DATA8_9DF374
+	lda.w #SPAHold
 	sta.b d1
 .1:
 	jml.l SetSPA

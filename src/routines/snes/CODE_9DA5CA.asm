@@ -173,7 +173,7 @@ CODE_9DA5CA:
 
 .t2x:
 	jsr.w CODE_9DAA83
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 	dec.b d6
 	dec.b d6
 	bmi .t1xx

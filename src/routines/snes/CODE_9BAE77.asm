@@ -139,7 +139,7 @@ CODE_9BAE77:
 	sta.b $64
 	lda.w $0CB3
 	and.w #$00FF
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	tay
 	sep #$20
 	lda.w $08F2,y
@@ -172,7 +172,7 @@ CODE_9BAE77:
 	sta.b $64
 	lda.w $0CAD
 	and.w #$00FF
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	tay
 	sep #$20
 	lda.w $08F2,y

@@ -22,7 +22,7 @@ DrawScoringPage:
 	lsr a
 	tax
 	ldy.w #$0160
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	rts
 
 .t1:
@@ -39,5 +39,5 @@ DrawScoringPage:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 	rts

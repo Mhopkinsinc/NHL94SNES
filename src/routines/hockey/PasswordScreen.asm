@@ -145,7 +145,7 @@ CODE_9BC946:
 	pla
 	sta.b $8F
 	jsl.l CODE_9BC6C9
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 .loop:
 	jsl.l WaitFrame
 	jsl.l ReadPads

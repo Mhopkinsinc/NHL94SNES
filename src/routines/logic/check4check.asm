@@ -87,7 +87,7 @@ check4check:
 	and.w #$0007
 	beq .8
 .3x:
-	jml.l CODE_9EA2CB
+	jml.l Acheck
 .4x:
 	lda.w Ypos,x
 	cmp.w #$FFA8

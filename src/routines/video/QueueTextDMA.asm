@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FBF75:
+; Queue the changed part of the text map for transfer to video memory
+QueueTextDMA:
 	lda.w textdirtylo
 	bmi .rtl
 	tay
@@ -15,7 +15,7 @@ CODE_9FBF75:
 	inc a
 	asl a
 	tax
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$FFFF
 	sta.w textdirtylo
 	stz.w textdirtyhi

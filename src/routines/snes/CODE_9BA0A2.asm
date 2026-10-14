@@ -40,7 +40,7 @@ CODE_9BA0A2:
 	asl a
 	asl a
 	tax
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	ldx.b $08
 	cpx.w #$0028
 	bne CODE_9BA106

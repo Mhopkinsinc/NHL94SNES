@@ -42,5 +42,5 @@ CODE_9C8F7D:
 	lsr a
 	tax
 	ldy.w #$0180
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	rts

@@ -55,7 +55,7 @@ setupice:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$1000
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	jsl.l CODE_9BC17C
 	lda.w #$0096
 	sta.b $0E
@@ -79,7 +79,7 @@ setupice:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AC98B
@@ -98,7 +98,7 @@ setupice:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #DATA8_95E304>>16
 	sta.b $0E
 	lda.w #DATA8_95E304
@@ -117,7 +117,7 @@ setupice:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #DATA8_95BA96>>16
 	sta.b $0E
 	lda.w #DATA8_95BA96
@@ -138,7 +138,7 @@ setupice:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$0000
 	ldy.w #$FFFF
 	ldx.w #$0020
@@ -198,7 +198,7 @@ setupice:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AC1F3
@@ -217,7 +217,7 @@ setupice:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 CODE_9FB8B4:
 	jsl.l forceblack
 	lda.w #$03E7

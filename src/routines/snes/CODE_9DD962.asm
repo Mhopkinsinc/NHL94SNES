@@ -6,5 +6,5 @@ CODE_9DD962:
 	sta.b $0C
 	ldy.w #$0420
 	ldx.w #$0300
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	rtl

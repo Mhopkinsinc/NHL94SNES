@@ -16,7 +16,7 @@ CODE_9C9A21:
 	lda.w #$7000
 	sta.b $64
 	lda.l DATA8_9C9A73-2,x
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	rtl
 
 .t1:

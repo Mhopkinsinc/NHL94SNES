@@ -123,14 +123,14 @@ CODE_9D87D7:
 	asl a
 	adc.w #$1000
 	tay
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009C
 	sta.b $0E
 	lda.w #DATA8_9C81F0
 	sta.b $0C
 	ldx.w #$0120
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #DATA8_95F1AE>>16
 	sta.b $0E
 	lda.w #DATA8_95F1AE
@@ -152,7 +152,7 @@ CODE_9D87D7:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$1000
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ABA95
@@ -210,7 +210,7 @@ CODE_9D87D7:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w HomeTeam
 	cmp.w #$0018
 	bcs .1

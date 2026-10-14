@@ -104,7 +104,7 @@ Stop4Pen:
 	lda.w #$7000
 	sta.b $64
 	lda.w #$0015
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	stz.w Pencntdwn
 	lda.w #$0004
 	tsb.w gmode

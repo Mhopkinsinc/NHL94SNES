@@ -401,7 +401,7 @@ org $9DC002
 	tay
 	ldx.w #$0600
 	jsl.l WaitFrame
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$007F
 	sta.b $0E
 	lda.l $7E3472
@@ -415,7 +415,7 @@ org $9DC002
 	adc.w #$2300
 	tay
 	ldx.w #$0600
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	jsl.l CODE_9DD923
 	lda.w #$007F
 	sta.b $0E

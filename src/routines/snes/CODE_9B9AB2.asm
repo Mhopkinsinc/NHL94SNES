@@ -68,5 +68,5 @@ CODE_9B9AB2:
 	pla
 	sta.b $8F
 .2:
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 	rtl

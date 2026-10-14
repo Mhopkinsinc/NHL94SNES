@@ -108,7 +108,7 @@ CODE_9DD9AD:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.l $7E35C4
 	sta.l $7E35BE
 	lda.w #$009C
@@ -127,7 +127,7 @@ CODE_9DD9AD:
 	sta.l $7E35C4
 	sta.l $7E35C0
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.l $7E35C4
 	sta.l $7E35C0
 	lda.w #$009C
@@ -145,7 +145,7 @@ CODE_9DD9AD:
 	adc.l $7E35C4
 	sta.l $7E35C4
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.l $7E35C4
 	sec
 	sbc.w #$0100
@@ -171,7 +171,7 @@ CODE_9DD9AD:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$1000
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ABA95
@@ -259,7 +259,7 @@ CODE_9DD9AD:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AB7A1

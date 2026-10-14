@@ -24,7 +24,7 @@ setvideo:
 	beq .1
 	jsl.l CODE_9F9E24
 .1:
-	jsl.l CODE_9FBF75
+	jsl.l QueueTextDMA
 	stx.b xsave
 	ldx.w #$0036
 .loop2:

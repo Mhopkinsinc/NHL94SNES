@@ -26,7 +26,7 @@ CODE_9C88A0:
 	sta.b $0C
 	ldy.w #$00E0
 	ldx.w #$00C0
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	bra .1
 
 .t1:
@@ -51,7 +51,7 @@ CODE_9C88A0:
 	sta.b $0C
 	ldy.w #$00E0
 	ldx.w #$04C0
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 .1:
 	lda.w $1DB9
 	xba
@@ -66,7 +66,7 @@ CODE_9C88A0:
 	adc.w #$0040
 	tax
 	ldy.w #$0160
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	pla
 	sta.b d1
 	rtl
