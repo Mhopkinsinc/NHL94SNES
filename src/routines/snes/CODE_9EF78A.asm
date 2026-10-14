@@ -82,3 +82,9 @@ CODE_9EF80F:
 	sta.w tmflags,y
 CODE_9EF829:
 	rtl
+CODE_9EF82A:
+	inc.b a0
+	inc.b a0
+	dec.b d2
+	bpl CODE_9EF80F
+	rtl

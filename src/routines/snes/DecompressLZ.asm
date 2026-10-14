@@ -10,7 +10,7 @@ DecompressLZ:		; LZ data at [$0C] (after its header) to WRAM
 	stz.b $77
 	sep #$20
 	ldy.w #$0005
-CODE_80B8F0:
+.2:
 	lda.b [$0C],y
 	iny
 	sta.b $71
@@ -71,7 +71,7 @@ CODE_80B8F0:
 	dex
 	bne .loop2
 	ldy.b $79
-	jmp.w CODE_80B8F0
+	jmp.w .2
 
 .t3:
 	lda.b $71
@@ -134,13 +134,13 @@ CODE_80B8F0:
 	dex
 	bne .loop2x
 	ldy.b $79
-	jmp.w CODE_80B8F0
+	jmp.w .2
 
 .t2:
 	lda.b $71
 	and.b #$20
 	beq .t1xx
-	jmp.w CODE_80BA21
+	jmp.w .4
 
 .t1xx:
 	lda.b $71
@@ -188,11 +188,53 @@ CODE_80B8F0:
 	sep #$20
 	sty.b $79
 	ldy.w #$0000
-CODE_80BA13:
+.3:
 	lda.b [$6B],y
 	iny
 	sta.w WMDATA
 	dex
-	bne CODE_80BA13
+	bne .3
 	ldy.b $79
-	jmp.w CODE_80B8F0
+	jmp.w .2
+.4:
+	lda.b $71
+	and.b #$1F
+	asl a
+	asl a
+	adc.b #$04
+	cmp.b #$71
+	bcs .t1xxx
+	rep #$20
+	and.w #$00FF
+	tax
+	clc
+	adc.b $6F
+	sta.b $6F
+	sep #$20
+.loopxxx:
+	lda.b [$0C],y
+	iny
+	sta.w WMDATA
+	dex
+	bne .loopxxx
+	jmp.w .2
+
+.t1xxx:
+	lda.b $71
+	rep #$20
+	and.w #$0003
+	beq .1xxx
+	tax
+	clc
+	adc.b $6F
+	sta.b $6F
+	sep #$20
+.loopxxxx:
+	lda.b [$0C],y
+	iny
+	sta.w WMDATA
+	dex
+	bne .loopxxxx
+.1xxx:
+	rep #$20
+	rts

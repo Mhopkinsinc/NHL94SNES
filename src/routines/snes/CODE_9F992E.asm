@@ -41,23 +41,23 @@ CODE_9F992E:
 	stz.b d1
 	phx
 	lda.w #$0000
-CODE_9F9978:
+.11:
 	sta.b d2
 	asl a
 	tax
 	lda.l DATA8_80DA26,x
 	bit.b $B7
 	bne .t2
-	jmp.w CODE_9F9A5C
+	jmp.w .12
 
 .t2:
 	cpx.w #$000C
-	beq .1
+	beq .1x
 	cpx.w #$001A
-	bne .2
-.1:
+	bne .2x
+.1x:
 	inc.b $A7
-.2:
+.2x:
 	lda.w #$000F
 	sec
 	sbc.b d2
@@ -144,13 +144,13 @@ CODE_9F9978:
 .10:
 	sta.b d0
 	plx
-	jmp.w CODE_9F9ABD
+	jmp.w .17
 
 .t1:
 	lda.b d3
 	sta.b d0
 	plx
-	jmp.w CODE_9F9ABD
+	jmp.w .17
 
 .t3:
 	lda.b $10
@@ -165,41 +165,83 @@ CODE_9F9978:
 	sta.b d0
 	lda.b $14
 	ldy.b $08
-	beq .1x
+	beq .1xx
 	asl a
-.1x:
+.1xx:
 	clc
 	adc.b d1
 	sta.b d1
-CODE_9F9A5C:
+.12:
 	lda.b d2
 	inc a
 	cmp.w #$000F
-	bpl .t2
-	jmp.w CODE_9F9978
+	bpl .t2x
+	jmp.w .11
 
-.t2:
+.t2x:
 	lda.b d1
-	bpl CODE_9F9A94
+	bpl .14
 	eor.w #$FFFF
 	inc a
 	ldx.b $08
-	bne .t1
+	bne .t1x
 	tax
 	lda.w #$000A
-	bra CODE_9F9A7D
+	bra .13
 
-.t1:
+.t1x:
 	tax
 	lda.w #$0007
-CODE_9F9A7D:
+.13:
 	jsl.l DivX8U
 	sec
 	eor.w #$FFFF
 	adc.b d0
 	sta.b d0
 	lda.b d0
-	bpl CODE_9F9AB4
+	bpl .16
 	stz.b d0
 	lda.w #$0000
-	bra CODE_9F9AB4
+	bra .16
+.14:
+	ldx.b $08
+	bne .t1xx
+	tax
+	lda.w #$000A
+	bra .15
+
+.t1xx:
+	tax
+	lda.w #$0007
+.15:
+	jsl.l DivX8U
+	clc
+	adc.b d0
+	sta.b d0
+	lda.b d0
+	bpl .16
+	stz.b d0
+	lda.w #$0000
+.16:
+	sta.b d0
+	plx
+	lda.b $08
+	beq .17
+	lsr.b d0
+.17:
+	lda.b $A7
+	bne .rtl
+	lda.b d0
+	cmp.w #$0064
+	bcc .1xxx
+	lda.w #$0064
+.1xxx:
+	cmp.w #$0032
+	bcs .2xx
+	lsr a
+	clc
+	adc.w #$0019
+.2xx:
+	sta.b d0
+.rtl:
+	rtl

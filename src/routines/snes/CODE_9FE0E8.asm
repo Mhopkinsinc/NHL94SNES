@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9FE0E8:
 	ldx.w #$026F
-CODE_9FE0EB:
+.2:
 	lda.w #$000E
 	jsl.l CODE_9BB385
 	cmp.w #$000C
@@ -11,12 +11,19 @@ CODE_9FE0EB:
 	sta.b $14
 	lda.w $0792
 	and.w #$0010
-	beq CODE_9FE111
+	beq .4
 	sep #$20
 	lda.b $14
 	sta.w $1A12,x
-CODE_9FE10B:
+.3:
 	rep #$20
 	dex
-	bpl CODE_9FE0EB
+	bpl .2
 	rtl
+.4:
+	sep #$20
+	lda.b #$00
+	sec
+	sbc.b $14
+	sta.w $1A12,x
+	bra .3

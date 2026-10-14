@@ -42,7 +42,7 @@ CODE_9EAB74:
 	lda.w $0B9F
 	sta.b $20
 	lda.b tmp2
-	bne CODE_9EAC09
+	bne .2
 	ldx.b $E4
 	plb
 	rtl
@@ -68,46 +68,53 @@ CODE_9EAB74:
 .1:
 	lda.b tmp1
 	bit.w #$000A
-	beq CODE_9EAC09
+	beq .2
 	eor.w #$000A
 	sta.b tmp1
-CODE_9EAC09:
+.2:
 	lda.b tmp1
-	beq .t1
+	beq .t1x
 	ldx.b tmp0
 	jsr (DATA8_9EAD34,x)
 	ldx.b $E4
 	plb
 	rtl
 
-.t1:
-	jsr.w .t2
+.t1x:
+	jsr.w .t2x
 	ldx.b $E4
 	plb
 	rtl
 
-.t2:
+.t2x:
 	ldx.b $E4
 	lda.b $0E
 	cmp.w #$FEF8
-	bpl .t1x
+	bpl .t1xx
 	lda.b $12
 	cmp.w #$FEF8
-	bmi CODE_9EAC49
+	bmi .3
 	bra CODE_9EAC67
 
-.t1x:
+.t1xx:
 	lda.b $12
 	cmp.w #$FEF8
 	bmi CODE_9EAC54
 	ldy.b $20
-	bmi CODE_9EAC49
+	bmi .3
 	lda.b $0C
 	cmp.b $10
-	bmi CODE_9EAC4A
+	bmi .4
 	cmp.w Xpos,y
-	bmi CODE_9EAC49
+	bmi .3
 	lda.b $16
 	sta.b d1
-CODE_9EAC49:
+.3:
+	rts
+.4:
+	cmp.w Xpos,y
+	bpl .rts
+	lda.b $16
+	sta.b d1
+.rts:
 	rts

@@ -44,7 +44,7 @@ CODE_9EC894:
 .loop:
 	lda.b [$0C]
 	and.w #$00FF
-	beq CODE_9EC902
+	beq .2
 	asl a
 	tax
 	lda.l DATA8_9ACDB0+6,x
@@ -56,5 +56,16 @@ CODE_9EC894:
 	inc.b $0C
 	dec.b $22
 	bne .loop
-CODE_9EC901:
+.1:
 	rtl
+.2:
+	dex
+	bmi .1
+	lda.w #$0020
+	clc
+	adc.b $26
+	sta.b [$10],y
+	iny
+	iny
+	inc.b $0C
+	bra .2

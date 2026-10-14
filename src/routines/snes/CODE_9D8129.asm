@@ -96,3 +96,7 @@ CODE_9D8195:
 	bmi CODE_9D821A
 CODE_9D8217:
 	jmp.w CODE_9D8195
+CODE_9D821A:
+	lda.w #$0000
+	sta.l $7E3474
+	rtl

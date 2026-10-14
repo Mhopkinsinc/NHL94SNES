@@ -17,3 +17,6 @@ CODE_808671:
 	clc
 	adc.w $0792
 	rtl
+CODE_808679:
+	lda.w #$A5A5
+	bra CODE_808663

@@ -22,22 +22,22 @@ CODE_9EE7F6:
 	ldy.b d0
 	jsl.l CODE_9CA554
 	cmp.w #$0008
-	bcs CODE_9EE891
+	bcs .5
 	stz.w SPAcnt,x
 	cmp.w #$000C
-	bcs CODE_9EE891
+	bcs .5
 	stx.w shotPlIdx
 	ldy.w $19D4,x
 	bmi .t1
 .1:
 	lda.w $0AA4,y
 	sta.w passdir
-	bra CODE_9EE84A
+	bra .4
 
 .t1:
 	lda.w #$0008
 	sta.w passdir
-CODE_9EE84A:
+.4:
 	lda.w #$0024
 	sta.w passspeed
 	sta.w pfalock,x
@@ -46,9 +46,9 @@ CODE_9EE84A:
 	phy
 	ldy.w #$0000
 	cpx.w #$000C
-	bmi .1
+	bmi .1x
 	ldy.w #$0002
-.1:
+.1x:
 	lda.w $17D6,y
 	inc a
 	sta.w $17D6,y
@@ -70,3 +70,13 @@ CODE_9EE84A:
 	sta.b a2
 	jsl.l CODE_9EE220
 	jmp.w CODE_9EE77E
+.5:
+	lda.w shotPlIdx
+	bmi .t1x
+.1xx:
+	cpx.w shotPlIdx
+	beq .t1x
+	jmp.w CODE_9EE77E
+
+.t1x:
+	rtl

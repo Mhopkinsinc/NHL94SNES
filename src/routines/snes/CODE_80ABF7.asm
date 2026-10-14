@@ -2,7 +2,7 @@
 CODE_80ABF7:
 	sep #$20
 	lda.w $08F2,y
-	beq CODE_80AC45
+	beq .3
 	cmp.b #$01
 	beq CODE_80AC46
 	lda.b #$04
@@ -26,16 +26,23 @@ CODE_80ABF7:
 	cmp.b #$6D
 	bcc .t2
 	lda.b #$9F
-	bra CODE_80AC40
+	bra .2
 
 .t2:
 	cmp.b #$36
 	bcc .t1
 	lda.b #$99
-	bra CODE_80AC40
+	bra .2
 
 .t1:
 	cmp.b #$03
-	bcc CODE_80AC3E
+	bcc .1
 	lda.b #$8C
-	bra CODE_80AC40
+	bra .2
+.1:
+	lda.b #$81
+.2:
+	sta.b $5B
+	jsr.w CODE_80A44A
+.3:
+	rts

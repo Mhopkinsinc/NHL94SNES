@@ -49,7 +49,7 @@ CODE_808DB3:
 .loopx:
 	lda.b [$0C]
 	and.w #$00FF
-	beq CODE_808E1C
+	beq .2
 	clc
 	adc.b $26
 	sta.b [$10],y
@@ -58,5 +58,16 @@ CODE_808DB3:
 	inc.b $0C
 	dex
 	bne .loopx
-CODE_808E1B:
+.1:
 	rtl
+.2:
+	dex
+	bmi .1
+	lda.w #$0020
+	clc
+	adc.b $26
+	sta.b [$10],y
+	iny
+	iny
+	inc.b $0C
+	bra .2

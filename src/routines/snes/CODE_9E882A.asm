@@ -53,7 +53,7 @@ CODE_9E882A:
 	eor.b d0
 	bmi .t3
 	lda.w $0D71
-	bra CODE_9E88A8
+	bra .7
 
 .t1:
 	rtl
@@ -66,44 +66,98 @@ CODE_9E882A:
 	ror a
 	clc
 	adc.b d0
-CODE_9E88A8:
+.7:
 	sta.b d0
 	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0010
-	bne CODE_9E88F5
+	bne .10
 	lda.w pucky
 	sta.b d2
 	lda.w pfgoal,x
-	bne .1
+	bne .1x
 	lda.w #$0000
 	sec
 	sbc.b d2
 	sta.b d2
-.1:
+.1x:
 	lda.b d2
 	cmp.w #$FFA8
-	bmi .t2
+	bmi .t2x
 	cmp.w #$0058
-	bmi .t1
+	bmi .t1x
 	lda.w #$0062
 	sta.b d1
-	bra CODE_9E88E5
+	bra .8
 
-.t1:
+.t1x:
 	lda.w #$FFB2
 	sta.b d1
-	bra CODE_9E88E5
+	bra .8
 
-.t2:
+.t2x:
 	lda.w #$FF28
 	sta.b d1
-CODE_9E88E5:
+.8:
 	lda.w pfgoal,x
-	bne CODE_9E88F2
+	bne .9
 	lda.w #$0000
 	sec
 	sbc.b d1
 	sta.b d1
-CODE_9E88F2:
+.9:
 	jmp.w CODE_9EA5A4
+.10:
+	ldy.w #$0062
+	lda.w pfgoal,x
+	beq .1xx
+	ldy.w #$FF9E
+.1xx:
+	sty.b d1
+	bra .9
+	lda.w shotPlIdx
+	bmi .t1xx
+	lda.w $0EC4,x
+	sec
+	sbc.w $0EE0
+	and.w #$00FF
+	bit.w #$0080
+	beq .2x
+	ora.w #$FF00
+.2x:
+	clc
+	adc.w Xpos,x
+	sec
+	sbc.w $0D71
+	cmp.w #$FFD7
+	bmi .t1xx
+	cmp.w #$0029
+	bpl .t1xx
+	lda.w $0EE4,x
+	sec
+	sbc.w $0F00
+	and.w #$00FF
+	bit.w #$0080
+	beq .3x
+	ora.w #$FF00
+.3x:
+	clc
+	adc.w Ypos,x
+	sec
+	sbc.w pucky
+	cmp.w #$FFD7
+	bmi .t1xx
+	cmp.w #$0029
+	bpl .t1xx
+	lda.w Xpos,x
+	sec
+	sbc.w $0D71
+	sta.b d0
+	lda.w Ypos,x
+	sec
+	sbc.w pucky
+	sta.b d1
+	jml.l vtoa
+
+.t1xx:
+	rtl

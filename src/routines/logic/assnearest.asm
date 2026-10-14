@@ -49,7 +49,7 @@ assnearest:
 	lda.w pfteam,y
 	eor.w pfteam,x
 	bne .t1x
-	jmp.w CODE_9E8086
+	jmp.w .2
 
 .t1x:
 	ldy.b a2
@@ -58,21 +58,21 @@ assnearest:
 	lda.w $17B2,y
 	sta.b a1
 	lda.b d2
-	bmi CODE_9E80BF
-CODE_9E8086:
+	bmi .3
+.2:
 	cpx.b a1
-	beq CODE_9E80BF
+	beq .3
 	lda.w gmclock
-	bne CODE_9E80BF
+	bne .3
 	ldy.b a1
 	lda.w pflags,y
 	bit.w #$1000
-	bne CODE_9E80BF
+	bne .3
 	lda.w position,y
-	beq CODE_9E80BF
+	beq .3
 	lda.w $0B7D,y
 	cmp.w #$0015
-	beq CODE_9E80BF
+	beq .3
 	ldx.b a1
 	lda.w pflags,x
 	and.w #$FFFE
@@ -82,3 +82,36 @@ CODE_9E8086:
 	jsl.l assinsert
 	ldx.b $E4
 	jmp.w assexit
+.3:
+	lda.w #$0002
+	sta.b d1
+	lda.b d2
+	cmp.w #$00E2
+	bcs .1xx
+	stz.b d1
+	lda.w position,x
+	beq CODE_9E814E
+.1xx:
+	lda.w sflags
+	bit.w #$2000
+	beq .2x
+	dec.b d1
+	dec.b d1
+	jsl.l chkpk2
+	bne .2x
+	inc.b d1
+	inc.b d1
+	inc.b d1
+	inc.b d1
+.2x:
+	lda.w #$0014
+	sec
+	sbc.w $1483,x
+	sta.b d0
+	lda.b d1
+	sta.b tmp0
+.loop:
+	dec.b tmp0
+	bmi CODE_9E813D
+	asl.b d0
+	bra .loop

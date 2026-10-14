@@ -74,19 +74,47 @@ CODE_9EDCC3:
 	lda.w shotPlIdx
 	bpl CODE_9EDDB0
 	lda.w $163A
-	beq CODE_9EDD89
+	beq .9
 	lda.w gmode
 	bit.w #$0002
 	bne .t1
 	lda.w $1E91
-	beq CODE_9EDD71
+	beq .7
 .5:
-	bra CODE_9EDD6A
+	bra .6
 
 .t1:
 	lda.w $1E91
-	bne CODE_9EDD71
-CODE_9EDD6A:
+	bne .7
+.6:
 	lda.w puckvy
-	bmi CODE_9EDD89
-	bra CODE_9EDD77
+	bmi .9
+	bra .8
+.7:
+	lda.w puckvy
+	dec a
+	bpl .9
+.8:
+	lda.l $7E3450
+	inc a
+	sta.l $7E3450
+	cmp.w #$0030
+	bcc .10
+	jsl.l CODE_9EC791
+.9:
+	lda.w #$0000
+	sta.l $7E3450
+.10:
+	lda.w $0D71
+	cmp.w $0E5F
+	bne CODE_9EDDB7
+	lda.w pucky
+	cmp.w $0E9F
+	bne CODE_9EDDB7
+	lda.w #$0006
+	sta.b d0
+	dec.w $10BF
+	bpl CODE_9EDDBD
+.1x:
+	jsl.l AddPenalty2
+	bra CODE_9EDDBD

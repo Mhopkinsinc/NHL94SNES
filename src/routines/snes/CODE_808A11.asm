@@ -44,14 +44,14 @@ CODE_808A11:
 	adc.w $079C
 	ora.b $1C
 	tax
-CODE_808A5E:
+.3:
 	stx.w VMADDL
 	phx
 	lda.b $18
 	clc
 	adc.b $1C
 	cmp.w #$0021
-	bcs CODE_808AA1
+	bcs .5
 	ldx.b $18
 	ldy.w #$0000
 .loop:
@@ -64,7 +64,7 @@ CODE_808A5E:
 	iny
 	dex
 	bne .loop
-CODE_808A80:
+.4:
 	lda.b $0C
 	clc
 	adc.b $24
@@ -76,13 +76,49 @@ CODE_808A80:
 	inc.b $1E
 	lda.b $1E
 	cmp.w #$0020
-	bne .2
-.1:
+	bne .2x
+.1xx:
 	txa
 	clc
 	adc.w $079E
 	tax
-.2:
+.2x:
 	dec.b $1A
-	bne CODE_808A5E
+	bne .3
 	rtl
+.5:
+	lda.w #$0020
+	sbc.b $1C
+	sta.b $20
+	tax
+	ldy.w #$0000
+.loopx:
+	lda.b [$0C],y
+	clc
+	adc.b $16
+	ora.b $14
+	sta.w VMDATAL
+	iny
+	iny
+	dex
+	bne .loopx
+	lda.b $01,s
+	clc
+	adc.w #$0400
+	and.w #$FFE0
+	sta.w VMADDL
+	lda.b $18
+	sec
+	sbc.b $20
+	tax
+.loop2:
+	lda.b [$0C],y
+	clc
+	adc.b $16
+	ora.b $14
+	sta.w VMDATAL
+	iny
+	iny
+	dex
+	bne .loop2
+	jmp.w .4

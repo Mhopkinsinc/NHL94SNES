@@ -2,12 +2,12 @@
 CODE_80AC7B:
 	ldx.b #$00
 	txy
-CODE_80AC7E:
+.3:
 	sty.b $4B
 	stx.w $0800
 	lda.w $08F2,y
 	bne .t1
-	jmp.w CODE_80AD61
+	jmp.w .6
 
 .t1:
 	pha
@@ -35,7 +35,7 @@ CODE_80AC7E:
 	dec.w $097A,x
 	bmi .t3
 .2:
-	jmp.w CODE_80AD55
+	jmp.w .5
 
 .t3:
 	ldy.b #$2A
@@ -74,50 +74,86 @@ CODE_80AC7E:
 	clc
 	adc.w $098A,x
 	sta.w $098A,x
-	bmi CODE_80AD4D
+	bmi .4
 	cmp.w $09BA,x
-	bcc CODE_80AD4D
+	bcc .4
 	ldy.b #$2D
 	lda.b ($4E),y
 	and.w #$4000
 	bne .t1x
 .1x:
 	stz.w $098A,x
-	bra CODE_80AD4D
+	bra .4
 
 .t1x:
 	dec.w $09FA,x
-	bra CODE_80AD4D
+	bra .4
 
 .t2:
 	lda.w $098A,x
 	sec
 	sbc.w $09DA,x
 	sta.w $098A,x
-	bpl CODE_80AD4D
+	bpl .4
 	eor.w #$FFFF
 	inc a
 	cmp.w $09BA,x
-	bcc CODE_80AD4D
+	bcc .4
 	ldy.b #$2D
 	lda.b ($4E),y
 	bmi .t1xx
 	stz.w $098A,x
-	bra CODE_80AD4D
+	bra .4
 
 .t1xx:
 	inc.w $09FA,x
-CODE_80AD4D:
+.4:
 	lda.w $098A,x
 	clc
 	adc.b $60
 	sta.b $60
-CODE_80AD55:
+.5:
 	ply
 	cpy.b #$02
-	bne CODE_80AD64
+	bne .7
 	sep #$20
 	ldy.b $4B
 	jsr.w CODE_80A4FD
-CODE_80AD61:
-	jmp.w CODE_80AD90
+.6:
+	jmp.w .8
+.7:
+	cpy.b #$04
+	bne .t2x
+	rep #$20
+	ldy.b #$10
+	lda.w $093A,x
+	sec
+	sbc.b ($4E),y
+	sta.w $093A,x
+	bcs .t1xxx
+	sep #$20
+	ldy.b $4B
+	jsr.w CODE_80ABC7
+	bra .8
+
+.t1xxx:
+	sep #$20
+	ldy.b $4B
+	jsr.w CODE_80A4FD
+	bra .8
+
+.t2x:
+	sep #$20
+	ldy.b $4B
+	jsr.w CODE_80A4E3
+.8:
+	sep #$20
+	inx
+	inx
+	iny
+	cpy.b #$08
+	bcs .t1xxxx
+	jmp.w .3
+
+.t1xxxx:
+	rts

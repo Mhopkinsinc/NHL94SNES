@@ -236,18 +236,41 @@ CODE_9DB118:
 	stz.w $0BF1
 	lda.w #$0002
 	sta.w $0BFF
-CODE_9DB3E2:
+.1:
 	lda.w $0764
 	cmp.w #$00F0
-	bcs CODE_9DB3FF
+	bcs .3
 	lda.w $0764
 	cmp.w #$0078
 	bcs .t1
 	jsr.w CODE_9DB983
-	bra CODE_9DB3FA
+	bra .2
 
 .t1:
 	jsr.w CODE_9DB9B4
-CODE_9DB3FA:
+.2:
 	jsr.w CODE_9DB430
-	bra CODE_9DB3E2
+	bra .1
+.3:
+	stz.w $0764
+	jsr.w CODE_9DB9F7
+	jsl.l WaitFrame
+.loopx:
+	lda.w $0764
+	cmp.w #$1284
+	bcs .4
+	lda.w $0BE9
+	bne .4
+	jsr.w CODE_9DBA13
+	jsr.w CODE_9DB430
+	bra .loopx
+.4:
+	lda.w $0AD3
+	beq .t1x
+	dec.w $0AD3
+	jsl.l WaitFrame
+	bra .4
+
+.t1x:
+	jsr.w CODE_9DB72F
+	rtl

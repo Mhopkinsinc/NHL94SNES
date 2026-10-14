@@ -77,3 +77,21 @@ CODE_9BA038:
 	lda.w #$009B
 	sta.b $0E
 	bra CODE_9BA0A2
+CODE_9BA04D:
+	lda.w $0DF9
+	cmp.w #$001A
+	bmi CODE_9BA076
+	asl a
+	adc.w $0DF9
+	clc
+	adc.w pucky
+	cmp.w #$FEB8
+	bpl CODE_9BA076
+	cmp.w #$FEB0
+	bmi CODE_9BA076
+	lda.w $0D71
+	cmp.w #$FFF4
+	bpl CODE_9BA076
+	cmp.w #$FFEC
+	bmi CODE_9BA076
+	bra CODE_9BA038

@@ -5,7 +5,7 @@ CODE_9EA5A4:
 	sbc.w $0ADB
 	sta.w $1023,x
 	bmi .t2
-	jmp.w CODE_9EA694
+	jmp.w .7
 
 .t2:
 	adc.w #$000C
@@ -49,7 +49,7 @@ CODE_9EA5A4:
 	bne .3
 	lda.w $0B05,x
 	bit.w #$0002
-	beq CODE_9EA65A
+	beq .5
 .3:
 	lda.b d0
 	pha
@@ -82,13 +82,41 @@ CODE_9EA5A4:
 	cmp.w #$1000
 	bcs .t1
 	cpy.w #$0005
-	bpl CODE_9EA65A
-	bra CODE_9EA653
+	bpl .5
+	bra .4
 
 .t1:
 	cpy.w #$000C
-	bpl CODE_9EA65A
-CODE_9EA653:
+	bpl .5
+.4:
 	lda.w #$0009
 	sta.b d0
-	bra CODE_9EA65E
+	bra .6
+.5:
+	jsl.l vtoa
+.6:
+	lda.b a0
+	sta.w $1D5A
+	lda.b $8A
+	sta.w $1D5B
+	jsl.l $001D59
+	lda.b d0
+	sta.w $10A3,x
+	cmp.w #$0008
+	bcc .7
+	lda.w $0EC3,x
+	ora.w $0EE3,x
+	bne .7
+	lda.w $0D71
+	sec
+	sbc.w Xpos,x
+	sta.b d0
+	lda.w pucky
+	sec
+	sbc.w Ypos,x
+	sta.b d1
+	jsl.l vtoa
+.7:
+	lda.w $10A3,x
+	sta.b d0
+	jml.l doplayeracc

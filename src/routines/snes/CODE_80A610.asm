@@ -6,16 +6,16 @@ CODE_80A610:
 	sta.b $66
 	ldy.b #$07
 	tax
-CODE_80A61A:
+.1:
 	lda.w $08F2,x
-	beq CODE_80A68E
-CODE_80A61F:
+	beq .5
+.2:
 	inx
 	txa
 	and.b #$07
 	tax
 	dey
-	bpl CODE_80A61A
+	bpl .1
 	lda.b #$FF
 	sta.b $4B
 	stz.w $07FB
@@ -28,24 +28,24 @@ CODE_80A61F:
 	sta.b $68
 	ldx.b $66
 	ldy.b #$0E
-CODE_80A643:
+.3:
 	lda.b ($4E)
 	and.l ByteBitMasks,x
-	beq CODE_80A67B
+	beq .4
 	lda.w $07FE
 	cmp.w $0912,x
-	bcc CODE_80A67B
+	bcc .4
 	lda.w $08F2,x
 	cmp.w $07FD
-	bcc CODE_80A67B
+	bcc .4
 	bne .t1
 	rep #$20
 	lda.w $096A,y
 	cmp.w $07FB
-	bcc CODE_80A67B
+	bcc .4
 	stx.b $4B
 	sta.w $07FB
-	bra CODE_80A67B
+	bra .4
 
 .t1:
 	stx.b $4B
@@ -53,7 +53,7 @@ CODE_80A643:
 	rep #$20
 	lda.w $096A,y
 	sta.w $07FB
-CODE_80A67B:
+.4:
 	sep #$20
 	inx
 	txa
@@ -62,7 +62,12 @@ CODE_80A67B:
 	dey
 	dey
 	dec.b $68
-	bne CODE_80A643
+	bne .3
 	ldx.b $4B
 	txy
 	jmp.w CODE_80A44A
+.5:
+	lda.b ($4E)
+	and.l ByteBitMasks,x
+	beq .2
+	rts

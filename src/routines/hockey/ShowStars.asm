@@ -235,64 +235,87 @@ CODE_9C9DA1:
 	sec
 	sbc.w $1E33
 	bmi .t2
-	bvc CODE_9C9DBC
-	bra CODE_9C9DD6
+	bvc .1
+	bra .3
 
 .t2:
-	bvc CODE_9C9DD6
-CODE_9C9DBC:
-	beq CODE_9C9DC6
-	bmi .t1
-	bvs CODE_9C9DC6
+	bvc .3
+.1:
+	beq .2
+	bmi .t1x
+	bvs .2
 	bra CODE_9C9E29
 
-.t1:
+.t1x:
 	bvs CODE_9C9E29
-CODE_9C9DC6:
+.2:
 	lda.b d0
 	sec
 	sbc.w $1E31
-	beq CODE_9C9DD6
-	bmi .t1
-	bvs CODE_9C9DD6
+	beq .3
+	bmi .t1xx
+	bvs .3
 	bra CODE_9C9E29
 
-.t1:
+.t1xx:
 	bvs CODE_9C9E29
-CODE_9C9DD6:
+.3:
 	lda.b $A7
 	sec
 	sbc.w $1E37
-	bmi .t1
-	bvc CODE_9C9DE4
-	bra CODE_9C9DFE
+	bmi .t1xxx
+	bvc .4
+	bra .6
 
-.t1:
-	bvc CODE_9C9DFE
-CODE_9C9DE4:
-	beq CODE_9C9DEE
-	bmi .t1
-	bvs CODE_9C9DEE
+.t1xxx:
+	bvc .6
+.4:
+	beq .5
+	bmi .t1xxxx
+	bvs .5
 	bra CODE_9C9E55
 
-.t1:
+.t1xxxx:
 	bvs CODE_9C9E55
-CODE_9C9DEE:
+.5:
 	lda.b d0
 	sec
 	sbc.w $1E35
-	beq CODE_9C9DFE
-	bmi .t1
-	bvs CODE_9C9DFE
+	beq .6
+	bmi .t1xxxxx
+	bvs .6
 	bra CODE_9C9E55
 
-.t1:
+.t1xxxxx:
 	bvs CODE_9C9E55
-CODE_9C9DFE:
+.6:
 	lda.b $A7
 	sec
 	sbc.w $1E3B
-	bmi CODE_9C9E0B
-	bvc CODE_9C9E0D
-CODE_9C9E08:
+	bmi .8
+	bvc .9
+.7:
 	jmp.w CODE_9C9E8E
+.8:
+	bvc .7
+.9:
+	beq .10
+	bmi .t1xxxxxx
+	bvs .10
+	bra CODE_9C9E81
+
+.t1xxxxxx:
+	bvs CODE_9C9E81
+.10:
+	lda.b d0
+	sec
+	sbc.w $1E39
+	beq .11
+	bmi .t1xxxxxxx
+	bvs .11
+	bra CODE_9C9E81
+
+.t1xxxxxxx:
+	bvs CODE_9C9E81
+.11:
+	bra CODE_9C9E8E

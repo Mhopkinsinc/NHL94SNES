@@ -36,14 +36,14 @@ CODE_9BA110:
 .1:
 	lda.w $0C53
 	sta.w $0C2B,x
-	bra CODE_9BA166
+	bra .2
 
 .t1x:
 	cmp.w #$000C
-	beq CODE_9BA178
+	beq .3
 	lda.w #$000C
 	sta.w $0C2B,x
-CODE_9BA166:
+.2:
 	ldy.w $0C2B,x
 	lda.b [$10],y
 	sta.b $0C
@@ -51,3 +51,10 @@ CODE_9BA166:
 	sta.b $0E
 	stz.w $0C55,x
 	jmp.w CODE_9BA0A2
+.3:
+	jsl.l RandomWord
+	and.w #$00C0
+	bne .2
+	lda.w #$000E
+	sta.w $0C2B,x
+	bra .2

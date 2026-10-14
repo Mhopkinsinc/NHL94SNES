@@ -23,16 +23,29 @@ CODE_9DBA13:
 
 .t1:
 	cmp.w #$0000
-	bne CODE_9DBA44
+	bne .2
 	lda.w $0BDF
 	dec a
 	dec a
 	cmp.w #$00B9
-	bmi CODE_9DBA53
+	bmi .3
 	dec.w $0BDF
 	dec.w $0BDF
-CODE_9DBA39:
+.1:
 	dec.w $0BE3
 	dec.w $0BE3
 	lda.w #$0002
+	bra CODE_9DBABA
+.2:
+	cmp.w #$0001
+	bne CODE_9DBA5E
+	lda.w $0BE3
+	dec a
+	dec a
+	cmp.w #$00C9
+	bpl .1
+.3:
+	lda.w #$0002
+	sta.w $0BD9
+	lda.w #$0046
 	bra CODE_9DBABA

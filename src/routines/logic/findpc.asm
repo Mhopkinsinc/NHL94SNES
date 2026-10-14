@@ -13,7 +13,7 @@ findpc:
 	lda.w #$0008
 	sta.b $00
 	ldy.w shotPlIdx
-	bmi CODE_9FCC06
+	bmi .9
 	lda.w position,x
 	beq .t1
 	lda.w $19D4,x
@@ -23,7 +23,7 @@ findpc:
 	lda.w $0B3D,x
 	cmp.w #$0064
 	bcs .t1
-	jmp.w CODE_9FCCAE
+	jmp.w .10
 
 .t1:
 	lda.w $19D4,y
@@ -31,7 +31,7 @@ findpc:
 	tay
 	lda.w $19F6,y
 	cmp.w $19F6,x
-	beq CODE_9FCC06
+	beq .9
 .1:
 	ldy.w #$0000
 	lda.w pfgoal,x
@@ -39,7 +39,7 @@ findpc:
 	ldy.w #$0004
 .2:
 	sty.b $00
-CODE_9FCC06:
+.9:
 	lda.w #$0006
 	sta.b d1
 	ldy.b d4
@@ -48,9 +48,9 @@ CODE_9FCC06:
 	ldx.w #$0000
 	lda.w $1C84,y
 	cmp.w #$0001
-	beq .1
+	beq .1x
 	ldx.w #$000C
-.1:
+.1x:
 	lda.w position,x
 	bmi .8
 	beq .8
@@ -59,10 +59,10 @@ CODE_9FCC06:
 	bne .8
 	lda.w SPA,x
 	cmp.w #$EBB0
-	bcc .2
+	bcc .2x
 	cmp.w #$EBE3
 	bcc .4
-.2:
+.2x:
 	cmp.w #$F196
 	bcc .3
 	cmp.w #$F343
@@ -114,18 +114,18 @@ CODE_9FCC06:
 	inx
 	inx
 	dec.b d1
-	bne .1
+	bne .1x
 	ldx.b a3
 	lda.b d2
 	cmp.w #$FFFF
-	beq CODE_9FCCFB
+	beq .12
 	ldy.b d4
 	lda.b d3
 	cmp.w $19EC,y
-	bne CODE_9FCCF5
-CODE_9FCCAE:
+	bne .11
+.10:
 	lda.w pfalock,x
-	bne CODE_9FCCFB
+	bne .12
 	lda.b d4
 	pha
 	lda.b $B7
@@ -167,4 +167,18 @@ CODE_9FCCAE:
 	sta.b $B7
 	pla
 	sta.b d4
-	bra CODE_9FCCFB
+	bra .12
+.11:
+	sta.b d0
+	jsl.l CODE_9FCB68
+.12:
+	stx.b xsave
+	ldx.w #$000E
+.loopx:
+	pla
+	sta.b d0,x
+	dex
+	dex
+	bpl .loopx
+	ldx.b xsave
+	rtl

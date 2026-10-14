@@ -90,7 +90,7 @@ CODE_9EF042:
 	cmp.w #$3000
 	bpl .1x
 	cmp.w #$D000
-	bpl CODE_9EF135
+	bpl .5
 .1x:
 	lda.w $19BE
 	clc
@@ -103,7 +103,7 @@ CODE_9EF042:
 	beq .t1x
 	lda.w #$0004
 	jsl.l CODE_9C9A7F
-	bra CODE_9EF135
+	bra .5
 
 .t1x:
 	lda.l $7E35E0
@@ -112,21 +112,21 @@ CODE_9EF042:
 	sta.l $7E35E0
 	lda.w #$003C
 	sta.b $81
-CODE_9EF135:
+.5:
 	lda.w shotPlIdx
-	bmi .1
+	bmi .1xx
 	lsr a
-.1:
+.1xx:
 	sta.b d2
-	bpl .t2
+	bpl .t2x
 	jmp.w CODE_9EF1CE
 
-.t2:
+.t2x:
 	cpx.w shotPlIdx
-	bne .t1
+	bne .t1xx
 	jmp.w CODE_9EF1CE
 
-.t1:
+.t1xx:
 	lda.w #$FF00
 	tsb.w shotPlIdx
 	asl.b d2
@@ -186,3 +186,5 @@ CODE_9EF168:
 	sta.w $0EE4,x
 	rep #$20
 	jmp.w puckflip
+CODE_9EF1CA:
+	rtl

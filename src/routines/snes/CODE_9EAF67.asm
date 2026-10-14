@@ -23,12 +23,20 @@ CODE_9EAF7D:
 	bpl CODE_9EAF4D
 CODE_9EAF92:
 	cpx.w #$FFDC
-	bpl CODE_9EAFA6
+	bpl .2
 	lda.b tmp0
 	ora.w #$0010
 	sta.b tmp0
 	cpy.w #$FFDC
 	bmi CODE_9EAF4D
-CODE_9EAFA3:
+.1:
+	inc.b tmp2
+	rts
+.2:
+	cpy.w #$FFDC
+	bpl .1
+	lda.b tmp1
+	ora.w #$0010
+	sta.b tmp1
 	inc.b tmp2
 	rts

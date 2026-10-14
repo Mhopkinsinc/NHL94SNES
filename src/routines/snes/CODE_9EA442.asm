@@ -57,7 +57,7 @@ CODE_9EA472:
 	cmp.w #$FEC2
 	bcs .1
 	cmp.w #$FDFE
-	bcs CODE_9EA4DF
+	bcs .6
 .1:
 	lda.b d1
 	bne .2
@@ -76,6 +76,15 @@ CODE_9EA472:
 .4:
 	lda.b d2
 	sta.w $0D97,x
-CODE_9EA4DD:
+.5:
 	ply
 	rtl
+.6:
+	lda.w #$FF78
+	sta.w Xpos,x
+	lda.w #$0002
+	sta.w facedir,x
+	sta.w pfalock,x
+	lda.w #$E8F4
+	jsl.l CODE_9EA403
+	bra .5

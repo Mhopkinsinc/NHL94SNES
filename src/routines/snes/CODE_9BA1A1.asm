@@ -12,19 +12,19 @@ CODE_9BA1A1:
 
 .t1:
 	ldx.w #$0012
-CODE_9BA1B8:
+.1:
 	stx.b d4
 	lda.l $7E340C,x
 	beq .t3
-	jmp.w CODE_9BA31C
+	jmp.w .7
 
 .t3:
 	jsl.l RandomWord
 	and.w #$07C0
-	beq .t1
-	jmp.w CODE_9BA312
+	beq .t1x
+	jmp.w .6
 
-.t1:
+.t1x:
 	jsl.l RandomWord
 	and.w #$003F
 	sta.b d0
@@ -74,7 +74,7 @@ CODE_9BA1B8:
 	lda.b d0
 	sec
 	sbc.w #$1100
-	bra CODE_9BA249
+	bra .2
 
 .t2:
 	lda.w #$FF00
@@ -82,7 +82,7 @@ CODE_9BA1B8:
 	lda.b d0
 	sec
 	sbc.w #$FF00
-CODE_9BA249:
+.2:
 	tax
 	lda.b d2
 	jsl.l DivX8S
@@ -102,9 +102,9 @@ CODE_9BA249:
 	lsr a
 	lsr a
 	and.w #$0003
-	beq .1
+	beq .1x
 	dec a
-.1:
+.1x:
 	sta.b d2
 	asl a
 	adc.b d2
@@ -115,7 +115,7 @@ CODE_9BA249:
 	sta.l $7E340C,x
 	lda.l DATA8_9BA414,x
 	sta.l $7E3420,x
-CODE_9BA293:
+.5:
 	lda.l $7E3434,x
 	clc
 	adc.l $7E340C,x
@@ -140,9 +140,9 @@ CODE_9BA293:
 	lsr a
 	lsr a
 	bit.w #$0800
-	beq .1
+	beq .1xx
 	ora.w #$F000
-.1:
+.1xx:
 	tay
 	lda.l $7E3394,x
 	lsr a
@@ -150,9 +150,9 @@ CODE_9BA293:
 	lsr a
 	lsr a
 	bit.w #$0800
-	beq .2
+	beq .2x
 	ora.w #$F000
-.2:
+.2x:
 	tax
 	lda.w #$2000
 	jsl.l DrawSprite
@@ -181,12 +181,125 @@ CODE_9BA293:
 	tax
 	lda.w #$2000
 	jsl.l DrawSprite
-CODE_9BA312:
+.6:
 	ldx.b d4
 	dex
 	dex
-	bmi .t1
-	jmp.w CODE_9BA1B8
+	bmi .t1xx
+	jmp.w .1
 
-.t1:
+.t1xx:
+	rtl
+.7:
+	lda.l $7E3420,x
+	sec
+	sbc.w $0ADB
+	bpl .t1xxx
+	clc
+	adc.l DATA8_9BA414,x
+	sta.l $7E3420,x
+	lda.l $7E340C,x
+	inc a
+	cmp.w #$0004
+	bne .1xxx
+	lda.w #$0001
+.1xxx:
+	sta.l $7E340C,x
+	bra .8
+
+.t1xxx:
+	sta.l $7E3420,x
+.8:
+	ldy.w $0ADB
+	beq .1xxxx
+.loop:
+	jsl.l .t3x
+	dey
+	bne .loop
+.1xxxx:
+	jmp.w .5
+
+.t3x:
+	lda.l $7E33D0,x
+	ora.l $7E33E4,x
+	beq .rtlx
+	lda.l $7E3394,x
+	clc
+	adc.l $7E33D0,x
+	sta.l $7E3394,x
+	lda.l $7E33A8,x
+	clc
+	adc.l $7E33E4,x
+	sta.l $7E33A8,x
+	lda.l $7E33BC,x
+	beq .t2x
+	lda.l $7E33F8,x
+	lsr a
+	lsr a
+	bit.w #$2000
+	beq .1xxxxx
+	ora.w #$C000
+.1xxxxx:
+	eor.w #$FFFF
+	inc a
+	clc
+	adc.l $7E33BC,x
+	bmi .t1xxxx
+	sta.l $7E33BC,x
+	lda.l $7E33F8,x
+	clc
+	adc.w #$0006
+	sta.l $7E33F8,x
+.rtlx:
+	rtl
+
+.t1xxxx:
+	lda.w #$0000
+	sta.l $7E33BC,x
+	rtl
+
+.t2x:
+	lda.w #$0000
+	sta.l $7E33F8,x
+	sta.l $7E33BC,x
+	lda.w #$03E8
+	sta.l $7E3420,x
+	lda.l $7E33D0,x
+	cmp.w #$0010
+	bcc .t1xxxxx
+	cmp.w #$FFF0
+	bcs .t1xxxxx
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$0800
+	beq .1xxxxxx
+	ora.w #$F000
+.1xxxxxx:
+	eor.w #$FFFF
+	inc a
+	clc
+	adc.l $7E33D0,x
+	sta.l $7E33D0,x
+	lda.l $7E33E4,x
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$0800
+	beq .2xx
+	ora.w #$F000
+.2xx:
+	eor.w #$FFFF
+	inc a
+	clc
+	adc.l $7E33E4,x
+	sta.l $7E33E4,x
+	rtl
+
+.t1xxxxx:
+	lda.w #$0000
+	sta.l $7E33D0,x
+	sta.l $7E33E4,x
 	rtl

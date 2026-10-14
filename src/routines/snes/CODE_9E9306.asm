@@ -8,7 +8,7 @@ CODE_9E9306:
 	sbc.w $0D3D
 	cmp.w #$FF16
 	bpl CODE_9E9305
-	bra CODE_9E9325
+	bra .8
 
 .t1:
 	lda.b d3
@@ -16,7 +16,7 @@ CODE_9E9306:
 	adc.w $0D3D
 	cmp.w #$00EA
 	bmi CODE_9E9305
-CODE_9E9325:
+.8:
 	lda.b d2
 	bit.w #$8000
 	beq .1
@@ -66,7 +66,7 @@ CODE_9E9325:
 	sta.b d2
 	pla
 	sta.b d3
-	jsr.w .t1
+	jsr.w .t1x
 	lda.b d3
 	pha
 	lda.b d2
@@ -115,7 +115,7 @@ CODE_9E9325:
 	sta.b d3
 	rtl
 
-.t1:
+.t1x:
 	lda.b d0
 	pha
 	lda.b d1
@@ -139,18 +139,62 @@ CODE_9E9325:
 	lda.w $0EE3,x
 	sta.b d1
 	cmp.w #$DFFF
-	bmi CODE_9E9430
+	bmi .10
 	cmp.w #$2001
-	bpl CODE_9E9430
+	bpl .10
 	lda.b d0
 	cmp.w #$DFFF
-	bmi CODE_9E9430
+	bmi .10
 	cmp.w #$2001
-	bpl CODE_9E9430
+	bpl .10
 .1x:
 	pla
 	sta.b d1
 	pla
 	sta.b d0
-CODE_9E942F:
+.9:
 	rts
+.10:
+	pla
+	pla
+	lda.b d0
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$1000
+	beq .1xx
+	ora.w #$E000
+.1xx:
+	sta.b d0
+	cmp.w #$8000
+	ror a
+	clc
+	adc.b d0
+	sta.b d0
+	ldy.b a2
+	sta.w $0EC3,y
+	lda.b d1
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$1000
+	beq .2x
+	ora.w #$E000
+.2x:
+	sta.b d1
+	cmp.w #$8000
+	ror a
+	clc
+	adc.b d1
+	sta.b d1
+	sta.w $0EE3,y
+	stz.w $0EC3,x
+	stz.w $0EE3,x
+	lda.w #$0040
+	tsb.w sflags
+	lda.w gmclock
+	bne .9
+	pla
+	lda.w #$0008
+	sta.b d0
+	jmp.w AddPenalty2

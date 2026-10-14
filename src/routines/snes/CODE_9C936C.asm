@@ -3,11 +3,11 @@ CODE_9C936C:
 	stx.w $1E17
 	sty.w $1E1B
 	ldy.w #$0002
-CODE_9C9375:
+.1:
 	tya
 	cmp.b [a1]
 	bne .t4
-	jmp.w CODE_9C93F0
+	jmp.w .4
 
 .t4:
 	lda.b [a1],y
@@ -15,7 +15,7 @@ CODE_9C9375:
 	cmp.w #$0020
 	bne .t1
 	lda.w #$0006
-	bra CODE_9C93E5
+	bra .2
 
 .t1:
 	cmp.w #$0030
@@ -39,9 +39,9 @@ CODE_9C9375:
 
 .t1x:
 	cmp.w #$0041
-	bcc CODE_9C93EC
+	bcc .3
 	cmp.w #$005B
-	bcs CODE_9C93EC
+	bcs .3
 	sec
 	sbc.w #$0041
 	bra .t3
@@ -63,10 +63,12 @@ CODE_9C9375:
 	plx
 	lda.l DATA8_9C93F1,x
 	and.w #$00FF
-CODE_9C93E5:
+.2:
 	clc
 	adc.w $1E17
 	sta.w $1E17
-CODE_9C93EC:
+.3:
 	iny
-	jmp.w CODE_9C9375
+	jmp.w .1
+.4:
+	rtl

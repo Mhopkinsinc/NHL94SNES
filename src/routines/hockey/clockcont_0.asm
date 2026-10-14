@@ -11,7 +11,7 @@ clockcont_0:
 	lda.w gsp
 	cmp.w #$0002
 	bcs .t1
-	jmp.w CODE_9F8C96
+	jmp.w .8
 
 .t1:
 	lda.w #$0008
@@ -75,7 +75,7 @@ clockcont_0:
 	sta.b d2
 	lda.w $178E
 	cmp.w $1790
-	beq CODE_9F8C96
+	beq .8
 	bpl .5
 	ldx.w #$000C
 	stx.b a3
@@ -92,7 +92,7 @@ clockcont_0:
 	stx.b a3
 	dec.b d2
 	bpl .5
-CODE_9F8C43:
+.7:
 	jsl.l ClearPenaltyBuffer
 	lda.l $7E35E0
 	clc
@@ -105,7 +105,7 @@ CODE_9F8C43:
 	tsb.w gmode
 	lda.w $178E
 	cmp.w $1790
-	bmi .1
+	bmi .1x
 	lda.w #$0000
 	sta.l $7E35E0
 	lda.w #$0003
@@ -114,7 +114,7 @@ CODE_9F8C43:
 	sec
 	sbc.w #$0096
 	sta.w $0CE9
-.1:
+.1x:
 	lda.w #$0004
 	sta.b d0
 	jsl.l AddPenalty2
@@ -125,3 +125,14 @@ CODE_9F8C43:
 	jsl.l AddPenalty2
 .rtl:
 	rtl
+.8:
+	lda.w gsp
+	cmp.w #$0003
+	bne .1xx
+	lda.l $7E34BC
+	beq .7
+.1xx:
+	jsl.l CODE_9EC791
+	lda.w #$0002
+	sta.b d0
+	jml.l ShootoutWonBy

@@ -47,13 +47,13 @@ CODE_9FD61C:
 	bpl CODE_9FD5D0
 	lda.w #$0005
 	sta.b d4
-CODE_9FD625:
+.4:
 	ldy.b d4
 	lda.b [a4],y
 	and.w #$00FF
 	sta.b d3
 	bne .t1
-	jmp.w CODE_9FD6B8
+	jmp.w .5
 
 .t1:
 	and.w #$00FF
@@ -77,8 +77,8 @@ CODE_9FD625:
 	cmp.w #$FFFC
 	beq .3
 	lda.w tmpdst,y
-	bmi CODE_9FD6B8
-	beq CODE_9FD6B8
+	bmi .5
+	beq .5
 .3:
 	lda.b $97
 	pha
@@ -116,17 +116,29 @@ CODE_9FD625:
 	and.w #$00FF
 	sta.b d0
 	bit.w #$0080
-	bne CODE_9FD6C0
+	bne .6
 	ldy.b d0
 	lda.b [a1],y
 	and.w #$00FF
 	sta.b d0
 	jsl.l TryAddPlayerToList
 	beq .loop
-CODE_9FD6B8:
+.5:
 	dec.b d4
-	bmi .t1
-	jmp.w CODE_9FD625
+	bmi .t1x
+	jmp.w .4
 
-.t1:
+.t1x:
 	rtl
+.6:
+	jsl.l GetPlayerCount
+	lda.b d0
+	sta.b d3
+.loopx:
+	lda.b d3
+	sta.b d0
+	dec.b d3
+	bmi .5
+	jsl.l TryAddPlayerToList
+	beq .loopx
+	bra .5

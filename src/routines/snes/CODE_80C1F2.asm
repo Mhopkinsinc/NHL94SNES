@@ -27,3 +27,10 @@ CODE_80C205:
 	adc.b $6F
 	sta.b $6F
 	rts
+CODE_80C21A:
+	sep #$20
+	lda.b ($0C)
+	rep #$20
+	inc.b $0C
+	ldy.b #$08
+	bra CODE_80C1FA

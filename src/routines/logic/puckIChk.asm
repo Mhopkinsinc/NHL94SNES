@@ -2,19 +2,28 @@
 puckIChk:
 	lda.w iflags
 	bit.w #$0004
-	beq CODE_9EF779
+	beq .1
 	bit.w #$0001
-	bne CODE_9EF779
+	bne .1
 	lda.w shotPlIdx
-	bpl CODE_9EF779
+	bpl .1
 	lda.w #$0108
 	sta.b d0
 	lda.w iflags
 	bit.w #$0002
-	bne CODE_9EF77A
+	bne .2
 	lda.w #$FEF8
 	sec
 	sbc.w pucky
-	bpl CODE_9EF783
-CODE_9EF779:
+	bpl .3
+.1:
+	rtl
+.2:
+	lda.w #$0108
+	sec
+	sbc.w pucky
+	bpl .1
+.3:
+	lda.w #$0001
+	tsb.w iflags
 	rtl

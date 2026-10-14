@@ -22,3 +22,10 @@ CODE_80C244:
 	sta.b $6C
 	lda.b $6F
 	rts
+CODE_80C250:
+	sep #$20
+	lda.b ($0C)
+	rep #$20
+	inc.b $0C
+	ldx.b #$10
+	bra CODE_80C23B

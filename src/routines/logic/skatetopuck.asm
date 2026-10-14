@@ -6,7 +6,7 @@ skatetopuck:
 	sbc.b d7
 	sta.w $1023,x
 	bmi .t1
-	jmp.w CODE_9EB070
+	jmp.w .4
 
 .t1:
 	adc.w #$0005
@@ -55,7 +55,7 @@ org $9EB000
 	lda.b d0
 	sta.w $10A3,x
 	lda.w position,x
-	beq CODE_9EB070
+	beq .4
 	lda.w puckvx
 	sta.b d0
 	lda.w puckvy
@@ -66,7 +66,7 @@ org $9EB000
 	beq .3
 	eor.w #$0004
 	cmp.w facedir,x
-	beq CODE_9EB070
+	beq .4
 .3:
 	lda.w pucky
 	sec
@@ -88,8 +88,43 @@ org $9EB000
 	sta.b d1
 	lda.w facedir,x
 	cmp.b tmp0
-	beq CODE_9EB079
-CODE_9EB070:
+	beq .5
+.4:
 	lda.w $10A3,x
 	sta.b d0
 	jml.l doplayeracc
+.5:
+	lda.w shotPlIdx
+	bmi .4
+	lda.b $00
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$1000
+	beq .1x
+	ora.w #$E000
+.1x:
+	tax
+	jsl.l CODE_808F7D
+	sta.b d0
+	lda.b d1
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$1000
+	beq .2x
+	ora.w #$E000
+.2x:
+	tax
+	jsl.l CODE_808F7D
+	ldx.b a3
+	clc
+	adc.b d0
+	cmp.w #$000E
+	bcc .4
+	cmp.w #$0028
+	bcs .t1x
+	jmp.w CODE_9EA242
+
+.t1x:
+	bra .4

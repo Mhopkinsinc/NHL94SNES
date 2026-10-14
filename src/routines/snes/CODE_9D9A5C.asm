@@ -31,7 +31,7 @@ CODE_9D9A5C:
 	adc.b $14
 	sta.b $14
 	ldy.w #$0000
-CODE_9D9A94:
+.1:
 	lda.b $14
 	asl a
 	sta.b $02
@@ -40,29 +40,29 @@ CODE_9D9A94:
 	bne .t2
 	lda.w #$FFFF
 	sta.b $08
-	jmp.w CODE_9D9B0F
+	jmp.w .4
 
 .t2:
 	cmp.w #$0020
-	beq CODE_9D9ABE
+	beq .2
 	cmp.w #$002E
 	bne .t1
 	lda.w #$001A
-	bra CODE_9D9ABE
+	bra .2
 
 .t1:
 	and.w #$00DF
 	sec
 	sbc.w #$0041
-CODE_9D9ABE:
+.2:
 	phy
 	sta.b $08
 	cmp.w #$0020
-	bne .t1
+	bne .t1x
 	lda.w #$0005
-	bra CODE_9D9B07
+	bra .3
 
-.t1:
+.t1x:
 	lda.b $08
 	asl a
 	tax
@@ -94,12 +94,12 @@ CODE_9D9ABE:
 	ldx.b $08
 	lda.l DATA8_9C9623,x
 	and.w #$00FF
-CODE_9D9B07:
+.3:
 	clc
 	adc.b $14
 	cmp.w #$0008
-	bcc CODE_9D9B59
-CODE_9D9B0F:
+	bcc .5
+.4:
 	jsl.l $001D59
 	inc.w printx
 	lda.b $06
@@ -109,9 +109,9 @@ CODE_9D9B0F:
 	inc a
 	sta.l $7E3466
 	lda.b $08
-	bmi CODE_9D9B79
+	bmi .7
 	cmp.w #$0020
-	beq CODE_9D9B59
+	beq .5
 	lda.b $14
 	eor.w #$0007
 	sta.b $16
@@ -134,21 +134,24 @@ CODE_9D9B0F:
 	lda.l $7E3466
 	inc a
 	jsr.w CODE_9D9C2A
-CODE_9D9B59:
+.5:
 	ldx.b $08
 	cmp.w #$0020
-	bne .t1
+	bne .t1xx
 	lda.w #$0005
-	bra CODE_9D9B6C
+	bra .6
 
-.t1:
+.t1xx:
 	lda.l DATA8_9C9623,x
 	and.w #$00FF
-CODE_9D9B6C:
+.6:
 	clc
 	adc.b $14
 	and.w #$0007
 	sta.b $14
 	ply
 	iny
-	jmp.w CODE_9D9A94
+	jmp.w .1
+.7:
+	plb
+	rtl

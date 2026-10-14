@@ -4,8 +4,8 @@ CODE_80BB3F:
 	lda.w $0500,x
 	tax
 	lda.w $0100,x
-	bmi CODE_80BB77
-CODE_80BB49:
+	bmi .3
+.2:
 	txa
 	sta.w WMDATA
 	plx
@@ -29,3 +29,20 @@ CODE_80BB49:
 	beq CODE_80BAF9
 	jsr.w CODE_80BB97
 	bra CODE_80BAF9
+.3:
+	phx
+	lda.w $0500,x
+	tax
+	lda.w $0100,x
+	beq .1x
+	jsr.w CODE_80BB97
+.1x:
+	txa
+	sta.w WMDATA
+	plx
+	lda.w $0600,x
+	tax
+	lda.w $0100,x
+	beq .2
+	jsr.w CODE_80BB97
+	bra .2

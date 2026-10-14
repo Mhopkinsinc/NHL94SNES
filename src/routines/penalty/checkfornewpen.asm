@@ -107,3 +107,5 @@ CODE_9EB1F2:
 	sta.w Pencntdwn
 CODE_9EB2B1:
 	jmp.w CODE_9EB1F2
+CODE_9EB2B4:
+	rtl

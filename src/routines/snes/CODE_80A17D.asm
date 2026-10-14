@@ -21,16 +21,16 @@ CODE_80A17D:
 	sta.b $4E
 	ldx.b #$00
 	txy
-CODE_80A19D:
+.1:
 	lda.w $092A,x
 	cmp.b $4E
-	beq CODE_80A1E9
-CODE_80A1A4:
+	beq .3
+.2:
 	inx
 	inx
 	iny
 	cpy.b #$08
-	bne CODE_80A19D
+	bne .1
 	ldx.b #$10
 	stx.b $4A
 	ldx.b #$20
@@ -44,14 +44,14 @@ CODE_80A1A4:
 	phx
 	rep #$10
 	ldx.w $0CAD
-	bmi .1
+	bmi .1x
 	ldx.w $0CAD
 	stx.w $0CB3
 	ldx.w $0CAF
 	stx.w $0CB5
 	ldx.w $0CB1
 	stx.w $0CB7
-.1:
+.1x:
 	sta.w $0CAD
 	sep #$10
 	plx
@@ -60,3 +60,17 @@ CODE_80A1A4:
 .t1:
 	pla
 	jmp.w CODE_80A226
+.3:
+	lda.w $08F2,y
+	and.w #$00FF
+	beq .2
+	pla
+	tya
+	and.w #$00FF
+	sep #$20
+	inc.w SoundLock
+	plp
+	plb
+	ply
+	plx
+	rtl

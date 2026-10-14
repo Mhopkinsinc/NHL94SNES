@@ -38,7 +38,7 @@ CODE_9ECE2B:
 .t1:
 	and.w #$00FF
 	bne .t2
-	jmp.w CODE_9ECF0A
+	jmp.w .5
 
 .t2:
 	cmp.w #$0061
@@ -50,7 +50,7 @@ CODE_9ECE2B:
 	sec
 	sbc.w #$0020
 	bne .t1x
-	jmp.w CODE_9ECF0E
+	jmp.w .6
 
 .t1x:
 	stz.b d2
@@ -99,7 +99,7 @@ CODE_9ECE2B:
 	ldx.b d1
 	sta.l $7E3834,x
 	lda.b d2
-	beq CODE_9ECF07
+	beq .1
 	ldx.b d0
 	lda.l DATA8_9ABD3D+8,x
 	clc
@@ -117,8 +117,29 @@ CODE_9ECE2B:
 	ldx.b d1
 	sta.l $7E3836,x
 	inc.w printx
-CODE_9ECF07:
+.1:
 	inc.w printx
-CODE_9ECF0A:
+.5:
 	iny
 	jmp.w CODE_9ECE2B
+.6:
+	lda.l $9ABD6F
+	clc
+	adc.l $7E35AE
+	adc.l printfontset
+	ora.w $0D0D
+	ldx.b d1
+	sta.l textmap,x
+	sta.l $7E3834,x
+	txa
+	lsr a
+	cmp.w textdirtylo
+	bcs .1xxx
+	sta.w textdirtylo
+.1xxx:
+	clc
+	adc.w #$0020
+	cmp.w textdirtyhi
+	bcc .1
+	sta.w textdirtyhi
+	bra .1

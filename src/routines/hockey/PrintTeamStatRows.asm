@@ -66,41 +66,41 @@ org $9C9000
 	sta.b a0
 	lda.w $1DB9
 	sta.b d0
-CODE_9C9039:
+.3:
 	lda.b [a0]
-	bpl .t2
+	bpl .t2x
 	jmp.w CODE_9C9167
 
-.t2:
+.t2x:
 	and.w #$00F0
 	ora.w $1E15
-	beq .1
+	beq .1x
 	dec.b d0
-	bmi .t1
-.1:
+	bmi .t1x
+.1x:
 	lda.b a0
 	clc
 	adc.w #$0006
 	sta.b a0
-	bra CODE_9C9039
+	bra .3
 
-.t1:
+.t1x:
 	lda.b [a0]
 	and.w #$000F
 	inc.b a0
 	inc.b a0
 	cmp.w #$0001
 	bne .t3
-	jmp.w CODE_9C90F0
+	jmp.w .5
 
 .t3:
 	cmp.w #$0002
-	beq .t2x
+	beq .t2xx
 	cmp.w #$0003
-	bne .t1x
+	bne .t1xx
 	jmp.w CODE_9C9145
 
-.t1x:
+.t1xx:
 	lda.b [a0]
 	clc
 	adc.b a2
@@ -110,7 +110,7 @@ CODE_9C9039:
 	jsl.l PushNumber
 	jmp.w CODE_9C9154
 
-.t2x:
+.t2xx:
 	lda.b [a0]
 	clc
 	adc.b a2
@@ -127,20 +127,20 @@ CODE_9C9039:
 	sta.b d1
 	lda.b d0
 	cmp.b d1
-	bpl .t1xx
+	bpl .t1xxx
 	ldx.w #$0064
 	jsl.l CODE_808F4C
 	tax
 	lda.b d1
-	beq CODE_9C90BF
+	beq .4
 	jsl.l DivX8U
-	bra CODE_9C90BF
+	bra .4
 
-.t1xx:
+.t1xxx:
 	lda.b d0
-	beq CODE_9C90BF
+	beq .4
 	lda.w #$0064
-CODE_9C90BF:
+.4:
 	sta.b d0
 	jsl.l PushNumber
 	lda.w #$0000
@@ -154,6 +154,43 @@ CODE_9C90BF:
 	sta.b $8F
 	lda.w #StatPercent
 	sta.b a1
+	jsl.l appstring
+	lda.b $97
+	sta.b $8F
+	lda.b a3
+	sta.b a1
+	bra CODE_9C9154
+.5:
+	lda.b [a0]
+	inc.b a0
+	inc.b a0
+	clc
+	adc.b a2
+	tay
+	lda.w $0000,y
+	sta.b d0
+	jsl.l PushNumber
+	lda.b [a0]
+	sta.b d1
+	lda.w #$0000
+	sta.b $97
+	lda.w #mesarea
+	sta.b a3
+	lda.w #$0002
+	sta.b [a3]
+	jsl.l appstring
+	lda.w #$009C
+	sta.b $8F
+	lda.w #StatSlash
+	sta.b a1
+	jsl.l appstring
+	lda.b a2
+	clc
+	adc.b d1
+	tay
+	lda.w $0000,y
+	sta.b d0
+	jsl.l PushNumber
 	jsl.l appstring
 	lda.b $97
 	sta.b $8F

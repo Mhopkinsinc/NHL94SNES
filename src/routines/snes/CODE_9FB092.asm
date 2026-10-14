@@ -111,14 +111,37 @@ CODE_9FB092:
 	lda.w #$0004
 	ldy.w #$0000
 	jsr.w CODE_9FB1DE
-	bmi CODE_9FB1B1
+	bmi .12
 	lda.w puckvy
-	bpl CODE_9FB1A4
+	bpl .10
 	lda.w pfgoal,y
-	bne CODE_9FB1A9
-CODE_9FB197:
+	bne .11
+.9:
 	lda.w #$0004
 	ldy.w #$000C
 	jsr.w CODE_9FB1DE
-	bmi CODE_9FB1B1
-	bra CODE_9FB1A9
+	bmi .12
+	bra .11
+.10:
+	lda.w pfgoal,y
+	bne .9
+.11:
+	sty.b a2
+	ldx.b a3
+	jsl.l a2touchpuck
+.12:
+	lda.w tmflags
+	and.w #$FFFB
+	sta.w tmflags
+	lda.w $17E0
+	and.w #$FFFB
+	sta.w $17E0
+	ldx.b a3
+	jsl.l RandomWord
+	and.w #$07FF
+	sta.w $0E01
+	stz.w $0DF9
+	stz.w $1563,x
+	lda.w #$0018
+	sta.b d0
+	jml.l assreplace

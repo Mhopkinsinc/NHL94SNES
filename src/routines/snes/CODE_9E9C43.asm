@@ -48,3 +48,5 @@ CODE_9E9C7C:
 	ldx.b a3
 	ldy.b a2
 	jmp.w CODE_9E9D79
+CODE_9E9CB3:
+	jmp.w CODE_9E9E8A

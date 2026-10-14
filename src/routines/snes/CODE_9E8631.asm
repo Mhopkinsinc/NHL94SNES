@@ -20,7 +20,7 @@ CODE_9E8631:
 	sbc.b d7
 	sta.w $1003,x
 	bmi .t2
-	jmp.w CODE_9E87E9
+	jmp.w .15
 
 .t2:
 	clc
@@ -108,7 +108,7 @@ CODE_9E8631:
 	lda.w #$FC18
 	sta.b d0
 	lda.w pfgoal,x
-	beq CODE_9E877B
+	beq .14
 	lda.w #$03E8
 	sta.b d0
 .loop:
@@ -162,9 +162,78 @@ CODE_9E8631:
 	lda.w $1043,x
 	eor.b d0
 	sta.b d1
-	bpl CODE_9E87E9
+	bpl .15
 	stz.w $1043,x
-	bra CODE_9E87E9
+	bra .15
 
 .t1:
 	rtl
+.14:
+	sty.b a0
+	lda.w pflags,y
+	bit.w #$1000
+	bne .4x
+	lda.w position,y
+	bmi .4x
+	lda.w $0EE3,y
+	bpl .1xx
+	lda.w #$0000
+.1xx:
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$0400
+	beq .3x
+.2x:
+	ora.w #$F800
+.3x:
+	clc
+	adc.w Ypos,y
+	sta.b d1
+	sec
+	sbc.b d0
+	bmi .4x
+	lda.b d1
+	sta.b d0
+.4x:
+	ldy.b a0
+	iny
+	iny
+	dec.b d2
+	bne .14
+	lda.b d0
+	clc
+	adc.w #$0028
+	sta.b d0
+	sec
+	sbc.w #$00BE
+	bmi .5x
+	lda.w #$00DC
+	sta.b d0
+.5x:
+	lda.b d0
+	sta.w $1063,x
+	lda.w #$0000
+	sec
+	sbc.w $1043,x
+	sta.w $1043,x
+	lda.w $0D71
+	sta.b d0
+	lda.w $1043,x
+	eor.b d0
+	sta.b d1
+	bpl .15
+	stz.w $1043,x
+.15:
+	lda.w $1043,x
+	sta.b d0
+	lda.w $1063,x
+	sta.b d1
+	lda.w #$009E
+	sta.b $8B
+	lda.w #rtss
+	sta.b a0
+	jsl.l CODE_9EA5A4
+	jmp.w check4check

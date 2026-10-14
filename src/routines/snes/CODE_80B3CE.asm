@@ -194,36 +194,43 @@ CODE_80B3E1:		; allocate VRAM for the frame at [$0C], queue the DMA of its tiles
 .t5:
 	sep #$30
 	lda.b #$00
-CODE_80B530:
+.2:
 	tax
 	lda.w $2F40,x
-	beq CODE_80B565
+	beq .4
 	cmp.b #$08
-	bne CODE_80B55B
+	bne .3
 	stx.b $0A
-.loop:
+.loopx:
 	sta.b $2A
 	txa
 	clc
 	adc.w $2F40,x
 	tax
 	lda.w $2F40,x
-	beq .t1
+	beq .t1xx
 	cmp.b #$10
-	bcs .t1
+	bcs .t1xx
 	clc
 	adc.b $2A
-	bra .loop
+	bra .loopx
 
-.t1:
+.t1xx:
 	lda.b $2A
 	cmp.b $14
 	bcs CODE_80B56E
 	lda.w $2F40,x
-CODE_80B55B:
+.3:
 	and.b #$3F
 	sta.b $2A
 	txa
 	clc
 	adc.b $2A
-	bra CODE_80B530
+	bra .2
+.4:
+	rep #$30
+	plb
+	ply
+	plx
+	lda.w #$FFFF
+	rtl

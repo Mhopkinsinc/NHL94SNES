@@ -26,7 +26,7 @@ CODE_9DA973:
 	sta.w printy
 	stz.b d2
 	ldx.w #$0000
-CODE_9DA9BE:
+.4:
 	lda.w #$3800
 	sta.w $0D0D
 	lda.w #$009D
@@ -44,7 +44,7 @@ CODE_9DA9BE:
 	lda.l DATA8_9DAC7F,x
 	ldx.b d0
 	cmp.w #$0000
-	beq CODE_9DAA5A
+	beq .6
 	bpl .2
 	lda.w #$009D
 	sta.b $8F
@@ -92,21 +92,32 @@ CODE_9DA9BE:
 .3:
 	stx.b d7
 	cpx.w #$0002
-	beq CODE_9DAA69
+	beq .7
 	cpx.w #$0004
-	beq CODE_9DAA69
+	beq .7
 	jsl.l print
-CODE_9DAA54:
+.5:
 	inc.w printy
 	inc.w printy
-CODE_9DAA5A:
+.6:
 	inx
 	inx
 	cpx.w #$000E
 	bcs .t1
-	jmp.w CODE_9DA9BE
+	jmp.w .4
 
 .t1:
 	lda.b d6
 	sta.b d7
 	rts
+.7:
+	ldy.b d7
+	lda.w #$007E
+	sta.b $8F
+	lda.w #$34BC
+	sta.b a1
+	lda.b [a1],y
+	sta.b d3
+	jsl.l CODE_9BC5AB
+	jsl.l print
+	bra .5

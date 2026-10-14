@@ -4,7 +4,7 @@ SelectPauseController:
 	jsr.w CODE_9FE75E
 	jsl.l IntermissionTick
 	beq .t1
-	jmp.w CODE_9FE70D
+	jmp.w .6
 
 .t1:
 	jsl.l SpriteFrameStart
@@ -13,7 +13,7 @@ SelectPauseController:
 	jsl.l SpriteFrameEnd
 	jsl.l CODE_9B8017
 	lda.w $0AC6
-	bpl CODE_9FE6B8
+	bpl .4
 	lda.w #$0000
 	pha
 .loop:
@@ -36,7 +36,7 @@ SelectPauseController:
 	cmp.w #$0005
 	bcc .loop
 	pla
-	jmp.w CODE_9FE6F2
+	jmp.w .5
 
 .t2:
 	pla
@@ -46,7 +46,7 @@ SelectPauseController:
 	eor.w #$FFFF
 	inc a
 	cmp.w $0AC6
-	beq CODE_9FE6AE
+	beq .3
 	stx.w $0AC6
 	stz.w $0D15
 	stz.w $0D13
@@ -61,9 +61,72 @@ SelectPauseController:
 	beq .t1x
 	cmp.w #$0005
 	beq .t1x
-	bra CODE_9FE6AD
+	bra .2
 
 .t1x:
 	jsl.l ChoosePauseMenu
-CODE_9FE6AD:
+.2:
+	rtl
+.3:
+	stx.w $0AC6
+	lda.w #$003C
+	sta.w $0AC8
+	txa
+.4:
+	lsr a
+	jsl.l CODE_9B84DC
+	dec.w $0AC4
+	dec.w $0AC4
+	jsl.l ProcessInputWithRepeat
+	lda.b d3
+	bne .t1xx
+	lda.w $0AC8
+	beq .5
+	sec
+	sbc.w #$0003
+	sta.w $0AC8
+	beq .1x
+	bpl .5
+.1x:
+	stz.w $0AC8
+	ldx.w $0AC6
+	lda.w $1C84,x
+	eor.w #$FFFF
+	inc a
+	sta.w $0AC6
+	rtl
+
+.t1xx:
+	lda.w #$003C
+	sta.w $0AC8
+.5:
+	lda.w $0D2F
+	beq .7
+	lda.w $1C84
+	ora.w $1C86
+	ora.w $1C88
+	ora.w $1C8A
+	ora.w $1C8C
+	bne .7
+	dec.w $0CE3
+	bne .7
+.6:
+	lda.w #$1000
+	tsb.b d3
+.7:
+	lda.b d1
+	ora.b d3
+	bne .t1xxx
+	jmp.w SelectPauseController
+
+.t1xxx:
+	lda.w $1C84
+	ora.w $1C86
+	ora.w $1C88
+	ora.w $1C8A
+	ora.w $1C8C
+	beq .rtl
+	lda.w #$EA60
+	sta.w $0CE3
+.rtl:
 	rtl

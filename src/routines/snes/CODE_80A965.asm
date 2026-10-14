@@ -151,26 +151,26 @@ CODE_80A965:
 	lda.w $089D,x
 	bne .t1x3
 .1x2:
-	jmp.w CODE_80AB06
+	jmp.w .8
 
 .t1x3:
 	sta.b $60
 	ldy.b #$07
-CODE_80AA71:
+.4:
 	lda.w $08FA,y
 	cmp.b $4A
-	beq .t3
-	jmp.w CODE_80AAFE
+	beq .t3x
+	jmp.w .7
 
-.t3:
+.t3x:
 	phy
 	tya
 	asl a
 	tax
 	phx
 	lda.b $5C
-	beq .t1
-	bmi .t2
+	beq .t1xxxx
+	bmi .t2xxx
 	lda.w $090A,y
 	clc
 	adc.b $60
@@ -191,16 +191,16 @@ CODE_80AA71:
 	clc
 	adc.w $095A,x
 	sta.b $5A
-	bra CODE_80AAF3
+	bra .6
 
-.t1:
+.t1xxxx:
 	rep #$20
 	plx
 	lda.w $095A,x
 	sta.b $5A
-	bra CODE_80AAF3
+	bra .6
 
-.t2:
+.t2xxx:
 	lda.w $090A,y
 	sec
 	sbc.b $60
@@ -218,31 +218,34 @@ CODE_80AA71:
 	lda.b #$00
 	sec
 	sbc.b $5C
-	bpl .t1x
+	bpl .t1xxxxx
 	rep #$20
 	lda.b $5E
 	sta.b $43
-	bra CODE_80AAEB
+	bra .5
 
-.t1x:
+.t1xxxxx:
 	tay
 	rep #$20
 	lda.b $5E
 	jsr.w MulFrac16
-CODE_80AAEB:
+.5:
 	lda.w $095A,x
 	sec
 	sbc.b $43
 	sta.b $5A
-CODE_80AAF3:
+.6:
 	ldy.b #$02
 	lda.b ($4E),y
 	clc
 	adc.b $5A
 	sta.w $094A,x
 	ply
-CODE_80AAFE:
+.7:
 	sep #$20
 	dey
-	bmi CODE_80AB06
-	jmp.w CODE_80AA71
+	bmi .8
+	jmp.w .4
+.8:
+	rep #$20
+	jmp.w CODE_80ABA5

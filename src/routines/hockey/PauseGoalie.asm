@@ -20,3 +20,6 @@ CODE_9FE3DD:
 	sta.w tmgoalie,y
 	jsl.l setpersonel
 	jmp.w PauseMenuPoll
+CODE_9FE3E7:
+	lda.b d0
+	bra CODE_9FE3DC

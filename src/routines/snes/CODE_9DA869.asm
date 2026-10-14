@@ -16,10 +16,24 @@ CODE_9DA869:
 
 .t1:
 	bit.w #$0800
-	beq CODE_9DA899
+	beq .2
 	lda.w #$FFFE
 	sta.b d0
 	jsr.w CODE_9DAC4F
 	jsr.w CODE_9DA973
-CODE_9DA896:
+.1:
+	jmp.w CODE_9DA6FF
+.2:
+	lda.w #$0001
+	sta.b d2
+	lda.b d1
+	bit.w #$0100
+	bne .1x
+	bit.w #$0200
+	beq .1
+	lda.w #$FFFF
+	sta.b d2
+.1x:
+	jsr.w CODE_9DA8B8
+	jsr.w CODE_9DA973
 	jmp.w CODE_9DA6FF

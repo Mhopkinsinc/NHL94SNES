@@ -2,17 +2,17 @@
 FigureJoy:
 	lda.l $7E34CC
 	bne .t2
-	jmp.w CODE_9D9A23
+	jmp.w .4
 
 .t2:
 	lda.l $7E34BC
 	bne .t1
-	jmp.w CODE_9D9A0E
+	jmp.w .3
 
 .t1:
 	cmp.w #$0004
 	bne .t3
-	jmp.w CODE_9D9A0E
+	jmp.w .3
 
 .t3:
 	jsl.l GetShifter
@@ -49,13 +49,13 @@ FigureJoy:
 	sta.b d0
 	lda.l $7E3528,x
 	sta.l $7E34C0
-	bra CODE_9D99D1
+	bra .2
 
 .t2x:
 	stz.b d0
 	lda.l $7E3538,x
 	sta.l $7E34C0
-CODE_9D99D1:
+.2:
 	lda.b d0
 	clc
 	adc.l $7E34CE
@@ -73,7 +73,7 @@ CODE_9D99D1:
 	plb
 	ldy.b d0
 	ldx.w #$0000
-.loop:
+.loopx:
 	lda.w $1C84,x
 	beq .1
 	lda.w DATA8_9D9A28,y
@@ -82,6 +82,21 @@ CODE_9D99D1:
 	inx
 	inx
 	cpx.w #$000A
-	bcc .loop
+	bcc .loopx
 	plb
+	rtl
+.3:
+	lda.l $7E34CA
+	asl a
+	asl a
+	sta.b d0
+	tay
+	lda.w #$009D
+	sta.b $8B
+	lda.w #$9A48
+	sta.b a0
+	iny
+	iny
+.4:
+	jsl.l CODE_9FC79F
 	rtl

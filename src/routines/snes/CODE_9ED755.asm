@@ -45,3 +45,16 @@ CODE_9ED793:
 	adc.w $0D71
 	sta.b d0
 	bra CODE_9ED7E7
+CODE_9ED7B2:
+	lda.w puckvx
+	xba
+	lsr a
+	and.w #$007F
+	bit.w #$0040
+	beq .1
+	ora.w #$FF80
+.1:
+	clc
+	adc.w $0D71
+	sta.b d0
+	bra CODE_9ED7E7

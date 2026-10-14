@@ -50,26 +50,26 @@ CODE_9C8C22:
 	jmp.w .t1x
 
 .t1:
-	jmp.w CODE_9C8D03
+	jmp.w .6
 
 .t3:
 	sep #$20
 	lda.w $18EE,y
 	cmp.w $18EE,x
 	rep #$20
-	beq CODE_9C8D03
+	beq .6
 .1x:
-	bpl CODE_9C8D0B
-	jmp.w CODE_9C8D03
+	bpl .7
+	jmp.w .6
 
 .t4:
 	sep #$20
 	lda.w $1922,y
 	cmp.w $1922,x
 	rep #$20
-	beq CODE_9C8D03
-	bpl CODE_9C8D0B
-	bra CODE_9C8D03
+	beq .6
+	bpl .7
+	bra .6
 
 .t5:
 	sep #$20
@@ -98,27 +98,36 @@ CODE_9C8C22:
 	sta.w $1DC9
 	lda.b d0
 	cmp.w $1DC9
-	beq CODE_9C8D03
-	bmi CODE_9C8D03
-	bra CODE_9C8D0B
+	beq .6
+	bmi .6
+	bra .7
 
 .t6:
 	sep #$20
 	lda.w $1956,y
 	cmp.w $1956,x
 	rep #$20
-	beq CODE_9C8D03
-	bpl CODE_9C8D0B
-	bra CODE_9C8D03
+	beq .6
+	bpl .7
+	bra .6
 
 .t1x:
 	sep #$20
 	lda.w $198A,y
 	cmp.w $198A,x
 	rep #$20
-	beq CODE_9C8D03
-	bpl CODE_9C8D0B
-CODE_9C8D03:
+	beq .6
+	bpl .7
+.6:
 	lda.w #$0000
 	sta.w $1DC9
-	bra CODE_9C8D11
+	bra .8
+.7:
+	lda.w #$0001
+	sta.w $1DC9
+.8:
+	pla
+	sta.b d0
+	ply
+	plx
+	rtl

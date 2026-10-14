@@ -10,4 +10,32 @@ DecompressRLE:		; run-length data at Y to WRAM: literal runs and repeats, of byt
 	bne CODE_80C32F
 	lda.w #$0000
 	sep #$20
-	bra CODE_80C313
+	bra .2
+.1:
+	eor.b #$FF
+	tax
+.loop:
+	iny
+	lda.w $0000,y
+	sta.w WMDATA
+	dex
+	bpl .loop
+.2:
+	iny
+	lda.w $0000,y
+	bmi .1
+	beq .rts
+.loopx:
+	tax
+	iny
+	lda.w $0000,y
+.loop2:
+	sta.w WMDATA
+	dex
+	bpl .loop2
+	iny
+	lda.w $0000,y
+	bmi .1
+	bne .loopx
+.rts:
+	rts

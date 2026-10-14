@@ -179,3 +179,12 @@ CODE_9B8EBC:
 	jsl.l CODE_9B8F7B
 CODE_9B8F28:
 	jmp.w CODE_9B8EBC
+CODE_9B8F2B:
+	lda.b d0
+	clc
+	adc.w $0D47
+	sta.b d0
+	bmi CODE_9B8F28
+	sta.w $0D47
+	jsl.l CODE_9B8F7B
+	bra CODE_9B8F28

@@ -17,12 +17,12 @@ CODE_808CBF:
 	adc.w $079C
 	ora.b $1C
 	tay
-CODE_808CDB:
+.1:
 	lda.b $18
 	clc
 	adc.b $1C
 	cmp.w #$0021
-	bcs CODE_808D16
+	bcs .3
 	lda.b $18
 	asl a
 	tax
@@ -33,7 +33,7 @@ CODE_808CDB:
 	pla
 	sta.b $0C
 	ply
-CODE_808CF5:
+.2:
 	lda.b $0C
 	clc
 	adc.b $24
@@ -45,12 +45,38 @@ CODE_808CF5:
 	inc.b $1E
 	lda.b $1E
 	cmp.w #$0020
-	bne .1
+	bne .1x
 	tya
 	clc
 	adc.w $079E
 	tay
-.1:
+.1x:
 	dec.b $1A
-	bne CODE_808CDB
+	bne .1
 	rtl
+.3:
+	lda.w #$0020
+	sbc.b $1C
+	asl a
+	sta.b $20
+	tax
+	lda.b $0C
+	pha
+	phy
+	jsl.l CODE_808950
+	ply
+	lda.b $18
+	asl a
+	sec
+	sbc.b $20
+	tax
+	phy
+	tya
+	adc.w #$0400
+	and.w #$FFE0
+	tay
+	jsl.l CODE_808950
+	ply
+	pla
+	sta.b $0C
+	jmp.w .2

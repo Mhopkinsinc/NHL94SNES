@@ -10,7 +10,7 @@ CODE_9ED6AE:
 	sta.b d3
 	lda.w #$0108
 	sta.b d4
-	bra CODE_9ED6D8
+	bra .1
 
 .t1:
 	lda.w #$0D1B
@@ -19,30 +19,30 @@ CODE_9ED6AE:
 	sta.b d3
 	lda.w #$FEF8
 	sta.b d4
-CODE_9ED6D8:
+.1:
 	cpx.w shotPlIdx
-	beq .t1
+	beq .t1x
 	jsr.w CODE_9EDC44
 	jsl.l vtoa
 	jsl.l CODE_9EDC06
-	bra CODE_9ED6FD
+	bra .2
 
-.t1:
+.t1x:
 	lda.w $19D4,x
-	bpl CODE_9ED6FD
+	bpl .2
 	lda.w pfgoal,x
 	eor.w #$0001
 	asl a
 	asl a
 	sta.b d0
 	jsl.l CODE_9EDC06
-CODE_9ED6FD:
+.2:
 	lda.w Ypos,x
 	cmp.w #$FEFB
-	bmi CODE_9ED72D
+	bmi .4
 	cmp.w #$0105
-	bpl CODE_9ED72D
-CODE_9ED70A:
+	bpl .4
+.3:
 	lda.w $0D71
 	sta.b d0
 	lda.w pucky
@@ -58,3 +58,21 @@ CODE_9ED70A:
 	lda.b d0
 	pha
 	jmp.w CODE_9ED7F1
+.4:
+	lda.w $19D4,x
+	bpl .3
+	stz.b d2
+	stz.b d0
+	lda.w Xpos,x
+	cmp.w #$FFD3
+	bmi .1x
+	cmp.w #$002D
+	bpl .1x
+	lda.w #$0088
+	sta.b d0
+	lda.w Xpos,x
+	bpl .1x
+	lda.w #$FF78
+	sta.b d0
+.1x:
+	jmp.w CODE_9EDA51

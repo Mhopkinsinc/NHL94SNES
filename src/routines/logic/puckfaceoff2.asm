@@ -3,7 +3,7 @@ puckfaceoff2:
 	lda.w pflags,x
 	bit.w #$0002
 	bne .t2
-	jmp.w CODE_9FAEB1
+	jmp.w .18
 
 .t2:
 	and.w #$FFFD
@@ -55,7 +55,7 @@ puckfaceoff2:
 	lda.w #$000A
 	sta.w $0AD1
 	lda.w MusicOn
-	bne CODE_9FA90C
+	bne .4
 	lda.w PBnum
 	beq .t3
 	lsr a
@@ -71,22 +71,22 @@ puckfaceoff2:
 .3:
 	lda.w #$0004
 	jsl.l CODE_9C9B5F
-	bra CODE_9FA90C
+	bra .4
 
 .t1:
 	lda.w #$0001
 	jsl.l CODE_9C9B5F
-	bra CODE_9FA90C
+	bra .4
 
 .t3:
 	ldy.w $0CC1
 	bne .1x
 	lda.l $7E34BC
 	cmp.w #$0004
-	beq CODE_9FA90C
+	beq .4
 	jsl.l RandomWord
 	and.w #$0003
-	bne CODE_9FA90C
+	bne .4
 .1x:
 	lda.w #$0000
 	ldy.w $0CC1
@@ -96,7 +96,7 @@ puckfaceoff2:
 .3x:
 	jsl.l CODE_9C9B5F
 	stz.w $0CC1
-CODE_9FA90C:
+.4:
 	lda.w #$000D
 	trb.w sflags
 	lda.w #$0001
@@ -147,10 +147,10 @@ CODE_9FA90C:
 	trb.w sflags
 	lda.w #$0064
 	sta.b d4
-.loop:
+.loopx:
 	jsl.l checkwindow
 	dec.b d4
-	bpl .loop
+	bpl .loopx
 	lda.w #$003C
 	sta.w $0D4F
 	jsl.l ResetBench
@@ -176,10 +176,10 @@ CODE_9FA90C:
 	sta.b d2
 	lda.b d2
 	pha
-CODE_9FA9EF:
+.14:
 	ldx.b a3
 	cpx.w #$0018
-	bcs .1
+	bcs .1xx
 	lda.w pfteam,x
 	lsr a
 	eor.w gmode
@@ -187,22 +187,22 @@ CODE_9FA9EF:
 	lsr a
 	eor.w #$0001
 	sta.w pfgoal,x
-.1:
+.1xx:
 	lda.w pnum,x
 	asl a
 	cpx.w #$000C
-	bcc .2
+	bcc .2xx
 	clc
 	adc.w #$0034
-.2:
+.2xx:
 	tax
 	lda.w tmpdst,x
-	bmi .t2
+	bmi .t2x
 	bit.w #$1000
-	bne .t2
-	jmp.w CODE_9FABA2
+	bne .t2x
+	jmp.w .16
 
-.t2:
+.t2x:
 	ldx.b a3
 	lda.w #$FF10
 	sta.w Xpos,x
@@ -211,35 +211,35 @@ CODE_9FA9EF:
 	sta.w $0D97,x
 	lda.w position,x
 	sta.b d1
-	bpl .t1
-	jmp.w CODE_9FABA2
+	bpl .t1x
+	jmp.w .16
 
-.t1:
+.t1x:
 	beq .5
 	lda.w $1E9B
-	beq .2x
+	beq .2xxx
 	phx
 	ldx.w #$0008
 	lda.w $1E91
-	beq .1x
+	beq .1xxx
 	ldx.w #$0014
-.1x:
+.1xxx:
 	lda.w $1E8F
 	sta.w pnum,x
 	sta.b d3
 	plx
-.2x:
+.2xxx:
 	lda.w #$0016
 	sta.b d0
 	lda.b d1
 	cmp.w #$0004
-	bne .4
+	bne .4x
 	stz.b a2
 	lda.w pfteam,x
-	beq .3
+	beq .3xx
 	inc.b a2
 	inc.b a2
-.3:
+.3xx:
 	ldy.b a2
 	lda.w pnum,x
 	and.w #$00FF
@@ -248,7 +248,7 @@ CODE_9FA9EF:
 	sta.w tmflags,y
 	lda.w #$0017
 	sta.b d0
-.4:
+.4x:
 	jsl.l assinsert
 .5:
 	lda.w tmap
@@ -378,16 +378,16 @@ CODE_9FA9EF:
 	stz.w pfalock,x
 	stz.w SPA,x
 	lda.w position,x
-	bne .t3
+	bne .t3x
 	lda.w #$E0FE
-	bra CODE_9FAB9A
+	bra .15
 
-.t3:
+.t3x:
 	lda.w #$EA1A
-CODE_9FAB9A:
+.15:
 	jsl.l SetSPAFromA
 	jsl.l CODE_9EA419
-CODE_9FABA2:
+.16:
 	inc.b a3
 	inc.b a3
 	pla
@@ -395,10 +395,10 @@ CODE_9FABA2:
 	dec.b d2
 	lda.b d2
 	pha
-	bmi .t1
-	jmp.w CODE_9FA9EF
+	bmi .t1xx
+	jmp.w .14
 
-.t1:
+.t1xx:
 	pla
 	sta.b d2
 	jsl.l SprSort
@@ -407,39 +407,39 @@ CODE_9FABA2:
 	pla
 	sta.b $97
 	lda.w $1E9B
-	beq .6
+	beq .6x
 	ldx.w #$0008
-.loop:
+.loopxx:
 	lda.w $19F6,x
 	cmp.w $1E91
-	bne .2
+	bne .2xxxx
 	cpx.w $1E93
-	beq .2
-.1:
+	beq .2xxxx
+.1xxxx:
 	ora.w #$8000
 	sta.w $19F6,x
 	stz.w $1C84,x
-.2:
+.2xxxx:
 	dex
 	dex
-	bpl .loop
+	bpl .loopxx
 	lda.w $1E91
 	eor.w #$0002
 	sta.b d0
 	tax
 	lda.w $19D0,x
-	beq .6
+	beq .6x
 	ldy.w $0AFD,x
-.loop2:
+.loop2x:
 	iny
 	iny
 	cpy.w #$000A
-	bne .3
+	bne .3xxx
 	ldy.w #$0000
-.3:
+.3xxx:
 	lda.w $19F6,y
 	cmp.b d0
-	bne .loop2
+	bne .loop2x
 	sty.b d1
 	tya
 	sta.w $0AFD,x
@@ -447,18 +447,18 @@ CODE_9FABA2:
 .loop3:
 	lda.w $19F6,x
 	cmp.b d0
-	bne .5
+	bne .5x
 	cpx.b d1
-	beq .5
-.4:
+	beq .5x
+.4xx:
 	ora.w #$8000
 	sta.w $19F6,x
 	stz.w $1C84,x
-.5:
+.5x:
 	dex
 	dex
 	bpl .loop3
-.6:
+.6x:
 	ldx.b a3
 	jsl.l CODE_9FC988
 	lda.b $8F
@@ -477,10 +477,10 @@ CODE_9FABA2:
 	lda.w #$0036
 	sta.b d0
 	lda.l $7E3136
-	bpl .7
+	bpl .7x
 	lda.w #$00BE
 	sta.b d0
-.7:
+.7x:
 	lda.b d0
 	sta.l $7E3126
 	sec
@@ -534,7 +534,7 @@ CODE_9FABA2:
 	sta.b $C8
 	clc
 	lda.w $1E9B
-	bne .t2
+	bne .t2xx
 .loop4:
 	lda.l DATA8_9AD6A6
 	sta.b $CA
@@ -559,9 +559,9 @@ CODE_9FABA2:
 	tax
 	dec.b $C8
 	bne .loop4
-	jmp.w CODE_9FADB5
+	jmp.w .17
 
-.t2:
+.t2xx:
 	lda.w #$0001
 	sta.w printy
 	lda.w #$0006
@@ -623,28 +623,28 @@ CODE_9FABA2:
 	lda.w #$0002
 	sta.w printy
 	lda.w $1D81
-	beq .t1x
+	beq .t1xxx
 	lda.w #$009C
 	sta.b $8F
 	lda.w #ShootoutPenShot
 	sta.b a1
 	jsl.l CODE_9ECE15
-	bra CODE_9FADB5
+	bra .17
 
-.t1x:
+.t1xxx:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #$F8C2
 	sta.b a1
 	jsl.l CODE_9ECE15
-CODE_9FADB5:
+.17:
 	ldx.b a3
 	lda.l $7E34C6
-	beq .3
-.1:
+	beq .3xxxx
+.1xxxxx:
 	lda.w $1E9B
 	ora.w $1E9D
-	bne .3
+	bne .3xxxx
 	lda.w printy
 	clc
 	adc.w #$000A
@@ -660,12 +660,12 @@ CODE_9FADB5:
 	sta.b d1
 	lda.w gmode
 	bit.w #$0002
-	bne .2
+	bne .2xxxxx
 	lda.w tmline
 	sta.b d1
 	lda.w $1798
 	sta.b d0
-.2:
+.2xxxxx:
 	inc.w printx
 	dec.w printy
 	dec.w printy
@@ -685,7 +685,7 @@ CODE_9FADB5:
 	lda.w #$D6BE
 	sta.b a1
 	jsl.l CODE_9ECFC6
-.3:
+.3xxxx:
 	jsl.l RandomWord
 	and.w #$007F
 	adc.w #$00B4
@@ -693,10 +693,10 @@ CODE_9FADB5:
 	ldx.b a3
 	sta.w $1003,x
 	lda.w $1E9B
-	beq .4
+	beq .4xxx
 	lda.w #$00B4
 	sta.w $1003,x
-.4:
+.4xxx:
 	lda.w #$0001
 	sta.l $7E312A
 	lda.w #$8000
@@ -710,32 +710,55 @@ CODE_9FADB5:
 	sta.l $7E3132
 	lda.w gmode
 	bit.w #$0002
-	bne .5
+	bne .5xx
 	lda.w #$8800
 	sta.l $7E312C
 	lda.w #$A000
 	sta.l $7E3130
-.5:
+.5xx:
 	lda.w #$FFFF
 	sta.l $7E3122
 	sta.l $7E3124
 	stx.b xsave
 	ldx.w #$001A
-.loop:
+.loopxxx:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl .loop
+	bpl .loopxxx
 	ldx.b xsave
 	stx.b xsave
 	ldx.w #$001E
-.loop2:
+.loop2xx:
 	pla
 	sta.b d0,x
 	dex
 	dex
-	bpl .loop2
+	bpl .loop2xx
 	ldx.b xsave
 	ldx.b a3
 	rtl
+.18:
+	lda.b d7
+	sta.b tmp0
+	cmp.w $1003,x
+	bmi .1xxxxxx
+	lda.w #$0001
+	sta.b tmp0
+.1xxxxxx:
+	lda.w $1003,x
+	sec
+	sbc.b tmp0
+	sta.w $1003,x
+	bpl updatefaceoff
+	lda.w $1E9B
+	beq .t1xxxx
+	jsl.l CODE_9FB092
+	jmp.w CODE_9FAFBE
+
+.t1xxxx:
+	stz.w $163A
+	lda.w #$FFFF
+	sta.w $1E8D
+	jmp.w CODE_9FB092

@@ -47,7 +47,7 @@ CODE_80B77B:
 	sep #$30
 	lda.w $2F40,x
 	and.b #$40
-	bne CODE_80B822
+	bne .2
 	lda.w $2F40,x
 	and.b #$3F
 	sta.b $16
@@ -85,6 +85,47 @@ CODE_80B77B:
 	rtl
 
 .t1:
+	lda.b $16
+	sta.w $2F40,x
+	txa
+	clc
+	adc.b $16
+	tay
+	txa
+	sta.w $2FB9,y
+	rep #$30
+	plb
+	ply
+	plx
+	rtl
+.2:
+	lda.w $2F40,x
+	and.b #$40
+	beq .t1x
+	lda.b #$08
+	sta.w $2F40,x
+	txa
+	clc
+	adc.b #$08
+	tax
+	bra .2
+
+.t1x:
+	lda.w $2F40,x
+	and.b #$3F
+	sta.b $16
+	txa
+	clc
+	adc.b $16
+	tay
+	and.b #$07
+	beq .1xx
+	lda.w $2F40,y
+	bmi .1xx
+	clc
+	adc.b $16
+	sta.b $16
+.1xx:
 	lda.b $16
 	sta.w $2F40,x
 	txa

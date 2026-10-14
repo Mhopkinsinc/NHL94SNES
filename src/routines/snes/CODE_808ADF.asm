@@ -35,18 +35,18 @@ CODE_808ADF:
 	lda.b #$18
 	sta.w BBAD1
 	rep #$20
-CODE_808B1F:
+.1:
 	lda.b $18
 	clc
 	adc.b $1C
 	cmp.w #$0021
-	bcs CODE_808B5F
+	bcs .3
 	lda.b $18
 	asl a
 	sta.w DAS1L
 	stx.w A1T1L
 	sty.w VMADDL
-CODE_808B35:
+.2:
 	sep #$20
 	lda.b #$02
 	sta.w MDMAEN
@@ -63,12 +63,38 @@ CODE_808B35:
 	inc.b $1E
 	lda.b $1E
 	cmp.w #$0020
-	bne .1
+	bne .1x
 	tya
 	clc
 	adc.w $079E
 	tay
-.1:
+.1x:
 	dec.b $1A
-	bne CODE_808B1F
+	bne .1
 	rtl
+.3:
+	lda.w #$0020
+	sbc.b $1C
+	asl a
+	sta.b $20
+	sta.w DAS1L
+	stx.w A1T1L
+	sty.w VMADDL
+	sep #$20
+	lda.b #$02
+	sta.w MDMAEN
+	rep #$20
+	lda.b $18
+	asl a
+	sec
+	sbc.b $20
+	sta.w DAS1L
+	txa
+	clc
+	adc.b $20
+	sta.w A1T1L
+	tya
+	adc.w #$0400
+	and.w #$FFE0
+	sta.w VMADDL
+	jmp.w .2
