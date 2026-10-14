@@ -755,7 +755,7 @@ puckfaceoff2:
 	lda.w $1E9B
 	beq .t1xxxx
 	jsl.l Endfaceoff
-	jmp.w CODE_9FAFBE
+	jmp.w SetupPenaltyShot
 
 .t1xxxx:
 	stz.w $163A

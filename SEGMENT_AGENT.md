@@ -742,3 +742,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Hat trick sprites. MATCH.
 - DrawHorTeams, DrawShootersBack. MATCH.
 - InitializeGameStructures. MATCH.
+- SetupPenaltyShot. MATCH.

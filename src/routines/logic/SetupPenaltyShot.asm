@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FAFBE:
+; Penalty shot set up: the puck at centre ice, every player reassigned, the defending goalie to his pad, the shooter ($1E8D) gets the puck, $163A = 1, timer $1E9F = 1000, ClearPenaltyBuffer
+SetupPenaltyShot:
 	stz.w $0D71
 	stz.w pucky
 	stz.w $0DF9
