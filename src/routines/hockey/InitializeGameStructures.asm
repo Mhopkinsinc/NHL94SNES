@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FC79F:
+; Random team pairs for the 8 other games ($7E3528 / $7E3538), none of them HomeTeam or VisTeam and no team twice (bit sets $B3 / d3)
+InitializeGameStructures:
 	lda.w #$FFFF
 	sta.l $7E35D6
 	stz.b d3

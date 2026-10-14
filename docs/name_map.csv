@@ -2017,7 +2017,7 @@ $9EE2C3,.4,CODE_9EE2C3,new,branch target only used in this routine,src/routines/
 $9EE2FE,.5,CODE_9EE2FE,new,branch target only used in this routine,src/routines/snes/CODE_9EE23C.asm
 $9C993C,.1,CODE_9C993C,new,branch target only used in this routine,src/routines/video/updatesound.asm
 $9ECF32,.1,CODE_9ECF32,new,branch target only used in this routine,src/routines/middle/printbig.asm
-$9FC7BD,.loop,CODE_9FC7BD,new,branch target only used in this routine,src/routines/snes/CODE_9FC79F.asm
+$9FC7BD,.loop,CODE_9FC7BD,new,branch target only used in this routine,src/routines/hockey/InitializeGameStructures.asm
 $9DBFCF,.1,CODE_9DBFCF,new,branch target only used in this routine,src/routines/snes/CODE_9DBFB0.asm
 $9CA4AC,.loop,CODE_9CA4AC,new,branch target only used in this routine,src/routines/snes/CODE_9CA49F.asm
 $9DC5EE,.loop,CODE_9DC5EE,new,branch target only used in this routine,src/routines/snes/CODE_9DC5B6.asm
@@ -2045,7 +2045,7 @@ $80B7C0,.1,CODE_80B7C0,new,branch target only used in this routine,src/routines/
 $9EEDB9,.rtl,CODE_9EEDB9,new,branch target only used in this routine,src/routines/snes/CODE_9EED8D.asm
 $9EC460,.1,CODE_9EC460,new,branch target only used in this routine,src/routines/snes/CODE_9EC453.asm
 $9EC471,.2,CODE_9EC471,new,branch target only used in this routine,src/routines/snes/CODE_9EC453.asm
-$9FC804,.1,CODE_9FC804,new,branch target only used in this routine,src/routines/snes/CODE_9FC79F.asm
+$9FC804,.1,CODE_9FC804,new,branch target only used in this routine,src/routines/hockey/InitializeGameStructures.asm
 $9C8671,.1,CODE_9C8671,new,branch target only used in this routine,src/routines/snes/CODE_9C866A.asm
 $9DC83B,.loop,CODE_9DC83B,new,branch target only used in this routine,src/routines/hockey/LoadPlayerCardScreen.asm
 $9DC83F,.loop2,CODE_9DC83F,new,branch target only used in this routine,src/routines/hockey/LoadPlayerCardScreen.asm
@@ -3103,7 +3103,7 @@ $9FCD40,.t1,CODE_9FCD40,new,continued in the previous routine,src/routines/snes/
 $9FCD23,.t1,CODE_9FCD23,new,continued in the previous routine,src/routines/snes/CODE_9FCD0A.asm
 $9FCBEB,.t1,CODE_9FCBEB,new,continued in the previous routine,src/routines/logic/findpc.asm
 $9FC82F,.t1,CODE_9FC82F,new,continued in the previous routine,src/routines/snes/CODE_9FC822.asm
-$9FC80A,.t1,CODE_9FC80A,new,continued in the previous routine,src/routines/snes/CODE_9FC79F.asm
+$9FC80A,.t1,CODE_9FC80A,new,continued in the previous routine,src/routines/hockey/InitializeGameStructures.asm
 $9FC792,.t1,CODE_9FC792,new,continued in the previous routine,src/routines/hockey/GetPadTeam.asm
 $9FC764,.t1,CODE_9FC764,new,continued in the previous routine,src/routines/penalty/loadTeamStruct.asm
 $9FC693,.t1,CODE_9FC693,new,continued in the previous routine,src/routines/hockey/ResetClock.asm
@@ -3417,7 +3417,7 @@ $9FD48D,.t1,CODE_9FD48D,new,continued in the previous routine,src/routines/hocke
 $9FD2A7,.t1,CODE_9FD2A7,new,continued in the previous routine,src/routines/hockey/resetplstuff.asm
 $9FCFAC,.t2,CODE_9FCFAC,new,continued in the previous routine,src/routines/hockey/setplayer.asm
 $9FCD5E,.t1,CODE_9FCD5E,new,continued in the previous routine,src/routines/snes/CODE_9FCD4D.asm
-$9FC822,.t2,CODE_9FC822,new,continued in the previous routine,src/routines/snes/CODE_9FC79F.asm
+$9FC822,.t2,CODE_9FC822,new,continued in the previous routine,src/routines/hockey/InitializeGameStructures.asm
 $9FC315,.t2,CODE_9FC315,new,continued in the previous routine,src/routines/logic/doinput.asm
 $9FC1EC,.t2,CODE_9FC1EC,new,continued in the previous routine,src/routines/logic/doinput.asm
 $9FC123,.t1,CODE_9FC123,new,continued in the previous routine,src/routines/hockey/checkwindow.asm
@@ -5186,8 +5186,8 @@ $9EE66E,.6,CODE_9EE66E,new,"part of CODE_9EE5E6, used only by it",src/routines/s
 $9EE67D,.7,CODE_9EE67D,new,"part of CODE_9EE5E6, used only by it",src/routines/snes/CODE_9EE463.asm
 $9EE690,.8,CODE_9EE690,new,"part of CODE_9EE5E6, used only by it",src/routines/snes/CODE_9EE463.asm
 $9FB06C,.4,CODE_9FB06C,new,"part of CODE_9FAFBE, used only by it",src/routines/snes/CODE_9FAFBE.asm
-$9FC7D7,.1,CODE_9FC7D7,new,"part of CODE_9FC79F, used only by it",src/routines/snes/CODE_9FC79F.asm
-$9FC7EC,.2,CODE_9FC7EC,new,"part of CODE_9FC79F, used only by it",src/routines/snes/CODE_9FC79F.asm
+$9FC7D7,.1,CODE_9FC7D7,new,"part of CODE_9FC79F, used only by it",src/routines/hockey/InitializeGameStructures.asm
+$9FC7EC,.2,CODE_9FC7EC,new,"part of CODE_9FC79F, used only by it",src/routines/hockey/InitializeGameStructures.asm
 $9FD2FE,SetLCmode,CODE_9FD2FE,93S,"doinput and puckfaceoff call it as in 93S; the option test, loadTeamStruct, tmflags, then SetLCmode2 as in 93S",src/routines/logic/SetLCmode.asm
 $9C98DF,SPCGameUpload,CODE_9C98DF,93S,"setupice calls it as 93S setupice calls SPCGameUpload; SoundInit, then the in-game block list (DATA8_80DD16) and its effect table",src/routines/sound/SPCGameUpload.asm
 $9C9B5F,PlayTeamSong,CODE_9C9B5F,new,"TeamSongs slot A of HomeTeam, else a random DefaultSongs entry; Goal, the game loop and the face off call it",src/routines/snes/PlayTeamSong.asm
@@ -5753,3 +5753,4 @@ $9BA189,StartHatTrick,CODE_9BA189,new,Behavior: ShowGoalBox calls it when the sc
 $9BA1A1,UpdateHatTrick,CODE_9BA1A1,new,Behavior: showcrowd calls it first; StartHatTrick starts it,src/routines/hockey/UpdateHatTrick.asm
 $9F9E24,DrawHorTeams,CODE_9F9E24,new,Behavior: setvideo calls it in horizontal mode (sfhormode),src/routines/hockey/DrawHorTeams.asm
 $80CB5C,DrawShootersBack,CODE_80CB5C,new,Behavior: the DrawEditLinesBack steps for the shooters screen; ShootersBackground calls it first,src/routines/shootout/DrawShootersBack.asm
+$9FC79F,InitializeGameStructures,CODE_9FC79F,94G,"The 94G InitializeGameStructures job (random pairs for all 8 games, excluding HomeTeam / VisTeam); FigureJoy calls it as in 94G",src/routines/hockey/InitializeGameStructures.asm

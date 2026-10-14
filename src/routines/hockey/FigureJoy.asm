@@ -98,7 +98,7 @@ FigureJoy:
 	iny
 	iny
 .4:
-	jsl.l CODE_9FC79F
+	jsl.l InitializeGameStructures
 	rtl
 .5:
 	dw $0001,$0000,$0001,$0001,$0001,$0002,$0002,$0001,$0002,$0000,$0002,$0002,$0002

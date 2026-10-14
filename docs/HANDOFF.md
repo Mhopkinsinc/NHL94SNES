@@ -97,6 +97,7 @@
 - Cross-file entry labels inside named screens: the page loops of the other scores, scoring and penalty summaries, `SendGameStatsPage`, the pause, password, StartGame and TeamRoster re-entry points (each named for where it sits and who jumps there).
 - `StartHatTrick` / `UpdateHatTrick` (from behavior: ShowGoalBox starts them on a home skater's third goal, the HAT TRICK! box; showcrowd updates them).
 - From behavior: `DrawHorTeams` (setvideo in horizontal mode), `DrawShootersBack`.
+- `InitializeGameStructures` (94G: the other games' random team pairs, called from FigureJoy).
 
 ## Unsure
 
