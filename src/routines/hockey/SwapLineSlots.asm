@@ -18,7 +18,7 @@ SwapLineSlots:
 	lda.w $1D93
 	jsr.w WriteLineSlot
 	rts
-
+; A = the byte at [a3]
 ReadLineSlot:
 	sep #$20
 	lda.b [a3]

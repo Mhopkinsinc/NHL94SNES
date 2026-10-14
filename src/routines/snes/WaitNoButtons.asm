@@ -11,7 +11,7 @@ WaitNoButtons:
 .t1:
 	pha
 .loopx:
-	lda.w $0778
+	lda.w JoyPad+2
 	and.w #$FFF0
 	bne .loopx
 	pla
@@ -34,7 +34,7 @@ WaitNoButtons:
 	pha
 .loopxx:
 	jsl.l WaitFrame
-	lda.w $0778
+	lda.w JoyPad+2
 	and.w #$FFF0
 	beq .1x
 	dex

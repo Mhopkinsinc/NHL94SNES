@@ -258,7 +258,7 @@ PlayerSelect:
 	jmp.w .10
 
 .t1xxxx:
-	lda.w $0AB8,x
+	lda.w padnew,x
 	bit.w #$1000
 	bne .t3x
 	jmp.w .6
@@ -336,7 +336,7 @@ PlayerSelect:
 	pla
 	sta.b $8F
 	jsl.l QueueTextDMA
-	jsl.l CODE_9B8682
+	jsl.l WaitPadsRelease
 	bra .4x
 
 .t2xx:
@@ -367,7 +367,7 @@ PlayerSelect:
 	pla
 	sta.b $8F
 	jsl.l QueueTextDMA
-	jsl.l CODE_9B8682
+	jsl.l WaitPadsRelease
 .4x:
 	jsl.l ReadPads
 	ldx.w #$0008

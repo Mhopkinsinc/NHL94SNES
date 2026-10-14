@@ -19,7 +19,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	lsr a
 	rol.w $0ACA
 	ldx.w JOY2L
-	stx.w $0778
+	stx.w JoyPad+2
 	txa
 	and.b #$0F
 	sta.w $0ACB
@@ -29,7 +29,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 
 .t2:
 	ldx.w JOY4L
-	stx.w $077A
+	stx.w JoyPad+4
 	txa
 	and.b #$0F
 	sta.w $0ACC
@@ -97,48 +97,48 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	rol.w $077F
 	lda.w JOYSER1
 	lsr a
-	rol.w $077C
+	rol.w JoyPad+6
 	lsr a
-	rol.w $077E
+	rol.w JoyPad+8
 	lda.w JOYSER1
 	lsr a
-	rol.w $077C
+	rol.w JoyPad+6
 	lsr a
-	rol.w $077E
+	rol.w JoyPad+8
 	lda.w JOYSER1
 	lsr a
-	rol.w $077C
+	rol.w JoyPad+6
 	lsr a
-	rol.w $077E
+	rol.w JoyPad+8
 	lda.w JOYSER1
 	lsr a
-	rol.w $077C
+	rol.w JoyPad+6
 	lsr a
-	rol.w $077E
+	rol.w JoyPad+8
 	lda.w JOYSER1
 	lsr a
-	rol.w $077C
+	rol.w JoyPad+6
 	lsr a
-	rol.w $077E
+	rol.w JoyPad+8
 	lda.w JOYSER1
 	lsr a
-	rol.w $077C
+	rol.w JoyPad+6
 	lsr a
-	rol.w $077E
+	rol.w JoyPad+8
 	lda.w JOYSER1
 	lsr a
-	rol.w $077C
+	rol.w JoyPad+6
 	lsr a
-	rol.w $077E
+	rol.w JoyPad+8
 	lda.w JOYSER1
 	lsr a
-	rol.w $077C
+	rol.w JoyPad+6
 	lsr a
-	rol.w $077E
-	lda.w $077C
+	rol.w JoyPad+8
+	lda.w JoyPad+6
 	and.b #$0F
 	sta.w $0ACD
-	lda.w $077E
+	lda.w JoyPad+8
 	and.b #$0F
 	sta.w $0ACE
 	lda.w JOYSER1
@@ -189,9 +189,9 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 .t1x:
 	jsl.l Multi5ConnectCheck
 	ldx.w #$000F
-	stx.w $077A
-	stx.w $077C
-	stx.w $077E
+	stx.w JoyPad+4
+	stx.w JoyPad+6
+	stx.w JoyPad+8
 	lda.w $1A00
 	and.b #$80
 	beq .t2x
@@ -231,7 +231,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	cmp.b #$01
 	beq .4x
 	ldx.w #$000F
-	stx.w $0778
+	stx.w JoyPad+2
 	ldx.w $1A0C
 	beq .8
 .3x:
@@ -244,21 +244,21 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	cmp.b #$01
 	beq .6x
 	ldx.w #$000F
-	stx.w $077A
+	stx.w JoyPad+4
 	jsr.w .12
 .6x:
 	lda.w $0ACD
 	cmp.b #$01
 	beq .7x
 	ldx.w #$000F
-	stx.w $077C
+	stx.w JoyPad+6
 	jsr.w .12
 .7x:
 	lda.w $0ACE
 	cmp.b #$01
 	beq .8
 	ldx.w #$000F
-	stx.w $077E
+	stx.w JoyPad+8
 	jsr.w .12
 .8:
 	lda.w $1A0E
@@ -269,19 +269,19 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	bne .t1xxx
 	ldx.w #$1000
 	stx.w JoyPad
-	stx.w $0778
-	stx.w $077A
-	stx.w $077C
-	stx.w $077E
+	stx.w JoyPad+2
+	stx.w JoyPad+4
+	stx.w JoyPad+6
+	stx.w JoyPad+8
 	bra .11
 
 .t1xxx:
 	ldx.w #$0000
 	stx.w JoyPad
-	stx.w $0778
-	stx.w $077A
-	stx.w $077C
-	stx.w $077E
+	stx.w JoyPad+2
+	stx.w JoyPad+4
+	stx.w JoyPad+6
+	stx.w JoyPad+8
 .11:
 	plp
 	rtl

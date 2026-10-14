@@ -6,40 +6,40 @@ ReadPads:
 	tax
 	lda.l PadDirection,x
 	and.w #$00FF
-	sta.w $0AA4
-	lda.w $0778
+	sta.w paddir
+	lda.w JoyPad+2
 	xba
 	and.w #$000F
 	tax
 	lda.l PadDirection,x
 	and.w #$00FF
-	sta.w $0AA6
-	lda.w $077A
+	sta.w paddir+2
+	lda.w JoyPad+4
 	xba
 	and.w #$000F
 	tax
 	lda.l PadDirection,x
 	and.w #$00FF
-	sta.w $0AA8
-	lda.w $077C
+	sta.w paddir+4
+	lda.w JoyPad+6
 	xba
 	and.w #$000F
 	tax
 	lda.l PadDirection,x
 	and.w #$00FF
-	sta.w $0AAA
-	lda.w $077E
+	sta.w paddir+6
+	lda.w JoyPad+8
 	xba
 	and.w #$000F
 	tax
 	lda.l PadDirection,x
 	and.w #$00FF
-	sta.w $0AAC
-	jsr.w CODE_9B8472
-	lda.w $0AAE
-	ora.w $0AB0
-	ora.w $0AB2
-	ora.w $0AB4
-	ora.w $0AB6
+	sta.w paddir+8
+	jsr.w GetNewPresses
+	lda.w padchange
+	ora.w padchange+2
+	ora.w padchange+4
+	ora.w padchange+6
+	ora.w padchange+8
 	sta.w $0AC2
 	rtl

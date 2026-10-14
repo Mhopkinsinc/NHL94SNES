@@ -707,3 +707,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - PenaltyList tail split into sublist, priolist, linelist, PerLabels. MATCH.
 - Raw pointer immediates as label+offset. MATCH.
 - Line editor routines; Div16S_divneg wrong-bank jsr fixed. MATCH.
+- Pad RAM and helpers. MATCH.

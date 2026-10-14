@@ -36,7 +36,7 @@ WaitDMAQueue:
 	rtl
 
 .t1xx:
-	lda.w $0778
+	lda.w JoyPad+2
 	beq .2
 	rtl
 
@@ -71,7 +71,7 @@ WaitDMAQueue:
 	rtl
 
 .t1xxxx:
-	lda.w $0778
+	lda.w JoyPad+2
 	and.b $14
 	beq .4
 	rtl

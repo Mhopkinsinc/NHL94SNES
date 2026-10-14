@@ -2,9 +2,9 @@
 Multi5Init:		; check for the multitap, then clear the multitap pads and state
 	jsl.l Multi5ConnectCheck
 	lda.w #$000F
-	sta.w $077A
-	sta.w $077C
-	sta.w $077E
+	sta.w JoyPad+4
+	sta.w JoyPad+6
+	sta.w JoyPad+8
 	stz.w $1A0C
 	stz.w $1A0E
 	stz.w $1A04

@@ -693,8 +693,8 @@ org $9D9000
 .2x:
 	jsl.l WaitFrame
 	jsl.l ReadPads
-	lda.w $0AB8
-	ora.w $0ABA
+	lda.w padnew
+	ora.w padnew+2
 	cmp.w #$1000
 	bne .t2x
 	jmp.w .3
@@ -715,7 +715,7 @@ org $9D9000
 	ldx.w #$0010
 	jsl.l DMAToCGRAM
 	lda.w JoyPad
-	ora.w $0778
+	ora.w JoyPad+2
 	bit.w #$0200
 	bne .t1xx
 	bit.w #$0100

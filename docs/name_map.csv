@@ -1333,9 +1333,9 @@ $9FBBD6,.6,CODE_9FBBD6,new,branch target only used in this routine,src/routines/
 $9FBC00,.rts,CODE_9FBC00,new,branch target only used in this routine,src/routines/snes/CODE_9FBB79.asm
 $9FD4A1,.1,CODE_9FD4A1,new,branch target only used in this routine,src/routines/snes/CODE_9FD48D.asm
 $9FD4B1,.2,CODE_9FD4B1,new,branch target only used in this routine,src/routines/snes/CODE_9FD48D.asm
-$9B866E,.loop,CODE_9B866E,new,branch target only used in this routine,src/routines/snes/CODE_9B866C.asm
-$9B8671,.loop2,CODE_9B8671,new,branch target only used in this routine,src/routines/snes/CODE_9B866C.asm
-$9B867B,.1,CODE_9B867B,new,branch target only used in this routine,src/routines/snes/CODE_9B866C.asm
+$9B866E,.loop,CODE_9B866E,new,branch target only used in this routine,src/routines/snes/WaitSidePadsRelease.asm
+$9B8671,.loop2,CODE_9B8671,new,branch target only used in this routine,src/routines/snes/WaitSidePadsRelease.asm
+$9B867B,.1,CODE_9B867B,new,branch target only used in this routine,src/routines/snes/WaitSidePadsRelease.asm
 $9DA7B1,.loop,CODE_9DA7B1,new,branch target only used in this routine,src/routines/snes/CODE_9DA7A3.asm
 $9DA81E,.1,CODE_9DA81E,new,branch target only used in this routine,src/routines/snes/CODE_9DA7A3.asm
 $9DA822,.2,CODE_9DA822,new,branch target only used in this routine,src/routines/snes/CODE_9DA7A3.asm
@@ -1481,9 +1481,9 @@ $9F8497,.4,CODE_9F8497,new,branch target only used in this routine,src/routines/
 $9FFA0B,.loop,CODE_9FFA0B,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
 $808249,.1,CODE_808249,new,branch target only used in this routine,src/routines/snes/NMI_HookReturn.asm
 $80826E,.2,CODE_80826E,new,branch target only used in this routine,src/routines/snes/NMI_HookReturn.asm
-$9B8684,.loop,CODE_9B8684,new,branch target only used in this routine,src/routines/snes/CODE_9B8682.asm
-$9B8687,.loop2,CODE_9B8687,new,branch target only used in this routine,src/routines/snes/CODE_9B8682.asm
-$9B8694,.1,CODE_9B8694,new,branch target only used in this routine,src/routines/snes/CODE_9B8682.asm
+$9B8684,.loop,CODE_9B8684,new,branch target only used in this routine,src/routines/snes/WaitPadsRelease.asm
+$9B8687,.loop2,CODE_9B8687,new,branch target only used in this routine,src/routines/snes/WaitPadsRelease.asm
+$9B8694,.1,CODE_9B8694,new,branch target only used in this routine,src/routines/snes/WaitPadsRelease.asm
 $9B9744,.1,CODE_9B9744,new,branch target only used in this routine,src/routines/snes/CODE_9B96E4.asm
 $9B9767,.rts,CODE_9B9767,new,branch target only used in this routine,src/routines/snes/CODE_9B96E4.asm
 $9BC3B7,.loop,CODE_9BC3B7,new,branch target only used in this routine,src/routines/snes/CODE_9BC3A0.asm
@@ -2647,7 +2647,7 @@ $9BC6BE,.t1,CODE_9BC6BE,new,continued in the previous routine,src/routines/hocke
 $9BC5D0,.t1,CODE_9BC5D0,new,continued in the previous routine,src/routines/snes/CODE_9BC5AB.asm
 $9BC4DB,.t1,CODE_9BC4DB,new,continued in the previous routine,src/routines/snes/CODE_9BC49A.asm
 $9BC473,.t1,CODE_9BC473,new,continued in the previous routine,src/routines/snes/CODE_9BC44B.asm
-$9BC43C,.t1,CODE_9BC43C,new,continued in the previous routine,src/routines/snes/CODE_9BC43B.asm
+$9BC43C,.t1,CODE_9BC43C,new,continued in the previous routine,src/routines/hockey/OtherScoresRtl.asm
 $9BC3F4,.t1,CODE_9BC3F4,new,continued in the previous routine,src/routines/snes/CODE_9BC3E6.asm
 $9BC3A0,.t1,CODE_9BC3A0,new,continued in the previous routine,src/routines/snes/CODE_9BC382.asm
 $9BC2DF,.t1,CODE_9BC2DF,new,continued in the previous routine,src/routines/snes/CODE_9BC2D7.asm
@@ -5605,3 +5605,7 @@ $9B89E6,ClearEditLinesMenu,CODE_9B89E6,new,Behavior: at the start and end of Edi
 $9B8860,EditLinesRtl,CODE_9B8860,new,Behavior,src/routines/hockey/EditLinesRtl.asm
 $9B9249,PrintLinePlayerList,CODE_9B9249,new,Behavior: the rows half of 94G PrintAttribHeader; called from SelectLinePlayer,src/routines/hockey/PrintLinePlayerList.asm
 $9B8B60,PrintLinePlayers,CODE_9B8B60,new,Behavior: called from PrintLineNames,src/routines/hockey/PrintLinePlayers.asm
+$9B8472,GetNewPresses,CODE_9B8472,93S,"The 93S ReadPads .new block (new presses = changed and down, then the last buttons) as a subroutine of ReadPads",src/routines/snes/GetNewPresses.asm
+$9B866C,WaitSidePadsRelease,CODE_9B866C,new,Behavior: WaitButtonRelease for all the playing pads; called from ScoutingReport,src/routines/snes/WaitSidePadsRelease.asm
+$9B8682,WaitPadsRelease,CODE_9B8682,new,Behavior: called from PlayerSelect,src/routines/snes/WaitPadsRelease.asm
+$9BC43B,OtherScoresRtl,CODE_9BC43B,new,Behavior: ShowOtherScores jumps here; .waitirq is a copy of the ScrollGameStatsDown wait,src/routines/hockey/OtherScoresRtl.asm

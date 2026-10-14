@@ -21,7 +21,7 @@ asspassrec:
 	bne .8
 	ldy.w $19D4,x
 	bmi .t2
-	lda.w $0AB8,y
+	lda.w padnew,y
 	bit.w #$8000
 	bne .6
 	bit.w #$0080
@@ -144,7 +144,7 @@ asspassrec:
 	ldy.w $19D4,x
 	bmi .t1xxx
 .1xx:
-	lda.w $0AA4,y
+	lda.w paddir,y
 	sta.w passdir
 	bra .4x
 

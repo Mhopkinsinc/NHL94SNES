@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B8682:
+; Wait until every standard pad (low nibble 0) has no button down
+WaitPadsRelease:
 	phx
 	pha
 .loop:

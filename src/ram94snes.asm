@@ -189,3 +189,7 @@ jmlvector = $1D59	; RAM jml trampoline: $5C (jml opcode), target at +1..+3
 titleskip = $0BE9	; set when a pad press ends the title sequence
 homelines = $1CE4	; the home team lines (7 lines of 8 slot bytes), loaded by LoadTeamLines, changed by the line editor
 awaylines = $1D1C	; the visitors lines, as homelines
+padlast = $0A9A		; 5 words: each pad's buttons at the last ReadPads
+paddir = $0AA4		; 5 words: each pad's direction (PadDirection of the dpad bits)
+padchange = $0AAE	; 5 words: each pad's buttons that changed at the last ReadPads
+padnew = $0AB8		; 5 words: each pad's buttons newly pressed at the last ReadPads

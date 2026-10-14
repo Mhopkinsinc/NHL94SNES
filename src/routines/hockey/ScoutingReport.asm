@@ -42,12 +42,12 @@ ScoutingReport:
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	ldx.w #$0002
-	lda.w $0AB8
+	lda.w padnew
 	sta.b $14
 .loop:
 	lda.w $1C84,x
 	beq .1
-	lda.w $0AB8,x
+	lda.w padnew,x
 	ora.b $14
 	sta.b $14
 .1:
@@ -60,7 +60,7 @@ ScoutingReport:
 	bne .5
 	bit.w #$0800
 	beq .2
-	jsl.l CODE_9B866C
+	jsl.l WaitSidePadsRelease
 .2:
 	bit.w #$4000
 	bne .6
@@ -81,7 +81,7 @@ ScoutingReport:
 .1x:
 	stz.w $1D5E
 	lda.w JoyPad
-	ora.w $0778
+	ora.w JoyPad+2
 	bit.w #$0400
 	beq .2x
 	lda.w #$FFFF

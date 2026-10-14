@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B866C:
+; Wait until every pad that has a side ($1C84) has no button down
+WaitSidePadsRelease:
 	phx
 	pha
 .loop:

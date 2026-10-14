@@ -5,11 +5,11 @@ ReadjoyA:
 	tax
 	lda.w JoyPad,x
 	sta.b d3
-	lda.w $0AAE,x
+	lda.w padchange,x
 	sta.b d2
-	lda.w $0AB8,x
+	lda.w padnew,x
 	sta.b d1
-	lda.w $0AA4,x
+	lda.w paddir,x
 	sta.b d0
 	plx
 	rtl

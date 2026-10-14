@@ -134,7 +134,7 @@ assgoalie:
 	bit.w #$0002
 	bne .11
 	ldy.w $19D4,x
-	lda.w $0AA4,y
+	lda.w paddir,y
 	cmp.w #$0008
 	bne .13
 	jsl.l StopNA
@@ -306,17 +306,17 @@ assgoalie:
 	lda.w JoyPad,y
 	bit.w #$4000
 	bne .t2xx
-	lda.w $0AB8,y
+	lda.w padnew,y
 	bit.w #$0040
 	beq .18
-	lda.w $0AA4,y
+	lda.w paddir,y
 	cmp.w #$0008
 	beq .21
 	and.w #$0007
 	bra .22
 
 .t2xx:
-	lda.w $0AA4,y
+	lda.w paddir,y
 	cmp.w #$0008
 	bne .t1xxxxx
 	jmp.w .t4

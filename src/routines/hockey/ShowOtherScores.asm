@@ -42,7 +42,7 @@ CODE_9BC2C9:
 	lda.b d3
 	bit.w #$1000
 	beq .t2
-	jmp.w CODE_9BC43B
+	jmp.w OtherScoresRtl
 
 .t2:
 	bit.w #$0800

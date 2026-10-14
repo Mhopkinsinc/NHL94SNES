@@ -364,11 +364,11 @@ updateplayers:
 	sta.w $0ADD,y
 	lda.w JoyPad,y
 	sta.b d3
-	lda.w $0AAE,y
+	lda.w padchange,y
 	sta.b d2
-	lda.w $0AB8,y
+	lda.w padnew,y
 	sta.b d1
-	lda.w $0AA4,y
+	lda.w paddir,y
 	sta.b d0
 	iny
 	iny

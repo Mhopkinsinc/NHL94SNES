@@ -2,21 +2,21 @@
 Readjoy1:
 	lda.w JoyPad
 	sta.b d3
-	lda.w $0AAE
+	lda.w padchange
 	sta.b d2
-	lda.w $0AB8
+	lda.w padnew
 	sta.b d1
-	lda.w $0AA4
+	lda.w paddir
 	sta.b d0
 	rtl
 
 .t1:
-	lda.w $0778
+	lda.w JoyPad+2
 	sta.b d3
-	lda.w $0AB0
+	lda.w padchange+2
 	sta.b d2
-	lda.w $0ABA
+	lda.w padnew+2
 	sta.b d1
-	lda.w $0AA6
+	lda.w paddir+2
 	sta.b d0
 	rtl
