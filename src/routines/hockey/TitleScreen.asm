@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB118:
+; The title screen with its music; a button leaves
+TitleScreen:
 	jsl.l forceblack
 	jsl.l CODE_9C983D
 	lda.w #$6000

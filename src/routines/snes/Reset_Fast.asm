@@ -130,4 +130,4 @@ Reset_Fast:
 	jsl.l SoundInit
 	stz.w brightness
 	jsl.l forceblack
-	jml.l CODE_9F8283
+	jml.l Opening

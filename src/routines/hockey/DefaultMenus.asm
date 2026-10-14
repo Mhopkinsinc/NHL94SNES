@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D9C97:
+; Set the default menu choices at power on
+DefaultMenus:
 	lda.w #$FFFF
 	sta.l $7E34CC
 	lda.w #$007E

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DA5CA:
+; The game setup screen: up and down pick a line, left and right change it, Start goes on
+setoptions:
 	jsl.l FadeOut
 	lda.w #$0001
 	sta.l $7E3474
@@ -52,7 +52,7 @@ CODE_9DA5CA:
 	jsl.l SpriteFrameEnd
 	jsl.l SendTextMap
 	jsl.l ReadPads
-	jsl.l CODE_9B8526
+	jsl.l ReadAnyPad
 	lda.w #$0000
 	sta.w $0CCB
 	lda.b $8F

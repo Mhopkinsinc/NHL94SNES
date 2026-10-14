@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F8283:
+; The cold start after Reset_Fast: password and default options, the title screen, then a fresh start (Restart)
+Opening:
 	rep #$30
 	jsl.l Multi5Init
 	jsl.l CODE_9FF436
@@ -15,13 +15,13 @@ CODE_9F8283:
 	sta.w $1D59
 	jsl.l CheckPAL
 	jsl.l ResetPassWord
-	jsl.l CODE_9D9C97
-	jsl.l CODE_9B8526
+	jsl.l DefaultMenus
+	jsl.l ReadAnyPad
 	lda.w #$0000
 	sta.w brightness
-	jsl.l CODE_9B8526
+	jsl.l ReadAnyPad
 	stz.w $1D68
-	jsl.l CODE_9DB118
+	jsl.l TitleScreen
 	jsl.l CODE_9C9786
 .loop2:
 	lda.w brightness
@@ -57,7 +57,7 @@ Restart:
 	lda.w #$005C
 	sta.w $1D59
 	jsl.l CheckPAL
-	jsl.l CODE_9DA5CA
+	jsl.l setoptions
 	stz.w $1D81
 	lda.l $7E34BC
 	cmp.w #$0004

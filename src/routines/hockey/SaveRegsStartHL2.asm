@@ -278,7 +278,7 @@ org $9F9001
 	pha
 	bmi .9
 .8:
-	jsl.l CODE_9B8526
+	jsl.l ReadAnyPad
 	lda.b d1
 	bit.w #$9080
 	beq .loop3

@@ -10,7 +10,7 @@ PasswordScreen:
 	lda.w #$03FF
 	sta.w textdirtyhi
 	jsl.l ReadPads
-	jsl.l CODE_9B8526
+	jsl.l ReadAnyPad
 	jsl.l SpriteFrameStart
 	ldx.w #$0053
 	ldy.w #$0018
