@@ -17,7 +17,7 @@ skatetopuck:
 	lda.b d0
 	pha
 	txa
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 	lda.b d0
 	eor.w #$FFFF
 	inc a
@@ -94,7 +94,7 @@ org $9EB000
 	sta.b d0
 	jml.l doplayeracc
 .5:
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .4
 	lda.b $00
 	lsr a

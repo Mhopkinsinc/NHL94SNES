@@ -22,7 +22,7 @@ CODE_9BB020:
 	trb.w sflags
 	jsl.l SetHor
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	stz.w textdirtylo
 	lda.w #$03FF

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EE220:
+; The stick is at the puck: launch it toward the goal
+doshot:
 	jsl.l shotdiradj
 	lda.w #$0007
 	pha
@@ -7,7 +7,7 @@ CODE_9EE220:
 	trb.w sflags
 	sta.w pfalock,x
 	stx.w $0D29
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .t2
 	jmp.w .7
 
@@ -57,7 +57,7 @@ CODE_9EE220:
 .3:
 	ldx.b $E4
 	lda.w #$FFFF
-	sta.w shotPlIdx
+	sta.w puckc
 	lda.w #$0010
 	sta.w $1203,x
 	txa
@@ -95,7 +95,7 @@ CODE_9EE220:
 	pha
 	lda.b d0
 	ldy.b d1
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	cmp.w #$0000
 	bne .5
 	inc a
@@ -112,7 +112,7 @@ CODE_9EE220:
 	bcs .1x
 	lda.w #$0010
 	adc.w $1383,x
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	cmp.w #$000F
 	bcs .6
 .1x:
@@ -167,7 +167,7 @@ CODE_9EE220:
 	sta.b $05,s
 	pla
 	lsr a
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	adc.b $05,s
 	sta.b $05,s
 .6:

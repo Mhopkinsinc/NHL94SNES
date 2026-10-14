@@ -106,14 +106,14 @@ CODE_9EF042:
 	bra .5
 
 .t1x:
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$0258
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$003C
 	sta.b $81
 .5:
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .1xx
 	lsr a
 .1xx:
@@ -122,13 +122,13 @@ CODE_9EF042:
 	jmp.w CODE_9EF1CE
 
 .t2x:
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .t1xx
 	jmp.w CODE_9EF1CE
 
 .t1xx:
 	lda.w #$FF00
-	tsb.w shotPlIdx
+	tsb.w puckc
 	asl.b d2
 	lda.b d2
 	sta.b a0
@@ -157,7 +157,7 @@ CODE_9EF168:
 	sta.b d1
 	bne .1
 	lda.b a2
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 .1:
 	lda.b d1
 	and.w #$00FF

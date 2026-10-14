@@ -29,7 +29,7 @@ checkcoll:
 	cpx.w #$0018
 	bcs .2
 	txa
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 	lda.w Xpos,x
 	clc
 	adc.b d0

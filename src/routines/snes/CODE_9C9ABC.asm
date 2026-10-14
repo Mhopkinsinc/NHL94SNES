@@ -10,7 +10,7 @@ CODE_9C9ABC:
 	ror a
 	sta.b $0E
 	pla
-CODE_9C9AD0:
+sfx:
 	phx
 	sta.b $12
 	asl a

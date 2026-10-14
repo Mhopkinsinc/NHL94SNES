@@ -36,7 +36,7 @@ CODE_9E8981:
 	lda.w #$FF9C
 	sta.b d0
 .5:
-	ldy.w shotPlIdx
+	ldy.w puckc
 	lda.w pfgoal,x
 	beq .t3
 	lda.w #$0000
@@ -112,4 +112,4 @@ CODE_9E8981:
 	lda.w $0D71
 	sta.b d0
 .1x:
-	jmp.w CODE_9EA5A4
+	jmp.w skateto

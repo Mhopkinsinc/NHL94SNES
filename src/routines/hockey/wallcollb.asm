@@ -37,10 +37,10 @@ wallcollb:
 	stx.b a3
 	lda.w #$0006
 	jsl.l CODE_9C9A7F
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$0258
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$005A
 	sta.b $81
 	lda.w $19BE

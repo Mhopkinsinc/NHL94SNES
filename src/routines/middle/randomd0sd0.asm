@@ -2,7 +2,7 @@
 randomd0sd0:
 	lda.b d0
 	asl a
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	sec
 	sbc.b d0
 	sta.b d0

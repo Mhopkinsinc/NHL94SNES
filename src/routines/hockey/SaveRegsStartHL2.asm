@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F8DFA:
+; Save the registers and go on to StartHL2
+SaveRegsStartHL2:
 	stx.b xsave
 	ldx.w #$0000
 .loop:
@@ -45,7 +45,7 @@ StartHL2:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	inc.w printx
 	dec.w printy
 	dec.w printy
@@ -118,7 +118,7 @@ StartHL2:
 	stz.w $1C8A
 	stz.w $1C8C
 	lda.w #$0078
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	adc.w #$0078
 	sta.w gameclock
 	pla
@@ -201,12 +201,12 @@ StartHL2:
 	inc.b a1
 	dec.b d0
 	bpl .loop2
-	lda.w shotPlIdx
+	lda.w puckc
 	bpl .4
 	lda.w #$000C
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	asl a
-	sta.w shotPlIdx
+	sta.w puckc
 .4:
 	tax
 	lda.w position,x
@@ -214,7 +214,7 @@ StartHL2:
 	dex
 	dex
 	txa
-	sta.w shotPlIdx
+	sta.w puckc
 .5:
 	jsl.l SprSort
 org $9F9001
@@ -320,7 +320,7 @@ org $9F9001
 	jsl.l CODE_9FB901
 	jsl.l SetHor
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 .loop6:
 	lda.w SoundFadeSpeed
@@ -366,7 +366,7 @@ org $9F9001
 	sta.b d0
 	lda.w #$0007
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	jsl.l printscores1
 	jsl.l CODE_9FEA24
 	jsl.l CODE_9F96E6

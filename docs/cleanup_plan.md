@@ -150,7 +150,6 @@ Status in the table: **extracted** means the bytes are already a named file the 
 | Name | Address | Where used |
 |---|---|---|
 | `mesareaEnd` | `$0A48` | `PushNumber`, `PushTime` only |
-| `shotPlIdx` | `$0AD9` | Shot / highlight / `ShotMode` path |
 | `gmStatBase` | `$1742` | `ClearTeamStats`, team stat pointers |
 | `playoffRoundIdx` | `$7E35D4` | `GetShifter`, passwords, other scores |
 | `rosterNone` | `$FFFC` | `cmp.w` beside `TMPDOUT` in `TryAddPlayerToList`, `ResetBench`, `reenergizeteam` |
@@ -161,7 +160,7 @@ Status in the table: **extracted** means the bytes are already a named file the 
 
 ### Defer until investigated
 
-`$7E34C6` (not `OptLine`; map bits or split before naming). `$163A` (penalty suppress, not `OptPen`). `$0B7D,x` (pass target on assist path). `#$0024` in `AddPenalty` (match 94G penalty id). `$7E35D0` / `blankchar` (compare stored tile to 93S before naming). `CODE_9EE220`, rejected 93S routine names — name from behavior one at a time.
+`$7E34C6` (not `OptLine`; map bits or split before naming). `$163A` (penalty suppress, not `OptPen`). `$0B7D,x` (pass target on assist path). `#$0024` in `AddPenalty` (match 94G penalty id). `$7E35D0` / `blankchar` (compare stored tile to 93S before naming).
 
 ### DATA8 and sprites
 

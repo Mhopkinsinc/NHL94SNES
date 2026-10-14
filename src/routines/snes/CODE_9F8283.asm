@@ -61,7 +61,7 @@ CODE_9F82D2:
 	stz.w $1D81
 	lda.l $7E34BC
 	cmp.w #$0004
-	bne CODE_9F8330
+	bne StartGame
 	jsl.l CODE_80C81C
 	stz.w $07C6
 	jmp.w CODE_9F82D2

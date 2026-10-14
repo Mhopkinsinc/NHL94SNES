@@ -112,7 +112,7 @@ CODE_9F8511:
 	lda.w #$0001
 	tsb.w sflags
 .2xx:
-	jsl.l CODE_9F937B
+	jsl.l Pausemode
 .3:
 	lda.w $1D81
 	beq .t1x

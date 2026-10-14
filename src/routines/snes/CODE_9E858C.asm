@@ -70,4 +70,4 @@ CODE_9E858C:
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0
-	jmp.w CODE_9EA5A4
+	jmp.w skateto

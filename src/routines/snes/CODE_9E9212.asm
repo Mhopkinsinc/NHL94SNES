@@ -29,10 +29,10 @@ CODE_9E9212:
 	stz.w $1E89
 	lda.w #$0009
 	jsl.l CODE_9C9ABC
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$012C
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$003C
 	sta.b $81
 	lda.w $19BE

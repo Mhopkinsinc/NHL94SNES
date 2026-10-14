@@ -2,7 +2,7 @@
 asstab:
 	dd rtss,assdefo,assdefd,asswingd
 	dd asswingo,asscenterd,asscentero,assgoalie
-	dd CODE_9EB0B8,assstanley,asseben,assepen
+	dd assscore,assstanley,asseben,assepen
 	dd assbench,asspenalty,assdopen,assgoalietopuck
 	dd CODE_9EE463,asspuckc,assnearest,assshoot
 	dd CODE_9EED8D,asspassrec,assfaceoff,assfaceoffpl

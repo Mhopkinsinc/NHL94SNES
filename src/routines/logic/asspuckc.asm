@@ -1,6 +1,6 @@
 ; Assignment: the puck carrier
 asspuckc:
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .1
 	lda.w $19D4,x
 	bmi .clk
@@ -105,7 +105,7 @@ asspuckc:
 	sta.b $8B
 	lda.w #$8374
 	sta.b a0
-	jml.l CODE_9EA5A4
+	jml.l skateto
 .10:
 	rtl
 	lda.b d0

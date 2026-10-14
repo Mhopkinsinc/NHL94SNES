@@ -88,7 +88,7 @@ Stop4Pen:
 	sta.l $7E3136
 	lda.b d1
 	sta.l $7E3138
-	jsl.l CODE_9FB601
+	jsl.l limitfo
 .6:
 	lda.b $83
 	sec

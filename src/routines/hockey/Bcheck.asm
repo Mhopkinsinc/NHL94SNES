@@ -14,7 +14,7 @@ Bcheck:
 	adc.w $1483,y
 	sec
 	sbc.w $12E3,x
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	cmp.w #$000C
 	bcc .t1
 .1:

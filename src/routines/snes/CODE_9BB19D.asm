@@ -160,7 +160,7 @@ CODE_9BB19D:
 	lsr a
 	sta.w $0AF1
 	lda.w WMDATA
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w WMDATA
 	sta.l $7E35E1
 	lda.w WMDATA

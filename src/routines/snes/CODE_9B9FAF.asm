@@ -60,7 +60,7 @@ org $9BA000
 	asl a
 	asl a
 	asl a
-	cmp.l $7E35E0
+	cmp.l crowdlevel
 	beq .1x
 	bcs CODE_9BA076
 .1x:

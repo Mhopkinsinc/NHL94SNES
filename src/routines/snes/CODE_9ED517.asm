@@ -37,7 +37,7 @@ CODE_9ED517:
 	lda.w #$0001
 	sta.w $0D2D
 	jsl.l chk4pass
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi CODE_9ED58C
 CODE_9ED574:
 	jmp.w CODE_9ED6AE

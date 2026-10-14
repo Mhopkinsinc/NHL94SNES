@@ -70,7 +70,7 @@ CODE_9E8631:
 	lda.w tmflags,y
 	bit.w #$0010
 	bne .7
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .6
 	lsr a
 .6:
@@ -235,5 +235,5 @@ CODE_9E8631:
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0
-	jsl.l CODE_9EA5A4
+	jsl.l skateto
 	jmp.w check4check

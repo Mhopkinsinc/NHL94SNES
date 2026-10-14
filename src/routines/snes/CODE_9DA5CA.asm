@@ -181,12 +181,12 @@ CODE_9DA6FF:
 
 .t1xx:
 	lda.w #$001C
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	sta.l $7E34BE
 	sta.w HomeTeam
 .loop:
 	lda.w #$001C
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	cmp.l $7E34BE
 	beq .loop
 	sta.l $7E34C0

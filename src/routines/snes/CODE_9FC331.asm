@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FC331:
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq CODE_9FC371
 	lda.b d1
 	bit.w #$8000

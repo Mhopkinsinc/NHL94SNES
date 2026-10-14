@@ -1,8 +1,8 @@
 ; Run every game loop; the slower checks once a second
 periodicevents:
 	jsl.l PenaltyManager
-	jsl.l CODE_9B9F7A
-	jsl.l CODE_9C9930
+	jsl.l updatecrowdf
+	jsl.l updatesound
 	jsl.l clockcont
 	lda.w sfhormode
 	bne .rtl

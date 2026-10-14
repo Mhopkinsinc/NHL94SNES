@@ -5,12 +5,12 @@ chk4pass:
 	lda.w #$0010
 	clc
 	adc.w $13E3,x
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	cmp.w #$0009
 	bcs .4
 .1:
 	lda.w #$0006
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	sta.b d0
 	cpx.w #$000C
 	bcc .2

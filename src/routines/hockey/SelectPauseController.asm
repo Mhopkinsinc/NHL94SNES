@@ -8,7 +8,7 @@ SelectPauseController:
 
 .t1:
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	jsl.l CODE_9B8017

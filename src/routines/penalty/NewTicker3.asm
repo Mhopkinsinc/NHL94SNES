@@ -48,7 +48,7 @@ NewTicker3:
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	lda.b $83
 	sta.w $0D33
 	inc.w printx
@@ -87,7 +87,7 @@ NewTicker3:
 	sta.b $8F
 	lda.w #GameLabels
 	sta.b a1
-	jsl.l CODE_9ECFC6
+	jsl.l PrintStringFromList
 	lda.b $01,s
 	clc
 	adc.w #$0015
@@ -100,7 +100,7 @@ NewTicker3:
 	sta.b $8F
 	lda.w #PerLabels
 	sta.b a1
-	jsl.l CODE_9ECFC6
+	jsl.l PrintStringFromList
 	lda.w #$2000
 	sta.w $0D0D
 	ldx.b a0

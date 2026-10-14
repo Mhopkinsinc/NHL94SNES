@@ -36,7 +36,7 @@ CODE_9EA24C:
 	sta.b d1
 	ldy.b d1
 	lda.b d0
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	sta.b d4
 	jsl.l vtoa
 	lda.b d0

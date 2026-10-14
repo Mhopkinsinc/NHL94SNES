@@ -60,4 +60,4 @@ CODE_9F9879:
 	sta.b $8F
 	lda.w #HandedTextTbl
 	sta.b a1
-	jml.l CODE_9ECFC6
+	jml.l PrintStringFromList

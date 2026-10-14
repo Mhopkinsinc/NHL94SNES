@@ -13,4 +13,4 @@ CODE_9FD99D:
 	sta.b $8B
 	lda.w #$8904
 	sta.b a0
-	jml.l CODE_9EA5A4
+	jml.l skateto

@@ -8,4 +8,4 @@ CODE_9EBD2D:
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0
-	jml.l CODE_9EA5A4
+	jml.l skateto

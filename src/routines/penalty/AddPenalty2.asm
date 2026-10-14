@@ -24,21 +24,21 @@ AddPenalty2:
 	sec
 	sbc.w #$000E
 	bmi .3
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$00C8
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$002D
 	sta.b $81
 	lda.w pfteam,x
 	beq .3
-	lda.l $7E35E0
+	lda.l crowdlevel
 	sec
 	sbc.w #$00C8
 	bcs .2
 	lda.w #$0000
 .2:
-	sta.l $7E35E0
+	sta.l crowdlevel
 .3:
 	lda.w #$0000
 	sta.b $8F

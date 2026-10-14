@@ -5,7 +5,7 @@ puckIChk:
 	beq .1
 	bit.w #$0001
 	bne .1
-	lda.w shotPlIdx
+	lda.w puckc
 	bpl .1
 	lda.w #$0108
 	sta.b d0

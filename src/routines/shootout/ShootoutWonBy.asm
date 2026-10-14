@@ -58,13 +58,13 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	sta.w printy
 	lda.w #$0006
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	lda.b $00
 	inc a
 	sta.w printx
 	lda.w #$000E
 	sta.w printy
-	jsl.l CODE_9ECE15
+	jsl.l printbig
 	lda.w #$000C
 	sta.w printx
 	lda.w #$0010
@@ -79,7 +79,7 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	sta.b $8F
 	lda.w #WinsMark
 	sta.b a1
-	jsl.l CODE_9ECE15
+	jsl.l printbig
 	bra .2
 
 .t1xx:
@@ -87,7 +87,7 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	sta.b $8F
 	lda.w #WinMark
 	sta.b a1
-	jsl.l CODE_9ECE15
+	jsl.l printbig
 .2:
 	pla
 	sta.b a1

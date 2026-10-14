@@ -94,10 +94,10 @@ clockcont_0:
 	bpl .5
 .7:
 	jsl.l ClearPenaltyBuffer
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$03E8
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$003C
 	sta.b $81
 	lda.w #$0040
@@ -107,7 +107,7 @@ clockcont_0:
 	cmp.w $1790
 	bmi .1x
 	lda.w #$0000
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$0003
 	sta.w $0CE7
 	lda.b $83

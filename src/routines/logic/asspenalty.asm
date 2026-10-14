@@ -13,7 +13,7 @@ asspenalty:
 	sta.w pflags,x
 	lda.w #$0000
 	sta.b d4
-	jsl.l CODE_9BC174
+	jsl.l setpads
 	stz.w $1023,x
 	lda.w #$0008
 	sta.w $10A3,x

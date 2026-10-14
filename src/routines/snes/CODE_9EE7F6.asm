@@ -6,7 +6,7 @@ CODE_9EE7F6:
 	cmp.w #$0010
 	bcs CODE_9EE7F3
 	txa
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 	lda.w Xpos,x
 	clc
 	adc.b d0
@@ -20,13 +20,13 @@ CODE_9EE7F6:
 	sbc.w pucky
 	sta.b d1
 	ldy.b d0
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	cmp.w #$0008
 	bcs .5
 	stz.w SPAcnt,x
 	cmp.w #$000C
 	bcs .5
-	stx.w shotPlIdx
+	stx.w puckc
 	ldy.w $19D4,x
 	bmi .t1
 .1:
@@ -68,13 +68,13 @@ CODE_9EE7F6:
 	jsl.l a2touchpuck
 	pla
 	sta.b a2
-	jsl.l CODE_9EE220
+	jsl.l doshot
 	jmp.w CODE_9EE77E
 .5:
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .t1x
 .1xx:
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .t1x
 	jmp.w CODE_9EE77E
 

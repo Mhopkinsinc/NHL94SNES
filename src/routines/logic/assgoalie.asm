@@ -89,7 +89,7 @@ assgoalie:
 	lda.w #$FF0C
 	sta.b d1
 .9:
-	jml.l CODE_9EA5A4
+	jml.l skateto
 
 .t1:
 	rtl
@@ -97,7 +97,7 @@ assgoalie:
 .t2:
 	lda.w gmclock
 	bne .t1x
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .t1x
 	jmp.w CODE_9ED44E
 

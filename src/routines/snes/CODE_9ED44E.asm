@@ -20,7 +20,7 @@ CODE_9ED46A:
 	bne CODE_9ED49F
 	lda.w $1083,x
 	bmi CODE_9ED4B4
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .t1
 	lda.w Ypos,x
 	cmp.w #$00BB

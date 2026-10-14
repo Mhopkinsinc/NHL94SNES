@@ -3,7 +3,7 @@ CODE_9EF5EA:
 	lda.w pflags,y
 	and.w #$FFFE
 	sta.w pflags,y
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bpl .t1
 	jmp.w CODE_9EF69A
 
@@ -40,7 +40,7 @@ CODE_9EF5EA:
 	sbc.b d0
 	clc
 	adc.w #$0024
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	cmp.w #$0003
 	bcs CODE_9EF5E9
 .1:

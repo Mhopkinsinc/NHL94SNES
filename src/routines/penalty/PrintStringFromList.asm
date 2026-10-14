@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ECFC6:
+; Print string d0 of the string list [a1]
+PrintStringFromList:
 	lda.b d0
 	sta.b $10
 .1:

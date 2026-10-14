@@ -1,8 +1,8 @@
 ; Assignment: a wing on offense skates to a spot in the zone of the puck
 asswingo:
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq CODE_9E8A88
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bmi CODE_9E8A90
 	lda.w pfteam,x
 	cmp.w pfteam,y

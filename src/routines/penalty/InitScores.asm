@@ -18,7 +18,7 @@ InitScores:
 	lda.w #$0000
 	sta.l $7E3568,x
 	lda.w #$0003
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	inc a
 	sta.b d0
 	bra .3

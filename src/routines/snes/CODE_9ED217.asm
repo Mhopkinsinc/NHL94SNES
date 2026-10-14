@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9ED217:
 	sta.w $1003,x
-	lda.w shotPlIdx
+	lda.w puckc
 	bpl CODE_9ED214
 	lda.w puckvy
 	ldy.w pfgoal,x
@@ -70,7 +70,7 @@ CODE_9ED24D:
 	lda.b d0
 	pha
 	txa
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 	lda.b d0
 	eor.w #$FFFF
 	inc a

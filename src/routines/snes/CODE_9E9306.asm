@@ -73,7 +73,7 @@ CODE_9E9306:
 	pha
 	lda.b $04
 	ldy.b $06
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	inc a
 	sta.b d2
 	lda.b d0

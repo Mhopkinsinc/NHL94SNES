@@ -1,6 +1,6 @@
 ; Assignment: the center on defense, halfway between the puck and his goal
 asscenterd:
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bmi CODE_9E858C
 	lda.w pfteam,x
 	cmp.w pfteam,y

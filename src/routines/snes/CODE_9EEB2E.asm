@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EEB2E:
-	jsl.l CODE_9FC757
+	jsl.l loadTeamStruct
 	lda.w gmclock
 	bne .1
 	ldy.b a2
@@ -46,7 +46,7 @@ CODE_9EEB2E:
 	ldy.b a0
 	sta.w $0D97,y
 	lda.b a0
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 	ldy.b a0
 	pla
 	sta.w $0D97,y
@@ -88,7 +88,7 @@ CODE_9EEB2E:
 	adc.b d1
 	sta.b d3
 	ldy.b d2
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	sta.b d4
 	asl a
 	tax
@@ -137,7 +137,7 @@ CODE_9EEB2E:
 	adc.b d1
 	sta.b d3
 	ldy.b d2
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	sta.b d4
 	pla
 .4:

@@ -44,7 +44,7 @@ printscores1:
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	lda.l $7E34BC
 	cmp.w #$0004
 	beq .t2
@@ -72,7 +72,7 @@ printscores1:
 	sta.b $8F
 	lda.w #PerLabels
 	sta.b a1
-	jsl.l CODE_9ECFC6
+	jsl.l PrintStringFromList
 	jsl.l EASNLogo
 	jsl.l updatepwrplay
 	bra .scores
@@ -123,7 +123,7 @@ printscores1:
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	lda.b $8F
 	pha
 	lda.b a1
@@ -258,7 +258,7 @@ printscores1:
 	jsl.l CODE_9F9E15
 	jsl.l PushNumber
 	jsl.l CODE_9F9DFB
-	jsl.l CODE_9ECE15
+	jsl.l printbig
 	lda.b $8F
 	pha
 	lda.b a1
@@ -277,7 +277,7 @@ printscores1:
 	jsl.l CODE_9F9E15
 	jsl.l PushNumber
 	jsl.l CODE_9F9DFB
-	jsl.l CODE_9ECE15
+	jsl.l printbig
 	pla
 	sta.b d1
 	jmp.w .ex

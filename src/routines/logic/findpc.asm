@@ -12,7 +12,7 @@ findpc:
 	ldx.b xsave
 	lda.w #$0008
 	sta.b $00
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bmi .9
 	lda.w position,x
 	beq .t1
@@ -79,7 +79,7 @@ findpc:
 	bne .8
 .5:
 	stz.b $14
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .7
 	lda.b $00
 	cmp.w #$0008

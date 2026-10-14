@@ -5,7 +5,7 @@ CODE_9ED5A7:
 	lda.w $0ADD,y
 	cmp.w #$0001
 	bne .t3
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq CODE_9ED574
 	lda.w $0D71
 	sec
@@ -46,7 +46,7 @@ CODE_9ED5A7:
 	sec
 	sbc.w Ypos,x
 	sta.b d1
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .t1x
 	lsr a
 	tay
@@ -112,8 +112,8 @@ CODE_9ED5A7:
 	lda.w #$0096
 	sta.w pfalock,x
 	clc
-	adc.l $7E35E0
-	sta.l $7E35E0
+	adc.l crowdlevel
+	sta.l crowdlevel
 	lda.w #$001E
 	sta.b $81
 	rtl

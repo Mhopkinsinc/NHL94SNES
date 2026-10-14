@@ -9,7 +9,7 @@ CODE_9BACCD:
 	sta.w $0ADB
 	jsl.l SprSort
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	stz.w $0CB9
 CODE_9BACE5:

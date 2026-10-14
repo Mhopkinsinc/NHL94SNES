@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FB601:
+; Keep the face off spot away from the blue line for every called penalty
+limitfo:
 	lda.b d0
 	pha
 	lda.b $A7

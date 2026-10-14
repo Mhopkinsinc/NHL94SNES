@@ -1,11 +1,11 @@
-; Unidentified routine.
-CODE_9E90AE:
+; Collision with the goal: over the top, into the net, off a post or off the side
+checkgoal:
 	cpx.w #$001C
 	beq .t3
 	jmp.w CODE_9E92F8
 
 .t3:
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bmi .1
 	lda.w position,y
 	beq .t1
@@ -52,11 +52,11 @@ CODE_9E90AE:
 
 .t2:
 	stz.w $14DF
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .2
 	tay
 	lda.w #$FFFF
-	sta.w shotPlIdx
+	sta.w puckc
 	lda.w #$0008
 	sta.w $1203,y
 	lda.w pucky

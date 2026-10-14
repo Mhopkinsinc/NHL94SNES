@@ -129,7 +129,7 @@ CODE_9EC160:
 	sta.l $7E344C
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	dec.w printy
 	dec.w printy
 	inc.w printx

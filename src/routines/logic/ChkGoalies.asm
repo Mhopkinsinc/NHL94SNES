@@ -14,7 +14,7 @@ ChkGoalies:
 	lda.w tmgoalie,y
 	bmi rtss
 	ldx.w tmsort,y
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bmi rtss
 	lda.w pfteam,y
 	cmp.w pfteam,x

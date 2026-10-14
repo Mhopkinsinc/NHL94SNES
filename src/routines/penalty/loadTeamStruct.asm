@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FC757:
+; a2 = player X's team, a1 = the other team
+loadTeamStruct:
 	lda.w pfteam,x
 	beq .t1
 	stz.b a1

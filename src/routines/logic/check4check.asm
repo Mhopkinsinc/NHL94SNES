@@ -9,11 +9,11 @@ check4check:
 	asl.b d0
 .1:
 	lda.b d0
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	cmp.w #$0004
 	bcc .2
 	lda.b d0
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	cmp.w #$0004
 	bcs CODE_9EA1BC
 .2:

@@ -4,7 +4,7 @@ CODE_9EE771:
 	cmp.w #$0058
 	bpl CODE_9EE762
 CODE_9EE779:
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi CODE_9EE796
 CODE_9EE77E:
 	lda.w #$FFFF

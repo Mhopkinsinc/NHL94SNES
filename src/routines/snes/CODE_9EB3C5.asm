@@ -53,7 +53,7 @@ CODE_9EB3C5:
 .1:
 	jsl.l SetHor
 	lda.w #$FF00
-	tsb.w shotPlIdx
+	tsb.w puckc
 	ldx.w #$001C
 	stx.b a3
 	lda.w #$001A

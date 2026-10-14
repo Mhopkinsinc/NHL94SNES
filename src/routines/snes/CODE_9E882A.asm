@@ -106,7 +106,7 @@ CODE_9E882A:
 	sbc.b d1
 	sta.b d1
 .9:
-	jmp.w CODE_9EA5A4
+	jmp.w skateto
 .10:
 	ldy.w #$0062
 	lda.w pfgoal,x
@@ -115,7 +115,7 @@ CODE_9E882A:
 .1xx:
 	sty.b d1
 	bra .9
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .t1xx
 	lda.w $0EC4,x
 	sec

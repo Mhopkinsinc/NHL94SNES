@@ -4,7 +4,7 @@ Endfaceoff:
 	sta.b $0C
 	stz.b $0E
 	lda.w #$0007
-	jsl.l CODE_9C9AD0
+	jsl.l sfx
 	lda.w #$0100
 	trb.w sflags
 	lda.w #$0000
@@ -75,7 +75,7 @@ Endfaceoff:
 	bne .8
 .7:
 	lda.w #$0005
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	dec a
 	dec a
 	and.w #$0007

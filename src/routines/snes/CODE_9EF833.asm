@@ -39,7 +39,7 @@ CODE_9EF833:
 	sty.b a2
 	sta.b a1
 .1:
-	lda.w shotPlIdx
+	lda.w puckc
 	bpl .2
 	lda.w $0CF3
 	asl a

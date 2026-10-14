@@ -14,14 +14,14 @@ dostop:
 	lda.w #$EA1A
 	ldy.w $1523,x
 	bne .3
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .2
 	lda.w $0EC3,x
 	sta.b $0C
 	lda.w $0EE3,x
 	sta.b $0E
 	lda.w #$0011
-	jsl.l CODE_9C9AD0
+	jsl.l sfx
 .2:
 	lda.w #$EC14
 	sta.w $1543,x
@@ -32,7 +32,7 @@ CODE_9EA539:
 	bne .t1
 	lda.w $19D4,x
 	bmi .t1
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .t1
 	lda.w $0EC3,x
 	cmp.w #$8000

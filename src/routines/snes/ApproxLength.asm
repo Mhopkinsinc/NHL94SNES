@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9CA554:
+; A = the approximate length of the vector (A, Y)
+ApproxLength:
 	cmp.w #$0000
 	bpl .1
 	eor.w #$FFFF

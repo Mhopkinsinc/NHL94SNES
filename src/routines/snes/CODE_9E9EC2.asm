@@ -27,7 +27,7 @@ CODE_9E9EC2:
 	sbc.b $AB
 	sta.b d1
 	ldy.b d0
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	ldy.b a2
 	sta.b d4
 	cmp.w #$0014

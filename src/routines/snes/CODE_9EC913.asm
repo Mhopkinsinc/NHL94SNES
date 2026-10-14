@@ -19,7 +19,7 @@ CODE_9EC913:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	lda.b $8F
 	pha
 	lda.b a1

@@ -3,7 +3,7 @@ CODE_9FE0E8:
 	ldx.w #$026F
 .2:
 	lda.w #$000E
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	cmp.w #$000C
 	bcc .1
 	lda.w #$000C

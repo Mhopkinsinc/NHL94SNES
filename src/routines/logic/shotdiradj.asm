@@ -55,7 +55,7 @@ org $9EE002
 	sbc.w pucky
 	sta.b d1
 	ldy.b d0
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	sta.b d2
 	lda.w #$0012
 	sta.b d3

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EA719:
+; Accelerate player X in direction d2, up to his top speed
+playeracc:
 	asl.b d2
 	asl.b d2
 	ldx.b d2
@@ -39,7 +39,7 @@ CODE_9EA719:
 	bne .7
 	lda.w $19D4,x
 	bmi .t1
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .t1
 	lda.w $12E3,x
 	asl a
@@ -105,7 +105,7 @@ CODE_9EA719:
 	lda.b d0
 	pha
 	ldx.b $E4
-	jsl.l CODE_9FDCB2
+	jsl.l getpde
 	lda.w $1303,x
 	pha
 	lda.l $7E34C6
@@ -166,7 +166,7 @@ CODE_9EA719:
 	lda.w $0792
 	and.w #$003F
 	bne .t1x
-	jsl.l CODE_9FDCB2
+	jsl.l getpde
 	lda.b d0
 	sec
 	sbc.w #$0021

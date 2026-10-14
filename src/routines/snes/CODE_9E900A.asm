@@ -17,7 +17,7 @@ CODE_9E900A:
 	lda.w $0EE3,x
 	sta.b $0E
 	lda.w #$000D
-	jsl.l CODE_9C9AD0
+	jsl.l sfx
 .1:
 	lda.b d2
 	lsr a
@@ -71,7 +71,7 @@ CODE_9E9091:
 	sta.b d2
 	cpx.w #$001C
 	bne .rtl
-	lda.w shotPlIdx
+	lda.w puckc
 	bpl .rtl
 	jsl.l CODE_9EC791
 	stz.w $1E8B

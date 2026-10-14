@@ -6,7 +6,7 @@ CODE_9FDCEB:
 	lda.b a2
 	pha
 	ldx.b a0
-	jsl.l CODE_9FDCB2
+	jsl.l getpde
 	pla
 	sta.b a2
 	pla

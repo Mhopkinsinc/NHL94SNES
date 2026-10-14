@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BB385:
+; A = a random number from 0 to A-1, for A below 256
+randoma8:
 	phx
 	pha
 CODE_9BB387:

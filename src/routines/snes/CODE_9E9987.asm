@@ -25,7 +25,7 @@ CODE_9E9987:
 	sta.b d3
 	ldx.b $E4
 	lda.b a2
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 	ldy.b a2
 	lda.b d0
 	clc

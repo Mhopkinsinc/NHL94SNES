@@ -4,7 +4,7 @@ CODE_9BAA60:
 	bne CODE_9BAA60
 	jsl.l CODE_9C98DF
 	lda.w #$0000
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$0800
 	tsb.w sflags
 	jsl.l ClrHor
@@ -122,7 +122,7 @@ CODE_9BAA60:
 	jsl.l CODE_8086BD
 	jsl.l SprSort
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	lda.w #$0001
 	sta.b d7

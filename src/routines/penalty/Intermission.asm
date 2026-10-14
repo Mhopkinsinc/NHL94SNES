@@ -82,7 +82,7 @@ Intermission:
 	sta.b d0
 	lda.w #$0007
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	jsl.l printscores1
 	jsl.l PauseMenu
 	bne .loop2

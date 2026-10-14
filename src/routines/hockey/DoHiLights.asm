@@ -15,7 +15,7 @@ DoHiLights:
 	beq .1
 	and.w #$FFFD
 	sta.l $7E3598,x
-	jsl.l CODE_9F8DFA
+	jsl.l SaveRegsStartHL2
 .1:
 	dec.b a0
 	dec.b a0

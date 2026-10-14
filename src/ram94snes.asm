@@ -31,7 +31,7 @@ passdir = $0D03		; direction for pass/shot 0-7 (8 = none)
 passspeed = $0D05	; speed of pass/shot
 mesarea = $0A2A		; string being built: a length word, then the bytes
 mesareaEnd = $0A48	; one past the last digit PushNumber and PushTime may write
-shotPlIdx = $0AD9	; roster index of the player taking or releasing the shot
+puckc = $0AD9		; object index of the puck carrier, negative = loose
 gmStatBase = $1742	; first word ClearTeamStats clears (through $18ED)
 playoffRoundIdx = $7E35D4	; playoff round for other scores and password bits
 printx = $0D0F		; x cordinate for printing (text map column)
@@ -180,3 +180,4 @@ PlayerScrollCtr = $0D3F		; scouting report player scroll
 SelectedPlayerIdx = $0D43	; scouting report selected player
 ScoutingReportTimer = $0D45	; scouting report timer
 TestList = $7E347C		; scouting report text list
+crowdlevel = $7E35E0	; crowd noise level: raised by the play, fades every frame

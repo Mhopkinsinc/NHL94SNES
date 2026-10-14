@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EB0B8:
+; Assignment: celebrating a goal
+assscore:
 	lda.w gmode
 	bit.w #$0040
 	beq .1x
@@ -32,10 +32,10 @@ CODE_9EB0B8:
 	sta.w $0EE3,x
 	txa
 	lsr a
-	cmp.w shotPlIdx
+	cmp.w puckc
 	bne .1x2
 	lda.w #$FFFF
-	sta.w shotPlIdx
+	sta.w puckc
 	lda.w #$0708
 	sta.w $1203,x
 .1x2:
@@ -85,9 +85,9 @@ CODE_9EB0B8:
 	jsl.l SetSPA
 .6:
 	lda.w #$0078
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	sta.w $1003,x
 	rtl
 
 .t1x:
-	jmp.w CODE_9EA5A4
+	jmp.w skateto

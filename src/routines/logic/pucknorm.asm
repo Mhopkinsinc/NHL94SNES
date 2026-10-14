@@ -27,12 +27,12 @@ CODE_9EDCC3:
 	sta.w $101F
 	jsl.l CODE_9EDDD2
 .1:
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .4
 	sta.b a2
 	jsl.l a2touchpuck
 	lda.b a2
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 	ldy.b a2
 	lda.b d0
 	clc
@@ -71,7 +71,7 @@ CODE_9EDCC3:
 	jsl.l CODE_9EF78A
 	lda.w gmclock
 	bne CODE_9EDDBD
-	lda.w shotPlIdx
+	lda.w puckc
 	bpl CODE_9EDDB0
 	lda.w $163A
 	beq .9

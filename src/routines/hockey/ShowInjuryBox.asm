@@ -39,7 +39,7 @@ ShowInjuryBox:
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	lda.b $8F
 	pha
 	lda.b a1

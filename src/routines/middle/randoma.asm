@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BB370:
+; A = a random number from 0 to A-1
+randoma:
 	phx
 	pha
 	cmp.w #$0100

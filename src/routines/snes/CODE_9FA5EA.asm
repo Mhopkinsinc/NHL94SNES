@@ -20,7 +20,7 @@ CODE_9FA5EA:
 	cpx.w #$0005
 	bcc .loop2
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	lda.b $83
 .loop3:

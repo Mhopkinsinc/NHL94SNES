@@ -60,7 +60,7 @@ org $9FB003
 	sta.w $19BE
 .1x:
 	lda.w $1E8D
-	sta.w shotPlIdx
+	sta.w puckc
 	tay
 	lda.w $1E93
 	bmi .2x

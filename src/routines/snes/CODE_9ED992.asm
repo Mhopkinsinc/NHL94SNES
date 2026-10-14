@@ -48,7 +48,7 @@ CODE_9ED9A0:
 	beq CODE_9EDA04
 	cmp.w #$0006
 	beq CODE_9EDA04
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi CODE_9EDA04
 	dec.b d0
 	dec.b d0
@@ -62,10 +62,10 @@ CODE_9EDA04:
 	lda.b [a1],y
 	sta.w pfalock,x
 	jsl.l SetSPAFromA
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$0096
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$001E
 	sta.b $81
 CODE_9EDA2C:
@@ -92,7 +92,7 @@ CODE_9EDA51:
 	jmp.w CODE_9EDBF3
 
 .t1:
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bmi .7
 	lda.w pfteam,x
 	cmp.w pfteam,y
@@ -167,7 +167,7 @@ CODE_9EDA51:
 	sta.b d1
 	lda.w #$0005
 	sta.b tmp0
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .3
 	asl.b tmp0
 .3:
@@ -205,4 +205,4 @@ CODE_9EDB21:
 	jmp.w CODE_9EA539
 
 .t1:
-	jml.l CODE_9EA719
+	jml.l playeracc

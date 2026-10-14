@@ -5,7 +5,7 @@ CODE_9E9E59:
 	cmp.w #$F7B2
 	beq .1
 	lda.w #$FFFF
-	sta.w shotPlIdx
+	sta.w puckc
 .1:
 	ldy.b a2
 	lda.w pfteam,y
@@ -15,10 +15,10 @@ CODE_9E9E59:
 	rtl
 
 .t1:
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$0258
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$002D
 	sta.b $81
 	rtl

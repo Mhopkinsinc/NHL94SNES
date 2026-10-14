@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EED8D:
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .t2
 	lda.w pflags,x
 	bit.w #$0002
@@ -88,7 +88,7 @@ CODE_9EED8D:
 	sbc.w pucky
 	sta.b d1
 	ldy.b d0
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	sta.b d2
 	asl a
 	asl a
@@ -144,7 +144,7 @@ CODE_9EED8D:
 	lda.w #$03C0
 	sec
 	sbc.b d4
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	clc
 	adc.w #$10E0
 	sta.w $0E01
@@ -152,7 +152,7 @@ CODE_9EED8D:
 	ldx.b $E4
 	lda.w #$FFFF
 	sta.w $0BA3
-	sta.w shotPlIdx
+	sta.w puckc
 	lda.w #$001E
 	sta.w $1203,x
 	txa

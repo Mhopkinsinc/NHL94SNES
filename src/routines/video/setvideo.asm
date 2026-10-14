@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FBAAA:
+; Once per game frame: build the sprite table for the next vblank
+setvideo:
 	stx.b xsave
 	ldx.w #$0000
 .loop:

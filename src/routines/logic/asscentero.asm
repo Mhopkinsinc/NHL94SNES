@@ -1,8 +1,8 @@
 ; Assignment: the center on offense skates to a spot in the zone of the puck
 asscentero:
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq CODE_9E845A
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bmi CODE_9E8462
 	lda.w pfteam,x
 	cmp.w pfteam,y

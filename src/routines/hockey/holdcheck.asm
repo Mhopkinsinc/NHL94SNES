@@ -22,7 +22,7 @@ holdcheck:
 	and.w #$0007
 	cmp.w #$0003
 	bcs .t1
-	lda.w shotPlIdx
+	lda.w puckc
 	cmp.b a3
 	bne .t2
 	lda.w #$0008

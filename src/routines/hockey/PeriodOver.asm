@@ -57,7 +57,7 @@ PeriodOver:
 	jsl.l CODE_9F96E6
 	jsl.l CODE_8086BD
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	inc.w gsp
 	lda.w gsp

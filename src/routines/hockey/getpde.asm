@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FDCB2:
+; d0 = the energy of player X
+getpde:
 	lda.w pnum,x
 	and.w #$00FF
 	asl a

@@ -12,7 +12,7 @@ CODE_9EDFA9:
 	bpl CODE_9EDF84
 CODE_9EDFAF:
 	lda.b d4
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	cmp.w #$0009
 	bcs .t1
 	lda.w pucky

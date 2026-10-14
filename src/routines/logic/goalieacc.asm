@@ -25,7 +25,7 @@ org $9ED002
 	rtl
 
 .t2:
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .t4
 	lda.w $0B7D,x
 	cmp.w #$000C
@@ -52,7 +52,7 @@ org $9ED002
 	sta.b d2
 	lda.w #$E0FE
 	jsl.l SetSPAFromA
-	jml.l CODE_9EA719
+	jml.l playeracc
 
 .t3:
 	jmp.w CODE_9EA539
@@ -99,4 +99,4 @@ org $9ED002
 	jsl.l SetSPAFromA
 	lda.w facedir,x
 	sta.b d2
-	jml.l CODE_9EA719
+	jml.l playeracc

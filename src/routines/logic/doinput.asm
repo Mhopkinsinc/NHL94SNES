@@ -1,6 +1,6 @@
 ; Pad input for player X
 doinput:
-	jsl.l CODE_9BC174
+	jsl.l setpads
 	dec.b d4
 	dec.b d4
 	lda.b d3

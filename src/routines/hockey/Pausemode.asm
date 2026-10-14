@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F937B:
+; Pause mode: save the screen, stop the sound, show the pause menu, then restore
+Pausemode:
 	phx
 	lda.w #$007E
 	sta.b $0E
@@ -28,7 +28,7 @@ CODE_9F937B:
 	jsl.l CODE_9F96E6
 	jsl.l CODE_8086BD
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	stz.w $0D13
 	stz.w $0D15
@@ -50,7 +50,7 @@ CODE_9F937B:
 	sta.b d0
 	lda.w #$0007
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	jsl.l printscores1
 	jsl.l PauseMenu
 	bne .loop
@@ -94,7 +94,7 @@ CODE_9F937B:
 	jsl.l CODE_9F96E6
 	jsl.l CODE_8086BD
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	lda.w #$7000
 	sta.b $64

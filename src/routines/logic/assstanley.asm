@@ -35,7 +35,7 @@ assstanley:
 	sta.w facedir,x
 	lda.w #$0014
 	sta.w pfalock,x
-	jmp.w CODE_9EA719
+	jmp.w playeracc
 
 .t1:
 	rtl

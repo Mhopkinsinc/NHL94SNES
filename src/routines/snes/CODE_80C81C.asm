@@ -14,7 +14,7 @@ CODE_80C81C:		; the shootout: both shooter lists, then a turn for each team ever
 	jsl.l InitShooters
 	jsl.l CODE_9F833C
 	jsl.l CODE_9F8433
-	jsl.l CODE_9F937B
+	jsl.l Pausemode
 	lda.w #$0001
 	sta.w shootoutround
 	stz.b d1

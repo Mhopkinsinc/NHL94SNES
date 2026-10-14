@@ -6,7 +6,7 @@ CODE_9EF1CE:
 	xba
 	and.w #$FF00
 	asl a
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	adc.w #$2000
 	sta.b d0
 	cmp.w puckvx

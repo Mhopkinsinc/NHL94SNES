@@ -1,6 +1,6 @@
 ; Assignment: a defenseman on defense stays between the furthest attacker and his goal
 assdefd:
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bmi CODE_9E8631
 	lda.w pfteam,x
 	cmp.w pfteam,y

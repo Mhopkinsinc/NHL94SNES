@@ -67,7 +67,7 @@ noturn0:
 	lda.w #$F7B2
 	sta.b d1
 .1x2:
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .2
 	ldy.w #$0000
 	lda.w #$EA4C
@@ -85,4 +85,4 @@ CODE_9EAB64:
 	eor.w #$0004
 	sta.b d2
 .1:
-	jml.l CODE_9EA719
+	jml.l playeracc

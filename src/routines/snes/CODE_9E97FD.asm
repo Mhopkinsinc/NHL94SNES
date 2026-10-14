@@ -22,7 +22,7 @@ CODE_9E97FD:
 	cmp.w #$0100
 	bpl CODE_9E97F7
 	tya
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 	ldy.b a2
 	lda.b d0
 	clc

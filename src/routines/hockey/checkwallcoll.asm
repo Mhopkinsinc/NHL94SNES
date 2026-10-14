@@ -36,7 +36,7 @@ checkwallcoll:
 	bmi .t2
 	lda.w #$001A
 	sta.b a2
-	jsl.l CODE_9E90AE
+	jsl.l checkgoal
 	jmp.w .6
 
 .t1:
@@ -57,7 +57,7 @@ checkwallcoll:
 	bmi .t2
 	lda.w #$0018
 	sta.b a2
-	jsl.l CODE_9E90AE
+	jsl.l checkgoal
 .1:
 	jmp.w .6
 

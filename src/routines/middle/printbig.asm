@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ECE15:
+; Print with the big font (2 by 2 tiles per character)
+printbig:
 	phx
 	lda.b d0
 	pha

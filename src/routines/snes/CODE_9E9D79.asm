@@ -1,12 +1,12 @@
 ; Unidentified routine.
 CODE_9E9D79:
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$012C
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$002D
 	sta.b $81
-	lda.w shotPlIdx
+	lda.w puckc
 	sta.b d0
 	bmi CODE_9E9D73
 	cpy.b d0
@@ -29,7 +29,7 @@ CODE_9E9D79:
 	bit.w #$4000
 	bne CODE_9E9D76
 	lda.w #$0096
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	asl a
 	ldy.b a2
 	sec
@@ -41,7 +41,7 @@ CODE_9E9D79:
 	bmi CODE_9E9E59
 	beq CODE_9E9E59
 	lda.w #$FFFF
-	sta.w shotPlIdx
+	sta.w puckc
 	stz.w $0C23
 	ldy.b a2
 	lda.w pfteam,y

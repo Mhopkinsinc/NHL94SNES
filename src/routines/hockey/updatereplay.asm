@@ -148,7 +148,7 @@ updatereplay:
 	asl a
 	ora.w $0AEF
 	sta.w WMDATA
-	lda.l $7E35E0
+	lda.l crowdlevel
 	sta.w WMDATA
 	lda.l $7E35E1
 	sta.w WMDATA

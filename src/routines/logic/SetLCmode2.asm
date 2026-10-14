@@ -22,7 +22,7 @@ SetLCmode2:
 	jsl.l CODE_9FA669
 	jsl.l setlccords
 .4:
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	dec.w printy
 	dec.w printy
 	inc.w printx
@@ -69,7 +69,7 @@ SetLCmode2:
 	sta.b $8F
 	lda.w #$D6BE
 	sta.b a1
-	jsl.l CODE_9ECFC6
+	jsl.l PrintStringFromList
 	pla
 	sta.b d0
 	jsl.l linebar

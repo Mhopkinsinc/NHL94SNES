@@ -56,7 +56,7 @@ CODE_9DA973:
 	txa
 	lsr a
 	sta.b d0
-	jsl.l CODE_9ECFC6
+	jsl.l PrintStringFromList
 	lda.w #$0011
 	sta.w printx
 	stx.b d7

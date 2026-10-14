@@ -8,7 +8,7 @@ checkwindow:
 	bit.w #$0040
 	bne .3
 	ldx.w #$001C
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .2
 	tax
 	lda.w pfgoal,x

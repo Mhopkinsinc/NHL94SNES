@@ -4,7 +4,7 @@ dopass:
 	lda.w #$0004
 	trb.w sflags
 	lda.w #$FFFF
-	sta.w shotPlIdx
+	sta.w puckc
 	lda.w #$0010
 	sta.w $1203,x
 	txa

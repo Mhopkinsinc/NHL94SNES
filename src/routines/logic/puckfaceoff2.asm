@@ -39,11 +39,11 @@ puckfaceoff2:
 	sta.w $0CB3
 	lda.w #$0000
 	sta.l $7E3448
-	lda.l $7E35E0
+	lda.l crowdlevel
 	cmp.w #$0258
 	bcc .1
 	lda.w #$0258
-	sta.l $7E35E0
+	sta.l crowdlevel
 .1:
 	lda.w $0AD3
 	beq .2
@@ -110,7 +110,7 @@ puckfaceoff2:
 	sta.w $0DF9
 	sta.w $0D07
 	asl a
-	sta.w shotPlIdx
+	sta.w puckc
 	lda.w #$8200
 	trb.w sflags
 	lda.w #$0000
@@ -570,7 +570,7 @@ puckfaceoff2:
 	sta.b d0
 	lda.w #$0008
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	lda.w $1E91
 	sta.b a2
 	lda.w #$0005
@@ -628,7 +628,7 @@ puckfaceoff2:
 	sta.b $8F
 	lda.w #ShootoutPenShot
 	sta.b a1
-	jsl.l CODE_9ECE15
+	jsl.l printbig
 	bra .17
 
 .t1xxx:
@@ -636,7 +636,7 @@ puckfaceoff2:
 	sta.b $8F
 	lda.w #$F8C2
 	sta.b a1
-	jsl.l CODE_9ECE15
+	jsl.l printbig
 .17:
 	ldx.b a3
 	lda.l $7E34C6
@@ -653,7 +653,7 @@ puckfaceoff2:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	lda.w tmline
 	sta.b d0
 	lda.w $1798
@@ -673,7 +673,7 @@ puckfaceoff2:
 	sta.b $8F
 	lda.w #$D6BE
 	sta.b a1
-	jsl.l CODE_9ECFC6
+	jsl.l PrintStringFromList
 	inc.w printx
 	inc.w printx
 	inc.w printx
@@ -684,7 +684,7 @@ puckfaceoff2:
 	sta.b $8F
 	lda.w #$D6BE
 	sta.b a1
-	jsl.l CODE_9ECFC6
+	jsl.l PrintStringFromList
 .3xxxx:
 	jsl.l RandomWord
 	and.w #$007F

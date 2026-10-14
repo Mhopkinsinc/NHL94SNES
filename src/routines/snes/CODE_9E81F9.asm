@@ -5,7 +5,7 @@ CODE_9E81F9:
 	rtl
 
 .t1:
-	jsl.l CODE_9FDCB2
+	jsl.l getpde
 	lda.l $7E34C6
 	beq .1
 	lda.b d0

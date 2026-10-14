@@ -70,7 +70,7 @@ updateplayers:
 	cmp.w #$0000
 	bmi .4
 	asl.b d0
-	jsl.l CODE_9FC757
+	jsl.l loadTeamStruct
 .4:
 	lda.w $0BEB,x
 	beq .6
@@ -192,7 +192,7 @@ updateplayers:
 	sta.b $0C
 	stz.b $0E
 	lda.w #$0007
-	jsl.l CODE_9C9AD0
+	jsl.l sfx
 .11:
 	lda.w $0D71
 	sec
@@ -345,13 +345,13 @@ updateplayers:
 	txa
 	lsr a
 	sta.b d6
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .1xxxxxxx
 	lda.w sfhormode
 	bne .1xxxxxxx
 	lda.w #$0000
 	sta.b d4
-	jsl.l CODE_9BC174
+	jsl.l setpads
 .1xxxxxxx:
 	cpx.w #$0018
 	bcs .t1xxxxx
@@ -388,7 +388,7 @@ updateplayers:
 	lda.l asstab+1,x
 	sta.w $1D5B
 	ldx.b $E4
-	jsl.l CODE_9FC757
+	jsl.l loadTeamStruct
 	jsl.l $001D59
 .1xxxxxxxx:
 	lda.w position,x
@@ -396,7 +396,7 @@ updateplayers:
 	bne .17
 	cpx.w #$0018
 	bcs .17
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .17
 	lda.w $0B05,x
 	bit.w #$0001
@@ -560,7 +560,7 @@ updateplayers:
 	sta.w pucky
 	sta.w $0DD5
 .4xx:
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi .20
 	lda.w pucky
 	sta.l $7E30F4

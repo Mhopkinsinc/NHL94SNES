@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9F7A:
+; Every game loop: let the crowd level fade
+updatecrowdf:
 	lda.b $81
 	beq .t1
 	cmp.w #$003C
@@ -15,16 +15,16 @@ CODE_9B9F7A:
 	rtl
 
 .t1:
-	lda.l $7E35E0
+	lda.l crowdlevel
 	cmp.w #$0480
 	bcc .1x
 	lda.w #$0480
 .1x:
 	sec
 	sbc.w $0CDD
-	sta.l $7E35E0
+	sta.l crowdlevel
 	bpl .rtl
 	lda.w #$0000
-	sta.l $7E35E0
+	sta.l crowdlevel
 .rtl:
 	rtl

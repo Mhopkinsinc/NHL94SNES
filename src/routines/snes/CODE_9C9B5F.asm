@@ -25,7 +25,7 @@ CODE_9C9B5F:
 
 .t1:
 	lda.w #$0008
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	asl a
 	asl a
 	tax

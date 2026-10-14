@@ -106,7 +106,7 @@ checkplcoll:
 	sbc.w Ypos,x
 	sta.b d3
 	ldy.b d2
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	cmp.w #$0010
 	bmi .t1x
 	jmp.w CODE_9E976E

@@ -4,7 +4,7 @@ CODE_9EC042:
 	bit.w #$0010
 	bne .t3
 	lda.b a2
-	cmp.w shotPlIdx
+	cmp.w puckc
 	bne .t3
 	lda.w $1E8B
 	bne .t2

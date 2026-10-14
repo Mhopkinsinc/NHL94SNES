@@ -19,7 +19,7 @@ CODE_9EC6E7:
 .2:
 	phy
 	ldy.w #$0000
-	lda.w shotPlIdx
+	lda.w puckc
 	cmp.w #$000C
 	bmi .3
 	ldy.w #$0002

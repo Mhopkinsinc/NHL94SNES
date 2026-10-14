@@ -1,7 +1,7 @@
 ; Player a2 takes the puck
 puckglue:
 	ldy.b a2
-	cpy.w shotPlIdx
+	cpy.w puckc
 	beq .1
 	lda.w #$0003
 	jsl.l CODE_9C9ABC
@@ -10,7 +10,7 @@ puckglue:
 	stz.w $1E89
 .1:
 	ldy.b a2
-	sty.w shotPlIdx
+	sty.w puckc
 	sty.b d0
 	stz.b a0
 	lda.w #$0002
@@ -35,10 +35,10 @@ puckglue:
 	lda.w $1792,y
 	inc a
 	sta.w $1792,y
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$00C8
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$0014
 	sta.b $81
 .3:

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F8330:
+; Reset the game state for a new game, then start the first period
+StartGame:
 	jsl.l CODE_9D8BBF
 CODE_9F8334:
 	jsl.l CODE_9FE0E8

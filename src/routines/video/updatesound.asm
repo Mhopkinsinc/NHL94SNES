@@ -1,6 +1,6 @@
-; Unidentified routine.
-CODE_9C9930:
-	lda.l $7E35E0
+; Set the crowd noise volume from crowdlevel
+updatesound:
+	lda.l crowdlevel
 	cmp.w #$0380
 	bcc .1
 	lda.w #$0380

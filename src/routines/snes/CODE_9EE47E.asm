@@ -54,7 +54,7 @@ CODE_9EE47E:
 	sec
 	sbc.w $0CDD
 	sta.w $1023,x
-	jml.l CODE_9EA5A4
+	jml.l skateto
 .4:
 	lda.w facedir,x
 	sec
@@ -121,6 +121,6 @@ CODE_9EE47E:
 	jsl.l updateanim
 	lda.w #$0002
 	sta.w SPAcnt,x
-	jsl.l CODE_9EE220
+	jsl.l doshot
 	rtl
 	rtl

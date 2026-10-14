@@ -21,11 +21,11 @@ CODE_9EBD45:
 	bpl CODE_9EBD2C
 	adc.w #$0008
 	sta.w $1003,x
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .2
 .1:
 	lda.w #$FFFF
-	sta.w shotPlIdx
+	sta.w puckc
 	lda.w #$003C
 	sta.w $1203,x
 .2:

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D8000:
+; Draw a frame and fill it. d0 / d1 = width / height
+Framer:
 	phx
 	phy
 	lda.l $7E35BC

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 randomd0:
 	lda.b d0
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	sta.b d0
 	rtl

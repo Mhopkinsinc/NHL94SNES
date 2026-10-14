@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EA5A4:
+; Skate toward d0 / d1, with a routine in a0 for avoiding others; slow down near the target
+skateto:
 	lda.w $1023,x
 	sec
 	sbc.w $0ADB
@@ -57,7 +57,7 @@ CODE_9EA5A4:
 	pha
 	ldy.w $0EC3,x
 	lda.w $0EE3,x
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	pha
 	lda.b $14
 	clc
@@ -70,7 +70,7 @@ CODE_9EA5A4:
 	adc.b $AB
 	sec
 	sbc.w Ypos,x
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	tay
 	pla
 	sta.b $14

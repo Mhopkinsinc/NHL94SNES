@@ -3,7 +3,7 @@ CODE_9E9B0E:
 	phy
 	ldy.w $0EC3,x
 	lda.w $0EE3,x
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	sta.b $14
 	lda.b $01,s
 	tay
@@ -12,7 +12,7 @@ CODE_9E9B0E:
 	lda.w $0EE3,y
 	tay
 	pla
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	ply
 	cmp.b $14
 	bcs .t1
@@ -31,5 +31,5 @@ CODE_9E9B0E:
 	asl.b $0C
 	asl.b $0E
 	lda.w #$000F
-	jsl.l CODE_9C9AD0
+	jsl.l sfx
 	rtl

@@ -3,7 +3,7 @@ CODE_9FD2FE:
 	lda.l $7E34C6
 	cmp.w #$0001
 	bne .t1
-	jsl.l CODE_9FC757
+	jsl.l loadTeamStruct
 	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0008

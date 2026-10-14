@@ -18,7 +18,7 @@ checkint:
 	bne .rtl
 	lda.w gmclock
 	bne .rtl
-	lda.w shotPlIdx
+	lda.w puckc
 	cmp.b a3
 	beq .1
 	lda.w $0F23,x
@@ -49,7 +49,7 @@ checkint:
 	lda.w #$0014
 	sec
 	sbc.w $1443,x
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	cmp.w #$0002
 	bcs .rtl
 	lda.w gmode

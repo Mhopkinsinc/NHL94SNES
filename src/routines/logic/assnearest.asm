@@ -13,7 +13,7 @@ assnearest:
 .1:
 	lda.w position,x
 	beq .t2
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .t3
 	lda.w #$0011
 	sta.b d0
@@ -41,7 +41,7 @@ assnearest:
 	lda.w #$0000
 .1x:
 	sta.w $1003,x
-	ldy.w shotPlIdx
+	ldy.w puckc
 	bmi .t1x
 	lda.w position,y
 	beq .t1x

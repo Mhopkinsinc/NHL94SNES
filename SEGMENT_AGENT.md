@@ -661,3 +661,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Calls: updateanim, wallcollb, doinput, dopass and ResetClock named from the 93S routine called at the same place. MATCH.
 - Wrong labels: db/dw words that had taken a RAM or register equate name by value (animation data, sine, BCD, pitch and direction tables, sound driver bytes) are numbers again. MATCH.
 - Tables: dirtab, BitMaskTable, jdtab8F and ButtonLabelCharTable named from the 93S tables with the same bytes and the same reads. MATCH.
+- Same job: 21 routines whose callers are the 93S callers and that do the 93S job take the 93S name even with rewritten bodies (skateto, playeracc, GetHot, sfx, randoma, setvideo, Pausemode, StartGame, doshot, assscore, printbig, Framer ...); randoma8 and ApproxLength are new names; `$0AD9` is `puckc`, `$7E35E0` is `crowdlevel`. MATCH.

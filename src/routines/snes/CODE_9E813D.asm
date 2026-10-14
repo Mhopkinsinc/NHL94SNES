@@ -15,7 +15,7 @@ CODE_9E814E:
 	lda.w tmflags,y
 	bit.w #$0002
 	bne .1
-	lda.w shotPlIdx
+	lda.w puckc
 	bmi CODE_9E8102
 	lda.w $1043,x
 	sec
@@ -93,5 +93,5 @@ CODE_9E814E:
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0
-	jsl.l CODE_9EA5A4
+	jsl.l skateto
 	jmp.w check4check

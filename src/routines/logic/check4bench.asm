@@ -14,7 +14,7 @@ check4bench:
 	lda.w $0B7D,x
 	cmp.w #$000C
 	beq .t1
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .t1
 	sep #$20
 	pla

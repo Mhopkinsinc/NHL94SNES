@@ -22,7 +22,7 @@ GameOver:
 	lda.w #$0004
 	trb.w sflags3
 	beq .t1x
-	jmp.w CODE_9F8330
+	jmp.w StartGame
 
 .t1x:
 	jml.l CODE_9F8334

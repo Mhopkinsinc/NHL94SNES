@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC002:
+; d0 / d1 = the hot spot x / y of object A's current frame
+GetHot:
 	phx
 	tay
 	lda.w $0D97,y

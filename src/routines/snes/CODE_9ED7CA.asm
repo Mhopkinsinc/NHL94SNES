@@ -23,7 +23,7 @@ CODE_9ED7E7:
 CODE_9ED7F1:
 	lda.b d0
 	ldy.b d1
-	jsl.l CODE_9CA554
+	jsl.l ApproxLength
 	sta.b d0
 	cmp.w #$001E
 	bcs .t1
@@ -76,7 +76,7 @@ CODE_9ED7F1:
 	sta.b d2
 	ldy.w $19D4,x
 	bmi .t1x
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .1x
 	lda.w JoyPad,y
 	bit.w #$0080

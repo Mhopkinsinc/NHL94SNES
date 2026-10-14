@@ -1,7 +1,7 @@
 ; Bank $9D: roster, game setup, player cards and animation sequences. Files in ROM order.
 
 org $9D8000
-incsrc "../routines/snes/CODE_9D8000.asm"
+incsrc "../routines/middle/Framer.asm"
 incsrc "../routines/snes/CODE_9D804F.asm"
 incsrc "../routines/snes/CODE_9D8091.asm"
 incsrc "../routines/snes/CODE_9D80DD.asm"

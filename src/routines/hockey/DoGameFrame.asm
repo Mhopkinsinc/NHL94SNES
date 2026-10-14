@@ -6,6 +6,6 @@ DoGameFrame:
 	jsl.l updateplayers
 	jsl.l checkwindow
 	jsl.l updatereplay
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	rtl

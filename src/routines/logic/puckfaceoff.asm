@@ -10,7 +10,7 @@ puckfaceoff:
 
 .t4:
 	lda.w #$FFFF
-	sta.w shotPlIdx
+	sta.w puckc
 	jsl.l CODE_9EDCC3
 	lda.w pflags,x
 	bit.w #$0002

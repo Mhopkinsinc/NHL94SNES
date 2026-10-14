@@ -15,7 +15,7 @@ asspassrec:
 	sbc.w $0ADB
 	sta.w $0BAD,x
 	bmi CODE_9EE77E
-	lda.w shotPlIdx
+	lda.w puckc
 	bpl CODE_9EE77E
 	lda.w $0BAB
 	bne CODE_9EE797

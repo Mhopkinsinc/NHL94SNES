@@ -76,23 +76,23 @@ CODE_9EF357:
 	beq .t1xx
 	lda.w #$0004
 	jsl.l CODE_9C9FD5
-	lda.l $7E35E0
+	lda.l crowdlevel
 	sec
 	sbc.w #$0300
 	bpl .2x
 	lda.w #$0000
 .2x:
-	sta.l $7E35E0
+	sta.l crowdlevel
 	bra Goal
 
 .t1xx:
 	inc a
 	inc a
 	jsl.l CODE_9C9FD5
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$01F4
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$0078
 	sta.b $81
 	lda.w #$0003

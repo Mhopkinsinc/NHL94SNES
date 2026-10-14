@@ -35,7 +35,7 @@ puckbody:
 	sta.b d1
 	bne .1
 	tya
-	jsl.l CODE_9BC002
+	jsl.l GetHot
 .1:
 	lda.w $0EC3,x
 	sta.b d2

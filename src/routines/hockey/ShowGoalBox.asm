@@ -63,7 +63,7 @@ ShowGoalBox:
 	bmi .1
 	inc.b d1
 .1:
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	stz.b a2
 	ldy.w #$0002
 	lda.b [a4],y
@@ -107,7 +107,7 @@ ShowGoalBox:
 	adc.w #$000A
 	sta.w Pencntdwn
 .4:
-	jsl.l CODE_9ECE15
+	jsl.l printbig
 	ldy.w #$0003
 	lda.b [a4],y
 	and.w #$00FF

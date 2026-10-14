@@ -231,7 +231,7 @@ CODE_9FE79F:
 	lda.w #$6000
 	jsl.l InitSprites
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	jsl.l CODE_9F96E6
 	jsl.l CODE_8086BD

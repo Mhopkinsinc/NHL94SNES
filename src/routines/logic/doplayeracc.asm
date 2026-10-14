@@ -41,7 +41,7 @@ doplayeracc:
 	lda.b d0
 	pha
 	sta.b d2
-	cpx.w shotPlIdx
+	cpx.w puckc
 	bne .t2x
 	jmp.w .4
 

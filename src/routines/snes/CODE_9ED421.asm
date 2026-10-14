@@ -18,4 +18,4 @@ CODE_9ED421:
 	sta.b d1
 .2:
 	stz.w $1023,x
-	jml.l CODE_9EA5A4
+	jml.l skateto
