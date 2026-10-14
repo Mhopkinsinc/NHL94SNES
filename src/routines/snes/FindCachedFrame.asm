@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80B3CE:
+; Find the tile cache entry of the frame at [$0C]; fall into LoadFrameTiles when it is not cached
+FindCachedFrame:
 	lda.b $0C
 	cmp.w $2540,x
 	bne .1
@@ -10,7 +10,7 @@ CODE_80B3CE:
 	inx
 	inx
 	dey
-	bne CODE_80B3CE
+	bne FindCachedFrame
 LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its tiles and add a tile cache entry
 	ldy.w $07BA
 	cpy.w #$0080

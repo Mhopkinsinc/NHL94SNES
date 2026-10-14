@@ -688,3 +688,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - setsortcords and burst from 93S. MATCH.
 - Readjoy1 (93S), CheckPAL, BlankScreen, ResetPPURegs, Mul16x8_Zero, Mul16x8U_Pre. MATCH.
 - Opening, TitleScreen, DefaultMenus, setoptions (93S) and ReadAnyPad. MATCH.
+- DrawSpritePieces and FindCachedFrame. MATCH.

@@ -40,7 +40,7 @@ CODE_80B0B0:
 	lda.b $14
 	bit.w #$8000
 	beq .t1
-	jmp.w CODE_80B286
+	jmp.w DrawSpritePieces
 
 .t1:
 	bit.w #$4000

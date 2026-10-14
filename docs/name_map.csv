@@ -833,7 +833,7 @@ $9ECE60,.1,CODE_9ECE60,new,branch target only used in this routine,src/routines/
 $80AC50,.loop,CODE_80AC50,new,branch target only used in this routine,src/routines/snes/SequencerTick.asm
 $80AC66,.loop2,CODE_80AC66,new,branch target only used in this routine,src/routines/snes/SequencerTick.asm
 $80AC71,.1,CODE_80AC71,new,branch target only used in this routine,src/routines/snes/SequencerTick.asm
-$80B576,.loop,CODE_80B576,new,branch target only used in this routine,src/routines/snes/CODE_80B3CE.asm
+$80B576,.loop,CODE_80B576,new,branch target only used in this routine,src/routines/snes/FindCachedFrame.asm
 $80C851,.loop,CODE_80C851,new,branch target only used in this routine,src/routines/shootout/PlayShootout.asm
 $80C86D,.1,CODE_80C86D,new,branch target only used in this routine,src/routines/shootout/PlayShootout.asm
 $80BB2C,.1,CODE_80BB2C,new,branch target only used in this routine,src/routines/snes/DecompressPairs.asm
@@ -1825,7 +1825,7 @@ $9EA21A,.1,CODE_9EA21A,new,branch target only used in this routine,src/routines/
 $9F9ACB,.1,CODE_9F9ACB,new,branch target only used in this routine,src/routines/snes/CODE_9F9A9E.asm
 $9F9AD5,.2,CODE_9F9AD5,new,branch target only used in this routine,src/routines/snes/CODE_9F9A9E.asm
 $9F9AD7,.rtl,CODE_9F9AD7,new,branch target only used in this routine,src/routines/snes/CODE_9F9A9E.asm
-$80B3DC,.1,CODE_80B3DC,new,branch target only used in this routine,src/routines/snes/CODE_80B3CE.asm
+$80B3DC,.1,CODE_80B3DC,new,branch target only used in this routine,src/routines/snes/FindCachedFrame.asm
 $9BC71F,.loop,CODE_9BC71F,new,branch target only used in this routine,src/routines/snes/CODE_9BC6D5.asm
 $9FB5D0,.loop,CODE_9FB5D0,new,branch target only used in this routine,src/routines/logic/puckfaceoff.asm
 $9FA1BF,.1,CODE_9FA1BF,new,branch target only used in this routine,src/routines/snes/CODE_9FA1B8.asm
@@ -2318,8 +2318,8 @@ $9E9802,.loop,CODE_9E9802,new,branch target only used in this routine,src/routin
 $9E9845,.1,CODE_9E9845,new,branch target only used in this routine,src/routines/hockey/checkpuckcoll_ccx.asm
 $9E985F,.2,CODE_9E985F,new,branch target only used in this routine,src/routines/hockey/checkpuckcoll_ccx.asm
 $9E988D,.3,CODE_9E988D,new,branch target only used in this routine,src/routines/hockey/checkpuckcoll_ccx.asm
-$80B669,.loop,CODE_80B669,new,branch target only used in this routine,src/routines/snes/CODE_80B3CE.asm
-$80B675,.1,CODE_80B675,new,branch target only used in this routine,src/routines/snes/CODE_80B3CE.asm
+$80B669,.loop,CODE_80B669,new,branch target only used in this routine,src/routines/snes/FindCachedFrame.asm
+$80B675,.1,CODE_80B675,new,branch target only used in this routine,src/routines/snes/FindCachedFrame.asm
 $80AA45,.1,CODE_80AA45,new,branch target only used in this routine,src/routines/snes/CODE_80AA41.asm
 $9FBE23,.1,CODE_9FBE23,new,branch target only used in this routine,src/routines/snes/CODE_9FBE08.asm
 $9BC294,.1,CODE_9BC294,new,branch target only used in this routine,src/routines/snes/CODE_9BC25A.asm
@@ -2558,7 +2558,7 @@ $80B89A,.t1,CODE_80B89A,new,continued in the previous routine,src/routines/snes/
 $80B835,.t1,CODE_80B835,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
 $80B80E,.t1,CODE_80B80E,new,continued in the previous routine,src/routines/snes/CODE_80B7C7.asm
 $80B724,.t1,CODE_80B724,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
-$80B67E,.t1,CODE_80B67E,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
+$80B67E,.t1,CODE_80B67E,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
 $80B62F,.t1,CODE_80B62F,new,continued in the previous routine,src/routines/snes/CODE_80B58E.asm
 $80B552,.t1,CODE_80B552,new,continued in the previous routine,src/routines/snes/CODE_80B52C.asm
 $80B511,.t1,CODE_80B511,new,continued in the previous routine,src/routines/snes/CODE_80B457.asm
@@ -2568,7 +2568,7 @@ $80B387,.t1,CODE_80B387,new,continued in the previous routine,src/routines/snes/
 $80B353,.t1,CODE_80B353,new,continued in the previous routine,src/routines/snes/CODE_80B343.asm
 $80B338,.t1,CODE_80B338,new,continued in the previous routine,src/routines/snes/CODE_80B2FA.asm
 $80B2EE,.t1,CODE_80B2EE,new,continued in the previous routine,src/routines/snes/CODE_80B2D4.asm
-$80B2BD,.t1,CODE_80B2BD,new,continued in the previous routine,src/routines/snes/CODE_80B286.asm
+$80B2BD,.t1,CODE_80B2BD,new,continued in the previous routine,src/routines/snes/DrawSpritePieces.asm
 $80B26C,.t1,CODE_80B26C,new,continued in the previous routine,src/routines/snes/CODE_80B250.asm
 $80B235,.t1,CODE_80B235,new,continued in the previous routine,src/routines/snes/CODE_80B1F3.asm
 $80B1E0,.t1,CODE_80B1E0,new,continued in the previous routine,src/routines/snes/DrawSprite.asm
@@ -3186,12 +3186,12 @@ $80C3B4,.t2,CODE_80C3B4,new,continued in the previous routine,src/routines/snes/
 $80B9BF,.t2,CODE_80B9BF,new,continued in the previous routine,src/routines/snes/CODE_80B957.asm
 $80B8AE,.t2,CODE_80B8AE,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
 $80B7C7,.t2,CODE_80B7C7,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
-$80B687,.t2,CODE_80B687,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
-$80B58E,.t1,CODE_80B58E,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
-$80B41D,.t2,CODE_80B41D,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
+$80B687,.t2,CODE_80B687,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
+$80B58E,.t1,CODE_80B58E,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
+$80B41D,.t2,CODE_80B41D,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
 $80B389,.t2,CODE_80B389,new,continued in the previous routine,src/routines/snes/CODE_80B36F.asm
 $80B343,.t2,CODE_80B343,new,continued in the previous routine,src/routines/snes/CODE_80B2FA.asm
-$80B2D4,.t2,CODE_80B2D4,new,continued in the previous routine,src/routines/snes/CODE_80B286.asm
+$80B2D4,.t2,CODE_80B2D4,new,continued in the previous routine,src/routines/snes/DrawSpritePieces.asm
 $80B250,.t1,CODE_80B250,new,continued in the previous routine,src/routines/snes/CODE_80B240.asm
 $80B1F3,.t2,CODE_80B1F3,new,continued in the previous routine,src/routines/snes/DrawSprite.asm
 $80B171,.t1,CODE_80B171,new,continued in the previous routine,src/routines/snes/CODE_80B161.asm
@@ -3458,7 +3458,7 @@ $80C958,.t3,CODE_80C958,new,continued in the previous routine,src/routines/shoot
 $80C8E2,.t2,CODE_80C8E2,new,continued in the previous routine,src/routines/shootout/PlayShootout.asm
 $80C3A0,.t3,CODE_80C3A0,new,continued in the previous routine,src/routines/snes/Decompress.asm
 $80B957,.t3,CODE_80B957,new,continued in the previous routine,src/routines/snes/DecompressLZ.asm
-$80B44E,.t3,CODE_80B44E,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
+$80B44E,.t3,CODE_80B44E,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
 $80B36F,.t1,CODE_80B36F,new,continued in the previous routine,src/routines/snes/CODE_80B2FA.asm
 $80B240,.t2,CODE_80B240,new,continued in the previous routine,src/routines/snes/DrawSprite.asm
 $80B161,.t3,CODE_80B161,new,continued in the previous routine,src/routines/snes/DrawSprite.asm
@@ -3563,8 +3563,8 @@ $9F86DF,.t3,CODE_9F86DF,new,continued in the previous routine,src/routines/hocke
 $9F813E,.t3,CODE_9F813E,new,continued in the previous routine,src/routines/snes/CODE_9F8064.asm
 $80CFBE,.t4,CODE_80CFBE,new,continued in the previous routine,src/routines/snes/CODE_80CF36.asm
 $80C3C5,.t4,CODE_80C3C5,new,continued in the previous routine,src/routines/snes/Decompress.asm
-$80B457,.t4,CODE_80B457,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
-$80B2FA,.t3,CODE_80B2FA,new,continued in the previous routine,src/routines/snes/CODE_80B286.asm
+$80B457,.t4,CODE_80B457,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
+$80B2FA,.t3,CODE_80B2FA,new,continued in the previous routine,src/routines/snes/DrawSpritePieces.asm
 $80A9C8,.t4,CODE_80A9C8,new,continued in the previous routine,src/routines/snes/StepTrack.asm
 $8085A3,.t1,CODE_8085A3,new,continued in the previous routine,src/routines/snes/WaitDMAQueue.asm
 $9BAF4C,.t4,CODE_9BAF4C,new,continued in the previous routine,src/routines/snes/CODE_9BAE9D.asm
@@ -3600,7 +3600,7 @@ $9FB27B,.t4,CODE_9FB27B,new,continued in the previous routine,src/routines/logic
 $9FA8E3,.t3,CODE_9FA8E3,new,continued in the previous routine,src/routines/logic/puckfaceoff2.asm
 $9F88D6,.t1,CODE_9F88D6,new,continued in the previous routine,src/routines/hockey/updateplayers.asm
 $80CFD1,.t5,CODE_80CFD1,new,continued in the previous routine,src/routines/snes/CODE_80CF36.asm
-$80B52C,.t5,CODE_80B52C,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
+$80B52C,.t5,CODE_80B52C,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
 $80AA48,.t5,CODE_80AA48,new,continued in the previous routine,src/routines/snes/StepTrack.asm
 $9BAF56,.t5,CODE_9BAF56,new,continued in the previous routine,src/routines/snes/CODE_9BAE9D.asm
 $9C8CA1,.t5,CODE_9C8CA1,new,continued in the previous routine,src/routines/snes/CODE_9C8C22.asm
@@ -3938,9 +3938,9 @@ $80B0DD,.2,CODE_80B0DD,new,continued in the previous routine,src/routines/snes/D
 $80B177,.3,CODE_80B177,new,branch target only used in this routine,src/routines/snes/DrawSprite.asm
 $80B190,.4,CODE_80B190,new,branch target only used in this routine,src/routines/snes/DrawSprite.asm
 $80B19B,.5,CODE_80B19B,new,branch target only used in this routine,src/routines/snes/DrawSprite.asm
-$80B530,.2,CODE_80B530,new,branch target only used in this routine,src/routines/snes/CODE_80B3CE.asm
-$80B55B,.3,CODE_80B55B,new,branch target only used in this routine,src/routines/snes/CODE_80B3CE.asm
-$80B565,.4,CODE_80B565,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
+$80B530,.2,CODE_80B530,new,branch target only used in this routine,src/routines/snes/FindCachedFrame.asm
+$80B55B,.3,CODE_80B55B,new,branch target only used in this routine,src/routines/snes/FindCachedFrame.asm
+$80B565,.4,CODE_80B565,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
 $80B741,.1,CODE_80B741,new,branch target only used in this routine,src/routines/snes/FreeFrameTiles.asm
 $80B753,.2,CODE_80B753,new,branch target only used in this routine,src/routines/snes/FreeFrameTiles.asm
 $80B757,.3,CODE_80B757,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
@@ -4330,13 +4330,13 @@ $80B1FD,.2,CODE_80B1FD,new,branch target only used in this routine,src/routines/
 $80B256,.3,CODE_80B256,new,branch target only used in this routine,src/routines/snes/DrawSprite.asm
 $80B26F,.4,CODE_80B26F,new,branch target only used in this routine,src/routines/snes/DrawSprite.asm
 $80B27A,.5,CODE_80B27A,new,branch target only used in this routine,src/routines/snes/DrawSprite.asm
-$80B2C7,.2,CODE_80B2C7,new,branch target only used in this routine,src/routines/snes/CODE_80B286.asm
-$80B300,.3,CODE_80B300,new,branch target only used in this routine,src/routines/snes/CODE_80B286.asm
-$80B359,.4,CODE_80B359,new,branch target only used in this routine,src/routines/snes/CODE_80B286.asm
-$80B372,.5,CODE_80B372,new,branch target only used in this routine,src/routines/snes/CODE_80B286.asm
-$80B37D,.6,CODE_80B37D,new,branch target only used in this routine,src/routines/snes/CODE_80B286.asm
-$80B3B1,.7,CODE_80B3B1,new,branch target only used in this routine,src/routines/snes/CODE_80B286.asm
-$80B5AA,.1,CODE_80B5AA,new,branch target only used in this routine,src/routines/snes/CODE_80B3CE.asm
+$80B2C7,.2,CODE_80B2C7,new,branch target only used in this routine,src/routines/snes/DrawSpritePieces.asm
+$80B300,.3,CODE_80B300,new,branch target only used in this routine,src/routines/snes/DrawSpritePieces.asm
+$80B359,.4,CODE_80B359,new,branch target only used in this routine,src/routines/snes/DrawSpritePieces.asm
+$80B372,.5,CODE_80B372,new,branch target only used in this routine,src/routines/snes/DrawSpritePieces.asm
+$80B37D,.6,CODE_80B37D,new,branch target only used in this routine,src/routines/snes/DrawSpritePieces.asm
+$80B3B1,.7,CODE_80B3B1,new,branch target only used in this routine,src/routines/snes/DrawSpritePieces.asm
+$80B5AA,.1,CODE_80B5AA,new,branch target only used in this routine,src/routines/snes/FindCachedFrame.asm
 $80C8E5,.3,CODE_80C8E5,new,branch target only used in this routine,src/routines/shootout/PlayShootout.asm
 $80C93E,.4,CODE_80C93E,new,branch target only used in this routine,src/routines/shootout/PlayShootout.asm
 $80CC25,.2,CODE_80CC25,new,branch target only used in this routine,src/routines/shootout/ShootersBackground.asm
@@ -4666,7 +4666,7 @@ $808CBF,.5,CODE_808CBF,new,continued in the previous routine,src/routines/snes/M
 $808DB3,.3,CODE_808DB3,new,continued in the previous routine,src/routines/snes/Mode7MapToVRAM.asm
 $80AB0B,.9,CODE_80AB0B,new,continued in the previous routine,src/routines/snes/StepTrack.asm
 $80AC46,.4,CODE_80AC46,new,continued in the previous routine,src/routines/snes/ReleaseVoice.asm
-$80B56E,.5,CODE_80B56E,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
+$80B56E,.5,CODE_80B56E,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
 $80B863,.3,CODE_80B863,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
 $80C1B8,.1,CODE_80C1B8,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
 $80C1C0,.2,CODE_80C1C0,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
@@ -4755,7 +4755,7 @@ $80CC89,PrintShooterNames,CODE_80CC89,94G,ShootoutShooters and the slot moves ca
 $80D004,PrintShooterList,CODE_80D004,94G,ShooterSelectList calls it as 94G does; the player rows with ShooterAttribColumns,src/routines/shootout/PrintShooterList.asm
 $80CA70,ShootersLoop,CODE_80CA70,94G,"the ShootoutShooters input loop (WaitFrame, ReadPads, ProcessInputWithRepeat), as 94G ShootersLoop",src/routines/shootout/ShootoutShooters.asm
 $80CA9C,ShootersExit,CODE_80CA9C,94G,"Start in ShootersLoop leaves here, as 94G ShootersExit",src/routines/shootout/ShootoutShooters.asm
-$80B661,.6,CODE_80B661,new,continued in the previous routine,src/routines/snes/CODE_80B3CE.asm
+$80B661,.6,CODE_80B661,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
 $80C1E3,.5,CODE_80C1E3,new,continued in the previous routine,src/routines/snes/DecompressHuffman.asm
 $80C1F2,.7,CODE_80C1F2,new,continued in the previous routine,src/routines/snes/DecompressHuffman.asm
 $80C268,.5,CODE_80C268,new,continued in the previous routine,src/routines/snes/DecompressHuffman.asm
@@ -4840,7 +4840,7 @@ $80ABC7,StopVoice,CODE_80ABC7,new,stop voice Y,src/routines/snes/StopVoice.asm
 $80ABF7,ReleaseVoice,CODE_80ABF7,new,put voice Y into its release,src/routines/snes/ReleaseVoice.asm
 $80A3D8,ClearTracks,CODE_80A3D8,new,clear the track pointers and waits of tracks Y up to X,src/routines/snes/ClearTracks.asm
 $80B01E,GetFrameTiles,CODE_80B01E,new,"a = the first VRAM tile of the frame at [$0C], loaded now if needed; negative if there is no room",src/routines/snes/GetFrameTiles.asm
-$80B3E1,LoadFrameTiles,CODE_80B3E1,new,"allocate VRAM for the frame at [$0C], queue the DMA of its tiles and add a tile cache entry",src/routines/snes/CODE_80B3CE.asm
+$80B3E1,LoadFrameTiles,CODE_80B3E1,new,"allocate VRAM for the frame at [$0C], queue the DMA of its tiles and add a tile cache entry",src/routines/snes/FindCachedFrame.asm
 $80B719,FreeFrameTiles,CODE_80B719,new,free the VRAM tiles of the frame at [$0C],src/routines/snes/FreeFrameTiles.asm
 $80B772,FreeCacheEntry,CODE_80B772,new,free tile cache entry X and its VRAM,src/routines/snes/CODE_80B76C.asm
 $80C81C,PlayShootout,CODE_80C81C,new,"the shootout: both shooter lists, then a turn for each team every round, until after five rounds",src/routines/shootout/PlayShootout.asm
@@ -5518,3 +5518,5 @@ $9D9C97,DefaultMenus,CODE_9D9C97,93S,"the 93S job: the not-demo flag, then the d
 $9DB118,TitleScreen,CODE_9DB118,93S,run between DefaultMenus and Restart as 93S Opening runs TitleScreen,src/routines/hockey/TitleScreen.asm
 $9F8283,Opening,CODE_9F8283,93S,"the tail of 93S Start (ResetPassWord, DefaultMenus), then 93S Opening (TitleScreen, then Restart)",src/routines/hockey/Opening.asm
 $9B8526,ReadAnyPad,CODE_9B8526,new,$0AC2 from ReadPads,src/routines/snes/ReadAnyPad.asm
+$80B286,DrawSpritePieces,CODE_80B286,new,"DrawSprite's piece loop: frame header words, SpritesLeft, OAMNext and the high table",src/routines/snes/DrawSpritePieces.asm
+$80B3CE,FindCachedFrame,CODE_80B3CE,new,the $2540 / $2640 cache addresses compared with [$0C],src/routines/snes/FindCachedFrame.asm

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80B286:
+; Write the OAM entries of each piece of the frame at [$0C]; DrawSprite jumps here
+DrawSpritePieces:
 	lda.w SpritesLeft
 	beq CODE_80B284
 	lda.b [$0C],y
@@ -133,7 +133,7 @@ CODE_80B286:
 	ldy.w $07D0
 	dec.b $00
 	beq .t1xxxxx
-	jmp.w CODE_80B286
+	jmp.w DrawSpritePieces
 
 .t1xxxxx:
 	plb
@@ -172,7 +172,7 @@ CODE_80B286:
 	ldy.w $07BA
 	beq LoadFrameTiles
 	ldx.w $07C6
-	beq CODE_80B3CE
+	beq FindCachedFrame
 	ldx.w $07C4
 	lda.w $2740,x
 	bmi LoadFrameTiles
