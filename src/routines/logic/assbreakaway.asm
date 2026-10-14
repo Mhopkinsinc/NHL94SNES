@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EE463:
+; Assignment: the puck carrier on a breakaway (asstab $10): skate in on the goal and shoot; anyone else exits
+assbreakaway:
 	cpx.w puckc
 	bne .1
 	lda.w $19D4,x
