@@ -1,5 +1,6 @@
 ; A song: a header (the second byte is the tempo), the offsets of its tracks, then each track
 ; in a TRAK chunk (size byte, tag, track name, then the note stream the music player reads).
+; 94G song $66, in RandomSongs as here in DefaultSongs.
 
 DATA8_98C874:		; header, track offsets (a zero ends them), padding, then the tracks
 	db $01,$A0,$01,$00,$00,$00,$02,$00
