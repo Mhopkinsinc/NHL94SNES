@@ -58,6 +58,7 @@
 - `RenderBigText` (from behavior) and its two jmlvector letter hooks, now labels `BigLetterPlayoff` / `BigLetterSelect` instead of raw immediates in PlayoffScreen and DrawSelectTeam.
 - `LoadPictureMap` (from behavior: the 7 x 7 map DrawMatchupPictures pastes).
 - From behavior: `PulseColour` (white / $7E10 colour pulse), `PulsePauseSide`.
+- Split the unlabeled bytes after `asstab` into the 93S tables they equal: `PuckcSpots`, `PixelRemap8D`, `PixelRemap83`, `PixelRemap8F`, `PixelRemap87`; their raw `#$D3xx` pointers are now labels. Framer and the two Framer variants point at their box maps by label.
 
 ## Unsure
 

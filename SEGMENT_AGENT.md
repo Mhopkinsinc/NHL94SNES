@@ -702,3 +702,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - RenderBigText and its letter hooks. MATCH.
 - LoadPictureMap. MATCH.
 - PulseColour, PulsePauseSide. MATCH.
+- asstab tail split into PuckcSpots and the PixelRemap tables. MATCH.

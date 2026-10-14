@@ -61,7 +61,7 @@ LoadPlayerCardScreen:
 	sta.b a0
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3D7
+	lda.w #PixelRemap8F
 	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$009C
@@ -70,7 +70,7 @@ LoadPlayerCardScreen:
 	sta.b a0
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3E7
+	lda.w #PixelRemap87
 	sta.b a1
 	lda.w #$0004
 	sta.b d0

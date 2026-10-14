@@ -165,7 +165,7 @@ setupice:
 	sta.b a0
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3D0
+	lda.w #PixelRemap83
 	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$009C
@@ -174,7 +174,7 @@ setupice:
 	sta.b a0
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3E7
+	lda.w #PixelRemap87
 	sta.b a1
 	lda.w #$0004
 	sta.b d0

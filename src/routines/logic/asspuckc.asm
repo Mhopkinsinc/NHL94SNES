@@ -71,7 +71,7 @@ asspuckc:
 	sta.b d0
 	lda.w #$0080
 	sta.b $8B
-	lda.w #$D398
+	lda.w #PuckcSpots
 	sta.b a0
 	lda.w sflags
 	bit.w #$8000

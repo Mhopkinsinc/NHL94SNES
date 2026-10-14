@@ -156,7 +156,7 @@ PlayoffScreen:
 	sta.b a0
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D3D7
+	lda.w #PixelRemap8F
 	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$0096

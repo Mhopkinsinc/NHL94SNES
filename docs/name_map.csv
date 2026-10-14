@@ -5577,3 +5577,8 @@ $9D9C76,BigLetterSelect,CODE_9D9C76,new,RenderBigText letter hook of DrawSelectT
 $9DDF73,LoadPictureMap,CODE_9DDF73,new,Behavior: the map DrawMatchupPictures pastes for a player picture; called from LoadScoutingScreen and SetupScreen (LoadPlayerCardScreen does the same inline with DATA8_9AEA15),src/routines/hockey/LoadPictureMap.asm
 $9D96A9,PulseColour,CODE_9D96A9,new,"Behavior: $83 mod 30 and the half picked by ($83 / 30) mod 2, Mul16S / Div32S per 5 bit component; PlayoffScreen and PulsePauseSide use it",src/routines/snes/PulseColour.asm
 $9FE75E,PulsePauseSide,CODE_9FE75E,new,"Behavior: pausepad, its $1C84 side; called from SelectPauseController",src/routines/hockey/PulsePauseSide.asm
+$80D398,PuckcSpots,asstab+116,93S,the bytes after asstab equal 93S PuckcSpots; asspuckc points at it (was the immediate #$D398),src/data/tables/PuckcSpots.asm
+$80D3C0,PixelRemap8D,asstab+156,93S,equals 93S PixelRemap8D,src/data/tables/PixelRemap8D.asm
+$80D3D0,PixelRemap83,asstab+172,93S,equals 93S PixelRemap83; setupice remaps the small font with it as 93S,src/data/tables/PixelRemap83.asm
+$80D3D7,PixelRemap8F,asstab+179,93S,equals 93S PixelRemap8F,src/data/tables/PixelRemap8F.asm
+$80D3E7,PixelRemap87,asstab+195,93S,equals 93S PixelRemap87; setupice remaps the framer tiles with it as 93S,src/data/tables/PixelRemap87.asm

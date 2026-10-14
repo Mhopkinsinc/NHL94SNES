@@ -9,7 +9,7 @@ Framer:
 	sta.b tmp0
 	lda.w #$009C
 	sta.b $0E
-	lda.w #$8086
+	lda.w #DATA8_9C8080+6
 	sta.b $0C
 	jsr.w FramerRow
 	lda.b tmp2
@@ -21,12 +21,12 @@ Framer:
 	dec.b d1
 	dec.b d1
 .loop:
-	lda.w #$808C
+	lda.w #DATA8_9C8080+12
 	sta.b $0C
 	jsr.w FramerRow
 	dec.b d1
 	bne .loop
-	lda.w #$8092
+	lda.w #DATA8_9C8080+18
 	sta.b $0C
 	jsr.w FramerRow
 	inx
