@@ -21,4 +21,4 @@ CODE_9FB1B1:
 	stz.w $1563,x
 	lda.w #$0018
 	sta.b $A5
-	jml.l CODE_9E8C18
+	jml.l assreplace

@@ -3,4 +3,4 @@
 DATA8_93C20B:		; for SPCUploadBlock, as DATA8_9390FA
 	db $0F,$78
 	db $0F,$78
-	incbin "DATA8_93C20B.spc":4..3964
+	incbin "../../../Extracted/data/sound/DATA8_93C20B.spc":4..3964

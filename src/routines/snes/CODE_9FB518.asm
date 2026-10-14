@@ -20,4 +20,4 @@ CODE_9FB518:
 	lda.w #$001C
 	sta.b $A5
 	ldx.b $95
-	jml.l CODE_9E8C18
+	jml.l assreplace

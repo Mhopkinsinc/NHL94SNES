@@ -72,9 +72,10 @@ None: every segment is source (MATCH). Later passes name the auto labels (see `d
   segment". Incbin ranges are written `:<start>..<end>`, decimal, end exclusive; the old `:<start>-<end>` form is deprecated
   in asar 1.91 and reads the numbers as hex.
 - Packed or binary data blocks (graphics, sound data) are data assets: add the block to the `ASSETS` list in `tools/extract.py`
-  (file name with a format extension, first address, end address exclusive), run `python3 tools/extract.py lst/nhl94snes.sfc` to
-  write it into `src/data/gfx/` or `src/data/sound/` (`.spc`), commit the file, and include it with
-  `incbin "data/<category>/<name>":<start>..<end>`. A block that spans segments is split across their files at the segment edges.
+  (file name with a format extension, first address, end address exclusive). `tools/prebuild.py` runs the extractor, which
+  writes `Extracted/data/gfx/` or `Extracted/data/sound/` (`.spc`) and `Extracted/.extract-complete.json` last. Do not commit
+  `Extracted/` or the binary. Include it with `incbin "../../../Extracted/data/<category>/<name>":<start>..<end>` from a file
+  in `src/data/`. A block that spans segments is split across their files at the segment edges.
   Spell out its header fields as db/dw where they are known. `src/data/README.md` lists the format extensions.
 - Text tables go in `src/data/text/<Label>.asm` (one file per table, named after its label), included with
   `incsrc "data/text/<Label>.asm"` at their place in the bank file; write the strings with the `String` macro.

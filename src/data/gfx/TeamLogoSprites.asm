@@ -5,4 +5,4 @@
 TeamLogoSprites:	; format word, unpacked size (big-endian), then the stream
 	db $30,$FB
 	db $00,$7C,$00
-	incbin "TeamLogos.spr.huf":5..21095
+	incbin "../../../Extracted/data/gfx/TeamLogos.spr.huf":5..21095

@@ -4,4 +4,4 @@ CenterIceTilesNHL:	; the NHL shield centre ice logo of the all-star teams (26 an
 			;   $9C): linear 4bpp tiles packed for DecompressHuffman, drawn with CenterIceMapNHL
 	db $30,$FB
 	db $00,$02,$E0
-	incbin "CenterIceNHL.lin.huf":5..249
+	incbin "../../../Extracted/data/gfx/CenterIceNHL.lin.huf":5..249

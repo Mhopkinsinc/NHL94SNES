@@ -1,44 +1,44 @@
-; Unidentified routine.
+; Offsides if the player's team is flagged and the puck is past the blue line.
 a2offsides:
-	ldy.b $91
+	ldy.b a2
 	lda.w gmode
-	bit.w #$0020
-	beq CODE_9EC64A
+	bit.w #gmoffs
+	beq .rtl
 	lda.w pucky
-	sta.b $A5
+	sta.b d0
 	lda.w pfgoal,y
-	bne CODE_9EC60C
+	bne .0
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
-CODE_9EC60C:
-	lda.b $A5
-	cmp.w #$0058
-	bmi CODE_9EC64A
-	stz.b $89
+	sbc.b d0
+	sta.b d0
+.0:
+	lda.b d0
+	cmp.w #blueline
+	bmi .rtl
+	stz.b a0
 	lda.w pfteam,y
-	beq CODE_9EC61F
+	beq .1
 	lda.w #$0002
-	sta.b $89
-CODE_9EC61F:
-	ldy.b $89
+	sta.b a0
+.1:
+	ldy.b a0
 	lda.w tmflags,y
-	bit.w #$0010
-	beq CODE_9EC64A
+	bit.w #tmfoffside
+	beq .rtl
 	lda.w gmode
-	bit.w #$0010
-	bne CODE_9EC64A
-	ldx.b $91
-	ldy.b $95
-	sty.b $91
-	stx.b $95
-	lda.w #$0012
-	sta.b $A5
+	bit.w #gmhl
+	bne .rtl
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
+	lda.w #PenOffsides
+	sta.b d0
 	jsl.l AddPenalty
-	ldx.b $91
-	ldy.b $95
-	sty.b $91
-	stx.b $95
-CODE_9EC64A:
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
+.rtl:
 	rtl

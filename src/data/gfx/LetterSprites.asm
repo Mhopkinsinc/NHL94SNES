@@ -2,4 +2,4 @@
 
 LetterSprites:		; the letters A to Z as a DrawSprite sprite set, not packed: frame offsets, then the frames;
 			;   a text routine in bank $9C draws words with it, one frame per letter
-	incbin "LetterSprites.spr":0..5032
+	incbin "../../../Extracted/data/gfx/LetterSprites.spr":0..5032

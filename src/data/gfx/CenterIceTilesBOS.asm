@@ -4,4 +4,4 @@ CenterIceTilesBOS:	; the Boston centre ice logo: linear 4bpp tiles packed for De
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "CenterIceBOS.lin.huf":5..299
+	incbin "../../../Extracted/data/gfx/CenterIceBOS.lin.huf":5..299

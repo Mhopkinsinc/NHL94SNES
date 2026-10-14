@@ -73,4 +73,4 @@ CODE_9EBDC9:
 	sta.w pflags,x
 	lda.w #$000E
 	sta.b $A5
-	jml.l CODE_9E8C18
+	jml.l assreplace

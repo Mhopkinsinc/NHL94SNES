@@ -2,7 +2,7 @@
 CODE_9EED85:
 	lda.w #$0014
 	sta.b $A5
-	jmp.w CODE_9E8C18
+	jmp.w assreplace
 	cpx.w $0AD9
 	bne CODE_9EEDBD
 	lda.w pflags,x

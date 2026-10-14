@@ -77,4 +77,4 @@ CODE_9E87E9:
 	beq CODE_9E882A
 	lda.w #$0002
 	sta.b $A5
-	jmp.w CODE_9E8C18
+	jmp.w assreplace

@@ -163,7 +163,7 @@ CODE_9EB664:
 	sta.b $8B
 	lda.w #$000D
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 	stx.b $87
 	ldx.w #$000E
 CODE_9EB680:

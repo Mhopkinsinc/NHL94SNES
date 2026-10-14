@@ -4,4 +4,4 @@ CenterIceTilesSJ:	; the San Jose centre ice logo: linear 4bpp tiles packed for D
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$00
-	incbin "CenterIceSJ.lin.huf":5..269
+	incbin "../../../Extracted/data/gfx/CenterIceSJ.lin.huf":5..269

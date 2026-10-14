@@ -1,21 +1,21 @@
-; Unidentified routine.
+; Give player X assignment d0 on top of the current one.
 assinsert:
-	lda.w $0F63,x
+	lda.w assnum,x
 	dec a
 	and.w #$0007
-	sta.w $0F63,x
-CODE_9E8C18:
+	sta.w assnum,x
+assreplace:
 	lda.w pflags,x
-	ora.w #$0002
+	ora.w #pfna
 	sta.w pflags,x
 	txa
 	asl a
 	asl a
-	adc.w $0F63,x
+	adc.w assnum,x
 	tay
 	sep #$20
-	lda.b $A5
-	sta.w $0F83,y
+	lda.b d0
+	sta.w asslist,y
 	rep #$30
 	sta.w $0B7D,x
 	rtl

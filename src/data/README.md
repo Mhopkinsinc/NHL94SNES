@@ -1,21 +1,20 @@
 # src/data/
 
-The data the `src/bank*.asm` files include by name. `gfx/` and `sound/` hold binary assets (`incbin`); each file holds
-the exact ROM bytes, so the build stays byte-identical. `tools/extract.py` lists every binary asset with its ROM range
-(`ASSETS`); `python3 tools/extract.py lst/nhl94snes.sfc --check` compares the files with the ROM, and without `--check`
-writes them again.
+The data the bank files include by name. Graphics and sound binaries are not committed. `tools/prebuild.py` extracts
+them from the ROM into `Extracted/data/gfx/` and `Extracted/data/sound/` (gitignored) and writes
+`Extracted/.extract-complete.json` last. The asm `incbin`s those files, so the build stays byte-identical.
+`tools/extract.py` lists every binary asset with its ROM range (`ASSETS`). `python3 tools/extract.py lst/nhl94snes.sfc --check`
+compares `Extracted/` with the ROM.
 
-- `gfx/`: graphics. Packed and unpacked tiles, maps, palettes and sprite sets, and the SpriteFrames tiles.
-- `sound/`: blocks for the sound CPU.
+- `gfx/`: graphics source. Packed and unpacked tiles, maps, palettes and sprite sets. The binary is in `Extracted/data/gfx/`.
+- `sound/`: sound source. The upload blocks are in `Extracted/data/sound/`.
 - `text/`: the text tables as source, one file per table named after its label (`incsrc "data/text/<Label>.asm"` at its
   place in the bank file). Strings are written with the `String` macro (length word, then the text); records with
   position codes ($9F, $AF or $BF, then two position bytes) keep their length word.
 - `teamdata94s.asm`: the team database (TeamList, the team records with their players, playoffseats), as
   NHLPA93SNES `teamdata93s.asm`; bank9C_A000 includes it.
 
-A block that still spans segment files is included in pieces (`incbin "data/gfx/<name>":<start>..<end>`, decimal,
-end exclusive). Once a bank is in `src/banks/`, the asset is one data file: the header fields it knows are db/dw,
-and one `incbin` covers the rest of that asset (IceRinkTiles, TeamLogoSprites).
+Where a header is already spelled as `db`/`dw`, the `incbin` is the rest of that asset (`incbin "../../../Extracted/data/gfx/<name>":<start>..<end>`, decimal, end exclusive). IceRinkTiles and TeamLogoSprites are that shape. SpriteFrames keeps one `Extracted` file per bank; the source writes each frame's header and pieces and includes that frame's tiles by range. The file is still a ROM cut of the frame region, not one `.chr` per frame.
 `tools/snesgfx.py` unpacks the packed formats and renders tiles, maps and sprite sets to PNG.
 
 The file extension gives the format:

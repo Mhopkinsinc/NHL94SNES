@@ -1,17 +1,21 @@
-; Unidentified routine.
+; Append string [a1] to string [a3].
 appstring:
 	lda.w #$0002
-	sta.b $C5
-	lda.b [$95]
-	sta.b $C7
-CODE_9ECFAE:
-	lda.b $C5
-	cmp.b [$8D]
-	beq CODE_9ECFC1
+	sta.b tmp0
+	lda.b [a3]
+	sta.b tmp1
+.loop:
+	lda.b tmp0
+	cmp.b [a1]
+	beq .done
 	tay
-	lda.b [$8D],y
-	ldy.b $C7
-	sta.b [$95],y
-	inc.b $C5
-	inc.b $C7
-	bra CODE_9ECFAE
+	lda.b [a1],y
+	ldy.b tmp1
+	sta.b [a3],y
+	inc.b tmp0
+	inc.b tmp1
+	bra .loop
+.done:
+	lda.b tmp1
+	sta.b [a3]
+	rtl

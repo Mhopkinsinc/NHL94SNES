@@ -1,5 +1,27 @@
 # Handoff
 
+## Naming pass
+
+- `docs/cleanup_plan.md` is the audit: 6881 generic labels (5100 `CODE_`, 976 `SpriteFrameN`, 793 `DATA8_`, 12 `DATA16_`) and the asset inventory.
+- stats, video and middle: branch targets inside the already-named routines now use the 93S local names. `appstring`'s tail (`CODE_9ECFC1`) is the `.done` of that routine and lives in the same file. Direct-page registers `a0`–`a3`, `d0`–`d2`, `tmp0`–`tmp2`, plus `Hpos`, `Vpos`, `printm`, `textdirtylo`, `textdirtyhi`, `textmap`, `printfontset`, `RemapOut` and `Playerdata`, are in `src/ram94snes.asm`. Those files use them. The rest of the source still has the raw addresses.
+- logic: the same pass. `assreplace` is the 93S name (callers updated). `vtoa` holds `.nodir` and `.dt`. `getlchoice` holds `.tab`. `ShotMode` holds `.off` and `.rts`. New equates: `d7`, `SPAcnt`, `facedir`, `assnum`, `asslist`, `puckobj`, `puckx`, `ScoreOdds`, `gmoffs`, `gmhl`, `pfna`, `tmfoffside`, `cbut`, `blueline`, `PenOffsides` ($12 in this ROM).
+- Assets: the 302 binaries are no longer committed. `tools/prebuild.py` extracts them into `Extracted/data/` and writes `Extracted/.extract-complete.json` last. Asm `incbin`s those files. Packed streams stay packed. `SpriteFramesXX.bin` is still one ROM cut per bank (headers in source, tiles by range), not one `.chr` per frame.
+- Next: penalty, hockey and shootout locals.
+
+## Unsure
+
+- `$0A48` in PushNumber and PushTime is the end of the decimal string those routines build. 93S uses `mesarea`. The base of that buffer is not named yet.
+- `$00`, `$04` and `$08` are the divider's scratch (`Div16x8U`: `$08 / $04` into `$00`). They are also the math scratch in the engine, so they stay raw.
+- `$C3` in `vtoa` holds the direction bits. 93S reuses `d0+2` for that. Here `d0` is only a word, so `$C3` stays raw.
+- `$0B7D` in `assreplace` is stored with the assignment and has no 93S counterpart.
+- `$0AD9` is the player index `ShotMode` compares with X. Not named.
+- `CODE_9EE220` is the shot release `ShotMode` jumps to. It is not a clean match for 93S `doshot`, so the name stays.
+- `CODE_9FD85F` is the code that used to sit after the line-choice table. It compares the word at `$1003` with 100. Not named.
+- `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
+- SpriteFrameN labels stay numbered until a frame has an SPF name.
+- The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.
+- The animation list in `src/data/frames94s.asm` has the same shape as the 94G list (eight direction pointers, then frame and time words) but the frame numbers are not the 94G SPF values, so those SPA names are not applied. `DATA8_9DE0FC` stays until that match is clear.
+
 ## Alignment
 
 - Audit is `docs/align_plan.md`. The team database in `src/data/teamdata94s.asm` covers the old bank9C B000/C000/D000 range; screen text continues at `$9CEF59`.
@@ -7,21 +29,15 @@
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
 - `adda43` shares a file with `CODE_9BB176` because that routine falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
 - Two entries in bank `$9F` had no label. They are `CODE_9F9901` and `CODE_9FA835` (rows in `docs/name_map.csv`).
-- Next: headers on the named routines are still the short "Unidentified routine." line where the slice had no plain-English comment. Extraction (an `Extracted/` tree and a marker file, as in NHL94Genesis) is not done. 93S commits the binaries under its data tree and does not auto-extract; this repo does the same.
+- Next: headers on the named routines are still the short "Unidentified routine." line where the slice had no plain-English comment. Penalty, hockey and shootout locals are next.
 - Sprite animation sequences are `src/data/frames94s.asm` (the label is still `DATA8_9DE0FC`).
-
-## Unsure
-
-- The animation list in `src/data/frames94s.asm` has the same shape as the 94G list (eight direction pointers, then frame and time words) but the frame numbers are not the 94G SPF values, so those SPA names are not applied. `DATA8_9DE0FC` stays until that match is clear.
-- Auto `CODE_` / `DATA8_` labels stay as they are until a 93S or 94G match is clear.
 
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
 - Banks $80 to $9F are source (MATCH): every segment of the ROM is source.
-- Data assets: the binary blocks are committed in `src/data/gfx/` and `src/data/sound/` (formats in `src/data/README.md`) and
-  the source includes them by name. `tools/extract.py` has the `ASSETS` list (name, first address, end exclusive); `--check`
-  compares the files with the ROM (see SEGMENT_AGENT.md, Segment rules). The text tables are source files in
+- Data assets: binaries are extracted to `Extracted/` by `tools/prebuild.py` (formats in `src/data/README.md`).
+  `tools/extract.py` has the `ASSETS` list (name, first address, end exclusive). The text tables are source files in
   `src/data/text/`, one per table, included where they sit in the ROM; nine take their 93S names (AttribMenuSkater,
   AttribMenuGoalie, PositionNames, GameLabels, PasstoText, StatusTextTbl, HandedTextTbl, GoalBoxText, RosterLineNames).
   The team database (TeamList, the team records, playoffseats) is `src/data/teamdata94s.asm`, included from

@@ -25,4 +25,4 @@ CODE_9E860B:
 	bne CODE_9E8631
 	lda.w #$0001
 	sta.b $A5
-	jmp.w CODE_9E8C18
+	jmp.w assreplace

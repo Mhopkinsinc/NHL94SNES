@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-# extract.py: write the data assets (packed graphics, sprite frames, sound blocks) that the source includes by name from the
-# ROM into src/data/<category>/, or check the committed files against the ROM. The files are committed; run this only to
-# add an asset or to check them. src/data/README.md describes the formats (by file extension).
-# Usage: python3 tools/extract.py lst/nhl94snes.sfc           (writes every asset)
-#        python3 tools/extract.py lst/nhl94snes.sfc --check   (compares every asset with the ROM, exit 1 on a difference)
+# extract.py: write the data assets (packed graphics, sprite frames, sound blocks) that the source includes by name.
+# The bytes come from the ROM. Output is Extracted/data/<category>/, which is not committed. tools/prebuild.py runs this
+# when Extracted/ is missing or stale, and this script writes Extracted/.extract-complete.json last.
+# src/data/README.md describes the formats (by file extension).
+# Usage: python3 tools/extract.py lst/nhl94snes.sfc           (writes every asset and the marker)
+#        python3 tools/extract.py lst/nhl94snes.sfc --check   (compares Extracted/ with the ROM, exit 1 on a difference)
 # Each entry: file name with a format extension, first ROM address, end address (exclusive). The category folder follows the
-# extension: .spc blocks go to src/data/sound/, everything else to src/data/gfx/.
-import os, sys
+# extension: .spc blocks go to Extracted/data/sound/, everything else to Extracted/data/gfx/.
+import hashlib, json, os, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+EXTRACTED = os.path.join(ROOT, 'Extracted')
+MARKER = os.path.join(EXTRACTED, '.extract-complete.json')
 ASSETS = [
     ('IceRink.chr.lz', 0x818000, 0x81ABDE),
     ('TeamLogos.spr.huf', 0x81ABDE, 0x81FE45),
@@ -314,19 +317,28 @@ ASSETS = [
 ]
 def category(name): return 'sound' if name.endswith('.spc') else 'gfx'
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)
+def sha1_of(data): return hashlib.sha1(data).hexdigest()
 if __name__ == '__main__':
-    rom = open(sys.argv[1], 'rb').read()
+    rom_path = sys.argv[1]
+    rom = open(rom_path, 'rb').read()
     check = '--check' in sys.argv[2:]
     bad = 0
+    files = []
     for name, start, end in ASSETS:
-        path = os.path.join(ROOT, 'src', 'data', category(name), name)
+        rel = os.path.join('data', category(name), name)
+        path = os.path.join(EXTRACTED, rel)
         data = rom[rom_offset(start):rom_offset(end)]
         if check:
             if not os.path.exists(path) or open(path, 'rb').read() != data:
-                print(f'differs: src/data/{category(name)}/{name}'); bad += 1
+                print(f'differs: Extracted/{rel}'); bad += 1
         else:
             os.makedirs(os.path.dirname(path), exist_ok=True)
             open(path, 'wb').write(data)
+            files.append({'path': rel.replace(os.sep, '/'), 'size': len(data)})
     if check:
         print(f'{len(ASSETS) - bad} of {len(ASSETS)} assets match the ROM'); sys.exit(1 if bad else 0)
-    print(f'Wrote {len(ASSETS)} assets to src/data/')
+    marker = {'romSha1': sha1_of(rom),
+              'extractorSha1': sha1_of(open(__file__, 'rb').read()),
+              'files': files}
+    open(MARKER, 'w').write(json.dumps(marker, indent=1) + '\n')
+    print(f'Wrote {len(ASSETS)} assets to Extracted/')

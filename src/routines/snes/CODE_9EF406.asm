@@ -183,7 +183,7 @@ CODE_9EF578:
 	sta.w $157F
 	lda.w #$001A
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 	inx
 	inx
 	lda.w #$F644

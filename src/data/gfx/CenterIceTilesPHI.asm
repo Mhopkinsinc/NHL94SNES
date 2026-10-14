@@ -4,4 +4,4 @@ CenterIceTilesPHI:	; the Philadelphia centre ice logo: linear 4bpp tiles packed 
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$80
-	incbin "CenterIcePHI.lin.huf":5..289
+	incbin "../../../Extracted/data/gfx/CenterIcePHI.lin.huf":5..289
