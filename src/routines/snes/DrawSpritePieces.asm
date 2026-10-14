@@ -1,7 +1,7 @@
 ; Write the OAM entries of each piece of the frame at [$0C]; DrawSprite jumps here
 DrawSpritePieces:
 	lda.w SpritesLeft
-	beq CODE_80B284
+	beq DrawSpriteExit
 	lda.b [$0C],y
 	sta.w $07C8
 	iny

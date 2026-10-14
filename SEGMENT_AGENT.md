@@ -713,3 +713,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - LoadCenterIce, BuildRinkMap. MATCH.
 - PWprint, PrintPasswordHelp. MATCH.
 - GetFrameHot. MATCH.
+- Multiply entries, DrawSpriteExit, GameStatsKeys / GameStatsRtl; tails folded. MATCH.

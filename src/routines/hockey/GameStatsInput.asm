@@ -5,7 +5,7 @@ GameStatsInput:
 	lda.b d3
 	bit.w #$1000
 	beq .t1
-	jmp.w CODE_9C8E9B
+	jmp.w GameStatsRtl
 
 .t1:
 	bit.w #$0800
@@ -20,3 +20,14 @@ GameStatsInput:
 
 .t1x:
 	bra GameStatsInput
+; Game stats: Start leaves, up / down scroll, else MarkGameStatRows; the scroll routines come back here
+GameStatsKeys:
+	jsl.l ReadPausePad
+	lda.b d3
+	bit.w #$1000
+	bne GameStatsRtl
+	bit.w #$0800
+	bne ScrollGameStatsUp
+	bit.w #$0400
+	beq MarkGameStatRows
+	jmp.w ScrollGameStatsDown

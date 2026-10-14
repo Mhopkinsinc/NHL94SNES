@@ -2,9 +2,9 @@
 Mul8S:
 	phy
 	tay
-	bpl CODE_808F5E
+	bpl Mul8XS_x
 	txa
-	bpl CODE_808F7A
+	bpl Mul8S_swap
 	eor.w #$FFFF
 	inc a
 	sta.w WRMPYA
@@ -12,4 +12,4 @@ Mul8S:
 	eor.w #$FFFF
 	inc a
 	sta.w WRMPYB
-	bra CODE_808F57
+	bra Mul8U_res

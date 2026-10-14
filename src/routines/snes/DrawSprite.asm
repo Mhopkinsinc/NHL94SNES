@@ -260,5 +260,9 @@ CODE_80B0B0:
 .5x:
 	ldy.w $07D0
 	dec.b $00
-	beq CODE_80B284
+	beq DrawSpriteExit
 	jmp.w .8
+; The exit of DrawSprite and DrawSpritePieces
+DrawSpriteExit:
+	plb
+	rtl

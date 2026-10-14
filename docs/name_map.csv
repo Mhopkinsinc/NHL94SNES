@@ -5627,3 +5627,11 @@ $9BC1D5,BuildRinkMap,CODE_9BC1D5,new,Behavior: called from LoadCenterIce and COD
 $9BC6C9,PWprint,CODE_9BC6C9,93S,"Same body as 93S PWprint: the hidden bit, PasstoText, mesarea, length 18, 16 characters, print; called from PasswordScreen and PlayoffScreen",src/routines/hockey/PWprint.asm
 $9BCBD8,PrintPasswordHelp,CODE_9BCBD8,new,Behavior: the four strings it prints; called from PasswordScreen and BadPasswordPrompt,src/routines/hockey/PrintPasswordHelp.asm
 $9BC074,GetFrameHot,CODE_9BC074,new,"Behavior: checkpuckcoll_ccx calls it where 93S checkpuckcoll_ccx .stick calls GetHot (same flips and sfhormode rotation, a different source for the hot spot)",src/routines/logic/GetFrameHot.asm
+$808F4D,Mul8U_mul,CODE_808F4D,new,Mul8U after its phy; Mul8XS enters here for a positive X,src/routines/snes/Mul8U.asm
+$808F57,Mul8U_res,CODE_808F57,new,Mul8U: read the product and pull Y; Mul8S enters here,src/routines/snes/Mul8U.asm
+$808F5E,Mul8XS_x,CODE_808F5E,new,Mul8XS after its phy: the X sign test; Mul8S enters here for a positive A,src/routines/snes/Mul8XS.asm
+$808F63,Mul8XS_neg,CODE_808F63,new,Mul8XS for a negative X,src/routines/snes/Mul8XS.asm
+$808F7A,Mul8S_swap,CODE_808F7A,new,"Mul8S: X = A, into Mul8XS_neg (folded into Mul8XS.asm)",src/routines/snes/Mul8XS.asm
+$80B284,DrawSpriteExit,CODE_80B284,new,plb / rtl shared by DrawSprite and DrawSpritePieces (folded into DrawSprite.asm),src/routines/snes/DrawSprite.asm
+$9C8E22,GameStatsKeys,CODE_9C8E22,new,the game stats key dispatch the scroll routines come back to (folded into GameStatsInput.asm),src/routines/hockey/GameStatsInput.asm
+$9C8E9B,GameStatsRtl,CODE_9C8E9B,new,the rtl the game stats screen leaves through (folded into MarkGameStatRows.asm),src/routines/hockey/MarkGameStatRows.asm

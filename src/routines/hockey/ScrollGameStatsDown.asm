@@ -27,7 +27,7 @@ ScrollGameStatsDown:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w CODE_9C8E22
+	jmp.w GameStatsKeys
 
 .t1:
 	lda.w #$0000

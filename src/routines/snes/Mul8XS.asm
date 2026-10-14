@@ -1,10 +1,10 @@
 ; A * X, 8 by 8 bits, X signed, into A
 Mul8XS:
 	phy
-CODE_808F5E:
+Mul8XS_x:
 	cpx.w #$0000
-	bpl CODE_808F4D
-CODE_808F63:
+	bpl Mul8U_mul
+Mul8XS_neg:
 	sep #$30
 	sta.w WRMPYA
 	txa
@@ -17,3 +17,7 @@ CODE_808F63:
 	sbc.w RDMPYL
 	ply
 	rtl
+; Mul8S with A positive and X negative: X = A, into Mul8XS_neg
+Mul8S_swap:
+	tyx
+	bra Mul8XS_neg

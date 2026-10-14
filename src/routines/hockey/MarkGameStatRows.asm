@@ -38,3 +38,6 @@ MarkGameStatRows:
 	jsr.w CODE_9C8F7D
 	jsl.l WaitFrame
 	jmp.w GameStatsInput
+; The rtl the game stats screen leaves through
+GameStatsRtl:
+	rtl
