@@ -37,7 +37,7 @@ CODE_9D8129:
 	jsl.l ShowMatchups
 	jsl.l CODE_9D8B49
 	jsl.l ScreenOn
-CODE_9D8195:
+.3:
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame
 	jsl.l ReadPads
@@ -57,18 +57,18 @@ CODE_9D8195:
 	bcc .loop
 	lda.b $14
 	bit.w #$1000
-	bne CODE_9D821A
+	bne .5
 	bit.w #$0800
 	beq .2
 	jsl.l CODE_9B866C
 .2:
 	bit.w #$4000
-	bne CODE_9D8222
+	bne .6
 	bit.w #$8080
-	bne CODE_9D8240
+	bne .7
 	bit.w #$0040
 	beq .t1
-	jmp.w CODE_9D825E
+	jmp.w .9
 
 .t1:
 	lda.w $1E3F
@@ -76,7 +76,7 @@ CODE_9D8195:
 	lda.w $1E3D
 	inc a
 	cmp.w #$012C
-	bcs CODE_9D8246
+	bcs .8
 	sta.w $1E3D
 .1x:
 	stz.w $1D5E
@@ -89,27 +89,64 @@ CODE_9D8195:
 .2x:
 	jsl.l UpdateScoutingDisplay
 	lda.w $1E3F
-	bne CODE_9D8217
+	bne .4
 	lda.l $7E34CC
-	bne CODE_9D8217
+	bne .4
 	dec.w $0D41
-	bmi CODE_9D821A
-CODE_9D8217:
-	jmp.w CODE_9D8195
-CODE_9D821A:
+	bmi .5
+.4:
+	jmp.w .3
+.5:
 	lda.w #$0000
 	sta.l $7E3474
 	rtl
-CODE_9D8222:
+.6:
 	lda.w #$FFFF
 	sta.w $1E3F
 	lda.w $1DB9
 	dec a
-	bpl .1
+	bpl .1xx
 	lda.w #$0006
 	sta.w $1DB9
-.1:
+.1xx:
 	sta.w $1DB9
 	jsl.l ShowMatchups
 	stz.w $1E3D
-	bra CODE_9D8217
+	bra .4
+.7:
+	lda.w #$FFFF
+	sta.w $1E3F
+.8:
+	lda.w $1DB9
+	inc a
+	cmp.w #$0007
+	bcc .1xxx
+	lda.w #$0000
+.1xxx:
+	sta.w $1DB9
+	jsl.l ShowMatchups
+	stz.w $1E3D
+	bra .4
+.9:
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF395
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	lda.w #$0014
+	sta.b d0
+	lda.w #$0009
+	sta.b d1
+	lda.l $7E35D0
+	sta.b d2
+	jsl.l eraser
+	jsl.l CODE_9D842F
+	bra .4

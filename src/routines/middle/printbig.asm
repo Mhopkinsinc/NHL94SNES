@@ -18,7 +18,7 @@ printbig:
 	tya
 	cmp.b [a1]
 	bne .t3
-	jmp.w CODE_9ECF91
+	jmp.w .9
 
 .t3:
 	lda.w printy
@@ -190,3 +190,18 @@ printbig:
 	sta.w printy
 	iny
 	jmp.w .7
+.9:
+	pla
+	sta.b $AF
+	pla
+	sta.b d2
+	pla
+	sta.b $AB
+	pla
+	sta.b d1
+	pla
+	sta.b $A7
+	pla
+	sta.b d0
+	plx
+	rtl

@@ -67,7 +67,7 @@ CODE_9B8D86:
 	clc
 	adc.b d0
 	sta.w $1DAB
-	bra CODE_9B8E4F
+	bra .3
 
 .t1:
 	jsl.l CODE_9B92DC
@@ -76,7 +76,7 @@ CODE_9B8D86:
 	jsl.l GoalieCount
 	lda.b d0
 	sta.w $1DAB
-CODE_9B8E4F:
+.3:
 	sta.w $1DA7
 	lda.w #$0009
 	cmp.w $1DA3
@@ -107,7 +107,7 @@ CODE_9B8E4F:
 	adc.w $1DA7
 	sec
 	sbc.w $1D9B
-	bpl .t1
+	bpl .t1x
 	lda.w $1D9B
 	sec
 	sbc.w $1DAF
@@ -119,18 +119,18 @@ CODE_9B8E4F:
 	sta.w $1DA7
 .2:
 	lda.w #$0000
-	bra CODE_9B8EB5
+	bra .4
 
-.t1:
+.t1x:
 	lda.w $1DA7
 	clc
 	adc.w $1DAF
 	sec
 	sbc.w $1D9B
-CODE_9B8EB5:
+.4:
 	sta.w $1D9B
 	jsl.l CODE_9B8F7B
-CODE_9B8EBC:
+.5:
 	jsl.l CODE_9DD923
 	jsl.l CODE_9DD94D
 	jsl.l WaitFrame
@@ -145,7 +145,7 @@ CODE_9B8EBC:
 
 .t2:
 	bit.w #$8080
-	beq .t1
+	beq .t1xx
 	lda.w $1DA7
 	clc
 	adc.w $1DAF
@@ -153,51 +153,62 @@ CODE_9B8EBC:
 	sbc.w $1D9B
 	jmp.w CODE_9B91A1
 
-.t1:
+.t1xx:
 	stz.b d0
 	inc.b d0
 	bit.w #$0100
-	bne CODE_9B8F2B
+	bne .7
 	dec.b d0
 	dec.b d0
 	bit.w #$0200
-	bne CODE_9B8F2B
+	bne .7
 	bit.w #$0400
-	bne .1
+	bne .1x
 	inc.b d0
 	inc.b d0
 	bit.w #$0800
-	beq CODE_9B8F28
-.1:
+	beq .6
+.1x:
 	lda.b d0
 	clc
 	adc.w $1D9B
-	bmi CODE_9B8F3E
+	bmi .8
 	cmp.w $1DAF
-	bpl CODE_9B8F5D
+	bpl .9
 	sta.w $1D9B
 	jsl.l CODE_9B8F7B
-CODE_9B8F28:
-	jmp.w CODE_9B8EBC
-CODE_9B8F2B:
+.6:
+	jmp.w .5
+.7:
 	lda.b d0
 	clc
 	adc.w $0D47
 	sta.b d0
-	bmi CODE_9B8F28
+	bmi .6
 	sta.w $0D47
 	jsl.l CODE_9B8F7B
-	bra CODE_9B8F28
-CODE_9B8F3E:
+	bra .6
+.8:
 	lda.w $1DA7
 	sec
 	sbc.w $1DAB
 	clc
 	adc.w $1DAF
 	cmp.w $1DA3
-	bpl CODE_9B8F28
+	bpl .6
 	inc.w $1DA7
 	jsl.l CODE_9B8F7B
 	lda.w #$FFFF
 	sta.w $07E0
-	bra CODE_9B8F28
+	bra .6
+.9:
+	lda.w $1DA7
+	cmp.w $1DAB
+	beq .6
+	dec.w $1DA7
+	jsl.l CODE_9B8F7B
+	lda.w #$FFFF
+	sta.w $07E0
+	lda.w #$FFFF
+	sta.w $07D8
+	jmp.w .6

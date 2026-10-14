@@ -131,7 +131,7 @@ EditLinesMenu:
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$9080
-	bne CODE_9B8B42
+	bne .7
 	bit.w #$0400
 	bne .6
 	bit.w #$0800
@@ -146,3 +146,20 @@ EditLinesMenu:
 	lda.w #$0001
 	sta.w $1D97
 	bra .4
+.7:
+	lda.w $1D97
+	cmp.w #$0000
+	beq .t1xx
+	bra .t2
+
+.t1xx:
+	lda.w #$FFFF
+	bra .1x
+
+.t2:
+	jsl.l CODE_9B9334
+	jsr.w CODE_9B89E6
+	jsl.l CODE_9B890F
+	lda.w #$0000
+.1x:
+	rts
