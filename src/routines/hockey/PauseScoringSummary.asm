@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE33C:
+; Pause menu Scoring Summary
+PauseScoringSummary:
 	lda.b d1
 	bit.w #$8080
 	bne .t1
@@ -8,4 +8,4 @@ CODE_9FE33C:
 .t1:
 	jsl.l CODE_9B93F3
 	jsl.l CODE_9FE79F
-	jmp.w CODE_9FE2AE
+	jmp.w PauseSubmenuDone

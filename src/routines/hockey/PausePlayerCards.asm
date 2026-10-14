@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE366:
+; Pause menu Player Cards
+PausePlayerCards:
 	lda.b d1
 	bit.w #$8080
 	bne .t1
@@ -8,4 +8,4 @@ CODE_9FE366:
 .t1:
 	jsl.l CODE_9DBD4F
 	jsl.l CODE_9FE79F
-	jmp.w CODE_9FE2AE
+	jmp.w PauseSubmenuDone

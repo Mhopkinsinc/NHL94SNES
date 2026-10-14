@@ -3753,3 +3753,23 @@ $9C8D2E,ShowGameStats,CODE_9C8D2E,new,game stats screen,src/routines/hockey/Show
 $9D8489,ShowMatchups,CODE_9D8489,new,matchups screen,src/routines/hockey/ShowMatchups.asm
 $9B8A15,EditLinesMenu,CODE_9B8A15,new,edit lines menu,src/routines/hockey/EditLinesMenu.asm
 $9C9BAB,ShowStars,CODE_9C9BAB,new,stars of the game,src/routines/hockey/ShowStars.asm
+$9FE733,PauseResume,CODE_9FE733,93S,"B, Start, or A leaves; same shape as 93S PauseResume",src/routines/hockey/PauseResume.asm
+$9FE272,PauseReplay,CODE_9FE272,new,Instant Replay,src/routines/hockey/PauseReplay.asm
+$9FE2AE,PauseSubmenuDone,CODE_9FE2AE,new,"submenu finished, mark the text map dirty",src/routines/hockey/PauseReplay.asm
+$9FE2BB,PauseGameStats,CODE_9FE2BB,new,Game Stats,src/routines/hockey/PauseGameStats.asm
+$9FE2F1,PauseTeamRoster,CODE_9FE2F1,new,Team Roster,src/routines/hockey/PauseTeamRoster.asm
+$9FE305,PauseEditLines,CODE_9FE305,new,Edit Lines,src/routines/hockey/PauseEditLines.asm
+$9FE327,PausePlayerStats,CODE_9FE327,new,Player Stats,src/routines/hockey/PausePlayerStats.asm
+$9FE33C,PauseScoringSummary,CODE_9FE33C,new,Scoring Summary,src/routines/hockey/PauseScoringSummary.asm
+$9FE351,PausePenaltySummary,CODE_9FE351,new,Penalty Summary,src/routines/hockey/PausePenaltySummary.asm
+$9FE390,PausePeriodStats,CODE_9FE390,new,Period Stats,src/routines/hockey/PausePeriodStats.asm
+$9FE3BA,PauseGoalie,CODE_9FE3BA,new,cycle the goalie,src/routines/hockey/PauseGoalie.asm
+$9FE3FF,PauseGoalieMode,CODE_9FE3FF,new,toggle the goalie control,src/routines/hockey/PauseGoalieMode.asm
+$9FE418,PauseDefControl,CODE_9FE418,new,toggle defensive control,src/routines/hockey/PauseDefControl.asm
+$9FE366,PausePlayerCards,CODE_9FE366,new,Player Cards,src/routines/hockey/PausePlayerCards.asm
+$9FE37B,PauseOtherScores,CODE_9FE37B,new,Other Scores,src/routines/hockey/PauseOtherScores.asm
+$9FE3A5,PauseCrowdLevel,CODE_9FE3A5,new,Crowd Level,src/routines/hockey/PauseCrowdLevel.asm
+$9FE741,PauseExitGame,CODE_9FE741,new,Exit Game,src/routines/hockey/PauseExitGame.asm
+$9FE431,PauseTimeout,CODE_9FE431,new,Timeout,src/routines/hockey/PauseTimeout.asm
+$9FE2CF,PauseShootoutSetup,CODE_9FE2CF,new,Shootout Setup,src/routines/hockey/PauseShootoutSetup.asm
+$9FF00B,AskExitGame,CODE_9FF00B,new,yes or no exit prompt,src/routines/hockey/AskExitGame.asm

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE3BA:
+; Pause menu: cycle the goalie
+PauseGoalie:
 	jsl.l CODE_9FC76C
 	jsl.l GoalieCount
 	jsl.l CODE_9FC76C
