@@ -44,7 +44,7 @@ SetHor:
 	sta.w Oldrow
 	stz.w vramrow
 	jsl.l SprSort
-	jsl.l CODE_9FC896
+	jsl.l StatsReport
 	stx.b xsave
 	ldx.w #$001A
 .resta:

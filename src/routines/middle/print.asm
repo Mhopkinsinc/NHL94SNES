@@ -117,7 +117,7 @@ print:
 	plx
 	rtl
 .6:
-	lda.l $7E35D0
+	lda.l blankchar
 	clc
 	adc.l printfontset
 	jmp.w .3

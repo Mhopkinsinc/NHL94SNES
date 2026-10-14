@@ -17,7 +17,7 @@ ClearEditLinesMenu:
 	sta.b d0
 	lda.w #$0011
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	rts

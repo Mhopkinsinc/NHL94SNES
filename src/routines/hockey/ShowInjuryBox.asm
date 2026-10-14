@@ -72,7 +72,7 @@ ShowInjuryBox:
 	pla
 	sta.b $8F
 .1:
-	jsl.l CODE_9FC4A1
+	jsl.l GetPlayerNumInitial
 	jsl.l print
 	stx.b xsave
 	ldx.w #$0012

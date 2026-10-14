@@ -489,7 +489,7 @@ org $9F9001
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	jsl.l SendTextMap

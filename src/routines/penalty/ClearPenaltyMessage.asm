@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EC913:
+; Clear the penalty message area on the horizontal rink (a 24 x 3 frame at 4, $0C)
+ClearPenaltyMessage:
 	lda.b d0
 	pha
 	lda.b $8F

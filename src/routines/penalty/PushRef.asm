@@ -102,7 +102,7 @@ PushRef:
 	sta.b d0
 	lda.w #$0008
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	lda.w #$0002
 	sta.w printx

@@ -218,7 +218,7 @@ CODE_9BC946:
 .t1x:
 	pha
 	jsl.l PlacePasswordCursor
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	lda.w #$0003

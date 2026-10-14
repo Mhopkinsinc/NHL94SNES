@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FA669:
+; Erase the goal box (19 x 9 at $0B, $02)
+box:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -17,6 +17,6 @@ CODE_9FA669:
 	sta.b d0
 	lda.w #$0009
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jml.l eraser

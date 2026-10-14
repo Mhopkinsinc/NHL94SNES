@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FC3F8:
+; mesarea = the number and name of player TempPlOffset
+GetPlayerName:
 	lda.b d0
 	pha
 	lda.b $A7

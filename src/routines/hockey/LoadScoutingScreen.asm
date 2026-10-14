@@ -29,14 +29,14 @@ LoadScoutingScreen:
 	sta.l printfontset
 	lda.w #$0000
 	sta.l $7E35AC
-	lda.l $7E35D0
+	lda.l blankchar
 	asl a
 	asl a
 	asl a
 	asl a
 	adc.w #$1000
 	sta.w VMADDL
-	lda.l $7E35D0
+	lda.l blankchar
 	inc a
 	sta.l $7E35B6
 	sta.l $7E35C0

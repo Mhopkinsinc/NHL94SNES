@@ -4,7 +4,7 @@ ClearTextMapBottom:
 	sta.b $12
 	lda.w #$3AF4
 	sta.b $10
-	lda.l $7E35D0
+	lda.l blankchar
 	clc
 	adc.l $7E35AA
 	ldx.w #$0500

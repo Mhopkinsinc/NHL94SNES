@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FC896:
+; Clear the text screen and draw the horizontal rink scoreboard background
+StatsReport:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -17,7 +17,7 @@ CODE_9FC896:
 	sta.b d0
 	lda.w #$001D
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	lda.b $8F

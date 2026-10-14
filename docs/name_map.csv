@@ -319,7 +319,7 @@ $9F9B08,GetPeriodTimeRemaining,CODE_9F9B08,93S,"same instructions as the 93S rou
 $9FA130,ShowInjuryBox,CODE_9FA130,93S,"same instructions as the 93S routine ShowInjuryBox (hockey)",src/bank9F_A000.asm
 $9FA21E,pplpen,CODE_9FA21E,93S,"same instructions as the 93S routine pplpen (penalty)",src/bank9F_A000.asm
 $9FBC41,show_rink,CODE_9FBC41,93S,"same instructions as the 93S routine show_rink (video)",src/bank9F_B000.asm
-$9FC576,GetPlayerNumInitial,CODE_9FC576,93S,"same instructions as the 93S routine GetPlayerNumInitial (hockey)",src/bank9F_C000.asm
+$9FC576,GetPlayerInitial,CODE_9FC576,new,"TempPlOffset into PlayerInitialName (no number); no caller. Was named GetPlayerNumInitial from its instruction shape; that name moved to $9FC4A1, which calls PlayerShortName and is called from ShowInjuryBox as in 93S",src/routines/hockey/GetPlayerInitial.asm
 $9FC732,GetPlayerRecord,CODE_9FC732,93S,"same instructions as the 93S routine GetPlayerRecord (hockey)",src/bank9F_C000.asm
 $9FC87C,InitScoutDisplay,CODE_9FC87C,93S,"same instructions as the 93S routine InitScoutDisplay (hockey)",src/bank9F_C000.asm
 $9FC702,restoreteams,CODE_9FC702,93S,"same instructions as the 93S routine restoreteams (hockey)",src/bank9F_C000.asm
@@ -551,7 +551,7 @@ $9FC71A,.0,CODE_9FC71A,93S,restoreteams,src/routines/hockey/restoreteams.asm
 $9FC721,.home,CODE_9FC721,93S,restoreteams,src/routines/hockey/restoreteams.asm
 $9CA1B7,.loop0,CODE_9CA1B7,93S,SprSort vertical,src/routines/hockey/SprSort.asm
 $9BCD70,.char,CODE_9BCD70,93S,PWtoBits,src/routines/hockey/PWtoBits.asm
-$9FC595,.home,CODE_9FC595,93S,GetPlayerNumInitial,src/routines/hockey/GetPlayerNumInitial.asm
+$9FC595,.home,CODE_9FC595,93S,GetPlayerNumInitial,src/routines/hockey/GetPlayerInitial.asm
 $9FD6E7,.idx,CODE_9FD6E7,93S,TryAddPlayerToList,src/routines/hockey/TryAddPlayerToList.asm
 $9FD6F5,.chk,CODE_9FD6F5,93S,TryAddPlayerToList,src/routines/hockey/TryAddPlayerToList.asm
 $9FD707,.s2,CODE_9FD707,93S,TryAddPlayerToList,src/routines/hockey/TryAddPlayerToList.asm
@@ -968,7 +968,7 @@ $9BA715,.1,CODE_9BA715,new,branch target only used in this routine,src/routines/
 $9B8FE7,.1,CODE_9B8FE7,new,branch target only used in this routine,src/routines/hockey/SelectLinePlayer.asm
 $9C97C6,.loop,CODE_9C97C6,new,branch target only used in this routine,src/routines/snes/CODE_9C978E.asm
 $9C97E1,.1,CODE_9C97E1,new,branch target only used in this routine,src/routines/snes/CODE_9C978E.asm
-$9FC416,.1,CODE_9FC416,new,branch target only used in this routine,src/routines/snes/CODE_9FC3F8.asm
+$9FC416,.1,CODE_9FC416,new,branch target only used in this routine,src/routines/hockey/GetPlayerName.asm
 $9BC390,.1,CODE_9BC390,new,branch target only used in this routine,src/routines/snes/CODE_9BC382.asm
 $9E84A4,.1,CODE_9E84A4,new,branch target only used in this routine,src/routines/snes/CODE_9E849E.asm
 $9E84A7,.2,CODE_9E84A7,new,branch target only used in this routine,src/routines/snes/CODE_9E849E.asm
@@ -2351,7 +2351,7 @@ $9ECFF7,.1,CODE_9ECFF7,new,branch target only used in this routine,src/routines/
 $9ECFFF,.2,CODE_9ECFFF,new,branch target only used in this routine,src/routines/logic/goalieacc.asm
 $9EDC40,.1,CODE_9EDC40,new,branch target only used in this routine,src/routines/snes/CODE_9EDC32.asm
 $9EDC43,.rtl,CODE_9EDC43,new,branch target only used in this routine,src/routines/snes/CODE_9EDC32.asm
-$9FC4BF,.1,CODE_9FC4BF,new,branch target only used in this routine,src/routines/snes/CODE_9FC4A1.asm
+$9FC4BF,.1,CODE_9FC4BF,new,branch target only used in this routine,src/routines/hockey/GetPlayerNumInitial.asm
 $9FAEBF,.1,CODE_9FAEBF,new,branch target only used in this routine,src/routines/logic/puckfaceoff2.asm
 $9EE9E8,.1,CODE_9EE9E8,new,branch target only used in this routine,src/routines/logic/dopass.asm
 $9EEA08,.2,CODE_9EEA08,new,branch target only used in this routine,src/routines/logic/dopass.asm
@@ -5705,3 +5705,8 @@ $9FEB90,PmenuAppend,CODE_9FEB90,new,Pmenu: append String [a4] to the item text i
 $9FEBA5,PmenuRtl,CODE_9FEBA5,new,Pmenu: the shared rtl of the value helpers,src/routines/hockey/Pmenu.asm
 $9FEBA6,PmenuGoalieValue,CODE_9FEBA6,new,"Pmenu: on the goalie item, append Automatic / Manual Goalie (the team's $1C90)",src/routines/hockey/Pmenu.asm
 $9FEBEB,PmenuDefValue,CODE_9FEBEB,new,"Pmenu: on the defense control item, append On / Off (the team's $1C94, as PauseDefControl)",src/routines/hockey/Pmenu.asm
+$9FA669,box,CODE_9FA669,93S,"The 93S box body (the same position string, 19 x 9 eraser with blankchar); SetLCmode2 calls it where 93S SetLCmode2 calls box",src/routines/hockey/box.asm
+$9EC913,ClearPenaltyMessage,CODE_9EC913,93S,93S ClearPenaltyMessage job; prefmes and UpdatePA call it at the 93S call points (the 94 version draws a frame),src/routines/penalty/ClearPenaltyMessage.asm
+$9FC3F8,GetPlayerName,CODE_9FC3F8,93S,"The 93S GetPlayerName body (TempPlOffset, the team bit, PlayerNumName); UpdatePA calls it as in 93S",src/routines/hockey/GetPlayerName.asm
+$9FC4A1,GetPlayerNumInitial,CODE_9FC4A1,93S,"The 93S GetPlayerNumInitial body (TempPlOffset, the team bit, PlayerShortName); ShowInjuryBox calls it as in 93S. The name was on $9FC576 before (now GetPlayerInitial: it calls PlayerInitialName and has no caller)",src/routines/hockey/GetPlayerNumInitial.asm
+$9FC896,StatsReport,CODE_9FC896,93S,"The 93S StatsReport layout (position 0,0, a 32 x 29 erase with blankchar, then the rink map to VRAM); SetHor calls it as in 93S",src/routines/penalty/StatsReport.asm

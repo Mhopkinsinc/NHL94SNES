@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9DE074:
 	lda.w #$0200
-	sta.l $7E35D0
+	sta.l blankchar
 	inc a
 	sta.l $7E35B6
 	lda.w #$0000

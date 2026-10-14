@@ -130,7 +130,7 @@ setupice:
 	lsr a
 	lsr a
 	adc.l $7E35CA
-	sta.l $7E35D0
+	sta.l blankchar
 	inc a
 	sta.l $7E35B6
 	lda.w #$007F

@@ -18,7 +18,7 @@ DrawEditLinesBack:
 	sta.b d0
 	lda.w #$000D
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	lda.b $8F

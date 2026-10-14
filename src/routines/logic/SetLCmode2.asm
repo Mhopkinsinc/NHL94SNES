@@ -3,7 +3,7 @@ SetLCmode2:
 	jsl.l setlccords
 	inc.b d0
 	inc.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	lda.l $7E3120
 	bne .1
@@ -19,7 +19,7 @@ SetLCmode2:
 	bra .4
 
 .t1:
-	jsl.l CODE_9FA669
+	jsl.l box
 	jsl.l setlccords
 .4:
 	jsl.l Framer

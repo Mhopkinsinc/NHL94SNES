@@ -18,7 +18,7 @@ ClearPictureBox:
 	lda.w #$0006
 	sta.b $14
 .loop:
-	lda.l $7E35D0
+	lda.l blankchar
 	clc
 	adc.l $7E35AA
 	ldx.w #$000C

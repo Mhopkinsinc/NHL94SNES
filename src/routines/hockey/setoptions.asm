@@ -400,7 +400,7 @@ setoptions:
 	lda.w #$0000
 	sta.l $7E3456
 .1xxxxxx:
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	lda.w #$0020
 	sta.b d0
@@ -531,7 +531,7 @@ setoptions:
 	sta.b d0
 	lda.w #$0002
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	lda.w #$0001
@@ -556,7 +556,7 @@ setoptions:
 	sta.b d0
 	lda.w #$0002
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	lda.w #$0001

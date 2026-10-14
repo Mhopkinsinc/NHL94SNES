@@ -76,7 +76,7 @@ updatefaceoff:
 	lda.w #$0008
 	sta.b d1
 .5:
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	stz.w $0764

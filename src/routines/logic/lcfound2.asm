@@ -9,7 +9,7 @@ lcfound2:
 	trb.w sflags3
 .1:
 	inc.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	lda.l $7E3120
 	bne .2

@@ -11,7 +11,7 @@ ReplayMode:
 	lda.w #$FFFF
 	sta.w textdirtylo
 	stz.w textdirtyhi
-	lda.l $7E35D0
+	lda.l blankchar
 	clc
 	adc.l $7E35AA
 	ldx.w #$0400
@@ -514,7 +514,7 @@ ReplayMode:
 	beq .2xxxxxxxxx
 	lda.l $7E35F0
 	beq .1xxxxxxxxxxx
-	lda.l $7E35D0
+	lda.l blankchar
 	clc
 	adc.l $7E35AA
 	ldx.w #$0180

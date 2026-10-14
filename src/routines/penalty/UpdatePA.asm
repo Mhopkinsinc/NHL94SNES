@@ -15,7 +15,7 @@ UpdatePA:
 	bpl .t1
 	lda.w #$7FFF
 	sta.w penmsgtimer
-	jsl.l CODE_9EC913
+	jsl.l ClearPenaltyMessage
 	lda.b a1+2
 	pha
 	lda.b a1
@@ -29,7 +29,7 @@ UpdatePA:
 	sta.b a1
 	pla
 	sta.b a1+2
-	jsl.l CODE_9FC3F8
+	jsl.l GetPlayerName
 	lda.b [a1]
 	lsr a
 	sta.b d0

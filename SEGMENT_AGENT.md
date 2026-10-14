@@ -729,3 +729,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - textmap2 and the text map addresses by name. MATCH.
 - GetPadTeam, PulseUntilRelease, GoalieOptionText pointers. MATCH.
 - Pmenu and its parts. MATCH.
+- box, ClearPenaltyMessage, GetPlayerName, GetPlayerNumInitial (moved), StatsReport, blankchar. MATCH.

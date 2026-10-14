@@ -40,7 +40,7 @@ prefmes:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	lda.w #$0000
@@ -137,7 +137,7 @@ prefmes:
 	bra .3
 
 .t5:
-	jsl.l CODE_9EC913
+	jsl.l ClearPenaltyMessage
 	lda.b d0
 	bmi .3
 	lda.b $8F

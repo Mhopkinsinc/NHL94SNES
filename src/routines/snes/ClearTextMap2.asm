@@ -4,7 +4,7 @@ ClearTextMap2:
 	sta.b $12
 	lda.w #textmap2
 	sta.b $10
-	lda.l $7E35D0
+	lda.l blankchar
 	clc
 	adc.l $7E35AC
 	ldx.w #$0800

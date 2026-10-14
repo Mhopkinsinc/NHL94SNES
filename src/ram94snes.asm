@@ -198,3 +198,4 @@ CurCrowdMeter = $19C2	; the crowd meter in dB: sroot(CwdExciteLvl * 4) + 65, at 
 CrowdPeak = $19C4	; the highest CurCrowdMeter of the game
 palbuffer = $7E35F4	; the palette buffer (256 colours) sent to CGRAM
 textmap2 = $7E3FF4	; the second text map (ClearTextMap2, SendTextMap2)
+blankchar = $7E35D0	; vram tile of the blank character (eraser fills with it)
