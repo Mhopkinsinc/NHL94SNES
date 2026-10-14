@@ -706,3 +706,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - EvadePC and the skateto callback labels. MATCH.
 - PenaltyList tail split into sublist, priolist, linelist, PerLabels. MATCH.
 - Raw pointer immediates as label+offset. MATCH.
+- Line editor routines; Div16S_divneg wrong-bank jsr fixed. MATCH.

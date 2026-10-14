@@ -1,8 +1,8 @@
-; Unidentified routine.
-CODE_9B8970:
+; Line editor: the EditLinesLabel title sprites, the team name and picture; the background first when $7E3468 is set
+DrawEditLinesTitle:
 	lda.l $7E3468
 	beq .1
-	jsr.w Div16S_divneg
+	jsr.w DrawEditLinesBack
 .1:
 	jsl.l SpriteFrameStart
 	ldx.w #$0058

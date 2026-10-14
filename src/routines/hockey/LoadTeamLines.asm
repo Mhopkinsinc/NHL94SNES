@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9334:
+; Copy team a2's lines from its team data into its RAM lines (GetTeamLines)
+LoadTeamLines:
 	lda.b $97
 	pha
 	lda.b a3
@@ -11,7 +11,7 @@ CODE_9B9334:
 	lda.b d0
 	pha
 	phy
-	jsl.l CODE_9B9320
+	jsl.l GetTeamLines
 	ldy.b a2
 	lda.w #$009C
 	sta.b $8F
@@ -37,7 +37,7 @@ CODE_9B9334:
 	bmi .loop
 	lda.l $7E34C6
 	bne .1
-	jsl.l CODE_9B9320
+	jsl.l GetTeamLines
 	ldy.b a2
 	lda.w #$009C
 	sta.b $8F

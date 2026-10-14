@@ -13,7 +13,7 @@ EditLinesScreen:
 	lda.w #$FFFF
 	sta.l $7E3452
 	jsl.l SetupScreen
-	jsl.l CODE_9B890F
+	jsl.l DrawEditLinesTop
 	lda.w #$0005
 	sta.w $1D9F
 	dec a
@@ -36,7 +36,7 @@ EditLinesScreen:
 	jsr.w EditLinesMenu
 	cmp.w #$0000
 	beq .t1
-	jmp.w CODE_9B8860
+	jmp.w EditLinesRtl
 
 .t1:
 	jsl.l PrintLineNames
@@ -48,10 +48,10 @@ EditLinesScreen:
 	jmp.w .t3
 
 .t1x:
-	jsl.l CODE_9B8D86
+	jsl.l SelectLinePlayer
 	cmp.w #$0000
 	bmi .1
-	jsr.w CODE_9B8C7A
+	jsr.w SetLineSlot
 .1:
 	lda.w #$0001
 	sta.l $7E3468

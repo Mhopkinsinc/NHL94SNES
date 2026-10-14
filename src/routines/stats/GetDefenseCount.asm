@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9300:
+; d0 = defensemen on team a2 (low nibble of team data byte 3 at +8)
+GetDefenseCount:
 	ldy.b a2
 	lda.w #$009C
 	sta.b $97

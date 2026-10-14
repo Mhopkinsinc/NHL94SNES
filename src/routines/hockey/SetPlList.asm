@@ -36,7 +36,7 @@ SetPlList:
 	pha
 	lda.b a3
 	pha
-	jsl.l CODE_9B9320
+	jsl.l GetTeamLines
 	lda.b $97
 	sta.b $8F
 	lda.b a3
@@ -141,7 +141,7 @@ SetPlList:
 	pha
 	lda.b a3
 	pha
-	jsl.l CODE_9B9320
+	jsl.l GetTeamLines
 	lda.b $97
 	sta.b $8F
 	lda.b a3

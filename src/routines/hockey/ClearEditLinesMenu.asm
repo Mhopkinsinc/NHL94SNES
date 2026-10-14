@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B89E6:
+; Line editor: erase the menu area (32 x 17 from row 9)
+ClearEditLinesMenu:
 	lda.b $8F
 	pha
 	lda.b a1

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B8D7C:
+; Write the low byte of A to [a3]
+WriteLineSlot:
 	and.w #$00FF
 	sep #$20
 	sta.b [a3]

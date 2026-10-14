@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B8D86:
+; Line editor: pick a player for the cursor slot from the list (attribute pages, up / down); A = the player, negative when cancelled
+SelectLinePlayer:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -56,13 +56,13 @@ CODE_9B8D86:
 	sbc.w $1D8B
 	cmp.w #$0003
 	bpl .t1
-	jsl.l CODE_9B9300
+	jsl.l GetDefenseCount
 	lda.b d0
 	sta.w $1DA3
 	jsl.l GoalieCount
 	lda.b d0
 	sta.w $1DAB
-	jsl.l CODE_9B92DC
+	jsl.l GetForwardCount
 	lda.w $1DAB
 	clc
 	adc.b d0
@@ -70,7 +70,7 @@ CODE_9B8D86:
 	bra .3
 
 .t1:
-	jsl.l CODE_9B92DC
+	jsl.l GetForwardCount
 	lda.b d0
 	sta.w $1DA3
 	jsl.l GoalieCount
@@ -91,7 +91,7 @@ CODE_9B8D86:
 	asl a
 	asl a
 	sta.b d0
-	jsl.l CODE_9B9320
+	jsl.l GetTeamLines
 	lda.b a3
 	clc
 	adc.b d0
@@ -100,7 +100,7 @@ CODE_9B8D86:
 	sec
 	sbc.w $1D8B
 	sta.b a3
-	jsr.w CODE_9B8D72
+	jsr.w ReadLineSlot
 	sta.w $1D9B
 	lda.w $1DAF
 	clc
@@ -141,7 +141,7 @@ CODE_9B8D86:
 	bit.w #$1000
 	beq .t2
 	lda.w #$FFFF
-	jmp.w CODE_9B91A1
+	jmp.w SelectLinePlayerRtl
 
 .t2:
 	bit.w #$8080
@@ -151,7 +151,7 @@ CODE_9B8D86:
 	adc.w $1DAF
 	sec
 	sbc.w $1D9B
-	jmp.w CODE_9B91A1
+	jmp.w SelectLinePlayerRtl
 
 .t1xx:
 	stz.b d0
@@ -329,5 +329,5 @@ org $9B9001
 	pla
 	sta.b $8F
 .2xx:
-	jsr.w CODE_9B9249
+	jsr.w PrintLinePlayerList
 	rtl

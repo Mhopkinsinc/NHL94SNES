@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B8B60:
+; Line editor: erase the line area and print the selected line's players by position, with the goalie marks
+PrintLinePlayers:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -53,7 +53,7 @@ CODE_9B8B60:
 	asl a
 	asl a
 	sta.b d0
-	jsl.l CODE_9B9320
+	jsl.l GetTeamLines
 	sec
 	adc.b d0
 	sta.b a3
@@ -124,7 +124,7 @@ CODE_9B8B60:
 	jmp.w .3
 
 .t1x:
-	jsl.l CODE_9B8970
+	jsl.l DrawEditLinesTitle
 	rts
 .4:
 	db $01,$02,$03,$04

@@ -33,5 +33,5 @@ PrintLineNames:
 	ldy.w #$0002
 	lda.b [a1],y
 	sta.b d4
-	jsr.w CODE_9B8B60
+	jsr.w PrintLinePlayers
 	rtl

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B890F:
+; Line editor: clear the top, the title (DrawEditLinesTitle) and the line frame
+DrawEditLinesTop:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -20,7 +20,7 @@ CODE_9B890F:
 	lda.l $7E35D0
 	sta.b d2
 	jsl.l eraser
-	jsl.l CODE_9B8970
+	jsl.l DrawEditLinesTitle
 	lda.b $8F
 	pha
 	lda.b a1

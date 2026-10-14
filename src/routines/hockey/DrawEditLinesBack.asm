@@ -1,8 +1,5 @@
-; Unidentified routine.
-CODE_9B91A1:
-	rtl
-
-.t1:
+; Redraw the line editor background: clear the top, the frame, and the background map in map 2
+DrawEditLinesBack:
 	pha
 	lda.b $8F
 	pha

@@ -94,10 +94,10 @@ StartHL2:
 	jsl.l restoreteams
 	lda.w #$0000
 	sta.b a2
-	jsl.l CODE_9B9334
+	jsl.l LoadTeamLines
 	lda.w #$0002
 	sta.b a2
-	jsl.l CODE_9B9334
+	jsl.l LoadTeamLines
 	stz.b a2
 	jsl.l reenergizeteam
 	lda.w #$0002

@@ -78,10 +78,10 @@ setoptions:
 	pha
 	lda.w #$0000
 	sta.b a2
-	jsl.l CODE_9B9334
+	jsl.l LoadTeamLines
 	lda.w #$0002
 	sta.b a2
-	jsl.l CODE_9B9334
+	jsl.l LoadTeamLines
 	pla
 	sta.b a2
 	stz.b d7

@@ -1,6 +1,6 @@
 ; Edit Lines menu: Return to Game and Restore default lines
 EditLinesMenu:
-	jsr.w CODE_9B89E6
+	jsr.w ClearEditLinesMenu
 	lda.b $8F
 	pha
 	lda.b a1
@@ -157,9 +157,9 @@ EditLinesMenu:
 	bra .1x
 
 .t2:
-	jsl.l CODE_9B9334
-	jsr.w CODE_9B89E6
-	jsl.l CODE_9B890F
+	jsl.l LoadTeamLines
+	jsr.w ClearEditLinesMenu
+	jsl.l DrawEditLinesTop
 	lda.w #$0000
 .1x:
 	rts

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B8C7A:
+; Put player $1D8F in the cursor slot of the selected line; if he is already in another slot of that line, the old occupant moves there (swap)
+SetLineSlot:
 	sta.w $1D8F
 	lda.w SelectedPlayerIdx
 	dec a
@@ -7,7 +7,7 @@ CODE_9B8C7A:
 	asl a
 	asl a
 	sta.b d0
-	jsl.l CODE_9B9320
+	jsl.l GetTeamLines
 	sec
 	adc.b d0
 	sta.b d0
@@ -26,10 +26,10 @@ CODE_9B8C7A:
 	inc a
 	inc a
 	sta.b a3
-	jsr.w CODE_9B8D72
+	jsr.w ReadLineSlot
 	cmp.w $1D8F
 	bne .t1
-	jsr.w CODE_9B8D4D
+	jsr.w SwapLineSlots
 	bra .4
 
 .t1:
@@ -44,7 +44,7 @@ CODE_9B8C7A:
 	clc
 	adc.w #$0004
 	sta.b a3
-	jsr.w CODE_9B8D72
+	jsr.w ReadLineSlot
 	cmp.w $1D8F
 	bne .t1x
 	dec.b a3
@@ -62,10 +62,10 @@ CODE_9B8C7A:
 	clc
 	adc.w #$0004
 	sta.b a3
-	jsr.w CODE_9B8D72
+	jsr.w ReadLineSlot
 	cmp.w $1D8F
 	bne .t1x2
-	jsr.w CODE_9B8D4D
+	jsr.w SwapLineSlots
 	bra .4
 
 .t1x2:
@@ -79,7 +79,7 @@ CODE_9B8C7A:
 	lda.b d0
 .1:
 	sta.b a3
-	jsr.w CODE_9B8D72
+	jsr.w ReadLineSlot
 	cmp.w $1D8F
 	bne .4
 	jsr.w .5
@@ -89,7 +89,7 @@ CODE_9B8C7A:
 	inc a
 .3:
 	sta.b a3
-	jsr.w CODE_9B8D72
+	jsr.w ReadLineSlot
 	cmp.w $1D8F
 	bne .4
 	dec.b a3
@@ -101,17 +101,17 @@ CODE_9B8C7A:
 	sbc.w $1D8B
 	sta.b a3
 	lda.w $1D8F
-	jsr.w CODE_9B8D7C
+	jsr.w WriteLineSlot
 	rts
 .5:
-	jsr.w CODE_9B8D72
+	jsr.w ReadLineSlot
 	sta.w $1D93
 	inc.b a3
-	jsr.w CODE_9B8D72
+	jsr.w ReadLineSlot
 	dec.b a3
-	jsr.w CODE_9B8D7C
+	jsr.w WriteLineSlot
 	inc.b a3
 	lda.w $1D93
-	jsr.w CODE_9B8D7C
+	jsr.w WriteLineSlot
 	dec.b a3
 	rts

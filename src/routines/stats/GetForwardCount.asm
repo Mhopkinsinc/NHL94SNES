@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B92DC:
+; d0 = forwards on team a2 (high nibble of team data byte 3 at +8)
+GetForwardCount:
 	ldy.b a2
 	lda.w #$009C
 	sta.b $97

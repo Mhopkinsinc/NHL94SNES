@@ -173,7 +173,7 @@ DrawPlayerCard:
 	jsl.l GoalieCount
 	lda.b d0
 	sta.b d1
-	jsl.l CODE_9B92DC
+	jsl.l GetForwardCount
 	lda.b d0
 	clc
 	adc.b d1

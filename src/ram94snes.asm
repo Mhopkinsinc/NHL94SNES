@@ -187,3 +187,5 @@ Wallcos = $1103		; per object: cos of the angle of the last wall collision
 Wallsin = $1123		; per object: sin of that angle
 jmlvector = $1D59	; RAM jml trampoline: $5C (jml opcode), target at +1..+3
 titleskip = $0BE9	; set when a pad press ends the title sequence
+homelines = $1CE4	; the home team lines (7 lines of 8 slot bytes), loaded by LoadTeamLines, changed by the line editor
+awaylines = $1D1C	; the visitors lines, as homelines

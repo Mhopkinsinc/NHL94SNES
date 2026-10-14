@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9249:
+; Line editor player list: each row a player name and the attribute (GetNameandAttrib), the selected row highlighted
+PrintLinePlayerList:
 	lda.b $8F
 	pha
 	lda.b a1
