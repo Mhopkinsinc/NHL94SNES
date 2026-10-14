@@ -14,9 +14,9 @@ CODE_9C97E9:
 	sep #$20
 	inc.w SoundLock
 	rep #$20
-	lda.w #$0080
+	lda.w #DATA8_80E741>>16
 	sta.b $36
-	lda.w #$E741
+	lda.w #DATA8_80E741
 	sta.b $34
 	jsl.l SoundInit
 	ldx.w #$0000

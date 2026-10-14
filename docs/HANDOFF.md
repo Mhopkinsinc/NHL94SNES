@@ -75,6 +75,7 @@
 - Raw table reads under phk / plb written as locals: ReplayMode `.14+2` (the y steps), RenderBigText `.8+16` (the second mask half). The DrawSprite `$E67C`-style operands are left: DB is not $80 there, so they are not the bank $80 credit names they would resolve to.
 - `PuckSfx` (from behavior: sfx with the puck velocity).
 - `FadeOutSound` (from behavior: SetSoundFade $200).
+- `GameSampleList` and `GameSfxTable` (the in-game sample set block list and the sound table SPCGameUpload gives SoundInit; `#$DD66` was raw), and `DATA8_80E741` split out for the intro set the same way. The other sample set uploads (CODE_9C978E, CODE_9C97E9, CODE_9C983D, CODE_9C9891) stay unnamed: the intro and title sets mark $1D68 = 1, the in-game set id, so the set ids do not tell the sets apart.
 
 ## Unsure
 
@@ -95,7 +96,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - Animations that are new in 94 or not certain keep auto labels in `SPAList`.
 - The remaining `CODE_` entries did not uniquely match a 93S or 94G routine. Opcode identity across the two ROMs is rare, and several names collided on the same prologue, so those stay placeholders until a caller shows the job.
 - `DATA8_` blocks that are still cursors, packed bytes, or a second copy of a named table stay unnamed. `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. Phrases in `DATA8_9CF000` that are a title are named. Cursor-only records in that bank stay `DATA8_`.
-- `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `sroot` and `AttribRating` have no 94 counterpart: the distance code uses `ApproxLength` (the larger part plus a share of the smaller), not a square root. `CODE_9C9A7F` swaps the crowd cue sample from its own table; no 93S counterpart.
+- `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `AttribRating` has no 94 counterpart, and the distance code uses `ApproxLength` (the larger part plus a share of the smaller), not a square root; `sroot` exists only for the crowd meter (`UpdateCrowdMeter`). `CODE_9C9A7F` swaps the crowd cue sample from its own table; no 93S counterpart.
 - `$7E35D0` is the blank tile `EraseScoutName` stores the way 93S stores `blankchar`. Not named.
 - `#$0800` and `#$0040` stay raw except `showclock` (`sf2replay`) and `freezewindow` (`sfslock`). `#$2000` and `#$4000` stay raw except `chkpk` (`sf2pwrplay`) and `chkpk2` (`sf2pwrtm`).
 

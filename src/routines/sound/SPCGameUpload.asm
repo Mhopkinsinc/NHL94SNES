@@ -13,16 +13,16 @@ SPCGameUpload:
 	sep #$20
 	inc.w SoundLock
 	rep #$20
-	lda.w #$0080
+	lda.w #GameSfxTable>>16
 	sta.b $36
-	lda.w #$DD66
+	lda.w #GameSfxTable
 	sta.b $34
 	jsl.l SoundInit
 	ldx.w #$0000
 .loop:
-	lda.l DATA8_80DD16,x
+	lda.l GameSampleList,x
 	sta.b $0C
-	lda.l DATA8_80DD16+2,x
+	lda.l GameSampleList+2,x
 	sta.b $0E
 	phx
 	jsl.l SPCUploadBlock

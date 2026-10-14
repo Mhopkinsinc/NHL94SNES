@@ -5646,3 +5646,6 @@ $9C9590,PrintSmallLetterSprites,CODE_9C9590,new,"Behavior: PrintLetterSprites wi
 $9C9479,PrintTeamSprites_go,CODE_9C9479,new,PrintTeamSprites: the letter loop; PrintStringSprites enters here,src/routines/hockey/PrintTeamSprites.asm
 $9C9ABC,PuckSfx,CODE_9C9ABC,new,"Behavior: falls into sfx; the puck collision, pass and shot routines call it",src/routines/sound/PuckSfx.asm
 $9C9786,FadeOutSound,CODE_9C9786,new,"Behavior: called before the screen changes (Opening, pause, replay, period end, playoffs, setupice)",src/routines/sound/FadeOutSound.asm
+$80DD16,GameSampleList,DATA8_80DD16,new,the block list SPCGameUpload sends (long pointers),src/data/tables/GameSampleList.asm
+$80DD66,GameSfxTable,DATA8_80DD16+80,new,the sound table SPCGameUpload passes to SoundInit in $34 (was the immediate #$DD66),src/data/tables/GameSfxTable.asm
+$80E741,DATA8_80E741,DATA8_80E73D+4,new,the sound table CODE_9C97E9 passes to SoundInit (was the immediate #$E741),src/data/tables/DATA8_80E741.asm
