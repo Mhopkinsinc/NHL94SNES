@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB9F7:
+; Title: reset the credits state (entry $0BDD, step $0BD9, the two text y positions $0BDF / $0BE3)
+StartCredits:
 	stz.w $0BDD
 	stz.w $0BE1
 	lda.w #$0000
@@ -11,7 +11,7 @@ CODE_9DB9F7:
 	stz.w $0BDB
 	rts
 
-CODE_9DBA13:
+RollCredits:
 	lda.w $0764
 	cmp.w $0BDB
 	bcc .rts

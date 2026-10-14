@@ -253,7 +253,7 @@ TitleScreen:
 	bra .1
 .3:
 	stz.w $0764
-	jsr.w CODE_9DB9F7
+	jsr.w StartCredits
 	jsl.l WaitFrame
 .loopx:
 	lda.w $0764
@@ -261,7 +261,7 @@ TitleScreen:
 	bcs .4
 	lda.w titleskip
 	bne .4
-	jsr.w CODE_9DBA13
+	jsr.w RollCredits
 	jsr.w .5
 	bra .loopx
 .4:

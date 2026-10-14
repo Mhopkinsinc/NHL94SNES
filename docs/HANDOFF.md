@@ -118,6 +118,7 @@
 - RAM `smallfontchars` ($7E35B6), `Framercset` ($7E35BC), `scorechars` ($7E35CE): print, Framer and DrawTeamBlocks add them where the 93S routines add the same names. From behavior `InitSetupChars`, `SetCardTeamColours`.
 - `FramerNineTile` / `FramerOutline` (the two Framer variants, named from their box maps).
 - Title path from behavior: `BuildTitlePath` with `TitlePathScale`, `TitlePathX`, `TitlePathY` (the tables TitleScreen reads into the mode 7 scale and BG1 scroll).
+- `StartCredits` / `RollCredits` (the title credits: CreditTitles and CreditNames as letter sprites).
 
 ## Unsure
 

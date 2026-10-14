@@ -762,3 +762,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Tile base RAM names; InitSetupChars, SetCardTeamColours. MATCH.
 - Framer variants. MATCH.
 - Title path tables. MATCH.
+- Title credits. MATCH.

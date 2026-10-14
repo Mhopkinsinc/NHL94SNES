@@ -2792,7 +2792,7 @@ $9DBEE4,.t1,CODE_9DBEE4,new,continued in the previous routine,src/routines/snes/
 $9DBD20,.t1,CODE_9DBD20,new,continued in the previous routine,src/routines/hockey/ShuffleTitleTeams.asm
 $9DBCDE,.t1,CODE_9DBCDE,new,continued in the previous routine,src/routines/hockey/TitleWindowWipe.asm
 $9DBBF1,.t1,CODE_9DBBF1,new,continued in the previous routine,src/routines/snes/CODE_9DBBA8.asm
-$9DBA94,.t1,CODE_9DBA94,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
+$9DBA94,.t1,CODE_9DBA94,new,continued in the previous routine,src/routines/hockey/StartCredits.asm
 $9DBA24,.t1,CODE_9DBA24,new,continued in the previous routine,src/routines/snes/CODE_9DBA13.asm
 $9DB90A,.t1,CODE_9DB90A,new,continued in the previous routine,src/routines/hockey/TitlePathX.asm
 $9DB8C3,.t1,CODE_9DB8C3,new,continued in the previous routine,src/routines/hockey/TitlePathScale.asm
@@ -3282,7 +3282,7 @@ $9DBFD2,.t2,CODE_9DBFD2,new,continued in the previous routine,src/routines/snes/
 $9DBF33,.t2,CODE_9DBF33,new,continued in the previous routine,src/routines/snes/CODE_9DBED6.asm
 $9DBD23,.t2,CODE_9DBD23,new,continued in the previous routine,src/routines/hockey/ShuffleTitleTeams.asm
 $9DBBA8,.t2,CODE_9DBBA8,new,continued in the previous routine,src/routines/hockey/LoadTitleLogo.asm
-$9DBAAB,.t2,CODE_9DBAAB,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
+$9DBAAB,.t2,CODE_9DBAAB,new,continued in the previous routine,src/routines/hockey/StartCredits.asm
 $9DB7BB,.t2,CODE_9DB7BB,new,continued in the previous routine,src/routines/hockey/TitleZoomIn.asm
 $9DABC1,.t2,CODE_9DABC1,new,continued in the previous routine,src/routines/snes/CODE_9DAB04.asm
 $9DA943,.t1,CODE_9DA943,new,continued in the previous routine,src/routines/hockey/setoptions.asm
@@ -4066,9 +4066,9 @@ $9DB3E2,.1,CODE_9DB3E2,new,branch target only used in this routine,src/routines/
 $9DB3FA,.2,CODE_9DB3FA,new,branch target only used in this routine,src/routines/hockey/TitleScreen.asm
 $9DB3FF,.3,CODE_9DB3FF,new,continued in the previous routine,src/routines/hockey/TitleScreen.asm
 $9DB41E,.4,CODE_9DB41E,new,continued in the previous routine,src/routines/hockey/TitleScreen.asm
-$9DBA39,.1,CODE_9DBA39,new,branch target only used in this routine,src/routines/snes/CODE_9DB9F7.asm
-$9DBA44,.2,CODE_9DBA44,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
-$9DBA53,.3,CODE_9DBA53,new,branch target only used in this routine,src/routines/snes/CODE_9DB9F7.asm
+$9DBA39,.1,CODE_9DBA39,new,branch target only used in this routine,src/routines/hockey/StartCredits.asm
+$9DBA44,.2,CODE_9DBA44,new,continued in the previous routine,src/routines/hockey/StartCredits.asm
+$9DBA53,.3,CODE_9DBA53,new,branch target only used in this routine,src/routines/hockey/StartCredits.asm
 $9DBF02,.2,CODE_9DBF02,new,branch target only used in this routine,src/routines/hockey/DrawPlayerCard.asm
 $9DC01C,.3,CODE_9DC01C,new,branch target only used in this routine,src/routines/hockey/DrawPlayerCard.asm
 $9DC0BB,.4,CODE_9DC0BB,new,branch target only used in this routine,src/routines/hockey/DrawPlayerCard.asm
@@ -4707,8 +4707,8 @@ $9C9E8E,.16,CODE_9C9E8E,new,branch target only used in this routine,src/routines
 $9DA6FF,.3,CODE_9DA6FF,new,branch target only used in this routine,src/routines/hockey/setoptions.asm
 $9DA7D7,.5,CODE_9DA7D7,new,branch target only used in this routine,src/routines/hockey/setoptions.asm
 $9DA869,.6,CODE_9DA869,new,continued in the previous routine,src/routines/hockey/setoptions.asm
-$9DBA5E,.4,CODE_9DBA5E,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
-$9DBABA,.5,CODE_9DBABA,new,branch target only used in this routine,src/routines/snes/CODE_9DB9F7.asm
+$9DBA5E,.4,CODE_9DBA5E,new,continued in the previous routine,src/routines/hockey/StartCredits.asm
+$9DBABA,.5,CODE_9DBABA,new,branch target only used in this routine,src/routines/hockey/StartCredits.asm
 $9E9305,.1,CODE_9E9305,new,branch target only used in this routine,src/routines/hockey/checkgoalp.asm
 $9E9306,.11,CODE_9E9306,new,continued in the previous routine,src/routines/hockey/checkgoalp.asm
 $9EA19B,.4,CODE_9EA19B,new,branch target only used in this routine,src/routines/logic/check4check.asm
@@ -5804,3 +5804,5 @@ $9DBC8B,BuildTitlePath,CODE_9DBC8B,new,"Behavior: TitleScreen reads the three ta
 $9DB8A1,TitlePathScale,CODE_9DB8A1,new,Behavior: BuildTitlePath's first table,src/routines/hockey/TitlePathScale.asm
 $9DB8E6,TitlePathX,CODE_9DB8E6,new,Behavior: BuildTitlePath's second table,src/routines/hockey/TitlePathX.asm
 $9DB934,TitlePathY,CODE_9DB934,new,Behavior: BuildTitlePath's third table,src/routines/hockey/TitlePathY.asm
+$9DB9F7,StartCredits,CODE_9DB9F7,new,Behavior: TitleScreen calls it before RollCredits; the credits are CreditTitles / CreditNames,src/routines/hockey/StartCredits.asm
+$9DBA13,RollCredits,CODE_9DBA13,new,"Title: each frame, move the credit title and names (CreditTitles / CreditNames, PrintStringSprites) through their steps",src/routines/hockey/StartCredits.asm
