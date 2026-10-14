@@ -515,7 +515,7 @@ puckfaceoff2:
 	dec a
 	jsl.l marktexthi
 	jsl.l CODE_9EBF11
-	lda.w #$D6AC
+	lda.w #DATA8_9AD6A6+6
 	sta.l $7E3120
 	sta.b tmp0
 	lda.w #$009A
@@ -671,7 +671,7 @@ puckfaceoff2:
 	dec.w printy
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D6BE
+	lda.w #linelist
 	sta.b a1
 	jsl.l PrintStringFromList
 	inc.w printx
@@ -682,7 +682,7 @@ puckfaceoff2:
 	sta.b d0
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D6BE
+	lda.w #linelist
 	sta.b a1
 	jsl.l PrintStringFromList
 .3xxxx:

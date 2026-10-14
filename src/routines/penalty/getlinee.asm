@@ -36,7 +36,7 @@ getlinee:
 	stz.b $04
 	lda.w #$0080
 	sta.b $8B
-	lda.w #$D6B0
+	lda.w #priolist
 	sta.b a0
 	ldy.b a2
 	lda.w tmap,y

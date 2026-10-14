@@ -27,7 +27,7 @@ CODE_9BC543:
 .2:
 	lda.w #$0080
 	sta.b $8B
-	lda.w #$D6E1
+	lda.w #PerLabels
 	sta.b a0
 .loop:
 	lda.b $8B

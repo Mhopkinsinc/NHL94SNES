@@ -160,7 +160,7 @@ SetPlList:
 	sta.b d0
 	lda.w #$0080
 	sta.b $8B
-	lda.w #$D646
+	lda.w #sublist
 	sta.b a0
 	ldy.b d0
 	lda.b [a0],y

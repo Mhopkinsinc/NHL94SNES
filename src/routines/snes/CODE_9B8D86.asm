@@ -246,7 +246,7 @@ CODE_9B8D86:
 	sta.b d0
 	lda.w SelectedPlayerIdx
 	bne .3x
-	lda.w #$D8CD
+	lda.w #AttribMenuGoalie
 	sta.b a1
 	lda.w #$0080
 	sta.b $8F

@@ -60,6 +60,7 @@
 - From behavior: `PulseColour` (white / $7E10 colour pulse), `PulsePauseSide`.
 - Split the unlabeled bytes after `asstab` into the 93S tables they equal: `PuckcSpots`, `PixelRemap8D`, `PixelRemap83`, `PixelRemap8F`, `PixelRemap87`; their raw `#$D3xx` pointers are now labels. Framer and the two Framer variants point at their box maps by label.
 - Skateto callbacks that were raw immediates are labels now: `EvadePC` (93S, split out of assdefo; used by assdefo, assbench, asscentero, asswingo), asspuckc `.chkdir` (93S), CODE_9EE463 `.nocallback`.
+- Split the tail of PenaltyList into the 93S tables it holds: `sublist`, `priolist` (was an equate), `linelist`, `PerLabels` (was an equate); their raw `#$D646` / `#$D6BE` pointers are labels now, and puckfaceoff2 points at DATA8_9AD6A6+6 by label.
 
 ## Unsure
 

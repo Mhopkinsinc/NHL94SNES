@@ -121,7 +121,7 @@ DrawPeriodStats:
 .t2:
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D6E1
+	lda.w #PerLabels
 	sta.b a1
 	stx.b d0
 	jsl.l AdvanceStringPtr

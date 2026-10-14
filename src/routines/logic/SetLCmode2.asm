@@ -67,7 +67,7 @@ SetLCmode2:
 	pha
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D6BE
+	lda.w #linelist
 	sta.b a1
 	jsl.l PrintStringFromList
 	pla

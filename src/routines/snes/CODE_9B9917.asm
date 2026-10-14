@@ -56,7 +56,7 @@ CODE_9B9917:
 	sta.b d0
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$D6E1
+	lda.w #PerLabels
 	sta.b a1
 	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC894
