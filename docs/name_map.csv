@@ -5861,3 +5861,19 @@ $80A40F,SeqCmd08Init_send,CODE_80A40F,new,SeqCmd08Init: wait for the sound CPU a
 $9B9C26,CrowdAnimTable,DATA8_9B9C26,new,"a word pointer per crowd sprite object to its entry (a header, then pointers to its frame lists); showcrowd reads it. The 21 entries (DATA8_9B9C50-DATA8_9B9F42) are its locals, and their raw self-pointers are label+offset now",src/data/tables/CrowdAnimTable.asm
 $80D6FE,BigFontIndex,DATA8_80D6FE,93S,"the 93S BigFontIndex (same layout, nearly the same bytes); printbig reads it at the 93S point",src/data/tables/BigFontIndex.asm
 $80D9C6,MaxSpeed,DATA8_80D9C6,93S,"the 93S MaxSpeed table (top speed squared per leg speed rating) with 261 for 266: every entry is (n * 261)^2, n = 20-35; playeracc reads it at the 93S point",src/data/tables/MaxSpeed.asm
+$9EE43F,shotsets,DATA8_9EE43F,93S,the 93S shotsets (x offset and height per shot direction; 15 for 16); doshot reads it at passdir * 4 as in 93S,src/routines/snes/shotsets.asm
+$9FE504,PauseMenuHandlers,DATA8_9FE504,new,a long pointer to the handler of each menu item of PauseMenuItems (PauseMenu),src/data/tables/PauseMenuHandlers.asm
+$9C92FD,TeamStatSources,DATA8_9C92FD,new,per stat of TeamStatNames: a kind word and the RAM words of both teams (PrintTeamStatRows),src/data/tables/TeamStatSources.asm
+$9FEC72,PmenuValueItems,DATA8_9FEC72,new,per pause item list: the goalie and defense control item numbers (Pmenu),src/data/tables/PmenuValueItems.asm
+$9C9623,LetterWidths,DATA8_9C9623,new,"the pixel width of each big letter (RenderBigText, PrintTeamSprites)",src/data/tables/LetterWidths.asm
+$9C9A73,StreamSfxSounds,DATA8_9C9A73,new,the sound played once each streamed sample is in (UpdateStreamSfx),src/data/tables/StreamSfxSounds.asm
+$9DCCAE,MatchupPhotoOffsets,DATA8_9DCCAE,new,"the photo buffer offset of each matchup slot (LoadMatchupPhotos, DrawPlayerPicture)",src/data/tables/MatchupPhotoOffsets.asm
+$80FF00,OAMHighMasks,DATA8_80FF00,new,OAM high table bit masks (DrawSprite reads a WRAM copy),src/data/tables/OAMHighMasks.asm
+$9FD404,LineChangeButtons,DATA8_9FD404,new,"""YBA"": the line change box button letters (SetLCmode2)",src/data/text/LineChangeButtons.asm
+$9C8000,FramerTiles,DATA8_9C8000,93S,"the Framer box tiles, as 93S FramerTiles (drawn with FramerMap; setupice and the screen setups send them)",src/data/tables/FramerTiles.asm
+$9C8080,FramerMap,DATA8_9C8080,93S,"the Framer 3 x 3 box map, as 93S FramerMap",src/data/tables/FramerMap.asm
+$9C8098,FramerNineTileTiles,DATA8_9C8098,new,the FramerNineTile box tiles,src/data/tables/FramerNineTileTiles.asm
+$9C81D8,FramerNineTileMap,DATA8_9C81D8,new,the FramerNineTile box map,src/data/tables/FramerNineTileMap.asm
+$9C81F0,FramerOutlineTiles,DATA8_9C81F0,new,the FramerOutline box tiles,src/data/tables/FramerOutlineTiles.asm
+$9C8310,FramerOutlineMap,DATA8_9C8310,new,the FramerOutline box map,src/data/tables/FramerOutlineMap.asm
+$9E8553,CenterOSpots,DATA8_9E8553,new,"asscentero: four words per zone ($1083,x)",src/routines/snes/CenterOSpots.asm

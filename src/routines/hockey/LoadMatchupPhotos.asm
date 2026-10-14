@@ -46,7 +46,7 @@ LoadMatchupPhotos:
 	lda.w #$5100
 .2:
 	clc
-	adc.l DATA8_9DCCAE,x
+	adc.l MatchupPhotoOffsets,x
 	sta.b $10
 	lda.w #$007F
 	sta.b $0E

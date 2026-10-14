@@ -1,4 +1,4 @@
-; Framer with an outline box (DATA8_9C8310: eight border tiles, the set's base tile in the middle) from tile set $7E35C0
+; Framer with an outline box (FramerOutlineMap: eight border tiles, the set's base tile in the middle) from tile set $7E35C0
 FramerOutline:
 	phx
 	phy
@@ -8,7 +8,7 @@ FramerOutline:
 	sta.b tmp0
 	lda.w #$009C
 	sta.b $0E
-	lda.w #DATA8_9C8310+6
+	lda.w #FramerOutlineMap+6
 	sta.b $0C
 	jsr.w FramerRow
 	lda.b tmp2
@@ -20,12 +20,12 @@ FramerOutline:
 	dec.b d1
 	dec.b d1
 .loop:
-	lda.w #DATA8_9C8310+12
+	lda.w #FramerOutlineMap+12
 	sta.b $0C
 	jsr.w FramerRow
 	dec.b d1
 	bne .loop
-	lda.w #DATA8_9C8310+18
+	lda.w #FramerOutlineMap+18
 	sta.b $0C
 	jsr.w FramerRow
 	inx

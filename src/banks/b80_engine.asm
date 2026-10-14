@@ -204,6 +204,6 @@ incsrc "../data/tables/TitleSampleList.asm"
 incsrc "../data/tables/MenuSampleList.asm"
 incsrc "../data/tables/IntroSampleList.asm"
 incsrc "../data/tables/IntroSfxTable.asm"
-incsrc "../data/tables/DATA8_80FF00.asm"
+incsrc "../data/tables/OAMHighMasks.asm"
 	pad $80FFC0
 incsrc "../header/snes_header.asm"

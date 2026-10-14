@@ -1,5 +1,5 @@
-; Data table.
-DATA8_9E8553:
+; asscentero: four words per zone ($1083,x)
+CenterOSpots:
 	dw $0000,$003C,$FFBA,$000A
 	dw $0000,$003C,$003C,$000A
 	dw $0000,$0028,$00AA,$001E

@@ -92,7 +92,7 @@ RenderBigText:
 	inc a
 	jsr.w .10
 	ldx.b $08
-	lda.l DATA8_9C9623,x
+	lda.l LetterWidths,x
 	and.w #$00FF
 .3:
 	clc
@@ -142,7 +142,7 @@ RenderBigText:
 	bra .6
 
 .t1xx:
-	lda.l DATA8_9C9623,x
+	lda.l LetterWidths,x
 	and.w #$00FF
 .6:
 	clc
@@ -202,7 +202,7 @@ RenderBigText:
 	sbc.w #$0041
 .2x:
 	tax
-	lda.l DATA8_9C9623,x
+	lda.l LetterWidths,x
 	and.w #$00FF
 .3x:
 	clc

@@ -75,7 +75,7 @@ doshot:
 	tay
 	lda.w #$009E
 	sta.b $8B
-	lda.w #DATA8_9EE43F
+	lda.w #shotsets
 	sta.b a0
 	lda.b [a0],y
 	sec

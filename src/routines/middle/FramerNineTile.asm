@@ -1,4 +1,4 @@
-; Framer with a nine-tile box (DATA8_9C81D8: eight border tiles and a centre tile, no flips) from tile set $7E35BE
+; Framer with a nine-tile box (FramerNineTileMap: eight border tiles and a centre tile, no flips) from tile set $7E35BE
 FramerNineTile:
 	phx
 	phy
@@ -8,7 +8,7 @@ FramerNineTile:
 	sta.b tmp0
 	lda.w #$009C
 	sta.b $0E
-	lda.w #DATA8_9C81D8+6
+	lda.w #FramerNineTileMap+6
 	sta.b $0C
 	jsr.w FramerRow
 	lda.b tmp2
@@ -20,12 +20,12 @@ FramerNineTile:
 	dec.b d1
 	dec.b d1
 .loop:
-	lda.w #DATA8_9C81D8+12
+	lda.w #FramerNineTileMap+12
 	sta.b $0C
 	jsr.w FramerRow
 	dec.b d1
 	bne .loop
-	lda.w #DATA8_9C81D8+18
+	lda.w #FramerNineTileMap+18
 	sta.b $0C
 	jsr.w FramerRow
 	inx

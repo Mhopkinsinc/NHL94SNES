@@ -62,9 +62,9 @@ DrawTeamBlocks:
 	asl a
 	asl a
 	tax
-	lda.l DATA8_9C850F+2,x
+	lda.l TeamBlockPalettes+2,x
 	sta.b $0E
-	lda.l DATA8_9C850F,x
+	lda.l TeamBlockPalettes,x
 	sta.b $0C
 	ldx.w #$0010
 	jsl.l SetColours

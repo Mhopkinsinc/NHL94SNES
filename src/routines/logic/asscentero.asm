@@ -95,7 +95,7 @@ asscentero:
 	tay
 	lda.w #$009E
 	sta.b $8B
-	lda.w #DATA8_9E8553
+	lda.w #CenterOSpots
 	sta.b a0
 	iny
 	iny

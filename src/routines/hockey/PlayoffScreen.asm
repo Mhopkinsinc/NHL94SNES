@@ -198,9 +198,9 @@ PlayoffScreen:
 	asl a
 	asl a
 	tax
-	lda.l DATA8_9C850F+2,x
+	lda.l TeamBlockPalettes+2,x
 	sta.b $0E
-	lda.l DATA8_9C850F,x
+	lda.l TeamBlockPalettes,x
 	sta.b $0C
 	ldy.w #$0008
 	lda.b [$0C],y

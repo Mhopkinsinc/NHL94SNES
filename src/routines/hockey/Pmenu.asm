@@ -141,7 +141,7 @@ Pmenu:
 .t3x:
 	lda.w #$009F
 	sta.b $97
-	lda.w #DATA8_9FEC72
+	lda.w #PmenuValueItems
 	sta.b a3
 	lda.w $1EB7
 	asl a
@@ -206,7 +206,7 @@ PmenuRtl:
 PmenuGoalieValue:
 	lda.w #$009F
 	sta.b $97
-	lda.w #DATA8_9FEC72+12
+	lda.w #PmenuValueItems+12
 	sta.b a3
 	lda.w $1EB7
 	asl a
@@ -241,7 +241,7 @@ PmenuGoalieValue:
 PmenuDefValue:
 	lda.w #$009F
 	sta.b $97
-	lda.w #DATA8_9FEC72+24
+	lda.w #PmenuValueItems+24
 	sta.b a3
 	lda.w $1EB7
 	asl a

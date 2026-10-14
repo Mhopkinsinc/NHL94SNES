@@ -14,7 +14,7 @@ StreamSfx:
 	bcc .2
 	asl a
 	tax
-	lda.l DATA8_9C9A73-2,x
+	lda.l StreamSfxSounds-2,x
 	jsl.l StopSound
 .1:
 	lda.w #$0000

@@ -1,5 +1,5 @@
-; a box map, as DATA8_9C8080
-DATA8_9C8310:		; a box map, as DATA8_9C8080
+; The FramerOutline box map, as FramerMap
+FramerOutlineMap:
 	dw $0003,$0003,$0308
 	dw $0001,$0002,$0003
 	dw $0004,$0000,$0005

@@ -71,7 +71,7 @@ SetupScreen:
 	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
-	lda.w #DATA8_9C8000
+	lda.w #FramerTiles
 	sta.b a0
 	lda.w #$0080
 	sta.b $8F
@@ -113,7 +113,7 @@ SetupScreen:
 	sta.l $7E35BE
 	lda.w #$009C
 	sta.b $0E
-	lda.w #DATA8_9C8098
+	lda.w #FramerNineTileTiles
 	sta.b $0C
 	ldx.w #$0140
 	txa
@@ -132,7 +132,7 @@ SetupScreen:
 	sta.l $7E35C0
 	lda.w #$009C
 	sta.b $0E
-	lda.w #DATA8_9C81F0
+	lda.w #FramerOutlineTiles
 	sta.b $0C
 	ldx.w #$0120
 	txa

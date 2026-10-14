@@ -62,7 +62,7 @@ org $9C9000
 .t1:
 	lda.w #$009C
 	sta.b $8B
-	lda.w #DATA8_9C92FD
+	lda.w #TeamStatSources
 	sta.b a0
 	lda.w $1DB9
 	sta.b d0

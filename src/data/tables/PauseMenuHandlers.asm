@@ -1,5 +1,5 @@
-; a long pointer to the handler of each menu item of PauseMenuItems
-DATA8_9FE504:		; a long pointer to the handler of each menu item of PauseMenuItems
+; A long pointer to the handler of each menu item of PauseMenuItems
+PauseMenuHandlers:
 	dd PauseResume,PauseReplay,PauseGameStats,PauseTeamRoster,PauseEditLines
 	dd PausePlayerStats,PauseScoringSummary,PausePenaltySummary,PausePeriodStats,PauseGoalie
 	dd PauseGoalieMode,PauseDefControl,PausePlayerCards,PauseOtherScores,PauseCrowdLevel

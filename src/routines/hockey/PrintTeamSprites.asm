@@ -55,7 +55,7 @@ PrintTeamSprites_go:
 .t1:
 	cmp.w #$0040
 	bne .t2
-	lda.l DATA8_9C9623+$1B
+	lda.l LetterWidths+$1B
 	and.w #$00FF
 	bra .2
 
@@ -76,7 +76,7 @@ PrintTeamSprites_go:
 	sbc.w #$0041
 .1:
 	tax
-	lda.l DATA8_9C9623,x
+	lda.l LetterWidths,x
 	and.w #$00FF
 .2:
 	clc
@@ -179,7 +179,7 @@ PrintTeamSprites_go:
 	jsl.l DrawSprite
 	plx
 	ply
-	lda.l DATA8_9C9623,x
+	lda.l LetterWidths,x
 	and.w #$00FF
 .8:
 	clc

@@ -275,7 +275,7 @@ DrawPlayerPicture:
 	sta.w $1E87
 	lda.w #$2D00
 	clc
-	adc.l DATA8_9DCCAE,x
+	adc.l MatchupPhotoOffsets,x
 	sta.l $7E3472
 	bra .2x
 
@@ -284,7 +284,7 @@ DrawPlayerPicture:
 	sta.w $1E87
 	lda.w #$5100
 	clc
-	adc.l DATA8_9DCCAE,x
+	adc.l MatchupPhotoOffsets,x
 	sta.l $7E3470
 .2x:
 	lda.w #$0092

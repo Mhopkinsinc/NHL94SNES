@@ -122,42 +122,42 @@ PauseMenuPoll:
 .t1x:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #DATA8_9FE504
+	lda.w #PauseMenuHandlers
 	sta.b a0
 	bra .1
 
 .t2x:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #DATA8_9FE504+64
+	lda.w #PauseMenuHandlers+64
 	sta.b a0
 	bra .1
 
 .t3x:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #DATA8_9FE504+132
+	lda.w #PauseMenuHandlers+132
 	sta.b a0
 	bra .1
 
 .t4:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #DATA8_9FE504+192
+	lda.w #PauseMenuHandlers+192
 	sta.b a0
 	bra .1
 
 .t5:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #DATA8_9FE504+228
+	lda.w #PauseMenuHandlers+228
 	sta.b a0
 	bra .1
 
 .t6:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #DATA8_9FE504+252
+	lda.w #PauseMenuHandlers+252
 	sta.b a0
 .1:
 	lda.b [a0],y

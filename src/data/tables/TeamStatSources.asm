@@ -1,6 +1,5 @@
-; per stat of TeamStatNames: a kind word, then the RAM word of the home and away team
-DATA8_9C92FD:		; per stat of TeamStatNames: a kind word, then the RAM word of the home and away team
-			;   ($FFFF = none); $FFFF ends them
+; Per stat of TeamStatNames: a kind word, then the RAM word of the home and away team ($FFFF = none); $FFFF ends them
+TeamStatSources:
 	dw $0010,$178E,$FFFF
 	dw $0010,$177A,$FFFF
 	dw $0012,$178E,$177A

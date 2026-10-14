@@ -1,4 +1,4 @@
-; Each frame: stream the sample block of streamsfx (.7) to the sound CPU (SPCStreamStart / SPCStreamNext), then play it (QueueSound from DATA8_9C9A73)
+; Each frame: stream the sample block of streamsfx (.7) to the sound CPU (SPCStreamStart / SPCStreamNext), then play it (QueueSound from StreamSfxSounds)
 UpdateStreamSfx:
 	rep #$30
 	lda.w SoundLock
@@ -40,7 +40,7 @@ UpdateStreamSfx:
 	tax
 	lda.w #$7000
 	sta.b $64
-	lda.l DATA8_9C9A73-2,x
+	lda.l StreamSfxSounds-2,x
 	jsl.l QueueSound
 	lda.w #$0003
 	sta.l streamstate
@@ -90,7 +90,7 @@ UpdateStreamSfx:
 	tax
 	lda.w #$7000
 	sta.b $64
-	lda.l DATA8_9C9A73-2,x
+	lda.l StreamSfxSounds-2,x
 	jsl.l QueueSound
 	rtl
 

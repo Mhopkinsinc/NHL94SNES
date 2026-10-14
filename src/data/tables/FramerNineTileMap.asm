@@ -1,5 +1,5 @@
-; a box map, as DATA8_9C8080
-DATA8_9C81D8:		; a box map, as DATA8_9C8080
+; The FramerNineTile box map, as FramerMap
+FramerNineTileMap:
 	dw $0003,$0003,$0308
 	dw $0001,$0002,$0003
 	dw $0004,$0005,$0006

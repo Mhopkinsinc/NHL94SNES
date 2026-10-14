@@ -56,7 +56,7 @@ SetLCmode2:
 	sta.b [a1]
 	phx
 	ldx.b d4
-	lda.l DATA8_9FD404,x
+	lda.l LineChangeButtons,x
 	plx
 	and.w #$00FF
 	ora.w #$2000
