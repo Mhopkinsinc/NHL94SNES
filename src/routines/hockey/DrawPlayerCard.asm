@@ -429,7 +429,7 @@ org $9DC002
 	bra .7
 
 .t1xxxx:
-	jsl.l CODE_9DD94D
+	jsl.l SendTextMap2
 .7:
 	jsl.l CODE_9DC2DE
 	jsl.l WaitFrame

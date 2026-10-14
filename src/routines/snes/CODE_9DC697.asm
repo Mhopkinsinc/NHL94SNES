@@ -281,7 +281,7 @@ CODE_9DC697:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9DD94D
+	jsl.l SendTextMap2
 	ldx.w #$0000
 	ldy.w #$0180
 	lda.w #$6000

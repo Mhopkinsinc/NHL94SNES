@@ -44,8 +44,8 @@ ShooterSelectList:
 	clc
 	adc.w #$0C00
 	jsl.l PasteMap
-	jsl.l CODE_9DD938
-	jsl.l CODE_9DD962
+	jsl.l SendTextMapRows
+	jsl.l SendTextMap2Rows
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	lda.w #$0007
@@ -111,7 +111,7 @@ ShooterSelectList:
 	jsl.l PrintShooterList
 .2:
 	jsl.l SendTextMap
-	jsl.l CODE_9DD94D
+	jsl.l SendTextMap2
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	jsl.l ReadPausePad

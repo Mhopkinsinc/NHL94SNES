@@ -45,6 +45,7 @@
 - `Readjoy1` (93S: pad 1 into d0-d3 from the `ReadPads` values), `CheckPAL`, `BlankScreen` and `ResetPPURegs` (the two halves of `forceblack`), `Mul16x8_Zero`, `Mul16x8U_Pre`.
 - Start-up and menus: `Opening` (the tail of 93S `Start`, then 93S `Opening`: `TitleScreen`, then `Restart`), `TitleScreen`, `DefaultMenus`, `setoptions` (the game setup screen, called from the `Restart` code with the 93S calls `NewPO` and `InitSortObjects`; the screen is rewritten), `ReadAnyPad`.
 - Sprites: `DrawSpritePieces` (the OAM loop `DrawSprite` jumps to) and `FindCachedFrame` (the tile cache lookup in front of `LoadFrameTiles`).
+- Screens: `GetMatchupPlayer` (94G; its slot table is the 94G `MatchupLineSlots` order), `FramerRow`, `GetPauseTeam`, `SendTextMap2`, `SendTextMapRows`, `SendTextMap2Rows`, `SetupBandIRQ` with `IRQ_BandStart` / `IRQ_BandEnd`.
 
 ## Unsure
 

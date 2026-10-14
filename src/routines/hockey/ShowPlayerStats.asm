@@ -1,6 +1,6 @@
 ; Player stats for the team in a2.
 ShowPlayerStats:
-	jsl.l CODE_9DE0E9
+	jsl.l GetPauseTeam
 	lda.b a2
 	pha
 	ldx.b a2

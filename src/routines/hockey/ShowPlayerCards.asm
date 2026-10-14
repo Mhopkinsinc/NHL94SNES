@@ -1,6 +1,6 @@
 ; Player cards. Left and right change the player, start leaves.
 ShowPlayerCards:
-	jsl.l CODE_9DE0E9
+	jsl.l GetPauseTeam
 	lda.b a2
 	pha
 	stz.w $07C6

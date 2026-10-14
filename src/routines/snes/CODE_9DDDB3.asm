@@ -174,8 +174,8 @@ CODE_9DDDB3:
 .t1xx:
 	jsl.l WaitFrame
 .4:
-	jsl.l CODE_9DD938
-	jsl.l CODE_9DD962
+	jsl.l SendTextMapRows
+	jsl.l SendTextMap2Rows
 .5:
 	pla
 	sta.b a2

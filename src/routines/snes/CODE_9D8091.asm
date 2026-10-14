@@ -10,7 +10,7 @@ CODE_9D8091:
 	sta.b $0E
 	lda.w #$81DE
 	sta.b $0C
-	jsr.w CODE_9D804F
+	jsr.w FramerRow
 	lda.b tmp2
 	lsr a
 	cmp.w textdirtylo
@@ -22,12 +22,12 @@ CODE_9D8091:
 .loop:
 	lda.w #$81E4
 	sta.b $0C
-	jsr.w CODE_9D804F
+	jsr.w FramerRow
 	dec.b d1
 	bne .loop
 	lda.w #$81EA
 	sta.b $0C
-	jsr.w CODE_9D804F
+	jsr.w FramerRow
 	inx
 	inx
 	txa

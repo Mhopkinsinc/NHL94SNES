@@ -334,7 +334,7 @@ CODE_9D87D7:
 	jsl.l SetColours
 	jsl.l SendColours
 	jsl.l ClearTextMap
-	jsl.l CODE_9DD94D
+	jsl.l SendTextMap2
 	jsl.l WaitFrame
 	ldx.w #$0000
 	ldy.w #$0180

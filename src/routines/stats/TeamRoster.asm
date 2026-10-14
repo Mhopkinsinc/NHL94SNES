@@ -1,6 +1,6 @@
 ; Team roster for the team in a2. Y switches team, start leaves.
 TeamRoster:
-	jsl.l CODE_9DE0E9
+	jsl.l GetPauseTeam
 	ldy.b a2
 	lda.w tmline,y
 	inc a

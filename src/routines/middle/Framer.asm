@@ -11,7 +11,7 @@ Framer:
 	sta.b $0E
 	lda.w #$8086
 	sta.b $0C
-	jsr.w CODE_9D804F
+	jsr.w FramerRow
 	lda.b tmp2
 	lsr a
 	cmp.w textdirtylo
@@ -23,12 +23,12 @@ Framer:
 .loop:
 	lda.w #$808C
 	sta.b $0C
-	jsr.w CODE_9D804F
+	jsr.w FramerRow
 	dec.b d1
 	bne .loop
 	lda.w #$8092
 	sta.b $0C
-	jsr.w CODE_9D804F
+	jsr.w FramerRow
 	inx
 	inx
 	txa

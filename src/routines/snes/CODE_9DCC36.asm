@@ -14,7 +14,7 @@ CODE_9DCC36:
 	phx
 	txa
 	lsr a
-	jsl.l CODE_9DC973
+	jsl.l GetMatchupPlayer
 	ldx.b a2
 	lda.w HomeTeam,x
 	sta.l $7E346C,x

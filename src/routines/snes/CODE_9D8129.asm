@@ -11,7 +11,7 @@ CODE_9D8129:
 	jsl.l CODE_9DCC36
 	lda.w #$0008
 	ldx.w #$003E
-	jsl.l CODE_9DCCF5
+	jsl.l SetupBandIRQ
 	stz.w $1DB9
 	stz.w $1E3D
 	jsl.l .10

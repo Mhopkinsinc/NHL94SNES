@@ -1,6 +1,6 @@
 ; Shootout shooters menu item: pick the 3 shooters of each team
 ShootoutShooters:
-	jsl.l CODE_9DE0E9
+	jsl.l GetPauseTeam
 	lda.w #$0001
 	sta.b d0
 	lda.b a2
@@ -33,7 +33,7 @@ ShootoutShooters:
 	jsl.l PrintShooterNames
 	lda.w #$0005
 	ldx.w #$0050
-	jsl.l CODE_9DCCF5
+	jsl.l SetupBandIRQ
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 ShootersLoop:

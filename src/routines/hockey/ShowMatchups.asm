@@ -96,7 +96,7 @@ ShowMatchups:
 	pla
 	sta.b $8F
 	lda.w $1DB9
-	jsl.l CODE_9DC973
+	jsl.l GetMatchupPlayer
 	lda.b d0
 	sta.w $1D9B
 	lda.w #$0001
@@ -140,7 +140,7 @@ ShowMatchups:
 	pla
 	sta.b $8F
 	lda.w $1DB9
-	jsl.l CODE_9DC973
+	jsl.l GetMatchupPlayer
 	lda.b d0
 	sta.w $1D9B
 	lda.w #$0001

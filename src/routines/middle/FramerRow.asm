@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D804F:
+; Draw one row of a frame into the text map at printx / printy: a corner, d0 - 2 middle tiles, a corner
+FramerRow:
 	lda.w printy
 	asl a
 	asl a

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DC973:
+; d0 = the roster slot of team a2's player for matchup A (center, wings, defense, goalie)
+GetMatchupPlayer:
 	tay
 	lda.w #$009D
 	sta.b $8F

@@ -1,6 +1,6 @@
 ; Change the lines on the ice. Start opens the line menu.
 EditLinesScreen:
-	jsl.l CODE_9DE0E9
+	jsl.l GetPauseTeam
 	ldy.b a2
 	lda.w tmline,y
 	inc a
@@ -21,7 +21,7 @@ EditLinesScreen:
 	jsl.l PrintLineNames
 	lda.w #$0005
 	ldx.w #$0068
-	jsl.l CODE_9DCCF5
+	jsl.l SetupBandIRQ
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 .3:

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DD962:
+; Send rows 1-12 of the second text map to video memory
+SendTextMap2Rows:
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$4034

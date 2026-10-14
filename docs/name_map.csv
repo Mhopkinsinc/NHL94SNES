@@ -796,7 +796,7 @@ $9EDB68,.2,CODE_9EDB68,new,branch target only used in this routine,src/routines/
 $9EDB7D,.3,CODE_9EDB7D,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
 $9EDB89,.4,CODE_9EDB89,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
 $9EDBA1,.5,CODE_9EDBA1,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
-$9D8077,.loop,CODE_9D8077,new,branch target only used in this routine,src/routines/snes/CODE_9D804F.asm
+$9D8077,.loop,CODE_9D8077,new,branch target only used in this routine,src/routines/middle/FramerRow.asm
 $9FD507,.1,CODE_9FD507,new,branch target only used in this routine,src/routines/snes/CODE_9FD4FC.asm
 $9FD51B,.2,CODE_9FD51B,new,branch target only used in this routine,src/routines/snes/CODE_9FD4FC.asm
 $9FD52D,.3,CODE_9FD52D,new,branch target only used in this routine,src/routines/snes/CODE_9FD4FC.asm
@@ -1411,7 +1411,7 @@ $9DBC7E,.1,CODE_9DBC7E,new,branch target only used in this routine,src/routines/
 $9ED765,.1,CODE_9ED765,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
 $9ED781,.2,CODE_9ED781,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
 $9ED7A2,.1,CODE_9ED7A2,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
-$9DE0FB,.rtl,CODE_9DE0FB,new,branch target only used in this routine,src/routines/snes/CODE_9DE0E9.asm
+$9DE0FB,.rtl,CODE_9DE0FB,new,branch target only used in this routine,src/routines/snes/GetPauseTeam.asm
 $9BACE9,.1,CODE_9BACE9,new,branch target only used in this routine,src/routines/hockey/ReplayMode.asm
 $9BACEA,.2,CODE_9BACEA,new,branch target only used in this routine,src/routines/hockey/ReplayMode.asm
 $80C171,.loop,CODE_80C171,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
@@ -5391,7 +5391,7 @@ $9DACDF,.15,DATA8_9DACDF,new,"part of CODE_9DA5CA, used only by it",src/routines
 $9DB774,.1,DATA8_9DB774,new,"part of CODE_9DB754, used only by it",src/routines/snes/CODE_9DB754.asm
 $9DB78A,.2,DATA8_9DB78A,new,"part of CODE_9DB754, used only by it",src/routines/snes/CODE_9DB754.asm
 $9DC298,.8,DATA8_9DC298,new,"part of DrawPlayerCard, used only by it",src/routines/hockey/DrawPlayerCard.asm
-$9DC9A2,.1,DATA8_9DC9A2,new,"part of CODE_9DC973, used only by it",src/routines/snes/CODE_9DC973.asm
+$9DC9A2,.1,DATA8_9DC9A2,new,"part of CODE_9DC973, used only by it",src/routines/snes/GetMatchupPlayer.asm
 $9DE04E,.1,DATA8_9DE04E,new,"part of CODE_9DDFF6, used only by it",src/routines/snes/CODE_9DDFF6.asm
 $9DE056,.2,DATA8_9DE056,new,"part of CODE_9DDFF6, used only by it",src/routines/snes/CODE_9DDFF6.asm
 $9DE060,.3,DATA8_9DE060,new,"part of CODE_9DDFF6, used only by it",src/routines/snes/CODE_9DDFF6.asm
@@ -5520,3 +5520,12 @@ $9F8283,Opening,CODE_9F8283,93S,"the tail of 93S Start (ResetPassWord, DefaultMe
 $9B8526,ReadAnyPad,CODE_9B8526,new,$0AC2 from ReadPads,src/routines/snes/ReadAnyPad.asm
 $80B286,DrawSpritePieces,CODE_80B286,new,"DrawSprite's piece loop: frame header words, SpritesLeft, OAMNext and the high table",src/routines/snes/DrawSpritePieces.asm
 $80B3CE,FindCachedFrame,CODE_80B3CE,new,the $2540 / $2640 cache addresses compared with [$0C],src/routines/snes/FindCachedFrame.asm
+$9D804F,FramerRow,CODE_9D804F,new,the row Framer draws,src/routines/middle/FramerRow.asm
+$9DE0E9,GetPauseTeam,CODE_9DE0E9,new,pausepad and the team per controller,src/routines/snes/GetPauseTeam.asm
+$9DD94D,SendTextMap2,CODE_9DD94D,new,DMAToVRAM of $7E3FF4 to $0400,src/routines/snes/SendTextMap2.asm
+$9DD938,SendTextMapRows,CODE_9DD938,new,DMAToVRAM of $7E3834 to $0020,src/routines/snes/SendTextMapRows.asm
+$9DD962,SendTextMap2Rows,CODE_9DD962,new,DMAToVRAM of $7E4034 to $0420,src/routines/snes/SendTextMap2Rows.asm
+$9DCCF5,SetupBandIRQ,CODE_9DCCF5,new,SetIRQ with IRQ_BandStart at line A and IRQ_BandEnd at line X,src/routines/snes/SetupBandIRQ.asm
+$9DCD0F,IRQ_BandStart,CODE_9DCD0F,new,the band start set by SetupBandIRQ,src/routines/snes/IRQ_BandStart.asm
+$9DCD34,IRQ_BandEnd,CODE_9DCD34,new,the band end,src/routines/snes/IRQ_BandEnd.asm
+$9DC973,GetMatchupPlayer,CODE_9DC973,94G,"ShowMatchups calls it as 94G ScoutingReport calls GetMatchupPlayer; the first line set of the team at the 94G MatchupLineSlots slots (4, 3, 5, 1, 2, 0)",src/routines/snes/GetMatchupPlayer.asm

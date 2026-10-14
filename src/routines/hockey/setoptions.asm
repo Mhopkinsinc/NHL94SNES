@@ -94,7 +94,7 @@ setoptions:
 	jsl.l ScreenOn
 	lda.w #$0008
 	ldx.w #$0040
-	jsl.l CODE_9DCCF5
+	jsl.l SetupBandIRQ
 	jsl.l SendTextMap
 	ldx.w #$0000
 	jsl.l CODE_9DCC36
@@ -679,7 +679,7 @@ setoptions:
 .t1xxxxxxxxxxx:
 	stx.b a2
 	lda.l $7E345E
-	jsl.l CODE_9DC973
+	jsl.l GetMatchupPlayer
 	jsl.l PlayerShortName
 	cpx.w #$0000
 	bne .rtsx
