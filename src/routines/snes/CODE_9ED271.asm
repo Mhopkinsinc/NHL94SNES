@@ -11,7 +11,7 @@ CODE_9ED271:
 CODE_9ED286:
 	clc
 	adc.w $0D71
-	sta.b $A5
+	sta.b d0
 	lda.w puckvy
 	xba
 	and.w #$00FF
@@ -21,15 +21,15 @@ CODE_9ED286:
 CODE_9ED29B:
 	clc
 	adc.w pucky
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9EAB74
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $A5
+	lda.b d0
 	pha
 	txa
 	jsl.l CODE_9BC002
-	lda.b $A5
+	lda.b d0
 	eor.w #$FFFF
 	inc a
 	sec
@@ -43,8 +43,8 @@ CODE_9ED2C5:
 	adc.b $01,s
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
-	lda.b $A9
+	sta.b d0
+	lda.b d1
 	eor.w #$FFFF
 	inc a
 	sec
@@ -58,13 +58,13 @@ CODE_9ED2E3:
 	adc.b $03,s
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	pla
 	pla
 	jsl.l vtoa
-	lda.b $A5
+	lda.b d0
 	sta.w $10A3,x
 CODE_9ED2F7:
 	lda.w $10A3,x
-	sta.b $A5
+	sta.b d0
 	jml.l CODE_9EA8A9

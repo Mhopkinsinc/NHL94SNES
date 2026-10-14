@@ -3,7 +3,7 @@ CODE_9FE1FA:
 	lda.w $0D15
 	asl a
 	asl a
-	sta.b $A5
+	sta.b d0
 	tay
 	lda.w $1EB7
 	beq CODE_9FE21D

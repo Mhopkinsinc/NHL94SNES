@@ -3,7 +3,7 @@ UnlockHandle:		; clear the locked bit of handle A's block
 	pha
 	cmp.w #$2000
 	bcc .exit
-	cmp.w #$2100
+	cmp.w #INIDISP
 	bcs .exit
 	tax
 	lda.l $7E0002,x

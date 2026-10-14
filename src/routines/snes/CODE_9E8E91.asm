@@ -29,12 +29,12 @@ CODE_9E8E91:
 	sta.w puckvy
 	inx
 	inx
-	stx.b $95
+	stx.b a3
 	lda.w #$F8E8
-	sta.b $A9
+	sta.b d1
 	jsl.l SetSPA
 	plx
-	stx.b $95
+	stx.b a3
 	lda.w #$0006
 	jsl.l CODE_9C9A7F
 	lda.l $7E35E0
@@ -58,17 +58,17 @@ CODE_9E8F05:
 	tsb.w $0E1F
 CODE_9E8F19:
 	stz.w $0DB5
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9E8F37
 	lda.l $7E30F6
 	asl a
-	sta.b $95
+	sta.b a3
 	tax
 	lda.w #$0006
-	sta.b $A5
+	sta.b d0
 	jsl.l ShootoutWonBy
 	ldx.w #$001C
-	stx.b $95
+	stx.b a3
 CODE_9E8F37:
 	jsl.l CODE_9EC791
 	stz.w $1E8B

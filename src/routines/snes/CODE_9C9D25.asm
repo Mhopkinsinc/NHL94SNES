@@ -17,9 +17,9 @@ CODE_9C9D25:
 	lda.w #$007E
 	sta.b $8F
 	lda.w #$3136
-	sta.b $8D
+	sta.b a1
 	ldy.w #$0000
-	lda.b [$8D],y
+	lda.b [a1],y
 	and.w #$F000
 	xba
 	lsr a
@@ -33,11 +33,11 @@ CODE_9C9D25:
 	iny
 	iny
 	iny
-	lda.b [$8D],y
+	lda.b [a1],y
 	and.w #$00FF
 	sta.w $1E1F
 	dey
-	lda.b [$8D],y
+	lda.b [a1],y
 	and.w #$00F0
 	beq CODE_9C9D8A
 	lda.w $1E1F
@@ -45,12 +45,12 @@ CODE_9C9D25:
 	adc.w #$001A
 	sta.w $1E1F
 CODE_9C9D8A:
-	stz.b $91
+	stz.b a2
 	jsl.l GetPlayerCount
-	lda.b $A5
+	lda.b d0
 	sta.w $1E21
 	jsl.l GoalieCount
-	lda.b $A5
+	lda.b d0
 	sta.w $1E23
 	ldx.w #$0000
 CODE_9C9DA1:

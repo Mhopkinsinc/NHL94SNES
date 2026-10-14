@@ -5,15 +5,15 @@ CODE_9FBEFD:
 	bne CODE_9FBF74
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF8D2
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$009A
@@ -34,9 +34,9 @@ CODE_9FBEFD:
 	adc.l $7E35AA
 	jsl.l CODE_808E2D
 	lda.w #$0321
-	cmp.w $0CD5
+	cmp.w textdirtylo
 	bcs CODE_9FBF59
-	sta.w $0CD5
+	sta.w textdirtylo
 CODE_9FBF59:
 	lda.l DATA8_9AEA3A+2
 	clc
@@ -49,8 +49,8 @@ CODE_9FBF59:
 	asl a
 	clc
 	adc.l DATA8_9AEA3A
-	cmp.w $0CD7
+	cmp.w textdirtyhi
 	bcc CODE_9FBF74
-	sta.w $0CD7
+	sta.w textdirtyhi
 CODE_9FBF74:
 	rtl

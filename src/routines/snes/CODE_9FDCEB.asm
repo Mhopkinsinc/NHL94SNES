@@ -1,18 +1,18 @@
 ; Unidentified routine.
 CODE_9FDCEB:
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $91
+	lda.b a2
 	pha
-	ldx.b $89
+	ldx.b a0
 	jsl.l CODE_9FDCB2
 	pla
-	sta.b $91
+	sta.b a2
 	pla
-	sta.b $A9
+	sta.b d1
 	pla
-	ldx.b $A5
+	ldx.b d0
 	jsl.l Mul16S
 	lda.b $0A
 	asl.b $08
@@ -23,7 +23,7 @@ CODE_9FDCEB:
 	rol a
 	asl.b $08
 	rol a
-	sta.b $A5
-	ldx.b $95
+	sta.b d0
+	ldx.b a3
 	clc
 	rtl

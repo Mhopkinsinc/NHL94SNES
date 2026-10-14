@@ -1,11 +1,11 @@
 ; Unidentified routine.
 CODE_9FB4B6:
-	ldy.b $95
-	sty.b $91
-	lda.b $A5
+	ldy.b a3
+	sty.b a2
+	lda.b d0
 	asl a
-	sta.b $A5
-	sta.b $95
+	sta.b d0
+	sta.b a3
 	tax
 	phy
 	ldy.w #$0000
@@ -17,8 +17,8 @@ CODE_9FB4CE:
 	sta.w $1D55,y
 	jsl.l CODE_9FD2FE
 	ply
-	sty.b $91
-	ldx.b $95
+	sty.b a2
+	ldx.b a3
 	phy
 	ldy.w #$0000
 	lda.w pfteam,x

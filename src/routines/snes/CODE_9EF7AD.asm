@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9EF7AD:
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w pucky
 	bmi CODE_9EF7BF
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w $0E9F
 	bpl CODE_9EF829

@@ -1,8 +1,8 @@
 ; Unidentified routine.
 CODE_9E858C:
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9E8589
-	jsl.l CODE_9FDC4C
+	jsl.l check4bench
 	lda.w $19D4,x
 	bpl CODE_9E8588
 	lda.w pflags,x
@@ -17,7 +17,7 @@ CODE_9E858C:
 CODE_9E85B4:
 	lda.w $1003,x
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $1003,x
 	bpl CODE_9E85C5
 	lda.w $1343,x
@@ -28,13 +28,13 @@ CODE_9E85C5:
 	asl a
 	pla
 	ror a
-	sta.b $A5
+	sta.b d0
 	lda.w #$0080
-	sta.b $A9
+	sta.b d1
 	lda.w pfgoal,x
 	beq CODE_9E85F6
 	lda.w #$FF80
-	sta.b $A9
+	sta.b d1
 	lda.w #$FFA8
 	sec
 	sbc.w pucky
@@ -46,5 +46,5 @@ CODE_9E85C5:
 	asl a
 	pla
 	ror a
-	sta.b $A9
+	sta.b d1
 	bra CODE_9E860B

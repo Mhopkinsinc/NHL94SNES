@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9BC6BE:
-	lda.b $C1
+	lda.b d7
 	clc
-	adc.b $A5
-	sta.b $C1
+	adc.b d0
+	sta.b d7
 	jml.l CODE_9BCDB3

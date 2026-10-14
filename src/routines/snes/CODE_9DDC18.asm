@@ -121,13 +121,13 @@ CODE_9DDCF3:
 	lda.w HomeTeam
 	cmp.w #$0018
 	bcs CODE_9DDD4E
-	stz.b $91
+	stz.b a2
 CODE_9DDD4E:
 	lda.w VisTeam
 	cmp.w #$0018
 	bcs CODE_9DDD5B
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 CODE_9DDD5B:
 	lda.w #$009A
 	sta.b $0E
@@ -156,5 +156,5 @@ CODE_9DDD5B:
 	sta.l $7F7500
 	jsl.l CODE_9DDDB3
 	pla
-	sta.b $91
+	sta.b a2
 	rtl

@@ -14,13 +14,13 @@ CODE_80CF48:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B851F
-	jsl.l CODE_9B852C
-	lda.b $A9
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
 	bit.w #$1000
 	bne CODE_80CF84
 	bit.w #$0800
 	bne CODE_80CFBE
-	bit.w #$0400
+	bit.w #DMA_OAM
 	bne CODE_80CFAE
 	bit.w #$0100
 	bne CODE_80CF8C

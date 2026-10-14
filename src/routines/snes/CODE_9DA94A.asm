@@ -1,8 +1,8 @@
 ; Unidentified routine.
 CODE_9DA94A:
-	lda.b $B1
+	lda.b d3
 	clc
-	adc.b $AD
+	adc.b d2
 	cmp.w #$0000
 	beq CODE_9DA966
 	cmp.w #$0003
@@ -10,7 +10,7 @@ CODE_9DA94A:
 	cmp.w #$0005
 	beq CODE_9DA966
 CODE_9DA95E:
-	sta.b $B1
-	lda.b $B1
-	sta.b [$91],y
+	sta.b d3
+	lda.b d3
+	sta.b [a2],y
 	bra CODE_9DA920

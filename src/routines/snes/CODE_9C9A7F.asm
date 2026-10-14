@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9C9A7F:
 	sep #$20
-	dec.w $07E5
+	dec.w SoundLock
 	rep #$20
 	sta.b $14
 	phx
@@ -23,7 +23,7 @@ CODE_9C9AA6:
 	sta.l $7E35E6
 CODE_9C9AB3:
 	sep #$20
-	inc.w $07E5
+	inc.w SoundLock
 	rep #$20
 	plx
 	rtl

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9E9212:
-	stz.b $A9
+	stz.b d1
 	lda.w pucky
 	eor.b $0C
 	bmi CODE_9E91EC
@@ -10,17 +10,17 @@ CODE_9E9212:
 	sta.b $0C
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
+	sbc.b d0
+	sta.b d0
 	lda.w $14DF
 	bne CODE_9E91EC
 	lda.w $0DF9
 	cmp.w #$000D
 	beq CODE_9E9246
-	lda.b $AD
+	lda.b d2
 	cmp.w #$0012
 	bpl CODE_9E9246
-	lda.b $AD
+	lda.b d2
 	cmp.w #$FFEF
 	bpl CODE_9E920F
 CODE_9E9246:
@@ -43,15 +43,15 @@ CODE_9E9246:
 CODE_9E9274:
 	jsl.l RandomWord
 	and.w #$0FFF
-	sta.b $A5
+	sta.b d0
 	lda.w pucky
 	bmi CODE_9E928A
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
+	sbc.b d0
+	sta.b d0
 CODE_9E928A:
-	lda.b $A5
+	lda.b d0
 	sta.w puckvy
 	jsl.l RandomWord
 	and.w #$1FFF
@@ -63,4 +63,4 @@ CODE_9E928A:
 	sec
 	sbc.w #$1000
 	sta.w $0E01
-	jmp.w CODE_9EDE5E
+	jmp.w puckflip

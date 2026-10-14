@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9C9074:
-	lda.b [$89]
+	lda.b [a0]
 	clc
-	adc.b $91
+	adc.b a2
 	tay
 	lda.w $0000,y
-	sta.b $A5
+	sta.b d0
 	jsl.l PushNumber
 	jmp.w CODE_9C9154

@@ -50,7 +50,7 @@ CODE_80AF0A:
 	rep #$30
 	lda.w #$0080
 	sta.w SpritesLeft
-	lda.w #$2100
+	lda.w #INIDISP
 	sta.w OAMNext
 	lda.w #$2300
 	sta.w OAMHideEnd
@@ -58,7 +58,7 @@ CODE_80AF0A:
 	sta.w OAMLastEnd
 	lda.w #$2320
 	sta.w OAMShowBuf
-	lda.w #$2100
+	lda.w #INIDISP
 	sta.w OAMDrawBuf
 	jsr.w CODE_80AF6D
 	plb

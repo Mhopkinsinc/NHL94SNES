@@ -8,9 +8,9 @@ CODE_9FDE13:
 	lda.w #$0001
 	trb.w sflags3
 CODE_9FDE26:
-	inc.b $A9
+	inc.b d1
 	lda.l $7E35D0
-	sta.b $AD
+	sta.b d2
 	lda.l $7E3120
 	bne CODE_9FDE38
 	jsl.l eraser

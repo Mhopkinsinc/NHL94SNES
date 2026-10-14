@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9DD9AD:
 	stz.w $07C6
-	lda.b $91
+	lda.b a2
 	pha
 	jsl.l CODE_9F96F7
 	lda.w #$0081
@@ -29,7 +29,7 @@ CODE_9DD9AD:
 	rep #$30
 	lda.w #$FF00
 	sta.l $7E35AA
-	sta.l $7E35A8
+	sta.l printfontset
 	lda.w #$0000
 	sta.l $7E35AC
 	lda.l $7E35B6
@@ -55,7 +55,7 @@ CODE_9DD9AD:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	clc
 	adc.l $7E35C4
 	sta.l $7E35C4
@@ -63,22 +63,22 @@ CODE_9DD9AD:
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3D7
-	sta.b $8D
+	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3E7
-	sta.b $8D
+	sta.b a1
 	lda.w #$0004
-	sta.b $A5
+	sta.b d0
 	clc
 	adc.l $7E35C4
 	sta.l $7E35C4
@@ -150,7 +150,7 @@ CODE_9DD9AD:
 	sec
 	sbc.w #$0100
 	sta.l $7E35D2
-	lda.w #$0095
+	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95F1AE
 	sta.b $0C

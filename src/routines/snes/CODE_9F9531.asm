@@ -2,7 +2,7 @@
 CODE_9F9531:
 	lda.l $7E35D6
 	asl a
-	sta.b $89
+	sta.b a0
 	tax
 	lda.w #$0004
 	cmp.l $7E3548,x

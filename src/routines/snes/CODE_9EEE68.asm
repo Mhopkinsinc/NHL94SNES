@@ -4,20 +4,20 @@ CODE_9EEE68:
 	bcs CODE_9EEE70
 	lda.w #$0020
 CODE_9EEE70:
-	sta.b $B1
-	ldx.b $A5
+	sta.b d3
+	ldx.b d0
 	jsl.l CODE_808FC9
-	lda.b $AD
+	lda.b d2
 	sta.b $04
 	jsl.l Div32S
 	lda.b $00
 	xba
 	and.w #$FF00
 	sta.w puckvx
-	lda.b $B1
-	ldx.b $A9
+	lda.b d3
+	ldx.b d1
 	jsl.l CODE_808FC9
-	lda.b $AD
+	lda.b d2
 	sta.b $04
 	jsl.l Div32S
 	lda.b $00
@@ -30,12 +30,12 @@ CODE_9EEE70:
 	asl a
 	lda.w #$03C0
 	sec
-	sbc.b $B5
+	sbc.b d4
 	jsl.l CODE_9BB370
 	clc
 	adc.w #$10E0
 	sta.w $0E01
-	jsl.l CODE_9EDE5E
+	jsl.l puckflip
 	ldx.b $E4
 	lda.w #$FFFF
 	sta.w $0BA3

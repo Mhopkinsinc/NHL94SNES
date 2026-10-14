@@ -26,7 +26,7 @@ CODE_9EE264:
 	sta.b $01,s
 CODE_9EE274:
 	lda.w $1363,x
-	stx.b $89
+	stx.b a0
 	jsl.l CODE_9FDCEB
 	adc.w #$0014
 	tax
@@ -56,7 +56,7 @@ CODE_9EE2A5:
 	bne CODE_9EE2C3
 	ldy.w #$FEF8
 CODE_9EE2C3:
-	sty.b $A9
+	sty.b d1
 	lda.w passdir
 	asl a
 	asl a
@@ -64,31 +64,31 @@ CODE_9EE2C3:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #DATA8_9EE43F
-	sta.b $89
-	lda.b [$89],y
+	sta.b a0
+	lda.b [a0],y
 	sec
 	sbc.w $0D71
-	sta.b $A5
+	sta.b d0
 	iny
 	iny
-	lda.b [$89],y
-	sta.b $AD
+	lda.b [a0],y
+	sta.b d2
 	pha
-	lda.b $A9
+	lda.b d1
 	sec
 	sbc.w pucky
-	sta.b $A9
+	sta.b d1
 	pha
-	lda.b $A5
+	lda.b d0
 	pha
-	lda.b $A5
-	ldy.b $A9
+	lda.b d0
+	ldy.b d1
 	jsl.l CODE_9CA554
 	cmp.w #$0000
 	bne CODE_9EE2FE
 	inc a
 CODE_9EE2FE:
-	sta.b $B1
+	sta.b d3
 	lda.w gmode
 	bit.w #$0010
 	beq CODE_9EE30B

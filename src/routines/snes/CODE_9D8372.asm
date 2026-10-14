@@ -1,8 +1,8 @@
 ; Unidentified routine.
 CODE_9D8372:
-	lda.b $B1
-	sta.b $A9
-	lda.b $A5
+	lda.b d3
+	sta.b d1
+	lda.b d0
 	sta.b $08
 	cmp.w $1E61,y
 	beq CODE_9D8381

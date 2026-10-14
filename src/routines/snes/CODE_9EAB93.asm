@@ -11,7 +11,7 @@ CODE_9EAB93:
 	sta.b $22
 	lda.w $0B9D
 	sta.b $20
-	lda.b $C9
+	lda.b tmp2
 	bne CODE_9EABD9
 	ldx.w #$FEE4
 	ldy.w #$FF1B
@@ -24,7 +24,7 @@ CODE_9EAB93:
 	sta.b $22
 	lda.w $0B9F
 	sta.b $20
-	lda.b $C9
+	lda.b tmp2
 	bne CODE_9EAC09
 	ldx.b $E4
 	plb

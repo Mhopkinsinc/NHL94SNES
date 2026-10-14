@@ -55,7 +55,7 @@ CODE_9D9C3B:
 	tax
 	lda.l $7E3466
 	ora.w #$2000
-	ora.w #$0400
+	ora.w #DMA_OAM
 	sta.l $7EA67C,x
 	inc a
 	sta.l $7EA6BC,x

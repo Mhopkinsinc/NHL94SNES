@@ -7,32 +7,32 @@ CODE_9EA69D:
 	sta.w pflags,x
 	lda.w #$005A
 	sta.w $1043,x
-	lda.w $0CEB
+	lda.w Hpos
 	bpl CODE_9EA6BC
 	lda.w #$FFA6
 	sta.w $1043,x
 CODE_9EA6BC:
-	lda.w $0D37
+	lda.w Vpos
 	sta.w $1063,x
 	lda.w #$F68E
-	sta.w $14E3,x
+	sta.w pfalock,x
 	jsl.l CODE_9EA3F1
 CODE_9EA6CC:
 	lda.w $1043,x
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	lda.w $1063,x
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	jsl.l vtoa
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0008
 	bpl CODE_9EA6F9
-	lda.b $A5
-	sta.b $AD
-	sta.w $1163,x
+	lda.b d0
+	sta.b d2
+	sta.w facedir,x
 	lda.w #$0014
-	sta.w $14E3,x
+	sta.w pfalock,x
 	jmp.w CODE_9EA719

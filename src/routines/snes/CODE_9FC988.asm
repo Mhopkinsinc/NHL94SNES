@@ -35,7 +35,7 @@ CODE_9FC9C8:
 	dex
 	dex
 	bpl CODE_9FC9C0
-	sty.b $A5
+	sty.b d0
 	ldx.w #$0008
 	ldy.w #$0000
 CODE_9FC9D4:
@@ -47,7 +47,7 @@ CODE_9FC9DD:
 	dex
 	dex
 	bpl CODE_9FC9D4
-	cpy.b $A5
+	cpy.b d0
 	bcs CODE_9FCA12
 	cpy.w $19D0
 	beq CODE_9FCA12
@@ -87,7 +87,7 @@ CODE_9FCA28:
 	dex
 	cpx.w #$000C
 	bpl CODE_9FCA20
-	sty.b $A5
+	sty.b d0
 	ldx.w #$0008
 	ldy.w #$0000
 CODE_9FCA37:
@@ -99,7 +99,7 @@ CODE_9FCA40:
 	dex
 	dex
 	bpl CODE_9FCA37
-	cpy.b $A5
+	cpy.b d0
 	bcs CODE_9FCA75
 	cpy.w $19D0
 	beq CODE_9FCA75
@@ -157,13 +157,13 @@ CODE_9FCA97:
 CODE_9FCAB8:
 	lda.w $19F6,x
 	bne CODE_9FCACD
-	stx.b $B5
+	stx.b d4
 	phx
 	lda.w $0AF5
 	bpl CODE_9FCAC8
 	stx.w $0AF5
 CODE_9FCAC8:
-	jsl.l CODE_9FCBB6
+	jsl.l findpc
 	plx
 CODE_9FCACD:
 	dex
@@ -189,13 +189,13 @@ CODE_9FCAF2:
 	lda.w $19F6,x
 	cmp.w #$0002
 	bne CODE_9FCB0A
-	stx.b $B5
+	stx.b d4
 	phx
 	lda.w $0AF7
 	bpl CODE_9FCB05
 	stx.w $0AF7
 CODE_9FCB05:
-	jsl.l CODE_9FCBB6
+	jsl.l findpc
 	plx
 CODE_9FCB0A:
 	dex

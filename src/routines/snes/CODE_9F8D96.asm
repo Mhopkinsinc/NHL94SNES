@@ -5,7 +5,7 @@ CODE_9F8D96:
 	jsl.l CODE_9C9786
 	jsl.l CODE_9F96F7
 CODE_9F8DA4:
-	lda.w $07F9
+	lda.w SoundFadeSpeed
 	bne CODE_9F8DA4
 	jsl.l CODE_9C98DF
 	lda.w #$FFFF

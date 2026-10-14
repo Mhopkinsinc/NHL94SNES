@@ -2,24 +2,24 @@
 CODE_9BA23C:
 	lda.w #$FF00
 	sta.l $7E3394,x
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w #$FF00
 CODE_9BA249:
 	tax
-	lda.b $AD
+	lda.b d2
 	jsl.l DivX8S
-	ldx.b $B5
+	ldx.b d4
 	sta.l $7E33D0,x
-	lda.b $AD
+	lda.b d2
 	lsr a
 	lsr a
 	tax
 	jsl.l CODE_808F4C
-	ldx.b $B5
-	sta.b $AD
+	ldx.b d4
+	sta.b d2
 	asl a
-	adc.b $AD
+	adc.b d2
 	sta.l $7E33BC,x
 	jsl.l RandomWord
 	lsr a
@@ -28,9 +28,9 @@ CODE_9BA249:
 	beq CODE_9BA276
 	dec a
 CODE_9BA276:
-	sta.b $AD
+	sta.b d2
 	asl a
-	adc.b $AD
+	adc.b d2
 	sta.l $7E3434,x
 	lda.w #$0000
 	sta.l $7E33F8
@@ -79,7 +79,7 @@ CODE_9BA2DA:
 	tax
 	lda.w #$2000
 	jsl.l DrawSprite
-	ldx.b $B5
+	ldx.b d4
 	lda.w #$03CF
 	sta.b $00
 	lda.l $7E33A8,x
@@ -105,7 +105,7 @@ CODE_9BA30A:
 	lda.w #$2000
 	jsl.l DrawSprite
 CODE_9BA312:
-	ldx.b $B5
+	ldx.b d4
 	dex
 	dex
 	bmi CODE_9BA31B

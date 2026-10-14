@@ -11,7 +11,7 @@ CODE_808723:
 	asl a
 	beq CODE_80874E
 	sta.w DAS1L
-	lda.w #$2200
+	lda.w #DMA_CGRAM
 	sta.w DMAP1
 	lda.b $0C
 	sta.w A1T1L

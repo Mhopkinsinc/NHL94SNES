@@ -14,7 +14,7 @@ CODE_9EE030:
 	adc.w Xpos,y
 	sec
 	sbc.w $0D71
-	sta.b $A5
+	sta.b d0
 	lda.w $0EE4,y
 	and.w #$00FF
 	bit.w #$0080
@@ -29,39 +29,39 @@ CODE_9EE04C:
 	adc.w Ypos,y
 	sec
 	sbc.w pucky
-	sta.b $A9
-	ldy.b $A5
+	sta.b d1
+	ldy.b d0
 	jsl.l CODE_9CA554
-	sta.b $AD
+	sta.b d2
 	lda.w #$0012
-	sta.b $B1
+	sta.b d3
 	ldy.w #$0108
 	lda.w pfgoal,x
 	bne CODE_9EE072
 	ldy.w #$FEF8
 CODE_9EE072:
-	sty.b $B5
+	sty.b d4
 	tya
 	pha
-	lda.b $B1
+	lda.b d3
 	pha
 	jsr.w CODE_9EE0CD
-	lda.b $B5
-	sta.b $B9
+	lda.b d4
+	sta.b d5
 	pla
 	eor.w #$FFFF
 	inc a
-	sta.b $B1
+	sta.b d3
 	pla
-	sta.b $B5
+	sta.b d4
 	jsr.w CODE_9EE0CD
-	lda.b $B5
+	lda.b d4
 	clc
-	adc.b $B9
-	sta.b $B5
-	ldx.b $95
-	stz.b $A5
-	lda.b $B5
+	adc.b d5
+	sta.b d4
+	ldx.b a3
+	stz.b d0
+	lda.b d4
 	cmp.w #$FFD3
 	bmi CODE_9EE0C7
 	cmp.w #$002D
@@ -70,21 +70,21 @@ CODE_9EE072:
 	beq CODE_9EE0B1
 	lda.w #$0000
 	sec
-	sbc.b $B5
-	sta.b $B5
+	sbc.b d4
+	sta.b d4
 CODE_9EE0B1:
 	jsl.l RandomWord
 	and.w #$0003
 	inc a
-	sta.b $A5
-	lda.b $B5
+	sta.b d0
+	lda.b d4
 	bpl CODE_9EE0C7
-	lda.b $A5
+	lda.b d0
 	clc
 	adc.w #$0004
-	sta.b $A5
+	sta.b d0
 CODE_9EE0C7:
-	lda.b $A5
+	lda.b d0
 	sta.w passdir
 CODE_9EE0CC:
 	rtl

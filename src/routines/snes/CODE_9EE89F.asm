@@ -11,12 +11,12 @@ CODE_9EE89F:
 CODE_9EE8B4:
 	lda.w #$0006
 	jsl.l CODE_9BB385
-	sta.b $A5
+	sta.b d0
 	cpx.w #$000C
 	bcc CODE_9EE8C8
 	clc
 	adc.w #$0006
-	sta.b $A5
+	sta.b d0
 CODE_9EE8C8:
 	lda.w position,x
 	beq CODE_9EE8E7
@@ -31,8 +31,8 @@ CODE_9EE8C8:
 	cmp.w #$00CD
 	bpl CODE_9EE8ED
 CODE_9EE8E7:
-	asl.b $A5
-	cpx.b $A5
+	asl.b d0
+	cpx.b d0
 	bne CODE_9EE8EE
 CODE_9EE8ED:
 	rtl

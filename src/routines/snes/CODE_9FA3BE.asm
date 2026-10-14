@@ -6,8 +6,8 @@ CODE_9FA3BE:
 	bne CODE_9FA3D4
 CODE_9FA3C9:
 	jsl.l GetShifter
-	lda.b $A9
+	lda.b d1
 	sta.w $0D31
 	bmi CODE_9FA3BA
 CODE_9FA3D4:
-	jmp.w CODE_9FA461
+	jmp.w NewTicker2

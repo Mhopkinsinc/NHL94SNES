@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_80CA9C:
-	ldy.b $91
+	ldy.b a2
 	bne CODE_80CAA9
 	sep #$20
 	lda.w homeshooters

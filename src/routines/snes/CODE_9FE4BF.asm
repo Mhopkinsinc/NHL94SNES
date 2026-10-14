@@ -2,7 +2,7 @@
 CODE_9FE4BF:
 	ldx.w $0AC6
 	bmi CODE_9FE4E8
-	lda.w $15D6
+	lda.w gmclock
 	beq CODE_9FE4E8
 	lda.w $1A10
 	bne CODE_9FE4E8

@@ -4,14 +4,14 @@ CODE_9EB0D6:
 	tax
 	lda.w #$00C0
 	jsl.l CODE_808FC9
-	ldx.b $95
+	ldx.b a3
 	lda.b $09
 	sta.w $0EC3,x
 	lda.w $0EE3,x
 	tax
 	lda.w #$00C0
 	jsl.l CODE_808FC9
-	ldx.b $95
+	ldx.b a3
 	lda.b $09
 	sta.w $0EE3,x
 	txa
@@ -34,35 +34,35 @@ CODE_9EB10D:
 	sta.w $10A3,x
 	lda.w #$005A
 	sta.w $1043,x
-	lda.w $0CEB
+	lda.w Hpos
 	bpl CODE_9EB139
 	lda.w #$FFA6
 	sta.w $1043,x
 CODE_9EB139:
-	lda.w $0D37
+	lda.w Vpos
 	sta.w $1063,x
 CODE_9EB13F:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #CODE_9ED0FC
-	sta.b $89
+	sta.b a0
 	lda.w $1043,x
-	sta.b $A5
+	sta.b d0
 	lda.w $1063,x
-	sta.b $A9
+	sta.b d1
 	lda.w $1003,x
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $1003,x
 	bpl CODE_9EB185
 	lda.w #$F940
-	sta.b $A9
-	sta.w $14E3,x
+	sta.b d1
+	sta.w pfalock,x
 	cpx.w $0D29
 	bne CODE_9EB176
 CODE_9EB16B:
 	lda.w #$FA84
-	sta.b $A9
+	sta.b d1
 	lda.w #$FFFF
 	sta.w $0D29
 CODE_9EB176:

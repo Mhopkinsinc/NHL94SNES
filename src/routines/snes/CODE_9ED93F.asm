@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9ED93F:
-	lda.w $1163,x
+	lda.w facedir,x
 	beq CODE_9ED965
 	cmp.w #$0004
 	beq CODE_9ED96E

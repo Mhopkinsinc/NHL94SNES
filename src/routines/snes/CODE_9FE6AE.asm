@@ -9,8 +9,8 @@ CODE_9FE6B8:
 	jsl.l CODE_9B84DC
 	dec.w $0AC4
 	dec.w $0AC4
-	jsl.l CODE_9B852C
-	lda.b $B1
+	jsl.l ProcessInputWithRepeat
+	lda.b d3
 	bne CODE_9FE6EC
 	lda.w $0AC8
 	beq CODE_9FE6F2

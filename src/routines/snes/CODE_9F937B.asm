@@ -35,21 +35,21 @@ CODE_9F937B:
 CODE_9F93DB:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF80E
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0016
-	sta.b $A5
+	sta.b d0
 	lda.w #$0007
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D8000
 	jsl.l CODE_9F9B36
 	jsl.l CODE_9FE11D
@@ -74,9 +74,9 @@ CODE_9F93DB:
 	ldx.w #$0800
 	jsl.l CODE_808F2F
 	plx
-	stz.w $0CD5
+	stz.w textdirtylo
 	lda.w #$03FF
-	sta.w $0CD7
+	sta.w textdirtyhi
 	pla
 	sta.w sflags
 	pla

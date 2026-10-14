@@ -8,6 +8,6 @@ CODE_9FBFA6:
 	lsr a
 	tax
 	sec
-	sbc.w $0D23
+	sbc.w Oldrow
 	bne CODE_9FBFBA
 	jmp.w CODE_9FC072

@@ -4,27 +4,27 @@ CODE_9D9977:
 	lda.w #$007E
 	sta.b $8B
 	lda.w #$34D2
-	sta.b $89
+	sta.b a0
 	lda.l $7E34F2
 	tay
-	lda.b [$89],y
+	lda.b [a0],y
 	and.w #$00FF
-	sta.b $AD
-	lda.b $A9
+	sta.b d2
+	lda.b d1
 	asl a
-	sta.b $8D
+	sta.b a1
 	lda.w #$FFFF
 	sta.l $7E35D6
-	stz.b $A5
+	stz.b d0
 CODE_9D999F:
-	lda.b $AD
-	ldx.b $8D
+	lda.b d2
+	ldx.b a1
 	cmp.l $7E3528,x
 	beq CODE_9D99C7
 	cmp.l $7E3538,x
 	beq CODE_9D99B8
-	dec.b $8D
-	dec.b $8D
-	dec.b $A9
+	dec.b a1
+	dec.b a1
+	dec.b d1
 	bpl CODE_9D999F
 	rtl

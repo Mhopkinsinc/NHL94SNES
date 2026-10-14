@@ -26,8 +26,8 @@ CODE_9ECF40:
 	pha
 	asl a
 	tax
-	lda.l $7E35A8,x
-	sta.l $7E35A8
+	lda.l printfontset,x
+	sta.l printfontset
 	pla
 	dec a
 	xba
@@ -35,13 +35,13 @@ CODE_9ECF40:
 	asl a
 	asl a
 	asl a
-	sta.w $0CD9
+	sta.w printm
 	iny
-	lda.b [$8D],y
+	lda.b [a1],y
 	and.w #$001F
 	sta.w printx
 	iny
-	lda.b [$8D],y
+	lda.b [a1],y
 	and.w #$001F
 	sta.w printy
 	iny

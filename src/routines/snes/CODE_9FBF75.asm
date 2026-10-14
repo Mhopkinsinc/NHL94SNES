@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FBF75:
-	lda.w $0CD5
+	lda.w textdirtylo
 	bmi CODE_9FBF9F
 	tay
 	asl a
@@ -8,16 +8,16 @@ CODE_9FBF75:
 	sta.b $0C
 	lda.w #$007E
 	sta.b $0E
-	lda.w $0CD7
+	lda.w textdirtyhi
 	beq CODE_9FBF9F
 	sec
-	sbc.w $0CD5
+	sbc.w textdirtylo
 	inc a
 	asl a
 	tax
 	jsl.l CODE_80891F
 	lda.w #$FFFF
-	sta.w $0CD5
-	stz.w $0CD7
+	sta.w textdirtylo
+	stz.w textdirtyhi
 CODE_9FBF9F:
 	rtl

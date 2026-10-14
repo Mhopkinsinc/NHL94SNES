@@ -3,7 +3,7 @@ CODE_9DB954:
 	lda.w #$0080
 	sta.b $8F
 	lda.w #DATA8_80E2E0
-	sta.b $8D
+	sta.b a1
 	lda.w #$0000
 	ldx.w #$0080
 	ldy.w #$00B8
@@ -11,7 +11,7 @@ CODE_9DB954:
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$E2F7
-	sta.b $8D
+	sta.b a1
 	lda.w #$0000
 	ldx.w #$0080
 	ldy.w #$00C8

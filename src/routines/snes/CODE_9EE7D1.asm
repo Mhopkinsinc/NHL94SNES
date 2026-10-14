@@ -3,7 +3,7 @@ CODE_9EE7D1:
 	lda.w #$0108
 	sec
 	sbc.w $0BA9
-	sta.b $A9
+	sta.b d1
 CODE_9EE7DA:
 	jsl.l vtoa
 	jsl.l Findhittype

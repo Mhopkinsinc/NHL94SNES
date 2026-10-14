@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9FC7D7:
 	lda.w #$001A
-	sta.b $A5
+	sta.b d0
 	jsl.l randomd0
 	jsr.w CODE_9FC7EC
 	lda.w $1EAF

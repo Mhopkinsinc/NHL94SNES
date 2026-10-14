@@ -20,7 +20,7 @@ CODE_9BB273:
 	lda.w WMDATA
 	sta.w $0CB8
 	lda.w WMDATA
-	sta.b $C1
+	sta.b d7
 	lda.w WMDATA
 	sta.b $14
 	and.b #$0F

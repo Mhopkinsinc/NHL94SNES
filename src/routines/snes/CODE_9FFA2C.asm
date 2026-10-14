@@ -7,12 +7,12 @@ CODE_9FFA2C:
 	pha
 	lda.b $0E
 	pha
-	lda.b $C9
+	lda.b tmp2
 	sta.b $0C
 	lda.b $CB
 	sta.b $0E
-	ldy.b $C5
-	ldx.b $C7
+	ldy.b tmp0
+	ldx.b tmp1
 	jsl.l CODE_808723
 	lda.b $C3
 	bit.w #$0200

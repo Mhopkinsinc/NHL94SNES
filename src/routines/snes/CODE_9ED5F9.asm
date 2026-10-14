@@ -3,11 +3,11 @@ CODE_9ED5F9:
 	lda.w $0D71
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	lda.w pucky
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	lda.w $0AD9
 	bmi CODE_9ED640
 	lsr a

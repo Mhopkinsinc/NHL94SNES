@@ -12,17 +12,17 @@ CODE_9ED4DA:
 	lda.w $19D4,x
 	bpl CODE_9ED514
 	lda.w pucky
-	sta.b $A5
+	sta.b d0
 	lda.w Ypos,x
-	eor.b $A5
-	sta.b $A9
+	eor.b d0
+	sta.b d1
 	bpl CODE_9ED504
-	stz.b $A5
+	stz.b d0
 	lda.w #$00F4
-	sta.b $AD
+	sta.b d2
 	lda.w pfgoal,x
 	beq CODE_9ED501
 	lda.w #$FF0C
-	sta.b $AD
+	sta.b d2
 CODE_9ED501:
 	jmp.w CODE_9EDA51

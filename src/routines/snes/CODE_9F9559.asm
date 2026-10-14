@@ -3,12 +3,12 @@ CODE_9F9559:
 	bvs CODE_9F95C2
 CODE_9F955B:
 	jsl.l GetShifter
-	lda.b $A9
+	lda.b d1
 	asl a
-	sta.b $89
+	sta.b a0
 CODE_9F9564:
-	ldx.b $89
-	lda.b $A9
+	ldx.b a0
+	lda.b d1
 	cmp.l $7E35D6
 	beq CODE_9F95A1
 	lda.w #$0004

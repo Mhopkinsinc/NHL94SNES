@@ -10,11 +10,11 @@ CODE_9BC5AB:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #TeamList
-	sta.b $8D
-	lda.b [$8D],y
-	sta.b $8D
+	sta.b a1
+	lda.b [a1],y
+	sta.b a1
 	ldy.w #$0004
 	clc
-	adc.b [$8D],y
-	sta.b $8D
+	adc.b [a1],y
+	sta.b a1
 	bra CODE_9BC5E6

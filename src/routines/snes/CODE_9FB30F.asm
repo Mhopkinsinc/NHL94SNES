@@ -6,19 +6,19 @@ CODE_9FB30F:
 	lda.w #$007E
 	sta.b $8B
 	lda.w #$3122
-	sta.b $89
+	sta.b a0
 	lda.w pfgoal,x
 	beq CODE_9FB330
 	lda.w #$007E
 	sta.b $8B
 	lda.w #$3124
-	sta.b $89
+	sta.b a0
 CODE_9FB330:
-	lda.b $A5
-	sta.b [$89]
+	lda.b d0
+	sta.b [a0]
 	lda.w $1543,x
 	bne CODE_9FB354
-	lda.b $A9
+	lda.b d1
 	bit.w #$8000
 	beq CODE_9FB34D
 	lda.w #$0001

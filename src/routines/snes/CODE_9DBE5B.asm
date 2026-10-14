@@ -1,11 +1,11 @@
 ; Unidentified routine.
 CODE_9DBE5B:
-	lda.b $91
+	lda.b a2
 	eor.w #$0002
-	sta.b $91
+	sta.b a2
 	stz.w $1DB9
 	jsl.l GetPlayerCount
-	lda.b $A5
+	lda.b d0
 	clc
 	adc.w #$0006
 	sta.w $1DC1

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EA021:
-	ldy.b $91
+	ldy.b a2
 	lda.w SPA,y
 	cmp.w #$F374
 	beq CODE_9EA01E

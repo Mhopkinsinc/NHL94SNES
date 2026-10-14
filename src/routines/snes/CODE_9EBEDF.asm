@@ -1,15 +1,15 @@
 ; Unidentified routine.
 CODE_9EBEDF:
 	lda.w #$0010
-	sta.b $A5
+	sta.b d0
 	lda.w pfteam,x
 	beq CODE_9EBEEE
 	lda.w #$0001
-	sta.b $A5
+	sta.b d0
 CODE_9EBEEE:
 	lda.w PBnum
 	clc
-	adc.b $A5
+	adc.b d0
 	sta.w PBnum
 	lda.w #$FFFF
 	sta.w position,x

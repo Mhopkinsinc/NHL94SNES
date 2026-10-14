@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9B81EC:
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $0ACB
 CODE_9B81F3:
@@ -14,16 +14,16 @@ CODE_9B81F3:
 CODE_9B8205:
 	dec.w $1A04
 CODE_9B8208:
-	stz.w $4016
+	stz.w JOYSER0
 	lda.b #$01
-	sta.w $4016
-	lda.w $4016
+	sta.w JOYSER0
+	lda.w JOYSER0
 	and.b #$02
 	tax
 	eor.w $1A06
 	stx.w $1A06
 	sta.w $1A0A
-	lda.w $4017
+	lda.w JOYSER1
 	and.b #$02
 	tax
 	eor.w $1A08

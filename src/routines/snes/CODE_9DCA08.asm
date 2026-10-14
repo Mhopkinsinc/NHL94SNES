@@ -24,7 +24,7 @@ CODE_9DCA11:
 	lda.l $7E35D2
 	clc
 	adc.w $1E87
-	ldy.b $91
+	ldy.b a2
 	beq CODE_9DCA4E
 	clc
 	adc.w #$0030

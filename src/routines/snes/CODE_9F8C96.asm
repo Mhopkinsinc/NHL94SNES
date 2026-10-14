@@ -8,5 +8,5 @@ CODE_9F8C96:
 CODE_9F8CA4:
 	jsl.l CODE_9EC791
 	lda.w #$0002
-	sta.b $A5
+	sta.b d0
 	jml.l ShootoutWonBy

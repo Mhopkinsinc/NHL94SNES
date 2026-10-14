@@ -5,7 +5,7 @@ CODE_9B80E4:
 	txa
 	and.b #$0F
 	sta.w $0ACC
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $0ACB
 	lsr a

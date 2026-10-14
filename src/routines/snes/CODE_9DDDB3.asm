@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9DDDB3:
-	lda.b $91
+	lda.b a2
 	pha
 	lda.l $7E3454
 	sta.b $00
@@ -8,7 +8,7 @@ CODE_9DDDB3:
 	lda.l $7E3452
 	bpl CODE_9DDDC9
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 CODE_9DDDC9:
 	lda.l $7E345C
 	ldx.w #$0001

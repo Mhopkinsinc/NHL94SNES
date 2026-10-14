@@ -29,7 +29,7 @@ ShowInjuryBox:
 	sta.b a1+2
 	lda.w #DATA8_9CF858
 	sta.b a1
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	pla
 	sta.b a1
 	pla
@@ -44,7 +44,7 @@ ShowInjuryBox:
 	sta.b a1+2
 	lda.w #DATA8_9CF85D
 	sta.b a1
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	pla
 	sta.b a1
 	pla

@@ -1,14 +1,14 @@
 ; Unidentified routine.
 CODE_9EDDF0:
-	lda.b $B5
+	lda.b d4
 	sec
 	sbc.w pucky
-	sta.b $A5
+	sta.b d0
 	lda.w puckvy
 	beq CODE_9EDDED
-	eor.b $A5
+	eor.b d0
 	bmi CODE_9EDDED
-	lda.b $A5
+	lda.b d0
 	stz.b $08
 	lsr a
 	ror.b $08
@@ -36,18 +36,18 @@ CODE_9EDE19:
 	ldx.w puckvx
 	jsl.l Mul16XS
 	adc.w $0D71
-	sta.b $A5
+	sta.b d0
 	cmp.w #$0088
 	bmi CODE_9EDE45
 	lda.w #$0088
-	sta.b $A5
+	sta.b d0
 CODE_9EDE45:
-	lda.b $A5
+	lda.b d0
 	cmp.w #$FF78
 	bpl CODE_9EDE51
 	lda.w #$FF78
-	sta.b $A5
+	sta.b d0
 CODE_9EDE51:
-	lda.b $A5
+	lda.b d0
 	sta.w $0D17,y
 	rtl

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FE3A5:
-	lda.b $A9
+	lda.b d1
 	bit.w #$8080
 	bne CODE_9FE3AF
 	jmp.w CODE_9FE19E

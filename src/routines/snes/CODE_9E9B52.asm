@@ -6,7 +6,7 @@ CODE_9E9B52:
 	bmi CODE_9E9B5E
 	sta.w $19BE
 CODE_9E9B5E:
-	ldy.b $91
+	ldy.b a2
 	cpy.w #$0018
 	bcs CODE_9E9BB2
 	lda.w SPA,y
@@ -21,8 +21,8 @@ CODE_9E9B5E:
 	cmp.w #$F6C0
 	beq CODE_9E9BB2
 	lda.w #$F7B2
-	sta.b $A9
-	lda.w $15D6
+	sta.b d1
+	lda.w gmclock
 	bne CODE_9E9BB3
 	lda.w $1403,y
 	cmp.w #$000C
@@ -32,7 +32,7 @@ CODE_9E9B5E:
 	lda.w $0792
 	and.w #$000F
 	adc.w #$000A
-	sta.b $A5
+	sta.b d0
 	sec
 	sbc.w $0F23,y
 	bmi CODE_9E9BB3

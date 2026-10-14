@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9C937D:
-	lda.b [$8D],y
+	lda.b [a1],y
 	and.w #$00FF
 	cmp.w #$0020
 	bne CODE_9C938C

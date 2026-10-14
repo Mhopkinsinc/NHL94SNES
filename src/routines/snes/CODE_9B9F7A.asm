@@ -7,7 +7,7 @@ CODE_9B9F7A:
 	lda.w #$003C
 CODE_9B9F86:
 	sec
-	sbc.b $C1
+	sbc.b d7
 	bpl CODE_9B9F8E
 	lda.w #$0000
 CODE_9B9F8E:

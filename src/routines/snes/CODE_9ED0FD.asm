@@ -1,14 +1,14 @@
 ; Unidentified routine.
 CODE_9ED0FD:
-	stz.b $91
+	stz.b a2
 	lda.w #$0002
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9ED10F
-	stz.b $8D
+	stz.b a1
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 CODE_9ED10F:
-	ldy.b $91
+	ldy.b a2
 	lda.w tmgoalie,y
 	bpl CODE_9ED12F
 CODE_9ED116:
@@ -19,5 +19,5 @@ CODE_9ED116:
 	lda.w $19D0,y
 	bne CODE_9ED12F
 	lda.l $7E3138
-	sta.b $A9
-	jmp.w CODE_9ED130
+	sta.b d1
+	jmp.w CPgoalie

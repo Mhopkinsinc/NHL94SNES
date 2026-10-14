@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9D9237:
 	lda.b $83
-	cmp.b $C1
+	cmp.b d7
 	beq CODE_9D9221
-	sta.b $C1
+	sta.b d7
 	ldx.w #$3622
 	ldy.w #$007E
 	jsl.l CODE_9D96A9
@@ -14,7 +14,7 @@ CODE_9D9237:
 	ldy.w #$0010
 	ldx.w #$0010
 	jsl.l CODE_808723
-	lda.w $0776
+	lda.w JoyPad
 	ora.w $0778
 	bit.w #$0200
 	bne CODE_9D9274

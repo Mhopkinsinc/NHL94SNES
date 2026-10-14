@@ -1,19 +1,19 @@
 ; Unidentified routine.
 CODE_9EBFF4:
-	lda.b $A9
+	lda.b d1
 	cmp.w #$FFFF
 	bne CODE_9EBFDD
 CODE_9EBFFB:
-	lda.w $0A2C
-	sta.b $A5
+	lda.w mesarea+2
+	sta.b d0
 org $9EC000
 CODE_9EC000:
-	lda.b $91
+	lda.b a2
 	beq CODE_9EC007
 	lda.w #$0034
 CODE_9EC007:
 	clc
-	adc.b $A5
+	adc.b d0
 	tay
 	lda.w tmpdst,y
 	cmp.w #$0006

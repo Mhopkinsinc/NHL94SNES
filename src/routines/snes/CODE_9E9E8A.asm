@@ -6,7 +6,7 @@ CODE_9E9E8A:
 	bmi CODE_9E9E96
 	sta.w $19BE
 CODE_9E9E96:
-	ldx.b $91
+	ldx.b a2
 	lda.w #$FF7E
 	sta.w Xpos,x
 	lda.w #$0000

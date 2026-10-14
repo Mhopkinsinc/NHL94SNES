@@ -12,7 +12,7 @@ CODE_9FE17D:
 CODE_9FE19E:
 	jsl.l CODE_9FEA24
 	jsl.l CODE_9FE618
-	lda.b $B1
+	lda.b d3
 	bit.w #$1000
 	beq CODE_9FE1B0
 	jmp.w DATA8_80E73D

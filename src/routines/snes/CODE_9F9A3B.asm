@@ -5,21 +5,21 @@ CODE_9F9A3B:
 	adc.b $08
 	tax
 	lda.l DATA8_9F9AD8,x
-	ldx.b $B1
+	ldx.b d3
 	jsl.l CODE_808F4C
 	clc
-	adc.b $A5
-	sta.b $A5
+	adc.b d0
+	sta.b d0
 	lda.b $14
 	ldy.b $08
 	beq CODE_9F9A57
 	asl a
 CODE_9F9A57:
 	clc
-	adc.b $A9
-	sta.b $A9
+	adc.b d1
+	sta.b d1
 CODE_9F9A5C:
-	lda.b $AD
+	lda.b d2
 	inc a
 	cmp.w #$000F
 	bpl CODE_9F9A67

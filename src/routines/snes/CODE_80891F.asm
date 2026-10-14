@@ -5,7 +5,7 @@ CODE_80891F:
 	stx.w DAS1L
 	lda.b $0C
 	sta.w A1T1L
-	lda.w #$1801
+	lda.w #DMA_VRAMWORD
 	sta.w DMAP1
 	cpy.w #$0000
 	bmi CODE_80893C

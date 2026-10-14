@@ -10,5 +10,5 @@ CODE_9ED7B2:
 CODE_9ED7C2:
 	clc
 	adc.w $0D71
-	sta.b $A5
+	sta.b d0
 	bra CODE_9ED7E7

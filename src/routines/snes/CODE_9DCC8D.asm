@@ -15,5 +15,5 @@ CODE_9DCC90:
 	dex
 	bpl CODE_9DCC48
 	pla
-	sta.b $A5
+	sta.b d0
 	rtl

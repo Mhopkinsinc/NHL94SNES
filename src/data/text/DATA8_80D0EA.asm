@@ -12,7 +12,7 @@ DATA8_80D0EA:		; rating columns of the shooter list: title, then a mask word and
 	%String("     [Handed]")
 	dw $0040,$0004
 	%String("[Off. Aware.]")
-	dw $0400,$000A
+	dw DMA_OAM,$000A
 	%String("[Def. Aware.]")
 	dw $0200,$000A
 	%String(" [Shot Power]")

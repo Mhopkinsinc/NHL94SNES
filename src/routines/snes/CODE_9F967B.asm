@@ -17,7 +17,7 @@ CODE_9F9698:
 	txa
 	lsr a
 	jsl.l CODE_9B84DC
-	lda.b $B1
+	lda.b d3
 	bit.w #$1000
 	beq CODE_9F96AF
 	pla

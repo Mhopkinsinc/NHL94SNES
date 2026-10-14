@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FC76C:
-	stz.b $91
+	stz.b a2
 	lda.w #$0001
 	sta.b $93
 	ldx.w $0AC6

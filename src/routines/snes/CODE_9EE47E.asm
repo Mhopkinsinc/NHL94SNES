@@ -1,16 +1,16 @@
 ; Unidentified routine.
 CODE_9EE47E:
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9EE471
 	lda.w Ypos,x
-	sta.b $A5
+	sta.b d0
 	ldy.w pfgoal,x
-	bne CODE_9EE495
+	bne assnearest
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
-CODE_9EE495:
+	sbc.b d0
+	sta.b d0
+assnearest:
 	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9EE4BE
@@ -28,28 +28,28 @@ CODE_9EE495:
 CODE_9EE4BE:
 	lda.w $1EA5
 	bmi CODE_9EE502
-	lda.b $A5
+	lda.b d0
 	cmp.w $1EA5
 	bmi CODE_9EE4D3
 	jsr.w CODE_9EE593
-	lda.w $1163,x
+	lda.w facedir,x
 	sta.w $1EAB
 CODE_9EE4D3:
 	lda.w $1EA1
-	sta.b $A5
+	sta.b d0
 	lda.w $1EA3
-	sta.b $A9
+	sta.b d1
 	lda.w pfgoal,x
 	bne CODE_9EE4EA
 	lda.w #$0000
 	sec
-	sbc.b $A9
-	sta.b $A9
+	sbc.b d1
+	sta.b d1
 CODE_9EE4EA:
 	lda.w #$009E
 	sta.b $8B
 	lda.w #$E592
-	sta.b $89
+	sta.b a0
 	lda.w $1023,x
 	sec
 	sbc.w $0CDD

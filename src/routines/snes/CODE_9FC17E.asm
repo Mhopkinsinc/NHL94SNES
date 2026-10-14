@@ -1,20 +1,20 @@
 ; Unidentified routine.
 CODE_9FC17E:
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0029
 	bmi CODE_9FC1B8
-	lda.b $B1
+	lda.b d3
 	sec
 	sbc.w #$0028
-	sta.b $A9
+	sta.b d1
 	cmp.w #$003D
 	bmi CODE_9FC197
 	lda.w #$003C
-	sta.b $A9
+	sta.b d1
 CODE_9FC197:
-	lda.b $A9
+	lda.b d1
 	sec
-	sbc.w $0CEB
+	sbc.w Hpos
 	beq CODE_9FC1B8
 	lsr a
 	lsr a
@@ -29,7 +29,7 @@ CODE_9FC1AB:
 	inc a
 CODE_9FC1B1:
 	clc
-	adc.w $0CEB
-	sta.w $0CEB
+	adc.w Hpos
+	sta.w Hpos
 CODE_9FC1B8:
 	rtl

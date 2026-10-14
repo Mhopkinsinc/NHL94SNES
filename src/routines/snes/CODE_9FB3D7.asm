@@ -24,7 +24,7 @@ CODE_9FB409:
 	beq CODE_9FB41F
 	jsl.l CODE_9FB5E5
 	lsr a
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FB48B
 CODE_9FB41F:
 	lda.l $7E344E
@@ -33,14 +33,14 @@ CODE_9FB41F:
 	beq CODE_9FB435
 	jsl.l CODE_9FB5F3
 	lsr a
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FB4A2
 CODE_9FB435:
 	lda.w #$0000
 	sta.l $7E344E
-	stz.b $8D
+	stz.b a1
 	lda.w #$0002
-	sta.b $91
-	sta.b $A5
+	sta.b a2
+	sta.b d0
 	jsl.l CODE_9FB44C
 	jmp.w CODE_9FB518

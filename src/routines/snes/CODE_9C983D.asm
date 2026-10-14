@@ -8,11 +8,11 @@ CODE_9C983D:
 	lda.w #$0001
 	sta.w $1D68
 	sep #$20
-	dec.w $07E5
+	dec.w SoundLock
 	rep #$20
 	jsl.l SPCCmd01
 	sep #$20
-	inc.w $07E5
+	inc.w SoundLock
 	rep #$20
 	lda.w #$009B
 	sta.b $36

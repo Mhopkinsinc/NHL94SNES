@@ -1,24 +1,24 @@
 ; Unidentified routine.
 CODE_9EA719:
-	asl.b $AD
-	asl.b $AD
-	ldx.b $AD
+	asl.b d2
+	asl.b d2
+	ldx.b d2
 	lda.l DATA8_9EA889+2,x
-	sta.b $A9
+	sta.b d1
 	lda.l DATA8_9EA889,x
-	sta.b $A5
+	sta.b d0
 	ldx.b $E4
 	lda.w $1123,x
 	beq CODE_9EA738
-	eor.b $A5
+	eor.b d0
 	bpl CODE_9EA738
-	stz.b $A5
+	stz.b d0
 CODE_9EA738:
 	lda.w $1103,x
 	beq CODE_9EA743
-	eor.b $A9
+	eor.b d1
 	bmi CODE_9EA743
-	stz.b $A9
+	stz.b d1
 CODE_9EA743:
 	lda.w $12C3,x
 	lsr a
@@ -30,11 +30,11 @@ CODE_9EA743:
 	adc.w #$0020
 	clc
 	adc.w $12E3,x
-	sta.b $AD
+	sta.b d2
 	lda.w $12E3,x
 	lsr a
-	adc.b $AD
-	sta.b $AD
+	adc.b d2
+	sta.b d2
 	lda.w position,x
 	bne CODE_9EA78C
 	lda.w $19D4,x
@@ -43,7 +43,7 @@ CODE_9EA743:
 	beq CODE_9EA77B
 	lda.w $12E3,x
 	asl a
-	adc.b $AD
+	adc.b d2
 	adc.w #$0008
-	sta.b $AD
+	sta.b d2
 	bra CODE_9EA78C

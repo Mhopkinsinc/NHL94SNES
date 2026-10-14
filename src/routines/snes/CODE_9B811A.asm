@@ -3,82 +3,82 @@ CODE_9B811A:
 	lda.b #$1E
 	sta.w $1A02
 CODE_9B811F:
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077D
 	lsr a
 	rol.w $077F
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077D
 	lsr a
 	rol.w $077F
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077D
 	lsr a
 	rol.w $077F
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077D
 	lsr a
 	rol.w $077F
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077D
 	lsr a
 	rol.w $077F
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077D
 	lsr a
 	rol.w $077F
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077D
 	lsr a
 	rol.w $077F
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077D
 	lsr a
 	rol.w $077F
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077C
 	lsr a
 	rol.w $077E
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077C
 	lsr a
 	rol.w $077E
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077C
 	lsr a
 	rol.w $077E
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077C
 	lsr a
 	rol.w $077E
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077C
 	lsr a
 	rol.w $077E
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077C
 	lsr a
 	rol.w $077E
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077C
 	lsr a
 	rol.w $077E
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $077C
 	lsr a
@@ -89,7 +89,7 @@ CODE_9B811F:
 	lda.w $077E
 	and.b #$0F
 	sta.w $0ACE
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	rol.w $0ACD
 	lsr a

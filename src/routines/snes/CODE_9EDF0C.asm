@@ -7,17 +7,17 @@ CODE_9EDF0C:
 	asl a
 	asl a
 	asl a
-	sta.b $B5
+	sta.b d4
 	ldy.w #$0108
 	lda.w pfgoal,x
 	bne CODE_9EDF24
 	ldy.w #$FEF8
 CODE_9EDF24:
-	sty.b $A9
+	sty.b d1
 	tya
 	sec
 	sbc.w pucky
-	sta.b $A9
+	sta.b d1
 	cmp.w #$0064
 	bpl CODE_9EDF9B
 	cmp.w #$FF9C
@@ -32,26 +32,26 @@ CODE_9EDF24:
 	pha
 	tax
 	jsl.l CODE_808F7D
-	sta.b $A5
-	lda.b $A9
+	sta.b d0
+	lda.b d1
 	tax
 	jsl.l CODE_808F7D
 	ldx.b $E4
 	clc
-	adc.b $A5
-	sta.b $C5
+	adc.b d0
+	sta.b tmp0
 	pla
-	sta.b $A5
-	lda.b $C5
+	sta.b d0
+	lda.b tmp0
 	cmp.w #$2711
-	lsr.b $B5
-	lsr.b $B5
-	lsr.b $B5
-	lsr.b $B5
+	lsr.b d4
+	lsr.b d4
+	lsr.b d4
+	lsr.b d4
 	jsl.l vtoa
-	sta.b $B9
+	sta.b d5
 	lda.w #$0005
-	sta.b $B1
+	sta.b d3
 	ldy.w #$0000
 	cpx.w #$000C
 	bcs CODE_9EDF84
@@ -63,7 +63,7 @@ CODE_9EDF84:
 	sec
 	sbc.w #$0004
 	and.w #$0007
-	cmp.b $B9
+	cmp.b d5
 	bne CODE_9EDFA9
-	asl.b $B5
+	asl.b d4
 	bra CODE_9EDFA9

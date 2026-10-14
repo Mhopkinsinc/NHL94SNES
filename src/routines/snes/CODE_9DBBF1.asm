@@ -6,11 +6,11 @@ CODE_9DBBF1:
 	sep #$20
 CODE_9DBBFB:
 	lda.b [$0C],y
-	sta.b $A5
+	sta.b d0
 	and.b #$0F
 	ora.w $0BED
 	sta.l $7FA001,x
-	lda.b $A5
+	lda.b d0
 	lsr a
 	lsr a
 	lsr a

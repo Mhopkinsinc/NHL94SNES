@@ -10,27 +10,27 @@ CODE_9F8E8E:
 	beq CODE_9F8EAD
 	jsl.l CODE_9C98DF
 CODE_9F8EAD:
-	ldx.b $89
+	ldx.b a0
 	lda.l $7E3528,x
 	sta.w HomeTeam
 	lda.l $7E3538,x
 	sta.w VisTeam
-	lda.b $89
+	lda.b a0
 	pha
 	lda.b $8B
 	pha
 	jsl.l ClearTeamStats
 	jsl.l restoreteams
 	lda.w #$0000
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9B9334
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9B9334
-	stz.b $91
+	stz.b a2
 	jsl.l reenergizeteam
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l reenergizeteam
 	jsl.l CODE_9BC17C
 	ldx.w #$0008
@@ -53,12 +53,12 @@ CODE_9F8EF6:
 	pla
 	sta.b $8B
 	pla
-	sta.b $89
-	lda.b $89
+	sta.b a0
+	lda.b a0
 	pha
 	lda.b $8B
 	pha
-	ldx.b $89
+	ldx.b a0
 	lda.l $7E3568,x
 	dec a
 	sta.w gsp
@@ -68,7 +68,7 @@ CODE_9F8EF6:
 	sta.w $1790
 	lda.w #$0010
 	sta.w gmode
-	stz.w $15D6
+	stz.w gmclock
 	lda.w gsp
 	lsr a
 	bcc CODE_9F8F55
@@ -76,7 +76,7 @@ CODE_9F8EF6:
 	tsb.w gmode
 CODE_9F8F55:
 	stz.w sflags3
-	lda.w #$0400
+	lda.w #DMA_OAM
 	sta.w sflags
 	stz.w sfhormode
 	stz.w iflags
@@ -86,49 +86,49 @@ CODE_9F8F55:
 	sta.w $0D1D
 	jsl.l CODE_9FB8B4
 	jsl.l CODE_9FB9A4
-	stz.w $0D37
-	stz.w $0CEB
+	stz.w Vpos
+	stz.w Hpos
 	jsl.l ResetBench
-	stz.b $91
+	stz.b a2
 	jsl.l CODE_9F927D
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9F927D
 	jsl.l CODE_9FD252
 	lda.w #$0000
 	sta.l $7E3448
 	lda.w #$000B
-	sta.b $A5
+	sta.b d0
 	lda.w #$009F
 	sta.b $8B
 	lda.w #DATA8_9F9323
-	sta.b $89
-	stz.b $8D
+	sta.b a0
+	stz.b a1
 CODE_9F8FAD:
-	ldx.b $8D
+	ldx.b a1
 	lda.w position,x
-	sta.b $A9
+	sta.b d1
 	lda.w pfgoal,x
 	bne CODE_9F8FC1
-	lda.b $A9
+	lda.b d1
 	clc
 	adc.w #$0006
-	sta.b $A9
+	sta.b d1
 CODE_9F8FC1:
-	asl.b $A9
-	asl.b $A9
-	ldy.b $A9
-	lda.b [$89],y
+	asl.b d1
+	asl.b d1
+	ldy.b d1
+	lda.b [a0],y
 	sta.w Xpos,x
 	iny
 	iny
-	lda.b [$89],y
+	lda.b [a0],y
 	sta.w Ypos,x
 	stz.w $0EC3,x
 	stz.w $0EE3,x
-	inc.b $8D
-	inc.b $8D
-	dec.b $A5
+	inc.b a1
+	inc.b a1
+	dec.b d0
 	bpl CODE_9F8FAD
 	lda.w $0AD9
 	bpl CODE_9F8FF1
@@ -158,7 +158,7 @@ CODE_9F900A:
 	tax
 	sec
 	sbc.w $0D01
-	sta.b $C1
+	sta.b d7
 	sta.w $0ADB
 	asl a
 	sta.w $0CDD
@@ -177,9 +177,9 @@ CODE_9F900A:
 	lda.w sflags
 	bit.w #$0001
 	bne CODE_9F9060
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9F9060
-	ldx.b $C1
+	ldx.b d7
 CODE_9F9049:
 	lda.w gameclock
 	beq CODE_9F905D
@@ -193,22 +193,22 @@ CODE_9F905D:
 	dex
 	bne CODE_9F9049
 CODE_9F9060:
-	lda.b $C1
+	lda.b d7
 	pha
 	jsl.l CODE_9F8625
 	pla
-	sta.b $C1
+	sta.b d7
 	sta.w $0ADB
-	lda.w $15D6
+	lda.w gmclock
 	beq CODE_9F9079
 	pla
 	sec
-	sbc.b $C1
+	sbc.b d7
 	pha
 	bmi CODE_9F9097
 CODE_9F9079:
 	jsl.l CODE_9B8526
-	lda.b $A9
+	lda.b d1
 	bit.w #$9080
 	beq CODE_9F900A
 	lda.w $178E
@@ -223,9 +223,9 @@ CODE_9F9097:
 	pla
 	sta.b $8B
 	pla
-	sta.b $89
+	sta.b a0
 	jsl.l CODE_9C9786
-	ldx.b $89
+	ldx.b a0
 	lda.w $178E
 	sta.l $7E3578,x
 	lda.w $1790
@@ -252,9 +252,9 @@ CODE_9F90B9:
 	jsl.l CODE_9FBAAA
 	jsl.l SpriteFrameEnd
 CODE_9F90F3:
-	lda.w $07F9
+	lda.w SoundFadeSpeed
 	bne CODE_9F90F3
-	lda.w $07F3
+	lda.w MusicOn
 	bne CODE_9F90F3
 	jsl.l CODE_9C978E
 	lda.l $7E34BC

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9DCC42:
-	lda.b $A5
+	lda.b d0
 	pha
 	ldx.w #$000A
 CODE_9DCC48:
@@ -8,13 +8,13 @@ CODE_9DCC48:
 	txa
 	lsr a
 	jsl.l CODE_9DC973
-	ldx.b $91
+	ldx.b a2
 	lda.w HomeTeam,x
 	sta.l $7E346C,x
 	ldx.w #$001A
 	jsl.l CODE_808F4C
 	clc
-	adc.b $A5
+	adc.b d0
 	asl a
 	asl a
 	tax
@@ -30,7 +30,7 @@ CODE_9DCC48:
 	stx.b $00
 	lda.b $01,s
 	tax
-	lda.b $91
+	lda.b a2
 	beq CODE_9DCC8D
 	lda.w #$2D00
 	bra CODE_9DCC90

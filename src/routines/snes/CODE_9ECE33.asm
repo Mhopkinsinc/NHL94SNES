@@ -8,8 +8,8 @@ CODE_9ECE33:
 	asl a
 	adc.w printx
 	asl a
-	sta.b $A9
-	lda.b [$8D],y
+	sta.b d1
+	lda.b [a1],y
 	bit.w #$0080
 	beq CODE_9ECE4B
 	jmp.w CODE_9ECF40

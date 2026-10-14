@@ -3,7 +3,7 @@ CODE_9FD8F3:
 	lda.w Xpos,x
 	sec
 	sbc.w $1043,x
-	sta.b $A5
+	sta.b d0
 	sec
 	sbc.w #$0020
 	beq CODE_9FD907

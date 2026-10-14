@@ -7,7 +7,7 @@ CODE_9EEDEF:
 	asl a
 	adc.w $0BA5
 	sta.w $0BA5
-	lda.w $1163,x
+	lda.w facedir,x
 	sta.w passdir
 CODE_9EEDFD:
 	jsl.l CODE_9EEE04

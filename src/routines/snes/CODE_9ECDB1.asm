@@ -2,7 +2,7 @@
 CODE_9ECDB1:
 	bvc CODE_9ECDAE
 CODE_9ECDB3:
-	dec.w $0D49
+	dec.w VertLineScrolling
 	lda.w #$0007
 	sta.b $14
 	lda.w #$007E

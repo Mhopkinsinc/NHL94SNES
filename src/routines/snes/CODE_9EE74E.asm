@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EE74E:
-	ldy.b $91
+	ldy.b a2
 	lda.w $19D0,y
 	bne CODE_9EE779
 	lda.w pfgoal,x

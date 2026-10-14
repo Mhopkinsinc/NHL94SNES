@@ -5,7 +5,7 @@ CODE_80C97D:
 	phy
 	lda.w HomeTeam,y
 	jsl.l CODE_9BC5AB
-	lda.b [$8D]
+	lda.b [a1]
 	and.w #$00FF
 	dec a
 	dec a
@@ -14,17 +14,17 @@ CODE_80C97D:
 	txa
 	clc
 	adc.w #$0002
-	sta.b $A5
+	sta.b d0
 	lda.w #$0020
 	sec
-	sbc.b $A5
+	sbc.b d0
 	lsr a
 	sta.w printx
 	sta.b $00
 	lda.w #$000D
 	sta.w printy
 	lda.w #$0006
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D8000
 	lda.b $00
 	inc a
@@ -45,6 +45,6 @@ CODE_80C97D:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CEF59
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9ECE15
 	bra CODE_80C9F8

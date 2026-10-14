@@ -2,12 +2,12 @@
 CODE_9B8D32:
 	jsr.w CODE_808D72
 	sta.w $1D93
-	inc.b $95
+	inc.b a3
 	jsr.w CODE_808D72
-	dec.b $95
+	dec.b a3
 	jsr.w CODE_9B8D7C
-	inc.b $95
+	inc.b a3
 	lda.w $1D93
 	jsr.w CODE_9B8D7C
-	dec.b $95
+	dec.b a3
 	rts

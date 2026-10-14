@@ -1,13 +1,13 @@
 ; Unidentified routine.
 CODE_9C87DB:
-	lda.b $91
+	lda.b a2
 	eor.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9C8826
 	jsl.l CODE_9C8B54
 	jsl.l CODE_9C8B69
 	jsl.l SpriteFrameStart
-	ldx.b $91
+	ldx.b a2
 	lda.w HomeTeam,x
 	sta.l $7E3454
 	ldx.w #$0049
@@ -15,7 +15,7 @@ CODE_9C87DB:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF2FB
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3
 	jsl.l WaitFrame

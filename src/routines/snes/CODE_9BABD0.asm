@@ -15,7 +15,7 @@ CODE_9BABE7:
 	bmi CODE_9BABEF
 	lda.w #$0040
 CODE_9BABEF:
-	sta.w $0CEB
+	sta.w Hpos
 	sta.w $0CBD
 	lda.w Ypos,x
 	sta.w $0DD7

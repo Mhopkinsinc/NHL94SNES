@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EE5E6:
-	lda.b $A5
+	lda.b d0
 	cmp.w #$002C
 	bpl CODE_9EE635
 	jsl.l RandomWord

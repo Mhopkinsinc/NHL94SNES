@@ -10,12 +10,12 @@ CODE_9ED5A7:
 	lda.w $0D71
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	lda.w pucky
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
-	lda.w $0776,y
+	sta.b d1
+	lda.w JoyPad,y
 	bit.w #$4000
 	bne CODE_9ED5E8
 	lda.w $0AB8,y

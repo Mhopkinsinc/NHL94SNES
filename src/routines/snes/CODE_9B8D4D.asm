@@ -1,20 +1,20 @@
 ; Unidentified routine.
 CODE_9B8D4D:
-	lda.b $A5
+	lda.b d0
 CODE_9B8D4F:
 	inc a
 	inc a
-	sta.b $95
+	sta.b a3
 	jsr.w CODE_808D72
 	sta.w $1D93
-	inc.b $95
-	inc.b $95
+	inc.b a3
+	inc.b a3
 	jsr.w CODE_808D72
-	dec.b $95
-	dec.b $95
+	dec.b a3
+	dec.b a3
 	jsr.w CODE_9B8D7C
-	inc.b $95
-	inc.b $95
+	inc.b a3
+	inc.b a3
 	lda.w $1D93
 	jsr.w CODE_9B8D7C
 	rts

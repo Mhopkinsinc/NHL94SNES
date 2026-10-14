@@ -2,7 +2,7 @@
 CODE_9EDEE4:
 	lda.w $163A
 	bne CODE_9EDF0C
-	jsl.l CODE_9E8272
+	jsl.l chkpk
 	bne CODE_9EDF0C
 	lda.w $0D2D
 	beq CODE_9EDF0C

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FB024:
-	sty.b $B5
+	sty.b d4
 	jsl.l CODE_9FCD2A
 CODE_9FB02A:
 	plx

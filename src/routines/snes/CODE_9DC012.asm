@@ -3,9 +3,9 @@ CODE_9DC012:
 	lda.w #$009D
 	sta.b $8F
 	lda.w #$C2A7
-	sta.b $8D
+	sta.b a1
 CODE_9DC01C:
-	lda.b [$8D]
+	lda.b [a1]
 	dec a
 	dec a
 	lsr a
@@ -16,21 +16,21 @@ CODE_9DC01C:
 	sta.w printx
 	lda.w #$000D
 	sta.w printy
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	jsl.l CODE_9DC2FB
 	ldx.w #$0038
 	ldy.w #$007A
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF6C4
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C9590
 	lda.w #$009D
 	sta.b $8F
 	lda.w #DATA8_9DC436
-	sta.b $8D
+	sta.b a1
 	lda.w $1E79
-	sta.b $A5
+	sta.b d0
 	bmi CODE_9DC0BB
 	jsl.l AdvanceStringPtr
 	ldx.w #$0040
@@ -39,9 +39,9 @@ CODE_9DC01C:
 	lda.w #$009D
 	sta.b $8F
 	lda.w #DATA8_9DC436
-	sta.b $8D
+	sta.b a1
 	lda.w $1E7D
-	sta.b $A5
+	sta.b d0
 	bmi CODE_9DC0BB
 	lda.w $1E7F
 	cmp.w #$0050
@@ -53,9 +53,9 @@ CODE_9DC01C:
 	lda.w #$009D
 	sta.b $8F
 	lda.w #DATA8_9DC436
-	sta.b $8D
+	sta.b a1
 	lda.w $1E81
-	sta.b $A5
+	sta.b d0
 	bmi CODE_9DC0BB
 	lda.w $1E83
 	cmp.w #$0050
@@ -70,13 +70,13 @@ CODE_9DC0BB:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF6D0
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C9590
 	lda.w #$0001
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC561
 	lda.w #$0004
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FC623
 	ldx.w #$00A0
 	ldy.w #$0084

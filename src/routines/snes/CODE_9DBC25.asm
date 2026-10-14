@@ -5,7 +5,7 @@ CODE_9DBC25:
 	ldx.w #$0000
 	ldy.w #$0000
 	lda.b [$0C],y
-	sta.b $A5
+	sta.b d0
 	sta.l $7FA000,x
 	ldx.w #$0002
 	ldy.w #$0002
@@ -15,12 +15,12 @@ CODE_9DBC25:
 	ldx.w #$0004
 	lda.w #$0010
 	sta.l $7FA000,x
-	lda.b $A5
+	lda.b d0
 	ldx.b $A7
 	jsl.l CODE_808F4C
 	clc
 	adc.w #$0006
-	sta.b $A9
+	sta.b d1
 	ldx.w #$0006
 	ldy.w #$0006
 	sep #$20
@@ -39,9 +39,9 @@ CODE_9DBC67:
 CODE_9DBC7E:
 	iny
 	inx
-	cpx.b $A9
+	cpx.b d1
 	bcc CODE_9DBC67
 	rep #$20
-	ldx.b $A5
+	ldx.b d0
 	ldy.b $A7
 	rts

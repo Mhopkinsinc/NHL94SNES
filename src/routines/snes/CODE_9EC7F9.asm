@@ -7,18 +7,18 @@ CODE_9EC7F9:
 	adc.b $14
 	plx
 CODE_9EC803:
-	cmp.l $7E37F4,x
+	cmp.l textmap,x
 	beq CODE_9EC81F
-	sta.l $7E37F4,x
+	sta.l textmap,x
 	txa
 	lsr a
-	cmp.w $0CD5
+	cmp.w textdirtylo
 	bcs CODE_9EC817
-	sta.w $0CD5
+	sta.w textdirtylo
 CODE_9EC817:
-	cmp.w $0CD7
+	cmp.w textdirtyhi
 	bcc CODE_9EC81F
-	sta.w $0CD7
+	sta.w textdirtyhi
 CODE_9EC81F:
 	inc.w printx
 	inx

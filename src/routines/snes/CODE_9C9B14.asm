@@ -17,7 +17,7 @@ CODE_9C9B19:
 	jsl.l CODE_80A17D
 	tay
 	sep #$20
-	dec.w $07E5
+	dec.w SoundLock
 	lda.w $08F2,y
 	cmp.b #$02
 	bne CODE_9C9B56
@@ -32,7 +32,7 @@ CODE_9C9B19:
 	sta.w $0CAF
 CODE_9C9B56:
 	sep #$20
-	inc.w $07E5
+	inc.w SoundLock
 	rep #$20
 	plx
 	rtl

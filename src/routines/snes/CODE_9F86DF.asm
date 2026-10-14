@@ -26,10 +26,10 @@ CODE_9F8701:
 	bcc CODE_9F871A
 	ora.w #$FF00
 CODE_9F871A:
-	sta.b $A5
+	sta.b d0
 	cmp.w #$0000
 	bmi CODE_9F8727
-	asl.b $A5
+	asl.b d0
 	jsl.l CODE_9FC757
 CODE_9F8727:
 	lda.w $0BEB,x

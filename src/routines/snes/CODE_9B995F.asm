@@ -5,7 +5,7 @@ CODE_9B995F:
 	lda.w #$2000
 	sta.w $0D0D
 	ldy.w #$0000
-	lda.b [$95],y
+	lda.b [a3],y
 	phy
 	pha
 	and.w #$F000
@@ -16,20 +16,20 @@ CODE_9B995F:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D6E1
-	sta.b $8D
+	sta.b a1
 	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC894
 	lda.w #$0004
 	sta.w printx
 	pla
 	and.w #$0FFF
-	sta.b $A5
+	sta.b d0
 	jsl.l PushTime
-	lda.b [$8D]
+	lda.b [a1]
 	cmp.w #$0006
 	bne CODE_9B99AA
 	inc.w printx
@@ -41,18 +41,18 @@ CODE_9B99AA:
 	iny
 	iny
 	sep #$20
-	lda.b [$95],y
+	lda.b [a3],y
 	rep #$20
 	phy
 	and.w #$00FF
 	pha
 	and.w #$0080
-	sta.b $B1
-	stz.b $91
-	lda.b $B1
+	sta.b d3
+	stz.b a2
+	lda.b d3
 	beq CODE_9B99D2
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 CODE_9B99D2:
 	jsl.l CODE_9B9B35
 	dec.w printy
@@ -61,57 +61,57 @@ CODE_9B99D2:
 	sta.w printx
 	pla
 	and.w #$007F
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FC427
 	jsl.l CODE_9EC894
 	ply
 	iny
 	sep #$20
-	lda.b [$95],y
+	lda.b [a3],y
 	rep #$20
 	and.w #$00FF
 	tay
 	lda.w #DATA8_80D3EB
-	sta.b $8D
+	sta.b a1
 	lda.w #$0080
 	sta.b $8F
-	lda.b [$8D],y
+	lda.b [a1],y
 	clc
-	adc.b $8D
-	sta.b $8D
+	adc.b a1
+	sta.b a1
 	lda.w #$001D
 	sta.w printx
-	lda.b [$8D]
+	lda.b [a1]
 	and.w #$00FF
-	sta.b $A5
-	lda.b $8D
+	sta.b d0
+	lda.b a1
 	pha
 	lda.b $8F
 	pha
 	lda.w #$0002
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FC623
 	jsl.l CODE_9EC894
 	pla
 	sta.b $8F
 	pla
-	sta.b $8D
+	sta.b a1
 	lda.w #$2400
 	sta.w $0D0D
 	inc.w printy
 	lda.w #$0010
 	sta.w printx
-	inc.b $8D
-	inc.b $8D
-	lda.b [$8D]
-	sta.b $A5
+	inc.b a1
+	inc.b a1
+	lda.b [a1]
+	sta.b d0
 	tay
-	dec.b $8D
-	lda.b [$8D],y
-	inc.b $8D
+	dec.b a1
+	lda.b [a1],y
+	inc.b a1
 	and.w #$00FF
 	bne CODE_9B9A58
-	dec.b $A5
+	dec.b d0
 CODE_9B9A58:
 	jsl.l CODE_9EC894
 	rts

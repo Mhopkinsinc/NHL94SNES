@@ -15,9 +15,9 @@ CODE_9FE6F2:
 	bne CODE_9FE712
 CODE_9FE70D:
 	lda.w #$1000
-	tsb.b $B1
+	tsb.b d3
 CODE_9FE712:
-	lda.b $A9
-	ora.b $B1
+	lda.b d1
+	ora.b d3
 	bne CODE_9FE71B
 	jmp.w CODE_9FE618

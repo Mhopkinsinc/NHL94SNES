@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9BAF8B:
 	jsl.l adda4
-	lda.b $C1
+	lda.b d7
 	beq CODE_9BAF6E
 	lda.w $0CB3
 	and.w #$00FF

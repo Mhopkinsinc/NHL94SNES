@@ -5,7 +5,7 @@ CODE_9EE57F:
 	jsl.l CODE_9EA3F1
 	jsl.l CODE_9EA419
 	lda.w #$0002
-	sta.w $11E3,x
+	sta.w SPAcnt,x
 	jsl.l CODE_9EE220
 	rtl
 	rtl

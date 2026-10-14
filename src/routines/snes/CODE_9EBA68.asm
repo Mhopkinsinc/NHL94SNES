@@ -1,12 +1,12 @@
 ; Unidentified routine.
 CODE_9EBA68:
-	ldy.b $91
+	ldy.b a2
 	lda.w position,y
 	bne CODE_9EBA67
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9EBA67
 	lda.w $0AD9
-	cmp.b $95
+	cmp.b a3
 	beq CODE_9EBA84
 	lda.w $0F23,x
 	sec
@@ -17,15 +17,15 @@ CODE_9EBA84:
 	sec
 	sbc.w #$0003
 	bmi CODE_9EBA67
-	ldx.b $91
-	ldy.b $95
-	sty.b $91
-	stx.b $95
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
 	jsl.l CODE_9E9B52
-	ldx.b $91
-	ldy.b $95
-	sty.b $91
-	stx.b $95
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
 	lda.w $0F23,y
 	sec
 	sbc.w #$001F
@@ -46,5 +46,5 @@ CODE_9EBA84:
 	and.w #$0004
 	bne CODE_9EBA67
 	lda.w #$0026
-	sta.b $A5
+	sta.b d0
 	jmp.w AddPenalty

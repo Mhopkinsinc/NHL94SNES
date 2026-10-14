@@ -3,7 +3,7 @@ CODE_9EE564:
 	lda.w #$0108
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 CODE_9EE56D:
 	jsl.l vtoa
 	jsl.l Findhittype

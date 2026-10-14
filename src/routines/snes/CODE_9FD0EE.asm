@@ -8,7 +8,7 @@ CODE_9FD0EE:
 	sta.w $1343,x
 CODE_9FD0FA:
 	ldy.w #$0003
-	lda.b [$89],y
+	lda.b [a0],y
 	and.w #$0007
 	sta.b $00
 	asl a
@@ -19,7 +19,7 @@ CODE_9FD0FA:
 	jsl.l CODE_9FD22B
 	sta.w $1363,x
 	ldy.w #$0004
-	lda.b [$89],y
+	lda.b [a0],y
 	lsr a
 	lsr a
 	lsr a
@@ -39,7 +39,7 @@ CODE_9FD0FA:
 	and.w #$F7FF
 	sta.w attribute,x
 	ldy.w #$0004
-	lda.b [$89],y
+	lda.b [a0],y
 	and.w #$0001
 	eor.w #$0001
 	sta.w $14A3,x
@@ -48,11 +48,11 @@ CODE_9FD0FA:
 	ora.w #$0800
 	sta.w attribute,x
 CODE_9FD156:
-	lda.b [$89],y
+	lda.b [a0],y
 	and.w #$000E
 	sta.w $1463,x
 	ldy.w #$0005
-	lda.b [$89],y
+	lda.b [a0],y
 	lsr a
 	lsr a
 	lsr a
@@ -73,7 +73,7 @@ CODE_9FD156:
 	jsl.l CODE_9FD22B
 	sta.w $1403,x
 	ldy.w #$0005
-	lda.b [$89],y
+	lda.b [a0],y
 	and.w #$0007
 	sta.b $00
 	asl a
@@ -90,7 +90,7 @@ CODE_9FD156:
 	jsl.l CODE_9FD22B
 	sta.w $1383,x
 	ldy.w #$0006
-	lda.b [$89],y
+	lda.b [a0],y
 	lsr a
 	lsr a
 	lsr a
@@ -105,7 +105,7 @@ CODE_9FD156:
 	jsl.l CODE_9FD22B
 	sta.w $1423,x
 	ldy.w #$0006
-	lda.b [$89],y
+	lda.b [a0],y
 	and.w #$0007
 	sta.b $00
 	asl a
@@ -120,7 +120,7 @@ CODE_9FD156:
 	jsl.l CODE_9FD22B
 	sta.w $13E3,x
 	ldy.w #$0007
-	lda.b [$89],y
+	lda.b [a0],y
 	lsr a
 	lsr a
 	lsr a
@@ -139,7 +139,7 @@ CODE_9FD156:
 	jsl.l CODE_9FD22B
 	sta.w $13A3,x
 	ldy.w #$0007
-	lda.b [$89],y
+	lda.b [a0],y
 	and.w #$0007
 	sta.b $00
 	asl a

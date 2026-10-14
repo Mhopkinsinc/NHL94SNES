@@ -8,72 +8,72 @@ CODE_9FD35A:
 	dec.w printy
 	inc.w printx
 	lda.w #$0002
-	sta.b $B5
+	sta.b d4
 	lda.w printx
 	pha
 CODE_9FD370:
 	lda.b $01,s
 	sta.w printx
-	lda.b $B5
-	sta.b $A5
+	lda.b d4
+	sta.b d0
 	jsl.l getlchoice
-	lda.b $A5
+	lda.b d0
 	bmi CODE_9FD3D8
-	ldy.b $91
+	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0008
 	bne CODE_9FD397
-	lda.b $B5
+	lda.b d4
 	cmp.w $17E6,y
 	bne CODE_9FD3D5
 	lda.w tmline,y
-	sta.b $A5
+	sta.b d0
 CODE_9FD397:
 	lda.w #$0000
 	sta.b $8F
-	lda.w #$0A2A
-	sta.b $8D
+	lda.w #mesarea
+	sta.b a1
 	lda.w #$0004
-	sta.b [$8D]
+	sta.b [a1]
 	phx
-	ldx.b $B5
+	ldx.b d4
 	lda.l DATA8_9FD404,x
 	plx
 	and.w #$00FF
 	ora.w #$2000
 	ldy.w #$0002
-	sta.b [$8D],y
-	jsl.l CODE_9EC7BE
-	lda.b $A5
+	sta.b [a1],y
+	jsl.l print
+	lda.b d0
 	pha
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D6BE
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9ECFC6
 	pla
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FDFA6
 CODE_9FD3D5:
 	dec.w printy
 CODE_9FD3D8:
-	dec.b $B5
+	dec.b d4
 	bpl CODE_9FD370
 	pla
 	clc
 	adc.w #$0005
 	sta.w printx
-	ldy.b $91
+	ldy.b a2
 	lda.w HomeTeam,y
 	lda.w #$009C
 	sta.b $8F
 	lda.w tmdata,y
-	sta.b $8D
+	sta.b a1
 	ldy.w #$0004
 	clc
-	adc.b [$8D],y
-	sta.b $8D
+	adc.b [a1],y
+	sta.b a1
 	clc
-	adc.b [$8D]
-	sta.b $8D
-	jml.l CODE_9EC7BE
+	adc.b [a1]
+	sta.b a1
+	jml.l print

@@ -7,7 +7,7 @@ CODE_9F8CB1:
 CODE_9F8CC1:
 	lda.w $0AD3
 	bne CODE_9F8CC1
-	lda.w $07F9
+	lda.w SoundFadeSpeed
 	bne CODE_9F8CC1
 	jsl.l CODE_8086A9
 	lda.w $1D81

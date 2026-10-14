@@ -10,5 +10,5 @@ DATA8_9E8553:
 	cmp.w pfteam,y
 	bne CODE_9E858C
 	lda.w #$0006
-	sta.b $A5
+	sta.b d0
 	jmp.w assreplace

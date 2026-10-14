@@ -1,21 +1,21 @@
 ; Unidentified routine.
 CODE_9C9F48:
-	lda.b $A5
+	lda.b d0
 	pha
 	jsl.l GetPeriodTime
-	lda.b $A5
+	lda.b d0
 	phx
 	ldx.w #$0028
 	jsl.l DivX8U
 	plx
-	sta.b $A9
+	sta.b d1
 	pla
-	sta.b $A5
+	sta.b d0
 	sep #$20
 	lda.w $1956,x
 	rep #$20
 	and.w #$00FF
-	cmp.b $A9
+	cmp.b d1
 	bmi CODE_9C9FB0
 	sta.b $04
 	sep #$20
@@ -48,12 +48,12 @@ CODE_9C9FB0:
 	lda.b $A7
 	asl a
 	sta.b $A7
-	lda.b $A5
+	lda.b d0
 	asl a
 	lda.b $A7
 	adc.w #$0000
 	sta.b $A7
-	lda.b $A5
+	lda.b d0
 	and.w #$7FFF
-	sta.b $A5
+	sta.b d0
 	rtl

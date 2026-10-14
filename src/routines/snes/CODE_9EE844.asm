@@ -5,8 +5,8 @@ CODE_9EE844:
 CODE_9EE84A:
 	lda.w #$0024
 	sta.w passspeed
-	sta.w $14E3,x
-	lda.w $15D6
+	sta.w pfalock,x
+	lda.w gmclock
 	bne CODE_9EE86C
 	phy
 	ldy.w #$0000
@@ -27,11 +27,11 @@ CODE_9EE86C:
 	bmi CODE_9EE87E
 	sta.w $19BE
 CODE_9EE87E:
-	lda.b $91
+	lda.b a2
 	pha
-	stx.b $91
+	stx.b a2
 	jsl.l a2touchpuck
 	pla
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9EE220
 	jmp.w CODE_9EE77E

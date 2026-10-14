@@ -26,7 +26,7 @@ CODE_9F8295:
 CODE_9F82C8:
 	lda.w $0AD3
 	bne CODE_9F82C8
-	lda.w $07F3
+	lda.w MusicOn
 	bne CODE_9F82C8
 CODE_9F82D2:
 	lda.w #$0000
@@ -37,14 +37,14 @@ CODE_9F82D2:
 	phk
 	plb
 	jsl.l CODE_9C978E
-	lda.w $07F3
+	lda.w MusicOn
 	beq CODE_9F82FB
 	lda.w $07ED
 	cmp.w #$C20C
 	beq CODE_9F8309
 	jsl.l CODE_9C9786
 CODE_9F82F6:
-	lda.w $07F3
+	lda.w MusicOn
 	bne CODE_9F82F6
 CODE_9F82FB:
 	lda.w #$0090

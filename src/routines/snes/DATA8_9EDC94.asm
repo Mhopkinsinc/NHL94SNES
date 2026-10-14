@@ -13,15 +13,15 @@ DATA8_9EDC94:
 CODE_9EDCC3:
 	lda.w $0D19
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $0D19
 	lda.w $0D1D
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $0D1D
 	lda.w $101F
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $101F
 	bpl CODE_9EDCEA
 	adc.w #$0005
@@ -30,12 +30,12 @@ CODE_9EDCC3:
 CODE_9EDCEA:
 	lda.w $0AD9
 	bmi CODE_9EDD3F
-	sta.b $91
+	sta.b a2
 	jsl.l a2touchpuck
-	lda.b $91
+	lda.b a2
 	jsl.l CODE_9BC002
-	ldy.b $91
-	lda.b $A5
+	ldy.b a2
+	lda.b d0
 	clc
 	adc.w Xpos,y
 	sec
@@ -49,7 +49,7 @@ CODE_9EDD11:
 	clc
 	adc.w $0D71
 	sta.w $0D71
-	lda.b $A9
+	lda.b d1
 	clc
 	adc.w Ypos,y
 	sec
@@ -68,9 +68,9 @@ CODE_9EDD2C:
 	lda.w $0EE3,y
 	sta.w puckvy
 CODE_9EDD3F:
-	jsl.l CODE_9EF751
+	jsl.l puckIChk
 	jsl.l CODE_9EF78A
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9EDDBD
 	lda.w $0AD9
 	bpl CODE_9EDDB0

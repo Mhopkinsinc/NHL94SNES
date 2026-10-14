@@ -2,10 +2,10 @@
 CODE_9BB176:
 	jsl.l CODE_9BB19D
 adda43:
-	lda.b $99
+	lda.b a4
 	clc
 	adc.w #$007A
-	sta.b $99
+	sta.b a4
 	bcc CODE_9BB186
 	inc.b $9B
 CODE_9BB186:
@@ -17,6 +17,6 @@ CODE_9BB186:
 	lda.w #$007E
 	sta.b $9B
 	lda.w #$577E
-	sta.b $99
+	sta.b a4
 CODE_9BB19C:
 	rtl

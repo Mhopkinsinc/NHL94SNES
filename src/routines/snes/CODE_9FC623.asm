@@ -1,11 +1,11 @@
 ; Unidentified routine.
 CODE_9FC623:
-	lda.b $A5
+	lda.b d0
 	pha
-	lda.b $A9
+	lda.b d1
 	cmp.w #$0002
-	bne CODE_9FC63B
-	lda.b $A5
+	bne PushNumberWidth
+	lda.b d0
 CODE_9FC62F:
 	cmp.w #$0064
 	bcc CODE_9FC639

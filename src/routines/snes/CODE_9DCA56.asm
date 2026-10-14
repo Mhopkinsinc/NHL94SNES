@@ -13,7 +13,7 @@ CODE_9DCA56:
 	lda.l $7E35D2
 	clc
 	adc.w $1E87
-	ldy.b $91
+	ldy.b a2
 	beq CODE_9DCA7F
 	clc
 	adc.w #$0030
@@ -22,22 +22,22 @@ CODE_9DCA7F:
 	ply
 	jsl.l CODE_9DCAB7
 CODE_9DCA85:
-	ldy.b $91
+	ldy.b a2
 	lda.w HomeTeam,y
 	asl a
 	asl a
 	clc
 	adc.w #$D8B3
-	sta.b $8D
+	sta.b a1
 	lda.w #$009D
 	sta.b $8F
-	lda.b [$8D]
+	lda.b [a1]
 	sta.b $0C
-	inc.b $8D
-	inc.b $8D
-	lda.b [$8D]
+	inc.b a1
+	inc.b a1
+	lda.b [a1]
 	sta.b $0E
-	lda.b $91
+	lda.b a2
 	beq CODE_9DCAAC
 	ldy.w #$0010
 	bra CODE_9DCAAF

@@ -3,7 +3,7 @@ CODE_9EA038:
 	lda.w SPA,x
 	cmp.w #$F342
 	bne CODE_9EA01D
-	lda.w $15D6
+	lda.w gmclock
 	beq CODE_9EA04E
 	lda.w #$0100
 	sta.w $0F23,x
@@ -12,22 +12,22 @@ CODE_9EA04E:
 	lda.w Xpos,y
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	lda.w Ypos,y
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	jsl.l vtoa
-	lda.b $A5
+	lda.b d0
 	sec
-	sbc.w $1163,x
+	sbc.w facedir,x
 	and.w #$0007
 	asl a
 	tay
 	lda.w #$009E
 	sta.b $8B
 	lda.w #DATA8_9EA154
-	sta.b $89
+	sta.b a0
 	sta.w $1543,x
 	cpy.w #$0000
 	bne CODE_9EA0B1

@@ -13,7 +13,7 @@ CODE_9FC200:
 	ply
 	cmp.w #$0000
 	bmi CODE_9FC20D
-	cmp.b $B5
+	cmp.b d4
 	bne CODE_9FC222
 CODE_9FC20D:
 	phy
@@ -27,7 +27,7 @@ CODE_9FC219:
 	bit.w #$0008
 	bne CODE_9FC273
 CODE_9FC222:
-	lda.b $A9
+	lda.b d1
 	bit.w #$2000
 	bne CODE_9FC299
 	cpx.w $0AD9

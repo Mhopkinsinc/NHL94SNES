@@ -2,7 +2,7 @@
 CODE_9C9DEC:
 	bvs CODE_9C9E55
 CODE_9C9DEE:
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w $1E35
 	beq CODE_9C9DFE

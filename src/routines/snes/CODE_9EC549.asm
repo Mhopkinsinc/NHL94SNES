@@ -5,7 +5,7 @@ CODE_9EC549:
 	lda.w tmtouch1,y
 	sta.w tmtouch2,y
 CODE_9EC555:
-	lda.b $A5
+	lda.b d0
 	sta.w tmtouch1,y
 	cmp.w tmtouch3,y
 	bne CODE_9EC565
@@ -15,7 +15,7 @@ CODE_9EC565:
 	lda.w #$1000
 	trb.w sflags
 	jsl.l a2offsides
-	ldy.b $91
+	ldy.b a2
 	lda.w iflags
 	bit.w #$0004
 	beq CODE_9EC5AD
@@ -33,12 +33,12 @@ CODE_9EC590:
 	lda.w $0CF2
 	and.w #$00FF
 	asl a
-	sta.b $95
+	sta.b a3
 	tax
 	lda.w #$000C
-	sta.b $A5
+	sta.b d0
 	jsl.l AddPenalty
 	plx
-	stx.b $95
+	stx.b a3
 CODE_9EC5A7:
 	rtl

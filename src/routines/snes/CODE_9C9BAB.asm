@@ -2,75 +2,75 @@
 CODE_9C9BAB:
 	phx
 	phy
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
 CODE_9C9BB2:
-	lda.b $A5,x
+	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0018
 	bne CODE_9C9BB2
-	ldx.b $87
-	stx.b $87
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$0000
 CODE_9C9BC3:
-	lda.b $89,x
+	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0014
 	bne CODE_9C9BC3
-	ldx.b $87
+	ldx.b xsave
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF370
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0013
-	sta.b $A5
+	sta.b d0
 	lda.w #$0008
-	sta.b $A9
+	sta.b d1
 	lda.l $7E35D0
-	sta.b $AD
+	sta.b d2
 	jsl.l eraser
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF375
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0015
-	sta.b $A5
+	sta.b d0
 	lda.w #$0007
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D8000
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF37A
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	jsl.l CODE_9C9D25
@@ -78,17 +78,17 @@ CODE_9C9BC3:
 	sta.w printy
 	lda.w #$000D
 	sta.w printx
-	stz.b $B1
-	stz.b $91
+	stz.b d3
+	stz.b a2
 	lda.w $1E2B
 	cmp.w #$001A
 	bmi CODE_9C9C69
 	sec
 	sbc.w #$001A
 	sta.w $1E2B
-	inc.b $B1
+	inc.b d3
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 CODE_9C9C69:
 	jsl.l CODE_9FBD66
 	lda.w #$0005
@@ -96,23 +96,23 @@ CODE_9C9C69:
 	lda.w #$0011
 	sta.w printx
 	lda.w $1E2B
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FC427
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	inc.w printy
 	lda.w #$000D
 	sta.w printx
-	stz.b $B1
-	stz.b $91
+	stz.b d3
+	stz.b a2
 	lda.w $1E2D
 	cmp.w #$001A
 	bmi CODE_9C9CA9
 	sec
 	sbc.w #$001A
 	sta.w $1E2D
-	inc.b $B1
+	inc.b d3
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 CODE_9C9CA9:
 	jsl.l CODE_9FBD66
 	lda.w #$0006
@@ -120,23 +120,23 @@ CODE_9C9CA9:
 	lda.w #$0011
 	sta.w printx
 	lda.w $1E2D
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FC427
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	inc.w printy
 	lda.w #$000D
 	sta.w printx
-	stz.b $B1
-	stz.b $91
+	stz.b d3
+	stz.b a2
 	lda.w $1E2F
 	cmp.w #$001A
 	bmi CODE_9C9CE9
 	sec
 	sbc.w #$001A
 	sta.w $1E2F
-	inc.b $B1
+	inc.b d3
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 CODE_9C9CE9:
 	jsl.l CODE_9FBD66
 	lda.w #$0007
@@ -144,27 +144,27 @@ CODE_9C9CE9:
 	lda.w #$0011
 	sta.w printx
 	lda.w $1E2F
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FC427
-	jsl.l CODE_9EC7BE
-	stx.b $87
+	jsl.l print
+	stx.b xsave
 	ldx.w #$0012
 CODE_9C9D0B:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
 	bpl CODE_9C9D0B
-	ldx.b $87
-	stx.b $87
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$0016
 CODE_9C9D19:
 	pla
-	sta.b $A5,x
+	sta.b d0,x
 	dex
 	dex
 	bpl CODE_9C9D19
-	ldx.b $87
+	ldx.b xsave
 	ply
 	plx
 	rtl

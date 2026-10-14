@@ -21,10 +21,10 @@ CODE_9ED022:
 	cmp.w #$F90E
 	bcc CODE_9ED04D
 CODE_9ED039:
-	lda.b $A5
-	cmp.w $1163,x
+	lda.b d0
+	cmp.w facedir,x
 	beq CODE_9ED07A
-	sta.b $AD
+	sta.b d2
 	lda.w #$E0FE
 	jsl.l CODE_9EA3F1
 	jml.l CODE_9EA719

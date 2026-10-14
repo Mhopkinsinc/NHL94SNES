@@ -2,68 +2,68 @@
 CODE_9B8B60:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF072
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0020
-	sta.b $A5
+	sta.b d0
 	lda.w #$0013
-	sta.b $A9
+	sta.b d1
 	lda.l $7E35D0
-	sta.b $AD
+	sta.b d2
 	jsl.l eraser
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF077
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	jsl.l GoalieCount
-	lda.b $A5
+	lda.b d0
 	dec a
-	sta.b $A9
+	sta.b d1
 	lda.w #DATA8_9B8C6E
 	sta.b $9D
 	lda.w #$009B
 	sta.b $9F
 	lda.w #DATA8_9B8C6A
-	sta.b $95
+	sta.b a3
 	lda.w #$009B
 	sta.b $97
-	lda.w $0D43
+	lda.w SelectedPlayerIdx
 	dec a
-	sta.b $A5
+	sta.b d0
 	bmi CODE_9B8BFD
 	asl a
 	asl a
 	asl a
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9B9320
 	sec
-	adc.b $A5
-	sta.b $95
+	adc.b d0
+	sta.b a3
 	lda.w #PositionNames
 	sta.b $9D
 	lda.w #$0080
 	sta.b $9F
 	lda.w #$0004
-	sta.b $A9
-	lda.w $0D43
+	sta.b d1
+	lda.w SelectedPlayerIdx
 	sec
 	sbc.w #$0005
 	beq CODE_9B8BFD

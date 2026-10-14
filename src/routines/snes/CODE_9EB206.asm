@@ -3,23 +3,23 @@ CODE_9EB206:
 	lda.w gmode
 	bit.w #$0004
 	bne CODE_9EB25F
-	dec.b $89
-	dec.b $89
-	lda.b ($89)
-	inc.b $89
-	inc.b $89
+	dec.b a0
+	dec.b a0
+	lda.b (a0)
+	inc.b a0
+	inc.b a0
 	and.w #$00FF
-	sta.b $A5
+	sta.b d0
 	tay
 	lda.w #$0080
 	sta.b $8F
 	lda.w #DATA8_80D3EB
-	sta.b $8D
-	lda.b [$8D],y
+	sta.b a1
+	lda.b [a1],y
 	clc
-	adc.b $8D
-	sta.b $8D
-	lda.b [$8D]
+	adc.b a1
+	sta.b a1
+	lda.b [a1]
 	and.w #$00FF
 	beq CODE_9EB25B
 	lda.w $0AD9
@@ -27,10 +27,10 @@ CODE_9EB206:
 	lsr a
 	sec
 	sbc.w #$0006
-	sta.b $A5
-	dec.b $89
-	lda.b ($89)
-	inc.b $89
+	sta.b d0
+	dec.b a0
+	lda.b (a0)
+	inc.b a0
 	and.w #$00FF
 	bit.w #$0080
 	beq CODE_9EB253
@@ -38,17 +38,17 @@ CODE_9EB206:
 CODE_9EB253:
 	sec
 	sbc.w #$0006
-	eor.b $A5
+	eor.b d0
 	bmi CODE_9EB2B5
 CODE_9EB25B:
-	jsl.l CODE_9EB2C9
+	jsl.l Stop4Pen
 CODE_9EB25F:
-	dec.b $89
-	lda.b ($89)
+	dec.b a0
+	lda.b (a0)
 	tay
 	ora.w #$0080
-	sta.b ($89)
-	inc.b $89
+	sta.b (a0)
+	inc.b a0
 	tya
 	bit.w #$0080
 	beq CODE_9EB274

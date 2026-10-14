@@ -27,11 +27,11 @@ CODE_9DABF4:
 	ldx.w #$0002
 	jsr.w CODE_9DAC22
 CODE_9DAC0A:
-	stz.b $91
+	stz.b a2
 	lda.l $7E345E
 	sta.l $7E345A
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	lda.l $7E345E
 	sta.l $7E345C
 CODE_9DAC21:

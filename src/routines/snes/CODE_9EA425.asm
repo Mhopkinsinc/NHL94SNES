@@ -7,5 +7,5 @@ CODE_9EA425:
 	beq CODE_9EA43B
 	lda.w #$0002
 	sec
-	sbc.w $1163,x
+	sbc.w facedir,x
 	bra CODE_9EA472

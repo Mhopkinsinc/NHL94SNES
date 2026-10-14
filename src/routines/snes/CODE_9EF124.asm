@@ -11,6 +11,6 @@ CODE_9EF135:
 	bmi CODE_9EF13B
 	lsr a
 CODE_9EF13B:
-	sta.b $AD
+	sta.b d2
 	bpl CODE_9EF142
 	jmp.w CODE_9EF1CE

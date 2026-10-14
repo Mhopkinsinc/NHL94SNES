@@ -4,7 +4,7 @@ CODE_9DD94D:
 	sta.b $0E
 	lda.w #$3FF4
 	sta.b $0C
-	ldy.w #$0400
+	ldy.w #DMA_OAM
 	ldx.w #$0800
 	jsl.l CODE_80891F
 	rtl

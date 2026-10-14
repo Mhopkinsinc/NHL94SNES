@@ -13,14 +13,14 @@ CODE_9FE645:
 	lda.b $01,s
 	asl a
 	tax
-	lda.w $0776,x
+	lda.w JoyPad,x
 	bit.w #$000F
 	bne CODE_9FE660
 	lda.w $1C84,x
 	beq CODE_9FE660
 	lda.b $01,s
 	jsl.l CODE_9B84DC
-	lda.b $B1
+	lda.b d3
 	bne CODE_9FE66E
 CODE_9FE660:
 	lda.b $01,s

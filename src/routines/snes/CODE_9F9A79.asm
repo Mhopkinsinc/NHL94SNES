@@ -6,10 +6,10 @@ CODE_9F9A7D:
 	jsl.l DivX8U
 	sec
 	eor.w #$FFFF
-	adc.b $A5
-	sta.b $A5
-	lda.b $A5
+	adc.b d0
+	sta.b d0
+	lda.b d0
 	bpl CODE_9F9AB4
-	stz.b $A5
+	stz.b d0
 	lda.w #$0000
 	bra CODE_9F9AB4

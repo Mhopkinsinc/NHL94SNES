@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9C9563:
 	lda.w #$3C00
-	ldx.b $91
+	ldx.b a2
 	bne CODE_9C956D
 	lda.w #$3E00
 CODE_9C956D:

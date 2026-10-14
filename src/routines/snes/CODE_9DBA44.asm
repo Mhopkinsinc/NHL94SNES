@@ -5,7 +5,7 @@ CODE_9DBA44:
 	lda.w $0BE3
 	dec a
 	dec a
-	cmp.w #$00C9
+	cmp.w #tmp2
 	bpl CODE_9DBA39
 CODE_9DBA53:
 	lda.w #$0002

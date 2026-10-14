@@ -24,7 +24,7 @@ UpdatePA:
 	sta.b a1+2
 	lda.w #DATA8_9CF7A0
 	sta.b a1
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	pla
 	sta.b a1
 	pla
@@ -37,4 +37,4 @@ UpdatePA:
 	sec
 	sbc.b d0
 	sta.w printx
-	jmp.w CODE_9EC7BE
+	jmp.w print

@@ -1,5 +1,5 @@
 ; Unidentified routine.
 CODE_9FDABF:
-	ldy.b $91
+	ldy.b a2
 	beq CODE_9FDAC6
 	jmp.w CODE_9FDB5E

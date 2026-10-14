@@ -10,5 +10,5 @@ CODE_9EAC67:
 	cmp.w #$0036
 	bpl CODE_9EACE2
 	lda.b $14
-	sta.b $A9
+	sta.b d1
 	bra CODE_9EACBA

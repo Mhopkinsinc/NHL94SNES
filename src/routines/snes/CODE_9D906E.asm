@@ -1,14 +1,14 @@
 ; Unidentified routine.
 CODE_9D906E:
-	lda.b [$89]
-	inc.b $89
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
 	asl a
 	asl a
 	asl a
 	sta.b $AF
-	lda.b [$89]
-	inc.b $89
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
 	asl a
 	asl a
@@ -17,61 +17,61 @@ CODE_9D906E:
 	stz.b $B3
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF41A
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w $0ACF
 	cmp.w #$0007
 	beq CODE_9D910B
-	lda.b [$89]
-	inc.b $89
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
-	sta.b $B5
+	sta.b d4
 	beq CODE_9D910B
-	stz.b $91
+	stz.b a2
 CODE_9D90B7:
-	lda.b [$89]
-	inc.b $89
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
 	sta.w printx
-	lda.b [$89]
-	inc.b $89
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
 	asl a
 	asl a
 	sta.w printy
 	lda.w #$0000
 	sta.b $8F
-	lda.w #$0A2A
-	sta.b $8D
+	lda.w #mesarea
+	sta.b a1
 	lda.w #$0005
-	sta.w $0A2A
-	ldx.b $91
+	sta.w mesarea
+	ldx.b a2
 	lda.l $7E3548,x
 	adc.w #$0030
-	sta.w $0A2C
+	sta.w mesarea+2
 	lda.w #$002D
 	sta.w $0A2D
 	lda.l $7E3558,x
 	adc.w #$0030
 	sta.w $0A2E
 	lda.w #$6E82
-	sta.w $0CD9
-	jsl.l CODE_9EC7BE
-	inc.b $91
-	inc.b $91
-	dec.b $B5
+	sta.w printm
+	jsl.l print
+	inc.b a2
+	inc.b a2
+	dec.b d4
 	bne CODE_9D90B7
 CODE_9D910B:
-	lda.w #$0095
+	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95FF9B
 	sta.b $0C
@@ -97,19 +97,19 @@ CODE_9D910B:
 	jsl.l CODE_808E2D
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF41F
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$6E82
-	sta.w $0CD9
+	sta.w printm
 	jsl.l CODE_9BC6C9
 	lda.w #$0080
 	sta.l $7EA670

@@ -24,7 +24,7 @@ CODE_80819F:
 	rep #$20
 	lda.w $0768
 	beq CODE_8081EB
-	lda.w #$2200
+	lda.w #DMA_CGRAM
 	sta.w DMAP0
 	lda.w $076C
 	sta.w A1T0L

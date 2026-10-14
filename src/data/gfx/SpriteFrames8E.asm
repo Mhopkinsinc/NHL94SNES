@@ -508,7 +508,7 @@ SpriteFrame931:
 	dw 0,6,0,9
 	dw $0040,$0000
 	dw .tiles-SpriteFrame931
-	db $46,$A5,$46,$A5
+	db $46,d0,$46,d0
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
@@ -552,7 +552,7 @@ SpriteFrame935:
 	dw 0,5,0,9
 	dw $0040,$0000
 	dw .tiles-SpriteFrame935
-	db $3E,$99,$3E,$99
+	db $3E,a4,$3E,a4
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:
@@ -596,7 +596,7 @@ SpriteFrame939:
 	dw 0,4,0,9
 	dw $0040,$0000
 	dw .tiles-SpriteFrame939
-	db $3A,$8D,$3A,$8D
+	db $3A,a1,$3A,a1
 	dw 0,0,$0000 : db $00
 	dw 0,8,$0001 : db $00
 .tiles:

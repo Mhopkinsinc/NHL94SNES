@@ -1,18 +1,18 @@
 ; Unidentified routine.
 CODE_9EC160:
-	lda.b $A5
+	lda.b d0
 	pha
 	lda.b $A7
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.b $AB
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
 	lda.b $AF
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.b $8F
 	pha

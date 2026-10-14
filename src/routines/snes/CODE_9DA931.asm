@@ -2,13 +2,13 @@
 CODE_9DA931:
 	bvs CODE_9DA938
 CODE_9DA933:
-	lda.b $B5
+	lda.b d4
 	dec a
-	sta.b $B1
+	sta.b d3
 CODE_9DA938:
-	lda.b $B1
+	lda.b d3
 	sec
-	sbc.b $B5
+	sbc.b d4
 	bmi CODE_9DA943
 	bvc CODE_9DA945
 	bra CODE_9DA920

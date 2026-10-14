@@ -7,7 +7,7 @@ CODE_9F96B8:
 	ora.w $1C8C
 	bne CODE_9F96DB
 	jsl.l CODE_9B84F5
-	lda.b $A9
+	lda.b d1
 	bit.w #$1000
 	beq CODE_9F96D7
 	jmp.w CODE_9F9372

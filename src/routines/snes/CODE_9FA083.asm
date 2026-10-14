@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9FA083:
 	lda.w #$0007
-	sta.w $0A2A
+	sta.w mesarea
 	lda.w #$0020
-	sta.w $0A2C
+	sta.w mesarea+2
 	lda.w #$003A
 	sta.w $0A2E
 	lda.w gameclock
@@ -44,7 +44,7 @@ CODE_9FA083:
 	clc
 	adc.w #$0030
 	sep #$20
-	sta.w $0A2C
+	sta.w mesarea+2
 	rep #$20
 CODE_9FA0F6:
 	lda.w #$2000
@@ -65,6 +65,6 @@ CODE_9FA0F6:
 CODE_9FA121:
 	lda.w #$0000
 	sta.b $8F
-	lda.w #$0A2A
-	sta.b $8D
-	jml.l CODE_9EC7BE
+	lda.w #mesarea
+	sta.b a1
+	jml.l print

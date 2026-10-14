@@ -14,7 +14,7 @@ CODE_9B93F3:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF0AC
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd
 	lda.w #$FFFF
@@ -26,15 +26,15 @@ CODE_9B93F3:
 	jsl.l CODE_9DE0D4
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF0B5
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0000

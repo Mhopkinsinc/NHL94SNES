@@ -7,4 +7,4 @@ CODE_9FB39E:
 	lda.w $178E
 	cmp.w $1790
 	beq CODE_9FB3AA
-	jml.l CODE_9F8B79
+	jml.l clockcont_0

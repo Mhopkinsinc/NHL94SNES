@@ -14,7 +14,7 @@ CODE_9BB3F4:
 	pha
 	tax
 	jsl.l Mul16U
-	lda.b $A5
+	lda.b d0
 	cmp.b $08
 	lda.b $A7
 	sbc.b $0A

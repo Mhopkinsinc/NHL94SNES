@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EF84D:
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.w $0E9F
 	bmi CODE_9EF829

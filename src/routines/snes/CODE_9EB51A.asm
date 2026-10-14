@@ -4,8 +4,8 @@ CODE_9EB51A:
 	bne CODE_9EB523
 	jsl.l CODE_9C9BAB
 CODE_9EB523:
-	lda.b [$8D]
+	lda.b [a1]
 	and.w #$00FF
-	sta.b $AD
+	sta.b d2
 	bne CODE_9EB52F
 	jmp.w CODE_9EB6A5

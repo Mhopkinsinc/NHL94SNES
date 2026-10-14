@@ -8,9 +8,9 @@ CODE_9EEAE2:
 	sta.w puckvy
 CODE_9EEAE9:
 	lda.w puckvx
-	sta.b $A5
+	sta.b d0
 	lda.w puckvy
-	sta.b $A9
+	sta.b d1
 	jsl.l vtoa
 	ldy.w #$E34E
 	lda.w position,x
@@ -20,17 +20,17 @@ CODE_9EEAE9:
 	beq CODE_9EEB0B
 	ldy.w #$ECD8
 CODE_9EEB0B:
-	sty.b $A9
+	sty.b d1
 	jsl.l SetSPA
 	lda.w #$0001
-	sta.w $14E3,x
+	sta.w pfalock,x
 	lda.w position,x
 	bne CODE_9EEB2D
 	lda.w $19D4,x
 	bmi CODE_9EEB2D
 	stz.w $0EC3,x
 	stz.w $0EE3,x
-	sta.b $B5
-	jsl.l CODE_9FCBB6
+	sta.b d4
+	jsl.l findpc
 CODE_9EEB2D:
 	rtl

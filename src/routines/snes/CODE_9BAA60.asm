@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9BAA60:
-	lda.w $07F9
+	lda.w SoundFadeSpeed
 	bne CODE_9BAA60
 	jsl.l CODE_9C98DF
 	lda.w #$0000
@@ -9,12 +9,12 @@ CODE_9BAA60:
 	tsb.w sflags
 	jsl.l CODE_9FB9A4
 	lda.w #$FFFF
-	sta.w $0CD5
-	stz.w $0CD7
+	sta.w textdirtylo
+	stz.w textdirtyhi
 	lda.l $7E35D0
 	clc
 	adc.l $7E35AA
-	ldx.w #$0400
+	ldx.w #DMA_OAM
 	ldy.w #$0000
 	jsl.l CODE_808862
 	lda.w #$FFFF
@@ -46,9 +46,9 @@ CODE_9BAA60:
 	pha
 	lda.w #$0020
 	trb.w sflags
-	lda.w $0D37
+	lda.w Vpos
 	pha
-	lda.w $0CEB
+	lda.w Hpos
 	pha
 	lda.w ReplayBufferPtr
 	cmp.w #$577E
@@ -81,7 +81,7 @@ CODE_9BAB07:
 	lda.w $0D21
 	sta.b $9B
 	lda.w ReplayBufferPtr
-	sta.b $99
+	sta.b a4
 	lda.w #$0000
 	pha
 CODE_9BAB41:
@@ -89,7 +89,7 @@ CODE_9BAB41:
 	pla
 	inc a
 	pha
-	lda.b $C1
+	lda.b d7
 	bne CODE_9BAB41
 	pla
 	lsr a

@@ -5,10 +5,10 @@ CODE_9F8433:
 	lda.w #$1FFF
 	tcs
 CODE_9F843C:
-	stz.b $91
+	stz.b a2
 	jsl.l reenergizeteam
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l reenergizeteam
 	stz.w $0CC7
 	jsl.l CODE_8086A9
@@ -42,15 +42,15 @@ CODE_9F8493:
 	jsl.l CODE_9F9365
 CODE_9F8497:
 	ldx.w #$001C
-	stx.b $95
+	stx.b a3
 	lda.w #$0000
 	sta.l $7E3136
 	sta.l $7E3138
 	lda.w #$001B
-	sta.b $A5
+	sta.b d0
 	jsl.l assreplace
 	jsl.l CODE_9DD977
-	lda.w #$0400
+	lda.w #DMA_OAM
 	tsb.w sflags
 	lda.w #$FFFF
 	sta.w $0CAD

@@ -12,7 +12,7 @@ NewHandle:		; a block of X bytes; A bit 14 = locked; Y = $7E or $7F for that ban
 	inx
 	inx
 	inx
-	cpx.w #$2100
+	cpx.w #INIDISP
 	bne .find
 	lda.w #$0000
 	bra .exit

@@ -2,14 +2,14 @@
 CODE_9E8CEC:
 	lda.w OOlistpos,x
 	beq CODE_9E8D23
-	sta.b $A9
+	sta.b d1
 CODE_9E8CF3:
-	ldy.b $A9
+	ldy.b d1
 	lda.w $15C2,y
 	and.w #$00FF
-	sta.b $B5
+	sta.b d4
 	tay
-	lda.b $B1
+	lda.b d3
 	sec
 	sbc.w Ylist,y
 	bpl CODE_9E8D23
@@ -18,15 +18,15 @@ CODE_9E8CF3:
 	inc a
 	sta.w OOlistpos,y
 	sep #$30
-	ldy.b $A9
-	lda.b $B5
+	ldy.b d1
+	lda.b d4
 	sta.w OOlist,y
 	txa
 	sta.w $15C2,y
 	rep #$30
-	dec.b $A9
+	dec.b d1
 	bne CODE_9E8CF3
 CODE_9E8D23:
-	lda.b $B1
+	lda.b d3
 	sta.w Ylist,x
 	rtl

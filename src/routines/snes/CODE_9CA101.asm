@@ -4,14 +4,14 @@ CODE_9CA101:
 	sta.w $0D97,x
 CODE_9CA107:
 	lda.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	lda.w Ypos,x
-	sta.b $A9
-	jsl.l CODE_9BC10F
+	sta.b d1
+	jsl.l projxy
 	cmp.w #$4E20
 	beq CODE_9CA186
 	sta.w $0CD1
-	lda.b $A5
+	lda.b d0
 	sta.w $0CCF
 	lda.w $0D97,x
 	sta.w $0E23,x
@@ -36,7 +36,7 @@ CODE_9CA151:
 	ldx.w #$2000
 	lsr a
 	bcc CODE_9CA15D
-	ldx.w #$2200
+	ldx.w #DMA_CGRAM
 CODE_9CA15D:
 	stx.w $0CC9
 	jsl.l CODE_9BBFB9
@@ -53,8 +53,8 @@ CODE_9CA15D:
 	ldy.w $0CD1
 	jsl.l DrawSprite
 CODE_9CA186:
-	inc.b $99
-	lda.b $99
+	inc.b a4
+	lda.b a4
 	cmp.w #$15D3
 	beq CODE_9CA192
 	jmp.w CODE_9CA0B6

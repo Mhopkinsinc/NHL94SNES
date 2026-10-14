@@ -2,9 +2,9 @@
 CODE_9CA467:
 	cmp.w #$0200
 	bne CODE_9CA49F
-	lda.l $7E3508
+	lda.l passbits
 	and.w #$01FF
-	sta.b $A5
+	sta.b d0
 	sep #$30
 	phx
 	phy
@@ -14,11 +14,11 @@ CODE_9CA467:
 	sta.b $14
 CODE_9CA482:
 	ldy.b $14
-	lda.l $7E3508,x
+	lda.l passbits,x
 	sta.b $14
 	tya
 	ror a
-	sta.l $7E3508,x
+	sta.l passbits,x
 	dex
 	bpl CODE_9CA482
 	lda.b #$00

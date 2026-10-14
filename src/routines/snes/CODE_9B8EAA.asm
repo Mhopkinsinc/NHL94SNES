@@ -14,8 +14,8 @@ CODE_9B8EBC:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B851F
-	jsl.l CODE_9B852C
-	lda.b $A9
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
 	bit.w #$1000
 	beq CODE_9B8EE1
 	lda.w #$FFFF

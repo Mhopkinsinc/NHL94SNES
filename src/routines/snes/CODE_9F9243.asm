@@ -5,11 +5,11 @@ CODE_9F9243:
 	lda.w #$0014
 	sta.w printy
 	lda.w #$0018
-	sta.b $A5
+	sta.b d0
 	lda.w #$0003
-	sta.b $A9
+	sta.b d1
 	lda.l $7E35D0
-	sta.b $AD
+	sta.b d2
 	jsl.l eraser
 	jsl.l CODE_9DD923
 	jsl.l WaitFrame

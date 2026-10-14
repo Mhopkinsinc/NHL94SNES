@@ -25,24 +25,24 @@ CODE_9FC0ED:
 	adc.w Ypos,x
 	clc
 	adc.w $0D4F
-	sta.b $AD
-	sta.w $0D4D
+	sta.b d2
+	sta.w yc1
 	lda.w Xpos,x
-	sta.b $B1
-	sta.w $0D4B
+	sta.b d3
+	sta.w xc1
 CODE_9FC102:
-	lda.b $AD
+	lda.b d2
 	sec
-	sbc.w $0D37
-	sta.b $A5
+	sbc.w Vpos
+	sta.b d0
 	cmp.w #$FFF7
 	bpl CODE_9FC123
-	lda.b $AD
+	lda.b d2
 	sec
 	sbc.w #$FFF6
-	sta.b $A9
+	sta.b d1
 	cmp.w #$FF39
 	bpl CODE_9FC13C
 	lda.w #$FF39
-	sta.b $A9
+	sta.b d1
 	bra CODE_9FC13C

@@ -4,9 +4,9 @@ CODE_9BB020:
 	sta.w $0AF3
 	jsl.l SoundVoicesOff
 	pla
-	sta.w $0CEB
+	sta.w Hpos
 	pla
-	sta.w $0D37
+	sta.w Vpos
 	pla
 	sta.w $0D21
 	pla
@@ -16,7 +16,7 @@ CODE_9BB020:
 	lda.w $0D21
 	sta.b $9B
 	lda.w ReplayBufferPtr
-	sta.b $99
+	sta.b a4
 	jsl.l CODE_9BB19D
 	lda.w #$0800
 	trb.w sflags
@@ -24,15 +24,15 @@ CODE_9BB020:
 	jsl.l SpriteFrameStart
 	jsl.l CODE_9FBAAA
 	jsl.l SpriteFrameEnd
-	stz.w $0CD5
+	stz.w textdirtylo
 	lda.w #$03FF
-	sta.w $0CD7
+	sta.w textdirtyhi
 	jsl.l CODE_9F96F7
 	jsl.l CODE_9C9786
 CODE_9BB075:
 	lda.w $0AD3
 	bne CODE_9BB075
-	lda.w $07F9
+	lda.w SoundFadeSpeed
 	bne CODE_9BB075
 	jsl.l CODE_8086A9
 	lda.w $1D81

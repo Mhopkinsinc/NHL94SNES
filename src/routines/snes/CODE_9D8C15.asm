@@ -20,7 +20,7 @@ CODE_9D8C19:
 	lda.b #$07
 	sta.w TM
 	rep #$30
-	lda.w #$0095
+	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95F1AE
 	sta.b $0C
@@ -112,17 +112,17 @@ CODE_9D8C19:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	adc.l $7E35B6
 	sta.l $7E35AE
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3D7
-	sta.b $8D
+	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$0096
 	sta.b $0E
@@ -287,49 +287,49 @@ CODE_9D8DA2:
 	lda.w #$007E
 	sta.b $8F
 	lda.w #$34D2
-	sta.b $8D
+	sta.b a1
 	lda.w #$009D
 	sta.b $8B
 	lda.w #DATA8_9D94FE
-	sta.b $89
+	sta.b a0
 	lda.l $7E35D4
 	asl a
 	tay
-	lda.b [$89],y
-	adc.b $89
-	sta.b $89
-	lda.b [$89]
-	inc.b $89
+	lda.b [a0],y
+	adc.b a0
+	sta.b a0
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
-	sta.b $B5
+	sta.b d4
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF415
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0001
 	sta.l $7E3466
 CODE_9D8F15:
-	lda.b [$89]
-	inc.b $89
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
 	sta.w printx
 	lda.w #$3000
 	sta.w $0D0D
-	lda.b [$89]
-	inc.b $89
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
 	sta.w printy
-	lda.b [$8D]
-	inc.b $8D
+	lda.b [a1]
+	inc.b a1
 	and.w #$00FF
 	sta.b $CD
 	tay
@@ -366,7 +366,7 @@ CODE_9D8F4E:
 	asl a
 	clc
 	adc.w #$7500
-	sta.b $91
+	sta.b a2
 	lda.w #$0000
 	adc.w #$007F
 	sta.b $93
@@ -382,9 +382,9 @@ CODE_9D8F4E:
 	asl a
 	tax
 	lda.w #$0007
-	sta.b $C5
-	sta.b $C7
-	lda.b [$91]
+	sta.b tmp0
+	sta.b tmp1
+	lda.b [a2]
 	clc
 	adc.l $7E35CE
 	sta.l $7EA676,x
@@ -392,20 +392,20 @@ CODE_9D8F4E:
 	sta.l $7EA686,x
 	inx
 	inx
-	inc.b $91
-	inc.b $91
-	lda.b [$91]
+	inc.b a2
+	inc.b a2
+	lda.b [a2]
 	clc
 	adc.l $7E35CE
 CODE_9D8FC3:
 	sta.l $7EA676,x
 	inx
 	inx
-	dec.b $C5
+	dec.b tmp0
 	bne CODE_9D8FC3
-	inc.b $91
-	inc.b $91
-	lda.b [$91]
+	inc.b a2
+	inc.b a2
+	lda.b [a2]
 	clc
 	adc.l $7E35CE
 	ora.w #$8000
@@ -414,9 +414,9 @@ CODE_9D8FC3:
 	sta.l $7EA776,x
 	inx
 	inx
-	inc.b $91
-	inc.b $91
-	lda.b [$91]
+	inc.b a2
+	inc.b a2
+	lda.b [a2]
 	clc
 	adc.l $7E35CE
 	ora.w #$8000
@@ -424,9 +424,9 @@ CODE_9D8FF6:
 	sta.l $7EA766,x
 	inx
 	inx
-	dec.b $C7
+	dec.b tmp1
 	bne CODE_9D8FF6
 org $9D9000
-	dec.b $B5
+	dec.b d4
 	beq CODE_9D9007
 	jmp.w CODE_9D8F15

@@ -32,7 +32,7 @@ CODE_9F8933:
 	sta.b $EC
 	ldx.w #$0000
 CODE_9F8947:
-	stx.b $95
+	stx.b a3
 	stx.b $E4
 	cpx.w #$000C
 	bne CODE_9F895A

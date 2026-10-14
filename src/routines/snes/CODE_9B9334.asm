@@ -2,75 +2,75 @@
 CODE_9B9334:
 	lda.b $97
 	pha
-	lda.b $95
+	lda.b a3
 	pha
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
-	lda.b $A5
+	lda.b d0
 	pha
 	phy
 	jsl.l CODE_9B9320
-	ldy.b $91
+	ldy.b a2
 	lda.w #$009C
 	sta.b $8F
 	lda.w tmdata,y
-	sta.b $8D
+	sta.b a1
 	ldy.w #$0006
 	clc
-	adc.b [$8D],y
-	sta.b $8D
+	adc.b [a1],y
+	sta.b a1
 	lda.w #$0000
-	sta.b $A5
+	sta.b d0
 CODE_9B9361:
 	sep #$20
-	lda.b [$8D]
-	sta.b [$95]
+	lda.b [a1]
+	sta.b [a3]
 	rep #$20
-	inc.b $8D
-	inc.b $95
-	lda.b $A5
+	inc.b a1
+	inc.b a3
+	lda.b d0
 	inc a
-	sta.b $A5
+	sta.b d0
 	cmp.w #$0038
 	bmi CODE_9B9361
 	lda.l $7E34C6
 	bne CODE_9B93B0
 	jsl.l CODE_9B9320
-	ldy.b $91
+	ldy.b a2
 	lda.w #$009C
 	sta.b $8F
 	lda.w tmdata,y
-	sta.b $8D
+	sta.b a1
 	ldy.w #$000C
 	clc
-	adc.b [$8D],y
-	sta.b $8D
+	adc.b [a1],y
+	sta.b a1
 	lda.w #$0000
-	sta.b $A5
+	sta.b d0
 CODE_9B939A:
 	sep #$20
-	lda.b [$8D]
-	sta.b [$95]
+	lda.b [a1]
+	sta.b [a3]
 	rep #$20
-	inc.b $8D
-	inc.b $95
-	lda.b $A5
+	inc.b a1
+	inc.b a3
+	lda.b d0
 	inc a
-	sta.b $A5
+	sta.b d0
 	cmp.w #$0008
 	bmi CODE_9B939A
 CODE_9B93B0:
 	ply
 	pla
-	sta.b $A5
+	sta.b d0
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	pla
-	sta.b $95
+	sta.b a3
 	pla
 	sta.b $97
 	rtl

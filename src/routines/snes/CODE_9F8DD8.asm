@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9F8DD8:
-	lda.l $7E34F4
+	lda.l PassWord
 	and.w #$7F7F
-	sta.l $7E34F4
+	sta.l PassWord
 	jsl.l CODE_9BCD28
-	jsl.l CODE_9D9783
+	jsl.l maketree
 	lda.w #$0004
 	trb.w sflags3
 	beq CODE_9F8DF6

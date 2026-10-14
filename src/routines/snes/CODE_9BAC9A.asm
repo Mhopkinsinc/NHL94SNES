@@ -17,6 +17,6 @@ CODE_9BACB1:
 CODE_9BACB6:
 	lda.w #$0100
 CODE_9BACB9:
-	sta.w $0D37
+	sta.w Vpos
 	sta.w $0CBF
 	bra CODE_9BACCD

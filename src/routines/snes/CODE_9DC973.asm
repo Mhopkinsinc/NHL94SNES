@@ -4,22 +4,22 @@ CODE_9DC973:
 	lda.w #$009D
 	sta.b $8F
 	lda.w #DATA8_9DC9A2
-	sta.b $8D
-	lda.b [$8D],y
+	sta.b a1
+	lda.b [a1],y
 	and.w #$00FF
 	pha
-	ldy.b $91
+	ldy.b a2
 	lda.w #$009C
 	sta.b $8F
 	lda.w tmdata,y
-	sta.b $8D
+	sta.b a1
 	ldy.w #$000C
 	clc
-	adc.b [$8D],y
-	sta.b $8D
+	adc.b [a1],y
+	sta.b a1
 	ply
-	lda.b [$8D],y
+	lda.b [a1],y
 	and.w #$00FF
 	dec a
-	sta.b $A5
+	sta.b d0
 	rtl

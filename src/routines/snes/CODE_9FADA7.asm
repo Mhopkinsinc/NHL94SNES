@@ -3,10 +3,10 @@ CODE_9FADA7:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #$F8C2
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9ECE15
 CODE_9FADB5:
-	ldx.b $95
+	ldx.b a3
 	lda.l $7E34C6
 	beq CODE_9FAE2E
 CODE_9FADBD:
@@ -18,21 +18,21 @@ CODE_9FADBD:
 	adc.w #$000A
 	sta.w printy
 	lda.w #$000C
-	sta.b $A5
+	sta.b d0
 	lda.w #$0003
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D8000
 	lda.w tmline
-	sta.b $A5
+	sta.b d0
 	lda.w $1798
-	sta.b $A9
+	sta.b d1
 	lda.w gmode
 	bit.w #$0002
 	bne CODE_9FADF9
 	lda.w tmline
-	sta.b $A9
+	sta.b d1
 	lda.w $1798
-	sta.b $A5
+	sta.b d0
 CODE_9FADF9:
 	inc.w printx
 	dec.w printy
@@ -40,25 +40,25 @@ CODE_9FADF9:
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D6BE
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9ECFC6
 	inc.w printx
 	inc.w printx
 	inc.w printx
 	inc.w printx
-	lda.b $A9
-	sta.b $A5
+	lda.b d1
+	sta.b d0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D6BE
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9ECFC6
 CODE_9FAE2E:
 	jsl.l RandomWord
 	and.w #$007F
 	adc.w #$00B4
-	sta.b $A5
-	ldx.b $95
+	sta.b d0
+	ldx.b a3
 	sta.w $1003,x
 	lda.w $1E9B
 	beq CODE_9FAE4A
@@ -87,23 +87,23 @@ CODE_9FAE87:
 	lda.w #$FFFF
 	sta.l $7E3122
 	sta.l $7E3124
-	stx.b $87
+	stx.b xsave
 	ldx.w #$001A
 CODE_9FAE97:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
 	bpl CODE_9FAE97
-	ldx.b $87
-	stx.b $87
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$001E
 CODE_9FAEA5:
 	pla
-	sta.b $A5,x
+	sta.b d0,x
 	dex
 	dex
 	bpl CODE_9FAEA5
-	ldx.b $87
-	ldx.b $95
+	ldx.b xsave
+	ldx.b a3
 	rtl

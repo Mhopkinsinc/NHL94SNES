@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9E9492:
 	lda.w OOlistpos,x
-	sta.b $A9
+	sta.b d1
 CODE_9E9497:
-	ldy.b $A9
+	ldy.b d1
 	cpy.w #$000F
 	beq CODE_9E94DE
 	lda.w $15C4,y
@@ -11,7 +11,7 @@ CODE_9E9497:
 	tay
 	lda.w Ylist,y
 	sec
-	sbc.b $B1
+	sbc.b d3
 	sec
 	sbc.w #$000E
 	bpl CODE_9E94DE
@@ -19,7 +19,7 @@ CODE_9E9497:
 	bmi CODE_9E94DA
 	lda.w Xpos,y
 	sec
-	sbc.b $AD
+	sbc.b d2
 	cmp.w #$FFF1
 	bmi CODE_9E94DA
 	cmp.w #$000F
@@ -32,5 +32,5 @@ CODE_9E9497:
 	bcs CODE_9E94DA
 	jsl.l CODE_9E9528
 CODE_9E94DA:
-	inc.b $A9
+	inc.b d1
 	bra CODE_9E9497

@@ -46,7 +46,7 @@ CODE_9DB4A2:
 CODE_9DB4B0:
 	plp
 	rts
-	lda.w $0776
+	lda.w JoyPad
 	bit.w $0BEB
 	beq CODE_9DB4C0
 	lda.w #$0001

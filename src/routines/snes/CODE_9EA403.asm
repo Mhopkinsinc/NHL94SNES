@@ -5,7 +5,7 @@ CODE_9EA403:
 	sta.w SPA,x
 	stz.w SPAnum,x
 	lda.w #$FFFF
-	sta.w $11E3,x
+	sta.w SPAcnt,x
 	jsl.l CODE_9EA419
 CODE_9EA418:
 	rtl

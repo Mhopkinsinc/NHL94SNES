@@ -6,7 +6,7 @@ CODE_9DAEC9:
 	lda.w #$009A
 	sta.b $93
 	lda.w #$E9A3
-	sta.b $91
+	sta.b a2
 	lda.w printy
 	asl a
 	asl a
@@ -15,32 +15,32 @@ CODE_9DAEC9:
 	asl a
 	adc.w printx
 	asl a
-	adc.w $0CD9
+	adc.w printm
 	tax
 	lda.w #$0009
-	sta.b $C5
-	sta.b $C7
+	sta.b tmp0
+	sta.b tmp1
 CODE_9DAEF3:
-	lda.b [$91],y
+	lda.b [a2],y
 	clc
 	adc.l $7E35CE
 	clc
-	adc.l $7E35A8
+	adc.l printfontset
 	clc
 	adc.b $14
-	sta.l $7E37F4,x
+	sta.l textmap,x
 	iny
 	iny
 	inx
 	inx
-	dec.b $C5
+	dec.b tmp0
 	bne CODE_9DAEF3
 CODE_9DAF0E:
-	lda.b [$91],y
+	lda.b [a2],y
 	clc
 	adc.l $7E35CE
 	clc
-	adc.l $7E35A8
+	adc.l printfontset
 	clc
 	adc.b $14
 	sta.l $7E3822,x
@@ -48,10 +48,10 @@ CODE_9DAF0E:
 	iny
 	inx
 	inx
-	dec.b $C7
+	dec.b tmp1
 	bne CODE_9DAF0E
 CODE_9DAF29:
-	lda.b $A9
+	lda.b d1
 	asl a
 	tax
 	lda.l TeamPlaceNames,x
@@ -71,5 +71,5 @@ CODE_9DAF29:
 	sta.w printx
 	plx
 	pla
-	sta.b $91
+	sta.b a2
 	rts

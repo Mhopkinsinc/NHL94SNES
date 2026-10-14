@@ -1,19 +1,19 @@
 ; Unidentified routine.
 CODE_9ECC4B:
 	lda.w tmdata
-	sta.b $8D
+	sta.b a1
 	lda.w #$009C
 	sta.b $8F
 	ldy.w #$0004
-	lda.b $8D
+	lda.b a1
 	clc
-	adc.b [$8D],y
-	sta.b $8D
-	lda.b $A5
+	adc.b [a1],y
+	sta.b a1
+	lda.b d0
 	pha
 	lda.w #$0003
-	sta.b $A5
+	sta.b d0
 	jsl.l AdvanceStringPtr
 	pla
-	sta.b $A5
+	sta.b d0
 	jmp.w CODE_9ECD19

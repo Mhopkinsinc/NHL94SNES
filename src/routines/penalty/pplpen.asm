@@ -40,21 +40,21 @@ pplpen:
 	pha
 	lda.w #$0000
 	sta.b a1+2
-	lda.w #$0A2C
+	lda.w #mesarea+2
 	sta.b a1
 	jsl.l PutDigits2
 	lda.w #$0000
 	sta.b a1+2
-	lda.w #$0A2A
+	lda.w #mesarea
 	sta.b a1
 	lda.w #$0004
 	sta.b [a1]
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	lda.b d2
 	sta.b d0
 	jsl.l PushTime
 	inc.w printx
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	pla
 	sta.w printx
 	inc.w printy

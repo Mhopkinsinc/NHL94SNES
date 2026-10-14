@@ -6,11 +6,11 @@ CODE_9E963C:
 	cmp.w #$F343
 	bcc CODE_9E9633
 CODE_9E9649:
-	lda.b $B5
+	lda.b d4
 	clc
 	adc.w $0F23,x
 	sta.w $0F23,x
-	lda.b $B5
+	lda.b d4
 	clc
 	adc.w $0F23,y
 	sta.w $0F23,y
@@ -18,7 +18,7 @@ CODE_9E9649:
 	sta.w $0F03,y
 	tya
 	sta.w $0F03,x
-	lda.b $B5
+	lda.b d4
 	cmp.w #$0014
 	bcc CODE_9E9678
 	cpx.w $0AD9
@@ -28,27 +28,27 @@ CODE_9E9649:
 CODE_9E9674:
 	jsl.l CODE_9E9B0E
 CODE_9E9678:
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
-	lda.b $B1
+	lda.b d3
 	pha
 	jsl.l CODE_9EBA4F
 	jsl.l CODE_9E9FF9
 	pla
-	sta.b $B1
+	sta.b d3
 	pla
-	sta.b $AD
+	sta.b d2
 	pla
-	sta.b $A9
+	sta.b d1
 CODE_9E9692:
-	lda.b $A9
-	sta.b $B5
+	lda.b d1
+	sta.b d4
 	pla
-	sta.b $A5
+	sta.b d0
 	pla
-	sta.b $A9
+	sta.b d1
 	lda.w $0CDB
 	bpl CODE_9E96A4
 	jmp.w CODE_9E976E

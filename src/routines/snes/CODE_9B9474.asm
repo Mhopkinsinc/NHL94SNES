@@ -19,7 +19,7 @@ CODE_9B9480:
 	jsr.w CODE_9B9562
 CODE_9B94A5:
 	jsl.l CODE_9B851F
-	lda.b $B1
+	lda.b d3
 	bit.w #$1000
 	beq CODE_9B94B1
 	rtl

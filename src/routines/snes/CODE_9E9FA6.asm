@@ -2,16 +2,16 @@
 CODE_9E9FA6:
 	lda.b $AB
 	bpl CODE_9E9FD1
-	lda.b $B9
+	lda.b d5
 	inc a
 	and.w #$0007
 	cmp.w #$0003
 	bcs CODE_9E9F7C
-	lda.b $A5
+	lda.b d0
 	clc
 	adc.b $A7
 	sta.w Xpos,y
-	lda.b $A9
+	lda.b d1
 	clc
 	adc.b $AB
 	sta.w Ypos,y

@@ -9,29 +9,29 @@ CODE_9F9991:
 CODE_9F9993:
 	lda.w #$000F
 	sec
-	sbc.b $AD
+	sbc.b d2
 	sta.b $10
 	lsr a
 	clc
-	adc.b $89
+	adc.b a0
 	sta.b $0C
 	lda.b $8B
 	sta.b $0E
 	lda.b [$0C]
-	sta.b $B1
-	lda.b $AD
+	sta.b d3
+	lda.b d2
 	lsr a
 	bcc CODE_9F99B6
-	lda.b $B1
+	lda.b d3
 	lsr a
 	lsr a
 	lsr a
 	lsr a
-	sta.b $B1
+	sta.b d3
 CODE_9F99B6:
-	lda.b $B1
+	lda.b d3
 	and.w #$000F
-	sta.b $B1
+	sta.b d3
 	lda.b $10
 	dec a
 	dec a
@@ -80,7 +80,7 @@ CODE_9F9A05:
 	and.w #$00FF
 	beq CODE_9F9A33
 	lda.w #$0012
-	ldx.b $B1
+	ldx.b d3
 	jsl.l CODE_808F4C
 	clc
 	adc.b $14
@@ -91,6 +91,6 @@ CODE_9F9A25:
 	bcc CODE_9F9A2D
 	lda.w #$0064
 CODE_9F9A2D:
-	sta.b $A5
+	sta.b d0
 	plx
 	jmp.w CODE_9F9ABD

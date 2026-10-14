@@ -3,9 +3,9 @@ CODE_9EA8FE:
 	lda.w $0D71
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	lda.w Ypos,x
-	sta.b $B1
+	sta.b d3
 	lda.w puckvy
 	xba
 	and.w #$00FF
@@ -16,31 +16,31 @@ CODE_9EA91B:
 	clc
 	adc.w pucky
 	sec
-	sbc.b $B1
-	sta.b $A9
+	sbc.b d3
+	sta.b d1
 	lda.w pfgoal,x
 	bne CODE_9EA948
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
+	sbc.b d0
+	sta.b d0
 	lda.w #$0000
 	sec
-	sbc.b $A9
-	sta.b $A9
+	sbc.b d1
+	sta.b d1
 	lda.w #$0000
 	sec
-	sbc.b $B1
-	sta.b $B1
-	lda.b $AD
+	sbc.b d3
+	sta.b d3
+	lda.b d2
 	eor.w #$0004
-	sta.b $AD
+	sta.b d2
 CODE_9EA948:
 	lda.w $1523,x
 	bne CODE_9EA967
-	lda.b $B1
+	lda.b d3
 	bpl CODE_9EA9AD
-	lda.b $AD
+	lda.b d2
 	cmp.w #$0004
 	bne CODE_9EA9AD
 	jsl.l vtoa

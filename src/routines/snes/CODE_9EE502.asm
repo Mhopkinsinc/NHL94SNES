@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EE502:
-	lda.w $1163,x
+	lda.w facedir,x
 	sec
 	sbc.w $1EAB
 	beq CODE_9EE4D3

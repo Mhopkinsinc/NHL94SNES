@@ -8,22 +8,22 @@ CODE_9EF1CE:
 	asl a
 	jsl.l CODE_9BB370
 	adc.w #$2000
-	sta.b $A5
+	sta.b d0
 	cmp.w puckvx
 	bmi CODE_9EF1CB
-	lda.b $A5
+	lda.b d0
 	cmp.w puckvy
 	bmi CODE_9EF1CB
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
+	sbc.b d0
+	sta.b d0
 	cmp.w puckvx
 	bpl CODE_9EF1CB
-	lda.b $A5
+	lda.b d0
 	cmp.w puckvy
 	bpl CODE_9EF1CB
-	ldy.b $91
+	ldy.b a2
 	lda.w pflags,y
 	bit.w #$1000
 	bne CODE_9EF1CB

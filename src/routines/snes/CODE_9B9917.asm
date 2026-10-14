@@ -7,12 +7,12 @@ CODE_9B9917:
 	ldx.w #$4D80
 	lda.l $7E35B6
 	clc
-	adc.l $7E35A8
+	adc.l printfontset
 	jsl.l CODE_808EDF
 	lda.w #$0000
 	sta.b $97
 	lda.w #$163E
-	sta.b $95
+	sta.b a3
 	lda.w #$0000
 	sta.w printy
 	pha
@@ -21,10 +21,10 @@ CODE_9B9942:
 	beq CODE_9B995D
 CODE_9B9947:
 	jsr.w CODE_9B995F
-	lda.b $95
+	lda.b a3
 	clc
 	adc.w #$0004
-	sta.b $95
+	sta.b a3
 	inc.w printy
 	inc.w printy
 	pla

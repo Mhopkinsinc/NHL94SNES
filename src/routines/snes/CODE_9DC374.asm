@@ -8,24 +8,24 @@ CODE_9DC374:
 	sta.w $1E81
 	sta.w $1E83
 	lda.w #$0005
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$0002
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$0006
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$0004
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC561
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0032
 	bcc CODE_9DC3C8
 	lda.w #$0008
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	lda.w #$0009
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9DC3DB
 	bra CODE_9DC3DA

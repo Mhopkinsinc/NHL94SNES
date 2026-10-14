@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FBE08:
-	lda.b $91
+	lda.b a2
 	pha
 	phx
 	lda.w printx

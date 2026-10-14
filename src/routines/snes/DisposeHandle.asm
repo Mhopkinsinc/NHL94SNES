@@ -2,7 +2,7 @@
 DisposeHandle:		; free handle A and its block, joined with free neighbours
 	cmp.w #$2000
 	bcc .exit
-	cmp.w #$2100
+	cmp.w #INIDISP
 	bcs .exit
 	tax
 	lda.l $7E0002,x

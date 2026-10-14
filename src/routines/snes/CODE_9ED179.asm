@@ -42,9 +42,9 @@ CODE_9ED1C9:
 CODE_9ED1D7:
 	lda.w $19D4,x
 	bpl CODE_9ED214
-	lda.w $15D6
+	lda.w gmclock
 	bne CODE_9ED214
-	jsl.l CODE_9FDC4C
+	jsl.l check4bench
 	lda.w pflags,x
 	bit.w #$0002
 	beq CODE_9ED1F9
@@ -55,7 +55,7 @@ CODE_9ED1D7:
 CODE_9ED1F9:
 	lda.w $1003,x
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w $1003,x
 	bpl CODE_9ED24D
 	lda.w $1343,x

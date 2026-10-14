@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FCB16:
-	ldy.b $A5
+	ldy.b d0
 	lda.w $19D4,y
 	bpl CODE_9FCB5B
 	phx
@@ -23,7 +23,7 @@ CODE_9FCB38:
 CODE_9FCB3E:
 	cmp.w $19F6,y
 	bne CODE_9FCB4F
-	sty.b $B5
+	sty.b d4
 	tya
 	sta.w $0AFD,x
 	jsl.l CODE_9FCB68

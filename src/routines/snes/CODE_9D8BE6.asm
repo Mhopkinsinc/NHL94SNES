@@ -9,7 +9,7 @@ CODE_9D8BE6:
 	jsl.l CODE_9C9786
 	jsl.l CODE_8086A9
 CODE_9D8BFF:
-	lda.w $07F3
+	lda.w MusicOn
 	bne CODE_9D8BFF
 	lda.w #$0093
 	sta.b $0E

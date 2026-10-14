@@ -11,16 +11,16 @@ CODE_9ED217:
 CODE_9ED22B:
 	cmp.w #$F800
 	bmi CODE_9ED214
-	stz.b $8D
+	stz.b a1
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	lda.w pfteam,x
 	beq CODE_9ED243
-	stz.b $91
+	stz.b a2
 	lda.w #$0002
-	sta.b $8D
+	sta.b a1
 CODE_9ED243:
-	ldy.b $91
+	ldy.b a2
 	lda.w $17AE,y
 	cmp.w #$0096
 	bcc CODE_9ED214

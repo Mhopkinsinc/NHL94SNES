@@ -13,7 +13,7 @@ CODE_9BB423:
 	pha
 	tax
 	jsl.l CODE_808F4C
-	cmp.b $A5
+	cmp.b d0
 	bcc CODE_9BB43C
 	pla
 	sta.b $10

@@ -5,7 +5,7 @@ CODE_9E9C43:
 	bpl CODE_9E9C13
 	cmp.w #$FF0A
 	bmi CODE_9E9C13
-	lda.b $A5
+	lda.b d0
 	dec a
 	cmp.w #$0003
 	bcs CODE_9E9C0A
@@ -25,8 +25,8 @@ CODE_9E9C71:
 CODE_9E9C79:
 	lda.w #$FD9C
 CODE_9E9C7C:
-	ldx.b $91
-	sta.w $14E3,x
+	ldx.b a2
+	sta.w pfalock,x
 	jsl.l CODE_9EA403
 	lda.w $19BE
 	clc
@@ -35,7 +35,7 @@ CODE_9E9C7C:
 	sta.w $19BE
 CODE_9E9C91:
 	stz.w $0C23
-	ldy.b $91
+	ldy.b a2
 	lda.w pfteam,y
 	beq CODE_9E9C9E
 	lda.w #$0002
@@ -45,6 +45,6 @@ CODE_9E9C9E:
 	jsl.l CODE_9C9FD5
 	lda.w #$0002
 	sta.w $0C25
-	ldx.b $95
-	ldy.b $91
+	ldx.b a3
+	ldy.b a2
 	jmp.w CODE_9E9D79

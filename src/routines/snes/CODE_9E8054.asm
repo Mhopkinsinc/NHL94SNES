@@ -9,7 +9,7 @@ CODE_9E805C:
 	bmi CODE_9E8076
 	lda.w position,y
 	beq CODE_9E8076
-	sty.b $8D
+	sty.b a1
 	lda.w pfteam,y
 	eor.w pfteam,x
 	bne CODE_9E8076

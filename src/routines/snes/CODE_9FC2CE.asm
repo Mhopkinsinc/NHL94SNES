@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FC2CE:
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9FC26C
 	jsl.l CODE_9EC417
 	lda.w position,x
@@ -16,14 +16,14 @@ CODE_9FC2E1:
 	lda.w $0BA3
 	cmp.b $E4
 	beq CODE_9FC371
-	lda.b $A9
+	lda.b d1
 	bit.w #$8000
 	bne CODE_9FC322
 	bit.w #$4000
 	bne CODE_9FC319
 	lda.w position,x
 	beq CODE_9FC32E
-	lda.b $A9
+	lda.b d1
 	bit.w #$0080
 	bne CODE_9FC32A
 	jml.l CODE_9EA8A9

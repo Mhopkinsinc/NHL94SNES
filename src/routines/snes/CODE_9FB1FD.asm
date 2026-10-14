@@ -45,7 +45,7 @@ CODE_9FB24E:
 	sta.w $0CCB
 CODE_9FB269:
 	rtl
-	lda.w $14E3,x
+	lda.w pfalock,x
 	bne CODE_9FB27B
 	lda.w sflags
 	bit.w #$0100

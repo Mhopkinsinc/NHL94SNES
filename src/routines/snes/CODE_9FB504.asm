@@ -6,9 +6,9 @@ CODE_9FB504:
 	lsr a
 	sta.w $1043,y
 CODE_9FB50F:
-	ldx.b $91
-	ldy.b $95
-	sty.b $91
-	stx.b $95
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
 CODE_9FB517:
 	rtl

@@ -5,7 +5,7 @@ CODE_9B95F5:
 	lda.w #$2000
 	sta.w $0D0D
 	ldy.w #$0000
-	lda.b [$95],y
+	lda.b [a3],y
 	phy
 	pha
 	and.w #$F000
@@ -16,20 +16,20 @@ CODE_9B95F5:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D6E1
-	sta.b $8D
+	sta.b a1
 	jsl.l AdvanceStringPtr
 	jsl.l CODE_9EC894
 	lda.w #$0004
 	sta.w printx
 	pla
 	and.w #$0FFF
-	sta.b $A5
+	sta.b d0
 	jsl.l PushTime
-	lda.b [$8D]
+	lda.b [a1]
 	cmp.w #$0006
 	bne CODE_9B9640
 	inc.w printx
@@ -41,18 +41,18 @@ CODE_9B9640:
 	iny
 	iny
 	sep #$20
-	lda.b [$95],y
+	lda.b [a3],y
 	rep #$20
 	phy
 	and.w #$00FF
 	pha
 	and.w #$00F0
-	sta.b $B1
-	stz.b $91
-	lda.b $B1
+	sta.b d3
+	stz.b a2
+	lda.b d3
 	beq CODE_9B9668
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 CODE_9B9668:
 	jsl.l CODE_9B9B35
 	dec.w printy
@@ -71,15 +71,15 @@ CODE_9B9668:
 	beq CODE_9B96AC
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF0E7
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9EC894
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	bra CODE_9B96FE

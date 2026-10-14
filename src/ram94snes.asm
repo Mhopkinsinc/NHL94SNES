@@ -29,6 +29,7 @@ Hscroll = $0CED		; horizontal scroll
 iflags = $0CF1		; icing flags (if* masks)
 passdir = $0D03		; direction for pass/shot 0-7 (8 = none)
 passspeed = $0D05	; speed of pass/shot
+mesarea = $0A2A		; string being built: a length word, then the bytes
 printx = $0D0F		; x cordinate for printing (text map column)
 printy = $0D11		; y cordinate for printing
 ReplayBufferPtr = $0D1F	; long pointer to the next replay frame record
@@ -101,6 +102,8 @@ tmp2 = $C9		; scratch byte; tmp2+1 is the next byte
 
 Hpos = $0CEB		; ice rink horizontal position
 Vpos = $0D37		; ice rink vertical position
+xc1 = $0D4B		; scroll lock x
+yc1 = $0D4D		; scroll lock y
 printm = $0CD9		; offset of the print map in the text map
 textdirtylo = $0CD5	; lowest changed word of the text map
 textdirtyhi = $0CD7	; highest changed word of the text map
@@ -128,6 +131,8 @@ sfwrap = $0010		; replay has wrapped around
 sf2drec = $0400		; disable replay record
 sf2pwrplay = $2000	; power play in progress
 sf2pwrtm = $4000	; 0 for team 1 in power play
+sf2replay = $0800	; replay in progress
+sfslock = $0040		; scroll lock to xc1/yc1
 pf2inj = $0004		; injured
 TMPDBENCH = $FFFE	; on the bench
 TMPDOUT = $FFFD		; out of the game

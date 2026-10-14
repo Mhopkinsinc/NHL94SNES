@@ -11,7 +11,7 @@ NewPtrHandle:		; a handle for fixed memory at A in bank X; returns the handle, 0
 	inx
 	inx
 	inx
-	cpx.w #$2100
+	cpx.w #INIDISP
 	bne .find
 	lda.w #$0000
 	bra .exit

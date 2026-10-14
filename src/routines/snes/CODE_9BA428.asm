@@ -24,23 +24,23 @@ CODE_9BA428:
 	jsl.l CODE_9DE0D4
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF163
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0800
 	sta.w $0D0D
 	lda.w #$0014
-	sta.b $A5
+	sta.b d0
 	lda.w #$0005
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D8091
 	lda.w #$0096
 	sta.b $0E
@@ -89,7 +89,7 @@ CODE_9BA4FE:
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF168
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3
 	jsl.l CODE_9BA563
@@ -99,12 +99,12 @@ CODE_9BA522:
 	jsl.l WaitFrame
 	jsl.l CODE_9B8017
 	jsl.l CODE_9B851F
-	jsl.l CODE_9B852C
-	lda.b $A9
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
 	bit.w #$1000
 	bne CODE_9BA549
 	bit.w #$0800
 	bne CODE_9BA54A
-	bit.w #$0400
+	bit.w #DMA_OAM
 	bne CODE_9BA555
 	bra CODE_9BA522

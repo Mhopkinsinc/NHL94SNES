@@ -5,6 +5,6 @@ CODE_9EA3F1:
 	sta.w SPA,x
 	stz.w SPAnum,x
 	lda.w #$FFFF
-	sta.w $11E3,x
+	sta.w SPAcnt,x
 CODE_9EA402:
 	rtl

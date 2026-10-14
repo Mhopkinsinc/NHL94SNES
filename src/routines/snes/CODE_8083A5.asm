@@ -12,7 +12,7 @@ CODE_8083A5:
 	lda.b #$7E
 	sta.w A1B0
 	rep #$20
-	lda.w #$0400
+	lda.w #DMA_OAM
 	sta.w DMAP0
 	lda.w OAMShowBuf
 	sta.w A1T0L

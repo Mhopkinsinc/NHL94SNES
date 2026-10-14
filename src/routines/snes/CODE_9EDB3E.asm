@@ -36,23 +36,23 @@ CODE_9EDB7D:
 CODE_9EDB89:
 	cmp.w #$FC00
 	bmi CODE_9EDB3A
-	stz.b $8D
+	stz.b a1
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	lda.w pfteam,x
 	beq CODE_9EDBA1
-	stz.b $91
+	stz.b a2
 	lda.w #$0002
-	sta.b $8D
+	sta.b a1
 CODE_9EDBA1:
-	ldy.b $8D
+	ldy.b a1
 	lda.w $17AE,y
 	cmp.w #$0132
 	bcc CODE_9EDBBD
-	ldy.b $91
+	ldy.b a2
 	lda.w $17AE,y
 	cmp.w #$0132
 	bcc CODE_9EDBBD
 	lda.w #$000F
-	sta.b $A5
+	sta.b d0
 	jmp.w assinsert

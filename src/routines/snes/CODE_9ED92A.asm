@@ -6,5 +6,5 @@ CODE_9ED92A:
 	cmp.w #$F800
 	bmi CODE_9ED93F
 	lda.w #$0008
-	sta.b $A5
+	sta.b d0
 	jmp.w CODE_9EDA04

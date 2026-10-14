@@ -1,11 +1,11 @@
 ; Unidentified routine.
 CODE_9ED87E:
-	lda.b [$89]
+	lda.b [a0]
 	cmp.w #$FFE7
 	bmi CODE_9ED8A1
 	cmp.w #$0019
 	bpl CODE_9ED8A1
-	lda.b [$89],y
+	lda.b [a0],y
 	cmp.w #$0013
 	bcs CODE_9ED89E
 	lda.w pucky

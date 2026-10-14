@@ -7,29 +7,29 @@ CODE_9B83C4:
 	lda.w HVBJOY
 	and.b #$01
 	bne CODE_9B83C4
-	stz.w $4016
+	stz.w JOYSER0
 	lda.b #$01
-	sta.w $4016
+	sta.w JOYSER0
 	ldx.b #$08
 CODE_9B83D5:
-	lda.w $4016
+	lda.w JOYSER0
 	lsr a
 	lsr a
 	rol.w $0782
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	lsr a
 	rol.w $0784
 	dex
 	bne CODE_9B83D5
-	stz.w $4016
+	stz.w JOYSER0
 	ldx.b #$08
 CODE_9B83ED:
-	lda.w $4016
+	lda.w JOYSER0
 	lsr a
 	lsr a
 	rol.w $0781
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	lsr a
 	rol.w $0783

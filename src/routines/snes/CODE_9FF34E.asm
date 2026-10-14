@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FF34E:
-	lda.b [$8D]
+	lda.b [a1]
 	dec a
 	dec a
 	lsr a

@@ -5,7 +5,7 @@ CODE_9DBA24:
 	lda.w $0BDF
 	dec a
 	dec a
-	cmp.w #$00B9
+	cmp.w #d5
 	bmi CODE_9DBA53
 	dec.w $0BDF
 	dec.w $0BDF

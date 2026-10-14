@@ -29,10 +29,10 @@ CODE_9D8292:
 	sta.w $1E77
 	stz.w $1E45
 	stz.w $1E47
-	stz.b $91
+	stz.b a2
 	jsl.l CODE_9D8330
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9D8330
 	lda.w HomeTeam
 	sta.w $1E41

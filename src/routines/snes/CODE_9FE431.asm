@@ -1,10 +1,10 @@
 ; Unidentified routine.
 CODE_9FE431:
-	lda.b $A9
+	lda.b d1
 	bit.w #$8080
 	beq CODE_9FE42E
 	jsl.l CODE_9FC76C
-	ldy.b $91
+	ldy.b a2
 	lda.w $17E2,y
 	dec a
 	bmi CODE_9FE4BC
@@ -12,39 +12,39 @@ CODE_9FE431:
 	jsl.l reenergizeteam
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF8E9
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0016
-	sta.b $A5
+	sta.b d0
 	lda.w #$0007
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D8000
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF8EE
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
-	ldy.b $91
+	ldy.b a2
 	lda.w HomeTeam,y
 	jsl.l CODE_9BC5AB
-	lda.b [$8D]
+	lda.b [a1]
 	dec a
 	dec a
 	lsr a
@@ -53,7 +53,7 @@ CODE_9FE431:
 	clc
 	adc.w #$0010
 	sta.w printx
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	jsl.l CODE_9DD923
 	ldx.w #$0096
 	ldy.w #$0000

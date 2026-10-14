@@ -4,12 +4,12 @@ CODE_9B84DC:
 	asl a
 	tax
 	lda.w JoyPad,x
-	sta.b $B1
+	sta.b d3
 	lda.w $0AAE,x
-	sta.b $AD
+	sta.b d2
 	lda.w $0AB8,x
-	sta.b $A9
+	sta.b d1
 	lda.w $0AA4,x
-	sta.b $A5
+	sta.b d0
 	plx
 	rtl
