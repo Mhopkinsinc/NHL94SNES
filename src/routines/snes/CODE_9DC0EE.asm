@@ -99,7 +99,7 @@ CODE_9DC0EE:
 	ldy.w #$0098
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF6E5
+	lda.w #TeamRating
 	sta.b a1
 	jsl.l CODE_9C9590
 	jsl.l CODE_9D87B5

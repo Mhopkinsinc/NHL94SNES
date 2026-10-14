@@ -20,7 +20,7 @@ CODE_9C90F0:
 	jsl.l appstring
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF36D
+	lda.w #StatSlash
 	sta.b a1
 	jsl.l appstring
 	lda.b a2

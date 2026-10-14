@@ -152,7 +152,7 @@ CODE_9C90BF:
 	jsl.l appstring
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF36A
+	lda.w #StatPercent
 	sta.b a1
 	jsl.l appstring
 	lda.b $97

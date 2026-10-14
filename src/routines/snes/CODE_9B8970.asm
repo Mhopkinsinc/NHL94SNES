@@ -9,7 +9,7 @@ CODE_9B8970:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFF4
+	lda.w #EditLinesLabel
 	sta.b a1
 	jsl.l CODE_9C936C
 	lda.b $8F

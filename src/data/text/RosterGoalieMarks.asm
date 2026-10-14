@@ -1,4 +1,5 @@
-DATA8_9DA051:
+; Goalie marks on the roster
+RosterGoalieMarks:
 	%String("G")
 	%String("G")
 	%String("G")

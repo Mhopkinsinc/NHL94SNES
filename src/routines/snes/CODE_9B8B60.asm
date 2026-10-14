@@ -37,7 +37,7 @@ CODE_9B8B60:
 	lda.b d0
 	dec a
 	sta.b d1
-	lda.w #DATA8_9B8C6E
+	lda.w #LineGoalieMarks
 	sta.b $9D
 	lda.w #$009B
 	sta.b $9F

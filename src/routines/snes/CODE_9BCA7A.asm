@@ -23,7 +23,7 @@ CODE_9BCA7A:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF22C
+	lda.w #SelectLeft
 	sta.b a1
 	jsl.l print
 	pla

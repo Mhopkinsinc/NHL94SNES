@@ -32,7 +32,7 @@ CODE_9B9562:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF0D8
+	lda.w #NoScoring
 	sta.b a1
 	jsl.l print
 	pla

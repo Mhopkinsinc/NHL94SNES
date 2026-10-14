@@ -7,7 +7,7 @@ CODE_9F8064:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF7A5
+	lda.w #PeriodStats
 	sta.b a1
 	jsl.l CODE_9C936C
 	lda.b $8F
@@ -102,7 +102,7 @@ CODE_9F8064:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF7C2
+	lda.w #TotalShotsLine
 	sta.b a1
 	jsl.l print
 	pla
@@ -206,7 +206,7 @@ CODE_9F8197:
 	ldy.w #$0040
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF7DE
+	lda.w #GoalsLabel
 	sta.b a1
 	jsl.l CODE_9C936C
 	lda.b $8F

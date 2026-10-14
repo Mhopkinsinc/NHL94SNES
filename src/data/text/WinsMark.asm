@@ -1,7 +1,7 @@
-; screen text records: a word (2 + the bytes), then the bytes; a $9F, $AF or $BF byte is followed by two position bytes
-DATA8_9CEF59:
+; Screen titles: Wins!, Win!, Shootout, Edit Lines, and the cursors between them
+WinsMark:
 	%String("Wins!")
-DATA8_9CEF60:
+WinMark:
 	%String("Win!")
 DATA8_9CEF66:
 	dw $0005 : db $AF,$00,$00
@@ -15,7 +15,7 @@ DATA8_9CEF86:
 	dw $0005 : db $BF,$09,$0A
 DATA8_9CEF8B:
 	dw $0011 : db $9F,$0A,$0B,"   Lineup   "
-DATA8_9CEF9C:
+ShootoutLabel:
 	%String("Shootout")
 DATA8_9CEFA6:
 	dw $0005 : db $AF,$0B,$07
@@ -45,5 +45,5 @@ DATA8_9CEFEA:
 	dw $0005 : db $BF,$00,$00
 DATA8_9CEFEF:
 	dw $0005 : db $BF,$07,$09
-DATA8_9CEFF4:
+EditLinesLabel:
 	%String("Edit Lines")

@@ -13,7 +13,7 @@ CODE_9C8583:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF2D3
+	lda.w #PlayerStatsTitle
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd

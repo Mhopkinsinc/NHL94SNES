@@ -69,7 +69,7 @@ CODE_9DAB0B:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF5A8
+	lda.w #GameSetupAlt
 	sta.b a1
 	jsl.l CODE_9C936C
 	lda.l $7E3454

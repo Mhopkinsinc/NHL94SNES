@@ -1,8 +1,9 @@
-DATA8_9B906F:		; the player rating names: a word (2 + the text), the text, then two words; $FFFF ends them
+; Rating columns of the shooter list
+ShooterAttribColumns:		; rating columns of the shooter list: title, then a mask word and a value word; $FFFF ends it
 	%String("      Status]")
 	dw $0000,$0000
 	%String("    [Overall]")
-	dw $9FBA,$000A
+	dw $1F3A,$000A
 	%String("     [Energy]")
 	dw $0000,$0002
 	%String("    [Agility]")

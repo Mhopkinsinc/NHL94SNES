@@ -595,7 +595,7 @@ CODE_9FABA2:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8B3
+	lda.w #VersusText
 	sta.b a1
 	jsl.l print
 	pla
@@ -626,7 +626,7 @@ CODE_9FABA2:
 	beq .t1x
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8B8
+	lda.w #ShootoutPenShot
 	sta.b a1
 	jsl.l CODE_9ECE15
 	bra CODE_9FADB5

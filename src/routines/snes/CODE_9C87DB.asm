@@ -14,7 +14,7 @@ CODE_9C87DB:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF2FB
+	lda.w #PlayerStatsHeading
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3

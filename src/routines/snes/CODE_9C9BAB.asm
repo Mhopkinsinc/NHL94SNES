@@ -66,7 +66,7 @@ CODE_9C9BAB:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF37A
+	lda.w #StarsOfTheGame
 	sta.b a1
 	jsl.l print
 	pla

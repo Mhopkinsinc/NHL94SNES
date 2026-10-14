@@ -1,4 +1,4 @@
-AttribMenuSkater:		; skater rating columns, as DATA8_80D0EA
+AttribMenuSkater:		; skater rating columns
 	%String("   Status   ]")
 	dw $0000,$0000
 	%String("[  Overall  ]")

@@ -30,7 +30,7 @@ CODE_9B9A5D:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF13D
+	lda.w #ScrollHint
 	sta.b a1
 	jsl.l print
 	pla

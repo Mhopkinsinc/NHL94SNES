@@ -27,7 +27,7 @@ CODE_80D004:		; draw the ShooterSelectList list: the title of rating column $0D4
 CODE_80D03E:
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D0EA
+	lda.w #ShooterAttribColumns
 	sta.b a1
 	lda.w $0D47
 	sta.b d0

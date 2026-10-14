@@ -11,7 +11,7 @@ CODE_9D9E9C:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF452
+	lda.w #TeamRosterSwap
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3

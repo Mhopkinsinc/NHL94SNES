@@ -37,7 +37,7 @@ CODE_9DA5CA:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF597
+	lda.w #GameSetupTitle
 	sta.b a1
 	jsl.l CODE_9C936C
 	lda.w #$1D47

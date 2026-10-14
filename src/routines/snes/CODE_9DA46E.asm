@@ -37,7 +37,7 @@ CODE_9DA486:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF588
+	lda.w #PlayerSelectTitle
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3

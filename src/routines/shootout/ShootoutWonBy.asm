@@ -77,7 +77,7 @@ CODE_80C97D:
 	beq .t1
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEF59
+	lda.w #WinsMark
 	sta.b a1
 	jsl.l CODE_9ECE15
 	bra CODE_80C9F8
@@ -85,7 +85,7 @@ CODE_80C97D:
 .t1:
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEF60
+	lda.w #WinMark
 	sta.b a1
 	jsl.l CODE_9ECE15
 CODE_80C9F8:
