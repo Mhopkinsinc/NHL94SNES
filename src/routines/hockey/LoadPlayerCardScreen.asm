@@ -152,9 +152,9 @@ LoadPlayerCardScreen:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9AEA15>>16
+	lda.w #CardPictureMap>>16
 	sta.b $0E
-	lda.w #DATA8_9AEA15
+	lda.w #CardPictureMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

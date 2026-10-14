@@ -131,9 +131,9 @@ LoadScoutingScreen:
 	ldx.w #$0120
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #DATA8_95F1AE>>16
+	lda.w #MenuBackTiles>>16
 	sta.b $0E
-	lda.w #DATA8_95F1AE
+	lda.w #MenuBackTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -153,9 +153,9 @@ LoadScoutingScreen:
 	sta.b $0C
 	ldy.w #$1000
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9ABA95>>16
+	lda.w #MenuBackMap>>16
 	sta.b $0E
-	lda.w #DATA8_9ABA95
+	lda.w #MenuBackMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -196,9 +196,9 @@ LoadScoutingScreen:
 	ldy.w #$0000
 	ldx.w #$0030
 	jsl.l SetColours
-	lda.w #DATA8_94D6A5>>16
+	lda.w #RonBarrTiles>>16
 	sta.b $0E
-	lda.w #DATA8_94D6A5
+	lda.w #RonBarrTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -222,9 +222,9 @@ LoadScoutingScreen:
 	lda.w #$0002
 	sta.b a2
 .2:
-	lda.w #DATA8_9AC0CC>>16
+	lda.w #RonBarrMap>>16
 	sta.b $0E
-	lda.w #DATA8_9AC0CC
+	lda.w #RonBarrMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

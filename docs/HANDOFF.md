@@ -131,6 +131,7 @@
 - Sound: `TitleSong`, `MenuSong`, `PlayoffSong` (by the screens that start them) and the six streamed samples `StreamSamplePeriodEnd` / `Goal` / `BigHit` / `Save` / `PuckBody` / `OverGlass` (by the events that ask for them). The organ songs (TeamSongs / DefaultSongs, shared across teams and slots) and the sample set blocks stay DATA8_: their track tags are not titles, and a table position is no better than the address.
 - Pointer bank bytes: 584 `lda.w #$00BB` bank halves next to a labelled pointer in bank BB are written `#Label>>16`, as 93S writes them.
 - Graphics with 93S names from the 93S load order and tile counts: `FaceOffTiles` (55), `RefTilesHor` (104), `RefTiles` (117), `SmallFontTiles` (PixelRemap83), `RinkLogoTiles` (setupice position; 12 tiles for 14), and the maps `RefsMap` / `RefsMapHor` (PushRef), `BigFontMap` (printbig), `TeamBlocksMap` (DrawTeamBlocks), `EASNLogoMap`.
+- Graphics named from rendering them and from their readers: `BigLetterTiles` / `BigLetterMap`, `BigFontTiles`, `MenuBackTiles` / `MenuBackMap`, `PlayoffTiles`, `RonBarrTiles` / `RonBarrMap`, `SmallFontMap`, `PlayoffBracketMap`, `SetupBackTiles` / `SetupBackMap`, `PhotoMap`, `PictureMap`, `CardPictureMap`, `PlayerListMap`, `TitleLogoTiles`.
 
 ## Unsure
 

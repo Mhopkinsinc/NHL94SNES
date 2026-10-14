@@ -1,4 +1,4 @@
-; Shootout shooters screen: clear the top, the frame, and the background map (DATA8_9ABA95) in map 2
+; Shootout shooters screen: clear the top, the frame, and the background map (MenuBackMap) in map 2
 DrawShootersBack:
 	lda.b $8F
 	pha
@@ -53,9 +53,9 @@ DrawShootersBack:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w #DATA8_9ABA95>>16
+	lda.w #MenuBackMap>>16
 	sta.b $0E
-	lda.w #DATA8_9ABA95
+	lda.w #MenuBackMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

@@ -58,9 +58,9 @@ DrawPlayerPicture:
 	jsl.l LinearToPlanar
 	jsl.l .6
 	bne .t1xx
-	lda.w #DATA8_92FFB0>>16
+	lda.w #PhotoMap>>16
 	sta.b $0E
-	lda.w #DATA8_92FFB0
+	lda.w #PhotoMap
 	sta.b $0C
 	lda.w #textmap>>16
 	sta.b $12
@@ -82,9 +82,9 @@ DrawPlayerPicture:
 	bra .3
 
 .t1xx:
-	lda.w #DATA8_92FFB0>>16
+	lda.w #PhotoMap>>16
 	sta.b $0E
-	lda.w #DATA8_92FFB0
+	lda.w #PhotoMap
 	sta.b $0C
 	lda.w #textmap>>16
 	sta.b $12
@@ -287,9 +287,9 @@ DrawPlayerPicture:
 	adc.l MatchupPhotoOffsets,x
 	sta.l $7E3470
 .2x:
-	lda.w #DATA8_92FFB0>>16
+	lda.w #PhotoMap>>16
 	sta.b $0E
-	lda.w #DATA8_92FFB0
+	lda.w #PhotoMap
 	sta.b $0C
 	lda.w #textmap>>16
 	sta.b $12

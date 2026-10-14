@@ -1,7 +1,7 @@
 ; Bank $93: graphics and sound. Files in ROM order.
 
 org $938000
-incsrc "../data/gfx/DATA8_938000.asm"
+incsrc "../data/gfx/SetupBackTiles.asm"
 incsrc "../data/sound/DATA8_9390FA.asm"
 incsrc "../data/sound/StreamSampleOverGlass.asm"
 incsrc "../data/gfx/DATA8_93B217.asm"

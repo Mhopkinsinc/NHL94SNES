@@ -21,9 +21,9 @@ SelectLinePlayer:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.w #DATA8_9AE9C7>>16
+	lda.w #PlayerListMap>>16
 	sta.b $0E
-	lda.w #DATA8_9AE9C7
+	lda.w #PlayerListMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

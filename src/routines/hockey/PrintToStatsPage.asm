@@ -1,4 +1,4 @@
-; Print string [a1] at printx / printy into the stats page buffer ($7F2780, 32 wide) through the DATA8_9ACDB0 character map
+; Print string [a1] at printx / printy into the stats page buffer ($7F2780, 32 wide) through the SmallFontMap character map
 PrintToStatsPage:
 	phx
 	lda.w #$0020
@@ -47,7 +47,7 @@ PrintToStatsPage:
 	beq .2
 	asl a
 	tax
-	lda.l DATA8_9ACDB0+6,x
+	lda.l SmallFontMap+6,x
 	clc
 	adc.b $26
 	sta.b [$10],y

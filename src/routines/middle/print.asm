@@ -36,7 +36,7 @@ print:
 	phx
 	asl a
 	tax
-	lda.l DATA8_9ACDB0+6,x
+	lda.l SmallFontMap+6,x
 	adc.b $14
 	plx
 .3:

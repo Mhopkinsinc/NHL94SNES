@@ -41,9 +41,9 @@ DrawEditLinesBack:
 	lda.w #$0003
 	sta.b d1
 	jsl.l FramerOutline
-	lda.w #DATA8_9ABA95>>16
+	lda.w #MenuBackMap>>16
 	sta.b $0E
-	lda.w #DATA8_9ABA95
+	lda.w #MenuBackMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

@@ -6245,3 +6245,20 @@ $95DB8E,RefsMapHor,DATA8_95DB8E,93S,PushRef reads it in horizontal mode where 93
 $9ABD3D,BigFontMap,DATA8_9ABD3D,93S,"printbig reads it through BigFontIndex, as 93S BigFontMap",src/data/gfx/BigFontMap.asm
 $9AE99D,TeamBlocksMap,DATA8_9AE99D,93S,"DrawTeamBlocks copies it, as 93S DrawTeamBlocks copies TeamBlocksMap",src/data/gfx/TeamBlocksMap.asm
 $9AEA3A,EASNLogoMap,DATA8_9AEA3A,93S,EASNLogo draws it (7 x 2),src/data/gfx/EASNLogoMap.asm
+$9AB610,BigLetterTiles,DATA8_9AB610,new,rendered: big letters A-Z; the player select and playoff screens unpack them for RenderBigText,src/data/gfx/BigLetterTiles.asm
+$9ADF59,BigLetterMap,DATA8_9ADF59,new,RenderBigText reads the letter tiles from it,src/data/gfx/BigLetterMap.asm
+$96BABD,BigFontTiles,DATA8_96BABD,93S,rendered: a bold outlined A-Z; at the 93S BigFontTiles position in setupice (after FramerTiles),src/data/gfx/BigFontTiles.asm
+$95F1AE,MenuBackTiles,DATA8_95F1AE,new,rendered: the menu background (bevelled boxes on a pattern); loaded with MenuBackMap,src/data/gfx/MenuBackTiles.asm
+$9ABA95,MenuBackMap,DATA8_9ABA95,new,the 32 x 28 background map of the menu screens,src/data/gfx/MenuBackMap.asm
+$968C02,PlayoffTiles,DATA8_968C02,93S,rendered: the Stanley Cup and bracket pieces; PlayoffScreen loads it as 93S PlayoffScreen loads PlayoffTiles,src/data/gfx/PlayoffTiles.asm
+$94D6A5,RonBarrTiles,DATA8_94D6A5,93S,"rendered: the announcer at the desk (EA SPORTS microphone flag): the scouting report picture, as 93S RonBarrMap / 94G RonBarrMap",src/data/gfx/RonBarrTiles.asm
+$9AC0CC,RonBarrMap,DATA8_9AC0CC,93S,the scouting report background map that goes with RonBarrTiles,src/data/gfx/RonBarrMap.asm
+$9ACDB0,SmallFontMap,DATA8_9ACDB0,93S,print reads it (after a 6 byte header) where 93S print reads SmallFontMap,src/data/gfx/SmallFontMap.asm
+$99B726,PlayoffBracketMap,DATA8_99B726,93S,"12 x 23, copied by column in PlayoffScreen, as 93S PlayoffBracketMap",src/data/gfx/PlayoffBracketMap.asm
+$938000,SetupBackTiles,DATA8_938000,new,rendered: a hockey action photo; SetupScreen's background tiles,src/data/gfx/SetupBackTiles.asm
+$9AB7A1,SetupBackMap,DATA8_9AB7A1,new,SetupScreen's background map,src/data/gfx/SetupBackMap.asm
+$92FFB0,PhotoMap,DATA8_92FFB0,new,the 6 x 6 photo map DrawPlayerPicture uses,src/data/gfx/PhotoMap.asm
+$9AE9F0,PictureMap,DATA8_9AE9F0,new,the 7 x 7 picture box map (LoadPictureMap),src/data/gfx/PictureMap.asm
+$9AEA15,CardPictureMap,DATA8_9AEA15,new,the 7 x 7 picture box map of the player card,src/data/gfx/CardPictureMap.asm
+$9AE9C7,PlayerListMap,DATA8_9AE9C7,new,the 30 x 12 player list box map,src/data/gfx/PlayerListMap.asm
+$948000,TitleLogoTiles,DATA8_948000,new,rendered: the title logo pieces with the (R) mark,src/data/gfx/TitleLogoTiles.asm

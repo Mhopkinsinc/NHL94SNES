@@ -55,9 +55,9 @@ PlayoffScreen:
 	lda.b #$07
 	sta.w TM
 	rep #$30
-	lda.w #DATA8_95F1AE>>16
+	lda.w #MenuBackTiles>>16
 	sta.b $0E
-	lda.w #DATA8_95F1AE
+	lda.w #MenuBackTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -70,9 +70,9 @@ PlayoffScreen:
 	sta.b $0C
 	ldy.w #$3000
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9ABA95>>16
+	lda.w #MenuBackMap>>16
 	sta.b $0E
-	lda.w #DATA8_9ABA95
+	lda.w #MenuBackMap
 	sta.b $0C
 	jsl.l Decompress
 	lda.w #$007F
@@ -271,9 +271,9 @@ PlayoffScreen:
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
-	lda.w #DATA8_968C02>>16
+	lda.w #PlayoffTiles>>16
 	sta.b $0E
-	lda.w #DATA8_968C02
+	lda.w #PlayoffTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -286,9 +286,9 @@ PlayoffScreen:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9AB610>>16
+	lda.w #BigLetterTiles>>16
 	sta.b $0E
-	lda.w #DATA8_9AB610
+	lda.w #BigLetterTiles
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
@@ -496,15 +496,15 @@ org $9D9000
 	and.w #$00FF
 	asl a
 	tax
-	lda.l DATA8_99B726+2
+	lda.l PlayoffBracketMap+2
 	tay
 .loop2x:
 	lda.b [tmp0]
 	sta.l $7EA876,x
 	lda.b tmp0
 	clc
-	adc.l DATA8_99B726
-	adc.l DATA8_99B726
+	adc.l PlayoffBracketMap
+	adc.l PlayoffBracketMap
 	sta.b tmp0
 	txa
 	adc.w #$0100

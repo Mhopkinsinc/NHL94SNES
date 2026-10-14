@@ -487,9 +487,9 @@ TitleScreen:
 	ldx.w #$003C
 	ldy.w #$003C
 	jsl.l Mode7MapToVRAM
-	lda.w #DATA8_948000>>16
+	lda.w #TitleLogoTiles>>16
 	sta.b $0E
-	lda.w #DATA8_948000
+	lda.w #TitleLogoTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

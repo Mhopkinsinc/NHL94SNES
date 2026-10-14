@@ -150,9 +150,9 @@ SetupScreen:
 	sec
 	sbc.w #$0100
 	sta.l $7E35D2
-	lda.w #DATA8_95F1AE>>16
+	lda.w #MenuBackTiles>>16
 	sta.b $0E
-	lda.w #DATA8_95F1AE
+	lda.w #MenuBackTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -172,9 +172,9 @@ SetupScreen:
 	sta.b $0C
 	ldy.w #$1000
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9ABA95>>16
+	lda.w #MenuBackMap>>16
 	sta.b $0E
-	lda.w #DATA8_9ABA95
+	lda.w #MenuBackMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -245,9 +245,9 @@ SetupScreen:
 .t1:
 	sbc.w #$0021
 	sta.l $7E3454
-	lda.w #DATA8_938000>>16
+	lda.w #SetupBackTiles>>16
 	sta.b $0E
-	lda.w #DATA8_938000
+	lda.w #SetupBackTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -260,9 +260,9 @@ SetupScreen:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9AB7A1>>16
+	lda.w #SetupBackMap>>16
 	sta.b $0E
-	lda.w #DATA8_9AB7A1
+	lda.w #SetupBackMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

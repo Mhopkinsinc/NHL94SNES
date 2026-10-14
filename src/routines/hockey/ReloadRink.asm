@@ -177,9 +177,9 @@ ReloadRink:
 	lda.w #$0004
 	sta.b d0
 	jsl.l RemapTiles
-	lda.w #DATA8_96BABD>>16
+	lda.w #BigFontTiles>>16
 	sta.b $0E
-	lda.w #DATA8_96BABD
+	lda.w #BigFontTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

@@ -1,6 +1,6 @@
-; Data.
+; Print character (0-127) to small font tile, after a 6 byte map header: print adds it to smallfontchars, as 93S SmallFontMap
 
-DATA8_9ACDB0:		; a map, not packed: width, height and a word, then the map words (32 x 4); not identified yet
+SmallFontMap:		; a map, not packed: width, height and a word, then the map words (32 x 4); not identified yet
 	dw $0020,$0004,$0308
 	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000
 	dw $0000,$0000,$0000,$0000,$0000,$0000,$0001,$0002

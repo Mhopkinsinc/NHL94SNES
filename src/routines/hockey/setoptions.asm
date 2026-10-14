@@ -197,9 +197,9 @@ setoptions:
 	sta.l $7E34BC
 	sta.l $7E34CA
 .5:
-	lda.w #DATA8_9AB610>>16
+	lda.w #BigLetterTiles>>16
 	sta.b $0E
-	lda.w #DATA8_9AB610
+	lda.w #BigLetterTiles
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12

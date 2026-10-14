@@ -1,6 +1,6 @@
-; Data.
+; The big letter map (27 x 2): the top and bottom tile of each letter, read by RenderBigText
 
-DATA8_9ADF59:		; a map, not packed: width, height and a word, then the map words (27 x 2); not identified yet
+BigLetterMap:		; a map, not packed: width, height and a word, then the map words (27 x 2); not identified yet
 	dw $001B,$0002,$0308
 	dw $0001,$0002,$0003,$0004,$0005,$0006,$0007,$0008
 	dw $0009,$000A,$000B,$000C,$000D,$000E,$000F,$0010

@@ -66,7 +66,7 @@ RenderBigText:
 	lda.b $08
 	asl a
 	tax
-	lda.l DATA8_9ADF59+6,x
+	lda.l BigLetterMap+6,x
 	asl a
 	asl a
 	asl a
@@ -81,7 +81,7 @@ RenderBigText:
 	clc
 	adc.w #$0036
 	tax
-	lda.l DATA8_9ADF59+6,x
+	lda.l BigLetterMap+6,x
 	asl a
 	asl a
 	asl a
@@ -124,7 +124,7 @@ RenderBigText:
 	clc
 	adc.w #$0036
 	tax
-	lda.l DATA8_9ADF59+6,x
+	lda.l BigLetterMap+6,x
 	asl a
 	asl a
 	asl a

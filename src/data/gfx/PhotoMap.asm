@@ -1,6 +1,6 @@
-; A player photo: linear 4bpp tiles packed for DecompressHuffman.
+; The 6 x 6 player photo map (tile numbers in order) that DrawPlayerPicture uses
 
-DATA8_92FFB0:		; a map for a player photo: width, height and a word, then 6 x 6 tile numbers in order
+PhotoMap:		; a map for a player photo: width, height and a word, then 6 x 6 tile numbers in order
 	dw $0006,$0006,$0308
 	dw $0000,$0001,$0002,$0003,$0004,$0005,$0006,$0007
 	dw $0008,$0009,$000A,$000B,$000C,$000D,$000E,$000F
