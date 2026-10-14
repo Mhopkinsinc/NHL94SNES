@@ -81,7 +81,7 @@ puckstick:
 	trb.w sflags
 .3:
 	lda.w #$0003
-	jsl.l CODE_9C9ABC
+	jsl.l PuckSfx
 	jsl.l a2touchpuck
 	jmp.w deflect
 .4:

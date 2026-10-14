@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C9ABC:
+; Play sound A with half the puck velocity in $0C / $0E, then sfx
+PuckSfx:
 	pha
 	lda.w puckvx
 	cmp.w #$8000

@@ -19,7 +19,7 @@ puckbody:
 
 .t1:
 	lda.w #$0008
-	jsl.l CODE_9C9ABC
+	jsl.l PuckSfx
 .2:
 	stz.w $0E01
 	ldy.b a2

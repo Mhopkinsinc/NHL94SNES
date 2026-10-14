@@ -85,7 +85,7 @@ puckgoalie:
 	jsl.l ChkShotStat
 	jsl.l a2touchpuck
 	lda.w #$0006
-	jsl.l CODE_9C9ABC
+	jsl.l PuckSfx
 	lda.w puckvy
 	cmp.w #$3000
 	bpl .1x

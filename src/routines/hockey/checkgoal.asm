@@ -199,7 +199,7 @@ checkgoal:
 	stz.w $1E8B
 	stz.w $1E89
 	lda.w #$0009
-	jsl.l CODE_9C9ABC
+	jsl.l PuckSfx
 	lda.l crowdlevel
 	clc
 	adc.w #$012C

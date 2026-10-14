@@ -225,7 +225,7 @@ doshot:
 	sta.w $0E01
 .7:
 	pla
-	jsl.l CODE_9C9ABC
+	jsl.l PuckSfx
 	ldx.b a3
 	ldy.w #$0108
 	lda.w pfgoal,x

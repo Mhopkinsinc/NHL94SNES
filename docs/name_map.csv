@@ -741,8 +741,8 @@ $9FB435,.3,CODE_9FB435,new,branch target only used in this routine,src/routines/
 $9EE864,.1,CODE_9EE864,new,branch target only used in this routine,src/routines/snes/CODE_9EE844.asm
 $9EE86C,.2,CODE_9EE86C,new,branch target only used in this routine,src/routines/snes/CODE_9EE844.asm
 $9EE87E,.3,CODE_9EE87E,new,branch target only used in this routine,src/routines/snes/CODE_9EE844.asm
-$9C9AE9,.1,CODE_9C9AE9,new,branch target only used in this routine,src/routines/snes/CODE_9C9ABC.asm
-$9C9AFD,.2,CODE_9C9AFD,new,branch target only used in this routine,src/routines/snes/CODE_9C9ABC.asm
+$9C9AE9,.1,CODE_9C9AE9,new,branch target only used in this routine,src/routines/sound/PuckSfx.asm
+$9C9AFD,.2,CODE_9C9AFD,new,branch target only used in this routine,src/routines/sound/PuckSfx.asm
 $80B47E,.1,CODE_80B47E,new,branch target only used in this routine,src/routines/snes/CODE_80B457.asm
 $9DABD5,.1,CODE_9DABD5,new,branch target only used in this routine,src/routines/snes/CODE_9DABC1.asm
 $9DABF4,.2,CODE_9DABF4,new,branch target only used in this routine,src/routines/snes/CODE_9DABC1.asm
@@ -2730,7 +2730,7 @@ $9C9DE2,.t1,CODE_9C9DE2,new,continued in the previous routine,src/routines/snes/
 $9C9DC4,.t1,CODE_9C9DC4,new,continued in the previous routine,src/routines/snes/CODE_9C9DBA.asm
 $9C9DAA,.t1,CODE_9C9DAA,new,continued in the previous routine,src/routines/snes/CODE_9C9D25.asm
 $9C9B8B,.t1,CODE_9C9B8B,new,continued in the previous routine,src/routines/snes/PlayTeamSong.asm
-$9C9B14,.t1,CODE_9C9B14,new,continued in the previous routine,src/routines/snes/CODE_9C9ABC.asm
+$9C9B14,.t1,CODE_9C9B14,new,continued in the previous routine,src/routines/sound/PuckSfx.asm
 $9C9A53,.t1,CODE_9C9A53,new,continued in the previous routine,src/routines/snes/CODE_9C9981.asm
 $9C99CA,.t1,CODE_9C99CA,new,continued in the previous routine,src/routines/snes/CODE_9C99B1.asm
 $9C999F,.t1,CODE_9C999F,new,continued in the previous routine,src/routines/snes/CODE_9C9981.asm
@@ -4379,7 +4379,7 @@ $9C8D2A,.1,CODE_9C8D2A,new,branch target only used in this routine,src/routines/
 $9C99A2,.2,CODE_9C99A2,new,branch target only used in this routine,src/routines/snes/CODE_9C9981.asm
 $9C99E4,.3,CODE_9C99E4,new,branch target only used in this routine,src/routines/snes/CODE_9C9981.asm
 $9C9A5A,.1,CODE_9C9A5A,new,branch target only used in this routine,src/routines/snes/CODE_9C9981.asm
-$9C9B19,.3,CODE_9C9B19,new,branch target only used in this routine,src/routines/snes/CODE_9C9ABC.asm
+$9C9B19,.3,CODE_9C9B19,new,branch target only used in this routine,src/routines/sound/PuckSfx.asm
 $9C9BA5,.1,CODE_9C9BA5,new,branch target only used in this routine,src/routines/snes/PlayTeamSong.asm
 $9C9BA9,.2,CODE_9C9BA9,new,branch target only used in this routine,src/routines/snes/PlayTeamSong.asm
 $9C9FB0,.3,CODE_9C9FB0,new,branch target only used in this routine,src/routines/hockey/ShowStars.asm
@@ -4559,7 +4559,7 @@ $9E90AE,checkgoal,CODE_9E90AE,93S,"checkwallcoll calls it where 93S calls checkg
 $9FB601,limitfo,CODE_9FB601,93S,Stop4Pen calls it where 93S calls limitfo; walks PenBuf as in 93S,src/routines/penalty/limitfo.asm
 $9FC757,loadTeamStruct,CODE_9FC757,93S,updateplayers and lcfound call it as in 93S; a2 / a1 from pfteam as in 93S,src/routines/penalty/loadTeamStruct.asm
 $9BC174,setpads,CODE_9BC174,93S,"called from updateplayers, asspenalty and doinput, the 93S setpads callers",src/routines/logic/setpads.asm
-$9C9AD0,sfx,CODE_9C9AD0,93S,"Endfaceoff and dostop call it where 93S calls sfx; plays sound effect A from the effect table, panned",src/routines/snes/CODE_9C9ABC.asm
+$9C9AD0,sfx,CODE_9C9AD0,93S,"Endfaceoff and dostop call it where 93S calls sfx; plays sound effect A from the effect table, panned",src/routines/sound/PuckSfx.asm
 $9BB370,randoma,CODE_9BB370,93S,randomd0 calls it as 93S randomd0 calls randoma; A = random 0 to A-1,src/routines/middle/randoma.asm
 $9BB385,randoma8,CODE_9BB385,new,A = random 0 to A-1 for A below 256; the collision and pass routines call it where 93S calls randoma,src/routines/snes/randoma8.asm
 $9CA554,ApproxLength,CODE_9CA554,new,"approximate length of (A, Y); called where 93S takes sroot of a distance",src/routines/snes/ApproxLength.asm
@@ -5644,3 +5644,4 @@ $9C943E,PrintTeamSprites,CODE_9C943E,new,Behavior: called from setoptions and CO
 $9C9415,PrintStringSprites,CODE_9C9415,new,Behavior: enters PrintTeamSprites_go; called from PrintCopyright and the title,src/routines/hockey/PrintStringSprites.asm
 $9C9590,PrintSmallLetterSprites,CODE_9C9590,new,"Behavior: PrintLetterSprites with the small letter set (space 3, a period); called from DrawPlayerCard and PrintLineSlotName",src/routines/hockey/PrintSmallLetterSprites.asm
 $9C9479,PrintTeamSprites_go,CODE_9C9479,new,PrintTeamSprites: the letter loop; PrintStringSprites enters here,src/routines/hockey/PrintTeamSprites.asm
+$9C9ABC,PuckSfx,CODE_9C9ABC,new,"Behavior: falls into sfx; the puck collision, pass and shot routines call it",src/routines/sound/PuckSfx.asm

@@ -4,7 +4,7 @@ puckglue:
 	cpy.w puckc
 	beq .1
 	lda.w #$0003
-	jsl.l CODE_9C9ABC
+	jsl.l PuckSfx
 	jsl.l CODE_9EC791
 	stz.w $1E8B
 	stz.w $1E89

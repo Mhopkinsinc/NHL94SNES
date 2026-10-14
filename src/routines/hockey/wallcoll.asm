@@ -74,7 +74,7 @@ wallcoll:
 	bcs .2
 	lda.w #$0004
 .2:
-	jsl.l CODE_9C9ABC
+	jsl.l PuckSfx
 .3:
 	lda.b d3
 	lsr a

@@ -79,7 +79,7 @@ dopass:
 	bmi .t2
 	jsl.l CODE_9EEB2E
 	lda.w #$0000
-	jsl.l CODE_9C9ABC
+	jsl.l PuckSfx
 	jmp.w CODE_9EEACC
 
 .t2:
