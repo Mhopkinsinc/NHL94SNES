@@ -368,7 +368,7 @@ org $9F9001
 	sta.b d1
 	jsl.l Framer
 	jsl.l printscores1
-	jsl.l CODE_9FEA24
+	jsl.l Pmenu
 	jsl.l FadeIn
 	jsl.l ScreenOn
 	stx.b xsave

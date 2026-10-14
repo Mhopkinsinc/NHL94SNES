@@ -59,7 +59,7 @@ PauseMenu:
 	sta.l $7F76DE
 	sta.l $7F76FE
 PauseMenuPoll:
-	jsl.l CODE_9FEA24
+	jsl.l Pmenu
 	jsl.l SelectPauseController
 	lda.b d3
 	bit.w #$1000

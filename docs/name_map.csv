@@ -1456,8 +1456,8 @@ $80CD61,.4,CODE_80CD61,new,branch target only used in this routine,src/routines/
 $80CD62,.5,CODE_80CD62,new,branch target only used in this routine,src/routines/shootout/PrintShooterNames.asm
 $9EDDAA,.1,CODE_9EDDAA,new,branch target only used in this routine,src/routines/logic/pucknorm.asm
 $9FF6EC,.1,CODE_9FF6EC,new,branch target only used in this routine,src/routines/snes/CODE_9FF6CA.asm
-$9FEAC7,.1,CODE_9FEAC7,new,branch target only used in this routine,src/routines/snes/CODE_9FEAB4.asm
-$9FEAF4,.loop,CODE_9FEAF4,new,branch target only used in this routine,src/routines/snes/CODE_9FEAB4.asm
+$9FEAC7,.1,CODE_9FEAC7,new,branch target only used in this routine,src/routines/hockey/Pmenu.asm
+$9FEAF4,.loop,CODE_9FEAF4,new,branch target only used in this routine,src/routines/hockey/Pmenu.asm
 $9DA180,.1,CODE_9DA180,new,branch target only used in this routine,src/routines/snes/CODE_9DA0EB.asm
 $9DA184,.2,CODE_9DA184,new,branch target only used in this routine,src/routines/snes/CODE_9DA0EB.asm
 $9DA19A,.loop,CODE_9DA19A,new,branch target only used in this routine,src/routines/snes/CODE_9DA0EB.asm
@@ -3054,7 +3054,7 @@ $9FEC1E,.t1,CODE_9FEC1E,new,continued in the previous routine,src/routines/snes/
 $9FEBD9,.t1,CODE_9FEBD9,new,continued in the previous routine,src/routines/snes/CODE_9FEBC2.asm
 $9FEB82,.t1,CODE_9FEB82,new,continued in the previous routine,src/routines/snes/CODE_9FEB5C.asm
 $9FEB4E,.t1,CODE_9FEB4E,new,continued in the previous routine,src/routines/snes/CODE_9FEB32.asm
-$9FEA5E,.t1,CODE_9FEA5E,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
+$9FEA5E,.t1,CODE_9FEA5E,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
 $9FE780,.t1,CODE_9FE780,new,continued in the previous routine,src/routines/hockey/PulsePauseSide.asm
 $9FE757,.t1,CODE_9FE757,new,continued in the previous routine,src/routines/snes/CODE_9FE74B.asm
 $9FE71B,.t1,CODE_9FE71B,new,continued in the previous routine,src/routines/snes/CODE_9FE6EC.asm
@@ -3396,10 +3396,10 @@ $9E8042,.t2,CODE_9E8042,new,continued in the previous routine,src/routines/logic
 $9FF92C,.t1,CODE_9FF92C,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
 $9FF25A,.t2,CODE_9FF25A,new,continued in the previous routine,src/routines/snes/CODE_9FF1E4.asm
 $9FF045,.t2,CODE_9FF045,new,continued in the previous routine,src/routines/snes/CODE_9FF00B.asm
-$9FEC07,.t2,CODE_9FEC07,new,continued in the previous routine,src/routines/snes/CODE_9FEAB4.asm
-$9FEBC2,.t2,CODE_9FEBC2,new,continued in the previous routine,src/routines/snes/CODE_9FEAB4.asm
+$9FEC07,.t2,CODE_9FEC07,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
+$9FEBC2,.t2,CODE_9FEBC2,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
 $9FEB5C,.t2,CODE_9FEB5C,new,continued in the previous routine,src/routines/snes/CODE_9FEB32.asm
-$9FEA6A,.t2,CODE_9FEA6A,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
+$9FEA6A,.t2,CODE_9FEA6A,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
 $9FE74B,.t2,CODE_9FE74B,new,continued in the previous routine,src/routines/snes/CODE_9FE741.asm
 $9FE6EC,.t1,CODE_9FE6EC,new,continued in the previous routine,src/routines/hockey/SelectPauseController.asm
 $9FE66E,.t2,CODE_9FE66E,new,continued in the previous routine,src/routines/snes/CODE_9FE618.asm
@@ -3541,8 +3541,8 @@ $9E889E,.t3,CODE_9E889E,new,continued in the previous routine,src/routines/logic
 $9E8046,.t3,CODE_9E8046,new,continued in the previous routine,src/routines/logic/assnearest.asm
 $9FF294,.t3,CODE_9FF294,new,continued in the previous routine,src/routines/snes/CODE_9FF1E4.asm
 $9FF050,.t3,CODE_9FF050,new,continued in the previous routine,src/routines/snes/CODE_9FF00B.asm
-$9FEB32,.t3,CODE_9FEB32,new,continued in the previous routine,src/routines/snes/CODE_9FEAB4.asm
-$9FEA76,.t3,CODE_9FEA76,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
+$9FEB32,.t3,CODE_9FEB32,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
+$9FEA76,.t3,CODE_9FEA76,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
 $9FE235,.t3,CODE_9FE235,new,continued in the previous routine,src/routines/snes/CODE_9FE1FA.asm
 $9FE1B0,.t3,CODE_9FE1B0,new,continued in the previous routine,src/routines/snes/CODE_9FE17D.asm
 $9FE153,.t3,CODE_9FE153,new,continued in the previous routine,src/routines/snes/CODE_9FE130.asm
@@ -3591,7 +3591,7 @@ $9EB4F9,.t4,CODE_9EB4F9,new,continued in the previous routine,src/routines/penal
 $9EA8B2,.t4,CODE_9EA8B2,new,continued in the previous routine,src/routines/logic/doplayeracc.asm
 $9FF1E4,.t4,CODE_9FF1E4,new,continued in the previous routine,src/routines/snes/CODE_9FF1D1.asm
 $9FF055,.t4,CODE_9FF055,new,continued in the previous routine,src/routines/snes/CODE_9FF00B.asm
-$9FEA82,.t4,CODE_9FEA82,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
+$9FEA82,.t4,CODE_9FEA82,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
 $9FE241,.t4,CODE_9FE241,new,continued in the previous routine,src/routines/snes/CODE_9FE1FA.asm
 $9FE130,.t4,CODE_9FE130,new,continued in the previous routine,src/routines/snes/CODE_9FE11D.asm
 $9FC322,.t4,CODE_9FC322,new,continued in the previous routine,src/routines/logic/doinput.asm
@@ -3609,7 +3609,7 @@ $9DA724,.t5,CODE_9DA724,new,continued in the previous routine,src/routines/hocke
 $9DA2AB,.t5,CODE_9DA2AB,new,continued in the previous routine,src/routines/hockey/PlayerSelect.asm
 $9ECA37,.t5,CODE_9ECA37,new,continued in the previous routine,src/routines/hockey/UpdateScoutingDisplay.asm
 $9EC265,.t5,CODE_9EC265,new,continued in the previous routine,src/routines/penalty/prefmes.asm
-$9FEA8E,.t5,CODE_9FEA8E,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
+$9FEA8E,.t5,CODE_9FEA8E,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
 $9FE24D,.t5,CODE_9FE24D,new,continued in the previous routine,src/routines/snes/CODE_9FE1FA.asm
 $9FE161,.t5,CODE_9FE161,new,continued in the previous routine,src/routines/snes/CODE_9FE11D.asm
 $80CFEE,.t6,CODE_80CFEE,new,continued in the previous routine,src/routines/snes/CODE_80CF36.asm
@@ -3617,11 +3617,11 @@ $9BAE9D,.t1,CODE_9BAE9D,new,continued in the previous routine,src/routines/hocke
 $9C8CE5,.t6,CODE_9C8CE5,new,continued in the previous routine,src/routines/hockey/ComparePlayerStats.asm
 $9DA768,.t6,CODE_9DA768,new,continued in the previous routine,src/routines/hockey/setoptions.asm
 $9DA2E6,.t6,CODE_9DA2E6,new,continued in the previous routine,src/routines/hockey/PlayerSelect.asm
-$9FEA9A,.t6,CODE_9FEA9A,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
+$9FEA9A,.t6,CODE_9FEA9A,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
 $9FE259,.t6,CODE_9FE259,new,continued in the previous routine,src/routines/snes/CODE_9FE1FA.asm
 $9FE16F,.t6,CODE_9FE16F,new,continued in the previous routine,src/routines/snes/CODE_9FE11D.asm
 $80CF36,.t1,CODE_80CF36,new,continued in the previous routine,src/routines/shootout/ShooterSelectList.asm
-$9FEAA6,.t7,CODE_9FEAA6,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
+$9FEAA6,.t7,CODE_9FEAA6,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
 $9FE1FA,.t7,CODE_9FE1FA,new,continued in the previous routine,src/routines/snes/CODE_9FE17D.asm
 $9FE17D,.t7,CODE_9FE17D,new,continued in the previous routine,src/routines/snes/CODE_9FE11D.asm
 $9FA130,USBoard,ShowInjuryBox,93S,scoreboard penalty list; the injury-box name was on this routine,src/routines/penalty/USBoard.asm
@@ -4508,8 +4508,8 @@ $9FCDAA,.2,CODE_9FCDAA,new,branch target only used in this routine,src/routines/
 $9FD2BC,.1,CODE_9FD2BC,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
 $9FD2D7,.2,CODE_9FD2D7,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
 $9FD2F3,.3,CODE_9FD2F3,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
-$9FEBE3,.1,CODE_9FEBE3,new,branch target only used in this routine,src/routines/snes/CODE_9FEAB4.asm
-$9FEC28,.1,CODE_9FEC28,new,branch target only used in this routine,src/routines/snes/CODE_9FEAB4.asm
+$9FEBE3,.1,CODE_9FEBE3,new,branch target only used in this routine,src/routines/hockey/Pmenu.asm
+$9FEC28,.1,CODE_9FEC28,new,branch target only used in this routine,src/routines/hockey/Pmenu.asm
 $9FF673,.1,CODE_9FF673,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
 $9FF6A6,.1,CODE_9FF6A6,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
 $9FF6CD,.2,CODE_9FF6CD,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
@@ -5698,3 +5698,10 @@ $9FE79F,ReloadRink,CODE_9FE79F,new,Behavior: every pause menu item handler calls
 $9FB91A,SetTeamColors,CODE_9FB91A,93S,"setplayercolors: the uniform colours of both teams into palbuffer, as 93S SetTeamColors (was the local .t1)",src/routines/hockey/setplayercolors.asm
 $9FC76C,GetPadTeam,CODE_9FC76C,93S,"The 93S GetPadTeam test (team 1 = home, a2 = 0, else 2) on the 94 per pad sides; the pause goalie, timeout and defense items call it as 93S PauseMenu does",src/routines/hockey/GetPadTeam.asm
 $9FE9FD,PulseUntilRelease,CODE_9FE9FD,new,Behavior: called from SelectPauseController,src/routines/hockey/PulseUntilRelease.asm
+$9FEA24,Pmenu,CODE_9FEA24,93S,"The 93S Pmenu job (the items with the current one highlighted), with a scrolling list; PauseMenu calls it at the top of its loop as 93S PauseMenu calls Pmenu. CODE_9FEAB4 (its item loop) folded in",src/routines/hockey/Pmenu.asm
+$9FEC60,PmenuNone,CODE_9FEC60,new,Behavior,src/routines/hockey/PmenuNone.asm
+$9FEAB4,.2,CODE_9FEAB4,new,Pmenu: the item loop (folded into Pmenu),src/routines/hockey/Pmenu.asm
+$9FEB90,PmenuAppend,CODE_9FEB90,new,Pmenu: append String [a4] to the item text in mesarea,src/routines/hockey/Pmenu.asm
+$9FEBA5,PmenuRtl,CODE_9FEBA5,new,Pmenu: the shared rtl of the value helpers,src/routines/hockey/Pmenu.asm
+$9FEBA6,PmenuGoalieValue,CODE_9FEBA6,new,"Pmenu: on the goalie item, append Automatic / Manual Goalie (the team's $1C90)",src/routines/hockey/Pmenu.asm
+$9FEBEB,PmenuDefValue,CODE_9FEBEB,new,"Pmenu: on the defense control item, append On / Off (the team's $1C94, as PauseDefControl)",src/routines/hockey/Pmenu.asm

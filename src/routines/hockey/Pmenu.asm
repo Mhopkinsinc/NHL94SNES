@@ -1,5 +1,85 @@
-; Unidentified routine.
-CODE_9FEAB4:
+; Draw the pause menu: five items of the current list (by $1EB7) from item $0D13, the selected one ($0D15) highlighted, each with its value
+Pmenu:
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF8FD
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	lda.w $0D13
+	sta.b d0
+	lda.w $1EB7
+	beq .t1
+	cmp.w #$0001
+	beq .t3
+	cmp.w #$0002
+	beq .t4
+	cmp.w #$0003
+	beq .t5
+	cmp.w #$0004
+	beq .t6
+	bra .t2
+
+.t1:
+	lda.w #$009F
+	sta.b $8B
+	lda.w #PauseMenuItems
+	sta.b a0
+	bra .t7
+
+.t2:
+	lda.w #$009F
+	sta.b $8B
+	lda.w #PauseMenuItems+210
+	sta.b a0
+	bra .t7
+
+.t3:
+	lda.w #$009F
+	sta.b $8B
+	lda.w #PauseMenuItems+429
+	sta.b a0
+	bra .t7
+
+.t4:
+	lda.w #$009F
+	sta.b $8B
+	lda.w #PauseMenuItems+626
+	sta.b a0
+	bra .t7
+
+.t5:
+	lda.w #$009F
+	sta.b $8B
+	lda.w #PauseMenuItems+732
+	sta.b a0
+	bra .t7
+
+.t6:
+	lda.w #$009F
+	sta.b $8B
+	lda.w #PauseMenuItems+808
+	sta.b a0
+	bra .t7
+
+.t7:
+	lda.b a0
+	ldx.b d0
+.loop:
+	dex
+	bmi .2
+	clc
+	adc.b [a0]
+	sta.b a0
+	bra .loop
+.2:
 	lda.w #$2400
 	sta.w $0D0D
 	lda.b d0
@@ -28,15 +108,15 @@ CODE_9FEAB4:
 	lda.w #mesarea
 	sta.b a1
 	ldy.w #$001E
-.loop:
+.loopx:
 	lda.b [a0],y
 	sta.b [a1],y
 	dey
 	dey
-	bpl .loop
-	jsl.l .t3
-	jsl.l CODE_9FEBA6
-	jsl.l CODE_9FEBEB
+	bpl .loopx
+	jsl.l .t3x
+	jsl.l PmenuGoalieValue
+	jsl.l PmenuDefValue
 	lda.b [a1]
 	lsr a
 	eor.w #$FFFF
@@ -55,10 +135,10 @@ CODE_9FEAB4:
 	sec
 	sbc.w $0D13
 	cmp.w #$0005
-	bne CODE_9FEAB4
+	bne .2
 	rtl
 
-.t3:
+.t3x:
 	lda.w #$009F
 	sta.b $97
 	lda.w #DATA8_9FEC72
@@ -70,17 +150,17 @@ CODE_9FEAB4:
 	sta.b a3
 	lda.b [a3]
 	cmp.b d0
-	beq .t1
-	jmp.w CODE_9FEBA5
+	beq .t1x
+	jmp.w PmenuRtl
 
-.t1:
+.t1x:
 	jsl.l GetPadTeam
 	ldy.b a2
 	lda.w tmgoalie,y
-	bpl .t2
-	jmp.w CODE_9FEC60
+	bpl .t2x
+	jmp.w PmenuNone
 
-.t2:
+.t2x:
 	sta.b tmp0
 	lda.w tmdata,y
 	sta.b a4
@@ -91,39 +171,39 @@ CODE_9FEAB4:
 	clc
 	adc.b a4
 	sta.b a4
-.loopx:
+.loopxx:
 	dec.b tmp0
-	bmi .t1x
+	bmi .t1xx
 	lda.b [a4]
 	clc
 	adc.b a4
 	adc.w #$0008
 	sta.b a4
-	bra .loopx
+	bra .loopxx
 
-.t1x:
+.t1xx:
 	ldy.w #$0001
-.loopxx:
+.loopxxx:
 	iny
 	lda.b [a4],y
 	and.w #$00FF
 	cmp.w #$0020
-	bne .loopxx
-CODE_9FEB90:
+	bne .loopxxx
+PmenuAppend:
 	iny
 	tya
 	cmp.b [a4]
-	beq CODE_9FEBA5
+	beq PmenuRtl
 	lda.b [a4],y
 	phy
 	ldy.w mesarea
 	sta.w mesarea,y
 	inc.w mesarea
 	ply
-	bra CODE_9FEB90
-CODE_9FEBA5:
+	bra PmenuAppend
+PmenuRtl:
 	rtl
-CODE_9FEBA6:
+PmenuGoalieValue:
 	lda.w #$009F
 	sta.b $97
 	lda.w #DATA8_9FEC72+12
@@ -136,7 +216,7 @@ CODE_9FEBA6:
 	lda.b [a3]
 	cmp.b d0
 	beq .t2
-	jmp.w CODE_9FEBA5
+	jmp.w PmenuRtl
 
 .t2:
 	jsl.l GetPadTeam
@@ -156,9 +236,9 @@ CODE_9FEBA6:
 	sta.b a4
 .1:
 	ldy.w #$0001
-	jsl.l CODE_9FEB90
+	jsl.l PmenuAppend
 	rtl
-CODE_9FEBEB:
+PmenuDefValue:
 	lda.w #$009F
 	sta.b $97
 	lda.w #DATA8_9FEC72+24
@@ -171,7 +251,7 @@ CODE_9FEBEB:
 	lda.b [a3]
 	cmp.b d0
 	beq .t2
-	jmp.w CODE_9FEBA5
+	jmp.w PmenuRtl
 
 .t2:
 	jsl.l GetPadTeam
@@ -191,5 +271,5 @@ CODE_9FEBEB:
 	sta.b a4
 .1:
 	ldy.w #$0001
-	jsl.l CODE_9FEB90
+	jsl.l PmenuAppend
 	rtl

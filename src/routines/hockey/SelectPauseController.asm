@@ -50,7 +50,7 @@ SelectPauseController:
 	stx.w pausepad
 	stz.w $0D15
 	stz.w $0D13
-	jsl.l CODE_9FEA24
+	jsl.l Pmenu
 	jsl.l SendTextMap
 	jsr.w PulseUntilRelease
 	lda.w #$003C

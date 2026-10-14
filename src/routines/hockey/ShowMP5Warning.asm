@@ -6,7 +6,7 @@ ShowMP5Warning:
 	jsl.l .t4
 	lda.w $1A0E
 	bne .loop
-	jsl.l CODE_9FEA24
+	jsl.l Pmenu
 .rtl:
 	rtl
 
