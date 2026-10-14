@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EC042:
+; A = -1 when the player hit (a2) is the puck carrier on a breakaway (no penalty shot under way): a penalty shot instead of the penalty; else 0
+PenShotChk:
 	lda.w gmode
 	bit.w #$0010
 	bne .t3
@@ -11,7 +11,7 @@ CODE_9EC042:
 	jmp.w .t3
 
 .t2:
-	jsl.l CODE_9EC64B
+	jsl.l CheckBreakaway
 	lda.w $1638
 	sta.w $1E8B
 	bne .t1

@@ -51,7 +51,7 @@ doshot:
 	sta.w passspeed
 	lda.w $1E8B
 	beq .3
-	jsl.l CODE_9EC64B
+	jsl.l CheckBreakaway
 	lda.w $1638
 	sta.w $1E8B
 .3:

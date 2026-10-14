@@ -244,7 +244,7 @@ checkplcoll:
 	cpy.w puckc
 	bne .2x
 .1xx:
-	jsl.l CODE_9E9B0E
+	jsl.l CollisionSfx
 .2x:
 	lda.b d1
 	pha

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E9B0E:
+; Play sound $0F with the velocity of the faster of players X and Y
+CollisionSfx:
 	phy
 	ldy.w $0EC3,x
 	lda.w $0EE3,x

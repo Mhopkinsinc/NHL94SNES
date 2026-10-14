@@ -245,7 +245,7 @@ FallDown:
 	bcs .24
 	bra .24
 .22:
-	jmp.w CODE_9E9B0E
+	jmp.w CollisionSfx
 .23:
 	jmp.w .25
 .24:

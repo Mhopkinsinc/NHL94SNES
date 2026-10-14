@@ -31,7 +31,7 @@ ChkOffsides:
 	sbc.w $0E9F
 	bmi CODE_9EF829
 CODE_9EF7C7:
-	jsl.l CODE_9EC6E7
+	jsl.l StartBreakaway
 	lda.w gmode
 	bit.w #$0020
 	bne .t2
@@ -109,7 +109,7 @@ CODE_9EF833:
 	sbc.w $0E9F
 	bmi CODE_9EF829
 .3:
-	jsl.l CODE_9EC6E7
+	jsl.l StartBreakaway
 	lda.w gmode
 	bit.w #$0020
 	bne .t1x

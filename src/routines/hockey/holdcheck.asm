@@ -73,7 +73,7 @@ holdcheck:
 	lda.w #DATA8_9DF3D8
 .1:
 	jsl.l SetSPAFromA
-	jsl.l CODE_9EC042
+	jsl.l PenShotChk
 	beq .t1x
 	lda.w $1E8D
 	bpl .t1x

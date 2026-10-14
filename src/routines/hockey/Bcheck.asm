@@ -40,7 +40,7 @@ Bcheck:
 	sty.b a2
 	stx.b a3
 	jsl.l FallDown
-	jsl.l CODE_9EC042
+	jsl.l PenShotChk
 	beq .t2
 	lda.w $1E8D
 	bpl .t2

@@ -2097,11 +2097,11 @@ $9E9E96,.1,CODE_9E9E96,new,branch target only used in this routine,src/routines/
 $9FC294,.1,CODE_9FC294,new,branch target only used in this routine,src/routines/logic/doinput.asm
 $8083F5,.1,CODE_8083F5,new,branch target only used in this routine,src/routines/snes/NMI_SendOAM.asm
 $8083F7,.2,CODE_8083F7,new,branch target only used in this routine,src/routines/snes/NMI_SendOAM.asm
-$9EC704,.1,CODE_9EC704,new,branch target only used in this routine,src/routines/snes/CODE_9EC6E7.asm
-$9EC710,.2,CODE_9EC710,new,branch target only used in this routine,src/routines/snes/CODE_9EC6E7.asm
-$9EC71F,.3,CODE_9EC71F,new,branch target only used in this routine,src/routines/snes/CODE_9EC6E7.asm
-$9EC72B,.4,CODE_9EC72B,new,branch target only used in this routine,src/routines/snes/CODE_9EC6E7.asm
-$9EC72C,.rtl,CODE_9EC72C,new,branch target only used in this routine,src/routines/snes/CODE_9EC6E7.asm
+$9EC704,.1,CODE_9EC704,new,branch target only used in this routine,src/routines/logic/StartBreakaway.asm
+$9EC710,.2,CODE_9EC710,new,branch target only used in this routine,src/routines/logic/StartBreakaway.asm
+$9EC71F,.3,CODE_9EC71F,new,branch target only used in this routine,src/routines/logic/StartBreakaway.asm
+$9EC72B,.4,CODE_9EC72B,new,branch target only used in this routine,src/routines/logic/StartBreakaway.asm
+$9EC72C,.rtl,CODE_9EC72C,new,branch target only used in this routine,src/routines/logic/StartBreakaway.asm
 $9C9AA6,.1,CODE_9C9AA6,new,branch target only used in this routine,src/routines/snes/CODE_9C9A7F.asm
 $9C9AB3,.2,CODE_9C9AB3,new,branch target only used in this routine,src/routines/snes/CODE_9C9A7F.asm
 $9ECAC9,.loop,CODE_9ECAC9,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
@@ -3000,7 +3000,7 @@ $9E9EB1,.t1,CODE_9E9EB1,new,continued in the previous routine,src/routines/hocke
 $9E9E78,.t1,CODE_9E9E78,new,continued in the previous routine,src/routines/hockey/FallDown.asm
 $9E9E4D,.t1,CODE_9E9E4D,new,continued in the previous routine,src/routines/snes/CODE_9E9E44.asm
 $9E9BB2,.t1,CODE_9E9BB2,new,continued in the previous routine,src/routines/hockey/FallDown.asm
-$9E9B3C,.t1,CODE_9E9B3C,new,continued in the previous routine,src/routines/snes/CODE_9E9B0E.asm
+$9E9B3C,.t1,CODE_9E9B3C,new,continued in the previous routine,src/routines/sound/CollisionSfx.asm
 $9E9B03,.t1,CODE_9E9B03,new,continued in the previous routine,src/routines/hockey/puckglue.asm
 $9E9A11,.t1,CODE_9E9A11,new,continued in the previous routine,src/routines/hockey/checkpuckcoll_ccx.asm
 $9E97B8,.t1,CODE_9E97B8,new,continued in the previous routine,src/routines/hockey/checkpuckcoll.asm
@@ -3352,7 +3352,7 @@ $9EC672,.t2,CODE_9EC672,new,continued in the previous routine,src/routines/snes/
 $9EC4FD,.t2,CODE_9EC4FD,new,continued in the previous routine,src/routines/logic/a2touchpuck.asm
 $9EC422,.t2,CODE_9EC422,new,continued in the previous routine,src/routines/logic/checkob.asm
 $9EC1FE,.t2,CODE_9EC1FE,new,continued in the previous routine,src/routines/snes/CODE_9EC1C2.asm
-$9EC059,.t2,CODE_9EC059,new,continued in the previous routine,src/routines/snes/CODE_9EC042.asm
+$9EC059,.t2,CODE_9EC059,new,continued in the previous routine,src/routines/penalty/PenShotChk.asm
 $9EC029,.t2,CODE_9EC029,new,continued in the previous routine,src/routines/penalty/updatepentime.asm
 $9EBF52,.t2,CODE_9EBF52,new,continued in the previous routine,src/routines/penalty/updatepentime.asm
 $9EBCA4,.t2,CODE_9EBCA4,new,continued in the previous routine,src/routines/hockey/Bcheck.asm
@@ -3525,7 +3525,7 @@ $9ECA57,.t3,CODE_9ECA57,new,continued in the previous routine,src/routines/snes/
 $9ECA17,.t3,CODE_9ECA17,new,continued in the previous routine,src/routines/hockey/UpdateScoutingDisplay.asm
 $9EC6AA,.t3,CODE_9EC6AA,new,continued in the previous routine,src/routines/snes/CODE_9EC656.asm
 $9EC20E,.t3,CODE_9EC20E,new,continued in the previous routine,src/routines/snes/CODE_9EC1C2.asm
-$9EC06D,.t3,CODE_9EC06D,new,continued in the previous routine,src/routines/snes/CODE_9EC042.asm
+$9EC06D,.t3,CODE_9EC06D,new,continued in the previous routine,src/routines/penalty/PenShotChk.asm
 $9EB6A1,.t3,CODE_9EB6A1,new,continued in the previous routine,src/routines/snes/CODE_9EB4F9.asm
 $9EB476,.t3,CODE_9EB476,new,continued in the previous routine,src/routines/penalty/chkprogress.asm
 $9EAE45,.t3,CODE_9EAE45,new,continued in the previous routine,src/routines/logic/avdgoal.asm
@@ -3585,7 +3585,7 @@ $9ED808,.t1,CODE_9ED808,new,continued in the previous routine,src/routines/logic
 $9ED676,.t4,CODE_9ED676,new,continued in the previous routine,src/routines/logic/assgoalie.asm
 $9ED050,.t4,CODE_9ED050,new,continued in the previous routine,src/routines/logic/goalieacc.asm
 $9ECA77,.t4,CODE_9ECA77,new,continued in the previous routine,src/routines/snes/CODE_9ECA37.asm
-$9EC656,.t4,CODE_9EC656,new,continued in the previous routine,src/routines/snes/CODE_9EC64B.asm
+$9EC656,.t4,CODE_9EC656,new,continued in the previous routine,src/routines/logic/CheckBreakaway.asm
 $9EC1C2,.t4,CODE_9EC1C2,new,continued in the previous routine,src/routines/penalty/prefmes.asm
 $9EB4F9,.t4,CODE_9EB4F9,new,continued in the previous routine,src/routines/penalty/InProgress.asm
 $9EA8B2,.t4,CODE_9EA8B2,new,continued in the previous routine,src/routines/logic/doplayeracc.asm
@@ -4446,16 +4446,16 @@ $9E920C,.1,CODE_9E920C,new,branch target only used in this routine,src/routines/
 $9E92DE,.2,CODE_9E92DE,new,branch target only used in this routine,src/routines/hockey/checkgoal.asm
 $9E97DC,.1,CODE_9E97DC,new,branch target only used in this routine,src/routines/hockey/checkpuckcoll.asm
 $9E9B07,.7,CODE_9E9B07,new,branch target only used in this routine,src/routines/hockey/puckglue.asm
-$9E9B46,.1,CODE_9E9B46,new,branch target only used in this routine,src/routines/snes/CODE_9E9B0E.asm
+$9E9B46,.1,CODE_9E9B46,new,branch target only used in this routine,src/routines/sound/CollisionSfx.asm
 $9E9EB4,.2,CODE_9E9EB4,new,branch target only used in this routine,src/routines/hockey/FallDown.asm
 $9EA78C,.7,CODE_9EA78C,new,branch target only used in this routine,src/routines/logic/playeracc.asm
 $9EAE31,.2,CODE_9EAE31,new,branch target only used in this routine,src/routines/logic/avdgoal.asm
 $9EBFFB,.1,CODE_9EBFFB,new,branch target only used in this routine,src/routines/penalty/updatepentime.asm
 $9EC000,.2,CODE_9EC000,new,branch target only used in this routine,src/routines/penalty/updatepentime.asm
-$9EC070,.1,CODE_9EC070,new,branch target only used in this routine,src/routines/snes/CODE_9EC042.asm
+$9EC070,.1,CODE_9EC070,new,branch target only used in this routine,src/routines/penalty/PenShotChk.asm
 $9EC2AE,.3,CODE_9EC2AE,new,branch target only used in this routine,src/routines/penalty/prefmes.asm
-$9EC6E0,.3,CODE_9EC6E0,new,branch target only used in this routine,src/routines/snes/CODE_9EC64B.asm
-$9EC6E6,.4,CODE_9EC6E6,new,branch target only used in this routine,src/routines/snes/CODE_9EC64B.asm
+$9EC6E0,.3,CODE_9EC6E0,new,branch target only used in this routine,src/routines/logic/CheckBreakaway.asm
+$9EC6E6,.4,CODE_9EC6E6,new,branch target only used in this routine,src/routines/logic/CheckBreakaway.asm
 $9EC74B,.1,CODE_9EC74B,new,branch target only used in this routine,src/routines/logic/StartPenaltyShot.asm
 $9EC790,.2,CODE_9EC790,new,branch target only used in this routine,src/routines/logic/StartPenaltyShot.asm
 $9ECFCA,.1,CODE_9ECFCA,new,branch target only used in this routine,src/routines/penalty/PrintStringFromList.asm
@@ -5762,3 +5762,7 @@ $9FC988,FaceoffPads,CODE_9FC988,new,Behavior: called from puckfaceoff2,src/routi
 $9FCD0A,PassPadToTeammate,CODE_9FCD0A,new,Behavior: asspenalty calls it when the penalized player had a pad ($19D4),src/routines/logic/PassPadToTeammate.asm
 $9FCD4D,PadTakeLeftDefense,CODE_9FCD4D,new,Behavior: doinput calls it on L ($0020); pfgoal (shoots at the top goal) picks position 1 or 2,src/routines/logic/PadTakeLeftDefense.asm
 $9FCD2F,PadTakeRightDefense,CODE_9FCD2F,new,Behavior: doinput calls it on R ($0010),src/routines/logic/PadTakeRightDefense.asm
+$9EC64B,CheckBreakaway,CODE_9EC64B,new,"Behavior: called from doshot, PenShotChk and StartBreakaway",src/routines/logic/CheckBreakaway.asm
+$9EC6E7,StartBreakaway,CODE_9EC6E7,new,Behavior: called from ChkOffsides,src/routines/logic/StartBreakaway.asm
+$9E9B0E,CollisionSfx,CODE_9E9B0E,new,Behavior: called from checkplcoll and FallDown,src/routines/sound/CollisionSfx.asm
+$9EC042,PenShotChk,CODE_9EC042,94G,"The 94G PenShotChk job (player hit on a breakaway: a penalty shot); Bcheck, checkcheck and holdcheck call it just before AddPenalty, as 94G calls PenShotChk before AddPenalty",src/routines/penalty/PenShotChk.asm

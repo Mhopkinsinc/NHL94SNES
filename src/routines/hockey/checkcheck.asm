@@ -150,7 +150,7 @@ org $9EA001
 	sta.b d0
 	jsl.l AddPenalty
 .1xx:
-	jsl.l CODE_9EC042
+	jsl.l PenShotChk
 	beq .2x
 	lda.w $1E8D
 	bpl .2x
