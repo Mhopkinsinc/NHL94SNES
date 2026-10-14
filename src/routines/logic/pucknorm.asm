@@ -68,7 +68,7 @@ CODE_9EDCC3:
 	sta.w puckvy
 .4:
 	jsl.l puckIChk
-	jsl.l CODE_9EF78A
+	jsl.l ChkOffsides
 	lda.w gmclock
 	bne .13
 	lda.w puckc

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EF78A:
+; Clear each team's offsides flag once it is back onside; when the puck crosses a blue line into the zone with an attacker past it, flag that team offsides
+ChkOffsides:
 	stz.b a1
 	lda.w #$0002
 	sta.b a2

@@ -89,6 +89,7 @@
 - From behavior: `Mod100`, `AlignBigNumber` (printscores1 helpers).
 - MultiPlayer 5 pad control from behavior: `AssignPadPlayer`, `AssignPadIfFree`, `PuckCarrierPad`, `PadTakePosition`, `PadTakeGoalie`. CODE_9FCD2F / CODE_9FCD4D (pad takes a defenseman, the side picked by pfgoal) stay unnamed: which side pfgoal means is not proven.
 - `Create_HotCold_Table` (94G: called from StartGame, the same job), and from behavior `SetPauseMode`, `PauseFromPad`, `PauseFromPad1`; equate `sfpz` (93S pause mode bit).
+- `ChkOffsides` (93S: pucknorm calls it at the 93S point). chkprogress: its penalty tail CODE_9EB3C5 folded in, `chkprogress_find` (93S .find); InProgress: its exit CODE_9EB6B8 folded in as `InProgress_exit` / `InProgress_coin` / `InProgress_rtl` (InProgress and chkprogress jump to them).
 
 ## Unsure
 
@@ -102,7 +103,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 
 - `$14E3` is `pfalock` from the `setplayer` pair with `SPA`.
 - asstab entries left unnamed: `CODE_9EE463` (entry 10) and `CODE_9EED8D` (entry 14) are 94 assignments with no 93S counterpart.
-- `CODE_9EB3C4`, `CODE_9FD459` and `CODE_9FA1B7` are entries other slices jump to, so they stay global.
+- `CODE_9FD459` and `CODE_9FA1B7` are entries other slices jump to, so they stay global (`CODE_9EB3C4` is now a local of `chkprogress`).
 - `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
 - SpriteFrameN labels stay numbered until a frame has an SPF name.
 - The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.

@@ -1277,8 +1277,8 @@ $9B82B6,.6,CODE_9B82B6,new,branch target only used in this routine,src/routines/
 $9B82C6,.7,CODE_9B82C6,new,branch target only used in this routine,src/routines/snes/Multi5Bios.asm
 $9B82D6,.8,CODE_9B82D6,new,branch target only used in this routine,src/routines/snes/Multi5Bios.asm
 $9B82DB,.9,CODE_9B82DB,new,branch target only used in this routine,src/routines/snes/Multi5Bios.asm
-$9EB6E0,.1,CODE_9EB6E0,new,branch target only used in this routine,src/routines/snes/CODE_9EB6B8.asm
-$9EB6E5,.loop,CODE_9EB6E5,new,branch target only used in this routine,src/routines/snes/CODE_9EB6B8.asm
+$9EB6E0,.1,CODE_9EB6E0,new,branch target only used in this routine,src/routines/penalty/InProgress.asm
+$9EB6E5,.loop,CODE_9EB6E5,new,branch target only used in this routine,src/routines/penalty/InProgress.asm
 $9EEDEF,.1,CODE_9EEDEF,new,branch target only used in this routine,src/routines/snes/CODE_9EEDEA.asm
 $9EEDFD,.2,CODE_9EEDFD,new,branch target only used in this routine,src/routines/snes/CODE_9EEDEA.asm
 $9ECDC9,.loop,CODE_9ECDC9,new,branch target only used in this routine,src/routines/hockey/ScrollDisplayUp.asm
@@ -2962,7 +2962,7 @@ $9EB6B2,.t1,CODE_9EB6B2,new,continued in the previous routine,src/routines/snes/
 $9EB52F,.t1,CODE_9EB52F,new,continued in the previous routine,src/routines/snes/CODE_9EB51A.asm
 $9EB4F1,.t1,CODE_9EB4F1,new,continued in the previous routine,src/routines/penalty/InProgress.asm
 $9EB48A,.t1,CODE_9EB48A,new,continued in the previous routine,src/routines/snes/CODE_9EB482.asm
-$9EB3CD,.t1,CODE_9EB3CD,new,continued in the previous routine,src/routines/snes/CODE_9EB3C5.asm
+$9EB3CD,.t1,CODE_9EB3CD,new,continued in the previous routine,src/routines/penalty/chkprogress.asm
 $9EB2D4,.t1,CODE_9EB2D4,new,continued in the previous routine,src/routines/penalty/Stop4Pen.asm
 $9EB274,.t1,CODE_9EB274,new,continued in the previous routine,src/routines/snes/CODE_9EB206.asm
 $9EB1ED,.t1,CODE_9EB1ED,new,continued in the previous routine,src/routines/penalty/checkfornewpen.asm
@@ -3508,8 +3508,8 @@ $9D943F,.t1,CODE_9D943F,new,continued in the previous routine,src/routines/hocke
 $9D92A0,.t3,CODE_9D92A0,new,continued in the previous routine,src/routines/snes/CODE_9D927C.asm
 $9D8BDE,.t3,CODE_9D8BDE,new,continued in the previous routine,src/routines/hockey/PlayoffScreen.asm
 $9D8631,.t2,CODE_9D8631,new,continued in the previous routine,src/routines/snes/CODE_9D8489.asm
-$9EF84D,.t1,CODE_9EF84D,new,continued in the previous routine,src/routines/snes/CODE_9EF78A.asm
-$9EF7AD,.t2,CODE_9EF7AD,new,continued in the previous routine,src/routines/snes/CODE_9EF78A.asm
+$9EF84D,.t1,CODE_9EF84D,new,continued in the previous routine,src/routines/logic/ChkOffsides.asm
+$9EF7AD,.t2,CODE_9EF7AD,new,continued in the previous routine,src/routines/logic/ChkOffsides.asm
 $9EF3A3,.t1,CODE_9EF3A3,new,continued in the previous routine,src/routines/hockey/Goal.asm
 $9EF328,.t3,CODE_9EF328,new,continued in the previous routine,src/routines/hockey/Goal.asm
 $9EF226,.t3,CODE_9EF226,new,continued in the previous routine,src/routines/penalty/ChkShotStat.asm
@@ -3527,7 +3527,7 @@ $9EC6AA,.t3,CODE_9EC6AA,new,continued in the previous routine,src/routines/snes/
 $9EC20E,.t3,CODE_9EC20E,new,continued in the previous routine,src/routines/snes/CODE_9EC1C2.asm
 $9EC06D,.t3,CODE_9EC06D,new,continued in the previous routine,src/routines/snes/CODE_9EC042.asm
 $9EB6A1,.t3,CODE_9EB6A1,new,continued in the previous routine,src/routines/snes/CODE_9EB4F9.asm
-$9EB476,.t3,CODE_9EB476,new,continued in the previous routine,src/routines/snes/CODE_9EB3C5.asm
+$9EB476,.t3,CODE_9EB476,new,continued in the previous routine,src/routines/penalty/chkprogress.asm
 $9EAE45,.t3,CODE_9EAE45,new,continued in the previous routine,src/routines/logic/avdgoal.asm
 $9EABD9,.t2,CODE_9EABD9,new,continued in the previous routine,src/routines/logic/avdgoal.asm
 $9EAB25,.t3,CODE_9EAB25,new,continued in the previous routine,src/routines/logic/noturn0.asm
@@ -4483,9 +4483,9 @@ $9EF318,.7,CODE_9EF318,new,branch target only used in this routine,src/routines/
 $9EF3A7,.3,CODE_9EF3A7,new,branch target only used in this routine,src/routines/hockey/Goal.asm
 $9EF3AE,.4,CODE_9EF3AE,new,branch target only used in this routine,src/routines/hockey/Goal.asm
 $9EF3CC,.5,CODE_9EF3CC,new,branch target only used in this routine,src/routines/hockey/Goal.asm
-$9EF855,.3,CODE_9EF855,new,branch target only used in this routine,src/routines/snes/CODE_9EF78A.asm
-$9EF894,.4,CODE_9EF894,new,branch target only used in this routine,src/routines/snes/CODE_9EF78A.asm
-$9EF8A0,.5,CODE_9EF8A0,new,branch target only used in this routine,src/routines/snes/CODE_9EF78A.asm
+$9EF855,.3,CODE_9EF855,new,branch target only used in this routine,src/routines/logic/ChkOffsides.asm
+$9EF894,.4,CODE_9EF894,new,branch target only used in this routine,src/routines/logic/ChkOffsides.asm
+$9EF8A0,.5,CODE_9EF8A0,new,branch target only used in this routine,src/routines/logic/ChkOffsides.asm
 $9F83DE,.2,CODE_9F83DE,new,branch target only used in this routine,src/routines/hockey/StartGame.asm
 $9F83F3,.3,CODE_9F83F3,new,branch target only used in this routine,src/routines/hockey/StartGame.asm
 $9F8427,.4,CODE_9F8427,new,branch target only used in this routine,src/routines/hockey/StartGame.asm
@@ -5721,3 +5721,10 @@ $9F9365,SetPauseMode,CODE_9F9365,new,Behavior: sfpz is the 93S pause mode bit; c
 $9F936C,PauseFromPad,CODE_9F936C,new,Behavior: doinput and CODE_9F967B jump here on a start press,src/routines/hockey/PauseFromPad.asm
 $9F9372,PauseFromPad1,CODE_9F9372,new,Behavior: CODE_9F967B jumps here,src/routines/hockey/PauseFromPad1.asm
 $9FE0E8,Create_HotCold_Table,CODE_9FE0E8,94G,The 94G Create_HotCold_Table job (random signed hot / cold values per player attribute); StartGame calls it as 94G StartGame does,src/routines/hockey/Create_HotCold_Table.asm
+$9EF78A,ChkOffsides,CODE_9EF78A,93S,"pucknorm calls it where 93S pucknorm calls ChkOffsides; ClearOffsidesIfAllPlayers for both teams, then the blue line tests as 93S",src/routines/logic/ChkOffsides.asm
+$9EB3C5,.2,CODE_9EB3C5,new,chkprogress: a penalty is on (folded into chkprogress),src/routines/penalty/chkprogress.asm
+$9EB3C4,.1,CODE_9EB3C4,new,chkprogress: the rtl,src/routines/penalty/chkprogress.asm
+$9EB4A1,chkprogress_find,CODE_9EB4A1,93S,chkprogress: look for any penalty left in PenBuf (93S chkprogress .find); InProgress jumps here too,src/routines/penalty/chkprogress.asm
+$9EB6B8,InProgress_exit,CODE_9EB6B8,93S,"InProgress: the penalties are over (as the 93S InProgress .exit: clear gmpen, coinsearch both teams); folded into InProgress.asm",src/routines/penalty/InProgress.asm
+$9EB6CC,InProgress_coin,CODE_9EB6CC,new,InProgress: coinsearch for both teams and restore the registers,src/routines/penalty/InProgress.asm
+$9EB6F6,InProgress_rtl,CODE_9EB6F6,new,InProgress: the rtl,src/routines/penalty/InProgress.asm

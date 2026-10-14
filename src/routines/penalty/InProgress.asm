@@ -23,12 +23,12 @@ InProgress:
 	tay
 	lda.w position,y
 	bmi .t1
-	jmp.w CODE_9EB6CC
+	jmp.w InProgress_coin
 
 .t1:
 	lda.w #$0000
 	sta.b [a0]
-	jmp.w CODE_9EB6CC
+	jmp.w InProgress_coin
 
 .t4:
 	lda.b [a0]
@@ -243,7 +243,7 @@ InProgress:
 	ldx.b a3
 	jsl.l SetPA
 	jsl.l USBoard
-	bra CODE_9EB6CC
+	bra InProgress_coin
 
 .t3:
 	jsl.l CODE_9EC72D
@@ -252,8 +252,44 @@ InProgress:
 	sta.b [a0]
 	lda.w sfhormode
 	beq .t1xx
-	jmp.w CODE_9EB4A1
+	jmp.w chkprogress_find
 
 .t1xx:
 	jsl.l SetPA
-	bra CODE_9EB6CC
+	bra InProgress_coin
+; InProgress: the penalties are over (chkprogress_find found none): clear gmpen, puck faceoff assignment, then InProgress_coin
+InProgress_exit:
+	lda.w #$0004
+	trb.w gmode
+	ldx.w #$001C
+	stx.b a3
+	lda.w #$001B
+	sta.b d0
+	jsl.l assreplace
+; InProgress: coinsearch for both teams (not in a shootout), restore the registers
+InProgress_coin:
+	lda.w $1E9B
+	bne .1
+	stz.b a2
+	jsl.l coinsearch
+	lda.w #$0002
+	sta.b a2
+	jsl.l coinsearch
+.1:
+	stx.b xsave
+	ldx.w #$000E
+.loop:
+	pla
+	sta.b a0,x
+	dex
+	dex
+	bpl .loop
+	ldx.b xsave
+	pla
+	sta.b $A7
+	pla
+	sta.b d0
+	ldx.b a3
+; InProgress: the rtl it leaves through
+InProgress_rtl:
+	rtl
