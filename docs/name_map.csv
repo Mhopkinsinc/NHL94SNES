@@ -2278,7 +2278,7 @@ $9BC453,.1,CODE_9BC453,new,branch target only used in this routine,src/routines/
 $9F9DFE,.loop,CODE_9F9DFE,new,branch target only used in this routine,src/routines/penalty/AlignBigNumber.asm
 $9F9E0E,.1,CODE_9F9E0E,new,branch target only used in this routine,src/routines/penalty/AlignBigNumber.asm
 $9C997E,.1,CODE_9C997E,new,branch target only used in this routine,src/routines/snes/CODE_9C9967.asm
-$9EA25E,.rtl,CODE_9EA25E,new,branch target only used in this routine,src/routines/snes/CODE_9EA24C.asm
+$9EA25E,.rtl,CODE_9EA25E,new,branch target only used in this routine,src/routines/logic/holdplayer.asm
 $9D9F3A,.1,CODE_9D9F3A,new,branch target only used in this routine,src/routines/stats/ShowRosterLine.asm
 $9FBD7D,.1,CODE_9FBD7D,new,branch target only used in this routine,src/routines/penalty/printteamname.asm
 $9EF9F6,.1,CODE_9EF9F6,new,branch target only used in this routine,src/routines/snes/CODE_9EF9C5.asm
@@ -2991,7 +2991,7 @@ $9EA46F,.t1,CODE_9EA46F,new,continued in the previous routine,src/routines/hocke
 $9EA43B,.t1,CODE_9EA43B,new,continued in the previous routine,src/routines/hockey/updateanim.asm
 $9EA3AD,.t1,CODE_9EA3AD,new,continued in the previous routine,src/routines/snes/CODE_9EA334.asm
 $9EA333,.t1,CODE_9EA333,new,continued in the previous routine,src/routines/hockey/holdcheck.asm
-$9EA25F,.t1,CODE_9EA25F,new,continued in the previous routine,src/routines/snes/CODE_9EA24C.asm
+$9EA25F,.t1,CODE_9EA25F,new,continued in the previous routine,src/routines/logic/holdplayer.asm
 $9EA10E,.t1,CODE_9EA10E,new,continued in the previous routine,src/routines/snes/CODE_9EA0A5.asm
 $9EA038,.t1,CODE_9EA038,new,continued in the previous routine,src/routines/hockey/checkcheck.asm
 $9E9FD1,.t1,CODE_9E9FD1,new,continued in the previous routine,src/routines/hockey/FallDown.asm
@@ -4744,7 +4744,7 @@ $9FE3E7,.3,CODE_9FE3E7,new,branch target only used in this routine,src/routines/
 $9FE3EB,.4,CODE_9FE3EB,new,continued in the previous routine,src/routines/hockey/PauseGoalie.asm
 $9B8017,ReadPads,CODE_9B8017,93S,"waitxsr and the menus call it as 93S calls ReadPads; per pad the direction, changed buttons and new presses, from the pad words the NMI reads",src/routines/middle/ReadPads.asm
 $9B84DC,ReadjoyA,CODE_9B84DC,new,"93S Readjoy1 for pad A: d0 direction, d1 new presses, d2 changed, d3 held; waitxsr calls it where 93S calls Readjoy1",src/routines/snes/ReadjoyA.asm
-$9EA2CB,Acheck,CODE_9EA2CB,93S,"check4check calls it as in 93S; the hook animation, or the hold one by the angle, then SetSPA, as 93S Acheck",src/routines/snes/CODE_9EA24C.asm
+$9EA2CB,Acheck,CODE_9EA2CB,93S,"check4check calls it as in 93S; the hook animation, or the hold one by the angle, then SetSPA, as 93S Acheck",src/routines/logic/holdplayer.asm
 $9FBF75,QueueTextDMA,CODE_9FBF75,93S,setvideo and the screens call it as in 93S; sends the textdirtylo-textdirtyhi part of the text map and resets them,src/routines/video/QueueTextDMA.asm
 $80A17D,QueueSound,CODE_80A17D,93S,sfx calls it as 93S sfx calls QueueSound; sound A through the effect table to the driver,src/routines/sound/QueueSound.asm
 $80891F,DMAToVRAM,CODE_80891F,new,DMA of X bytes from [$0C] to video memory at Y,src/routines/snes/DMAToVRAM.asm
@@ -5731,3 +5731,4 @@ $9EB6F6,InProgress_rtl,CODE_9EB6F6,new,InProgress: the rtl,src/routines/penalty/
 $9EBEA1,PenBoxSpot,CODE_9EBEA1,new,"Behavior: the computation 93S asspenalty does inline before its muls16 (d0 by team, the box count + 3); called from asspenalty and SeatPenaltyBox",src/routines/penalty/PenBoxSpot.asm
 $9EBF11,SeatPenaltyBox,CODE_9EBF11,new,Behavior: not in a shootout; called from puckfaceoff2 and chkprogress,src/routines/penalty/SeatPenaltyBox.asm
 $9F967B,demoread,CODE_9F967B,93S,"Contains the 93S demoread body (no controller sides: Readjoy1, Start to startpause1, another button ends the demo); Gameloop calls it after DoGameFrame where 93S Gameloop calls demoread. Was on the unsure list because of the added mode 4 check",src/routines/hockey/demoread.asm
+$9EA24C,holdplayer,CODE_9EA24C,93S,"The 93S holdplayer job (choose the player to hold, then Acheck); doinput dispatches it from its button table as 93S doinput does; 93S picks the last player who hit X instead",src/routines/logic/holdplayer.asm

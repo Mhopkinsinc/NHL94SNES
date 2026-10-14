@@ -92,6 +92,7 @@
 - `ChkOffsides` (93S: pucknorm calls it at the 93S point). chkprogress: its penalty tail CODE_9EB3C5 folded in, `chkprogress_find` (93S .find); InProgress: its exit CODE_9EB6B8 folded in as `InProgress_exit` / `InProgress_coin` / `InProgress_rtl` (InProgress and chkprogress jump to them).
 - From behavior: `PenBoxSpot` (the 93S asspenalty inline box spot as a routine), `SeatPenaltyBox`.
 - `demoread` (93S body plus a mode 4 check; was unsure), `startpause` and `startpause1` (93S; first named SetPauseMode / PauseFromPad1 from behavior).
+- `holdplayer` (93S job and doinput slot; falls into `Acheck`).
 
 ## Unsure
 

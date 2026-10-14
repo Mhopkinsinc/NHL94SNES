@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EA24C:
+; Hold button: pick the nearest opponent in front of player X (distance plus facing), then Acheck hooks or holds him
+holdplayer:
 	lda.w position,x
 	beq .rtl
 	lda.w pfalock,x

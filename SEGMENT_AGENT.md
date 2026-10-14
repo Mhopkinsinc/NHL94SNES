@@ -736,3 +736,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - ChkOffsides; chkprogress and InProgress tails folded. MATCH.
 - PenBoxSpot, SeatPenaltyBox. MATCH.
 - demoread, startpause, startpause1. MATCH.
+- holdplayer. MATCH.
