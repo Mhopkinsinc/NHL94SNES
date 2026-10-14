@@ -82,7 +82,7 @@ CODE_9D8195:
 	stz.w $1D5E
 	lda.w JoyPad
 	ora.w $0778
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq .2x
 	lda.w #$FFFF
 	sta.w $1D5E

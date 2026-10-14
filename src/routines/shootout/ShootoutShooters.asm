@@ -45,7 +45,7 @@ CODE_80CA70:
 	lda.b d1
 	bit.w #$0800
 	bne CODE_80CAB8
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne CODE_80CAC6
 	bit.w #$8080
 	bne CODE_80CAD7

@@ -76,7 +76,7 @@ CODE_9CA151:
 	ldx.w #$2000
 	lsr a
 	bcc .1
-	ldx.w #DMA_CGRAM
+	ldx.w #$2200
 .1:
 	stx.w $0CC9
 	jsl.l CODE_9BBFB9

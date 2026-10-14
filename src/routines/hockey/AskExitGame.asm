@@ -15,7 +15,7 @@ CODE_9FF011:
 	bne CODE_9FF05B
 	bit.w #$0800
 	bne .t1
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne .t2
 	bra CODE_9FF011
 

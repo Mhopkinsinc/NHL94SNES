@@ -21,7 +21,7 @@ CODE_808C88:
 	adc.b $20
 	sta.w A1T1L
 	tya
-	adc.w #DMA_OAM
+	adc.w #$0400
 	and.w #$FFE0
 	sta.w VMADDL
 	jmp.w CODE_808C60

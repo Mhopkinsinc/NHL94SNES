@@ -132,7 +132,7 @@ CODE_9B8AF0:
 	lda.b d1
 	bit.w #$9080
 	bne CODE_9B8B42
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne CODE_9B8B3A
 	bit.w #$0800
 	bne CODE_9B8B32

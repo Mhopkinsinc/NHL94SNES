@@ -17,7 +17,7 @@ CODE_808AA1:
 	bne .loop
 	lda.b $01,s
 	clc
-	adc.w #DMA_OAM
+	adc.w #$0400
 	and.w #$FFE0
 	sta.w VMADDL
 	lda.b $18

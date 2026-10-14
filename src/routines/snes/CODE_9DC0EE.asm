@@ -150,7 +150,7 @@ CODE_9DC208:
 	sta.b $0E
 	lda.w #$7780
 	sta.b $0C
-	lda.w #DMA_OAM
+	lda.w #$0400
 	sta.w $079C
 	ldx.w #$000C
 	ldy.w #$0004

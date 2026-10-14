@@ -50,7 +50,7 @@ InitSprites:		; A: SpriteVRAM, X: SpritesReserved, Y: sizes the 16x16 block area
 	rep #$30
 	lda.w #$0080
 	sta.w SpritesLeft
-	lda.w #INIDISP
+	lda.w #$2100
 	sta.w OAMNext
 	lda.w #$2300
 	sta.w OAMHideEnd
@@ -58,7 +58,7 @@ InitSprites:		; A: SpriteVRAM, X: SpritesReserved, Y: sizes the 16x16 block area
 	sta.w OAMLastEnd
 	lda.w #$2320
 	sta.w OAMShowBuf
-	lda.w #INIDISP
+	lda.w #$2100
 	sta.w OAMDrawBuf
 	jsr.w .t1
 	plb

@@ -105,7 +105,7 @@ CODE_9BA522:
 	bne .t1
 	bit.w #$0800
 	bne .t2
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne .t3
 	bra CODE_9BA522
 

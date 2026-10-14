@@ -15,7 +15,7 @@ CODE_808A11:
 	tax
 	lda.w $079C
 	clc
-	adc.w #DMA_OAM
+	adc.w #$0400
 	sta.w $079C
 .2:
 	stx.b $1C

@@ -6,6 +6,6 @@ CODE_9C8E22:
 	bne CODE_9C8E9B
 	bit.w #$0800
 	bne ScrollGameStatsUp
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq MarkGameStatRows
 	jmp.w ScrollGameStatsDown

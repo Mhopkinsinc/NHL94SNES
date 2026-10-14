@@ -29,7 +29,7 @@ CODE_9FF992:
 	cmp.w #$7C00
 	beq .3
 	clc
-	adc.w #DMA_OAM
+	adc.w #$0400
 	and.w #$7C00
 .3:
 	ora.l $7F4000,x

@@ -67,7 +67,7 @@ CODE_9B9808:
 .t1:
 	bit.w #$0800
 	bne ScrollPenaltyUp
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne ScrollPenaltyDown
 CODE_9B9822:
 	jsl.l WaitFrame

@@ -147,7 +147,7 @@ StartHL2:
 	tsb.w gmode
 .2:
 	stz.w sflags3
-	lda.w #DMA_OAM
+	lda.w #$0400
 	sta.w sflags
 	stz.w sfhormode
 	stz.w iflags

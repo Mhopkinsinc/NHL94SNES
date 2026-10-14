@@ -50,7 +50,7 @@ CODE_9F8433:
 	sta.b d0
 	jsl.l assreplace
 	jsl.l CODE_9DD977
-	lda.w #DMA_OAM
+	lda.w #$0400
 	tsb.w sflags
 	lda.w #$FFFF
 	sta.w $0CAD

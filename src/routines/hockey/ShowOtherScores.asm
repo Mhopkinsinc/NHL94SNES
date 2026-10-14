@@ -51,7 +51,7 @@ CODE_9BC2C9:
 	jmp.w ScrollOtherScoresUp
 
 .t1:
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne ScrollOtherScoresDown
 CODE_9BC2E4:
 	lda.w $1DBD

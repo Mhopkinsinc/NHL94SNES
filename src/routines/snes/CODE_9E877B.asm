@@ -15,7 +15,7 @@ CODE_9E877B:
 	lsr a
 	lsr a
 	lsr a
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq .3
 .2:
 	ora.w #$F800

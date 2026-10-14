@@ -9,7 +9,7 @@ CODE_9FB092:
 	trb.w sflags
 	lda.w #$0000
 	sta.l $7E3120
-	lda.w #DMA_OAM
+	lda.w #$0400
 	trb.w sflags
 	stz.w $0CA9
 	stz.w gmclock

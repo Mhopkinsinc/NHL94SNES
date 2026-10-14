@@ -38,7 +38,7 @@ CODE_9FC00D:
 	asl a
 	asl a
 	asl a
-	adc.w #DMA_OAM
+	adc.w #$0400
 	sta.b tmp2
 	lda.b tmp1
 	sta.b $04
@@ -56,7 +56,7 @@ CODE_9FC00D:
 	sta.b $0C
 	lda.b tmp2
 	clc
-	adc.w #DMA_OAM
+	adc.w #$0400
 	tay
 	ldx.w #$0020
 	jsl.l CODE_80891F
@@ -68,7 +68,7 @@ CODE_9FC00D:
 	clc
 	adc.w #$0020
 	and.w #$03FF
-	ora.w #DMA_OAM
+	ora.w #$0400
 	sta.b tmp2
 	dec.b $04
 	bne .loop

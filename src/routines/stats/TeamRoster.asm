@@ -129,7 +129,7 @@ CODE_9D9E2D:
 	bne .1
 	inc.b d0
 	inc.b d0
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq CODE_9D9E86
 .1:
 	lda.b d0

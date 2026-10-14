@@ -6,7 +6,7 @@ CODE_9DA869:
 	jmp.w CODE_9DA7D7
 
 .t2:
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq .t1
 	lda.w #$0002
 	sta.b d0

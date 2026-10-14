@@ -218,7 +218,7 @@ CODE_9EE387:
 	lda.b $00
 	lsr a
 	adc.b d1
-	cmp.w #DMA_VRAMWORD
+	cmp.w #$1801
 	bcc .1
 	lda.w #$1800
 .1:

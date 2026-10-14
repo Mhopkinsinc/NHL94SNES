@@ -127,7 +127,7 @@ CODE_9E8631:
 	lsr a
 	lsr a
 	lsr a
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq .11
 	ora.w #$F800
 .11:

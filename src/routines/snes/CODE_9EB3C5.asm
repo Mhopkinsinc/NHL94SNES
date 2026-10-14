@@ -44,7 +44,7 @@ CODE_9EB3C5:
 	beq .loop
 	cmp.w #$0001
 	beq .loop
-	lda.w #DMA_OAM
+	lda.w #$0400
 	tsb.w sflags
 	lda.w $0AD3
 	beq .1

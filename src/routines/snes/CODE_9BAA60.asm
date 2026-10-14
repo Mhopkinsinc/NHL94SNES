@@ -14,7 +14,7 @@ CODE_9BAA60:
 	lda.l $7E35D0
 	clc
 	adc.l $7E35AA
-	ldx.w #DMA_OAM
+	ldx.w #$0400
 	ldy.w #$0000
 	jsl.l CODE_808862
 	lda.w #$FFFF

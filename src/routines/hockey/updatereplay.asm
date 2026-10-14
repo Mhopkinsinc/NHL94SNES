@@ -14,7 +14,7 @@ updatereplay:
 	sta.w $0CA9
 CODE_9BA8F1:
 	lda.w sflags
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne .2
 	lda.w ReplayBufferPtr
 	clc

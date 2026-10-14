@@ -3,7 +3,7 @@ LockHandle:		; set the locked bit of handle A's block
 	pha
 	cmp.w #$2000
 	bcc .exit
-	cmp.w #INIDISP
+	cmp.w #$2100
 	bcs .exit
 	tax
 	lda.l $7E0002,x

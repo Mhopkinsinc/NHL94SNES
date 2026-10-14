@@ -70,7 +70,7 @@ PauseMenuPoll:
 	lda.b d1
 	bit.w #$8080
 	bne .t7
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq .t2
 	inc.w $0D15
 	lda.w $1EB9

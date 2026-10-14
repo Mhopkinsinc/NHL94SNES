@@ -77,7 +77,7 @@ CODE_9B94A5:
 .t1:
 	bit.w #$0800
 	bne ScrollScoringUp
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne ScrollScoringDown
 CODE_9B94BB:
 	jsl.l WaitFrame

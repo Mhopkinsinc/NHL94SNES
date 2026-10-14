@@ -162,7 +162,7 @@ CODE_9B8EBC:
 	dec.b d0
 	bit.w #$0200
 	bne CODE_9B8F2B
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne .1
 	inc.b d0
 	inc.b d0

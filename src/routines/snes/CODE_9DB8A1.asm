@@ -2,7 +2,7 @@
 CODE_9DB8A1:
 	phx
 	phy
-	cmp.w #DMA_OAM
+	cmp.w #$0400
 	bcs .t1
 	ldx.w #$0E00
 	jsl.l Mul16U
@@ -17,7 +17,7 @@ CODE_9DB8A1:
 
 .t1:
 	sec
-	sbc.w #DMA_OAM
+	sbc.w #$0400
 	ldx.w #$00C0
 	jsl.l Mul16U
 	lda.b $09

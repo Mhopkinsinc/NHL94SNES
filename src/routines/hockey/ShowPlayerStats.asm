@@ -86,7 +86,7 @@ CODE_9C8644:
 	jmp.w CODE_9C874C
 
 .t1:
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq .t3
 	jmp.w CODE_9C86FE
 

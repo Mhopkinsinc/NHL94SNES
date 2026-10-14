@@ -45,7 +45,7 @@ CODE_9FC896:
 	sta.b $18
 	lda.w #$001C
 	sta.b $1A
-	lda.w #DMA_OAM
+	lda.w #$0400
 	sta.w $079C
 	ldx.w #$0000
 	ldy.w #$0000

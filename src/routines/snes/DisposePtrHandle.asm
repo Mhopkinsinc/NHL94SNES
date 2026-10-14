@@ -2,7 +2,7 @@
 DisposePtrHandle:		; free handle A unless it is a heap block
 	cmp.w #$2000
 	bcc .exit
-	cmp.w #INIDISP
+	cmp.w #$2100
 	bcs .exit
 	tax
 	lda.l $7E0002,x

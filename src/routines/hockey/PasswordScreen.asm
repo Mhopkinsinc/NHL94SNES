@@ -175,7 +175,7 @@ CODE_9BC949:
 	bne CODE_9BC9F0
 	ldy.w #$0006
 	sty.b d0
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne CODE_9BC9F0
 	ldy.w #$FFFA
 	sty.b d0

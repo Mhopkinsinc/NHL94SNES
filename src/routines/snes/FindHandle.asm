@@ -15,7 +15,7 @@ FindHandle:		; the handle of address A in bank X, 0 if none
 	inx
 	inx
 	inx
-	cpx.w #INIDISP
+	cpx.w #$2100
 	bne .loop
 	lda.w #$0000
 	bra .exit

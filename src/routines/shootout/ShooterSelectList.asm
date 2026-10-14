@@ -121,7 +121,7 @@ CODE_80CF48:
 	bne .1
 	bit.w #$0800
 	bne .t4
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne .t3
 	bit.w #$0100
 	bne .t1

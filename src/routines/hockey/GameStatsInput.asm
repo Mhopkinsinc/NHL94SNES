@@ -14,7 +14,7 @@ GameStatsInput:
 	jmp.w ScrollGameStatsUp
 
 .t2:
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq .t1x
 	jmp.w ScrollGameStatsDown
 

@@ -109,7 +109,7 @@ CODE_9B86E5:
 	dec.b d0
 	bit.w #$0200
 	bne .t2x
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne .1x
 	inc.b d0
 	inc.b d0
