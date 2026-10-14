@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DC3DB:
+; Insert rating column d1 of player $1D9B (GetPlayerRating) into the best-three list at $1E79-$1E83 (column, rating pairs)
+AddStrength:
 	jsl.l GetPlayerRating
 	lda.b d0
 	dec a

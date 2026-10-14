@@ -1,7 +1,7 @@
 ; Show the previous player card.
 PrevPlayerCard:
 	lda.w $1DB9
-	beq CODE_9DBDA8
+	beq PlayerCardsWait
 	dec.w $1DB9
 	lda.w $1DB9
 	sec
@@ -40,4 +40,4 @@ PrevPlayerCard:
 	sta.w $1DB9
 .2:
 	jsl.l DrawPlayerCard
-	jmp.w CODE_9DBD7B
+	jmp.w PlayerCardsRedraw

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DC374:
+; The player card strengths of goalie $1D9B: the best three goalie rating columns into $1E79-$1E83 (AddStrength)
+FindGoalieStrengths:
 	lda.w #$FFFF
 	sta.w $1E79
 	sta.w $1E7B
@@ -9,13 +9,13 @@ CODE_9DC374:
 	sta.w $1E83
 	lda.w #$0005
 	sta.b d1
-	jsl.l CODE_9DC3DB
+	jsl.l AddStrength
 	lda.w #$0002
 	sta.b d1
-	jsl.l CODE_9DC3DB
+	jsl.l AddStrength
 	lda.w #$0006
 	sta.b d1
-	jsl.l CODE_9DC3DB
+	jsl.l AddStrength
 	lda.w #$0004
 	sta.b d1
 	jsl.l GetPlayerRating
@@ -24,18 +24,18 @@ CODE_9DC374:
 	bcc .t1
 	lda.w #$0008
 	sta.b d1
-	jsl.l CODE_9DC3DB
+	jsl.l AddStrength
 	lda.w #$0009
 	sta.b d1
-	jsl.l CODE_9DC3DB
+	jsl.l AddStrength
 	bra .1
 
 .t1:
 	lda.w #$0007
 	sta.b d1
-	jsl.l CODE_9DC3DB
+	jsl.l AddStrength
 	lda.w #$000A
 	sta.b d1
-	jsl.l CODE_9DC3DB
+	jsl.l AddStrength
 .1:
 	rtl

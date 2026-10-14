@@ -2781,8 +2781,8 @@ $9DCA08,.t1,CODE_9DCA08,new,continued in the previous routine,src/routines/snes/
 $9DC9B3,.t1,CODE_9DC9B3,new,continued in the previous routine,src/routines/hockey/DrawPlayerPicture.asm
 $9DC651,.t1,CODE_9DC651,new,continued in the previous routine,src/routines/stats/GetPlayerBaseRating.asm
 $9DC5B6,.t1,CODE_9DC5B6,new,continued in the previous routine,src/routines/stats/GetPlayerRating.asm
-$9DC3F3,.t1,CODE_9DC3F3,new,continued in the previous routine,src/routines/snes/CODE_9DC3DB.asm
-$9DC3C8,.t1,CODE_9DC3C8,new,continued in the previous routine,src/routines/snes/CODE_9DC374.asm
+$9DC3F3,.t1,CODE_9DC3F3,new,continued in the previous routine,src/routines/hockey/AddStrength.asm
+$9DC3C8,.t1,CODE_9DC3C8,new,continued in the previous routine,src/routines/hockey/FindGoalieStrengths.asm
 $9DC27C,.t1,CODE_9DC27C,new,continued in the previous routine,src/routines/hockey/DrawPlayerCard.asm
 $9DC012,.t1,CODE_9DC012,new,continued in the previous routine,src/routines/snes/CODE_9DBFEE.asm
 $9DBFDD,.t1,CODE_9DBFDD,new,continued in the previous routine,src/routines/snes/CODE_9DBFD2.asm
@@ -4417,10 +4417,10 @@ $9DAC7D,.3,CODE_9DAC7D,new,branch target only used in this routine,src/routines/
 $9DB8E0,.1,CODE_9DB8E0,new,branch target only used in this routine,src/routines/snes/CODE_9DB8A1.asm
 $9DB931,.1,CODE_9DB931,new,branch target only used in this routine,src/routines/snes/CODE_9DB8E6.asm
 $9DBD01,.1,CODE_9DBD01,new,branch target only used in this routine,src/routines/snes/CODE_9DBCF8.asm
-$9DC3DA,.1,CODE_9DC3DA,new,branch target only used in this routine,src/routines/snes/CODE_9DC374.asm
-$9DC40F,.1,CODE_9DC40F,new,branch target only used in this routine,src/routines/snes/CODE_9DC3DB.asm
-$9DC42B,.2,CODE_9DC42B,new,branch target only used in this routine,src/routines/snes/CODE_9DC3DB.asm
-$9DC435,.3,CODE_9DC435,new,branch target only used in this routine,src/routines/snes/CODE_9DC3DB.asm
+$9DC3DA,.1,CODE_9DC3DA,new,branch target only used in this routine,src/routines/hockey/FindGoalieStrengths.asm
+$9DC40F,.1,CODE_9DC40F,new,branch target only used in this routine,src/routines/hockey/AddStrength.asm
+$9DC42B,.2,CODE_9DC42B,new,branch target only used in this routine,src/routines/hockey/AddStrength.asm
+$9DC435,.3,CODE_9DC435,new,branch target only used in this routine,src/routines/hockey/AddStrength.asm
 $9DC9C7,.1,CODE_9DC9C7,new,branch target only used in this routine,src/routines/hockey/DrawPlayerPicture.asm
 $9DCA11,.2,CODE_9DCA11,new,branch target only used in this routine,src/routines/hockey/DrawPlayerPicture.asm
 $9DCA85,.3,CODE_9DCA85,new,branch target only used in this routine,src/routines/hockey/DrawPlayerPicture.asm
@@ -5542,3 +5542,12 @@ $9DDDB3,DrawMatchupPictures,CODE_9DDDB3,94G,"The job of 94G DrawMatchupPictures 
 $9DC9A8,DrawPlayerPicture,CODE_9DC9A8,94G,Callers pair with 94G DrawPlayerPicture (the player card and DrawMatchupPictures); unpacks the team-and-player PlayerPhotoTable entry,src/routines/hockey/DrawPlayerPicture.asm
 $9DCCBA,ClearPictureBox,CODE_9DCCBA,new,Behavior: MemFill of six rows of 12 bytes in the $7E37F4 map; called before a logo is drawn as sprites,src/routines/hockey/ClearPictureBox.asm
 $9DDFF6,MenuScreenHDMA,CODE_9DDFF6,new,"Behavior: ScoutingHDMA with other window and COLDATA values; called from the stats, roster and setup screens",src/routines/hockey/MenuScreenHDMA.asm
+$9DC2FB,FindSkaterStrengths,CODE_9DC2FB,new,Behavior: called from DrawPlayerCard on the skater side before StrengthsLabelB,src/routines/hockey/FindSkaterStrengths.asm
+$9DC374,FindGoalieStrengths,CODE_9DC374,new,Behavior: called from DrawPlayerCard on the goalie side before StrengthsLabel,src/routines/hockey/FindGoalieStrengths.asm
+$9DC3DB,AddStrength,CODE_9DC3DB,new,Behavior: keeps the three highest ratings in order; called from FindSkaterStrengths and FindGoalieStrengths,src/routines/hockey/AddStrength.asm
+$9DDFBF,DrawLogoSprite,CODE_9DDFBF,new,"Behavior: SetColours of the LogoPaletteTable entry, then DrawSprite; called from DrawPlayerCard",src/routines/hockey/DrawLogoSprite.asm
+$9DC2B8,PrintLineSlotName,CODE_9DC2B8,new,Behavior: PlayerShortName of the slot player; DrawPlayerCard calls it for the five skater slots of the starting line in their rink positions,src/routines/hockey/PrintLineSlotName.asm
+$9DBD7B,PlayerCardsRedraw,CODE_9DBD7B,new,ShowPlayerCards: send the text map and wait again; NextPlayerCard / PrevPlayerCard return here,src/routines/hockey/ShowPlayerCards.asm
+$9DBD7F,PlayerCardsLoop,CODE_9DBD7F,new,ShowPlayerCards: the frame and pad loop,src/routines/hockey/ShowPlayerCards.asm
+$9DBDA8,PlayerCardsWait,CODE_9DBDA8,new,"ShowPlayerCards: no key, back to the loop (folded into ShowPlayerCards)",src/routines/hockey/ShowPlayerCards.asm
+$9DBDAA,PlayerCardsExit,CODE_9DBDAA,new,ShowPlayerCards: start leaves (folded into ShowPlayerCards),src/routines/hockey/ShowPlayerCards.asm

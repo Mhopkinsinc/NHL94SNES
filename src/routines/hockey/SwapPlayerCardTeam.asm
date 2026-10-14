@@ -10,4 +10,4 @@ SwapPlayerCardTeam:
 	adc.w #$0006
 	sta.w $1DC1
 	jsl.l DrawPlayerCard
-	jmp.w CODE_9DBD7B
+	jmp.w PlayerCardsRedraw

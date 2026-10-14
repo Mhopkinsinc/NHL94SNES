@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DDFBF:
+; Draw the logo of team A as sprites at x, y with its LogoPaletteTable palette
+DrawLogoSprite:
 	sta.b $00
 	stx.b $04
 	sty.b $08

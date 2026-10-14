@@ -694,3 +694,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - GetNameandAttrib, CalcAttrib, jmlvector. MATCH.
 - GetTeamRating and the scouting screen helpers. MATCH.
 - DrawMatchupPictures, DrawPlayerPicture, ClearPictureBox, MenuScreenHDMA. MATCH.
+- Player card helpers; ShowPlayerCards tails folded. MATCH.

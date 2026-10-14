@@ -17,20 +17,26 @@ ShowPlayerCards:
 	sta.w $1DC1
 	jsl.l ScreenOn
 	jsl.l DrawPlayerCard
-CODE_9DBD7B:
+PlayerCardsRedraw:
 	jsl.l SendTextMap
-CODE_9DBD7F:
+PlayerCardsLoop:
 	jsl.l WaitFrame
 	jsl.l ReadPads
 	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000
-	bne CODE_9DBDAA
+	bne PlayerCardsExit
 	bit.w #$0100
 	bne NextPlayerCard
 	bit.w #$0200
 	bne PrevPlayerCard
 	bit.w #$4000
-	beq CODE_9DBDA8
+	beq PlayerCardsWait
 	jmp.w SwapPlayerCardTeam
+PlayerCardsWait:
+	bra PlayerCardsLoop
+PlayerCardsExit:
+	pla
+	sta.b a2
+	rtl

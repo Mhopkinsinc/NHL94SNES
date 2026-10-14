@@ -50,6 +50,7 @@
 - `GetNameandAttrib` (93S: same frame and attribjmp dispatch), `CalcAttrib` (94G: called at the same point, hot / cold table), RAM `jmlvector` ($1D59, the jml trampoline as 93S jmlvector).
 - `GetTeamRating` (94G: the bytes read equal 94G TeamRatings), and from behavior `GetPlayerRating`, `GetPlayerBaseRating`, `LoadMatchupPhotos`, `LoadScoutingScreen`, `ScoutingHDMA`.
 - `DrawMatchupPictures`, `DrawPlayerPicture` (94G: same job, callers pair with the 94G ones), and from behavior `ClearPictureBox`, `MenuScreenHDMA`.
+- Player card helpers from behavior: `FindSkaterStrengths`, `FindGoalieStrengths`, `AddStrength`, `DrawLogoSprite`, `PrintLineSlotName`; the ShowPlayerCards loop labels `PlayerCardsRedraw` / `PlayerCardsLoop`, and its tails CODE_9DBDA8 / CODE_9DBDAA folded in as `PlayerCardsWait` / `PlayerCardsExit`.
 
 ## Unsure
 

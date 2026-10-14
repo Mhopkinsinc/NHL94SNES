@@ -2,7 +2,7 @@
 NextPlayerCard:
 	lda.w $1DB9
 	cmp.w $1DC1
-	bpl CODE_9DBDA8
+	bpl PlayerCardsWait
 	inc.w $1DB9
 	lda.w $1DB9
 	sec
@@ -36,4 +36,4 @@ NextPlayerCard:
 	sta.w $1DB9
 .1:
 	jsl.l DrawPlayerCard
-	jmp.w CODE_9DBD7B
+	jmp.w PlayerCardsRedraw

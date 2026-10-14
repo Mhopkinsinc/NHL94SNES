@@ -25,7 +25,7 @@ DrawPlayerCard:
 	lda.w HomeTeam,y
 	ldx.w #$00C8
 	ldy.w #$0010
-	jsl.l CODE_9DDFBF
+	jsl.l DrawLogoSprite
 	ldy.b a2
 	lda.w #$009C
 	sta.b $97
@@ -101,7 +101,7 @@ DrawPlayerCard:
 	lda.w #$000D
 	sta.w printy
 	jsl.l print
-	jsl.l CODE_9DC374
+	jsl.l FindGoalieStrengths
 	ldx.w #$0038
 	ldy.w #$007A
 	lda.w #$009C
@@ -205,7 +205,7 @@ org $9DC002
 	lda.w #$000D
 	sta.w printy
 	jsl.l print
-	jsl.l CODE_9DC2FB
+	jsl.l FindSkaterStrengths
 	ldx.w #$0038
 	ldy.w #$007A
 	lda.w #$009C
@@ -338,34 +338,34 @@ org $9DC002
 	sta.w printy
 	ldx.w #$0080
 	ldy.w #$0004
-	jsl.l CODE_9DC2B8
+	jsl.l PrintLineSlotName
 	lda.w printy
 	clc
 	adc.w #$0008
 	sta.w printy
 	ldx.w #$0040
 	ldy.w #$0003
-	jsl.l CODE_9DC2B8
+	jsl.l PrintLineSlotName
 	ldx.w #$00C0
 	ldy.w #$0005
-	jsl.l CODE_9DC2B8
+	jsl.l PrintLineSlotName
 	lda.w printy
 	clc
 	adc.w #$000E
 	sta.w printy
 	ldx.w #$0058
 	ldy.w #$0001
-	jsl.l CODE_9DC2B8
+	jsl.l PrintLineSlotName
 	ldx.w #$00A8
 	ldy.w #$0002
-	jsl.l CODE_9DC2B8
+	jsl.l PrintLineSlotName
 	lda.w printy
 	clc
 	adc.w #$000E
 	sta.w printy
 	ldx.w #$0080
 	ldy.w #$0000
-	jsl.l CODE_9DC2B8
+	jsl.l PrintLineSlotName
 	ldx.w #$0066
 	ldy.w #$0098
 	lda.w #$009C

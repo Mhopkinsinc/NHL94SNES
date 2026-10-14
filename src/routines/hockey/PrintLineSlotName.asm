@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DC2B8:
+; Print the short name of the player in line slot y (a3) centred on x at printy
+PrintLineSlotName:
 	lda.b [a3],y
 	and.w #$00FF
 	dec a
