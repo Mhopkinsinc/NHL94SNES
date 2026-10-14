@@ -1,5 +1,5 @@
-; a long pointer to the handler of each menu item of DATA8_9FEC96
-DATA8_9FE504:		; a long pointer to the handler of each menu item of DATA8_9FEC96
+; a long pointer to the handler of each menu item of PauseMenuItems
+DATA8_9FE504:		; a long pointer to the handler of each menu item of PauseMenuItems
 	dd CODE_9FE733,CODE_9FE272,CODE_9FE2BB,CODE_9FE2F1,CODE_9FE305
 	dd CODE_9FE327,CODE_9FE33C,CODE_9FE351,CODE_9FE390,CODE_9FE3BA
 	dd CODE_9FE3FF,CODE_9FE418,CODE_9FE366,CODE_9FE37B,CODE_9FE3A5

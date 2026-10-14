@@ -6,6 +6,6 @@ CODE_9ED577:
 	lda.w #$005A
 	sta.w $1543,x
 	lda.w #$E66C
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 CODE_9ED58C:
 	rtl

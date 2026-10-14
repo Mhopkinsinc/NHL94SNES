@@ -112,7 +112,7 @@ CODE_9FA697:
 	lda.b [a4],y
 	and.w #$00FF
 	sta.b d0
-	jsl.l CODE_9FC4D0
+	jsl.l PlayerShortName
 	jsl.l print
 	ldy.w #$0004
 	lda.b [a4],y
@@ -133,7 +133,7 @@ CODE_9FA697:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9FC4D0
+	jsl.l PlayerShortName
 	jsl.l print
 	ldy.w #$0005
 	lda.b [a4],y
@@ -154,7 +154,7 @@ CODE_9FA697:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9FC4D0
+	jsl.l PlayerShortName
 	jsl.l print
 .5:
 	stx.b xsave

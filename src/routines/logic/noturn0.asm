@@ -49,7 +49,7 @@ noturn0:
 .t1:
 	ldy.w #$0001
 	lda.w #$F0D2
-	jml.l CODE_9EA3F1
+	jml.l SetSPAFromA
 
 .t3:
 	ldy.w #$0001

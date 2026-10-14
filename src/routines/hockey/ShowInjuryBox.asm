@@ -1,75 +1,99 @@
 ; The injury box: the injured player and whether he is out for the period or the game
 ShowInjuryBox:
-	stx.b xsave
-	ldx.w #$0000
-.save:
-	lda.b d0,x
+	lda.b d0
 	pha
-	inx
-	inx
-	cpx.w #$0020
-	bne .save
-	ldx.b xsave
+	lda.b $A7
+	pha
+	lda.b d1
+	pha
+	lda.b $AB
+	pha
+	lda.b d2
+	pha
+	lda.b $AF
+	pha
 	stx.b xsave
 	ldx.w #$0000
-.savea:
+.loop:
 	lda.b a0,x
 	pha
 	inx
 	inx
-	cpx.w #$0010
-	bne .savea
+	cpx.w #$0014
+	bne .loop
 	ldx.b xsave
-	jsl.l CODE_9F9B36
-	lda.b a1+2
+	lda.b $8F
 	pha
 	lda.b a1
 	pha
-	lda.w #DATA8_9CF858>>16
-	sta.b a1+2
-	lda.w #DATA8_9CF858
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF73E
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b a1+2
-	stz.b a2
-	jsl.l CODE_9FA1B8
-	lda.b a1+2
+	sta.b $8F
+	lda.w #$0012
+	sta.b d0
+	lda.w #$0005
+	sta.b d1
+	jsl.l CODE_9D8000
+	lda.b $8F
 	pha
 	lda.b a1
 	pha
-	lda.w #DATA8_9CF85D>>16
-	sta.b a1+2
-	lda.w #DATA8_9CF85D
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF743
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b a1+2
-	lda.w #$0002
-	sta.b a2
-	jsl.l CODE_9FA1B8
+	sta.b $8F
+	lda.w TempPlOffset
+	bit.w #$4000
+	beq .1
+	and.w #$BFFF
+	sta.w TempPlOffset
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF766
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+.1:
+	jsl.l CODE_9FC4A1
+	jsl.l print
 	stx.b xsave
-	ldx.w #$000E
-.resta:
+	ldx.w #$0012
+.loop2:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl .resta
+	bpl .loop2
 	ldx.b xsave
-	stx.b xsave
-	ldx.w #$001E
-.restore:
 	pla
-	sta.b d0,x
-	dex
-	dex
-	bpl .restore
-	ldx.b xsave
+	sta.b $AF
+	pla
+	sta.b d2
+	pla
+	sta.b $AB
+	pla
+	sta.b d1
+	pla
+	sta.b $A7
+	pla
+	sta.b d0
 	ldx.b a3
-CODE_9FA1B7:
 	rtl

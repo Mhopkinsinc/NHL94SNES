@@ -3,6 +3,6 @@ updatepwrplay_clr:
 	lda.w #sf2pwrplay
 	trb.w sflags
 	beq .rtl
-	jsl.l CODE_9FBEFD
+	jsl.l EASNLogo
 .rtl:
 	rtl

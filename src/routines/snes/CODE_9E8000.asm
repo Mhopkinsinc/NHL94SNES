@@ -3,7 +3,7 @@ CODE_9E8000:
 	lda.w pfalock,x
 	bne .rtl
 	lda.w #$F0D2
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 .rtl:
 	rtl
 	lda.w pflags,x

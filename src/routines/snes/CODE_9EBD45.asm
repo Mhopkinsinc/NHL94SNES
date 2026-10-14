@@ -31,7 +31,7 @@ CODE_9EBD45:
 .2:
 	lda.w #$EA1A
 	sta.w $1563,x
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	lda.w #$0006
 	sta.b d2
 	lda.w $14A3,x
@@ -67,7 +67,7 @@ CODE_9EBDC9:
 	sta.w facedir,x
 	sta.w pfalock,x
 	lda.w #$E8F4
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	lda.w pflags,x
 	and.w #$BFFF
 	sta.w pflags,x

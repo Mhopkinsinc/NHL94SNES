@@ -18,7 +18,7 @@ CODE_9FBAAA:
 	jsl.l showclock
 	jsl.l showzam
 	jsl.l CODE_9B9FAF
-	jsl.l CODE_9EFA2F
+	jsl.l showref
 	jsl.l CODE_9FBFA0
 	lda.w sfhormode
 	beq .1

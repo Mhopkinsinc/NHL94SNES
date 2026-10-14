@@ -74,7 +74,7 @@ CODE_9FD2BC:
 .t1:
 	lda.w #$EA1A
 CODE_9FD2D7:
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	stz.w $0F23,x
 	stz.w $1203,x
 	lda.w pflags,x

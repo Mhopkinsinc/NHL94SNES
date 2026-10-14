@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9BCAF8:
-	jsl.l CODE_9BCD28
+	jsl.l DecodePW
 	lda.l $7E34D0
 	bpl CODE_9BCAF7
 .loop:

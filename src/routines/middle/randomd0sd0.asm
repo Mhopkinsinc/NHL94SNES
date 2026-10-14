@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BB3B0:
+; randomd0s with the range in d0
+randomd0sd0:
 	lda.b d0
 	asl a
 	jsl.l CODE_9BB370

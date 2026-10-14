@@ -4,7 +4,7 @@ CODE_9DC2B8:
 	and.w #$00FF
 	dec a
 	sta.b d0
-	jsl.l CODE_9FC4D0
+	jsl.l PlayerShortName
 	txa
 	sta.b d1
 	lda.b [a1]

@@ -67,7 +67,7 @@ CODE_9EA0AD:
 	sty.b d0
 CODE_9EA0B1:
 	lda.b [a0],y
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	ldy.b a2
 	lda.w position,y
 	beq .t1

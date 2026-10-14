@@ -14,7 +14,7 @@ CODE_9ED46A:
 	lda.w $1543,x
 	bne .1
 	lda.w #$E0FE
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 .1:
 	lda.w gmclock
 	bne CODE_9ED49F

@@ -49,7 +49,7 @@ CODE_9FDBD0:
 	beq .t1
 	jsl.l CODE_9FDA53
 	jsl.l setpersonel
-	jsl.l CODE_9F9B36
+	jsl.l printscores1
 	jml.l CompShoot
 
 .t1:

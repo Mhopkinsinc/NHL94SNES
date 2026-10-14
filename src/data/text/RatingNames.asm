@@ -1,4 +1,5 @@
-DATA8_9DC436:		; the rating names in full, as DATA8_9DC29E
+; Player rating names
+RatingNames:
 	%String("Status")
 	%String("Overall")
 	%String("Energy")

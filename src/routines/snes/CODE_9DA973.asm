@@ -31,7 +31,7 @@ CODE_9DA9BE:
 	sta.w $0D0D
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9DADFD
+	lda.w #GameSetupNames
 	sta.b a1
 	stx.b d0
 	lda.l $7E34BC
@@ -48,7 +48,7 @@ CODE_9DA9BE:
 	bpl .2
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9DAE40
+	lda.w #PlayoffSetupNames
 	sta.b a1
 .2:
 	lda.w #$0003

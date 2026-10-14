@@ -161,7 +161,7 @@ CODE_9EE220:
 	bpl .5x
 	lsr.b d0
 .5x:
-	jsl.l CODE_9BB3B0
+	jsl.l randomd0sd0
 	lda.b $05,s
 	adc.b d0
 	sta.b $05,s

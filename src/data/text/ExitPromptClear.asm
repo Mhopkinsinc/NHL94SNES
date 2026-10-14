@@ -1,10 +1,11 @@
-DATA8_9FF163:		; the exit prompt lines
+; Blank line that clears the exit prompt
+ExitPromptClear:
 	%String("                    ")
-DATA8_9FF179:
+ExitGameAsk:
 	%String("     Exit Game?     ")
-DATA8_9FF18F:
+ExitShootoutAsk:
 	%String("   Exit Shootout?   ")
-DATA8_9FF1A5:
+ExitYes:
 	%String("         Yes        ")
-DATA8_9FF1BB:
+ExitNo:
 	%String("         No         ")

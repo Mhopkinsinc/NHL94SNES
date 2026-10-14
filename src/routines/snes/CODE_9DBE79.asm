@@ -183,7 +183,7 @@ org $9DC002
 	bmi .t1x2
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9DC29E
+	lda.w #RosterGroups
 	sta.b a1
 	bra CODE_9DC01C
 
@@ -215,7 +215,7 @@ CODE_9DC01C:
 	jsl.l CODE_9C9590
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9DC436
+	lda.w #RatingNames
 	sta.b a1
 	lda.w $1E79
 	sta.b d0
@@ -226,7 +226,7 @@ CODE_9DC01C:
 	jsl.l CODE_9C9590
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9DC436
+	lda.w #RatingNames
 	sta.b a1
 	lda.w $1E7D
 	sta.b d0
@@ -240,7 +240,7 @@ CODE_9DC01C:
 	jsl.l CODE_9C9590
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9DC436
+	lda.w #RatingNames
 	sta.b a1
 	lda.w $1E81
 	sta.b d0

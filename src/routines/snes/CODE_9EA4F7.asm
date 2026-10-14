@@ -26,7 +26,7 @@ CODE_9EA4F7:
 	lda.w #$EC14
 	sta.w $1543,x
 .3:
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 CODE_9EA539:
 	lda.w position,x
 	bne .t1

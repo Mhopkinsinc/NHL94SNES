@@ -367,7 +367,7 @@ CODE_9F9133:
 	lda.w #$0007
 	sta.b d1
 	jsl.l CODE_9D8000
-	jsl.l CODE_9F9B36
+	jsl.l printscores1
 	jsl.l CODE_9FEA24
 	jsl.l CODE_9F96E6
 	jsl.l CODE_8086BD

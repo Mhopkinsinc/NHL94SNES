@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FC4D0:
+; mesarea = the number, first initial and last name of roster player d0 of team a2
+PlayerShortName:
 	lda.b d0
 	pha
 	lda.b $A7

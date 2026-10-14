@@ -100,7 +100,7 @@ CODE_9ED67C:
 	sta.w facedir,x
 	ldy.w #$E4B6
 	tya
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	lda.w #$0168
 	sta.w $0BEB,x
 	lda.w $19BE

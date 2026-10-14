@@ -24,11 +24,11 @@ CODE_9FB30F:
 	lda.w #$0001
 	sta.w $1543,x
 	lda.w #$F600
-	jml.l CODE_9EA3F1
+	jml.l SetSPAFromA
 
 .t1:
 	lda.w #$F62A
-	jml.l CODE_9EA3F1
+	jml.l SetSPAFromA
 
 .t2:
 	rtl

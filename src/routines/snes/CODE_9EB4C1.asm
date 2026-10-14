@@ -242,7 +242,7 @@ CODE_9EB4C1:
 	sta.b d0
 	ldx.b a3
 	jsl.l SetPA
-	jsl.l ShowInjuryBox
+	jsl.l USBoard
 	bra CODE_9EB6CC
 
 .t3:

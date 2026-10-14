@@ -168,7 +168,7 @@ CODE_9DAB0B:
 	stx.b a2
 	lda.l $7E345E
 	jsl.l CODE_9DC973
-	jsl.l CODE_9FC4D0
+	jsl.l PlayerShortName
 	cpx.w #$0000
 	bne .rtsx
 	lda.b $8F
