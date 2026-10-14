@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EC791:
+; End the penalty shot or shootout attempt in progress ($163A and $1E9B): clear it, no shooter, ShootoutWonBy 10, put back the saved scores
+EndPenaltyShot:
 	lda.w $163A
 	beq .rtl
 	lda.w $1E9B

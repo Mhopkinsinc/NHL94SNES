@@ -132,7 +132,7 @@ clockcont_0:
 	lda.l $7E34BC
 	beq .7
 .1xx:
-	jsl.l CODE_9EC791
+	jsl.l EndPenaltyShot
 	lda.w #$0002
 	sta.b d0
 	jml.l ShootoutWonBy

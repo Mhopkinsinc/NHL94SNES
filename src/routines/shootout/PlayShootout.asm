@@ -85,7 +85,7 @@ PlayShootout:
 .t2:
 	sty.w $1E93
 .3:
-	jsl.l CODE_9EC72D
+	jsl.l StartPenaltyShot
 	lda.b a2
 	beq .t2x
 	lda.w shootoutround

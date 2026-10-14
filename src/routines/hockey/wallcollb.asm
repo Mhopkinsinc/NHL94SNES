@@ -76,7 +76,7 @@ wallcollb_out:
 	ldx.w #$001C
 	stx.b a3
 .2:
-	jsl.l CODE_9EC791
+	jsl.l EndPenaltyShot
 	stz.w $1E8B
 	stz.w $1E89
 	rtl

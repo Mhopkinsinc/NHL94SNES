@@ -1580,7 +1580,7 @@ $9FB8F1,.1,CODE_9FB8F1,new,branch target only used in this routine,src/routines/
 $9EA132,.1,CODE_9EA132,new,branch target only used in this routine,src/routines/snes/CODE_9EA10F.asm
 $9EA151,.2,CODE_9EA151,new,branch target only used in this routine,src/routines/snes/CODE_9EA10F.asm
 $9ECB47,.loop,CODE_9ECB47,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
-$9EC7BD,.rtl,CODE_9EC7BD,new,branch target only used in this routine,src/routines/snes/CODE_9EC791.asm
+$9EC7BD,.rtl,CODE_9EC7BD,new,branch target only used in this routine,src/routines/logic/EndPenaltyShot.asm
 $8086CA,.1,CODE_8086CA,new,branch target only used in this routine,src/routines/snes/ScreenOn.asm
 $9BA8EB,.1,CODE_9BA8EB,new,branch target only used in this routine,src/routines/hockey/updatereplay.asm
 $9EB1DB,.1,CODE_9EB1DB,new,branch target only used in this routine,src/routines/snes/CODE_9EB1C9.asm
@@ -2937,7 +2937,7 @@ $9ECA05,.t1,CODE_9ECA05,new,continued in the previous routine,src/routines/hocke
 $9EC96B,.t1,CODE_9EC96B,new,continued in the previous routine,src/routines/hockey/UpdateScoutingDisplay.asm
 $9EC8CE,.t1,CODE_9EC8CE,new,continued in the previous routine,src/routines/hockey/PrintToStatsPage.asm
 $9EC7F9,.t1,CODE_9EC7F9,new,continued in the previous routine,src/routines/snes/CODE_9EC7E7.asm
-$9EC745,.t1,CODE_9EC745,new,continued in the previous routine,src/routines/snes/CODE_9EC72D.asm
+$9EC745,.t1,CODE_9EC745,new,continued in the previous routine,src/routines/logic/StartPenaltyShot.asm
 $9EC668,.t1,CODE_9EC668,new,continued in the previous routine,src/routines/snes/CODE_9EC656.asm
 $9EC549,.t1,CODE_9EC549,new,continued in the previous routine,src/routines/snes/CODE_9EC4FD.asm
 $9EC453,.t1,CODE_9EC453,new,continued in the previous routine,src/routines/snes/CODE_9EC422.asm
@@ -4456,8 +4456,8 @@ $9EC070,.1,CODE_9EC070,new,branch target only used in this routine,src/routines/
 $9EC2AE,.3,CODE_9EC2AE,new,branch target only used in this routine,src/routines/penalty/prefmes.asm
 $9EC6E0,.3,CODE_9EC6E0,new,branch target only used in this routine,src/routines/snes/CODE_9EC64B.asm
 $9EC6E6,.4,CODE_9EC6E6,new,branch target only used in this routine,src/routines/snes/CODE_9EC64B.asm
-$9EC74B,.1,CODE_9EC74B,new,branch target only used in this routine,src/routines/snes/CODE_9EC72D.asm
-$9EC790,.2,CODE_9EC790,new,branch target only used in this routine,src/routines/snes/CODE_9EC72D.asm
+$9EC74B,.1,CODE_9EC74B,new,branch target only used in this routine,src/routines/logic/StartPenaltyShot.asm
+$9EC790,.2,CODE_9EC790,new,branch target only used in this routine,src/routines/logic/StartPenaltyShot.asm
 $9ECFCA,.1,CODE_9ECFCA,new,branch target only used in this routine,src/routines/penalty/PrintStringFromList.asm
 $9ED2F7,.5,CODE_9ED2F7,new,branch target only used in this routine,src/routines/logic/assgoalietopuck.asm
 $9ED514,.3,CODE_9ED514,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
@@ -5755,3 +5755,5 @@ $9F9E24,DrawHorTeams,CODE_9F9E24,new,Behavior: setvideo calls it in horizontal m
 $80CB5C,DrawShootersBack,CODE_80CB5C,new,Behavior: the DrawEditLinesBack steps for the shooters screen; ShootersBackground calls it first,src/routines/shootout/DrawShootersBack.asm
 $9FC79F,InitializeGameStructures,CODE_9FC79F,94G,"The 94G InitializeGameStructures job (random pairs for all 8 games, excluding HomeTeam / VisTeam); FigureJoy calls it as in 94G",src/routines/hockey/InitializeGameStructures.asm
 $9FAFBE,SetupPenaltyShot,CODE_9FAFBE,94G,The 94G SetupPenaltyShot job (the shooter alone with the puck at centre); puckfaceoff2 jumps to it after Endfaceoff when a penalty shot is pending ($1E9B),src/routines/logic/SetupPenaltyShot.asm
+$9EC72D,StartPenaltyShot,CODE_9EC72D,new,Behavior: called from InProgress (a penalty shot call) and PlayShootout (each shootout attempt); SetupPenaltyShot then plays it,src/routines/logic/StartPenaltyShot.asm
+$9EC791,EndPenaltyShot,CODE_9EC791,new,"Behavior: called on the stop events (Goal, the puck frozen or out, the clock), as 94G UpdatePenaltyShotEnd / EndPenaltyShotPlay end the attempt",src/routines/logic/EndPenaltyShot.asm

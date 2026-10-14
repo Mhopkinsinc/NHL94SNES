@@ -5,7 +5,7 @@ puckglue:
 	beq .1
 	lda.w #$0003
 	jsl.l PuckSfx
-	jsl.l CODE_9EC791
+	jsl.l EndPenaltyShot
 	stz.w $1E8B
 	stz.w $1E89
 .1:

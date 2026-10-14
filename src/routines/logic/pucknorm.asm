@@ -100,7 +100,7 @@ CODE_9EDCC3:
 	sta.l $7E3450
 	cmp.w #$0030
 	bcc .10
-	jsl.l CODE_9EC791
+	jsl.l EndPenaltyShot
 .9:
 	lda.w #$0000
 	sta.l $7E3450

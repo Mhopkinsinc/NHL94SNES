@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EC72D:
+; Set a penalty shot pending for shooter $1E8D: $1E9B = 1, the shooting team $1E91 (and its count $17CA / $17CC), the shooter number ($1E8F), the scores saved ($1E97 / $1E99)
+StartPenaltyShot:
 	lda.w $1E9B
 	bne .2
 	lda.w $1E8D

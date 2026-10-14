@@ -1,4 +1,4 @@
-; The puck is in the goal: the siren, the score, the log, the scoreboard and the celebration (shootout goals through CODE_9EC791)
+; The puck is in the goal: the siren, the score, the log, the scoreboard and the celebration (shootout goals through EndPenaltyShot)
 Goal:
 	lda.w gmclock
 	beq .t3
@@ -27,7 +27,7 @@ Goal:
 	lda.w $1E91
 	beq .6
 .1:
-	jsl.l CODE_9EC791
+	jsl.l EndPenaltyShot
 	jmp.w .16
 .in:
 	lda.w $1E91
@@ -130,7 +130,7 @@ Goal:
 .score:
 	lda.b $83
 	sta.w $0D2B
-	jsl.l CODE_9EC791
+	jsl.l EndPenaltyShot
 	stz.w $1E8B
 	stz.w $1E89
 	phx

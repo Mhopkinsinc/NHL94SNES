@@ -99,6 +99,7 @@
 - From behavior: `DrawHorTeams` (setvideo in horizontal mode), `DrawShootersBack`.
 - `InitializeGameStructures` (94G: the other games' random team pairs, called from FigureJoy).
 - `SetupPenaltyShot` (94G job: puckfaceoff2 jumps to it when a penalty shot is pending).
+- From behavior: `StartPenaltyShot`, `EndPenaltyShot` (the 94 penalty shot / shootout attempt state).
 
 ## Unsure
 

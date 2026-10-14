@@ -60,7 +60,7 @@ Gameloop:
 	sbc.b d7
 	sta.w $1E9F
 	bne .2
-	jsl.l CODE_9EC791
+	jsl.l EndPenaltyShot
 .2:
 	bra .4
 

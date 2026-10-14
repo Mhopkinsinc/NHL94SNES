@@ -246,7 +246,7 @@ InProgress:
 	bra InProgress_coin
 
 .t3:
-	jsl.l CODE_9EC72D
+	jsl.l StartPenaltyShot
 .10:
 	lda.w #$0000
 	sta.b [a0]

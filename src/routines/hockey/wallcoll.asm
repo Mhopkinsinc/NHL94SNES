@@ -177,7 +177,7 @@ org $9E9000
 	bne .rtl
 	lda.w puckc
 	bpl .rtl
-	jsl.l CODE_9EC791
+	jsl.l EndPenaltyShot
 	stz.w $1E8B
 	stz.w $1E89
 .rtl:

@@ -743,3 +743,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - DrawHorTeams, DrawShootersBack. MATCH.
 - InitializeGameStructures. MATCH.
 - SetupPenaltyShot. MATCH.
+- StartPenaltyShot, EndPenaltyShot. MATCH.
