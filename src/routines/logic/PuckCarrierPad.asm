@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FCB16:
+; When player d0 has the puck and no pad: give him the next pad of his team in turn ($0AFD), if that team has pads ($19D0)
+PuckCarrierPad:
 	ldy.b d0
 	lda.w $19D4,y
 	bpl .6
@@ -26,7 +26,7 @@ CODE_9FCB16:
 	sty.b d4
 	tya
 	sta.w $0AFD,x
-	jsl.l CODE_9FCB68
+	jsl.l AssignPadPlayer
 .4:
 	plx
 	rtl

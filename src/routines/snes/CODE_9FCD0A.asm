@@ -16,6 +16,6 @@ CODE_9FCD0A:
 
 .t1:
 	phx
-	jsl.l CODE_9FCD69
+	jsl.l PadTakePosition
 	plx
 	rtl

@@ -12,6 +12,6 @@ CODE_9FCD2F:
 .t1:
 	lda.w #$0002
 	ldy.w pfgoal,x
-	bne CODE_9FCD69
+	bne PadTakePosition
 	lda.w #$0001
-	bra CODE_9FCD69
+	bra PadTakePosition

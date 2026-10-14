@@ -930,8 +930,8 @@ $9FF4AA,.loop2,CODE_9FF4AA,new,branch target only used in this routine,src/routi
 $9B9361,.loop,CODE_9B9361,new,branch target only used in this routine,src/routines/hockey/LoadTeamLines.asm
 $9B939A,.loop2,CODE_9B939A,new,branch target only used in this routine,src/routines/hockey/LoadTeamLines.asm
 $9B93B0,.1,CODE_9B93B0,new,branch target only used in this routine,src/routines/hockey/LoadTeamLines.asm
-$9FCB9A,.1,CODE_9FCB9A,new,branch target only used in this routine,src/routines/snes/CODE_9FCB68.asm
-$9FCBB5,.rtl,CODE_9FCBB5,new,branch target only used in this routine,src/routines/snes/CODE_9FCB68.asm
+$9FCB9A,.1,CODE_9FCB9A,new,branch target only used in this routine,src/routines/logic/AssignPadPlayer.asm
+$9FCBB5,.rtl,CODE_9FCBB5,new,branch target only used in this routine,src/routines/logic/AssignPadPlayer.asm
 $9FB330,.1,CODE_9FB330,new,branch target only used in this routine,src/routines/logic/faceoffinput.asm
 $80D0BB,.1,CODE_80D0BB,new,branch target only used in this routine,src/routines/snes/CODE_80D06A.asm
 $80D0E5,.2,CODE_80D0E5,new,branch target only used in this routine,src/routines/snes/CODE_80D06A.asm
@@ -1364,8 +1364,8 @@ $9BA2DA,.2,CODE_9BA2DA,new,branch target only used in this routine,src/routines/
 $9BA2F9,.3,CODE_9BA2F9,new,branch target only used in this routine,src/routines/snes/CODE_9BA23C.asm
 $9BA30A,.4,CODE_9BA30A,new,branch target only used in this routine,src/routines/snes/CODE_9BA23C.asm
 $9D833B,.loop,CODE_9D833B,new,branch target only used in this routine,src/routines/hockey/ScoutingReport.asm
-$9FCB29,.1,CODE_9FCB29,new,branch target only used in this routine,src/routines/snes/CODE_9FCB16.asm
-$9FCB38,.2,CODE_9FCB38,new,branch target only used in this routine,src/routines/snes/CODE_9FCB16.asm
+$9FCB29,.1,CODE_9FCB29,new,branch target only used in this routine,src/routines/logic/PuckCarrierPad.asm
+$9FCB38,.2,CODE_9FCB38,new,branch target only used in this routine,src/routines/logic/PuckCarrierPad.asm
 $9EE6F1,.1,CODE_9EE6F1,new,branch target only used in this routine,src/routines/snes/CODE_9EE6D2.asm
 $9EE6F6,.2,CODE_9EE6F6,new,branch target only used in this routine,src/routines/snes/CODE_9EE6D2.asm
 $9EE705,.rtl,CODE_9EE705,new,branch target only used in this routine,src/routines/snes/CODE_9EE6D2.asm
@@ -1433,7 +1433,7 @@ $9EAA72,.5,CODE_9EAA72,new,branch target only used in this routine,src/routines/
 $9EAA81,.6,CODE_9EAA81,new,branch target only used in this routine,src/routines/snes/CODE_9EA9D5.asm
 $9EAA89,.7,CODE_9EAA89,new,branch target only used in this routine,src/routines/snes/CODE_9EA9D5.asm
 $9EAA98,.8,CODE_9EAA98,new,branch target only used in this routine,src/routines/snes/CODE_9EA9D5.asm
-$9FCB67,.rtl,CODE_9FCB67,new,branch target only used in this routine,src/routines/snes/CODE_9FCB5C.asm
+$9FCB67,.rtl,CODE_9FCB67,new,branch target only used in this routine,src/routines/logic/AssignPadIfFree.asm
 $9EA5D4,.1,CODE_9EA5D4,new,branch target only used in this routine,src/routines/snes/CODE_9EA5B3.asm
 $9EA5F2,.2,CODE_9EA5F2,new,branch target only used in this routine,src/routines/snes/CODE_9EA5B3.asm
 $9EA60E,.3,CODE_9EA60E,new,branch target only used in this routine,src/routines/snes/CODE_9EA5B3.asm
@@ -1749,7 +1749,7 @@ $9EA2ED,.1,CODE_9EA2ED,new,branch target only used in this routine,src/routines/
 $9FAFE6,.1,CODE_9FAFE6,new,branch target only used in this routine,src/routines/snes/CODE_9FAFBE.asm
 $9FB012,.loop,CODE_9FB012,new,branch target only used in this routine,src/routines/snes/CODE_9FAFBE.asm
 $9FB01B,.2,CODE_9FB01B,new,branch target only used in this routine,src/routines/snes/CODE_9FAFBE.asm
-$9FCB56,.1,CODE_9FCB56,new,branch target only used in this routine,src/routines/snes/CODE_9FCB16.asm
+$9FCB56,.1,CODE_9FCB56,new,branch target only used in this routine,src/routines/logic/PuckCarrierPad.asm
 $9D8234,.1,CODE_9D8234,new,branch target only used in this routine,src/routines/hockey/ScoutingReport.asm
 $9BA34B,.loop,CODE_9BA34B,new,branch target only used in this routine,src/routines/snes/CODE_9BA342.asm
 $9BA352,.1,CODE_9BA352,new,branch target only used in this routine,src/routines/snes/CODE_9BA342.asm
@@ -4202,10 +4202,10 @@ $9FC86B,.2,CODE_9FC86B,new,continued in the previous routine,src/routines/penalt
 $9FC86F,.3,CODE_9FC86F,new,branch target only used in this routine,src/routines/penalty/InitScores.asm
 $9FC873,.4,CODE_9FC873,new,branch target only used in this routine,src/routines/penalty/InitScores.asm
 $9FC87B,.5,CODE_9FC87B,new,branch target only used in this routine,src/routines/penalty/InitScores.asm
-$9FCB3E,.3,CODE_9FCB3E,new,branch target only used in this routine,src/routines/snes/CODE_9FCB16.asm
-$9FCB4D,.4,CODE_9FCB4D,new,branch target only used in this routine,src/routines/snes/CODE_9FCB16.asm
-$9FCB4F,.5,CODE_9FCB4F,new,continued in the previous routine,src/routines/snes/CODE_9FCB16.asm
-$9FCB5B,.6,CODE_9FCB5B,new,branch target only used in this routine,src/routines/snes/CODE_9FCB16.asm
+$9FCB3E,.3,CODE_9FCB3E,new,branch target only used in this routine,src/routines/logic/PuckCarrierPad.asm
+$9FCB4D,.4,CODE_9FCB4D,new,branch target only used in this routine,src/routines/logic/PuckCarrierPad.asm
+$9FCB4F,.5,CODE_9FCB4F,new,continued in the previous routine,src/routines/logic/PuckCarrierPad.asm
+$9FCB5B,.6,CODE_9FCB5B,new,branch target only used in this routine,src/routines/logic/PuckCarrierPad.asm
 $9FCC06,.9,CODE_9FCC06,new,branch target only used in this routine,src/routines/logic/findpc.asm
 $9FCCAE,.10,CODE_9FCCAE,new,branch target only used in this routine,src/routines/logic/findpc.asm
 $9FCCF5,.11,CODE_9FCCF5,new,continued in the previous routine,src/routines/logic/findpc.asm
@@ -5712,3 +5712,8 @@ $9FC4A1,GetPlayerNumInitial,CODE_9FC4A1,93S,"The 93S GetPlayerNumInitial body (T
 $9FC896,StatsReport,CODE_9FC896,93S,"The 93S StatsReport layout (position 0,0, a 32 x 29 erase with blankchar, then the rink map to VRAM); SetHor calls it as in 93S",src/routines/penalty/StatsReport.asm
 $9F9E15,Mod100,CODE_9F9E15,new,Behavior: printscores1 and PrintTeamNameAndScore use it before PushNumber for the scores,src/routines/middle/Mod100.asm
 $9F9DFB,AlignBigNumber,CODE_9F9DFB,new,Behavior: printscores1 calls it between PushNumber and printbig for the shot counts,src/routines/penalty/AlignBigNumber.asm
+$9FCB68,AssignPadPlayer,CODE_9FCB68,new,"Behavior: the MultiPlayer 5 pad and player tables; called from doinput, findpc and the other pad helpers",src/routines/logic/AssignPadPlayer.asm
+$9FCB5C,AssignPadIfFree,CODE_9FCB5C,new,Behavior: called from puckglue and dopass,src/routines/logic/AssignPadIfFree.asm
+$9FCB16,PuckCarrierPad,CODE_9FCB16,new,Behavior: called from puckglue,src/routines/logic/PuckCarrierPad.asm
+$9FCD2A,PadTakeGoalie,CODE_9FCD2A,new,Behavior: called from doinput and CODE_9FAFBE,src/routines/logic/PadTakeGoalie.asm
+$9FCD69,PadTakePosition,CODE_9FCD69,new,"pad d4 takes the player of its team ($1C84 side) at position d1, if he has no pad and is not locked (pflags bit 12); counts it in $0ADD",src/routines/snes/CODE_9FCD4D.asm

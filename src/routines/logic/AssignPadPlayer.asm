@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FCB68:
+; Pad d4 takes control of player d0: its old player is released (pflags, $19D4 = -1), the new one marked (pflags bit 3, $19D4 = pad, $19EC = player)
+AssignPadPlayer:
 	lda.w #$FFFF
 	sta.w $0BA3
 	ldy.b d4

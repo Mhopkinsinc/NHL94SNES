@@ -12,9 +12,9 @@ CODE_9FCD4D:
 .t1:
 	lda.w #$0001
 	ldy.w pfgoal,x
-	bne CODE_9FCD69
+	bne PadTakePosition
 	lda.w #$0002
-CODE_9FCD69:
+PadTakePosition:
 	sta.b d1
 	phx
 	ldy.b d4
@@ -46,7 +46,7 @@ CODE_9FCD69:
 	inc a
 	sta.w $0ADD,y
 	stx.b d0
-	jsl.l CODE_9FCB68
+	jsl.l AssignPadPlayer
 .2:
 	plx
 	rtl

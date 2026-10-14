@@ -376,7 +376,7 @@ CODE_9EEB2E:
 	sta.b d4
 	lda.w $0D07
 	sta.b d0
-	jsl.l CODE_9FCB5C
+	jsl.l AssignPadIfFree
 	lda.w $19D4,x
 	bmi .rtl
 	jsl.l findpc

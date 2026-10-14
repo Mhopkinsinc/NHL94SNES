@@ -87,6 +87,7 @@
 - `Pmenu` (93S job: the pause items with the current one highlighted; its item loop CODE_9FEAB4 folded in), and its parts `PmenuAppend`, `PmenuRtl`, `PmenuGoalieValue`, `PmenuDefValue`, `PmenuNone`.
 - 93S by call position and body: `box`, `ClearPenaltyMessage`, `GetPlayerName`, `GetPlayerNumInitial`, `StatsReport`; RAM `blankchar` ($7E35D0). `GetPlayerNumInitial` moved from $9FC576 (instruction shape only, no caller, calls the no-number name builder; now `GetPlayerInitial`) to $9FC4A1 (93S callee and caller).
 - From behavior: `Mod100`, `AlignBigNumber` (printscores1 helpers).
+- MultiPlayer 5 pad control from behavior: `AssignPadPlayer`, `AssignPadIfFree`, `PuckCarrierPad`, `PadTakePosition`, `PadTakeGoalie`. CODE_9FCD2F / CODE_9FCD4D (pad takes a defenseman, the side picked by pfgoal) stay unnamed: which side pfgoal means is not proven.
 
 ## Unsure
 

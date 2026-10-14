@@ -170,7 +170,7 @@ findpc:
 	bra .12
 .11:
 	sta.b d0
-	jsl.l CODE_9FCB68
+	jsl.l AssignPadPlayer
 .12:
 	stx.b xsave
 	ldx.w #$000E

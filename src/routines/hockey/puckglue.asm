@@ -75,11 +75,11 @@ puckglue:
 	lda.w $0B01,y
 	sta.b d4
 	bmi .t1
-	jsl.l CODE_9FCB5C
+	jsl.l AssignPadIfFree
 	bra .7
 
 .t1:
-	jsl.l CODE_9FCB16
+	jsl.l PuckCarrierPad
 .7:
 	lda.w #$FFFF
 	sta.w $0D07

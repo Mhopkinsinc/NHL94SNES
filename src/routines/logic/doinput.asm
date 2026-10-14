@@ -133,7 +133,7 @@ doinput:
 .1xxxxx:
 	lda.w $1C90,y
 	beq .14
-	jml.l CODE_9FCD2A
+	jml.l PadTakeGoalie
 .18:
 	lda.w pfalock,x
 	bne .6
@@ -208,7 +208,7 @@ doinput:
 	bne .23
 	sty.b d0
 	inc.w $0BAB
-	jsl.l CODE_9FCB68
+	jsl.l AssignPadPlayer
 	rtl
 .23:
 	rtl

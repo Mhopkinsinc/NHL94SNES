@@ -45,7 +45,7 @@ org $9FB003
 
 .t1:
 	sty.b d4
-	jsl.l CODE_9FCD2A
+	jsl.l PadTakeGoalie
 .3:
 	plx
 	ldy.w $1E91
