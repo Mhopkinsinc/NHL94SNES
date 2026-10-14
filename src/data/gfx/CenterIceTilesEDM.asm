@@ -4,4 +4,4 @@ CenterIceTilesEDM:	; the Edmonton centre ice logo: linear 4bpp tiles packed for 
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "CenterIceEDM.lin.huf":5..289
+	incbin "../../../Extracted/data/gfx/CenterIceEDM.lin.huf":5..289

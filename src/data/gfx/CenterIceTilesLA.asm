@@ -4,4 +4,4 @@ CenterIceTilesLA:	; the Los Angeles centre ice logo: linear 4bpp tiles packed fo
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "CenterIceLA.lin.huf":5..240
+	incbin "../../../Extracted/data/gfx/CenterIceLA.lin.huf":5..240

@@ -4,5 +4,5 @@ CenterIceTilesOTW:	; the Ottawa centre ice logo: linear 4bpp tiles packed for De
 			;   centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "CenterIceOTW.lin.huf":5..314
+	incbin "../../../Extracted/data/gfx/CenterIceOTW.lin.huf":5..314
 	db $FF,$FF,$FF,$FF,$FF,$FF

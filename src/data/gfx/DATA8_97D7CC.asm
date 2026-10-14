@@ -4,4 +4,4 @@ DATA8_97D7CC:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "DATA8_97D7CC.lin.huf":5..629
+	incbin "../../../Extracted/data/gfx/DATA8_97D7CC.lin.huf":5..629

@@ -5,7 +5,8 @@
 - `docs/cleanup_plan.md` is the audit: 6881 generic labels (5100 `CODE_`, 976 `SpriteFrameN`, 793 `DATA8_`, 12 `DATA16_`) and the asset inventory.
 - stats, video and middle: branch targets inside the already-named routines now use the 93S local names. `appstring`'s tail (`CODE_9ECFC1`) is the `.done` of that routine and lives in the same file. Direct-page registers `a0`–`a3`, `d0`–`d2`, `tmp0`–`tmp2`, plus `Hpos`, `Vpos`, `printm`, `textdirtylo`, `textdirtyhi`, `textmap`, `printfontset`, `RemapOut` and `Playerdata`, are in `src/ram94snes.asm`. Those files use them. The rest of the source still has the raw addresses.
 - logic: the same pass. `assreplace` is the 93S name (callers updated). `vtoa` holds `.nodir` and `.dt`. `getlchoice` holds `.tab`. `ShotMode` holds `.off` and `.rts`. New equates: `d7`, `SPAcnt`, `facedir`, `assnum`, `asslist`, `puckobj`, `puckx`, `ScoreOdds`, `gmoffs`, `gmhl`, `pfna`, `tmfoffside`, `cbut`, `blueline`, `PenOffsides` ($12 in this ROM).
-- Next: penalty, hockey and shootout locals, then the Extracted/ prebuild move.
+- Assets: the 302 binaries are no longer committed. `tools/prebuild.py` extracts them into `Extracted/data/` and writes `Extracted/.extract-complete.json` last. Asm `incbin`s those files. Packed streams stay packed. `SpriteFramesXX.bin` is still one ROM cut per bank (headers in source, tiles by range), not one `.chr` per frame.
+- Next: penalty, hockey and shootout locals.
 
 ## Unsure
 
@@ -33,9 +34,8 @@
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
 - Banks $80 to $9F are source (MATCH): every segment of the ROM is source.
-- Data assets: the binary blocks are committed in `src/data/gfx/` and `src/data/sound/` (formats in `src/data/README.md`) and
-  the source includes them by name. `tools/extract.py` has the `ASSETS` list (name, first address, end exclusive); `--check`
-  compares the files with the ROM (see SEGMENT_AGENT.md, Segment rules). The text tables are source files in
+- Data assets: binaries are extracted to `Extracted/` by `tools/prebuild.py` (formats in `src/data/README.md`).
+  `tools/extract.py` has the `ASSETS` list (name, first address, end exclusive). The text tables are source files in
   `src/data/text/`, one per table, included where they sit in the ROM; nine take their 93S names (AttribMenuSkater,
   AttribMenuGoalie, PositionNames, GameLabels, PasstoText, StatusTextTbl, HandedTextTbl, GoalBoxText, RosterLineNames).
   The team database (TeamList, the team records, playoffseats) is `src/data/teamdata94s.asm`, included from bank9C_A000

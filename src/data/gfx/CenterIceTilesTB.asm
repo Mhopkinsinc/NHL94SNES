@@ -4,5 +4,5 @@ CenterIceTilesTB:	; the Tampa Bay centre ice logo: linear 4bpp tiles packed for 
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$C0
-	incbin "CenterIceTB.lin.huf":5..363
+	incbin "../../../Extracted/data/gfx/CenterIceTB.lin.huf":5..363
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
