@@ -48,7 +48,7 @@ CODE_9EC160:
 .1:
 	lda.b d0
 	bpl .t4
-	jmp.w CODE_80C2AE
+	jmp.w CODE_9EC2AE
 
 .t4:
 	lda.b $8F
@@ -73,22 +73,22 @@ CODE_9EC160:
 	beq .t3
 	cpy.w #$0006
 	bne .t1x
-	jmp.w CODE_80C2AE
+	jmp.w CODE_9EC2AE
 
 .t1x:
 	cpy.w #$0008
 	bne .t2
-	jmp.w CODE_80C2AE
+	jmp.w CODE_9EC2AE
 
 .t2:
 	cpy.w #$000C
 	bne .t1xx
-	jmp.w CODE_80C2AE
+	jmp.w CODE_9EC2AE
 
 .t1xx:
 	cpy.w #$0012
 	bne .t3
-	jmp.w CODE_80C2AE
+	jmp.w CODE_9EC2AE
 
 .t3:
 	lda.b [a1],y
@@ -102,7 +102,7 @@ CODE_9EC160:
 	dec a
 	sta.b d0
 	bne .t1x2
-	jmp.w CODE_80C2AE
+	jmp.w CODE_9EC2AE
 
 .t1x2:
 	inc a

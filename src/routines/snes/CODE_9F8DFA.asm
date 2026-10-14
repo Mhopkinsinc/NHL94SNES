@@ -416,7 +416,7 @@ CODE_9F9133:
 	lda.l $7E3578,x
 	cmp.l $7E3588,x
 	bne .t1
-	jmp.w CODE_808E1C
+	jmp.w StartHL2
 
 .t1:
 	lda.w #$0005

@@ -28,7 +28,7 @@ CODE_9EBE24:
 	ldx.b $E4
 	lda.w $19D4,x
 	bpl .t1
-	jmp.w CODE_80BDF7
+	jmp.w CODE_9EBDF7
 
 .t1:
 	sta.b d4

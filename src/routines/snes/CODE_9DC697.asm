@@ -137,7 +137,7 @@ CODE_9DC697:
 	tax
 	ldy.w #$1000
 	jsl.l CODE_80891F
-	lda.w #a2
+	lda.w #DATA8_91DDAD>>16
 	sta.b $0E
 	lda.w #DATA8_91DDAD
 	sta.b $0C
@@ -242,7 +242,7 @@ CODE_9DC697:
 	stz.w CGDATA
 	stz.w CGDATA
 	rep #$20
-	lda.w #a0
+	lda.w #DATA8_89FFC7>>16
 	sta.b $0E
 	lda.w #DATA8_89FFC7
 	sta.b $0C

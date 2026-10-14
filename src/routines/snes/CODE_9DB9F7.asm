@@ -11,7 +11,7 @@ CODE_9DB9F7:
 	stz.w $0BDB
 	rts
 
-.t2:
+CODE_9DBA13:
 	lda.w $0764
 	cmp.w $0BDB
 	bcc .rts
@@ -27,7 +27,7 @@ CODE_9DB9F7:
 	lda.w $0BDF
 	dec a
 	dec a
-	cmp.w #d5
+	cmp.w #$00B9
 	bmi CODE_9DBA53
 	dec.w $0BDF
 	dec.w $0BDF

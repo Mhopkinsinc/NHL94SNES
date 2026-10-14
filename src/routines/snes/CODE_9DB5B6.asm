@@ -29,7 +29,7 @@ CODE_9DB5B6:
 	ldx.w #$4000
 	ldy.w #$0000
 	jsl.l CODE_808862
-	lda.w #a3
+	lda.w #DATA8_95F8C6>>16
 	sta.b $0E
 	lda.w #DATA8_95F8C6
 	sta.b $0C
@@ -104,7 +104,7 @@ CODE_9DB5B6:
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l CODE_808ADF
-	lda.w #xsave
+	lda.w #DATA8_87FF91>>16
 	sta.b $0E
 	lda.w #DATA8_87FF91
 	sta.b $0C
@@ -128,7 +128,7 @@ CODE_9DB5B6:
 	sta.b $10
 	lda.w #$8080
 	jsl.l CODE_808F03
-	lda.w #a2
+	lda.w #DATA8_91B188>>16
 	sta.b $0E
 	lda.w #DATA8_91B188
 	sta.b $0C

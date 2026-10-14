@@ -10,7 +10,7 @@ ScrollGameStatsDown:
 
 .t2:
 	inc.w $1DC5
-	jsr.w CODE_808F7D
+	jsr.w CODE_9C8F7D
 	dec.w $1DC5
 	jsl.l WaitFrame
 	inc.w $1DBD
@@ -23,7 +23,7 @@ ScrollGameStatsDown:
 	lda.w $1DF3
 	cmp.w #$000D
 	bne .loop
-	jsr.w CODE_808F7D
+	jsr.w CODE_9C8F7D
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3

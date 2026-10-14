@@ -31,7 +31,7 @@ CODE_80ABF7:
 .t2:
 	cmp.b #$36
 	bcc .t1
-	lda.b #a4
+	lda.b #$99
 	bra CODE_80AC40
 
 .t1:

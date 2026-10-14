@@ -55,7 +55,7 @@ CODE_9D8C19:
 	lda.b #$07
 	sta.w TM
 	rep #$30
-	lda.w #a3
+	lda.w #DATA8_95F1AE>>16
 	sta.b $0E
 	lda.w #DATA8_95F1AE
 	sta.b $0C
@@ -489,7 +489,7 @@ org $9D9000
 	asl a
 	adc.w #$B72C
 	sta.b tmp0
-	lda.w #a4
+	lda.w #$0099
 	sta.b tmp1
 	lda.b [a0]
 	inc.b a0

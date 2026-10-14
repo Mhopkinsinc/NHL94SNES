@@ -108,7 +108,7 @@ CODE_9EE220:
 
 .t1:
 	lda.b d3
-	cmp.w #tmp2
+	cmp.w #$00C9
 	bcs .1x
 	lda.w #$0010
 	adc.w $1383,x

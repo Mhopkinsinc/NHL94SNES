@@ -6,7 +6,7 @@ ScrollGameStatsUp:
 	bmi MarkGameStatRows
 	sta.w $1DBD
 	inc.w $1DC5
-	jsr.w CODE_808F7D
+	jsr.w CODE_9C8F7D
 	dec.w $1DC5
 	jsl.l WaitFrame
 	lda.w #$000D
@@ -18,7 +18,7 @@ ScrollGameStatsUp:
 	lda.w $1DF3
 	cmp.w #$0001
 	bne .loop
-	jsr.w CODE_808F7D
+	jsr.w CODE_9C8F7D
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3

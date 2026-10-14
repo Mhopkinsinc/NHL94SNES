@@ -35,6 +35,6 @@ MarkGameStatRows:
 	sta.b a1
 	jsl.l CODE_9EC894
 .2:
-	jsr.w CODE_808F7D
+	jsr.w CODE_9C8F7D
 	jsl.l WaitFrame
 	jmp.w GameStatsInput

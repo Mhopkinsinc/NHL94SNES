@@ -99,7 +99,7 @@ CODE_9FB69E:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
-	lda.w #a3
+	lda.w #DATA8_95E304>>16
 	sta.b $0E
 	lda.w #DATA8_95E304
 	sta.b $0C
@@ -118,7 +118,7 @@ CODE_9FB69E:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
-	lda.w #a3
+	lda.w #DATA8_95BA96>>16
 	sta.b $0E
 	lda.w #DATA8_95BA96
 	sta.b $0C

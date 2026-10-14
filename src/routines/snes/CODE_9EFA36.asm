@@ -51,7 +51,7 @@ CODE_9EFA36:
 	sta.b tmp0
 	lda.w #$03DA
 	sta.b tmp1
-	lda.w #a3
+	lda.w #$0095
 	sta.b $8B
 	lda.w #$DB94
 	sta.b a0

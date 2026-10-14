@@ -116,7 +116,7 @@ DrawPeriodStats:
 	cpx.w $1EAD
 	beq .t2
 	bmi .t2
-	jmp.w CODE_808281
+	jmp.w CODE_9F8281
 
 .t2:
 	lda.w #$0080

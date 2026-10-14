@@ -1048,7 +1048,6 @@ $9FA313,.1,CODE_9FA313,new,branch target only used in this routine,src/routines/
 $9FA327,.2,CODE_9FA327,new,branch target only used in this routine,src/routines/snes/CODE_9FA2D1.asm
 $9FA32D,.loop2,CODE_9FA32D,new,branch target only used in this routine,src/routines/snes/CODE_9FA2D1.asm
 $9FA333,.loop3,CODE_9FA333,new,branch target only used in this routine,src/routines/snes/CODE_9FA2D1.asm
-$9ECE2B,.1,CODE_9ECE2B,new,branch target only used in this routine,src/routines/snes/CODE_9ECE15.asm
 $808DB7,.loop,CODE_808DB7,new,branch target only used in this routine,src/routines/snes/CODE_808DB3.asm
 $9FB046,.1,CODE_9FB046,new,branch target only used in this routine,src/routines/snes/CODE_9FB024.asm
 $9FB055,.2,CODE_9FB055,new,branch target only used in this routine,src/routines/snes/CODE_9FB024.asm
@@ -2666,7 +2665,6 @@ $9BAF8B,.t1,CODE_9BAF8B,new,continued in the previous routine,src/routines/snes/
 $9BAF31,.t1,CODE_9BAF31,new,continued in the previous routine,src/routines/snes/CODE_9BAE9D.asm
 $9BADA5,.t1,CODE_9BADA5,new,continued in the previous routine,src/routines/snes/CODE_9BAD08.asm
 $9BAC9A,.t1,CODE_9BAC9A,new,continued in the previous routine,src/routines/snes/CODE_9BAC5C.asm
-$9BAC3E,.t1,CODE_9BAC3E,new,continued in the previous routine,src/routines/snes/CODE_9BAC11.asm
 $9BABD0,.t1,CODE_9BABD0,new,continued in the previous routine,src/routines/snes/CODE_9BABB3.asm
 $9BAB5C,.t1,CODE_9BAB5C,new,continued in the previous routine,src/routines/snes/CODE_9BAA60.asm
 $9BA8EE,.t1,CODE_9BA8EE,new,continued in the previous routine,src/routines/snes/CODE_9BA8DB.asm
@@ -2701,7 +2699,6 @@ $9B91A2,.t1,CODE_9B91A2,new,continued in the previous routine,src/routines/snes/
 $9B8FF0,.t1,CODE_9B8FF0,new,continued in the previous routine,src/routines/snes/CODE_9B8FD5.asm
 $9B8EF4,.t1,CODE_9B8EF4,new,continued in the previous routine,src/routines/snes/CODE_9B8EE1.asm
 $9B8EAA,.t1,CODE_9B8EAA,new,continued in the previous routine,src/routines/snes/CODE_9B8E3D.asm
-$9B8D72,.t1,CODE_9B8D72,new,continued in the previous routine,src/routines/snes/CODE_9B8D4D.asm
 $9B8CF6,.t1,CODE_9B8CF6,new,continued in the previous routine,src/routines/snes/CODE_9B8CE1.asm
 $9B8CDB,.t1,CODE_9B8CDB,new,continued in the previous routine,src/routines/snes/CODE_9B8CC4.asm
 $9B8CBD,.t1,CODE_9B8CBD,new,continued in the previous routine,src/routines/snes/CODE_9B8C7A.asm
@@ -2754,7 +2751,6 @@ $9C90B8,.t1,CODE_9C90B8,new,continued in the previous routine,src/routines/snes/
 $9C9074,.t1,CODE_9C9074,new,continued in the previous routine,src/routines/snes/CODE_9C9067.asm
 $9C9056,.t1,CODE_9C9056,new,continued in the previous routine,src/routines/snes/CODE_9C9040.asm
 $9C902A,.t1,CODE_9C902A,new,continued in the previous routine,src/routines/snes/CODE_9C8FD7.asm
-$9C8F7D,.t1,CODE_9C8F7D,new,continued in the previous routine,src/routines/snes/CODE_9C8F36.asm
 $9C8F27,.t1,CODE_9C8F27,new,continued in the previous routine,src/routines/snes/CODE_9C8EEF.asm
 $9C8E20,.t1,CODE_9C8E20,new,continued in the previous routine,src/routines/snes/CODE_9C8E18.asm
 $9C8E10,.t1,CODE_9C8E10,new,continued in the previous routine,src/routines/snes/CODE_9C8DFE.asm
@@ -2769,7 +2765,6 @@ $9C87B1,.t1,CODE_9C87B1,new,continued in the previous routine,src/routines/snes/
 $9C879F,.t1,CODE_9C879F,new,continued in the previous routine,src/routines/snes/CODE_9C8796.asm
 $9C875C,.t1,CODE_9C875C,new,continued in the previous routine,src/routines/snes/CODE_9C874C.asm
 $9C8712,.t1,CODE_9C8712,new,continued in the previous routine,src/routines/snes/CODE_9C86FE.asm
-$9C8684,.t1,CODE_9C8684,new,continued in the previous routine,src/routines/snes/CODE_9C867C.asm
 $9C8674,.t1,CODE_9C8674,new,continued in the previous routine,src/routines/snes/CODE_9C866A.asm
 $9C8662,.t1,CODE_9C8662,new,continued in the previous routine,src/routines/snes/CODE_9C865A.asm
 $9DDF63,.t1,CODE_9DDF63,new,continued in the previous routine,src/routines/snes/CODE_9DDEA9.asm
@@ -2927,7 +2922,6 @@ $9ECE69,.t1,CODE_9ECE69,new,continued in the previous routine,src/routines/snes/
 $9ECE4B,.t1,CODE_9ECE4B,new,continued in the previous routine,src/routines/snes/CODE_9ECE33.asm
 $9ECD98,.t1,CODE_9ECD98,new,continued in the previous routine,src/routines/snes/CODE_9ECD05.asm
 $9ECC7B,.t1,CODE_9ECC7B,new,continued in the previous routine,src/routines/snes/CODE_9ECC71.asm
-$9ECC25,.t1,CODE_9ECC25,new,continued in the previous routine,src/routines/snes/CODE_9ECC1E.asm
 $9ECB5D,.t1,CODE_9ECB5D,new,continued in the previous routine,src/routines/snes/CODE_9ECB3D.asm
 $9ECAAF,.t1,CODE_9ECAAF,new,continued in the previous routine,src/routines/snes/CODE_9ECAA7.asm
 $9ECA9F,.t1,CODE_9ECA9F,new,continued in the previous routine,src/routines/snes/CODE_9ECA97.asm
@@ -3063,7 +3057,6 @@ $9FEB4E,.t1,CODE_9FEB4E,new,continued in the previous routine,src/routines/snes/
 $9FEA5E,.t1,CODE_9FEA5E,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
 $9FE780,.t1,CODE_9FE780,new,continued in the previous routine,src/routines/snes/CODE_9FE75E.asm
 $9FE757,.t1,CODE_9FE757,new,continued in the previous routine,src/routines/snes/CODE_9FE74B.asm
-$9FE73D,.t1,CODE_9FE73D,new,continued in the previous routine,src/routines/snes/CODE_9FE733.asm
 $9FE71B,.t1,CODE_9FE71B,new,continued in the previous routine,src/routines/snes/CODE_9FE6EC.asm
 $9FE6A9,.t1,CODE_9FE6A9,new,continued in the previous routine,src/routines/snes/CODE_9FE66E.asm
 $9FE628,.t1,CODE_9FE628,new,continued in the previous routine,src/routines/snes/CODE_9FE618.asm
@@ -3291,7 +3284,6 @@ $9DBF33,.t2,CODE_9DBF33,new,continued in the previous routine,src/routines/snes/
 $9DBD23,.t2,CODE_9DBD23,new,continued in the previous routine,src/routines/snes/CODE_9DBCF8.asm
 $9DBBA8,.t2,CODE_9DBBA8,new,continued in the previous routine,src/routines/snes/CODE_9DBB14.asm
 $9DBAAB,.t2,CODE_9DBAAB,new,continued in the previous routine,src/routines/snes/CODE_9DBA5E.asm
-$9DBA13,.t2,CODE_9DBA13,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
 $9DB7BB,.t2,CODE_9DB7BB,new,continued in the previous routine,src/routines/snes/CODE_9DB7A0.asm
 $9DABC1,.t2,CODE_9DABC1,new,continued in the previous routine,src/routines/snes/CODE_9DAB04.asm
 $9DA943,.t1,CODE_9DA943,new,continued in the previous routine,src/routines/snes/CODE_9DA921.asm
@@ -3585,7 +3577,6 @@ $9C9502,.t4,CODE_9C9502,new,continued in the previous routine,src/routines/snes/
 $9C937D,.t4,CODE_9C937D,new,continued in the previous routine,src/routines/snes/CODE_9C936C.asm
 $9C8FD7,.t2,CODE_9C8FD7,new,continued in the previous routine,src/routines/snes/CODE_9C8F9B.asm
 $9C8C91,.t4,CODE_9C8C91,new,continued in the previous routine,src/routines/snes/CODE_9C8C22.asm
-$9C86F3,.t4,CODE_9C86F3,new,continued in the previous routine,src/routines/snes/CODE_9C8583.asm
 $9DBFEE,.t4,CODE_9DBFEE,new,continued in the previous routine,src/routines/snes/CODE_9DBED6.asm
 $9DA758,.t4,CODE_9DA758,new,continued in the previous routine,src/routines/snes/CODE_9DA724.asm
 $9DA2DF,.t4,CODE_9DA2DF,new,continued in the previous routine,src/routines/snes/CODE_9DA2AB.asm
@@ -3614,7 +3605,6 @@ $80B52C,.t5,CODE_80B52C,new,continued in the previous routine,src/routines/snes/
 $80AA48,.t5,CODE_80AA48,new,continued in the previous routine,src/routines/snes/CODE_80A965.asm
 $9BAF56,.t5,CODE_9BAF56,new,continued in the previous routine,src/routines/snes/CODE_9BAE9D.asm
 $9C8CA1,.t5,CODE_9C8CA1,new,continued in the previous routine,src/routines/snes/CODE_9C8C22.asm
-$9C86FE,.t5,CODE_9C86FE,new,continued in the previous routine,src/routines/snes/CODE_9C8583.asm
 $9DBED6,.t2,CODE_9DBED6,new,continued in the previous routine,src/routines/snes/CODE_9DBE79.asm
 $9DA724,.t5,CODE_9DA724,new,continued in the previous routine,src/routines/snes/CODE_9DA5CA.asm
 $9DA2AB,.t5,CODE_9DA2AB,new,continued in the previous routine,src/routines/snes/CODE_9DA0D5.asm
@@ -3626,17 +3616,14 @@ $9FE161,.t5,CODE_9FE161,new,continued in the previous routine,src/routines/snes/
 $80CFEE,.t6,CODE_80CFEE,new,continued in the previous routine,src/routines/snes/CODE_80CF36.asm
 $9BAE9D,.t1,CODE_9BAE9D,new,continued in the previous routine,src/routines/snes/CODE_9BAE77.asm
 $9C8CE5,.t6,CODE_9C8CE5,new,continued in the previous routine,src/routines/snes/CODE_9C8C22.asm
-$9C874C,.t6,CODE_9C874C,new,continued in the previous routine,src/routines/snes/CODE_9C8583.asm
 $9DA768,.t6,CODE_9DA768,new,continued in the previous routine,src/routines/snes/CODE_9DA5CA.asm
 $9DA2E6,.t6,CODE_9DA2E6,new,continued in the previous routine,src/routines/snes/CODE_9DA0D5.asm
 $9FEA9A,.t6,CODE_9FEA9A,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
 $9FE259,.t6,CODE_9FE259,new,continued in the previous routine,src/routines/snes/CODE_9FE1FA.asm
 $9FE16F,.t6,CODE_9FE16F,new,continued in the previous routine,src/routines/snes/CODE_9FE11D.asm
 $80CF36,.t1,CODE_80CF36,new,continued in the previous routine,src/routines/shootout/ShooterSelectList.asm
-$9C8796,.t7,CODE_9C8796,new,continued in the previous routine,src/routines/snes/CODE_9C8583.asm
 $9FEAA6,.t7,CODE_9FEAA6,new,continued in the previous routine,src/routines/snes/CODE_9FEA24.asm
 $9FE1FA,.t7,CODE_9FE1FA,new,continued in the previous routine,src/routines/snes/CODE_9FE17D.asm
-$9C87A6,.t8,CODE_9C87A6,new,continued in the previous routine,src/routines/snes/CODE_9C8583.asm
 $9FE17D,.t7,CODE_9FE17D,new,continued in the previous routine,src/routines/snes/CODE_9FE11D.asm
 $9FA130,USBoard,ShowInjuryBox,93S,scoreboard penalty list; the injury-box name was on this routine,src/routines/penalty/USBoard.asm
 $9FA1B8,DispPen,CODE_9FA1B8,93S,"USBoard penalty-box list, timed players first",src/routines/penalty/DispPen.asm

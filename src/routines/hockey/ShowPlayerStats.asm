@@ -77,39 +77,39 @@ CODE_9C8644:
 	lda.b d3
 	bit.w #$1000
 	beq .t2
-	jmp.w .t4
+	jmp.w CODE_9C86F3
 
 .t2:
 	bit.w #$0800
 	beq .t1
 .1:
-	jmp.w .t6
+	jmp.w CODE_9C874C
 
 .t1:
 	bit.w #DMA_OAM
 	beq .t3
-	jmp.w .t5
+	jmp.w CODE_9C86FE
 
 .t3:
 	lda.b d1
 	bit.w #$0200
 	beq .t1x
 .1x:
-	jmp.w .t7
+	jmp.w CODE_9C8796
 
 .t1x:
 	bit.w #$0100
 	beq .t2x
 .1xx:
-	jmp.w .t8
+	jmp.w CODE_9C87A6
 
 .t2x:
 	bit.w #$4000
-	beq .t1xx
+	beq CODE_9C8684
 .1x2:
 	jmp.w SwapPlayerStatsTeam
 
-.t1xx:
+CODE_9C8684:
 	lda.w $1DF9
 	cmp.w #$0000
 	beq .4
@@ -157,14 +157,14 @@ CODE_9C8644:
 	jsl.l WaitFrame
 	jmp.w CODE_9C8644
 
-.t4:
+CODE_9C86F3:
 	lda.w #$0000
 	sta.l $7E3478
 	pla
 	sta.b a2
 	rtl
 
-.t5:
+CODE_9C86FE:
 	jsl.l ClearPlayerStatBraces
 	lda.w $1DB9
 	clc
@@ -172,7 +172,7 @@ CODE_9C8644:
 	dec a
 	cmp.w $1DC1
 	bmi .t1x2
-	jmp.w CODE_808684
+	jmp.w CODE_9C8684
 
 .t1x2:
 	inc.w $1DC5
@@ -195,13 +195,13 @@ CODE_9C8644:
 	sta.w $1DF3
 	jmp.w CODE_9C8644
 
-.t6:
+CODE_9C874C:
 	jsl.l ClearPlayerStatBraces
 	lda.w $1DB9
 	dec a
 	cmp.w $1DBD
 	bpl .t1x3
-	jmp.w CODE_808684
+	jmp.w CODE_9C8684
 
 .t1x3:
 	sta.w $1DB9
@@ -224,22 +224,22 @@ CODE_9C8644:
 	sta.w $1DF3
 	jmp.w CODE_9C8644
 
-.t7:
+CODE_9C8796:
 	lda.w $1DF9
 	dec a
 	bpl .t1x4
-	jmp.w CODE_808684
+	jmp.w CODE_9C8684
 
 .t1x4:
 	cmp.w #$0000
 	beq CODE_9C87C5
 	bra CODE_9C87B7
 
-.t8:
+CODE_9C87A6:
 	lda.w $1DF9
 	cmp.w #$0005
 	bmi .t1x5
-	jmp.w CODE_808684
+	jmp.w CODE_9C8684
 
 .t1x5:
 	inc a
@@ -249,4 +249,4 @@ CODE_9C87B7:
 	sta.w $1DF9
 	jsl.l CODE_9C8B69
 	jsl.l CODE_9C88A0
-	jmp.w CODE_808684
+	jmp.w CODE_9C8684

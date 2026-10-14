@@ -10,7 +10,7 @@ projxy:
 	sta.b d0
 	pla
 	sec
-	sbc.w #tmp0
+	sbc.w #$00C5
 	sta.b d1
 	bra CODE_9BC138
 
@@ -27,7 +27,7 @@ CODE_9BC138:
 	lda.b d0
 	cmp.w #$FF6F
 	bmi .t1
-	cmp.w #a2
+	cmp.w #$0091
 	bpl .t1
 	lda.b d0
 	clc
@@ -46,7 +46,7 @@ CODE_9BC138:
 	sta.b d1
 	cmp.w #$FF6F
 	bmi .t1
-	cmp.w #a2
+	cmp.w #$0091
 	bpl .t1
 	lda.w #$0070
 	sec

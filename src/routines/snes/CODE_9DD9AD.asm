@@ -150,7 +150,7 @@ CODE_9DD9AD:
 	sec
 	sbc.w #$0100
 	sta.l $7E35D2
-	lda.w #a3
+	lda.w #DATA8_95F1AE>>16
 	sta.b $0E
 	lda.w #DATA8_95F1AE
 	sta.b $0C

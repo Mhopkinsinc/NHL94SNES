@@ -26,7 +26,7 @@ CODE_9B8C7A:
 	inc a
 	inc a
 	sta.b a3
-	jsr.w CODE_808D72
+	jsr.w CODE_9B8D72
 	cmp.w $1D8F
 	bne .t1
 	jsr.w CODE_9B8D4D
@@ -44,7 +44,7 @@ CODE_9B8C7A:
 	clc
 	adc.w #$0004
 	sta.b a3
-	jsr.w CODE_808D72
+	jsr.w CODE_9B8D72
 	cmp.w $1D8F
 	bne .t1x
 	dec.b a3
@@ -62,7 +62,7 @@ CODE_9B8C7A:
 	clc
 	adc.w #$0004
 	sta.b a3
-	jsr.w CODE_808D72
+	jsr.w CODE_9B8D72
 	cmp.w $1D8F
 	bne .t1x2
 	jsr.w CODE_9B8D4D
@@ -79,7 +79,7 @@ CODE_9B8C7A:
 	lda.b d0
 CODE_9B8CFF:
 	sta.b a3
-	jsr.w CODE_808D72
+	jsr.w CODE_9B8D72
 	cmp.w $1D8F
 	bne CODE_9B8D20
 	jsr.w CODE_9B8D32

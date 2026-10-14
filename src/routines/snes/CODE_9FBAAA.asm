@@ -89,7 +89,7 @@ CODE_9FBAAA:
 	sta.b d0
 	lda.w Xpos,y
 	sec
-	sbc.w #tmp0
+	sbc.w #$00C5
 	sta.b d1
 	bra CODE_9FBB89
 

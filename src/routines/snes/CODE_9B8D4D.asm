@@ -5,11 +5,11 @@ CODE_9B8D4D:
 	inc a
 	inc a
 	sta.b a3
-	jsr.w CODE_808D72
+	jsr.w CODE_9B8D72
 	sta.w $1D93
 	inc.b a3
 	inc.b a3
-	jsr.w CODE_808D72
+	jsr.w CODE_9B8D72
 	dec.b a3
 	dec.b a3
 	jsr.w CODE_9B8D7C
@@ -19,7 +19,7 @@ CODE_9B8D4D:
 	jsr.w CODE_9B8D7C
 	rts
 
-.t1:
+CODE_9B8D72:
 	sep #$20
 	lda.b [a3]
 	rep #$20

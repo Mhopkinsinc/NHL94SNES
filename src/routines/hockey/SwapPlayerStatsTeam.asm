@@ -22,4 +22,4 @@ SwapPlayerStatsTeam:
 	jsl.l CODE_9C88A0
 	jsl.l SpriteFrameEnd
 	jsl.l CODE_9DE0D4
-	jmp.w CODE_808684
+	jmp.w CODE_9C8684

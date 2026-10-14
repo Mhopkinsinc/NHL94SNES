@@ -28,7 +28,7 @@ ClearGameStatBraces:
 	jsl.l CODE_9EC894
 	rts
 
-.t1:
+CODE_9C8F7D:
 	lda.w $1DBD
 	xba
 	lsr a

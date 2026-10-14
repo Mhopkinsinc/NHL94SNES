@@ -2,7 +2,7 @@
 CODE_9BABAB:
 	lda.w $0CAB
 	bpl .t2
-	jmp.w CODE_80AC3E
+	jmp.w CODE_9BAC3E
 
 .t2:
 	tax
@@ -77,7 +77,7 @@ CODE_9BAC20:
 	sta.w $0AF3
 	jmp.w CODE_9BACCD
 
-.t1:
+CODE_9BAC3E:
 	cmp.w #$FFFF
 	beq CODE_9BACC1
 	lda.w $0D75

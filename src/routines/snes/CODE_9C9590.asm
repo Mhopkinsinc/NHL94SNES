@@ -56,7 +56,7 @@ CODE_9C9599:
 	tax
 	phx
 	phy
-	lda.w #a3
+	lda.w #SmallLetterSprites>>16
 	sta.b $12
 	lda.w #SmallLetterSprites
 	sta.b $10

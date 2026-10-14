@@ -45,4 +45,4 @@ CODE_9ECF40:
 	and.w #$001F
 	sta.w printy
 	iny
-	jmp.w CODE_80CE2B
+	jmp.w CODE_9ECE2B

@@ -4,12 +4,12 @@ updatepentime:
 	trb.w sflags3
 	lda.w gmclock
 	beq .t2
-	jmp.w CODE_80BFDD
+	jmp.w CODE_9EBFDD
 
 .t2:
 	lda.w $163A
 	beq .t1
-	jmp.w CODE_80BFDD
+	jmp.w CODE_9EBFDD
 
 .t1:
 	lda.w pentimer

@@ -66,7 +66,7 @@ CODE_9EC9E2:
 .t1x2:
 	cmp.w #$006E
 	bne .t2x
-	jmp.w CODE_80CC25
+	jmp.w CODE_9ECC25
 
 .t2x:
 	cmp.w #$0074

@@ -131,7 +131,7 @@ CODE_9D87D7:
 	ldx.w #$0120
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
-	lda.w #a3
+	lda.w #DATA8_95F1AE>>16
 	sta.b $0E
 	lda.w #DATA8_95F1AE
 	sta.b $0C

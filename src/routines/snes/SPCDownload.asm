@@ -16,7 +16,7 @@ SPCDownload:		; sound driver command $11: X bytes from sound RAM address Y to [$
 .ack2:
 	cmp.w APUIO0
 	bne .ack2
-	lda.b #xsave
+	lda.b #$87
 	sta.w APUIO0
 	lda.b #$00
 	sta.w APUIO1

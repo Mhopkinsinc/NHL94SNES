@@ -27,7 +27,7 @@ CODE_9BACE5:
 	lda.b d0
 	bit.w #$0008
 	beq .t2
-	jmp.w CODE_80AE77
+	jmp.w CODE_9BAE77
 
 .t2:
 	sta.b d5

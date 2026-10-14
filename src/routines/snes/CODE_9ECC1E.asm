@@ -4,7 +4,7 @@ CODE_9ECC1E:
 	sta.b a1
 	bra CODE_9ECC2A
 
-.t1:
+CODE_9ECC25:
 	lda.w tmdata
 	sta.b a1
 CODE_9ECC2A:

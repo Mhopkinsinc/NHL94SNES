@@ -7,7 +7,7 @@ CODE_9FC331:
 	bne CODE_9FC326
 	bit.w #$0040
 	beq .t1
-	jmp.w DATA16_80C2BA
+	jmp.w CODE_9FC2BA
 
 .t1:
 	bit.w #$0080

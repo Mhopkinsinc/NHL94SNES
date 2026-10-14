@@ -71,7 +71,7 @@ CODE_9D906E:
 	dec.b d4
 	bne .loop
 .1:
-	lda.w #a3
+	lda.w #DATA8_95FF9B>>16
 	sta.b $0E
 	lda.w #DATA8_95FF9B
 	sta.b $0C

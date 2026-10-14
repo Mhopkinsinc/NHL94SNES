@@ -4,7 +4,7 @@ CODE_9B8D0E:
 	inc a
 CODE_9B8D11:
 	sta.b a3
-	jsr.w CODE_808D72
+	jsr.w CODE_9B8D72
 	cmp.w $1D8F
 	bne CODE_9B8D20
 	dec.b a3

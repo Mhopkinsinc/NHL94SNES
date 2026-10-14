@@ -100,7 +100,7 @@ CODE_9B8E4F:
 	sec
 	sbc.w $1D8B
 	sta.b a3
-	jsr.w CODE_808D72
+	jsr.w CODE_9B8D72
 	sta.w $1D9B
 	lda.w $1DAF
 	clc

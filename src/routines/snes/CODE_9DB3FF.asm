@@ -9,6 +9,6 @@ CODE_9DB3FF:
 	bcs CODE_9DB41E
 	lda.w $0BE9
 	bne CODE_9DB41E
-	jsr.w CODE_80BA13
+	jsr.w CODE_9DBA13
 	jsr.w CODE_9DB430
 	bra .loop

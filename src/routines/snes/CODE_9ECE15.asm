@@ -14,7 +14,7 @@ CODE_9ECE15:
 	lda.b $AF
 	pha
 	ldy.w #$0002
-.1:
+CODE_9ECE2B:
 	tya
 	cmp.b [a1]
 	bne .t3
@@ -121,4 +121,4 @@ CODE_9ECF07:
 	inc.w printx
 CODE_9ECF0A:
 	iny
-	jmp.w CODE_80CE2B
+	jmp.w CODE_9ECE2B

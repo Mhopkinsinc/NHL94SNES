@@ -47,7 +47,7 @@ CODE_9C8C22:
 .t2:
 	cmp.w #$0005
 	bne .t1
-	jmp.w CODE_808CF5
+	jmp.w .t1x
 
 .t1:
 	jmp.w CODE_9C8D03
