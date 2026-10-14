@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FF345:
+; Center the string in a1 and print it.
+PrintCentered:
 	jsl.l .t1
 	jsl.l print
 	rtl

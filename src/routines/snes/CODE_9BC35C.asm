@@ -3,7 +3,7 @@ CODE_9BC35C:
 	jsr.w CODE_9BC4F3
 	lda.w #$0006
 	sta.w $1DC5
-	jsl.l CODE_9BC44B
+	jsl.l DrawOtherScoresPage
 	lda.w #$0005
 	sta.w $1DC5
 	lda.w $1DBD
@@ -49,7 +49,7 @@ CODE_9BC3A8:
 	lda.w $1DF3
 	cmp.w #$0017
 	bne .loop
-	jsl.l CODE_9BC44B
+	jsl.l DrawOtherScoresPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3

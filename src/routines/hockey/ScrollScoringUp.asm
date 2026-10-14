@@ -1,12 +1,12 @@
-; Unidentified routine.
-CODE_9B9514:
+; Scroll the scoring summary up one page.
+ScrollScoringUp:
 	lda.w $1DBD
 	dec a
 	bmi CODE_9B94BB
 	sta.w $1DBD
 	lda.w #$0006
 	sta.w $1DC5
-	jsr.w CODE_9B9562
+	jsr.w DrawScoringPage
 	jsl.l WaitFrame
 	lda.w #$0015
 	sta.w $1DF3
@@ -22,7 +22,7 @@ CODE_9B9514:
 	jsl.l CODE_9B9AB2
 	lda.w #$0005
 	sta.w $1DC5
-	jsr.w CODE_9B9562
+	jsr.w DrawScoringPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3

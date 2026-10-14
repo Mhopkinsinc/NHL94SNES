@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B987B:
+; Scroll the penalty summary up one page.
+ScrollPenaltyUp:
 	lda.w $1DBD
 	dec a
 	bmi CODE_9B9822

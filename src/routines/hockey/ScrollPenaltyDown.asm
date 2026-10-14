@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9828:
+; Scroll the penalty summary down one page.
+ScrollPenaltyDown:
 	lda.w #$0006
 	sta.w $1DC5
 	jsr.w DrawPenaltyPage
