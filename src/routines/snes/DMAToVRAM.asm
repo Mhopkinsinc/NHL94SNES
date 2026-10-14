@@ -1,7 +1,7 @@
 ; DMA X bytes from [$0C] to video memory at Y
 DMAToVRAM:
 	lda.w $0761
-	bpl CODE_808950
+	bpl QueueVRAMDMA
 	stx.w DAS1L
 	lda.b $0C
 	sta.w A1T1L

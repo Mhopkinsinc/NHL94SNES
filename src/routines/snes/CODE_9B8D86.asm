@@ -44,7 +44,7 @@ CODE_9B8D86:
 	clc
 	adc.w #$0C00
 	jsl.l WaitFrame
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	jsl.l CODE_9DD938
 	jsl.l CODE_9DD962
 	jsl.l SpriteFrameEnd

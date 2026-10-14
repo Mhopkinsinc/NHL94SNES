@@ -54,7 +54,7 @@ CODE_9BAE77:
 	adc.l $7E35AA
 	ldx.w #$0180
 	ldy.w #$0000
-	jsl.l CODE_808862
+	jsl.l FillVRAMSplit
 	jsl.l WaitFrame
 	lda.w #$0000
 	sta.l $7E35F0

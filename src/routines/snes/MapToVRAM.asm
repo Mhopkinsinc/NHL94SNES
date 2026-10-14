@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808ADF:
+; Copy map [$0C] (width, height) into the screen map in video memory at column X, row Y
+MapToVRAM:
 	stx.b $1C
 	sty.b $1E
 	ldy.w #$0000
@@ -110,7 +110,7 @@ CODE_808ADF:
 	asl a
 	tax
 	phy
-	jsl.l CODE_808950
+	jsl.l QueueVRAMDMA
 	ply
 .2x:
 	tya
@@ -136,7 +136,7 @@ CODE_808ADF:
 	sta.b $20
 	tax
 	phy
-	jsl.l CODE_808950
+	jsl.l QueueVRAMDMA
 	ply
 	lda.b $18
 	asl a
@@ -148,6 +148,6 @@ CODE_808ADF:
 	adc.w #$0400
 	and.w #$FFE0
 	tay
-	jsl.l CODE_808950
+	jsl.l QueueVRAMDMA
 	ply
 	jmp.w .2x

@@ -220,7 +220,7 @@ CODE_9DC697:
 	adc.l $7E35AC
 	clc
 	adc.w #$1000
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ADE57

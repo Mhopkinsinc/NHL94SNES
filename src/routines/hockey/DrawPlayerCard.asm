@@ -425,7 +425,7 @@ org $9DC002
 	sta.w $079C
 	ldx.w #$000C
 	ldy.w #$0004
-	jsl.l CODE_808ADF
+	jsl.l MapToVRAM
 	bra .7
 
 .t1xxxx:

@@ -7,7 +7,7 @@ CODE_9DE074:
 	lda.w #$0000
 	ldy.w #$3000
 	ldx.w #$0020
-	jsl.l CODE_8087EA
+	jsl.l FillVRAM
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96A103

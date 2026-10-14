@@ -43,7 +43,7 @@ CODE_9D87D7:
 	lda.w #$0000
 	ldy.w #$FFFF
 	ldx.w #$0020
-	jsl.l CODE_8087EA
+	jsl.l FillVRAM
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96A103
@@ -179,7 +179,7 @@ CODE_9D87D7:
 	lda.l $7E35AC
 	clc
 	adc.w #$0C00
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ADE57

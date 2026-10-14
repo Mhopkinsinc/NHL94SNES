@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808F03:
+; OR the word A into X bytes at [$10]
+MemOr:
 	sta.b $14
 	txy
 	dey

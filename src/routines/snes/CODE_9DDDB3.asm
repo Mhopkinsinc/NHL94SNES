@@ -27,7 +27,7 @@ CODE_9DDDB3:
 	ldx.w #$0001
 	ldy.w #$0001
 	lda.w #$0000
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	bra .2
 
 .t1:
@@ -66,7 +66,7 @@ CODE_9DDDB3:
 	ldx.w #$0001
 	ldy.w #$0001
 	lda.w #$0000
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 .2:
 	lda.l $7E3452
 	sta.b $00
@@ -92,7 +92,7 @@ CODE_9DDDB3:
 	ldx.w #$0018
 	ldy.w #$0001
 	lda.w #$0000
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	bra .3
 
 .t1x:
@@ -131,7 +131,7 @@ CODE_9DDDB3:
 	ldx.w #$0018
 	ldy.w #$0001
 	lda.w #$0000
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 .3:
 	lda.l $7E3478
 	bne .5

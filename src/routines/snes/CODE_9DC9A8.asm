@@ -78,7 +78,7 @@ CODE_9DC9A8:
 .1x:
 	plx
 	ply
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	bra .3
 
 .t1xx:

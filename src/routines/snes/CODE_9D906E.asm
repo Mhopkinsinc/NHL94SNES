@@ -94,7 +94,7 @@ CODE_9D906E:
 	ldy.w #$0008
 	lda.l $7E35C6
 	ora.w #$0C00
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	lda.b $8F
 	pha
 	lda.b a1
@@ -132,7 +132,7 @@ CODE_9D906E:
 	sta.b $1A
 	ldx.w #$0000
 	ldy.w #$0000
-	jsl.l CODE_808BED
+	jsl.l MapPartToVRAM
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$A670
@@ -147,7 +147,7 @@ CODE_9D906E:
 	sta.b $1A
 	ldx.w #$0000
 	ldy.w #$0000
-	jsl.l CODE_808BED
+	jsl.l MapPartToVRAM
 	lda.w #$0180
 	sta.w Hscroll
 	sec
@@ -266,7 +266,7 @@ CODE_9D906E:
 	tax
 	phx
 	ldy.w #$0000
-	jsl.l CODE_808BED
+	jsl.l MapPartToVRAM
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$C676
@@ -282,7 +282,7 @@ CODE_9D906E:
 	lda.w #$0020
 	sta.b $1A
 	ldy.w #$0000
-	jsl.l CODE_808BED
+	jsl.l MapPartToVRAM
 	bra .4
 
 .t2xx:
@@ -312,7 +312,7 @@ CODE_9D906E:
 	tax
 	phx
 	ldy.w #$0000
-	jsl.l CODE_808BED
+	jsl.l MapPartToVRAM
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$C676
@@ -328,7 +328,7 @@ CODE_9D906E:
 	lda.w #$0020
 	sta.b $1A
 	ldy.w #$0000
-	jsl.l CODE_808BED
+	jsl.l MapPartToVRAM
 .4:
 	lda.w Hscroll
 	cmp.w #$0058

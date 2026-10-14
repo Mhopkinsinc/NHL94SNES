@@ -28,7 +28,7 @@ CODE_9DB5B6:
 	lda.w #$0000
 	ldx.w #$4000
 	ldy.w #$0000
-	jsl.l CODE_808862
+	jsl.l FillVRAMSplit
 	lda.w #DATA8_95F8C6>>16
 	sta.b $0E
 	lda.w #DATA8_95F8C6
@@ -43,7 +43,7 @@ CODE_9DB5B6:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$0000
-	jsl.l CODE_80899B
+	jsl.l DMAToVRAMHigh
 	lda.w #$008A
 	sta.b $0E
 	lda.w #DATA8_8AFF7A
@@ -52,7 +52,7 @@ CODE_9DB5B6:
 	sta.w $079C
 	ldx.w #$003C
 	ldy.w #$003C
-	jsl.l CODE_808D43
+	jsl.l Mode7MapToVRAM
 	lda.w #$0094
 	sta.b $0E
 	lda.w #DATA8_948000
@@ -85,7 +85,7 @@ CODE_9DB5B6:
 	sta.w $079C
 	ldx.w #$0000
 	ldy.w #$0000
-	jsl.l CODE_808ADF
+	jsl.l MapToVRAM
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AD88C
@@ -103,7 +103,7 @@ CODE_9DB5B6:
 	sta.w $079C
 	ldx.w #$0000
 	ldy.w #$0000
-	jsl.l CODE_808ADF
+	jsl.l MapToVRAM
 	lda.w #DATA8_87FF91>>16
 	sta.b $0E
 	lda.w #DATA8_87FF91
@@ -127,7 +127,7 @@ CODE_9DB5B6:
 	adc.w #$0006
 	sta.b $10
 	lda.w #$8080
-	jsl.l CODE_808F03
+	jsl.l MemOr
 	lda.w #DATA8_91B188>>16
 	sta.b $0E
 	lda.w #DATA8_91B188

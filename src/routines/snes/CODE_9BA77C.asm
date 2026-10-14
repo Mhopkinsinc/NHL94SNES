@@ -51,7 +51,7 @@ CODE_9BA77C:
 	adc.l $7E35C4
 	clc
 	adc.w #$1C00
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	jsl.l WaitFrame
 	pla
 	sta.b $04

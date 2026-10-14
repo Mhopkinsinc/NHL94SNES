@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808950:
+; Add a DMA of X bytes from [$0C] to video memory at Y to the NMI transfer list
+QueueVRAMDMA:
 	txa
 	ldx.b $3C
 .loop:

@@ -18,7 +18,7 @@ CODE_9DB0AB:
 	ldy.w printy
 	sty.b $26
 	ldx.w #$0000
-	jsl.l CODE_808BED
+	jsl.l MapPartToVRAM
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$4EF4

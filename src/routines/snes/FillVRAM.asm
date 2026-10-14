@@ -1,17 +1,22 @@
-; Unidentified routine.
-CODE_80899B:
+; Fill X bytes of video memory at Y with the word A
+FillVRAM:
+	sta.b $16
 	lda.w $0761
 	bpl .t1
 	stx.w DAS1L
-	lda.b $0C
-	sta.w A1T1L
-	lda.w #$1900
-	sta.w DMAP1
+	cpy.w #$0000
+	bmi .1
 	sty.w VMADDL
 	sty.b $14
+.1:
+	ldy.w #$0016
+	sty.w A1T1L
 	sep #$20
-	lda.b $0E
-	sta.w A1B1
+	lda.b #$09
+	sta.w DMAP1
+	lda.b #$18
+	sta.w BBAD1
+	stz.w A1B1
 	lda.b #$02
 	sta.w MDMAEN
 	rep #$20
@@ -25,12 +30,13 @@ CODE_80899B:
 	txa
 	ldx.b $3C
 .loop:
-	sta.b $14
+	pha
 	cmp.w #$1001
-	bcc .1
+	bcc .1x
 	lda.w #$1000
-.1:
+.1x:
 	sta.w $0104,x
+	lsr a
 	pha
 	tya
 	sta.w $0106,x
@@ -38,15 +44,11 @@ CODE_80899B:
 	clc
 	adc.w $0106,x
 	tay
-	lda.b $0C
+	lda.w #$0016
 	sta.w $0101,x
-	clc
-	adc.w #$1000
-	sta.b $0C
 	sep #$20
-	lda.b $0E
-	sta.w $0103,x
-	lda.b #$FA
+	stz.w $0103,x
+	lda.b #$09
 	sta.w $0100,x
 	rep #$20
 	txa
@@ -54,7 +56,7 @@ CODE_80899B:
 	adc.w #$0008
 	and.w #$03FF
 	tax
-	lda.b $14
+	pla
 	sec
 	sbc.w #$1000
 	beq .2

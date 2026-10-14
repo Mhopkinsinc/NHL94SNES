@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808BED:
+; Copy part of map [$0C] into the screen map in video memory at column X, row Y
+MapPartToVRAM:
 	cpx.w #$0020
 	bcc .1
 	txa
@@ -141,7 +141,7 @@ CODE_808BED:
 	phy
 	lda.b $0C
 	pha
-	jsl.l CODE_808950
+	jsl.l QueueVRAMDMA
 	pla
 	sta.b $0C
 	ply
@@ -175,7 +175,7 @@ CODE_808BED:
 	lda.b $0C
 	pha
 	phy
-	jsl.l CODE_808950
+	jsl.l QueueVRAMDMA
 	ply
 	lda.b $18
 	asl a
@@ -187,7 +187,7 @@ CODE_808BED:
 	adc.w #$0400
 	and.w #$FFE0
 	tay
-	jsl.l CODE_808950
+	jsl.l QueueVRAMDMA
 	ply
 	pla
 	sta.b $0C

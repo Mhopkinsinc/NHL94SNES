@@ -45,7 +45,7 @@ CODE_9DCB9F:
 .1:
 	plx
 	ply
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	ldy.b a2
 	lda.w HomeTeam,y
 	asl a

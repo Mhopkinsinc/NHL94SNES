@@ -674,3 +674,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - SetupScreen (94G), PrintLetterSprites, LetterSpriteWidths, ReadPausePad and pausepad. MATCH.
 - `DATA8_80D3EB` is `PenaltyList` (same layout and readers as 93S). MATCH.
 - wallcoll and the RAM Wallcos / Wallsin from 93S. MATCH.
+- VRAM and map helpers named from what they do (PasteMap, MapToVRAM, FillVRAM, QueueVRAMDMA ...). MATCH.

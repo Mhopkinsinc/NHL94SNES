@@ -142,7 +142,7 @@ setupice:
 	lda.w #$0000
 	ldy.w #$FFFF
 	ldx.w #$0020
-	jsl.l CODE_8087EA
+	jsl.l FillVRAM
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96A103

@@ -1,10 +1,10 @@
-; Unidentified routine.
-CODE_808A11:
+; Copy part of map [$0C] into the screen map at column X, row Y, adding A to each entry
+MapPartToVRAMOffset:
 	sta.b $16
 	lda.w $0761
 	bmi .t1
 .1:
-	jmp.w CODE_808A11
+	jmp.w MapPartToVRAMOffset
 
 .t1:
 	cpx.w #$0020

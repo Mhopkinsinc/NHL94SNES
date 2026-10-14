@@ -49,7 +49,7 @@ CODE_9FC896:
 	sta.w $079C
 	ldx.w #$0000
 	ldy.w #$0000
-	jsl.l CODE_808BED
+	jsl.l MapPartToVRAM
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$C800
@@ -66,5 +66,5 @@ CODE_9FC896:
 	sta.w $079C
 	ldx.w #$0000
 	ldy.w #$0000
-	jsl.l CODE_808BED
+	jsl.l MapPartToVRAM
 	jmp.w USBoard

@@ -16,7 +16,7 @@ ReplayMode:
 	adc.l $7E35AA
 	ldx.w #$0400
 	ldy.w #$0000
-	jsl.l CODE_808862
+	jsl.l FillVRAMSplit
 	lda.w #$FFFF
 	sta.w $0CAB
 	sta.l $7E35F0
@@ -39,7 +39,7 @@ ReplayMode:
 	lda.l $7E35AA
 	ldx.w #$0002
 	ldy.w #$0002
-	jsl.l CODE_808A11
+	jsl.l MapPartToVRAMOffset
 	lda.w ReplayBufferPtr
 	pha
 	lda.w $0D21

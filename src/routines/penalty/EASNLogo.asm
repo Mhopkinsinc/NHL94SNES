@@ -32,7 +32,7 @@ EASNLogo:
 	clc
 	adc.l $7E35B0
 	adc.l $7E35AA
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	lda.w #$0321
 	cmp.w textdirtylo
 	bcs .1

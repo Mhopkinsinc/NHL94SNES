@@ -171,7 +171,7 @@ CODE_9DB118:
 	sta.w $079C
 	ldx.w #$003C
 	ldy.w #$003C
-	jsl.l CODE_808D43
+	jsl.l Mode7MapToVRAM
 	jsl.l WaitFrame
 	lda.w #$0011
 	sta.w $0BD3
@@ -219,7 +219,7 @@ CODE_9DB118:
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$2000
-	jsl.l CODE_80899B
+	jsl.l DMAToVRAMHigh
 	jsr.w CODE_9DBCF8
 	stz.w $0BFD
 	lda.w $0BD5

@@ -59,7 +59,7 @@ Reset_Fast:
 	lda.w #$0000
 	tax
 	tay
-	jsl.l CODE_8087EA
+	jsl.l FillVRAM
 	sep #$20
 	stz.w NMITIMEN
 	lda.b #$FF

@@ -79,5 +79,5 @@ CODE_80CB5C:
 	lda.l $7E35AC
 	clc
 	adc.w #$0C00
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	rtl

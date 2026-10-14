@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808D43:
+; Copy byte map [$0C] (width, height) into the mode 7 map at column X, row Y
+Mode7MapToVRAM:
 	stx.b $1C
 	sty.b $1E
 	ldy.w #$0000

@@ -9,7 +9,7 @@ CODE_9DBB14:
 	sta.w $079C
 	ldx.w #$003C
 	ldy.w #$003C
-	jsl.l CODE_808D43
+	jsl.l Mode7MapToVRAM
 	pla
 	asl a
 	asl a
@@ -41,7 +41,7 @@ CODE_9DBB14:
 	sta.b $0C
 	lda.w #$0000
 	sta.w $079C
-	jsl.l CODE_808D43
+	jsl.l Mode7MapToVRAM
 	plx
 	lda.l CenterIceTable,x
 	sta.b $0C
@@ -62,7 +62,7 @@ CODE_9DBB14:
 	lda.w #$A000
 	sta.b $0C
 	ldy.w #$0000
-	jsl.l CODE_80899B
+	jsl.l DMAToVRAMHigh
 	rts
 
 .t2:

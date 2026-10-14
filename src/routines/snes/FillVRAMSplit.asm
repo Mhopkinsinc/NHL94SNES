@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808862:
+; Fill X bytes of video memory at Y with the word A, the low bytes then the high bytes
+FillVRAMSplit:
 	sta.b $16
 	lda.w $0761
 	bpl .t1

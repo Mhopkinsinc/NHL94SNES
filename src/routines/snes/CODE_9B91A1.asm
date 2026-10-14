@@ -70,6 +70,6 @@ CODE_9B91A1:
 	lda.l $7E35AC
 	clc
 	adc.w #$0C00
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	pla
 	rts

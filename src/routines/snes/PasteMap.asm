@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808E2D:
+; Copy map [$0C] (width, height) into the map at [$10], column X, row Y, adding A to each entry
+PasteMap:
 	sta.b $26
 	stx.b $1C
 	tya

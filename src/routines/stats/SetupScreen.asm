@@ -199,7 +199,7 @@ SetupScreen:
 	ldx.w #$0000
 	ldy.w #$0000
 	lda.w #$0C00
-	jsl.l CODE_808E7C
+	jsl.l PasteMapPart
 	lda.w #$0007
 	sta.l $7F7700
 	sta.l $7F7702
@@ -220,7 +220,7 @@ SetupScreen:
 	lda.l $7E35AC
 	clc
 	adc.w #$0C00
-	jsl.l CODE_808E2D
+	jsl.l PasteMap
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ADE57
