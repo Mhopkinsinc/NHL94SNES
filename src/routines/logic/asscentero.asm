@@ -127,9 +127,9 @@ asscentero:
 	sbc.b d1
 	sta.b d1
 .1xxx:
-	lda.w #$009E
+	lda.w #EvadePC>>16
 	sta.b $8B
-	lda.w #$8904
+	lda.w #EvadePC
 	sta.b a0
 	jml.l skateto
 

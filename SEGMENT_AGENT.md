@@ -703,3 +703,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - LoadPictureMap. MATCH.
 - PulseColour, PulsePauseSide. MATCH.
 - asstab tail split into PuckcSpots and the PixelRemap tables. MATCH.
+- EvadePC and the skateto callback labels. MATCH.

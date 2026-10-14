@@ -159,9 +159,9 @@ assbench:
 	sta.b d0
 	lda.w $1063,x
 	sta.b d1
-	lda.w #$009E
+	lda.w #EvadePC>>16
 	sta.b $8B
-	lda.w #$8904
+	lda.w #EvadePC
 	sta.b a0
 	jml.l skateto
 .7:

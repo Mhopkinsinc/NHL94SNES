@@ -1960,8 +1960,8 @@ $9FACC9,.loop4,CODE_9FACC9,new,branch target only used in this routine,src/routi
 $9FACCF,.loop5,CODE_9FACCF,new,branch target only used in this routine,src/routines/snes/CODE_9FABB3.asm
 $9FB392,.1,CODE_9FB392,new,branch target only used in this routine,src/routines/snes/CODE_9FB38A.asm
 $9E8900,.1,CODE_9E8900,new,branch target only used in this routine,src/routines/logic/assdefo.asm
-$9E891B,.2,CODE_9E891B,new,branch target only used in this routine,src/routines/logic/assdefo.asm
-$9E893F,.3,CODE_9E893F,new,branch target only used in this routine,src/routines/logic/assdefo.asm
+$9E891B,.2,CODE_9E891B,new,branch target only used in this routine,src/routines/logic/EvadePC.asm
+$9E893F,.3,CODE_9E893F,new,branch target only used in this routine,src/routines/logic/EvadePC.asm
 $9E9BC4,.1,CODE_9E9BC4,new,branch target only used in this routine,src/routines/snes/CODE_9E9BB3.asm
 $9E9BD2,.2,CODE_9E9BD2,new,branch target only used in this routine,src/routines/snes/CODE_9E9BB3.asm
 $9F8CA4,.1,CODE_9F8CA4,new,branch target only used in this routine,src/routines/hockey/clockcont_0.asm
@@ -3020,7 +3020,7 @@ $9E8BE5,.t1,CODE_9E8BE5,new,continued in the previous routine,src/routines/logic
 $9E8BB6,.t1,CODE_9E8BB6,new,continued in the previous routine,src/routines/snes/CODE_9E8ACC.asm
 $9E8A40,.t1,CODE_9E8A40,new,continued in the previous routine,src/routines/snes/CODE_9E8A18.asm
 $9E8A0A,.t1,CODE_9E8A0A,new,continued in the previous routine,src/routines/logic/asswingd.asm
-$9E8967,.t1,CODE_9E8967,new,continued in the previous routine,src/routines/logic/assdefo.asm
+$9E8967,.t1,CODE_9E8967,new,continued in the previous routine,src/routines/logic/EvadePC.asm
 $9E88D9,.t1,CODE_9E88D9,new,continued in the previous routine,src/routines/snes/CODE_9E889E.asm
 $9E889D,.t1,CODE_9E889D,new,continued in the previous routine,src/routines/snes/CODE_9E8832.asm
 $9E881F,.t1,CODE_9E881F,new,continued in the previous routine,src/routines/logic/assdefo.asm
@@ -5582,3 +5582,6 @@ $80D3C0,PixelRemap8D,asstab+156,93S,equals 93S PixelRemap8D,src/data/tables/Pixe
 $80D3D0,PixelRemap83,asstab+172,93S,equals 93S PixelRemap83; setupice remaps the small font with it as 93S,src/data/tables/PixelRemap83.asm
 $80D3D7,PixelRemap8F,asstab+179,93S,equals 93S PixelRemap8F,src/data/tables/PixelRemap8F.asm
 $80D3E7,PixelRemap87,asstab+195,93S,equals 93S PixelRemap87; setupice remaps the framer tiles with it as 93S,src/data/tables/PixelRemap87.asm
+$9E8904,EvadePC,"(assdefo, no label)",93S,"the 93S EvadePC body (puckc, the one frame lookahead against the puck carrier, vtoa); assdefo, assbench, asscentero and asswingo pass it to skateto as 93S (was the immediate #$8904)",src/routines/logic/EvadePC.asm
+$9E8374,.chkdir,"(asspuckc, no label)",93S,asspuckc: the skateto callback 93S asspuckc passes as .chkdir (was the immediate #$8374),src/routines/logic/asspuckc.asm
+$9EE592,.nocallback,"(CODE_9EE463, no label)",new,CODE_9EE463: an rtl passed to skateto as its callback (was the immediate #$E592),src/routines/snes/CODE_9EE463.asm

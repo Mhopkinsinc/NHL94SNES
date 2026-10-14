@@ -101,13 +101,14 @@ asspuckc:
 	sbc.b d1
 	sta.b d1
 .3xx:
-	lda.w #$009E
+	lda.w #.chkdir>>16
 	sta.b $8B
-	lda.w #$8374
+	lda.w #.chkdir
 	sta.b a0
 	jml.l skateto
 .10:
 	rtl
+.chkdir:		; skateto callback: turn away from an opponent near where the puck will be
 	lda.b d0
 	and.w #$00FF
 	bit.w #$0080

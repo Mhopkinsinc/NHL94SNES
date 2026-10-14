@@ -61,9 +61,9 @@ CODE_9EE463:
 	sbc.b d1
 	sta.b d1
 .1xx:
-	lda.w #$009E
+	lda.w #.nocallback>>16
 	sta.b $8B
-	lda.w #$E592
+	lda.w #.nocallback
 	sta.b a0
 	lda.w $1023,x
 	sec
@@ -138,6 +138,7 @@ CODE_9EE463:
 	sta.w SPAcnt,x
 	jsl.l doshot
 	rtl
+.nocallback:		; the skateto callback that does nothing
 	rtl
 .9:
 	lda.w $1EA7
