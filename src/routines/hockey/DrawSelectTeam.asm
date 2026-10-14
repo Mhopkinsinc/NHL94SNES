@@ -102,11 +102,11 @@ DrawSelectTeam:
 	pha
 	lda.w #$005C
 	sta.w jmlvector
-	lda.w #$9C76
+	lda.w #BigLetterSelect
 	sta.w jmlvector+1
-	lda.w #$009D
+	lda.w #BigLetterSelect>>16
 	sta.w jmlvector+3
-	jsl.l CODE_9D9A5C
+	jsl.l RenderBigText
 	pla
 	sta.w printx
 	plx

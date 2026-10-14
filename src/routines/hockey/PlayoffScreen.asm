@@ -388,11 +388,11 @@ PlayoffScreen:
 	pha
 	lda.w #$005C
 	sta.w jmlvector
-	lda.w #$9C53
+	lda.w #BigLetterPlayoff
 	sta.w jmlvector+1
-	lda.w #$009D
+	lda.w #BigLetterPlayoff>>16
 	sta.w jmlvector+3
-	jsl.l CODE_9D9A5C
+	jsl.l RenderBigText
 	pla
 	sta.w printx
 	lda.b $CD

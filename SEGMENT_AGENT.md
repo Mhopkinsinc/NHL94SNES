@@ -699,3 +699,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - PlayerSelect and its helpers. MATCH.
 - Title screen helpers. MATCH.
 - ShowRosterLine; CODE_9D9F28 folded. MATCH.
+- RenderBigText and its letter hooks. MATCH.

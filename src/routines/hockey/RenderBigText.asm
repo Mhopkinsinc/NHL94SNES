@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D9A5C:
+; Draw string [$0C] in the big proportional font: letter tiles into $7E4EF4 from tile $7E3466, centred in $24 pixels from printx, with the jmlvector hook placing each letter on the map
+RenderBigText:
 	phb
 	phk
 	plb
@@ -270,6 +270,8 @@ CODE_9D9A5C:
 	dec.b $00
 	bne .loopx
 	rts
+; jmlvector letter hook of PlayoffScreen: put letter tile $7E3466 (two rows) at printx / printy of the $7EC67C map
+BigLetterPlayoff:
 	lda.w printy
 	asl a
 	asl a
@@ -288,6 +290,8 @@ CODE_9D9A5C:
 	inc a
 	sta.l $7EC77C,x
 	rtl
+; jmlvector letter hook of DrawSelectTeam: put letter tile $7E3466 (two rows) at printx / printy of the $7EA67C map
+BigLetterSelect:
 	lda.w printy
 	asl a
 	asl a
