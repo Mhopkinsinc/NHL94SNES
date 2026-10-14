@@ -137,7 +137,7 @@ org $9DA000
 .1xx:
 	lda.b $04
 	sta.b d0
-	jsl.l CODE_9F9745
+	jsl.l GetNameandAttrib
 	inc.w printy
 	inc.w printy
 	dec.b d1

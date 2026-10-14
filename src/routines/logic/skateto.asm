@@ -96,10 +96,10 @@ skateto:
 	jsl.l vtoa
 .6:
 	lda.b a0
-	sta.w $1D5A
+	sta.w jmlvector+1
 	lda.b $8A
-	sta.w $1D5B
-	jsl.l $001D59
+	sta.w jmlvector+2
+	jsl.l jmlvector
 	lda.b d0
 	sta.w $10A3,x
 	cmp.w #$0008

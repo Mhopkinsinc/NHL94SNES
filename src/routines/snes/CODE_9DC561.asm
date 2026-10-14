@@ -61,7 +61,7 @@ CODE_9DC561:
 	sta.b d0
 	lda.w #$0001
 	sta.l $7E35F2
-	jsl.l CODE_9F992E
+	jsl.l CalcAttrib
 	lda.b d0
 	sta.b $00
 	pla

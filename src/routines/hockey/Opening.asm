@@ -12,7 +12,7 @@ Opening:
 	dex
 	bne .loop
 	lda.w #$005C
-	sta.w $1D59
+	sta.w jmlvector
 	jsl.l CheckPAL
 	jsl.l ResetPassWord
 	jsl.l DefaultMenus
@@ -55,7 +55,7 @@ Restart:
 .2:
 	stz.w sfhormode
 	lda.w #$005C
-	sta.w $1D59
+	sta.w jmlvector
 	jsl.l CheckPAL
 	jsl.l setoptions
 	stz.w $1D81

@@ -187,3 +187,4 @@ brightness = $0AD3	; screen brightness 0-15 the fade sets; BrightnessHook writes
 pausepad = $0AC6	; the controller that owns the pause menu
 Wallcos = $1103		; per object: cos of the angle of the last wall collision
 Wallsin = $1123		; per object: sin of that angle
+jmlvector = $1D59	; RAM jml trampoline: $5C (jml opcode), target at +1..+3

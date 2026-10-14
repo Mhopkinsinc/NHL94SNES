@@ -62,7 +62,7 @@ CODE_9B9249:
 .2:
 	lda.b $04
 	sta.b d0
-	jsl.l CODE_9F9745
+	jsl.l GetNameandAttrib
 	inc.b a3
 	inc.w printy
 	dec.b d1

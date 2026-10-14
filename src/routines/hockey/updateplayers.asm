@@ -384,12 +384,12 @@ updateplayers:
 	asl a
 	tax
 	lda.l asstab,x
-	sta.w $1D5A
+	sta.w jmlvector+1
 	lda.l asstab+1,x
-	sta.w $1D5B
+	sta.w jmlvector+2
 	ldx.b $E4
 	jsl.l loadTeamStruct
-	jsl.l $001D59
+	jsl.l jmlvector
 .1xxxxxxxx:
 	lda.w position,x
 	ora.w gmclock

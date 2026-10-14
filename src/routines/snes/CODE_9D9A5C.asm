@@ -100,7 +100,7 @@ CODE_9D9A5C:
 	cmp.w #$0008
 	bcc .5
 .4:
-	jsl.l $001D59
+	jsl.l jmlvector
 	inc.w printx
 	lda.b $06
 	sta.b $04

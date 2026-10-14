@@ -387,11 +387,11 @@ PlayoffScreen:
 	lda.w printx
 	pha
 	lda.w #$005C
-	sta.w $1D59
+	sta.w jmlvector
 	lda.w #$9C53
-	sta.w $1D5A
+	sta.w jmlvector+1
 	lda.w #$009D
-	sta.w $1D5C
+	sta.w jmlvector+3
 	jsl.l CODE_9D9A5C
 	pla
 	sta.w printx

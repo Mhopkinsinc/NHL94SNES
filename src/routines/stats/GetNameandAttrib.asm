@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F9745:
+; Print a player's number and name, then the attribute d4 through attribjmp (ratings first through CalcAttrib)
+GetNameandAttrib:
 	stx.b xsave
 	ldx.w #$0000
 .loop:
@@ -38,7 +38,7 @@ CODE_9F9745:
 .t1:
 	lda.w #$0001
 	sta.l $7E35F2
-	jsl.l CODE_9F992E
+	jsl.l CalcAttrib
 .2:
 	lda.w #$009F
 	sta.b $8B
@@ -49,10 +49,10 @@ CODE_9F9745:
 	clc
 	adc.b a0
 	sta.b a0
-	sta.w $1D5A
+	sta.w jmlvector+1
 	lda.b $8A
-	sta.w $1D5B
-	jsl.l $001D59
+	sta.w jmlvector+2
+	jsl.l jmlvector
 	pla
 	sta.b $8F
 	pla

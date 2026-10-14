@@ -161,8 +161,8 @@ PauseMenuPoll:
 	sta.b a0
 .1:
 	lda.b [a0],y
-	sta.w $1D5A
+	sta.w jmlvector+1
 	iny
 	lda.b [a0],y
-	sta.w $1D5B
-	jml.l $001D59
+	sta.w jmlvector+2
+	jml.l jmlvector
