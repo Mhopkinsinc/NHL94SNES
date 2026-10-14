@@ -112,6 +112,7 @@
 - Title animation steps from behavior: `TitleZoomIn`, `TitleZoomOutRight`, `TitleZoomOutLeft`, `TitleBlankSprites`, `DrawTitleSprite`, `TitleWindowWipe`.
 - Sound play path from behavior: `PlaySound`, `PlaySoundEntry` (QueueSound shares it), `StartSoundVoice`.
 - `UpdateSfxVoices` (from behavior: the sound effect half of the voice update).
+- Tile cache: CODE_80B76C folded into FreeFrameTiles as `FreeCacheEntryA`, with `FreeCacheEntry_go`.
 
 ## Unsure
 

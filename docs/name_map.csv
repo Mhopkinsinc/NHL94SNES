@@ -2041,7 +2041,7 @@ $9F87D9,.2,CODE_9F87D9,new,branch target only used in this routine,src/routines/
 $9F87EA,.3,CODE_9F87EA,new,branch target only used in this routine,src/routines/snes/CODE_9F8755.asm
 $9F8843,.1,CODE_9F8843,new,branch target only used in this routine,src/routines/snes/CODE_9F8755.asm
 $9F885F,.2,CODE_9F885F,new,branch target only used in this routine,src/routines/snes/CODE_9F8755.asm
-$80B7C0,.1,CODE_80B7C0,new,branch target only used in this routine,src/routines/snes/CODE_80B76C.asm
+$80B7C0,.1,CODE_80B7C0,new,branch target only used in this routine,src/routines/snes/FreeFrameTiles.asm
 $9EEDB9,.rtl,CODE_9EEDB9,new,branch target only used in this routine,src/routines/snes/CODE_9EED8D.asm
 $9EC460,.1,CODE_9EC460,new,branch target only used in this routine,src/routines/snes/CODE_9EC453.asm
 $9EC471,.2,CODE_9EC471,new,branch target only used in this routine,src/routines/snes/CODE_9EC453.asm
@@ -2399,7 +2399,7 @@ $9BC351,.4,CODE_9BC351,new,branch target only used in this routine,src/routines/
 $80B9E6,.loop,CODE_80B9E6,new,branch target only used in this routine,src/routines/snes/CODE_80B9C8.asm
 $80B9EF,.1,CODE_80B9EF,new,branch target only used in this routine,src/routines/snes/CODE_80B9C8.asm
 $9EF64C,.1,CODE_9EF64C,new,branch target only used in this routine,src/routines/snes/CODE_9EF5FB.asm
-$80B87A,.1,CODE_80B87A,new,branch target only used in this routine,src/routines/snes/CODE_80B76C.asm
+$80B87A,.1,CODE_80B87A,new,branch target only used in this routine,src/routines/snes/FreeFrameTiles.asm
 $9EC444,.1,CODE_9EC444,new,branch target only used in this routine,src/routines/snes/CODE_9EC422.asm
 $808C01,.1,CODE_808C01,new,branch target only used in this routine,src/routines/snes/MapPartToVRAM.asm
 $9ED22B,.1,CODE_9ED22B,new,branch target only used in this routine,src/routines/logic/assgoalietopuck.asm
@@ -2554,8 +2554,8 @@ $80B9C8,.t1,CODE_80B9C8,new,continued in the previous routine,src/routines/snes/
 $80B960,.t1,CODE_80B960,new,continued in the previous routine,src/routines/snes/CODE_80B957.asm
 $80B8FC,.t1,CODE_80B8FC,new,continued in the previous routine,src/routines/snes/DecompressLZ.asm
 $80B8D7,.t1,CODE_80B8D7,new,continued in the previous routine,src/routines/snes/CODE_80B8AE.asm
-$80B89A,.t1,CODE_80B89A,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
-$80B835,.t1,CODE_80B835,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
+$80B89A,.t1,CODE_80B89A,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
+$80B835,.t1,CODE_80B835,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
 $80B80E,.t1,CODE_80B80E,new,continued in the previous routine,src/routines/snes/CODE_80B7C7.asm
 $80B724,.t1,CODE_80B724,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
 $80B67E,.t1,CODE_80B67E,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
@@ -3184,8 +3184,8 @@ $80C97A,.t2,CODE_80C97A,new,continued in the previous routine,src/routines/snes/
 $80C918,.t2,CODE_80C918,new,continued in the previous routine,src/routines/snes/CODE_80C8E2.asm
 $80C3B4,.t2,CODE_80C3B4,new,continued in the previous routine,src/routines/snes/CODE_80C3A0.asm
 $80B9BF,.t2,CODE_80B9BF,new,continued in the previous routine,src/routines/snes/CODE_80B957.asm
-$80B8AE,.t2,CODE_80B8AE,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
-$80B7C7,.t2,CODE_80B7C7,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
+$80B8AE,.t2,CODE_80B8AE,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
+$80B7C7,.t2,CODE_80B7C7,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
 $80B687,.t2,CODE_80B687,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
 $80B58E,.t1,CODE_80B58E,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
 $80B41D,.t2,CODE_80B41D,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
@@ -3944,7 +3944,7 @@ $80B565,.4,CODE_80B565,new,continued in the previous routine,src/routines/snes/F
 $80B741,.1,CODE_80B741,new,branch target only used in this routine,src/routines/snes/FreeFrameTiles.asm
 $80B753,.2,CODE_80B753,new,branch target only used in this routine,src/routines/snes/FreeFrameTiles.asm
 $80B757,.3,CODE_80B757,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
-$80B822,.2,CODE_80B822,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
+$80B822,.2,CODE_80B822,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
 $80B8F0,.2,CODE_80B8F0,new,branch target only used in this routine,src/routines/snes/DecompressLZ.asm
 $80BA13,.3,CODE_80BA13,new,branch target only used in this routine,src/routines/snes/DecompressLZ.asm
 $80BA21,.4,CODE_80BA21,new,continued in the previous routine,src/routines/snes/DecompressLZ.asm
@@ -4667,7 +4667,7 @@ $808DB3,.3,CODE_808DB3,new,continued in the previous routine,src/routines/snes/M
 $80AB0B,.9,CODE_80AB0B,new,continued in the previous routine,src/routines/snes/StepTrack.asm
 $80AC46,.4,CODE_80AC46,new,continued in the previous routine,src/routines/snes/ReleaseVoice.asm
 $80B56E,.5,CODE_80B56E,new,continued in the previous routine,src/routines/snes/FindCachedFrame.asm
-$80B863,.3,CODE_80B863,new,continued in the previous routine,src/routines/snes/CODE_80B76C.asm
+$80B863,.3,CODE_80B863,new,continued in the previous routine,src/routines/snes/FreeFrameTiles.asm
 $80C1B8,.1,CODE_80C1B8,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
 $80C1C0,.2,CODE_80C1C0,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
 $80C1CB,.3,CODE_80C1CB,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
@@ -4842,7 +4842,7 @@ $80A3D8,ClearTracks,CODE_80A3D8,new,clear the track pointers and waits of tracks
 $80B01E,GetFrameTiles,CODE_80B01E,new,"a = the first VRAM tile of the frame at [$0C], loaded now if needed; negative if there is no room",src/routines/snes/GetFrameTiles.asm
 $80B3E1,LoadFrameTiles,CODE_80B3E1,new,"allocate VRAM for the frame at [$0C], queue the DMA of its tiles and add a tile cache entry",src/routines/snes/FindCachedFrame.asm
 $80B719,FreeFrameTiles,CODE_80B719,new,free the VRAM tiles of the frame at [$0C],src/routines/snes/FreeFrameTiles.asm
-$80B772,FreeCacheEntry,CODE_80B772,new,free tile cache entry X and its VRAM,src/routines/snes/CODE_80B76C.asm
+$80B772,FreeCacheEntry,CODE_80B772,new,free tile cache entry X and its VRAM,src/routines/snes/FreeFrameTiles.asm
 $80C81C,PlayShootout,CODE_80C81C,new,"the shootout: both shooter lists, then a turn for each team every round, until after five rounds",src/routines/shootout/PlayShootout.asm
 $80CE0A,PickShooterRow,CODE_80CE0A,new,"button on a row: the goalie row cycles the goalie, a shooter row opens ShooterSelectList",src/routines/shootout/PickShooterRow.asm
 $80D21C,PrintShooterRows,CODE_80D21C,new,"print the rows of the list from $1DA7, the row at the cursor ($1D9B) in another palette",src/routines/shootout/PrintShooterRows.asm
@@ -5788,3 +5788,5 @@ $80A200,PlaySound,CODE_80A200,new,Behavior: the shared tail PlaySoundEntry is wh
 $80A697,StartSoundVoice,CODE_80A697,new,Behavior: called from PlaySoundEntry and StepTrack,src/routines/sound/StartSoundVoice.asm
 $80A226,PlaySoundEntry,CODE_80A226,new,PlaySound: set up voice slot $20 from sound entry $4E and start it; QueueSound jumps here too,src/routines/sound/PlaySound.asm
 $80AC7B,UpdateSfxVoices,CODE_80AC7B,new,Behavior: SoundUpdate calls it; UpdateVoices does the music voices (owner below $10),src/routines/sound/UpdateSfxVoices.asm
+$80B76C,FreeCacheEntryA,CODE_80B76C,new,FreeCacheEntry with the entry number in the high byte of A; FreeFrameTiles branches here (folded into FreeFrameTiles.asm),src/routines/snes/FreeFrameTiles.asm
+$80B77B,FreeCacheEntry_go,CODE_80B77B,new,FreeCacheEntry after the slot byte is cleared; FreeFrameTiles enters here,src/routines/snes/FreeFrameTiles.asm
