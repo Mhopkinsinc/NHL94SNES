@@ -673,3 +673,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Screen helpers from what they do: FadeOut, FadeIn, WaitFadeOut, BrightnessHook, SetNMIHook, SetColours, SendColours, DMAToCGRAM, SendTextMap, ClearTextMap, MemFill; RAM fadestep and brightness. MATCH.
 - SetupScreen (94G), PrintLetterSprites, LetterSpriteWidths, ReadPausePad and pausepad. MATCH.
 - `DATA8_80D3EB` is `PenaltyList` (same layout and readers as 93S). MATCH.
+- wallcoll and the RAM Wallcos / Wallsin from 93S. MATCH.

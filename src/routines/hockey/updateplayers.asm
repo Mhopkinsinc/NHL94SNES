@@ -439,8 +439,8 @@ updateplayers:
 	sta.w Ypos,x
 	stz.w $0EE3,x
 .17:
-	stz.w $1103,x
-	stz.w $1123,x
+	stz.w Wallcos,x
+	stz.w Wallsin,x
 	lda.w Ypos,x
 	sta.b d3
 	lda.w Xpos,x

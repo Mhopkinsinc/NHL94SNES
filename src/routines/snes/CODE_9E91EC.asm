@@ -15,4 +15,4 @@ CODE_9E91EC:
 	lda.w #$0800
 	sta.w puckvy
 .1:
-	jmp.w CODE_9E8F42
+	jmp.w wallcoll

@@ -23,8 +23,8 @@ checkcoll:
 	lda.w $10E3,x
 	sta.w $0D3D
 	jsl.l checkwallcoll
-	lda.w $1103,x
-	ora.w $1123,x
+	lda.w Wallcos,x
+	ora.w Wallsin,x
 	bne .2
 	cpx.w #$0018
 	bcs .2

@@ -27,8 +27,8 @@ asspenalty:
 	lda.w pflags,x
 	ora.w #$8000
 	sta.w pflags,x
-	stz.w $1103,x
-	stz.w $1123,x
+	stz.w Wallcos,x
+	stz.w Wallsin,x
 	lda.w #$0384
 	sta.w $1083,x
 .2:

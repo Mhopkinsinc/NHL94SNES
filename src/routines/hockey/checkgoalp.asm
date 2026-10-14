@@ -115,7 +115,7 @@ checkgoalp:
 .6:
 	sta.b d1
 	ldx.b a3
-	jsl.l CODE_9E8F42
+	jsl.l wallcoll
 .7:
 	pla
 	sta.b d2

@@ -8,13 +8,13 @@ playeracc:
 	lda.l DATA8_9EA889,x
 	sta.b d0
 	ldx.b $E4
-	lda.w $1123,x
+	lda.w Wallsin,x
 	beq .1
 	eor.b d0
 	bpl .1
 	stz.b d0
 .1:
-	lda.w $1103,x
+	lda.w Wallcos,x
 	beq .2
 	eor.b d1
 	bmi .2

@@ -1,9 +1,9 @@
-; Unidentified routine.
-CODE_9E8F42:
+; Bounce object X off a wall
+wallcoll:
 	lda.b d0
-	sta.w $1103,x
+	sta.w Wallcos,x
 	lda.b d1
-	sta.w $1123,x
+	sta.w Wallsin,x
 	lda.b d2
 	pha
 	lda.b d3

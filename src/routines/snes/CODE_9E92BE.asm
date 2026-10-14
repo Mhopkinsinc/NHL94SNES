@@ -26,4 +26,4 @@ CODE_9E92BE:
 	lda.w #$FF01
 	sta.b d1
 .1:
-	jmp.w CODE_9E8F42
+	jmp.w wallcoll

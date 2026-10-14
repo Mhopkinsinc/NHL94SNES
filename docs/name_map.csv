@@ -3380,7 +3380,7 @@ $9E957C,.t2,CODE_9E957C,new,continued in the previous routine,src/routines/snes/
 $9E9492,.t2,CODE_9E9492,new,continued in the previous routine,src/routines/hockey/checkplcoll.asm
 $9E931A,.t1,CODE_9E931A,new,continued in the previous routine,src/routines/hockey/checkgoalp.asm
 $9E9117,.t2,CODE_9E9117,new,continued in the previous routine,src/routines/snes/CODE_9E90B6.asm
-$9E8F9E,.t2,CODE_9E8F9E,new,continued in the previous routine,src/routines/snes/CODE_9E8F42.asm
+$9E8F9E,.t2,CODE_9E8F9E,new,continued in the previous routine,src/routines/hockey/wallcoll.asm
 $9E8DB5,.t2,CODE_9E8DB5,new,continued in the previous routine,src/routines/hockey/checkwallcoll.asm
 $9E8CB0,.t2,CODE_9E8CB0,new,continued in the previous routine,src/routines/hockey/checkcoll.asm
 $9E8ACC,.t1,CODE_9E8ACC,new,continued in the previous routine,src/routines/snes/CODE_9E8A90.asm
@@ -4801,3 +4801,6 @@ $9DD9AD,SetupScreen,CODE_9DD9AD,94G,"the common start of the stats screens, call
 $9B851F,ReadPausePad,CODE_9B851F,new,ReadjoyA for pausepad,src/routines/snes/ReadPausePad.asm
 $0AC6,pausepad,$0AC6,new,RAM; set by SelectPauseController and StartPer: the controller that owns the pause menu,src/ram94snes.asm
 $80D3EB,PenaltyList,DATA8_80D3EB,93S,"word offset per penalty number to its entry (name and data) as 93S PenaltyList and 94G Penaltylist; AddPenalty2, prefmes and checkfornewpen read it where 93S reads PenaltyList",src/data/tables/PenaltyList.asm
+$9E8F42,wallcoll,CODE_9E8F42,93S,"called from checkgoalp and the wall and goal code as in 93S; most of the 93S body (Wallcos / Wallsin, speed loss)",src/routines/hockey/wallcoll.asm
+$1103,Wallcos,$1103,93S,"RAM; per object, where 93S has Wallcos in checkcoll, checkwallcoll, wallcoll and playeracc",src/ram94snes.asm
+$1123,Wallsin,$1123,93S,"RAM; per object, where 93S has Wallsin",src/ram94snes.asm

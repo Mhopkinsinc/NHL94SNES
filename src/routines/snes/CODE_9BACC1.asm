@@ -139,8 +139,8 @@ CODE_9BACE5:
 	lda.b d3
 	pha
 	stx.b a3
-	stz.w $1103,x
-	stz.w $1123,x
+	stz.w Wallcos,x
+	stz.w Wallsin,x
 	lda.w #$0001
 	sta.w $0D3B
 	sta.w $0D3D
@@ -149,11 +149,11 @@ CODE_9BACE5:
 	sta.b d3
 	pla
 	sta.b d2
-	lda.w $1123,x
-	ora.w $1103,x
+	lda.w Wallsin,x
+	ora.w Wallcos,x
 	beq .4x
 .1xx:
-	lda.w $1123,x
+	lda.w Wallsin,x
 	asl a
 	xba
 	and.w #$00FF
@@ -164,7 +164,7 @@ CODE_9BACE5:
 	clc
 	adc.w $0D75
 	sta.b d2
-	lda.w $1103,x
+	lda.w Wallcos,x
 	asl a
 	xba
 	and.w #$00FF

@@ -142,8 +142,8 @@ checkwallcoll:
 	sta.b d4
 	pla
 	sta.b d5
-	lda.w $1103,x
-	ora.w $1123,x
+	lda.w Wallcos,x
+	ora.w Wallsin,x
 	bne .rtl
 	lda.w #$00FF
 	sta.b d0

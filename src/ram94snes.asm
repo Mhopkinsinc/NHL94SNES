@@ -185,3 +185,5 @@ IniDispShadow = $0762	; INIDISP value the NMI writes (forced blank, brightness)
 fadestep = $0AD1	; fade: a delay counting down to a fade in, or $FFFF to fade out (NMI)
 brightness = $0AD3	; screen brightness 0-15 the fade sets; BrightnessHook writes it to INIDISP
 pausepad = $0AC6	; the controller that owns the pause menu
+Wallcos = $1103		; per object: cos of the angle of the last wall collision
+Wallsin = $1123		; per object: sin of that angle
