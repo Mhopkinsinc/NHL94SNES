@@ -1,17 +1,17 @@
-; Unidentified routine.
+; The puck slides and stops spinning.
 pucknothing:
-	lda.w $11DF
+	lda.w SPAnum+puckobj
 	cmp.w #$0008
-	bcc CODE_9EDE97
+	bcc .k
 	cmp.w #$0018
-	bcs CODE_9EDE97
-	lda.w $117F
+	bcs .k
+	lda.w facedir+puckobj
 	eor.w #$0002
-	sta.w $117F
-CODE_9EDE97:
+	sta.w facedir+puckobj
+.k:
 	lda.w #$0004
-	tsb.w $117F
-	stz.w $11DF
+	tsb.w facedir+puckobj
+	stz.w SPAnum+puckobj
 	lda.w #$FFFF
-	sta.w $11FF
+	sta.w SPAcnt+puckobj
 	rtl

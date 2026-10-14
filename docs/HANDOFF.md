@@ -4,12 +4,19 @@
 
 - `docs/cleanup_plan.md` is the audit: 6881 generic labels (5100 `CODE_`, 976 `SpriteFrameN`, 793 `DATA8_`, 12 `DATA16_`) and the asset inventory.
 - stats, video and middle: branch targets inside the already-named routines now use the 93S local names. `appstring`'s tail (`CODE_9ECFC1`) is the `.done` of that routine and lives in the same file. Direct-page registers `a0`–`a3`, `d0`–`d2`, `tmp0`–`tmp2`, plus `Hpos`, `Vpos`, `printm`, `textdirtylo`, `textdirtyhi`, `textmap`, `printfontset`, `RemapOut` and `Playerdata`, are in `src/ram94snes.asm`. Those files use them. The rest of the source still has the raw addresses.
-- Next: the same local-label pass for logic, penalty, hockey and shootout, then the Extracted/ prebuild move.
+- logic: the same pass. `assreplace` is the 93S name (callers updated). `vtoa` holds `.nodir` and `.dt`. `getlchoice` holds `.tab`. `ShotMode` holds `.off` and `.rts`. New equates: `d7`, `SPAcnt`, `facedir`, `assnum`, `asslist`, `puckobj`, `puckx`, `ScoreOdds`, `gmoffs`, `gmhl`, `pfna`, `tmfoffside`, `cbut`, `blueline`, `PenOffsides` ($12 in this ROM).
+- Next: penalty, hockey and shootout locals, then the Extracted/ prebuild move.
 
 ## Unsure
 
 - `$0A48` in PushNumber and PushTime is the end of the decimal string those routines build. 93S uses `mesarea`. The base of that buffer is not named yet.
 - `$00`, `$04` and `$08` are the divider's scratch (`Div16x8U`: `$08 / $04` into `$00`). They are also the math scratch in the engine, so they stay raw.
+- `$C3` in `vtoa` holds the direction bits. 93S reuses `d0+2` for that. Here `d0` is only a word, so `$C3` stays raw.
+- `$0B7D` in `assreplace` is stored with the assignment and has no 93S counterpart.
+- `$0AD9` is the player index `ShotMode` compares with X. Not named.
+- `CODE_9EE220` is the shot release `ShotMode` jumps to. It is not a clean match for 93S `doshot`, so the name stays.
+- `CODE_9FD85F` is the code that used to sit after the line-choice table. It compares the word at `$1003` with 100. Not named.
+- `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
 - SpriteFrameN labels stay numbered until a frame has an SPF name.
 - The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.
 

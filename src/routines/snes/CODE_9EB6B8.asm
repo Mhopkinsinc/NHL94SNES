@@ -6,7 +6,7 @@ CODE_9EB6B8:
 	stx.b $95
 	lda.w #$001B
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 CODE_9EB6CC:
 	lda.w $1E9B
 	bne CODE_9EB6E0

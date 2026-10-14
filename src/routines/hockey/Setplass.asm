@@ -11,4 +11,4 @@ Setplass:
 	lda.b [$89],y
 	and.w #$00FF
 	sta.b $A5
-	jml.l CODE_9E8C18
+	jml.l assreplace

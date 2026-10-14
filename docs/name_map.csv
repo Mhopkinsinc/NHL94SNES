@@ -484,3 +484,25 @@ $9FBDA8,.row,CODE_9FBDA8,93S,eraser row loop,src/routines/middle/eraser.asm
 $9FBDBF,.col,CODE_9FBDBF,93S,eraser column loop,src/routines/middle/eraser.asm
 $9FBDE4,.hi,CODE_9FBDE4,93S,eraser dirty-range high,src/routines/middle/eraser.asm
 $9FBE07,.rtl,CODE_9FBE07,93S,eraser return,src/routines/middle/eraser.asm
+$9ED31A,.cnt,CODE_9ED31A,93S,GoalieCount,src/routines/logic/GoalieCount.asm
+$9EA3F0,.rtl,CODE_9EA3F0,93S,SetSPA return,src/routines/logic/SetSPA.asm
+$9EDE97,.k,CODE_9EDE97,93S,pucknothing,src/routines/logic/pucknothing.asm
+$9EE1EA,.ss0,CODE_9EE1EA,93S,ShotMode aim,src/routines/logic/ShotMode.asm
+$9EE219,.off,CODE_9EE219,new,ShotMode clears the shot flag and returns,src/routines/logic/ShotMode.asm
+$9EE21F,.rts,CODE_9EE21F,93S,ShotMode return,src/routines/logic/ShotMode.asm
+$9EC60C,.0,CODE_9EC60C,93S,a2offsides,src/routines/logic/a2offsides.asm
+$9EC61F,.1,CODE_9EC61F,93S,a2offsides team,src/routines/logic/a2offsides.asm
+$9EC64A,.rtl,CODE_9EC64A,93S,a2offsides return,src/routines/logic/a2offsides.asm
+$9EDEB7,.x,CODE_9EDEB7,93S,skatetopuckinit x,src/routines/logic/skatetopuckinit.asm
+$9EDECD,.y,CODE_9EDECD,93S,skatetopuckinit y,src/routines/logic/skatetopuckinit.asm
+$9E8C18,assreplace,CODE_9E8C18,93S,replace the current assignment,src/routines/logic/assinsert.asm
+$9FD7E5,.1,CODE_9FD7E5,93S,getlchoice,src/routines/logic/getlchoice.asm
+$9FD811,.sext,CODE_9FD811,93S,getlchoice sign extend,src/routines/logic/getlchoice.asm
+$9FD820,.tab,DATA8_9FD820,93S,getlchoice line table,src/routines/logic/getlchoice.asm
+$9BB459,.0,CODE_9BB459,93S,vtoa,src/routines/logic/vtoa.asm
+$9BB467,.1,CODE_9BB467,93S,vtoa,src/routines/logic/vtoa.asm
+$9BB473,.2,CODE_9BB473,93S,vtoa,src/routines/logic/vtoa.asm
+$9BB47F,.3,CODE_9BB47F,93S,vtoa,src/routines/logic/vtoa.asm
+$9BB48D,.nodir,CODE_9BB48D,93S,vtoa no direction,src/routines/logic/vtoa.asm
+$9BB493,.dt,DATA8_9BB493,93S,vtoa direction table,src/routines/logic/vtoa.asm
+$9FD85F,CODE_9FD85F,DATA8_9FD820,new,code that followed the line-choice table,src/routines/snes/CODE_9FD85F.asm

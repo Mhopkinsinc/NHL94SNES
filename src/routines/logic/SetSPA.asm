@@ -1,11 +1,11 @@
-; Unidentified routine.
+; Start sprite animation d1 on object X.
 SetSPA:
-	lda.b $A9
+	lda.b d1
 	cmp.w SPA,x
-	beq CODE_9EA3F0
+	beq .rtl
 	sta.w SPA,x
 	stz.w SPAnum,x
 	lda.w #$FFFF
-	sta.w $11E3,x
-CODE_9EA3F0:
+	sta.w SPAcnt,x
+.rtl:
 	rtl

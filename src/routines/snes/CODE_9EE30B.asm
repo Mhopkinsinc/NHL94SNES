@@ -140,6 +140,6 @@ CODE_9EE430:
 	beq CODE_9EE43E
 	lda.w #$0012
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 CODE_9EE43E:
 	rtl

@@ -41,6 +41,10 @@ puckvy = $0EFF		; puck y speed
 position = $0F43	; player's position (0=goalie,1=l.def,2=r.def,3=l.wing,4=center,5=r.wing; negative = none)
 SPA = $11A3		; current animation (offset into the animation data)
 SPAnum = $11C3		; index into animation (4 per frame)
+SPAcnt = $11E3		; count down to the next animation frame (-1 = restart)
+facedir = $1163		; direction of facing, 0-7
+assnum = $0F63		; index of the current assignment (0-7)
+asslist = $0F83		; assignments, 8 bytes per object
 newpos = $1243		; requested next position (negative = none)
 newpnum = $1263		; requested next roster player (negative = none)
 pflags = $1283		; pflags (bits 0-7) and pflags2 (bit n at bit n+10); some flags have their own arrays below
@@ -90,6 +94,7 @@ a3 = $95		; long pointer; a3+2 is the bank
 d0 = $A5
 d1 = $A9		; d1+2 is the high word
 d2 = $AD
+d7 = $C1		; frames elapsed, added into speeds
 tmp0 = $C5		; scratch word; tmp0+1 is the next byte
 tmp1 = $C7		; scratch word
 tmp2 = $C9		; scratch byte; tmp2+1 is the next byte
@@ -104,3 +109,14 @@ printfontset = $7E35A8	; tile base of the selected print font
 RemapOut = $0A0A	; sixteen words: the tile RemapTiles is building
 
 Playerdata = 0		; offset of the player list in a team record
+ScoreOdds = 10		; offset of the scouting odds in a team record
+puckobj = $1C		; object index of the puck
+puckx = Xpos+puckobj	; puck x position
+
+gmoffs = $0020		; offsides on
+gmhl = $0010		; highlight mode
+pfna = $0002		; new assignment
+tmfoffside = $0010	; team flagged offsides
+cbut = $0080		; shoot / check button in d2
+blueline = $58		; puck y past which a team can be offside
+PenOffsides = $12	; offsides penalty number

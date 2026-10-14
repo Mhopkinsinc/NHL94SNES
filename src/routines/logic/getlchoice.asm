@@ -1,62 +1,67 @@
-; Unidentified routine.
+; d0 = the line for line choice d0 of team a2, by the man advantage. -1 = none.
 getlchoice:
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
-	lda.b $91
+	lda.b a2
 	eor.w #$0002
 	tay
 	lda.w tmap,y
-	ldy.b $91
+	ldy.b a2
 	sec
 	sbc.w tmap,y
-	sta.b $AD
-	beq CODE_9FD7E5
-	lda.b $A5
+	sta.b d2
+	beq .1
+	lda.b d0
 	clc
 	adc.w #$0015
-	sta.b $A5
-	lda.b $AD
-	bmi CODE_9FD7E5
-	lda.b $A5
+	sta.b d0
+	lda.b d2
+	bmi .1
+	lda.b d0
 	clc
 	adc.w #$0015
-	sta.b $A5
-CODE_9FD7E5:
-	ldy.b $91
+	sta.b d0
+.1:
+	ldy.b a2
 	lda.w tmline,y
-	sta.b $A9
-	lda.b $A5
+	sta.b d1
+	lda.b d0
 	clc
-	adc.b $A9
+	adc.b d1
 	clc
-	adc.b $A9
+	adc.b d1
 	clc
-	adc.b $A9
-	sta.b $A5
+	adc.b d1
+	sta.b d0
 	tay
 	lda.w #$009F
-	sta.b $8B
-	lda.w #DATA8_9FD820
-	sta.b $89
-	lda.b [$89],y
+	sta.b a0+2
+	lda.w #.tab
+	sta.b a0
+	lda.b [a0],y
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9FD811
+	beq .sext
 	ora.w #$FF00
-CODE_9FD811:
-	sta.b $A5
+.sext:
+	sta.b d0
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
-	sta.b $AD
+	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
-	sta.b $A9
+	sta.b d1
 	rtl
+.tab:
+	db $00,$01,$02,$01,$02,$00,$02,$00,$01,$00,$01,$02,$00,$01,$02,$00
+	db $01,$02,$00,$01,$02,$03,$04,$FF,$03,$04,$FF,$03,$04,$FF,$03,$04
+	db $FF,$04,$03,$FF,$03,$04,$FF,$03,$04,$FF,$05,$06,$FF,$05,$06,$FF
+	db $05,$06,$FF,$05,$06,$FF,$05,$06,$FF,$05,$06,$FF,$06,$05,$FF

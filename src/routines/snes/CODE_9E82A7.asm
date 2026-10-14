@@ -41,5 +41,5 @@ CODE_9E82FD:
 	bpl CODE_9E830D
 	lda.w #$0010
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 	bra CODE_9E8373

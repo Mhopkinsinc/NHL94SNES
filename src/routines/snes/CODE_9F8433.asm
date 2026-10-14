@@ -48,7 +48,7 @@ CODE_9F8497:
 	sta.l $7E3138
 	lda.w #$001B
 	sta.b $A5
-	jsl.l CODE_9E8C18
+	jsl.l assreplace
 	jsl.l CODE_9DD977
 	lda.w #$0400
 	tsb.w sflags
