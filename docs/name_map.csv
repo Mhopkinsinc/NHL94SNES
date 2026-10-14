@@ -855,8 +855,8 @@ $80A99C,.2,CODE_80A99C,new,branch target only used in this routine,src/routines/
 $80A99F,.3,CODE_80A99F,new,branch target only used in this routine,src/routines/snes/CODE_80A96C.asm
 $9EEB40,.1,CODE_9EEB40,new,branch target only used in this routine,src/routines/logic/dopass.asm
 $9C9FEC,.rtl,CODE_9C9FEC,new,branch target only used in this routine,src/routines/snes/CODE_9C9FD5.asm
-$9DBCB6,.loop,CODE_9DBCB6,new,branch target only used in this routine,src/routines/snes/CODE_9DBCB3.asm
-$9DBCD5,.1,CODE_9DBCD5,new,branch target only used in this routine,src/routines/snes/CODE_9DBCB3.asm
+$9DBCB6,.loop,CODE_9DBCB6,new,branch target only used in this routine,src/routines/hockey/TitleWindowWipe.asm
+$9DBCD5,.1,CODE_9DBCD5,new,branch target only used in this routine,src/routines/hockey/TitleWindowWipe.asm
 $9C89A2,.1,CODE_9C89A2,new,branch target only used in this routine,src/routines/hockey/FillPlayerStatsPage.asm
 $9C89A5,.2,CODE_9C89A5,new,branch target only used in this routine,src/routines/hockey/FillPlayerStatsPage.asm
 $9EA04E,.1,CODE_9EA04E,new,branch target only used in this routine,src/routines/snes/CODE_9EA038.asm
@@ -2071,7 +2071,7 @@ $9EE622,.2,CODE_9EE622,new,branch target only used in this routine,src/routines/
 $9F8401,.loop,CODE_9F8401,new,branch target only used in this routine,src/routines/snes/CODE_9F83EB.asm
 $9F8413,.loop2,CODE_9F8413,new,branch target only used in this routine,src/routines/snes/CODE_9F83EB.asm
 $9FB3B2,.1,CODE_9FB3B2,new,branch target only used in this routine,src/routines/snes/CODE_9FB3AA.asm
-$9DB7A3,.loop,CODE_9DB7A3,new,branch target only used in this routine,src/routines/snes/CODE_9DB7A0.asm
+$9DB7A3,.loop,CODE_9DB7A3,new,branch target only used in this routine,src/routines/hockey/TitleZoomIn.asm
 $80BCC5,.loop,CODE_80BCC5,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
 $80BCCB,.1,CODE_80BCCB,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
 $80B53C,.loop,CODE_80B53C,new,branch target only used in this routine,src/routines/snes/CODE_80B52C.asm
@@ -2790,16 +2790,16 @@ $9DBFB0,.t1,CODE_9DBFB0,new,continued in the previous routine,src/routines/snes/
 $9DBF83,.t1,CODE_9DBF83,new,continued in the previous routine,src/routines/snes/CODE_9DBF33.asm
 $9DBEE4,.t1,CODE_9DBEE4,new,continued in the previous routine,src/routines/snes/CODE_9DBED6.asm
 $9DBD20,.t1,CODE_9DBD20,new,continued in the previous routine,src/routines/hockey/ShuffleTitleTeams.asm
-$9DBCDE,.t1,CODE_9DBCDE,new,continued in the previous routine,src/routines/snes/CODE_9DBCB3.asm
+$9DBCDE,.t1,CODE_9DBCDE,new,continued in the previous routine,src/routines/hockey/TitleWindowWipe.asm
 $9DBBF1,.t1,CODE_9DBBF1,new,continued in the previous routine,src/routines/snes/CODE_9DBBA8.asm
 $9DBA94,.t1,CODE_9DBA94,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
 $9DBA24,.t1,CODE_9DBA24,new,continued in the previous routine,src/routines/snes/CODE_9DBA13.asm
 $9DB90A,.t1,CODE_9DB90A,new,continued in the previous routine,src/routines/snes/CODE_9DB8E6.asm
 $9DB8C3,.t1,CODE_9DB8C3,new,continued in the previous routine,src/routines/snes/CODE_9DB8A1.asm
-$9DB871,.t1,CODE_9DB871,new,continued in the previous routine,src/routines/snes/CODE_9DB82B.asm
-$9DB818,.t1,CODE_9DB818,new,continued in the previous routine,src/routines/snes/CODE_9DB7D6.asm
+$9DB871,.t1,CODE_9DB871,new,continued in the previous routine,src/routines/hockey/TitleZoomOutLeft.asm
+$9DB818,.t1,CODE_9DB818,new,continued in the previous routine,src/routines/hockey/TitleZoomOutRight.asm
 $9DB7CF,.t1,CODE_9DB7CF,new,continued in the previous routine,src/routines/snes/CODE_9DB7BB.asm
-$9DB7B4,.t1,CODE_9DB7B4,new,continued in the previous routine,src/routines/snes/CODE_9DB7A0.asm
+$9DB7B4,.t1,CODE_9DB7B4,new,continued in the previous routine,src/routines/hockey/TitleZoomIn.asm
 $9DB42C,.t1,CODE_9DB42C,new,continued in the previous routine,src/routines/hockey/TitleScreen.asm
 $9DB3F7,.t1,CODE_9DB3F7,new,continued in the previous routine,src/routines/hockey/TitleScreen.asm
 $9DAEC9,.t1,CODE_9DAEC9,new,continued in the previous routine,src/routines/hockey/DrawSelectTeam.asm
@@ -3283,7 +3283,7 @@ $9DBF33,.t2,CODE_9DBF33,new,continued in the previous routine,src/routines/snes/
 $9DBD23,.t2,CODE_9DBD23,new,continued in the previous routine,src/routines/hockey/ShuffleTitleTeams.asm
 $9DBBA8,.t2,CODE_9DBBA8,new,continued in the previous routine,src/routines/hockey/LoadTitleLogo.asm
 $9DBAAB,.t2,CODE_9DBAAB,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
-$9DB7BB,.t2,CODE_9DB7BB,new,continued in the previous routine,src/routines/snes/CODE_9DB7A0.asm
+$9DB7BB,.t2,CODE_9DB7BB,new,continued in the previous routine,src/routines/hockey/TitleZoomIn.asm
 $9DABC1,.t2,CODE_9DABC1,new,continued in the previous routine,src/routines/snes/CODE_9DAB04.asm
 $9DA943,.t1,CODE_9DA943,new,continued in the previous routine,src/routines/hockey/setoptions.asm
 $9DA873,.t2,CODE_9DA873,new,continued in the previous routine,src/routines/hockey/setoptions.asm
@@ -5388,8 +5388,8 @@ $9DA580,.12,DATA8_9DA580,new,"part of CODE_9DA0D5, used only by it",src/routines
 $9DAC7F,.13,DATA8_9DAC7F,new,"part of CODE_9DA5CA, used only by it",src/routines/hockey/setoptions.asm
 $9DACD1,.14,DATA8_9DACD1,new,"part of CODE_9DA5CA, used only by it",src/routines/hockey/setoptions.asm
 $9DACDF,.15,DATA8_9DACDF,new,"part of CODE_9DA5CA, used only by it",src/routines/hockey/setoptions.asm
-$9DB774,.1,DATA8_9DB774,new,"part of CODE_9DB754, used only by it",src/routines/snes/CODE_9DB754.asm
-$9DB78A,.2,DATA8_9DB78A,new,"part of CODE_9DB754, used only by it",src/routines/snes/CODE_9DB754.asm
+$9DB774,.1,DATA8_9DB774,new,"part of CODE_9DB754, used only by it",src/routines/hockey/DrawTitleSprite.asm
+$9DB78A,.2,DATA8_9DB78A,new,"part of CODE_9DB754, used only by it",src/routines/hockey/DrawTitleSprite.asm
 $9DC298,.8,DATA8_9DC298,new,"part of DrawPlayerCard, used only by it",src/routines/hockey/DrawPlayerCard.asm
 $9DC9A2,.1,DATA8_9DC9A2,new,"part of CODE_9DC973, used only by it",src/routines/snes/GetMatchupPlayer.asm
 $9DE04E,.1,DATA8_9DE04E,new,"part of CODE_9DDFF6, used only by it",src/routines/hockey/MenuScreenHDMA.asm
@@ -5778,3 +5778,9 @@ $80E73D,IntroSampleList,DATA8_80E73D,new,the intro sample set block list (SPCInt
 $80E6C1,TitleSampleList,DATA8_80E6C1,new,the title sample set block list (SPCTitleUpload),src/data/tables/TitleSampleList.asm
 $80E6FD,MenuSampleList,DATA8_80E6FD,new,the menu sample set block list (SPCMenuUpload): the title set's first 12 blocks and the four SPCTitleToMenu sends,src/data/tables/MenuSampleList.asm
 $9BB4C9,MenuSfxTable,DATA8_9BB4C9,new,the sound table of the title and menu sample sets,src/data/tables/MenuSfxTable.asm
+$9DB7A0,TitleZoomIn,CODE_9DB7A0,new,Behavior: called from TitleScreen,src/routines/hockey/TitleZoomIn.asm
+$9DB7D6,TitleZoomOutRight,CODE_9DB7D6,new,Behavior: called from TitleScreen,src/routines/hockey/TitleZoomOutRight.asm
+$9DB82B,TitleZoomOutLeft,CODE_9DB82B,new,Behavior: called from TitleScreen,src/routines/hockey/TitleZoomOutLeft.asm
+$9DB891,TitleBlankSprites,CODE_9DB891,new,Behavior: called from TitleScreen between the logo steps,src/routines/hockey/TitleBlankSprites.asm
+$9DB754,DrawTitleSprite,CODE_9DB754,new,Behavior: called from TitleScreen and the title piece drawers,src/routines/hockey/DrawTitleSprite.asm
+$9DBCB3,TitleWindowWipe,CODE_9DBCB3,new,Behavior: called from TitleScreen; the IRQ hooks write $0BCB / $0BCF to WH1 / WH3,src/routines/hockey/TitleWindowWipe.asm

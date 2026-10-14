@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB754:
+; Title: draw sprite A of the title set at $7F5000 at its position from the .1 / .2 tables
+DrawTitleSprite:
 	sta.b $00
 	asl a
 	tax

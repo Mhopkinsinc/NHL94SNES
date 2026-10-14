@@ -6,9 +6,9 @@ CODE_9DB9B4:
 	lda.w #$5000
 	sta.b $10
 	lda.w #$0009
-	jsr.w CODE_9DB754
+	jsr.w DrawTitleSprite
 	lda.w #$000A
-	jsr.w CODE_9DB754
+	jsr.w DrawTitleSprite
 	lda.w #$000B
 	sta.b $00
 	ldx.w #$003C

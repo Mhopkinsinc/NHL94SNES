@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DBCB3:
+; Title: count $07D6 down, moving the window edges WH1 ($0BCB) and WH3 ($0BCF) each step (TitleDelay), then close them ($FF)
+TitleWindowWipe:
 	lda.w $07D6
 .loop:
 	dec a

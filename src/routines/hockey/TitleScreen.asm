@@ -85,7 +85,7 @@ TitleScreen:
 	lda.w #$000F
 	sta.w brightness
 	sta.w IniDispShadow
-	jsr.w CODE_9DB7A0
+	jsr.w TitleZoomIn
 	lda.w #$7000
 	sta.b $64
 	lda.w #$0037
@@ -102,7 +102,7 @@ TitleScreen:
 	jsl.l CODE_80A200
 	lda.w #$0042
 	sta.w $0BCD
-	jsr.w CODE_9DB891
+	jsr.w TitleBlankSprites
 	lda.w #$0003
 	jsr.w .9
 	lda.w #$0004
@@ -113,7 +113,7 @@ TitleScreen:
 	jsl.l CODE_80A200
 	lda.w #$007D
 	sta.w $0BCD
-	jsr.w CODE_9DB891
+	jsr.w TitleBlankSprites
 	lda.w #$0006
 	jsr.w .9
 	lda.w #$0007
@@ -124,7 +124,7 @@ TitleScreen:
 	jsl.l CODE_80A200
 	lda.w #$00FF
 	sta.w $0BCD
-	jsr.w CODE_9DB891
+	jsr.w TitleBlankSprites
 	jsr.w CODE_9DBCB2
 	lda.w #$0001
 	sta.w $0BD1
@@ -132,7 +132,7 @@ TitleScreen:
 	jsl.l CODE_80A200
 	ldx.w #$0007
 	jsl.l TitleWait
-	jsr.w CODE_9DBCB3
+	jsr.w TitleWindowWipe
 	jsl.l SPCTitleToMenu
 	lda.w #$008F
 	sta.b $0E
@@ -144,7 +144,7 @@ TitleScreen:
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	jsl.l WaitFrame
-	jsr.w CODE_9DB7D6
+	jsr.w TitleZoomOutRight
 	jsl.l SpriteFrameStart
 	jsr.w PrintCopyright
 	lda.w #$007F
@@ -152,7 +152,7 @@ TitleScreen:
 	lda.w #$5000
 	sta.b $10
 	lda.w #$0009
-	jsr.w CODE_9DB754
+	jsr.w DrawTitleSprite
 	lda.w #$0010
 	sta.w $0BD3
 	lda.w #$1800
@@ -176,10 +176,10 @@ TitleScreen:
 	lda.w #$0011
 	sta.w $0BD3
 	jsl.l WaitFrame
-	jsr.w CODE_9DB7A0
+	jsr.w TitleZoomIn
 	ldx.w #$002D
 	jsl.l TitleWait
-	jsr.w CODE_9DB82B
+	jsr.w TitleZoomOutLeft
 	jsl.l SpriteFrameStart
 	jsr.w PrintCopyright
 	lda.w #$007F
@@ -187,9 +187,9 @@ TitleScreen:
 	lda.w #$5000
 	sta.b $10
 	lda.w #$0009
-	jsr.w CODE_9DB754
+	jsr.w DrawTitleSprite
 	lda.w #$000A
-	jsr.w CODE_9DB754
+	jsr.w DrawTitleSprite
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	jsl.l WaitFrame
@@ -586,7 +586,7 @@ TitleScreen:
 	pha
 	jsl.l SpriteFrameStart
 	pla
-	jsr.w CODE_9DB754
+	jsr.w DrawTitleSprite
 	jsl.l SpriteFrameEnd
 	ldx.w #$0004
 	jsl.l TitleWait

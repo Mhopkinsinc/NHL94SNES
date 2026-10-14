@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB7A0:
+; Title: lower the mode 7 scale $0BFB (M7A / M7D) to $100 a step at a time (TitleDelay); .t2 raises it back to $200
+TitleZoomIn:
 	lda.w $0BFB
 .loop:
 	dec a

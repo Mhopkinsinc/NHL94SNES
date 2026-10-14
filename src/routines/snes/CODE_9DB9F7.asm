@@ -98,9 +98,9 @@ CODE_9DBA13:
 	lda.w #$5000
 	sta.b $10
 	lda.w #$0009
-	jsr.w CODE_9DB754
+	jsr.w DrawTitleSprite
 	lda.w #$000A
-	jsr.w CODE_9DB754
+	jsr.w DrawTitleSprite
 	lda.w $0BDD
 	asl a
 	tax

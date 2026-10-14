@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB891:
+; Title: an empty sprite frame, then TitleWait
+TitleBlankSprites:
 	jsl.l SpriteFrameStart
 	jsl.l SpriteFrameEnd
 	ldx.w #$0023

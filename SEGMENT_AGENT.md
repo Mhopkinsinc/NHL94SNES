@@ -753,3 +753,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - StreamSfx, UpdateStreamSfx. MATCH.
 - Title / intro hook pointers by label. MATCH.
 - Sample set uploads and IntroSequence. MATCH.
+- Title animation steps. MATCH.

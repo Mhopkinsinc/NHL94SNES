@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB82B:
+; Title: raise the mode 7 scale $0BFB to $200 while the BG1 scroll moves to $120, $140
+TitleZoomOutLeft:
 	lda.w $0BFB
 	inc a
 	cmp.w #$0200
@@ -29,7 +29,7 @@ CODE_9DB82B:
 	sta.w $0BF9
 	ldx.w #$03E8
 	jsr.w TitleDelay
-	bra CODE_9DB82B
+	bra TitleZoomOutLeft
 
 .t1:
 	lda.w #$0200
