@@ -14,7 +14,7 @@ puckbody:
 	cmp.w #$000E
 	bmi .t1
 	lda.w #$0005
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 	bra .2
 
 .t1:

@@ -625,7 +625,7 @@ ReplayMode:
 .t2xxxx:
 	sec
 	sbc.w #$0015
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 .13x:
 	lda.w $0CAD
 	and.w #$00FF
@@ -659,7 +659,7 @@ org $9BB001
 .t1xxxxxxxx:
 	sec
 	sbc.w #$0015
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 .14x:
 	jmp.w .10
 .15:

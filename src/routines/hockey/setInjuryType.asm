@@ -11,7 +11,7 @@ setInjuryType:
 	lda.w #$003C
 	sta.b $81
 	lda.w #$0004
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 	ldy.b a2
 	lda.w Xpos,y
 	sta.w xc1

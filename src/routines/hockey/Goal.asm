@@ -100,7 +100,7 @@ Goal:
 .1xx:
 	jsl.l MusicStop
 	lda.w #$0002
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 	stz.w $0C23
 	ldy.b a2
 	beq .t1xxx

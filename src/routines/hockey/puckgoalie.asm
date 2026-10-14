@@ -102,7 +102,7 @@ puckgoalie:
 	lda.w pfteam,y
 	beq .t1x
 	lda.w #$0004
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 	bra .5
 
 .t1x:

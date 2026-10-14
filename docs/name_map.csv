@@ -2102,8 +2102,8 @@ $9EC710,.2,CODE_9EC710,new,branch target only used in this routine,src/routines/
 $9EC71F,.3,CODE_9EC71F,new,branch target only used in this routine,src/routines/logic/StartBreakaway.asm
 $9EC72B,.4,CODE_9EC72B,new,branch target only used in this routine,src/routines/logic/StartBreakaway.asm
 $9EC72C,.rtl,CODE_9EC72C,new,branch target only used in this routine,src/routines/logic/StartBreakaway.asm
-$9C9AA6,.1,CODE_9C9AA6,new,branch target only used in this routine,src/routines/snes/CODE_9C9A7F.asm
-$9C9AB3,.2,CODE_9C9AB3,new,branch target only used in this routine,src/routines/snes/CODE_9C9A7F.asm
+$9C9AA6,.1,CODE_9C9AA6,new,branch target only used in this routine,src/routines/sound/StreamSfx.asm
+$9C9AB3,.2,CODE_9C9AB3,new,branch target only used in this routine,src/routines/sound/StreamSfx.asm
 $9ECAC9,.loop,CODE_9ECAC9,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
 $9ECAD5,.loop2,CODE_9ECAD5,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
 $9ECAF0,.1,CODE_9ECAF0,new,branch target only used in this routine,src/routines/hockey/ScoutPlainWord.asm
@@ -2731,9 +2731,9 @@ $9C9DC4,.t1,CODE_9C9DC4,new,continued in the previous routine,src/routines/snes/
 $9C9DAA,.t1,CODE_9C9DAA,new,continued in the previous routine,src/routines/snes/CODE_9C9D25.asm
 $9C9B8B,.t1,CODE_9C9B8B,new,continued in the previous routine,src/routines/snes/PlayTeamSong.asm
 $9C9B14,.t1,CODE_9C9B14,new,continued in the previous routine,src/routines/sound/PuckSfx.asm
-$9C9A53,.t1,CODE_9C9A53,new,continued in the previous routine,src/routines/snes/CODE_9C9981.asm
+$9C9A53,.t1,CODE_9C9A53,new,continued in the previous routine,src/routines/sound/UpdateStreamSfx.asm
 $9C99CA,.t1,CODE_9C99CA,new,continued in the previous routine,src/routines/snes/CODE_9C99B1.asm
-$9C999F,.t1,CODE_9C999F,new,continued in the previous routine,src/routines/snes/CODE_9C9981.asm
+$9C999F,.t1,CODE_9C999F,new,continued in the previous routine,src/routines/sound/UpdateStreamSfx.asm
 $9C9967,.t1,CODE_9C9967,new,continued in the previous routine,src/routines/video/updatesound.asm
 $9C95DE,.t1,CODE_9C95DE,new,continued in the previous routine,src/routines/snes/CODE_9C95CE.asm
 $9C95BA,.t1,CODE_9C95BA,new,continued in the previous routine,src/routines/snes/CODE_9C95B0.asm
@@ -3261,7 +3261,7 @@ $9CA101,.t2,CODE_9CA101,new,continued in the previous routine,src/routines/video
 $9C9E15,.t1,CODE_9C9E15,new,continued in the previous routine,src/routines/hockey/ShowStars.asm
 $9C9DEC,.t1,CODE_9C9DEC,new,continued in the previous routine,src/routines/snes/CODE_9C9DD4.asm
 $9C9DBA,.t2,CODE_9C9DBA,new,continued in the previous routine,src/routines/snes/CODE_9C9D25.asm
-$9C99B1,.t2,CODE_9C99B1,new,continued in the previous routine,src/routines/snes/CODE_9C9981.asm
+$9C99B1,.t2,CODE_9C99B1,new,continued in the previous routine,src/routines/sound/UpdateStreamSfx.asm
 $9C95CE,.t2,CODE_9C95CE,new,continued in the previous routine,src/routines/snes/CODE_9C95B0.asm
 $9C953D,.t2,CODE_9C953D,new,continued in the previous routine,src/routines/snes/CODE_9C951E.asm
 $9C9514,.t2,CODE_9C9514,new,continued in the previous routine,src/routines/snes/CODE_9C9502.asm
@@ -4376,9 +4376,9 @@ $9C8957,.1,CODE_9C8957,new,branch target only used in this routine,src/routines/
 $9C8977,.2,CODE_9C8977,new,branch target only used in this routine,src/routines/hockey/FillPlayerStatsPage.asm
 $9C8B26,.2,CODE_9C8B26,new,branch target only used in this routine,src/routines/hockey/FillPlayerStatsPage.asm
 $9C8D2A,.1,CODE_9C8D2A,new,branch target only used in this routine,src/routines/hockey/SetStatColumnPal.asm
-$9C99A2,.2,CODE_9C99A2,new,branch target only used in this routine,src/routines/snes/CODE_9C9981.asm
-$9C99E4,.3,CODE_9C99E4,new,branch target only used in this routine,src/routines/snes/CODE_9C9981.asm
-$9C9A5A,.1,CODE_9C9A5A,new,branch target only used in this routine,src/routines/snes/CODE_9C9981.asm
+$9C99A2,.2,CODE_9C99A2,new,branch target only used in this routine,src/routines/sound/UpdateStreamSfx.asm
+$9C99E4,.3,CODE_9C99E4,new,branch target only used in this routine,src/routines/sound/UpdateStreamSfx.asm
+$9C9A5A,.1,CODE_9C9A5A,new,branch target only used in this routine,src/routines/sound/UpdateStreamSfx.asm
 $9C9B19,.3,CODE_9C9B19,new,branch target only used in this routine,src/routines/sound/PuckSfx.asm
 $9C9BA5,.1,CODE_9C9BA5,new,branch target only used in this routine,src/routines/snes/PlayTeamSong.asm
 $9C9BA9,.2,CODE_9C9BA9,new,branch target only used in this routine,src/routines/snes/PlayTeamSong.asm
@@ -5124,9 +5124,9 @@ $9B8D32,.5,CODE_9B8D32,new,"part of CODE_9B8C7A, used only by it",src/routines/h
 $9B8F7B,.10,CODE_9B8F7B,new,"part of CODE_9B8D86, used only by it",src/routines/hockey/SelectLinePlayer.asm
 $9C8980,.3,CODE_9C8980,new,"part of CODE_9C8934, used only by it",src/routines/hockey/FillPlayerStatsPage.asm
 $9C8A83,.4,CODE_9C8A83,new,"part of CODE_9C8934, used only by it",src/routines/hockey/FillPlayerStatsPage.asm
-$9C99E5,.4,CODE_9C99E5,new,"part of CODE_9C9981, used only by it",src/routines/snes/CODE_9C9981.asm
-$9C9A20,.5,CODE_9C9A20,new,"part of CODE_9C9981, used only by it",src/routines/snes/CODE_9C9981.asm
-$9C9A21,.6,CODE_9C9A21,new,"part of CODE_9C9981, used only by it",src/routines/snes/CODE_9C9981.asm
+$9C99E5,.4,CODE_9C99E5,new,"part of CODE_9C9981, used only by it",src/routines/sound/UpdateStreamSfx.asm
+$9C9A20,.5,CODE_9C9A20,new,"part of CODE_9C9981, used only by it",src/routines/sound/UpdateStreamSfx.asm
+$9C9A21,.6,CODE_9C9A21,new,"part of CODE_9C9981, used only by it",src/routines/sound/UpdateStreamSfx.asm
 $9CA032,.1,CODE_9CA032,new,"part of CODE_9C9FED, used only by it",src/routines/snes/CODE_9C9FED.asm
 $9CA037,.2,CODE_9CA037,new,"part of CODE_9C9FED, used only by it",src/routines/snes/CODE_9C9FED.asm
 $9CA03D,.3,CODE_9CA03D,new,"part of CODE_9C9FED, used only by it",src/routines/snes/CODE_9C9FED.asm
@@ -5363,7 +5363,7 @@ $9BACCD,.12,CODE_9BACCD,new,"part of ReplayMode, used only by it",src/routines/h
 $9BACE5,.13,CODE_9BACE5,new,"part of ReplayMode, used only by it",src/routines/hockey/ReplayMode.asm
 $9BAE57,.14,DATA8_9BAE57,new,"part of ReplayMode, used only by it",src/routines/hockey/ReplayMode.asm
 $9BAE77,.16,CODE_9BAE77,new,"part of ReplayMode, used only by it",src/routines/hockey/ReplayMode.asm
-$9C9A5B,.7,DATA8_9C9A5B,new,"part of CODE_9C9981, used only by it",src/routines/snes/CODE_9C9981.asm
+$9C9A5B,.7,DATA8_9C9A5B,new,"part of CODE_9C9981, used only by it",src/routines/sound/UpdateStreamSfx.asm
 $9CA099,.1,DATA8_9CA099,new,"part of CODE_9CA054, used only by it",src/routines/video/setsortcords.asm
 $9CA0A1,.2,DATA8_9CA0A1,new,"part of CODE_9CA054, used only by it",src/routines/video/setsortcords.asm
 $9CA0A9,.3,DATA8_9CA0A9,new,"part of CODE_9CA054, used only by it",src/routines/video/setsortcords.asm
@@ -5767,3 +5767,5 @@ $9EC6E7,StartBreakaway,CODE_9EC6E7,new,Behavior: called from ChkOffsides,src/rou
 $9E9B0E,CollisionSfx,CODE_9E9B0E,new,Behavior: called from checkplcoll and FallDown,src/routines/sound/CollisionSfx.asm
 $9EC042,PenShotChk,CODE_9EC042,94G,"The 94G PenShotChk job (player hit on a breakaway: a penalty shot); Bcheck, checkcheck and holdcheck call it just before AddPenalty, as 94G calls PenShotChk before AddPenalty",src/routines/penalty/PenShotChk.asm
 $9EB1C9,CountPowerPlayTime,CODE_9EB1C9,new,"Behavior: updatepentime calls it on each tick, where 93S runs its per team loop",src/routines/penalty/CountPowerPlayTime.asm
+$9C9A7F,StreamSfx,CODE_9C9A7F,new,"Behavior: called on game events (Goal, the puck over the glass, falls, saves, injuries, the clock)",src/routines/sound/StreamSfx.asm
+$9C9981,UpdateStreamSfx,CODE_9C9981,new,Behavior: called from NMI_FrameHookReturn,src/routines/sound/UpdateStreamSfx.asm

@@ -36,5 +36,5 @@ CODE_9C978E:
 	bne .loop
 .1:
 	lda.w #$0000
-	sta.l $7E35EA
+	sta.l streamloaded
 	rtl

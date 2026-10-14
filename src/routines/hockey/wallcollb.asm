@@ -42,7 +42,7 @@ wallcollb:
 	plx
 	stx.b a3
 	lda.w #$0006
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 	lda.l crowdlevel
 	clc
 	adc.w #$0258

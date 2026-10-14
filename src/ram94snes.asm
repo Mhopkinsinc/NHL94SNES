@@ -204,3 +204,6 @@ blankchar = $7E35D0	; vram tile of the blank character (eraser fills with it)
 puckdist = $0B1D	; per object: distance to the puck (ApproxLength)
 puckdist2 = $0B3D	; per object: about (dx^2 + dy^2) / 4 to the puck
 puckdir = $0B5D		; per object: direction to the puck (vtoa)
+streamsfx = $7E35E6	; the streamed sound effect asked for (1-6, StreamSfx), 0 none
+streamstate = $7E35E8	; UpdateStreamSfx: 0 start, 1 streaming, 2 playing, 3 done
+streamloaded = $7E35EA	; the streamed sound whose sample is in sound RAM

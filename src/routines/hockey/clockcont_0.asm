@@ -6,7 +6,7 @@ clockcont_0:
 	sta.b d0
 	jsl.l assinsert
 	lda.w #$0001
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 	stz.b $0C
 	lda.w gsp
 	cmp.w #$0002

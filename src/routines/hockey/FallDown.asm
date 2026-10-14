@@ -353,7 +353,7 @@ FallDown:
 	lda.w pfteam,y
 	bne .t1xx
 	lda.w #$0003
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 	rtl
 
 .t1xx:

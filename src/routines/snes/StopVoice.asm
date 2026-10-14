@@ -7,9 +7,9 @@ StopVoice:
 	cmp.w #$E2B1
 	bcs .1
 	lda.w #$0000
-	sta.l $7E35E8
+	sta.l streamstate
 	lda.w #$0000
-	sta.l $7E35E6
+	sta.l streamsfx
 .1:
 	sep #$30
 	lda.b #$00

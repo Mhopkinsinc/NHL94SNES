@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C9981:
+; Each frame: stream the sample block of streamsfx (.7) to the sound CPU (SPCStreamStart / SPCStreamNext), then play it (QueueSound from DATA8_9C9A73)
+UpdateStreamSfx:
 	rep #$30
 	lda.w SoundLock
 	and.w #$00FF
@@ -16,15 +16,15 @@ CODE_9C9981:
 .t1:
 	stz.w $0CC3
 .2:
-	lda.l $7E35E6
+	lda.l streamsfx
 	beq .3
-	lda.l $7E35E8
+	lda.l streamstate
 	beq .t2
 	jmp.w .6
 
 .t2:
-	lda.l $7E35E6
-	cmp.l $7E35EA
+	lda.l streamsfx
+	cmp.l streamloaded
 	beq .t1x
 .loop:
 	jsl.l SPCCmd02
@@ -35,7 +35,7 @@ CODE_9C9981:
 	bra .loop
 
 .t1x:
-	lda.l $7E35E6
+	lda.l streamsfx
 	asl a
 	tax
 	lda.w #$7000
@@ -43,12 +43,12 @@ CODE_9C9981:
 	lda.l DATA8_9C9A73-2,x
 	jsl.l QueueSound
 	lda.w #$0003
-	sta.l $7E35E8
+	sta.l streamstate
 .3:
 	rtl
 .4:
-	lda.l $7E35E6
-	sta.l $7E35EA
+	lda.l streamsfx
+	sta.l streamloaded
 	asl a
 	asl a
 	tax
@@ -71,7 +71,7 @@ CODE_9C9981:
 	sta.b $3E
 	jsl.l SPCStreamStart
 	lda.w #$0001
-	sta.l $7E35E8
+	sta.l streamstate
 .5:
 	rtl
 .6:
@@ -80,12 +80,12 @@ CODE_9C9981:
 	jsl.l SPCStreamNext
 	cmp.w #$0000
 	beq .t1xx
-	lda.l $7E35E8
+	lda.l streamstate
 	cmp.w #$0001
 	bne .5
 	lda.w #$0002
-	sta.l $7E35E8
-	lda.l $7E35E6
+	sta.l streamstate
+	lda.l streamsfx
 	asl a
 	tax
 	lda.w #$7000
@@ -96,7 +96,7 @@ CODE_9C9981:
 
 .t1xx:
 	lda.w #$0003
-	sta.l $7E35E8
+	sta.l streamstate
 .1x:
 	rtl
 .7:		; long pointers to the blocks for the sound CPU that the code above streams in
