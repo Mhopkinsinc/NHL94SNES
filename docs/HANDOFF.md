@@ -167,7 +167,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   chunk's size byte ($CA) reaches past the bank end, but its track ends (command $D9) inside the bank.
 - TeamSongs ($80DA56, six long pointers per team, $FFFFFFFF none) and DefaultSongs ($80DCF6) are read by the music code
   at $9C9B5F: slot A of the home team ($1C98), else a random DefaultSongs entry. The other long pointer tables in bank80_D000
-  (DATA8_80D324, DATA8_80DD16) are not identified yet.
+  are `asstab` (was DATA8_80D324) and `GameSampleList` (was DATA8_80DD16).
 - `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
   the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
 - bank82_8000: SpriteFrames ($828000), the main sprite set: an offset table of 976 frames (dd, raw offsets until the
