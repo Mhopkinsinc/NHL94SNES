@@ -588,3 +588,11 @@ $80CDF9,.loop,CODE_80CDF9,94G,InitShooters copy,src/routines/shootout/InitShoote
 $80CA1D,.team,CODE_80CA1D,new,ShootoutShooters team check,src/routines/shootout/ShootoutShooters.asm
 $80CEFF,.list,CODE_80CEFF,new,ShooterSelectList shooter list,src/routines/shootout/ShooterSelectList.asm
 $80CF31,.zero,CODE_80CF31,new,ShooterSelectList clamp,src/routines/shootout/ShooterSelectList.asm
+$9EB753,.ne,CODE_9EB753,93S,updatepwrplay teams differ,src/routines/penalty/updatepwrplay.asm
+$9EB769,.off,CODE_9EB769,new,updatepwrplay returns when the mode is 4,src/routines/penalty/updatepwrplay.asm
+$9EB76A,.t0,CODE_9EB76A,93S,updatepwrplay home leads,src/routines/penalty/updatepwrplay.asm
+$9EB784,.upp,CODE_9EB784,93S,updatepwrplay box,src/routines/penalty/updatepwrplay.asm
+$9EB791,.uppt,CODE_9EB791,93S,updatepwrplay print,src/routines/penalty/updatepwrplay.asm
+$9EB7CE,.one,CODE_9EB7CE,new,updatepwrplay one second left,src/routines/penalty/updatepwrplay.asm
+$9EB7F8,.wide,CODE_9EB7F8,new,updatepwrplay back to 16-bit,src/routines/penalty/updatepwrplay.asm
+$9EB7FB,.time,CODE_9EB7FB,new,updatepwrplay time and team name,src/routines/penalty/updatepwrplay.asm
