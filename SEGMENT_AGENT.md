@@ -734,3 +734,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Pad control helpers. MATCH.
 - Create_HotCold_Table, pause mode helpers, sfpz. MATCH.
 - ChkOffsides; chkprogress and InProgress tails folded. MATCH.
+- PenBoxSpot, SeatPenaltyBox. MATCH.

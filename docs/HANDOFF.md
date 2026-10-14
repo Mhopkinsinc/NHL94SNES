@@ -90,6 +90,7 @@
 - MultiPlayer 5 pad control from behavior: `AssignPadPlayer`, `AssignPadIfFree`, `PuckCarrierPad`, `PadTakePosition`, `PadTakeGoalie`. CODE_9FCD2F / CODE_9FCD4D (pad takes a defenseman, the side picked by pfgoal) stay unnamed: which side pfgoal means is not proven.
 - `Create_HotCold_Table` (94G: called from StartGame, the same job), and from behavior `SetPauseMode`, `PauseFromPad`, `PauseFromPad1`; equate `sfpz` (93S pause mode bit).
 - `ChkOffsides` (93S: pucknorm calls it at the 93S point). chkprogress: its penalty tail CODE_9EB3C5 folded in, `chkprogress_find` (93S .find); InProgress: its exit CODE_9EB6B8 folded in as `InProgress_exit` / `InProgress_coin` / `InProgress_rtl` (InProgress and chkprogress jump to them).
+- From behavior: `PenBoxSpot` (the 93S asspenalty inline box spot as a routine), `SeatPenaltyBox`.
 
 ## Unsure
 

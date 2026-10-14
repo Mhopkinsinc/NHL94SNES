@@ -17,7 +17,7 @@ asspenalty:
 	stz.w $1023,x
 	lda.w #$0008
 	sta.w $10A3,x
-	jsl.l CODE_9EBEA1
+	jsl.l PenBoxSpot
 	lda.b $08
 	sta.b d1
 	sta.w $1063,x

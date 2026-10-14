@@ -81,7 +81,7 @@ chkprogress:
 	rtl
 
 .t3:
-	jsl.l CODE_9EBF11
+	jsl.l SeatPenaltyBox
 	lda.w RefCnt
 	bmi .t2
 	jmp.w InProgress_rtl

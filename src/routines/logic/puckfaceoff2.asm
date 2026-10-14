@@ -514,7 +514,7 @@ puckfaceoff2:
 	adc.l DATA8_9AD6A6
 	dec a
 	jsl.l marktexthi
-	jsl.l CODE_9EBF11
+	jsl.l SeatPenaltyBox
 	lda.w #DATA8_9AD6A6+6
 	sta.l $7E3120
 	sta.b tmp0

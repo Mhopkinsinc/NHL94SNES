@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EBF11:
+; Put every player in the penalty box (negative position) at his box spot: Y = PenBoxSpot, X = $88 (the sideline), then assdopen
+SeatPenaltyBox:
 	lda.w $1E9B
 	ora.w $163A
 	ora.w $1D81
@@ -10,7 +10,7 @@ CODE_9EBF11:
 .loop:
 	lda.w position,x
 	bpl .1
-	jsl.l CODE_9EBEA1
+	jsl.l PenBoxSpot
 	lda.b $08
 	sta.w Ypos,x
 	lda.w #$0088

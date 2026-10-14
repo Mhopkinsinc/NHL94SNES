@@ -1296,8 +1296,8 @@ $80ADCD,.1,CODE_80ADCD,new,branch target only used in this routine,src/routines/
 $80ADD4,.2,CODE_80ADD4,new,branch target only used in this routine,src/routines/snes/CODE_80ADC1.asm
 $80ADD9,.3,CODE_80ADD9,new,branch target only used in this routine,src/routines/snes/CODE_80ADC1.asm
 $80ADDD,.4,CODE_80ADDD,new,branch target only used in this routine,src/routines/snes/CODE_80ADC1.asm
-$9EBEBD,.1,CODE_9EBEBD,new,branch target only used in this routine,src/routines/snes/CODE_9EBEA1.asm
-$9EBECE,.2,CODE_9EBECE,new,branch target only used in this routine,src/routines/snes/CODE_9EBEA1.asm
+$9EBEBD,.1,CODE_9EBEBD,new,branch target only used in this routine,src/routines/penalty/PenBoxSpot.asm
+$9EBECE,.2,CODE_9EBECE,new,branch target only used in this routine,src/routines/penalty/PenBoxSpot.asm
 $9CA55D,.1,CODE_9CA55D,new,branch target only used in this routine,src/routines/snes/ApproxLength.asm
 $9CA566,.2,CODE_9CA566,new,branch target only used in this routine,src/routines/snes/ApproxLength.asm
 $9CA571,.1,CODE_9CA571,new,branch target only used in this routine,src/routines/snes/ApproxLength.asm
@@ -1966,9 +1966,9 @@ $9E9BC4,.1,CODE_9E9BC4,new,branch target only used in this routine,src/routines/
 $9E9BD2,.2,CODE_9E9BD2,new,branch target only used in this routine,src/routines/snes/CODE_9E9BB3.asm
 $9F8CA4,.1,CODE_9F8CA4,new,branch target only used in this routine,src/routines/hockey/clockcont_0.asm
 $9FC2C5,.1,CODE_9FC2C5,new,branch target only used in this routine,src/routines/logic/doinput.asm
-$9EBF23,.loop,CODE_9EBF23,new,branch target only used in this routine,src/routines/snes/CODE_9EBF11.asm
-$9EBF3B,.1,CODE_9EBF3B,new,branch target only used in this routine,src/routines/snes/CODE_9EBF11.asm
-$9EBF43,.rtl,CODE_9EBF43,new,branch target only used in this routine,src/routines/snes/CODE_9EBF11.asm
+$9EBF23,.loop,CODE_9EBF23,new,branch target only used in this routine,src/routines/penalty/SeatPenaltyBox.asm
+$9EBF3B,.1,CODE_9EBF3B,new,branch target only used in this routine,src/routines/penalty/SeatPenaltyBox.asm
+$9EBF43,.rtl,CODE_9EBF43,new,branch target only used in this routine,src/routines/penalty/SeatPenaltyBox.asm
 $9B80B6,.loop,CODE_9B80B6,new,branch target only used in this routine,src/routines/snes/Multi5Bios.asm
 $9FCD15,.1,CODE_9FCD15,new,branch target only used in this routine,src/routines/snes/CODE_9FCD0A.asm
 $9FCD1F,.2,CODE_9FCD1F,new,branch target only used in this routine,src/routines/snes/CODE_9FCD0A.asm
@@ -5728,3 +5728,5 @@ $9EB4A1,chkprogress_find,CODE_9EB4A1,93S,chkprogress: look for any penalty left 
 $9EB6B8,InProgress_exit,CODE_9EB6B8,93S,"InProgress: the penalties are over (as the 93S InProgress .exit: clear gmpen, coinsearch both teams); folded into InProgress.asm",src/routines/penalty/InProgress.asm
 $9EB6CC,InProgress_coin,CODE_9EB6CC,new,InProgress: coinsearch for both teams and restore the registers,src/routines/penalty/InProgress.asm
 $9EB6F6,InProgress_rtl,CODE_9EB6F6,new,InProgress: the rtl,src/routines/penalty/InProgress.asm
+$9EBEA1,PenBoxSpot,CODE_9EBEA1,new,"Behavior: the computation 93S asspenalty does inline before its muls16 (d0 by team, the box count + 3); called from asspenalty and SeatPenaltyBox",src/routines/penalty/PenBoxSpot.asm
+$9EBF11,SeatPenaltyBox,CODE_9EBF11,new,Behavior: not in a shootout; called from puckfaceoff2 and chkprogress,src/routines/penalty/SeatPenaltyBox.asm
