@@ -71,7 +71,7 @@ printbig:
 	asl a
 	sta.b d0
 	tax
-	lda.l DATA8_9ABD3D+6,x
+	lda.l BigFontMap+6,x
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
@@ -101,7 +101,7 @@ printbig:
 	lda.b d2
 	beq .1
 	ldx.b d0
-	lda.l DATA8_9ABD3D+8,x
+	lda.l BigFontMap+8,x
 	clc
 	adc.l $7E35AE
 	adc.l printfontset

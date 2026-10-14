@@ -1,7 +1,7 @@
-; Data.
+; The ref window maps for the vertical rink (7 x 8 tiles per entry), as 93S RefsMap (PushRef)
 
-DATA8_96F15D:		; map words, 7 x 8 tiles per entry, that a routine copies into a map buffer (the other
-			;   choice there is the words of DATA8_95DB8E); not identified yet
+RefsMap:		; map words, 7 x 8 tiles per entry, that a routine copies into a map buffer (the other
+			;   choice there is the words of RefsMapHor); not identified yet
 	dw $0001,$0002,$0003,$0004,$0005,$0006,$0007,$0008
 	dw $0009,$000A,$000B,$000C,$000D,$000E,$000F,$0010
 	dw $0011,$0012,$0013,$0014,$0015,$0016,$0017,$0018

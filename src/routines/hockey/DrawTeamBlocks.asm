@@ -82,9 +82,9 @@ DrawTeamBlocks:
 
 .t1x:
 	ldy.w #$0000
-	lda.w #DATA8_9AE99D>>16
+	lda.w #TeamBlocksMap>>16
 	sta.b $93
-	lda.w #DATA8_9AE99D+6
+	lda.w #TeamBlocksMap+6
 	sta.b a2
 	lda.w printy
 	asl a

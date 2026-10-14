@@ -36,9 +36,9 @@ PushRef:
 	ldx.w #$0070
 	jsl.l Mul8U
 	sta.b d0
-	lda.w #DATA8_96F15D>>16
+	lda.w #RefsMap>>16
 	sta.b $8B
-	lda.w #DATA8_96F15D
+	lda.w #RefsMap
 	sta.b a0
 	lda.w #$0084
 	sta.b tmp1
@@ -51,9 +51,9 @@ PushRef:
 	sta.b tmp0
 	lda.w #$03DA
 	sta.b tmp1
-	lda.w #DATA8_95DB8E>>16
+	lda.w #RefsMapHor>>16
 	sta.b $8B
-	lda.w #DATA8_95DB8E+6
+	lda.w #RefsMapHor+6
 	sta.b a0
 .2:
 	lda.b a0

@@ -32,9 +32,9 @@ LoadPlayerCardScreen:
 	sta.l $7E35AC
 	jsl.l ClearTextMap
 	jsl.l ClearTextMap2
-	lda.w #DATA8_96A103>>16
+	lda.w #SmallFontTiles>>16
 	sta.b $0E
-	lda.w #DATA8_96A103
+	lda.w #SmallFontTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

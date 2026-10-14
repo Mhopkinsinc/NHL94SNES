@@ -16,9 +16,9 @@ EASNLogo:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w #DATA8_9AEA3A>>16
+	lda.w #EASNLogoMap>>16
 	sta.b $0E
-	lda.w #DATA8_9AEA3A
+	lda.w #EASNLogoMap
 	sta.b $0C
 	lda.w #textmap>>16
 	sta.b $12
@@ -38,7 +38,7 @@ EASNLogo:
 	bcs .1
 	sta.w textdirtylo
 .1:
-	lda.l DATA8_9AEA3A+2
+	lda.l EASNLogoMap+2
 	clc
 	adc.w #$0019
 	dec a
@@ -48,7 +48,7 @@ EASNLogo:
 	asl a
 	asl a
 	clc
-	adc.l DATA8_9AEA3A
+	adc.l EASNLogoMap
 	cmp.w textdirtyhi
 	bcc .rtl
 	sta.w textdirtyhi

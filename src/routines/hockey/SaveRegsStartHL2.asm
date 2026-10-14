@@ -439,9 +439,9 @@ org $9F9001
 	trb.w sflags3
 .13:
 	jsl.l LoadCenterIce
-	lda.w #DATA8_96B2CF>>16
+	lda.w #FaceOffTiles>>16
 	sta.b $0E
-	lda.w #DATA8_96B2CF
+	lda.w #FaceOffTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

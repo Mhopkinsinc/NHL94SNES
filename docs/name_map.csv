@@ -6235,3 +6235,13 @@ $93A18D,StreamSampleOverGlass,DATA8_93A18D,new,"streamed sound 6, asked for by w
 $8FDD32,TitleSong,DATA8_8FDD32,new,the song TitleScreen starts,src/data/sound/TitleSong.asm
 $90C20C,MenuSong,DATA8_90C20C,new,the song of the game setup (Opening) and of the period breaks outside the late playoff rounds,src/data/sound/MenuSong.asm
 $93ED31,PlayoffSong,DATA8_93ED31,new,the song of PlayoffScreen and of the period breaks from playoff round 2 on,src/data/sound/PlayoffSong.asm
+$96B2CF,FaceOffTiles,DATA8_96B2CF,93S,"55 tiles, the 93S FaceOffTiles count, at the 93S setupice load position",src/data/gfx/FaceOffTiles.asm
+$95E304,RefTilesHor,DATA8_95E304,93S,"104 tiles, the 93S RefTilesHor count, at its setupice position",src/data/gfx/RefTilesHor.asm
+$95BA96,RefTiles,DATA8_95BA96,93S,"117 tiles, the 93S RefTiles count, at its setupice position",src/data/gfx/RefTiles.asm
+$96A103,SmallFontTiles,DATA8_96A103,93S,"the setupice block remapped with PixelRemap83 as 93S SmallFontTiles (106 tiles, 93S 100); InitSetupChars puts smallfontchars after it",src/data/gfx/SmallFontTiles.asm
+$9AC98B,RinkLogoTiles,DATA8_9AC98B,93S,12 tiles (93S 14) at the 93S RinkLogoTiles setupice position,src/data/gfx/RinkLogoTiles.asm
+$96F15D,RefsMap,DATA8_96F15D,93S,PushRef reads it for the vertical rink where 93S PushRef reads RefsMap,src/data/gfx/RefsMap.asm
+$95DB8E,RefsMapHor,DATA8_95DB8E,93S,PushRef reads it in horizontal mode where 93S PushRef reads RefsMapHor,src/data/gfx/RefsMapHor.asm
+$9ABD3D,BigFontMap,DATA8_9ABD3D,93S,"printbig reads it through BigFontIndex, as 93S BigFontMap",src/data/gfx/BigFontMap.asm
+$9AE99D,TeamBlocksMap,DATA8_9AE99D,93S,"DrawTeamBlocks copies it, as 93S DrawTeamBlocks copies TeamBlocksMap",src/data/gfx/TeamBlocksMap.asm
+$9AEA3A,EASNLogoMap,DATA8_9AEA3A,93S,EASNLogo draws it (7 x 2),src/data/gfx/EASNLogoMap.asm

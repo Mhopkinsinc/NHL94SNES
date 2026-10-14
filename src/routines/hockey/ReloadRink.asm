@@ -80,9 +80,9 @@ ReloadRink:
 	adc.w #$1000
 	tay
 	jsl.l DMAToVRAM
-	lda.w #DATA8_96B2CF>>16
+	lda.w #FaceOffTiles>>16
 	sta.b $0E
-	lda.w #DATA8_96B2CF
+	lda.w #FaceOffTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -101,9 +101,9 @@ ReloadRink:
 	adc.w #$1000
 	tay
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9AC98B>>16
+	lda.w #RinkLogoTiles>>16
 	sta.b $0E
-	lda.w #DATA8_9AC98B
+	lda.w #RinkLogoTiles
 	sta.b $0C
 	jsl.l Decompress
 	lda.w #$007F
@@ -112,9 +112,9 @@ ReloadRink:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #DATA8_95E304>>16
+	lda.w #RefTilesHor>>16
 	sta.b $0E
-	lda.w #DATA8_95E304
+	lda.w #RefTilesHor
 	sta.b $0C
 	jsl.l Decompress
 	lda.w #$007F
@@ -123,9 +123,9 @@ ReloadRink:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #DATA8_95BA96>>16
+	lda.w #RefTiles>>16
 	sta.b $0E
-	lda.w #DATA8_95BA96
+	lda.w #RefTiles
 	sta.b $0C
 	jsl.l Decompress
 	lda.w #$007F
@@ -134,9 +134,9 @@ ReloadRink:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #DATA8_96A103>>16
+	lda.w #SmallFontTiles>>16
 	sta.b $0E
-	lda.w #DATA8_96A103
+	lda.w #SmallFontTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
