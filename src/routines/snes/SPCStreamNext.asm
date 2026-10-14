@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCStreamNext:		; sound driver command $10: send the next block of the stream; returns the bytes still left
+; sound driver command $10: send the next block of the stream; returns the bytes still left
+SPCStreamNext:
 	lda.l SPCStreamPtr
 	sta.b $3E
 	lda.l SPCStreamPtr+2

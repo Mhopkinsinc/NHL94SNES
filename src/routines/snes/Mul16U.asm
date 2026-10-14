@@ -1,5 +1,5 @@
-; Unidentified routine.
-Mul16U:		; A * X into $08-$0B, unsigned
+; A * X into $08-$0B, unsigned
+Mul16U:
 	phy
 	tay
 	beq Mul16_Zero

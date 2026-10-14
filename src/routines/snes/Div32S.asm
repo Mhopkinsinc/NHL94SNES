@@ -1,5 +1,5 @@
-; Unidentified routine.
-Div32S:		; $08-$0B / $04 into $00, signed; $7FFF when the quotient does not fit
+; $08-$0B / $04 into $00, signed; $7FFF when the quotient does not fit
+Div32S:
 	lda.b $04
 	bmi .divneg
 	lda.b $0A

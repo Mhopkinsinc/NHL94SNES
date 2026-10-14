@@ -1,4 +1,4 @@
-; Unidentified routine.
+; d0 = a random index 0 ... d0 into the weight word list at $0CF9, each index as likely as its weight
 WeightedRandomSelect:
 	lda.b $AB
 	pha

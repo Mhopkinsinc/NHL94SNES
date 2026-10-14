@@ -1,5 +1,5 @@
-; Unidentified routine.
-Decompress:		; unpack the data at [$0C] to WRAM at [$10] by its format word ($FB10 LZ, $FB46 pairs, $FB30 Huffman,
+; unpack the data at [$0C] to WRAM at [$10] by its format word ($FB10 LZ, $FB46 pairs, $FB30 Huffman,
+Decompress:
 		;   $FB7A run-length); X = the unpacked size from the header, or 1 for an unknown format
 	php
 	phb

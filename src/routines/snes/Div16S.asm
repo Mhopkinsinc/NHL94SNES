@@ -1,6 +1,6 @@
-; Unidentified routine.
 ; Divides.
-Div16S:		; $08 / $04 into $00, signed
+; $08 / $04 into $00, signed
+Div16S:
 	lda.b $04
 	bmi .divneg
 	lda.b $08

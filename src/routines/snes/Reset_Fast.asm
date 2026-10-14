@@ -1,4 +1,4 @@
-; Unidentified routine.
+; Reset in FastROM: clear the PPU and CPU registers, then start the game
 Reset_Fast:
 	phk
 	plb

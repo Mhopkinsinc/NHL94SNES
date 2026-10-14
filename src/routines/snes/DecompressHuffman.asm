@@ -1,5 +1,5 @@
-; Unidentified routine.
-DecompressHuffman:	; Huffman data at [$0C] to WRAM at [$10]
+; Huffman data at [$0C] to WRAM at [$10]
+DecompressHuffman:
 	sep #$10
 	lda.b $0C
 	clc

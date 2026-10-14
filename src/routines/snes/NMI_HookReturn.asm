@@ -1,4 +1,4 @@
-; Unidentified routine.
+; NMI after the hook: the IRQ timers, INIDISP from IniDispShadow, the BG scroll registers and the rest of the frame registers
 NMI_HookReturn:
 	rep #$30
 	lda.w $07D2

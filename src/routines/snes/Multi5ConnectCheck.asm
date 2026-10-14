@@ -1,5 +1,5 @@
-; Unidentified routine.
-Multi5ConnectCheck:	; read 16 signature bits from each port; $1A00 bit 7 (port 1) or 6 (port 2) = multitap
+; read 16 signature bits from each port; $1A00 bit 7 (port 1) or 6 (port 2) = multitap
+Multi5ConnectCheck:
 	php
 	sep #$30
 	stz.w $1A00

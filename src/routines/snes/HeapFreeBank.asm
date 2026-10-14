@@ -1,4 +1,4 @@
-; Unidentified routine.
+; Add the sizes of the free blocks of the heap chain at [$0C], from block Y, to $14-$17
 HeapFreeBank:
 	iny
 	iny

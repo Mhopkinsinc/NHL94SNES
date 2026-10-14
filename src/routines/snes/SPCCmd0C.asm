@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCCmd0C:		; sound driver command $0C, Y in APUIO2, X in APUIO1
+; sound driver command $0C, Y in APUIO2, X in APUIO1
+SPCCmd0C:
 	sep #$30
 .wait:
 	lda.w APUIO0

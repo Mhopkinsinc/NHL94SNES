@@ -1,5 +1,5 @@
-; Unidentified routine.
-HeapAllocBlock:		; first free block of size $14 or more (flags $16) from header Y in the bank in $0E; splits it when 16 or more bytes are left.
+; first free block of size $14 or more (flags $16) from header Y in the bank in $0E; splits it when 16 or more bytes are left.
+HeapAllocBlock:
 		;   returns the data address, $FFFF for none
 	stz.b $0C
 .walk:

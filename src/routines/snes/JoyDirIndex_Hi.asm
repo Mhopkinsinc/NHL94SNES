@@ -1,4 +1,4 @@
-; Unidentified routine.
+; JoyDirIndex of the high byte of A; JoyDirIndex: X = 2 * JoyDirTable[the dpad bits A & $F]
 JoyDirIndex_Hi:
 	xba
 

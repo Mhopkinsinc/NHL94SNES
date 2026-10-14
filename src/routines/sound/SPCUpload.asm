@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCUpload:		; sound driver command $03: X bytes from [$0C] to sound RAM address Y
+; sound driver command $03: X bytes from [$0C] to sound RAM address Y
+SPCUpload:
 	sep #$20
 .wait:
 	lda.w APUIO0

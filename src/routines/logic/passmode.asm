@@ -1,4 +1,4 @@
-; Unidentified routine.
+; Pass mode: a pad direction sets the pass direction and passes; releasing the button passes too
 passmode:
 	lda.b d2
 	bit.w #$8000

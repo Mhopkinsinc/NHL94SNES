@@ -1,5 +1,5 @@
-; Unidentified routine.
-HeapCompact:		; HeapCompactBank for both banks
+; HeapCompactBank for both banks
+HeapCompact:
 	pha
 	phx
 	phy

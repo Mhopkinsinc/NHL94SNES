@@ -1,4 +1,4 @@
-; Unidentified routine.
+; Change team a2 to the chosen line
 lcfound:
 	ldx.b a3
 	ldy.b a2

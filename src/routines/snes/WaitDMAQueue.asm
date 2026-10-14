@@ -1,4 +1,4 @@
-; Unidentified routine.
+; Wait until the DMA queue is empty ($3A = $3C)
 WaitDMAQueue:
 	pha
 .loop:

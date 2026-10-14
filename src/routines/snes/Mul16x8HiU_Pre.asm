@@ -1,5 +1,5 @@
-; Unidentified routine.
 ; Multiplies. X is the 16-bit operand of the 16 x 8 forms.
-Mul16x8HiU_Pre:		; A * Y (low byte) / 256 into A and $09, unsigned, no zero test
+; A * Y (low byte) / 256 into A and $09, unsigned, no zero test
+Mul16x8HiU_Pre:
 	phy
 	bra Mul16x8HiU_Go

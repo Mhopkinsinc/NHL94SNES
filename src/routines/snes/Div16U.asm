@@ -1,5 +1,5 @@
-; Unidentified routine.
-Div16U:		; $08 / $04 into $00, unsigned
+; $08 / $04 into $00, unsigned
+Div16U:
 	sep #$20
 Div16U_Go:
 	lda.b $05

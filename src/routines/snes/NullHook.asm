@@ -1,3 +1,3 @@
-; Unidentified routine.
+; An empty hook
 NullHook:
 	rtl

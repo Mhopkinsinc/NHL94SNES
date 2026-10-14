@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCCmd01:		; sound driver command $01
+; sound driver command $01
+SPCCmd01:
 	sep #$20
 .wait:
 	lda.w APUIO0

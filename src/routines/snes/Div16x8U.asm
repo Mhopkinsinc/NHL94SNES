@@ -1,5 +1,5 @@
-; Unidentified routine.
-Div16x8U:		; $08 / $04 (8-bit) into $00 with the hardware divider; $7FFF when $04 is 0
+; $08 / $04 (8-bit) into $00 with the hardware divider; $7FFF when $04 is 0
+Div16x8U:
 	sep #$20
 Div16x8U_Go:
 	lda.b $04

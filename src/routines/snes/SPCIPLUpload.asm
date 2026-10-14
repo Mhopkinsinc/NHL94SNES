@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCIPLUpload:		; send the stream at [$0C] through the boot loader: blocks of length, sound RAM address and data;
+; send the stream at [$0C] through the boot loader: blocks of length, sound RAM address and data;
+SPCIPLUpload:
 		;   length 0 ends it with the start address
 	rep #$30
 	ldy.w #$0000

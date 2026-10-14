@@ -1,5 +1,5 @@
-; Unidentified routine.
-MulFrac16:		; A * Y / 128 into A and $43; bit 6 of $07E2 set: shift-and-add loop instead of the mode 7 multiplier
+; A * Y / 128 into A and $43; bit 6 of $07E2 set: shift-and-add loop instead of the mode 7 multiplier
+MulFrac16:
 	bit.w $07E1
 	bvc .hw
 	cpy.b #$00

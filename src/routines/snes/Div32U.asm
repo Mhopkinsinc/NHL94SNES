@@ -1,5 +1,5 @@
-; Unidentified routine.
-Div32U:		; $08-$0B / $04 into $00, unsigned; $7FFF when the quotient does not fit
+; $08-$0B / $04 into $00, unsigned; $7FFF when the quotient does not fit
+Div32U:
 	sep #$20
 	lda.b $0B
 	beq .hi0

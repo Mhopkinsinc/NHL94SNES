@@ -1,5 +1,5 @@
-; Unidentified routine.
-Div_Overflow:		; quotient $7FFF
+; quotient $7FFF
+Div_Overflow:
 	rep #$20
 	lda.w #$7FFF
 	sta.b $00

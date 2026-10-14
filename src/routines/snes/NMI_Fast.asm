@@ -1,4 +1,4 @@
-; Unidentified routine.
+; NMI: save the registers; nothing more while $38 is set, else the frame work and the NMI hook
 NMI_Fast:
 	rep #$30
 	phb

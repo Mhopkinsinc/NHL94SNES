@@ -1,5 +1,5 @@
-; Unidentified routine.
-LinearToPlanar:		; convert $00 bytes of linear 4bpp tiles at [$0C] to SNES planar, in place
+; convert $00 bytes of linear 4bpp tiles at [$0C] to SNES planar, in place
+LinearToPlanar:
 	ldx.b $00
 	phb
 	sep #$20

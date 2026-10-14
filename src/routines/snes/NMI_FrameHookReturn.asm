@@ -1,4 +1,4 @@
-; Unidentified routine.
+; NMI after the frame hook: Multi5Bios, SoundUpdate and the sound stream (CODE_9C9981), then restore and rti
 NMI_FrameHookReturn:
 	sep #$30
 	jsl.l Multi5Bios

@@ -1,4 +1,4 @@
-; Unidentified routine.
+; Reset vector: native mode, stack $1FFF, direct page 0, then Reset_Fast
 Reset:
 	clc
 	xce

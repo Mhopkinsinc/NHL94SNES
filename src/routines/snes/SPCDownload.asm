@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCDownload:		; sound driver command $11: X bytes from sound RAM address Y to [$0C]
+; sound driver command $11: X bytes from sound RAM address Y to [$0C]
+SPCDownload:
 	sep #$20
 .wait:
 	lda.w APUIO0

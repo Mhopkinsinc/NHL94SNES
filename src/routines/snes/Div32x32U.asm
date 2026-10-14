@@ -1,5 +1,5 @@
-; Unidentified routine.
-Div32x32U:		; $08-$0B / $04-$07 into $00-$03, remainder in $08-$0B, unsigned
+; $08-$0B / $04-$07 into $00-$03, remainder in $08-$0B, unsigned
+Div32x32U:
 	phx
 	phy
 	stz.b $00

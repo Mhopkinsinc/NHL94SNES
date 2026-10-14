@@ -1,5 +1,5 @@
-; Unidentified routine.
-Mul16x8HiU:		; X * A (low byte) / 256 into A and $09, unsigned
+; X * A (low byte) / 256 into A and $09, unsigned
+Mul16x8HiU:
 	phy
 	tay
 	beq Mul16x8Hi_Zero

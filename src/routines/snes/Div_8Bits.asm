@@ -1,5 +1,5 @@
-; Unidentified routine.
-Div_8Bits:		; $09-$0A:$08 / $04 when the quotient fits in 8 bits
+; $09-$0A:$08 / $04 when the quotient fits in 8 bits
+Div_8Bits:
 	stz.b $00
 	rep #$20
 	lda.b $09

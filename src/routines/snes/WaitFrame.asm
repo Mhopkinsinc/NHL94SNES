@@ -1,4 +1,4 @@
-; Unidentified routine.
+; Wait for the next frame ($0764 changes)
 WaitFrame:
 	pha
 	lda.w $0764

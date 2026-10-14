@@ -1,4 +1,4 @@
-; Unidentified routine.
+; A player touches the puck: remember the last touches (for assists), then the offsides and icing checks
 a2touchpuck:
 	ldy.b a2
 	cpy.w #$0018

@@ -1,5 +1,5 @@
-; Unidentified routine.
-NewPtrHandle:		; a handle for fixed memory at A in bank X; returns the handle, 0 if none is free
+; a handle for fixed memory at A in bank X; returns the handle, 0 if none is free
+NewPtrHandle:
 	stx.b $16
 	sta.b $14
 	ldx.w #$2000

@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCUploadBlock:		; SPCUpload of the block at [$0C]: address and length (big-endian words), then the data
+; SPCUpload of the block at [$0C]: address and length (big-endian words), then the data
+SPCUploadBlock:
 	sep #$20
 	dec.w SoundLock
 	rep #$20

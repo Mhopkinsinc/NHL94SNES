@@ -1,5 +1,5 @@
-; Unidentified routine.
-DecompressLZ:		; LZ data at [$0C] (after its header) to WRAM
+; LZ data at [$0C] (after its header) to WRAM
+DecompressLZ:
 	lda.b $10
 	sta.b $6F
 	lda.b $12

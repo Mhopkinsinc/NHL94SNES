@@ -1,5 +1,5 @@
-; Unidentified routine.
-FindHandle:		; the handle of address A in bank X, 0 if none
+; the handle of address A in bank X, 0 if none
+FindHandle:
 	stx.b $16
 	sta.b $14
 	ldx.w #$2000

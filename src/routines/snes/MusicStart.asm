@@ -1,5 +1,5 @@
-; Unidentified routine.
-MusicStart:		; start the song at [$0C]: tempo from its second byte, tracks from its offset list
+; start the song at [$0C]: tempo from its second byte, tracks from its offset list
+MusicStart:
 	php
 	sep #$30
 	jsl.l MusicStop

@@ -1,5 +1,5 @@
-; Unidentified routine.
-SoundInit:		; silence everything and reset the player; SoundVolume = $5000
+; silence everything and reset the player; SoundVolume = $5000
+SoundInit:
 	php
 	sep #$20
 	rep #$10

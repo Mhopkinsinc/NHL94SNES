@@ -1,5 +1,5 @@
-; Unidentified routine.
-DecompressRLE:		; run-length data at Y to WRAM: literal runs and repeats, of bytes if its header word is $0101,
+; run-length data at Y to WRAM: literal runs and repeats, of bytes if its header word is $0101,
+DecompressRLE:
 		;   else of byte pairs
 	iny
 	iny

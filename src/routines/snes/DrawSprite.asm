@@ -1,5 +1,5 @@
-; Unidentified routine.
-DrawSprite:		; draw frame $00 of the sprite set at [$10] at X, Y; A is xored into the tile and attribute word
+; draw frame $00 of the sprite set at [$10] at X, Y; A is xored into the tile and attribute word
+DrawSprite:
 		;   of each piece, and its flip bits also mirror the piece positions
 	sta.b $14
 	stx.b $1C

@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCCmd0A:		; sound driver command $0A, 8 bytes from [$0C]
+; sound driver command $0A, 8 bytes from [$0C]
+SPCCmd0A:
 	sep #$30
 .wait:
 	lda.w APUIO0
