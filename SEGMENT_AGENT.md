@@ -710,3 +710,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Pad RAM and helpers. MATCH.
 - Stats page helpers. MATCH.
 - Crowd meter routines and RAM. MATCH.
+- LoadCenterIce, BuildRinkMap. MATCH.

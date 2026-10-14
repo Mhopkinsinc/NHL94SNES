@@ -56,7 +56,7 @@ setupice:
 	sta.b $0C
 	ldy.w #$1000
 	jsl.l DMAToVRAM
-	jsl.l CODE_9BC17C
+	jsl.l LoadCenterIce
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96B2CF

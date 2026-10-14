@@ -103,7 +103,7 @@ StartHL2:
 	lda.w #$0002
 	sta.b a2
 	jsl.l reenergizeteam
-	jsl.l CODE_9BC17C
+	jsl.l LoadCenterIce
 	ldx.w #$0008
 	lda.w #$FFFF
 .loop:
@@ -438,7 +438,7 @@ org $9F9001
 	lda.w #$0008
 	trb.w sflags3
 .13:
-	jsl.l CODE_9BC17C
+	jsl.l LoadCenterIce
 	lda.w #$0096
 	sta.b $0E
 	lda.w #DATA8_96B2CF

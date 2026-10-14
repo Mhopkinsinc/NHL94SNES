@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC17C:
+; Unpack the home team's centre ice logo tiles (CenterIceTable) to VRAM after the rink tiles, then BuildRinkMap
+LoadCenterIce:
 	lda.w HomeTeam
 	asl a
 	asl a
@@ -39,5 +39,5 @@ CODE_9BC17C:
 	adc.w #$1000
 	tay
 	jsl.l DMAToVRAM
-	jsl.l CODE_9BC1D5
+	jsl.l BuildRinkMap
 	rtl

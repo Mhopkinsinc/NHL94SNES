@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC1D5:
+; Unpack IceRinkMap to $7FC800 and copy the home team's centre ice logo map (CenterIceTable+4) into its middle
+BuildRinkMap:
 	lda.w #$0092
 	sta.b $0E
 	lda.w #IceRinkMap

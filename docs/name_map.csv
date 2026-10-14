@@ -1697,9 +1697,9 @@ $9B9668,.2,CODE_9B9668,new,branch target only used in this routine,src/routines/
 $9B9856,.loop,CODE_9B9856,new,branch target only used in this routine,src/routines/snes/CODE_9B9828.asm
 $808A18,.1,CODE_808A18,new,branch target only used in this routine,src/routines/snes/MapPartToVRAMOffset.asm
 $9FF7C0,.1,CODE_9FF7C0,new,branch target only used in this routine,src/routines/snes/CODE_9FF794.asm
-$9BC226,.1,CODE_9BC226,new,branch target only used in this routine,src/routines/snes/CODE_9BC1D5.asm
-$9BC22E,.loop,CODE_9BC22E,new,branch target only used in this routine,src/routines/snes/CODE_9BC1D5.asm
-$9BC231,.loop2,CODE_9BC231,new,branch target only used in this routine,src/routines/snes/CODE_9BC1D5.asm
+$9BC226,.1,CODE_9BC226,new,branch target only used in this routine,src/routines/hockey/BuildRinkMap.asm
+$9BC22E,.loop,CODE_9BC22E,new,branch target only used in this routine,src/routines/hockey/BuildRinkMap.asm
+$9BC231,.loop2,CODE_9BC231,new,branch target only used in this routine,src/routines/hockey/BuildRinkMap.asm
 $9D81A9,.loop,CODE_9D81A9,new,branch target only used in this routine,src/routines/hockey/ScoutingReport.asm
 $9D81B5,.1,CODE_9D81B5,new,branch target only used in this routine,src/routines/hockey/ScoutingReport.asm
 $9D81CC,.2,CODE_9D81CC,new,branch target only used in this routine,src/routines/hockey/ScoutingReport.asm
@@ -5622,3 +5622,5 @@ $9B9BA5,UpdateCrowdMeter,CODE_9B9BA5,94G,"The 94G Crowd_Noise .meter step (sroot
 $9B9BF8,CheckCrowdMeter,CODE_9B9BF8,new,Behavior: called from Gameloop,src/routines/hockey/CheckCrowdMeter.asm
 $9BA89F,LowerHotColdTable,CODE_9BA89F,new,Behavior,src/routines/hockey/LowerHotColdTable.asm
 $9B9B6B,InitCrowdExcite,CODE_9B9B6B,new,Behavior: called from StartPer,src/routines/hockey/InitCrowdExcite.asm
+$9BC17C,LoadCenterIce,CODE_9BC17C,new,Behavior: called from setupice and SaveRegsStartHL2,src/routines/hockey/LoadCenterIce.asm
+$9BC1D5,BuildRinkMap,CODE_9BC1D5,new,Behavior: called from LoadCenterIce and CODE_9FE79F,src/routines/hockey/BuildRinkMap.asm

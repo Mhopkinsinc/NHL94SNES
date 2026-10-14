@@ -3,7 +3,7 @@ CODE_9FE79F:
 	jsl.l FadeOut
 	lda.w #$FFFF
 	sta.w $07C6
-	jsl.l CODE_9BC1D5
+	jsl.l BuildRinkMap
 	lda.w #$0081
 	sta.b $0E
 	lda.w #IceRinkTiles

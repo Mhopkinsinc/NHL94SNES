@@ -66,6 +66,7 @@
 - `GetNewPresses` (93S: the ReadPads .new block), RAM `padlast`, `paddir`, `padchange`, `padnew` (5 words each) and `JoyPad+2`..`+8` for the other pads; from behavior `WaitSidePadsRelease`, `WaitPadsRelease`, `OtherScoresRtl`.
 - Stats page helpers from behavior: `PrintToStatsPage`, `PushNumberWrap`, `GetTeamLongName`, `PrintOtherScoreTeam`, `PrintOtherScore`, `PrintTeamAbbrev`, `FillScoringPage`, `FillPenaltyPage`.
 - Crowd meter: `sroot` (93S job, rewritten), `UpdateCrowdMeter` (94G Crowd_Noise .meter), RAM `CwdExciteLvl` / `CurCrowdMeter` / `CrowdPeak` (94G names), and from behavior `CheckCrowdMeter`, `LowerHotColdTable`, `InitCrowdExcite`.
+- From behavior: `LoadCenterIce`, `BuildRinkMap` (the home team centre ice logo in the rink).
 
 ## Unsure
 
