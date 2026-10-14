@@ -132,6 +132,7 @@
 - Pointer bank bytes: 584 `lda.w #$00BB` bank halves next to a labelled pointer in bank BB are written `#Label>>16`, as 93S writes them.
 - Graphics with 93S names from the 93S load order and tile counts: `FaceOffTiles` (55), `RefTilesHor` (104), `RefTiles` (117), `SmallFontTiles` (PixelRemap83), `RinkLogoTiles` (setupice position; 12 tiles for 14), and the maps `RefsMap` / `RefsMapHor` (PushRef), `BigFontMap` (printbig), `TeamBlocksMap` (DrawTeamBlocks), `EASNLogoMap`.
 - Graphics named from rendering them and from their readers: `BigLetterTiles` / `BigLetterMap`, `BigFontTiles`, `MenuBackTiles` / `MenuBackMap`, `PlayoffTiles`, `RonBarrTiles` / `RonBarrMap`, `SmallFontMap`, `PlayoffBracketMap`, `SetupBackTiles` / `SetupBackMap`, `PhotoMap`, `PictureMap`, `CardPictureMap`, `PlayerListMap`, `TitleLogoTiles`.
+- `LogoPaletteASE` / `LogoPaletteASW` / `PhotoPaletteAllStars` (their palette table slots); LogoPaletteTable's two raw trailing pointers as LogoPaletteWPG+$20 / +$40.
 
 ## Unsure
 

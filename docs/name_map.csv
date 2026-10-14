@@ -6262,3 +6262,6 @@ $9AE9F0,PictureMap,DATA8_9AE9F0,new,the 7 x 7 picture box map (LoadPictureMap),s
 $9AEA15,CardPictureMap,DATA8_9AEA15,new,the 7 x 7 picture box map of the player card,src/data/gfx/CardPictureMap.asm
 $9AE9C7,PlayerListMap,DATA8_9AE9C7,new,the 30 x 12 player list box map,src/data/gfx/PlayerListMap.asm
 $948000,TitleLogoTiles,DATA8_948000,new,rendered: the title logo pieces with the (R) mark,src/data/gfx/TitleLogoTiles.asm
+$9AEF1C,LogoPaletteASE,DATA8_9AEF1C,new,LogoPaletteTable entry 26 (East all-stars),src/data/gfx/LogoPaletteASE.asm
+$9AEEFC,LogoPaletteASW,DATA8_9AEEFC,new,LogoPaletteTable entry 27 (West all-stars),src/data/gfx/LogoPaletteASW.asm
+$9AEB3C,PhotoPaletteAllStars,DATA8_9AEB3C,new,PhotoPaletteTable entries 26 and 27,src/data/gfx/PhotoPaletteAllStars.asm
