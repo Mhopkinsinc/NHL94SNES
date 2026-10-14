@@ -1,3 +1,0 @@
-; Data table.
-DATA8_80E73D:
-	dd DATA8_8F8000

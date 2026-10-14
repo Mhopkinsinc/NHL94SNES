@@ -1,9 +1,9 @@
-; Unidentified routine.
-CODE_9FF436:
+; The power-on sequence before the title: its own sample set (SPCIntroUpload) and song, a mode 7 picture with its frame hook, until it ends or a button
+IntroSequence:
 	stz.w brightness
 	jsl.l forceblack
 	jsl.l CheckPAL
-	jsl.l CODE_9C97E9
+	jsl.l SPCIntroUpload
 	sep #$20
 	lda.b #$FF
 	sta.w $07E2

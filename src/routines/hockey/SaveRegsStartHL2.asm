@@ -327,7 +327,7 @@ org $9F9001
 	bne .loop6
 	lda.w MusicOn
 	bne .loop6
-	jsl.l CODE_9C978E
+	jsl.l SPCMenuUpload
 	lda.l $7E34BC
 	beq .t2
 	cmp.w #$0004

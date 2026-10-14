@@ -12,7 +12,7 @@ PeriodOver:
 	jsl.l forceblack
 	lda.w $1D81
 	bne .5
-	jsl.l CODE_9C978E
+	jsl.l SPCMenuUpload
 	lda.l $7E34BC
 	beq .t1
 	cmp.w #$0004

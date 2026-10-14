@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C9891:
+; Send the four blocks that turn the title sample set into the menu set, then mark $1D68 = 2
+SPCTitleToMenu:
 	stz.w $0CC3
 	jsl.l SPCCmd04
 	jsl.l SPCCmd04

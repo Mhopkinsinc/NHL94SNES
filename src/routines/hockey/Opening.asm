@@ -2,7 +2,7 @@
 Opening:
 	rep #$30
 	jsl.l Multi5Init
-	jsl.l CODE_9FF436
+	jsl.l IntroSequence
 	jsl.l forceblack
 	lda.w #$0000
 	tax
@@ -36,7 +36,7 @@ Restart:
 	tcs
 	phk
 	plb
-	jsl.l CODE_9C978E
+	jsl.l SPCMenuUpload
 	lda.w MusicOn
 	beq .1
 	lda.w $07ED

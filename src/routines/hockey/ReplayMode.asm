@@ -702,7 +702,7 @@ org $9BB001
 	bne .1xxxxxxxxxxxxxx
 	lda.w $0CBB
 	beq .1xxxxxxxxxxxxxx
-	jsl.l CODE_9C978E
+	jsl.l SPCMenuUpload
 	lda.l $7E34BC
 	beq .t1xxxxxxxxx
 	cmp.w #$0004

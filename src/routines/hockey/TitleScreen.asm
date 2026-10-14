@@ -1,7 +1,7 @@
 ; The title screen with its music; a button leaves
 TitleScreen:
 	jsl.l forceblack
-	jsl.l CODE_9C983D
+	jsl.l SPCTitleUpload
 	lda.w #$6000
 	ldx.w #$0000
 	ldy.w #$01A0
@@ -133,7 +133,7 @@ TitleScreen:
 	ldx.w #$0007
 	jsl.l TitleWait
 	jsr.w CODE_9DBCB3
-	jsl.l CODE_9C9891
+	jsl.l SPCTitleToMenu
 	lda.w #$008F
 	sta.b $0E
 	lda.w #DATA8_8FDD32

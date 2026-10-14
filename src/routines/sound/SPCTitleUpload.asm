@@ -1,11 +1,11 @@
-; Unidentified routine.
-CODE_9C978E:
+; Upload the title sample set (TitleSampleList, sound table MenuSfxTable)
+SPCTitleUpload:
 	stz.w $0CC3
 	lda.w $1D68
-	cmp.w #$0002
-	beq .1
+	cmp.w #$0001
+	beq .rtl
 	jsl.l forceblack
-	lda.w #$0002
+	lda.w #$0001
 	sta.w $1D68
 	sep #$20
 	dec.w SoundLock
@@ -16,14 +16,14 @@ CODE_9C978E:
 	rep #$20
 	lda.w #$009B
 	sta.b $36
-	lda.w #DATA8_9BB4C9
+	lda.w #MenuSfxTable
 	sta.b $34
 	jsl.l SoundInit
 	ldx.w #$0000
 .loop:
-	lda.l DATA8_80E6FD,x
+	lda.l TitleSampleList,x
 	sta.b $0C
-	lda.l DATA8_80E6FD+2,x
+	lda.l TitleSampleList+2,x
 	sta.b $0E
 	phx
 	jsl.l SPCUploadBlock
@@ -32,9 +32,7 @@ CODE_9C978E:
 	inx
 	inx
 	inx
-	cpx.w #$0040
+	cpx.w #$003C
 	bne .loop
-.1:
-	lda.w #$0000
-	sta.l streamloaded
+.rtl:
 	rtl

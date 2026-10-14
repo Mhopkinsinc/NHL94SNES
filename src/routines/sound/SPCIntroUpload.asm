@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C97E9:
+; Upload the intro sample set (IntroSampleList, sound table IntroSfxTable), unless it is loaded
+SPCIntroUpload:
 	stz.w $0CC3
 	lda.w $1D68
 	cmp.w #$0001
@@ -14,16 +14,16 @@ CODE_9C97E9:
 	sep #$20
 	inc.w SoundLock
 	rep #$20
-	lda.w #DATA8_80E741>>16
+	lda.w #IntroSfxTable>>16
 	sta.b $36
-	lda.w #DATA8_80E741
+	lda.w #IntroSfxTable
 	sta.b $34
 	jsl.l SoundInit
 	ldx.w #$0000
 .loop:
-	lda.l DATA8_80E73D,x
+	lda.l IntroSampleList,x
 	sta.b $0C
-	lda.l DATA8_80E73D+2,x
+	lda.l IntroSampleList+2,x
 	sta.b $0E
 	phx
 	jsl.l SPCUploadBlock

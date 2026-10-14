@@ -882,9 +882,9 @@ $80A6AB,.1,CODE_80A6AB,new,branch target only used in this routine,src/routines/
 $80A6B1,.2,CODE_80A6B1,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
 $80A6BB,.3,CODE_80A6BB,new,branch target only used in this routine,src/routines/snes/CODE_80A697.asm
 $9F97C4,.loop,CODE_9F97C4,new,branch target only used in this routine,src/routines/snes/CODE_9F9789.asm
-$9FF6B3,.1,CODE_9FF6B3,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF6B7,.2,CODE_9FF6B7,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF7EA,.1,CODE_9FF7EA,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FF6B3,.1,CODE_9FF6B3,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF6B7,.2,CODE_9FF6B7,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF7EA,.1,CODE_9FF7EA,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $9FD269,.loop,CODE_9FD269,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
 $9FD289,.loop2,CODE_9FD289,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
 $9ECD39,.loop,CODE_9ECD39,new,branch target only used in this routine,src/routines/hockey/ScoutHomeCity.asm
@@ -902,9 +902,9 @@ $8088C6,.1,CODE_8088C6,new,branch target only used in this routine,src/routines/
 $80891C,.2,CODE_80891C,new,branch target only used in this routine,src/routines/snes/CODE_8088BA.asm
 $9EB3E5,.loop,CODE_9EB3E5,new,branch target only used in this routine,src/routines/snes/CODE_9EB3CD.asm
 $9EB434,.1,CODE_9EB434,new,branch target only used in this routine,src/routines/snes/CODE_9EB3CD.asm
-$9FF8F8,.loop,CODE_9FF8F8,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF90B,.loop2,CODE_9FF90B,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF911,.1,CODE_9FF911,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FF8F8,.loop,CODE_9FF8F8,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF90B,.loop2,CODE_9FF90B,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF911,.1,CODE_9FF911,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $9EBE02,.1,CODE_9EBE02,new,branch target only used in this routine,src/routines/logic/asspenalty.asm
 $9EBE10,.loop,CODE_9EBE10,new,branch target only used in this routine,src/routines/logic/asspenalty.asm
 $9EBE18,.2,CODE_9EBE18,new,branch target only used in this routine,src/routines/logic/asspenalty.asm
@@ -925,8 +925,8 @@ $80C8B2,.1,CODE_80C8B2,new,branch target only used in this routine,src/routines/
 $80C8C9,.2,CODE_80C8C9,new,branch target only used in this routine,src/routines/snes/CODE_80C898.asm
 $80C8CC,.loop,CODE_80C8CC,new,branch target only used in this routine,src/routines/snes/CODE_80C898.asm
 $9DC689,.loop,CODE_9DC689,new,branch target only used in this routine,src/routines/snes/CODE_9DC651.asm
-$9FF499,.loop,CODE_9FF499,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF4AA,.loop2,CODE_9FF4AA,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FF499,.loop,CODE_9FF499,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF4AA,.loop2,CODE_9FF4AA,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $9B9361,.loop,CODE_9B9361,new,branch target only used in this routine,src/routines/hockey/LoadTeamLines.asm
 $9B939A,.loop2,CODE_9B939A,new,branch target only used in this routine,src/routines/hockey/LoadTeamLines.asm
 $9B93B0,.1,CODE_9B93B0,new,branch target only used in this routine,src/routines/hockey/LoadTeamLines.asm
@@ -966,8 +966,8 @@ $80A54C,.loop,CODE_80A54C,new,branch target only used in this routine,src/routin
 $80A560,.1,CODE_80A560,new,branch target only used in this routine,src/routines/snes/UpdateVoices.asm
 $9BA715,.1,CODE_9BA715,new,branch target only used in this routine,src/routines/snes/CODE_9BA6BE.asm
 $9B8FE7,.1,CODE_9B8FE7,new,branch target only used in this routine,src/routines/hockey/SelectLinePlayer.asm
-$9C97C6,.loop,CODE_9C97C6,new,branch target only used in this routine,src/routines/snes/CODE_9C978E.asm
-$9C97E1,.1,CODE_9C97E1,new,branch target only used in this routine,src/routines/snes/CODE_9C978E.asm
+$9C97C6,.loop,CODE_9C97C6,new,branch target only used in this routine,src/routines/sound/SPCMenuUpload.asm
+$9C97E1,.1,CODE_9C97E1,new,branch target only used in this routine,src/routines/sound/SPCMenuUpload.asm
 $9FC416,.1,CODE_9FC416,new,branch target only used in this routine,src/routines/hockey/GetPlayerName.asm
 $9BC390,.1,CODE_9BC390,new,branch target only used in this routine,src/routines/snes/CODE_9BC382.asm
 $9E84A4,.1,CODE_9E84A4,new,branch target only used in this routine,src/routines/snes/CODE_9E849E.asm
@@ -1082,12 +1082,12 @@ $9FDAA0,.2,CODE_9FDAA0,new,branch target only used in this routine,src/routines/
 $9EA418,.rtl,CODE_9EA418,new,branch target only used in this routine,src/routines/hockey/SetSPAUpdate.asm
 $9F9229,.loop,CODE_9F9229,new,branch target only used in this routine,src/routines/hockey/SaveRegsStartHL2.asm
 $9F9237,.loop2,CODE_9F9237,new,branch target only used in this routine,src/routines/hockey/SaveRegsStartHL2.asm
-$9FF9FA,.loop,CODE_9FF9FA,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FF9FA,.loop,CODE_9FF9FA,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $9BA38D,.1,CODE_9BA38D,new,branch target only used in this routine,src/routines/snes/CODE_9BA355.asm
 $9BA3A8,.rtl,CODE_9BA3A8,new,branch target only used in this routine,src/routines/snes/CODE_9BA355.asm
-$9FF543,.loop,CODE_9FF543,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF58E,.loop2,CODE_9FF58E,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF5AA,.loop3,CODE_9FF5AA,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FF543,.loop,CODE_9FF543,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF58E,.loop2,CODE_9FF58E,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF5AA,.loop3,CODE_9FF5AA,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $9EC9BD,.1,CODE_9EC9BD,new,branch target only used in this routine,src/routines/hockey/UpdateScoutingDisplay.asm
 $9F8551,.1,CODE_9F8551,new,branch target only used in this routine,src/routines/hockey/Gameloop.asm
 $9F85A8,.2,CODE_9F85A8,new,branch target only used in this routine,src/routines/hockey/Gameloop.asm
@@ -1108,7 +1108,7 @@ $9C9914,.loop,CODE_9C9914,new,branch target only used in this routine,src/routin
 $9C992F,.rtl,CODE_9C992F,new,branch target only used in this routine,src/routines/sound/SPCGameUpload.asm
 $9B9942,.loop,CODE_9B9942,new,branch target only used in this routine,src/routines/hockey/FillPenaltyPage.asm
 $9B9947,.1,CODE_9B9947,new,branch target only used in this routine,src/routines/hockey/FillPenaltyPage.asm
-$9FF623,.1,CODE_9FF623,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FF623,.1,CODE_9FF623,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $9CA58F,.loop,CODE_9CA58F,new,branch target only used in this routine,src/routines/logic/CalcPuckDistances.asm
 $9CA5A0,.1,CODE_9CA5A0,new,branch target only used in this routine,src/routines/logic/CalcPuckDistances.asm
 $9CA5BC,.2,CODE_9CA5BC,new,branch target only used in this routine,src/routines/logic/CalcPuckDistances.asm
@@ -1478,7 +1478,7 @@ $9F846C,.loop,CODE_9F846C,new,branch target only used in this routine,src/routin
 $9F847F,.2,CODE_9F847F,new,branch target only used in this routine,src/routines/hockey/StartPer.asm
 $9F8493,.3,CODE_9F8493,new,branch target only used in this routine,src/routines/hockey/StartPer.asm
 $9F8497,.4,CODE_9F8497,new,branch target only used in this routine,src/routines/hockey/StartPer.asm
-$9FFA0B,.loop,CODE_9FFA0B,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FFA0B,.loop,CODE_9FFA0B,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $808249,.1,CODE_808249,new,branch target only used in this routine,src/routines/snes/NMI_HookReturn.asm
 $80826E,.2,CODE_80826E,new,branch target only used in this routine,src/routines/snes/NMI_HookReturn.asm
 $9B8684,.loop,CODE_9B8684,new,branch target only used in this routine,src/routines/snes/WaitPadsRelease.asm
@@ -1520,7 +1520,7 @@ $9DC63F,.1,CODE_9DC63F,new,branch target only used in this routine,src/routines/
 $9DC642,.loop2,CODE_9DC642,new,branch target only used in this routine,src/routines/stats/GetPlayerBaseRating.asm
 $9FEB72,.loop,CODE_9FEB72,new,branch target only used in this routine,src/routines/snes/CODE_9FEB5C.asm
 $808F08,.loop,CODE_808F08,new,branch target only used in this routine,src/routines/snes/MemOr.asm
-$9FF815,.1,CODE_9FF815,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FF815,.1,CODE_9FF815,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $9DCA4E,.1,CODE_9DCA4E,new,branch target only used in this routine,src/routines/snes/CODE_9DCA08.asm
 $9F9E17,.loop,CODE_9F9E17,new,branch target only used in this routine,src/routines/middle/Mod100.asm
 $9F92C3,.1,CODE_9F92C3,new,branch target only used in this routine,src/routines/hockey/SaveRegsStartHL2.asm
@@ -1892,11 +1892,11 @@ $9D804C,.2,CODE_9D804C,new,branch target only used in this routine,src/routines/
 $9B989D,.loop,CODE_9B989D,new,branch target only used in this routine,src/routines/snes/CODE_9B987B.asm
 $9E88C6,.1,CODE_9E88C6,new,branch target only used in this routine,src/routines/snes/CODE_9E889E.asm
 $80A74B,.1,CODE_80A74B,new,branch target only used in this routine,src/routines/snes/CODE_80A725.asm
-$9FF998,.loop,CODE_9FF998,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF9AC,.1,CODE_9FF9AC,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF9C1,.2,CODE_9FF9C1,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF9D9,.3,CODE_9FF9D9,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF9EC,.4,CODE_9FF9EC,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FF998,.loop,CODE_9FF998,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF9AC,.1,CODE_9FF9AC,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF9C1,.2,CODE_9FF9C1,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF9D9,.3,CODE_9FF9D9,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF9EC,.4,CODE_9FF9EC,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $9EB0C8,.1,CODE_9EB0C8,new,branch target only used in this routine,src/routines/snes/CODE_9EB0B6.asm
 $9BA757,.loop,CODE_9BA757,new,branch target only used in this routine,src/routines/hockey/ShowCrowdMeter.asm
 $9BA75D,.loop2,CODE_9BA75D,new,branch target only used in this routine,src/routines/hockey/ShowCrowdMeter.asm
@@ -2152,8 +2152,8 @@ $9F9CDD,.loop,CODE_9F9CDD,new,branch target only used in this routine,src/routin
 $9FDB99,.1,CODE_9FDB99,new,branch target only used in this routine,src/routines/logic/CompLine.asm
 $9FDBB0,.2,CODE_9FDBB0,new,branch target only used in this routine,src/routines/logic/CompLine.asm
 $9DBCF7,.rtl,CODE_9DBCF7,new,branch target only used in this routine,src/routines/hockey/TitleWait.asm
-$9C9875,.loop,CODE_9C9875,new,branch target only used in this routine,src/routines/snes/CODE_9C983D.asm
-$9C9890,.rtl,CODE_9C9890,new,branch target only used in this routine,src/routines/snes/CODE_9C983D.asm
+$9C9875,.loop,CODE_9C9875,new,branch target only used in this routine,src/routines/sound/SPCTitleUpload.asm
+$9C9890,.rtl,CODE_9C9890,new,branch target only used in this routine,src/routines/sound/SPCTitleUpload.asm
 $9FC545,.loop,CODE_9FC545,new,branch target only used in this routine,src/routines/snes/CODE_9FC4D0.asm
 $9FC551,.loop2,CODE_9FC551,new,branch target only used in this routine,src/routines/snes/CODE_9FC4D0.asm
 $9EA402,.rtl,CODE_9EA402,new,branch target only used in this routine,src/routines/snes/CODE_9EA3F1.asm
@@ -2386,8 +2386,8 @@ $80BA6B,.loop,CODE_80BA6B,new,branch target only used in this routine,src/routin
 $80BA8D,.loop2,CODE_80BA8D,new,branch target only used in this routine,src/routines/snes/DecompressPairs.asm
 $80A867,.1,CODE_80A867,new,branch target only used in this routine,src/routines/snes/CODE_80A831.asm
 $80CE3A,.1,CODE_80CE3A,new,branch target only used in this routine,src/routines/shootout/PickShooterRow.asm
-$9C9821,.loop,CODE_9C9821,new,branch target only used in this routine,src/routines/snes/CODE_9C97E9.asm
-$9C983C,.rtl,CODE_9C983C,new,branch target only used in this routine,src/routines/snes/CODE_9C97E9.asm
+$9C9821,.loop,CODE_9C9821,new,branch target only used in this routine,src/routines/sound/SPCIntroUpload.asm
+$9C983C,.rtl,CODE_9C983C,new,branch target only used in this routine,src/routines/sound/SPCIntroUpload.asm
 $9FB9A9,.loop,CODE_9FB9A9,new,branch target only used in this routine,src/routines/penalty/ClrHor.asm
 $9FB9CC,.1,CODE_9FB9CC,new,branch target only used in this routine,src/routines/penalty/ClrHor.asm
 $9FB9F2,.2,CODE_9FB9F2,new,branch target only used in this routine,src/routines/penalty/ClrHor.asm
@@ -3034,19 +3034,19 @@ $9E81FF,.t1,CODE_9E81FF,new,continued in the previous routine,src/routines/logic
 $9E81DB,.t1,CODE_9E81DB,new,continued in the previous routine,src/routines/logic/assnearest.asm
 $9E8076,.t1,CODE_9E8076,new,continued in the previous routine,src/routines/snes/CODE_9E8054.asm
 $9E8041,.t1,CODE_9E8041,new,continued in the previous routine,src/routines/logic/assnearest.asm
-$9FFA2C,.t1,CODE_9FFA2C,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
+$9FFA2C,.t1,CODE_9FFA2C,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
 $9FF94F,.t1,CODE_9FF94F,new,continued in the previous routine,src/routines/snes/CODE_9FF92C.asm
-$9FF893,.t1,CODE_9FF893,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF844,.t1,CODE_9FF844,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF81D,.t1,CODE_9FF81D,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF7F2,.t1,CODE_9FF7F2,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF794,.t1,CODE_9FF794,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF726,.t1,CODE_9FF726,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF6CA,.t1,CODE_9FF6CA,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF690,.t1,CODE_9FF690,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF667,.t1,CODE_9FF667,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF62A,.t1,CODE_9FF62A,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
-$9FF4BB,.t1,CODE_9FF4BB,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
+$9FF893,.t1,CODE_9FF893,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF844,.t1,CODE_9FF844,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF81D,.t1,CODE_9FF81D,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF7F2,.t1,CODE_9FF7F2,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF794,.t1,CODE_9FF794,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF726,.t1,CODE_9FF726,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF6CA,.t1,CODE_9FF6CA,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF690,.t1,CODE_9FF690,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF667,.t1,CODE_9FF667,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF62A,.t1,CODE_9FF62A,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
+$9FF4BB,.t1,CODE_9FF4BB,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
 $9FF34E,.t1,CODE_9FF34E,new,continued in the previous routine,src/routines/snes/CODE_9FF345.asm
 $9FF220,.t1,CODE_9FF220,new,continued in the previous routine,src/routines/snes/CODE_9FF1E4.asm
 $9FF03D,.t1,CODE_9FF03D,new,continued in the previous routine,src/routines/snes/CODE_9FF00B.asm
@@ -3393,7 +3393,7 @@ $9E849E,.t1,CODE_9E849E,new,continued in the previous routine,src/routines/logic
 $9E828B,.t2,CODE_9E828B,new,continued in the previous routine,src/routines/logic/chkpk2.asm
 $9E8054,.t2,CODE_9E8054,new,continued in the previous routine,src/routines/snes/CODE_9E8046.asm
 $9E8042,.t2,CODE_9E8042,new,continued in the previous routine,src/routines/logic/assnearest.asm
-$9FF92C,.t1,CODE_9FF92C,new,continued in the previous routine,src/routines/snes/CODE_9FF436.asm
+$9FF92C,.t1,CODE_9FF92C,new,continued in the previous routine,src/routines/hockey/IntroSequence.asm
 $9FF25A,.t2,CODE_9FF25A,new,continued in the previous routine,src/routines/snes/CODE_9FF1E4.asm
 $9FF045,.t2,CODE_9FF045,new,continued in the previous routine,src/routines/snes/CODE_9FF00B.asm
 $9FEC07,.t2,CODE_9FEC07,new,continued in the previous routine,src/routines/hockey/Pmenu.asm
@@ -4510,12 +4510,12 @@ $9FD2D7,.2,CODE_9FD2D7,new,branch target only used in this routine,src/routines/
 $9FD2F3,.3,CODE_9FD2F3,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
 $9FEBE3,.1,CODE_9FEBE3,new,branch target only used in this routine,src/routines/hockey/Pmenu.asm
 $9FEC28,.1,CODE_9FEC28,new,branch target only used in this routine,src/routines/hockey/Pmenu.asm
-$9FF673,.1,CODE_9FF673,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF6A6,.1,CODE_9FF6A6,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF6CD,.2,CODE_9FF6CD,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF729,.2,CODE_9FF729,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FF797,.2,CODE_9FF797,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
-$9FFA6B,.3,CODE_9FFA6B,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
+$9FF673,.1,CODE_9FF673,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF6A6,.1,CODE_9FF6A6,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF6CD,.2,CODE_9FF6CD,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF729,.2,CODE_9FF729,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FF797,.2,CODE_9FF797,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
+$9FFA6B,.3,CODE_9FFA6B,new,branch target only used in this routine,src/routines/hockey/IntroSequence.asm
 $80BBD9,.2,CODE_80BBD9,new,branch target only used in this routine,src/routines/snes/DecompressHuffman.asm
 $9B838A,.1,CODE_9B838A,new,branch target only used in this routine,src/routines/snes/Multi5Init.asm
 $9B83A0,.2,CODE_9B83A0,new,branch target only used in this routine,src/routines/snes/Multi5Init.asm
@@ -5472,39 +5472,39 @@ $9FDABF,.4,CODE_9FDABF,new,"part of CompLine, used only by it",src/routines/logi
 $9FDB34,.5,DATA8_9FDB34,new,"part of CompLine, used only by it",src/routines/logic/CompLine.asm
 $9FDB5E,.6,CODE_9FDB5E,new,"part of CompLine, used only by it",src/routines/logic/CompLine.asm
 $9FDBBE,.7,DATA8_9FDBBE,new,"part of CompLine, used only by it",src/routines/logic/CompLine.asm
-$9FF4C0,.1,DATA8_9FF4C0,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF4D8,.2,CODE_9FF4D8,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF5E3,.3,CODE_9FF5E3,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF613,.4,CODE_9FF613,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF631,.5,DATA8_9FF631,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF64D,.6,CODE_9FF64D,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF676,.7,CODE_9FF676,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF6A9,.8,CODE_9FF6A9,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF6BA,.9,CODE_9FF6BA,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF6F1,.10,CODE_9FF6F1,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF71D,.11,CODE_9FF71D,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF74D,.12,CODE_9FF74D,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF78B,.13,CODE_9FF78B,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF7C5,.14,CODE_9FF7C5,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF7E6,.15,CODE_9FF7E6,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF811,.16,CODE_9FF811,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF83C,.17,CODE_9FF83C,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF863,.18,CODE_9FF863,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF878,.19,CODE_9FF878,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF898,.20,CODE_9FF898,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF89B,.21,CODE_9FF89B,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF89C,.22,CODE_9FF89C,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF8D4,.23,CODE_9FF8D4,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF8DC,.24,CODE_9FF8DC,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF8E4,.25,CODE_9FF8E4,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF8EA,.26,CODE_9FF8EA,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF8F3,.27,CODE_9FF8F3,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF92E,.28,CODE_9FF92E,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF975,.29,CODE_9FF975,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF992,.30,CODE_9FF992,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FF9F5,.31,CODE_9FF9F5,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FFA08,.32,CODE_9FFA08,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
-$9FFAB4,.33,CODE_9FFAB4,new,"part of CODE_9FF436, used only by it",src/routines/snes/CODE_9FF436.asm
+$9FF4C0,.1,DATA8_9FF4C0,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF4D8,.2,CODE_9FF4D8,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF5E3,.3,CODE_9FF5E3,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF613,.4,CODE_9FF613,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF631,.5,DATA8_9FF631,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF64D,.6,CODE_9FF64D,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF676,.7,CODE_9FF676,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF6A9,.8,CODE_9FF6A9,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF6BA,.9,CODE_9FF6BA,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF6F1,.10,CODE_9FF6F1,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF71D,.11,CODE_9FF71D,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF74D,.12,CODE_9FF74D,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF78B,.13,CODE_9FF78B,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF7C5,.14,CODE_9FF7C5,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF7E6,.15,CODE_9FF7E6,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF811,.16,CODE_9FF811,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF83C,.17,CODE_9FF83C,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF863,.18,CODE_9FF863,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF878,.19,CODE_9FF878,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF898,.20,CODE_9FF898,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF89B,.21,CODE_9FF89B,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF89C,.22,CODE_9FF89C,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF8D4,.23,CODE_9FF8D4,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF8DC,.24,CODE_9FF8DC,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF8E4,.25,CODE_9FF8E4,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF8EA,.26,CODE_9FF8EA,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF8F3,.27,CODE_9FF8F3,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF92E,.28,CODE_9FF92E,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF975,.29,CODE_9FF975,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF992,.30,CODE_9FF992,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FF9F5,.31,CODE_9FF9F5,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FFA08,.32,CODE_9FFA08,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
+$9FFAB4,.33,CODE_9FFAB4,new,"part of CODE_9FF436, used only by it",src/routines/hockey/IntroSequence.asm
 $9CA054,setsortcords,CODE_9CA054,93S,"setvideo calls it as in 93S; after a 94 extra sprite, the 93S loop over OOlist with projxy and addframe",src/routines/video/setsortcords.asm
 $9E81F9,burst,CODE_9E81F9,93S,"check4check and doinput call it as in 93S; getpde / setpde, dirtab speed, SPAburst",src/routines/logic/burst.asm
 $9B84F5,Readjoy1,CODE_9B84F5,93S,the 93S Readjoy1 contract from the ReadPads values; the password screens call it as 93S does; .t1 is the same for pad 2,src/routines/middle/Readjoy1.asm
@@ -5648,7 +5648,7 @@ $9C9ABC,PuckSfx,CODE_9C9ABC,new,"Behavior: falls into sfx; the puck collision, p
 $9C9786,FadeOutSound,CODE_9C9786,new,"Behavior: called before the screen changes (Opening, pause, replay, period end, playoffs, setupice)",src/routines/sound/FadeOutSound.asm
 $80DD16,GameSampleList,DATA8_80DD16,new,the block list SPCGameUpload sends (long pointers),src/data/tables/GameSampleList.asm
 $80DD66,GameSfxTable,DATA8_80DD16+80,new,the sound table SPCGameUpload passes to SoundInit in $34 (was the immediate #$DD66),src/data/tables/GameSfxTable.asm
-$80E741,DATA8_80E741,DATA8_80E73D+4,new,the sound table CODE_9C97E9 passes to SoundInit (was the immediate #$E741),src/data/tables/DATA8_80E741.asm
+$80E741,IntroSfxTable,DATA8_80E741,new,the intro sound table (SPCIntroUpload),src/data/tables/IntroSfxTable.asm
 $9ECB99,ScoutHomeHot1,CODE_9ECB99,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeHot1.asm
 $9ECB9E,ScoutHomeHot2,CODE_9ECB9E,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeHot2.asm
 $9ECBA3,ScoutHomeHot3,CODE_9ECBA3,new,Behavior: the PregameText script code it serves; UpdateScoutingDisplay dispatches on the character after %,src/routines/hockey/ScoutHomeHot3.asm
@@ -5769,3 +5769,12 @@ $9EC042,PenShotChk,CODE_9EC042,94G,"The 94G PenShotChk job (player hit on a brea
 $9EB1C9,CountPowerPlayTime,CODE_9EB1C9,new,"Behavior: updatepentime calls it on each tick, where 93S runs its per team loop",src/routines/penalty/CountPowerPlayTime.asm
 $9C9A7F,StreamSfx,CODE_9C9A7F,new,"Behavior: called on game events (Goal, the puck over the glass, falls, saves, injuries, the clock)",src/routines/sound/StreamSfx.asm
 $9C9981,UpdateStreamSfx,CODE_9C9981,new,Behavior: called from NMI_FrameHookReturn,src/routines/sound/UpdateStreamSfx.asm
+$9FF436,IntroSequence,CODE_9FF436,new,"Behavior: Opening runs it once, first, before CheckPAL, DefaultMenus and TitleScreen",src/routines/hockey/IntroSequence.asm
+$9C97E9,SPCIntroUpload,CODE_9C97E9,new,Behavior: SPCGameUpload with the intro lists; only IntroSequence calls it,src/routines/sound/SPCIntroUpload.asm
+$9C978E,SPCMenuUpload,CODE_9C978E,new,"Behavior: Opening calls it before setoptions; also PeriodOver, ReplayMode and SaveRegsStartHL2. MenuSampleList is the title set's first 12 blocks plus the four SPCTitleToMenu sends",src/routines/sound/SPCMenuUpload.asm
+$9C983D,SPCTitleUpload,CODE_9C983D,new,"Behavior: only TitleScreen calls it, at its start",src/routines/sound/SPCTitleUpload.asm
+$9C9891,SPCTitleToMenu,CODE_9C9891,new,Behavior: TitleScreen calls it after the title animation; the four blocks are the last entries of MenuSampleList,src/routines/sound/SPCTitleToMenu.asm
+$80E73D,IntroSampleList,DATA8_80E73D,new,the intro sample set block list (SPCIntroUpload),src/data/tables/IntroSampleList.asm
+$80E6C1,TitleSampleList,DATA8_80E6C1,new,the title sample set block list (SPCTitleUpload),src/data/tables/TitleSampleList.asm
+$80E6FD,MenuSampleList,DATA8_80E6FD,new,the menu sample set block list (SPCMenuUpload): the title set's first 12 blocks and the four SPCTitleToMenu sends,src/data/tables/MenuSampleList.asm
+$9BB4C9,MenuSfxTable,DATA8_9BB4C9,new,the sound table of the title and menu sample sets,src/data/tables/MenuSfxTable.asm

@@ -1,11 +1,11 @@
-; Unidentified routine.
-CODE_9C983D:
+; Upload the menu sample set (MenuSampleList, sound table MenuSfxTable) and mark $1D68 = 2, unless it is loaded
+SPCMenuUpload:
 	stz.w $0CC3
 	lda.w $1D68
-	cmp.w #$0001
-	beq .rtl
+	cmp.w #$0002
+	beq .1
 	jsl.l forceblack
-	lda.w #$0001
+	lda.w #$0002
 	sta.w $1D68
 	sep #$20
 	dec.w SoundLock
@@ -16,14 +16,14 @@ CODE_9C983D:
 	rep #$20
 	lda.w #$009B
 	sta.b $36
-	lda.w #DATA8_9BB4C9
+	lda.w #MenuSfxTable
 	sta.b $34
 	jsl.l SoundInit
 	ldx.w #$0000
 .loop:
-	lda.l DATA8_80E6C1,x
+	lda.l MenuSampleList,x
 	sta.b $0C
-	lda.l DATA8_80E6C1+2,x
+	lda.l MenuSampleList+2,x
 	sta.b $0E
 	phx
 	jsl.l SPCUploadBlock
@@ -32,7 +32,9 @@ CODE_9C983D:
 	inx
 	inx
 	inx
-	cpx.w #$003C
+	cpx.w #$0040
 	bne .loop
-.rtl:
+.1:
+	lda.w #$0000
+	sta.l streamloaded
 	rtl
