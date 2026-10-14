@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC44B:
+; Draw the other-scores rows, or No Other Games when the list has one entry.
+DrawOtherScoresPage:
 	lda.w $1DC1
 	cmp.w #$0001
 	bne .t1

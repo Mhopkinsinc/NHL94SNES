@@ -1,8 +1,8 @@
-; Unidentified routine.
-CODE_9B94C1:
+; Scroll the scoring summary down one page.
+ScrollScoringDown:
 	lda.w #$0006
 	sta.w $1DC5
-	jsr.w CODE_9B9562
+	jsr.w DrawScoringPage
 	lda.w #$0005
 	sta.w $1DC5
 	lda.w $1DBD
@@ -26,7 +26,7 @@ CODE_9B94C1:
 	cmp.w #$0017
 	bne .loop
 	jsl.l CODE_9B9AB2
-	jsr.w CODE_9B9562
+	jsr.w DrawScoringPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3

@@ -36,7 +36,7 @@ ShowOtherScores:
 	jsl.l CODE_8086BD
 	lda.w #$0005
 	sta.w $1DC5
-	jsl.l CODE_9BC44B
+	jsl.l DrawOtherScoresPage
 CODE_9BC2C9:
 	jsl.l CODE_9B851F
 	lda.b d3
@@ -102,6 +102,6 @@ CODE_9BC2E4:
 	sta.b a1
 	jsl.l CODE_9EC894
 .4:
-	jsl.l CODE_9BC44B
+	jsl.l DrawOtherScoresPage
 	jsl.l WaitFrame
 	jmp.w CODE_9BC2C9

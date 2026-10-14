@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FF2D5:
+; Print the first MultiPlayer 5 warning line, centered.
+PrintMP5Line1:
 	lda.b $8F
 	pha
 	lda.b a1
@@ -13,4 +13,4 @@ CODE_9FF2D5:
 	sta.b a1
 	pla
 	sta.b $8F
-	bra CODE_9FF345
+	bra PrintCentered

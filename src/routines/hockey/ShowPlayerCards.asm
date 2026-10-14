@@ -28,9 +28,9 @@ CODE_9DBD7F:
 	bit.w #$1000
 	bne CODE_9DBDAA
 	bit.w #$0100
-	bne CODE_9DBE06
+	bne NextPlayerCard
 	bit.w #$0200
-	bne CODE_9DBDAE
+	bne PrevPlayerCard
 	bit.w #$4000
 	beq CODE_9DBDA8
-	jmp.w CODE_9DBE5B
+	jmp.w SwapPlayerCardTeam

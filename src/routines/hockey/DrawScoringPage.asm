@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9562:
+; Draw the visible scoring rows, or No Scoring when the list is empty.
+DrawScoringPage:
 	lda.w $1DC1
 	cmp.w #$0000
 	beq .t1

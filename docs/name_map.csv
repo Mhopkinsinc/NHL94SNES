@@ -3793,3 +3793,17 @@ $9B8810,PrintLineNames,CODE_9B8810,new,"LineMenuNames, or BestLineNames when $7E
 $9C87DB,SwapPlayerStatsTeam,CODE_9C87DB,new,prints PlayerStatsHeading; ShowPlayerStats jumps here,src/routines/hockey/SwapPlayerStatsTeam.asm
 $9DB954,PrintCopyright,CODE_9DB954,new,prints CopyrightLines,src/routines/hockey/PrintCopyright.asm
 $9FF1D1,ShowMP5Warning,CODE_9FF1D1,new,pause pad reader calls it while the warning flag is set,src/routines/hockey/ShowMP5Warning.asm
+$9B9514,ScrollScoringUp,CODE_9B9514,new,Up from ShowScoringSummary; decrements the page,src/routines/hockey/ScrollScoringUp.asm
+$9B94C1,ScrollScoringDown,CODE_9B94C1,new,Down from ShowScoringSummary,src/routines/hockey/ScrollScoringDown.asm
+$9B9562,DrawScoringPage,CODE_9B9562,new,same shape as DrawPenaltyPage; prints NoScoring when empty,src/routines/hockey/DrawScoringPage.asm
+$9B987B,ScrollPenaltyUp,CODE_9B987B,new,Up from ShowPenaltySummary,src/routines/hockey/ScrollPenaltyUp.asm
+$9B9828,ScrollPenaltyDown,CODE_9B9828,new,Down from ShowPenaltySummary,src/routines/hockey/ScrollPenaltyDown.asm
+$9DBE06,NextPlayerCard,CODE_9DBE06,new,Right from ShowPlayerCards,src/routines/hockey/NextPlayerCard.asm
+$9DBDAE,PrevPlayerCard,CODE_9DBDAE,new,Left from ShowPlayerCards,src/routines/hockey/PrevPlayerCard.asm
+$9DBE5B,SwapPlayerCardTeam,CODE_9DBE5B,new,Y from ShowPlayerCards,src/routines/hockey/SwapPlayerCardTeam.asm
+$9BC44B,DrawOtherScoresPage,CODE_9BC44B,new,prints NoOtherGames; ShowOtherScores calls it,src/routines/hockey/DrawOtherScoresPage.asm
+$9FF2D5,PrintMP5Line1,CODE_9FF2D5,new,cursor row under the warning frame,src/routines/hockey/PrintMP5Line1.asm
+$9FF2F1,PrintMP5Line2,CODE_9FF2F1,new,cursor row under the warning frame,src/routines/hockey/PrintMP5Line2.asm
+$9FF30D,PrintMP5Line3,CODE_9FF30D,new,cursor row under the warning frame,src/routines/hockey/PrintMP5Line3.asm
+$9FF329,PrintMP5Line4,CODE_9FF329,new,cursor row under the warning frame,src/routines/hockey/PrintMP5Line4.asm
+$9FF345,PrintCentered,CODE_9FF345,new,the four MultiPlayer 5 line printers fall through here,src/routines/hockey/PrintCentered.asm

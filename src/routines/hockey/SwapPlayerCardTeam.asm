@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DBE5B:
+; Switch player cards to the other team.
+SwapPlayerCardTeam:
 	lda.b a2
 	eor.w #$0002
 	sta.b a2

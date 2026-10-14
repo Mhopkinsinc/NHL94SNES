@@ -66,7 +66,7 @@ ShowScoringSummary:
 	jsl.l CODE_8086BD
 	lda.w #$0005
 	sta.w $1DC5
-	jsr.w CODE_9B9562
+	jsr.w DrawScoringPage
 CODE_9B94A5:
 	jsl.l CODE_9B851F
 	lda.b d3
@@ -76,9 +76,9 @@ CODE_9B94A5:
 
 .t1:
 	bit.w #$0800
-	bne CODE_9B9514
+	bne ScrollScoringUp
 	bit.w #DMA_OAM
-	bne CODE_9B94C1
+	bne ScrollScoringDown
 CODE_9B94BB:
 	jsl.l WaitFrame
 	bra CODE_9B94A5

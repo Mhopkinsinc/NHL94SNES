@@ -1,14 +1,13 @@
-; Unidentified routine.
-CODE_9DBDAE:
+; Show the next player card.
+NextPlayerCard:
 	lda.w $1DB9
-	beq CODE_9DBDA8
-	dec.w $1DB9
+	cmp.w $1DC1
+	bpl CODE_9DBDA8
+	inc.w $1DB9
 	lda.w $1DB9
 	sec
 	sbc.w #$0007
-	bmi .2
-	inc a
-	inc a
+	bmi .1
 	sta.w $1D9B
 	ldy.b a2
 	lda.w #$009C
@@ -20,9 +19,7 @@ CODE_9DBDAE:
 	adc.b [a3],y
 	sta.b a3
 .loop:
-	dec.w $1D9B
-	beq .1
-	bmi .1
+	inc.w $1D9B
 	ldy.w #$0000
 .loop2:
 	lda.b [a3],y
@@ -32,12 +29,11 @@ CODE_9DBDAE:
 	iny
 	cpy.w #$0006
 	bmi .loop2
-.1:
 	dec.w $1D9B
 	lda.w $1D9B
 	clc
 	adc.w #$0007
 	sta.w $1DB9
-.2:
+.1:
 	jsl.l DrawPlayerCard
 	jmp.w CODE_9DBD7B
