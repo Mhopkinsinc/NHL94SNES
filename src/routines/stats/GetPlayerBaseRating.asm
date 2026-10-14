@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DC5FC:
+; As GetPlayerRating without the hot / cold adjustment
+GetPlayerBaseRating:
 	stx.b xsave
 	ldx.w #$0000
 .loop:

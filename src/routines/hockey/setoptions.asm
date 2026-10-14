@@ -97,9 +97,9 @@ setoptions:
 	jsl.l SetupBandIRQ
 	jsl.l SendTextMap
 	ldx.w #$0000
-	jsl.l CODE_9DCC36
+	jsl.l LoadMatchupPhotos
 	ldx.w #$0002
-	jsl.l CODE_9DCC36
+	jsl.l LoadMatchupPhotos
 .3:
 	lda.w #$12C0
 	sta.b d6

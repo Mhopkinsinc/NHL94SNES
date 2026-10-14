@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D8B49:
+; Start the window and COLDATA HDMA (channels 2 and 3) of the scouting report screen
+ScoutingHDMA:
 	sep #$20
 	lda.b #$A0
 	sta.w WOBJSEL

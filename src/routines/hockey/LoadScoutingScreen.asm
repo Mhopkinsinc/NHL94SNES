@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D87D7:
+; Set up the scouting report screen: fade out, the logo sprites, fonts, background map and palettes, PPU registers and a clear text map
+LoadScoutingScreen:
 	jsl.l FadeOut
 	lda.w #$0081
 	sta.b $0E

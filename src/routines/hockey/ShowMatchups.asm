@@ -101,7 +101,7 @@ ShowMatchups:
 	sta.w $1D9B
 	lda.w #$0001
 	sta.b d1
-	jsl.l CODE_9DC561
+	jsl.l GetPlayerRating
 	lda.b d0
 	pha
 	lda.w #$0003
@@ -145,7 +145,7 @@ ShowMatchups:
 	sta.w $1D9B
 	lda.w #$0001
 	sta.b d1
-	jsl.l CODE_9DC561
+	jsl.l GetPlayerRating
 	lda.b d0
 	pha
 	lda.w #$0003
@@ -198,7 +198,7 @@ ShowMatchups:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9D87B5
+	jsl.l GetTeamRating
 	lda.b d0
 	pha
 	lda.w #$0003
@@ -219,7 +219,7 @@ ShowMatchups:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9D87B5
+	jsl.l GetTeamRating
 	lda.b d0
 	pha
 	lda.w #$0003

@@ -262,7 +262,7 @@ org $9DC002
 	jsl.l CODE_9C9590
 	lda.w #$0001
 	sta.b d1
-	jsl.l CODE_9DC561
+	jsl.l GetPlayerRating
 	lda.w #$0004
 	sta.b d1
 	jsl.l CODE_9FC623
@@ -373,7 +373,7 @@ org $9DC002
 	lda.w #TeamRating
 	sta.b a1
 	jsl.l CODE_9C9590
-	jsl.l CODE_9D87B5
+	jsl.l GetTeamRating
 	lda.w #$0004
 	sta.b d1
 	jsl.l CODE_9FC623

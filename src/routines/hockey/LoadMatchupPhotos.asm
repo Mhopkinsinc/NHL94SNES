@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DCC36:
+; Unpack the matchup players' photos of team x (0 home, 2 visitors) into the $7F photo buffer, unless that team's are already there ($7E346C)
+LoadMatchupPhotos:
 	stx.b a2
 	lda.w HomeTeam,x
 	cmp.l $7E346C,x

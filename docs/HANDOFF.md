@@ -48,6 +48,7 @@
 - Screens: `GetMatchupPlayer` (94G; its slot table is the 94G `MatchupLineSlots` order), `FramerRow`, `GetPauseTeam`, `SendTextMap2`, `SendTextMapRows`, `SendTextMap2Rows`, `SetupBandIRQ` with `IRQ_BandStart` / `IRQ_BandEnd`.
 - `ScoutingReport` (93S and 94G name; the same call skeleton as 93S).
 - `GetNameandAttrib` (93S: same frame and attribjmp dispatch), `CalcAttrib` (94G: called at the same point, hot / cold table), RAM `jmlvector` ($1D59, the jml trampoline as 93S jmlvector).
+- `GetTeamRating` (94G: the bytes read equal 94G TeamRatings), and from behavior `GetPlayerRating`, `GetPlayerBaseRating`, `LoadMatchupPhotos`, `LoadScoutingScreen`, `ScoutingHDMA`.
 
 ## Unsure
 

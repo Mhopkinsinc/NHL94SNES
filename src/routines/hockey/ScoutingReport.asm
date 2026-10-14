@@ -4,11 +4,11 @@ ScoutingReport:
 	sta.l $7E3474
 	stz.w $1E3F
 	jsl.l ClearTeamStats
-	jsl.l CODE_9D87D7
+	jsl.l LoadScoutingScreen
 	ldx.w #$0000
-	jsl.l CODE_9DCC36
+	jsl.l LoadMatchupPhotos
 	ldx.w #$0002
-	jsl.l CODE_9DCC36
+	jsl.l LoadMatchupPhotos
 	lda.w #$0008
 	ldx.w #$003E
 	jsl.l SetupBandIRQ
@@ -35,7 +35,7 @@ ScoutingReport:
 	sta.b d1
 	jsl.l CODE_9D80DD
 	jsl.l ShowMatchups
-	jsl.l CODE_9D8B49
+	jsl.l ScoutingHDMA
 	jsl.l ScreenOn
 .3:
 	jsl.l SendTextMap
@@ -220,12 +220,12 @@ ScoutingReport:
 	stx.w $1D9B
 	lda.w #$0001
 	sta.b d1
-	jsl.l CODE_9DC5FC
+	jsl.l GetPlayerBaseRating
 	lda.b d0
 	sta.b d2
 	lda.w #$0001
 	sta.b d1
-	jsl.l CODE_9DC561
+	jsl.l GetPlayerRating
 	lda.b d0
 	sec
 	sbc.b d2

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9DC3DB:
-	jsl.l CODE_9DC561
+	jsl.l GetPlayerRating
 	lda.b d0
 	dec a
 	cmp.w $1E7B

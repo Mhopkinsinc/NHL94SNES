@@ -216,7 +216,7 @@ CODE_9DC9A8:
 	lda.w #$0004
 	sta.b d1
 .1xxxx:
-	jsl.l CODE_9DC561
+	jsl.l GetPlayerRating
 	lda.b d0
 	and.w #$0001
 	rtl
@@ -265,7 +265,7 @@ CODE_9DC9A8:
 	phy
 	phx
 	ldx.b a2
-	jsl.l CODE_9DCC36
+	jsl.l LoadMatchupPhotos
 	lda.b d0
 	asl a
 	tax

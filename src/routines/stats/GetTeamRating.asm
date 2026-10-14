@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D87B5:
+; d0 = the team rating of team a2 (byte 4 of its scouting report)
+GetTeamRating:
 	ldy.b a2
 	lda.w tmdata,y
 	sta.b a0

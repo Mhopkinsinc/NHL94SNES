@@ -692,3 +692,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - GetMatchupPlayer (94G) and screen helpers named from what they do. MATCH.
 - ScoutingReport. MATCH.
 - GetNameandAttrib, CalcAttrib, jmlvector. MATCH.
+- GetTeamRating and the scouting screen helpers. MATCH.

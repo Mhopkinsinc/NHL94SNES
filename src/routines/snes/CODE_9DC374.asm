@@ -18,7 +18,7 @@ CODE_9DC374:
 	jsl.l CODE_9DC3DB
 	lda.w #$0004
 	sta.b d1
-	jsl.l CODE_9DC561
+	jsl.l GetPlayerRating
 	lda.b d0
 	cmp.w #$0032
 	bcc .t1
