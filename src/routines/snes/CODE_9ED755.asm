@@ -24,7 +24,7 @@ CODE_9ED755:
 .2:
 	lda.w $0D07
 	bpl CODE_9ED7B2
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi CODE_9ED7B2
 	lda.w $0792
 	and.w #$0180

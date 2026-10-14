@@ -14,7 +14,7 @@ CODE_9ED0A8:
 	lda.w tmgoalie,y
 	bmi CODE_9ED0FC
 	ldx.w tmsort,y
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi CODE_9ED0FC
 	lda.w pfteam,y
 	cmp.w pfteam,x

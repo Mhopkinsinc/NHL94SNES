@@ -55,7 +55,7 @@ CODE_9ED4B4:
 	lda.w #$FFFF
 	sta.w $1063,x
 .1x:
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq CODE_9ED517
 CODE_9ED514:
 	jmp.w CODE_9ED5A7

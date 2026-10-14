@@ -14,7 +14,7 @@ CODE_9EA4F7:
 	lda.w #$EA1A
 	ldy.w $1523,x
 	bne .3
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .2
 	lda.w $0EC3,x
 	sta.b $0C
@@ -32,7 +32,7 @@ CODE_9EA539:
 	bne .t1
 	lda.w $19D4,x
 	bmi .t1
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq .t1
 	lda.w $0EC3,x
 	cmp.w #$8000

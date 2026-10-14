@@ -3,7 +3,7 @@ PushNumber:
 	phx
 	lda.w #$0000
 	sta.b a1+2
-	lda.w #$0A48
+	lda.w #mesareaEnd
 	sta.b a1
 	lda.b d0
 .0:
@@ -22,7 +22,7 @@ PushNumber:
 	bne .0
 	dec.b a1
 	dec.b a1
-	lda.w #$0A48
+	lda.w #mesareaEnd
 	sec
 	sbc.b a1
 	sta.b [a1]

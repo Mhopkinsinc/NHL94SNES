@@ -4,7 +4,7 @@ GetShifter:
 	sta.b d2
 	lda.w #$0010
 	sta.b d1
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	tay
 .3:
 	lda.b d2

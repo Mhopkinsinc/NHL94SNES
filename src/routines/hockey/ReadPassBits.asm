@@ -62,7 +62,7 @@ ReadPassBits:
 	sta.b d0
 	jsl.l .sd
 	lda.b d0
-	sta.l $7E35D4
+	sta.l playoffRoundIdx
 	lda.w #$0008
 	sta.b d0
 	jsl.l .sd

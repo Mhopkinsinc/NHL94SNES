@@ -6,7 +6,7 @@ ClearTeamStats:
 	pha
 	ldx.w #$0000
 .clr:
-	stz.w $1742,x
+	stz.w gmStatBase,x
 	inx
 	inx
 	cpx.w #$01AC

@@ -39,7 +39,7 @@ CODE_9EA719:
 	bne CODE_9EA78C
 	lda.w $19D4,x
 	bmi .t1
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq .t1
 	lda.w $12E3,x
 	asl a

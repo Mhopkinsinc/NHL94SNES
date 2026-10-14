@@ -7,7 +7,7 @@ CODE_9EE220:
 	trb.w sflags
 	sta.w pfalock,x
 	stx.w $0D29
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq .t2
 	jmp.w CODE_9EE408
 
@@ -57,7 +57,7 @@ CODE_9EE220:
 .3:
 	ldx.b $E4
 	lda.w #$FFFF
-	sta.w $0AD9
+	sta.w shotPlIdx
 	lda.w #$0010
 	sta.w $1203,x
 	txa

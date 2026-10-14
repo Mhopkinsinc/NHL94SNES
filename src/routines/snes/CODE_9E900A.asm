@@ -71,7 +71,7 @@ CODE_9E9091:
 	sta.b d2
 	cpx.w #$001C
 	bne .rtl
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bpl .rtl
 	jsl.l CODE_9EC791
 	stz.w $1E8B

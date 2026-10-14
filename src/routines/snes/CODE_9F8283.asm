@@ -30,7 +30,7 @@ CODE_9F8283:
 	bne .loop2
 CODE_9F82D2:
 	lda.w #$0000
-	sta.l $7E35D4
+	sta.l playoffRoundIdx
 	rep #$30
 	lda.w #$1FFF
 	tcs

@@ -42,7 +42,7 @@ CODE_9FB30F:
 
 .t4:
 	lda.w #$FFFF
-	sta.w $0AD9
+	sta.w shotPlIdx
 	jsl.l CODE_9EDCC3
 	lda.w pflags,x
 	bit.w #$0002

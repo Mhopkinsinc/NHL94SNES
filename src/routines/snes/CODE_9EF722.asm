@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9EF722:
 	lda.w #$FFFF
-	sta.w $0AD9
+	sta.w shotPlIdx
 	jsl.l RandomWord
 	and.w #$1FFF
 	sec

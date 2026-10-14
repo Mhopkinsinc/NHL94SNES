@@ -36,7 +36,7 @@ CODE_9E8981:
 	lda.w #$FF9C
 	sta.b d0
 .5:
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	lda.w pfgoal,x
 	beq .t3
 	lda.w #$0000
@@ -113,9 +113,9 @@ CODE_9E8A4F:
 	sta.b d0
 .1:
 	jmp.w CODE_9EA5A4
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq CODE_9E8A88
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi CODE_9E8A90
 	lda.w pfteam,x
 	cmp.w pfteam,y

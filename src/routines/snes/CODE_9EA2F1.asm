@@ -22,7 +22,7 @@ CODE_9EA2F1:
 	and.w #$0007
 	cmp.w #$0003
 	bcs .t1
-	lda.w $0AD9
+	lda.w shotPlIdx
 	cmp.b a3
 	bne .t2
 	lda.w #$0008

@@ -42,7 +42,7 @@ CODE_9D98D3:
 	lda.b d0
 	sta.l $7E34D0
 	lda.w #$0000
-	sta.l $7E35D4
+	sta.l playoffRoundIdx
 	lda.w #$0007
 	sta.w $0ACF
 	lda.l $7E34BC

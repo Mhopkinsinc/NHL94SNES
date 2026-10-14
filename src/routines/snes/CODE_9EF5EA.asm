@@ -3,7 +3,7 @@ CODE_9EF5EA:
 	lda.w pflags,y
 	and.w #$FFFE
 	sta.w pflags,y
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bpl .t1
 	jmp.w CODE_9EF69A
 

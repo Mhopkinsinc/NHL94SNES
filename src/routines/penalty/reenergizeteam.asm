@@ -15,7 +15,7 @@ reenergizeteam:
 	lda.w tmpdst,y
 	cmp.w #TMPDOUT
 	bne .nb
-	cmp.w #$FFFC
+	cmp.w #rosterNone
 	bne .nb
 	lda.w #TMPDBENCH
 	sta.w tmpdst,y

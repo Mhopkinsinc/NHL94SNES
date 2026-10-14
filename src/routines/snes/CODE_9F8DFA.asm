@@ -201,12 +201,12 @@ StartHL2:
 	inc.b a1
 	dec.b d0
 	bpl .loop2
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bpl .4
 	lda.w #$000C
 	jsl.l CODE_9BB370
 	asl a
-	sta.w $0AD9
+	sta.w shotPlIdx
 .4:
 	tax
 	lda.w position,x
@@ -214,7 +214,7 @@ StartHL2:
 	dex
 	dex
 	txa
-	sta.w $0AD9
+	sta.w shotPlIdx
 .5:
 	jsl.l SprSort
 org $9F9001
@@ -332,7 +332,7 @@ org $9F9001
 	beq .t2
 	cmp.w #$0004
 	beq .t2
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	cmp.w #$0002
 	bcc .t2
 	lda.w #$0093

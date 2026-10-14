@@ -51,7 +51,7 @@ CODE_9F94DA:
 	jmp.w CODE_9F961E
 
 .t1:
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	sec
 	sbc.w #$0003
 	bmi .t2
@@ -142,8 +142,8 @@ CODE_9F95C2:
 	jsl.l Mul16U
 	lda.b $08
 	tsb.w $0AD5
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	inc a
-	sta.l $7E35D4
+	sta.l playoffRoundIdx
 CODE_9F961E:
 	rtl

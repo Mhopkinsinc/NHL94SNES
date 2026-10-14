@@ -3,7 +3,7 @@ CODE_9EED85:
 	lda.w #$0014
 	sta.b d0
 	jmp.w assreplace
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .t2
 	lda.w pflags,x
 	bit.w #$0002
@@ -155,7 +155,7 @@ CODE_9EEE70:
 	ldx.b $E4
 	lda.w #$FFFF
 	sta.w $0BA3
-	sta.w $0AD9
+	sta.w shotPlIdx
 	lda.w #$001E
 	sta.w $1203,x
 	txa

@@ -5,7 +5,7 @@ CODE_9EDBC0:
 	bpl .3
 	cmp.w #$FEF8
 	bmi .3
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .1
 	stz.b d0
 .1:

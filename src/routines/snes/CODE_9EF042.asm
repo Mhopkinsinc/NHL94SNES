@@ -113,7 +113,7 @@ CODE_9EF042:
 	lda.w #$003C
 	sta.b $81
 CODE_9EF135:
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi .1
 	lsr a
 .1:
@@ -122,13 +122,13 @@ CODE_9EF135:
 	jmp.w CODE_9EF1CE
 
 .t2:
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .t1
 	jmp.w CODE_9EF1CE
 
 .t1:
 	lda.w #$FF00
-	tsb.w $0AD9
+	tsb.w shotPlIdx
 	asl.b d2
 	lda.b d2
 	sta.b a0

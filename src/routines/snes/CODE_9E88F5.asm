@@ -7,7 +7,7 @@ CODE_9E88F5:
 .1:
 	sty.b d1
 	bra CODE_9E88F2
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi .t1
 	lda.w $0EC4,x
 	sec
@@ -53,7 +53,7 @@ CODE_9E88F5:
 
 .t1:
 	rtl
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi CODE_9E8981
 	lda.w pfteam,x
 	cmp.w pfteam,y

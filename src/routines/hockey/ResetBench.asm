@@ -44,7 +44,7 @@ ResetBench:
 	lda.w tmpdst,y
 	cmp.w #TMPDOUT
 	beq .next
-	cmp.w #$FFFC
+	cmp.w #rosterNone
 	beq .next
 	lda.w #TMPDBENCH
 	sta.w tmpdst,y

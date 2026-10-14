@@ -95,9 +95,9 @@ CODE_9E8373:
 
 .t1:
 	rtl
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq CODE_9E845A
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi CODE_9E8462
 	lda.w pfteam,x
 	cmp.w pfteam,y

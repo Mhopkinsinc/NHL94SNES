@@ -5,7 +5,7 @@ CODE_9E9E59:
 	cmp.w #$F7B2
 	beq .1
 	lda.w #$FFFF
-	sta.w $0AD9
+	sta.w shotPlIdx
 .1:
 	ldy.b a2
 	lda.w pfteam,y

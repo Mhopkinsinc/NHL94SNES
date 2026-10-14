@@ -68,9 +68,9 @@ CODE_9E87E9:
 	sta.b a0
 	jsl.l CODE_9EA5A4
 	jmp.w check4check
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq CODE_9E8822
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	bmi CODE_9E882A
 	lda.w pfteam,x
 	cmp.w pfteam,y

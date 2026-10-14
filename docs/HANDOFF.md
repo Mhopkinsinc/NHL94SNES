@@ -16,23 +16,16 @@
 
 ## Unsure
 
-- `$0A48` in PushNumber and PushTime is the end of the decimal string those routines build. The buffer base is `mesarea` (`$0A2A`). `$0A48` is not its own equate.
-- `$00`, `$04` and `$08` are the divider's scratch (`Div16x8U`: `$08 / $04` into `$00`). They are also the math scratch in the engine, so they stay raw.
-- `$C3` in `vtoa` holds the direction bits. 93S reuses `d0+2` for that. Here `d0` is only a word, so `$C3` stays raw.
-- `$0B7D` in `assreplace` is stored with the assignment and has no 93S counterpart.
-- `$0AD9` is the player index `ShotMode` compares with X. Not named.
+User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**, 14 Oct 2026).
+
+**Applied equates (source=new):** `mesareaEnd` (`$0A48`, PushNumber and PushTime). `shotPlIdx` (`$0AD9`). `gmStatBase` (`$1742`). `playoffRoundIdx` (`$7E35D4`). `rosterNone` (`$FFFC`, the three `cmp.w` sites beside `TMPDOUT`).
+
+**Keep raw:** `$00`, `$04` and `$08` (divider and engine scratch). `$C3` in `vtoa`. `#$000B`, `#$000A`, `#$0012` in setplayer. `$14` and `$0CE5` in setplayer until one owner is proven. `#$0800`, `#$0040`, `#$2000`, `#$4000` except the converted flag sites. `PenOffsides` is `$12` here (93S uses `$10`).
+
+**Deferred:** `$0B7D,x` on the assist path. `$163A` (not `OptPen`). `$7E34C6` (not `OptLine`; map bits first). `#$0024` in AddPenalty. `$7E35D0` vs 93S `blankchar`. `CODE_9EE220`, `CODE_9FD85F`, and the rejected 93S routine names. Optional `StoppageMessages` for `DATA8_80D3EB`.
+
 - `CODE_9EE220` is the shot release `ShotMode` jumps to. It is not a clean match for 93S `doshot`, so the name stays. `$14E3` is `pfalock` from the `setplayer` pair with `SPA`.
 - `CODE_9FD85F` is the code that used to sit after the line-choice table. It compares the word at `$1003` with 100. Not named.
-- `$163A` is tested by `AddPenalty` and is not `OptPen` (`OptPen` is `$7E34C4`, and zero means penalties are off).
-- `$7E34C6` in `SetupTeamForIntermission` picks the power-play line when it is nonzero. 93S `OptLine` branches the other way, so this address stays raw.
-- `$0024` in `AddPenalty` is a second penalty number that always counts, beside `PenIcing`.
-- `#$000B` and `#$000A` in `setplayer` are the from-box and from-bench assignments. 93S `aepen`/`aeben` are `$0A`/`$09`, so these stay raw.
-- `#$0012` in `forcepldata` is the center's assignment. 93S `anearest` is `$11`.
-- `$FFFC` is compared next to `TMPDOUT` in `reenergizeteam`, `TryAddPlayerToList` and `ResetBench`. It is not a 93S roster state.
-- `$1742` is the base `ClearTeamStats` clears. The span is shorter than 93S `tmshots`, so the name stays off.
-- `$7E35D4` is the playoff-round index `GetShifter` reads. Not named.
-- `$0CE5` is a bonus `setplayer` clears beside `HmAwBonus`. Not named.
-- `$14` in `setplayer` is scratch around the roster index. Not named.
 - `CODE_9EB3C4`, `CODE_9FD459` and `CODE_9FA1B7` are entries other slices jump to, so they stay global.
 - `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
 - SpriteFrameN labels stay numbered until a frame has an SPF name.

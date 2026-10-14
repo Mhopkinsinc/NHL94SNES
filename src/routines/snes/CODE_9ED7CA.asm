@@ -76,7 +76,7 @@ CODE_9ED853:
 	sta.b d2
 	ldy.w $19D4,x
 	bmi .t1
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq .1
 	lda.w JoyPad,y
 	bit.w #$0080

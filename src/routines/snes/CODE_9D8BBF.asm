@@ -16,7 +16,7 @@ CODE_9D8BBF:
 	jmp.w CODE_9D9064
 
 .t1:
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	cmp.w #$0002
 	bcc .t2
 	lda.w $07ED
@@ -327,7 +327,7 @@ CODE_9D8C19:
 	sta.b $8B
 	lda.w #DATA8_9D94FE
 	sta.b a0
-	lda.l $7E35D4
+	lda.l playoffRoundIdx
 	asl a
 	tay
 	lda.b [a0],y

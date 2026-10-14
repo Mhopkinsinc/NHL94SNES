@@ -26,7 +26,7 @@ CODE_9EE7F6:
 	stz.w SPAcnt,x
 	cmp.w #$000C
 	bcs CODE_9EE891
-	stx.w $0AD9
+	stx.w shotPlIdx
 	ldy.w $19D4,x
 	bmi .t1
 .1:

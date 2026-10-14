@@ -11,7 +11,7 @@ chkpk2:
 	lda.w sflags
 	and.w #sf2pwrtm
 	rtl
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	bne .1
 	lda.w $19D4,x
 	bmi asseben

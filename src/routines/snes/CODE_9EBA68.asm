@@ -5,7 +5,7 @@ CODE_9EBA68:
 	bne CODE_9EBA67
 	lda.w gmclock
 	bne CODE_9EBA67
-	lda.w $0AD9
+	lda.w shotPlIdx
 	cmp.b a3
 	beq .1
 	lda.w $0F23,x

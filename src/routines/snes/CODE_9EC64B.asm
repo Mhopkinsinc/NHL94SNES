@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9EC64B:
 	stz.w $1638
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bpl .t4
 	jmp.w CODE_9EC6E6
 
@@ -9,26 +9,26 @@ CODE_9EC64B:
 	lda.w gmode
 	bit.w #$0002
 	bne .t1
-	lda.w $0AD9
+	lda.w shotPlIdx
 	cmp.w #$000C
 	bmi .t3
 	bra .t2
 
 .t1:
-	lda.w $0AD9
+	lda.w shotPlIdx
 	cmp.w #$000C
 	bmi .t2
 	bra .t3
 
 .t2:
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	lda.w Ypos,y
 	bpl CODE_9EC6E6
 	sec
 	sbc.w #$0004
 	sta.b d0
 	ldy.w #$0000
-	lda.w $0AD9
+	lda.w shotPlIdx
 	cmp.w #$000C
 	bpl .1
 	ldy.w #$000C
@@ -51,14 +51,14 @@ CODE_9EC64B:
 	bra CODE_9EC6E0
 
 .t3:
-	ldy.w $0AD9
+	ldy.w shotPlIdx
 	lda.w Ypos,y
 	bmi CODE_9EC6E6
 	clc
 	adc.w #$0004
 	sta.b d0
 	ldy.w #$0000
-	lda.w $0AD9
+	lda.w shotPlIdx
 	cmp.w #$000C
 	bpl .1x
 	ldy.w #$000C

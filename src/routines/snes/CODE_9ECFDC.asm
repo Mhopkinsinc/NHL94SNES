@@ -25,7 +25,7 @@ org $9ED002
 	rtl
 
 .t2:
-	cpx.w $0AD9
+	cpx.w shotPlIdx
 	beq .t4
 	lda.w $0B7D,x
 	cmp.w #$000C

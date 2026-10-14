@@ -70,7 +70,7 @@ CODE_9E8631:
 	lda.w tmflags,y
 	bit.w #$0010
 	bne .7
-	lda.w $0AD9
+	lda.w shotPlIdx
 	bmi .6
 	lsr a
 .6:
