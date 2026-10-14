@@ -3,7 +3,7 @@ StartGame:
 	jsl.l PlayoffScreen
 CODE_9F8334:
 	jsl.l CODE_9FE0E8
-	jsl.l CODE_9D8129
+	jsl.l ScoutingReport
 CODE_9F833C:
 	lda.w #$FFFF
 	sta.w $07C6

@@ -690,3 +690,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Opening, TitleScreen, DefaultMenus, setoptions (93S) and ReadAnyPad. MATCH.
 - DrawSpritePieces and FindCachedFrame. MATCH.
 - GetMatchupPlayer (94G) and screen helpers named from what they do. MATCH.
+- ScoutingReport. MATCH.

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D8129:
+; The scouting report screen: both teams, the matchups and the scrolling commentary until Start
+ScoutingReport:
 	lda.w #$0001
 	sta.l $7E3474
 	stz.w $1E3F

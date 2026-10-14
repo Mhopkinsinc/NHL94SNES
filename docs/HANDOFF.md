@@ -46,6 +46,7 @@
 - Start-up and menus: `Opening` (the tail of 93S `Start`, then 93S `Opening`: `TitleScreen`, then `Restart`), `TitleScreen`, `DefaultMenus`, `setoptions` (the game setup screen, called from the `Restart` code with the 93S calls `NewPO` and `InitSortObjects`; the screen is rewritten), `ReadAnyPad`.
 - Sprites: `DrawSpritePieces` (the OAM loop `DrawSprite` jumps to) and `FindCachedFrame` (the tile cache lookup in front of `LoadFrameTiles`).
 - Screens: `GetMatchupPlayer` (94G; its slot table is the 94G `MatchupLineSlots` order), `FramerRow`, `GetPauseTeam`, `SendTextMap2`, `SendTextMapRows`, `SendTextMap2Rows`, `SetupBandIRQ` with `IRQ_BandStart` / `IRQ_BandEnd`.
+- `ScoutingReport` (93S and 94G name; the same call skeleton as 93S).
 
 ## Unsure
 
