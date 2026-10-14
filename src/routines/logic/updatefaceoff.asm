@@ -1,6 +1,6 @@
 ; Step the puck drop animation
 updatefaceoff:
-	lda.w temp1,x
+	lda.w $1003,x
 	beq .t2
 	clc
 	adc.w #$0006

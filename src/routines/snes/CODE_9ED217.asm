@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9ED217:
-	sta.w temp1,x
-	lda.w puckc
+	sta.w $1003,x
+	lda.w shotPlIdx
 	bpl CODE_9ED214
 	lda.w puckvy
 	ldy.w pfgoal,x
@@ -34,16 +34,16 @@ CODE_9ED24D:
 	rtl
 
 .t2:
-	lda.w temp2,x
+	lda.w $1023,x
 	sec
 	sbc.b d7
-	sta.w temp2,x
+	sta.w $1023,x
 	bmi .t1
 	jmp.w CODE_9ED2F7
 
 .t1:
 	adc.w #$0005
-	sta.w temp2,x
+	sta.w $1023,x
 	lda.w puckvx
 	xba
 	and.w #$00FF
@@ -52,7 +52,7 @@ CODE_9ED24D:
 	ora.w #$FF00
 .1:
 	clc
-	adc.w puckx
+	adc.w $0D71
 	sta.b d0
 	lda.w puckvy
 	xba
@@ -105,8 +105,8 @@ CODE_9ED24D:
 	pla
 	jsl.l vtoa
 	lda.b d0
-	sta.w temp2b,x
+	sta.w $10A3,x
 CODE_9ED2F7:
-	lda.w temp2b,x
+	lda.w $10A3,x
 	sta.b d0
-	jml.l doplayeracc
+	jml.l CODE_9EA8A9

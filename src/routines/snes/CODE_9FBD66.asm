@@ -1,5 +1,5 @@
 ; Unidentified routine.
-printteamname:
+CODE_9FBD66:
 	lda.w printx
 	pha
 	lda.w tmdata

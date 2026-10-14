@@ -3,7 +3,7 @@ CODE_9EF5EA:
 	lda.w pflags,y
 	and.w #$FFFE
 	sta.w pflags,y
-	ldy.w puckc
+	ldy.w shotPlIdx
 	bpl .t1
 	jmp.w CODE_9EF69A
 
@@ -20,7 +20,7 @@ CODE_9EF5EA:
 	ldy.b a0
 	lda.w position,y
 	beq CODE_9EF5E9
-	lda.w stickhand,y
+	lda.w $1403,y
 	jsl.l CODE_9FDCEB
 	lda.b d0
 	pha
@@ -28,7 +28,7 @@ CODE_9EF5EA:
 	ldy.b a2
 	sty.b a0
 	sta.b a2
-	lda.w stickhand,y
+	lda.w $1403,y
 	sta.b d0
 	jsl.l CODE_9FDCEB
 	lda.b a0
@@ -45,22 +45,22 @@ CODE_9EF5EA:
 	bcs CODE_9EF5E9
 .1:
 	ldy.b a0
-	lda.w stickhand,y
+	lda.w $1403,y
 	jsl.l CODE_9FDCEB
 	lda.b d0
 	adc.w #$0014
 	ldy.b a0
-	sta.w nopuck,y
+	sta.w $1203,y
 	lda.b a0
 	ldy.b a2
 	sty.b a0
 	sta.b a2
-	lda.w stickhand,y
+	lda.w $1403,y
 	jsl.l CODE_9FDCEB
 	lda.b d0
 	adc.w #$0014
 	ldy.b a0
-	sta.w nopuck,y
+	sta.w $1203,y
 	lda.b a0
 	ldy.b a2
 	sty.b a0

@@ -1,16 +1,16 @@
 ; Player X skates to the puck, slowing down near it
 skatetopuck:
 	jsl.l skatetopuckinit
-	lda.w temp2,x
+	lda.w $1023,x
 	sec
 	sbc.b d7
-	sta.w temp2,x
+	sta.w $1023,x
 	bmi .t1
 	jmp.w CODE_9EB070
 
 .t1:
 	adc.w #$0005
-	sta.w temp2,x
+	sta.w $1023,x
 	jsl.l CODE_9EAB74
 	lda.b d1
 	pha
@@ -53,7 +53,7 @@ org $9EB000
 	pla
 	jsl.l vtoa
 	lda.b d0
-	sta.w temp2b,x
+	sta.w $10A3,x
 	lda.w position,x
 	beq CODE_9EB070
 	lda.w puckvx
@@ -73,7 +73,7 @@ org $9EB000
 	sbc.w Ypos,x
 	sta.b d1
 	pha
-	lda.w puckx
+	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -90,6 +90,6 @@ org $9EB000
 	cmp.b tmp0
 	beq CODE_9EB079
 CODE_9EB070:
-	lda.w temp2b,x
+	lda.w $10A3,x
 	sta.b d0
-	jml.l doplayeracc
+	jml.l CODE_9EA8A9

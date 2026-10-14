@@ -2,7 +2,7 @@
 noturn0:
 	lda.w #$0002
 	sta.b d4
-	lda.w pfrev,x
+	lda.w $1523,x
 	beq .1
 	lda.w #$0006
 	sta.b d4
@@ -12,9 +12,9 @@ noturn0:
 .1:
 	lda.b d0
 	beq .t3
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	sta.b d0
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	sta.b d1
 	jsl.l vtoa
 	bit.w #$0008
@@ -27,7 +27,7 @@ noturn0:
 	sta.b d0
 	cmp.w #$0004
 	bcs .t2
-	jmp.w dostop
+	jmp.w CODE_9EA4F7
 
 .t2:
 	inc.w facedir,x
@@ -40,46 +40,46 @@ noturn0:
 	lda.w facedir,x
 	and.w #$0007
 	sta.w facedir,x
-	lda.w #SPAglide
+	lda.w #$EA1A
 	sta.b d1
-	lda.w pfrev,x
+	lda.w $1523,x
 	bne .t1
 	jmp.w SetSPA
 
 .t1:
 	ldy.w #$0001
-	lda.w #SPAglideback
+	lda.w #$F0D2
 	jml.l SetSPAFromA
 
 .t3:
 	ldy.w #$0001
-	lda.w #SPAskateback
+	lda.w #$F104
 	sta.b d1
-	lda.w pfrev,x
+	lda.w $1523,x
 	bne .2
 	ldy.w #$0000
-	lda.w #SPAskate
+	lda.w #$EAFE
 	sta.b d1
 	lda.w pflags,x
 	bit.w #$0004
 	beq .1x2
 	ldy.w #$0001
-	lda.w #SPAstumble
+	lda.w #$F7B2
 	sta.b d1
 .1x2:
-	cpx.w puckc
+	cpx.w shotPlIdx
 	bne .2
 	ldy.w #$0000
-	lda.w #SPAskatewp
+	lda.w #$EA4C
 	sta.b d1
 .2:
-	lda.w pf2aip,x
+	lda.w $1543,x
 	bne CODE_9EAB64
 	tya
-	sta.w pf2aip,x
+	sta.w $1543,x
 	jsl.l SetSPA
 CODE_9EAB64:
-	lda.w pfrev,x
+	lda.w $1523,x
 	beq .1
 	lda.b d2
 	eor.w #$0004

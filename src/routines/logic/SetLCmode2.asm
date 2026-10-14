@@ -43,7 +43,7 @@ CODE_9FD35A:
 	bit.w #$0008
 	bne .1
 	lda.b d4
-	cmp.w tmlcchoice,y
+	cmp.w $17E6,y
 	bne .2
 	lda.w tmline,y
 	sta.b d0
@@ -72,7 +72,7 @@ CODE_9FD35A:
 	jsl.l CODE_9ECFC6
 	pla
 	sta.b d0
-	jsl.l linebar
+	jsl.l CODE_9FDFA6
 .2:
 	dec.w printy
 .3:

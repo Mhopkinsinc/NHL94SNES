@@ -9,7 +9,7 @@ CODE_9FE0EB:
 	lda.w #$000C
 .1:
 	sta.b $14
-	lda.w seed
+	lda.w $0792
 	and.w #$0010
 	beq CODE_9FE111
 	sep #$20

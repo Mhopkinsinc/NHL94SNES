@@ -1,12 +1,12 @@
 ; Unidentified routine.
 CODE_9FEAB4:
 	lda.w #$2400
-	sta.w printa
+	sta.w $0D0D
 	lda.b d0
 	cmp.w $0D15
 	bne .1
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 .1:
 	lda.w #$0006
 	sta.w printx

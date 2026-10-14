@@ -72,14 +72,14 @@ CODE_80CC89:		; print the goalie and shooter rows, the row at the cursor ($1DB9)
 	sta.b d1
 .2:
 	lda.w #$3800
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$0005
 	sec
 	sbc.b d1
 	cmp.w $1DB9
 	bne .5
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	lda.b [a3]
 	and.w #$00FF
 	dec a

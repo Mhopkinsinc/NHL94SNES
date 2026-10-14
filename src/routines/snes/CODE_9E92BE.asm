@@ -18,7 +18,7 @@ CODE_9E92DE:
 	stz.b d0
 	lda.w #$00FF
 	sta.b d1
-	lda.w puckx
+	lda.w $0D71
 	sec
 	sbc.w $0E5F
 	sta.b d2

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EDF9D:
-	lda.w pf2aip,y
+	lda.w $1543,y
 	beq CODE_9EDFA9
 	stz.b d3
 	lda.w #$0001

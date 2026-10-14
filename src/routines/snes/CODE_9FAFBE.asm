@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FAFBE:
-	stz.w puckx
+	stz.w $0D71
 	stz.w pucky
 	stz.w $0DF9
 	stz.w puckvx
@@ -60,7 +60,7 @@ CODE_9FB02A:
 	sta.w $19BE
 .1:
 	lda.w $1E8D
-	sta.w puckc
+	sta.w shotPlIdx
 	tay
 	lda.w $1E93
 	bmi .2

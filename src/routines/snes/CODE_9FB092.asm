@@ -70,7 +70,7 @@ CODE_9FB092:
 	bne .7
 	and.w #$0007
 	sta.b d0
-	lda.w seed
+	lda.w $0792
 	and.w #$0003
 	bne .8
 .7:
@@ -96,7 +96,7 @@ CODE_9FB092:
 	asl a
 	asl a
 	ldx.b a3
-	sta.w Xvel,x
+	sta.w $0EC3,x
 	ldx.b d0
 	lda.l DATA8_80DA06+2,x
 	asl a
@@ -107,7 +107,7 @@ CODE_9FB092:
 	clc
 	adc.b d4
 	ldx.b a3
-	sta.w Yvel,x
+	sta.w $0EE3,x
 	lda.w #$0004
 	ldy.w #$0000
 	jsr.w CODE_9FB1DE

@@ -32,18 +32,18 @@ CODE_9FB4B6:
 	lda.w pfteam,x
 	beq .t1
 	lda.w #$0168
-	sta.w temp2,y
+	sta.w $1023,y
 	txa
 	lsr a
-	sta.w temp4,y
+	sta.w $1063,y
 	bra CODE_9FB50F
 
 .t1:
 	lda.w #$0258
-	sta.w temp1,y
+	sta.w $1003,y
 	txa
 	lsr a
-	sta.w temp3,y
+	sta.w $1043,y
 CODE_9FB50F:
 	ldx.b a2
 	ldy.b a3

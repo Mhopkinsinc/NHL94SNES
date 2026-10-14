@@ -2,7 +2,7 @@
 CODE_9EE0CD:
 	lda.b d3
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	sta.b d3
 	lda.b d4
 	sec

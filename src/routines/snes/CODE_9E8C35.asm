@@ -8,7 +8,7 @@ CODE_9E8C35:
 	sty.b d2
 	sta.b d3
 .1:
-	lda.w pfnc,x
+	lda.w $1563,x
 	bne .3
 	lda.b d3
 	pha
@@ -119,7 +119,7 @@ CODE_9E8C35:
 
 .t3:
 	lda.w SPA,x
-	cmp.w #DATA8_9DFC76
+	cmp.w #$FC76
 	bcs .rtl
 	lda.w $0E43,x
 	sta.w Xpos,x

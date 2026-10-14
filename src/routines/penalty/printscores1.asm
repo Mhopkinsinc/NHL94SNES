@@ -253,7 +253,7 @@ printscores1:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w tmscore
+	lda.w $178E
 	sta.b d0
 	jsl.l CODE_9F9E15
 	jsl.l PushNumber

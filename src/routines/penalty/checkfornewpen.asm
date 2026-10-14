@@ -41,7 +41,7 @@ CODE_9EB1F2:
 	lda.b [a1]
 	and.w #$00FF
 	beq .2
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi CODE_9EB2B5
 	lsr a
 	sec

@@ -107,7 +107,7 @@ CODE_9DA704:
 	jsl.l WaitFrame
 	lda.w OAMReady
 	bne CODE_9DA704
-	inc.w seed
+	inc.w $0792
 	bne .1
 	inc.w $0794
 .1:

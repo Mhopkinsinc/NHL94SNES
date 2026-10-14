@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9EE797:
 	lda.w SPA,x
-	cmp.w #DATA8_9DEF6E
+	cmp.w #$EF6E
 	beq CODE_9EE7F6
-	cmp.w #DATA8_9DF020
+	cmp.w #$F020
 	beq CODE_9EE7F6
 	phy
 	ldy.w #$0000
@@ -36,11 +36,11 @@ CODE_9EE7DA:
 	jsl.l vtoa
 	jsl.l Findhittype
 	beq .t1
-	lda.w #DATA8_9DF020
+	lda.w #$F020
 	bra CODE_9EE7EC
 
 .t1:
-	lda.w #DATA8_9DEF6E
+	lda.w #$EF6E
 CODE_9EE7EC:
 	jsl.l SetSPAFromA
 	jmp.w CODE_9EE796

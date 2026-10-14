@@ -6,6 +6,6 @@ CODE_9EA403:
 	stz.w SPAnum,x
 	lda.w #$FFFF
 	sta.w SPAcnt,x
-	jsl.l updateanim
+	jsl.l CODE_9EA419
 .rtl:
 	rtl

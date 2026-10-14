@@ -2,17 +2,17 @@
 CODE_9EA021:
 	ldy.b a2
 	lda.w SPA,y
-	cmp.w #DATA8_9DF374
+	cmp.w #$F374
 	beq CODE_9EA01E
-	cmp.w #DATA8_9DF864
+	cmp.w #$F864
 	beq CODE_9EA01E
-	cmp.w #SPAsweepchk
+	cmp.w #$F208
 	bne .t1
 	jmp.w CODE_9EBC24
 
 .t1:
 	lda.w SPA,x
-	cmp.w #SPAburst
+	cmp.w #$F342
 	bne CODE_9EA01D
 	lda.w gmclock
 	beq .1
@@ -39,7 +39,7 @@ CODE_9EA021:
 	sta.b $8B
 	lda.w #DATA8_9EA154
 	sta.b a0
-	sta.w pf2aip,x
+	sta.w $1543,x
 	cpy.w #$0000
 	bne CODE_9EA0B1
 	lda.w Xpos,x
@@ -52,13 +52,13 @@ CODE_9EA021:
 	bpl .t2
 	cmp.w #$FF08
 	bpl .t2
-	lda.w seed
+	lda.w $0792
 	and.w #$00F0
 	beq CODE_9EA0B1
 	bra CODE_9EA0AD
 
 .t2:
-	lda.w seed
+	lda.w $0792
 	and.w #$0030
 	beq CODE_9EA0B1
 CODE_9EA0AD:
@@ -91,7 +91,7 @@ CODE_9EA0B1:
 	jsl.l randomd0
 	lda.b d0
 	sec
-	sbc.w aggress,x
+	sbc.w $1483,x
 	bmi .t2
 	jsl.l checkagr
 	lda.b d0

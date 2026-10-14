@@ -13,11 +13,11 @@ CODE_9E8F42:
 	lda.b d0
 	pha
 	txy
-	ldx.w Yvel,y
+	ldx.w $0EE3,y
 	jsl.l CODE_808FEB
 	lda.b $09
 	sta.b d0
-	ldx.w Xvel,y
+	ldx.w $0EC3,y
 	lda.b d1
 	jsl.l CODE_808FEB
 	lda.b d0
@@ -26,12 +26,12 @@ CODE_9E8F42:
 	eor.w #$FFFF
 	inc a
 	sta.b d2
-	ldx.w Xvel,y
+	ldx.w $0EC3,y
 	lda.b $01,s
 	jsl.l CODE_808FEB
 	lda.b $09
 	sta.b d0
-	ldx.w Yvel,y
+	ldx.w $0EE3,y
 	lda.b d1
 	jsl.l CODE_808FEB
 	lda.b $09

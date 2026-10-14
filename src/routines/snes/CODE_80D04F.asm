@@ -18,7 +18,7 @@ CODE_80D059:
 
 .t1:
 	lda.w #$3800
-	sta.w printa
+	sta.w $0D0D
 	jsl.l print
 	lda.b [a1]
 	sta.b $B7

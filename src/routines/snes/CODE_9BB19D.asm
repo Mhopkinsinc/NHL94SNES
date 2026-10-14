@@ -35,7 +35,7 @@ CODE_9BB19D:
 .2:
 	sta.w $0DB8,x
 	lda.w WMDATA
-	sta.w frame,x
+	sta.w $0D97,x
 	lda.w WMDATA
 	sta.b $14
 	and.b #$3F

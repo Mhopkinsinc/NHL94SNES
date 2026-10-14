@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EA9AD:
-	stz.w pfrev,x
+	stz.w $1523,x
 CODE_9EA9B0:
 	pla
 	sta.b d0
@@ -27,7 +27,7 @@ CODE_9EA9B0:
 	jsl.l CODE_808F5D
 	ldx.b a3
 	sta.b tmp0
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	xba
 	and.w #$00FF
 	cmp.w #$0080
@@ -38,7 +38,7 @@ CODE_9EA9B0:
 	jsl.l CODE_808F7D
 	sta.b d4
 	ldx.b a3
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	xba
 	and.w #$00FF
 	cmp.w #$0080
@@ -68,7 +68,7 @@ CODE_9EA9B0:
 	lda.b $08
 	sta.b d4
 	ldx.b a3
-	lda.w pfrev,x
+	lda.w $1523,x
 	beq .4
 	lda.w #$0000
 	sec
@@ -78,10 +78,10 @@ CODE_9EA9B0:
 	sbc.b $B7
 	sta.b $B7
 .4:
-	lda.w facefrac,x
+	lda.w $1183,x
 	clc
 	adc.b d4
-	sta.w facefrac,x
+	sta.w $1183,x
 	lda.w facedir,x
 	adc.b $B7
 	and.w #$0007
@@ -105,14 +105,14 @@ CODE_9EA9B0:
 .6:
 	lda.b d1
 	clc
-	adc.w #SPAturnr
+	adc.w #$EBE2
 	sta.b d1
 .7:
-	lda.w pf2aip,x
+	lda.w $1543,x
 	bne .8
 	jsl.l SetSPA
 	lda.w #$0001
-	sta.w pf2aip,x
+	sta.w $1543,x
 .8:
 	lda.b d3
 	cmp.w #$0003

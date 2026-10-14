@@ -12,7 +12,7 @@ findpc:
 	ldx.b xsave
 	lda.w #$0008
 	sta.b $00
-	ldy.w puckc
+	ldy.w shotPlIdx
 	bmi CODE_9FCC06
 	lda.w position,x
 	beq .t1
@@ -58,14 +58,14 @@ CODE_9FCC06:
 	bit.w #$1000
 	bne .8
 	lda.w SPA,x
-	cmp.w #SPAturnl
+	cmp.w #$EBB0
 	bcc .2
-	cmp.w #SPAturnr+1
+	cmp.w #$EBE3
 	bcc .4
 .2:
-	cmp.w #DATA8_9DF196
+	cmp.w #$F196
 	bcc .3
-	cmp.w #SPAburst+1
+	cmp.w #$F343
 	bcc .4
 .3:
 	lda.w pflags,x
@@ -79,7 +79,7 @@ CODE_9FCC06:
 	bne .8
 .5:
 	stz.b $14
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi .7
 	lda.b $00
 	cmp.w #$0008

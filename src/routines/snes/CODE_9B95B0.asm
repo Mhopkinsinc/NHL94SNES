@@ -39,7 +39,7 @@ CODE_9B95B0:
 	lda.w #$0001
 	sta.w printx
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	ldy.w #$0000
 	lda.b [a3],y
 	phy
@@ -182,7 +182,7 @@ CODE_9B96FE:
 	ply
 	iny
 	lda.w #$2400
-	sta.w printa
+	sta.w $0D0D
 	sep #$20
 	lda.b [a3],y
 	rep #$20

@@ -9,12 +9,12 @@ CODE_9EEB2E:
 	sta.w $17BE,y
 .1:
 	ldx.w $0B9D,y
-	lda.w aidef,x
+	lda.w $1343,x
 	lsr a
 	clc
 	adc.w #$0001
-	adc.w temp1,x
-	sta.w temp1,x
+	adc.w $1003,x
+	sta.w $1003,x
 	lda.b a0
 	sta.w $0D07
 	ldx.b a0
@@ -23,7 +23,7 @@ CODE_9EEB2E:
 	jsl.l assinsert
 	ldx.b a3
 	ldy.b a0
-	lda.w frame,y
+	lda.w $0D97,y
 	pha
 	lda.w attribute,y
 	bit.w #$0800
@@ -44,12 +44,12 @@ CODE_9EEB7D:
 	lda.l $9D0000,x
 	ldx.b a3
 	ldy.b a0
-	sta.w frame,y
+	sta.w $0D97,y
 	lda.b a0
 	jsl.l CODE_9BC002
 	ldy.b a0
 	pla
-	sta.w frame,y
+	sta.w $0D97,y
 	lda.b d1
 	clc
 	adc.w Ypos,y
@@ -60,7 +60,7 @@ CODE_9EEB7D:
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	sta.b d0
 	lda.w #$0018
 	sta.b d6
@@ -70,7 +70,7 @@ CODE_9EEB7D:
 	asl a
 	asl a
 	ldy.b a0
-	ldx.w Xvel,y
+	ldx.w $0EC3,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -81,7 +81,7 @@ CODE_9EEB7D:
 	asl a
 	asl a
 	asl a
-	ldx.w Yvel,y
+	ldx.w $0EE3,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -119,7 +119,7 @@ CODE_9EEC19:
 	asl a
 	asl a
 	ldy.b a0
-	ldx.w Xvel,y
+	ldx.w $0EC3,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -130,7 +130,7 @@ CODE_9EEC19:
 	asl a
 	asl a
 	asl a
-	ldx.w Yvel,y
+	ldx.w $0EE3,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -172,7 +172,7 @@ CODE_9EEC4D:
 	sta.w puckvy
 	lda.b d2
 	clc
-	adc.w puckx
+	adc.w $0D71
 	sta.w $0BA7
 	lda.b d3
 	clc
@@ -192,7 +192,7 @@ CODE_9EEC4D:
 	sta.w $0BAD,y
 	ldx.b $E4
 	lda.b d6
-	sta.w nopuck,x
+	sta.w $1203,x
 	ldy.b a2
 	lda.w $19D4,x
 	sta.w $0B01,y
@@ -200,8 +200,8 @@ CODE_9EEC4D:
 	bne .rtl
 	lda.w $19D4,x
 	bmi .rtl
-	stz.w Xvel,x
-	stz.w Yvel,x
+	stz.w $0EC3,x
+	stz.w $0EE3,x
 	lda.w $19D4,x
 	sta.b d4
 	lda.w $0D07

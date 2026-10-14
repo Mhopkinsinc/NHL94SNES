@@ -37,7 +37,7 @@ org $9EE002
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	sta.b d0
 	lda.w $0EE4,y
 	and.w #$00FF

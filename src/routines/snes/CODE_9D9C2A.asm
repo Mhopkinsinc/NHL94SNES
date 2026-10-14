@@ -39,7 +39,7 @@ CODE_9D9C2A:
 	tax
 	lda.l $7E3466
 	ora.w #$2000
-	ora.w printa
+	ora.w $0D0D
 	sta.l $7EC67C,x
 	inc a
 	sta.l $7EC77C,x

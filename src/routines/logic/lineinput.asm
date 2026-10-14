@@ -37,7 +37,7 @@ lineinput:
 	beq .t1
 	lda.w pfalock,x
 	bne .t1
-	jml.l doplayeracc
+	jml.l CODE_9EA8A9
 
 .t1:
 	rtl

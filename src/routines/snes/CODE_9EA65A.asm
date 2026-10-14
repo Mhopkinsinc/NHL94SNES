@@ -8,13 +8,13 @@ CODE_9EA65E:
 	sta.w $1D5B
 	jsl.l $001D59
 	lda.b d0
-	sta.w temp2b,x
+	sta.w $10A3,x
 	cmp.w #$0008
 	bcc CODE_9EA694
-	lda.w Xvel,x
-	ora.w Yvel,x
+	lda.w $0EC3,x
+	ora.w $0EE3,x
 	bne CODE_9EA694
-	lda.w puckx
+	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -24,6 +24,6 @@ CODE_9EA65E:
 	sta.b d1
 	jsl.l vtoa
 CODE_9EA694:
-	lda.w temp2b,x
+	lda.w $10A3,x
 	sta.b d0
-	jml.l doplayeracc
+	jml.l CODE_9EA8A9

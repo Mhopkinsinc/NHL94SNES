@@ -22,7 +22,7 @@ CODE_9EA2F1:
 	and.w #$0007
 	cmp.w #$0003
 	bcs .t1
-	lda.w puckc
+	lda.w shotPlIdx
 	cmp.b a3
 	bne .t2
 	lda.w #$0008
@@ -36,27 +36,27 @@ CODE_9EA2F1:
 	lda.b d0
 	sta.w facedir,y
 	ldy.b a2
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	clc
-	adc.w Xvel,y
+	adc.w $0EC3,y
 	pha
 	asl a
 	pla
 	ror a
-	sta.w Xvel,x
-	sta.w Xvel,y
-	lda.w Yvel,x
+	sta.w $0EC3,x
+	sta.w $0EC3,y
+	lda.w $0EE3,x
 	clc
-	adc.w Yvel,y
+	adc.w $0EE3,y
 	pha
 	asl a
 	pla
 	ror a
-	sta.w Yvel,x
-	sta.w Yvel,y
+	sta.w $0EE3,x
+	sta.w $0EE3,y
 	tya
 	sta.w $0F03,x
-	lda.w #DATA8_9DF46A
+	lda.w #$F46A
 	sta.w pfalock,x
 	jsl.l SetSPAFromA
 	ldx.b a2
@@ -65,12 +65,12 @@ CODE_9EA2F1:
 	stx.b a3
 	tya
 	sta.w $0F03,x
-	lda.w #DATA8_9DF3A6
+	lda.w #$F3A6
 	sta.w pfalock,x
 	ldy.w SPA,x
-	cpy.w #DATA8_9DF374
+	cpy.w #$F374
 	beq .1
-	lda.w #DATA8_9DF3D8
+	lda.w #$F3D8
 .1:
 	jsl.l SetSPAFromA
 	jsl.l CODE_9EC042
@@ -94,7 +94,7 @@ CODE_9EA2F1:
 	lda.w #$0028
 	sta.b d0
 	lda.w SPA,x
-	cmp.w #DATA8_9DF3A6
+	cmp.w #$F3A6
 	beq .1x
 	lda.w #$0020
 	sta.b d0

@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9EE7F6:
 	lda.w #$000A
-	sta.w nopuck,x
+	sta.w $1203,x
 	lda.w SPAnum,x
 	cmp.w #$0010
 	bcs CODE_9EE7F3
@@ -11,7 +11,7 @@ CODE_9EE7F6:
 	clc
 	adc.b d0
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	sta.b d0
 	lda.w Ypos,x
 	clc
@@ -26,7 +26,7 @@ CODE_9EE7F6:
 	stz.w SPAcnt,x
 	cmp.w #$000C
 	bcs CODE_9EE891
-	stx.w puckc
+	stx.w shotPlIdx
 	ldy.w $19D4,x
 	bmi .t1
 .1:

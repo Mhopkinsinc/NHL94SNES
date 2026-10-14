@@ -35,7 +35,7 @@ CODE_9E9484:
 	bpl .1
 	lda.w pflags,y
 	and.w #$8000
-	ora.w pfnc,y
+	ora.w $1563,y
 	bne .1
 	cpy.w #$0018
 	bcs .1
@@ -70,7 +70,7 @@ CODE_9E9484:
 	bpl .1x
 	lda.w pflags,y
 	and.w #$8000
-	ora.w pfnc,y
+	ora.w $1563,y
 	bne .1x
 	cpy.w #$0018
 	bcs .1x
@@ -113,13 +113,13 @@ CODE_9E9484:
 
 .t1x:
 	ldy.b a2
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	sec
-	sbc.w Xvel,y
+	sbc.w $0EC3,y
 	sta.b d0
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	sec
-	sbc.w Yvel,y
+	sbc.w $0EE3,y
 	sta.b d1
 	lda.b d0
 	ora.b d1
@@ -154,40 +154,40 @@ CODE_9E9484:
 
 .t1xx:
 	lda.w SPA,x
-	cmp.w #DATA8_9DF3A6
+	cmp.w #$F3A6
 	bcc .2
-	cmp.w #DATA8_9DF46A+1
+	cmp.w #$F46B
 	bcs .2
 	stz.w pfalock,x
-	stz.w pf2aip,x
+	stz.w $1543,x
 	ldy.w $0F03,x
 	lda.w SPA,y
-	cmp.w #DATA8_9DF3A6
+	cmp.w #$F3A6
 	bcc .1x2
-	cmp.w #DATA8_9DF46A+1
+	cmp.w #$F46B
 	bcs .1x2
 	lda.w #$0000
 	sta.w pfalock,y
-	sta.w pf2aip,y
+	sta.w $1543,y
 .1x2:
 	ldy.b a2
 .2:
 	lda.w SPA,y
-	cmp.w #DATA8_9DF3A6
+	cmp.w #$F3A6
 	bcc .4
-	cmp.w #DATA8_9DF46A+1
+	cmp.w #$F46B
 	bcs .4
 	lda.w #$0000
 	sta.w pfalock,y
-	sta.w pf2aip,y
+	sta.w $1543,y
 	ldx.w $0F03,y
 	lda.w SPA,x
-	cmp.w #DATA8_9DF3A6
+	cmp.w #$F3A6
 	bcc .3
-	cmp.w #DATA8_9DF46A+1
+	cmp.w #$F46B
 	bcs .3
 	stz.w pfalock,x
-	stz.w pf2aip,x
+	stz.w $1543,x
 .3:
 	ldx.b a3
 .4:
@@ -207,9 +207,9 @@ CODE_9E9484:
 .5:
 	sta.b d4
 	lda.w SPA,x
-	cmp.w #SPAsweepchk
+	cmp.w #$F208
 	bcc CODE_9E963C
-	cmp.w #SPAburst+1
+	cmp.w #$F343
 	bcs CODE_9E963C
 CODE_9E9633:
 	lda.b d4

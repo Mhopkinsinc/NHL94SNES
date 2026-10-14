@@ -20,7 +20,7 @@ CODE_9ED6AE:
 	lda.w #$FEF8
 	sta.b d4
 CODE_9ED6D8:
-	cpx.w puckc
+	cpx.w shotPlIdx
 	beq .t1
 	jsr.w CODE_9EDC44
 	jsl.l vtoa
@@ -43,7 +43,7 @@ CODE_9ED6FD:
 	cmp.w #$0105
 	bpl CODE_9ED72D
 CODE_9ED70A:
-	lda.w puckx
+	lda.w $0D71
 	sta.b d0
 	lda.w pucky
 	sta.b d1

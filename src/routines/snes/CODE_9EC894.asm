@@ -22,7 +22,7 @@ CODE_9EC894:
 	lda.l $7E35B6
 	clc
 	adc.l printfontset
-	ora.w printa
+	ora.w $0D0D
 	jsl.l .t1
 	plx
 	rtl

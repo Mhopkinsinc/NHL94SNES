@@ -4,3 +4,11 @@ DATA8_9E8553:
 	dw $0000,$003C,$003C,$000A
 	dw $0000,$0028,$00AA,$001E
 	dw $0000,$0050,$00AA,$0014
+	ldy.w shotPlIdx
+	bmi CODE_9E858C
+	lda.w pfteam,x
+	cmp.w pfteam,y
+	bne CODE_9E858C
+	lda.w #$0006
+	sta.b d0
+	jmp.w assreplace

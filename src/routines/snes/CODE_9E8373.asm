@@ -16,7 +16,7 @@ CODE_9E8373:
 	ora.w #$FF00
 .3:
 	clc
-	adc.w puckx
+	adc.w $0D71
 	sta.b d2
 	lda.w $0EE4,x
 	and.w #$00FF
@@ -95,3 +95,13 @@ CODE_9E8373:
 
 .t1:
 	rtl
+	cpx.w shotPlIdx
+	beq CODE_9E845A
+	ldy.w shotPlIdx
+	bmi CODE_9E8462
+	lda.w pfteam,x
+	cmp.w pfteam,y
+	beq CODE_9E8462
+	lda.w #$0005
+	sta.b d0
+	jmp.w assreplace

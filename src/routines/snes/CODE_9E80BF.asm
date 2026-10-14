@@ -23,7 +23,7 @@ CODE_9E80BF:
 .2:
 	lda.w #$0014
 	sec
-	sbc.w aggress,x
+	sbc.w $1483,x
 	sta.b d0
 	lda.b d1
 	sta.b tmp0

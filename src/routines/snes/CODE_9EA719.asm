@@ -39,7 +39,7 @@ CODE_9EA719:
 	bne CODE_9EA78C
 	lda.w $19D4,x
 	bmi .t1
-	cpx.w puckc
+	cpx.w shotPlIdx
 	beq .t1
 	lda.w $12E3,x
 	asl a
@@ -68,7 +68,7 @@ CODE_9EA78C:
 	jsl.l CODE_808FC9
 	ldx.b $E4
 	lda.b $08
-	adc.w Xvel,x
+	adc.w $0EC3,x
 	sta.b d0
 	xba
 	and.w #$00FF
@@ -87,7 +87,7 @@ CODE_9EA78C:
 	jsl.l CODE_808FC9
 	ldx.b $E4
 	lda.b $08
-	adc.w Yvel,x
+	adc.w $0EE3,x
 	sta.b d1
 	xba
 	and.w #$00FF
@@ -157,13 +157,13 @@ CODE_9EA78C:
 	cmp.b d3
 	bcc .5
 	lda.b d0
-	sta.w Xvel,x
+	sta.w $0EC3,x
 	lda.b d1
-	sta.w Yvel,x
+	sta.w $0EE3,x
 .5:
 	lda.l $7E34C6
 	beq .t1
-	lda.w seed
+	lda.w $0792
 	and.w #$003F
 	bne .t1
 	jsl.l CODE_9FDCB2

@@ -5,25 +5,25 @@ CODE_9EE47E:
 	lda.w Ypos,x
 	sta.b d0
 	ldy.w pfgoal,x
-	bne CODE_9EE495
+	bne assnearest
 	lda.w #$0000
 	sec
 	sbc.b d0
 	sta.b d0
-CODE_9EE495:
+assnearest:
 	lda.w pflags,x
 	bit.w #$0002
 	beq .1
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w temp1,x
-	stz.w temp2,x
+	stz.w $1003,x
+	stz.w $1023,x
 	lda.w #$0008
-	sta.w temp2b,x
+	sta.w $10A3,x
 	stz.w $1EA7
-	lda.w seed
+	lda.w $0792
 	and.w #$0003
-	sta.w temp3,x
+	sta.w $1043,x
 	jsr.w CODE_9EE5E6
 .1:
 	lda.w $1EA5
@@ -50,8 +50,8 @@ CODE_9EE4D3:
 	sta.b $8B
 	lda.w #$E592
 	sta.b a0
-	lda.w temp2,x
+	lda.w $1023,x
 	sec
 	sbc.w $0CDD
-	sta.w temp2,x
+	sta.w $1023,x
 	jml.l CODE_9EA5A4

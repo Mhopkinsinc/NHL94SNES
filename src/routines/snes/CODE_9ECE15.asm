@@ -75,7 +75,7 @@ CODE_9ECE15:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w printa
+	ora.w $0D0D
 	ldx.b d1
 	sta.l textmap,x
 	txa
@@ -95,7 +95,7 @@ CODE_9ECE15:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w printa
+	ora.w $0D0D
 	ldx.b d1
 	sta.l $7E3834,x
 	lda.b d2
@@ -105,7 +105,7 @@ CODE_9ECE15:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w printa
+	ora.w $0D0D
 	ldx.b d1
 	sta.l $7E37F6,x
 	ldx.b d0
@@ -113,7 +113,7 @@ CODE_9ECE15:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w printa
+	ora.w $0D0D
 	ldx.b d1
 	sta.l $7E3836,x
 	inc.w printx

@@ -33,7 +33,7 @@ CODE_9FDE13:
 	lda.b $8F
 	pha
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	lda.b d0
 	lsr a
 	lsr a
@@ -81,7 +81,7 @@ CODE_9FDE13:
 	lda.b d1
 	beq .4
 	lda.w #$0C00
-	tsb.w printa
+	tsb.w $0D0D
 .4:
 	lda.w #$0000
 	sta.b $8F
@@ -92,7 +92,7 @@ CODE_9FDE13:
 	sbc.w #$000B
 	sta.w printx
 	lda.w #$4000
-	tsb.w printa
+	tsb.w $0D0D
 	lda.w #$0000
 	sta.b $8F
 	lda.w #mesarea
@@ -107,7 +107,7 @@ CODE_9FDE13:
 	xba
 	sta.w $0A2D
 	lda.w #$4000
-	trb.w printa
+	trb.w $0D0D
 	pla
 	sta.b $8F
 	pla

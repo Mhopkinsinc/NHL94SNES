@@ -1,11 +1,11 @@
 ; Unidentified routine.
 CODE_9EDB3E:
-	lda.w puckc
+	lda.w shotPlIdx
 	bpl CODE_9EDB3A
 	lda.w iflags
 	bit.w #$0004
 	bne CODE_9EDB3A
-	lda.w puckx
+	lda.w $0D71
 	bit.w #$8000
 	beq .1
 	eor.w #$FFFF

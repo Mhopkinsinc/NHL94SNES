@@ -4,7 +4,7 @@ CODE_9ECF0E:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w printa
+	ora.w $0D0D
 	ldx.b d1
 	sta.l textmap,x
 	sta.l $7E3834,x

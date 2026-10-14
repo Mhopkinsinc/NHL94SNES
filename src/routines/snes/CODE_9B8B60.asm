@@ -78,12 +78,12 @@ CODE_9B8BFB:
 	dec.b d1
 CODE_9B8BFD:
 	lda.w #$3800
-	sta.w printa
+	sta.w $0D0D
 	lda.b d1
 	cmp.w $1D8B
 	bne .1
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	lda.b [a3]
 	and.w #$00FF
 	dec a

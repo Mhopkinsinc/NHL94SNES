@@ -6,14 +6,14 @@ periodicevents:
 	jsl.l clockcont
 	lda.w sfhormode
 	bne .rtl
-	lda.w lldisp
+	lda.w $0CF7
 	sec
 	sbc.b d7
-	sta.w lldisp
+	sta.w $0CF7
 	bpl .rtl
 	clc
 	adc.w #$0018
-	sta.w lldisp
+	sta.w $0CF7
 	jsl.l CODE_9ED0A8
 	jsl.l CODE_80D322
 	jsl.l CODE_80D323

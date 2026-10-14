@@ -10,7 +10,7 @@ CODE_9E9D0D:
 	jsl.l CODE_9C9FD5
 	lda.w #$0002
 	sta.w $0C25
-	lda.w #SPAfallback
+	lda.w #$F54E
 	sta.b d1
 	ldy.b a2
 	lda.b d0
@@ -20,18 +20,18 @@ CODE_9E9D0D:
 	and.w #$0007
 	cmp.w #$0003
 	bcc CODE_9E9D59
-	lda.w #SPAfallfwd
+	lda.w #$F49C
 	sta.b d1
 	lda.w facedir,y
 	and.w #$0003
 	bne CODE_9E9D59
-	lda.w aggress,x
+	lda.w $1483,x
 	sec
 	sbc.w #$000A
 	bmi CODE_9E9D59
 	cpx.w #$0018
 	bcs CODE_9E9D59
-	lda.w #SPAflip
+	lda.w #$F6C0
 	sta.b d1
 CODE_9E9D59:
 	ldx.b a2

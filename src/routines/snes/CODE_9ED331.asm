@@ -47,12 +47,12 @@ CODE_9ED331:
 	beq .5
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w temp1,x
-	stz.w temp2,x
+	stz.w $1003,x
+	stz.w $1023,x
 	lda.w #$0008
-	sta.w temp2b,x
+	sta.w $10A3,x
 	lda.w #$FFFF
-	sta.w temp4,x
+	sta.w $1063,x
 .5:
 	ldy.w $19D4,x
 	bpl .t2
@@ -74,7 +74,7 @@ CODE_9ED331:
 .7:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #rtss
+	lda.w #CODE_9ED0FC
 	sta.b a0
 	ldy.w #$0004
 	lda.w Xpos,x
@@ -97,7 +97,7 @@ CODE_9ED331:
 .t2:
 	lda.w gmclock
 	bne .t1x
-	cpx.w puckc
+	cpx.w shotPlIdx
 	beq .t1x
 	jmp.w CODE_9ED44E
 

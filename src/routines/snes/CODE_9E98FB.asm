@@ -2,7 +2,7 @@
 CODE_9E98FB:
 	lda.w Xpos,y
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	sta.b d0
 	cmp.w #$FFF5
 	bmi CODE_9E98EC

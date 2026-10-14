@@ -120,11 +120,11 @@ CODE_9E9325:
 	pha
 	lda.b d1
 	pha
-	lda.w seed
+	lda.w $0792
 	and.w #$01C0
 	bne .1x
 	lda.w SPA,x
-	cmp.w #SPAburst
+	cmp.w #$F342
 	bne .1x
 	ldy.b a2
 	lda.w pucky
@@ -134,9 +134,9 @@ CODE_9E9325:
 	bmi .1x
 	cmp.w #$0080
 	bpl .1x
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	sta.b d0
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	sta.b d1
 	cmp.w #$DFFF
 	bmi CODE_9E9430

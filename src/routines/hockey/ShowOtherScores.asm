@@ -69,7 +69,7 @@ CODE_9BC2E4:
 	adc.w $1DBD
 	sta.w printy
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$009C
 	sta.b $8F
 	lda.w #LineBraces
@@ -95,7 +95,7 @@ CODE_9BC2E4:
 	inc a
 	sta.w printy
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$009C
 	sta.b $8F
 	lda.w #LineBraces+3

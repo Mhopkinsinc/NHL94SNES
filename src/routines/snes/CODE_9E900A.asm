@@ -12,9 +12,9 @@ CODE_9E900A:
 	sec
 	sbc.w #$000A
 	bmi .1
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	sta.b $0C
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	sta.b $0E
 	lda.w #$000D
 	jsl.l CODE_9C9AD0
@@ -45,7 +45,7 @@ CODE_9E904D:
 	sec
 	sbc.b $09
 	ldx.b a3
-	sta.w Xvel,x
+	sta.w $0EC3,x
 	lda.b $03,s
 	ldx.b d3
 	jsl.l CODE_808FEB
@@ -58,7 +58,7 @@ CODE_9E904D:
 	clc
 	adc.b d3
 	ldx.b a3
-	sta.w Yvel,x
+	sta.w $0EE3,x
 	lda.w $0E01
 	bmi CODE_9E9091
 	stz.w $0E01
@@ -71,7 +71,7 @@ CODE_9E9091:
 	sta.b d2
 	cpx.w #$001C
 	bne .rtl
-	lda.w puckc
+	lda.w shotPlIdx
 	bpl .rtl
 	jsl.l CODE_9EC791
 	stz.w $1E8B

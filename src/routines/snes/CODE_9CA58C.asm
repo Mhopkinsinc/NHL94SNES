@@ -3,7 +3,7 @@ CODE_9CA58C:
 	ldx.w #$0000
 .loop:
 	stx.b $E4
-	lda.w puckx
+	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0

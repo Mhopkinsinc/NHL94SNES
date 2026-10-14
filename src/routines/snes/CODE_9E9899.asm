@@ -4,7 +4,7 @@ CODE_9E9899:
 	beq CODE_9E98FB
 	lda.w Xpos,y
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	bit.w #$8000
 	beq .1
 	eor.w #$FFFF

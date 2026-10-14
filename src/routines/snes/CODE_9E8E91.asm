@@ -11,10 +11,10 @@ CODE_9E8E91:
 	lda.w pucky
 	cmp.w #$0112
 	bmi CODE_9E8E8E
-	lda.w puckx
+	lda.w $0D71
 	cmp.w #$000D
 	bmi CODE_9E8E8B
-	lda.w puckx
+	lda.w $0D71
 	cmp.w #$0010
 	bpl CODE_9E8E8B
 	lda.w puckvy
@@ -30,7 +30,7 @@ CODE_9E8E91:
 	inx
 	inx
 	stx.b a3
-	lda.w #DATA8_9DF8E8
+	lda.w #$F8E8
 	sta.b d1
 	jsl.l SetSPA
 	plx

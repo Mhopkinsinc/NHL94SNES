@@ -15,7 +15,7 @@ CODE_9EC7C2:
 	tax
 	lda.l $7E35B6
 	adc.l printfontset
-	ora.w printa
+	ora.w $0D0D
 	sta.b $14
 CODE_9EC7DF:
 	tya

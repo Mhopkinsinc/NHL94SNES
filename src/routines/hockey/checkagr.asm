@@ -14,7 +14,7 @@ checkagr:
 .1:
 	lda.w Xpos,x
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	cmp.w #$FFD7
 	bmi .2
 	cmp.w #$0029

@@ -4,9 +4,9 @@ CODE_9EE9BF:
 	lda.w #$0004
 	trb.w sflags
 	lda.w #$FFFF
-	sta.w puckc
+	sta.w shotPlIdx
 	lda.w #$0010
-	sta.w nopuck,x
+	sta.w $1203,x
 	txa
 	lsr a
 	sta.w $0CF3
@@ -99,7 +99,7 @@ CODE_9EE9BF:
 	asl a
 	sta.b $14
 	ldx.b $E4
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	cmp.w #$8000
 	ror a
 	clc
@@ -116,7 +116,7 @@ CODE_9EE9BF:
 	asl a
 	sta.b $14
 	ldx.b $E4
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	cmp.w #$8000
 	ror a
 	clc
@@ -147,13 +147,13 @@ CODE_9EEAE9:
 	lda.w puckvy
 	sta.b d1
 	jsl.l vtoa
-	ldy.w #SPAgswing
+	ldy.w #$E34E
 	lda.w position,x
 	beq .1
-	ldy.w #SPApassf
+	ldy.w #$EC66
 	jsl.l Findhittype
 	beq .1
-	ldy.w #SPApassb
+	ldy.w #$ECD8
 .1:
 	sty.b d1
 	jsl.l SetSPA
@@ -163,8 +163,8 @@ CODE_9EEAE9:
 	bne .rtl
 	lda.w $19D4,x
 	bmi .rtl
-	stz.w Xvel,x
-	stz.w Yvel,x
+	stz.w $0EC3,x
+	stz.w $0EE3,x
 	sta.b d4
 	jsl.l findpc
 .rtl:

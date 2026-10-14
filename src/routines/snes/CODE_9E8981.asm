@@ -10,23 +10,23 @@ CODE_9E8981:
 	beq .1
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w temp1,x
-	stz.w temp2,x
+	stz.w $1003,x
+	stz.w $1023,x
 	lda.w #$0008
-	sta.w temp2b,x
+	sta.w $10A3,x
 .1:
-	lda.w temp1,x
+	lda.w $1003,x
 	sec
 	sbc.b d7
-	sta.w temp1,x
+	sta.w $1003,x
 	bpl .4
 	clc
-	adc.w aidef,x
+	adc.w $1343,x
 	bpl .3
 .2:
 	lda.w #$0000
 .3:
-	sta.w temp1,x
+	sta.w $1003,x
 .4:
 	lda.w #$0064
 	sta.b d0
@@ -36,7 +36,7 @@ CODE_9E8981:
 	lda.w #$FF9C
 	sta.b d0
 .5:
-	ldy.w puckc
+	ldy.w shotPlIdx
 	lda.w pfgoal,x
 	beq .t3
 	lda.w #$0000
@@ -103,13 +103,23 @@ CODE_9E8A4B:
 CODE_9E8A4F:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #rtss
+	lda.w #CODE_9ED0FC
 	sta.b a0
-	lda.w puckx
+	lda.w $0D71
 	eor.b d0
 	sta.b d2
 	bmi .1
-	lda.w puckx
+	lda.w $0D71
 	sta.b d0
 .1:
 	jmp.w CODE_9EA5A4
+	cpx.w shotPlIdx
+	beq CODE_9E8A88
+	ldy.w shotPlIdx
+	bmi CODE_9E8A90
+	lda.w pfteam,x
+	cmp.w pfteam,y
+	beq CODE_9E8A90
+	lda.w #$0003
+	sta.b d0
+	jmp.w assreplace

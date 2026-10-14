@@ -10,26 +10,26 @@ CODE_9E8631:
 	beq .1
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w temp1,x
-	stz.w temp2,x
+	stz.w $1003,x
+	stz.w $1023,x
 	lda.w #$0008
-	sta.w temp2b,x
+	sta.w $10A3,x
 .1:
-	lda.w temp1,x
+	lda.w $1003,x
 	sec
 	sbc.b d7
-	sta.w temp1,x
+	sta.w $1003,x
 	bmi .t2
 	jmp.w CODE_9E87E9
 
 .t2:
 	clc
-	adc.w aidef,x
+	adc.w $1343,x
 	bpl .2
 .1x:
 	lda.w #$0000
 .2:
-	sta.w temp1,x
+	sta.w $1003,x
 	lda.w pucky
 	sta.b d1
 	lda.w puckvy
@@ -70,7 +70,7 @@ CODE_9E8631:
 	lda.w tmflags,y
 	bit.w #$0010
 	bne .7
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi .6
 	lsr a
 .6:
@@ -91,12 +91,12 @@ CODE_9E8631:
 	sta.b d1
 .7:
 	lda.w #$0041
-	sta.w temp3,x
+	sta.w $1043,x
 	lda.w position,x
 	cmp.w #$0002
 	beq .8
 	lda.w #$FFBF
-	sta.w temp3,x
+	sta.w $1043,x
 .8:
 	ldy.w #$0000
 	cpx.w #$000C
@@ -118,7 +118,7 @@ CODE_9E8631:
 	bne .12
 	lda.w position,y
 	bmi .12
-	lda.w Yvel,y
+	lda.w $0EE3,y
 	bmi .10
 	lda.w #$0000
 .10:
@@ -156,14 +156,14 @@ CODE_9E8631:
 	sta.b d0
 .13:
 	lda.b d0
-	sta.w temp4,x
-	lda.w puckx
+	sta.w $1063,x
+	lda.w $0D71
 	sta.b d0
-	lda.w temp3,x
+	lda.w $1043,x
 	eor.b d0
 	sta.b d1
 	bpl CODE_9E87E9
-	stz.w temp3,x
+	stz.w $1043,x
 	bra CODE_9E87E9
 
 .t1:

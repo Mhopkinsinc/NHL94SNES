@@ -24,7 +24,7 @@ CODE_9CA0B6:
 	lda.w position,x
 	bmi .t1
 .3:
-	lda.w frame,x
+	lda.w $0D97,x
 	cmp.w #$0170
 	beq .4
 	cmp.w #$0171
@@ -33,7 +33,7 @@ CODE_9CA0B6:
 	lda.w sfhormode
 	bne .t2
 	lda.w #$0171
-	sta.w frame,x
+	sta.w $0D97,x
 	bra CODE_9CA107
 
 .t1:
@@ -41,7 +41,7 @@ CODE_9CA0B6:
 
 .t2:
 	lda.w #$0170
-	sta.w frame,x
+	sta.w $0D97,x
 CODE_9CA107:
 	lda.w Xpos,x
 	sta.b d0
@@ -53,14 +53,14 @@ CODE_9CA107:
 	sta.w $0CD1
 	lda.b d0
 	sta.w $0CCF
-	lda.w frame,x
+	lda.w $0D97,x
 	sta.w $0E23,x
 	bne .1
 	cpx.w #$0018
 	bcs CODE_9CA186
 .1:
 	sta.w $0CCD
-	lda.w frame,x
+	lda.w $0D97,x
 	cmp.w #$0171
 	beq CODE_9CA193
 	cmp.w #$0380

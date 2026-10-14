@@ -40,7 +40,7 @@ CODE_9B9917:
 	lda.w #$0001
 	sta.w printx
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	ldy.w #$0000
 	lda.b [a3],y
 	phy
@@ -134,7 +134,7 @@ CODE_9B9917:
 	pla
 	sta.b a1
 	lda.w #$2400
-	sta.w printa
+	sta.w $0D0D
 	inc.w printy
 	lda.w #$0010
 	sta.w printx

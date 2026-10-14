@@ -1,13 +1,13 @@
 ; Unidentified routine.
 CODE_9ED517:
-	lda.w temp5,x
+	lda.w $1083,x
 	bpl .1
 	lda.w #$005A
-	sta.w temp5,x
+	sta.w $1083,x
 .1:
 	lda.w #$FFFF
-	sta.w temp4,x
-	lda.w temp5,x
+	sta.w $1063,x
+	lda.w $1083,x
 	sec
 	sbc.w #$005A
 	bpl CODE_9ED574
@@ -37,7 +37,7 @@ CODE_9ED517:
 	lda.w #$0001
 	sta.w $0D2D
 	jsl.l CODE_9EE89F
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi CODE_9ED58C
 CODE_9ED574:
 	jmp.w CODE_9ED6AE

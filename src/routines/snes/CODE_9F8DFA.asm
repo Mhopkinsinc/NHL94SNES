@@ -134,7 +134,7 @@ StartHL2:
 	dec a
 	sta.w gsp
 	lda.l $7E3578,x
-	sta.w tmscore
+	sta.w $178E
 	lda.l $7E3588,x
 	sta.w $1790
 	lda.w #$0010
@@ -195,18 +195,18 @@ StartHL2:
 	iny
 	lda.b [a0],y
 	sta.w Ypos,x
-	stz.w Xvel,x
-	stz.w Yvel,x
+	stz.w $0EC3,x
+	stz.w $0EE3,x
 	inc.b a1
 	inc.b a1
 	dec.b d0
 	bpl .loop2
-	lda.w puckc
+	lda.w shotPlIdx
 	bpl .4
 	lda.w #$000C
 	jsl.l CODE_9BB370
 	asl a
-	sta.w puckc
+	sta.w shotPlIdx
 .4:
 	tax
 	lda.w position,x
@@ -214,7 +214,7 @@ StartHL2:
 	dex
 	dex
 	txa
-	sta.w puckc
+	sta.w shotPlIdx
 .5:
 	jsl.l SprSort
 org $9F9001
@@ -282,13 +282,13 @@ org $9F9001
 	lda.b d1
 	bit.w #$9080
 	beq .loop3
-	lda.w tmscore
+	lda.w $178E
 	cmp.w $1790
 	bne .9
 	jsl.l RandomWord
 	and.w #$0002
 	tax
-	inc.w tmscore,x
+	inc.w $178E,x
 .9:
 	pla
 	pla
@@ -297,7 +297,7 @@ org $9F9001
 	sta.b a0
 	jsl.l CODE_9C9786
 	ldx.b a0
-	lda.w tmscore
+	lda.w $178E
 	sta.l $7E3578,x
 	lda.w $1790
 	sta.l $7E3588,x
@@ -308,7 +308,7 @@ org $9F9001
 	sta.w Xpos,x
 	stz.w Ypos,x
 	lda.w #$0001
-	sta.w frame,x
+	sta.w $0D97,x
 	inx
 	inx
 	cpx.w #$0018

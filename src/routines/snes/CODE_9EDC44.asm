@@ -2,7 +2,7 @@
 CODE_9EDC44:
 	phk
 	plb
-	lda.w puckx
+	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -13,7 +13,7 @@ CODE_9EDC44:
 	bra CODE_9EDC67
 
 .t1:
-	lda.w puckx
+	lda.w $0D71
 	sta.b d0
 	lda.w pucky
 	sec

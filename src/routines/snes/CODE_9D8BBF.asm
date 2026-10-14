@@ -358,7 +358,7 @@ CODE_9D8C19:
 	and.w #$00FF
 	sta.w printx
 	lda.w #$3000
-	sta.w printa
+	sta.w $0D0D
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
@@ -375,7 +375,7 @@ CODE_9D8C19:
 	and.w #$00FF
 	bne .1
 	lda.w #$3400
-	sta.w printa
+	sta.w $0D0D
 .1:
 	lda.b $CD
 	asl a

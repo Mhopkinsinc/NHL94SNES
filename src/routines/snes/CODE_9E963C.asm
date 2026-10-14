@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_9E963C:
 	lda.w SPA,y
-	cmp.w #SPAsweepchk
+	cmp.w #$F208
 	bcc CODE_9E9649
-	cmp.w #SPAburst+1
+	cmp.w #$F343
 	bcc CODE_9E9633
 CODE_9E9649:
 	lda.b d4
@@ -21,9 +21,9 @@ CODE_9E9649:
 	lda.b d4
 	cmp.w #$0014
 	bcc .2
-	cpx.w puckc
+	cpx.w shotPlIdx
 	beq .1
-	cpy.w puckc
+	cpy.w shotPlIdx
 	bne .2
 .1:
 	jsl.l CODE_9E9B0E
@@ -109,8 +109,8 @@ CODE_9E9692:
 	adc.b tmp0
 	ldx.b a3
 	clc
-	adc.w Xvel,y
-	sta.w Xvel,x
+	adc.w $0EC3,y
+	sta.w $0EC3,x
 	lda.b d2
 	ldx.b d5
 	jsl.l CODE_808FEB
@@ -124,22 +124,22 @@ CODE_9E9692:
 	sbc.b tmp0
 	ldx.b a3
 	clc
-	adc.w Yvel,y
-	sta.w Yvel,x
+	adc.w $0EE3,y
+	sta.w $0EE3,x
 	lda.b d2
 	ldx.b d1
 	jsl.l CODE_808FEB
 	lda.b $08
 	clc
-	adc.w Xvel,y
-	sta.w Xvel,y
+	adc.w $0EC3,y
+	sta.w $0EC3,y
 	lda.b d3
 	ldx.b d1
 	jsl.l CODE_808FEB
 	lda.b $08
 	clc
-	adc.w Yvel,y
-	sta.w Yvel,y
+	adc.w $0EE3,y
+	sta.w $0EE3,y
 	ldx.b a3
 	lda.w #$FFFF
 	sta.w $0CDB

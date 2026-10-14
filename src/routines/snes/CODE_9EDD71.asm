@@ -14,7 +14,7 @@ CODE_9EDD89:
 	lda.w #$0000
 	sta.l $7E3450
 CODE_9EDD90:
-	lda.w puckx
+	lda.w $0D71
 	cmp.w $0E5F
 	bne CODE_9EDDB7
 	lda.w pucky

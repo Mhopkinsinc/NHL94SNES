@@ -31,7 +31,7 @@ CODE_9EF042:
 	and.w #$0003
 	sta.b d1
 	bne .2
-	lda.w seed
+	lda.w $0792
 	sta.b d0
 .2:
 	lda.b d0
@@ -71,7 +71,7 @@ CODE_9EF042:
 	eor.w #$0002
 	sta.b d2
 .4:
-	lda.w frame,y
+	lda.w $0D97,y
 	sec
 	sbc.w #$0296
 	cmp.w #$0010
@@ -113,7 +113,7 @@ CODE_9EF042:
 	lda.w #$003C
 	sta.b $81
 CODE_9EF135:
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi .1
 	lsr a
 .1:
@@ -122,19 +122,19 @@ CODE_9EF135:
 	jmp.w CODE_9EF1CE
 
 .t2:
-	cpx.w puckc
+	cpx.w shotPlIdx
 	bne .t1
 	jmp.w CODE_9EF1CE
 
 .t1:
 	lda.w #$FF00
-	tsb.w puckc
+	tsb.w shotPlIdx
 	asl.b d2
 	lda.b d2
 	sta.b a0
 	tay
 	lda.w #$0014
-	sta.w nopuck,y
+	sta.w $1203,y
 	tya
 	lsr a
 	sta.w $0CF3
@@ -144,9 +144,9 @@ CODE_9EF168:
 	stz.w $0E01
 	ldy.b a2
 	lda.w #$000A
-	sta.w nopuck,y
+	sta.w $1203,y
 	lda.w #$0004
-	sta.w temp4,y
+	sta.w $1063,y
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y
@@ -171,7 +171,7 @@ CODE_9EF168:
 	inc.b d1
 .3:
 	ldy.b a2
-	lda.w Yvel,y
+	lda.w $0EE3,y
 	eor.b d1
 	bmi .4
 	lda.w #$0000

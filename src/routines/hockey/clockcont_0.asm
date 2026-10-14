@@ -35,7 +35,7 @@ clockcont_0:
 	lda.w #$0010
 	sta.b d3
 .1:
-	lda.w tmscore
+	lda.w $178E
 	cmp.w $1790
 	bpl .2
 	lda.b d3
@@ -73,7 +73,7 @@ clockcont_0:
 .4:
 	lda.w #$0005
 	sta.b d2
-	lda.w tmscore
+	lda.w $178E
 	cmp.w $1790
 	beq CODE_9F8C96
 	bpl .5
@@ -103,7 +103,7 @@ CODE_9F8C43:
 	lda.w #$0040
 	sta.w gmclock
 	tsb.w gmode
-	lda.w tmscore
+	lda.w $178E
 	cmp.w $1790
 	bmi .1
 	lda.w #$0000

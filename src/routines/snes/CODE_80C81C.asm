@@ -39,7 +39,7 @@ CODE_80C81C:		; the shootout: both shooter lists, then a turn for each team ever
 	lda.w shootoutround
 	cmp.w #$0006
 	bmi .loop
-	lda.w tmscore
+	lda.w $178E
 	cmp.w $1790
 	beq .loop
 	stz.w $1D81

@@ -1,5 +1,5 @@
 ; Unidentified routine.
-assepen:
+CODE_9EBADA:
 	lda.w pflags,x
 	bit.w #$0002
 	bne .t1
@@ -18,8 +18,8 @@ assepen:
 	sec
 	sbc.b d0
 	sta.w PBnum
-	stz.w Xvel,x
-	stz.w Yvel,x
+	stz.w $0EC3,x
+	stz.w $0EE3,x
 	lda.w #$003C
 	sta.b d0
 	lda.w pfteam,x
@@ -34,7 +34,7 @@ assepen:
 	lda.w #$0002
 	sta.w facedir,x
 	sta.w pfalock,x
-	lda.w #SPAwallleft
+	lda.w #$E936
 	jsl.l SetSPAFromA
 	jml.l SprSort
 
@@ -47,9 +47,9 @@ assepen:
 	lda.w pflags,x
 	and.w #$6FF7
 	sta.w pflags,x
-	stz.w pfnc,x
+	stz.w $1563,x
 	lda.w #$F000
-	sta.w Xvel,x
+	sta.w $0EC3,x
 	ldx.b a2
 	lda.w $19D0,x
 	cmp.w #$0004

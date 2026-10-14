@@ -35,7 +35,7 @@ CODE_9EDDF0:
 	asl a
 	ldx.w puckvx
 	jsl.l Mul16XS
-	adc.w puckx
+	adc.w $0D71
 	sta.b d0
 	cmp.w #$0088
 	bmi .2

@@ -10,7 +10,7 @@ puckflip:
 	sta.w $11FF
 	phx
 	ldx.w #$001C
-	lda.w #SPApflip
+	lda.w #$E978
 	jsl.l SetSPAFromA
 	plx
 	rtl

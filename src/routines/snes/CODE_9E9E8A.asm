@@ -10,15 +10,15 @@ CODE_9E9E8A:
 	lda.w #$FF7E
 	sta.w Xpos,x
 	lda.w #$0000
-	sta.w Xvel,x
+	sta.w $0EC3,x
 	lda.w attribute,x
 	bit.w #$0800
 	bne .t1
-	lda.w #DATA8_9DFE60
+	lda.w #$FE60
 	bra CODE_9E9EB4
 
 .t1:
-	lda.w #DATA8_9DFDFE
+	lda.w #$FDFE
 CODE_9E9EB4:
 	sta.w pfalock,x
 	jsl.l SetSPAFromA

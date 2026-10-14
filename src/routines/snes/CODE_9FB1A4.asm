@@ -18,7 +18,7 @@ CODE_9FB1B1:
 	and.w #$07FF
 	sta.w $0E01
 	stz.w $0DF9
-	stz.w pfnc,x
+	stz.w $1563,x
 	lda.w #$0018
 	sta.b d0
 	jml.l assreplace

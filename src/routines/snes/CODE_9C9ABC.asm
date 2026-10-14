@@ -55,7 +55,7 @@ CODE_9C9B19:
 	ldy.w #$0002
 	lda.b [$4E],y
 	tax
-	lda.w seed
+	lda.w $0792
 	and.w #$003F
 	clc
 	adc.w #$00C0

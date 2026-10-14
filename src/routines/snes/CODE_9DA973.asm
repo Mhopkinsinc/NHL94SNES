@@ -28,7 +28,7 @@ CODE_9DA973:
 	ldx.w #$0000
 CODE_9DA9BE:
 	lda.w #$3800
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$009D
 	sta.b $8F
 	lda.w #GameSetupNames
@@ -88,7 +88,7 @@ CODE_9DA9BE:
 	cpx.b d6
 	bne .3
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 .3:
 	stx.b d7
 	cpx.w #$0002

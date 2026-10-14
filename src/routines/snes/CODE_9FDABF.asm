@@ -22,9 +22,9 @@ CODE_9FDABF:
 	lda.w gsp
 	cmp.w #$0002
 	bne .1
-	lda.w tmscore,y
+	lda.w $178E,y
 	ldy.b a1
-	cmp.w tmscore,y
+	cmp.w $178E,y
 	beq .1
 	php
 	lda.w #$009F

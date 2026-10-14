@@ -17,7 +17,7 @@ CODE_9E9430:
 	adc.b d0
 	sta.b d0
 	ldy.b a2
-	sta.w Xvel,y
+	sta.w $0EC3,y
 	lda.b d1
 	lsr a
 	lsr a
@@ -32,9 +32,9 @@ CODE_9E9430:
 	clc
 	adc.b d1
 	sta.b d1
-	sta.w Yvel,y
-	stz.w Xvel,x
-	stz.w Yvel,x
+	sta.w $0EE3,y
+	stz.w $0EC3,x
+	stz.w $0EE3,x
 	lda.w #$0040
 	tsb.w sflags
 	lda.w gmclock

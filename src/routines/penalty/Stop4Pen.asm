@@ -24,7 +24,7 @@ Stop4Pen:
 	pla
 	cmp.w #$0006
 	beq .1
-	ldy.w puckx
+	ldy.w $0D71
 	sty.b d0
 	ldy.w pucky
 	sty.b d1

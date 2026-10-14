@@ -32,14 +32,14 @@ CODE_9B9249:
 	sta.b d1
 .loop:
 	lda.w #$3800
-	sta.w printa
+	sta.w $0D0D
 	lda.b d1
 	sep #$20
 	cmp.w $1D9B
 	rep #$20
 	bne .1
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 .1:
 	lda.b a1
 	sta.b $9D
@@ -68,5 +68,5 @@ CODE_9B9249:
 	dec.b d1
 	bpl .loop
 	lda.w #$3800
-	sta.w printa
+	sta.w $0D0D
 	rts

@@ -29,7 +29,7 @@ CODE_9CA227:
 	lda.w DATA8_9CA2FB+2,x
 	sta.w Ypos,y
 	lda.w DATA8_9CA2FB+6,x
-	sta.w frame,y
+	sta.w $0D97,y
 	lda.w DATA8_9CA2FB+8,x
 	sta.w attribute,y
 	lda.w DATA8_9CA2FB+10,x
@@ -48,11 +48,11 @@ CODE_9CA227:
 	lda.w DATA8_9CA2FB+16,x
 	sta.w pflags,y
 	lda.w #$0000
-	sta.w pfnc,y
+	sta.w $1563,y
 	cpy.w #$001E
 	bne .1
 	lda.w #$0001
-	sta.w pfnc,y
+	sta.w $1563,y
 .1:
 	cpx.w #$006C
 	rol a

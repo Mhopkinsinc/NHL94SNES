@@ -1,31 +1,31 @@
 ; Unidentified routine.
 CODE_9E9B0E:
 	phy
-	ldy.w Xvel,x
-	lda.w Yvel,x
+	ldy.w $0EC3,x
+	lda.w $0EE3,x
 	jsl.l CODE_9CA554
 	sta.b $14
 	lda.b $01,s
 	tay
-	lda.w Xvel,y
+	lda.w $0EC3,y
 	pha
-	lda.w Yvel,y
+	lda.w $0EE3,y
 	tay
 	pla
 	jsl.l CODE_9CA554
 	ply
 	cmp.b $14
 	bcs .t1
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	sta.b $0C
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	sta.b $0E
 	bra CODE_9E9B46
 
 .t1:
-	lda.w Xvel,y
+	lda.w $0EC3,y
 	sta.b $0C
-	lda.w Yvel,y
+	lda.w $0EE3,y
 	sta.b $0E
 CODE_9E9B46:
 	asl.b $0C

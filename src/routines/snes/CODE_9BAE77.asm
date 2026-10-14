@@ -19,7 +19,7 @@ CODE_9BAE77:
 .t1:
 	lda.w #$000F
 	sta.w $0AF3
-	lda.w puckx
+	lda.w $0D71
 	cmp.w #$FF78
 	bpl .2
 .1:

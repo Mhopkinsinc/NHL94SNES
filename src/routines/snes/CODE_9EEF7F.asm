@@ -24,7 +24,7 @@ CODE_9EEFAD:
 	stz.w $0E01
 	ldy.b a2
 	lda.w #$0008
-	sta.w nopuck,y
+	sta.w $1203,y
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y
@@ -37,9 +37,9 @@ CODE_9EEFAD:
 	tya
 	jsl.l CODE_9BC002
 .1:
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	sta.b d2
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	sta.b d3
 	sep #$20
 	lda.b d0

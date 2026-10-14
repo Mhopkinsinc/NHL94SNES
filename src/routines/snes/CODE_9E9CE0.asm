@@ -13,7 +13,7 @@ CODE_9E9CE0:
 	lda.w #$FED8
 	sta.w Ypos,y
 	lda.w #$0000
-	sta.w Yvel,y
+	sta.w $0EE3,y
 CODE_9E9D04:
-	lda.w #DATA8_9DFCD8
+	lda.w #$FCD8
 	jmp.w CODE_9E9C7C

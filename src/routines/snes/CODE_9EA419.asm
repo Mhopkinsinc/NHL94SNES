@@ -1,7 +1,7 @@
 ; Unidentified routine.
-updateanim:
+CODE_9EA419:
 	lda.w SPA,x
 	bne CODE_9EA442
-	stz.w pf2aip,x
+	stz.w $1543,x
 	stz.w pfalock,x
 	rtl

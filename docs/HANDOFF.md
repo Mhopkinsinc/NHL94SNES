@@ -18,20 +18,19 @@
 
 User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**, 14 Oct 2026).
 
-**Applied equates (source=new):** `mesareaEnd` (`$0A48`, PushNumber and PushTime). `gmStatBase` (`$1742`). `playoffRoundIdx` (`$7E35D4`). `rosterNone` (`$FFFC`, the three `cmp.w` sites beside `TMPDOUT`).
+**Applied equates (source=new):** `mesareaEnd` (`$0A48`, PushNumber and PushTime). `shotPlIdx` (`$0AD9`). `gmStatBase` (`$1742`). `playoffRoundIdx` (`$7E35D4`). `rosterNone` (`$FFFC`, the three `cmp.w` sites beside `TMPDOUT`).
 
 **Keep raw:** `$00`, `$04` and `$08` (divider and engine scratch). `$C3` in `vtoa`. `#$000B`, `#$000A`, `#$0012` in setplayer. `$14` and `$0CE5` in setplayer until one owner is proven. `#$0800`, `#$0040`, `#$2000`, `#$4000` except the converted flag sites. `PenOffsides` is `$12` here (93S uses `$10`).
 
-**Deferred:** `$0B7D,x` on the assist path. `$163A` (not `OptPen`). `$7E34C6` (not `OptLine`; map bits first). `#$0024` in AddPenalty. `$7E35D0` vs 93S `blankchar`. `CODE_9EE220` and the rejected 93S routine names. Optional `StoppageMessages` for `DATA8_80D3EB`.
+**Deferred:** `$0B7D,x` on the assist path. `$163A` (not `OptPen`). `$7E34C6` (not `OptLine`; map bits first). `#$0024` in AddPenalty. `$7E35D0` vs 93S `blankchar`. `CODE_9EE220`, `CODE_9FD85F`, and the rejected 93S routine names. Optional `StoppageMessages` for `DATA8_80D3EB`.
 
 - `CODE_9EE220` is the shot release `ShotMode` jumps to. It is not a clean match for 93S `doshot`, so the name stays. `$14E3` is `pfalock` from the `setplayer` pair with `SPA`.
-- `assbench` follows the line-choice table. It is asstab entry C (see Assignments).
-- `$0AD9` is `puckc` (93S): asspuckc and the other aligned routines compare with it where 93S compares with puckc.
+- `CODE_9FD85F` is the code that used to sit after the line-choice table. It compares the word at `$1003` with 100. Not named.
 - `CODE_9EB3C4`, `CODE_9FD459` and `CODE_9FA1B7` are entries other slices jump to, so they stay global.
 - `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
 - SpriteFrameN labels stay numbered until a frame has an SPF name.
 - The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.
-- The animation list in `src/data/frames94s.asm` has the same shape as the 94G list (eight direction pointers, then frame and time words) but the frame numbers are not the 94G SPF values, so the 94G SPA names are not applied. The list is SPAList; the animations that match 93S take 93S SPA names (see Sprite animations).
+- The animation list in `src/data/frames94s.asm` has the same shape as the 94G list (eight direction pointers, then frame and time words) but the frame numbers are not the 94G SPF values, so those SPA names are not applied. `DATA8_9DE0FC` stays until that match is clear.
 - The remaining `CODE_` entries (1839 labels, 972 files) did not uniquely match a 93S or 94G routine. Opcode identity across the two ROMs is rare, and several names collided on the same prologue, so those stay placeholders until a caller shows the job.
 - `DATA8_` blocks that are still cursors, packed bytes, or a second copy of a named table stay unnamed. `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. Phrases in `DATA8_9CF000` that are a title are named. Cursor-only records in that bank stay `DATA8_`.
 - Rejected matches, left as `CODE_`: `printbig`, `getpde`, `Pausemode`, `assscore`, `sroot`, `doshot`, `AttribRating`. `CODE_9B9F7A` is not `updatecrowdf`. `CODE_9C9930` is not `updatesound`. `CODE_9BB370` is the random range `randomd0` calls, and its body is an 8-bit path plus a 16-bit path, not 93S `randoma`. `CODE_9F8330` contains the `StartGame` penalty-option sequence and then the replay setup. `CODE_9FBAAA` builds the frame sprites (`show_rink`, `showclock`, `showzam`) without the 93S vblank gate. `CODE_9D8000` is called where 93S calls `Framer`. `CODE_9ECFC6` is called where 93S calls `PrintStringFromList`. `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `CODE_9F8DFA` is a shared register-save prologue, not one routine.
@@ -44,9 +43,9 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - Layout done: banks `$80` through `$9F` are `src/banks/` files. Code banks are `b80_engine`, `b9B_screens`, `b9C_teams`, `b9D_roster`, `b9E_game` and `b9F_flow`. Routines are in `src/routines/`, tables in `src/data/tables/`. The SNES header is `src/header/snes_header.asm`. `tools/verify_all.sh` MATCH.
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
 - `adda43` shares a file with `CODE_9BB176` because that routine falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
-- Two entries in bank `$9F` had no label. They are `AttribWeight` and `puckfaceoff2` (asstab entry $1C; rows in `docs/name_map.csv`).
+- Two entries in bank `$9F` had no label. They are `AttribWeight` and `puckfaceoff2` (rows in `docs/name_map.csv`).
 - Headers: named routines have a one-line header. Unnamed `CODE_` slices keep the unidentified placeholder. Penalty, hockey, shootout and the matched `routines/snes` entries are named.
-- Sprite animation sequences are SPAList in `src/data/frames94s.asm` (see Sprite animations below).
+- Sprite animation sequences are `src/data/frames94s.asm` (the label is still `DATA8_9DE0FC`).
 
 ## State
 
@@ -81,7 +80,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   SoundDriver (SPC700 bytes as db; the SPC side is not disassembled), then the shootout. The shootout routines and RAM
   with a 94G counterpart take its names; the rounds loop ($80C81C, called from bank $9F), the screen drawing and the
   menu RAM ($1D81 shootout on, $1D89, $1DB9 cursor, $1D9B/$1DA3/$1DA7/$1DAB list scroll, $7E3468 redraw) are raw/auto.
-  The team scores (tmscore, a word per team) decide the shootout.
+  $178E/$1790 decide the shootout but are used elsewhere too; not named.
 - bank80_D000: the rest of the ShooterSelectList screen ($0D47 rating column, $1D9B cursor row, $1DA7 first row), then
   data read from other banks. Its tables are labelled with auto names where code references them (Vault DATA8_ names);
   the penalty/stoppage table at DATA8_80D3EB (strings with variable trailing data) and the 48-byte records from $80DDA0
@@ -105,8 +104,8 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   "left"/"right". The note stream format (commands $D9-$EA of the player in bank80_A000) is not decoded yet; the second
   chunk's size byte ($CA) reaches past the bank end, but its track ends (command $D9) inside the bank.
 - TeamSongs ($80DA56, six long pointers per team, $FFFFFFFF none) and DefaultSongs ($80DCF6) are read by the music code
-  at $9C9B5F: slot A of the home team ($1C98), else a random DefaultSongs entry. The long pointer table DATA8_80DD16 in
-  bank80_D000 is not identified yet (the other one is asstab).
+  at $9C9B5F: slot A of the home team ($1C98), else a random DefaultSongs entry. The other long pointer tables in bank80_D000
+  (DATA8_80D324, DATA8_80DD16) are not identified yet.
 - `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
   the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
 - bank82_8000: SpriteFrames ($828000), the main sprite set: an offset table of 976 frames (dd, raw offsets until the
@@ -151,30 +150,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Sprite animations: SPAList (src/data/frames94s.asm, 93S name) holds the animations with their direction lists .d0-.d7; SPA
-  holds the address of one, and the code that sets or tests SPA uses the labels. Those identified take their 93S SPA
-  names (the player animations keep the 93S frame numbers below 354, so same frames and times; the others from the code
-  that sets them, e.g. the FallDown and noturn0 orders, GoalieSaveList, asseben/assepen). The rest are new in 94 or not
-  certain (DATA8_9DFA84 is what the scorer gets where 93S uses SPApump; GoalieSaveList entries 6-8). updateanim is the
-  93S routine reworked for 94; CODE_9EA3F1 is SetSPA with the animation in A.
-- Assignments: asstab (src/data/tables/asstab.asm) has the 93S/94G order with two 94 additions (entries 7 and $14, CODE_9ED331 and
-  CODE_9EED8D) and without the fight assignments; the routines take their 93S names where the code agrees. Entries $F
-  and $10 (CODE_9ED179, CODE_9EE463) sit where 93S has assgoalie and assgoalietopuck, but the 94 goalie code is
-  rewritten (94G assgoaliecpu) and CODE_9ED179 is closer to assgoalietopuck, so both keep auto labels. The per-object
-  flags pfalock/pfrev/pf2aip/pfnc keep the 93S order and spacing. CODE_9E82A7 (reached from asspuckc) holds the rest of
-  the 93S asspuckc body and CODE_9EE495 starts with the same new-assignment setup; neither is an asstab entry, so both
-  keep auto labels. Not yet named: playeracc (CODE_9EA719 is jumped to
-  where 93S jumps to playeracc, but only about half its instructions agree), assexit (CODE_9E8BE6), Sweepcheck
-  (CODE_9EA242), $0D2D threat, $1C84 cont1team, $17B6 tmchecks (each from one routine only).
-- 93S near matches: a tie between labels is settled by the one where the 93S routine's first instruction lines up (the
-  labels before it are 94 entries that add a few instructions). Still open: ProcessInputWithRepeat (never lines up at
-  the start), SaveRegsStartHL2 (CODE_9F8DFA fits several short 93S routines), DoHiLights (the 93S
-  body starts after a 94 wrapper, at an instruction with no label), clockcont_0, Endfaceoff and findpc (a call goes to a
-  different named routine than in 93S), print, unusedEnergyBar, PrintTeamNameAndScore, RestoreBenchEnergy/restoreteams,
-  UpdateScores, WritePassBits (weaker or misaligned). CODE_9B9B35 is a copy of printteamname.
-- Next: naming passes. Code banks $9B to $9F (and parts of $80) still use auto labels (CODE_/DATA8_) for most routines
-  and tables; match them to NHLPA93SNES / NHL94Genesis names, name RAM variables, and turn the remaining numeric
-  pointers (word pointer tables) into labels.
+- Next: naming passes. Code banks $9B to $9F (and parts of $80) still use auto labels (CODE_/DATA8_) for most routines and tables; match them to NHLPA93SNES / NHL94Genesis names, name RAM variables, and turn the remaining numeric pointers (for example in the sprite animation sequences of bank9D_E000 and the word pointer tables) into labels.
 
 ## Setup notes
 

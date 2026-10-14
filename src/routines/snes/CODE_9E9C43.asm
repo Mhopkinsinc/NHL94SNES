@@ -12,7 +12,7 @@ CODE_9E9C43:
 	lda.w #$FF7E
 	sta.w Xpos,y
 	lda.w #$0000
-	sta.w Xvel,y
+	sta.w $0EC3,y
 	lda.w Ypos,y
 	cmp.w #$0058
 	bpl CODE_9E9C71
@@ -23,7 +23,7 @@ CODE_9E9C71:
 	bit.w #$0800
 	bne CODE_9E9C3E
 CODE_9E9C79:
-	lda.w #DATA8_9DFD9C
+	lda.w #$FD9C
 CODE_9E9C7C:
 	ldx.b a2
 	sta.w pfalock,x

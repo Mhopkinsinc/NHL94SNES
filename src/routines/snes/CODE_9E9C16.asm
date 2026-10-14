@@ -11,11 +11,11 @@ CODE_9E9C16:
 	lda.w #$0082
 	sta.w Xpos,y
 	lda.w #$0000
-	sta.w Xvel,y
+	sta.w $0EC3,y
 CODE_9E9C36:
 	lda.w attribute,y
 	bit.w #$0800
 	bne CODE_9E9C79
 CODE_9E9C3E:
-	lda.w #DATA8_9DFD3A
+	lda.w #$FD3A
 	bra CODE_9E9C7C

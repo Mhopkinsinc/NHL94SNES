@@ -20,7 +20,7 @@ CODE_9EE89F:
 .2:
 	lda.w position,x
 	beq .3
-	lda.w puckx
+	lda.w $0D71
 	cmp.w #$FFD7
 	bmi .3
 	cmp.w #$0029

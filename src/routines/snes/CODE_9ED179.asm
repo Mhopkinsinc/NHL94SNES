@@ -50,19 +50,19 @@ CODE_9ED179:
 	beq .5
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w temp1,x
+	stz.w $1003,x
 	stz.w $0BC9
 .5:
-	lda.w temp1,x
+	lda.w $1003,x
 	sec
 	sbc.b d7
-	sta.w temp1,x
+	sta.w $1003,x
 	bpl CODE_9ED24D
-	lda.w aidef,x
+	lda.w $1343,x
 	lsr a
 	lsr a
 	clc
-	adc.w temp1,x
+	adc.w $1003,x
 	bpl CODE_9ED217
 	lda.w #$0000
 	bra CODE_9ED217

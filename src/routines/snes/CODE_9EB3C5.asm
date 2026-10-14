@@ -53,7 +53,7 @@ CODE_9EB3C5:
 .1:
 	jsl.l SetHor
 	lda.w #$FF00
-	tsb.w puckc
+	tsb.w shotPlIdx
 	ldx.w #$001C
 	stx.b a3
 	lda.w #$001A
@@ -61,7 +61,7 @@ CODE_9EB3C5:
 	jsl.l assinsert
 	ldx.b a3
 	lda.w #$1C20
-	sta.w temp1,x
+	sta.w $1003,x
 	lda.w #$FF00
 	tsb.w RefStep
 	stz.w RefCnt

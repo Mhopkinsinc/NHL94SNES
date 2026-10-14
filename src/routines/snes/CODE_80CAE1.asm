@@ -34,7 +34,7 @@ CODE_80CAE1:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$000E
 	sta.b d0
 	lda.w #$0003

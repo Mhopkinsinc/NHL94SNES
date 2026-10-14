@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9ECFDC:
-	lda.w #SPAgready
+	lda.w #$E0FE
 	sta.b d1
 	lda.b d0
 	and.w #$000F
@@ -12,11 +12,11 @@ CODE_9ECFDC:
 	cmp.w #$0009
 	bne .2
 .1:
-	lda.w Xvel,x
-	ora.w Yvel,x
+	lda.w $0EC3,x
+	ora.w $0EE3,x
 	bne .t3
 .2:
-	lda.w pf2aip,x
+	lda.w $1543,x
 org $9ED002
 	bne .t1
 	jml.l SetSPA
@@ -25,7 +25,7 @@ org $9ED002
 	rtl
 
 .t2:
-	cpx.w puckc
+	cpx.w shotPlIdx
 	beq .t4
 	lda.w $0B7D,x
 	cmp.w #$000C
@@ -41,16 +41,16 @@ org $9ED002
 	ldy.w $19D4,x
 	bmi .2x
 	lda.w SPA,x
-	cmp.w #SPAgdive
+	cmp.w #$E4B6
 	bcc .2x
-	cmp.w #SPAinjury1
+	cmp.w #$F90E
 	bcc .t3
 .2x:
 	lda.b d0
 	cmp.w facedir,x
 	beq CODE_9ED07A
 	sta.b d2
-	lda.w #SPAgready
+	lda.w #$E0FE
 	jsl.l SetSPAFromA
 	jml.l CODE_9EA719
 
@@ -90,11 +90,11 @@ CODE_9ED07A:
 	lda.w $0B05,x
 	bit.w #$0002
 	bne .t1
-	lda.w #SPAgready
+	lda.w #$E0FE
 	bra CODE_9ED09B
 
 .t1:
-	lda.w #SPAgskate
+	lda.w #$E3C0
 CODE_9ED09B:
 	jsl.l SetSPAFromA
 	lda.w facedir,x

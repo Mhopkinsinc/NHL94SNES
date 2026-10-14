@@ -1,18 +1,18 @@
 ; Unidentified routine.
-doplayeracc:
+CODE_9EA8A9:
 	lda.w position,x
 	bne .t4
 	jml.l CODE_9ECFDC
 
 .t4:
 	lda.w SPA,x
-	cmp.w #SPAsweepchk
+	cmp.w #$F208
 	beq .t2
-	lda.w #SPAglide
+	lda.w #$EA1A
 	sta.b d1
-	lda.w pfrev,x
+	lda.w $1523,x
 	beq .1
-	lda.w #SPAglideback
+	lda.w #$F0D2
 	sta.b d1
 .1:
 	lda.b d0
@@ -22,13 +22,13 @@ doplayeracc:
 	bcc .t3
 	cmp.w #$0009
 	bne .t1
-	lda.w Xvel,x
-	ora.w Yvel,x
+	lda.w $0EC3,x
+	ora.w $0EE3,x
 	beq .t1
-	jmp.w dostop
+	jmp.w CODE_9EA4F7
 
 .t1:
-	lda.w pf2aip,x
+	lda.w $1543,x
 	bne .t2
 	jmp.w SetSPA
 
@@ -41,12 +41,12 @@ doplayeracc:
 	lda.b d0
 	pha
 	sta.b d2
-	cpx.w puckc
+	cpx.w shotPlIdx
 	bne .t2x
 	jmp.w CODE_9EA9AD
 
 .t2x:
-	lda.w puckx
+	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -82,7 +82,7 @@ doplayeracc:
 	eor.w #$0004
 	sta.b d2
 .2:
-	lda.w pfrev,x
+	lda.w $1523,x
 	bne .t1x
 	lda.b d3
 	bpl CODE_9EA9AD
@@ -110,13 +110,13 @@ doplayeracc:
 	cmp.w #$0005
 	bcs CODE_9EA9AD
 CODE_9EA983:
-	lda.w pfrev,x
+	lda.w $1523,x
 	bne CODE_9EA9B0
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	sta.b d0
-	ora.w Yvel,x
+	ora.w $0EE3,x
 	beq .1
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	sta.b d1
 	jsl.l vtoa
 	sec
@@ -127,5 +127,5 @@ CODE_9EA983:
 	bcs CODE_9EA9B0
 .1:
 	inc a
-	sta.w pfrev,x
+	sta.w $1523,x
 	bra CODE_9EA9B0

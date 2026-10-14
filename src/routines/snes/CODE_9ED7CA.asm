@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9ED7CA:
-	lda.w seed
+	lda.w $0792
 	and.w #$0380
 	beq CODE_9ED793
 CODE_9ED7D2:
@@ -12,7 +12,7 @@ CODE_9ED7D2:
 	ora.w #$FF00
 .1:
 	clc
-	adc.w puckx
+	adc.w $0D71
 	sta.b d0
 CODE_9ED7E7:
 	jsl.l CODE_9EDBC0
@@ -76,7 +76,7 @@ CODE_9ED853:
 	sta.b d2
 	ldy.w $19D4,x
 	bmi .t1
-	cpx.w puckc
+	cpx.w shotPlIdx
 	beq .1
 	lda.w JoyPad,y
 	bit.w #$0080
@@ -112,14 +112,14 @@ CODE_9ED853:
 	jmp.w CODE_9EDB3E
 
 .t3:
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	cmp.w #$8000
 	ror a
-	sta.w Xvel,x
-	lda.w Yvel,x
+	sta.w $0EC3,x
+	lda.w $0EE3,x
 	cmp.w #$8000
 	ror a
-	sta.w Yvel,x
+	sta.w $0EE3,x
 	lda.w $0B05,x
 	bit.w #$0002
 	beq .t1x2
@@ -136,7 +136,7 @@ CODE_9ED853:
 	ora.w #$FFC0
 .1x2:
 	clc
-	adc.w puckx
+	adc.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0

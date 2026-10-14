@@ -125,7 +125,7 @@ CODE_9BACE5:
 	lda.w DATA8_9BAE57,y
 	xba
 	and.w #$FF00
-	sta.w Xvel,x
+	sta.w $0EC3,x
 	lda.w $AE59,y
 	clc
 	adc.w $0DD7
@@ -133,7 +133,7 @@ CODE_9BACE5:
 	lda.w $AE59,y
 	xba
 	and.w #$FF00
-	sta.w Yvel,x
+	sta.w $0EE3,x
 	lda.b d2
 	pha
 	lda.b d3

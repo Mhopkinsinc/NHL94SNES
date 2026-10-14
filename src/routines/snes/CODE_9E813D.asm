@@ -5,7 +5,7 @@ CODE_9E813D:
 	cmp.w #$0002
 	bcs CODE_9E814E
 	lda.w #$00F0
-	sta.w temp3,x
+	sta.w $1043,x
 CODE_9E814E:
 	lda.w $19D4,x
 	bpl CODE_9E8101
@@ -15,15 +15,15 @@ CODE_9E814E:
 	lda.w tmflags,y
 	bit.w #$0002
 	bne .1
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi CODE_9E8102
-	lda.w temp3,x
+	lda.w $1043,x
 	sec
 	sbc.b d7
-	sta.w temp3,x
+	sta.w $1043,x
 	cmp.w #$0000
 	bpl CODE_9E8102
-	stz.w temp3,x
+	stz.w $1043,x
 .1:
 	jsl.l skatetopuckinit
 	lda.b d1
@@ -91,7 +91,7 @@ CODE_9E814E:
 CODE_9E81E8:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #rtss
+	lda.w #CODE_9ED0FC
 	sta.b a0
 	jsl.l CODE_9EA5A4
 	jmp.w check4check

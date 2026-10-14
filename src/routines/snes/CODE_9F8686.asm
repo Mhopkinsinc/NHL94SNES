@@ -42,21 +42,21 @@ CODE_9F86A4:
 .t3:
 	stx.w $0B9D
 CODE_9F86E2:
-	jsl.l updateanim
-	lda.w nopuck,x
+	jsl.l CODE_9EA419
+	lda.w $1203,x
 	sec
 	sbc.w $0ADB
 	bpl .1
 	lda.w #$0000
 .1:
-	sta.w nopuck,x
-	lda.w nopuckb,x
+	sta.w $1203,x
+	lda.w $1223,x
 	sec
 	sbc.w $0ADB
 	bpl .2
 	lda.w #$0000
 .2:
-	sta.w nopuckb,x
+	sta.w $1223,x
 	lda.w sflags3
 	bit.w #$0020
 	beq .4
@@ -87,12 +87,12 @@ CODE_9F86E2:
 	bne CODE_9F8796
 .7:
 	lda.w SPA,x
-	cmp.w #SPAinjury1
+	cmp.w #$F90E
 	bne .t1
 	jmp.w CODE_9F8834
 
 .t1:
-	cmp.w #DATA8_9DFC76
+	cmp.w #$FC76
 	bcc .t2
 	jmp.w CODE_9F8834
 
@@ -114,19 +114,19 @@ CODE_9F875F:
 	and.w #$00FF
 	sta.b d2
 .1:
-	ldx.w Xvel,y
+	ldx.w $0EC3,y
 	lda.b d2
 	jsl.l Mul16x8HiXS
-	sta.w Xvel,y
-	ldx.w Yvel,y
+	sta.w $0EC3,y
+	ldx.w $0EE3,y
 	lda.b d2
 	jsl.l Mul16x8HiXS
-	sta.w Yvel,y
+	sta.w $0EE3,y
 	tyx
 CODE_9F8796:
 	lda.w $0CDF
 	sta.b $0C
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	beq .1
 	tax
 	lda.b $0C
@@ -140,7 +140,7 @@ CODE_9F8796:
 	adc.w Xpos,x
 	sta.w Xpos,x
 .1:
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	beq .2
 	tax
 	lda.b $0C
@@ -194,7 +194,7 @@ CODE_9F8796:
 	lda.w #$0007
 	jsl.l CODE_9C9AD0
 CODE_9F8834:
-	lda.w puckx
+	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -345,7 +345,7 @@ CODE_9F8947:
 	txa
 	lsr a
 	sta.b d6
-	cpx.w puckc
+	cpx.w shotPlIdx
 	bne .1x
 	lda.w sfhormode
 	bne .1x
@@ -383,9 +383,9 @@ CODE_9F8947:
 	asl a
 	asl a
 	tax
-	lda.l asstab,x
+	lda.l DATA8_80D324,x
 	sta.w $1D5A
-	lda.l asstab+1,x
+	lda.l DATA8_80D324+1,x
 	sta.w $1D5B
 	ldx.b $E4
 	jsl.l CODE_9FC757
@@ -396,7 +396,7 @@ CODE_9F8947:
 	bne CODE_9F8A44
 	cpx.w #$0018
 	bcs CODE_9F8A44
-	cpx.w puckc
+	cpx.w shotPlIdx
 	beq CODE_9F8A44
 	lda.w $0B05,x
 	bit.w #$0001
@@ -407,7 +407,7 @@ CODE_9F8947:
 	cmp.w #$FFCF
 	bmi CODE_9F8A14
 	lda.w #$FFD5
-	stz.w Xvel,x
+	stz.w $0EC3,x
 	bra CODE_9F8A14
 
 .t3:
@@ -416,7 +416,7 @@ CODE_9F8947:
 	cmp.w #$0031
 	bpl CODE_9F8A14
 	lda.w #$002B
-	stz.w Xvel,x
+	stz.w $0EC3,x
 CODE_9F8A14:
 	sta.w Xpos,x
 	lda.w Ypos,x
@@ -427,7 +427,7 @@ CODE_9F8A14:
 	bpl CODE_9F8A44
 	lda.w #$FF1B
 	sta.w Ypos,x
-	stz.w Yvel,x
+	stz.w $0EE3,x
 	bra CODE_9F8A44
 
 .t1:
@@ -437,7 +437,7 @@ CODE_9F8A14:
 	bmi CODE_9F8A44
 	lda.w #$00E5
 	sta.w Ypos,x
-	stz.w Yvel,x
+	stz.w $0EE3,x
 CODE_9F8A44:
 	stz.w $1103,x
 	stz.w $1123,x
@@ -519,21 +519,21 @@ CODE_9F8ADD:
 	lda.w $0DF9
 	cmp.w #$0018
 	bcs .2
-	lda.w puckx
+	lda.w $0D71
 	cmp.w #$FF78
 	bpl .1
 	lda.w #$FF78
-	sta.w puckx
+	sta.w $0D71
 	ldx.w $0DB3
 	cpx.w #$018C
 	bne .1
 	sta.w $0D73
 .1:
-	lda.w puckx
+	lda.w $0D71
 	cmp.w #$0088
 	bmi .2
 	lda.w #$0088
-	sta.w puckx
+	sta.w $0D71
 	ldx.w $0DB3
 	cpx.w #$018C
 	bne .2
@@ -560,7 +560,7 @@ CODE_9F8ADD:
 	sta.w pucky
 	sta.w $0DD5
 .4:
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi CODE_9F8B64
 	lda.w pucky
 	sta.l $7E30F4

@@ -54,7 +54,7 @@ showclock:
 	rep #$20
 .1:
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$0003
 	sta.w printx
 	lda.w #$0018

@@ -46,7 +46,7 @@ TeamRoster:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$000F
 	sta.b d0
 	lda.w #$0003
@@ -66,7 +66,7 @@ TeamRoster:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$000F
 	sta.b d0
 	lda.w #$0003

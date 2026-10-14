@@ -1,5 +1,5 @@
 ; Unidentified routine.
-assdopen:
+CODE_9EBEDF:
 	lda.w #$0010
 	sta.b d0
 	lda.w pfteam,x
@@ -16,11 +16,11 @@ assdopen:
 	lda.w sfhormode
 	bne .t1
 	lda.w #$0171
-	sta.w frame,x
+	sta.w $0D97,x
 	bra CODE_9EBF10
 
 .t1:
 	lda.w #$0170
-	sta.w frame,x
+	sta.w $0D97,x
 CODE_9EBF10:
 	rtl

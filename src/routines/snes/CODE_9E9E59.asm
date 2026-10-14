@@ -2,10 +2,10 @@
 CODE_9E9E59:
 	ldy.b a2
 	lda.w SPA,y
-	cmp.w #SPAstumble
+	cmp.w #$F7B2
 	beq .1
 	lda.w #$FFFF
-	sta.w puckc
+	sta.w shotPlIdx
 .1:
 	ldy.b a2
 	lda.w pfteam,y

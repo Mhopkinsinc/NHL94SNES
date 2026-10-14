@@ -7,9 +7,9 @@ CODE_9FB518:
 	sta.b d0
 	jsl.l .t1
 	ldx.b a3
-	lda.w temp1,x
+	lda.w $1003,x
 	bpl CODE_9FB517
-	lda.w temp2,x
+	lda.w $1023,x
 	bpl CODE_9FB517
 	stz.b a2
 	lda.w #$0001
@@ -27,10 +27,10 @@ CODE_9FB518:
 	clc
 	adc.b d0
 	tay
-	lda.w temp1,y
+	lda.w $1003,y
 	bmi CODE_9FB517
 .1:
-	lda.w temp3,y
+	lda.w $1043,y
 	asl a
 	sta.b d1
 	tay
@@ -51,9 +51,9 @@ CODE_9FB518:
 	clc
 	adc.b d0
 	tay
-	lda.w temp1,y
+	lda.w $1003,y
 	ora.w #$FF00
-	sta.w temp1,y
+	sta.w $1003,y
 	ldx.b a3
 	jmp.w SetLCmode2
 
@@ -62,10 +62,10 @@ CODE_9FB518:
 	clc
 	adc.b d0
 	tay
-	lda.w temp1,y
+	lda.w $1003,y
 	sec
 	sbc.b d7
-	sta.w temp1,y
+	sta.w $1003,y
 	bmi .t1x
 	jmp.w CODE_9FB517
 

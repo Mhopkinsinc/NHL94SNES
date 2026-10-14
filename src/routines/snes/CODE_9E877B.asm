@@ -6,7 +6,7 @@ CODE_9E877B:
 	bne .4
 	lda.w position,y
 	bmi .4
-	lda.w Yvel,y
+	lda.w $0EE3,y
 	bpl .1
 	lda.w #$0000
 .1:
@@ -45,26 +45,36 @@ CODE_9E877B:
 	sta.b d0
 .5:
 	lda.b d0
-	sta.w temp4,x
+	sta.w $1063,x
 	lda.w #$0000
 	sec
-	sbc.w temp3,x
-	sta.w temp3,x
-	lda.w puckx
+	sbc.w $1043,x
+	sta.w $1043,x
+	lda.w $0D71
 	sta.b d0
-	lda.w temp3,x
+	lda.w $1043,x
 	eor.b d0
 	sta.b d1
 	bpl CODE_9E87E9
-	stz.w temp3,x
+	stz.w $1043,x
 CODE_9E87E9:
-	lda.w temp3,x
+	lda.w $1043,x
 	sta.b d0
-	lda.w temp4,x
+	lda.w $1063,x
 	sta.b d1
 	lda.w #$009E
 	sta.b $8B
-	lda.w #rtss
+	lda.w #CODE_9ED0FC
 	sta.b a0
 	jsl.l CODE_9EA5A4
 	jmp.w check4check
+	cpx.w shotPlIdx
+	beq CODE_9E8822
+	ldy.w shotPlIdx
+	bmi CODE_9E882A
+	lda.w pfteam,x
+	cmp.w pfteam,y
+	beq CODE_9E882A
+	lda.w #$0002
+	sta.b d0
+	jmp.w assreplace

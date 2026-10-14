@@ -26,7 +26,7 @@ CODE_9EF69A:
 	bit.w #$1000
 	bne .1
 	ldy.b a2
-	lda.w stickhand,y
+	lda.w $1403,y
 	phx
 	ldx.w #$02BC
 	jsl.l CODE_808F98
@@ -63,7 +63,7 @@ CODE_9EF69A:
 .t1:
 	ldy.b a2
 	lda.w #$0008
-	sta.w nopuck,y
+	sta.w $1203,y
 	jmp.w CODE_9EF68B
 
 .t2:

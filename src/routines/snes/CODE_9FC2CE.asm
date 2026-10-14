@@ -5,7 +5,7 @@ CODE_9FC2CE:
 	jsl.l CODE_9EC417
 	lda.w position,x
 	bne .1
-	lda.w pf2aip,x
+	lda.w $1543,x
 	bne CODE_9FC298
 .1:
 	lda.w sflags
@@ -26,7 +26,7 @@ CODE_9FC2CE:
 	lda.b d1
 	bit.w #$0080
 	bne CODE_9FC32A
-	jml.l doplayeracc
+	jml.l CODE_9EA8A9
 
 .t1:
 	jml.l passmode

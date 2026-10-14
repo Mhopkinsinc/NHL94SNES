@@ -3,33 +3,33 @@ CODE_9E9B52:
 	lda.w $19BE
 	clc
 	adc.w #$000F
-	bmi FallDown
+	bmi .1
 	sta.w $19BE
-FallDown:
+.1:
 	ldy.b a2
 	cpy.w #$0018
 	bcs .t1
 	lda.w SPA,y
-	cmp.w #SPAinjury1
+	cmp.w #$F90E
 	beq .t1
-	cmp.w #SPAstumble
+	cmp.w #$F7B2
 	beq .t1
-	cmp.w #SPAfallfwd
+	cmp.w #$F49C
 	beq .t1
-	cmp.w #SPAfallback
+	cmp.w #$F54E
 	beq .t1
-	cmp.w #SPAflip
+	cmp.w #$F6C0
 	beq .t1
-	lda.w #SPAstumble
+	lda.w #$F7B2
 	sta.b d1
 	lda.w gmclock
 	bne .t2
-	lda.w stickhand,y
+	lda.w $1403,y
 	cmp.w #$000C
 	bcc .t2
-	lda.w nopuckb,y
+	lda.w $1223,y
 	bne .t2
-	lda.w seed
+	lda.w $0792
 	and.w #$000F
 	adc.w #$000A
 	sta.b d0
@@ -37,7 +37,7 @@ FallDown:
 	sbc.w $0F23,y
 	bmi .t2
 	lda.w #$003C
-	sta.w nopuckb,y
+	sta.w $1223,y
 	jmp.w CODE_9E9D59
 
 .t1:
@@ -61,7 +61,7 @@ FallDown:
 .2:
 	ldy.b a2
 	lda.w #$0078
-	sta.w nopuck,y
+	sta.w $1203,y
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y

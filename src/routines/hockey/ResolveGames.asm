@@ -5,7 +5,7 @@ ResolveGames:
 	sta.b d0
 	stz.b a0
 	tax
-	lda.w tmscore
+	lda.w $178E
 	sta.l $7E3578,x
 	lda.w $1790
 	sta.l $7E3588,x

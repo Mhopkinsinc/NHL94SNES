@@ -36,7 +36,7 @@ ShowCrowdMeter:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$0014
 	sta.b d0
 	lda.w #$0005

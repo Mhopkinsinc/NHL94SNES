@@ -5,6 +5,6 @@ CODE_9EA4DF:
 	lda.w #$0002
 	sta.w facedir,x
 	sta.w pfalock,x
-	lda.w #SPAwallright
+	lda.w #$E8F4
 	jsl.l CODE_9EA403
 	bra CODE_9EA4DD

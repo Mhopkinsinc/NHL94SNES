@@ -131,7 +131,7 @@ CODE_9FCFBF:
 	beq .2
 	bpl CODE_9FD01F
 .2:
-	lda.w tmscore
+	lda.w $178E
 org $9FD000
 	sec
 	sbc.w $1790
@@ -226,7 +226,7 @@ CODE_9FD01F:
 	clc
 	adc.w #$000F
 	lsr a
-	sta.w aioff,x
+	sta.w $1323,x
 	ldy.w #$0003
 	lda.b [a0],y
 	lsr a
@@ -250,7 +250,7 @@ CODE_9FD01F:
 	eor.w #$000F
 	clc
 	adc.w #$0007
-	sta.w aidef,x
+	sta.w $1343,x
 	bra CODE_9FD0FA
 
 .t1:
@@ -259,7 +259,7 @@ CODE_9FD01F:
 	clc
 	adc.w #$000F
 	lsr a
-	sta.w aidef,x
+	sta.w $1343,x
 CODE_9FD0FA:
 	ldy.w #$0003
 	lda.b [a0],y
@@ -288,7 +288,7 @@ CODE_9FD0FA:
 	adc.w $0CE5
 	ldy.w #$0005
 	jsl.l CODE_9FD22B
-	sta.w aggress,x
+	sta.w $1483,x
 	lda.w attribute,x
 	and.w #$F7FF
 	sta.w attribute,x
@@ -296,7 +296,7 @@ CODE_9FD0FA:
 	lda.b [a0],y
 	and.w #$0001
 	eor.w #$0001
-	sta.w handed,x
+	sta.w $14A3,x
 	bne .1
 	lda.w attribute,x
 	ora.w #$0800
@@ -325,7 +325,7 @@ CODE_9FD0FA:
 	adc.w HmAwBonus
 	ldy.w #$0006
 	jsl.l CODE_9FD22B
-	sta.w stickhand,x
+	sta.w $1403,x
 	ldy.w #$0005
 	lda.b [a0],y
 	and.w #$0007

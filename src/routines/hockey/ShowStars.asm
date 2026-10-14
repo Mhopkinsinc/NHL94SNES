@@ -90,7 +90,7 @@ ShowStars:
 	lda.w #$0002
 	sta.b a2
 .1:
-	jsl.l printteamname
+	jsl.l CODE_9FBD66
 	lda.w #$0005
 	sta.w printy
 	lda.w #$0011
@@ -114,7 +114,7 @@ ShowStars:
 	lda.w #$0002
 	sta.b a2
 .2:
-	jsl.l printteamname
+	jsl.l CODE_9FBD66
 	lda.w #$0006
 	sta.w printy
 	lda.w #$0011
@@ -138,7 +138,7 @@ ShowStars:
 	lda.w #$0002
 	sta.b a2
 .3:
-	jsl.l printteamname
+	jsl.l CODE_9FBD66
 	lda.w #$0007
 	sta.w printy
 	lda.w #$0011

@@ -11,7 +11,7 @@ CODE_9BA04D:
 	bpl CODE_9BA076
 	cmp.w #$FEB0
 	bmi CODE_9BA076
-	lda.w puckx
+	lda.w $0D71
 	cmp.w #$FFF4
 	bpl CODE_9BA076
 	cmp.w #$FFEC

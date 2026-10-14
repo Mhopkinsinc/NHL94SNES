@@ -11,27 +11,27 @@ CODE_9E8462:
 	and.w #$FFFD
 	sta.w pflags,x
 	lda.w #$FFFF
-	sta.w temp5,x
-	stz.w temp1,x
-	stz.w temp2,x
+	sta.w $1083,x
+	stz.w $1003,x
+	stz.w $1023,x
 	lda.w #$0008
-	sta.w temp2b,x
+	sta.w $10A3,x
 .1:
-	lda.w temp1,x
+	lda.w $1003,x
 	sec
 	sbc.b d7
-	sta.w temp1,x
+	sta.w $1003,x
 	bmi .t1
 	jmp.w CODE_9E852D
 
 .t1:
 	clc
-	adc.w aidef,x
+	adc.w $1343,x
 	bpl .2
 .1x:
 	lda.w #$0000
 .2:
-	sta.w temp1,x
+	sta.w $1003,x
 	lda.w pucky
 	sta.b d0
 	lda.w pfgoal,x
@@ -65,14 +65,14 @@ CODE_9E8462:
 	sta.b d2
 .4:
 	lda.b d2
-	cmp.w temp5,x
+	cmp.w $1083,x
 	bne .5
 	lda.w $0794
 	cmp.w #$0200
 	bcs CODE_9E852D
 .5:
 	lda.b d2
-	sta.w temp5,x
+	sta.w $1083,x
 	tay
 	lda.w #$009E
 	sta.b $8B
@@ -85,7 +85,7 @@ CODE_9E8462:
 	dey
 	jsl.l randomd0s
 	adc.b [a0],y
-	sta.w temp3,x
+	sta.w $1043,x
 	tya
 	clc
 	adc.w #$0006
@@ -95,11 +95,11 @@ CODE_9E8462:
 	dey
 	jsl.l randomd0s
 	adc.b [a0],y
-	sta.w temp4,x
+	sta.w $1063,x
 CODE_9E852D:
-	lda.w temp3,x
+	lda.w $1043,x
 	sta.b d0
-	lda.w temp4,x
+	lda.w $1063,x
 	sta.b d1
 	lda.w pfgoal,x
 	bne .1

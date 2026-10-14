@@ -41,16 +41,16 @@ CODE_9E81F9:
 	jsl.l CODE_808F5D
 	ldx.b a3
 	clc
-	adc.w Xvel,x
-	sta.w Xvel,x
+	adc.w $0EC3,x
+	sta.w $0EC3,x
 	lda.b [a0],y
 	tax
 	lda.b $D7
 	jsl.l CODE_808F5D
 	ldx.b a3
 	clc
-	adc.w Yvel,x
-	sta.w Yvel,x
-	lda.w #SPAburst
+	adc.w $0EE3,x
+	sta.w $0EE3,x
+	lda.w #$F342
 	sta.w pfalock,x
 	jml.l SetSPAFromA

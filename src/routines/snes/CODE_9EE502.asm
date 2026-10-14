@@ -55,14 +55,14 @@ CODE_9EE56D:
 	jsl.l vtoa
 	jsl.l Findhittype
 	beq .t1
-	lda.w #DATA8_9DF020
+	lda.w #$F020
 	bra CODE_9EE57F
 
 .t1:
-	lda.w #DATA8_9DEF6E
+	lda.w #$EF6E
 CODE_9EE57F:
 	jsl.l SetSPAFromA
-	jsl.l updateanim
+	jsl.l CODE_9EA419
 	lda.w #$0002
 	sta.w SPAcnt,x
 	jsl.l CODE_9EE220

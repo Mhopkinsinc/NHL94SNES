@@ -7,7 +7,7 @@ CODE_9E88F5:
 .1:
 	sty.b d1
 	bra CODE_9E88F2
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi .t1
 	lda.w $0EC4,x
 	sec
@@ -20,7 +20,7 @@ CODE_9E88F5:
 	clc
 	adc.w Xpos,x
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	cmp.w #$FFD7
 	bmi .t1
 	cmp.w #$0029
@@ -43,7 +43,7 @@ CODE_9E88F5:
 	bpl .t1
 	lda.w Xpos,x
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	sta.b d0
 	lda.w Ypos,x
 	sec
@@ -53,3 +53,11 @@ CODE_9E88F5:
 
 .t1:
 	rtl
+	ldy.w shotPlIdx
+	bmi CODE_9E8981
+	lda.w pfteam,x
+	cmp.w pfteam,y
+	bne CODE_9E8981
+	lda.w #$0004
+	sta.b d0
+	jmp.w assreplace

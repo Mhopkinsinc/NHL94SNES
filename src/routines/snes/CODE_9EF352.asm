@@ -25,9 +25,9 @@ CODE_9EF357:
 	sta.b a1
 .2:
 	ldy.b a2
-	lda.w tmscore,y
+	lda.w $178E,y
 	inc a
-	sta.w tmscore,y
+	sta.w $178E,y
 	lda.w tmap
 	sec
 	sbc.w $17A8
@@ -240,7 +240,7 @@ CODE_9EF424:
 	bne .12
 	lda.w $1790
 	sec
-	sbc.w tmscore
+	sbc.w $178E
 	bmi .12
 	cmp.w #$0003
 	bcs .12
@@ -249,11 +249,11 @@ CODE_9EF424:
 	stz.w puckvx
 	stz.w puckvy
 	ldy.w #$0006
-	lda.w puckx
+	lda.w $0D71
 	bpl .13
 	ldy.w #$FFFA
 .13:
-	sty.w puckx
+	sty.w $0D71
 	ldy.w #$0110
 	lda.w pucky
 	bpl .14
@@ -272,7 +272,7 @@ CODE_9EF424:
 	jsl.l assreplace
 	inx
 	inx
-	lda.w #DATA8_9DF644
+	lda.w #$F644
 	jsl.l SetSPAFromA
 	ldy.b a2
 	ldx.w tmsort,y
@@ -295,7 +295,7 @@ CODE_9EF424:
 	lda.w position,x
 	bmi .1x
 	beq .1x
-	stz.w pfnc,x
+	stz.w $1563,x
 	jsl.l assinsert
 .1x:
 	inx

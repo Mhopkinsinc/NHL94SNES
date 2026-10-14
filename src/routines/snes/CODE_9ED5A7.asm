@@ -5,9 +5,9 @@ CODE_9ED5A7:
 	lda.w $0ADD,y
 	cmp.w #$0001
 	bne .t3
-	cpx.w puckc
+	cpx.w shotPlIdx
 	beq CODE_9ED574
-	lda.w puckx
+	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -38,7 +38,7 @@ CODE_9ED5A7:
 	jmp.w CODE_9ED67C
 
 .t3:
-	lda.w puckx
+	lda.w $0D71
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -46,7 +46,7 @@ CODE_9ED5A7:
 	sec
 	sbc.w Ypos,x
 	sta.b d1
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi .t1x
 	lsr a
 	tay
@@ -69,7 +69,7 @@ CODE_9ED5A7:
 	jmp.w CODE_9ED58D
 
 .t1x:
-	lda.w temp4,x
+	lda.w $1063,x
 	bne .t2x
 	lda.w $0B1D,x
 	cmp.w #$002D
@@ -98,7 +98,7 @@ CODE_9ED5A7:
 	lda.b d0
 CODE_9ED67C:
 	sta.w facedir,x
-	ldy.w #SPAgdive
+	ldy.w #$E4B6
 	tya
 	jsl.l SetSPAFromA
 	lda.w #$0168

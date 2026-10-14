@@ -17,7 +17,7 @@ CODE_9FDBD0:
 	sec
 	sbc.w #$0058
 	bpl .t1
-	lda.w seed
+	lda.w $0792
 	and.w #$0003
 	bne .t1
 	phy

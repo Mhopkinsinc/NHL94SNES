@@ -19,7 +19,7 @@ PrintScrollHint:
 	sta.b d1
 	jsl.l CODE_9D80DD
 	lda.w #$2400
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$000A
 	sta.w printx
 	lda.w #$0007

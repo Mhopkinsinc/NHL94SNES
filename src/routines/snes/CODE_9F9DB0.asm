@@ -1,8 +1,8 @@
 ; Unidentified routine.
 CODE_9F9DB0:
-	jsl.l printteamname
+	jsl.l CODE_9FBD66
 	ldy.b a2
-	lda.w tmscore,y
+	lda.w $178E,y
 	sta.b d0
 	jsl.l CODE_9F9E15
 	lda.w #$0000

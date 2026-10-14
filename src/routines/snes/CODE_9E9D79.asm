@@ -6,7 +6,7 @@ CODE_9E9D79:
 	sta.l $7E35E0
 	lda.w #$002D
 	sta.b $81
-	lda.w puckc
+	lda.w shotPlIdx
 	sta.b d0
 	bmi CODE_9E9D73
 	cpy.b d0
@@ -20,7 +20,7 @@ CODE_9E9D79:
 	lda.w position,x
 	beq CODE_9E9D76
 	lda.w SPA,y
-	cmp.w #SPAfallback
+	cmp.w #$F54E
 	bne CODE_9E9D76
 	lda.w facedir,y
 	and.w #$0003
@@ -41,7 +41,7 @@ CODE_9E9D79:
 	bmi CODE_9E9E59
 	beq CODE_9E9E59
 	lda.w #$FFFF
-	sta.w puckc
+	sta.w shotPlIdx
 	stz.w $0C23
 	ldy.b a2
 	lda.w pfteam,y
@@ -52,21 +52,21 @@ CODE_9E9D79:
 	adc.w #$0006
 	jsl.l CODE_9C9FD5
 	ldx.b a2
-	lda.w #SPAinjury1
+	lda.w #$F90E
 	jsl.l SetSPAFromA
 	ldx.b a3
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	eor.w #$FFFF
 	inc a
 	cmp.w #$8000
 	ror a
-	sta.w Xvel,x
-	lda.w Yvel,x
+	sta.w $0EC3,x
+	lda.w $0EE3,x
 	eor.w #$FFFF
 	inc a
 	cmp.w #$8000
 	ror a
-	sta.w Yvel,x
+	sta.w $0EE3,x
 	jsl.l setInjuryType
 	lda.w #$0004
 	sta.w InjCntDown

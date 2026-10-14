@@ -2,7 +2,7 @@
 CODE_9BC074:
 	phx
 	tay
-	lda.w frame,y
+	lda.w $0D97,y
 	dec a
 	asl a
 	asl a

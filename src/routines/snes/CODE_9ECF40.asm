@@ -10,7 +10,7 @@ CODE_9ECF40:
 	asl a
 	asl a
 	asl a
-	sta.w printa
+	sta.w $0D0D
 	lda.b $01,s
 	and.w #$0040
 	asl a
@@ -20,7 +20,7 @@ CODE_9ECF40:
 	asl a
 	asl a
 	asl a
-	tsb.w printa
+	tsb.w $0D0D
 	pla
 	and.w #$0003
 	pha

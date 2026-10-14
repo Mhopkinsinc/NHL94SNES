@@ -1,11 +1,11 @@
 ; Pad input while shooting: aim with the pad and build shot power during the windup.
 ShotMode:
-	cpx.w puckc
+	cpx.w shotPlIdx
 	bne .off
 	lda.w SPA,x
-	cmp.w #SPAshotf
+	cmp.w #$ED4A
 	bcc .off
-	cmp.w #DATA8_9DF020+1
+	cmp.w #$F021
 	bcs .off
 	lda.w SPAnum,x
 	cmp.w #$0018

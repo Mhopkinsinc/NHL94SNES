@@ -43,12 +43,12 @@ CODE_80D267:
 	dec.b d1
 CODE_80D269:
 	lda.w #$3800
-	sta.w printa
+	sta.w $0D0D
 	lda.b d1
 	cmp.w $1D9B
 	bne .1
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 .1:
 	lda.b $8F
 	sta.b $9F
@@ -77,5 +77,5 @@ CODE_80D269:
 	dec.b d1
 	bpl CODE_80D269
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	rtl

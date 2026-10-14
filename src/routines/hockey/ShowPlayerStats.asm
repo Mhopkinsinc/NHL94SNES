@@ -32,7 +32,7 @@ ShowPlayerStats:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$000E
 	sta.b d0
 	lda.w #$0003
@@ -122,7 +122,7 @@ CODE_9C8644:
 	asl a
 	sta.w printy
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$009C
 	sta.b $8F
 	lda.w #LineBraces
@@ -145,7 +145,7 @@ CODE_9C8644:
 	asl a
 	sta.w printy
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$009C
 	sta.b $8F
 	lda.w #LineBraces+3

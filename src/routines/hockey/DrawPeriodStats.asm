@@ -89,7 +89,7 @@ DrawPeriodStats:
 	lda.w printx
 	sta.b d4
 	lda.w #$2400
-	sta.w printa
+	sta.w $0D0D
 	lda.w #$000C
 	sta.w printy
 	inc.w printx
@@ -132,7 +132,7 @@ CODE_9F8197:
 	asl a
 	tax
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	lda.w $1DB9
 	beq .t1
 .1:
@@ -158,7 +158,7 @@ CODE_9F8197:
 	jsl.l print
 	inc.w printy
 	lda.w #$2400
-	sta.w printa
+	sta.w $0D0D
 	ldx.w #$0068
 	ldy.w #$0040
 	lda.w #$009C

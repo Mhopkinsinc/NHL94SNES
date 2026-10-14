@@ -9,6 +9,6 @@ CODE_9ED7B2:
 	ora.w #$FF80
 .1:
 	clc
-	adc.w puckx
+	adc.w $0D71
 	sta.b d0
 	bra CODE_9ED7E7

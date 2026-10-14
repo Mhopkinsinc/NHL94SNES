@@ -12,7 +12,7 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	jmp.w CODE_80CA05
 
 .t3:
-	lda.w tmscore
+	lda.w $178E
 	sec
 	sbc.w $1790
 	bne .t1x
@@ -25,7 +25,7 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	pha
 	lda.b a1
 	pha
-	lda.w tmscore
+	lda.w $178E
 	sec
 	sbc.w $1790
 	bmi .t2

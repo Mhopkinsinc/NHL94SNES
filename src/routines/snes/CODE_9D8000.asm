@@ -5,7 +5,7 @@ CODE_9D8000:
 	lda.l $7E35BC
 	clc
 	adc.l printfontset
-	ora.w printa
+	ora.w $0D0D
 	sta.b tmp0
 	lda.w #$009C
 	sta.b $0E

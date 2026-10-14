@@ -24,9 +24,9 @@ CODE_9ED755:
 .2:
 	lda.w $0D07
 	bpl CODE_9ED7B2
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi CODE_9ED7B2
-	lda.w seed
+	lda.w $0792
 	and.w #$0180
 	beq CODE_9ED7D2
 CODE_9ED793:
@@ -42,6 +42,6 @@ CODE_9ED793:
 	ror a
 	adc.b $14
 	clc
-	adc.w puckx
+	adc.w $0D71
 	sta.b d0
 	bra CODE_9ED7E7

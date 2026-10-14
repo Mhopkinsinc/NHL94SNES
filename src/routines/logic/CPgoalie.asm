@@ -4,10 +4,10 @@ CPgoalie:
 	cmp.w #$0002
 	bne .t1
 	ldy.b a1
-	lda.w tmscore,y
+	lda.w $178E,y
 	ldy.b a2
 	sec
-	sbc.w tmscore,y
+	sbc.w $178E,y
 	bmi .t1
 	beq .t1
 	cmp.w #$0003

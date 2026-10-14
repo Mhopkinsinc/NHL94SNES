@@ -48,7 +48,7 @@ CODE_9ED9A0:
 	beq CODE_9EDA04
 	cmp.w #$0006
 	beq CODE_9EDA04
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi CODE_9EDA04
 	dec.b d0
 	dec.b d0
@@ -56,7 +56,7 @@ CODE_9EDA04:
 	asl.b d0
 	lda.w #$009E
 	sta.b $8F
-	lda.w #GoalieSaveList
+	lda.w #DATA8_9EDBF4
 	sta.b a1
 	ldy.b d0
 	lda.b [a1],y
@@ -82,7 +82,7 @@ CODE_9EDA2C:
 .1:
 	lda.w #$0018
 	sta.b d0
-	lda.w puckx
+	lda.w $0D71
 	bpl CODE_9EDA51
 	lda.w #$FFE8
 	sta.b d0
@@ -92,24 +92,24 @@ CODE_9EDA51:
 	jmp.w CODE_9EDBF3
 
 .t1:
-	ldy.w puckc
+	ldy.w shotPlIdx
 	bmi CODE_9EDAA4
 	lda.w pfteam,x
 	cmp.w pfteam,y
 	beq CODE_9EDAA4
 	lda.w SPA,y
-	cmp.w #SPAshotf
+	cmp.w #$ED4A
 	bcc .t2
-	cmp.w #DATA8_9DF020+1
+	cmp.w #$F021
 	bcs .t2
-	lda.w Yvel,y
+	lda.w $0EE3,y
 	bit.w #$8000
 	beq .1
 	eor.w #$FFFF
 	inc a
 .1:
 	sta.b $00
-	lda.w Xvel,y
+	lda.w $0EC3,y
 	bit.w #$8000
 	beq .2
 	eor.w #$FFFF
@@ -120,8 +120,8 @@ CODE_9EDA51:
 	bcs .t2
 	lda.w $0BA1
 	bne CODE_9EDAA4
-	stz.w Xvel,x
-	stz.w Yvel,x
+	stz.w $0EC3,x
+	stz.w $0EE3,x
 	inc.w $0BA1
 	rtl
 
@@ -133,7 +133,7 @@ CODE_9EDAA4:
 	pha
 	lda.b d0
 	pha
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	xba
 	and.w #$00FF
 	bit.w #$0080
@@ -149,7 +149,7 @@ CODE_9EDAA4:
 	sec
 	sbc.w Xpos,x
 	sta.b d0
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	xba
 	and.w #$00FF
 	bit.w #$0080
@@ -167,7 +167,7 @@ CODE_9EDAA4:
 	sta.b d1
 	lda.w #$0005
 	sta.b tmp0
-	cpx.w puckc
+	cpx.w shotPlIdx
 	bne .3
 	asl.b tmp0
 .3:
@@ -192,11 +192,11 @@ CODE_9EDAA4:
 .6:
 	jsl.l vtoa
 	lda.b d0
-	sta.w temp2b,x
+	sta.w $10A3,x
 CODE_9EDB21:
 	ldy.w $19D4,x
 	bpl CODE_9EDB3D
-	lda.w temp2b,x
+	lda.w $10A3,x
 	sta.b d2
 	sec
 	sbc.w #$0007

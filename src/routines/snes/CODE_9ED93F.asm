@@ -12,7 +12,7 @@ CODE_9ED93F:
 	beq CODE_9ED97F
 	cmp.w #$0003
 	beq CODE_9ED97F
-	lda.w seed
+	lda.w $0792
 	and.w #$0001
 	bra CODE_9ED9A0
 

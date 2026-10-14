@@ -16,8 +16,8 @@ CODE_9E9FA6:
 	adc.b $AB
 	sta.w Ypos,y
 	lda.w #$0000
-	sta.w Xvel,y
-	sta.w Yvel,y
+	sta.w $0EC3,y
+	sta.w $0EE3,y
 	jmp.w CODE_9E9D04
 
 .t1:
@@ -36,6 +36,6 @@ CODE_9E9FA6:
 	adc.b $AB
 	sta.w Ypos,y
 	lda.w #$0000
-	sta.w Xvel,y
-	sta.w Yvel,y
+	sta.w $0EC3,y
+	sta.w $0EE3,y
 	jmp.w CODE_9E9CDB

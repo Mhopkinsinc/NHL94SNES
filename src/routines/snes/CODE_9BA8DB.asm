@@ -59,7 +59,7 @@ CODE_9BA8F1:
 	sta.w WMDATA
 	lda.w Ypos,x
 	sta.w WMDATA
-	lda.w frame,x
+	lda.w $0D97,x
 	sta.w WMDATA
 	lda.w $0D98,x
 	and.b #$3F

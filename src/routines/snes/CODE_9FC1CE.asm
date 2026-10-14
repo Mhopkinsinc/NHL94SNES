@@ -46,7 +46,7 @@ CODE_9FC1CE:
 	lda.b d1
 	bit.w #$2000
 	bne CODE_9FC299
-	cpx.w puckc
+	cpx.w shotPlIdx
 	bne .t1
 	jmp.w CODE_9FC2CE
 
@@ -74,4 +74,4 @@ CODE_9FC1CE:
 	lda.b d1
 	bit.w #$0080
 	bne CODE_9FC2B6
-	jml.l doplayeracc
+	jml.l CODE_9EA8A9

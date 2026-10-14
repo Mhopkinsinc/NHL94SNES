@@ -1,11 +1,11 @@
 ; Unidentified routine.
-linebar:
+CODE_9FDFA6:
 	jsl.l CODE_9FDF0C
-	lda.w printa
+	lda.w $0D0D
 	pha
 	phx
 	lda.w #$3000
-	sta.w printa
+	sta.w $0D0D
 	lda.b d0
 	cmp.w #$1000
 	bcc .1
@@ -37,6 +37,6 @@ linebar:
 	sta.b [a1]
 	jsl.l print
 	pla
-	sta.w printa
+	sta.w $0D0D
 org $9FE000
 	rtl

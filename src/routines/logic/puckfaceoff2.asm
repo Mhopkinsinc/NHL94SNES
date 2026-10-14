@@ -110,7 +110,7 @@ CODE_9FA90C:
 	sta.w $0DF9
 	sta.w $0D07
 	asl a
-	sta.w puckc
+	sta.w shotPlIdx
 	lda.w #$8200
 	trb.w sflags
 	lda.w #$0000
@@ -122,7 +122,7 @@ CODE_9FA90C:
 	stz.w Vpos
 	stz.w Hpos
 	lda.l $7E3136
-	sta.w puckx
+	sta.w $0D71
 	lda.l $7E3138
 	sta.w pucky
 	stz.w puckvx
@@ -208,7 +208,7 @@ CODE_9FA9EF:
 	sta.w Xpos,x
 	stz.w Ypos,x
 	lda.w #$0001
-	sta.w frame,x
+	sta.w $0D97,x
 	lda.w position,x
 	sta.b d1
 	bpl .t1
@@ -356,7 +356,7 @@ CODE_9FA9EF:
 	lda.b d0
 	sta.w Xpos,x
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	eor.w #$FFFF
 	inc a
 	sta.b d0
@@ -367,8 +367,8 @@ CODE_9FA9EF:
 	eor.w #$FFFF
 	inc a
 	sta.b d1
-	stz.w Xvel,x
-	stz.w Yvel,x
+	stz.w $0EC3,x
+	stz.w $0EE3,x
 	jsl.l vtoa
 	lda.b d0
 	sta.w facedir,x
@@ -379,14 +379,14 @@ CODE_9FA9EF:
 	stz.w SPA,x
 	lda.w position,x
 	bne .t3
-	lda.w #SPAgready
+	lda.w #$E0FE
 	bra CODE_9FAB9A
 
 .t3:
-	lda.w #SPAglide
+	lda.w #$EA1A
 CODE_9FAB9A:
 	jsl.l SetSPAFromA
-	jsl.l updateanim
+	jsl.l CODE_9EA419
 CODE_9FABA2:
 	inc.b a3
 	inc.b a3
@@ -691,11 +691,11 @@ CODE_9FADB5:
 	adc.w #$00B4
 	sta.b d0
 	ldx.b a3
-	sta.w temp1,x
+	sta.w $1003,x
 	lda.w $1E9B
 	beq .4
 	lda.w #$00B4
-	sta.w temp1,x
+	sta.w $1003,x
 .4:
 	lda.w #$0001
 	sta.l $7E312A

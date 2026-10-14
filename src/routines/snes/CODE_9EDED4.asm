@@ -19,7 +19,7 @@ CODE_9EDED4:
 	bmi .t1
 	cmp.w #$00ED
 	bpl .t1
-	lda.w seed
+	lda.w $0792
 	and.w #$0003
 	bne .t1
 	jmp.w CODE_9EED85
@@ -47,7 +47,7 @@ CODE_9EDED4:
 	bpl CODE_9EDF9B
 	cmp.w #$FF9C
 	bmi CODE_9EDF9B
-	lda.w puckx
+	lda.w $0D71
 	cmp.w #$0064
 	bpl CODE_9EDF9B
 	cmp.w #$FF9C

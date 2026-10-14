@@ -61,27 +61,27 @@ CODE_9FD252:
 	ldx.w tmsort,y
 	stx.b a3
 CODE_9FD2BC:
-	stz.w pf2aip,x
+	stz.w $1543,x
 	lda.w pflags,x
 	and.w #$2FFF
 	sta.w pflags,x
 	lda.w position,x
 	bmi CODE_9FD2F3
 	bne .t1
-	lda.w #SPAgready
+	lda.w #$E0FE
 	bra CODE_9FD2D7
 
 .t1:
-	lda.w #SPAglide
+	lda.w #$EA1A
 CODE_9FD2D7:
 	jsl.l SetSPAFromA
 	stz.w $0F23,x
-	stz.w nopuck,x
+	stz.w $1203,x
 	lda.w pflags,x
 	and.w #$FFF6
 	sta.w pflags,x
-	stz.w pfnc,x
-	stz.w pfrev,x
+	stz.w $1563,x
+	stz.w $1523,x
 	stz.w pfalock,x
 CODE_9FD2F3:
 	inc.b a3

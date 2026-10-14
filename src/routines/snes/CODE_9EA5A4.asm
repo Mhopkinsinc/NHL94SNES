@@ -1,21 +1,21 @@
 ; Unidentified routine.
 CODE_9EA5A4:
-	lda.w temp2,x
+	lda.w $1023,x
 	sec
 	sbc.w $0ADB
-	sta.w temp2,x
+	sta.w $1023,x
 	bmi .t2
 	jmp.w CODE_9EA694
 
 .t2:
 	adc.w #$000C
-	sta.w temp2,x
+	sta.w $1023,x
 	lda.b d0
 	sta.b $A7
 	lda.b d1
 	sta.b $AB
 	jsl.l CODE_9EAB74
-	lda.w Xvel,x
+	lda.w $0EC3,x
 	xba
 	and.w #$00FF
 	bit.w #$0080
@@ -30,7 +30,7 @@ CODE_9EA5A4:
 	sec
 	sbc.w Xpos,x
 	sta.b d0
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	xba
 	and.w #$00FF
 	bit.w #$0080
@@ -55,8 +55,8 @@ CODE_9EA5A4:
 	pha
 	lda.b d1
 	pha
-	ldy.w Xvel,x
-	lda.w Yvel,x
+	ldy.w $0EC3,x
+	lda.w $0EE3,x
 	jsl.l CODE_9CA554
 	pha
 	lda.b $14

@@ -7,7 +7,7 @@ CODE_9EE220:
 	trb.w sflags
 	sta.w pfalock,x
 	stx.w $0D29
-	cpx.w puckc
+	cpx.w shotPlIdx
 	beq .t2
 	jmp.w CODE_9EE408
 
@@ -17,7 +17,7 @@ CODE_9EE220:
 	lda.w #$1000
 	tsb.w sflags
 	lda.w SPA,x
-	cmp.w #SPAshotb
+	cmp.w #$EE5C
 	bne .1
 	lda.w #$0001
 	sta.b $01,s
@@ -57,9 +57,9 @@ CODE_9EE220:
 .3:
 	ldx.b $E4
 	lda.w #$FFFF
-	sta.w puckc
+	sta.w shotPlIdx
 	lda.w #$0010
-	sta.w nopuck,x
+	sta.w $1203,x
 	txa
 	lsr a
 	sta.w $0CF3
@@ -79,7 +79,7 @@ CODE_9EE220:
 	sta.b a0
 	lda.b [a0],y
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	sta.b d0
 	iny
 	iny

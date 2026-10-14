@@ -2,7 +2,7 @@
 check4check:
 	lda.w #$0014
 	sec
-	sbc.w aggress,x
+	sbc.w $1483,x
 	sta.b d0
 	lda.l OptPen
 	beq .1
@@ -28,9 +28,9 @@ CODE_9EA19B:
 	lda.w position,y
 	beq CODE_9EA1B4
 	lda.w SPA,y
-	cmp.w #DATA8_9DF3A6
+	cmp.w #$F3A6
 	bcc .3
-	cmp.w #DATA8_9DF46A+1
+	cmp.w #$F46B
 	bcc CODE_9EA1BD
 .3:
 	lda.w pfalock,y

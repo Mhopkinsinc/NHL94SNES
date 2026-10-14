@@ -15,7 +15,7 @@ CODE_9EBF11:
 	sta.w Ypos,x
 	lda.w #$0088
 	sta.w Xpos,x
-	jsl.l assdopen
+	jsl.l CODE_9EBEDF
 .1:
 	inx
 	inx

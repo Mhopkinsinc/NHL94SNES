@@ -10,20 +10,20 @@ CODE_9E858C:
 	beq .1
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w temp1,x
-	stz.w temp2,x
+	stz.w $1003,x
+	stz.w $1023,x
 	lda.w #$0008
-	sta.w temp2b,x
+	sta.w $10A3,x
 .1:
-	lda.w temp1,x
+	lda.w $1003,x
 	sec
 	sbc.b d7
-	sta.w temp1,x
+	sta.w $1003,x
 	bpl .2
-	lda.w aidef,x
-	sta.w temp1,x
+	lda.w $1343,x
+	sta.w $1003,x
 .2:
-	lda.w puckx
+	lda.w $0D71
 	pha
 	asl a
 	pla
@@ -68,6 +68,14 @@ CODE_9E858C:
 CODE_9E860B:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #rtss
+	lda.w #CODE_9ED0FC
 	sta.b a0
 	jmp.w CODE_9EA5A4
+	ldy.w shotPlIdx
+	bmi CODE_9E8631
+	lda.w pfteam,x
+	cmp.w pfteam,y
+	bne CODE_9E8631
+	lda.w #$0001
+	sta.b d0
+	jmp.w assreplace

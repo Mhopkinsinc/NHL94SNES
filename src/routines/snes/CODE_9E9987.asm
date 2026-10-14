@@ -31,7 +31,7 @@ CODE_9E9987:
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w puckx
+	sbc.w $0D71
 	bit.w #$8000
 	beq .3
 	eor.w #$FFFF

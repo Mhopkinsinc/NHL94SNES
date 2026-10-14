@@ -71,7 +71,7 @@ CODE_9F8D0B:
 	lda.w #$0004
 	sta.w gsp
 .2:
-	lda.w tmscore
+	lda.w $178E
 	cmp.w $1790
 	beq .3
 	lda.w #$0004

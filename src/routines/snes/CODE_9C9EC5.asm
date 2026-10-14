@@ -10,10 +10,10 @@ CODE_9C9EC5:
 	stz.b a1
 .1:
 	ldy.b a2
-	lda.w tmscore,y
+	lda.w $178E,y
 	ldy.b a1
 	sec
-	sbc.w tmscore,y
+	sbc.w $178E,y
 	sta.b d0
 	lda.w #$0000
 	sbc.w #$0000

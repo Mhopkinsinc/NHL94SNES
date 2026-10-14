@@ -13,23 +13,23 @@ CODE_9E882A:
 	beq .1
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w temp1,x
-	stz.w temp2,x
+	stz.w $1003,x
+	stz.w $1023,x
 	lda.w #$0008
-	sta.w temp2b,x
+	sta.w $10A3,x
 .1:
-	lda.w temp1,x
+	lda.w $1003,x
 	sec
 	sbc.b d7
-	sta.w temp1,x
+	sta.w $1003,x
 	bpl .4
 	clc
-	adc.w aioff,x
+	adc.w $1323,x
 	bpl .3
 .2:
 	lda.w #$0000
 .3:
-	sta.w temp1,x
+	sta.w $1003,x
 .4:
 	lda.w #$009E
 	sta.b $8B
@@ -49,17 +49,17 @@ CODE_9E882A:
 	tay
 .6:
 	sty.b d0
-	lda.w puckx
+	lda.w $0D71
 	eor.b d0
 	bmi .t3
-	lda.w puckx
+	lda.w $0D71
 	bra CODE_9E88A8
 
 .t1:
 	rtl
 
 .t3:
-	lda.w puckx
+	lda.w $0D71
 	pha
 	asl a
 	pla

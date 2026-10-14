@@ -60,7 +60,7 @@ NewTicker3:
 	pha
 	jsl.l GetShifter
 	lda.w #$2400
-	sta.w printa
+	sta.w $0D0D
 	lda.b $8F
 	pha
 	lda.b a1
@@ -102,7 +102,7 @@ NewTicker3:
 	sta.b a1
 	jsl.l CODE_9ECFC6
 	lda.w #$2000
-	sta.w printa
+	sta.w $0D0D
 	ldx.b a0
 	lda.l $7E3528,x
 	sta.b d0

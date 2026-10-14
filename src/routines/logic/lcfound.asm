@@ -4,7 +4,7 @@ lcfound:
 	ldy.b a2
 	lda.b d2
 	sta.b d0
-	sta.w tmlcchoice,y
+	sta.w $17E6,y
 	jsl.l getlchoice
 	lda.b d0
 	bmi .t1

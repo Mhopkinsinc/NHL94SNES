@@ -8,7 +8,7 @@ checkwindow:
 	bit.w #$0040
 	bne CODE_9FC102
 	ldx.w #$001C
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi CODE_9FC0DB
 	tax
 	lda.w pfgoal,x
@@ -32,7 +32,7 @@ checkwindow:
 	lda.w #$FFCE
 	sta.w $0D4F
 CODE_9FC0DB:
-	lda.w Yvel,x
+	lda.w $0EE3,x
 	lsr a
 	lsr a
 	lsr a

@@ -5,7 +5,7 @@ CODE_9E90AE:
 	jmp.w CODE_9E92F8
 
 .t3:
-	ldy.w puckc
+	ldy.w shotPlIdx
 	bmi .1
 	lda.w position,y
 	beq .t1
@@ -52,13 +52,13 @@ CODE_9E90AE:
 
 .t2:
 	stz.w $14DF
-	lda.w puckc
+	lda.w shotPlIdx
 	bmi .2
 	tay
 	lda.w #$FFFF
-	sta.w puckc
+	sta.w shotPlIdx
 	lda.w #$0008
-	sta.w nopuck,y
+	sta.w $1203,y
 	lda.w pucky
 	sta.b d1
 	lda.w pfgoal,y
