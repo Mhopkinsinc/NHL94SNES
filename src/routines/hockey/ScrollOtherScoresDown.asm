@@ -1,6 +1,6 @@
 ; Scroll the other-scores list down one page.
 ScrollOtherScoresDown:
-	jsr.w CODE_9BC4F3
+	jsr.w ClearOtherScoreBraces
 	lda.w #$0006
 	sta.w $1DC5
 	jsl.l DrawOtherScoresPage

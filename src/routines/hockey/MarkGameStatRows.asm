@@ -1,5 +1,7 @@
-; Unidentified routine.
-CODE_9C8F36:
+; Draw the braces around the visible game-stat rows.
+MarkGameStatRows:
+	lda.w $1DBD
+	beq .1
 	lda.w #$0001
 	sta.w printx
 	lda.w $1DBD
@@ -9,9 +11,15 @@ CODE_9C8F36:
 	sta.w $0D0D
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$9369
+	lda.w #LineBraces
 	sta.b a1
 	jsl.l CODE_9EC894
+.1:
+	lda.w $1DBD
+	clc
+	adc.w $1DC5
+	cmp.w $1DA3
+	beq .2
 	lda.w #$0001
 	sta.w printx
 	lda.w $1DBD
@@ -23,24 +31,10 @@ CODE_9C8F36:
 	sta.w $0D0D
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$9369
+	lda.w #LineBraces+3
 	sta.b a1
 	jsl.l CODE_9EC894
-	rts
-
-.t1:
-	lda.w $1DBD
-	xba
-	lsr a
-	adc.w #$2780
-	sta.b $0C
-	lda.w #$007F
-	sta.b $0E
-	lda.w $1DC5
-	inc a
-	xba
-	lsr a
-	tax
-	ldy.w #$0180
-	jsl.l CODE_80891F
-	rts
+.2:
+	jsr.w CODE_808F7D
+	jsl.l WaitFrame
+	jmp.w GameStatsInput

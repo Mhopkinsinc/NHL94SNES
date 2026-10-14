@@ -98,7 +98,7 @@ CODE_9BC2E4:
 	sta.w $0D0D
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$9366
+	lda.w #LineBraces+3
 	sta.b a1
 	jsl.l CODE_9EC894
 .4:

@@ -3816,3 +3816,12 @@ $9B865F,WaitButtonRelease,CODE_9B865F,new,AskExitGame and EditLinesMenu call it 
 $9BC3DA,ScrollOtherScoresUp,CODE_9BC3DA,new,Up from ShowOtherScores,src/routines/hockey/ScrollOtherScoresUp.asm
 $9BC35C,ScrollOtherScoresDown,CODE_9BC35C,new,Down from ShowOtherScores,src/routines/hockey/ScrollOtherScoresDown.asm
 $9BC49A,FillOtherScores,CODE_9BC49A,new,ShowOtherScores calls it before drawing the page,src/routines/hockey/FillOtherScores.asm
+$9C8DFE,GameStatsInput,CODE_9C8DFE,new,ShowGameStats reaches this through MarkGameStatRows,src/routines/hockey/GameStatsInput.asm
+$9C8E3A,MarkGameStatRows,CODE_9C8E3A,new,"prints LineBraces and the closing brace, then enters GameStatsInput",src/routines/hockey/MarkGameStatRows.asm
+$9C8E9C,ScrollGameStatsUp,CODE_9C8E9C,new,Up from GameStatsInput,src/routines/hockey/ScrollGameStatsUp.asm
+$9C8EDD,ScrollGameStatsDown,CODE_9C8EDD,new,Down from GameStatsInput,src/routines/hockey/ScrollGameStatsDown.asm
+$9C8858,ClearPlayerStatBraces,CODE_9C8858,new,prints the blank from LineBraces before the player-stat window moves,src/routines/hockey/ClearPlayerStatBraces.asm
+$9C8F36,ClearGameStatBraces,CODE_9C8F36,new,prints the blank from LineBraces before the game-stat window moves,src/routines/hockey/ClearGameStatBraces.asm
+$9BC4F3,ClearOtherScoreBraces,CODE_9BC4F3,new,prints the blank from LineBraces before that window moves,src/routines/hockey/ClearOtherScoreBraces.asm
+$9C9366,LineBraces+3,#$9366,new,"closing brace, the second string in LineBraces",src/data/text/LineBraces.asm
+$9C9369,LineBraces+6,#$9369,new,"blank that erases a brace, the third string in LineBraces",src/data/text/LineBraces.asm

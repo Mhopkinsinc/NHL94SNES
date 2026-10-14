@@ -1,9 +1,9 @@
-; Unidentified routine.
-CODE_9C8E9C:
-	jsr.w CODE_9C8F36
+; Scroll the game stats up one row.
+ScrollGameStatsUp:
+	jsr.w ClearGameStatBraces
 	lda.w $1DBD
 	dec a
-	bmi CODE_9C8E3A
+	bmi MarkGameStatRows
 	sta.w $1DBD
 	inc.w $1DC5
 	jsr.w CODE_808F7D
