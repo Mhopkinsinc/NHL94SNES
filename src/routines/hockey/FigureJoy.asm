@@ -93,7 +93,7 @@ FigureJoy:
 	tay
 	lda.w #$009D
 	sta.b $8B
-	lda.w #$9A48
+	lda.w #.5+32
 	sta.b a0
 	iny
 	iny

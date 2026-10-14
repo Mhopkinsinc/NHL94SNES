@@ -126,7 +126,7 @@ CODE_9FEBA5:
 CODE_9FEBA6:
 	lda.w #$009F
 	sta.b $97
-	lda.w #$EC7E
+	lda.w #DATA8_9FEC72+12
 	sta.b a3
 	lda.w $1EB7
 	asl a
@@ -161,7 +161,7 @@ CODE_9FEBA6:
 CODE_9FEBEB:
 	lda.w #$009F
 	sta.b $97
-	lda.w #$EC8A
+	lda.w #DATA8_9FEC72+24
 	sta.b a3
 	lda.w $1EB7
 	asl a

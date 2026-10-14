@@ -87,7 +87,7 @@ DrawPlayerCard:
 .t2x:
 	lda.w #$009D
 	sta.b $8F
-	lda.w #$C2B0
+	lda.w #RosterGroups+18
 	sta.b a1
 	lda.b [a1]
 	dec a
@@ -111,7 +111,7 @@ DrawPlayerCard:
 	jsl.l CODE_9C9590
 	lda.w #$009D
 	sta.b $8F
-	lda.w #$C4E8
+	lda.w #RatingNames+178
 	sta.b a1
 	lda.w $1E79
 	sta.b d0
@@ -126,7 +126,7 @@ DrawPlayerCard:
 	jsl.l CODE_9C9590
 	lda.w #$009D
 	sta.b $8F
-	lda.w #$C4E8
+	lda.w #RatingNames+178
 	sta.b a1
 	lda.w $1E7D
 	sta.b d0
@@ -147,7 +147,7 @@ DrawPlayerCard:
 	jsl.l CODE_9C9590
 	lda.w #$009D
 	sta.b $8F
-	lda.w #$C4E8
+	lda.w #RatingNames+178
 	sta.b a1
 	lda.w $1E81
 	sta.b d0
@@ -190,7 +190,7 @@ org $9DC002
 .t1x2:
 	lda.w #$009D
 	sta.b $8F
-	lda.w #$C2A7
+	lda.w #RosterGroups+9
 	sta.b a1
 .3:
 	lda.b [a1]

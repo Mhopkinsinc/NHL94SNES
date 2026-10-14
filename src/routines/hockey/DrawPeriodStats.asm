@@ -163,7 +163,7 @@ DrawPeriodStats:
 	ldy.w #$0040
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F7C9
+	lda.w #TotalShotsLine+7
 	sta.b a1
 	jsl.l PrintLetterSprites
 	lda.b $8F
@@ -172,7 +172,7 @@ DrawPeriodStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F7D0
+	lda.w #TotalShotsLine+14
 	sta.b a1
 	jsl.l print
 	pla

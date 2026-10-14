@@ -705,3 +705,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - asstab tail split into PuckcSpots and the PixelRemap tables. MATCH.
 - EvadePC and the skateto callback labels. MATCH.
 - PenaltyList tail split into sublist, priolist, linelist, PerLabels. MATCH.
+- Raw pointer immediates as label+offset. MATCH.

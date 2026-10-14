@@ -10,7 +10,7 @@ PrintCopyright:
 	jsl.l CODE_9C9415
 	lda.w #$0080
 	sta.b $8F
-	lda.w #$E2F7
+	lda.w #CopyrightLines+23
 	sta.b a1
 	lda.w #$0000
 	ldx.w #$0080

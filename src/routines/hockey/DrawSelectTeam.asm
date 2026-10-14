@@ -45,7 +45,7 @@ DrawSelectTeam:
 	ldy.w #$0000
 	lda.w #$009A
 	sta.b $93
-	lda.w #$E9A3
+	lda.w #DATA8_9AE99D+6
 	sta.b a2
 	lda.w printy
 	asl a

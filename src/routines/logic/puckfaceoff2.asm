@@ -634,7 +634,7 @@ puckfaceoff2:
 .t1xxx:
 	lda.w #$009C
 	sta.b $8F
-	lda.w #$F8C2
+	lda.w #ShootoutPenShot+10
 	sta.b a1
 	jsl.l printbig
 .17:

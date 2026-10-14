@@ -95,13 +95,13 @@ CompLine:
 	php
 	lda.w #$009F
 	sta.b $8B
-	lda.w #$DB42
+	lda.w #.5+14
 	sta.b a0
 	plp
 	bpl .1x
 	lda.w #$009F
 	sta.b $8B
-	lda.w #$DB50
+	lda.w #.5+28
 	sta.b a0
 .1x:
 	ldy.b a1
@@ -142,13 +142,13 @@ CompLine:
 	php
 	lda.w #$009F
 	sta.b $8B
-	lda.w #$DBC4
+	lda.w #.7+6
 	sta.b a0
 	plp
 	bpl .1xx
 	lda.w #$009F
 	sta.b $8B
-	lda.w #$DBCA
+	lda.w #.7+12
 	sta.b a0
 .1xx:
 	lda.b [a0]

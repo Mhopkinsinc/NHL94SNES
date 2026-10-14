@@ -53,7 +53,7 @@ PushRef:
 	sta.b tmp1
 	lda.w #$0095
 	sta.b $8B
-	lda.w #$DB94
+	lda.w #DATA8_95DB8E+6
 	sta.b a0
 .2:
 	lda.b a0

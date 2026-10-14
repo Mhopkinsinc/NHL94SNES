@@ -11,7 +11,7 @@ CODE_9ECCA1:
 	jsl.l appstring
 	lda.w #$009E
 	sta.b $8F
-	lda.w #$CC9A
+	lda.w #ScoutFragments+18
 	sta.b a1
 	lda.w $1E41
 	cmp.w #$000D

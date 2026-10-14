@@ -37,35 +37,35 @@ CODE_9FEA24:
 .t2:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #$ED68
+	lda.w #PauseMenuItems+210
 	sta.b a0
 	bra .t7
 
 .t3:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #$EE43
+	lda.w #PauseMenuItems+429
 	sta.b a0
 	bra .t7
 
 .t4:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #$EF08
+	lda.w #PauseMenuItems+626
 	sta.b a0
 	bra .t7
 
 .t5:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #$EF72
+	lda.w #PauseMenuItems+732
 	sta.b a0
 	bra .t7
 
 .t6:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #$EFBE
+	lda.w #PauseMenuItems+808
 	sta.b a0
 	bra .t7
 
