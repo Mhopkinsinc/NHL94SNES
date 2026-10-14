@@ -6,27 +6,27 @@ CODE_9B9BA5:
 	asl a
 	asl a
 	stz.b $A7
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9BB3BE
-	lda.b $A5
+	lda.b d0
 	clc
 	adc.w #$0041
 	cmp.w #$0080
-	bcc CODE_9B9BC2
+	bcc .1
 	lda.w #$0080
-CODE_9B9BC2:
-	sta.b $A5
+.1:
+	sta.b d0
 	cmp.w $19C4
-	bmi CODE_9B9BCC
+	bmi .2
 	sta.w $19C4
-CODE_9B9BCC:
+.2:
 	lda.w $19CA
 	clc
-	adc.b $A5
+	adc.b d0
 	sta.w $19CA
-	bcc CODE_9B9BDA
+	bcc .3
 	inc.w $19CC
-CODE_9B9BDA:
+.3:
 	inc.w $19C8
 	lda.w $19CC
 	sta.b $0A

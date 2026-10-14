@@ -1,8 +1,11 @@
 ; Unidentified routine.
 CODE_9EE891:
 	lda.w puckc
-	bmi CODE_9EE89E
-CODE_9EE896:
+	bmi .t1
+.1:
 	cpx.w puckc
-	beq CODE_9EE89E
-	jmp.w $E77E
+	beq .t1
+	jmp.w CODE_9EE77E
+
+.t1:
+	rtl

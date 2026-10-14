@@ -7,15 +7,15 @@ CODE_9D9C2A:
 	tax
 	lda.w #$0008
 	sta.b $00
-CODE_9D9C34:
+.loop:
 	ldy.b $04
 	lda.b [$10],y
 	ldy.b $16
 	iny
-CODE_9D9C3B:
+.loop2:
 	asl a
 	dey
-	bne CODE_9D9C3B
+	bne .loop2
 	ldy.b $0A
 	and.w DATA8_9D9B7B,y
 	sta.l $7E4EF4,x
@@ -24,7 +24,7 @@ CODE_9D9C3B:
 	inc.b $04
 	inc.b $04
 	dec.b $00
-	bne CODE_9D9C34
+	bne .loop
 	rts
 	lda.w printy
 	asl a
@@ -55,7 +55,7 @@ CODE_9D9C3B:
 	tax
 	lda.l $7E3466
 	ora.w #$2000
-	ora.w #$0400
+	ora.w #DMA_OAM
 	sta.l $7EA67C,x
 	inc a
 	sta.l $7EA6BC,x

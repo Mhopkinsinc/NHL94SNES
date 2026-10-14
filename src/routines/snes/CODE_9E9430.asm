@@ -2,36 +2,36 @@
 CODE_9E9430:
 	pla
 	pla
-	lda.b $A5
+	lda.b d0
 	lsr a
 	lsr a
 	lsr a
 	bit.w #$1000
-	beq CODE_9E943F
+	beq .1
 	ora.w #$E000
-CODE_9E943F:
-	sta.b $A5
+.1:
+	sta.b d0
 	cmp.w #$8000
 	ror a
 	clc
-	adc.b $A5
-	sta.b $A5
-	ldy.b $91
+	adc.b d0
+	sta.b d0
+	ldy.b a2
 	sta.w Xvel,y
-	lda.b $A9
+	lda.b d1
 	lsr a
 	lsr a
 	lsr a
 	bit.w #$1000
-	beq CODE_9E945C
+	beq .2
 	ora.w #$E000
-CODE_9E945C:
-	sta.b $A9
+.2:
+	sta.b d1
 	cmp.w #$8000
 	ror a
 	clc
-	adc.b $A9
-	sta.b $A9
+	adc.b d1
+	sta.b d1
 	sta.w Yvel,y
 	stz.w Xvel,x
 	stz.w Yvel,x
@@ -41,5 +41,5 @@ CODE_9E945C:
 	bne CODE_9E942F
 	pla
 	lda.w #$0008
-	sta.b $A5
-	jmp.w $B88A
+	sta.b d0
+	jmp.w CODE_9EB88A

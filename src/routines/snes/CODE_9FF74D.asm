@@ -20,4 +20,4 @@ CODE_9FF74D:
 	jsl.l SpriteFrameEnd
 	lda.w #$000A
 	sta.b $B7
-	jmp.w $F898
+	jmp.w CODE_9FF898

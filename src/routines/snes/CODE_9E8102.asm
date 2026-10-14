@@ -5,16 +5,16 @@ CODE_9E8102:
 	lda.w position,y
 	bne CODE_9E8136
 	lda.w puckx
-	sta.b $A5
+	sta.b d0
 	lda.w #$0058
 	ldy.w pfgoal,x
-	bne CODE_9E811C
+	bne .1
 	lda.w #$FFA8
-CODE_9E811C:
-	sta.b $A9
+.1:
+	sta.b d1
 	lda.w #$009E
 	sta.b $8B
 	lda.w #rtss
-	sta.b $89
+	sta.b a0
 	jsl.l CODE_9EA5A4
-	jmp.w $A164
+	jmp.w check4check

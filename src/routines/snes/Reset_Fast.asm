@@ -14,39 +14,39 @@ Reset_Fast:
 	stz.w OAMDATA
 	stz.w OAMDATA
 	ldx.w #BGMODE
-CODE_80804D:
+.loop:
 	stz.b $00,x
 	inx
 	cpx.w #BG1HOFS
-	bne CODE_80804D
-CODE_808055:
+	bne .loop
+.loop2:
 	stz.b $00,x
 	stz.b $00,x
 	inx
 	cpx.w #VMAIN
-	bne CODE_808055
+	bne .loop2
 	lda.b #$80
 	sta.w VMAIN
 	inx
-CODE_808065:
+.loop3:
 	stz.b $00,x
 	inx
 	cpx.w #M7A
-	bne CODE_808065
+	bne .loop3
 	ldy.w #$0000
-CODE_808070:
+.loop4:
 	stz.b $00,x
 	lda.w Mode7Identity,y
 	sta.b $00,x
 	iny
 	inx
 	cpx.w #CGADD
-	bne CODE_808070
-CODE_80807E:
+	bne .loop4
+.loop5:
 	stz.b $00,x
 	inx
 	cpx.w #CGWSEL
-	bne CODE_80807E
+	bne .loop5
 	lda.b #$30
 	sta.w CGWSEL
 	stz.w CGADSUB
@@ -65,11 +65,11 @@ CODE_80807E:
 	lda.b #$FF
 	sta.w WRIO
 	ldx.w #WRMPYA
-CODE_8080B4:
+.loop6:
 	stz.b $00,x
 	inx
 	cpx.w #HDMAEN
-	bne CODE_8080B4
+	bne .loop6
 	rep #$20
 	lda.w #SoundDriver
 	sta.b $0C
@@ -79,45 +79,45 @@ CODE_8080B4:
 	rep #$20
 	lda.w #$0000
 	tax
-CODE_8080D1:
+.loop7:
 	sta.l $7E0000,x
 	sta.l $7F0000,x
 	dex
 	dex
-	bne CODE_8080D1
+	bne .loop7
 	sep #$20
 	ldx.w #$0005
-CODE_8080E2:
+.loop8:
 	lda.w InitTag,x
 	sta.w $0796,x
 	sta.w $1EBD,x
-	sta.l $7EE676,x
+	sta.l ReplayBufferEnd,x
 	dex
-	bpl CODE_8080E2
+	bpl .loop8
 	ldx.w #$0010
-	beq CODE_808102
-CODE_8080F7:
+	beq .1
+.loop9:
 	lda.l $80FEFF,x
 	sta.l $7EE67B,x
 	dex
-	bne CODE_8080F7
-CODE_808102:
+	bne .loop9
+.1:
 	jsl.l CODE_9F8282
 	sep #$20
 	rep #$10
 	lda.b #$8F
 	sta.w $0762
 	ldx.w #$000C
-CODE_808112:
+.loop10:
 	lda.w InitHooks,x
 	sta.w $0789,x
 	dex
-	bpl CODE_808112
+	bpl .loop10
 	ldx.w #$0024
-CODE_80811E:
+.loop11:
 	stz.w $0764,x
 	dex
-	bpl CODE_80811E
+	bpl .loop11
 	rep #$20
 	lda.w #$0000
 	tax

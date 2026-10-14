@@ -2,8 +2,8 @@
 WaitFrame:
 	pha
 	lda.w $0764
-CODE_808587:
+.loop:
 	cmp.w $0764
-	beq CODE_808587
+	beq .loop
 	pla
 	rtl

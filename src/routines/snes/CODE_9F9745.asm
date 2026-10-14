@@ -1,36 +1,73 @@
 ; Unidentified routine.
 CODE_9F9745:
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
-CODE_9F974A:
-	lda.b $A5,x
+.loop:
+	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0014
-	bne CODE_9F974A
-	ldx.b $87
-	lda.b $89
+	bne .loop
+	ldx.b xsave
+	lda.b a0
 	pha
 	lda.b $8B
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.b $8F
 	pha
 	lda.b $08
 	pha
-	jsl.l CODE_9FC372
-	jsl.l CODE_9EC7BE
+	jsl.l PlayerNumName
+	jsl.l print
 	pla
 	sta.b $08
 	lda.w #$0019
 	sta.w printx
 	lda.l $7E346A
-	bne CODE_9F977F
+	bne .1
 	inc.w printx
-CODE_9F977F:
-	lda.b $B5
+.1:
+	lda.b d4
 	cmp.w #$0003
-	bcs CODE_9F9789
-	jmp.w $9794
+	bcs .t1
+	jmp.w CODE_9F9794
+
+.t1:
+	lda.w #$0001
+	sta.l $7E35F2
+	jsl.l CODE_9F992E
+CODE_9F9794:
+	lda.w #$009F
+	sta.b $8B
+	lda.w #DATA8_9F97CE
+	sta.b a0
+	ldy.b d4
+	lda.b [a0],y
+	clc
+	adc.b a0
+	sta.b a0
+	sta.w $1D5A
+	lda.b $8A
+	sta.w $1D5B
+	jsl.l $001D59
+	pla
+	sta.b $8F
+	pla
+	sta.b a1
+	pla
+	sta.b $8B
+	pla
+	sta.b a0
+	stx.b xsave
+	ldx.w #$0012
+.loop:
+	pla
+	sta.b d0,x
+	dex
+	dex
+	bpl .loop
+	ldx.b xsave
+	rtl

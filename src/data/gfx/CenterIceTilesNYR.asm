@@ -4,4 +4,4 @@ CenterIceTilesNYR:	; the New York Rangers centre ice logo: linear 4bpp tiles pac
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$40
-	incbin "CenterIceNYR.lin.huf":5..265
+	incbin "../../../Extracted/data/gfx/CenterIceNYR.lin.huf":5..265

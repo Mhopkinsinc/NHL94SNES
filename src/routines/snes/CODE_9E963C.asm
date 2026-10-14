@@ -6,11 +6,11 @@ CODE_9E963C:
 	cmp.w #SPAburst+1
 	bcc CODE_9E9633
 CODE_9E9649:
-	lda.b $B5
+	lda.b d4
 	clc
 	adc.w $0F23,x
 	sta.w $0F23,x
-	lda.b $B5
+	lda.b d4
 	clc
 	adc.w $0F23,y
 	sta.w $0F23,y
@@ -18,37 +18,144 @@ CODE_9E9649:
 	sta.w $0F03,y
 	tya
 	sta.w $0F03,x
-	lda.b $B5
+	lda.b d4
 	cmp.w #$0014
-	bcc CODE_9E9678
+	bcc .2
 	cpx.w puckc
-	beq CODE_9E9674
+	beq .1
 	cpy.w puckc
-	bne CODE_9E9678
-CODE_9E9674:
+	bne .2
+.1:
 	jsl.l CODE_9E9B0E
-CODE_9E9678:
-	lda.b $A9
+.2:
+	lda.b d1
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
-	lda.b $B1
+	lda.b d3
 	pha
 	jsl.l CODE_9EBA4F
 	jsl.l CODE_9E9FF9
 	pla
-	sta.b $B1
+	sta.b d3
 	pla
-	sta.b $AD
+	sta.b d2
 	pla
-	sta.b $A9
+	sta.b d1
 CODE_9E9692:
-	lda.b $A9
-	sta.b $B5
+	lda.b d1
+	sta.b d4
 	pla
-	sta.b $A5
+	sta.b d0
 	pla
-	sta.b $A9
+	sta.b d1
 	lda.w $0CDB
-	bpl CODE_9E96A4
-	jmp.w $976E
+	bpl .t1
+	jmp.w CODE_9E976E
+
+.t1:
+	lda.b d2
+	ldx.b d1
+	jsl.l CODE_808FEB
+	lda.b $0A
+	sta.b $AB
+	lda.b $08
+	sta.b d1
+	lda.b d3
+	ldx.b d0
+	jsl.l CODE_808FEB
+	lda.b $08
+	sec
+	sbc.b d1
+	sta.b d1
+	lda.b $0A
+	sbc.b $AB
+	sta.b $AB
+	lda.b $AA
+	sta.b d5
+	ldx.b a3
+	lda.w $12C3,x
+	clc
+	adc.w #$008C
+	sta.b d0
+	ldy.b a2
+	lda.w $12C3,y
+	clc
+	adc.w #$008C
+	sta.b d1
+	lda.b d1
+	clc
+	adc.b d0
+	sta.b d1
+	lda.b d0
+	ldx.b d4
+	jsl.l CODE_808FC9
+	lda.b d1
+	sta.b $04
+	jsl.l Div32S
+	lda.b $00
+	sta.b d0
+	sta.b d1
+	lda.b d3
+	ldx.b d5
+	jsl.l CODE_808FEB
+	lda.b $08
+	sta.b tmp0
+	lda.b d2
+	ldx.b d0
+	jsl.l CODE_808FEB
+	lda.b $08
+	clc
+	adc.b tmp0
+	ldx.b a3
+	clc
+	adc.w Xvel,y
+	sta.w Xvel,x
+	lda.b d2
+	ldx.b d5
+	jsl.l CODE_808FEB
+	lda.b $08
+	sta.b tmp0
+	lda.b d3
+	ldx.b d0
+	jsl.l CODE_808FEB
+	lda.b $08
+	sec
+	sbc.b tmp0
+	ldx.b a3
+	clc
+	adc.w Yvel,y
+	sta.w Yvel,x
+	lda.b d2
+	ldx.b d1
+	jsl.l CODE_808FEB
+	lda.b $08
+	clc
+	adc.w Xvel,y
+	sta.w Xvel,y
+	lda.b d3
+	ldx.b d1
+	jsl.l CODE_808FEB
+	lda.b $08
+	clc
+	adc.w Yvel,y
+	sta.w Yvel,y
+	ldx.b a3
+	lda.w #$FFFF
+	sta.w $0CDB
+CODE_9E976E:
+	pla
+	sta.b d5
+	pla
+	sta.b d4
+	pla
+	sta.b d3
+	pla
+	sta.b d2
+	pla
+	sta.b $AB
+	pla
+	sta.b d1
+	pla
+	sta.b d0
+	rtl

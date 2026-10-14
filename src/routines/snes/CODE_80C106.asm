@@ -47,7 +47,7 @@ CODE_80C122:
 	asl a
 	dey
 	beq CODE_80C150
-CODE_80C13E:
+.1:
 	asl a
 	dey
 	beq CODE_80C14D

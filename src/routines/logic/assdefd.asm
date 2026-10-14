@@ -6,5 +6,5 @@ assdefd:
 	cmp.w pfteam,y
 	bne CODE_9E8631
 	lda.w #$0001
-	sta.b $A5
-	jmp.w $8C18
+	sta.b d0
+	jmp.w assreplace

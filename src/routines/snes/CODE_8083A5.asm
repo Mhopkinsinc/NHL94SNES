@@ -12,7 +12,7 @@ CODE_8083A5:
 	lda.b #$7E
 	sta.w A1B0
 	rep #$20
-	lda.w #$0400
+	lda.w #DMA_OAM
 	sta.w DMAP0
 	lda.w OAMShowBuf
 	sta.w A1T0L
@@ -31,19 +31,23 @@ CODE_8083DD:
 	lda.b $83
 	adc.w #$0001
 	sta.b $83
-	bcc CODE_8083F7
-CODE_8083F5:
+	bcc .2
+.1:
 	inc.b $85
-CODE_8083F7:
+.2:
 	lda.w $0AD1
 	beq CODE_80843E
 	bmi CODE_80841F
 	cmp.w #$0001
-	bne CODE_808415
+	bne .t1
 	lda.w $0AD3
 	cmp.w #$000F
 	bcs CODE_808435
 	lda.w STAT77
 	bmi CODE_80843E
 	inc.w $0AD3
+	bra CODE_80843E
+
+.t1:
+	dec.w $0AD1
 	bra CODE_80843E

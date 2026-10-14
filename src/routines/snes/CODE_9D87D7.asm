@@ -26,7 +26,7 @@ CODE_9D87D7:
 	rep #$30
 	lda.w #$FF00
 	sta.l $7E35AA
-	sta.l $7E35A8
+	sta.l printfontset
 	lda.w #$0000
 	sta.l $7E35AC
 	lda.l $7E35D0
@@ -59,37 +59,37 @@ CODE_9D87D7:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	clc
 	adc.l $7E35C0
 	sta.l $7E35C0
-	lda.b $A5
+	lda.b d0
 	clc
 	adc.l $7E35B6
 	sta.l $7E35BC
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3D7
-	sta.b $8D
+	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3E7
-	sta.b $8D
+	sta.b a1
 	lda.w #$0004
-	sta.b $A5
+	sta.b d0
 	clc
 	adc.l $7E35C0
 	sta.l $7E35C0
-	lda.b $A5
+	lda.b d0
 	clc
 	adc.l $7E35BC
 	sta.l $7E35CE
@@ -131,7 +131,7 @@ CODE_9D87D7:
 	ldx.w #$0120
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
-	lda.w #$0095
+	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95F1AE
 	sta.b $0C
@@ -213,15 +213,15 @@ CODE_9D87D7:
 	jsl.l CODE_80891F
 	lda.w HomeTeam
 	cmp.w #$0018
-	bcs CODE_9D89FE
-	stz.b $91
-CODE_9D89FE:
+	bcs .1
+	stz.b a2
+.1:
 	lda.w VisTeam
 	cmp.w #$0018
-	bcs CODE_9D8A0B
+	bcs .2
 	lda.w #$0002
-	sta.b $91
-CODE_9D8A0B:
+	sta.b a2
+.2:
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9AC0CC
@@ -239,9 +239,9 @@ CODE_9D8A0B:
 	clc
 	adc.w #$0006
 	sta.b $10
-CODE_9D8A31:
+.loop:
 	lda.b [$10],y
-	beq CODE_9D8A48
+	beq .3
 	clc
 	adc.l $7E35B4
 	clc
@@ -250,10 +250,10 @@ CODE_9D8A31:
 	adc.w #$0800
 	tyx
 	sta.l $7E3FF4,x
-CODE_9D8A48:
+.3:
 	dey
 	dey
-	bpl CODE_9D8A31
+	bpl .loop
 	lda.w #$009A
 	sta.b $0E
 	lda.w #DATA8_9ADE57

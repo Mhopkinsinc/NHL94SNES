@@ -1,27 +1,27 @@
 ; Unidentified routine.
 CODE_9EBE35:
 	cpy.w #$0003
-	bne CODE_9EBE5E
-	ldx.b $91
+	bne .2
+	ldx.b a2
 	ldy.w $0AF9,x
-CODE_9EBE3F:
+.loop:
 	iny
 	iny
 	cpy.w #$000A
-	bne CODE_9EBE49
+	bne .1
 	ldy.w #$0000
-CODE_9EBE49:
+.1:
 	lda.w $19F6,y
-	bpl CODE_9EBE3F
+	bpl .loop
 	and.w #$00FF
-	cmp.b $91
-	bne CODE_9EBE3F
+	cmp.b a2
+	bne .loop
 	sta.w $19F6,y
 	inc a
 	inc a
 	lsr a
 	sta.w $1C84,y
-CODE_9EBE5E:
-	ldx.b $91
+.2:
+	ldx.b a2
 	ldy.w $0AF9,x
 	bra CODE_9EBE6F

@@ -4,4 +4,4 @@ CenterIceTilesBUF:	; the Buffalo centre ice logo: linear 4bpp tiles packed for D
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$60
-	incbin "CenterIceBUF.lin.huf":5..266
+	incbin "../../../Extracted/data/gfx/CenterIceBUF.lin.huf":5..266

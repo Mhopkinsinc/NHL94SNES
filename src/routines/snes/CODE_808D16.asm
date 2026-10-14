@@ -17,7 +17,7 @@ CODE_808D16:
 	tax
 	phy
 	tya
-	adc.w #$0400
+	adc.w #DMA_OAM
 	and.w #$FFE0
 	tay
 	jsl.l CODE_808950

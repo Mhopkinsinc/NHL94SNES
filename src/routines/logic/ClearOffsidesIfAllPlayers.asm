@@ -1,7 +1,42 @@
-; Unidentified routine.
+; Clear team a2's offsides flag once none of its skaters is past the blue line
 ClearOffsidesIfAllPlayers:
-	ldy.b $91
+	ldy.b a2
 	lda.w tmflags,y
 	bit.w #$0010
-	bne CODE_9EF8D1
-	jmp.w $F829
+	bne .t1
+	jmp.w CODE_9EF829
+
+.t1:
+	lda.w tmsort,y
+	sta.b a0
+	lda.w #$0005
+	sta.b d1
+CODE_9EF8DB:
+	ldy.b a0
+	lda.w position,y
+	bmi .1
+	lda.w Ypos,y
+	sta.b d0
+	lda.w pfgoal,y
+	bne .1
+	lda.w #$0000
+	sec
+	sbc.b d0
+	sta.b d0
+.1:
+	inc.b a0
+	inc.b a0
+	lda.b d0
+	sec
+	sbc.w #$0058
+	bmi .t1
+	jmp.w CODE_9EF829
+
+.t1:
+	dec.b d1
+	bpl CODE_9EF8DB
+	ldy.b a2
+	lda.w tmflags,y
+	and.w #$FFEF
+	sta.w tmflags,y
+	rtl

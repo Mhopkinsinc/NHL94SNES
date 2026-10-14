@@ -7,5 +7,5 @@ CODE_9FF863:
 	lda.w #$0002
 	sta.b $B7
 	lda.w #$0008
-	sta.b $B9
-	jmp.w $F898
+	sta.b d5
+	jmp.w CODE_9FF898

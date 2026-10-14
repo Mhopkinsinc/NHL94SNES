@@ -1,36 +1,36 @@
 ; Unidentified routine.
 CODE_9D9CEC:
-	lda.b $A9
+	lda.b d1
 	clc
-	adc.b [$8D]
-	sta.b $A9
-	inc.b $8D
-	inc.b $8D
+	adc.b [a1]
+	sta.b d1
+	inc.b a1
+	inc.b a1
 CODE_9D9CF7:
-	dec.b $A5
+	dec.b d0
 	bpl CODE_9D9CEC
-	lda.b $A9
-	sta.b $A5
+	lda.b d1
+	sta.b d0
 	jsl.l randomd0
-CODE_9D9D03:
-	dec.b $8D
-	dec.b $8D
-	lda.b $A5
+.loop:
+	dec.b a1
+	dec.b a1
+	lda.b d0
 	sec
-	sbc.b [$8D]
-	sta.b $A5
-	bpl CODE_9D9D03
-	lda.b $8D
+	sbc.b [a1]
+	sta.b d0
+	bpl .loop
+	lda.b a1
 	sec
 	sbc.w #$0CF9
 	lsr a
-	sta.b $A5
+	sta.b d0
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	pla
-	sta.b $A9
+	sta.b d1
 	pla
 	sta.b $AB
 	rtl

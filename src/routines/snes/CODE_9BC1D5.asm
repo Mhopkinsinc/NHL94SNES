@@ -32,19 +32,19 @@ CODE_9BC1D5:
 	lda.b [$0C]
 	tay
 	cmp.w #$0006
-	bcc CODE_9BC226
+	bcc .1
 	lda.b $10
 	sec
 	sbc.w #$0060
 	sta.b $10
-CODE_9BC226:
+.1:
 	lda.b $0C
 	clc
 	adc.w #$0004
 	sta.b $0C
-CODE_9BC22E:
+.loop:
 	ldx.w #$0000
-CODE_9BC231:
+.loop2:
 	lda.b [$0C]
 	clc
 	adc.l $7E35B8
@@ -57,7 +57,7 @@ CODE_9BC231:
 	inc.b $10
 	inc.b $10
 	cpx.b $14
-	bne CODE_9BC231
+	bne .loop2
 	lda.b $10
 	clc
 	adc.w #$0060
@@ -65,5 +65,5 @@ CODE_9BC231:
 	sbc.b $14
 	sta.b $10
 	dey
-	bne CODE_9BC22E
+	bne .loop
 	rtl

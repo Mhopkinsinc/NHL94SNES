@@ -5,10 +5,10 @@ CODE_9EC827:
 	pha
 	and.w #$0030
 	cmp.w #$0010
-	bne CODE_9EC838
+	bne .1
 	clc
 	adc.w #$0050
-CODE_9EC838:
+.1:
 	asl a
 	asl a
 	asl a
@@ -31,8 +31,8 @@ CODE_9EC838:
 	pha
 	asl a
 	tax
-	lda.l $7E35A8,x
-	sta.l $7E35A8
+	lda.l printfontset,x
+	sta.l printfontset
 	pla
 	dec a
 	xba
@@ -40,14 +40,14 @@ CODE_9EC838:
 	asl a
 	asl a
 	asl a
-	sta.w $0CD9
+	sta.w printm
 	iny
-	lda.b [$8D],y
+	lda.b [a1],y
 	and.w #$007F
 	sta.w printx
 	iny
-	lda.b [$8D],y
+	lda.b [a1],y
 	and.w #$007F
 	sta.w printy
 	iny
-	jmp.w $C7C2
+	jmp.w CODE_9EC7C2

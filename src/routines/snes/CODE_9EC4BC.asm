@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9EC4BC:
 	lda.w #$0006
-	sta.b $A5
+	sta.b d0
 	lda.w #$8000
 	tsb.w sflags
 	bne CODE_9EC4A9

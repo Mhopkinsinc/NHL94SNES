@@ -4,4 +4,4 @@ CenterIceTilesWSH:	; the Washington centre ice logo: linear 4bpp tiles packed fo
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$02,$40
-	incbin "CenterIceWSH.lin.huf":5..147
+	incbin "../../../Extracted/data/gfx/CenterIceWSH.lin.huf":5..147

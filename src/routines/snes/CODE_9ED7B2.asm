@@ -5,10 +5,10 @@ CODE_9ED7B2:
 	lsr a
 	and.w #$007F
 	bit.w #$0040
-	beq CODE_9ED7C2
+	beq .1
 	ora.w #$FF80
-CODE_9ED7C2:
+.1:
 	clc
 	adc.w puckx
-	sta.b $A5
+	sta.b d0
 	bra CODE_9ED7E7

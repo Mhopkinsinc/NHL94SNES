@@ -1,8 +1,8 @@
-; Unidentified routine.
+; Start the puck spinning
 puckflip:
-	lda.b $A5
+	lda.b d0
 	and.w #$0001
-	sta.b $A5
+	sta.b d0
 	eor.w $117F
 	and.w #$0003
 	sta.w $117F
@@ -11,6 +11,6 @@ puckflip:
 	phx
 	ldx.w #$001C
 	lda.w #SPApflip
-	jsl.l CODE_9EA3F1
+	jsl.l SetSPAFromA
 	plx
 	rtl

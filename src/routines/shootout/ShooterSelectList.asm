@@ -1,25 +1,25 @@
-; pick the player for the shooter row at the cursor
-ShooterSelectList:	; pick the player for the shooter row at the cursor
+; Shootout shooters: the select-player list
+ShooterSelectList:
 	jsl.l SpriteFrameStart
-	lda.b $8F
+	lda.b a1+2
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #DATA8_9CEFB5>>16
+	sta.b a1+2
 	lda.w #DATA8_9CEFB5
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
-	sta.b $A5
+	sta.b d0
 	lda.w #$000D
-	sta.b $A9
+	sta.b d1
 	lda.l $7E35D0
-	sta.b $AD
+	sta.b d2
 	jsl.l eraser
 	lda.w #$009A
 	sta.b $0E
@@ -51,33 +51,33 @@ ShooterSelectList:	; pick the player for the shooter row at the cursor
 	lda.w #$0007
 	sta.w $1DEF
 	jsl.l GetPlayerCount
-	lda.b $A5
+	lda.b d0
 	sta.w $1DA3
 	jsl.l GoalieCount
 	lda.w $1DA3
 	sec
-	sbc.b $A5
+	sbc.b d0
 	sta.w $1DA3
-	lda.b $A5
+	lda.b d0
 	sta.w $1DAB
-	lda.b $A5
+	lda.b d0
 	sta.w $1DA7
 	lda.w #$0000
-	sta.b $97
+	sta.b a3+2
 	lda.w #homeshooters
-	sta.b $95
-	lda.b $91
-	beq CODE_80CEFF
+	sta.b a3
+	lda.b a2
+	beq .list
 	lda.w #$0000
-	sta.b $97
+	sta.b a3+2
 	lda.w #awayshooters
-	sta.b $95
-CODE_80CEFF:
-	lda.b $95
+	sta.b a3
+.list:
+	lda.b a3
 	clc
 	adc.w $1DB9
-	sta.b $95
-	lda.b [$95]
+	sta.b a3
+	lda.b [a3]
 	and.w #$00FF
 	dec a
 	sta.w $1D9B
@@ -86,16 +86,113 @@ CODE_80CEFF:
 	adc.w $1DA7
 	sec
 	sbc.w $1D9B
-	bpl CODE_80CF36
+	bpl .t1
 	lda.w $1D9B
 	sec
 	sbc.w #$0008
 	sec
 	sbc.w $1DA7
-	bmi CODE_80CF31
+	bmi .zero
 	clc
 	adc.w $1DA7
 	sta.w $1DA7
-CODE_80CF31:
+.zero:
 	lda.w #$0000
 	bra CODE_80CF41
+
+.t1:
+	lda.w $1DA7
+	clc
+	adc.w #$0008
+	sec
+	sbc.w $1D9B
+CODE_80CF41:
+	sta.w $1D9B
+	jsl.l CODE_80D004
+CODE_80CF48:
+	jsl.l CODE_9DD923
+	jsl.l CODE_9DD94D
+	jsl.l WaitFrame
+	jsl.l CODE_9B8017
+	jsl.l CODE_9B851F
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
+	bit.w #$1000
+	bne .1
+	bit.w #$0800
+	bne .t4
+	bit.w #DMA_OAM
+	bne .t3
+	bit.w #$0100
+	bne .t1
+	bit.w #$0200
+	bne .t2
+	bit.w #$8080
+	beq CODE_80CF48
+	jsl.l CODE_80D2BD
+.1:
+	lda.w #$0001
+	sta.l $7E3468
+	rtl
+
+.t1:
+	lda.w $0D47
+	inc a
+	cmp.w #$0010
+	bpl CODE_80CF48
+	sta.w $0D47
+	jsl.l CODE_80D004
+	bra CODE_80CF48
+
+.t2:
+	lda.w $0D47
+	dec a
+	bmi CODE_80CF48
+	sta.w $0D47
+	jsl.l CODE_80D004
+	jmp.w CODE_80CF48
+
+.t3:
+	lda.w $1D9B
+	dec a
+	bmi .t5
+	sta.w $1D9B
+	jsl.l CODE_80D004
+	jmp.w CODE_80CF48
+
+.t4:
+	lda.w $1D9B
+	inc a
+	cmp.w #$0009
+	bpl .t6
+	sta.w $1D9B
+	jsl.l CODE_80D004
+	jmp.w CODE_80CF48
+
+.t5:
+	lda.w $1DA7
+	sec
+	sbc.w $1DAB
+	clc
+	adc.w #$0009
+	cmp.w $1DA3
+	bmi .t1x
+	jmp.w CODE_80CF48
+
+.t1x:
+	inc.w $1DA7
+	jsl.l CODE_80D004
+	jmp.w CODE_80CF48
+
+.t6:
+	lda.w $1DA7
+	dec a
+	cmp.w $1DAB
+	bpl .t1x2
+	jmp.w CODE_80CF48
+
+.t1x2:
+	dec.w $1DA7
+	jsl.l CODE_80D004
+org $80D001
+	jmp.w CODE_80CF48

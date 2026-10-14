@@ -1,45 +1,45 @@
 ; Unidentified routine.
 CODE_9FDB5E:
 	lda.w #$0002
-	sta.b $A9
+	sta.b d1
 	lda.w #$009F
 	sta.b $8B
 	lda.w #DATA8_9FDBBE
-	sta.b $89
+	sta.b a0
 	lda.w gsp
 	cmp.w #$0002
-	bne CODE_9FDB99
-	ldy.b $91
+	bne .1
+	ldy.b a2
 	lda.w tmscore,y
-	ldy.b $8D
+	ldy.b a1
 	cmp.w tmscore,y
-	beq CODE_9FDB99
+	beq .1
 	php
 	lda.w #$009F
 	sta.b $8B
 	lda.w #$DBC4
-	sta.b $89
+	sta.b a0
 	plp
-	bpl CODE_9FDB99
+	bpl .1
 	lda.w #$009F
 	sta.b $8B
 	lda.w #$DBCA
-	sta.b $89
-CODE_9FDB99:
-	lda.b [$89]
-	inc.b $89
-	inc.b $89
-	sta.b $A5
+	sta.b a0
+.1:
+	lda.b [a0]
+	inc.b a0
+	inc.b a0
+	sta.b d0
 	jsl.l CODE_9FDF0C
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0F34
-	bcs CODE_9FDBB0
-	dec.b $A9
-	bpl CODE_9FDB99
-CODE_9FDBB0:
-	dec.b $89
-	dec.b $89
-	ldy.b $91
-	lda.b [$89]
+	bcs .2
+	dec.b d1
+	bpl .1
+.2:
+	dec.b a0
+	dec.b a0
+	ldy.b a2
+	lda.b [a0]
 	sta.w tmline,y
-	jmp.w $DAA6
+	jmp.w CODE_9FDAA6

@@ -1,3 +1,3 @@
 ; Unidentified routine.
 CODE_9E8E8B:
-	jmp.w $8F42
+	jmp.w CODE_9E8F42

@@ -1,11 +1,22 @@
 ; Unidentified routine.
 CODE_9B84F5:
 	lda.w JoyPad
-	sta.b $B1
+	sta.b d3
 	lda.w $0AAE
-	sta.b $AD
+	sta.b d2
 	lda.w $0AB8
-	sta.b $A9
+	sta.b d1
 	lda.w $0AA4
-	sta.b $A5
+	sta.b d0
+	rtl
+
+.t1:
+	lda.w $0778
+	sta.b d3
+	lda.w $0AB0
+	sta.b d2
+	lda.w $0ABA
+	sta.b d1
+	lda.w $0AA6
+	sta.b d0
 	rtl

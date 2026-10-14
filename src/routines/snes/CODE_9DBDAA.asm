@@ -1,5 +1,5 @@
 ; Unidentified routine.
 CODE_9DBDAA:
 	pla
-	sta.b $91
+	sta.b a2
 	rtl

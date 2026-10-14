@@ -17,7 +17,7 @@ CODE_808520:
 	sta.w $078F
 	jsl.l WaitFrame
 	sep #$20
-	lda.b #$B1
+	lda.b #d3
 	sta.w NMITIMEN
 	plp
 	cli

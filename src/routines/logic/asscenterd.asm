@@ -6,5 +6,5 @@ asscenterd:
 	cmp.w pfteam,y
 	bne CODE_9E858C
 	lda.w #$0006
-	sta.b $A5
-	jmp.w $8C18
+	sta.b d0
+	jmp.w assreplace

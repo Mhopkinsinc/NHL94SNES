@@ -1,20 +1,26 @@
 ; Unidentified routine.
 assdopen:
 	lda.w #$0010
-	sta.b $A5
+	sta.b d0
 	lda.w pfteam,x
-	beq CODE_9EBEEE
+	beq .1
 	lda.w #$0001
-	sta.b $A5
-CODE_9EBEEE:
+	sta.b d0
+.1:
 	lda.w PBnum
 	clc
-	adc.b $A5
+	adc.b d0
 	sta.w PBnum
 	lda.w #$FFFF
 	sta.w position,x
 	lda.w sfhormode
-	bne CODE_9EBF0A
+	bne .t1
 	lda.w #$0171
 	sta.w frame,x
 	bra CODE_9EBF10
+
+.t1:
+	lda.w #$0170
+	sta.w frame,x
+CODE_9EBF10:
+	rtl

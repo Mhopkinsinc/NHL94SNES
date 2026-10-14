@@ -3,11 +3,15 @@ CODE_9DCB53:
 	lda.w #$0080
 	sta.b $8F
 	lda.w #AttribMenuSkater
-	sta.b $8D
+	sta.b a1
 	stz.b $08
 	jsl.l GoalieCount
 	lda.w $1D9B
-	cmp.b $A5
-	bpl CODE_9DCB6E
+	cmp.b d0
+	bpl .t1
 	lda.w #$0001
+	rtl
+
+.t1:
+	lda.w #$0000
 	rtl

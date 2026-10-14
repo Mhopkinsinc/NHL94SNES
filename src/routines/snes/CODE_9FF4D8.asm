@@ -36,12 +36,12 @@ CODE_9FF4D8:
 	jsl.l CODE_9FF9F5
 	ldx.w #$0000
 	lda.w #$0000
-CODE_9FF543:
+.loop:
 	sta.l $7F4000,x
 	inx
 	inx
 	cpx.w #$4000
-	bcc CODE_9FF543
+	bcc .loop
 	lda.w #DATA8_949A00
 	sta.b $0C
 	lda.w #$0094
@@ -66,19 +66,19 @@ CODE_9FF543:
 	sta.w VMAIN
 	ldy.w #$4000
 	ldx.w #$0000
-CODE_9FF58E:
+.loop2:
 	lda.l $7F4006,x
 	sta.w VMDATAL
 	lda.l $7F8010,x
 	sta.w VMDATAH
 	inx
 	dey
-	bne CODE_9FF58E
+	bne .loop2
 	rep #$20
 	ldx.w #$1C00
 	ldy.w #$0000
 	sep #$20
-CODE_9FF5AA:
+.loop3:
 	lda.l $7F4000,x
 	phx
 	tyx
@@ -93,7 +93,7 @@ CODE_9FF5AA:
 	inx
 	iny
 	cpy.w #$0A00
-	bmi CODE_9FF5AA
+	bmi .loop3
 	rep #$20
 	lda.w #DATA8_94F8EC
 	sta.b $0C

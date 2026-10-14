@@ -10,13 +10,13 @@ DATA8_9CF037:
 	dw $0005 : db $BF,$09,$0D
 DATA8_9CF03C:
 	dw $0005 : db $9F,$09,$0D
-DATA8_9CF041:
+ReturnToGame:
 	%String("Return to Game")
 DATA8_9CF051:
 	dw $0005 : db $BF,$06,$0E
 DATA8_9CF056:
 	dw $0005 : db $9F,$06,$0E
-DATA8_9CF05B:
+RestoreDefaultLines:
 	%String("Restore default lines")
 DATA8_9CF072:
 	dw $0005 : db $BF,$00,$0D
@@ -38,29 +38,29 @@ DATA8_9CF0A2:
 	dw $0005 : db $BF,$07,$09
 DATA8_9CF0A7:
 	dw $0005 : db $BF,$00,$03
-DATA8_9CF0AC:
+ScoringLabel:
 	%String("Scoring")
-DATA8_9CF0B5:
+ScoringSummaryHead:
 	dw $0023 : db $AF,$01,$09,"Per Time Tm  Goal/Assist   P/S"
-DATA8_9CF0D8:
+NoScoring:
 	dw $000F : db $BF,$0B,$0D,"No Scoring"
-DATA8_9CF0E7:
+ScoringPP2:
 	%String("PP2")
-DATA8_9CF0EC:
+ScoringPP:
 	%String("PP")
-DATA8_9CF0F0:
+ScoringSH:
 	%String("SH")
-DATA8_9CF0F4:
+ScoringSH2:
 	%String("SH2")
-DATA8_9CF0F9:
+PenaltiesLabel:
 	%String("Penalties")
-DATA8_9CF104:
+PenaltySummaryHead:
 	dw $0023 : db $AF,$01,$09,"Per Time Tm  Player/Penalty PM"
-DATA8_9CF127:
+NoPenalties:
 	dw $0011 : db $BF,$0A,$0D,"No Penalties"
 DATA8_9CF138:
 	dw $0005 : db $BF,$09,$06
-DATA8_9CF13D:
+ScrollHint:
 	%String("   Scroll  }")
 DATA8_9CF14B:
 	dw $0006 : db $AF,$15,$07,"}"
@@ -72,7 +72,7 @@ DATA8_9CF15D:
 	dw $0006 : db $AF,$0A,$07," "
 DATA8_9CF163:
 	dw $0005 : db $BF,$06,$0A
-DATA8_9CF168:
+CrowdMeter:
 	%String("CROWD METER")
 DATA8_9CF175:
 	dw $000C : db $AF,$05,$11,"Current"
@@ -98,11 +98,11 @@ DATA8_9CF1CE:
 	dw $000C : db $BF,$05,$15,"Average"
 DATA8_9CF1DA:
 	dw $0007 : db $BF,$19,$15,"db"
-DATA8_9CF1E1:
+OtherScores:
 	%String("Other Scores")
-DATA8_9CF1EF:
+NoOtherGames:
 	dw $0014 : db $9F,$09,$0B,"No Other Games."
-DATA8_9CF203:
+PasswordLabel:
 	%String("Password")
 DATA8_9CF20D:
 	dw $0005 : db $AF,$01,$12
@@ -112,11 +112,11 @@ DATA8_9CF222:
 	dw $0005 : db $BF,$02,$10
 DATA8_9CF227:
 	dw $0005 : db $AF,$01,$11
-DATA8_9CF22C:
+SelectLeft:
 	%String(" < ")
 DATA8_9CF231:
 	dw $0005 : db $AF,$14,$0D
-DATA8_9CF236:
+BadPassword:
 	dw $0014 : db $BF,$02,$13,"Bad Password   "
 DATA8_9CF24A:
 	dw $0014 : db $BF,$02,$14,"A - Retry      "
@@ -134,13 +134,13 @@ DATA8_9CF2AF:
 	dw $0014 : db $AF,$02,$15,"    Y - Back   "
 DATA8_9CF2C3:
 	dw $0010 : db $AF,$0A,$18,"Press start"
-DATA8_9CF2D3:
+PlayerStatsTitle:
 	%String("Player Stats")
 DATA8_9CF2E1:
 	dw $0005 : db $BF,$09,$06
 DATA8_9CF2E6:
 	dw $0015 : db $9F,$08,$1A,"Y - Switch Teams"
-DATA8_9CF2FB:
+PlayerStatsHeading:
 	%String("Player Stats")
 DATA8_9CF309:
 	dw $0023 : db $9F,$01,$09,"  Player         G  A Pt Sh PM"
@@ -148,21 +148,21 @@ DATA8_9CF32C:
 	dw $0023 : db $9F,$01,$09,"  Goalie          GA  Sh  Ptg "
 DATA8_9CF34F:
 	dw $0005 : db $AF,$0A,$07
-DATA8_9CF354:
+GameStats:
 	%String("Game Stats")
 DATA8_9CF360:
 	dw $0005 : db $BF,$01,$09
 DATA8_9CF365:
 	dw $0005 : db $BF,$16,$09
-DATA8_9CF36A:
+StatPercent:
 	%String("%")
-DATA8_9CF36D:
+StatSlash:
 	%String("/")
 DATA8_9CF370:
 	dw $0005 : db $BF,$0B,$02
 DATA8_9CF375:
 	dw $0005 : db $BF,$0B,$02
-DATA8_9CF37A:
+StarsOfTheGame:
 	dw $0016 : db $BF,$0D,$03,"Stars of the Game"
 DATA8_9CF390:
 	dw $0005 : db $BF,$01,$0D
@@ -170,7 +170,7 @@ DATA8_9CF395:
 	dw $0005 : db $FF,$02,$0E
 DATA8_9CF39A:
 	dw $0005 : db $FF,$00,$00
-DATA8_9CF39F:
+MatchupsLabel:
 	%String("Matchups")
 DATA8_9CF3A9:
 	dw $0005 : db $BF,$01,$0A
@@ -204,7 +204,7 @@ DATA8_9CF41A:
 	dw $0005 : db $CF,$00,$00
 DATA8_9CF41F:
 	dw $0005 : db $DF,"8h"
-DATA8_9CF424:
+TeamRosterTitle:
 	%String("Team Roster")
 DATA8_9CF431:
 	dw $0017 : db $9F,$07,$0C,"Player",$9F,$19,$0C,"Rating",$BF,$01,$08
@@ -212,7 +212,7 @@ DATA8_9CF448:
 	dw $0005 : db $BF,$10,$08
 DATA8_9CF44D:
 	dw $0005 : db $BF,$0B,$06
-DATA8_9CF452:
+TeamRosterSwap:
 	%String("Team Roster")
 DATA8_9CF45F:
 	dw $0005 : db $9F,$02,$09
@@ -244,15 +244,15 @@ DATA8_9CF54E:
 	dw $001D : db $EF,$04,$19," Use [] to select team  "
 DATA8_9CF56B:
 	dw $001D : db $EF,$04,$1A," Press START when done  "
-DATA8_9CF588:
+PlayerSelectTitle:
 	%String("Player select")
-DATA8_9CF597:
+GameSetupTitle:
 	%String("Game Setup")
 DATA8_9CF5A3:
 	dw $0005 : db $AF,$00,$00
-DATA8_9CF5A8:
+GameSetupAlt:
 	%String("Game Setup")
-DATA8_9CF5B4:
+PlayerSelectAlt:
 	%String("Player select")
 DATA8_9CF5C3:
 	dw $001E : db $EF,$04,$10,"The MultiPlayer 5 must be"
@@ -274,15 +274,15 @@ DATA8_9CF69E:
 	dw $0015 : db $EF,$09,$14,"Super NES mouse."
 DATA8_9CF6B3:
 	dw $0005 : db $9F,$00,$03
-DATA8_9CF6B8:
+StrengthsLabel:
 	%String("Strengths:")
-DATA8_9CF6C4:
+StrengthsLabelB:
 	%String("Strengths:")
-DATA8_9CF6D0:
+OverallRating:
 	%String("Overall Rating")
 DATA8_9CF6E0:
 	dw $0005 : db $9F,$0C,$04
-DATA8_9CF6E5:
+TeamRating:
 	%String("Team Rating")
 DATA8_9CF6F2:
 	dw $0026 : db $AF,$08,$18,"[] Switch cards",$AF,$08,$19,"Y  Switch teams"
@@ -311,7 +311,7 @@ DATA8_9CF796:
 	dw $0005 : db $BF,$01,$0A
 DATA8_9CF7A0:
 	dw $0005 : db $BF,$11,$0D
-DATA8_9CF7A5:
+PeriodStats:
 	%String("Period Stats")
 DATA8_9CF7B3:
 	dw $0005 : db $BF,$01,$0B
@@ -319,15 +319,15 @@ DATA8_9CF7B8:
 	dw $0005 : db $BF,$01,$0E
 DATA8_9CF7BD:
 	dw $0005 : db $BF,$01,$13
-DATA8_9CF7C2:
+TotalShotsLine:
 	%String("Total")
 	%String("Shots")
 	dw $000E : db $EF,$0B,$19,"Y - Goals"
-DATA8_9CF7DE:
+GoalsLabel:
 	%String("Goals")
 DATA8_9CF7E5:
 	dw $000E : db $EF,$0B,$19,"Y - Shots"
-DATA8_9CF7F3:
+HighlightFrom:
 	%String("Highlight from game:")
 DATA8_9CF809:
 	dw $0005 : db $BF,$05,$0C
@@ -380,9 +380,9 @@ DATA8_9CF8A9:
 	dw $0005 : db $BF,$0C,$08
 DATA8_9CF8AE:
 	dw $0005 : db $BF,$00,$00
-DATA8_9CF8B3:
+VersusText:
 	%String("vs.")
-DATA8_9CF8B8:
+ShootoutPenShot:
 	%String("Shootout")
 	%String("Pen. Shot")
 DATA8_9CF8CD:

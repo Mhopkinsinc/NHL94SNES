@@ -1,16 +1,16 @@
-; a long pointer to the handler of each menu item of DATA8_9FEC96
-DATA8_9FE504:		; a long pointer to the handler of each menu item of DATA8_9FEC96
-	dd CODE_9FE733,CODE_9FE272,CODE_9FE2BB,CODE_9FE2F1,CODE_9FE305
-	dd CODE_9FE327,CODE_9FE33C,CODE_9FE351,CODE_9FE390,CODE_9FE3BA
-	dd CODE_9FE3FF,CODE_9FE418,CODE_9FE366,CODE_9FE37B,CODE_9FE3A5
-	dd CODE_9FE741,CODE_9FE733,CODE_9FE272,CODE_9FE2BB,CODE_9FE2F1
-	dd CODE_9FE305,CODE_9FE431,CODE_9FE327,CODE_9FE33C,CODE_9FE351
-	dd CODE_9FE390,CODE_9FE3BA,CODE_9FE3FF,CODE_9FE418,CODE_9FE366
-	dd CODE_9FE37B,CODE_9FE3A5,CODE_9FE741,CODE_9FE733,CODE_9FE272
-	dd CODE_9FE2BB,CODE_9FE2F1,CODE_9FE305,CODE_9FE327,CODE_9FE33C
-	dd CODE_9FE351,CODE_9FE390,CODE_9FE3BA,CODE_9FE3FF,CODE_9FE418
-	dd CODE_9FE366,CODE_9FE37B,CODE_9FE3A5,CODE_9FE733,CODE_9FE2F1
-	dd CODE_9FE305,CODE_9FE3BA,CODE_9FE3FF,CODE_9FE418,CODE_9FE366
-	dd CODE_9FE37B,CODE_9FE741,CODE_9FE733,CODE_9FE2CF,CODE_9FE2F1
-	dd CODE_9FE3FF,CODE_9FE366,CODE_9FE741,CODE_9FE733,CODE_9FE272
-	dd CODE_9FE2F1,CODE_9FE3FF,CODE_9FE366,CODE_9FE741
+; a long pointer to the handler of each menu item of PauseMenuItems
+DATA8_9FE504:		; a long pointer to the handler of each menu item of PauseMenuItems
+	dd PauseResume,PauseReplay,PauseGameStats,PauseTeamRoster,PauseEditLines
+	dd PausePlayerStats,PauseScoringSummary,PausePenaltySummary,PausePeriodStats,PauseGoalie
+	dd PauseGoalieMode,PauseDefControl,PausePlayerCards,PauseOtherScores,PauseCrowdLevel
+	dd PauseExitGame,PauseResume,PauseReplay,PauseGameStats,PauseTeamRoster
+	dd PauseEditLines,PauseTimeout,PausePlayerStats,PauseScoringSummary,PausePenaltySummary
+	dd PausePeriodStats,PauseGoalie,PauseGoalieMode,PauseDefControl,PausePlayerCards
+	dd PauseOtherScores,PauseCrowdLevel,PauseExitGame,PauseResume,PauseReplay
+	dd PauseGameStats,PauseTeamRoster,PauseEditLines,PausePlayerStats,PauseScoringSummary
+	dd PausePenaltySummary,PausePeriodStats,PauseGoalie,PauseGoalieMode,PauseDefControl
+	dd PausePlayerCards,PauseOtherScores,PauseCrowdLevel,PauseResume,PauseTeamRoster
+	dd PauseEditLines,PauseGoalie,PauseGoalieMode,PauseDefControl,PausePlayerCards
+	dd PauseOtherScores,PauseExitGame,PauseResume,PauseShootoutSetup,PauseTeamRoster
+	dd PauseGoalieMode,PausePlayerCards,PauseExitGame,PauseResume,PauseReplay
+	dd PauseTeamRoster,PauseGoalieMode,PausePlayerCards,PauseExitGame

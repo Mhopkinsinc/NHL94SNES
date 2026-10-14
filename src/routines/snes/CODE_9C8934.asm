@@ -7,7 +7,7 @@ CODE_9C8934:
 	ldx.w #$4D80
 	lda.l $7E35B6
 	clc
-	adc.l $7E35A8
+	adc.l printfontset
 	jsl.l CODE_808EDF
 	ldy.w $1DBD
 	tya
@@ -23,6 +23,15 @@ CODE_9C8957:
 	and.w #$00FF
 	tax
 	lda.w $1DF9
-	beq CODE_9C8973
+	beq .t1
 	jsl.l CODE_9C8980
 	bra CODE_9C8977
+
+.t1:
+	jsl.l CODE_9C8A83
+CODE_9C8977:
+	iny
+	cpy.w $1DC1
+	beq CODE_9C8957
+	bcc CODE_9C8957
+	rtl

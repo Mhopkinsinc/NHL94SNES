@@ -8,16 +8,16 @@ CODE_80B863:
 	adc.b $00
 	tay
 	lda.w $3032,y
-	bmi CODE_80B87A
+	bmi .1
 	clc
 	adc.b $16
 	sta.b $16
-CODE_80B87A:
+.1:
 	lda.w $3093,x
-	bmi CODE_80B89A
+	bmi .t1
 	tay
 	lda.w $3032,y
-	bmi CODE_80B89A
+	bmi .t1
 	clc
 	adc.b $16
 	sta.w $3032,y
@@ -30,4 +30,49 @@ CODE_80B87A:
 	plb
 	ply
 	plx
+	rtl
+
+.t1:
+	lda.b $16
+	sta.w $3032,x
+	txa
+	clc
+	adc.b $16
+	tay
+	txa
+	sta.w $3093,y
+	rep #$30
+	plb
+	ply
+	plx
+	rtl
+
+.t2:
+	phb
+	pea.w $7E7E
+	plb
+	plb
+	stz.b $14
+	lda.w $07B8
+.loop:
+	tax
+	lda.w $2F40,x
+	and.w #$00FF
+	beq .t1x
+	cmp.w #$0010
+	bcs .1x
+	clc
+	adc.b $14
+	sta.b $14
+.1x:
+	and.w #$003F
+	sta.b $2A
+	txa
+	clc
+	adc.b $2A
+	bra .loop
+
+.t1x:
+	plb
+	lda.b $14
 	rtl

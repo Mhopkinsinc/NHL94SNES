@@ -9,9 +9,9 @@ InitSprites:		; A: SpriteVRAM, X: SpritesReserved, Y: sizes the 16x16 block area
 	stx.w SpritesReserved
 	tya
 	cmp.w #$01C0
-	bcs CODE_80AEF6
+	bcs .1
 	lda.w #$01A0
-CODE_80AEF6:
+.1:
 	clc
 	adc.w #$001F
 	and.w #$FFE0
@@ -22,7 +22,7 @@ CODE_80AEF6:
 	sep #$30
 	tax
 	lda.b #$00
-CODE_80AF0A:
+.loop:
 	sta.w $2F40,x
 	txa
 	sec
@@ -31,7 +31,7 @@ CODE_80AF0A:
 	tax
 	lda.b #$08
 	cpx.b #$00
-	bpl CODE_80AF0A
+	bpl .loop
 	lda.b #$FF
 	sta.w $2FB9
 	rep #$30
@@ -50,7 +50,7 @@ CODE_80AF0A:
 	rep #$30
 	lda.w #$0080
 	sta.w SpritesLeft
-	lda.w #$2100
+	lda.w #INIDISP
 	sta.w OAMNext
 	lda.w #$2300
 	sta.w OAMHideEnd
@@ -58,8 +58,18 @@ CODE_80AF0A:
 	sta.w OAMLastEnd
 	lda.w #$2320
 	sta.w OAMShowBuf
-	lda.w #$2100
+	lda.w #INIDISP
 	sta.w OAMDrawBuf
-	jsr.w CODE_80AF6D
+	jsr.w .t1
 	plb
 	jmp.w SpriteFrameEnd
+
+.t1:
+	ldx.w #$03D0
+	lda.w #$FFFF
+.loopx:
+	sta.w $2740,x
+	dex
+	dex
+	bpl .loopx
+	rts

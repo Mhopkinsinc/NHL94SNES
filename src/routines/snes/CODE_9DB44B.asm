@@ -4,54 +4,54 @@ CODE_9DB44B:
 	rep #$30
 	lda.w $0BFF
 	bit.w #$0002
-	beq CODE_9DB4B0
+	beq .4
 	bit.w #$0001
-	bne CODE_9DB46A
+	bne .1
 	lda.w $0BF1
 	clc
 	adc.w #$0C00
 	sta.w $0BF1
-	bcc CODE_9DB46A
+	bcc .1
 	inc.w $0BEF
-CODE_9DB46A:
+.1:
 	sep #$20
 	lda.w $0BEF
 	xba
 	lda.w $0BF2
 	rep #$20
 	cmp.w #$0500
-	bcc CODE_9DB48C
+	bcc .2
 	lda.w #$0001
 	tsb.w $0BFF
 	lda.w $0BFD
 	eor.w #$0001
 	sta.w $0BFD
 	lda.w #$0000
-CODE_9DB48C:
+.2:
 	asl a
 	tax
 	lda.l $7F8000,x
 	sta.w $0BFB
 	lda.l $7F8A00,x
 	ldy.w $0BFD
-	beq CODE_9DB4A2
+	beq .3
 	eor.w #$FFFF
 	inc a
-CODE_9DB4A2:
+.3:
 	clc
 	adc.w #$0190
 	sta.w $0BF7
 	lda.l $7F9400,x
 	sta.w $0BF9
-CODE_9DB4B0:
+.4:
 	plp
 	rts
-	lda.w $0776
+	lda.w JoyPad
 	bit.w $0BEB
-	beq CODE_9DB4C0
+	beq .5
 	lda.w #$0001
 	sta.w $0BE9
-CODE_9DB4C0:
+.5:
 	sep #$20
 	lda.w $0AD3
 	sta.w INIDISP
@@ -78,7 +78,7 @@ CODE_9DB4C0:
 	sta.w VTIMEL
 	lda.w #$0000
 	sta.w HTIMEL
-	jsr.w $B44B
+	jsr.w CODE_9DB44B
 	rtl
 	sep #$20
 	lda.w $0BCF

@@ -1,26 +1,26 @@
 ; Unidentified routine.
 CODE_9ECBE8:
 	phx
-	lda.b $89
+	lda.b a0
 	pha
 	jsl.l GetPlayerRecord
 	lda.b $8B
 	sta.b $8F
-	lda.b $89
-	sta.b $8D
+	lda.b a0
+	sta.b a1
 	lda.w #$0000
 	sta.b $97
-	lda.w #$0A2A
-	sta.b $95
+	lda.w #mesarea
+	sta.b a3
 	lda.w #$0002
-	sta.b [$95]
+	sta.b [a3]
 	jsl.l appstring
 	lda.w #$0000
 	sta.b $8F
-	lda.w #$0A2A
-	sta.b $8D
+	lda.w #mesarea
+	sta.b a1
 	pla
-	sta.b $89
+	sta.b a0
 	plx
-	stx.b $A5
-	jmp.w $CD36
+	stx.b d0
+	jmp.w CODE_9ECD36

@@ -4,4 +4,4 @@ CenterIceTilesSTL:	; the St. Louis centre ice logo: linear 4bpp tiles packed for
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$20
-	incbin "CenterIceSTL.lin.huf":5..268
+	incbin "../../../Extracted/data/gfx/CenterIceSTL.lin.huf":5..268

@@ -10,9 +10,9 @@ CODE_80A465:
 	sta.w APUIO3
 	lda.b #$07
 	sta.w APUIO0
-CODE_80A480:
+.loop:
 	cmp.w APUIO0
-	bne CODE_80A480
+	bne .loop
 	ldy.b #$14
 	lda.b ($4E),y
 	sta.w APUIO1
@@ -25,13 +25,13 @@ CODE_80A480:
 	sta.w APUIO3
 	ldx.b #$81
 	stx.w APUIO0
-CODE_80A49E:
+.loop2:
 	cpx.w APUIO0
-	bne CODE_80A49E
+	bne .loop2
 	stz.w APUIO0
-CODE_80A4A6:
+.loop3:
 	lda.w APUIO0
-	bne CODE_80A4A6
+	bne .loop3
 	lda.b $4B
 	sta.w APUIO1
 	rep #$20
@@ -40,23 +40,23 @@ CODE_80A4A6:
 	sep #$20
 	lda.b #$06
 	sta.w APUIO0
-CODE_80A4BE:
+.loop4:
 	cmp.w APUIO0
-	bne CODE_80A4BE
+	bne .loop4
 	stz.w APUIO0
 	pla
-	bmi CODE_80A4E0
-CODE_80A4C9:
+	bmi .1
+.loop5:
 	lda.w APUIO0
-	bne CODE_80A4C9
+	bne .loop5
 	lda.b $5D
 	sta.w APUIO2
 	lda.b #$0C
 	sta.w APUIO0
-CODE_80A4D8:
+.loop6:
 	cmp.w APUIO0
-	bne CODE_80A4D8
+	bne .loop6
 	stz.w APUIO0
-CODE_80A4E0:
+.1:
 	ldy.b $4B
 	rts

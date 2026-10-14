@@ -24,6 +24,18 @@ CODE_80ABF7:
 	ply
 	sep #$20
 	cmp.b #$6D
-	bcc CODE_80AC2E
+	bcc .t2
 	lda.b #$9F
+	bra CODE_80AC40
+
+.t2:
+	cmp.b #$36
+	bcc .t1
+	lda.b #a4
+	bra CODE_80AC40
+
+.t1:
+	cmp.b #$03
+	bcc CODE_80AC3E
+	lda.b #$8C
 	bra CODE_80AC40

@@ -9,13 +9,13 @@ CODE_80A3D8:
 	tay
 	rep #$20
 	lda.w #$0000
-CODE_80A3E6:
+.loop:
 	sta.w $086A,y
 	sta.w $0848,y
 	iny
 	iny
 	inx
 	cpx.b $52
-	bne CODE_80A3E6
+	bne .loop
 	plp
 	rts

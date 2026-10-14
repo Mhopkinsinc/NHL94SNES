@@ -1,39 +1,53 @@
 ; Unidentified routine.
 CODE_9FB4B6:
-	ldy.b $95
-	sty.b $91
-	lda.b $A5
+	ldy.b a3
+	sty.b a2
+	lda.b d0
 	asl a
-	sta.b $A5
-	sta.b $95
+	sta.b d0
+	sta.b a3
 	tax
 	phy
 	ldy.w #$0000
 	lda.w pfteam,x
-	beq CODE_9FB4CE
+	beq .1
 	ldy.w #$0002
-CODE_9FB4CE:
+.1:
 	lda.w #$FFFF
 	sta.w $1D55,y
 	jsl.l CODE_9FD2FE
 	ply
-	sty.b $91
-	ldx.b $95
+	sty.b a2
+	ldx.b a3
 	phy
 	ldy.w #$0000
 	lda.w pfteam,x
-	beq CODE_9FB4E9
+	beq .2
 	ldy.w #$0002
-CODE_9FB4E9:
+.2:
 	lda.w tmflags,y
 	ply
 	bit.w #$0008
 	beq CODE_9FB50F
 	lda.w pfteam,x
-	beq CODE_9FB504
+	beq .t1
 	lda.w #$0168
 	sta.w temp2,y
 	txa
 	lsr a
 	sta.w temp4,y
 	bra CODE_9FB50F
+
+.t1:
+	lda.w #$0258
+	sta.w temp1,y
+	txa
+	lsr a
+	sta.w temp3,y
+CODE_9FB50F:
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
+CODE_9FB517:
+	rtl

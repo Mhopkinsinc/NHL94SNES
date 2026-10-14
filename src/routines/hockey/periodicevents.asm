@@ -1,24 +1,24 @@
-; Unidentified routine.
+; Run every game loop; the slower checks once a second
 periodicevents:
-	jsl.l CODE_9EB188
+	jsl.l PenaltyManager
 	jsl.l CODE_9B9F7A
 	jsl.l CODE_9C9930
-	jsl.l CODE_9FA626
+	jsl.l clockcont
 	lda.w sfhormode
-	bne CODE_9F8685
+	bne .rtl
 	lda.w lldisp
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w lldisp
-	bpl CODE_9F8685
+	bpl .rtl
 	clc
 	adc.w #$0018
 	sta.w lldisp
 	jsl.l CODE_9ED0A8
 	jsl.l CODE_80D322
 	jsl.l CODE_80D323
-	jsl.l CODE_9FDDCD
-	jsl.l CODE_9EC2C7
+	jsl.l RestoreBenchEnergy
+	jsl.l CheckInjury
 	jsl.l updatepwrplay
-CODE_9F8685:
+.rtl:
 	rtl

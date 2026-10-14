@@ -1,33 +1,36 @@
-; Unidentified routine.
+; Should the computer pull its goalie in the last minute of the third period when it is behind
 CPgoalie:
 	lda.w gsp
 	cmp.w #$0002
-	bne CODE_9ED178
-	ldy.b $8D
+	bne .t1
+	ldy.b a1
 	lda.w tmscore,y
-	ldy.b $91
+	ldy.b a2
 	sec
 	sbc.w tmscore,y
-	bmi CODE_9ED178
-	beq CODE_9ED178
+	bmi .t1
+	beq .t1
 	cmp.w #$0003
-	bcs CODE_9ED178
+	bcs .t1
 	lda.w gameclock
 	cmp.w #$003D
-	bcs CODE_9ED178
+	bcs .t1
 	lda.w tmsort,y
 	tay
 	lda.w pfgoal,y
-	bne CODE_9ED165
+	bne .1
 	lda.w #$0000
 	sec
-	sbc.b $A9
-	sta.b $A9
-CODE_9ED165:
-	lda.b $A9
-	bmi CODE_9ED178
-	ldy.b $91
+	sbc.b d1
+	sta.b d1
+.1:
+	lda.b d1
+	bmi .t1
+	ldy.b a2
 	lda.w tmgoalie,y
 	ora.w #$FF00
 	sta.w tmgoalie,y
 	jml.l setpersonel
+
+.t1:
+	rtl

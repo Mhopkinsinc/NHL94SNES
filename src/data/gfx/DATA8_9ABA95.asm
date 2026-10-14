@@ -4,4 +4,4 @@ DATA8_9ABA95:		; a 32 x 28 map packed for DecompressLZ (width, height, , then th
 			;   by screen setups in banks $9B and $9D; not identified yet
 	db $10,$FB
 	db $00,$07,$06
-	incbin "DATA8_9ABA95.map.lz":5..352
+	incbin "../../../Extracted/data/gfx/DATA8_9ABA95.map.lz":5..352

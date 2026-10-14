@@ -4,4 +4,4 @@ CenterIceTilesMTL:	; the Montreal centre ice logo: linear 4bpp tiles packed for 
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$40
-	incbin "CenterIceMTL.lin.huf":5..207
+	incbin "../../../Extracted/data/gfx/CenterIceMTL.lin.huf":5..207

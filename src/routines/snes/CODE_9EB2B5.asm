@@ -4,6 +4,6 @@ CODE_9EB2B5:
 	tsb.w gmode
 	bne CODE_9EB2B1
 	lda.w #$0030
-	sta.b $A5
+	sta.b d0
 	jsl.l SetPA
-	jmp.w $B1F2
+	jmp.w CODE_9EB1F2

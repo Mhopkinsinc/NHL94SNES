@@ -23,7 +23,7 @@ CODE_9DE074:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	adc.l $7E35B6
 	sta.l $7E35BC
 	adc.w #$0004

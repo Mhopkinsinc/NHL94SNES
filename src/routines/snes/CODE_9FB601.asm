@@ -1,46 +1,86 @@
 ; Unidentified routine.
 CODE_9FB601:
-	lda.b $A5
+	lda.b d0
 	pha
 	lda.b $A7
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.b $AB
 	pha
-	lda.b $89
+	lda.b a0
 	pha
 	lda.b $8B
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.b $8F
 	pha
 	lda.w #$0000
 	sta.b $8B
-	lda.w #$15DE
-	sta.b $89
-CODE_9FB623:
-	lda.b [$89]
-	jsl.l CODE_9FB64A
-	inc.b $89
-	inc.b $89
-	lda.b [$89]
-	bne CODE_9FB623
+	lda.w #PenBuf
+	sta.b a0
+.loop:
+	lda.b [a0]
+	jsl.l .t2
+	inc.b a0
+	inc.b a0
+	lda.b [a0]
+	bne .loop
 	pla
 	sta.b $8F
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8B
 	pla
-	sta.b $89
+	sta.b a0
 	pla
 	sta.b $AB
 	pla
-	sta.b $A9
+	sta.b d1
 	pla
 	sta.b $A7
 	pla
-	sta.b $A5
+	sta.b d0
+	rtl
+
+.t2:
+	and.w #$00FF
+	cmp.w #$0034
+	beq CODE_9FB69D
+	lda.b [a0]
+	xba
+	and.w #$007F
+	asl a
+	tay
+	lda.w #$0058
+	sta.b d1
+	lda.w pfgoal,y
+	bne .t1
+	lda.w #$FFA8
+	sta.b d1
+	cmp.l $7E3138
+	bmi CODE_9FB69D
+	lda.w #$FFBF
+	sta.l $7E3138
+	bra CODE_9FB687
+
+.t1:
+	lda.b d1
+	cmp.l $7E3138
+	bpl CODE_9FB69D
+	lda.w #$0041
+	sta.l $7E3138
+CODE_9FB687:
+	lda.w #$0046
+	sta.b d0
+	lda.l $7E3136
+	bpl .1
+	lda.w #$FFBA
+	sta.b d0
+.1:
+	lda.b d0
+	sta.l $7E3136
+CODE_9FB69D:
 	rtl

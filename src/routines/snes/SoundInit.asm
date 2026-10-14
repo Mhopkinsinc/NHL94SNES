@@ -9,10 +9,10 @@ SoundInit:		; silence everything and reset the player; SoundVolume = $5000
 	ldx.b $36
 	stx.b $50
 	ldx.w #$021A
-CODE_80A395:
+.loop:
 	stz.w $07EF,x
 	dex
-	bpl CODE_80A395
+	bpl .loop
 	ldx.w #$5000
 	stx.w SoundVolume
 	sep #$10
@@ -20,11 +20,11 @@ CODE_80A395:
 	ldx.b #$11
 	jsr.w CODE_80A3D8
 	ldy.b #$F6
-CODE_80A3AC:
+.loop2:
 	dex
-	bne CODE_80A3AC
+	bne .loop2
 	dey
-	bne CODE_80A3AC
+	bne .loop2
 	jsr.w CODE_80A3F5
 	lda.b #$12
 	sta.w $07F6

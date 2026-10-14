@@ -7,39 +7,39 @@ CODE_9DC0EE:
 	sta.l $7E3464
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF6E0
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
-	ldy.b $91
+	ldy.b a2
 	lda.w HomeTeam,y
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FBE08
 	lda.w #$0000
 	sta.l $7E3464
-	ldy.b $91
+	ldy.b a2
 	lda.w #$009C
 	sta.b $8F
 	lda.w tmdata,y
-	sta.b $8D
+	sta.b a1
 	ldy.w #$0004
 	clc
-	adc.b [$8D],y
-	sta.b $8D
+	adc.b [a1],y
+	sta.b a1
 	clc
-	adc.b [$8D]
-	sta.b $8D
+	adc.b [a1]
+	sta.b a1
 	clc
-	adc.b [$8D]
-	sta.b $8D
-	lda.b [$8D]
+	adc.b [a1]
+	sta.b a1
+	lda.b [a1]
 	dec a
 	dec a
 	lsr a
@@ -50,8 +50,8 @@ CODE_9DC0EE:
 	sta.w printx
 	lda.w #$0007
 	sta.w printy
-	jsl.l CODE_9EC7BE
-	lda.b [$8D]
+	jsl.l print
+	lda.b [a1]
 	dec a
 	dec a
 	lsr a
@@ -62,7 +62,7 @@ CODE_9DC0EE:
 	sta.w printx
 	lda.w #$0009
 	sta.w printy
-	jsl.l CODE_9EC7BE
+	jsl.l print
 	lda.w #$0060
 	sta.w printy
 	ldx.w #$0080
@@ -99,19 +99,19 @@ CODE_9DC0EE:
 	ldy.w #$0098
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF6E5
-	sta.b $8D
+	lda.w #TeamRating
+	sta.b a1
 	jsl.l CODE_9C9590
 	jsl.l CODE_9D87B5
 	lda.w #$0004
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9FC623
 	ldx.w #$0070
 	ldy.w #$00A2
 	jsl.l CODE_9C9590
 CODE_9DC208:
 	lda.w $1DB9
-	beq CODE_9DC27C
+	beq .t1
 	lda.w $1D9B
 	ldx.w #$000D
 	ldy.w #$0004
@@ -150,9 +150,20 @@ CODE_9DC208:
 	sta.b $0E
 	lda.w #$7780
 	sta.b $0C
-	lda.w #$0400
+	lda.w #DMA_OAM
 	sta.w $079C
 	ldx.w #$000C
 	ldy.w #$0004
 	jsl.l CODE_808ADF
 	bra CODE_9DC280
+
+.t1:
+	jsl.l CODE_9DD94D
+CODE_9DC280:
+	jsl.l CODE_9DC2DE
+	jsl.l WaitFrame
+	jsl.l SpriteFrameEnd
+	lda.w #$3568
+	sta.l $7F7500
+	jsl.l CODE_9DE0D4
+	rtl

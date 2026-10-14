@@ -1,38 +1,80 @@
-; Unidentified routine.
+; d0 = the power play time left, from the penalty box times. a2 = team on the power play
 GetLowestPen:
-	stz.b $A5
-	stz.b $B1
-	lda.b $91
-	beq CODE_9EBB9D
+	stz.b d0
+	stz.b d3
+	lda.b a2
+	beq .a
 	lda.w #$001A
-CODE_9EBB9D:
-	sta.b $89
-CODE_9EBB9F:
-	ldy.b $89
-	inc.b $89
+.a:
+	sta.b a0
+.top:
+	ldy.b a0
+	inc.b a0
 	lda.w tmboxlist,y
 	and.w #$00FF
-	sta.b $AD
+	sta.b d2
 	bit.w #$0080
-	bne CODE_9EBBD7
-	lda.b $91
-	beq CODE_9EBBB7
+	bne .t1
+	lda.b a2
+	beq .h0
 	lda.w #$0034
-CODE_9EBBB7:
+.h0:
 	clc
-	adc.b $AD
+	adc.b d2
 	tay
 	lda.w tmpdst,y
-	sta.b $AD
+	sta.b d2
 	bit.w #$4000
-	bne CODE_9EBB9F
-	lda.b $AD
+	bne .top
+	lda.b d2
 	sec
-	sbc.b $B1
-	sta.b $AD
+	sbc.b d3
+	sta.b d2
 	clc
-	adc.b $A5
-	sta.b $A5
-	lda.b $AD
-	sta.b $B1
-	bra CODE_9EBB9F
+	adc.b d0
+	sta.b d0
+	lda.b d2
+	sta.b d3
+	bra .top
+
+.t1:
+	ldy.b a3
+	lda.w tmap,y
+	cmp.w #$0006
+	beq .rtl
+	lda.b d0
+	sec
+	sbc.b d3
+	sta.b d0
+	lda.b a3
+	beq .1
+	lda.w #$001A
+.1:
+	sta.b a0
+.loop:
+	ldy.b a0
+	lda.w tmboxlist,y
+	inc.b a0
+	and.w #$00FF
+	sta.b d2
+	bit.w #$0080
+	bne .rtl
+	lda.b a3
+	beq .2
+	lda.w #$0034
+.2:
+	clc
+	adc.b d2
+	tay
+	lda.w tmpdst,y
+	bit.w #$4000
+	bne .loop
+	lda.b d0
+	cmp.w tmpdst,y
+	bmi .rtl
+	lda.b d0
+	clc
+	adc.b d3
+	sta.b d0
+.rtl:
+	rtl

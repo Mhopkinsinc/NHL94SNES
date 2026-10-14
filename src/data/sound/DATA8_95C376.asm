@@ -3,4 +3,4 @@
 DATA8_95C376:		; for SPCUploadBlock, as DATA8_958000
 	db $07,$1A
 	db $08,$70
-	incbin "DATA8_95C376.spc":4..2164
+	incbin "../../../Extracted/data/sound/DATA8_95C376.spc":4..2164

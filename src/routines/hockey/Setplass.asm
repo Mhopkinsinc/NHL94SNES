@@ -1,14 +1,17 @@
-; Unidentified routine.
+; Set player X's first assignment from his position
 Setplass:
 	lda.w position,x
-	sta.b $A5
-	bmi CODE_9FCEEE
+	sta.b d0
+	bmi .t1
 	lda.w #$009F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #DATA8_9FCEEF
-	sta.b $89
-	ldy.b $A5
-	lda.b [$89],y
+	sta.b a0
+	ldy.b d0
+	lda.b [a0],y
 	and.w #$00FF
-	sta.b $A5
+	sta.b d0
 	jml.l assreplace
+
+.t1:
+	rtl

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9BAA60:
-	lda.w $07F9
+	lda.w SoundFadeSpeed
 	bne CODE_9BAA60
 	jsl.l CODE_9C98DF
 	lda.w #$0000
@@ -9,12 +9,12 @@ CODE_9BAA60:
 	tsb.w sflags
 	jsl.l CODE_9FB9A4
 	lda.w #$FFFF
-	sta.w $0CD5
-	stz.w $0CD7
+	sta.w textdirtylo
+	stz.w textdirtyhi
 	lda.l $7E35D0
 	clc
 	adc.l $7E35AA
-	ldx.w #$0400
+	ldx.w #DMA_OAM
 	ldy.w #$0000
 	jsl.l CODE_808862
 	lda.w #$FFFF
@@ -54,18 +54,18 @@ CODE_9BAA60:
 	cmp.w #$577E
 	lda.w $0D21
 	sbc.w #$007E
-	bcs CODE_9BAB07
-CODE_9BAAFB:
+	bcs .1
+.loop:
 	lda.w #$007E
 	sta.w $0D21
 	lda.w #$577E
 	sta.w ReplayBufferPtr
-CODE_9BAB07:
+.1:
 	lda.w #$E676
 	cmp.w ReplayBufferPtr
 	lda.w #$007E
 	sbc.w $0D21
-	bcc CODE_9BAAFB
+	bcc .loop
 	lda.w ReplayBufferPtr
 	sec
 	sbc.w #$577E
@@ -77,28 +77,55 @@ CODE_9BAB07:
 	sta.b $04
 	jsl.l Div32U
 	lda.b $0A
-	bne CODE_9BAAFB
+	bne .loop
 	lda.w $0D21
 	sta.b $9B
 	lda.w ReplayBufferPtr
-	sta.b $99
+	sta.b a4
 	lda.w #$0000
 	pha
-CODE_9BAB41:
+.loop2:
 	jsl.l suba4
 	pla
 	inc a
 	pha
-	lda.b $C1
-	bne CODE_9BAB41
+	lda.b d7
+	bne .loop2
 	pla
 	lsr a
 	pha
-CODE_9BAB4F:
+.loop3:
 	lda.b $01,s
-	beq CODE_9BAB5C
+	beq .t1
 	jsl.l adda4
 	pla
 	dec a
 	pha
-	bra CODE_9BAB4F
+	bra .loop3
+
+.t1:
+	pla
+	lda.w Hpos
+	sta.w $0CBD
+	lda.w Vpos
+	sta.w $0CBF
+	ldx.w #$0000
+	ldy.w #$01C0
+	lda.w #$6000
+	jsl.l InitSprites
+	stz.w $0AD3
+	lda.w #$000A
+	sta.w $0AD1
+	ldx.w #$009C
+	lda.w #$9971
+	jsl.l CODE_80855E
+	jsl.l CODE_8086BD
+	jsl.l SprSort
+	jsl.l SpriteFrameStart
+	jsl.l CODE_9FBAAA
+	jsl.l SpriteFrameEnd
+	lda.w #$0001
+	sta.b d7
+	lda.w #$0002
+	trb.w sflags3
+	jmp.w CODE_9BACE5

@@ -8,5 +8,5 @@ assdefo:
 	cmp.w pfteam,y
 	beq CODE_9E882A
 	lda.w #$0002
-	sta.b $A5
-	jmp.w $8C18
+	sta.b d0
+	jmp.w assreplace

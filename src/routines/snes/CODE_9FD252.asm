@@ -1,52 +1,92 @@
 ; Unidentified routine.
 CODE_9FD252:
-	lda.b $A5
+	lda.b d0
 	pha
 	lda.b $A7
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.b $AB
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
 	lda.b $AF
 	pha
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
-CODE_9FD269:
-	lda.b $89,x
+.loop:
+	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0010
-	bne CODE_9FD269
-	ldx.b $87
-	stz.b $91
-	jsl.l CODE_9FD2A7
+	bne .loop
+	ldx.b xsave
+	stz.b a2
+	jsl.l .t1
 	lda.w #$0002
-	sta.b $91
-	jsl.l CODE_9FD2A7
-	stx.b $87
+	sta.b a2
+	jsl.l .t1
+	stx.b xsave
 	ldx.w #$000E
-CODE_9FD289:
+.loop2:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9FD289
-	ldx.b $87
+	bpl .loop2
+	ldx.b xsave
 	pla
 	sta.b $AF
 	pla
-	sta.b $AD
+	sta.b d2
 	pla
 	sta.b $AB
 	pla
-	sta.b $A9
+	sta.b d1
 	pla
 	sta.b $A7
 	pla
-	sta.b $A5
-	ldx.b $95
+	sta.b d0
+	ldx.b a3
+	rtl
+
+.t1:
+	ldy.b a2
+	lda.w tmflags,y
+	and.w #$FFEF
+	sta.w tmflags,y
+	lda.w #$0005
+	sta.b d2
+	ldx.w tmsort,y
+	stx.b a3
+CODE_9FD2BC:
+	stz.w pf2aip,x
+	lda.w pflags,x
+	and.w #$2FFF
+	sta.w pflags,x
+	lda.w position,x
+	bmi CODE_9FD2F3
+	bne .t1
+	lda.w #SPAgready
+	bra CODE_9FD2D7
+
+.t1:
+	lda.w #SPAglide
+CODE_9FD2D7:
+	jsl.l SetSPAFromA
+	stz.w $0F23,x
+	stz.w nopuck,x
+	lda.w pflags,x
+	and.w #$FFF6
+	sta.w pflags,x
+	stz.w pfnc,x
+	stz.w pfrev,x
+	stz.w pfalock,x
+CODE_9FD2F3:
+	inc.b a3
+	inc.b a3
+	ldx.b a3
+	dec.b d2
+	bpl CODE_9FD2BC
 	rtl

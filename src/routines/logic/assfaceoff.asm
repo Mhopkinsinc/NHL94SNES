@@ -1,8 +1,11 @@
 ; Unidentified routine.
 assfaceoff:
 	lda.w pfalock,x
-	bne CODE_9FB27B
+	bne .t4
 	lda.w sflags
 	bit.w #$0100
-	bne CODE_9FB27B
+	bne .t4
 	jml.l CODE_9E8BE6
+
+.t4:
+	rtl

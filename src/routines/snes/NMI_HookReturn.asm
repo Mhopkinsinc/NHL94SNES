@@ -10,7 +10,7 @@ NMI_HookReturn:
 	sta.w INIDISP
 	ldx.b #$00
 	txy
-CODE_80819F:
+.loop:
 	txa
 	lda.w $07D6,x
 	sta.w BG1HOFS,y
@@ -20,11 +20,11 @@ CODE_80819F:
 	inx
 	inx
 	cpx.b #$0C
-	bne CODE_80819F
+	bne .loop
 	rep #$20
 	lda.w $0768
-	beq CODE_8081EB
-	lda.w #$2200
+	beq .1
+	lda.w #DMA_CGRAM
 	sta.w DMAP0
 	lda.w $076C
 	sta.w A1T0L
@@ -42,13 +42,13 @@ CODE_80819F:
 	sbc.w #$0048
 	sta.b $3E
 	stz.w $0768
-CODE_8081EB:
+.1:
 	sep #$20
 	rep #$10
 	ldx.b $3A
 CODE_8081F1:
 	cpx.b $3C
-	beq CODE_80823D
+	beq .t1
 	lda.w $0100,x
 	bmi CODE_808243
 	sta.w DMAP0
@@ -79,3 +79,6 @@ CODE_8081F1:
 	lda.b #$01
 	sta.w MDMAEN
 	bra CODE_8081F1
+
+.t1:
+	jmp.w CODE_8083A5

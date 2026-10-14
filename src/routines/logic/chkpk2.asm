@@ -1,8 +1,13 @@
-; Unidentified routine.
+; Z set if player X is on the shorthanded team
 chkpk2:
 	lda.w pfteam,x
-	bne CODE_9E828B
+	bne .t2
 	lda.w sflags
-	and.w #$4000
-	eor.w #$4000
+	and.w #sf2pwrtm
+	eor.w #sf2pwrtm
+	rtl
+
+.t2:
+	lda.w sflags
+	and.w #sf2pwrtm
 	rtl

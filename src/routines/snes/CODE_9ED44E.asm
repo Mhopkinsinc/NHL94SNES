@@ -12,16 +12,16 @@ CODE_9ED44E:
 	jsl.l CODE_9EA539
 CODE_9ED46A:
 	lda.w pf2aip,x
-	bne CODE_9ED476
+	bne .1
 	lda.w #SPAgready
-	jsl.l CODE_9EA3F1
-CODE_9ED476:
+	jsl.l SetSPAFromA
+.1:
 	lda.w gmclock
 	bne CODE_9ED49F
 	lda.w temp5,x
 	bmi CODE_9ED4B4
 	cpx.w puckc
-	bne CODE_9ED497
+	bne .t1
 	lda.w Ypos,x
 	cmp.w #$00BB
 	bpl CODE_9ED4A0
@@ -29,3 +29,8 @@ CODE_9ED476:
 	bmi CODE_9ED4A0
 	stz.w temp5,x
 	bra CODE_9ED4A0
+
+.t1:
+	lda.w #$FFFF
+	sta.w temp5,x
+	bra CODE_9ED4B4

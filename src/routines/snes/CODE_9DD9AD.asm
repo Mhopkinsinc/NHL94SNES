@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9DD9AD:
 	stz.w $07C6
-	lda.b $91
+	lda.b a2
 	pha
 	jsl.l CODE_9F96F7
 	lda.w #$0081
@@ -29,7 +29,7 @@ CODE_9DD9AD:
 	rep #$30
 	lda.w #$FF00
 	sta.l $7E35AA
-	sta.l $7E35A8
+	sta.l printfontset
 	lda.w #$0000
 	sta.l $7E35AC
 	lda.l $7E35B6
@@ -55,7 +55,7 @@ CODE_9DD9AD:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	clc
 	adc.l $7E35C4
 	sta.l $7E35C4
@@ -63,22 +63,22 @@ CODE_9DD9AD:
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3D7
-	sta.b $8D
+	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3E7
-	sta.b $8D
+	sta.b a1
 	lda.w #$0004
-	sta.b $A5
+	sta.b d0
 	clc
 	adc.l $7E35C4
 	sta.l $7E35C4
@@ -150,7 +150,7 @@ CODE_9DD9AD:
 	sec
 	sbc.w #$0100
 	sta.l $7E35D2
-	lda.w #$0095
+	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95F1AE
 	sta.b $0C
@@ -239,5 +239,165 @@ CODE_9DD9AD:
 	jsl.l CODE_9DE0BD
 	lda.l $7E3454
 	cmp.w #$0021
-	bcs CODE_9DDC18
-	jmp.w $DCF3
+	bcs .t1
+	jmp.w CODE_9DDCF3
+
+.t1:
+	sbc.w #$0021
+	sta.l $7E3454
+	lda.w #$0093
+	sta.b $0E
+	lda.w #DATA8_938000
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$FFFF
+	jsl.l CODE_80891F
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9AB7A1
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	txa
+	sec
+	sbc.w #$0008
+	tay
+	lda.b $10
+	clc
+	adc.w #$0006
+	sta.b $10
+.loop:
+	lda.b [$10],y
+	beq .1
+	clc
+	adc.l $7E35B4
+	clc
+	adc.l $7E35AC
+	clc
+	adc.w #$0800
+	tyx
+	sta.l $7E3FF4,x
+.1:
+	dey
+	dey
+	bpl .loop
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9ADE57
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$0000
+	ldx.w #$0010
+	jsl.l CODE_9DE0BD
+	lda.b $0C
+	clc
+	adc.w #$0020
+	sta.b $0C
+	ldy.w #$0010
+	ldx.w #$0010
+	jsl.l CODE_9DE0BD
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9AE972
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$0020
+	ldx.w #$0010
+	jsl.l CODE_9DE0BD
+CODE_9DDCF3:
+	sep #$20
+	stz.w CGADD
+	stz.w CGDATA
+	stz.w CGDATA
+	rep #$20
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9AE121
+	sta.b $0C
+	lda.w #$007F
+	sta.b $12
+	lda.w #$0000
+	sta.b $10
+	jsl.l Decompress
+	lda.w #$007F
+	sta.b $0E
+	lda.w #$0000
+	sta.b $0C
+	ldy.w #$0030
+	ldx.w #$0020
+	jsl.l CODE_9DE0BD
+	lda.l $7E35BE
+	clc
+	adc.w #$1400
+	sta.l $7E35BE
+	lda.l $7E35C0
+	clc
+	adc.w #$1000
+	sta.l $7E35C0
+	lda.w HomeTeam
+	cmp.w #$0018
+	bcs .1
+	stz.b a2
+.1:
+	lda.w VisTeam
+	cmp.w #$0018
+	bcs .2
+	lda.w #$0002
+	sta.b a2
+.2:
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9AD3B6
+	sta.b $0C
+	ldy.w #$0080
+	ldx.w #$0010
+	jsl.l CODE_9DE0BD
+	lda.w #$009A
+	sta.b $0E
+	lda.w #DATA8_9AF15C
+	sta.b $0C
+	ldy.w #$00C0
+	ldx.w #$0010
+	jsl.l CODE_9DE0BD
+	jsl.l CODE_9DD977
+	jsl.l CODE_9DD94D
+	jsl.l WaitFrame
+	ldx.w #$0000
+	ldy.w #$0180
+	lda.w #$6000
+	jsl.l InitSprites
+	jsl.l SpriteFrameStart
+	jsl.l CODE_9DDF73
+	lda.w #$3568
+	sta.l $7F7500
+	jsl.l CODE_9DDDB3
+	pla
+	sta.b a2
+	rtl

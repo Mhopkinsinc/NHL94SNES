@@ -1,23 +1,23 @@
-; Unidentified routine.
+; d0 = the number of goalies on team a2.
 GoalieCount:
-	lda.b $91
+	lda.b a2
 	tay
-	lda.w #$009C
-	sta.b $C7
+	lda.w #TeamList>>16
+	sta.b tmp1
 	lda.w tmdata,y
-	sta.b $C5
-	ldy.w #$000A
+	sta.b tmp0
+	ldy.w #ScoreOdds
 	clc
-	adc.b [$C5],y
-	sta.b $C5
-	stz.b $A5
-	lda.b [$C5]
+	adc.b [tmp0],y
+	sta.b tmp0
+	stz.b d0
+	lda.b [tmp0]
 	xba
-CODE_9ED31A:
-	inc.b $A5
+.cnt:
+	inc.b d0
 	asl a
 	asl a
 	asl a
 	asl a
-	bne CODE_9ED31A
+	bne .cnt
 	rtl

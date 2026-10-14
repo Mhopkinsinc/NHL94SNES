@@ -5,12 +5,12 @@ SoundVoicesOff:		; release every voice
 	dec.w SoundLock
 	ldy.b #$07
 	ldx.b #$0E
-CODE_80A3CB:
+.loop:
 	jsr.w CODE_80ABC7
 	dex
 	dex
 	dey
-	bpl CODE_80A3CB
+	bpl .loop
 	inc.w SoundLock
 	plp
 	rtl

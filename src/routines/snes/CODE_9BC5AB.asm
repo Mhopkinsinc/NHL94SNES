@@ -1,20 +1,35 @@
 ; Unidentified routine.
 CODE_9BC5AB:
 	cmp.w #$000D
-	beq CODE_9BC5D0
+	beq .t1
 	cmp.w #$000E
-	beq CODE_9BC5DC
+	beq .t2
 	asl a
 	asl a
 	tay
 	lda.w #$009C
 	sta.b $8F
 	lda.w #TeamList
-	sta.b $8D
-	lda.b [$8D],y
-	sta.b $8D
+	sta.b a1
+	lda.b [a1],y
+	sta.b a1
 	ldy.w #$0004
 	clc
-	adc.b [$8D],y
-	sta.b $8D
+	adc.b [a1],y
+	sta.b a1
 	bra CODE_9BC5E6
+
+.t1:
+	lda.w #$009B
+	sta.b $8F
+	lda.w #LongNYIslanders
+	sta.b a1
+	bra CODE_9BC5E6
+
+.t2:
+	lda.w #$009B
+	sta.b $8F
+	lda.w #LongNYRangers
+	sta.b a1
+CODE_9BC5E6:
+	rtl

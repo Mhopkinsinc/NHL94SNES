@@ -5,57 +5,57 @@ CODE_9ED179:
 	sta.w $0B05,x
 	lda.w Xpos,x
 	cmp.w #$FFD8
-	bmi CODE_9ED1B0
+	bmi .2
 	cmp.w #$0029
-	bpl CODE_9ED1B0
+	bpl .2
 	lda.w Ypos,x
 	bit.w #$8000
-	beq CODE_9ED19B
+	beq .1
 	eor.w #$FFFF
 	inc a
-CODE_9ED19B:
+.1:
 	sta.b $00
 	cmp.w #$00E4
-	bmi CODE_9ED1B0
+	bmi .2
 	cmp.w #$0104
-	bpl CODE_9ED1B0
+	bpl .2
 	lda.w #$FFFB
 	and.w $0B05,x
 	sta.w $0B05,x
-CODE_9ED1B0:
+.2:
 	lda.w Xpos,x
 	cmp.w #$FFD0
-	bmi CODE_9ED1D7
+	bmi .4
 	cmp.w #$0031
-	bpl CODE_9ED1D7
+	bpl .4
 	lda.w Ypos,x
 	bit.w #$8000
-	beq CODE_9ED1C9
+	beq .3
 	eor.w #$FFFF
 	inc a
-CODE_9ED1C9:
+.3:
 	cmp.w #$00E4
-	bmi CODE_9ED1D7
+	bmi .4
 	lda.w #$FFFD
 	and.w $0B05,x
 	sta.w $0B05,x
-CODE_9ED1D7:
+.4:
 	lda.w $19D4,x
 	bpl CODE_9ED214
 	lda.w gmclock
 	bne CODE_9ED214
-	jsl.l CODE_9FDC4C
+	jsl.l check4bench
 	lda.w pflags,x
 	bit.w #$0002
-	beq CODE_9ED1F9
+	beq .5
 	and.w #$FFFD
 	sta.w pflags,x
 	stz.w temp1,x
 	stz.w $0BC9
-CODE_9ED1F9:
+.5:
 	lda.w temp1,x
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w temp1,x
 	bpl CODE_9ED24D
 	lda.w aidef,x

@@ -7,48 +7,48 @@ CODE_9CA1C6:
 	cpx.w #$0020
 	bne CODE_9CA1C6
 CODE_9CA1D3:
-	stz.b $AD
+	stz.b d2
 	ldx.w #$0000
-CODE_9CA1D8:
+.loop:
 	lda.w $15C4,x
 	and.w #$00FF
-	sta.b $A9
+	sta.b d1
 	lda.w OOlist,x
 	and.w #$00FF
-	sta.b $A5
+	sta.b d0
 	tay
 	lda.w Ylist,y
-	ldy.b $A9
+	ldy.b d1
 	cmp.w Ylist,y
-	bmi CODE_9CA208
-	beq CODE_9CA208
+	bmi .1
+	beq .1
 	lda.w OOlist,x
 	xba
 	sta.w OOlist,x
 	txa
 	sta.w OOlistpos,y
 	inc a
-	ldy.b $A5
+	ldy.b d0
 	sta.w OOlistpos,y
-	inc.b $AD
-CODE_9CA208:
+	inc.b d2
+.1:
 	inx
 	cpx.w #$000F
-	bne CODE_9CA1D8
-	lda.b $AD
+	bne .loop
+	lda.b d2
 	bne CODE_9CA1D3
 	pla
 	sta.b $AF
 	pla
-	sta.b $AD
+	sta.b d2
 	pla
 	sta.b $AB
 	pla
-	sta.b $A9
+	sta.b d1
 	pla
 	sta.b $A7
 	pla
-	sta.b $A5
+	sta.b d0
 	ply
 	plx
 	rtl

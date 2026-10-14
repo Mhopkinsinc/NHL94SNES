@@ -5,7 +5,7 @@ CODE_808AA1:
 	sta.b $20
 	tax
 	ldy.w #$0000
-CODE_808AAC:
+.loop:
 	lda.b [$0C],y
 	clc
 	adc.b $16
@@ -14,17 +14,17 @@ CODE_808AAC:
 	iny
 	iny
 	dex
-	bne CODE_808AAC
+	bne .loop
 	lda.b $01,s
 	clc
-	adc.w #$0400
+	adc.w #DMA_OAM
 	and.w #$FFE0
 	sta.w VMADDL
 	lda.b $18
 	sec
 	sbc.b $20
 	tax
-CODE_808ACD:
+.loop2:
 	lda.b [$0C],y
 	clc
 	adc.b $16
@@ -33,5 +33,5 @@ CODE_808ACD:
 	iny
 	iny
 	dex
-	bne CODE_808ACD
+	bne .loop2
 	jmp.w CODE_808A80

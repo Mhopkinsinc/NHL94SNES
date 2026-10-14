@@ -29,6 +29,11 @@ Hscroll = $0CED		; horizontal scroll
 iflags = $0CF1		; icing flags (if* masks)
 passdir = $0D03		; direction for pass/shot 0-7 (8 = none)
 passspeed = $0D05	; speed of pass/shot
+mesarea = $0A2A		; string being built: a length word, then the bytes
+mesareaEnd = $0A48	; one past the last digit PushNumber and PushTime may write
+puckc = $0AD9		; number (object index / 2) of the puck carrier, negative = loose
+gmStatBase = $1742	; first word ClearTeamStats clears (through $18ED)
+playoffRoundIdx = $7E35D4	; playoff round for other scores and password bits
 printx = $0D0F		; x cordinate for printing (text map column)
 printy = $0D11		; y cordinate for printing
 ReplayBufferPtr = $0D1F	; long pointer to the next replay frame record
@@ -42,6 +47,9 @@ position = $0F43	; player's position (0=goalie,1=l.def,2=r.def,3=l.wing,4=center
 SPA = $11A3		; current animation (offset into the animation data)
 SPAnum = $11C3		; index into animation (4 per frame)
 SPAcnt = $11E3		; count down to the next animation frame (-1 = restart)
+facedir = $1163		; direction of facing, 0-7
+assnum = $0F63		; index of the current assignment (0-7)
+asslist = $0F83		; assignments, 8 bytes per object
 newpos = $1243		; requested next position (negative = none)
 newpnum = $1263		; requested next roster player (negative = none)
 pflags = $1283		; pflags (bits 0-7) and pflags2 (bit n at bit n+10); some flags have their own arrays below
@@ -55,6 +63,7 @@ sflags3 = $15DC		; sflags3 (sf3* masks)
 Pencntdwn = $1620	; penalty/fight count down (negative = fight over)
 pentimer = $1622	; frames to the next penalty clock second (updatepentime)
 PBnum = $1624		; players in the penalty boxes: home*16 + visitors
+InjCntDown = $1626	; frames until the injury box is shown
 penmsgtimer = $1628	; count down to reprinting the horizontal penalty message line
 RefCnt = $162A		; ref graphics control (negative = idle)
 RefStep = $162C		; step in the ref animation (negative = done)
@@ -82,11 +91,96 @@ Ylist = $1583		; y of each sort object
 OOlistpos = $15A3	; position of each object in OOlist
 OOlist = $15C3		; 16 bytes: object order list, bottom of the screen last
 gameclock = $1632	; game clock seconds; gameclock+2 = jiffies
-seed = $0792		; random seed (RandomWord); 93S seed
-puckc = $0AD9		; number (object index / 2) of the puck carrier, negative = loose
+
+; Direct page the game logic uses as the 68k registers.
+a0 = $89		; long pointer; a0+2 is the bank
+a1 = $8D		; long pointer; a1+2 is the bank
+a2 = $91		; team index, 0 = home
+a3 = $95		; long pointer; a3+2 is the bank
+d0 = $A5
+d1 = $A9		; d1+2 is the high word
+d2 = $AD
+d7 = $C1		; frames elapsed, added into speeds
+tmp0 = $C5		; scratch word; tmp0+1 is the next byte
+tmp1 = $C7		; scratch word
+tmp2 = $C9		; scratch byte; tmp2+1 is the next byte
+
 Hpos = $0CEB		; ice rink horizontal position
 Vpos = $0D37		; ice rink vertical position
-puckx = $0D71		; puck x position (Xpos of the puck object)
+xc1 = $0D4B		; scroll lock x
+yc1 = $0D4D		; scroll lock y
+printm = $0CD9		; offset of the print map in the text map
+textdirtylo = $0CD5	; lowest changed word of the text map
+textdirtyhi = $0CD7	; highest changed word of the text map
+textmap = $7E37F4	; the text map
+printfontset = $7E35A8	; tile base of the selected print font
+RemapOut = $0A0A	; sixteen words: the tile RemapTiles is building
+
+Playerdata = 0		; offset of the player list in a team record
+ScoreOdds = 10		; offset of the scouting odds in a team record
+puckobj = $1C		; object index of the puck
+puckx = Xpos+puckobj	; puck x position
+
+gmoffs = $0020		; offsides on
+gmhl = $0010		; highlight mode
+gmdir = $0002		; 0 = home team goes up
+pfna = $0002		; new assignment
+tmfoffside = $0010	; team flagged offsides
+cbut = $0080		; shoot / check button in d2
+blueline = $58		; puck y past which a team can be offside
+PenOffsides = $12	; offsides penalty number
+PenIcing = $0C		; icing penalty number
+PenGoal = $0E		; goal
+
+gmpen = $0004		; penalty called, ref in progress
+sfwrap = $0010		; replay has wrapped around
+sf2drec = $0400		; disable replay record
+sf2pwrplay = $2000	; power play in progress
+sf2pwrtm = $4000	; 0 for team 1 in power play
+sf2replay = $0800	; replay in progress
+sf2refref = $0200	; ref needs refresh
+sfslock = $0040		; scroll lock to xc1/yc1
+sf3llcs = $0001		; lower line change box on screen
+pf2inj = $0004		; injured
+TMPDBENCH = $FFFE	; on the bench
+TMPDOUT = $FFFD		; out of the game
+rosterNone = $FFFC	; no roster slot (beside TMPDOUT in bench checks)
+TMPDINJ = $1000		; injured: box time with this bit has no penalty
+TMPDICE = $FFFF		; on the ice
+PWrange = 30		; characters in PasstoText
+pwlength = 16		; password characters
+replaysize = $7A	; bytes per replay frame record
+
+xsave = $87		; X saved around the push/pop loops
+a4 = $99		; long pointer; a4+2 is the bank
+d3 = $B1
+d4 = $B5
+d5 = $B9
+d6 = $BD
+
+gmclock = $15D6		; nonzero: game clock is stopped
+PenBuf = $15DE		; up to 32 penalties: (penalty number, object) word pairs, 0 = free
+RefPen = $162E		; penalty number of the ref animation
+Oldrow = $0D23		; last rink map row
+vramrow = $0D25		; BG2 tile map row at the top of the ring buffer
+pfalock = $14E3		; nonzero: locked until the animation is done
+PerTimeTotal = $1C82	; length of this period (seconds)
+tmteam = $1CE0		; team number of each team struct
+TempPlOffset = $1636	; pnum of the penalized player, high bit set for the visitors
+OptPen = $7E34C4	; penalties (0 = off)
+PassWord = $7E34F4	; password characters
+passbits = $7E3508	; password bits, low word first
+PlList = $7E3114	; players wanted on the ice
+ReplayBufferStart = $7E577E	; first replay frame record
+ReplayBufferEnd = $7EE676	; replay buffer end
+priolist = $80D6B0	; priority list used when filling the ice
+PerLabels = $80D6E1	; period name strings
+VertLineScrolling = $0D49	; scouting report vertical scroll
+PlayerScrollCtr = $0D3F		; scouting report player scroll
+SelectedPlayerIdx = $0D43	; scouting report selected player
+ScoutingReportTimer = $0D45	; scouting report timer
+TestList = $7E347C		; scouting report text list
+seed = $0792		; random seed (RandomWord); 93S seed
 Xvel = $0EC3		; x speed of each object
 Yvel = $0EE3		; y speed of each object
 temp1 = $1003		; object work word 1
@@ -95,7 +189,6 @@ temp3 = $1043		; object work word 3
 temp4 = $1063		; object work word 4
 temp5 = $1083		; object work word 5
 temp2b = $10A3		; object work word (93S temp2b)
-facedir = $1163		; direction of facing 0-7
 nopuck = $1203		; no puck collision until zero
 nopuckb = $1223		; second count down
 aioff = $1323		; per player (93S aioff)
@@ -103,15 +196,12 @@ aidef = $1343		; per player (93S aidef)
 stickhand = $1403	; per player (93S stickhand)
 aggress = $1483		; per player (93S aggress)
 handed = $14A3		; nonzero: right handed
-pfalock = $14E3		; nonzero: locked until the animation is done
 pfrev = $1523		; nonzero: skating backwards
 pf2aip = $1543		; nonzero: animation in progress
 pfnc = $1563		; nonzero: no collision mode
-gmclock = $15D6		; nonzero: game clock is stopped
 tmscore = $178E		; score of each team (words)
 lldisp = $0CF7		; count down for the once-a-second screen/game updates
 printa = $0D0D		; attribute (palette/priority bits) for print characters
 frame = $0D97		; sprite frame number of each object
 facefrac = $1183	; turn fraction of facedir
-TempPlOffset = $1636	; pnum of the penalized player, $8000 for the visitors
 tmlcchoice = $17E6	; line change box row chosen, per team

@@ -8,18 +8,18 @@ MusicStop:		; stop the song: release its voices and clear its tracks
 	stz.w $0801
 	ldy.b #$07
 	ldx.b #$0E
-CODE_80A35B:
+.loop:
 	lda.w $08FA,y
 	cmp.b #$10
-	bcs CODE_80A36A
+	bcs .1
 	lda.w $08F2,y
-	beq CODE_80A36A
+	beq .1
 	jsr.w CODE_80ABC7
-CODE_80A36A:
+.1:
 	dex
 	dex
 	dey
-	bpl CODE_80A35B
+	bpl .loop
 	ldy.b #$00
 	ldx.b #$10
 	jsr.w CODE_80A3D8

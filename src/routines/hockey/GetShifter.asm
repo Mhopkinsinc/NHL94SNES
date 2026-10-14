@@ -1,18 +1,18 @@
-; Unidentified routine.
+; d1 = the number of games of the playoff round less one, d2 = its first win bit
 GetShifter:
 	lda.w #$FFF0
-	sta.b $AD
+	sta.b d2
 	lda.w #$0010
-	sta.b $A9
-	lda.l $7E35D4
+	sta.b d1
+	lda.l playoffRoundIdx
 	tay
-CODE_9D98C4:
-	lda.b $AD
+.3:
+	lda.b d2
 	clc
-	adc.b $A9
-	sta.b $AD
-	lsr.b $A9
+	adc.b d1
+	sta.b d2
+	lsr.b d1
 	dey
-	bpl CODE_9D98C4
-	dec.b $A9
+	bpl .3
+	dec.b d1
 	rtl

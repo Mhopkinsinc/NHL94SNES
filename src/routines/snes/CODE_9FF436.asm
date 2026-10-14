@@ -19,9 +19,9 @@ CODE_9FF436:
 	lda.w #$009F
 	sta.b $0E
 	jsl.l CODE_9FFAB4
-	jsr.w $F4D8
+	jsr.w CODE_9FF4D8
 	stz.b $C3
-	jsr.w $F5E3
+	jsr.w CODE_9FF5E3
 	stz.w $0AD1
 	stz.w $0AD3
 	jsl.l SpriteFrameStart
@@ -33,18 +33,22 @@ CODE_9FF436:
 	lda.w #$7000
 	sta.b $64
 	ldx.w #$003C
-CODE_9FF499:
+.loop:
 	jsl.l WaitFrame
 	dex
-	bpl CODE_9FF499
+	bpl .loop
 	ldx.w #$009F
 	lda.w #$FA17
 	jsl.l CODE_80855E
-CODE_9FF4AA:
+.loop2:
 	jsl.l RandomWord
-	jsr.w $F613
-	bne CODE_9FF4BB
+	jsr.w CODE_9FF613
+	bne .t1
 	lda.b $3C
 	cmp.b $3A
-	beq CODE_9FF4AA
-	bra CODE_9FF4AA
+	beq .loop2
+	bra .loop2
+
+.t1:
+	jsl.l CODE_8086A9
+	rtl

@@ -1,25 +1,25 @@
-; Unidentified routine.
+; d0 / d1 = where the puck will be soon.
 skatetopuckinit:
 	lda.w puckvx
 	xba
 	lsr a
 	and.w #$007F
 	bit.w #$0040
-	beq CODE_9EDEB7
+	beq .x
 	ora.w #$FF80
-CODE_9EDEB7:
+.x:
 	clc
 	adc.w puckx
-	sta.b $A5
+	sta.b d0
 	lda.w puckvy
 	xba
 	lsr a
 	and.w #$007F
 	bit.w #$0040
-	beq CODE_9EDECD
+	beq .y
 	ora.w #$FF80
-CODE_9EDECD:
+.y:
 	clc
 	adc.w pucky
-	sta.b $A9
+	sta.b d1
 	rtl

@@ -32,28 +32,28 @@ CODE_9F937B:
 	jsl.l SpriteFrameEnd
 	stz.w $0D13
 	stz.w $0D15
-CODE_9F93DB:
+.loop:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CF80E
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0016
-	sta.b $A5
+	sta.b d0
 	lda.w #$0007
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D8000
-	jsl.l CODE_9F9B36
-	jsl.l CODE_9FE11D
-	bne CODE_9F93DB
+	jsl.l printscores1
+	jsl.l PauseMenu
+	bne .loop
 	lda.w #$0000
 	sta.l $7E3476
 	stz.w $1EBB
@@ -74,19 +74,19 @@ CODE_9F93DB:
 	ldx.w #$0800
 	jsl.l CODE_808F2F
 	plx
-	stz.w $0CD5
+	stz.w textdirtylo
 	lda.w #$03FF
-	sta.w $0CD7
+	sta.w textdirtyhi
 	pla
 	sta.w sflags
 	pla
 	sta.w sfhormode
-	bne CODE_9F945E
+	bne .1
 	jsl.l CODE_9FB9A4
-CODE_9F945E:
+.1:
 	lda.w #$0001
 	trb.w sflags
-	jsl.l CODE_9F9B36
+	jsl.l printscores1
 	ldx.w #$0000
 	ldy.w #$01C0
 	lda.w #$6000

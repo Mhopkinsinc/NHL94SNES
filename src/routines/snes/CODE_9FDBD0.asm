@@ -2,52 +2,55 @@
 CODE_9FDBD0:
 	lda.l $7E34C6
 	cmp.w #$0002
-	beq CODE_9FDC4B
+	beq .t1
 	lda.w pucky
-	sta.b $A5
+	sta.b d0
 	lda.w pfgoal,x
-	bne CODE_9FDBEB
+	bne .1
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
-CODE_9FDBEB:
-	lda.b $A5
-	bmi CODE_9FDC4B
+	sbc.b d0
+	sta.b d0
+.1:
+	lda.b d0
+	bmi .t1
 	sec
 	sbc.w #$0058
-	bpl CODE_9FDC4B
+	bpl .t1
 	lda.w seed
 	and.w #$0003
-	bne CODE_9FDC4B
+	bne .t1
 	phy
 	ldy.w #$0000
 	lda.w pfteam,x
-	beq CODE_9FDC09
+	beq .2
 	ldy.w #$0002
-CODE_9FDC09:
+.2:
 	lda.w tmflags,y
 	ply
 	bit.w #$0008
-	bne CODE_9FDC4B
-	stz.b $91
+	bne .t1
+	stz.b a2
 	lda.w #$0002
-	sta.b $8D
+	sta.b a1
 	lda.w pfteam,x
-	beq CODE_9FDC25
-	stz.b $8D
+	beq .3
+	stz.b a1
 	lda.w #$0002
-	sta.b $91
-CODE_9FDC25:
+	sta.b a2
+.3:
 	jsl.l CODE_9FDD19
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0C01
-	bcs CODE_9FDC4B
+	bcs .t1
 	lda.w $163A
-	bne CODE_9FDC4B
+	bne .t1
 	lda.l $7E34C6
-	beq CODE_9FDC4B
+	beq .t1
 	jsl.l CODE_9FDA53
 	jsl.l setpersonel
-	jsl.l CODE_9F9B36
+	jsl.l printscores1
 	jml.l CompShoot
+
+.t1:
+	rtl

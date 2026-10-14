@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9DAE6D:
-	lda.b $91
+	lda.b a2
 	pha
 	phx
 	lda.w #$0001
@@ -8,16 +8,16 @@ CODE_9DAE6D:
 	lda.w #$1800
 	sta.b $14
 	ldy.w #$0060
-	lda.b $A9
+	lda.b d1
 	cmp.w HomeTeam
-	bne CODE_9DAE96
+	bne .1
 	ldx.w #$1C00
 	stx.b $14
 	ldy.w #$0070
 	lda.w #$0018
 	sta.l $7E3466
-CODE_9DAE96:
-	lda.b $A9
+.1:
+	lda.b d1
 	asl a
 	asl a
 	tax
@@ -29,12 +29,87 @@ CODE_9DAE96:
 	jsl.l CODE_9DE0BD
 	lda.w HomeTeam
 	cmp.w VisTeam
-	bne CODE_9DAEC9
+	bne .t1
 	lda.b $14
 	cmp.w #$1800
-	beq CODE_9DAEC9
+	beq .t1
 	lda.w #$1800
 	sta.b $14
 	ldy.w #$0060
-	lda.b $A9
-	bra CODE_9DAE96
+	lda.b d1
+	bra .1
+
+.t1:
+	lda.l $7E3460
+	beq .1x
+	ldy.w #$0000
+	lda.w #$009A
+	sta.b $93
+	lda.w #$E9A3
+	sta.b a2
+	lda.w printy
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	adc.w printx
+	asl a
+	adc.w printm
+	tax
+	lda.w #$0009
+	sta.b tmp0
+	sta.b tmp1
+.loop:
+	lda.b [a2],y
+	clc
+	adc.l $7E35CE
+	clc
+	adc.l printfontset
+	clc
+	adc.b $14
+	sta.l textmap,x
+	iny
+	iny
+	inx
+	inx
+	dec.b tmp0
+	bne .loop
+.loop2:
+	lda.b [a2],y
+	clc
+	adc.l $7E35CE
+	clc
+	adc.l printfontset
+	clc
+	adc.b $14
+	sta.l $7E3822,x
+	iny
+	iny
+	inx
+	inx
+	dec.b tmp1
+	bne .loop2
+.1x:
+	lda.b d1
+	asl a
+	tax
+	lda.l TeamPlaceNames,x
+	sta.b $0C
+	lda.w #$009C
+	sta.b $0E
+	lda.w printx
+	pha
+	lda.w #$005C
+	sta.w $1D59
+	lda.w #$9C76
+	sta.w $1D5A
+	lda.w #$009D
+	sta.w $1D5C
+	jsl.l CODE_9D9A5C
+	pla
+	sta.w printx
+	plx
+	pla
+	sta.b a2
+	rts

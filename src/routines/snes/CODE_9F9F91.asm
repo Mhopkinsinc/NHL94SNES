@@ -1,72 +1,72 @@
 ; Unidentified routine.
 CODE_9F9F91:
-	asl.b $A5
-	asl.b $A5
+	asl.b d0
+	asl.b d0
 	lda.w #$009C
 	sta.b $8F
 	lda.w #TeamList
-	sta.b $8D
-	ldy.b $A5
-	lda.b [$8D],y
-	sta.b $8D
+	sta.b a1
+	ldy.b d0
+	lda.b [a1],y
+	sta.b a1
 	ldy.w #$0008
-	adc.b [$8D],y
-	sta.b $8D
-	lda.b [$8D]
+	adc.b [a1],y
+	sta.b a1
+	lda.b [a1]
 	and.w #$0070
 	lsr a
 	adc.w #$A038
-	sta.b $8D
+	sta.b a1
 	lda.w #$009F
 	sta.b $8F
-	lda.b [$8D]
+	lda.b [a1]
 	sta.w $0CF9
 	ldy.w #$0002
-	lda.b [$8D],y
+	lda.b [a1],y
 	sta.w $0CFB
 	ldy.w #$0004
-	lda.b [$8D],y
+	lda.b [a1],y
 	sta.w $0CFD
 	ldy.w #$0006
-	lda.b [$8D],y
+	lda.b [a1],y
 	sta.w $0CFF
-	asl.b $A9
-	asl.b $A9
+	asl.b d1
+	asl.b d1
 	lda.w #$009C
 	sta.b $8F
 	lda.w #TeamList
-	sta.b $8D
-	ldy.b $A9
-	lda.b [$8D],y
-	sta.b $8D
+	sta.b a1
+	ldy.b d1
+	lda.b [a1],y
+	sta.b a1
 	ldy.w #$0008
-	adc.b [$8D],y
-	sta.b $8D
-	lda.b [$8D]
+	adc.b [a1],y
+	sta.b a1
+	lda.b [a1]
 	and.w #$0007
 	asl a
 	asl a
 	asl a
 	adc.w #$A038
-	sta.b $8D
+	sta.b a1
 org $9FA001
 	lda.w #$009F
 	sta.b $8F
-	lda.b [$8D]
+	lda.b [a1]
 	adc.w $0CF9
 	sta.w $0CF9
 	ldy.w #$0002
-	lda.b [$8D],y
+	lda.b [a1],y
 	adc.w $0CFB
 	sta.w $0CFB
 	ldy.w #$0004
-	lda.b [$8D],y
+	lda.b [a1],y
 	adc.w $0CFD
 	sta.w $0CFD
 	ldy.w #$0006
-	lda.b [$8D],y
+	lda.b [a1],y
 	adc.w $0CFF
 	sta.w $0CFF
 	lda.w #$0004
-	sta.b $A5
+	sta.b d0
 	jml.l WeightedRandomSelect

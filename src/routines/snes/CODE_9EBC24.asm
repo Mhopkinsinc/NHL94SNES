@@ -1,14 +1,14 @@
 ; Unidentified routine.
 CODE_9EBC24:
-	ldy.b $91
+	ldy.b a2
 	lda.w pfalock,x
-	bne CODE_9EBCA3
+	bne .t1
 	lda.w position,x
-	beq CODE_9EBCA3
-	lda.l $7E34C4
-	bne CODE_9EBC4F
+	beq .t1
+	lda.l OptPen
+	bne .1
 	lda.w $19D4,y
-	bmi CODE_9EBC4F
+	bmi .1
 	lda.w #$0010
 	clc
 	adc.w aggress,y
@@ -16,39 +16,59 @@ CODE_9EBC24:
 	sbc.w $12E3,x
 	jsl.l CODE_9BB385
 	cmp.w #$000C
-	bcc CODE_9EBCA3
-CODE_9EBC4F:
+	bcc .t1
+.1:
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y
-	sta.b $A5
+	sta.b d0
 	lda.w Ypos,x
 	sec
 	sbc.w Ypos,y
-	sta.b $A9
+	sta.b d1
 	jsl.l vtoa
-	ldy.b $91
-	lda.b $A5
+	ldy.b a2
+	lda.b d0
 	sec
 	sbc.w facedir,y
 	inc a
 	and.w #$0007
 	cmp.w #$0003
-	bcs CODE_9EBCA3
-	ldx.b $91
-	ldy.b $95
-	sty.b $91
-	stx.b $95
+	bcs .t1
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
 	jsl.l CODE_9E9B52
 	jsl.l CODE_9EC042
-	beq CODE_9EBCA4
+	beq .t2
 	lda.w $1E8D
-	bpl CODE_9EBCA4
-	ldy.b $91
+	bpl .t2
+	ldy.b a2
 	sty.w $1E8D
 	lda.w $19D4,y
 	sta.w $1E93
 	lda.w #$0024
-	sta.b $A5
+	sta.b d0
 	jsl.l AddPenalty
 	bra CODE_9EBCB8
+
+.t1:
+	rtl
+
+.t2:
+	jsl.l checkagr
+	lda.b d0
+	cmp.w #$0005
+	bcs CODE_9EBCB8
+	lda.w #$0022
+	sta.b d0
+	jsl.l AddPenalty
+CODE_9EBCB8:
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
+	lda.w #$FFFF
+	sta.w $0CDB
+	rtl

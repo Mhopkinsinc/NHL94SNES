@@ -3,33 +3,33 @@ CODE_9EC6E7:
 	jsl.l CODE_9EC64B
 	lda.w $1638
 	sta.w $1E8B
-	beq CODE_9EC72C
+	beq .rtl
 	lda.w $1E9B
-	bne CODE_9EC704
+	bne .1
 	lda.w #$7000
 	sta.b $64
 	lda.w #$0005
 	jsl.l CODE_80A17D
-CODE_9EC704:
+.1:
 	lda.w $19BE
 	clc
 	adc.w #$0014
-	bmi CODE_9EC710
+	bmi .2
 	sta.w $19BE
-CODE_9EC710:
+.2:
 	phy
 	ldy.w #$0000
 	lda.w puckc
 	cmp.w #$000C
-	bmi CODE_9EC71F
+	bmi .3
 	ldy.w #$0002
-CODE_9EC71F:
+.3:
 	lda.w $1E9B
-	bne CODE_9EC72B
+	bne .4
 	lda.w $17C2,y
 	inc a
 	sta.w $17C2,y
-CODE_9EC72B:
+.4:
 	ply
-CODE_9EC72C:
+.rtl:
 	rtl

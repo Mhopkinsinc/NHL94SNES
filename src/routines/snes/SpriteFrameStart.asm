@@ -34,18 +34,26 @@ SpriteFrameStart:	; start filling OAMDrawBuf after the reserved entries; free th
 	tax
 CODE_80AFB9:
 	lda.w $2D40,x
-	bmi CODE_80AFD8
+	bmi .t1
 	lsr a
 	sta.w $2D40,x
-	bcc CODE_80AFD8
+	bcc .t1
 	ldy.w $2B40,x
 	sep #$20
 	lda.b #$80
 	pha
 	rep #$20
-	lda.w #CODE_80AFD8-1
+	lda.w #.t1-1
 	pha
 	phx
 	phy
 	phb
 	jmp.w CODE_80B772
+
+.t1:
+	dex
+	dex
+	bpl CODE_80AFB9
+CODE_80AFDC:
+	plb
+	rtl

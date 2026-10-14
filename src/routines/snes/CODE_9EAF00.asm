@@ -1,8 +1,8 @@
 ; Unidentified routine.
 CODE_9EAF00:
 	lda.w #$FFDA
-	sta.b $A5
-	lda.b $C7
+	sta.b d0
+	lda.b tmp1
 	and.w #$000A
 	beq CODE_9EAEC3
 	rts

@@ -1,44 +1,103 @@
 ; Unidentified routine.
 CODE_9E8F42:
-	lda.b $A5
+	lda.b d0
 	sta.w $1103,x
-	lda.b $A9
+	lda.b d1
 	sta.w $1123,x
-	lda.b $AD
+	lda.b d2
 	pha
-	lda.b $B1
+	lda.b d3
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $A5
+	lda.b d0
 	pha
 	txy
 	ldx.w Yvel,y
 	jsl.l CODE_808FEB
 	lda.b $09
-	sta.b $A5
+	sta.b d0
 	ldx.w Xvel,y
-	lda.b $A9
+	lda.b d1
 	jsl.l CODE_808FEB
-	lda.b $A5
+	lda.b d0
 	sec
 	sbc.b $09
 	eor.w #$FFFF
 	inc a
-	sta.b $AD
+	sta.b d2
 	ldx.w Xvel,y
 	lda.b $01,s
 	jsl.l CODE_808FEB
 	lda.b $09
-	sta.b $A5
+	sta.b d0
 	ldx.w Yvel,y
-	lda.b $A9
+	lda.b d1
 	jsl.l CODE_808FEB
 	lda.b $09
 	clc
-	adc.b $A5
-	sta.b $B1
+	adc.b d0
+	sta.b d3
 	tyx
 	cpx.w #$001C
-	beq CODE_9E8F9E
-	jmp.w $900A
+	beq .t2
+	jmp.w CODE_9E900A
+
+.t2:
+	lda.w #$1000
+	trb.w sflags
+	lda.b d2
+	bmi .t1
+	jmp.w CODE_9E9091
+
+.t1:
+	lsr a
+	lsr a
+	bit.w #$2000
+	beq .1
+	ora.w #$C000
+.1:
+	sta.b d2
+	sec
+	sbc.w #$FC00
+	bpl .3
+	jsl.l RandomWord
+	and.w #$07FF
+	eor.w #$FFFF
+	inc a
+	sta.w $0E01
+	sta.b d0
+	jsl.l puckflip
+	lda.w #$000A
+	ldy.w $0DF9
+	cpy.w #$000B
+	bcs .2
+	lda.w #$0004
+.2:
+	jsl.l CODE_9C9ABC
+.3:
+	lda.b d3
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$0200
+	beq .4
+	ora.w #$FC00
+.4:
+	sta.b d0
+	pha
+	asl a
+	pla
+	ror a
+	sta.b $A7
+	lda.b d3
+	sec
+	sbc.b d0
+org $9E9000
+	sec
+	sbc.b $A7
+	sta.b d3
+	bra CODE_9E904D

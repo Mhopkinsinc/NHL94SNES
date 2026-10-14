@@ -112,7 +112,7 @@ CODE_9FE79F:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
-	lda.w #$0095
+	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95E304
 	sta.b $0C
@@ -123,7 +123,7 @@ CODE_9FE79F:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l CODE_80891F
-	lda.w #$0095
+	lda.w #a3
 	sta.b $0E
 	lda.w #DATA8_95BA96
 	sta.b $0C
@@ -149,7 +149,7 @@ CODE_9FE79F:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	lda.l $7E35B6
 	asl a
 	asl a
@@ -160,22 +160,22 @@ CODE_9FE79F:
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3D0
-	sta.b $8D
+	sta.b a1
 	jsl.l RemapTiles
 	lda.w #$009C
 	sta.b $8B
 	lda.w #DATA8_9C8000
-	sta.b $89
+	sta.b a0
 	lda.w #$0080
 	sta.b $8F
 	lda.w #$D3E7
-	sta.b $8D
+	sta.b a1
 	lda.w #$0004
-	sta.b $A5
+	sta.b d0
 	jsl.l RemapTiles
 	lda.w #$0096
 	sta.b $0E
@@ -192,7 +192,7 @@ CODE_9FE79F:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $A5
+	sta.b d0
 	adc.l $7E35AE
 	sta.l $7E35CE
 	lda.w #$007F
@@ -223,8 +223,8 @@ CODE_9FE79F:
 	adc.w #$003C
 	sta.w $0CC7
 	lda.w #$FFFF
-	sta.w $0CD5
-	stz.w $0CD7
+	sta.w textdirtylo
+	stz.w textdirtyhi
 	jsl.l SetHor
 	ldx.w #$0000
 	ldy.w #$01C0

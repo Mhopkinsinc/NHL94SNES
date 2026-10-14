@@ -2,55 +2,128 @@
 CODE_9E8C35:
 	stz.w $0CDB
 	lda.w sfhormode
-	beq CODE_9E8C45
-	lda.b $AD
-	ldy.b $B1
-	sty.b $AD
-	sta.b $B1
-CODE_9E8C45:
+	beq .1
+	lda.b d2
+	ldy.b d3
+	sty.b d2
+	sta.b d3
+.1:
 	lda.w pfnc,x
-	bne CODE_9E8CA8
-	lda.b $B1
+	bne .3
+	lda.b d3
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
 	lda.w Xpos,x
-	sta.b $AD
+	sta.b d2
 	lda.w Ypos,x
-	sta.b $B1
+	sta.b d3
 	lda.w $10C3,x
 	sta.w $0D3B
 	lda.w $10E3,x
 	sta.w $0D3D
-	jsl.l CODE_9E8D3E
+	jsl.l checkwallcoll
 	lda.w $1103,x
 	ora.w $1123,x
-	bne CODE_9E8C99
+	bne .2
 	cpx.w #$0018
-	bcs CODE_9E8C99
+	bcs .2
 	txa
 	jsl.l CODE_9BC002
 	lda.w Xpos,x
 	clc
-	adc.b $A5
-	sta.b $AD
+	adc.b d0
+	sta.b d2
 	lda.w Ypos,x
 	clc
-	adc.b $A9
-	sta.b $B1
+	adc.b d1
+	sta.b d3
 	lda.w #$0001
 	sta.w $0D3B
 	sta.w $0D3D
-	jsl.l CODE_9E8D3E
-CODE_9E8C99:
+	jsl.l checkwallcoll
+.2:
 	pla
-	sta.b $AD
+	sta.b d2
 	pla
-	sta.b $B1
+	sta.b d3
 	lda.w position,x
-	bmi CODE_9E8CA8
+	bmi .3
 	jsl.l CODE_9E9484
-CODE_9E8CA8:
+.3:
 	lda.w $0CDB
-	beq CODE_9E8CB0
-	jmp.w $8D29
+	beq .t2
+	jmp.w .t3
+
+.t2:
+	lda.w OOlistpos,x
+	sta.b d1
+.loop:
+	ldy.b d1
+	cpy.w #$000F
+	beq .t1
+	lda.w $15C4,y
+	and.w #$00FF
+	sta.b d4
+	tay
+	lda.b d3
+	sec
+	sbc.w Ylist,y
+	beq .t1
+	bmi .t1
+	inc.w OOlistpos,x
+	lda.w OOlistpos,y
+	dec a
+	sta.w OOlistpos,y
+	sep #$30
+	ldy.b d1
+	lda.b d4
+	sta.w OOlist,y
+	txa
+	sta.w $15C4,y
+	rep #$30
+	inc.b d1
+	bra .loop
+
+.t1:
+	lda.w OOlistpos,x
+	beq .1x
+	sta.b d1
+.loopx:
+	ldy.b d1
+	lda.w $15C2,y
+	and.w #$00FF
+	sta.b d4
+	tay
+	lda.b d3
+	sec
+	sbc.w Ylist,y
+	bpl .1x
+	dec.w OOlistpos,x
+	lda.w OOlistpos,y
+	inc a
+	sta.w OOlistpos,y
+	sep #$30
+	ldy.b d1
+	lda.b d4
+	sta.w OOlist,y
+	txa
+	sta.w $15C2,y
+	rep #$30
+	dec.b d1
+	bne .loopx
+.1x:
+	lda.b d3
+	sta.w Ylist,x
+	rtl
+
+.t3:
+	lda.w SPA,x
+	cmp.w #DATA8_9DFC76
+	bcs .rtl
+	lda.w $0E43,x
+	sta.w Xpos,x
+	lda.w $0E83,x
+	sta.w Ypos,x
+.rtl:
+	rtl

@@ -1,7 +1,7 @@
-; Unidentified routine.
+; Set the rink scroll from the camera position.
 show_rink:
 	lda.w sfhormode
-	bne CODE_9FBC5E
+	bne .rtl
 	lda.w Hpos
 	sec
 	sbc.w #$0080
@@ -12,5 +12,5 @@ show_rink:
 	sec
 	sbc.w #$0070
 	sta.w Vscroll
-CODE_9FBC5E:
+.rtl:
 	rtl

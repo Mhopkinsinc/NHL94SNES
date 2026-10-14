@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FE9FD:
-	jsr.w $E75E
+	jsr.w CODE_9FE75E
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$76C0
@@ -10,7 +10,7 @@ CODE_9FE9FD:
 	jsl.l WaitFrame
 	jsl.l CODE_808723
 	ldx.w $0AC6
-	lda.w $0776,x
+	lda.w JoyPad,x
 	bit.w #$8080
 	bne CODE_9FE9FD
 	rts

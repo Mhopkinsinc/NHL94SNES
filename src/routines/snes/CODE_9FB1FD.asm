@@ -1,19 +1,19 @@
 ; Unidentified routine.
 CODE_9FB1FD:
 	lda.w sfhormode
-	bne CODE_9FB269
+	bne .rtl
 	lda.w $1E9B
-	bne CODE_9FB269
+	bne .rtl
 	lda.w sflags
 	bit.w #$0100
-	beq CODE_9FB269
+	beq .rtl
 	bit.w #$0800
-	bne CODE_9FB269
+	bne .rtl
 	stz.w $0CD3
 	lda.w #$3000
 	sta.w $0CCB
 	ldx.w #$0000
-CODE_9FB220:
+.loop:
 	lda.l $7E3126
 	sta.w $0CCF
 	lda.l $7E3128
@@ -27,9 +27,9 @@ CODE_9FB220:
 	sta.w $0CC5
 	lda.w #$0000
 	cpx.w #$0004
-	bne CODE_9FB24E
+	bne .1
 	lda.w #$0200
-CODE_9FB24E:
+.1:
 	ora.w $0CCB
 	sta.w $0CC9
 	phx
@@ -40,8 +40,8 @@ CODE_9FB24E:
 	inx
 	inx
 	cpx.w #$000C
-	bne CODE_9FB220
+	bne .loop
 	lda.w #$2000
 	sta.w $0CCB
-CODE_9FB269:
+.rtl:
 	rtl

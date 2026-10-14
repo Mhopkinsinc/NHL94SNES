@@ -62,15 +62,15 @@ CODE_9DB118:
 	lda.w #$0011
 	sta.w $0BD3
 	stz.w $0BFF
-	jsr.w $B5B6
-	jsr.w $BC8B
+	jsr.w CODE_9DB5B6
+	jsr.w CODE_9DBC8B
 	stz.w $0BEB
 	stz.w $0BE9
 	jsl.l CODE_9F96E6
-CODE_9DB1DD:
+.loop:
 	lda.w $0AD3
 	cmp.w #$000F
-	bcc CODE_9DB1DD
+	bcc .loop
 	lda.w #$B50C
 	ldx.w #$009D
 	ldy.w #$0000
@@ -85,7 +85,7 @@ CODE_9DB1DD:
 	lda.w #$000F
 	sta.w $0AD3
 	sta.w $0762
-	jsr.w $B7A0
+	jsr.w CODE_9DB7A0
 	lda.w #$7000
 	sta.b $64
 	lda.w #$0037
@@ -93,46 +93,46 @@ CODE_9DB1DD:
 	ldx.w #$001E
 	jsl.l CODE_9DBCEB
 	lda.w #$0000
-	jsr.w $B73F
+	jsr.w CODE_9DB73F
 	lda.w #$0001
-	jsr.w $B73F
+	jsr.w CODE_9DB73F
 	lda.w #$0002
-	jsr.w $B73F
+	jsr.w CODE_9DB73F
 	lda.w #$0034
 	jsl.l CODE_80A200
 	lda.w #$0042
 	sta.w $0BCD
-	jsr.w $B891
+	jsr.w CODE_9DB891
 	lda.w #$0003
-	jsr.w $B73F
+	jsr.w CODE_9DB73F
 	lda.w #$0004
-	jsr.w $B73F
+	jsr.w CODE_9DB73F
 	lda.w #$0005
-	jsr.w $B73F
+	jsr.w CODE_9DB73F
 	lda.w #$0034
 	jsl.l CODE_80A200
 	lda.w #$007D
 	sta.w $0BCD
-	jsr.w $B891
+	jsr.w CODE_9DB891
 	lda.w #$0006
-	jsr.w $B73F
+	jsr.w CODE_9DB73F
 	lda.w #$0007
-	jsr.w $B73F
+	jsr.w CODE_9DB73F
 	lda.w #$0008
-	jsr.w $B73F
+	jsr.w CODE_9DB73F
 	lda.w #$0034
 	jsl.l CODE_80A200
 	lda.w #$00FF
 	sta.w $0BCD
-	jsr.w $B891
-	jsr.w $BCB2
+	jsr.w CODE_9DB891
+	jsr.w CODE_9DBCB2
 	lda.w #$0001
 	sta.w $0BD1
 	lda.w #$0036
 	jsl.l CODE_80A200
 	ldx.w #$0007
 	jsl.l CODE_9DBCEB
-	jsr.w $BCB3
+	jsr.w CODE_9DBCB3
 	jsl.l CODE_9C9891
 	lda.w #$008F
 	sta.b $0E
@@ -140,19 +140,19 @@ CODE_9DB1DD:
 	sta.b $0C
 	jsl.l MusicStart
 	jsl.l SpriteFrameStart
-	jsr.w $B954
+	jsr.w PrintCopyright
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	jsl.l WaitFrame
-	jsr.w $B7D6
+	jsr.w CODE_9DB7D6
 	jsl.l SpriteFrameStart
-	jsr.w $B954
+	jsr.w PrintCopyright
 	lda.w #$007F
 	sta.b $12
 	lda.w #$5000
 	sta.b $10
 	lda.w #$0009
-	jsr.w $B754
+	jsr.w CODE_9DB754
 	lda.w #$0010
 	sta.w $0BD3
 	lda.w #$1800
@@ -176,20 +176,20 @@ CODE_9DB1DD:
 	lda.w #$0011
 	sta.w $0BD3
 	jsl.l WaitFrame
-	jsr.w $B7A0
+	jsr.w CODE_9DB7A0
 	ldx.w #$002D
 	jsl.l CODE_9DBCEB
-	jsr.w $B82B
+	jsr.w CODE_9DB82B
 	jsl.l SpriteFrameStart
-	jsr.w $B954
+	jsr.w PrintCopyright
 	lda.w #$007F
 	sta.b $12
 	lda.w #$5000
 	sta.b $10
 	lda.w #$0009
-	jsr.w $B754
+	jsr.w CODE_9DB754
 	lda.w #$000A
-	jsr.w $B754
+	jsr.w CODE_9DB754
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	jsl.l WaitFrame
@@ -220,13 +220,13 @@ CODE_9DB1DD:
 	sta.b $0C
 	ldy.w #$2000
 	jsl.l CODE_80899B
-	jsr.w $BCF8
+	jsr.w CODE_9DBCF8
 	stz.w $0BFD
 	lda.w $0BD5
 	asl a
 	tax
 	lda.l $7EF000,x
-	jsr.w $BB14
+	jsr.w CODE_9DBB14
 	lda.w #$0011
 	sta.w $0BD3
 	jsl.l WaitFrame
@@ -242,6 +242,12 @@ CODE_9DB3E2:
 	bcs CODE_9DB3FF
 	lda.w $0764
 	cmp.w #$0078
-	bcs CODE_9DB3F7
-	jsr.w $B983
+	bcs .t1
+	jsr.w CODE_9DB983
 	bra CODE_9DB3FA
+
+.t1:
+	jsr.w CODE_9DB9B4
+CODE_9DB3FA:
+	jsr.w CODE_9DB430
+	bra CODE_9DB3E2

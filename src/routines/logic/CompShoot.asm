@@ -1,32 +1,32 @@
-; Unidentified routine.
+; Computer player X shoots
 CompShoot:
 	pla
 	sep #$20
 	pla
 	rep #$30
 	lda.w pucky
-	sta.b $A5
+	sta.b d0
 	lda.w pfgoal,x
-	bne CODE_9EE123
+	bne .1
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
-CODE_9EE123:
+	sbc.b d0
+	sta.b d0
+.1:
 	lda.w #$0108
 	sec
-	sbc.b $A5
+	sbc.b d0
 	lsr a
 	lsr a
 	lsr a
 	cmp.w #$0014
-	bcc CODE_9EE134
+	bcc .2
 	lda.w #$0014
-CODE_9EE134:
-	sta.b $A9
+.2:
+	sta.b d1
 	stz.w temp2,x
-	lda.b $A9
+	lda.b d1
 	sta.w temp2b,x
 	lda.w #$0013
-	sta.b $A5
-	jmp.w $8C18
+	sta.b d0
+	jmp.w assreplace

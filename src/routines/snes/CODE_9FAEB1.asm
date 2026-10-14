@@ -1,18 +1,24 @@
 ; Unidentified routine.
 CODE_9FAEB1:
-	lda.b $C1
-	sta.b $C5
+	lda.b d7
+	sta.b tmp0
 	cmp.w temp1,x
-	bmi CODE_9FAEBF
+	bmi .1
 	lda.w #$0001
-	sta.b $C5
-CODE_9FAEBF:
+	sta.b tmp0
+.1:
 	lda.w temp1,x
 	sec
-	sbc.b $C5
+	sbc.b tmp0
 	sta.w temp1,x
-	bpl CODE_9FAF1E
+	bpl updatefaceoff
 	lda.w $1E9B
-	beq CODE_9FAED6
+	beq .t1
 	jsl.l CODE_9FB092
-	jmp.w $AFBE
+	jmp.w CODE_9FAFBE
+
+.t1:
+	stz.w $163A
+	lda.w #$FFFF
+	sta.w $1E8D
+	jmp.w CODE_9FB092

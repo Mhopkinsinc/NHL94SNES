@@ -55,5 +55,8 @@ CODE_9BA106:
 	ldx.b $08
 	dex
 	dex
-	bmi CODE_9BA10F
-	jmp.w $9FDC
+	bmi .t1
+	jmp.w CODE_9B9FDC
+
+.t1:
+	rtl

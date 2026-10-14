@@ -6,11 +6,11 @@ CODE_9FD99D:
 	bit.w #$4008
 	bne CODE_9FD96D
 	lda.w temp3,x
-	sta.b $A5
+	sta.b d0
 	lda.w temp4,x
-	sta.b $A9
+	sta.b d1
 	lda.w #$009E
 	sta.b $8B
 	lda.w #$8904
-	sta.b $89
+	sta.b a0
 	jml.l CODE_9EA5A4

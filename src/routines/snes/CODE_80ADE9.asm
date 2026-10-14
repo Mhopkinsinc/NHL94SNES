@@ -2,9 +2,9 @@
 CODE_80ADE9:
 	php
 	sep #$30
-CODE_80ADEC:
+.loop:
 	lda.w APUIO0
-	bne CODE_80ADEC
+	bne .loop
 	ldy.b #$00
 	lda.w $07F8
 	sta.w APUIO1
@@ -17,9 +17,9 @@ CODE_80ADEC:
 	iny
 	lda.b #$08
 	sta.w APUIO0
-CODE_80AE0E:
+.loop2:
 	cmp.w APUIO0
-	bne CODE_80AE0E
+	bne .loop2
 	lda.l $0007E8
 	sta.w APUIO1
 	iny
@@ -27,15 +27,15 @@ CODE_80AE0E:
 	sta.w APUIO2
 	ldx.b #$82
 	stx.w APUIO0
-CODE_80AE27:
+.loop3:
 	cpx.w APUIO0
-	bne CODE_80AE27
+	bne .loop3
 	stz.w APUIO0
 	lda.w $07E7
 	beq CODE_80AE77
-CODE_80AE34:
+.loop4:
 	lda.w APUIO0
-	bne CODE_80AE34
+	bne .loop4
 	ldy.b #$00
 	lda.l $0007EB
 	sta.w APUIO1
@@ -48,9 +48,9 @@ CODE_80AE34:
 	iny
 	lda.b #$09
 	sta.w APUIO0
-CODE_80AE58:
+.loop5:
 	cmp.w APUIO0
-	bne CODE_80AE58
+	bne .loop5
 	lda.b #$E0
 	sta.w APUIO1
 	iny
@@ -58,9 +58,9 @@ CODE_80AE58:
 	sta.w APUIO2
 	ldx.b #$83
 	stx.w APUIO0
-CODE_80AE6F:
+.loop6:
 	cpx.w APUIO0
-	bne CODE_80AE6F
+	bne .loop6
 	stz.w APUIO0
 CODE_80AE77:
 	rep #$30

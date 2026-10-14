@@ -21,9 +21,9 @@ CODE_9EDD90:
 	cmp.w $0E9F
 	bne CODE_9EDDB7
 	lda.w #$0006
-	sta.b $A5
+	sta.b d0
 	dec.w $10BF
 	bpl CODE_9EDDBD
-CODE_9EDDAA:
+.1:
 	jsl.l CODE_9EB88A
 	bra CODE_9EDDBD

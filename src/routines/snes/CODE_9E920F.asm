@@ -1,3 +1,3 @@
 ; Unidentified routine.
 CODE_9E920F:
-	jmp.w $F319
+	jmp.w CODE_9EF319

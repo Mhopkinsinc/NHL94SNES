@@ -9,95 +9,95 @@ CODE_9FB092:
 	trb.w sflags
 	lda.w #$0000
 	sta.l $7E3120
-	lda.w #$0400
+	lda.w #DMA_OAM
 	trb.w sflags
 	stz.w $0CA9
 	stz.w gmclock
 	lda.w #$0010
 	tsb.w sflags3
 	lda.l $7E3122
-	sta.b $B1
+	sta.b d3
 	lda.w #$0800
-	sta.b $B5
-	stz.b $8D
+	sta.b d4
+	stz.b a1
 	lda.w #$0010
-	sta.b $AD
+	sta.b d2
 	lda.l $7E312A
 	tax
 	lda.l DATA8_9FB1F7-1,x
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9FB0E5
-CODE_9FB0E2:
+	beq .2
+.1:
 	ora.w #$FF00
-CODE_9FB0E5:
+.2:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.b $AD
-	sta.b $AD
+	adc.b d2
+	sta.b d2
 	lda.l $7E312E
 	tax
 	lda.l DATA8_9FB1F7-1,x
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9FB102
-CODE_9FB0FF:
+	beq .4
+.3:
 	ora.w #$FF00
-CODE_9FB102:
+.4:
 	clc
-	adc.b $AD
-	sta.b $AD
+	adc.b d2
+	sta.b d2
 	jsl.l RandomWord
 	and.w #$001F
 	inc a
-	cmp.b $AD
-	bcs CODE_9FB118
+	cmp.b d2
+	bcs .5
 	lda.w #$0004
-	sta.b $8D
-CODE_9FB118:
-	ldx.b $8D
+	sta.b a1
+.5:
+	ldx.b a1
 	lda.l $7E312C,x
 	bit.w #$0800
-	beq CODE_9FB12E
+	beq .6
 	lda.l $7E3124
-	sta.b $B1
+	sta.b d3
 	lda.w #$F800
-	sta.b $B5
-CODE_9FB12E:
-	lda.b $B1
+	sta.b d4
+.6:
+	lda.b d3
 	bit.w #$0008
-	bne CODE_9FB142
+	bne .7
 	and.w #$0007
-	sta.b $A5
+	sta.b d0
 	lda.w seed
 	and.w #$0003
-	bne CODE_9FB15B
-CODE_9FB142:
+	bne .8
+.7:
 	lda.w #$0005
 	jsl.l CODE_9BB385
 	dec a
 	dec a
 	and.w #$0007
-	sta.b $A5
-	lda.b $B5
-	bmi CODE_9FB15B
-	lda.b $A5
+	sta.b d0
+	lda.b d4
+	bmi .8
+	lda.b d0
 	eor.w #$0004
-	sta.b $A5
-CODE_9FB15B:
-	asl.b $A5
-	asl.b $A5
-	ldx.b $A5
+	sta.b d0
+.8:
+	asl.b d0
+	asl.b d0
+	ldx.b d0
 	lda.l DATA8_80DA06,x
 	asl a
 	asl a
 	asl a
 	asl a
 	asl a
-	ldx.b $95
+	ldx.b a3
 	sta.w Xvel,x
-	ldx.b $A5
+	ldx.b d0
 	lda.l DATA8_80DA06+2,x
 	asl a
 	asl a
@@ -105,12 +105,12 @@ CODE_9FB15B:
 	asl a
 	asl a
 	clc
-	adc.b $B5
-	ldx.b $95
+	adc.b d4
+	ldx.b a3
 	sta.w Yvel,x
 	lda.w #$0004
 	ldy.w #$0000
-	jsr.w $B1DE
+	jsr.w CODE_9FB1DE
 	bmi CODE_9FB1B1
 	lda.w puckvy
 	bpl CODE_9FB1A4
@@ -119,6 +119,6 @@ CODE_9FB15B:
 CODE_9FB197:
 	lda.w #$0004
 	ldy.w #$000C
-	jsr.w $B1DE
+	jsr.w CODE_9FB1DE
 	bmi CODE_9FB1B1
 	bra CODE_9FB1A9

@@ -8,9 +8,9 @@ CODE_9EE797:
 	phy
 	ldy.w #$0000
 	cpx.w #$000C
-	bmi CODE_9EE7B0
+	bmi .1
 	ldy.w #$0002
-CODE_9EE7B0:
+.1:
 	lda.w $17D2,y
 	inc a
 	sta.w $17D2,y
@@ -18,11 +18,29 @@ CODE_9EE7B0:
 	lda.w #$0000
 	sec
 	sbc.w $0BA7
-	sta.b $A5
+	sta.b d0
 	lda.w pfgoal,x
-	bne CODE_9EE7D1
+	bne .t1
 	lda.w #$FEF8
 	sec
 	sbc.w $0BA9
-	sta.b $A9
+	sta.b d1
 	bra CODE_9EE7DA
+
+.t1:
+	lda.w #$0108
+	sec
+	sbc.w $0BA9
+	sta.b d1
+CODE_9EE7DA:
+	jsl.l vtoa
+	jsl.l Findhittype
+	beq .t1
+	lda.w #DATA8_9DF020
+	bra CODE_9EE7EC
+
+.t1:
+	lda.w #DATA8_9DEF6E
+CODE_9EE7EC:
+	jsl.l SetSPAFromA
+	jmp.w CODE_9EE796

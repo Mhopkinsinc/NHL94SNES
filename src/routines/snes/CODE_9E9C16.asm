@@ -5,7 +5,7 @@ CODE_9E9C16:
 	bpl CODE_9E9C13
 	cmp.w #$FF0A
 	bmi CODE_9E9C13
-	lda.b $A5
+	lda.b d0
 	cmp.w #$0005
 	bcc CODE_9E9C0A
 	lda.w #$0082

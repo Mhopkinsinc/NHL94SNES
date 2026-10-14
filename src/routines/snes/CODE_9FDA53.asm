@@ -1,67 +1,67 @@
 ; Unidentified routine.
 CODE_9FDA53:
-	lda.b $A5
+	lda.b d0
 	pha
 	lda.b $A7
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
 	lda.b $AB
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
 	lda.b $AF
 	pha
-	lda.b $89
+	lda.b a0
 	pha
 	lda.b $8B
 	pha
 	lda.w #$0003
-	sta.b $A5
-	ldy.b $91
+	sta.b d0
+	ldy.b a2
 	lda.w tmap,y
-	ldy.b $8D
+	ldy.b a1
 	cmp.w tmap,y
 	beq CODE_9FDABF
-	bpl CODE_9FDA82
-	inc.b $A5
-	inc.b $A5
-CODE_9FDA82:
-	lda.b $A5
+	bpl .1
+	inc.b d0
+	inc.b d0
+.1:
+	lda.b d0
 	pha
 	jsl.l CODE_9FDF0C
-	lda.b $A5
-	sta.b $A9
+	lda.b d0
+	sta.b d1
 	lda.b $01,s
 	inc a
-	sta.b $A5
+	sta.b d0
 	jsl.l CODE_9FDF0C
-	lda.b $A9
+	lda.b d1
 	sec
-	sbc.b $A5
-	bpl CODE_9FDAA0
+	sbc.b d0
+	bpl .2
 	pla
 	inc a
 	pha
-CODE_9FDAA0:
+.2:
 	pla
-	ldy.b $91
+	ldy.b a2
 	sta.w tmline,y
 CODE_9FDAA6:
 	pla
 	sta.b $8B
 	pla
-	sta.b $89
+	sta.b a0
 	pla
 	sta.b $AF
 	pla
-	sta.b $AD
+	sta.b d2
 	pla
 	sta.b $AB
 	pla
-	sta.b $A9
+	sta.b d1
 	pla
 	sta.b $A7
 	pla
-	sta.b $A5
+	sta.b d0
 	rtl

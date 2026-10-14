@@ -7,9 +7,9 @@ CODE_9E9D79:
 	lda.w #$002D
 	sta.b $81
 	lda.w puckc
-	sta.b $A5
+	sta.b d0
 	bmi CODE_9E9D73
-	cpy.b $A5
+	cpy.b d0
 	bne CODE_9E9D73
 	lda.w gmode
 	bit.w #$0010
@@ -31,7 +31,7 @@ CODE_9E9D79:
 	lda.w #$0096
 	jsl.l CODE_9BB385
 	asl a
-	ldy.b $91
+	ldy.b a2
 	sec
 	sbc.w $0F23,y
 	bpl CODE_9E9D76
@@ -43,18 +43,18 @@ CODE_9E9D79:
 	lda.w #$FFFF
 	sta.w puckc
 	stz.w $0C23
-	ldy.b $91
+	ldy.b a2
 	lda.w pfteam,y
-	beq CODE_9E9DF2
+	beq .1
 	lda.w #$0002
-CODE_9E9DF2:
+.1:
 	clc
 	adc.w #$0006
 	jsl.l CODE_9C9FD5
-	ldx.b $91
+	ldx.b a2
 	lda.w #SPAinjury1
-	jsl.l CODE_9EA3F1
-	ldx.b $95
+	jsl.l SetSPAFromA
+	ldx.b a3
 	lda.w Xvel,x
 	eor.w #$FFFF
 	inc a
@@ -69,15 +69,26 @@ CODE_9E9DF2:
 	sta.w Yvel,x
 	jsl.l setInjuryType
 	lda.w #$0004
-	sta.w $1626
+	sta.w InjCntDown
 	lda.w #$0016
-	sta.b $A5
+	sta.b d0
 	lda.w $19BE
 	clc
 	adc.w #$001E
-	bmi CODE_9E9E3C
+	bmi .2
 	sta.w $19BE
-CODE_9E9E3C:
+.2:
 	lda.w position,x
-	bne CODE_9E9E44
-	jmp.w $B88A
+	bne .t2
+	jmp.w CODE_9EB88A
+
+.t2:
+	lda.l OptPen
+	bne .t1
+	jmp.w CODE_9EB88A
+
+.t1:
+	lda.w #$0014
+	sta.b d0
+	jsl.l CODE_9EB88A
+	jmp.w Stop4Pen

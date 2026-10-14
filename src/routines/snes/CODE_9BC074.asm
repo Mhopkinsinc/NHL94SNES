@@ -19,64 +19,64 @@ CODE_9BC074:
 	lda.b [$0C],y
 	and.w #$00FF
 	cmp.w #$0080
-	bcc CODE_9BC0A1
+	bcc .1
 	ora.w #$FF00
-CODE_9BC0A1:
-	sta.b $A5
+.1:
+	sta.b d0
 	iny
 	lda.b [$0C],y
 	and.w #$00FF
 	cmp.w #$0080
-	bcc CODE_9BC0B1
+	bcc .2
 	ora.w #$FF00
-CODE_9BC0B1:
-	sta.b $A9
+.2:
+	sta.b d1
 	iny
 	lda.b [$0C],y
 	and.w #$00FF
 	cmp.w #$0080
-	bcc CODE_9BC0C1
+	bcc .3
 	ora.w #$FF00
-CODE_9BC0C1:
+.3:
 	sec
-	sbc.b $A5
-	sta.b $A5
+	sbc.b d0
+	sta.b d0
 	iny
 	lda.b [$0C],y
 	and.w #$00FF
 	cmp.w #$0080
-	bcc CODE_9BC0D4
+	bcc .4
 	ora.w #$FF00
-CODE_9BC0D4:
+.4:
 	sec
 	eor.w #$FFFF
-	adc.b $A9
-	sta.b $A9
+	adc.b d1
+	sta.b d1
 	lda.w attribute,x
 	bit.w #$0800
-	beq CODE_9BC0EC
-CODE_9BC0E4:
+	beq .6
+.5:
 	lda.w #$0000
 	sec
-	sbc.b $A5
-	sta.b $A5
-CODE_9BC0EC:
+	sbc.b d0
+	sta.b d0
+.6:
 	lda.w attribute,x
 	bit.w #$1000
-	bne CODE_9BC0FC
+	bne .7
 	lda.w #$0000
 	sec
-	sbc.b $A9
-	sta.b $A9
-CODE_9BC0FC:
+	sbc.b d1
+	sta.b d1
+.7:
 	lda.w sfhormode
-	beq CODE_9BC10D
-	lda.b $A5
-	ldy.b $A9
+	beq .8
+	lda.b d0
+	ldy.b d1
 	eor.w #$FFFF
 	inc a
-	sta.b $A9
-	sty.b $A5
-CODE_9BC10D:
+	sta.b d1
+	sty.b d0
+.8:
 	plx
 	rtl

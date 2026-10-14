@@ -8,32 +8,32 @@ CODE_9D804F:
 	asl a
 	adc.w printx
 	asl a
-	adc.w $0CD9
-	sta.b $C9
+	adc.w printm
+	sta.b tmp2
 	tax
 	lda.b [$0C]
 	clc
-	adc.b $C5
-	sta.l $7E37F4,x
+	adc.b tmp0
+	sta.l textmap,x
 	inc.b $0C
 	inc.b $0C
 	lda.b [$0C]
 	clc
-	adc.b $C5
-	ldy.b $A5
+	adc.b tmp0
+	ldy.b d0
 	dey
 	dey
-CODE_9D8077:
+.loop:
 	inx
 	inx
-	sta.l $7E37F4,x
+	sta.l textmap,x
 	dey
-	bne CODE_9D8077
+	bne .loop
 	inc.b $0C
 	inc.b $0C
 	lda.b [$0C]
 	clc
-	adc.b $C5
+	adc.b tmp0
 	sta.l $7E37F6,x
 	inc.w printy
 	rts

@@ -3,16 +3,16 @@ CODE_9C978E:
 	stz.w $0CC3
 	lda.w $1D68
 	cmp.w #$0002
-	beq CODE_9C97E1
+	beq .1
 	jsl.l CODE_8086A9
 	lda.w #$0002
 	sta.w $1D68
 	sep #$20
-	dec.w $07E5
+	dec.w SoundLock
 	rep #$20
 	jsl.l SPCCmd01
 	sep #$20
-	inc.w $07E5
+	inc.w SoundLock
 	rep #$20
 	lda.w #$009B
 	sta.b $36
@@ -20,7 +20,7 @@ CODE_9C978E:
 	sta.b $34
 	jsl.l SoundInit
 	ldx.w #$0000
-CODE_9C97C6:
+.loop:
 	lda.l DATA8_80E6FD,x
 	sta.b $0C
 	lda.l DATA8_80E6FD+2,x
@@ -33,8 +33,8 @@ CODE_9C97C6:
 	inx
 	inx
 	cpx.w #$0040
-	bne CODE_9C97C6
-CODE_9C97E1:
+	bne .loop
+.1:
 	lda.w #$0000
 	sta.l $7E35EA
 	rtl

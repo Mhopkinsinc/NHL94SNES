@@ -1,13 +1,13 @@
-; Unidentified routine.
+; Add d0 to a team stat for player X's team
 addteamstat:
-	ldy.b $A9
+	ldy.b d1
 	lda.w pfteam,x
-	beq CODE_9FC97E
+	beq .add
 	iny
 	iny
-CODE_9FC97E:
+.add:
 	lda.w $0000,y
 	clc
-	adc.b $A5
+	adc.b d0
 	sta.w $0000,y
 	rtl

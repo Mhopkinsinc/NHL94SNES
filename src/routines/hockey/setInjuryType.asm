@@ -1,6 +1,6 @@
-; Unidentified routine.
+; Player a2 is injured: the crowd reacts and the injury box gets his name
 setInjuryType:
-	ldy.b $91
+	ldy.b a2
 	lda.w pflags,y
 	ora.w #$1000
 	sta.w pflags,y
@@ -12,49 +12,49 @@ setInjuryType:
 	sta.b $81
 	lda.w #$0004
 	jsl.l CODE_9C9A7F
-	ldy.b $91
+	ldy.b a2
 	lda.w Xpos,y
-	sta.w $0D4B
+	sta.w xc1
 	lda.w Ypos,y
-	sta.w $0D4D
+	sta.w yc1
 	lda.w #$0040
 	tsb.w sflags
-	stz.b $A9
-	stz.b $89
+	stz.b d1
+	stz.b a0
 	lda.w pfteam,y
-	beq CODE_9EC31A
+	beq .1
 	lda.w #$8000
-	sta.b $A9
+	sta.b d1
 	lda.w #$0002
-	sta.b $89
-CODE_9EC31A:
+	sta.b a0
+.1:
 	lda.w pnum,y
 	and.w #$00FF
-	ora.b $A9
+	ora.b d1
 	sta.w TempPlOffset
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9EC330
+	beq .2
 	ora.w #$FF00
-CODE_9EC330:
+.2:
 	asl a
-	sta.b $A9
-	lda.b $89
-	beq CODE_9EC33A
+	sta.b d1
+	lda.b a0
+	beq .3
 	lda.w #$0034
-CODE_9EC33A:
-	adc.b $A9
+.3:
+	adc.b d1
 	tay
 	lda.w #$FFFD
 	sta.w tmpdst,y
 	lda.w #$0007
 	jsl.l CODE_9BB385
 	cmp.w #$0000
-	bne CODE_9EC35E
+	bne .rtl
 	lda.w #$FFFC
 	sta.w tmpdst,y
 	lda.w TempPlOffset
 	ora.w #$4000
 	sta.w TempPlOffset
-CODE_9EC35E:
+.rtl:
 	rtl

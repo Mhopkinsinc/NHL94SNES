@@ -9,12 +9,22 @@ CODE_9BB423:
 	adc.b $10
 	ror a
 	cmp.b $0C
-	beq CODE_9BB441
+	beq .t2
 	pha
 	tax
 	jsl.l CODE_808F4C
-	cmp.b $A5
-	bcc CODE_9BB43C
+	cmp.b d0
+	bcc .t1
 	pla
 	sta.b $10
 	bra CODE_9BB423
+
+.t1:
+	pla
+	sta.b $0C
+	bra CODE_9BB423
+
+.t2:
+	plx
+	sta.b d0
+	rtl

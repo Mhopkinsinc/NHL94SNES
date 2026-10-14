@@ -2,12 +2,31 @@
 CODE_9EAC79:
 	lda.b $12
 	cmp.w #$FEF8
-	bpl CODE_9EAC91
+	bpl .t1
 	lda.b $22
-	sta.b $A9
+	sta.b d1
 	ldy.b $20
 	bmi CODE_9EACBA
 	lda.b $0C
 	cmp.w Xpos,y
 	bmi CODE_9EAC5A
 	bra CODE_9EACE2
+
+.t1:
+	ldy.b $20
+	bmi CODE_9EACD3
+CODE_9EAC95:
+	lda.b $10
+	sec
+	sbc.w Xpos,y
+	pha
+	lda.b $0C
+	sec
+	sbc.b $10
+	eor.b $01,s
+	bpl CODE_9EACD4
+	pla
+	lda.b $0C
+	cmp.w Xpos,y
+	bpl CODE_9EACE2
+	bra CODE_9EAD14

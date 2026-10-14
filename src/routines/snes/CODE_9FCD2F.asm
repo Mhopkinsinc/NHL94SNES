@@ -2,9 +2,16 @@
 CODE_9FCD2F:
 	ldy.w #$0000
 	cpx.w #$000C
-	bcc CODE_9FCD3A
+	bcc .1
 	ldy.w #$0002
-CODE_9FCD3A:
+.1:
 	lda.w $1C94,y
-	bne CODE_9FCD40
+	bne .t1
 	rtl
+
+.t1:
+	lda.w #$0002
+	ldy.w pfgoal,x
+	bne CODE_9FCD69
+	lda.w #$0001
+	bra CODE_9FCD69

@@ -13,12 +13,20 @@ CODE_9F967B:
 CODE_9F9698:
 	phx
 	lda.w $1C84,x
-	beq CODE_9F96AF
+	beq .t1
 	txa
 	lsr a
 	jsl.l CODE_9B84DC
-	lda.b $B1
+	lda.b d3
 	bit.w #$1000
-	beq CODE_9F96AF
+	beq .t1
 	pla
-	jmp.w $936C
+	jmp.w CODE_9F936C
+
+.t1:
+	plx
+	inx
+	inx
+	cpx.w #$000A
+	bcc CODE_9F9698
+	rtl

@@ -1,0 +1,39 @@
+; Fill the other-scores rows, skipping this game.
+FillOtherScores:
+	lda.w #$007F
+	sta.b $12
+	lda.w #$2780
+	sta.b $10
+	ldx.w #$4D80
+	lda.l $7E35B6
+	clc
+	adc.l printfontset
+	jsl.l CODE_808EDF
+	lda.w $1DC1
+	cmp.w #$0001
+	beq CODE_9BC4F2
+	lda.w #$2400
+	sta.w printa
+	lda.w #$0000
+	sta.w printy
+	lda.b $00
+	sta.w $1DB9
+	stz.w $1DE9
+CODE_9BC4D0:
+	cmp.l $7E35D6
+	bne .t1
+.1:
+	inc.w $1DE9
+	bra CODE_9BC4E9
+
+.t1:
+	lda.w $1DB9
+	cmp.w $1DC1
+	beq CODE_9BC4F2
+	jsr.w CODE_9BC543
+	inc.w printy
+CODE_9BC4E9:
+	lda.w $1DB9
+	inc a
+	sta.w $1DB9
+	bra CODE_9BC4D0

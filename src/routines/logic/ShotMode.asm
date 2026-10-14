@@ -1,37 +1,42 @@
-; Unidentified routine.
+; Pad input while shooting: aim with the pad and build shot power during the windup.
 ShotMode:
 	cpx.w puckc
-	bne CODE_9EE219
+	bne .off
 	lda.w SPA,x
 	cmp.w #SPAshotf
-	bcc CODE_9EE219
+	bcc .off
 	cmp.w #DATA8_9DF020+1
-	bcs CODE_9EE219
+	bcs .off
 	lda.w SPAnum,x
 	cmp.w #$0018
 	bcs CODE_9EE220
-	lda.b $A5
+	lda.b d0
 	bit.w #$0008
-	bne CODE_9EE1EA
+	bne .ss0
 	and.w #$0007
 	sta.w passdir
-CODE_9EE1EA:
+.ss0:
 	lda.w SPAnum,x
 	cmp.w #$0010
-	bcs CODE_9EE21F
+	bcs .rts
 	lda.w passspeed
 	clc
-	adc.b $C1
+	adc.b d7
 	sta.w passspeed
-	lda.b $AD
-	bit.w #$0080
-	beq CODE_9EE21F
+	lda.b d2
+	bit.w #cbut
+	beq .rts
 	lda.w #$001C
 	sec
 	sbc.w SPAnum,x
 	sta.w SPAnum,x
 	cmp.w #$0018
-	bcc CODE_9EE21F
+	bcc .rts
 	lda.w #$0018
 	sta.w SPAnum,x
 	bra CODE_9EE220
+.off:
+	lda.w #$0008
+	trb.w sflags
+.rts:
+	rtl

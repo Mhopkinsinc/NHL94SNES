@@ -4,4 +4,4 @@ DATA8_99D102:		; a player photo: 6 x 6 linear 4bpp tiles packed for DecompressHu
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "DATA8_99D102.lin.huf":5..547
+	incbin "../../../Extracted/data/gfx/DATA8_99D102.lin.huf":5..547

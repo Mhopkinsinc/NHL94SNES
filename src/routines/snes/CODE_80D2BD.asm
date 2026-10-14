@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_80D2BD:		; put the player at the cursor in shooter row $1DB9; if that player is already in the list, the two swap
-	ldy.b $A9
+	ldy.b d1
 	phy
 	lda.w #$0009
 	sec
@@ -8,32 +8,47 @@ CODE_80D2BD:		; put the player at the cursor in shooter row $1DB9; if that playe
 	clc
 	adc.w $1DA7
 	and.w #$00FF
-	sta.b $A5
+	sta.b d0
 	lda.w #$0000
 	sta.b $8F
 	lda.w #homeshooters
-	sta.b $8D
-	lda.b $91
-	beq CODE_80D2E8
+	sta.b a1
+	lda.b a2
+	beq .1
 	lda.w #$0000
 	sta.b $8F
 	lda.w #awayshooters
-	sta.b $8D
-CODE_80D2E8:
+	sta.b a1
+.1:
 	ldy.w $1DB9
 	sep #$20
-	lda.b [$8D],y
+	lda.b [a1],y
 	rep #$20
 	and.w #$00FF
-	sta.b $A9
-	lda.b $A5
+	sta.b d1
+	lda.b d0
 	ldy.w #$0001
-CODE_80D2FB:
+.loop:
 	sep #$20
-	cmp.b [$8D],y
+	cmp.b [a1],y
 	rep #$20
-	beq CODE_80D30B
+	beq .t1
 	iny
 	cpy.w #$0007
-	bmi CODE_80D2FB
+	bmi .loop
 	bra CODE_80D313
+
+.t1:
+	lda.b d1
+	sep #$20
+	sta.b [a1],y
+	rep #$20
+CODE_80D313:
+	ldy.w $1DB9
+	lda.b d0
+	sep #$20
+	sta.b [a1],y
+	rep #$20
+	pla
+	sta.b d1
+	rtl

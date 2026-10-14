@@ -2,28 +2,28 @@
 CODE_9EDBC0:
 	lda.w Ypos,x
 	cmp.w #$0108
-	bpl CODE_9EDBEC
+	bpl .3
 	cmp.w #$FEF8
-	bmi CODE_9EDBEC
+	bmi .3
 	cpx.w puckc
-	bne CODE_9EDBD4
-	stz.b $A5
-CODE_9EDBD4:
-	lda.b $A9
+	bne .1
+	stz.b d0
+.1:
+	lda.b d1
 	cmp.w #$0103
-	bmi CODE_9EDBE0
+	bmi .2
 	lda.w #$0103
-	sta.b $A9
-CODE_9EDBE0:
-	lda.b $A9
+	sta.b d1
+.2:
+	lda.b d1
 	cmp.w #$FEFD
-	bpl CODE_9EDBEC
+	bpl .3
 	lda.w #$FEFD
-	sta.b $A9
-CODE_9EDBEC:
-	lda.b $A9
+	sta.b d1
+.3:
+	lda.b d1
 	sec
-	sbc.b $B1
-	sta.b $A9
+	sbc.b d3
+	sta.b d1
 CODE_9EDBF3:
 	rtl

@@ -15,10 +15,10 @@ CODE_9FF5E3:
 	tax
 	clc
 	adc.w #$02D0
-	sta.b $BD
+	sta.b d6
 	txa
 	clc
 	adc.w #$00F0
-	sta.b $C1
-	jsr.w $F89C
+	sta.b d7
+	jsr.w CODE_9FF89C
 	rts

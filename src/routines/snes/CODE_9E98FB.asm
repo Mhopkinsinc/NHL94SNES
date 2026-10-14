@@ -3,7 +3,7 @@ CODE_9E98FB:
 	lda.w Xpos,y
 	sec
 	sbc.w puckx
-	sta.b $A5
+	sta.b d0
 	cmp.w #$FFF5
 	bmi CODE_9E98EC
 	cmp.w #$000B
@@ -11,7 +11,7 @@ CODE_9E98FB:
 	lda.w Ypos,y
 	sec
 	sbc.w pucky
-	sta.b $A9
+	sta.b d1
 	cmp.w #$FFF5
 	bmi CODE_9E98EC
 	cmp.w #$000B

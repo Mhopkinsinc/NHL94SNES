@@ -2,34 +2,63 @@
 CODE_9D98D3:
 	jsl.l RandomWord
 	and.w #$001F
-	sta.b $A5
-CODE_9D98DC:
-	lda.b $A5
+	sta.b d0
+.loop:
+	lda.b d0
 	inc a
 	and.w #$001F
-	sta.b $A5
+	sta.b d0
 	asl a
 	asl a
 	asl a
 	asl a
 	adc.w #$ED59
-	sta.b $89
+	sta.b a0
 	lda.w #$009C
 	sta.b $8B
 	lda.w #$000F
-	sta.b $A9
+	sta.b d1
 	lda.l $7E34BE
-	sta.b $AD
+	sta.b d2
 	cmp.w #$001A
-	bcc CODE_9D9907
+	bcc .1
 	lda.w #$0019
-	sta.b $AD
-CODE_9D9907:
-	lda.b [$89]
-	inc.b $89
+	sta.b d2
+.1:
+	lda.b [a0]
+	inc.b a0
 	and.w #$00FF
-	cmp.b $AD
-	beq CODE_9D9918
-	dec.b $A9
-	bpl CODE_9D9907
-	bra CODE_9D98DC
+	cmp.b d2
+	beq .t1
+	dec.b d1
+	bpl .1
+	bra .loop
+
+.t1:
+	lda.b d1
+	eor.w #$000F
+	sta.b d1
+	sta.l $7E34F2
+	lda.b d0
+	sta.l $7E34D0
+	lda.w #$0000
+	sta.l playoffRoundIdx
+	lda.w #$0007
+	sta.w $0ACF
+	lda.l $7E34BC
+	cmp.w #$0002
+	beq .1x
+	stz.w $0ACF
+	lda.w #$0007
+	sta.b d0
+	ldx.w #$0000
+	txa
+.loopx:
+	sta.l $7E3548,x
+	sta.l $7E3558,x
+	inx
+	inx
+	dec.b d0
+	bpl .loopx
+.1x:
+	jml.l maketree

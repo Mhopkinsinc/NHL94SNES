@@ -3,7 +3,7 @@ CODE_808243:
 	cmp.b #$FD
 	beq CODE_808281
 	bmi CODE_808240
-CODE_808249:
+.1:
 	rep #$20
 	and.w #$00FF
 	tay
@@ -17,10 +17,10 @@ CODE_808249:
 	lda.w $0104,x
 	sta.w VMDATAL
 	iny
-	beq CODE_80826E
+	beq .2
 	lda.w $0106,x
 	sta.w VMDATAL
-CODE_80826E:
+.2:
 	txa
 	clc
 	adc.w #$0008

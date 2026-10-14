@@ -1,16 +1,16 @@
-; Unidentified routine.
+; Set the energy of player d1 of team a2 to d0
 setpde:
-	lda.b $91
-	beq CODE_9FDCDA
+	lda.b a2
+	beq .home
 	lda.w #$0034
-CODE_9FDCDA:
+.home:
 	clc
-	adc.b $A9
+	adc.b d1
 	tay
-	lda.b $A5
-	bpl CODE_9FDCE7
+	lda.b d0
+	bpl .store
 	lda.w #$0000
-	sta.b $A5
-CODE_9FDCE7:
+	sta.b d0
+.store:
 	sta.w tmpde,y
 	rtl

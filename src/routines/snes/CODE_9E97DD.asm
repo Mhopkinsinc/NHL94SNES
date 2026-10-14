@@ -1,14 +1,14 @@
 ; Unidentified routine.
 CODE_9E97DD:
-	sty.b $91
+	sty.b a2
 	cpy.w puckc
-	beq CODE_9E97F6
+	beq .rtl
 	cpy.w #$0018
-	bcs CODE_9E97F6
+	bcs .rtl
 	lda.w position,y
-	bmi CODE_9E97F6
+	bmi .rtl
 	lda.w pfnc,y
 	ora.w nopuck,y
 	beq CODE_9E97FD
-CODE_9E97F6:
+.rtl:
 	rtl

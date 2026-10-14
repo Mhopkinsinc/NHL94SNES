@@ -2,7 +2,7 @@
 CODE_9ECDB1:
 	bvc CODE_9ECDAE
 CODE_9ECDB3:
-	dec.w $0D49
+	dec.w VertLineScrolling
 	lda.w #$0007
 	sta.b $14
 	lda.w #$007E
@@ -11,7 +11,7 @@ CODE_9ECDB3:
 	sta.b $10
 	lda.b $12
 	sta.b $0E
-CODE_9ECDC9:
+.loop:
 	ldx.w #$0028
 	lda.b $10
 	clc
@@ -21,5 +21,5 @@ CODE_9ECDC9:
 	lda.b $0C
 	sta.b $10
 	dec.b $14
-	bpl CODE_9ECDC9
+	bpl .loop
 	rtl

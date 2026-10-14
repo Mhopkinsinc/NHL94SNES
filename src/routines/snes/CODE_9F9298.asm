@@ -1,12 +1,12 @@
 ; Unidentified routine.
 CODE_9F9298:
-	ldx.b $89
+	ldx.b a0
 	lda.l $7E3578,x
 	cmp.l $7E3588,x
-	bne CODE_9F92C3
+	bne .1
 	jsl.l RandomWord
 	and.w #$0001
-	ldx.b $89
+	ldx.b a0
 	pha
 	clc
 	adc.l $7E3578,x
@@ -15,7 +15,7 @@ CODE_9F9298:
 	eor.w #$0001
 	adc.l $7E3588,x
 	sta.l $7E3588,x
-CODE_9F92C3:
+.1:
 	lda.w #$0005
 	sta.l $7E3568,x
 	rtl

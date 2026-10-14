@@ -5,30 +5,108 @@ CODE_9ED217:
 	bpl CODE_9ED214
 	lda.w puckvy
 	ldy.w pfgoal,x
-	beq CODE_9ED22B
+	beq .1
 	eor.w #$FFFF
 	inc a
-CODE_9ED22B:
+.1:
 	cmp.w #$F800
 	bmi CODE_9ED214
-	stz.b $8D
+	stz.b a1
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	lda.w pfteam,x
-	beq CODE_9ED243
-	stz.b $91
+	beq .2
+	stz.b a2
 	lda.w #$0002
-	sta.b $8D
-CODE_9ED243:
-	ldy.b $91
+	sta.b a1
+.2:
+	ldy.b a2
 	lda.w $17AE,y
 	cmp.w #$0096
 	bcc CODE_9ED214
 CODE_9ED24D:
-	jsr.w $DC44
+	jsr.w CODE_9EDC44
 	jsl.l vtoa
 	jsl.l CODE_9EDC06
 	asl.w $12E3,x
-	jsl.l CODE_9ED263
+	jsl.l .t2
 	lsr.w $12E3,x
 	rtl
+
+.t2:
+	lda.w temp2,x
+	sec
+	sbc.b d7
+	sta.w temp2,x
+	bmi .t1
+	jmp.w CODE_9ED2F7
+
+.t1:
+	adc.w #$0005
+	sta.w temp2,x
+	lda.w puckvx
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .1
+	ora.w #$FF00
+.1:
+	clc
+	adc.w puckx
+	sta.b d0
+	lda.w puckvy
+	xba
+	and.w #$00FF
+	bit.w #$0080
+	beq .2
+	ora.w #$FF00
+.2:
+	clc
+	adc.w pucky
+	sta.b d1
+	jsl.l CODE_9EAB74
+	lda.b d1
+	pha
+	lda.b d0
+	pha
+	txa
+	jsl.l CODE_9BC002
+	lda.b d0
+	eor.w #$FFFF
+	inc a
+	sec
+	sbc.w $0EC4,x
+	and.w #$00FF
+	bit.w #$0080
+	beq .3
+	ora.w #$FF00
+.3:
+	clc
+	adc.b $01,s
+	sec
+	sbc.w Xpos,x
+	sta.b d0
+	lda.b d1
+	eor.w #$FFFF
+	inc a
+	sec
+	sbc.w $0EE4,x
+	and.w #$00FF
+	bit.w #$0080
+	beq .4
+	ora.w #$FF00
+.4:
+	clc
+	adc.b $03,s
+	sec
+	sbc.w Ypos,x
+	sta.b d1
+	pla
+	pla
+	jsl.l vtoa
+	lda.b d0
+	sta.w temp2b,x
+CODE_9ED2F7:
+	lda.w temp2b,x
+	sta.b d0
+	jml.l doplayeracc

@@ -1,3 +1,3 @@
 ; Unidentified routine.
 CODE_9E9007:
-	jmp.w $9091
+	jmp.w CODE_9E9091

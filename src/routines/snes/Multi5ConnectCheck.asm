@@ -3,56 +3,56 @@ Multi5ConnectCheck:	; read 16 signature bits from each port; $1A00 bit 7 (port 1
 	php
 	sep #$30
 	stz.w $1A00
-CODE_9B83C4:
+.loop:
 	lda.w HVBJOY
 	and.b #$01
-	bne CODE_9B83C4
-	stz.w $4016
+	bne .loop
+	stz.w JOYSER0
 	lda.b #$01
-	sta.w $4016
+	sta.w JOYSER0
 	ldx.b #$08
-CODE_9B83D5:
-	lda.w $4016
+.loop2:
+	lda.w JOYSER0
 	lsr a
 	lsr a
 	rol.w $0782
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	lsr a
 	rol.w $0784
 	dex
-	bne CODE_9B83D5
-	stz.w $4016
+	bne .loop2
+	stz.w JOYSER0
 	ldx.b #$08
-CODE_9B83ED:
-	lda.w $4016
+.loop3:
+	lda.w JOYSER0
 	lsr a
 	lsr a
 	rol.w $0781
-	lda.w $4017
+	lda.w JOYSER1
 	lsr a
 	lsr a
 	rol.w $0783
 	dex
-	bne CODE_9B83ED
+	bne .loop3
 	lda.w $0782
 	cmp.b #$FF
-	bne CODE_9B8413
+	bne .1
 	lda.w $0781
 	cmp.b #$FF
-	beq CODE_9B8413
+	beq .1
 	lda.b #$80
 	sta.w $1A00
-CODE_9B8413:
+.1:
 	lda.w $0784
 	cmp.b #$FF
-	bne CODE_9B8426
+	bne .2
 	lda.w $0783
 	cmp.b #$FF
-	beq CODE_9B8426
+	beq .2
 	lda.b #$40
 	tsb.w $1A00
-CODE_9B8426:
+.2:
 	plp
 	rtl
 	db "MODIFIED FROM SHVC MULTI5 CONNECT CHECK VER1.00"

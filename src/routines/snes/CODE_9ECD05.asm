@@ -1,81 +1,85 @@
 ; Unidentified routine.
 CODE_9ECD05:
 	lda.w tmdata
-	sta.b $8D
+	sta.b a1
 CODE_9ECD0A:
 	lda.w #$009C
 	sta.b $8F
 	ldy.w #$0004
-	lda.b $8D
+	lda.b a1
 	clc
-	adc.b [$8D],y
-	sta.b $8D
+	adc.b [a1],y
+	sta.b a1
 CODE_9ECD19:
 	lda.w #$0000
 	sta.b $97
-	lda.w #$0A2A
-	sta.b $95
+	lda.w #mesarea
+	sta.b a3
 	lda.w #$0002
-	sta.b [$95]
+	sta.b [a3]
 	jsl.l appstring
 	lda.w #$0000
 	sta.b $8F
-	lda.w #$0A2A
-	sta.b $8D
+	lda.w #mesarea
+	sta.b a1
 CODE_9ECD36:
 	ldy.w #$0003
-CODE_9ECD39:
-	lda.b [$8D],y
+.loop:
+	lda.b [a1],y
 	and.w #$00FF
 	cmp.w #$0020
-	bne CODE_9ECD76
-	lda.b [$8D]
+	bne .2
+	lda.b [a1]
 	pha
 	tya
 	dec a
 	dec a
-	sta.b $B5
+	sta.b d4
 	tya
-	sta.b [$8D]
-	lda.b $8D
+	sta.b [a1]
+	lda.b a1
 	pha
-	jsl.l CODE_9ECD7C
-	dec.w $0D3F
+	jsl.l .3
+	dec.w PlayerScrollCtr
 	pla
-	sta.b $8D
-	lda.b $8D
+	sta.b a1
+	lda.b a1
 	clc
-	adc.b $B5
-	sta.b $8D
+	adc.b d4
+	sta.b a1
 	pla
 	sec
-	sbc.b $B5
-	sta.b [$8D]
-	lda.b $A5
+	sbc.b d4
+	sta.b [a1]
+	lda.b d0
 	cmp.w #$0015
-	bmi CODE_9ECD73
-	lda.b $B5
-	sta.b $A5
-CODE_9ECD73:
+	bmi .1
+	lda.b d4
+	sta.b d0
+.1:
 	ldy.w #$0002
-CODE_9ECD76:
+.2:
 	iny
 	tya
-	cmp.b [$8D]
-	bmi CODE_9ECD39
-CODE_9ECD7C:
-	inc.w $0D3F
-	lda.b $A5
+	cmp.b [a1]
+	bmi .loop
+.3:
+	inc.w PlayerScrollCtr
+	lda.b d0
 	clc
-	adc.b [$8D]
+	adc.b [a1]
 	dec a
-	sta.b $A5
-	lda.b [$8D]
+	sta.b d0
+	lda.b [a1]
 	dec a
 	tay
 	dec a
-	sta.b $A9
-	lda.b [$8D],y
+	sta.b d1
+	lda.b [a1],y
 	and.w #$00FF
-	beq CODE_9ECD98
-	jmp.w $CB2B
+	beq .t1
+	jmp.w CODE_9ECB2B
+
+.t1:
+	dec.b d1
+	jmp.w CODE_9ECB2B

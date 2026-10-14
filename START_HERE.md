@@ -35,7 +35,11 @@ Where these docs say "push to main", contributors push to their fork and open a 
 
 ## 3. Work loop
 
-Run `PROMPT.md` once per segment, in ROM-map order. After each segment: MATCH, commit, push, update `docs/HANDOFF.md`. Stop after one bank (8 segments) and report to the user.
+The ROM is all source. `src/nhl94snes.asm` includes `src/banks/b80_engine.asm` through `b9F_flow.asm`. Each bank file is one `org` (and a later `org` only where the PC skips) and `incsrc` lines in ROM order. Routines are `src/routines/<module>/<Name>.asm` (a 93S name uses that 93S folder, shootout names are `routines/shootout/`, other code is `routines/snes/`). Data is `src/data/` (`gfx/`, `sound/`, `text/`, `tables/`, `teamdata94s.asm`, `frames94s.asm`). The internal header is `src/header/snes_header.asm`.
+
+`sh tools/verify_all.sh` must print MATCH before every commit. One area per commit. Update `docs/HANDOFF.md` and add a History line in `SEGMENT_AGENT.md`. Push to main (contributors: fork and PR, section 0).
+
+Remaining work is in `docs/HANDOFF.md`: name auto labels when a 93S or 94G match is clear, SPA names on `frames94s.asm` once the frame numbers match, and the asset-extraction flow.
 
 ## 4. When stuck
 

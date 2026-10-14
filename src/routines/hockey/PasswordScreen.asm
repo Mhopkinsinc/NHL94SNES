@@ -1,0 +1,267 @@
+; Password entry screen
+PasswordScreen:
+	jsl.l CODE_9F96F7
+	jsl.l CODE_9F9708
+	lda.w #$FF7F
+	and.l PassWord
+	sta.l PassWord
+	jsl.l CODE_9DD977
+	stz.w textdirtylo
+	lda.w #$03FF
+	sta.w textdirtyhi
+	jsl.l CODE_9B8017
+	jsl.l CODE_9B8526
+	jsl.l SpriteFrameStart
+	ldx.w #$0053
+	ldy.w #$0018
+	lda.w #$009C
+	sta.b $8F
+	lda.w #PasswordLabel
+	sta.b a1
+	jsl.l CODE_9C936C
+	lda.w #$001C
+	sta.l $7E3454
+	lda.w #$001D
+	sta.l $7E3452
+	jsl.l CODE_9DDDB3
+	jsl.l SpriteFrameEnd
+	jsl.l CODE_9DE0D4
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF20D
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	lda.w #$0011
+	sta.b d0
+	lda.w #$0005
+	sta.b d1
+	jsl.l CODE_9D80DD
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF212
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	dec.w printx
+	dec.w printx
+	lda.w #$009B
+	sta.b $8B
+	lda.w #PasstoText
+	sta.b a0
+	lda.w #$0004
+	sta.b d0
+.loop:
+	lda.w #$0005
+	sta.b d1
+	lda.w #$0000
+	sta.b $8F
+	lda.w #mesarea
+	sta.b a1
+	lda.w #$000D
+	sta.b [a1]
+	inc.b a1
+	inc.b a1
+.loop2:
+	lda.b [a0]
+	sta.b [a1]
+	inc.b a0
+	inc.b a1
+	lda.w #$0020
+	sta.b [a1]
+	inc.b a1
+	dec.b d1
+	bpl .loop2
+	lda.w #$0000
+	sta.b $8F
+	lda.w #mesarea
+	sta.b a1
+	jsl.l print
+	inc.w printy
+	inc.w printy
+	lda.w printx
+	sec
+	sbc.w #$000B
+	sta.w printx
+	dec.b d0
+	bpl .loop
+	stz.b d4
+	jsl.l PrintSelectLeft
+	stz.b d5
+	lda.l PassWord
+	and.w #$00FF
+	cmp.w #$001E
+	bcs .1
+	sta.b d5
+.1:
+	jsl.l PlacePasswordCursor
+	jsl.l CODE_9D80DD
+	lda.w #$0003
+	sta.w $0A4A
+	phx
+	ldy.b d5
+	tyx
+	lda.l PasstoText,x
+	plx
+	sta.w $0A4C
+	lda.w #$0000
+	sta.b $8F
+	lda.w #$0A4A
+	sta.b a1
+	inc.w printx
+	dec.w printy
+	dec.w printy
+	jsl.l print
+	lda.w #$000A
+	sta.w $0AD1
+CODE_9BC946:
+	jsr.w CODE_9BCBD8
+CODE_9BC949:
+	lda.b $8F
+	pha
+	lda.b a1
+	pha
+	lda.w #$009C
+	sta.b $8F
+	lda.w #DATA8_9CF222
+	sta.b a1
+	jsl.l print
+	pla
+	sta.b a1
+	pla
+	sta.b $8F
+	jsl.l CODE_9BC6C9
+	jsl.l CODE_9FBF75
+.loop:
+	jsl.l WaitFrame
+	jsl.l CODE_9B8017
+	jsl.l CODE_9B84F5
+	jsl.l ProcessInputWithRepeat
+	lda.b d1
+	beq .loop
+	sta.b d1
+	bit.w #$1000
+	beq .t3
+	jmp.w BadPasswordPrompt
+
+.t3:
+	stz.b d0
+	dec.b d0
+	bit.w #$4000
+	bne .t1
+	stz.b d0
+	inc.b d0
+	bit.w #$8080
+	bne .t1
+	bit.w #$0100
+	bne CODE_9BC9F0
+	stz.b d0
+	dec.b d0
+	bit.w #$0200
+	bne CODE_9BC9F0
+	ldy.w #$0006
+	sty.b d0
+	bit.w #DMA_OAM
+	bne CODE_9BC9F0
+	ldy.w #$FFFA
+	sty.b d0
+	bit.w #$0800
+	bne CODE_9BC9F0
+	jmp.w CODE_9BC949
+
+.t1:
+	lda.b d4
+	clc
+	adc.b d0
+	cmp.w #$0010
+	bcc .t2
+	jmp.w CODE_9BC949
+
+.t2:
+	sta.b d4
+	jsl.l PrintSelectLeft
+	lda.w #$007E
+	sta.b $8B
+	lda.w #$34F4
+	sta.b a0
+	stz.b d0
+	ldy.b d4
+	lda.b [a0],y
+	and.w #$00FF
+	cmp.w #$001E
+	bcs CODE_9BC9F0
+	sec
+	sbc.b d5
+	sta.b d0
+CODE_9BC9F0:
+	lda.b d5
+	clc
+	adc.b d0
+	cmp.w #$001E
+	bcc .t1
+	jmp.w CODE_9BC949
+
+.t1:
+	pha
+	jsl.l PlacePasswordCursor
+	lda.l $7E35D0
+	sta.b d2
+	jsl.l eraser
+	lda.w #$0003
+	sta.w $0A4A
+	phx
+	ldy.b d5
+	tyx
+	lda.l PasstoText,x
+	plx
+	sta.w $0A4C
+	lda.w #$0000
+	sta.b $8F
+	lda.w #$0A4A
+	sta.b a1
+	inc.w printx
+	dec.w printy
+	dec.w printy
+	jsl.l print
+	pla
+	sta.b d5
+	jsl.l PlacePasswordCursor
+	jsl.l CODE_9D80DD
+	phx
+	ldy.b d5
+	tyx
+	lda.l PasstoText,x
+	plx
+	sta.w $0A4C
+	lda.w #$0000
+	sta.b $8F
+	lda.w #$0A4A
+	sta.b a1
+	inc.w printx
+	dec.w printy
+	dec.w printy
+	jsl.l print
+	lda.w #$007E
+	sta.b $8B
+	lda.w #$34F4
+	sta.b a0
+	ldy.b d4
+	sep #$20
+	lda.b d5
+	sta.b [a0],y
+	rep #$30
+	jmp.w CODE_9BC949

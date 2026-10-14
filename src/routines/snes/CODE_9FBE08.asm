@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FBE08:
-	lda.b $91
+	lda.b a2
 	pha
 	phx
 	lda.w printx
@@ -11,12 +11,12 @@ CODE_9FBE08:
 	adc.w #$0024
 	tax
 	lda.l $7E3464
-	beq CODE_9FBE23
+	beq .1
 	txa
 	sec
 	sbc.w #$0008
 	tax
-CODE_9FBE23:
+.1:
 	lda.w printy
 	asl a
 	asl a
@@ -26,7 +26,111 @@ CODE_9FBE23:
 	inc a
 	tay
 	lda.l $7E346A
-	bne CODE_9FBE3B
+	bne .t1
 	lda.l $7E3464
-	bne CODE_9FBE3B
+	bne .t1
 	bra CODE_9FBE43
+
+.t1:
+	inx
+	inx
+	inx
+	inx
+	iny
+	iny
+	iny
+	iny
+CODE_9FBE43:
+	jsl.l CODE_9C943E
+	lda.l $7E3462
+	beq .t2
+	lda.l $7E3460
+	bne .t2
+	jmp.w CODE_9FBEF8
+
+.t2:
+	lda.w #$1800
+	sta.b $14
+	ldy.w #$0060
+	lda.b d1
+	cmp.w HomeTeam
+	bne .1
+	ldx.w #$1C00
+	stx.b $14
+	ldy.w #$0070
+.1:
+	asl a
+	asl a
+	tax
+	lda.l DATA8_9C850F+2,x
+	sta.b $0E
+	lda.l DATA8_9C850F,x
+	sta.b $0C
+	ldx.w #$0010
+	jsl.l CODE_9DE0BD
+	lda.w HomeTeam
+	cmp.w VisTeam
+	bne .t1
+	lda.b $14
+	cmp.w #$1800
+	beq .t1
+	lda.w #$1800
+	sta.b $14
+	ldy.w #$0060
+	lda.b d1
+	bra .1
+
+.t1:
+	ldy.w #$0000
+	lda.w #$009A
+	sta.b $93
+	lda.w #$E9A3
+	sta.b a2
+	lda.w printy
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	adc.w printx
+	asl a
+	adc.w printm
+	tax
+	lda.w #$0009
+	sta.b tmp0
+	sta.b tmp1
+.loop:
+	lda.b [a2],y
+	clc
+	adc.l $7E35CE
+	clc
+	adc.l printfontset
+	clc
+	adc.b $14
+	sta.l textmap,x
+	iny
+	iny
+	inx
+	inx
+	dec.b tmp0
+	bne .loop
+.loop2:
+	lda.b [a2],y
+	clc
+	adc.l $7E35CE
+	clc
+	adc.l printfontset
+	clc
+	adc.b $14
+	sta.l $7E3822,x
+	iny
+	iny
+	inx
+	inx
+	dec.b tmp1
+	bne .loop2
+CODE_9FBEF8:
+	plx
+	pla
+	sta.b a2
+	rtl

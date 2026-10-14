@@ -7,27 +7,30 @@ CODE_9EB079:
 	lsr a
 	lsr a
 	bit.w #$1000
-	beq CODE_9EB08B
+	beq .1
 	ora.w #$E000
-CODE_9EB08B:
+.1:
 	tax
 	jsl.l CODE_808F7D
-	sta.b $A5
-	lda.b $A9
+	sta.b d0
+	lda.b d1
 	lsr a
 	lsr a
 	lsr a
 	bit.w #$1000
-	beq CODE_9EB09F
+	beq .2
 	ora.w #$E000
-CODE_9EB09F:
+.2:
 	tax
 	jsl.l CODE_808F7D
-	ldx.b $95
+	ldx.b a3
 	clc
-	adc.b $A5
+	adc.b d0
 	cmp.w #$000E
 	bcc CODE_9EB070
 	cmp.w #$0028
-	bcs CODE_9EB0B6
-	jmp.w $A242
+	bcs .t1
+	jmp.w CODE_9EA242
+
+.t1:
+	bra CODE_9EB070

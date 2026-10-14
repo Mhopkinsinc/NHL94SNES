@@ -2,55 +2,55 @@
 CODE_80CB5C:
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CEF81
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0020
-	sta.b $A5
+	sta.b d0
 	lda.w #$000D
-	sta.b $A9
+	sta.b d1
 	lda.l $7E35D0
-	sta.b $AD
+	sta.b d2
 	jsl.l eraser
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CEF86
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$0800
 	sta.w printa
 	lda.w #$000E
-	sta.b $A5
+	sta.b d0
 	lda.w #$0003
-	sta.b $A9
+	sta.b d1
 	jsl.l CODE_9D80DD
 	lda.b $8F
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.w #$009C
 	sta.b $8F
 	lda.w #DATA8_9CEF8B
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
 	sta.b $8F
 	lda.w #$009A

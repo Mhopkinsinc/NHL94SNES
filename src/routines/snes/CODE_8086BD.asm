@@ -3,9 +3,9 @@ CODE_8086BD:
 	pha
 	lda.w $0AD3
 	cmp.w #$000F
-	beq CODE_8086CA
+	beq .1
 	jsl.l CODE_9F96E6
-CODE_8086CA:
+.1:
 	sep #$20
 	lda.b #$0F
 	sta.w $0762

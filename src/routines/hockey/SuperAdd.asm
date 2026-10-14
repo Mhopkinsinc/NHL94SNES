@@ -1,22 +1,22 @@
-; Unidentified routine.
+; password bits += d0
 SuperAdd:
 	phx
-	lda.l $7E3508
+	lda.l passbits
 	clc
-	adc.b $A5
-	sta.l $7E3508
-	bcc CODE_9BB4C6
+	adc.b d0
+	sta.l passbits
+	bcc .ex
 	ldx.w #$0002
-CODE_9BB4B4:
-	lda.l $7E3508,x
+.carry:
+	lda.l passbits,x
 	inc a
-	sta.l $7E3508,x
-	bne CODE_9BB4C6
+	sta.l passbits,x
+	bne .ex
 	inx
 	inx
 	cpx.w #$0010
-	bne CODE_9BB4B4
-CODE_9BB4C6:
+	bne .carry
+.ex:
 	plx
 	clc
 	rtl

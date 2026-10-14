@@ -3,4 +3,4 @@
 IceRinkTiles:		; format word, unpacked size (big-endian), then the stream
 	db $10,$FB
 	db $00,$4C,$A0
-	incbin "IceRink.chr.lz":5..11230
+	incbin "../../../Extracted/data/gfx/IceRink.chr.lz":5..11230

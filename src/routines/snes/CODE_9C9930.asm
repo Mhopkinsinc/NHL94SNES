@@ -2,9 +2,9 @@
 CODE_9C9930:
 	lda.l $7E35E0
 	cmp.w #$0380
-	bcc CODE_9C993C
+	bcc .1
 	lda.w #$0380
-CODE_9C993C:
+.1:
 	clc
 	adc.w #$0080
 	asl a
@@ -22,7 +22,23 @@ CODE_9C993C:
 	sta.w $094C
 	lda.w $093C
 	cmp.w #$2733
-	bcs CODE_9C9967
+	bcs .t1
 	lda.w #$0100
 	sta.w $093A
+	rtl
+
+.t1:
+	sec
+	sbc.w #$2600
+	asl a
+	asl a
+	sta.w $093A
+	rtl
+	sep #$20
+	lda.w $0762
+	bmi .1x
+	lda.w $0AD3
+	sta.w INIDISP
+.1x:
+	rep #$30
 	rtl

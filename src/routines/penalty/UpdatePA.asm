@@ -1,40 +1,43 @@
-; Unidentified routine.
+; Animate the referee, and reprint the penalty message line when its time runs out
 UpdatePA:
 	lda.w RefCnt
-	bmi CODE_9EF968
+	bmi .t1
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w RefCnt
-	bpl CODE_9EF924
-	jsl.l CODE_9EF991
-CODE_9EF924:
+	bpl .1
+	jsl.l SetPA2
+.1:
 	lda.w penmsgtimer
 	sec
-	sbc.b $C1
+	sbc.b d7
 	sta.w penmsgtimer
-	bpl CODE_9EF968
+	bpl .t1
 	lda.w #$7FFF
 	sta.w penmsgtimer
 	jsl.l CODE_9EC913
-	lda.b $8F
+	lda.b a1+2
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #DATA8_9CF7A0>>16
+	sta.b a1+2
 	lda.w #DATA8_9CF7A0
-	sta.b $8D
-	jsl.l CODE_9EC7BE
+	sta.b a1
+	jsl.l print
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l CODE_9FC3F8
-	lda.b [$8D]
+	lda.b [a1]
 	lsr a
-	sta.b $A5
+	sta.b d0
 	lda.w printx
 	sec
-	sbc.b $A5
+	sbc.b d0
 	sta.w printx
-	jmp.w $C7BE
+	jmp.w print
+
+.t1:
+	rtl

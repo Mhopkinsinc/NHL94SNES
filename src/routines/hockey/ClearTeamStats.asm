@@ -1,39 +1,39 @@
-; Unidentified routine.
+; Clear the team stats (but the goalie choice) and both penalty box lists, then set up the teams
 ClearTeamStats:
 	lda.w tmgoalie
 	pha
-	lda.w $17AC
+	lda.w tmgoalie+2
 	pha
 	ldx.w #$0000
-CODE_9FC6BD:
-	stz.w $1742,x
+.clr:
+	stz.w gmStatBase,x
 	inx
 	inx
 	cpx.w #$01AC
-	bne CODE_9FC6BD
+	bne .clr
 	pla
-	sta.w $17AC
+	sta.w tmgoalie+2
 	pla
 	sta.w tmgoalie
 	lda.w #$FFFF
 	sta.w tmboxlist
-	sta.w $18D4
+	sta.w tmboxlist+$1A
 setteams:
 	stz.w tmsort
 	lda.w #$000C
-	sta.w $1768
+	sta.w tmsort+2
 	lda.w HomeTeam
-	sta.w $1CE0
+	sta.w tmteam
 	asl a
 	asl a
 	tax
 	lda.l TeamList,x
 	sta.w tmdata
 	lda.w VisTeam
-	sta.w $1CE2
+	sta.w tmteam+2
 	asl a
 	asl a
 	tax
 	lda.l TeamList,x
-	sta.w $1CDE
+	sta.w tmdata+2
 	rtl

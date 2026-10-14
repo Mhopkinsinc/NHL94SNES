@@ -5,9 +5,9 @@ CODE_9FE0EB:
 	lda.w #$000E
 	jsl.l CODE_9BB385
 	cmp.w #$000C
-	bcc CODE_9FE0FA
+	bcc .1
 	lda.w #$000C
-CODE_9FE0FA:
+.1:
 	sta.b $14
 	lda.w seed
 	and.w #$0010

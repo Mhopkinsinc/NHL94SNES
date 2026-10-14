@@ -2,8 +2,8 @@
 CODE_9EAFA6:
 	cpy.w #$FFDC
 	bpl CODE_9EAFA3
-	lda.b $C7
+	lda.b tmp1
 	ora.w #$0010
-	sta.b $C7
-	inc.b $C9
+	sta.b tmp1
+	inc.b tmp2
 	rts

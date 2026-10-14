@@ -2,12 +2,12 @@
 CODE_808950:
 	txa
 	ldx.b $3C
-CODE_808953:
+.loop:
 	sta.b $14
 	cmp.w #$1000
-	bcc CODE_80895D
+	bcc .1
 	lda.w #$1000
-CODE_80895D:
+.1:
 	sta.w $0104,x
 	lsr a
 	sta.b $16
@@ -36,8 +36,8 @@ CODE_80895D:
 	lda.b $14
 	sec
 	sbc.w #$1000
-	beq CODE_808998
-	bcs CODE_808953
-CODE_808998:
+	beq .2
+	bcs .loop
+.2:
 	stx.b $3C
 	rtl

@@ -3,7 +3,7 @@ CODE_9EA1BD:
 	lda.w Xpos,y
 	sec
 	sbc.w Xpos,x
-	sta.b $A5
+	sta.b d0
 	cmp.w #$FFDE
 	bmi CODE_9EA1B4
 	cmp.w #$0022
@@ -11,13 +11,13 @@ CODE_9EA1BD:
 	lda.w Ypos,y
 	sec
 	sbc.w Ypos,x
-	sta.b $A9
+	sta.b d1
 	cmp.w #$FFDE
 	bmi CODE_9EA1B4
 	cmp.w #$0022
 	bpl CODE_9EA1B4
 	jsl.l vtoa
-	lda.b $A5
+	lda.b d0
 	cmp.w facedir,x
 	bne CODE_9EA1B4
 	lda.w Xpos,x
@@ -35,10 +35,10 @@ CODE_9EA1BD:
 CODE_9EA20D:
 	lda.w SPA,y
 	cmp.w #DATA8_9DF3A6
-	bcc CODE_9EA21A
+	bcc .1
 	cmp.w #DATA8_9DF46A+1
 	bcc CODE_9EA23E
-CODE_9EA21A:
+.1:
 	lda.w $0793
 	and.w #$0007
 	beq CODE_9EA23E

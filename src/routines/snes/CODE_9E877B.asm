@@ -1,70 +1,70 @@
 ; Unidentified routine.
 CODE_9E877B:
-	sty.b $89
+	sty.b a0
 	lda.w pflags,y
 	bit.w #$1000
-	bne CODE_9E87AE
+	bne .4
 	lda.w position,y
-	bmi CODE_9E87AE
+	bmi .4
 	lda.w Yvel,y
-	bpl CODE_9E8792
+	bpl .1
 	lda.w #$0000
-CODE_9E8792:
+.1:
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	lsr a
-	bit.w #$0400
-	beq CODE_9E879F
-CODE_9E879C:
+	bit.w #DMA_OAM
+	beq .3
+.2:
 	ora.w #$F800
-CODE_9E879F:
+.3:
 	clc
 	adc.w Ypos,y
-	sta.b $A9
+	sta.b d1
 	sec
-	sbc.b $A5
-	bmi CODE_9E87AE
-	lda.b $A9
-	sta.b $A5
-CODE_9E87AE:
-	ldy.b $89
+	sbc.b d0
+	bmi .4
+	lda.b d1
+	sta.b d0
+.4:
+	ldy.b a0
 	iny
 	iny
-	dec.b $AD
+	dec.b d2
 	bne CODE_9E877B
-	lda.b $A5
+	lda.b d0
 	clc
 	adc.w #$0028
-	sta.b $A5
+	sta.b d0
 	sec
 	sbc.w #$00BE
-	bmi CODE_9E87C9
+	bmi .5
 	lda.w #$00DC
-	sta.b $A5
-CODE_9E87C9:
-	lda.b $A5
+	sta.b d0
+.5:
+	lda.b d0
 	sta.w temp4,x
 	lda.w #$0000
 	sec
 	sbc.w temp3,x
 	sta.w temp3,x
 	lda.w puckx
-	sta.b $A5
+	sta.b d0
 	lda.w temp3,x
-	eor.b $A5
-	sta.b $A9
+	eor.b d0
+	sta.b d1
 	bpl CODE_9E87E9
 	stz.w temp3,x
 CODE_9E87E9:
 	lda.w temp3,x
-	sta.b $A5
+	sta.b d0
 	lda.w temp4,x
-	sta.b $A9
+	sta.b d1
 	lda.w #$009E
 	sta.b $8B
 	lda.w #rtss
-	sta.b $89
+	sta.b a0
 	jsl.l CODE_9EA5A4
-	jmp.w $A164
+	jmp.w check4check

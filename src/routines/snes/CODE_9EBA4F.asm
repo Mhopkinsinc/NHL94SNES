@@ -1,14 +1,14 @@
 ; Unidentified routine.
 CODE_9EBA4F:
 	jsl.l CODE_9EBA68
-	ldx.b $91
-	ldy.b $95
-	sty.b $91
-	stx.b $95
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
 	jsl.l CODE_9EBA68
-	ldx.b $91
-	ldy.b $95
-	sty.b $91
-	stx.b $95
+	ldx.b a2
+	ldy.b a3
+	sty.b a2
+	stx.b a3
 CODE_9EBA67:
 	rtl

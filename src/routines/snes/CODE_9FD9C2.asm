@@ -5,7 +5,7 @@ CODE_9FD9C2:
 	sta.w pflags,x
 CODE_9FD9CB:
 	lda.w newpos,x
-	sta.b $A5
+	sta.b d0
 	sta.w position,x
 	jsl.l Setplass
 	lda.w #$FFFF

@@ -52,9 +52,9 @@ CODE_80BB11:
 	lda.w $0500,x
 	tax
 	lda.w $0100,x
-	beq CODE_80BB2C
+	beq .1
 	jsr.w CODE_80BB97
-CODE_80BB2C:
+.1:
 	txa
 	sta.w WMDATA
 	plx

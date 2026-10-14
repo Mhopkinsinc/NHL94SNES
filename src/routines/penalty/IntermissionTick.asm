@@ -1,4 +1,4 @@
-; Unidentified routine.
+; During the intermission, show the next ticker score, then the highlights
 IntermissionTick:
 	lda.w $0D2F
 	beq CODE_9FA3BA
@@ -11,7 +11,7 @@ IntermissionTick:
 	lda.l $7E35DC
 	cmp.w $0D31
 	bne IntermissionTick
-	jsl.l CODE_9FA636
+	jsl.l DoHiLights
 	lda.w #$0008
 	trb.w sflags3
 CODE_9FA3BA:

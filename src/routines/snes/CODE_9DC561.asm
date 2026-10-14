@@ -1,47 +1,86 @@
 ; Unidentified routine.
 CODE_9DC561:
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
-CODE_9DC566:
-	lda.b $A5,x
+.loop:
+	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0014
-	bne CODE_9DC566
-	ldx.b $87
-	lda.b $89
+	bne .loop
+	ldx.b xsave
+	lda.b a0
 	pha
 	lda.b $8B
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
 	lda.b $8F
 	pha
 	lda.w #$0080
 	sta.b $8F
 	lda.w #AttribMenuSkater
-	sta.b $8D
+	sta.b a1
 	stz.b $08
 	jsl.l GoalieCount
 	lda.w $1D9B
-	cmp.b $A5
-	bpl CODE_9DC5A4
+	cmp.b d0
+	bpl .1
 	lda.w #$0080
 	sta.b $8F
 	lda.w #AttribMenuGoalie
-	sta.b $8D
+	sta.b a1
 	lda.w #$0010
 	sta.b $08
-CODE_9DC5A4:
+.1:
 	phx
-	ldx.b $A9
-CODE_9DC5A7:
+	ldx.b d1
+.loop2:
 	dex
-	bmi CODE_9DC5B6
-	lda.b $8D
+	bmi .t1
+	lda.b a1
 	clc
-	adc.b [$8D]
+	adc.b [a1]
 	adc.w #$0004
-	sta.b $8D
-	bra CODE_9DC5A7
+	sta.b a1
+	bra .loop2
+
+.t1:
+	lda.b a1
+	clc
+	adc.b [a1]
+	sta.b a1
+	lda.b [a1]
+	sta.b $B7
+	ldy.w #$0002
+	lda.b [a1],y
+	sta.b d4
+	plx
+	lda.w $1D9B
+	sta.b d0
+	lda.w #$0001
+	sta.l $7E35F2
+	jsl.l CODE_9F992E
+	lda.b d0
+	sta.b $00
+	pla
+	sta.b $8F
+	pla
+	sta.b a1
+	pla
+	sta.b $8B
+	pla
+	sta.b a0
+	stx.b xsave
+	ldx.w #$0012
+.loopx:
+	pla
+	sta.b d0,x
+	dex
+	dex
+	bpl .loopx
+	ldx.b xsave
+	lda.b $00
+	sta.b d0
+	rtl

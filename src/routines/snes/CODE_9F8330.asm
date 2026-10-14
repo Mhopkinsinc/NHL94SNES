@@ -10,46 +10,46 @@ CODE_9F833C:
 	jsl.l CODE_9F96F7
 	ldx.w #$0AD7
 	lda.w #$0000
-CODE_9F834C:
+.loop:
 	sta.b $00,x
 	inx
 	cpx.w #$1A11
-	bne CODE_9F834C
+	bne .loop
 	ldx.w #$30F4
-CODE_9F8357:
+.loop2:
 	sta.l $7E0000,x
 	inx
 	cpx.w #$3479
-	bne CODE_9F8357
+	bne .loop2
 	lda.l $7E347A
 	inc a
 	sta.l $7E347A
 	stz.w gmode
-	lda.l $7E34C4
+	lda.l OptPen
 	cmp.w #$0001
-	bne CODE_9F837C
+	bne .1
 	lda.w #$0020
 	tsb.w gmode
-CODE_9F837C:
+.1:
 	jsl.l ClearTeamStats
 	jsl.l restoreteams
-	jsl.l CODE_9FC833
+	jsl.l InitScores
 	lda.w #$007E
 	sta.w $0D21
 	lda.w #$577E
 	sta.w ReplayBufferPtr
 	lda.w #$0010
 	trb.w sflags
-	lda.b $91
+	lda.b a2
 	pha
 	lda.w #$0000
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9B9334
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9B9334
 	pla
-	sta.b $91
+	sta.b a2
 	lda.l $7E34C8
 	sta.w $1C90
 	sta.w $1C92
@@ -67,6 +67,46 @@ CODE_9F837C:
 CODE_9F83DE:
 	lda.w $1C84,x
 	cmp.w #$0001
-	bne CODE_9F83EB
+	bne .t1
 	inc.w $19D0
 	bra CODE_9F83F3
+
+.t1:
+	cmp.w #$0002
+	bne CODE_9F83F3
+	inc.w $19D2
+CODE_9F83F3:
+	dex
+	dex
+	bpl CODE_9F83DE
+	jsl.l CODE_9FB69E
+	stz.w $1EBB
+	ldx.w #$0000
+.loop:
+	lda.w $1C84,x
+	dec a
+	asl a
+	sta.w $19F6,x
+	inx
+	inx
+	cpx.w #$000A
+	bcc .loop
+	ldx.w #$0000
+.loop2:
+	lda.w $1C84,x
+	bne .t1
+	inx
+	inx
+	cpx.w #$000A
+	bcc .loop2
+	bra CODE_9F8427
+
+.t1:
+	lda.w #$0001
+	sta.w $1EBB
+CODE_9F8427:
+	lda.w #$FFFF
+	sta.w $1E8D
+	lda.w $1D81
+	beq CODE_9F8433
+	rtl

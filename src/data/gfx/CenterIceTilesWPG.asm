@@ -4,4 +4,4 @@ CenterIceTilesWPG:	; the Winnipeg centre ice logo: linear 4bpp tiles packed for 
 			;   the centre ice table in bank $9C)
 	db $30,$FB
 	db $00,$03,$A0
-	incbin "CenterIceWPG.lin.huf":5..302
+	incbin "../../../Extracted/data/gfx/CenterIceWPG.lin.huf":5..302

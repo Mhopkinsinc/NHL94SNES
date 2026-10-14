@@ -6,16 +6,16 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	rep #$10
 	stz.w $0ACD
 	stz.w $0ACE
-CODE_9B80B6:
+.loop:
 	lda.w HVBJOY
 	and.b #$01
-	bne CODE_9B80B6
+	bne .loop
 	ldx.w JOY1L
 	stx.w JoyPad
 	txa
 	and.b #$0F
 	sta.w $0ACA
-	lda.w $4016
+	lda.w JOYSER0
 	lsr a
 	rol.w $0ACA
 	ldx.w JOY2L
@@ -24,5 +24,126 @@ CODE_9B80B6:
 	and.b #$0F
 	sta.w $0ACB
 	lda.w $1A0C
-	bne CODE_9B80E4
-	jmp.w $81EC
+	bne .t2
+	jmp.w CODE_9B81EC
+
+.t2:
+	ldx.w JOY4L
+	stx.w $077A
+	txa
+	and.b #$0F
+	sta.w $0ACC
+	lda.w JOYSER1
+	lsr a
+	rol.w $0ACB
+	lsr a
+	rol.w $0ACC
+	stz.w WRIO
+	lda.w $0AD7
+	ora.w $1A0E
+	bne CODE_9B811F
+	lda.w $1C8A
+	ora.w $1C8C
+	bne CODE_9B811F
+	lda.w $1A02
+	beq .t1
+	dec a
+	sta.w $1A02
+	jmp.w CODE_9B81F3
+
+.t1:
+	lda.b #$1E
+	sta.w $1A02
+CODE_9B811F:
+	lda.w JOYSER1
+	lsr a
+	rol.w $077D
+	lsr a
+	rol.w $077F
+	lda.w JOYSER1
+	lsr a
+	rol.w $077D
+	lsr a
+	rol.w $077F
+	lda.w JOYSER1
+	lsr a
+	rol.w $077D
+	lsr a
+	rol.w $077F
+	lda.w JOYSER1
+	lsr a
+	rol.w $077D
+	lsr a
+	rol.w $077F
+	lda.w JOYSER1
+	lsr a
+	rol.w $077D
+	lsr a
+	rol.w $077F
+	lda.w JOYSER1
+	lsr a
+	rol.w $077D
+	lsr a
+	rol.w $077F
+	lda.w JOYSER1
+	lsr a
+	rol.w $077D
+	lsr a
+	rol.w $077F
+	lda.w JOYSER1
+	lsr a
+	rol.w $077D
+	lsr a
+	rol.w $077F
+	lda.w JOYSER1
+	lsr a
+	rol.w $077C
+	lsr a
+	rol.w $077E
+	lda.w JOYSER1
+	lsr a
+	rol.w $077C
+	lsr a
+	rol.w $077E
+	lda.w JOYSER1
+	lsr a
+	rol.w $077C
+	lsr a
+	rol.w $077E
+	lda.w JOYSER1
+	lsr a
+	rol.w $077C
+	lsr a
+	rol.w $077E
+	lda.w JOYSER1
+	lsr a
+	rol.w $077C
+	lsr a
+	rol.w $077E
+	lda.w JOYSER1
+	lsr a
+	rol.w $077C
+	lsr a
+	rol.w $077E
+	lda.w JOYSER1
+	lsr a
+	rol.w $077C
+	lsr a
+	rol.w $077E
+	lda.w JOYSER1
+	lsr a
+	rol.w $077C
+	lsr a
+	rol.w $077E
+	lda.w $077C
+	and.b #$0F
+	sta.w $0ACD
+	lda.w $077E
+	and.b #$0F
+	sta.w $0ACE
+	lda.w JOYSER1
+	lsr a
+	rol.w $0ACD
+	lsr a
+	rol.w $0ACE
+	bra CODE_9B81F3

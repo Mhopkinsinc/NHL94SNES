@@ -1,13 +1,13 @@
 ; Unidentified routine.
 CODE_9FA3BE:
 	lda.w $0D31
-	bmi CODE_9FA3C9
+	bmi .1
 	ora.l $7E35D6
-	bne CODE_9FA3D4
-CODE_9FA3C9:
+	bne .2
+.1:
 	jsl.l GetShifter
-	lda.b $A9
+	lda.b d1
 	sta.w $0D31
 	bmi CODE_9FA3BA
-CODE_9FA3D4:
-	jmp.w $A461
+.2:
+	jmp.w NewTicker2

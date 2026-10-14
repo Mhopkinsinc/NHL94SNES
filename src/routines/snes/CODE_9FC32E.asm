@@ -1,3 +1,3 @@
 ; Unidentified routine.
 CODE_9FC32E:
-	jmp.w $C287
+	jmp.w CODE_9FC287
