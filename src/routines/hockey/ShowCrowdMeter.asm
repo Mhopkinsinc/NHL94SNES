@@ -194,7 +194,7 @@ ShowCrowdMeter:
 	sta.b d0
 	lda.w #$0004
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	lda.w $1DB9
 	cmp.w #$0001
@@ -263,7 +263,7 @@ ShowCrowdMeter:
 	sta.b d0
 	lda.w #$0004
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	lda.w $1DB9
 	cmp.w #$0002
@@ -332,7 +332,7 @@ ShowCrowdMeter:
 	sta.b d0
 	lda.w #$0004
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	lda.w $1DB9
 	beq .t2x

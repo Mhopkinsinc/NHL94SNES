@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B95B0:
+; Build the scoring summary page in the stats page buffer: a line per goal ($7E313C, 6 bytes each)
+FillScoringPage:
 	lda.w #$007F
 	sta.b $12
 	lda.w #$2780
@@ -58,7 +58,7 @@ CODE_9B95B0:
 	lda.w #PerLabels
 	sta.b a1
 	jsl.l AdvanceStringPtr
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	lda.w #$0004
 	sta.w printx
 	pla
@@ -70,7 +70,7 @@ CODE_9B95B0:
 	bne .1x
 	inc.w printx
 .1x:
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	lda.w #$000A
 	sta.w printx
 	ply
@@ -90,7 +90,7 @@ CODE_9B95B0:
 	lda.w #$0002
 	sta.b a2
 .2:
-	jsl.l CODE_9B9B35
+	jsl.l PrintTeamAbbrev
 	dec.w printy
 	dec.w printy
 	lda.w #$001C
@@ -113,7 +113,7 @@ CODE_9B95B0:
 	sta.b $8F
 	lda.w #ScoringPP2
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	pla
 	sta.b a1
 	pla
@@ -129,7 +129,7 @@ CODE_9B95B0:
 	sta.b $8F
 	lda.w #ScoringPP
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	pla
 	sta.b a1
 	pla
@@ -145,7 +145,7 @@ CODE_9B95B0:
 	sta.b $8F
 	lda.w #ScoringSH
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	pla
 	sta.b a1
 	pla
@@ -161,7 +161,7 @@ CODE_9B95B0:
 	sta.b $8F
 	lda.w #ScoringSH2
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	pla
 	sta.b a1
 	pla
@@ -178,7 +178,7 @@ CODE_9B95B0:
 	lda.w #$000E
 	sta.w printx
 	jsl.l CODE_9FC427
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	ply
 	iny
 	lda.w #$2400
@@ -195,7 +195,7 @@ CODE_9B95B0:
 	lda.w #$0010
 	sta.w printx
 	jsl.l CODE_9FC427
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .1xx:
 	ply
 	iny
@@ -210,6 +210,6 @@ CODE_9B95B0:
 	lda.w #$0010
 	sta.w printx
 	jsl.l CODE_9FC427
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .rts:
 	rts

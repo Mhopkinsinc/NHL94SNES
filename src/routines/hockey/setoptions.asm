@@ -508,7 +508,7 @@ setoptions:
 	sta.b a1
 	lda.b [a1],y
 	sta.b d3
-	jsl.l CODE_9BC5AB
+	jsl.l GetTeamLongName
 	jsl.l print
 	bra .5xx
 .11:

@@ -64,6 +64,7 @@
 - Raw ROM pointer immediates (a `lda.w #$xxxx` paired with a ROM bank byte for a pointer) are written as label or label+offset now (32 sites: string lists, map headers, CompLine / FigureJoy local tables); tools scan: none left.
 - Line editor: `SetLineSlot`, `SelectLinePlayer`, `GetForwardCount` (94G), and from behavior `SwapLineSlots`, `ReadLineSlot`, `WriteLineSlot`, `GetTeamLines`, `LoadTeamLines`, `GetDefenseCount`, `DrawEditLinesTop`, `DrawEditLinesTitle`, `DrawEditLinesBack`, `ClearEditLinesMenu`, `PrintLinePlayerList`, `PrintLinePlayers`, `EditLinesRtl`, `SelectLinePlayerRtl`; RAM `homelines` / `awaylines`. Wrong label fixed: DrawEditLinesTitle had `jsr.w Div16S_divneg` (bank $80) for the bank $9B routine now named DrawEditLinesBack.
 - `GetNewPresses` (93S: the ReadPads .new block), RAM `padlast`, `paddir`, `padchange`, `padnew` (5 words each) and `JoyPad+2`..`+8` for the other pads; from behavior `WaitSidePadsRelease`, `WaitPadsRelease`, `OtherScoresRtl`.
+- Stats page helpers from behavior: `PrintToStatsPage`, `PushNumberWrap`, `GetTeamLongName`, `PrintOtherScoreTeam`, `PrintOtherScore`, `PrintTeamAbbrev`, `FillScoringPage`, `FillPenaltyPage`.
 
 ## Unsure
 

@@ -45,7 +45,7 @@ org $9C9000
 	sta.b a1
 .2:
 	jsl.l AdvanceStringPtr
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	lda.w #$2400
 	sta.w $0D0D
 	stz.b a2
@@ -214,6 +214,6 @@ org $9C9000
 	clc
 	adc.w printx
 	sta.w printx
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .8:
 	rts

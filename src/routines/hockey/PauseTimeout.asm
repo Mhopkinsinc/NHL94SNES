@@ -43,7 +43,7 @@ PauseTimeout:
 	sta.b $8F
 	ldy.b a2
 	lda.w HomeTeam,y
-	jsl.l CODE_9BC5AB
+	jsl.l GetTeamLongName
 	lda.b [a1]
 	dec a
 	dec a

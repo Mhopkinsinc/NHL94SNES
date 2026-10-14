@@ -106,7 +106,7 @@ ShowMatchups:
 	pha
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	lda.b $8F
 	pha
@@ -150,7 +150,7 @@ ShowMatchups:
 	pha
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	lda.b $8F
 	pha
@@ -203,7 +203,7 @@ ShowMatchups:
 	pha
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	stz.b a2
 	lda.b $8F
@@ -224,7 +224,7 @@ ShowMatchups:
 	pha
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 .1:
 	lda.b $8F

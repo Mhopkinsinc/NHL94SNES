@@ -45,7 +45,7 @@ ShowPenaltySummary:
 .1:
 	jsl.l PrintScrollHint
 .2:
-	jsr.w CODE_9B9917
+	jsr.w FillPenaltyPage
 	jsl.l SendTextMap
 	lda.w #$0058
 	ldx.w #$00D0

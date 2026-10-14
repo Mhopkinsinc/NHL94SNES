@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EC894:
+; Print string [a1] at printx / printy into the stats page buffer ($7F2780, 32 wide) through the DATA8_9ACDB0 character map
+PrintToStatsPage:
 	phx
 	lda.w #$0020
 	sta.b $24

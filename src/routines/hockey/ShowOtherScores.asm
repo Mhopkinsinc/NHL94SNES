@@ -74,7 +74,7 @@ CODE_9BC2E4:
 	sta.b $8F
 	lda.w #LineBraces
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .3:
 	lda.w $1DBD
 	clc
@@ -100,7 +100,7 @@ CODE_9BC2E4:
 	sta.b $8F
 	lda.w #LineBraces+3
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .4:
 	jsl.l DrawOtherScoresPage
 	jsl.l WaitFrame

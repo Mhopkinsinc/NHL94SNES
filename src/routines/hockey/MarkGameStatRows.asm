@@ -13,7 +13,7 @@ MarkGameStatRows:
 	sta.b $8F
 	lda.w #LineBraces
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .1:
 	lda.w $1DBD
 	clc
@@ -33,7 +33,7 @@ MarkGameStatRows:
 	sta.b $8F
 	lda.w #LineBraces+3
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .2:
 	jsr.w CODE_9C8F7D
 	jsl.l WaitFrame

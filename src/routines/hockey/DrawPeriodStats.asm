@@ -144,7 +144,7 @@ DrawPeriodStats:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	lda.b d4
 	sta.w printx
@@ -154,7 +154,7 @@ DrawPeriodStats:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	inc.w printy
 	lda.w #$2400
@@ -190,7 +190,7 @@ DrawPeriodStats:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	lda.b d4
 	sta.w printx
@@ -200,7 +200,7 @@ DrawPeriodStats:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	ldx.w #$0068
 	ldy.w #$0040

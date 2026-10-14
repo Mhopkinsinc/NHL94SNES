@@ -11,7 +11,7 @@ ClearGameStatBraces:
 	sta.b $8F
 	lda.w #LineBraces+6
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	lda.w #$0001
 	sta.w printx
 	lda.w $1DBD
@@ -25,7 +25,7 @@ ClearGameStatBraces:
 	sta.b $8F
 	lda.w #LineBraces+6
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	rts
 
 CODE_9C8F7D:

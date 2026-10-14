@@ -4,7 +4,7 @@ TickerTeam:
 	sta.w printx
 	inc.w printy
 	lda.b d0
-	jsl.l CODE_9BC5AB
+	jsl.l GetTeamLongName
 	jsl.l print
 	lda.b $04,s
 	clc

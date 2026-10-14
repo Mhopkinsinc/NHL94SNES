@@ -45,7 +45,7 @@ CODE_9C8934:
 	sta.w printx
 	stx.b d0
 	jsl.l CODE_9FC427
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	stx.w $1DC9
 	lda.b a2
 	beq .2x
@@ -66,8 +66,8 @@ CODE_9C8934:
 	sta.b d0
 	lda.w #$0002
 	sta.b d1
-	jsl.l CODE_9FC623
-	jsl.l CODE_9EC894
+	jsl.l PushNumberWrap
+	jsl.l PrintToStatsPage
 	lda.w #$0002
 	jsl.l CODE_9C8D17
 	lda.w #$0014
@@ -79,8 +79,8 @@ CODE_9C8934:
 	sta.b d0
 	lda.w #$0002
 	sta.b d1
-	jsl.l CODE_9FC623
-	jsl.l CODE_9EC894
+	jsl.l PushNumberWrap
+	jsl.l PrintToStatsPage
 	lda.w #$0003
 	jsl.l CODE_9C8D17
 	lda.w #$0017
@@ -99,8 +99,8 @@ CODE_9C8934:
 	sta.b d0
 	lda.w #$0002
 	sta.b d1
-	jsl.l CODE_9FC623
-	jsl.l CODE_9EC894
+	jsl.l PushNumberWrap
+	jsl.l PrintToStatsPage
 	lda.w #$0004
 	jsl.l CODE_9C8D17
 	lda.w #$001A
@@ -112,8 +112,8 @@ CODE_9C8934:
 	sta.b d0
 	lda.w #$0002
 	sta.b d1
-	jsl.l CODE_9FC623
-	jsl.l CODE_9EC894
+	jsl.l PushNumberWrap
+	jsl.l PrintToStatsPage
 	lda.w #$0005
 	jsl.l CODE_9C8D17
 	lda.w #$001D
@@ -125,8 +125,8 @@ CODE_9C8934:
 	sta.b d0
 	lda.w #$0002
 	sta.b d1
-	jsl.l CODE_9FC623
-	jsl.l CODE_9EC894
+	jsl.l PushNumberWrap
+	jsl.l PrintToStatsPage
 	lda.w #$FFFF
 	jsl.l CODE_9C8D17
 	pla
@@ -143,7 +143,7 @@ CODE_9C8934:
 	sta.w printx
 	stx.b d0
 	jsl.l CODE_9FC427
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	stx.w $1DC9
 	lda.b a2
 	beq .1xx
@@ -161,8 +161,8 @@ CODE_9C8934:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
-	jsl.l CODE_9EC894
+	jsl.l PushNumberWrap
+	jsl.l PrintToStatsPage
 	lda.w #$0016
 	sta.w printx
 	sep #$20
@@ -172,8 +172,8 @@ CODE_9C8934:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
-	jsl.l CODE_9EC894
+	jsl.l PushNumberWrap
+	jsl.l PrintToStatsPage
 	lda.w #$001B
 	sta.w printx
 	sep #$20
@@ -207,15 +207,15 @@ CODE_9C8934:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9FC623
-	jsl.l CODE_9EC894
+	jsl.l PushNumberWrap
+	jsl.l PrintToStatsPage
 	lda.w #$001E
 	sta.w printx
 	lda.w #$009C
 	sta.b $8F
 	lda.w #PercentSign
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	pla
 	sta.b d1
 	ply

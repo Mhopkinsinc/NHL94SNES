@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC5AB:
+; a1 = the full name of team A: its TeamList city, or LongNYIslanders / LongNYRangers for teams $0D / $0E
+GetTeamLongName:
 	cmp.w #$000D
 	beq .t1
 	cmp.w #$000E

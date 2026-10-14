@@ -127,7 +127,7 @@ CODE_9C8684:
 	sta.b $8F
 	lda.w #LineBraces
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .1xxx:
 	lda.w $1DB9
 	clc
@@ -150,7 +150,7 @@ CODE_9C8684:
 	sta.b $8F
 	lda.w #LineBraces+3
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .3:
 	jsl.l CODE_9C88A0
 .4:

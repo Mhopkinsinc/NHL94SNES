@@ -30,7 +30,7 @@ FillOtherScores:
 	lda.w $1DB9
 	cmp.w $1DC1
 	beq .4
-	jsr.w CODE_9BC543
+	jsr.w PrintOtherScore
 	inc.w printy
 .3:
 	lda.w $1DB9

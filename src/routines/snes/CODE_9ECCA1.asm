@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9ECCA1:
 	lda.w $1E41
-	jsl.l CODE_9BC5AB
+	jsl.l GetTeamLongName
 	lda.w #$0000
 	sta.b $97
 	lda.w #mesarea

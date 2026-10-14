@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9B35:
+; Print the abbreviation of the home team (d3 = 0) or the visitors on the stats page, then two rows down
+PrintTeamAbbrev:
 	lda.w printx
 	pha
 	lda.w tmdata
@@ -19,7 +19,7 @@ CODE_9B9B35:
 	lda.b [a1]
 	adc.b a1
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	pla
 	sta.w printx
 	inc.w printy

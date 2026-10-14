@@ -97,7 +97,7 @@ printscores1:
 	sta.b d0
 	lda.w #$0002
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 .scores:
 	lda.w sflags3

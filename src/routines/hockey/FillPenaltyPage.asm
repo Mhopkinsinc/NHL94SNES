@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9917:
+; Build the penalty summary page in the stats page buffer
+FillPenaltyPage:
 	lda.w #$007F
 	sta.b $12
 	lda.w #$2780
@@ -59,7 +59,7 @@ CODE_9B9917:
 	lda.w #PerLabels
 	sta.b a1
 	jsl.l AdvanceStringPtr
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	lda.w #$0004
 	sta.w printx
 	pla
@@ -71,7 +71,7 @@ CODE_9B9917:
 	bne .1x
 	inc.w printx
 .1x:
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	lda.w #$000A
 	sta.w printx
 	ply
@@ -91,7 +91,7 @@ CODE_9B9917:
 	lda.w #$0002
 	sta.b a2
 .2:
-	jsl.l CODE_9B9B35
+	jsl.l PrintTeamAbbrev
 	dec.w printy
 	dec.w printy
 	lda.w #$000E
@@ -100,7 +100,7 @@ CODE_9B9917:
 	and.w #$007F
 	sta.b d0
 	jsl.l CODE_9FC427
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	ply
 	iny
 	sep #$20
@@ -127,8 +127,8 @@ CODE_9B9917:
 	pha
 	lda.w #$0002
 	sta.b d1
-	jsl.l CODE_9FC623
-	jsl.l CODE_9EC894
+	jsl.l PushNumberWrap
+	jsl.l PrintToStatsPage
 	pla
 	sta.b $8F
 	pla
@@ -150,5 +150,5 @@ CODE_9B9917:
 	bne .3
 	dec.b d0
 .3:
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	rts

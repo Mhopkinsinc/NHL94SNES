@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FC623:
+; PushNumberWidth, with d0 taken mod 100 when the width d1 is 2
+PushNumberWrap:
 	lda.b d0
 	pha
 	lda.b d1

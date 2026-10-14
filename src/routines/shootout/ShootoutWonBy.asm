@@ -37,7 +37,7 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 .1:
 	phy
 	lda.w HomeTeam,y
-	jsl.l CODE_9BC5AB
+	jsl.l GetTeamLongName
 	lda.b [a1]
 	and.w #$00FF
 	dec a

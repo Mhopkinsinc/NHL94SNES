@@ -7,7 +7,7 @@ AttribFighting:
 AttribRating:
 	lda.w #$0004
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	jsl.l print
 	lda.b $8F
 	pha

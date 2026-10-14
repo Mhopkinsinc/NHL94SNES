@@ -1,5 +1,5 @@
 ; Unidentified routine.
 CODE_9ECCEC:
 	lda.w VisTeam
-	jsl.l CODE_9BC5AB
+	jsl.l GetTeamLongName
 	bra CODE_9ECD19

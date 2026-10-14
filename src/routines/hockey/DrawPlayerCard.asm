@@ -265,7 +265,7 @@ org $9DC002
 	jsl.l GetPlayerRating
 	lda.w #$0004
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	ldx.w #$00A0
 	ldy.w #$0084
 	jsl.l CODE_9C9590
@@ -376,7 +376,7 @@ org $9DC002
 	jsl.l GetTeamRating
 	lda.w #$0004
 	sta.b d1
-	jsl.l CODE_9FC623
+	jsl.l PushNumberWrap
 	ldx.w #$0070
 	ldy.w #$00A2
 	jsl.l CODE_9C9590
