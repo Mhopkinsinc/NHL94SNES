@@ -108,7 +108,7 @@ CODE_9B9917:
 	rep #$20
 	and.w #$00FF
 	tay
-	lda.w #DATA8_80D3EB
+	lda.w #PenaltyList
 	sta.b a1
 	lda.w #$0080
 	sta.b $8F

@@ -1,5 +1,5 @@
-; Data table.
-DATA8_80D3EB:
+; The penalties and stoppages by penalty number: a word offset to each entry, then the entries (name and data)
+PenaltyList:
 	db $00,$00,$36,$00,$49,$00,$9F,$00,$9F,$00,$D6,$00,$7A,$00,$5A,$00
 	db $62,$00,$8B,$00,$40,$01,$6A,$00,$DC,$00,$FE,$00,$60,$01,$A1,$01
 	db $80,$01,$20,$01,$C2,$00,$C6,$01,$DE,$01,$F1,$01,$11,$02,$33,$02

@@ -66,7 +66,7 @@ prefmes:
 	sta.b $8F
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D3EB
+	lda.w #PenaltyList
 	sta.b a1
 	ldy.b d0
 	lda.l $7E344C
@@ -155,7 +155,7 @@ prefmes:
 	sta.b $8F
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D3EB
+	lda.w #PenaltyList
 	sta.b a1
 	ldy.b d0
 	lda.b [a1],y

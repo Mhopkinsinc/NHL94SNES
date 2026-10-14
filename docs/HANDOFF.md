@@ -20,7 +20,7 @@
 - Tails: `CODE_` files that only the routine before them reaches, by a branch or a jump, are folded into it, and labels that are then used only inside one routine's scope are locals. Several of them had looked shared because of the wrong-bank jump labels above.
 - Whole bodies: with the tails folded, each `CODE_` routine was compared with the unused 93S routines as a whole; names where the body and the callers agree: `Endfaceoff`, `NewPO`, `resetplstuff`, `puckglue`, `InitSortObjects`, `shotdiradj`, `CalcAngleOffset`, `printteamname` (`CODE_9B9B35` is a copy that calls another print routine), `PrintTeamNameAndScore`.
 - More calls from those: `updateanim`, `wallcollb`, `doinput`, `dopass`, `ResetClock`. `ShootoutWonBy` is the routine `wallcollb`, `clockcont_0` and others call with a penalty number where 93S calls `AddPenalty2`: in a shootout it prints the winner (the 94G job), otherwise it ends in `AddPenalty2`.
-- Tables: `dirtab`, `BitMaskTable`, `jdtab8F` and `ButtonLabelCharTable` have the same bytes as the 93S tables and are read the same way. `DATA8_80D3EB` stays (not `PenaltyList`).
+- Tables: `dirtab`, `BitMaskTable`, `jdtab8F` and `ButtonLabelCharTable` have the same bytes as the 93S tables and are read the same way. `DATA8_80D3EB` is `PenaltyList`: a word offset per penalty number to its entry, the same layout as 93S `PenaltyList` and 94G `Penaltylist`, read by the routines that read `PenaltyList` in 93S.
 
 - Same job, rewritten body: where the callers are the 93S callers and the routine does the 93S job, it takes the 93S name even when the instructions differ: `skateto` (target in d0 / d1, the avoid routine in a0, ends in `doplayeracc`), `playeracc`, `getpde`, `GetHot` (hot spot from the frame header), `checkgoal`, `limitfo`, `loadTeamStruct`, `setpads`, `sfx` (`CODE_9C9AD0`: effect A from the effect table, panned by position), `randoma` (with `randoma8`, its entry for ranges below 256), `updatecrowdf`, `updatesound`, `setvideo` (no vblank gate), `SaveRegsStartHL2`, `Pausemode`, `StartGame` (a 94 setup, then the 93S body), `doshot` (`ShotMode` jumps here; it calls `shotdiradj`), `assscore` (`Goal` gives the scoring team assignment 8), `printbig`, `PrintStringFromList`, `Framer`. New names from what the code does: `randoma8`, `ApproxLength`. RAM: `$0AD9` is `puckc` (where 93S has `puckc` in every routine named from 93S) and `$7E35E0` is `crowdlevel`.
 - From `setvideo`, `checkgoal`, `dostop` and the others named above: `ShowRinkRows`, `checkfo`, `setffo`, `showcrowd`, `checkgoalp`, `StopNA` (94 halves the speed of computer players without the puck first), `prefmes`, `ChkShotStat`, `makepde`, and the two empty stubs `periodicevents` calls where 93S calls `UpdateCwdExcite` and `CheckLateGameSong`. The 8 by 8 and 16 by 8 hardware multiplies next to `Mul16U` are `Mul8U`, `Mul8XS`, `Mul8S`, `Mul16x8U`, `Mul16x8XS` and `Mul16x8S` (named like the existing ones), and the byte copy is `MemCopy`.
@@ -40,7 +40,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 
 **Keep raw:** `$00`, `$04` and `$08` (divider and engine scratch). `$C3` in `vtoa`. `#$000B`, `#$000A`, `#$0012` in setplayer. `$14` and `$0CE5` in setplayer until one owner is proven. `#$0800`, `#$0040`, `#$2000`, `#$4000` except the converted flag sites. `PenOffsides` is `$12` here (93S uses `$10`).
 
-**Deferred:** `$0B7D,x` on the assist path. `$163A` (not `OptPen`). `$7E34C6` (not `OptLine`; map bits first). `#$0024` in AddPenalty. `$7E35D0` vs 93S `blankchar`. Optional `StoppageMessages` for `DATA8_80D3EB`.
+**Deferred:** `$0B7D,x` on the assist path. `$163A` (not `OptPen`). `$7E34C6` (not `OptLine`; map bits first). `#$0024` in AddPenalty. `$7E35D0` vs 93S `blankchar`.
 
 - `$14E3` is `pfalock` from the `setplayer` pair with `SPA`.
 - asstab entries left unnamed: `CODE_9EE463` (entry 10) and `CODE_9EED8D` (entry 14) are 94 assignments with no 93S counterpart.
@@ -73,7 +73,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   `src/data/text/`, one per table, included where they sit in the ROM; nine take their 93S names (AttribMenuSkater,
   AttribMenuGoalie, PositionNames, GameLabels, PasstoText, StatusTextTbl, HandedTextTbl, GoalBoxText, RosterLineNames).
   The team database (TeamList, the team records, playoffseats) is `src/data/teamdata94s.asm`, included from
-  `src/banks/b9C_teams.asm`. `DATA8_80D3EB` is `src/data/tables/DATA8_80D3EB.asm`.
+  `src/banks/b9C_teams.asm`. `PenaltyList` is `src/data/tables/PenaltyList.asm`.
 - The notes below still say `bank80_8000` and the other old slice names. That code now lives in `src/routines/` and
   `src/data/tables/`, included from `src/banks/`.
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
@@ -100,7 +100,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   $178E/$1790 decide the shootout but are used elsewhere too; not named.
 - bank80_D000: the rest of the ShooterSelectList screen ($0D47 rating column, $1D9B cursor row, $1DA7 first row), then
   data read from other banks. Its tables are labelled with auto names where code references them (Vault DATA8_ names);
-  the penalty/stoppage table at DATA8_80D3EB (strings with variable trailing data) and the 48-byte records from $80DDA0
+  the penalty/stoppage table PenaltyList (strings with variable trailing data) and the 48-byte records from $80DDA0
   (they continue into bank80_E000) are plain db until their readers are disassembled.
 - bank80_E000: data only. The records end at $80E2E0; then the copyright lines, CreditTitles / CreditNames (read from bank
   $9D) with their strings, long pointer tables DATA8_80E6C1 / DATA8_80E6FD / DATA8_80E73D (read from bank $9C), and $FF

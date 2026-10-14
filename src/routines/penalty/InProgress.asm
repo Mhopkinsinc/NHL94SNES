@@ -37,7 +37,7 @@ InProgress:
 	tay
 	lda.w #$0080
 	sta.b $8F
-	lda.w #DATA8_80D3EB
+	lda.w #PenaltyList
 	sta.b a1
 	lda.b [a1],y
 	clc

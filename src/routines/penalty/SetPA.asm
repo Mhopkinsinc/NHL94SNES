@@ -54,15 +54,15 @@ SetPA2:
 	lda.w RefPen
 	sta.b d1
 	tax
-	lda.l DATA8_80D3EB,x
+	lda.l PenaltyList,x
 	inc a
 	inc a
 	tax
 	clc
-	adc.l DATA8_80D3EB,x
+	adc.l PenaltyList,x
 	adc.b d0
 	tax
-	lda.l DATA8_80D3EB,x
+	lda.l PenaltyList,x
 	sta.b d0
 	bpl .1
 	eor.w #$FFFF

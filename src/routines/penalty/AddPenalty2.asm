@@ -70,7 +70,7 @@ AddPenalty2:
 	sta.b [a1]
 	lda.w #$0080
 	sta.b $8B
-	lda.w #DATA8_80D3EB
+	lda.w #PenaltyList
 	sta.b a0
 	ldy.b d0
 	clc

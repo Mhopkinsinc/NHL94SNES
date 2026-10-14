@@ -4800,3 +4800,4 @@ $9C93F1,LetterSpriteWidths,DATA8_9C93F1,new,the advance PrintLetterSprites uses 
 $9DD9AD,SetupScreen,CODE_9DD9AD,94G,"the common start of the stats screens, called first as 94G calls SetupScreen (ShootoutShooters and the stats screens)",src/routines/stats/SetupScreen.asm
 $9B851F,ReadPausePad,CODE_9B851F,new,ReadjoyA for pausepad,src/routines/snes/ReadPausePad.asm
 $0AC6,pausepad,$0AC6,new,RAM; set by SelectPauseController and StartPer: the controller that owns the pause menu,src/ram94snes.asm
+$80D3EB,PenaltyList,DATA8_80D3EB,93S,"word offset per penalty number to its entry (name and data) as 93S PenaltyList and 94G Penaltylist; AddPenalty2, prefmes and checkfornewpen read it where 93S reads PenaltyList",src/data/tables/PenaltyList.asm
