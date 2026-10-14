@@ -1,26 +1,26 @@
-; Unidentified routine.
+; Write the two digit number d0 as two characters at [a1], blank leading zero.
 PutDigits2:
 	lda.w #$2020
-	sta.b $C5
-	lda.b $A5
+	sta.b tmp0
+	lda.b d0
 	and.w #$00FF
 	cmp.w #$000A
-	bcc CODE_9FC5D7
+	bcc .ones
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	clc
 	adc.w #$0030
-	sta.b $C5
-CODE_9FC5D7:
-	lda.b $A5
+	sta.b tmp0
+.ones:
+	lda.b d0
 	and.w #$000F
 	clc
 	adc.w #$0030
-	sta.b $C6
-	lda.b $C5
-	sta.b [$8D]
-	inc.b $8D
-	inc.b $8D
+	sta.b tmp0+1
+	lda.b tmp0
+	sta.b [a1]
+	inc.b a1
+	inc.b a1
 	rtl

@@ -466,3 +466,21 @@ $9C9729,TeamPlaceNames_SJ,TeamPlaceNames_SJS,teamdata,local label; abbreviation 
 $9C973C,TeamPlaceNames_TB,TeamPlaceNames_TBL,teamdata,local label; abbreviation TB,src/data/text/TeamPlaceNames.asm
 $9F9901,CODE_9F9901,,code,entry had no label,src/routines/snes/CODE_9F9901.asm
 $9FA835,CODE_9FA835,,code,entry had no label,src/routines/snes/CODE_9FA835.asm
+$9FC95B,.count,CODE_9FC95B,93S,GetPlayerCount loop,src/routines/stats/GetPlayerCount.asm
+$9FBC5E,.rtl,CODE_9FBC5E,93S,show_rink return,src/routines/video/show_rink.asm
+$9B8552,.tile,CODE_9B8552,93S,RemapTiles tile loop,src/routines/video/RemapTiles.asm
+$9B856C,.pixel,CODE_9B856C,93S,RemapTiles pixel loop,src/routines/video/RemapTiles.asm
+$9B8574,.lt,CODE_9B8574,93S,RemapTiles,src/routines/video/RemapTiles.asm
+$9B857C,.lt2,CODE_9B857C,93S,RemapTiles,src/routines/video/RemapTiles.asm
+$9B8582,.lt3,CODE_9B8582,93S,RemapTiles,src/routines/video/RemapTiles.asm
+$9B8587,.lt4,CODE_9B8587,93S,RemapTiles,src/routines/video/RemapTiles.asm
+$9B85A8,.out,CODE_9B85A8,93S,RemapTiles VRAM copy,src/routines/video/RemapTiles.asm
+$9FC5D7,.ones,CODE_9FC5D7,93S,PutDigits2 ones digit,src/routines/middle/PutDigits2.asm
+$9ECFAE,.loop,CODE_9ECFAE,93S,appstring copy loop,src/routines/middle/appstring.asm
+$9ECFC1,.done,CODE_9ECFC1,93S,appstring tail merged into the routine,src/routines/middle/appstring.asm
+$9FC5F8,.0,CODE_9FC5F8,93S,PushNumber digit loop,src/routines/middle/PushNumber.asm
+$9FA44B,.noz,CODE_9FA44B,93S,PushTime no extra digit,src/routines/middle/PushTime.asm
+$9FBDA8,.row,CODE_9FBDA8,93S,eraser row loop,src/routines/middle/eraser.asm
+$9FBDBF,.col,CODE_9FBDBF,93S,eraser column loop,src/routines/middle/eraser.asm
+$9FBDE4,.hi,CODE_9FBDE4,93S,eraser dirty-range high,src/routines/middle/eraser.asm
+$9FBE07,.rtl,CODE_9FBE07,93S,eraser return,src/routines/middle/eraser.asm

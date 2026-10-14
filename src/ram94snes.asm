@@ -81,3 +81,26 @@ Ylist = $1583		; y of each sort object
 OOlistpos = $15A3	; position of each object in OOlist
 OOlist = $15C3		; 16 bytes: object order list, bottom of the screen last
 gameclock = $1632	; game clock seconds; gameclock+2 = jiffies
+
+; Direct page the game logic uses as the 68k registers.
+a0 = $89		; long pointer; a0+2 is the bank
+a1 = $8D		; long pointer; a1+2 is the bank
+a2 = $91		; team index, 0 = home
+a3 = $95		; long pointer; a3+2 is the bank
+d0 = $A5
+d1 = $A9		; d1+2 is the high word
+d2 = $AD
+tmp0 = $C5		; scratch word; tmp0+1 is the next byte
+tmp1 = $C7		; scratch word
+tmp2 = $C9		; scratch byte; tmp2+1 is the next byte
+
+Hpos = $0CEB		; ice rink horizontal position
+Vpos = $0D37		; ice rink vertical position
+printm = $0CD9		; offset of the print map in the text map
+textdirtylo = $0CD5	; lowest changed word of the text map
+textdirtyhi = $0CD7	; highest changed word of the text map
+textmap = $7E37F4	; the text map
+printfontset = $7E35A8	; tile base of the selected print font
+RemapOut = $0A0A	; sixteen words: the tile RemapTiles is building
+
+Playerdata = 0		; offset of the player list in a team record

@@ -1,15 +1,15 @@
-; Unidentified routine.
+; Fill a d0 by d1 rectangle of the text map at printx / printy with tile d2.
 eraser:
 	phx
-	lda.b $AD
+	lda.b d2
 	clc
-	adc.l $7E35A8
-	sta.b $AD
-	stz.b $AB
-CODE_9FBDA8:
+	adc.l printfontset
+	sta.b d2
+	stz.b d1+2
+.row:
 	lda.w printy
 	clc
-	adc.b $AB
+	adc.b d1+2
 	asl a
 	asl a
 	asl a
@@ -17,20 +17,20 @@ CODE_9FBDA8:
 	asl a
 	adc.w printx
 	asl a
-	adc.w $0CD9
+	adc.w printm
 	tax
-	ldy.b $A5
-	lda.b $AD
-CODE_9FBDBF:
-	sta.l $7E37F4,x
+	ldy.b d0
+	lda.b d2
+.col:
+	sta.l textmap,x
 	inx
 	inx
 	dey
-	bne CODE_9FBDBF
-	inc.b $AB
-	lda.b $AB
-	cmp.b $A9
-	bne CODE_9FBDA8
+	bne .col
+	inc.b d1+2
+	lda.b d1+2
+	cmp.b d1
+	bne .row
 	plx
 	lda.w printy
 	asl a
@@ -39,13 +39,13 @@ CODE_9FBDBF:
 	asl a
 	asl a
 	adc.w printx
-	cmp.w $0CD5
-	bcs CODE_9FBDE4
-	sta.w $0CD5
-CODE_9FBDE4:
+	cmp.w textdirtylo
+	bcs .hi
+	sta.w textdirtylo
+.hi:
 	lda.w printy
 	clc
-	adc.b $A9
+	adc.b d1
 	and.w #$001F
 	sta.w printy
 	dec a
@@ -56,10 +56,10 @@ CODE_9FBDE4:
 	asl a
 	asl a
 	adc.w printx
-	adc.b $A5
+	adc.b d0
 	dec a
-	cmp.w $0CD7
-	bcc CODE_9FBE07
-	sta.w $0CD7
-CODE_9FBE07:
+	cmp.w textdirtyhi
+	bcc .rtl
+	sta.w textdirtyhi
+.rtl:
 	rtl

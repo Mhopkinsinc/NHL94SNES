@@ -1,72 +1,72 @@
-; Unidentified routine.
+; Copy tiles to video memory with each pixel colour remapped through a table.
 RemapTiles:
 	lda.w #$000E
-	sta.b $CA
-	sta.b $CA
-CODE_9B8552:
+	sta.b tmp2+1
+	sta.b tmp2+1
+.tile:
 	rep #$30
-	ldy.b $CA
-	lda.b [$89],y
-	sta.b $C5
+	ldy.b tmp2+1
+	lda.b [a0],y
+	sta.b tmp0
 	tya
 	clc
 	adc.w #$0010
 	tay
-	lda.b [$89],y
-	sta.b $C7
+	lda.b [a0],y
+	sta.b tmp1
 	sep #$30
-	ldx.b $CA
+	ldx.b tmp2+1
 	lda.b #$07
-	sta.b $C9
-CODE_9B856C:
+	sta.b tmp2
+.pixel:
 	ldy.b #$00
-	asl.b $C8
-	bcc CODE_9B8574
+	asl.b tmp1+1
+	bcc .lt
 	ldy.b #$08
-CODE_9B8574:
-	asl.b $C7
-	bcc CODE_9B857C
+.lt:
+	asl.b tmp1
+	bcc .lt2
 	iny
 	iny
 	iny
 	iny
-CODE_9B857C:
-	asl.b $C6
-	bcc CODE_9B8582
+.lt2:
+	asl.b tmp0+1
+	bcc .lt3
 	iny
 	iny
-CODE_9B8582:
-	asl.b $C5
-	bcc CODE_9B8587
+.lt3:
+	asl.b tmp0
+	bcc .lt4
 	iny
-CODE_9B8587:
-	lda.b [$8D],y
+.lt4:
+	lda.b [a1],y
 	lsr a
-	rol.w $0A0A,x
+	rol.w RemapOut,x
 	lsr a
-	rol.w $0A0B,x
+	rol.w RemapOut+1,x
 	lsr a
-	rol.w $0A1A,x
+	rol.w RemapOut+16,x
 	lsr a
-	rol.w $0A1B,x
-	dec.b $C9
-	bpl CODE_9B856C
-	dec.b $CA
-	dec.b $CA
-	bpl CODE_9B8552
+	rol.w RemapOut+17,x
+	dec.b tmp2
+	bpl .pixel
+	dec.b tmp2+1
+	dec.b tmp2+1
+	bpl .tile
 	rep #$30
 	ldx.w #$0000
-CODE_9B85A8:
-	lda.w $0A0A,x
+.out:
+	lda.w RemapOut,x
 	sta.w VMDATAL
 	inx
 	inx
 	cpx.w #$0020
-	bne CODE_9B85A8
-	lda.b $89
+	bne .out
+	lda.b a0
 	clc
 	adc.w #$0020
-	sta.b $89
-	dec.b $A5
+	sta.b a0
+	dec.b d0
 	bne RemapTiles
 	rtl
