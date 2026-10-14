@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE418:
+; Pause menu: toggle defensive control
+PauseDefControl:
 	lda.b d1
 	bit.w #$8380
 	beq CODE_9FE42E

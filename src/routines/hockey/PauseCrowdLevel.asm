@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE3A5:
+; Pause menu Crowd Level
+PauseCrowdLevel:
 	lda.b d1
 	bit.w #$8080
 	bne .t1
@@ -8,4 +8,4 @@ CODE_9FE3A5:
 .t1:
 	jsl.l ShowCrowdMeter
 	jsl.l CODE_9FE79F
-	jmp.w CODE_9FE2AE
+	jmp.w PauseSubmenuDone

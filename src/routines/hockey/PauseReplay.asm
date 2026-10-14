@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE272:
+; Pause menu Instant Replay
+PauseReplay:
 	lda.b d1
 	bit.w #$8080
 	bne .t1
@@ -24,7 +24,7 @@ CODE_9FE272:
 	pla
 	sta.b d7
 	sta.w $0ADB
-CODE_9FE2AE:
+PauseSubmenuDone:
 	stz.w textdirtylo
 	lda.w #$03FF
 	sta.w textdirtyhi

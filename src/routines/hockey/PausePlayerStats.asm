@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE327:
+; Pause menu Player Stats
+PausePlayerStats:
 	lda.b d1
 	bit.w #$8080
 	bne .t1
@@ -8,4 +8,4 @@ CODE_9FE327:
 .t1:
 	jsl.l CODE_9C8583
 	jsl.l CODE_9FE79F
-	jmp.w CODE_9FE2AE
+	jmp.w PauseSubmenuDone

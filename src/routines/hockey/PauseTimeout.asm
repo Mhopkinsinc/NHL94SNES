@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE431:
+; Pause menu Timeout
+PauseTimeout:
 	lda.b d1
 	bit.w #$8080
 	beq CODE_9FE42E

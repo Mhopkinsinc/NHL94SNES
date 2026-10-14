@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE2BB:
+; Pause menu Game Stats
+PauseGameStats:
 	lda.b d1
 	bit.w #$8080
 	bne .t1
@@ -8,4 +8,4 @@ CODE_9FE2BB:
 .t1:
 	jsl.l ShowGameStats
 	jsl.l CODE_9FE79F
-	bra CODE_9FE2AE
+	bra PauseSubmenuDone

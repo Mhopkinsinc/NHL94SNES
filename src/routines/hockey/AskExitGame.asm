@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FF00B:
+; Yes or No exit prompt
+AskExitGame:
 	lda.w #$0000
 	sta.w $1DB9
 CODE_9FF011:

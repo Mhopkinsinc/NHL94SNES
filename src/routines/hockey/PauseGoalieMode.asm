@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE3FF:
+; Pause menu: toggle the goalie control
+PauseGoalieMode:
 	lda.b d1
 	bit.w #$8380
 	beq .1
