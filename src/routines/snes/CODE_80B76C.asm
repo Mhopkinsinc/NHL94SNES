@@ -4,7 +4,7 @@ CODE_80B76C:
 	and.w #$00FF
 	asl a
 	tax
-CODE_80B772:		; free tile cache entry X and its VRAM
+FreeCacheEntry:		; free tile cache entry X and its VRAM
 	sep #$20
 	lda.b #$FF
 	sta.w $2741,y

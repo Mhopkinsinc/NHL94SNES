@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80B719:		; free the VRAM tiles of the frame at [$0C]
+; Free the VRAM tiles of the frame at [$0C]
+FreeFrameTiles:
 	phx
 	phy
 	phb

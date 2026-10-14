@@ -84,6 +84,6 @@ CODE_80CAC6:
 	jsl.l PrintShooterNames
 	bra CODE_80CA9A
 CODE_80CAD7:
-	jsl.l CODE_80CE0A
+	jsl.l PickShooterRow
 	jsl.l PrintShooterNames
 	bra CODE_80CA9A

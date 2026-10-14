@@ -48,7 +48,7 @@ SpriteFrameStart:	; start filling OAMDrawBuf after the reserved entries; free th
 	phx
 	phy
 	phb
-	jmp.w CODE_80B772
+	jmp.w FreeCacheEntry
 
 .t1:
 	dex

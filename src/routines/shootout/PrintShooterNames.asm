@@ -96,7 +96,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	sta.b $0E
 	lda.b $10
 	sta.b $0C
-	jsl.l CODE_80B719
+	jsl.l FreeFrameTiles
 .4:
 	plx
 .5:

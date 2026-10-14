@@ -62,6 +62,6 @@ Restart:
 	lda.l $7E34BC
 	cmp.w #$0004
 	bne StartGame
-	jsl.l CODE_80C81C
+	jsl.l PlayShootout
 	stz.w $07C6
 	jmp.w Restart

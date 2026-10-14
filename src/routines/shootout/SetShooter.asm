@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80D2BD:		; put the player at the cursor in shooter row $1DB9; if that player is already in the list, the two swap
+; Put the player at the cursor in shooter row $1DB9; if that player is already in the list, the two swap
+SetShooter:
 	ldy.b d1
 	phy
 	lda.w #$0009

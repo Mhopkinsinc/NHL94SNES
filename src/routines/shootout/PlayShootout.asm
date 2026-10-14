@@ -1,5 +1,5 @@
 ; the shootout: both shooter lists, then a turn for each team every round, until after five rounds
-CODE_80C81C:		; the shootout: both shooter lists, then a turn for each team every round, until after five rounds
+PlayShootout:
 		;   $178E and $1790 differ
 	lda.l $7E34C6
 	pha

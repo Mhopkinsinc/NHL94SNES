@@ -129,7 +129,7 @@ ShooterSelectList:
 	bne .t2
 	bit.w #$8080
 	beq .2
-	jsl.l CODE_80D2BD
+	jsl.l SetShooter
 .1x:
 	lda.w #$0001
 	sta.l $7E3468

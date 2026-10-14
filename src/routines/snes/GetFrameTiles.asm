@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80B01E:		; A = the first VRAM tile of the frame at [$0C], loaded now if needed; negative if there is no room
+; A = the first VRAM tile of the frame at [$0C], loaded now if needed; negative if there is no room
+GetFrameTiles:
 	ldy.w $07BA
 	beq CODE_80B030
 	ldx.w $07C6
@@ -19,7 +19,7 @@ CODE_80B030:
 	phx
 	phy
 	phb
-	jmp.w CODE_80B3E1
+	jmp.w LoadFrameTiles
 
 .t2:
 	cmp.w #$0000

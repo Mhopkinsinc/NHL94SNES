@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B93C1:		; IRQ hook: BG1 vertical scroll from $07E0, then .t1 is the next hook
+; IRQ hook: BG1 vertical scroll from $07E0, then the next hook
+IRQ_BG1Scroll:
 	sep #$20
 	lda.w $07E0
 	sta.w BG1VOFS
@@ -12,13 +12,13 @@ CODE_9B93C1:		; IRQ hook: BG1 vertical scroll from $07E0, then .t1 is the next h
 	sta.w VTIMEL
 	rtl
 
-.t1:		; IRQ hook: BG1 vertical scroll $FFFF, then CODE_9B93C1 is the next hook
+.t1:		; IRQ hook: BG1 vertical scroll $FFFF, then IRQ_BG1Scroll is the next hook
 	sep #$20
 	lda.b #$FF
 	sta.w BG1VOFS
 	lda.b #$FF
 	sta.w BG1VOFS
 	rep #$20
-	lda.w #CODE_9B93C1
+	lda.w #IRQ_BG1Scroll
 	sta.w $078F
 	rtl

@@ -109,5 +109,5 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	pla
 	sta.b $8F
 .2x:
-	jsl.l CODE_80D21C
+	jsl.l PrintShooterRows
 	rtl

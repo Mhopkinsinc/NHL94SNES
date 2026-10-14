@@ -23,7 +23,7 @@ DrawSprite:		; draw frame $00 of the sprite set at [$10] at X, Y; A is xored int
 	adc.b $12
 	sta.b $0E
 CODE_80B0B0:
-	jsr.w CODE_80B01E
+	jsr.w GetFrameTiles
 	bmi CODE_80B0C6
 	sta.b $16
 	ldx.w OAMNext

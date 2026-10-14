@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80D21C:		; print the rows of the list from $1DA7, the row at the cursor ($1D9B) in another palette
+; Print the rows of the list from $1DA7, the row at the cursor ($1D9B) in another palette
+PrintShooterRows:
 	lda.b $8F
 	pha
 	lda.b a1

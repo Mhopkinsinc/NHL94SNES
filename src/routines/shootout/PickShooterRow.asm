@@ -1,5 +1,5 @@
 ; button on a row: the goalie row cycles the goalie, a shooter row opens ShooterSelectList
-CODE_80CE0A:		; button on a row: the goalie row cycles the goalie, a shooter row opens ShooterSelectList
+PickShooterRow:
 	lda.w $1DB9
 	bne ShooterSelectList
 	jsl.l GoalieCount

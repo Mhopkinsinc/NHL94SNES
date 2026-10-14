@@ -170,12 +170,12 @@ CODE_80B286:
 	plb
 .7:
 	ldy.w $07BA
-	beq CODE_80B3E1
+	beq LoadFrameTiles
 	ldx.w $07C6
 	beq CODE_80B3CE
 	ldx.w $07C4
 	lda.w $2740,x
-	bmi CODE_80B3E1
+	bmi LoadFrameTiles
 	xba
 	and.w #$00FF
 	asl a

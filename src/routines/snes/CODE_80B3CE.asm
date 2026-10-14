@@ -11,7 +11,7 @@ CODE_80B3CE:
 	inx
 	dey
 	bne CODE_80B3CE
-CODE_80B3E1:		; allocate VRAM for the frame at [$0C], queue the DMA of its tiles and add a tile cache entry
+LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its tiles and add a tile cache entry
 	ldy.w $07BA
 	cpy.w #$0080
 	beq .t3
