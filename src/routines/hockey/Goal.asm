@@ -1,8 +1,38 @@
-; Unidentified routine.
-CODE_9EF352:
+; The puck is in the goal: the siren, the score, the log, the scoreboard and the celebration (shootout goals through CODE_9EC791)
+Goal:
+	lda.w gmclock
+	beq .t3
+	stz.w $0E01
+	stz.w puckvx
+	stz.w puckvy
+	rtl
+
+.t3:
+	lda.w $163A
+	beq .6
+	lda.w pucky
+	bpl .t1
+	lda.w gmode
+	bit.w #$0002
+	beq .in
+	bra .t2
+
+.t1:
+	lda.w gmode
+	bit.w #$0002
+	beq .t2
+	bra .in
+
+.t2:
 	lda.w $1E91
-	beq CODE_9EF34B
-CODE_9EF357:
+	beq .6
+.1:
+	jsl.l CODE_9EC791
+	jmp.w .16
+.in:
+	lda.w $1E91
+	beq .1
+.6:
 	jsl.l ChkShotStat
 	jsl.l freezewindow
 	lda.w #$001E
@@ -11,19 +41,19 @@ CODE_9EF357:
 	lda.w #$0002
 	sta.b a1
 	lda.w pucky
-	bpl .1
+	bpl .1x
 	stz.b a1
 	lda.w #$0002
 	sta.b a2
-.1:
+.1x:
 	lda.w gmode
 	bit.w #$0002
-	beq .2
+	beq .2x
 	lda.b a1
 	sta.b a2
 	eor.w #$0002
 	sta.b a1
-.2:
+.2x:
 	ldy.b a2
 	lda.w $178E,y
 	inc a
@@ -32,12 +62,12 @@ CODE_9EF357:
 	sec
 	sbc.w $17A8
 	beq .4
-	bmi .t1
+	bmi .t1x
 	ldy.b a2
 	beq .4
 	bra .3
 
-.t1:
+.t1x:
 	ldy.b a2
 	bne .4
 .3:
@@ -46,7 +76,7 @@ CODE_9EF357:
 	sta.w $1762,y
 .4:
 	lda.w $1E9B
-	bne .t1x
+	bne .t1xx
 	lda.w $1E8B
 	beq .5
 	ldy.b a2
@@ -55,37 +85,37 @@ CODE_9EF357:
 	sta.w $17C6,y
 	bra .5
 
-.t1x:
+.t1xx:
 	ldy.b a2
 	lda.w $17CE,y
 	inc a
 	sta.w $17CE,y
 .5:
 	lda.w $1E89
-	beq .1x
+	beq .1xx
 	ldy.b a2
 	lda.w $17DA,y
 	inc a
 	sta.w $17DA,y
-.1x:
+.1xx:
 	jsl.l MusicStop
 	lda.w #$0002
 	jsl.l CODE_9C9A7F
 	stz.w $0C23
 	ldy.b a2
-	beq .t1xx
+	beq .t1xxx
 	lda.w #$0004
 	jsl.l CODE_9C9FD5
 	lda.l crowdlevel
 	sec
 	sbc.w #$0300
-	bpl .2x
+	bpl .2xx
 	lda.w #$0000
-.2x:
+.2xx:
 	sta.l crowdlevel
-	bra Goal
+	bra .score
 
-.t1xx:
+.t1xxx:
 	inc a
 	inc a
 	jsl.l CODE_9C9FD5
@@ -97,7 +127,7 @@ CODE_9EF357:
 	sta.b $81
 	lda.w #$0003
 	jsl.l PlayTeamSong
-Goal:
+.score:
 	lda.b $83
 	sta.w $0D2B
 	jsl.l CODE_9EC791
@@ -111,30 +141,30 @@ Goal:
 	lda.w CwdExciteLvl
 	clc
 	adc.w #$001E
-	bmi .1
+	bmi .1xxx
 	sta.w CwdExciteLvl
-.1:
+.1xxx:
 	lda.b a2
-	beq .2
+	beq .2xxx
 	inx
 	inx
 	lda.w CwdExciteLvl
 	clc
 	adc.w #$FFCE
-	bmi .2
+	bmi .2xxx
 	sta.w CwdExciteLvl
-.2:
+.2xxx:
 	lda.w $177E,x
 	inc a
 	sta.w $177E,x
 	plx
 	lda.l $7E313A
 	cmp.w #$0258
-	bne .3
+	bne .3x
 	sec
 	sbc.w #$0006
 	sta.l $7E313A
-.3:
+.3x:
 	lda.w #$007E
 	sta.b $8B
 	lda.w #$313C
@@ -157,9 +187,9 @@ Goal:
 	sec
 	sbc.w tmap,y
 	ldy.b a2
-	beq .4
+	beq .4x
 	ora.w #$0080
-.4:
+.4x:
 	sta.b [a0]
 	inc.b a0
 	lda.w tmtouch1,y
@@ -171,18 +201,18 @@ Goal:
 	ldx.b a2
 	lda.w tmgoalie,x
 	cmp.b d0
-	beq .6
+	beq .6x
 	lda.b a2
-	beq .5
+	beq .5x
 	lda.w #$001A
-.5:
+.5x:
 	clc
 	adc.b d0
 	tax
 	sep #$20
 	inc.w $18EE,x
 	rep #$20
-.6:
+.6x:
 	ldy.b a2
 	lda.w tmtouch2,y
 	sta.b d0
@@ -235,7 +265,7 @@ Goal:
 	jsl.l printscores1
 	lda.w #$0008
 	sta.b d0
-	jsl.l .t1
+	jsl.l .t1xxxx
 	lda.b a2
 	bne .12
 	lda.w $1790
@@ -284,7 +314,7 @@ Goal:
 	stx.b a3
 	rtl
 
-.t1:
+.t1xxxx:
 	phx
 	ldy.b a2
 	lda.w tmsort,y
@@ -293,15 +323,15 @@ Goal:
 	sta.b d3
 .loop:
 	lda.w position,x
-	bmi .1x
-	beq .1x
+	bmi .1xxxx
+	beq .1xxxx
 	stz.w $1563,x
 	jsl.l assinsert
-.1x:
+.1xxxx:
 	inx
 	inx
 	dec.b d3
 	bpl .loop
 	plx
-CODE_9EF5D9:
+.16:
 	rtl

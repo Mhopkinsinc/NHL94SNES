@@ -169,7 +169,7 @@ checkgoal:
 .1xx:
 	jmp.w wallcoll
 .8:
-	jmp.w CODE_9EF319
+	jmp.w Goal
 .9:
 	stz.b d1
 	lda.w pucky

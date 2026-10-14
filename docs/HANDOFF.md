@@ -78,6 +78,7 @@
 - `GameSampleList` and `GameSfxTable` (the in-game sample set block list and the sound table SPCGameUpload gives SoundInit; `#$DD66` was raw), and `DATA8_80E741` split out for the intro set the same way. The other sample set uploads (CODE_9C978E, CODE_9C97E9, CODE_9C983D, CODE_9C9891) stay unnamed: the intro and title sets mark $1D68 = 1, the in-game set id, so the set ids do not tell the sets apart.
 - Scouting script handlers named from the PregameText codes they serve (UpdateScoutingDisplay dispatches on the character after %): `ScoutHomeHot1`..`ScoutVisCold3` (%0-%b), `ScoutHomeName` / `ScoutVisName` (%H / %V), `ScoutHomeCity` / `ScoutVisCity` (%h / %v), `ScoutHomeNick` / `ScoutVisNick` (%n / %m), `ScoutHomeArena` (%r), `ScoutHotTeam` (%t), `ScoutExtremely` (%e), and the shared parts `ScoutHomePlayer`, `ScoutVisPlayer`, `ScoutPlayerName`, `ScoutTeamNick`, `ScoutTeamCity`, `ScoutAppend`, `ScoutTypeText`, `ScoutPlainWord`, `ScoutTypeWord`. CODE_9ECCA1 had a raw `#$CC94` (ScoutFragments+12).
 - `Sweepcheck` (93S job; was left open before: it locks through $1543, not pfalock, but skatetopuck reaches it at the same test), and from behavior `GlideBack`, `SetSPAUpdate`; the two jmp stubs before wallcollb moved into its file as `wallcollb_bounce` / `wallcollb_over`, with `wallcollb_out`.
+- `Goal` moved to its entry CODE_9EF319 (checkgoal jumps there as in 93S); the old `Goal` label at $9EF424 was inside the body and is now `.score`; CODE_9EF352 folded in as `.in`.
 
 ## Unsure
 

@@ -1554,8 +1554,8 @@ $9FC219,.3,CODE_9FC219,new,branch target only used in this routine,src/routines/
 $9FC222,.4,CODE_9FC222,new,branch target only used in this routine,src/routines/snes/CODE_9FC1EC.asm
 $808E08,.loop,CODE_808E08,new,branch target only used in this routine,src/routines/snes/CODE_808DED.asm
 $9EAB05,.1,CODE_9EAB05,new,branch target only used in this routine,src/routines/snes/CODE_9EAAF4.asm
-$9EF378,.1,CODE_9EF378,new,branch target only used in this routine,src/routines/snes/CODE_9EF352.asm
-$9EF389,.2,CODE_9EF389,new,branch target only used in this routine,src/routines/snes/CODE_9EF352.asm
+$9EF378,.1,CODE_9EF378,new,branch target only used in this routine,src/routines/hockey/Goal.asm
+$9EF389,.2,CODE_9EF389,new,branch target only used in this routine,src/routines/hockey/Goal.asm
 $9F85AC,.loop,CODE_9F85AC,new,branch target only used in this routine,src/routines/snes/CODE_9F85AA.asm
 $9F85CC,.1,CODE_9F85CC,new,branch target only used in this routine,src/routines/snes/CODE_9F85AA.asm
 $9F85D0,.2,CODE_9F85D0,new,branch target only used in this routine,src/routines/snes/CODE_9F85AA.asm
@@ -3510,8 +3510,8 @@ $9D8BDE,.t3,CODE_9D8BDE,new,continued in the previous routine,src/routines/hocke
 $9D8631,.t2,CODE_9D8631,new,continued in the previous routine,src/routines/snes/CODE_9D8489.asm
 $9EF84D,.t1,CODE_9EF84D,new,continued in the previous routine,src/routines/snes/CODE_9EF78A.asm
 $9EF7AD,.t2,CODE_9EF7AD,new,continued in the previous routine,src/routines/snes/CODE_9EF78A.asm
-$9EF3A3,.t1,CODE_9EF3A3,new,continued in the previous routine,src/routines/snes/CODE_9EF352.asm
-$9EF328,.t3,CODE_9EF328,new,continued in the previous routine,src/routines/snes/CODE_9EF319.asm
+$9EF3A3,.t1,CODE_9EF3A3,new,continued in the previous routine,src/routines/hockey/Goal.asm
+$9EF328,.t3,CODE_9EF328,new,continued in the previous routine,src/routines/hockey/Goal.asm
 $9EF226,.t3,CODE_9EF226,new,continued in the previous routine,src/routines/penalty/ChkShotStat.asm
 $9EF0EC,.t2,CODE_9EF0EC,new,continued in the previous routine,src/routines/hockey/puckgoalie.asm
 $9EEDC0,.t3,CODE_9EEDC0,new,continued in the previous routine,src/routines/snes/CODE_9EED8D.asm
@@ -3872,7 +3872,7 @@ $9FDFA6,linebar,CODE_9FDFA6,93S,calls getlinee and prints the bar as 93S linebar
 $9F8CB1,PeriodOver,CODE_9F8CB1,93S,"puckfaceoff jumps here where 93S jumps to PeriodOver; a 94 music fade, then the 93S body",src/routines/hockey/PeriodOver.asm
 $9EB198,chkatop,CODE_9EB198,93S,updatepentime calls it where 93S calls chkatop; same instructions,src/routines/penalty/chkatop.asm
 $9EA2F1,holdcheck,CODE_9EA2F1,93S,"most instructions as 93S holdcheck, the same calls (vtoa, checkagr, AddPenalty)",src/routines/hockey/holdcheck.asm
-$9EF424,Goal,CODE_9EF424,93S,"most instructions as 93S Goal, the same calls in order",src/routines/snes/CODE_9EF352.asm
+$9EF424,.score,CODE_9EF424,new,"Goal: after the celebration sound, the scoring and logging part (named Goal before; the entry is $9EF319)",src/routines/hockey/Goal.asm
 $9EB4C1,InProgress,CODE_9EB4C1,93S,"most instructions as 93S InProgress, the same calls; sets the penalty assignment as 93S does",src/routines/penalty/InProgress.asm
 $9E8C35,checkcoll,CODE_9E8C35,93S,most of the 93S checkcoll body and its calls (checkwallcoll twice),src/routines/hockey/checkcoll.asm
 $9E8BD7,assnothing,CODE_9E8BD7,93S,the assignment routines jump here where 93S jumps to assnothing; doplayeracc with direction 8,src/routines/logic/assnothing.asm
@@ -4480,9 +4480,9 @@ $9EEC4D,.4,CODE_9EEC4D,new,branch target only used in this routine,src/routines/
 $9EEE70,.5,CODE_9EEE70,new,branch target only used in this routine,src/routines/snes/CODE_9EED8D.asm
 $9EF2A5,.6,CODE_9EF2A5,new,branch target only used in this routine,src/routines/penalty/ChkShotStat.asm
 $9EF318,.7,CODE_9EF318,new,branch target only used in this routine,src/routines/penalty/ChkShotStat.asm
-$9EF3A7,.3,CODE_9EF3A7,new,branch target only used in this routine,src/routines/snes/CODE_9EF352.asm
-$9EF3AE,.4,CODE_9EF3AE,new,branch target only used in this routine,src/routines/snes/CODE_9EF352.asm
-$9EF3CC,.5,CODE_9EF3CC,new,branch target only used in this routine,src/routines/snes/CODE_9EF352.asm
+$9EF3A7,.3,CODE_9EF3A7,new,branch target only used in this routine,src/routines/hockey/Goal.asm
+$9EF3AE,.4,CODE_9EF3AE,new,branch target only used in this routine,src/routines/hockey/Goal.asm
+$9EF3CC,.5,CODE_9EF3CC,new,branch target only used in this routine,src/routines/hockey/Goal.asm
 $9EF855,.3,CODE_9EF855,new,branch target only used in this routine,src/routines/snes/CODE_9EF78A.asm
 $9EF894,.4,CODE_9EF894,new,branch target only used in this routine,src/routines/snes/CODE_9EF78A.asm
 $9EF8A0,.5,CODE_9EF8A0,new,branch target only used in this routine,src/routines/snes/CODE_9EF78A.asm
@@ -5685,3 +5685,8 @@ $9EA403,SetSPAUpdate,CODE_9EA403,new,"Behavior: called from FallDown, updateanim
 $9E8E8B,wallcollb_bounce,CODE_9E8E8B,new,wallcollb: jmp wallcoll (the 93S wallcollb jmp.w wallcoll exits); moved into wallcollb.asm,src/routines/hockey/wallcollb.asm
 $9E8E8E,wallcollb_over,CODE_9E8E8E,new,wallcollb: jmp wallcollb_out (over the glass); moved into wallcollb.asm,src/routines/hockey/wallcollb.asm
 $9E8F05,wallcollb_out,CODE_9E8F05,new,wallcollb: the puck is out of play (the 93S wallcollb .0 path),src/routines/hockey/wallcollb.asm
+$9EF319,Goal,CODE_9EF319,93S,"checkgoal jumps here where 93S checkgoal jumps to Goal; the gmclock test, then ChkShotStat, freezewindow, GetPeriodTimeRemaining, PenGoalStuff, printscores1, assreplace, AddPenalty2, assinsert in the 93S Goal order. The name sat at $9EF424 before, inside the body",src/routines/hockey/Goal.asm
+$9EF352,.in,CODE_9EF352,new,Goal: the puck went in (the 93S Goal .in),src/routines/hockey/Goal.asm
+$9EF34B,.1,CODE_9EF34B,new,Goal: shootout goal (folded into Goal),src/routines/hockey/Goal.asm
+$9EF357,.6,CODE_9EF357,new,Goal (folded into Goal),src/routines/hockey/Goal.asm
+$9EF5D9,.16,CODE_9EF5D9,new,Goal: the end (folded into Goal),src/routines/hockey/Goal.asm
