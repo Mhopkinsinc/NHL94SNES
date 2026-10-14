@@ -26,8 +26,8 @@ CODE_9FF436:
 	stz.w brightness
 	jsl.l SpriteFrameStart
 	jsl.l SpriteFrameEnd
-	ldx.w #$009F
-	lda.w #$FA17
+	ldx.w #.framehook>>16
+	lda.w #.framehook
 	jsl.l SetFrameHook
 	jsl.l ScreenOn
 	lda.w #$7000
@@ -37,8 +37,8 @@ CODE_9FF436:
 	jsl.l WaitFrame
 	dex
 	bpl .loop
-	ldx.w #$009F
-	lda.w #$FA17
+	ldx.w #.framehook>>16
+	lda.w #.framehook
 	jsl.l SetFrameHook
 .loop2:
 	jsl.l RandomWord
@@ -683,6 +683,7 @@ CODE_9FF436:
 	cpy.w #$0020
 	bmi .loopxxxxx
 	rts
+.framehook:		; the frame hook of this sequence
 	rep #$30
 	lda.b $C3
 	bit.w #$0080

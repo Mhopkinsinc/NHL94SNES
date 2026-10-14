@@ -71,14 +71,14 @@ TitleScreen:
 	lda.w brightness
 	cmp.w #$000F
 	bcc .loop
-	lda.w #$B50C
-	ldx.w #$009D
+	lda.w #.irq1
+	ldx.w #.irq1>>16
 	ldy.w #$0000
 	sty.w $07D4
 	ldy.w #$0046
 	jsl.l SetIRQ
-	lda.w #$B4B2
-	ldx.w #$009D
+	lda.w #.framehook
+	ldx.w #.framehook>>16
 	jsl.l SetFrameHook
 	jsl.l WaitFrame
 	jsl.l WaitFrame
@@ -333,6 +333,7 @@ TitleScreen:
 .4x:
 	plp
 	rts
+.framehook:		; frame hook: a press ends the title (titleskip), then the display registers and .irq1
 	lda.w JoyPad
 	bit.w $0BEB
 	beq .5x
@@ -357,9 +358,9 @@ TitleScreen:
 	lda.w $0BCD
 	sta.w WH3
 	rep #$20
-	lda.w #$009D
+	lda.w #.irq1>>16
 	sta.w $0791
-	lda.w #$B50C
+	lda.w #.irq1
 	sta.w $078F
 	lda.w #$0046
 	sta.w VTIMEL
@@ -367,19 +368,21 @@ TitleScreen:
 	sta.w HTIMEL
 	jsr.w .6
 	rtl
+.irq1:		; IRQ hook: the WH3 window edge, then .irq2
 	sep #$20
 	lda.w $0BCF
 	sta.w WH3
 	rep #$20
-	lda.w #$009D
+	lda.w #.irq2>>16
 	sta.w $0791
-	lda.w #$B52F
+	lda.w #.irq2
 	sta.w $078F
 	lda.w #$0050
 	sta.w VTIMEL
 	lda.w #$00A0
 	sta.w HTIMEL
 	rtl
+.irq2:		; IRQ hook: the mode 7 matrix and scroll for the lower band, then .irq3
 	sep #$20
 	lda.b #$07
 	sta.w BGMODE
@@ -415,15 +418,16 @@ TitleScreen:
 	lda.w $0BFC
 	sta.w M7D
 	rep #$20
-	lda.w #$009D
+	lda.w #.irq3>>16
 	sta.w $0791
-	lda.w #$B5AC
+	lda.w #.irq3
 	sta.w $078F
 	lda.w #$00B0
 	sta.w VTIMEL
 	lda.w #$0000
 	sta.w HTIMEL
 	rtl
+.irq3:		; IRQ hook: BG1 on the main screen (TM)
 	sep #$20
 	lda.b #$11
 	sta.w TM

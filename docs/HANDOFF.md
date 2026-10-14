@@ -107,6 +107,7 @@
 - `PenShotChk` (94G job: the hit puck carrier on a breakaway gets a penalty shot; called before AddPenalty), and from behavior `CheckBreakaway`, `StartBreakaway`, `CollisionSfx`.
 - `CountPowerPlayTime` (from behavior); `$17A8` written as `tmap+2`.
 - `StreamSfx` / `UpdateStreamSfx` and RAM `streamsfx`, `streamstate`, `streamloaded` (from behavior: six sound effects whose samples are streamed in on demand; CODE_9C9A7F was noted as a crowd cue before).
+- Hook pointers by label: TitleScreen `.framehook` and its IRQ chain `.irq1` / `.irq2` / `.irq3` (raw `#$B4B2`, `#$B50C`, `#$B52F`, `#$B5AC` before), the intro sequence `.framehook` (`#$FA17`), and `#NullHook>>16` in ClearFrameHook.
 
 ## Unsure
 

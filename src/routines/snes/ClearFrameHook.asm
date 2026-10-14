@@ -2,7 +2,7 @@
 ClearFrameHook:
 	pha
 	phx
-	ldx.w #$0080
+	ldx.w #NullHook>>16
 	lda.w #NullHook
 	jsl.l SetFrameHook
 	plx
