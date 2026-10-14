@@ -129,9 +129,9 @@ playeracc:
 	asl a
 	asl a
 	tax
-	lda.l DATA8_80D9C6,x
+	lda.l MaxSpeed,x
 	sta.b d2
-	lda.l DATA8_80D9C6+2,x
+	lda.l MaxSpeed+2,x
 	sta.b $AF
 	ldx.b $E4
 	lda.w position,x

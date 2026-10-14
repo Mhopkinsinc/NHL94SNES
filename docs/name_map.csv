@@ -5858,3 +5858,6 @@ $808FD6,Mul16x8XS_mul,CODE_808FD6,new,"Mul16x8XS: multiply the magnitudes, then 
 $808FDA,Mul16x8XS_negres,CODE_808FDA,new,Mul16x8XS: negate the product; Mul16XS jumps here,src/routines/snes/Mul16x8XS.asm
 $9BB387,randoma8_go,CODE_9BB387,new,randoma8 after its range test; randoma branches here for small ranges,src/routines/snes/randoma8.asm
 $80A40F,SeqCmd08Init_send,CODE_80A40F,new,SeqCmd08Init: wait for the sound CPU and send the command; SoundUpdate and StepTrack call it,src/routines/snes/SeqCmd08Init.asm
+$9B9C26,CrowdAnimTable,DATA8_9B9C26,new,"a word pointer per crowd sprite object to its entry (a header, then pointers to its frame lists); showcrowd reads it. The 21 entries (DATA8_9B9C50-DATA8_9B9F42) are its locals, and their raw self-pointers are label+offset now",src/data/tables/CrowdAnimTable.asm
+$80D6FE,BigFontIndex,DATA8_80D6FE,93S,"the 93S BigFontIndex (same layout, nearly the same bytes); printbig reads it at the 93S point",src/data/tables/BigFontIndex.asm
+$80D9C6,MaxSpeed,DATA8_80D9C6,93S,"the 93S MaxSpeed table (top speed squared per leg speed rating) with 261 for 266: every entry is (n * 261)^2, n = 20-35; playeracc reads it at the 93S point",src/data/tables/MaxSpeed.asm

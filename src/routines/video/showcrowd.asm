@@ -34,7 +34,7 @@ showcrowd:
 .t2:
 	lda.w #$009B
 	sta.b $12
-	lda.l DATA8_9B9C26,x
+	lda.l CrowdAnimTable,x
 	sta.b $10
 	lda.w $0C2B,x
 	beq .t1x

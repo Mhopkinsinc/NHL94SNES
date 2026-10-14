@@ -1,5 +1,5 @@
-; Data table.
-DATA8_80D6FE:
+; Big font index of each character $20-$5A (*2 into the big font map); negative = one column wide
+BigFontIndex:
 	db $00,$B7,$00,$00,$00,$00,$00,$B9,$00,$00,$00,$00,$00,$00,$B8,$00
 	db $33,$CB,$36,$38,$3A,$3C,$3E,$40,$42,$44,$BA,$00,$00,$00,$00,$4A
 	db $4A,$00,$02,$04,$06,$08,$0A,$0C,$0E,$F0,$11,$13,$15,$17,$19,$1B

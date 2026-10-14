@@ -56,7 +56,7 @@ printbig:
 	stz.b d2
 	inc.b d2
 	tax
-	lda.l DATA8_80D6FE,x
+	lda.l BigFontIndex,x
 	and.w #$00FF
 	bit.w #$0080
 	beq .1xx

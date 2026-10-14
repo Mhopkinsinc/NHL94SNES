@@ -124,6 +124,7 @@
 - `AdjustFacingDirection` (93S turn step at the 93S point; the earlier note that it did not match was about the other helper) and `GoaliePuckVector` (from behavior, where 93S calls ClampYPosition). No `CODE_` files are left.
 - The last `CODE_` labels (entry points other routines jump to, and branch targets split across them inside ShowPlayerStats, UpdateScoutingDisplay, ChkOffsides, dopass and ShootoutShooters) are named `Parent_part`. No `CODE_` labels are left in the source.
 - CreditNames / CreditTitles: their string labels (DATA8_80E330-DATA8_80E6B6, read only through the lists) are locals now.
+- Tables: `BigFontIndex` and `MaxSpeed` (93S; MaxSpeed written as (n*261)^2 like the 93S (n*266)^2), `CrowdAnimTable` (showcrowd's per object entries folded in as locals, their 63 raw self-pointers as label+offset).
 
 ## Unsure
 
