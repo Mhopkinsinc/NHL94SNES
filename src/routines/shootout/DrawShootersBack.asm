@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_80CB5C:
+; Shootout shooters screen: clear the top, the frame, and the background map (DATA8_9ABA95) in map 2
+DrawShootersBack:
 	lda.b $8F
 	pha
 	lda.b a1

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F9E24:
+; Horizontal rink: draw both team blocks (home at x $14, visitors at x 3, row 2) and send their palette rows
+DrawHorTeams:
 	lda.w #$0001
 	sta.l $7E3462
 	lda.b a2

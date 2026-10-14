@@ -861,7 +861,7 @@ $9C89A2,.1,CODE_9C89A2,new,branch target only used in this routine,src/routines/
 $9C89A5,.2,CODE_9C89A5,new,branch target only used in this routine,src/routines/hockey/FillPlayerStatsPage.asm
 $9EA04E,.1,CODE_9EA04E,new,branch target only used in this routine,src/routines/snes/CODE_9EA038.asm
 $9DBFDA,.1,CODE_9DBFDA,new,branch target only used in this routine,src/routines/snes/CODE_9DBFD2.asm
-$9F9E86,.1,CODE_9F9E86,new,branch target only used in this routine,src/routines/snes/CODE_9F9E24.asm
+$9F9E86,.1,CODE_9F9E86,new,branch target only used in this routine,src/routines/hockey/DrawHorTeams.asm
 $9DBBB8,.loop,CODE_9DBBB8,new,branch target only used in this routine,src/routines/snes/CODE_9DBBA8.asm
 $9DBBCD,.loop2,CODE_9DBBCD,new,branch target only used in this routine,src/routines/snes/CODE_9DBBA8.asm
 $80A1DC,.1,CODE_80A1DC,new,branch target only used in this routine,src/routines/sound/QueueSound.asm
@@ -5751,3 +5751,5 @@ $9D9E2D,TeamRosterLoop,CODE_9D9E2D,new,TeamRoster: the key loop,src/routines/sta
 $9D9E86,TeamRosterShowLine,CODE_9D9E86,new,"TeamRoster: ShowRosterLine, then the loop; MoveRosterColumn comes back here",src/routines/stats/TeamRoster.asm
 $9BA189,StartHatTrick,CODE_9BA189,new,Behavior: ShowGoalBox calls it when the scorer's goal count ($18EE) reaches 3 (the HAT TRICK! box) for a home skater,src/routines/hockey/StartHatTrick.asm
 $9BA1A1,UpdateHatTrick,CODE_9BA1A1,new,Behavior: showcrowd calls it first; StartHatTrick starts it,src/routines/hockey/UpdateHatTrick.asm
+$9F9E24,DrawHorTeams,CODE_9F9E24,new,Behavior: setvideo calls it in horizontal mode (sfhormode),src/routines/hockey/DrawHorTeams.asm
+$80CB5C,DrawShootersBack,CODE_80CB5C,new,Behavior: the DrawEditLinesBack steps for the shooters screen; ShootersBackground calls it first,src/routines/shootout/DrawShootersBack.asm

@@ -22,7 +22,7 @@ setvideo:
 	jsl.l ShowRinkRows
 	lda.w sfhormode
 	beq .1
-	jsl.l CODE_9F9E24
+	jsl.l DrawHorTeams
 .1:
 	jsl.l QueueTextDMA
 	stx.b xsave

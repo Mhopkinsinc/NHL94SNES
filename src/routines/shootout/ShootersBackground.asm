@@ -2,7 +2,7 @@
 ShootersBackground:
 	lda.l $7E3468
 	beq .2
-	jsl.l CODE_80CB5C
+	jsl.l DrawShootersBack
 .2:
 	jsl.l SpriteFrameStart
 	ldx.w #$0058
