@@ -1,75 +1,75 @@
-; Unidentified routine.
+; The injury box: the injured player and whether he is out for the period or the game
 ShowInjuryBox:
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
-CODE_9FA135:
-	lda.b $A5,x
+.save:
+	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0020
-	bne CODE_9FA135
-	ldx.b $87
-	stx.b $87
+	bne .save
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$0000
-CODE_9FA146:
-	lda.b $89,x
+.savea:
+	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0010
-	bne CODE_9FA146
-	ldx.b $87
+	bne .savea
+	ldx.b xsave
 	jsl.l CODE_9F9B36
-	lda.b $8F
+	lda.b a1+2
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #DATA8_9CF858>>16
+	sta.b a1+2
 	lda.w #DATA8_9CF858
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9EC7BE
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
-	sta.b $8F
-	stz.b $91
+	sta.b a1+2
+	stz.b a2
 	jsl.l CODE_9FA1B8
-	lda.b $8F
+	lda.b a1+2
 	pha
-	lda.b $8D
+	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #DATA8_9CF85D>>16
+	sta.b a1+2
 	lda.w #DATA8_9CF85D
-	sta.b $8D
+	sta.b a1
 	jsl.l CODE_9EC7BE
 	pla
-	sta.b $8D
+	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0002
-	sta.b $91
+	sta.b a2
 	jsl.l CODE_9FA1B8
-	stx.b $87
+	stx.b xsave
 	ldx.w #$000E
-CODE_9FA19E:
+.resta:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9FA19E
-	ldx.b $87
-	stx.b $87
+	bpl .resta
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$001E
-CODE_9FA1AC:
+.restore:
 	pla
-	sta.b $A5,x
+	sta.b d0,x
 	dex
 	dex
-	bpl CODE_9FA1AC
-	ldx.b $87
-	ldx.b $95
+	bpl .restore
+	ldx.b xsave
+	ldx.b a3
 CODE_9FA1B7:
 	rtl

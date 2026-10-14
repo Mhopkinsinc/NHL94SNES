@@ -1,80 +1,80 @@
-; Unidentified routine.
+; Player d0's penalty time is up: let him out of the box and put him on the ice
 releasepl:
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
-CODE_9EC076:
-	lda.b $A5,x
+.save:
+	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0010
-	bne CODE_9EC076
-	ldx.b $87
-	stx.b $87
+	bne .save
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$0000
-CODE_9EC087:
-	lda.b $89,x
+.savea:
+	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0010
-	bne CODE_9EC087
-	ldx.b $87
-	ldy.b $91
+	bne .savea
+	ldx.b xsave
+	ldy.b a2
 	ldx.w tmsort,y
 	dex
 	dex
-CODE_9EC09A:
+.find:
 	inx
 	inx
 	lda.w position,x
-	bpl CODE_9EC09A
-	lda.b $A5
+	bpl .find
+	lda.b d0
 	lsr a
-	sta.b $B1
-	ldy.b $91
+	sta.b d3
+	ldy.b a2
 	lda.w tmap,y
-	sta.b $A9
+	sta.b d1
 	inc a
 	sta.w tmap,y
 	lda.w #$0001
 	tsb.w tmflags
-	tsb.w $17E0
-	lda.w #$0080
-	sta.b $8B
-	lda.w #$D6B0
-	sta.b $89
+	tsb.w tmflags+2
+	lda.w #priolist>>16
+	sta.b a0+2
+	lda.w #priolist
+	sta.b a0
 	lda.w tmgoalie,y
-	bpl CODE_9EC0CB
-	inc.b $89
-CODE_9EC0CB:
-	ldy.b $A9
-	lda.b [$89],y
+	bpl .tmgoaliepos
+	inc.b a0
+.tmgoaliepos:
+	ldy.b d1
+	lda.b [a0],y
 	and.w #$00FF
 	sta.w position,x
-	stx.b $95
+	stx.b a3
 	jsl.l Setplass
 	jsl.l setplayer
 	lda.w pflags,x
 	ora.w #$1000
 	sta.w pflags,x
-	stx.b $87
+	stx.b xsave
 	ldx.w #$000E
-CODE_9EC0ED:
+.resta:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9EC0ED
-	ldx.b $87
-	stx.b $87
+	bpl .resta
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$000E
-CODE_9EC0FB:
+.restore:
 	pla
-	sta.b $A5,x
+	sta.b d0,x
 	dex
 	dex
-	bpl CODE_9EC0FB
-	ldx.b $87
-	ldx.b $95
+	bpl .restore
+	ldx.b xsave
+	ldx.b a3
 	rtl

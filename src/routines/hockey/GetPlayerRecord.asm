@@ -1,12 +1,12 @@
-; Unidentified routine.
+; a0 = the roster record of player d0 of team a2
 GetPlayerRecord:
-	lda.w #$009C
-	sta.b $8B
-	ldy.b $91
+	lda.w #TeamList>>16
+	sta.b a0+2
+	ldy.b a2
 	lda.w tmdata,y
-	sta.b $89
-	ldy.w #$0000
+	sta.b a0
+	ldy.w #Playerdata
 	clc
-	adc.b [$89]
-	sta.b $89
+	adc.b [a0]
+	sta.b a0
 	bra CODE_9FC752

@@ -6,7 +6,8 @@
 - stats, video and middle: branch targets inside the already-named routines now use the 93S local names. `appstring`'s tail (`CODE_9ECFC1`) is the `.done` of that routine and lives in the same file. Direct-page registers `a0`–`a3`, `d0`–`d2`, `tmp0`–`tmp2`, plus `Hpos`, `Vpos`, `printm`, `textdirtylo`, `textdirtyhi`, `textmap`, `printfontset`, `RemapOut` and `Playerdata`, are in `src/ram94snes.asm`. Those files use them. The rest of the source still has the raw addresses.
 - logic: the same pass. `assreplace` is the 93S name (callers updated). `vtoa` holds `.nodir` and `.dt`. `getlchoice` holds `.tab`. `ShotMode` holds `.off` and `.rts`. New equates: `d7`, `SPAcnt`, `facedir`, `assnum`, `asslist`, `puckobj`, `puckx`, `ScoreOdds`, `gmoffs`, `gmhl`, `pfna`, `tmfoffside`, `cbut`, `blueline`, `PenOffsides` ($12 in this ROM).
 - Assets: the 302 binaries are no longer committed. `tools/prebuild.py` extracts them into `Extracted/data/` and writes `Extracted/.extract-complete.json` last. Asm `incbin`s those files. Packed streams stay packed. `SpriteFramesXX.bin` is still one ROM cut per bank (headers in source, tiles by range), not one `.chr` per frame.
-- Next: penalty, hockey and shootout locals.
+- penalty, hockey and shootout: local labels inside the named routines now use the 93S names (shootout copy loops use the 94G names). `ResetBench` holds the tail that was `CODE_9FCDFA`. `SetPA2` is the referee step `UpdatePA` calls. New equates in `src/ram94snes.asm`: `gmclock`, `PenBuf`, `RefPen`, `xsave`, `a4`, `d3`–`d6`, `PenIcing`, `PenGoal`, `gmpen`, `sfwrap`, `sf2drec`, `sf2pwrplay`, `sf2pwrtm`, `pf2inj`, the `TMPD*` roster states, `PWrange`, `pwlength`, `replaysize`, `Oldrow`, `vramrow`, `pfalock`, `PerTimeTotal`, `tmteam`, `TempPlOffset`, `OptPen`, `PassWord`, `passbits`, `PlList`, `ReplayBufferStart`, `ReplayBufferEnd`, `priolist`, `PerLabels`, and the scouting-report scroll words. Cross-file `CODE_` targets in these folders are still the following slices.
+- Next: `routines/snes`, one bank at a time, starting with `$9E`.
 
 ## Unsure
 
@@ -15,8 +16,20 @@
 - `$C3` in `vtoa` holds the direction bits. 93S reuses `d0+2` for that. Here `d0` is only a word, so `$C3` stays raw.
 - `$0B7D` in `assreplace` is stored with the assignment and has no 93S counterpart.
 - `$0AD9` is the player index `ShotMode` compares with X. Not named.
-- `CODE_9EE220` is the shot release `ShotMode` jumps to. It is not a clean match for 93S `doshot`, so the name stays.
+- `CODE_9EE220` is the shot release `ShotMode` jumps to. It is not a clean match for 93S `doshot`, so the name stays. `$14E3` is `pfalock` from the `setplayer` pair with `SPA`.
 - `CODE_9FD85F` is the code that used to sit after the line-choice table. It compares the word at `$1003` with 100. Not named.
+- `$163A` is tested by `AddPenalty` and is not `OptPen` (`OptPen` is `$7E34C4`, and zero means penalties are off).
+- `$7E34C6` in `SetupTeamForIntermission` picks the power-play line when it is nonzero. 93S `OptLine` branches the other way, so this address stays raw.
+- `$0024` in `AddPenalty` is a second penalty number that always counts, beside `PenIcing`.
+- `#$000B` and `#$000A` in `setplayer` are the from-box and from-bench assignments. 93S `aepen`/`aeben` are `$0A`/`$09`, so these stay raw.
+- `#$0012` in `forcepldata` is the center's assignment. 93S `anearest` is `$11`.
+- `$FFFC` is compared next to `TMPDOUT` in `reenergizeteam`, `TryAddPlayerToList` and `ResetBench`. It is not a 93S roster state.
+- `$1742` is the base `ClearTeamStats` clears. The span is shorter than 93S `tmshots`, so the name stays off.
+- `$7E35D4` is the playoff-round index `GetShifter` reads. Not named.
+- `$0CE5` is a bonus `setplayer` clears beside `HmAwBonus`. Not named.
+- `$14` in `setplayer` is scratch around the roster index. Not named.
+- `$0A2A` / `$0A2C` in `pplpen` are the number buffer. The `mesarea` base is still unnamed.
+- `CODE_9EB3C4`, `CODE_9FD459` and `CODE_9FA1B7` are entries other slices jump to, so they stay global.
 - `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
 - SpriteFrameN labels stay numbered until a frame has an SPF name.
 - The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.
@@ -29,7 +42,7 @@
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
 - `adda43` shares a file with `CODE_9BB176` because that routine falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
 - Two entries in bank `$9F` had no label. They are `CODE_9F9901` and `CODE_9FA835` (rows in `docs/name_map.csv`).
-- Next: headers on the named routines are still the short "Unidentified routine." line where the slice had no plain-English comment. Penalty, hockey and shootout locals are next.
+- Next: headers on the remaining unnamed slices. Penalty, hockey and shootout locals are named. `routines/snes` is next, bank `$9E` first.
 - Sprite animation sequences are `src/data/frames94s.asm` (the label is still `DATA8_9DE0FC`).
 
 ## State

@@ -1,33 +1,33 @@
-; Unidentified routine.
+; Count team a2's players kept off the ice by penalties to set how many it has on the ice
 coinsearch:
 	lda.w #$0006
-	sta.b $A9
+	sta.b d1
 	lda.w #$0032
-	sta.b $A5
-CODE_9EB701:
-	lda.b $91
-	beq CODE_9EB708
+	sta.b d0
+.top:
+	lda.b a2
+	beq .tm
 	lda.w #$0034
-CODE_9EB708:
+.tm:
 	clc
-	adc.b $A5
+	adc.b d0
 	tay
 	lda.w tmpdst,y
-	bmi CODE_9EB727
-	beq CODE_9EB727
+	bmi .nap
+	beq .nap
 	and.w #$DFFF
 	sta.w tmpdst,y
-	bit.w #$5000
-	bne CODE_9EB727
-	lda.b $A9
+	bit.w #(TMPDINJ|$4000)
+	bne .nap
+	lda.b d1
 	cmp.w #$0004
-	beq CODE_9EB727
-	dec.b $A9
-CODE_9EB727:
-	dec.b $A5
-	dec.b $A5
-	bpl CODE_9EB701
-	ldy.b $91
-	lda.b $A9
+	beq .nap
+	dec.b d1
+.nap:
+	dec.b d0
+	dec.b d0
+	bpl .top
+	ldy.b a2
+	lda.b d1
 	sta.w tmap,y
 	rtl

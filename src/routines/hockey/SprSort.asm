@@ -1,27 +1,27 @@
-; Unidentified routine.
+; Sort the objects by screen position for drawing
 SprSort:
 	phx
 	phy
-	lda.b $A5
+	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
-	lda.b $A9
+	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
-	lda.b $AD
+	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
 	ldx.w #$0000
 	lda.w sfhormode
 	bne CODE_9CA1C6
-CODE_9CA1B7:
+.loop0:
 	lda.w Ypos,x
 	sta.w Ylist,x
 	inx
 	inx
 	cpx.w #$0020
-	bne CODE_9CA1B7
+	bne .loop0
 	bra CODE_9CA1D3

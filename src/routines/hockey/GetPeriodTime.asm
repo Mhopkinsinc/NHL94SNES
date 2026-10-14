@@ -1,10 +1,10 @@
-; Unidentified routine.
+; d0 = the period length in seconds for the period length option
 GetPeriodTime:
 	phx
 	lda.l OptPerlen
 	asl a
 	tax
 	lda.l GetPeriodTime_timetab,x
-	sta.b $A5
+	sta.b d0
 	plx
 	rtl

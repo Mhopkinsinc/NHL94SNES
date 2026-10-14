@@ -1,29 +1,29 @@
-; Unidentified routine.
+; a1 = the number, first initial and last name of player TempPlOffset
 GetPlayerNumInitial:
-	lda.b $A5
+	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
-	lda.b $91
+	lda.b a2
 	pha
-	lda.b $93
+	lda.b a2+2
 	pha
-	stz.b $91
-	lda.w $1636
-	sta.b $A5
-	bpl CODE_9FC595
+	stz.b a2
+	lda.w TempPlOffset
+	sta.b d0
+	bpl .home
 	and.w #$00FF
-	sta.b $A5
+	sta.b d0
 	lda.w #$0002
-	sta.b $91
-CODE_9FC595:
+	sta.b a2
+.home:
 	jsl.l CODE_9FC427
 	pla
-	sta.b $93
+	sta.b a2+2
 	pla
-	sta.b $91
+	sta.b a2
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
-	sta.b $A5
+	sta.b d0
 	rtl

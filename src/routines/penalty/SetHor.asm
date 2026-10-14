@@ -1,25 +1,25 @@
-; Unidentified routine.
+; Switch to the horizontal rink (the scoreboard screen)
 SetHor:
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
-CODE_9FBA1C:
-	lda.b $A5,x
+.save:
+	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$001C
-	bne CODE_9FBA1C
-	ldx.b $87
-	stx.b $87
+	bne .save
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$0000
-CODE_9FBA2D:
-	lda.b $89,x
+.savea:
+	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$001C
-	bne CODE_9FBA2D
-	ldx.b $87
+	bne .savea
+	ldx.b xsave
 	lda.w puckvx
 	pha
 	asl a
@@ -41,27 +41,27 @@ CODE_9FBA2D:
 	lda.w #$FFFF
 	sta.w Vscroll
 	lda.w #$002E
-	sta.w $0D23
-	stz.w $0D25
+	sta.w Oldrow
+	stz.w vramrow
 	jsl.l SprSort
 	jsl.l CODE_9FC896
-	stx.b $87
+	stx.b xsave
 	ldx.w #$001A
-CODE_9FBA7D:
+.resta:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9FBA7D
-	ldx.b $87
-	stx.b $87
+	bpl .resta
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$001A
-CODE_9FBA8B:
+.restore:
 	pla
-	sta.b $A5,x
+	sta.b d0,x
 	dex
 	dex
-	bpl CODE_9FBA8B
-	ldx.b $87
-	ldx.b $95
+	bpl .restore
+	ldx.b xsave
+	ldx.b a3
 	rtl

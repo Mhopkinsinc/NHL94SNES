@@ -1,73 +1,73 @@
-; Unidentified routine.
+; Bring roster player d3 onto the ice as object X and set his stats
 setplayer:
 	phx
 	phy
 	lda.w pflags,x
-	and.w #$FFFB
+	and.w #(~pf2inj&$FFFF)
 	sta.w pflags,x
-	stz.b $89
+	stz.b a0
 	lda.w pfteam,x
-	beq CODE_9FCF0C
-	inc.b $89
-	inc.b $89
-CODE_9FCF0C:
-	lda.b $B1
+	beq .0
+	inc.b a0
+	inc.b a0
+.0:
+	lda.b d3
 	and.w #$00FF
 	sta.w pnum,x
 	asl a
-	sta.b $B1
+	sta.b d3
 	lda.w #$000B
-	sta.b $A5
-	lda.b $89
-	beq CODE_9FCF23
+	sta.b d0
+	lda.b a0
+	beq .idx
 	lda.w #$0034
-CODE_9FCF23:
-	adc.b $B1
+.idx:
+	adc.b d3
 	tay
 	lda.w tmpdst,y
-	sta.b $A9
+	sta.b d1
 	tya
 	sta.b $14
 	asl a
 	adc.b $14
 	asl a
 	sta.b $14
-	lda.b $A9
-	bpl CODE_9FCF44
+	lda.b d1
+	bpl .da
 	lda.w #$000A
-	sta.b $A5
-	lda.b $A9
-	cmp.w #$FFFE
-	bne CODE_9FCF4E
-CODE_9FCF44:
+	sta.b d0
+	lda.b d1
+	cmp.w #TMPDBENCH
+	bne .nda
+.da:
 	jsl.l assinsert
-	stz.w $14E3,x
+	stz.w pfalock,x
 	stz.w SPA,x
-CODE_9FCF4E:
-	lda.b $89
-	beq CODE_9FCF55
+.nda:
+	lda.b a0
+	beq .nda1
 	lda.w #$0034
-CODE_9FCF55:
+.nda1:
 	clc
-	adc.b $B1
+	adc.b d3
 	tay
-	lda.w #$FFFF
+	lda.w #TMPDICE
 	sta.w tmpdst,y
-	lsr.b $B1
-	ldy.b $89
+	lsr.b d3
+	ldy.b a0
 	lda.w tmdata,y
-	sta.b $89
-	lda.w #$009C
-	sta.b $8B
-	lda.b $89
+	sta.b a0
+	lda.w #TeamList>>16
+	sta.b a0+2
+	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	ldy.w #$0008
-	lda.b [$89],y
+	lda.b [a0],y
 	clc
-	adc.b $89
-	sta.b $89
+	adc.b a0
+	sta.b a0
 	stz.w PPBonus
 	stz.w PKBonus
 	stz.w $0CE5

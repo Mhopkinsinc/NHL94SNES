@@ -1,93 +1,93 @@
-; Unidentified routine.
+; Face offs: move team a2's players straight to their new positions
 forcepldata:
-	stx.b $87
+	stx.b xsave
 	ldx.w #$0000
-CODE_9FCE22:
-	lda.b $A5,x
+.save:
+	lda.b d0,x
 	pha
 	inx
 	inx
 	cpx.w #$0014
-	bne CODE_9FCE22
-	ldx.b $87
-	stx.b $87
+	bne .save
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$0000
-CODE_9FCE33:
-	lda.b $89,x
+.savea:
+	lda.b a0,x
 	pha
 	inx
 	inx
 	cpx.w #$0010
-	bne CODE_9FCE33
-	ldx.b $87
-	ldy.b $91
+	bne .savea
+	ldx.b xsave
+	ldy.b a2
 	lda.w tmsort,y
-	sta.b $95
+	sta.b a3
 	lda.w #$0005
-	sta.b $B5
-CODE_9FCE4B:
-	ldx.b $95
+	sta.b d4
+.top:
+	ldx.b a3
 	lda.w newpos,x
 	and.w #$00FF
 	bit.w #$0080
-	beq CODE_9FCE5B
+	beq .pos
 	ora.w #$FF00
-CODE_9FCE5B:
-	sta.b $A5
+.pos:
+	sta.b d0
 	sta.w position,x
 	cmp.w #$0000
-	bmi CODE_9FCE9E
+	bmi .next
 	jsl.l Setplass
-	ldx.b $95
+	ldx.b a3
 	lda.w position,x
 	cmp.w #$0004
-	bne CODE_9FCE7C
+	bne .notnear
 	lda.w #$0012
-	sta.b $A5
+	sta.b d0
 	jsl.l assinsert
-CODE_9FCE7C:
-	ldx.b $95
+.notnear:
+	ldx.b a3
 	lda.w newpnum,x
 	and.w #$00FF
 	asl a
-	sta.b $B1
-	lda.b $91
-	beq CODE_9FCE8E
+	sta.b d3
+	lda.b a2
+	beq .idx
 	lda.w #$0034
-CODE_9FCE8E:
+.idx:
 	clc
-	adc.b $B1
+	adc.b d3
 	tay
-	lda.w #$FFFF
+	lda.w #TMPDICE
 	sta.w tmpdst,y
-	lsr.b $B1
+	lsr.b d3
 	jsl.l setplayer
-CODE_9FCE9E:
-	ldx.b $95
+.next:
+	ldx.b a3
 	lda.w #$FFFF
 	sta.w newpnum,x
 	sta.w newpos,x
-	inc.b $95
-	inc.b $95
-	dec.b $B5
-	bpl CODE_9FCE4B
-	stx.b $87
+	inc.b a3
+	inc.b a3
+	dec.b d4
+	bpl .top
+	stx.b xsave
 	ldx.w #$000E
-CODE_9FCEB6:
+.resta:
 	pla
-	sta.b $89,x
+	sta.b a0,x
 	dex
 	dex
-	bpl CODE_9FCEB6
-	ldx.b $87
-	stx.b $87
+	bpl .resta
+	ldx.b xsave
+	stx.b xsave
 	ldx.w #$0012
-CODE_9FCEC4:
+.restore:
 	pla
-	sta.b $A5,x
+	sta.b d0,x
 	dex
 	dex
-	bpl CODE_9FCEC4
-	ldx.b $87
-	ldx.b $95
+	bpl .restore
+	ldx.b xsave
+	ldx.b a3
 	rtl
