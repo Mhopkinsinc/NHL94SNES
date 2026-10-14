@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EBEDF:
+; Assignment: put the player in the penalty box
+assdopen:
 	lda.w #$0010
 	sta.b d0
 	lda.w pfteam,x

@@ -6,6 +6,6 @@ CODE_9EBD2D:
 	sta.b d1
 	lda.w #$009E
 	sta.b $8B
-	lda.w #CODE_9ED0FC
+	lda.w #rtss
 	sta.b a0
 	jml.l CODE_9EA5A4

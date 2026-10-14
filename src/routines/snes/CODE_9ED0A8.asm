@@ -1,7 +1,7 @@
 ; Unidentified routine.
 CODE_9ED0A8:
 	lda.w gmclock
-	bne CODE_9ED0FC
+	bne rtss
 	stz.b a2
 	lda.w #$0002
 	sta.b a1
@@ -12,19 +12,19 @@ CODE_9ED0A8:
 .1:
 	ldy.b a2
 	lda.w tmgoalie,y
-	bmi CODE_9ED0FC
+	bmi rtss
 	ldx.w tmsort,y
 	ldy.w shotPlIdx
-	bmi CODE_9ED0FC
+	bmi rtss
 	lda.w pfteam,y
 	cmp.w pfteam,x
-	bne CODE_9ED0FC
+	bne rtss
 	ldy.b a2
 	lda.w gmode
 	bit.w #$0008
 	bne .t1
 	lda.w $19D0,y
-	bne CODE_9ED0FC
+	bne rtss
 	lda.w pucky
 	sta.b d1
 	jsl.l CPgoalie
@@ -35,5 +35,5 @@ CODE_9ED0A8:
 	ora.w #$FF00
 	sta.w tmgoalie,y
 	jsl.l setpersonel
-CODE_9ED0FC:
+rtss:
 	rtl

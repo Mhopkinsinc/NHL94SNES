@@ -68,14 +68,6 @@ CODE_9E858C:
 CODE_9E860B:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #CODE_9ED0FC
+	lda.w #rtss
 	sta.b a0
 	jmp.w CODE_9EA5A4
-	ldy.w shotPlIdx
-	bmi CODE_9E8631
-	lda.w pfteam,x
-	cmp.w pfteam,y
-	bne CODE_9E8631
-	lda.w #$0001
-	sta.b d0
-	jmp.w assreplace

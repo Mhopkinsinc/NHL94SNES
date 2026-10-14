@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EBADA:
+; Assignment: the player leaves the penalty box and comes onto the ice
+assepen:
 	lda.w pflags,x
 	bit.w #$0002
 	bne .t1

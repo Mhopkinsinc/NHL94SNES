@@ -103,7 +103,7 @@ CODE_9E8A4B:
 CODE_9E8A4F:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #CODE_9ED0FC
+	lda.w #rtss
 	sta.b a0
 	lda.w $0D71
 	eor.b d0
@@ -113,13 +113,3 @@ CODE_9E8A4F:
 	sta.b d0
 .1:
 	jmp.w CODE_9EA5A4
-	cpx.w shotPlIdx
-	beq CODE_9E8A88
-	ldy.w shotPlIdx
-	bmi CODE_9E8A90
-	lda.w pfteam,x
-	cmp.w pfteam,y
-	beq CODE_9E8A90
-	lda.w #$0003
-	sta.b d0
-	jmp.w assreplace

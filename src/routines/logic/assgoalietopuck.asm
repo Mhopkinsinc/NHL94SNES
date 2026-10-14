@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ED179:
+; Assignment: the goalie skates out to a loose puck
+assgoalietopuck:
 	lda.w #$0006
 	ora.w $0B05,x
 	sta.w $0B05,x

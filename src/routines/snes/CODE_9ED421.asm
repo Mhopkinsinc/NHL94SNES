@@ -2,7 +2,7 @@
 CODE_9ED421:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #CODE_9ED0FC
+	lda.w #rtss
 	sta.b a0
 	ldy.w #$0004
 	lda.w Xpos,x

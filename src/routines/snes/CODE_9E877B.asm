@@ -64,17 +64,7 @@ CODE_9E87E9:
 	sta.b d1
 	lda.w #$009E
 	sta.b $8B
-	lda.w #CODE_9ED0FC
+	lda.w #rtss
 	sta.b a0
 	jsl.l CODE_9EA5A4
 	jmp.w check4check
-	cpx.w shotPlIdx
-	beq CODE_9E8822
-	ldy.w shotPlIdx
-	bmi CODE_9E882A
-	lda.w pfteam,x
-	cmp.w pfteam,y
-	beq CODE_9E882A
-	lda.w #$0002
-	sta.b d0
-	jmp.w assreplace

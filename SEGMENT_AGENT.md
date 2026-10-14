@@ -650,3 +650,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Raw `jmp.w`/`jsr.w` targets and `dd` long pointers that already had a label now use that label (745 jumps, 190 pointers). Targets with no label stay numbers. MATCH.
 - START_HERE.md, PROMPT.md and the Sources note in this file describe `src/banks/`, `src/routines/` and `src/data/`.
 - Wrong labels: same-word bank `$80` labels on `jmp.w`/`jsr.w` in other banks now name the real target (eight folded locals are global entries again); direct-page names used as immediates are numbers or `#Label>>16`. MATCH.
+- Assignments: `asstab` and its entries named from 93S where the slot, the callers that set each number, and the body agree; the old `asseben` and `assnearest` labels were on other code (now `asspuckc` `.clk` and a local of `CODE_9EE47E`). MATCH.

@@ -161,7 +161,7 @@ Status in the table: **extracted** means the bytes are already a named file the 
 
 ### Defer until investigated
 
-`$7E34C6` (not `OptLine`; map bits or split before naming). `$163A` (penalty suppress, not `OptPen`). `$0B7D,x` (pass target on assist path). `#$0024` in `AddPenalty` (match 94G penalty id). `$7E35D0` / `blankchar` (compare stored tile to 93S before naming). `CODE_9EE220`, `CODE_9FD85F`, rejected 93S routine names — name from behavior one at a time.
+`$7E34C6` (not `OptLine`; map bits or split before naming). `$163A` (penalty suppress, not `OptPen`). `$0B7D,x` (pass target on assist path). `#$0024` in `AddPenalty` (match 94G penalty id). `$7E35D0` / `blankchar` (compare stored tile to 93S before naming). `CODE_9EE220`, rejected 93S routine names — name from behavior one at a time.
 
 ### DATA8 and sprites
 

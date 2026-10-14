@@ -1,12 +1,12 @@
-; Data table.
-DATA8_80D324:
-	dd CODE_9ED0FC,$009E8804,$009E8618,$009E8968
-	dd $009E8A6A,$009E8573,$009E843C,CODE_9ED331
-	dd $009EB0B8,CODE_9EA69D,$009FD9E1,CODE_9EBADA
-	dd $009FD85F,$009EBCC7,CODE_9EBEDF,CODE_9ED179
-	dd $009EE463,$009E8292,$009E800D,$009EE146
-	dd $009EED8D,$009EE706,$009FB26A,$009FB27C
-	dd $009EDCA8,$009EEF34,pucknothing,$009FB355
+; The assignment routines, by assignment number
+asstab:
+	dd rtss,assdefo,assdefd,asswingd
+	dd asswingo,asscenterd,asscentero,assgoalie
+	dd CODE_9EB0B8,assstanley,asseben,assepen
+	dd assbench,asspenalty,assdopen,assgoalietopuck
+	dd CODE_9EE463,asspuckc,assnearest,assshoot
+	dd CODE_9EED8D,asspassrec,assfaceoff,assfaceoffpl
+	dd pucknorm,puckshadow,pucknothing,puckfaceoff
 	dd puckfaceoff2
 	db $9C,$FF,$EC,$FF,$64,$00,$EC,$FF,$88,$FF,$28,$00,$14,$00,$28,$00
 	db $78,$00,$28,$00,$EC,$FF,$28,$00,$D8,$FF,$F0,$00,$00,$00,$DC,$00

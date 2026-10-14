@@ -383,9 +383,9 @@ CODE_9F8947:
 	asl a
 	asl a
 	tax
-	lda.l DATA8_80D324,x
+	lda.l asstab,x
 	sta.w $1D5A
-	lda.l DATA8_80D324+1,x
+	lda.l asstab+1,x
 	sta.w $1D5B
 	ldx.b $E4
 	jsl.l CODE_9FC757

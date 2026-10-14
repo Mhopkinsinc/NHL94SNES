@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9ED331:
+; Assignment: the goalie
+assgoalie:
 	lda.w #$0006
 	ora.w $0B05,x
 	sta.w $0B05,x
@@ -74,7 +74,7 @@ CODE_9ED331:
 .7:
 	lda.w #$009E
 	sta.b $8B
-	lda.w #CODE_9ED0FC
+	lda.w #rtss
 	sta.b a0
 	ldy.w #$0004
 	lda.w Xpos,x

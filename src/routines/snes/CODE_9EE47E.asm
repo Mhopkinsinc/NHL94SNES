@@ -5,12 +5,12 @@ CODE_9EE47E:
 	lda.w Ypos,x
 	sta.b d0
 	ldy.w pfgoal,x
-	bne assnearest
+	bne .2
 	lda.w #$0000
 	sec
 	sbc.b d0
 	sta.b d0
-assnearest:
+.2:
 	lda.w pflags,x
 	bit.w #$0002
 	beq .1

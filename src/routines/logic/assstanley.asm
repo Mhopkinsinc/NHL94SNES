@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EA69D:
+; Assignment: skate to the side of the screen holding the Stanley Cup overhead
+assstanley:
 	lda.w pflags,x
 	bit.w #$0002
 	beq .2

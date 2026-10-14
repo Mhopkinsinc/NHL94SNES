@@ -14,7 +14,7 @@ CODE_9E8102:
 	sta.b d1
 	lda.w #$009E
 	sta.b $8B
-	lda.w #CODE_9ED0FC
+	lda.w #rtss
 	sta.b a0
 	jsl.l CODE_9EA5A4
 	jmp.w check4check
