@@ -724,3 +724,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Sweepcheck, GlideBack, SetSPAUpdate, wallcollb stubs. MATCH.
 - Goal at its real entry; body folded. MATCH.
 - Placeholder headers on named files replaced. MATCH.
+- DrawTeamBlocks, PlayerInitialName. MATCH.

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FBE08:
+; Draw team d1's block at printx / printy: its name as letter sprites (PrintTeamSprites) and its logo map (2 rows of 9 words) in its palette
+DrawTeamBlocks:
 	lda.b a2
 	pha
 	phx

@@ -95,7 +95,7 @@ CODE_9D9DE2:
 	lda.w #$0030
 .1:
 	sta.b d0
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	jsl.l SpriteFrameEnd
 	lda.w #$7F97
 	sta.l $7F7502

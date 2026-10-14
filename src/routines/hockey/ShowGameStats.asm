@@ -27,7 +27,7 @@ ShowGameStats:
 	sta.b $8F
 	lda.w VisTeam
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	lda.b $8F
 	pha
 	lda.b a1
@@ -43,7 +43,7 @@ ShowGameStats:
 	sta.b $8F
 	lda.w HomeTeam
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	jsl.l SpriteFrameEnd
 	lda.w #$FFFF
 	sta.l $7F7542

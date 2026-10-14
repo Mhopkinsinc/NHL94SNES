@@ -593,7 +593,7 @@ setoptions:
 	sta.w printy
 	lda.w VisTeam
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 .1xxxxxxxx:
 	lda.l $7E3452
 	cmp.w #$001C
@@ -604,7 +604,7 @@ setoptions:
 	sta.w printy
 	lda.w HomeTeam
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 .2xxxxxx:
 	lda.l $7E3452
 	bpl .3xxxxx

@@ -44,7 +44,7 @@ FillPlayerStatsPage:
 	lda.w #$0003
 	sta.w printx
 	stx.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l PrintToStatsPage
 	stx.w $1DC9
 	lda.b a2
@@ -142,7 +142,7 @@ FillPlayerStatsPage:
 	lda.w #$0003
 	sta.w printx
 	stx.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l PrintToStatsPage
 	stx.w $1DC9
 	lda.b a2

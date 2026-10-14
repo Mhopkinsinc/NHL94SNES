@@ -292,7 +292,7 @@ org $9DC002
 	ldy.b a2
 	lda.w HomeTeam,y
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	lda.w #$0000
 	sta.l $7E3464
 	ldy.b a2

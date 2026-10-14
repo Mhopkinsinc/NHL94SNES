@@ -99,7 +99,7 @@ FillPenaltyPage:
 	pla
 	and.w #$007F
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l PrintToStatsPage
 	ply
 	iny

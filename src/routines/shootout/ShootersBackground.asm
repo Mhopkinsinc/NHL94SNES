@@ -32,7 +32,7 @@ ShootersBackground:
 	lda.w VisTeam
 	sta.b d1
 .1:
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
 	lda.l $7E3468

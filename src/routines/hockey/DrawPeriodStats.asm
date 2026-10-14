@@ -45,7 +45,7 @@ DrawPeriodStats:
 	sta.b $8F
 	lda.w VisTeam
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	lda.b $8F
 	pha
 	lda.b a1
@@ -61,7 +61,7 @@ DrawPeriodStats:
 	sta.b $8F
 	lda.w HomeTeam
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	lda.w #$000A
 	sta.w printx
 	ldx.w #$0000

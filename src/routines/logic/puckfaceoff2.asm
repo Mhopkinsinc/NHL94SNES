@@ -577,7 +577,7 @@ puckfaceoff2:
 	sta.w printy
 	lda.w $1E8F
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	lda.w #$0014
 	sec
 	sbc.b [a1]
@@ -609,7 +609,7 @@ puckfaceoff2:
 	tay
 	lda.w tmgoalie,y
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	lda.w #$0014
 	sec
 	sbc.b [a1]

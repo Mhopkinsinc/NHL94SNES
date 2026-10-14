@@ -35,7 +35,7 @@ DrawEditLinesTitle:
 	lda.w #$0030
 .3:
 	sta.b d0
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
 	lda.l $7E3468

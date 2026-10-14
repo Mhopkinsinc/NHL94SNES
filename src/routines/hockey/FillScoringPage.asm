@@ -177,7 +177,7 @@ FillScoringPage:
 	sta.b d0
 	lda.w #$000E
 	sta.w printx
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l PrintToStatsPage
 	ply
 	iny
@@ -194,7 +194,7 @@ FillScoringPage:
 	sta.b d0
 	lda.w #$0010
 	sta.w printx
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l PrintToStatsPage
 .1xx:
 	ply
@@ -209,7 +209,7 @@ FillScoringPage:
 	sta.b d0
 	lda.w #$0010
 	sta.w printx
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l PrintToStatsPage
 .rts:
 	rts

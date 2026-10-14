@@ -17,7 +17,7 @@ GetPlayerNumInitial:
 	lda.w #$0002
 	sta.b a2
 .home:
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	pla
 	sta.b a2+2
 	pla

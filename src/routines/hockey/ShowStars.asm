@@ -97,7 +97,7 @@ ShowStars:
 	sta.w printx
 	lda.w $1E2B
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l print
 	inc.w printy
 	lda.w #$000D
@@ -121,7 +121,7 @@ ShowStars:
 	sta.w printx
 	lda.w $1E2D
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l print
 	inc.w printy
 	lda.w #$000D
@@ -145,7 +145,7 @@ ShowStars:
 	sta.w printx
 	lda.w $1E2F
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l print
 	stx.b xsave
 	ldx.w #$0012

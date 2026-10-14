@@ -2082,8 +2082,8 @@ $9BAD4E,.1,CODE_9BAD4E,new,branch target only used in this routine,src/routines/
 $9BAD5B,.2,CODE_9BAD5B,new,branch target only used in this routine,src/routines/snes/CODE_9BAD08.asm
 $9BAD6F,.3,CODE_9BAD6F,new,branch target only used in this routine,src/routines/snes/CODE_9BAD08.asm
 $9BAD81,.4,CODE_9BAD81,new,branch target only used in this routine,src/routines/snes/CODE_9BAD08.asm
-$9FC470,.loop,CODE_9FC470,new,branch target only used in this routine,src/routines/snes/CODE_9FC427.asm
-$9FC47C,.loop2,CODE_9FC47C,new,branch target only used in this routine,src/routines/snes/CODE_9FC427.asm
+$9FC470,.loop,CODE_9FC470,new,branch target only used in this routine,src/routines/hockey/PlayerInitialName.asm
+$9FC47C,.loop2,CODE_9FC47C,new,branch target only used in this routine,src/routines/hockey/PlayerInitialName.asm
 $9FA5EE,.loop,CODE_9FA5EE,new,branch target only used in this routine,src/routines/middle/waitxsr.asm
 $9FA5F1,.loop2,CODE_9FA5F1,new,branch target only used in this routine,src/routines/middle/waitxsr.asm
 $9FA602,.1,CODE_9FA602,new,branch target only used in this routine,src/routines/middle/waitxsr.asm
@@ -2321,7 +2321,7 @@ $9E988D,.3,CODE_9E988D,new,branch target only used in this routine,src/routines/
 $80B669,.loop,CODE_80B669,new,branch target only used in this routine,src/routines/snes/FindCachedFrame.asm
 $80B675,.1,CODE_80B675,new,branch target only used in this routine,src/routines/snes/FindCachedFrame.asm
 $80AA45,.1,CODE_80AA45,new,branch target only used in this routine,src/routines/snes/CODE_80AA41.asm
-$9FBE23,.1,CODE_9FBE23,new,branch target only used in this routine,src/routines/snes/CODE_9FBE08.asm
+$9FBE23,.1,CODE_9FBE23,new,branch target only used in this routine,src/routines/hockey/DrawTeamBlocks.asm
 $9BC294,.1,CODE_9BC294,new,branch target only used in this routine,src/routines/snes/CODE_9BC25A.asm
 $9BC295,.2,CODE_9BC295,new,branch target only used in this routine,src/routines/snes/CODE_9BC25A.asm
 $808D86,.loop,CODE_808D86,new,branch target only used in this routine,src/routines/snes/Mode7MapToVRAM.asm
@@ -3115,7 +3115,7 @@ $9FC17E,.t1,CODE_9FC17E,new,continued in the previous routine,src/routines/snes/
 $9FC0C6,.t1,CODE_9FC0C6,new,continued in the previous routine,src/routines/hockey/checkwindow.asm
 $9FBFBA,.t1,CODE_9FBFBA,new,continued in the previous routine,src/routines/snes/CODE_9FBFA6.asm
 $9FBE9E,.t1,CODE_9FBE9E,new,continued in the previous routine,src/routines/snes/CODE_9FBE56.asm
-$9FBE3B,.t1,CODE_9FBE3B,new,continued in the previous routine,src/routines/snes/CODE_9FBE08.asm
+$9FBE3B,.t1,CODE_9FBE3B,new,continued in the previous routine,src/routines/hockey/DrawTeamBlocks.asm
 $9FBD50,.t1,CODE_9FBD50,new,continued in the previous routine,src/routines/snes/CODE_9FBD37.asm
 $9FBB79,.t1,CODE_9FBB79,new,continued in the previous routine,src/routines/snes/CODE_9FBB56.asm
 $9FBB50,.t1,CODE_9FBB50,new,continued in the previous routine,src/routines/snes/CODE_9FBB01.asm
@@ -3422,7 +3422,7 @@ $9FC315,.t2,CODE_9FC315,new,continued in the previous routine,src/routines/logic
 $9FC1EC,.t2,CODE_9FC1EC,new,continued in the previous routine,src/routines/logic/doinput.asm
 $9FC123,.t1,CODE_9FC123,new,continued in the previous routine,src/routines/hockey/checkwindow.asm
 $9FBFA6,.t2,CODE_9FBFA6,new,continued in the previous routine,src/routines/video/ShowRinkRows.asm
-$9FBE56,.t2,CODE_9FBE56,new,continued in the previous routine,src/routines/snes/CODE_9FBE08.asm
+$9FBE56,.t2,CODE_9FBE56,new,continued in the previous routine,src/routines/hockey/DrawTeamBlocks.asm
 $9FBD37,.t1,CODE_9FBD37,new,continued in the previous routine,src/routines/video/setffo.asm
 $9FBB56,.t2,CODE_9FBB56,new,continued in the previous routine,src/routines/snes/CODE_9FBB01.asm
 $9FB64A,.t2,CODE_9FB64A,new,continued in the previous routine,src/routines/penalty/limitfo.asm
@@ -4500,8 +4500,8 @@ $9FB5E4,.1,CODE_9FB5E4,new,branch target only used in this routine,src/routines/
 $9FB687,.2,CODE_9FB687,new,branch target only used in this routine,src/routines/penalty/limitfo.asm
 $9FB69D,.3,CODE_9FB69D,new,branch target only used in this routine,src/routines/penalty/limitfo.asm
 $9FBB89,.7,CODE_9FBB89,new,branch target only used in this routine,src/routines/video/setvideo.asm
-$9FBE43,.2,CODE_9FBE43,new,branch target only used in this routine,src/routines/snes/CODE_9FBE08.asm
-$9FBEF8,.3,CODE_9FBEF8,new,branch target only used in this routine,src/routines/snes/CODE_9FBE08.asm
+$9FBE43,.2,CODE_9FBE43,new,branch target only used in this routine,src/routines/hockey/DrawTeamBlocks.asm
+$9FBEF8,.3,CODE_9FBEF8,new,branch target only used in this routine,src/routines/hockey/DrawTeamBlocks.asm
 $9FC6A6,.1,CODE_9FC6A6,new,branch target only used in this routine,src/routines/hockey/ResetClock.asm
 $9FC79E,.1,CODE_9FC79E,new,branch target only used in this routine,src/routines/snes/CODE_9FC76C.asm
 $9FCDAA,.2,CODE_9FCDAA,new,branch target only used in this routine,src/routines/snes/CODE_9FCD4D.asm
@@ -5690,3 +5690,5 @@ $9EF352,.in,CODE_9EF352,new,Goal: the puck went in (the 93S Goal .in),src/routin
 $9EF34B,.1,CODE_9EF34B,new,Goal: shootout goal (folded into Goal),src/routines/hockey/Goal.asm
 $9EF357,.6,CODE_9EF357,new,Goal (folded into Goal),src/routines/hockey/Goal.asm
 $9EF5D9,.16,CODE_9EF5D9,new,Goal: the end (folded into Goal),src/routines/hockey/Goal.asm
+$9FBE08,DrawTeamBlocks,CODE_9FBE08,93S,"The 93S DrawTeamBlocks job and loop (d1 = team, 9 x 2 map words at printx / printy into the text map), plus the 94 name sprites; TeamRoster and the matchups screen call it as 93S TeamRoster and ScoutingReport do",src/routines/hockey/DrawTeamBlocks.asm
+$9FC427,PlayerInitialName,CODE_9FC427,new,"Behavior: GetPlayerRecord, then the name; GetPlayerNumInitial and the stats pages call it",src/routines/hockey/PlayerInitialName.asm

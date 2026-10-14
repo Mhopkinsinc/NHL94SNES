@@ -43,7 +43,7 @@ ShowMatchups:
 	sta.b $8F
 	lda.w VisTeam
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	lda.b $8F
 	pha
 	lda.b a1
@@ -59,7 +59,7 @@ ShowMatchups:
 	sta.b $8F
 	lda.w HomeTeam
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	lda.w $1DB9
 	bne .t1
 	jmp.w .t2
@@ -123,7 +123,7 @@ ShowMatchups:
 	sta.b $8F
 	lda.w $1D9B
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l print
 	stz.b a2
 	lda.b $8F
@@ -167,7 +167,7 @@ ShowMatchups:
 	sta.b $8F
 	lda.w $1D9B
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	lda.w #$0021
 	sec
 	sbc.b [a1]

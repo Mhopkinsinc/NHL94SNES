@@ -11,14 +11,14 @@ CODE_9F9E24:
 	sta.w printx
 	lda.w #$0002
 	sta.w printy
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	lda.w #$0002
 	sta.b a2
 	lda.w #$0003
 	sta.w printx
 	lda.w VisTeam
 	sta.b d1
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	pla
 	sta.b a2
 	lda.w #$0000
