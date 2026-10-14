@@ -2209,7 +2209,7 @@ $9F945E,.1,CODE_9F945E,new,branch target only used in this routine,src/routines/
 $9B9BC2,.1,CODE_9B9BC2,new,branch target only used in this routine,src/routines/hockey/UpdateCrowdMeter.asm
 $9B9BCC,.2,CODE_9B9BCC,new,branch target only used in this routine,src/routines/hockey/UpdateCrowdMeter.asm
 $9B9BDA,.3,CODE_9B9BDA,new,branch target only used in this routine,src/routines/hockey/UpdateCrowdMeter.asm
-$9FCD3A,.1,CODE_9FCD3A,new,branch target only used in this routine,src/routines/snes/CODE_9FCD2F.asm
+$9FCD3A,.1,CODE_9FCD3A,new,branch target only used in this routine,src/routines/logic/PadTakeRightDefense.asm
 $9E9491,.rtl,CODE_9E9491,new,branch target only used in this routine,src/routines/hockey/checkplcoll.asm
 $9E811C,.1,CODE_9E811C,new,branch target only used in this routine,src/routines/logic/assnearest.asm
 $9ECCDC,.1,CODE_9ECCDC,new,branch target only used in this routine,src/routines/hockey/ScoutHotTeam.asm
@@ -2302,7 +2302,7 @@ $9FA0F6,.1,CODE_9FA0F6,new,branch target only used in this routine,src/routines/
 $9FA121,.2,CODE_9FA121,new,branch target only used in this routine,src/routines/snes/CODE_9FA083.asm
 $9BA33C,.1,CODE_9BA33C,new,branch target only used in this routine,src/routines/hockey/UpdateHatTrick.asm
 $9DA302,.1,CODE_9DA302,new,branch target only used in this routine,src/routines/snes/CODE_9DA2EE.asm
-$9FCD58,.1,CODE_9FCD58,new,branch target only used in this routine,src/routines/snes/CODE_9FCD4D.asm
+$9FCD58,.1,CODE_9FCD58,new,branch target only used in this routine,src/routines/logic/PadTakeLeftDefense.asm
 $80A573,.loop,CODE_80A573,new,branch target only used in this routine,src/routines/snes/ReadVarLen.asm
 $80A58D,.rts,CODE_80A58D,new,branch target only used in this routine,src/routines/snes/ReadVarLen.asm
 $808794,.loop,CODE_808794,new,branch target only used in this routine,src/routines/snes/CODE_80878B.asm
@@ -3099,7 +3099,7 @@ $9FD0EE,.t1,CODE_9FD0EE,new,continued in the previous routine,src/routines/snes/
 $9FCF91,.t1,CODE_9FCF91,new,continued in the previous routine,src/routines/hockey/setplayer.asm
 $9FCEEE,.t1,CODE_9FCEEE,new,continued in the previous routine,src/routines/hockey/Setplass.asm
 $9FCD90,.t1,CODE_9FCD90,new,continued in the previous routine,src/routines/snes/CODE_9FCD5E.asm
-$9FCD40,.t1,CODE_9FCD40,new,continued in the previous routine,src/routines/snes/CODE_9FCD2F.asm
+$9FCD40,.t1,CODE_9FCD40,new,continued in the previous routine,src/routines/logic/PadTakeRightDefense.asm
 $9FCD23,.t1,CODE_9FCD23,new,continued in the previous routine,src/routines/logic/PassPadToTeammate.asm
 $9FCBEB,.t1,CODE_9FCBEB,new,continued in the previous routine,src/routines/logic/findpc.asm
 $9FC82F,.t1,CODE_9FC82F,new,continued in the previous routine,src/routines/snes/CODE_9FC822.asm
@@ -3416,7 +3416,7 @@ $9FD633,.t1,CODE_9FD633,new,continued in the previous routine,src/routines/hocke
 $9FD48D,.t1,CODE_9FD48D,new,continued in the previous routine,src/routines/hockey/setpersonel.asm
 $9FD2A7,.t1,CODE_9FD2A7,new,continued in the previous routine,src/routines/hockey/resetplstuff.asm
 $9FCFAC,.t2,CODE_9FCFAC,new,continued in the previous routine,src/routines/hockey/setplayer.asm
-$9FCD5E,.t1,CODE_9FCD5E,new,continued in the previous routine,src/routines/snes/CODE_9FCD4D.asm
+$9FCD5E,.t1,CODE_9FCD5E,new,continued in the previous routine,src/routines/logic/PadTakeLeftDefense.asm
 $9FC822,.t2,CODE_9FC822,new,continued in the previous routine,src/routines/hockey/InitializeGameStructures.asm
 $9FC315,.t2,CODE_9FC315,new,continued in the previous routine,src/routines/logic/doinput.asm
 $9FC1EC,.t2,CODE_9FC1EC,new,continued in the previous routine,src/routines/logic/doinput.asm
@@ -4504,7 +4504,7 @@ $9FBE43,.2,CODE_9FBE43,new,branch target only used in this routine,src/routines/
 $9FBEF8,.3,CODE_9FBEF8,new,branch target only used in this routine,src/routines/hockey/DrawTeamBlocks.asm
 $9FC6A6,.1,CODE_9FC6A6,new,branch target only used in this routine,src/routines/hockey/ResetClock.asm
 $9FC79E,.1,CODE_9FC79E,new,branch target only used in this routine,src/routines/hockey/GetPadTeam.asm
-$9FCDAA,.2,CODE_9FCDAA,new,branch target only used in this routine,src/routines/snes/CODE_9FCD4D.asm
+$9FCDAA,.2,CODE_9FCDAA,new,branch target only used in this routine,src/routines/logic/PadTakeLeftDefense.asm
 $9FD2BC,.1,CODE_9FD2BC,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
 $9FD2D7,.2,CODE_9FD2D7,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
 $9FD2F3,.3,CODE_9FD2F3,new,branch target only used in this routine,src/routines/hockey/resetplstuff.asm
@@ -5716,7 +5716,7 @@ $9FCB68,AssignPadPlayer,CODE_9FCB68,new,"Behavior: the MultiPlayer 5 pad and pla
 $9FCB5C,AssignPadIfFree,CODE_9FCB5C,new,Behavior: called from puckglue and dopass,src/routines/logic/AssignPadIfFree.asm
 $9FCB16,PuckCarrierPad,CODE_9FCB16,new,Behavior: called from puckglue,src/routines/logic/PuckCarrierPad.asm
 $9FCD2A,PadTakeGoalie,CODE_9FCD2A,new,Behavior: called from doinput and CODE_9FAFBE,src/routines/logic/PadTakeGoalie.asm
-$9FCD69,PadTakePosition,CODE_9FCD69,new,"pad d4 takes the player of its team ($1C84 side) at position d1, if he has no pad and is not locked (pflags bit 12); counts it in $0ADD",src/routines/snes/CODE_9FCD4D.asm
+$9FCD69,PadTakePosition,CODE_9FCD69,new,"pad d4 takes the player of its team ($1C84 side) at position d1, if he has no pad and is not locked (pflags bit 12); counts it in $0ADD",src/routines/logic/PadTakeLeftDefense.asm
 $9F9365,startpause,CODE_9F9365,93S,"The 93S startpause body (lda #sfpz, tsb sflags, rtl); startpause1 and PauseFromPad end in it as 93S startpause1 / startpause2 do",src/routines/hockey/startpause.asm
 $9F936C,PauseFromPad,CODE_9F936C,new,Behavior: doinput and CODE_9F967B jump here on a start press,src/routines/hockey/PauseFromPad.asm
 $9F9372,startpause1,CODE_9F9372,93S,"93S startpause1 job (pause from controller 1, then startpause); demoread jumps to it on Start as in 93S",src/routines/hockey/startpause1.asm
@@ -5760,3 +5760,5 @@ $9EC791,EndPenaltyShot,CODE_9EC791,new,"Behavior: called on the stop events (Goa
 $9CA58C,CalcPuckDistances,CODE_9CA58C,new,"Behavior; called from CODE_9FC988 (puckfaceoff2); updateplayers, chk4pass, findpc and the goalie code read the tables",src/routines/logic/CalcPuckDistances.asm
 $9FC988,FaceoffPads,CODE_9FC988,new,Behavior: called from puckfaceoff2,src/routines/logic/FaceoffPads.asm
 $9FCD0A,PassPadToTeammate,CODE_9FCD0A,new,Behavior: asspenalty calls it when the penalized player had a pad ($19D4),src/routines/logic/PassPadToTeammate.asm
+$9FCD4D,PadTakeLeftDefense,CODE_9FCD4D,new,Behavior: doinput calls it on L ($0020); pfgoal (shoots at the top goal) picks position 1 or 2,src/routines/logic/PadTakeLeftDefense.asm
+$9FCD2F,PadTakeRightDefense,CODE_9FCD2F,new,Behavior: doinput calls it on R ($0010),src/routines/logic/PadTakeRightDefense.asm

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FCD2F:
+; R button with defense control on: pad d4 takes the defenseman on the right of the screen (RD when the team shoots at the top goal, else LD)
+PadTakeRightDefense:
 	ldy.w #$0000
 	cpx.w #$000C
 	bcc .1

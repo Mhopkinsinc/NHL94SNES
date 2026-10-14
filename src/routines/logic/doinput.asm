@@ -97,9 +97,9 @@ doinput:
 .10:
 	jml.l findpc
 .11:
-	jml.l CODE_9FCD4D
+	jml.l PadTakeLeftDefense
 .12:
-	jml.l CODE_9FCD2F
+	jml.l PadTakeRightDefense
 .13:
 	lda.w $0B05,x
 	bit.w #$0001
