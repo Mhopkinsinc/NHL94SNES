@@ -1,7 +1,7 @@
-; Unidentified routine.
-CODE_9FB69E:
+; Set up the rink: the rink and text graphics, the palettes and the objects
+setupice:
 	lda.w $0AD3
-	bne CODE_9FB69E
+	bne setupice
 	jsl.l forceblack
 	lda.w #$FF00
 	sta.l $7E35AA

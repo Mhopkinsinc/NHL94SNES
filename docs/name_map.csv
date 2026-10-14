@@ -932,7 +932,7 @@ $9B939A,.loop2,CODE_9B939A,new,branch target only used in this routine,src/routi
 $9B93B0,.1,CODE_9B93B0,new,branch target only used in this routine,src/routines/snes/CODE_9B9334.asm
 $9FCB9A,.1,CODE_9FCB9A,new,branch target only used in this routine,src/routines/snes/CODE_9FCB68.asm
 $9FCBB5,.rtl,CODE_9FCBB5,new,branch target only used in this routine,src/routines/snes/CODE_9FCB68.asm
-$9FB330,.1,CODE_9FB330,new,branch target only used in this routine,src/routines/snes/CODE_9FB30F.asm
+$9FB330,.1,CODE_9FB330,new,branch target only used in this routine,src/routines/logic/faceoffinput.asm
 $80D0BB,.1,CODE_80D0BB,new,branch target only used in this routine,src/routines/snes/CODE_80D06A.asm
 $80D0E5,.2,CODE_80D0E5,new,branch target only used in this routine,src/routines/snes/CODE_80D06A.asm
 $9C9D8A,.1,CODE_9C9D8A,new,branch target only used in this routine,src/routines/snes/CODE_9C9D25.asm
@@ -1573,10 +1573,10 @@ $9F8742,.7,CODE_9F8742,new,branch target only used in this routine,src/routines/
 $80BBA4,.1,CODE_80BBA4,new,branch target only used in this routine,src/routines/snes/CODE_80BB97.asm
 $9B87B2,.1,CODE_9B87B2,new,branch target only used in this routine,src/routines/snes/CODE_9B8792.asm
 $80893C,.1,CODE_80893C,new,branch target only used in this routine,src/routines/snes/CODE_80891F.asm
-$9FB6DA,.loop,CODE_9FB6DA,new,branch target only used in this routine,src/routines/snes/CODE_9FB69E.asm
-$9FB6EE,.loop2,CODE_9FB6EE,new,branch target only used in this routine,src/routines/snes/CODE_9FB69E.asm
-$9FB8E4,.loop,CODE_9FB8E4,new,branch target only used in this routine,src/routines/snes/CODE_9FB69E.asm
-$9FB8F1,.1,CODE_9FB8F1,new,branch target only used in this routine,src/routines/snes/CODE_9FB69E.asm
+$9FB6DA,.loop,CODE_9FB6DA,new,branch target only used in this routine,src/routines/hockey/setupice.asm
+$9FB6EE,.loop2,CODE_9FB6EE,new,branch target only used in this routine,src/routines/hockey/setupice.asm
+$9FB8E4,.loop,CODE_9FB8E4,new,branch target only used in this routine,src/routines/hockey/setupice.asm
+$9FB8F1,.1,CODE_9FB8F1,new,branch target only used in this routine,src/routines/hockey/setupice.asm
 $9EA132,.1,CODE_9EA132,new,branch target only used in this routine,src/routines/snes/CODE_9EA10F.asm
 $9EA151,.2,CODE_9EA151,new,branch target only used in this routine,src/routines/snes/CODE_9EA10F.asm
 $9ECB47,.loop,CODE_9ECB47,new,branch target only used in this routine,src/routines/snes/CODE_9ECAB7.asm
@@ -1802,8 +1802,8 @@ $9E9A0E,.6,CODE_9E9A0E,new,branch target only used in this routine,src/routines/
 $9D8BFF,.loop,CODE_9D8BFF,new,branch target only used in this routine,src/routines/snes/CODE_9D8BE6.asm
 $9EB495,.loop,CODE_9EB495,new,branch target only used in this routine,src/routines/snes/CODE_9EB48A.asm
 $9EB4AB,.loop,CODE_9EB4AB,new,branch target only used in this routine,src/routines/snes/CODE_9EB48A.asm
-$9F97E3,.1,CODE_9F97E3,new,branch target only used in this routine,src/routines/snes/DATA8_9F97CE.asm
-$9F97F7,.2,CODE_9F97F7,new,branch target only used in this routine,src/routines/snes/DATA8_9F97CE.asm
+$9F97E3,.1,CODE_9F97E3,new,branch target only used in this routine,src/routines/stats/AttribStatus.asm
+$9F97F7,.2,CODE_9F97F7,new,branch target only used in this routine,src/routines/stats/AttribStatus.asm
 $9B99AA,.1,CODE_9B99AA,new,branch target only used in this routine,src/routines/snes/CODE_9B995F.asm
 $9B99D2,.2,CODE_9B99D2,new,branch target only used in this routine,src/routines/snes/CODE_9B995F.asm
 $9B9A58,.3,CODE_9B9A58,new,branch target only used in this routine,src/routines/snes/CODE_9B995F.asm
@@ -2188,9 +2188,9 @@ $9E9608,.3,CODE_9E9608,new,branch target only used in this routine,src/routines/
 $9E960A,.4,CODE_9E960A,new,branch target only used in this routine,src/routines/snes/CODE_9E95AE.asm
 $9E9624,.5,CODE_9E9624,new,branch target only used in this routine,src/routines/snes/CODE_9E95AE.asm
 $9E9D17,.1,CODE_9E9D17,new,branch target only used in this routine,src/routines/snes/CODE_9E9D0D.asm
-$9F988A,.1,CODE_9F988A,new,branch target only used in this routine,src/routines/snes/CODE_9F9879.asm
-$9F988F,.2,CODE_9F988F,new,branch target only used in this routine,src/routines/snes/CODE_9F9879.asm
-$9F98A4,.3,CODE_9F98A4,new,branch target only used in this routine,src/routines/snes/CODE_9F9879.asm
+$9F988A,.1,CODE_9F988A,new,branch target only used in this routine,src/routines/stats/AttribEnergy.asm
+$9F988F,.2,CODE_9F988F,new,branch target only used in this routine,src/routines/stats/AttribEnergy.asm
+$9F98A4,.3,CODE_9F98A4,new,branch target only used in this routine,src/routines/stats/AttribEnergy.asm
 $9DA320,.loop,CODE_9DA320,new,branch target only used in this routine,src/routines/snes/CODE_9DA316.asm
 $9DA333,.1,CODE_9DA333,new,branch target only used in this routine,src/routines/snes/CODE_9DA316.asm
 $9DA33F,.loop2,CODE_9DA33F,new,branch target only used in this routine,src/routines/snes/CODE_9DA316.asm
@@ -3132,7 +3132,7 @@ $9FB3D7,.t1,CODE_9FB3D7,new,continued in the previous routine,src/routines/snes/
 $9FB3B6,.t1,CODE_9FB3B6,new,continued in the previous routine,src/routines/snes/CODE_9FB3AA.asm
 $9FB396,.t1,CODE_9FB396,new,continued in the previous routine,src/routines/snes/CODE_9FB38A.asm
 $9FB37B,.t1,CODE_9FB37B,new,continued in the previous routine,src/routines/snes/CODE_9FB366.asm
-$9FB34D,.t1,CODE_9FB34D,new,continued in the previous routine,src/routines/snes/CODE_9FB30F.asm
+$9FB34D,.t1,CODE_9FB34D,new,continued in the previous routine,src/routines/logic/faceoffinput.asm
 $9FB284,.t1,CODE_9FB284,new,continued in the previous routine,src/routines/snes/CODE_9FB27B.asm
 $9FB024,.t1,CODE_9FB024,new,continued in the previous routine,src/routines/snes/CODE_9FAFBE.asm
 $9FAF97,.t1,CODE_9FAF97,new,continued in the previous routine,src/routines/snes/CODE_9FAF42.asm
@@ -3152,7 +3152,7 @@ $9F9B61,.t1,CODE_9F9B61,new,continued in the previous routine,src/routines/snes/
 $9F9A9E,.t1,CODE_9F9A9E,new,continued in the previous routine,src/routines/snes/CODE_9F992E.asm
 $9F9A79,.t1,CODE_9F9A79,new,continued in the previous routine,src/routines/snes/CODE_9F9A67.asm
 $9F9A33,.t1,CODE_9F9A33,new,continued in the previous routine,src/routines/snes/CODE_9F9987.asm
-$9F98A8,.t1,CODE_9F98A8,new,continued in the previous routine,src/routines/snes/CODE_9F9879.asm
+$9F98A8,AttribFighting,CODE_9F98A8,93S,attribjmp entry 4; falls into AttribRating,src/routines/stats/AttribFighting.asm
 $9F9789,.t1,CODE_9F9789,new,continued in the previous routine,src/routines/snes/CODE_9F9745.asm
 $9F96D7,.t1,CODE_9F96D7,new,continued in the previous routine,src/routines/snes/CODE_9F967B.asm
 $9F96AF,.t1,CODE_9F96AF,new,continued in the previous routine,src/routines/snes/CODE_9F967B.asm
@@ -3430,7 +3430,7 @@ $9FB58F,.t2,CODE_9FB58F,new,continued in the previous routine,src/routines/snes/
 $9FB46F,.t2,CODE_9FB46F,new,continued in the previous routine,src/routines/snes/CODE_9FB45F.asm
 $9FB3CC,.t2,CODE_9FB3CC,new,continued in the previous routine,src/routines/snes/CODE_9FB3AA.asm
 $9FB38A,.t2,CODE_9FB38A,new,continued in the previous routine,src/routines/snes/CODE_9FB366.asm
-$9FB354,.t2,CODE_9FB354,new,continued in the previous routine,src/routines/snes/CODE_9FB30F.asm
+$9FB354,.t2,CODE_9FB354,new,continued in the previous routine,src/routines/logic/faceoffinput.asm
 $9FB304,.t2,CODE_9FB304,new,continued in the previous routine,src/routines/snes/CODE_9FB27B.asm
 $9FAF42,.t2,CODE_9FAF42,new,continued in the previous routine,src/routines/logic/updatefaceoff.asm
 $9FACFC,.t2,CODE_9FACFC,new,continued in the previous routine,src/routines/snes/CODE_9FAB97.asm
@@ -4493,7 +4493,7 @@ $9F84EB,.5,CODE_9F84EB,new,branch target only used in this routine,src/routines/
 $9F85D3,.4,CODE_9F85D3,new,branch target only used in this routine,src/routines/snes/CODE_9F8511.asm
 $9F9133,.10,CODE_9F9133,new,branch target only used in this routine,src/routines/hockey/SaveRegsStartHL2.asm
 $9F9794,.2,CODE_9F9794,new,branch target only used in this routine,src/routines/snes/CODE_9F9745.asm
-$9F98B1,.4,CODE_9F98B1,new,branch target only used in this routine,src/routines/snes/CODE_9F9879.asm
+$9F98B1,AttribRating,CODE_9F98B1,93S,attribjmp entry 5; prints a rating,src/routines/stats/AttribFighting.asm
 $9FB02A,.3,CODE_9FB02A,new,branch target only used in this routine,src/routines/snes/CODE_9FAFBE.asm
 $9FB50F,.3,CODE_9FB50F,new,branch target only used in this routine,src/routines/snes/CODE_9FB4B6.asm
 $9FB5E4,.1,CODE_9FB5E4,new,branch target only used in this routine,src/routines/snes/CODE_9FB5CD.asm
@@ -4641,3 +4641,11 @@ $9BAA60,ReplayMode,CODE_9BAA60,93S,the Instant Replay pause item calls it where 
 $9D8BBF,PlayoffScreen,CODE_9D8BBF,93S,"GameOver and StartGame call it as in 93S; the playoff tree (playoffRoundIdx, the tree data)",src/routines/hockey/PlayoffScreen.asm
 $8086BD,ScreenOn,CODE_8086BD,new,sets IniDispShadow to full brightness without forced blank; called when a screen is ready,src/routines/snes/ScreenOn.asm
 $0762,IniDispShadow,$0762,new,RAM; the NMI writes it to INIDISP,src/ram94snes.asm
+$9FB69E,setupice,CODE_9FB69E,93S,"StartGame calls it; the 93S rink setup in order (forceblack, the rink graphics, RemapTiles, InitSortObjects, the colours)",src/routines/hockey/setupice.asm
+$9F97CE,attribjmp,DATA8_9F97CE,93S,"the roster column handlers as offsets from the table, in the 93S order (entry 3 is AttribWeight)",src/routines/stats/attribjmp.asm
+$9F97DA,AttribStatus,9F97DA,93S,attribjmp entry 0; tmpdst of the player as in 93S,src/routines/stats/AttribStatus.asm
+$9F9870,AttribEnergy,9F9870,93S,attribjmp entry 1; tmpde of the player as a percentage as in 93S,src/routines/stats/AttribEnergy.asm
+$9F98D9,AttribHanded,9F98D9,93S,attribjmp entry 2; prints from HandedTextTbl as in 93S,src/routines/stats/AttribHanded.asm
+$9F9879,.5,CODE_9F9879,new,branch target only used in this routine,src/routines/stats/AttribEnergy.asm
+$9EAB64,revplayeracc,CODE_9EAB64,93S,doplayeracc and noturn0 call it as in 93S; same instructions as 93S revplayeracc,src/routines/logic/noturn0.asm
+$9FB30F,faceoffinput,CODE_9FB30F,93S,doinput jumps here (through a jml) where 93S jumps to faceoffinput; most instructions as 93S,src/routines/logic/faceoffinput.asm

@@ -1,6 +1,5 @@
-; Unidentified routine.
-DATA8_9F97CE:
-	dw 12,162,267,307,218,227
+; Roster column: where the player is (ice, bench, injured) or his penalty time
+AttribStatus:
 	asl.b d0
 	lda.b a2
 	beq .1

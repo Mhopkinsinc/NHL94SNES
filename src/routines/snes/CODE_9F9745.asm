@@ -42,7 +42,7 @@ CODE_9F9745:
 .2:
 	lda.w #$009F
 	sta.b $8B
-	lda.w #DATA8_9F97CE
+	lda.w #attribjmp
 	sta.b a0
 	ldy.b d4
 	lda.b [a0],y

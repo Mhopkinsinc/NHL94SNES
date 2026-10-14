@@ -74,11 +74,11 @@ noturn0:
 	sta.b d1
 .2:
 	lda.w $1543,x
-	bne CODE_9EAB64
+	bne revplayeracc
 	tya
 	sta.w $1543,x
 	jsl.l SetSPA
-CODE_9EAB64:
+revplayeracc:
 	lda.w $1523,x
 	beq .1
 	lda.b d2

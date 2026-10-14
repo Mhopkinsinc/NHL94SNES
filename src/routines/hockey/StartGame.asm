@@ -79,7 +79,7 @@ CODE_9F833C:
 	dex
 	dex
 	bpl .2
-	jsl.l CODE_9FB69E
+	jsl.l setupice
 	stz.w $1EBB
 	ldx.w #$0000
 .loopx:

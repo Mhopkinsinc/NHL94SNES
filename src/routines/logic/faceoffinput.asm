@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FB30F:
+; Pad input for a player taking a face off
+faceoffinput:
 	lda.w $0B7D,x
 	cmp.w #$0017
 	bne .t2

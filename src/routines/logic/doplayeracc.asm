@@ -247,7 +247,7 @@ doplayeracc:
 	lda.b d3
 	cmp.w #$0003
 	bcc .t1xx
-	jmp.w CODE_9EAB64
+	jmp.w revplayeracc
 
 .t1xx:
 	rtl
