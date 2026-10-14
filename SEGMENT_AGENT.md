@@ -712,3 +712,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Crowd meter routines and RAM. MATCH.
 - LoadCenterIce, BuildRinkMap. MATCH.
 - PWprint, PrintPasswordHelp. MATCH.
+- GetFrameHot. MATCH.

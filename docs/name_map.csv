@@ -2364,14 +2364,14 @@ $9E8869,.3,CODE_9E8869,new,branch target only used in this routine,src/routines/
 $9E886C,.4,CODE_9E886C,new,branch target only used in this routine,src/routines/snes/CODE_9E8832.asm
 $9E8884,.5,CODE_9E8884,new,branch target only used in this routine,src/routines/snes/CODE_9E8832.asm
 $9E888F,.6,CODE_9E888F,new,branch target only used in this routine,src/routines/snes/CODE_9E8832.asm
-$9BC0A1,.1,CODE_9BC0A1,new,branch target only used in this routine,src/routines/snes/CODE_9BC074.asm
-$9BC0B1,.2,CODE_9BC0B1,new,branch target only used in this routine,src/routines/snes/CODE_9BC074.asm
-$9BC0C1,.3,CODE_9BC0C1,new,branch target only used in this routine,src/routines/snes/CODE_9BC074.asm
-$9BC0D4,.4,CODE_9BC0D4,new,branch target only used in this routine,src/routines/snes/CODE_9BC074.asm
-$9BC0E4,.5,CODE_9BC0E4,new,branch target only used in this routine,src/routines/snes/CODE_9BC074.asm
-$9BC0EC,.6,CODE_9BC0EC,new,branch target only used in this routine,src/routines/snes/CODE_9BC074.asm
-$9BC0FC,.7,CODE_9BC0FC,new,branch target only used in this routine,src/routines/snes/CODE_9BC074.asm
-$9BC10D,.8,CODE_9BC10D,new,branch target only used in this routine,src/routines/snes/CODE_9BC074.asm
+$9BC0A1,.1,CODE_9BC0A1,new,branch target only used in this routine,src/routines/logic/GetFrameHot.asm
+$9BC0B1,.2,CODE_9BC0B1,new,branch target only used in this routine,src/routines/logic/GetFrameHot.asm
+$9BC0C1,.3,CODE_9BC0C1,new,branch target only used in this routine,src/routines/logic/GetFrameHot.asm
+$9BC0D4,.4,CODE_9BC0D4,new,branch target only used in this routine,src/routines/logic/GetFrameHot.asm
+$9BC0E4,.5,CODE_9BC0E4,new,branch target only used in this routine,src/routines/logic/GetFrameHot.asm
+$9BC0EC,.6,CODE_9BC0EC,new,branch target only used in this routine,src/routines/logic/GetFrameHot.asm
+$9BC0FC,.7,CODE_9BC0FC,new,branch target only used in this routine,src/routines/logic/GetFrameHot.asm
+$9BC10D,.8,CODE_9BC10D,new,branch target only used in this routine,src/routines/logic/GetFrameHot.asm
 $9FF748,.1,CODE_9FF748,new,branch target only used in this routine,src/routines/snes/CODE_9FF726.asm
 $9BB358,.1,CODE_9BB358,new,branch target only used in this routine,src/routines/snes/CODE_9BB330.asm
 $9BB369,.2,CODE_9BB369,new,branch target only used in this routine,src/routines/snes/CODE_9BB330.asm
@@ -5626,3 +5626,4 @@ $9BC17C,LoadCenterIce,CODE_9BC17C,new,Behavior: called from setupice and SaveReg
 $9BC1D5,BuildRinkMap,CODE_9BC1D5,new,Behavior: called from LoadCenterIce and CODE_9FE79F,src/routines/hockey/BuildRinkMap.asm
 $9BC6C9,PWprint,CODE_9BC6C9,93S,"Same body as 93S PWprint: the hidden bit, PasstoText, mesarea, length 18, 16 characters, print; called from PasswordScreen and PlayoffScreen",src/routines/hockey/PWprint.asm
 $9BCBD8,PrintPasswordHelp,CODE_9BCBD8,new,Behavior: the four strings it prints; called from PasswordScreen and BadPasswordPrompt,src/routines/hockey/PrintPasswordHelp.asm
+$9BC074,GetFrameHot,CODE_9BC074,new,"Behavior: checkpuckcoll_ccx calls it where 93S checkpuckcoll_ccx .stick calls GetHot (same flips and sfhormode rotation, a different source for the hot spot)",src/routines/logic/GetFrameHot.asm

@@ -166,7 +166,7 @@ checkpuckcoll_ccx:
 	dw 21,22,23,23,24,25,25,26,27,27,28,29,29,30,31,31
 .9:
 	tya
-	jsl.l CODE_9BC074
+	jsl.l GetFrameHot
 	lda.b d0
 	bit.w #$8000
 	beq .1xxx

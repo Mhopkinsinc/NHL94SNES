@@ -68,6 +68,7 @@
 - Crowd meter: `sroot` (93S job, rewritten), `UpdateCrowdMeter` (94G Crowd_Noise .meter), RAM `CwdExciteLvl` / `CurCrowdMeter` / `CrowdPeak` (94G names), and from behavior `CheckCrowdMeter`, `LowerHotColdTable`, `InitCrowdExcite`.
 - From behavior: `LoadCenterIce`, `BuildRinkMap` (the home team centre ice logo in the rink).
 - `PWprint` (93S, same body), `PrintPasswordHelp` (from its strings).
+- `GetFrameHot` (from behavior: the GetHot job for checkpuckcoll_ccx, reading the frame data).
 
 ## Unsure
 
