@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC25A:
+; Other scores screen
+ShowOtherScores:
 	lda.w #$001C
 	sta.l $7E3454
 	lda.w #$001D

@@ -33,7 +33,7 @@ CODE_9B86E5:
 	lda.b d1
 	bit.w #$1000
 	beq .t2
-	jsr.w CODE_9B8A15
+	jsr.w EditLinesMenu
 	cmp.w #$0000
 	beq .t1
 	jmp.w CODE_9B8860

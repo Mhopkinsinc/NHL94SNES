@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D8489:
+; Matchups screen
+ShowMatchups:
 	lda.b $8F
 	pha
 	lda.b a1

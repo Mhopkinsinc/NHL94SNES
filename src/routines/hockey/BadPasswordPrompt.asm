@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BCAF8:
+; Bad password: wait for a button, then offer retry or exit
+BadPasswordPrompt:
 	jsl.l DecodePW
 	lda.l $7E34D0
 	bpl CODE_9BCAF7

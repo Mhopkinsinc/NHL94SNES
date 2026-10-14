@@ -243,7 +243,7 @@ CODE_9DA7D7:
 	lda.l $7E34BC
 	cmp.w #$0001
 	bne .4
-	jsl.l CODE_9BC7FB
+	jsl.l PasswordScreen
 .4:
 	lda.w #$0080
 	ora.l PassWord

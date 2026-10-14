@@ -6,6 +6,6 @@ CODE_9FE37B:
 	jmp.w CODE_9FE19E
 
 .t1:
-	jsl.l CODE_9BC25A
+	jsl.l ShowOtherScores
 	jsl.l CODE_9FE79F
 	jmp.w CODE_9FE2AE
