@@ -3813,3 +3813,6 @@ $9BCA7A,PrintSelectLeft,CODE_9BCA7A,new,PasswordScreen calls it,src/routines/hoc
 $9BCAB8,PlacePasswordCursor,CODE_9BCAB8,new,divides the character index by 6 to pick the row,src/routines/hockey/PlacePasswordCursor.asm
 $9D9E89,MoveRosterColumn,CODE_9D9E89,new,left and right from TeamRoster,src/routines/stats/MoveRosterColumn.asm
 $9B865F,WaitButtonRelease,CODE_9B865F,new,AskExitGame and EditLinesMenu call it before returning,src/routines/hockey/WaitButtonRelease.asm
+$9BC3DA,ScrollOtherScoresUp,CODE_9BC3DA,new,Up from ShowOtherScores,src/routines/hockey/ScrollOtherScoresUp.asm
+$9BC35C,ScrollOtherScoresDown,CODE_9BC35C,new,Down from ShowOtherScores,src/routines/hockey/ScrollOtherScoresDown.asm
+$9BC49A,FillOtherScores,CODE_9BC49A,new,ShowOtherScores calls it before drawing the page,src/routines/hockey/FillOtherScores.asm

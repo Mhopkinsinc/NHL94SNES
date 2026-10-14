@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9BC49A:
+; Fill the other-scores rows, skipping this game.
+FillOtherScores:
 	lda.w #$007F
 	sta.b $12
 	lda.w #$2780
