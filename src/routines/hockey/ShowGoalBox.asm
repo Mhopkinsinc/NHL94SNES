@@ -101,7 +101,7 @@ ShowGoalBox:
 	sta.b a1
 	ldy.b a2
 	bne .4
-	jsl.l CODE_9BA189
+	jsl.l StartHatTrick
 	lda.w Pencntdwn
 	clc
 	adc.w #$000A

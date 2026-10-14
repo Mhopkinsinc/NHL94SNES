@@ -95,6 +95,7 @@
 - `holdplayer` (93S job and doinput slot; falls into `Acheck`).
 - `setpassmode` (the 93S doinput .setpassmode block as a routine); equate `sfspdir`.
 - Cross-file entry labels inside named screens: the page loops of the other scores, scoring and penalty summaries, `SendGameStatsPage`, the pause, password, StartGame and TeamRoster re-entry points (each named for where it sits and who jumps there).
+- `StartHatTrick` / `UpdateHatTrick` (from behavior: ShowGoalBox starts them on a home skater's third goal, the HAT TRICK! box; showcrowd updates them).
 
 ## Unsure
 

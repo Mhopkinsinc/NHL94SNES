@@ -8,7 +8,7 @@ showcrowd:
 	rtl
 
 .t1:
-	jsl.l CODE_9BA1A1
+	jsl.l UpdateHatTrick
 	ldx.w #$0022
 	lda.w HomeTeam
 	cmp.w #$0013

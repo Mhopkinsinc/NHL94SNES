@@ -814,7 +814,7 @@ $9EBA05,.2,CODE_9EBA05,new,branch target only used in this routine,src/routines/
 $9EBA36,.3,CODE_9EBA36,new,branch target only used in this routine,src/routines/penalty/PenGoalStuff.asm
 $9E9EDD,.1,CODE_9E9EDD,new,branch target only used in this routine,src/routines/hockey/FallDown.asm
 $9E9EE4,.2,CODE_9E9EE4,new,branch target only used in this routine,src/routines/hockey/FallDown.asm
-$9BA190,.loop,CODE_9BA190,new,branch target only used in this routine,src/routines/snes/CODE_9BA189.asm
+$9BA190,.loop,CODE_9BA190,new,branch target only used in this routine,src/routines/hockey/StartHatTrick.asm
 $80B8B9,.loop,CODE_80B8B9,new,branch target only used in this routine,src/routines/snes/CODE_80B8AE.asm
 $80B8CC,.1,CODE_80B8CC,new,branch target only used in this routine,src/routines/snes/CODE_80B8AE.asm
 $9EBAF6,.1,CODE_9EBAF6,new,branch target only used in this routine,src/routines/snes/CODE_9EBAE5.asm
@@ -1689,7 +1689,7 @@ $9EF533,.11,CODE_9EF533,new,branch target only used in this routine,src/routines
 $9EF556,.12,CODE_9EF556,new,branch target only used in this routine,src/routines/snes/CODE_9EF406.asm
 $9EF56A,.13,CODE_9EF56A,new,branch target only used in this routine,src/routines/snes/CODE_9EF406.asm
 $9EF578,.14,CODE_9EF578,new,branch target only used in this routine,src/routines/snes/CODE_9EF406.asm
-$9BA1B4,.rtl,CODE_9BA1B4,new,branch target only used in this routine,src/routines/snes/CODE_9BA1A1.asm
+$9BA1B4,.rtl,CODE_9BA1B4,new,branch target only used in this routine,src/routines/hockey/UpdateHatTrick.asm
 $9FE6DB,.1,CODE_9FE6DB,new,branch target only used in this routine,src/routines/hockey/SelectPauseController.asm
 $9E8659,.1,CODE_9E8659,new,branch target only used in this routine,src/routines/logic/assdefd.asm
 $9B9640,.1,CODE_9B9640,new,branch target only used in this routine,src/routines/snes/CODE_9B95F5.asm
@@ -2300,7 +2300,7 @@ $9EB17A,.6,CODE_9EB17A,new,branch target only used in this routine,src/routines/
 $9E8DB2,.1,CODE_9E8DB2,new,branch target only used in this routine,src/routines/snes/CODE_9E8D8B.asm
 $9FA0F6,.1,CODE_9FA0F6,new,branch target only used in this routine,src/routines/snes/CODE_9FA083.asm
 $9FA121,.2,CODE_9FA121,new,branch target only used in this routine,src/routines/snes/CODE_9FA083.asm
-$9BA33C,.1,CODE_9BA33C,new,branch target only used in this routine,src/routines/snes/CODE_9BA1A1.asm
+$9BA33C,.1,CODE_9BA33C,new,branch target only used in this routine,src/routines/hockey/UpdateHatTrick.asm
 $9DA302,.1,CODE_9DA302,new,branch target only used in this routine,src/routines/snes/CODE_9DA2EE.asm
 $9FCD58,.1,CODE_9FCD58,new,branch target only used in this routine,src/routines/snes/CODE_9FCD4D.asm
 $80A573,.loop,CODE_80A573,new,branch target only used in this routine,src/routines/snes/ReadVarLen.asm
@@ -2674,10 +2674,10 @@ $9BA62E,.t1,CODE_9BA62E,new,continued in the previous routine,src/routines/snes/
 $9BA549,.t1,CODE_9BA549,new,continued in the previous routine,src/routines/snes/CODE_9BA428.asm
 $9BA408,.t1,CODE_9BA408,new,continued in the previous routine,src/routines/snes/CODE_9BA3B1.asm
 $9BA3A9,.t1,CODE_9BA3A9,new,continued in the previous routine,src/routines/snes/CODE_9BA355.asm
-$9BA342,.t1,CODE_9BA342,new,continued in the previous routine,src/routines/snes/CODE_9BA1A1.asm
+$9BA342,.t1,CODE_9BA342,new,continued in the previous routine,src/routines/hockey/UpdateHatTrick.asm
 $9BA31B,.t1,CODE_9BA31B,new,continued in the previous routine,src/routines/snes/CODE_9BA23C.asm
 $9BA1CF,.t1,CODE_9BA1CF,new,continued in the previous routine,src/routines/snes/CODE_9BA1C3.asm
-$9BA1B5,.t1,CODE_9BA1B5,new,continued in the previous routine,src/routines/snes/CODE_9BA1A1.asm
+$9BA1B5,.t1,CODE_9BA1B5,new,continued in the previous routine,src/routines/hockey/UpdateHatTrick.asm
 $9BA15B,.t1,CODE_9BA15B,new,continued in the previous routine,src/routines/snes/CODE_9BA149.asm
 $9BA13C,.t1,CODE_9BA13C,new,continued in the previous routine,src/routines/video/showcrowd.asm
 $9BA10F,.t1,CODE_9BA10F,new,continued in the previous routine,src/routines/video/showcrowd.asm
@@ -3478,8 +3478,8 @@ $9BAF3D,.t3,CODE_9BAF3D,new,continued in the previous routine,src/routines/snes/
 $9BAC11,.t1,CODE_9BAC11,new,continued in the previous routine,src/routines/hockey/ReplayMode.asm
 $9BA6BE,.t1,CODE_9BA6BE,new,continued in the previous routine,src/routines/hockey/ShowCrowdMeter.asm
 $9BA555,.t3,CODE_9BA555,new,continued in the previous routine,src/routines/snes/CODE_9BA428.asm
-$9BA355,.t3,CODE_9BA355,new,continued in the previous routine,src/routines/snes/CODE_9BA1A1.asm
-$9BA1C3,.t3,CODE_9BA1C3,new,continued in the previous routine,src/routines/snes/CODE_9BA1A1.asm
+$9BA355,.t3,CODE_9BA355,new,continued in the previous routine,src/routines/hockey/UpdateHatTrick.asm
+$9BA1C3,.t3,CODE_9BA1C3,new,continued in the previous routine,src/routines/hockey/UpdateHatTrick.asm
 $9B96E4,.t3,CODE_9B96E4,new,continued in the previous routine,src/routines/snes/CODE_9B95F5.asm
 $9B8E3D,.t1,CODE_9B8E3D,new,continued in the previous routine,src/routines/hockey/SelectLinePlayer.asm
 $9B8CE1,.t3,CODE_9B8CE1,new,continued in the previous routine,src/routines/hockey/SetLineSlot.asm
@@ -3973,12 +3973,12 @@ $9B8FD5,.2,CODE_9B8FD5,new,continued in the previous routine,src/routines/hockey
 $9B8FDF,.3,CODE_9B8FDF,new,branch target only used in this routine,src/routines/hockey/SelectLinePlayer.asm
 $9BA166,.2,CODE_9BA166,new,branch target only used in this routine,src/routines/video/showcrowd.asm
 $9BA178,.3,CODE_9BA178,new,continued in the previous routine,src/routines/video/showcrowd.asm
-$9BA1B8,.1,CODE_9BA1B8,new,branch target only used in this routine,src/routines/snes/CODE_9BA1A1.asm
-$9BA249,.2,CODE_9BA249,new,branch target only used in this routine,src/routines/snes/CODE_9BA1A1.asm
-$9BA293,.5,CODE_9BA293,new,branch target only used in this routine,src/routines/snes/CODE_9BA1A1.asm
-$9BA312,.6,CODE_9BA312,new,branch target only used in this routine,src/routines/snes/CODE_9BA1A1.asm
-$9BA31C,.7,CODE_9BA31C,new,continued in the previous routine,src/routines/snes/CODE_9BA1A1.asm
-$9BA346,.8,CODE_9BA346,new,branch target only used in this routine,src/routines/snes/CODE_9BA1A1.asm
+$9BA1B8,.1,CODE_9BA1B8,new,branch target only used in this routine,src/routines/hockey/UpdateHatTrick.asm
+$9BA249,.2,CODE_9BA249,new,branch target only used in this routine,src/routines/hockey/UpdateHatTrick.asm
+$9BA293,.5,CODE_9BA293,new,branch target only used in this routine,src/routines/hockey/UpdateHatTrick.asm
+$9BA312,.6,CODE_9BA312,new,branch target only used in this routine,src/routines/hockey/UpdateHatTrick.asm
+$9BA31C,.7,CODE_9BA31C,new,continued in the previous routine,src/routines/hockey/UpdateHatTrick.asm
+$9BA346,.8,CODE_9BA346,new,branch target only used in this routine,src/routines/hockey/UpdateHatTrick.asm
 $9BAECF,.9,CODE_9BAECF,new,branch target only used in this routine,src/routines/hockey/ReplayMode.asm
 $9BAF67,.10,CODE_9BAF67,new,branch target only used in this routine,src/routines/hockey/ReplayMode.asm
 $9BAF6E,.11,CODE_9BAF6E,new,branch target only used in this routine,src/routines/hockey/ReplayMode.asm
@@ -5353,7 +5353,7 @@ $80CDA6,.6,DATA8_80CDA6,new,"part of PrintShooterNames, used only by it",src/rou
 $80CDAA,.7,DATA8_80CDAA,new,"part of PrintShooterNames, used only by it",src/routines/shootout/PrintShooterNames.asm
 $80CDB6,.8,DATA8_80CDB6,new,"part of PrintShooterNames, used only by it",src/routines/shootout/PrintShooterNames.asm
 $9B8C6A,.4,DATA8_9B8C6A,new,"part of CODE_9B8B60, used only by it",src/routines/hockey/PrintLinePlayers.asm
-$9BA414,.9,DATA8_9BA414,new,"part of CODE_9BA1A1, used only by it",src/routines/snes/CODE_9BA1A1.asm
+$9BA414,.9,DATA8_9BA414,new,"part of CODE_9BA1A1, used only by it",src/routines/hockey/UpdateHatTrick.asm
 $9BA849,.9,DATA8_9BA849,new,"part of ShowCrowdMeter, used only by it",src/routines/hockey/ShowCrowdMeter.asm
 $9BA84D,.10,DATA8_9BA84D,new,"part of ShowCrowdMeter, used only by it",src/routines/hockey/ShowCrowdMeter.asm
 $9BA863,.11,CODE_9BA863,new,"part of ShowCrowdMeter, used only by it",src/routines/hockey/ShowCrowdMeter.asm
@@ -5749,3 +5749,5 @@ $9F833C,StartGame_go,CODE_9F833C,new,StartGame after the scouting report: fade o
 $9D9DE2,TeamRosterRedraw,CODE_9D9DE2,new,TeamRoster: redraw the screen; SwapRosterTeam comes back here,src/routines/stats/TeamRoster.asm
 $9D9E2D,TeamRosterLoop,CODE_9D9E2D,new,TeamRoster: the key loop,src/routines/stats/TeamRoster.asm
 $9D9E86,TeamRosterShowLine,CODE_9D9E86,new,"TeamRoster: ShowRosterLine, then the loop; MoveRosterColumn comes back here",src/routines/stats/TeamRoster.asm
+$9BA189,StartHatTrick,CODE_9BA189,new,Behavior: ShowGoalBox calls it when the scorer's goal count ($18EE) reaches 3 (the HAT TRICK! box) for a home skater,src/routines/hockey/StartHatTrick.asm
+$9BA1A1,UpdateHatTrick,CODE_9BA1A1,new,Behavior: showcrowd calls it first; StartHatTrick starts it,src/routines/hockey/UpdateHatTrick.asm
