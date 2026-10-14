@@ -1,16 +1,17 @@
-; Unidentified routine.
-CODE_9FB901:
-	jsl.l .t1
+; Set both teams' colours (SetTeamColors) and send the whole palette (palbuffer) to CGRAM
+setplayercolors:
+	jsl.l SetTeamColors
 	lda.w #$007E
 	sta.b $0E
-	lda.w #$35F4
+	lda.w #palbuffer
 	sta.b $0C
 	ldy.w #$0000
 	ldx.w #$0100
 	jsl.l DMAToCGRAM
 	rtl
 
-.t1:
+; Set both teams' uniform colours in palbuffer (HomeUniformPalettes / AwayUniformPalettes) and the shared colours
+SetTeamColors:
 	phx
 	phy
 	lda.w HomeTeam
@@ -20,19 +21,19 @@ CODE_9FB901:
 	asl a
 	asl a
 	clc
-	adc.w #$CD4E
+	adc.w #HomeUniformPalettes
 	sta.b $0C
-	lda.w #$0096
+	lda.w #HomeUniformPalettes>>16
 	sta.b $0E
 	lda.w #$007E
 	sta.b $12
-	lda.w #$3774
+	lda.w #palbuffer+$180
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
 	lda.w #$007E
 	sta.b $12
-	lda.w #$3634
+	lda.w #palbuffer+$040
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
@@ -43,19 +44,19 @@ CODE_9FB901:
 	asl a
 	asl a
 	clc
-	adc.w #$C9CE
+	adc.w #AwayUniformPalettes
 	sta.b $0C
-	lda.w #$0096
+	lda.w #AwayUniformPalettes>>16
 	sta.b $0E
 	lda.w #$007E
 	sta.b $12
-	lda.w #$3794
+	lda.w #palbuffer+$1A0
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
 	lda.w #$007E
 	sta.b $12
-	lda.w #$3654
+	lda.w #palbuffer+$060
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
@@ -65,7 +66,7 @@ CODE_9FB901:
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
-	lda.w #$3734
+	lda.w #palbuffer+$140
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy

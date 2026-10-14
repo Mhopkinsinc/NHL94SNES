@@ -24,7 +24,7 @@ setupice:
 	ldx.w #$00FE
 .loop:
 	lda.l $9AD0B6,x
-	sta.l $7E35F4,x
+	sta.l palbuffer,x
 	sta.l $7E36F4,x
 	dex
 	dex
@@ -231,7 +231,7 @@ CODE_9FB8B4:
 	dec a
 	sta.w $0D53
 	jsl.l InitSortObjects
-	jsl.l CODE_9FBD65
+	jsl.l nullrtl
 	lda.w gmode
 	bit.w #$0002
 	beq .1
@@ -244,7 +244,7 @@ CODE_9FB8B4:
 	dex
 	bpl .loop
 .1:
-	jsl.l CODE_9FB901
+	jsl.l setplayercolors
 	stz.w fadestep
 	jsl.l FadeIn
 	jsl.l ScreenOn

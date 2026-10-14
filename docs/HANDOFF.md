@@ -81,6 +81,7 @@
 - `Goal` moved to its entry CODE_9EF319 (checkgoal jumps there as in 93S); the old `Goal` label at $9EF424 was inside the body and is now `.score`; CODE_9EF352 folded in as `.in`.
 - Headers: the 82 named routine files that still began with "; Unidentified routine." now have a one-line header: the inline label comment moved up where there was one, the 93S header for 93S names, otherwise a short description of what the code does.
 - `DrawTeamBlocks` (93S: the 9 x 2 team block at printx / printy, with 94 name sprites), `PlayerInitialName` (from behavior).
+- `setplayercolors` and `SetTeamColors` (93S: the uniform colours, then the whole palette), `nullrtl` (93S: setupice calls it at the same point), RAM `palbuffer` ($7E35F4), `HomeUniformPalettes` / `AwayUniformPalettes` by label; from behavior `ReloadRink` (the pause screens return through it).
 
 ## Unsure
 

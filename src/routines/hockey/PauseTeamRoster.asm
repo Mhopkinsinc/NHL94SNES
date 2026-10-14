@@ -7,5 +7,5 @@ PauseTeamRoster:
 
 .t1:
 	jsl.l TeamRoster
-	jsl.l CODE_9FE79F
+	jsl.l ReloadRink
 	bra PauseSubmenuDone

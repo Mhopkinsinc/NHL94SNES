@@ -317,7 +317,7 @@ org $9F9001
 	jsl.l WaitFadeOut
 	jsl.l forceblack
 	jsl.l .19
-	jsl.l CODE_9FB901
+	jsl.l setplayercolors
 	jsl.l SetHor
 	jsl.l SpriteFrameStart
 	jsl.l setvideo

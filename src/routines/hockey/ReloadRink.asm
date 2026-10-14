@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE79F:
+; After a pause screen: unpack the rink map, tiles and palettes again, set the colours, SetHor and the sprites, then fade in
+ReloadRink:
 	jsl.l FadeOut
 	lda.w #$FFFF
 	sta.w $07C6
@@ -18,7 +18,7 @@ CODE_9FE79F:
 	jsl.l forceblack
 	jsl.l SpriteFrameStart
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9FB901
+	jsl.l setplayercolors
 	sep #$20
 	lda.b #$00
 	sta.w BG1SC
@@ -33,7 +33,7 @@ CODE_9FE79F:
 	rep #$20
 	lda.w #$007E
 	sta.b $0E
-	lda.w #$35F4
+	lda.w #palbuffer
 	sta.b $0C
 	ldy.w #$0000
 	ldx.w #$0040

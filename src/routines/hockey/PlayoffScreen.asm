@@ -129,7 +129,7 @@ PlayoffScreen:
 	sta.b $0C
 	lda.w #$007E
 	sta.b $12
-	lda.w #$35F4
+	lda.w #palbuffer
 	sta.b $10
 	jsl.l Decompress
 	lda.w #$0096

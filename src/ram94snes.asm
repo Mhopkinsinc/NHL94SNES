@@ -196,3 +196,4 @@ padnew = $0AB8		; 5 words: each pad's buttons newly pressed at the last ReadPads
 CwdExciteLvl = $19BE	; crowd excitement: raised by hits and goals, set per playoff stage at a period start
 CurCrowdMeter = $19C2	; the crowd meter in dB: sroot(CwdExciteLvl * 4) + 65, at most 128
 CrowdPeak = $19C4	; the highest CurCrowdMeter of the game
+palbuffer = $7E35F4	; the palette buffer (256 colours) sent to CGRAM
