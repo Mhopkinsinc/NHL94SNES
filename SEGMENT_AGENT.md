@@ -698,3 +698,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - ClearTextMap2, LoadPlayerCardScreen. MATCH.
 - PlayerSelect and its helpers. MATCH.
 - Title screen helpers. MATCH.
+- ShowRosterLine; CODE_9D9F28 folded. MATCH.

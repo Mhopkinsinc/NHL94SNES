@@ -6,5 +6,5 @@ MoveRosterColumn:
 	sta.b d0
 	bmi CODE_9D9E86
 	sta.w $0D47
-	jsl.l CODE_9D9ECB
+	jsl.l ShowRosterLine
 	bra CODE_9D9E86

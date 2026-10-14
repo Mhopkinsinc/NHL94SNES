@@ -102,7 +102,7 @@ CODE_9D9DE2:
 	lda.w #$FFFF
 	sta.l $7F7542
 	jsl.l SendColours
-	jsl.l CODE_9D9ECB
+	jsl.l ShowRosterLine
 CODE_9D9E2D:
 	jsl.l SendTextMap
 	jsl.l WaitFrame
@@ -112,7 +112,7 @@ CODE_9D9E2D:
 	lda.b d1
 	bit.w #$1000
 	beq .t1
-	jmp.w CODE_9DA04C
+	jmp.w RosterRtl
 
 .t1:
 	bit.w #$4000
@@ -140,6 +140,6 @@ CODE_9D9E2D:
 	cmp.w #$0008
 	bcs CODE_9D9E86
 	sta.w SelectedPlayerIdx
-	jsl.l CODE_9D9ECB
+	jsl.l ShowRosterLine
 CODE_9D9E86:
 	jmp.w CODE_9D9E2D

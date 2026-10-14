@@ -54,6 +54,7 @@
 - From behavior: `ClearTextMap2` (ClearTextMap for the second map), `LoadPlayerCardScreen`.
 - From behavior: `PlayerSelect` (the screen with PlayerSelectTitle), `DrawSelectTeam`, `RedrawPlayerSelect`, `ClearMessageArea`, `ClearTextMapBottom`, and the MultiPlayer 5 messages `Multi5SocketMsg` / `Multi5ScopeMsg` / `Multi5MouseMsg` (named from their strings).
 - Title screen helpers from behavior: `TitleWait`, `TitleDelay`, `ShuffleTitleTeams`, `NextTitleTeam`, `LoadTitleLogo`; RAM `titleskip` ($0BE9).
+- `ShowRosterLine` (93S: the TeamRoster .show block as its own routine); its tail CODE_9D9F28 folded in; CODE_9DA04C named `RosterRtl` (TeamRoster jumps to that rtl).
 
 ## Unsure
 
