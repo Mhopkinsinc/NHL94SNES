@@ -69,7 +69,7 @@ ShowGameStats:
 	lda.w #$0060
 	ldx.w #$00C8
 	ldy.w #$00D8
-	jsl.l CODE_9BCDF8
+	jsl.l SetupScrollIRQ
 	lda.w #$0010
 	sta.w $1DF5
 	jsl.l CODE_9DDFF6

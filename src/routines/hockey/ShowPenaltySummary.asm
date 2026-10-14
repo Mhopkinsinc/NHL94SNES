@@ -50,7 +50,7 @@ ShowPenaltySummary:
 	lda.w #$0058
 	ldx.w #$00D0
 	ldy.w #$00E0
-	jsl.l CODE_9BCDF8
+	jsl.l SetupScrollIRQ
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 	lda.w #$0005

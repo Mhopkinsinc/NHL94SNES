@@ -3,8 +3,8 @@ SwapPlayerStatsTeam:
 	lda.b a2
 	eor.w #$0002
 	sta.b a2
-	jsl.l CODE_9C8826
-	jsl.l CODE_9C8B54
+	jsl.l SetPlayerStatsRange
+	jsl.l InitStatsOrder
 	jsl.l CODE_9C8B69
 	jsl.l SpriteFrameStart
 	ldx.b a2

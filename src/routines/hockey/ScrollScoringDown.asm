@@ -25,7 +25,7 @@ ScrollScoringDown:
 	lda.w $1DF3
 	cmp.w #$0017
 	bne .loop
-	jsl.l CODE_9B9AB2
+	jsl.l PrintScrollArrows
 	jsr.w DrawScoringPage
 	jsl.l WaitFrame
 	lda.w #$FFFF

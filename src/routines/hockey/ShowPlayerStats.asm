@@ -53,15 +53,15 @@ ShowPlayerStats:
 	sta.b $8F
 	lda.w #$0001
 	sta.w $1DF9
-	jsl.l CODE_9C8826
+	jsl.l SetPlayerStatsRange
 	lda.w #$0007
 	sta.w $1DC5
-	jsl.l CODE_9C8B54
+	jsl.l InitStatsOrder
 	jsl.l CODE_9C8B69
 	lda.w #$0058
 	ldx.w #$00C0
 	ldy.w #$00D0
-	jsl.l CODE_9BCDF8
+	jsl.l SetupScrollIRQ
 	lda.w #$0018
 	sta.w $1DF5
 	lda.w #$0001
@@ -252,8 +252,8 @@ CODE_9C87B7:
 	jmp.w CODE_9C8684
 CODE_9C87C5:
 	sta.w $1DF9
-	jsl.l CODE_9C8826
-	jsl.l CODE_9C8B54
+	jsl.l SetPlayerStatsRange
+	jsl.l InitStatsOrder
 	jsl.l CODE_9C8B69
 	jsl.l CODE_9C88A0
 	jmp.w CODE_9C8684

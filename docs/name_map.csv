@@ -1051,7 +1051,7 @@ $9FA333,.loop3,CODE_9FA333,new,branch target only used in this routine,src/routi
 $808DB7,.loop,CODE_808DB7,new,branch target only used in this routine,src/routines/snes/Mode7MapToVRAM.asm
 $9FB046,.1,CODE_9FB046,new,branch target only used in this routine,src/routines/snes/CODE_9FB024.asm
 $9FB055,.2,CODE_9FB055,new,branch target only used in this routine,src/routines/snes/CODE_9FB024.asm
-$9C8B5A,.loop,CODE_9C8B5A,new,branch target only used in this routine,src/routines/snes/CODE_9C8B54.asm
+$9C8B5A,.loop,CODE_9C8B5A,new,branch target only used in this routine,src/routines/snes/InitStatsOrder.asm
 $9DC566,.loop,CODE_9DC566,new,branch target only used in this routine,src/routines/snes/CODE_9DC561.asm
 $9DC5A4,.1,CODE_9DC5A4,new,branch target only used in this routine,src/routines/snes/CODE_9DC561.asm
 $9DC5A7,.loop2,CODE_9DC5A7,new,branch target only used in this routine,src/routines/snes/CODE_9DC561.asm
@@ -2760,7 +2760,7 @@ $9C8C7D,.t1,CODE_9C8C7D,new,continued in the previous routine,src/routines/snes/
 $9C8B21,.t1,CODE_9C8B21,new,continued in the previous routine,src/routines/snes/CODE_9C8934.asm
 $9C8973,.t1,CODE_9C8973,new,continued in the previous routine,src/routines/snes/CODE_9C8934.asm
 $9C88DF,.t1,CODE_9C88DF,new,continued in the previous routine,src/routines/snes/CODE_9C88A0.asm
-$9C8842,.t1,CODE_9C8842,new,continued in the previous routine,src/routines/snes/CODE_9C8826.asm
+$9C8842,.t1,CODE_9C8842,new,continued in the previous routine,src/routines/snes/SetPlayerStatsRange.asm
 $9C87B1,.t1,CODE_9C87B1,new,continued in the previous routine,src/routines/snes/CODE_9C87A6.asm
 $9C879F,.t1,CODE_9C879F,new,continued in the previous routine,src/routines/snes/CODE_9C8796.asm
 $9C875C,.t1,CODE_9C875C,new,continued in the previous routine,src/routines/snes/CODE_9C874C.asm
@@ -3242,7 +3242,7 @@ $9BA3B1,.t2,CODE_9BA3B1,new,continued in the previous routine,src/routines/snes/
 $9BA23C,.t2,CODE_9BA23C,new,continued in the previous routine,src/routines/snes/CODE_9BA1C3.asm
 $9BA149,.t2,CODE_9BA149,new,continued in the previous routine,src/routines/video/showcrowd.asm
 $9B9FF0,.t2,CODE_9B9FF0,new,continued in the previous routine,src/routines/video/showcrowd.asm
-$9B9ADA,.t1,CODE_9B9ADA,new,continued in the previous routine,src/routines/snes/CODE_9B9AB2.asm
+$9B9ADA,.t1,CODE_9B9ADA,new,continued in the previous routine,src/routines/snes/PrintScrollArrows.asm
 $9B995F,.t2,CODE_9B995F,new,continued in the previous routine,src/routines/snes/CODE_9B9917.asm
 $9B96C8,.t2,CODE_9B96C8,new,continued in the previous routine,src/routines/snes/CODE_9B95F5.asm
 $9B9474,.t1,CODE_9B9474,new,continued in the previous routine,src/routines/snes/CODE_9B93F3.asm
@@ -4350,8 +4350,8 @@ $9B8BFB,.2,CODE_9B8BFB,new,branch target only used in this routine,src/routines/
 $9B8BFD,.3,CODE_9B8BFD,new,branch target only used in this routine,src/routines/snes/CODE_9B8B60.asm
 $9B9331,.1,CODE_9B9331,new,branch target only used in this routine,src/routines/snes/CODE_9B9320.asm
 $9B96FE,.3,CODE_9B96FE,new,branch target only used in this routine,src/routines/snes/CODE_9B95B0.asm
-$9B9AF4,.1,CODE_9B9AF4,new,branch target only used in this routine,src/routines/snes/CODE_9B9AB2.asm
-$9B9B30,.2,CODE_9B9B30,new,branch target only used in this routine,src/routines/snes/CODE_9B9AB2.asm
+$9B9AF4,.1,CODE_9B9AF4,new,branch target only used in this routine,src/routines/snes/PrintScrollArrows.asm
+$9B9B30,.2,CODE_9B9B30,new,branch target only used in this routine,src/routines/snes/PrintScrollArrows.asm
 $9B9C22,.1,CODE_9B9C22,new,branch target only used in this routine,src/routines/snes/CODE_9B9BF8.asm
 $9BA5D2,.2,CODE_9BA5D2,new,branch target only used in this routine,src/routines/hockey/ShowCrowdMeter.asm
 $9BA662,.3,CODE_9BA662,new,branch target only used in this routine,src/routines/hockey/ShowCrowdMeter.asm
@@ -4370,7 +4370,7 @@ $9BB300,.7,CODE_9BB300,new,branch target only used in this routine,src/routines/
 $9BB348,.8,CODE_9BB348,new,branch target only used in this routine,src/routines/hockey/RestoreReplayFrame.asm
 $9BC5E6,.1,CODE_9BC5E6,new,branch target only used in this routine,src/routines/snes/CODE_9BC5AB.asm
 $9BC75D,.1,CODE_9BC75D,new,branch target only used in this routine,src/routines/snes/CODE_9BC6C9.asm
-$9C884E,.1,CODE_9C884E,new,branch target only used in this routine,src/routines/snes/CODE_9C8826.asm
+$9C884E,.1,CODE_9C884E,new,branch target only used in this routine,src/routines/snes/SetPlayerStatsRange.asm
 $9C8912,.1,CODE_9C8912,new,branch target only used in this routine,src/routines/snes/CODE_9C88A0.asm
 $9C8957,.1,CODE_9C8957,new,branch target only used in this routine,src/routines/snes/CODE_9C8934.asm
 $9C8977,.2,CODE_9C8977,new,branch target only used in this routine,src/routines/snes/CODE_9C8934.asm
@@ -5191,3 +5191,10 @@ $9FC7EC,.2,CODE_9FC7EC,new,"part of CODE_9FC79F, used only by it",src/routines/s
 $9FD2FE,SetLCmode,CODE_9FD2FE,93S,"doinput and puckfaceoff call it as in 93S; the option test, loadTeamStruct, tmflags, then SetLCmode2 as in 93S",src/routines/logic/SetLCmode2.asm
 $9C98DF,SPCGameUpload,CODE_9C98DF,93S,"setupice calls it as 93S setupice calls SPCGameUpload; SoundInit, then the in-game block list (DATA8_80DD16) and its effect table",src/routines/sound/SPCGameUpload.asm
 $9C9B5F,PlayTeamSong,CODE_9C9B5F,new,"TeamSongs slot A of HomeTeam, else a random DefaultSongs entry; Goal, the game loop and the face off call it",src/routines/snes/PlayTeamSong.asm
+$9BCDF8,SetupScrollIRQ,CODE_9BCDF8,new,"set up the split scroll of a stats screen: the IRQ lines A, X, Y and the first hook",src/routines/snes/SetupScrollIRQ.asm
+$9BCE21,IRQ_StatsScroll1,CODE_9BCE21,new,"iRQ hook: the first BG1 scroll split of a stats screen, then the next hook",src/routines/snes/IRQ_StatsScroll1.asm
+$9BCE44,IRQ_StatsScroll2,CODE_9BCE44,new,"iRQ hook: the second BG1 scroll split, then the next hook",src/routines/snes/IRQ_StatsScroll2.asm
+$9BCE61,IRQ_StatsScroll3,CODE_9BCE61,new,iRQ hook: the last BG1 scroll split,src/routines/snes/IRQ_StatsScroll3.asm
+$9C8826,SetPlayerStatsRange,CODE_9C8826,new,the first and last row of the player stats list: the goalies or the skaters,src/routines/snes/SetPlayerStatsRange.asm
+$9C8B54,InitStatsOrder,CODE_9C8B54,new,"fill the stats row order with 0, 1, 2 ...",src/routines/snes/InitStatsOrder.asm
+$9B9AB2,PrintScrollArrows,CODE_9B9AB2,new,"show or clear the scroll arrows beside a summary list, then send the text map",src/routines/snes/PrintScrollArrows.asm

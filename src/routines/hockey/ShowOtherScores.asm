@@ -31,7 +31,7 @@ ShowOtherScores:
 	lda.w #$0050
 	ldx.w #$00C0
 	ldy.w #$00D8
-	jsl.l CODE_9BCDF8
+	jsl.l SetupScrollIRQ
 	jsl.l CODE_9DDFF6
 	jsl.l ScreenOn
 	lda.w #$0005

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9B9AB2:
+; Show or clear the scroll arrows beside a summary list, then send the text map
+PrintScrollArrows:
 	lda.w $1DBD
 	clc
 	adc.w #$0005

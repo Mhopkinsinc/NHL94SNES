@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C8B54:
+; Fill the stats row order with 0, 1, 2 ...
+InitStatsOrder:
 	lda.w #$0000
 	ldy.w #$FFFF
 .loop:

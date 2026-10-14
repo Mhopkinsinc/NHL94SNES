@@ -1,50 +1,12 @@
-; Unidentified routine.
-CODE_9BCDF8:
-	sta.w $1DED
-	stx.w $1DEF
-	sty.w $1DF1
-	lda.w #$FFFF
-	sta.w $1DF3
-	sta.w $1DF5
-	sta.w $1DF7
-	lda.w #$00C4
-	sta.w $07D4
-	lda.w #$CE21
-	ldx.w #$009B
-	ldy.w $1DED
-	jsl.l SetIRQ
-	rtl
-	sep #$20
-	lda.w $1DF3
-	sta.w BG1VOFS
-	lda.w $1DF4
-	sta.w BG1VOFS
-	rep #$20
-	lda.w #$CE44
-	sta.w $078F
-	lda.w $1DEF
-	sta.w VTIMEL
-	lda.w #$FFFF
-	sta.w $1DCD
-	rtl
-	sep #$20
-	lda.w $1DF5
-	sta.w BG1VOFS
-	lda.w $1DF6
-	sta.w BG1VOFS
-	rep #$20
-	lda.w #$CE61
-	sta.w $078F
-	lda.w $1DF1
-	sta.w VTIMEL
-	rtl
+; IRQ hook: the last BG1 scroll split
+IRQ_StatsScroll3:
 	sep #$20
 	lda.w $1DF7
 	sta.w BG1VOFS
 	lda.w $1DF8
 	sta.w BG1VOFS
 	rep #$20
-	lda.w #$CE21
+	lda.w #IRQ_StatsScroll1
 	sta.w $078F
 	rtl
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF

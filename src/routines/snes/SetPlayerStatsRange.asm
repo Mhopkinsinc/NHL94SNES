@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C8826:
+; The first and last row of the player stats list: the goalies or the skaters
+SetPlayerStatsRange:
 	lda.w $1DF9
 	cmp.w #$0000
 	beq .t1

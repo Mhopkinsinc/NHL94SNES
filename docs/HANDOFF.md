@@ -38,6 +38,7 @@
 - Private parts: `CODE_` files after a named routine that only that routine and its own parts use (its body after a 94 prologue, the helpers it calls or passes as a callback, its handlers) are folded into it, labels local where the scope allows; for example the bodies of the assignment routines, the parts of `assgoalie`, `FallDown`, `checkgoal` and `puckfaceoff`, and the `doinput` button handlers.
 - `SetLCmode` (its callers `doinput` and `puckfaceoff` became visible once their parts were folded).
 - `SPCGameUpload` (93S; the in-game sample set `setupice` loads) and `PlayTeamSong` (`TeamSongs` slot A of the home team, else a random `DefaultSongs`).
+- Stats screens: `SetupScrollIRQ` with its hooks `IRQ_StatsScroll1`-`3` (the split BG1 scroll), `SetPlayerStatsRange`, `InitStatsOrder`, `PrintScrollArrows`.
 
 ## Unsure
 

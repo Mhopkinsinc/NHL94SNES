@@ -682,3 +682,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Private parts of still unnamed routines folded the same way. MATCH.
 - SetLCmode from 93S. MATCH.
 - SPCGameUpload (93S) and PlayTeamSong. MATCH.
+- Stats screen scroll IRQ and list helpers named from what they do. MATCH.

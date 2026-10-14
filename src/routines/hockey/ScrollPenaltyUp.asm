@@ -19,7 +19,7 @@ ScrollPenaltyUp:
 	lda.w $1DF3
 	cmp.w #$0001
 	bne .loop
-	jsl.l CODE_9B9AB2
+	jsl.l PrintScrollArrows
 	lda.w #$0005
 	sta.w $1DC5
 	jsr.w DrawPenaltyPage
