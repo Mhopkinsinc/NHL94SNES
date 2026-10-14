@@ -32,7 +32,7 @@ ShowOtherScores:
 	ldx.w #$00C0
 	ldy.w #$00D8
 	jsl.l SetupScrollIRQ
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	lda.w #$0005
 	sta.w $1DC5

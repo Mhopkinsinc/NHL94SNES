@@ -51,7 +51,7 @@ ShowPenaltySummary:
 	ldx.w #$00D0
 	ldy.w #$00E0
 	jsl.l SetupScrollIRQ
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	lda.w #$0005
 	sta.w $1DC5

@@ -72,7 +72,7 @@ ShowGameStats:
 	jsl.l SetupScrollIRQ
 	lda.w #$0010
 	sta.w $1DF5
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	jsr.w PrintTeamStatRows
 	jsl.l SendTextMap

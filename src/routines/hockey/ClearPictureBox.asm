@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DCCBA:
+; Blank the 6 x 6 picture area at x, y of the text map (under a logo sprite)
+ClearPictureBox:
 	lda.w #$007E
 	sta.b $12
 	lda.w #$37F4

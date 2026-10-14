@@ -34,7 +34,7 @@ ShootoutShooters:
 	lda.w #$0005
 	ldx.w #$0050
 	jsl.l SetupBandIRQ
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 ShootersLoop:
 	jsl.l SendTextMap

@@ -397,7 +397,7 @@ SetupScreen:
 	jsl.l CODE_9DDF73
 	lda.w #$3568
 	sta.l $7F7500
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	pla
 	sta.b a2
 	rtl

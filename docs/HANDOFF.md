@@ -49,6 +49,7 @@
 - `ScoutingReport` (93S and 94G name; the same call skeleton as 93S).
 - `GetNameandAttrib` (93S: same frame and attribjmp dispatch), `CalcAttrib` (94G: called at the same point, hot / cold table), RAM `jmlvector` ($1D59, the jml trampoline as 93S jmlvector).
 - `GetTeamRating` (94G: the bytes read equal 94G TeamRatings), and from behavior `GetPlayerRating`, `GetPlayerBaseRating`, `LoadMatchupPhotos`, `LoadScoutingScreen`, `ScoutingHDMA`.
+- `DrawMatchupPictures`, `DrawPlayerPicture` (94G: same job, callers pair with the 94G ones), and from behavior `ClearPictureBox`, `MenuScreenHDMA`.
 
 ## Unsure
 

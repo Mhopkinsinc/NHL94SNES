@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DC9A8:
+; Draw the picture of player A of team a2 (PlayerPhotoTable) at x, y
+DrawPlayerPicture:
 	sta.b d0
 	lda.l $7E3474
 	beq .t1

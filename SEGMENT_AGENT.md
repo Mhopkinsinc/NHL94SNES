@@ -693,3 +693,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - ScoutingReport. MATCH.
 - GetNameandAttrib, CalcAttrib, jmlvector. MATCH.
 - GetTeamRating and the scouting screen helpers. MATCH.
+- DrawMatchupPictures, DrawPlayerPicture, ClearPictureBox, MenuScreenHDMA. MATCH.

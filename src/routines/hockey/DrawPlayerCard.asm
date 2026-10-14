@@ -273,7 +273,7 @@ org $9DC002
 .5:
 	ldx.w #$000D
 	ldy.w #$0004
-	jsl.l CODE_9DCCBA
+	jsl.l ClearPictureBox
 	lda.w #$0001
 	sta.l $7E3464
 	lda.b $8F
@@ -386,7 +386,7 @@ org $9DC002
 	lda.w $1D9B
 	ldx.w #$000D
 	ldy.w #$0004
-	jsl.l CODE_9DC9A8
+	jsl.l DrawPlayerPicture
 	lda.w #$007F
 	sta.b $0E
 	lda.l $7E3470

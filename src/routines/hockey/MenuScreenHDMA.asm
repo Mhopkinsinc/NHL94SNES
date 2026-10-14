@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DDFF6:
+; Start the window and COLDATA HDMA (channels 2 and 3) of the stats and menu screens
+MenuScreenHDMA:
 	sep #$20
 	lda.b #$A0
 	sta.w WOBJSEL

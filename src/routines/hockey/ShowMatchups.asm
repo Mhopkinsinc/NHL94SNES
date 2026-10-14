@@ -76,7 +76,7 @@ ShowMatchups:
 	sta.b a2
 	lda.w $1DB9
 	sta.l $7E345C
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	lda.w #$3568
 	sta.l $7F7500
 	jsl.l SendColours
@@ -181,7 +181,7 @@ ShowMatchups:
 	sta.l $7E3452
 	lda.w VisTeam
 	sta.l $7E3454
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	jsl.l SendColours
 	lda.w #$0002
 	sta.b a2

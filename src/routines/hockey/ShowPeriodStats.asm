@@ -11,7 +11,7 @@ ShowPeriodStats:
 	lda.w #$0006
 	sta.w $1DC5
 	stz.w $1DB9
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	jsl.l DrawPeriodStats
 .1:

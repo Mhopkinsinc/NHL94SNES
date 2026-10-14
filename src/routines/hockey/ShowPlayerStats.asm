@@ -68,7 +68,7 @@ ShowPlayerStats:
 	sta.l $7E3478
 	jsl.l SendTextMap
 	jsl.l CODE_9C88A0
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 CODE_9C8644:
 	jsl.l ReadPads

@@ -23,7 +23,7 @@ PasswordScreen:
 	sta.l $7E3454
 	lda.w #$001D
 	sta.l $7E3452
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
 	lda.b $8F

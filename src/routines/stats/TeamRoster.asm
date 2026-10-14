@@ -21,7 +21,7 @@ TeamRoster:
 	sta.b a1
 	jsl.l PrintLetterSprites
 	jsl.l FadeIn
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	lda.w #$007E
 	sta.b $12

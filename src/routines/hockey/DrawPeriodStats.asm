@@ -1,7 +1,7 @@
 ; Draw the period stats title and both teams' period columns.
 DrawPeriodStats:
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	jsl.l WaitDMAQueue
 	ldx.w #$004C
 	ldy.w #$0018

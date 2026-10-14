@@ -22,7 +22,7 @@ EditLinesScreen:
 	lda.w #$0005
 	ldx.w #$0068
 	jsl.l SetupBandIRQ
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 .3:
 	jsl.l SendTextMap

@@ -14,5 +14,5 @@ SwapRosterTeam:
 	lda.w #TeamRosterSwap
 	sta.b a1
 	jsl.l PrintLetterSprites
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	jmp.w CODE_9D9DE2

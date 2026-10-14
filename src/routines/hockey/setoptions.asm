@@ -90,7 +90,7 @@ setoptions:
 	jsr.w .10
 	jsr.w .11
 	jsl.l ReadPads
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	lda.w #$0008
 	ldx.w #$0040
@@ -633,7 +633,7 @@ setoptions:
 	ldy.w #$0043
 	jsl.l CODE_9C943E
 .4xxx:
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
 	rts

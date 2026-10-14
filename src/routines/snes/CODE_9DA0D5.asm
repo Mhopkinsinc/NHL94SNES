@@ -42,7 +42,7 @@ CODE_9DA0D5:
 	ldx.w #$0800
 	ldy.w #$0800
 	jsl.l DMAToVRAM
-	jsl.l CODE_9DDFF6
+	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	jsl.l FadeIn
 	lda.w #$000A
@@ -484,7 +484,7 @@ CODE_9DA0D5:
 	lda.w #PlayerSelectTitle
 	sta.b a1
 	jsl.l PrintLetterSprites
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	jsl.l SendColours
 	lda.b $10
 	pha

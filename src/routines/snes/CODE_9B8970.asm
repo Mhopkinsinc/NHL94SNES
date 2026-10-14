@@ -36,7 +36,7 @@ CODE_9B8970:
 .3:
 	sta.b d0
 	jsl.l CODE_9FBE08
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
 	lda.l $7E3468
 	beq .4

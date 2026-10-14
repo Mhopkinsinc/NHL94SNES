@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DDDB3:
+; Draw the two 6 x 6 pictures, visitors at x 1 and home at x $18: a team logo ($7E3454 / $7E3452) or, when that is negative, the matchup player picture ($7E345C / $7E345A)
+DrawMatchupPictures:
 	lda.b a2
 	pha
 	lda.l $7E3454
@@ -13,7 +13,7 @@ CODE_9DDDB3:
 	lda.l $7E345C
 	ldx.w #$0001
 	ldy.w #$0001
-	jsl.l CODE_9DC9A8
+	jsl.l DrawPlayerPicture
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$7780
@@ -52,7 +52,7 @@ CODE_9DDDB3:
 	jsl.l DrawSprite
 	ldx.w #$0001
 	ldy.w #$0001
-	jsl.l CODE_9DCCBA
+	jsl.l ClearPictureBox
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$7700
@@ -78,7 +78,7 @@ CODE_9DDDB3:
 	lda.l $7E345A
 	ldx.w #$0018
 	ldy.w #$0001
-	jsl.l CODE_9DC9A8
+	jsl.l DrawPlayerPicture
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$7780
@@ -117,7 +117,7 @@ CODE_9DDDB3:
 	jsl.l DrawSprite
 	ldx.w #$0018
 	ldy.w #$0001
-	jsl.l CODE_9DCCBA
+	jsl.l ClearPictureBox
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$7700

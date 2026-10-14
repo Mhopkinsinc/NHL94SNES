@@ -91,7 +91,7 @@ ShowCrowdMeter:
 	lda.w #CrowdMeter
 	sta.b a1
 	jsl.l PrintLetterSprites
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	jsl.l .6
 	jsl.l SpriteFrameEnd
 .2:

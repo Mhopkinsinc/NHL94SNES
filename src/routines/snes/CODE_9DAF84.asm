@@ -9,7 +9,7 @@ CODE_9DAF84:
 	lda.w #PlayerSelectAlt
 	sta.b a1
 	jsl.l PrintLetterSprites
-	jsl.l CODE_9DDDB3
+	jsl.l DrawMatchupPictures
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	rtl
