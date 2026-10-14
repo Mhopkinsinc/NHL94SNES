@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB9B4:
+; Licence screen: the two logos, the NHL line moved up and "Players Association" under it (title sprites 9-12)
+DrawLicenceNHLPA:
 	jsl.l SpriteFrameStart
 	lda.w #$007F
 	sta.b $12

@@ -162,7 +162,7 @@ updatereplay:
 	sta.w WMDATA
 	lda.w $0D38
 	sta.w WMDATA
-	lda.w $0C29
+	lda.w benchframe
 	sta.w WMDATA
 	lda.w $0C2A
 	sta.w WMDATA

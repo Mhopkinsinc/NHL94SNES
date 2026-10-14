@@ -101,11 +101,11 @@ Goal:
 	jsl.l MusicStop
 	lda.w #$0002
 	jsl.l StreamSfx
-	stz.w $0C23
+	stz.w benchcheer
 	ldy.b a2
 	beq .t1xxx
 	lda.w #$0004
-	jsl.l CODE_9C9FD5
+	jsl.l StartBenchCheer
 	lda.l crowdlevel
 	sec
 	sbc.w #$0300
@@ -118,7 +118,7 @@ Goal:
 .t1xxx:
 	inc a
 	inc a
-	jsl.l CODE_9C9FD5
+	jsl.l StartBenchCheer
 	lda.l crowdlevel
 	clc
 	adc.w #$01F4

@@ -854,7 +854,7 @@ $80A983,.loop,CODE_80A983,new,branch target only used in this routine,src/routin
 $80A99C,.2,CODE_80A99C,new,branch target only used in this routine,src/routines/snes/CODE_80A96C.asm
 $80A99F,.3,CODE_80A99F,new,branch target only used in this routine,src/routines/snes/CODE_80A96C.asm
 $9EEB40,.1,CODE_9EEB40,new,branch target only used in this routine,src/routines/logic/dopass.asm
-$9C9FEC,.rtl,CODE_9C9FEC,new,branch target only used in this routine,src/routines/snes/CODE_9C9FD5.asm
+$9C9FEC,.rtl,CODE_9C9FEC,new,branch target only used in this routine,src/routines/hockey/StartBenchCheer.asm
 $9DBCB6,.loop,CODE_9DBCB6,new,branch target only used in this routine,src/routines/hockey/TitleWindowWipe.asm
 $9DBCD5,.1,CODE_9DBCD5,new,branch target only used in this routine,src/routines/hockey/TitleWindowWipe.asm
 $9C89A2,.1,CODE_9C89A2,new,branch target only used in this routine,src/routines/hockey/FillPlayerStatsPage.asm
@@ -2721,7 +2721,7 @@ $9CA49F,.t1,CODE_9CA49F,new,continued in the previous routine,src/routines/snes/
 $9CA2EE,.t1,CODE_9CA2EE,new,continued in the previous routine,src/routines/video/InitSortObjects.asm
 $9CA192,.t1,CODE_9CA192,new,continued in the previous routine,src/routines/snes/CODE_9CA101.asm
 $9CA0FE,.t1,CODE_9CA0FE,new,continued in the previous routine,src/routines/video/setsortcords.asm
-$9CA02D,.t1,CODE_9CA02D,new,continued in the previous routine,src/routines/snes/CODE_9C9FED.asm
+$9CA02D,.t1,CODE_9CA02D,new,continued in the previous routine,src/routines/hockey/UpdateBenchCheer.asm
 $9C9F48,.t1,CODE_9C9F48,new,continued in the previous routine,src/routines/hockey/ShowStars.asm
 $9C9EC4,.t1,CODE_9C9EC4,new,continued in the previous routine,src/routines/hockey/ShowStars.asm
 $9C9E25,.t1,CODE_9C9E25,new,continued in the previous routine,src/routines/snes/CODE_9C9E15.asm
@@ -5127,11 +5127,11 @@ $9C8A83,.4,CODE_9C8A83,new,"part of CODE_9C8934, used only by it",src/routines/h
 $9C99E5,.4,CODE_9C99E5,new,"part of CODE_9C9981, used only by it",src/routines/sound/UpdateStreamSfx.asm
 $9C9A20,.5,CODE_9C9A20,new,"part of CODE_9C9981, used only by it",src/routines/sound/UpdateStreamSfx.asm
 $9C9A21,.6,CODE_9C9A21,new,"part of CODE_9C9981, used only by it",src/routines/sound/UpdateStreamSfx.asm
-$9CA032,.1,CODE_9CA032,new,"part of CODE_9C9FED, used only by it",src/routines/snes/CODE_9C9FED.asm
-$9CA037,.2,CODE_9CA037,new,"part of CODE_9C9FED, used only by it",src/routines/snes/CODE_9C9FED.asm
-$9CA03D,.3,CODE_9CA03D,new,"part of CODE_9C9FED, used only by it",src/routines/snes/CODE_9C9FED.asm
-$9CA040,.4,CODE_9CA040,new,"part of CODE_9C9FED, used only by it",src/routines/snes/CODE_9C9FED.asm
-$9CA04D,.5,CODE_9CA04D,new,"part of CODE_9C9FED, used only by it",src/routines/snes/CODE_9C9FED.asm
+$9CA032,.1,CODE_9CA032,new,"part of CODE_9C9FED, used only by it",src/routines/hockey/UpdateBenchCheer.asm
+$9CA037,.2,CODE_9CA037,new,"part of CODE_9C9FED, used only by it",src/routines/hockey/UpdateBenchCheer.asm
+$9CA03D,.3,CODE_9CA03D,new,"part of CODE_9C9FED, used only by it",src/routines/hockey/UpdateBenchCheer.asm
+$9CA040,.4,CODE_9CA040,new,"part of CODE_9C9FED, used only by it",src/routines/hockey/UpdateBenchCheer.asm
+$9CA04D,.5,CODE_9CA04D,new,"part of CODE_9C9FED, used only by it",src/routines/hockey/UpdateBenchCheer.asm
 $9D8292,.10,CODE_9D8292,new,"part of CODE_9D8129, used only by it",src/routines/hockey/ScoutingReport.asm
 $9D8330,.11,CODE_9D8330,new,"part of CODE_9D8129, used only by it",src/routines/hockey/ScoutingReport.asm
 $9D842F,.12,CODE_9D842F,new,"part of CODE_9D8129, used only by it",src/routines/hockey/ScoutingReport.asm
@@ -5806,3 +5806,7 @@ $9DB8E6,TitlePathX,CODE_9DB8E6,new,Behavior: BuildTitlePath's second table,src/r
 $9DB934,TitlePathY,CODE_9DB934,new,Behavior: BuildTitlePath's third table,src/routines/hockey/TitlePathY.asm
 $9DB9F7,StartCredits,CODE_9DB9F7,new,Behavior: TitleScreen calls it before RollCredits; the credits are CreditTitles / CreditNames,src/routines/hockey/StartCredits.asm
 $9DBA13,RollCredits,CODE_9DBA13,new,"Title: each frame, move the credit title and names (CreditTitles / CreditNames, PrintStringSprites) through their steps",src/routines/hockey/StartCredits.asm
+$9C9FD5,StartBenchCheer,CODE_9C9FD5,new,"Behavior, confirmed by the user from the rendered frames ($394 / $39A: a team bench standing and cheering): started by Goal, FallDown (a big hit) and assscore",src/routines/hockey/StartBenchCheer.asm
+$9C9FED,UpdateBenchCheer,CODE_9C9FED,new,Behavior (user confirmed); called from DoGameFrame; setsortcords draws benchframe at the bench spot in the team palette,src/routines/hockey/UpdateBenchCheer.asm
+$9DB983,DrawLicenceNHL,CODE_9DB983,new,"Behavior, confirmed by the user from the rendered DATA8_91B188 frames; TitleScreen draws it before frame $78",src/routines/hockey/DrawLicenceNHL.asm
+$9DB9B4,DrawLicenceNHLPA,CODE_9DB9B4,new,Behavior (user confirmed); TitleScreen draws it from frame $78 on,src/routines/hockey/DrawLicenceNHLPA.asm

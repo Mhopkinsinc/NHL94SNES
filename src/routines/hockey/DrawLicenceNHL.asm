@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DB983:
+; Licence screen: the NHL shield, the NHLPA logo and "Officially licensed product of the National Hockey League" (title sprites 9, 10, 11)
+DrawLicenceNHL:
 	jsl.l SpriteFrameStart
 	lda.w #$007F
 	sta.b $12

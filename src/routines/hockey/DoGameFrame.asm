@@ -1,7 +1,7 @@
 ; Run one frame of game logic
 DoGameFrame:
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9C9FED
+	jsl.l UpdateBenchCheer
 	jsl.l periodicevents
 	jsl.l updateplayers
 	jsl.l checkwindow

@@ -6,7 +6,7 @@ assscore:
 	lda.b a2
 	inc a
 	inc a
-	jsl.l CODE_9C9FD5
+	jsl.l StartBenchCheer
 .1x:
 	ldy.w $19D4,x
 	bmi .t2

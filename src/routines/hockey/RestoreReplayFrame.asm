@@ -185,7 +185,7 @@ RestoreReplayFrame:
 	lda.w WMDATA
 	sta.w $0D38
 	lda.w WMDATA
-	sta.w $0C29
+	sta.w benchframe
 	lda.w WMDATA
 	sta.w $0C2A
 	bra .8
@@ -196,7 +196,7 @@ RestoreReplayFrame:
 	lda.w WMDATA
 	lda.w WMDATA
 	lda.w WMDATA
-	sta.w $0C29
+	sta.w benchframe
 	lda.w WMDATA
 	sta.w $0C2A
 .8:

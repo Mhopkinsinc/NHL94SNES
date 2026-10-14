@@ -144,7 +144,7 @@ FallDown:
 	bmi .1xx
 	sta.w CwdExciteLvl
 .1xx:
-	stz.w $0C23
+	stz.w benchcheer
 	ldy.b a2
 	lda.w pfteam,y
 	beq .2x
@@ -152,7 +152,7 @@ FallDown:
 .2x:
 	clc
 	adc.w #$0006
-	jsl.l CODE_9C9FD5
+	jsl.l StartBenchCheer
 	lda.w #$0002
 	sta.w $0C25
 	ldx.b a3
@@ -207,7 +207,7 @@ FallDown:
 .1xxx:
 	inc a
 	inc a
-	jsl.l CODE_9C9FD5
+	jsl.l StartBenchCheer
 	lda.w #$0002
 	sta.w $0C25
 	lda.w #SPAfallback
@@ -291,7 +291,7 @@ FallDown:
 	beq .25
 	lda.w #$FFFF
 	sta.w puckc
-	stz.w $0C23
+	stz.w benchcheer
 	ldy.b a2
 	lda.w pfteam,y
 	beq .1xxxx
@@ -299,7 +299,7 @@ FallDown:
 .1xxxx:
 	clc
 	adc.w #$0006
-	jsl.l CODE_9C9FD5
+	jsl.l StartBenchCheer
 	ldx.b a2
 	lda.w #SPAinjury1
 	jsl.l SetSPAFromA

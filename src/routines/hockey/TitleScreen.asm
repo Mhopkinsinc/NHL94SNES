@@ -243,11 +243,11 @@ TitleScreen:
 	lda.w $0764
 	cmp.w #$0078
 	bcs .t1
-	jsr.w CODE_9DB983
+	jsr.w DrawLicenceNHL
 	bra .2
 
 .t1:
-	jsr.w CODE_9DB9B4
+	jsr.w DrawLicenceNHLPA
 .2:
 	jsr.w .5
 	bra .1

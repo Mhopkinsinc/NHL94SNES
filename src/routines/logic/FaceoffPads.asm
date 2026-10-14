@@ -124,7 +124,7 @@ FaceoffPads:
 	lsr a
 	sta.w $1C84,y
 .10:
-	stz.w $0C23
+	stz.w benchcheer
 	ldx.w #$0016
 	lda.w #$FFFF
 .loop8:

@@ -210,3 +210,5 @@ streamloaded = $7E35EA	; the streamed sound whose sample is in sound RAM
 smallfontchars = $7E35B6	; vram tiles for the small font (print)
 Framercset = $7E35BC	; vram tiles for the Framer box
 scorechars = $7E35CE	; vram tiles for the scoreboard / team block maps
+benchcheer = $0C23	; the bench that is cheering (StartBenchCheer), 0 none
+benchframe = $0C29	; bench cheer frame: set * 8 + step, drawn by setsortcords; negative = none (kept in the replay)

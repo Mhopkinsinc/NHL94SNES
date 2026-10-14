@@ -763,3 +763,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Framer variants. MATCH.
 - Title path tables. MATCH.
 - Title credits. MATCH.
+- Bench cheer and licence screen. MATCH.

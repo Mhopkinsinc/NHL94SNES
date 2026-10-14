@@ -1,6 +1,6 @@
 ; Draw the sorted objects in display order, hiding ones that are off screen
 setsortcords:
-	lda.w $0C29
+	lda.w benchframe
 	bmi .10
 	lda.w sfhormode
 	bne .10
@@ -8,12 +8,12 @@ setsortcords:
 	sta.b $12
 	lda.w #SpriteFrames
 	sta.b $10
-	lda.w $0C29
+	lda.w benchframe
 	lsr a
 	lsr a
 	lsr a
 	tax
-	lda.w $0C29
+	lda.w benchframe
 	and.w #$0007
 	clc
 	adc.l .1-2,x

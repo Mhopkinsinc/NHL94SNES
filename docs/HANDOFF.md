@@ -119,6 +119,7 @@
 - `FramerNineTile` / `FramerOutline` (the two Framer variants, named from their box maps).
 - Title path from behavior: `BuildTitlePath` with `TitlePathScale`, `TitlePathX`, `TitlePathY` (the tables TitleScreen reads into the mode 7 scale and BG1 scroll).
 - `StartCredits` / `RollCredits` (the title credits: CreditTitles and CreditNames as letter sprites).
+- `StartBenchCheer` / `UpdateBenchCheer` with RAM `benchcheer` / `benchframe`, and `DrawLicenceNHL` / `DrawLicenceNHLPA` (named from the rendered sprite frames, confirmed by the user).
 
 ## Unsure
 
@@ -138,7 +139,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.
 - Animations that are new in 94 or not certain keep auto labels in `SPAList`.
 - The remaining `CODE_` entries did not uniquely match a 93S or 94G routine. Opcode identity across the two ROMs is rare, and several names collided on the same prologue, so those stay placeholders until a caller shows the job.
-- Left after the 2026-10-14 pass (9 files): asstab $14 (`CODE_9EED8D`, with `CODE_9EECF6` and `CODE_9EED85`: a controlled carrier's button or a random computer choice near the goal; it picks a pass direction by position and sometimes CompShoot); the goalie helpers `CODE_9EDC06` / `CODE_9EDC44` (not 93S `ClampYPosition` / `AdjustFacingDirection`); `CODE_9C9FD5` / `CODE_9C9FED` (an animation at one of two fixed rink spots, frames $394 / $39A, started by Goal, FallDown and assscore and kept in the replay; the frames show a figure by a white panel, meaning not proven); the title sprite drawers `CODE_9DB983` / `CODE_9DB9B4` (sprites 9-12 of the title set at $7F5000).
+- Left after the 2026-10-14 pass (5 files): asstab $14 (`CODE_9EED8D`, with `CODE_9EECF6` and `CODE_9EED85`: a controlled carrier's button or a random computer choice near the goal; it picks a pass direction by position and sometimes CompShoot); the goalie helpers `CODE_9EDC06` / `CODE_9EDC44` (not 93S `ClampYPosition` / `AdjustFacingDirection`).
 - `DATA8_` blocks that are still cursors, packed bytes, or a second copy of a named table stay unnamed. `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. Phrases in `DATA8_9CF000` that are a title are named. Cursor-only records in that bank stay `DATA8_`.
 - `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `AttribRating` has no 94 counterpart, and the distance code uses `ApproxLength` (the larger part plus a share of the smaller), not a square root; `sroot` exists only for the crowd meter (`UpdateCrowdMeter`). `StreamSfx` (was CODE_9C9A7F) asks for one of six streamed sound effects; `UpdateStreamSfx` streams its sample to the sound CPU and plays it.
 - `$7E35D0` is the blank tile `EraseScoutName` stores the way 93S stores `blankchar`. Not named.
