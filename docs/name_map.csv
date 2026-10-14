@@ -1198,7 +1198,7 @@ $9E8E13,.2,CODE_9E8E13,new,branch target only used in this routine,src/routines/
 $9E8E2C,.3,CODE_9E8E2C,new,branch target only used in this routine,src/routines/snes/CODE_9E8DEB.asm
 $9E8E34,.4,CODE_9E8E34,new,branch target only used in this routine,src/routines/snes/CODE_9E8DEB.asm
 $9E8E8A,.rtl,CODE_9E8E8A,new,branch target only used in this routine,src/routines/snes/CODE_9E8DEB.asm
-$9FE0FA,.1,CODE_9FE0FA,new,branch target only used in this routine,src/routines/snes/CODE_9FE0E8.asm
+$9FE0FA,.1,CODE_9FE0FA,new,branch target only used in this routine,src/routines/hockey/Create_HotCold_Table.asm
 $9F8EAD,.1,CODE_9F8EAD,new,branch target only used in this routine,src/routines/snes/CODE_9F8E8E.asm
 $9F8EF6,.loop,CODE_9F8EF6,new,branch target only used in this routine,src/routines/snes/CODE_9F8E8E.asm
 $9F8F55,.2,CODE_9F8F55,new,branch target only used in this routine,src/routines/snes/CODE_9F8E8E.asm
@@ -3158,7 +3158,7 @@ $9F96D7,.t1,CODE_9F96D7,new,continued in the previous routine,src/routines/snes/
 $9F96AF,.t1,CODE_9F96AF,new,continued in the previous routine,src/routines/snes/CODE_9F967B.asm
 $9F95A1,.t1,CODE_9F95A1,new,continued in the previous routine,src/routines/snes/CODE_9F9559.asm
 $9F954B,.t1,CODE_9F954B,new,continued in the previous routine,src/routines/snes/CODE_9F9531.asm
-$9F9378,.t1,CODE_9F9378,new,continued in the previous routine,src/routines/snes/CODE_9F9372.asm
+$9F9378,.t1,CODE_9F9378,new,continued in the previous routine,src/routines/hockey/PauseFromPad1.asm
 $9F91C1,.t1,CODE_9F91C1,new,continued in the previous routine,src/routines/snes/CODE_9F9125.asm
 $9F8E8E,.t1,CODE_9F8E8E,new,continued in the previous routine,src/routines/snes/CODE_9F8E3E.asm
 $9F8E27,.t1,CODE_9F8E27,new,continued in the previous routine,src/routines/hockey/SaveRegsStartHL2.asm
@@ -4215,9 +4215,9 @@ $9FD6B8,.5,CODE_9FD6B8,new,branch target only used in this routine,src/routines/
 $9FD6C0,.6,CODE_9FD6C0,new,continued in the previous routine,src/routines/hockey/SetPlList.asm
 $9FDF5A,.2,CODE_9FDF5A,new,continued in the previous routine,src/routines/penalty/getlinee.asm
 $9FDF7F,.3,CODE_9FDF7F,new,branch target only used in this routine,src/routines/penalty/getlinee.asm
-$9FE0EB,.2,CODE_9FE0EB,new,branch target only used in this routine,src/routines/snes/CODE_9FE0E8.asm
-$9FE10B,.3,CODE_9FE10B,new,branch target only used in this routine,src/routines/snes/CODE_9FE0E8.asm
-$9FE111,.4,CODE_9FE111,new,continued in the previous routine,src/routines/snes/CODE_9FE0E8.asm
+$9FE0EB,.2,CODE_9FE0EB,new,branch target only used in this routine,src/routines/hockey/Create_HotCold_Table.asm
+$9FE10B,.3,CODE_9FE10B,new,branch target only used in this routine,src/routines/hockey/Create_HotCold_Table.asm
+$9FE111,.4,CODE_9FE111,new,continued in the previous routine,src/routines/hockey/Create_HotCold_Table.asm
 $9FE6AD,.2,CODE_9FE6AD,new,branch target only used in this routine,src/routines/hockey/SelectPauseController.asm
 $9FE6AE,.3,CODE_9FE6AE,new,continued in the previous routine,src/routines/hockey/SelectPauseController.asm
 $9FE6B8,.4,CODE_9FE6B8,new,branch target only used in this routine,src/routines/hockey/SelectPauseController.asm
@@ -5717,3 +5717,7 @@ $9FCB5C,AssignPadIfFree,CODE_9FCB5C,new,Behavior: called from puckglue and dopas
 $9FCB16,PuckCarrierPad,CODE_9FCB16,new,Behavior: called from puckglue,src/routines/logic/PuckCarrierPad.asm
 $9FCD2A,PadTakeGoalie,CODE_9FCD2A,new,Behavior: called from doinput and CODE_9FAFBE,src/routines/logic/PadTakeGoalie.asm
 $9FCD69,PadTakePosition,CODE_9FCD69,new,"pad d4 takes the player of its team ($1C84 side) at position d1, if he has no pad and is not locked (pflags bit 12); counts it in $0ADD",src/routines/snes/CODE_9FCD4D.asm
+$9F9365,SetPauseMode,CODE_9F9365,new,Behavior: sfpz is the 93S pause mode bit; called from StartPer and the pause entries,src/routines/hockey/SetPauseMode.asm
+$9F936C,PauseFromPad,CODE_9F936C,new,Behavior: doinput and CODE_9F967B jump here on a start press,src/routines/hockey/PauseFromPad.asm
+$9F9372,PauseFromPad1,CODE_9F9372,new,Behavior: CODE_9F967B jumps here,src/routines/hockey/PauseFromPad1.asm
+$9FE0E8,Create_HotCold_Table,CODE_9FE0E8,94G,The 94G Create_HotCold_Table job (random signed hot / cold values per player attribute); StartGame calls it as 94G StartGame does,src/routines/hockey/Create_HotCold_Table.asm

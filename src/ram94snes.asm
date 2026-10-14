@@ -133,6 +133,7 @@ PenIcing = $0C		; icing penalty number
 PenGoal = $0E		; goal
 
 gmpen = $0004		; penalty called, ref in progress
+sfpz = $0001		; pause mode
 sfwrap = $0010		; replay has wrapped around
 sf2drec = $0400		; disable replay record
 sf2pwrplay = $2000	; power play in progress

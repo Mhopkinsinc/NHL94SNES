@@ -2,7 +2,7 @@
 StartGame:
 	jsl.l PlayoffScreen
 CODE_9F8334:
-	jsl.l CODE_9FE0E8
+	jsl.l Create_HotCold_Table
 	jsl.l ScoutingReport
 CODE_9F833C:
 	lda.w #$FFFF

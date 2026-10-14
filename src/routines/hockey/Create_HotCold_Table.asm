@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FE0E8:
+; Fill the hot / cold table ($1A12, both teams) with random values -12 ... 12
+Create_HotCold_Table:
 	ldx.w #$026F
 .2:
 	lda.w #$000E

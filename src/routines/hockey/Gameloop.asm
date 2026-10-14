@@ -109,7 +109,7 @@ Gameloop:
 	lda.w gmode
 	bit.w #$0010
 	bne .3
-	lda.w #$0001
+	lda.w #sfpz
 	tsb.w sflags
 .2xx:
 	jsl.l Pausemode

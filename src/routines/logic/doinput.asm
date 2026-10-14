@@ -7,7 +7,7 @@ doinput:
 	bit.w #$1000
 	beq .5
 	lda.b d4
-	jmp.w CODE_9F936C
+	jmp.w PauseFromPad
 .1:
 	rtl
 .5:

@@ -732,3 +732,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - box, ClearPenaltyMessage, GetPlayerName, GetPlayerNumInitial (moved), StatsReport, blankchar. MATCH.
 - Mod100, AlignBigNumber. MATCH.
 - Pad control helpers. MATCH.
+- Create_HotCold_Table, pause mode helpers, sfpz. MATCH.

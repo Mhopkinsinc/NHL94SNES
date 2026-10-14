@@ -21,7 +21,7 @@ CODE_9F967B:
 	bit.w #$1000
 	beq .t1
 	pla
-	jmp.w CODE_9F936C
+	jmp.w PauseFromPad
 
 .t1:
 	plx
@@ -41,7 +41,7 @@ CODE_9F967B:
 	lda.b d1
 	bit.w #$1000
 	beq .t1x
-	jmp.w CODE_9F9372
+	jmp.w PauseFromPad1
 
 .t1x:
 	lda.b d1
