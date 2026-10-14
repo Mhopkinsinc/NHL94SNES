@@ -1522,7 +1522,7 @@ $9FEB72,.loop,CODE_9FEB72,new,branch target only used in this routine,src/routin
 $808F08,.loop,CODE_808F08,new,branch target only used in this routine,src/routines/snes/MemOr.asm
 $9FF815,.1,CODE_9FF815,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
 $9DCA4E,.1,CODE_9DCA4E,new,branch target only used in this routine,src/routines/snes/CODE_9DCA08.asm
-$9F9E17,.loop,CODE_9F9E17,new,branch target only used in this routine,src/routines/snes/CODE_9F9E15.asm
+$9F9E17,.loop,CODE_9F9E17,new,branch target only used in this routine,src/routines/middle/Mod100.asm
 $9F92C3,.1,CODE_9F92C3,new,branch target only used in this routine,src/routines/hockey/SaveRegsStartHL2.asm
 $9F95B0,.loop,CODE_9F95B0,new,branch target only used in this routine,src/routines/snes/CODE_9F95A1.asm
 $9F95D0,.loop,CODE_9F95D0,new,branch target only used in this routine,src/routines/snes/CODE_9F95A1.asm
@@ -2275,8 +2275,8 @@ $9C8B9E,.loop2,CODE_9C8B9E,new,branch target only used in this routine,src/routi
 $9C8BA8,.1,CODE_9C8BA8,new,branch target only used in this routine,src/routines/hockey/SortPlayerStats.asm
 $9C8BBE,.2,CODE_9C8BBE,new,branch target only used in this routine,src/routines/hockey/SortPlayerStats.asm
 $9BC453,.1,CODE_9BC453,new,branch target only used in this routine,src/routines/snes/CODE_9BC44B.asm
-$9F9DFE,.loop,CODE_9F9DFE,new,branch target only used in this routine,src/routines/snes/CODE_9F9DFB.asm
-$9F9E0E,.1,CODE_9F9E0E,new,branch target only used in this routine,src/routines/snes/CODE_9F9DFB.asm
+$9F9DFE,.loop,CODE_9F9DFE,new,branch target only used in this routine,src/routines/penalty/AlignBigNumber.asm
+$9F9E0E,.1,CODE_9F9E0E,new,branch target only used in this routine,src/routines/penalty/AlignBigNumber.asm
 $9C997E,.1,CODE_9C997E,new,branch target only used in this routine,src/routines/snes/CODE_9C9967.asm
 $9EA25E,.rtl,CODE_9EA25E,new,branch target only used in this routine,src/routines/snes/CODE_9EA24C.asm
 $9D9F3A,.1,CODE_9D9F3A,new,branch target only used in this routine,src/routines/stats/ShowRosterLine.asm
@@ -3146,7 +3146,7 @@ $9FA2D1,.t1,CODE_9FA2D1,new,continued in the previous routine,src/routines/penal
 $9FA1EB,.t1,CODE_9FA1EB,new,continued in the previous routine,src/routines/snes/CODE_9FA1B8.asm
 $9FA083,.t1,CODE_9FA083,new,continued in the previous routine,src/routines/video/showclock.asm
 $9F9F20,.t1,CODE_9F9F20,new,continued in the previous routine,src/routines/snes/CODE_9F9EC6.asm
-$9F9E21,.t1,CODE_9F9E21,new,continued in the previous routine,src/routines/snes/CODE_9F9E15.asm
+$9F9E21,.t1,CODE_9F9E21,new,continued in the previous routine,src/routines/middle/Mod100.asm
 $9F9C10,.t1,CODE_9F9C10,new,continued in the previous routine,src/routines/snes/CODE_9F9BD3.asm
 $9F9B61,.t1,CODE_9F9B61,new,continued in the previous routine,src/routines/snes/CODE_9F9B36.asm
 $9F9A9E,.t1,CODE_9F9A9E,new,continued in the previous routine,src/routines/stats/CalcAttrib.asm
@@ -5710,3 +5710,5 @@ $9EC913,ClearPenaltyMessage,CODE_9EC913,93S,93S ClearPenaltyMessage job; prefmes
 $9FC3F8,GetPlayerName,CODE_9FC3F8,93S,"The 93S GetPlayerName body (TempPlOffset, the team bit, PlayerNumName); UpdatePA calls it as in 93S",src/routines/hockey/GetPlayerName.asm
 $9FC4A1,GetPlayerNumInitial,CODE_9FC4A1,93S,"The 93S GetPlayerNumInitial body (TempPlOffset, the team bit, PlayerShortName); ShowInjuryBox calls it as in 93S. The name was on $9FC576 before (now GetPlayerInitial: it calls PlayerInitialName and has no caller)",src/routines/hockey/GetPlayerNumInitial.asm
 $9FC896,StatsReport,CODE_9FC896,93S,"The 93S StatsReport layout (position 0,0, a 32 x 29 erase with blankchar, then the rink map to VRAM); SetHor calls it as in 93S",src/routines/penalty/StatsReport.asm
+$9F9E15,Mod100,CODE_9F9E15,new,Behavior: printscores1 and PrintTeamNameAndScore use it before PushNumber for the scores,src/routines/middle/Mod100.asm
+$9F9DFB,AlignBigNumber,CODE_9F9DFB,new,Behavior: printscores1 calls it between PushNumber and printbig for the shot counts,src/routines/penalty/AlignBigNumber.asm

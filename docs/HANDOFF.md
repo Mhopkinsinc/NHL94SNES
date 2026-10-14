@@ -86,6 +86,7 @@
 - `GetPadTeam` (93S test on the 94 pad sides), `PulseUntilRelease` (from behavior); four GoalieOptionText string pointers (raw `#$EC42`-`#$EC5B` with the a4 bank) as label+offset.
 - `Pmenu` (93S job: the pause items with the current one highlighted; its item loop CODE_9FEAB4 folded in), and its parts `PmenuAppend`, `PmenuRtl`, `PmenuGoalieValue`, `PmenuDefValue`, `PmenuNone`.
 - 93S by call position and body: `box`, `ClearPenaltyMessage`, `GetPlayerName`, `GetPlayerNumInitial`, `StatsReport`; RAM `blankchar` ($7E35D0). `GetPlayerNumInitial` moved from $9FC576 (instruction shape only, no caller, calls the no-number name builder; now `GetPlayerInitial`) to $9FC4A1 (93S callee and caller).
+- From behavior: `Mod100`, `AlignBigNumber` (printscores1 helpers).
 
 ## Unsure
 

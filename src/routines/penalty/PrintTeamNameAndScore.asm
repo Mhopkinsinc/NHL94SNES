@@ -4,7 +4,7 @@ PrintTeamNameAndScore:
 	ldy.b a2
 	lda.w $178E,y
 	sta.b d0
-	jsl.l CODE_9F9E15
+	jsl.l Mod100
 	lda.w #$0000
 	sta.b $8F
 	lda.w #mesarea

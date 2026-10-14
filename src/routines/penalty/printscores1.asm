@@ -255,9 +255,9 @@ printscores1:
 	sta.b $8F
 	lda.w $178E
 	sta.b d0
-	jsl.l CODE_9F9E15
+	jsl.l Mod100
 	jsl.l PushNumber
-	jsl.l CODE_9F9DFB
+	jsl.l AlignBigNumber
 	jsl.l printbig
 	lda.b $8F
 	pha
@@ -274,9 +274,9 @@ printscores1:
 	sta.b $8F
 	lda.w $1790
 	sta.b d0
-	jsl.l CODE_9F9E15
+	jsl.l Mod100
 	jsl.l PushNumber
-	jsl.l CODE_9F9DFB
+	jsl.l AlignBigNumber
 	jsl.l printbig
 	pla
 	sta.b d1

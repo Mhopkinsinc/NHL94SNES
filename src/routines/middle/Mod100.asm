@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9F9E15:
+; d0 = d0 mod 100
+Mod100:
 	lda.b d0
 .loop:
 	cmp.w #$0064
