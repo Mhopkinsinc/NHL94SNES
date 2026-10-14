@@ -1,13 +1,13 @@
-; Unidentified routine.
-CODE_8083A5:
+; NMI: send the sprite table to OAM when it is ready and there is time
+NMI_SendOAM:
 	stx.b $3A
 	rep #$20
 	lda.b $3E
 	cmp.w #$026E
-	bcc CODE_8083DD
+	bcc NMI_Tick
 	sep #$20
 	lda.w OAMReady
-	beq CODE_8083DD
+	beq NMI_Tick
 	stz.w OAMReady
 	lda.b #$7E
 	sta.w A1B0
@@ -22,7 +22,7 @@ CODE_8083A5:
 	sep #$20
 	lda.b #$01
 	sta.w MDMAEN
-CODE_8083DD:
+NMI_Tick:
 	rep #$30
 	lda.l $7E35D8
 	clc

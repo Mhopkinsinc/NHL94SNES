@@ -12,7 +12,7 @@ CODE_9BCDF8:
 	lda.w #$CE21
 	ldx.w #$009B
 	ldy.w $1DED
-	jsl.l CODE_808520
+	jsl.l SetIRQ
 	rtl
 	sep #$20
 	lda.w $1DF3

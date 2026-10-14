@@ -76,10 +76,10 @@ CODE_9DB118:
 	ldy.w #$0000
 	sty.w $07D4
 	ldy.w #$0046
-	jsl.l CODE_808520
+	jsl.l SetIRQ
 	lda.w #$B4B2
 	ldx.w #$009D
-	jsl.l SetNMIHook
+	jsl.l SetFrameHook
 	jsl.l WaitFrame
 	jsl.l WaitFrame
 	lda.w #$000F

@@ -1301,7 +1301,7 @@ $9EBECE,.2,CODE_9EBECE,new,branch target only used in this routine,src/routines/
 $9CA55D,.1,CODE_9CA55D,new,branch target only used in this routine,src/routines/snes/ApproxLength.asm
 $9CA566,.2,CODE_9CA566,new,branch target only used in this routine,src/routines/snes/ApproxLength.asm
 $9CA571,.1,CODE_9CA571,new,branch target only used in this routine,src/routines/snes/ApproxLength.asm
-$808600,.loop,CODE_808600,new,branch target only used in this routine,src/routines/snes/CODE_8085FF.asm
+$808600,.loop,CODE_808600,new,branch target only used in this routine,src/routines/snes/WaitNoButtons.asm
 $9FEAAA,.loop,CODE_9FEAAA,new,branch target only used in this routine,src/routines/snes/CODE_9FEAA6.asm
 $9DA715,.1,CODE_9DA715,new,branch target only used in this routine,src/routines/snes/CODE_9DA5CA.asm
 $9D9022,.loop,CODE_9D9022,new,branch target only used in this routine,src/routines/snes/CODE_9D9007.asm
@@ -2095,8 +2095,8 @@ $9ED436,.1,CODE_9ED436,new,branch target only used in this routine,src/routines/
 $9ED447,.2,CODE_9ED447,new,branch target only used in this routine,src/routines/snes/CODE_9ED421.asm
 $9E9E96,.1,CODE_9E9E96,new,branch target only used in this routine,src/routines/snes/CODE_9E9E8A.asm
 $9FC294,.1,CODE_9FC294,new,branch target only used in this routine,src/routines/snes/CODE_9FC287.asm
-$8083F5,.1,CODE_8083F5,new,branch target only used in this routine,src/routines/snes/CODE_8083A5.asm
-$8083F7,.2,CODE_8083F7,new,branch target only used in this routine,src/routines/snes/CODE_8083A5.asm
+$8083F5,.1,CODE_8083F5,new,branch target only used in this routine,src/routines/snes/NMI_SendOAM.asm
+$8083F7,.2,CODE_8083F7,new,branch target only used in this routine,src/routines/snes/NMI_SendOAM.asm
 $9EC704,.1,CODE_9EC704,new,branch target only used in this routine,src/routines/snes/CODE_9EC6E7.asm
 $9EC710,.2,CODE_9EC710,new,branch target only used in this routine,src/routines/snes/CODE_9EC6E7.asm
 $9EC71F,.3,CODE_9EC71F,new,branch target only used in this routine,src/routines/snes/CODE_9EC6E7.asm
@@ -2628,13 +2628,13 @@ $80877D,.t1,CODE_80877D,new,continued in the previous routine,src/routines/snes/
 $808751,.t1,CODE_808751,new,continued in the previous routine,src/routines/snes/DMAToCGRAM.asm
 $808683,.t1,CODE_808683,new,continued in the previous routine,src/routines/snes/RandomWord.asm
 $808627,.t1,CODE_808627,new,continued in the previous routine,src/routines/snes/CODE_808615.asm
-$80860A,.t1,CODE_80860A,new,continued in the previous routine,src/routines/snes/CODE_8085FF.asm
+$80860A,.t1,CODE_80860A,new,continued in the previous routine,src/routines/snes/WaitNoButtons.asm
 $8085F7,.t1,CODE_8085F7,new,continued in the previous routine,src/routines/snes/CODE_8085E6.asm
 $8085DE,.t1,CODE_8085DE,new,continued in the previous routine,src/routines/snes/CODE_8085CD.asm
 $8085C7,.t1,CODE_8085C7,new,continued in the previous routine,src/routines/snes/CODE_8085B8.asm
 $8085B2,.t1,CODE_8085B2,new,continued in the previous routine,src/routines/snes/CODE_8085A3.asm
-$808578,.t1,CODE_808578,new,continued in the previous routine,src/routines/snes/CODE_808569.asm
-$808415,.t1,CODE_808415,new,continued in the previous routine,src/routines/snes/CODE_8083A5.asm
+$808578,.t1,CODE_808578,new,continued in the previous routine,src/routines/snes/ClearNMIHook.asm
+$808415,.t1,CODE_808415,new,continued in the previous routine,src/routines/snes/NMI_SendOAM.asm
 $808313,.t1,CODE_808313,new,continued in the previous routine,src/routines/snes/CODE_8082CB.asm
 $80823D,.t1,CODE_80823D,new,continued in the previous routine,src/routines/snes/NMI_HookReturn.asm
 $808160,.t1,CODE_808160,new,continued in the previous routine,src/routines/snes/NMI_Fast.asm
@@ -3213,7 +3213,7 @@ $80A6D7,.t2,CODE_80A6D7,new,continued in the previous routine,src/routines/snes/
 $80A5DF,.t2,CODE_80A5DF,new,continued in the previous routine,src/routines/snes/CODE_80A58E.asm
 $80A26E,.t1,CODE_80A26E,new,continued in the previous routine,src/routines/snes/CODE_80A200.asm
 $80878B,.t2,CODE_80878B,new,continued in the previous routine,src/routines/snes/CODE_808766.asm
-$808615,.t2,CODE_808615,new,continued in the previous routine,src/routines/snes/CODE_8085FF.asm
+$808615,.t2,CODE_808615,new,continued in the previous routine,src/routines/snes/WaitNoButtons.asm
 $8085E6,.t2,CODE_8085E6,new,continued in the previous routine,src/routines/snes/CODE_8085CD.asm
 $8085B8,.t2,CODE_8085B8,new,continued in the previous routine,src/routines/snes/CODE_8085A3.asm
 $808316,.t2,CODE_808316,new,continued in the previous routine,src/routines/snes/CODE_8082CB.asm
@@ -4786,7 +4786,7 @@ $9C9971,BrightnessHook,9C9971,new,the NMI hook FadeIn and FadeOut install: write
 $9F96F7,FadeOut,CODE_9F96F7,new,fadestep = $FFFF and the BrightnessHook: the NMI lowers brightness to 0,src/routines/snes/FadeOut.asm
 $9F96E6,FadeIn,CODE_9F96E6,new,fadestep = 5 and the BrightnessHook: after the delay the NMI raises brightness to 15,src/routines/snes/FadeIn.asm
 $9F9708,WaitFadeOut,CODE_9F9708,new,waits frames until brightness is 0,src/routines/snes/WaitFadeOut.asm
-$80855E,SetNMIHook,CODE_80855E,new,stores X:A as the routine the next NMI runs,src/routines/snes/SetNMIHook.asm
+$80855E,SetFrameHook,CODE_80855E,new,run the routine at X:A as the frame hook of the next NMI,src/routines/snes/SetFrameHook.asm
 $808EDF,MemFill,CODE_808EDF,new,fills X bytes at [$10] with A,src/routines/snes/MemFill.asm
 $808723,DMAToCGRAM,CODE_808723,new,DMA of colours from [$0C] to CGRAM at Y,src/routines/snes/DMAToCGRAM.asm
 $9DE0BD,SetColours,CODE_9DE0BD,new,copies X colours from [$0C] into the colour buffer $7F7500 at colour Y,src/routines/snes/SetColours.asm
@@ -4815,3 +4815,10 @@ $808ADF,MapToVRAM,CODE_808ADF,new,"copy map [$0C] (width, height) into the scree
 $808BED,MapPartToVRAM,CODE_808BED,new,"copy part of map [$0C] into the screen map in video memory at column X, row Y",src/routines/snes/MapPartToVRAM.asm
 $808A11,MapPartToVRAMOffset,CODE_808A11,new,"copy part of map [$0C] into the screen map at column X, row Y, adding A to each entry",src/routines/snes/MapPartToVRAMOffset.asm
 $808D43,Mode7MapToVRAM,CODE_808D43,new,"copy byte map [$0C] (width, height) into the mode 7 map at column X, row Y",src/routines/snes/Mode7MapToVRAM.asm
+$80854F,ClearFrameHook,CODE_80854F,new,set the frame hook back to the empty routine,src/routines/snes/ClearFrameHook.asm
+$808569,ClearNMIHook,CODE_808569,new,set the NMI hook back to the empty routine,src/routines/snes/ClearNMIHook.asm
+$8083A5,NMI_SendOAM,CODE_8083A5,new,nMI: send the sprite table to OAM when it is ready and there is time,src/routines/snes/NMI_SendOAM.asm
+$8083DD,NMI_Tick,CODE_8083DD,new,nMI: the frame counters and the fade step,src/routines/snes/NMI_SendOAM.asm
+$808507,IRQOff,CODE_808507,new,"turn the IRQ off, the NMI and pad reading on",src/routines/snes/IRQOff.asm
+$808520,SetIRQ,CODE_808520,new,turn on an IRQ at line Y with the routine at X:A,src/routines/snes/SetIRQ.asm
+$8085FF,WaitNoButtons,CODE_8085FF,new,wait until no button is held on pad 1,src/routines/snes/WaitNoButtons.asm

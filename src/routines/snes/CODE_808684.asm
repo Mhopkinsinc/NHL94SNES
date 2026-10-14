@@ -1,9 +1,9 @@
 ; Unidentified routine.
 CODE_808684:
 	jsl.l WaitFrame
-	jsl.l CODE_808507
-	jsl.l CODE_80854F
-	jsl.l CODE_808569
+	jsl.l IRQOff
+	jsl.l ClearFrameHook
+	jsl.l ClearNMIHook
 	sep #$20
 	lda.b #$8F
 	sta.w IniDispShadow

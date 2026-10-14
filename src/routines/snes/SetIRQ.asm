@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808520:
+; Turn on an IRQ at line Y with the routine at X:A
+SetIRQ:
 	php
 	sei
 	sep #$20

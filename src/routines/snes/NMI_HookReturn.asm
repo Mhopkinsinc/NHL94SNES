@@ -81,4 +81,4 @@ CODE_8081F1:
 	bra CODE_8081F1
 
 .t1:
-	jmp.w CODE_8083A5
+	jmp.w NMI_SendOAM

@@ -7,7 +7,7 @@ CODE_9DCCF5:
 	lda.w #$CD0F
 	ldx.w #$009D
 	ldy.w $1DED
-	jsl.l CODE_808520
+	jsl.l SetIRQ
 	rtl
 	sep #$20
 	lda.b #$FC

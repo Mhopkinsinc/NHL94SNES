@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_8085FF:
+; Wait until no button is held on pad 1
+WaitNoButtons:
 	pha
 .loop:
 	lda.w JoyPad

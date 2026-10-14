@@ -118,7 +118,7 @@ ReplayMode:
 	sta.w fadestep
 	ldx.w #BrightnessHook>>16
 	lda.w #BrightnessHook
-	jsl.l SetNMIHook
+	jsl.l SetFrameHook
 	jsl.l ScreenOn
 	jsl.l SprSort
 	jsl.l SpriteFrameStart

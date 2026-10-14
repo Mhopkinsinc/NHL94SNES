@@ -28,7 +28,7 @@ CODE_9FF436:
 	jsl.l SpriteFrameEnd
 	ldx.w #$009F
 	lda.w #$FA17
-	jsl.l SetNMIHook
+	jsl.l SetFrameHook
 	jsl.l ScreenOn
 	lda.w #$7000
 	sta.b $64
@@ -39,7 +39,7 @@ CODE_9FF436:
 	bpl .loop
 	ldx.w #$009F
 	lda.w #$FA17
-	jsl.l SetNMIHook
+	jsl.l SetFrameHook
 .loop2:
 	jsl.l RandomWord
 	jsr.w CODE_9FF613

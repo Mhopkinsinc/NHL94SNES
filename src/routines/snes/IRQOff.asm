@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808507:
+; Turn the IRQ off, the NMI and pad reading on
+IRQOff:
 	sei
 	php
 	pha

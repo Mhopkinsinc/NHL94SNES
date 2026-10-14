@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_808569:
+; Set the NMI hook back to the empty routine
+ClearNMIHook:
 	pha
 	phx
 	ldx.w #$0080

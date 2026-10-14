@@ -670,8 +670,9 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Pads: ReadPads (93S) and ReadjoyA (Readjoy1 for any pad). MATCH.
 - Acheck, SPAhook, SPAHold, QueueTextDMA, QueueSound from their 93S callers and job; DMAToVRAM from what it does. MATCH.
 - Shootout setup: ShootersBackground, PrintShooterNames, PrintShooterList, ShootersLoop, ShootersExit (94G). MATCH.
-- Screen helpers from what they do: FadeOut, FadeIn, WaitFadeOut, BrightnessHook, SetNMIHook, SetColours, SendColours, DMAToCGRAM, SendTextMap, ClearTextMap, MemFill; RAM fadestep and brightness. MATCH.
+- Screen helpers from what they do: FadeOut, FadeIn, WaitFadeOut, BrightnessHook, SetFrameHook, SetColours, SendColours, DMAToCGRAM, SendTextMap, ClearTextMap, MemFill; RAM fadestep and brightness. MATCH.
 - SetupScreen (94G), PrintLetterSprites, LetterSpriteWidths, ReadPausePad and pausepad. MATCH.
 - `DATA8_80D3EB` is `PenaltyList` (same layout and readers as 93S). MATCH.
 - wallcoll and the RAM Wallcos / Wallsin from 93S. MATCH.
 - VRAM and map helpers named from what they do (PasteMap, MapToVRAM, FillVRAM, QueueVRAMDMA ...). MATCH.
+- NMI and IRQ helpers named from what they do (NMI_SendOAM, NMI_Tick, SetFrameHook, ClearFrameHook, ClearNMIHook, SetIRQ, IRQOff, WaitNoButtons). MATCH.

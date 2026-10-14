@@ -93,7 +93,7 @@ BadPasswordPrompt:
 	jsl.l eraser
 	jsr.w CODE_9BCBD8
 	jsl.l QueueTextDMA
-	jsl.l CODE_8085FF
+	jsl.l WaitNoButtons
 	jmp.w CODE_9BC946
 
 .t1:
