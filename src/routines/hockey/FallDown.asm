@@ -137,7 +137,7 @@ FallDown:
 .13:
 	ldx.b a2
 	sta.w pfalock,x
-	jsl.l CODE_9EA403
+	jsl.l SetSPAUpdate
 	lda.w CwdExciteLvl
 	clc
 	adc.w #$000A

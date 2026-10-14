@@ -124,7 +124,7 @@ org $9EB000
 	bcc .4
 	cmp.w #$0028
 	bcs .t1x
-	jmp.w CODE_9EA242
+	jmp.w Sweepcheck
 
 .t1x:
 	bra .4

@@ -1079,7 +1079,7 @@ $9ED9C5,.2,CODE_9ED9C5,new,branch target only used in this routine,src/routines/
 $9EDA42,.1,CODE_9EDA42,new,branch target only used in this routine,src/routines/logic/assgoalie.asm
 $9FDA82,.1,CODE_9FDA82,new,branch target only used in this routine,src/routines/logic/CompLine.asm
 $9FDAA0,.2,CODE_9FDAA0,new,branch target only used in this routine,src/routines/logic/CompLine.asm
-$9EA418,.rtl,CODE_9EA418,new,branch target only used in this routine,src/routines/snes/CODE_9EA403.asm
+$9EA418,.rtl,CODE_9EA418,new,branch target only used in this routine,src/routines/hockey/SetSPAUpdate.asm
 $9F9229,.loop,CODE_9F9229,new,branch target only used in this routine,src/routines/hockey/SaveRegsStartHL2.asm
 $9F9237,.loop2,CODE_9F9237,new,branch target only used in this routine,src/routines/hockey/SaveRegsStartHL2.asm
 $9FF9FA,.loop,CODE_9FF9FA,new,branch target only used in this routine,src/routines/snes/CODE_9FF436.asm
@@ -1662,7 +1662,7 @@ $9EE46D,.1,CODE_9EE46D,new,branch target only used in this routine,src/routines/
 $9E97BD,.loop,CODE_9E97BD,new,branch target only used in this routine,src/routines/snes/CODE_9E97B8.asm
 $80AB19,.1,CODE_80AB19,new,branch target only used in this routine,src/routines/snes/StepTrack.asm
 $80AB1C,.2,CODE_80AB1C,new,branch target only used in this routine,src/routines/snes/StepTrack.asm
-$9E800C,.rtl,CODE_9E800C,new,branch target only used in this routine,src/routines/snes/CODE_9E8000.asm
+$9E800C,.rtl,CODE_9E800C,new,branch target only used in this routine,src/routines/logic/GlideBack.asm
 $9E802A,.1,CODE_9E802A,new,branch target only used in this routine,src/routines/logic/assnearest.asm
 $9F9BBB,.1,CODE_9F9BBB,new,branch target only used in this routine,src/routines/snes/CODE_9F9B61.asm
 $80B912,.loop,CODE_80B912,new,branch target only used in this routine,src/routines/snes/CODE_80B8FC.asm
@@ -5679,3 +5679,9 @@ $9ECD0A,ScoutTeamCity,CODE_9ECD0A,new,ScoutVisCity / ScoutHomeCity: the city Str
 $9ECD19,ScoutAppend,CODE_9ECD19,new,"put String [a1] into mesarea, then ScoutTypeText",src/routines/hockey/ScoutHomeCity.asm
 $9ECD36,ScoutTypeText,CODE_9ECD36,new,type the mesarea text word by word,src/routines/hockey/ScoutHomeCity.asm
 $9ECB2B,ScoutTypeWord,CODE_9ECB2B,new,ScoutPlainWord: type the word in mesarea; ScoutTypeText enters here,src/routines/hockey/ScoutPlainWord.asm
+$9EA242,Sweepcheck,CODE_9EA242,93S,"Same job as 93S Sweepcheck (SPAsweepchk and a lock, then the animation start); 94S skatetopuck jumps to it at the distance test where 93S skatetopuck branches to Sweepcheck; also called from findpc",src/routines/logic/Sweepcheck.asm
+$9E8000,GlideBack,CODE_9E8000,new,"Behavior: called from assnearest, asspuckc and CODE_9EE463",src/routines/logic/GlideBack.asm
+$9EA403,SetSPAUpdate,CODE_9EA403,new,"Behavior: called from FallDown, updateanim and asseben",src/routines/hockey/SetSPAUpdate.asm
+$9E8E8B,wallcollb_bounce,CODE_9E8E8B,new,wallcollb: jmp wallcoll (the 93S wallcollb jmp.w wallcoll exits); moved into wallcollb.asm,src/routines/hockey/wallcollb.asm
+$9E8E8E,wallcollb_over,CODE_9E8E8E,new,wallcollb: jmp wallcollb_out (over the glass); moved into wallcollb.asm,src/routines/hockey/wallcollb.asm
+$9E8F05,wallcollb_out,CODE_9E8F05,new,wallcollb: the puck is out of play (the 93S wallcollb .0 path),src/routines/hockey/wallcollb.asm

@@ -1,25 +1,31 @@
+; wallcollb: not over the glass, bounce off the wall
+wallcollb_bounce:
+	jmp.w wallcoll
+; wallcollb: over the glass, out of play
+wallcollb_over:
+	jmp.w wallcollb_out
 ; Object X hits a wall: the puck may go over the glass and out of play, else it bounces
 wallcollb:
 	cpx.w #$001C
-	bne CODE_9E8E8B
+	bne wallcollb_bounce
 	lda.w $0DF9
 	cmp.w #$0021
-	bpl CODE_9E8E8E
+	bpl wallcollb_over
 	lda.w $0DF9
 	cmp.w #$0016
-	bcc CODE_9E8E8B
+	bcc wallcollb_bounce
 	lda.w pucky
 	cmp.w #$0112
-	bmi CODE_9E8E8E
+	bmi wallcollb_over
 	lda.w $0D71
 	cmp.w #$000D
-	bmi CODE_9E8E8B
+	bmi wallcollb_bounce
 	lda.w $0D71
 	cmp.w #$0010
-	bpl CODE_9E8E8B
+	bpl wallcollb_bounce
 	lda.w puckvy
 	cmp.w #$0FA0
-	bmi CODE_9E8E8B
+	bmi wallcollb_bounce
 	phx
 	lda.w puckvy
 	pha
@@ -46,9 +52,9 @@ wallcollb:
 	lda.w CwdExciteLvl
 	clc
 	adc.w #$000F
-	bmi CODE_9E8F05
+	bmi wallcollb_out
 	sta.w CwdExciteLvl
-CODE_9E8F05:
+wallcollb_out:
 	lda.w #$0040
 	tsb.w sflags
 	sta.w $157F

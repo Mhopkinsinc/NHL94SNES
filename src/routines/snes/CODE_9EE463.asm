@@ -10,7 +10,7 @@ CODE_9EE463:
 .t1:
 	rtl
 .2:
-	jsl.l CODE_9E8000
+	jsl.l GlideBack
 	lda.w #$003C
 	sta.w $1203,x
 	jmp.w assnothing

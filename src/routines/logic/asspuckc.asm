@@ -10,7 +10,7 @@ asspuckc:
 .t1:
 	rtl
 .2:
-	jsl.l CODE_9E8000
+	jsl.l GlideBack
 	jmp.w assnothing
 .clk:
 	lda.w gmclock

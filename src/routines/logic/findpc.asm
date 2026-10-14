@@ -146,7 +146,7 @@ findpc:
 	pha
 	lda.b $8F
 	pha
-	jsl.l CODE_9EA242
+	jsl.l Sweepcheck
 	pla
 	sta.b $8F
 	pla

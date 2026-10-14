@@ -35,7 +35,7 @@ asseben:
 .2:
 	lda.w #DATA8_9DE452
 .3:
-	jml.l CODE_9EA403
+	jml.l SetSPAUpdate
 
 .t1:
 	rtl

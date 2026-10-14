@@ -137,7 +137,7 @@ assnearest:
 	jsl.l skateto
 	jmp.w check4check
 .6:
-	jsl.l CODE_9E8000
+	jsl.l GlideBack
 	jmp.w assnothing
 .7:
 	jsl.l skatetopuck

@@ -108,5 +108,5 @@ updateanim:
 	sta.w facedir,x
 	sta.w pfalock,x
 	lda.w #SPAwallright
-	jsl.l CODE_9EA403
+	jsl.l SetSPAUpdate
 	bra .5
