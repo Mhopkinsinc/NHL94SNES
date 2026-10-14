@@ -6,5 +6,5 @@ CODE_9B8CFF:
 	jsr.w CODE_808D72
 	cmp.w $1D8F
 	bne CODE_9B8D20
-	jsr.w $8D32
+	jsr.w CODE_9B8D32
 	bra CODE_9B8D20

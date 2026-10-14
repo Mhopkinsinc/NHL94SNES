@@ -9,4 +9,4 @@ CODE_9FE3BA:
 	bne CODE_9FE3EB
 	bit.w #$0200
 	bne CODE_9FE3D7
-	jmp.w $E19E
+	jmp.w CODE_9FE19E

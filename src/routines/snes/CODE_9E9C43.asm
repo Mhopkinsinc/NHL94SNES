@@ -47,4 +47,4 @@ CODE_9E9C9E:
 	sta.w $0C25
 	ldx.b $95
 	ldy.b $91
-	jmp.w $9D79
+	jmp.w CODE_9E9D79

@@ -15,4 +15,4 @@ CODE_9FAEBF:
 	lda.w $1E9B
 	beq CODE_9FAED6
 	jsl.l CODE_9FB092
-	jmp.w $AFBE
+	jmp.w CODE_9FAFBE

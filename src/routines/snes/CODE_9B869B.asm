@@ -33,7 +33,7 @@ CODE_9B86E5:
 	lda.b $A9
 	bit.w #$1000
 	beq CODE_9B8711
-	jsr.w $8A15
+	jsr.w CODE_9B8A15
 	cmp.w #$0000
 	beq CODE_9B870B
-	jmp.w $8860
+	jmp.w CODE_9B8860

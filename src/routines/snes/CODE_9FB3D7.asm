@@ -43,4 +43,4 @@ CODE_9FB435:
 	sta.b $91
 	sta.b $A5
 	jsl.l CODE_9FB44C
-	jmp.w $B518
+	jmp.w CODE_9FB518

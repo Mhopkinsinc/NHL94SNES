@@ -45,7 +45,7 @@ CODE_9EE072:
 	pha
 	lda.b $B1
 	pha
-	jsr.w $E0CD
+	jsr.w CODE_9EE0CD
 	lda.b $B5
 	sta.b $B9
 	pla
@@ -54,7 +54,7 @@ CODE_9EE072:
 	sta.b $B1
 	pla
 	sta.b $B5
-	jsr.w $E0CD
+	jsr.w CODE_9EE0CD
 	lda.b $B5
 	clc
 	adc.b $B9

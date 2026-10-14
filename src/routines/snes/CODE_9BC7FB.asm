@@ -129,7 +129,7 @@ CODE_9BC90F:
 	lda.w #$000A
 	sta.w $0AD1
 CODE_9BC946:
-	jsr.w $CBD8
+	jsr.w CODE_9BCBD8
 CODE_9BC949:
 	lda.b $8F
 	pha
@@ -156,4 +156,4 @@ CODE_9BC96B:
 	sta.b $A9
 	bit.w #$1000
 	beq CODE_9BC989
-	jmp.w $CAF8
+	jmp.w CODE_9BCAF8

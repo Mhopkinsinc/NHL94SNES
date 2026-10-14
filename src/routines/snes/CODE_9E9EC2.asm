@@ -33,4 +33,4 @@ CODE_9E9EE4:
 	cmp.w #$0014
 	bcs CODE_9E9F0A
 	ldx.b $95
-	jmp.w $9D0D
+	jmp.w CODE_9E9D0D

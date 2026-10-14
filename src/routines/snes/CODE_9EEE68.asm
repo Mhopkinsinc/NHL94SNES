@@ -45,4 +45,4 @@ CODE_9EEE70:
 	txa
 	lsr a
 	sta.w $0CF3
-	jmp.w $EACC
+	jmp.w CODE_9EEACC

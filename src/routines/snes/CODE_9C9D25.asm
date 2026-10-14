@@ -57,4 +57,4 @@ CODE_9C9DA1:
 	phx
 	cpx.w $1E21
 	bmi CODE_9C9DAA
-	jmp.w $9E8E
+	jmp.w CODE_9C9E8E

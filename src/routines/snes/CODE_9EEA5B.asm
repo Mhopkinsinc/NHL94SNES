@@ -6,4 +6,4 @@ CODE_9EEA5B:
 	jsl.l CODE_9EEB2E
 	lda.w #$0000
 	jsl.l CODE_9C9ABC
-	jmp.w $EACC
+	jmp.w CODE_9EEACC

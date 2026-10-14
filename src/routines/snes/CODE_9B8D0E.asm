@@ -8,7 +8,7 @@ CODE_9B8D11:
 	cmp.w $1D8F
 	bne CODE_9B8D20
 	dec.b $95
-	jsr.w $8D32
+	jsr.w CODE_9B8D32
 CODE_9B8D20:
 	lda.b $A5
 	clc
@@ -16,5 +16,5 @@ CODE_9B8D20:
 	sbc.w $1D8B
 	sta.b $95
 	lda.w $1D8F
-	jsr.w $8D7C
+	jsr.w CODE_9B8D7C
 	rts

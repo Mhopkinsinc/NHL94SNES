@@ -8,4 +8,4 @@ CODE_9EC042:
 	bne CODE_9EC06D
 	lda.w $1E8B
 	bne CODE_9EC059
-	jmp.w $C06D
+	jmp.w CODE_9EC06D

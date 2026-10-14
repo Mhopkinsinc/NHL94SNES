@@ -12,4 +12,4 @@ CODE_9EF78A:
 	sta.b $A5
 	lda.w pucky
 	bpl CODE_9EF7AD
-	jmp.w $F833
+	jmp.w CODE_9EF833

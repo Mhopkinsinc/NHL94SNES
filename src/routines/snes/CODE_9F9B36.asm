@@ -24,4 +24,4 @@ CODE_9F9B4D:
 	ldx.b $87
 	lda.w sfhormode
 	beq CODE_9F9B61
-	jmp.w $9CFB
+	jmp.w CODE_9F9CFB

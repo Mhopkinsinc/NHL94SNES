@@ -88,4 +88,4 @@ CODE_9CA2BD:
 	lda.b $BD
 	cmp.w #$0010
 	beq CODE_9CA2EE
-	jmp.w $A244
+	jmp.w CODE_9CA244

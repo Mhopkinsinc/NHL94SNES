@@ -12,22 +12,22 @@ CODE_9FBB01:
 	ldy.w #$0000
 	lda.w #$0175
 	sta.b $00
-	jsr.w $BB50
+	jsr.w CODE_9FBB50
 	ldy.w #$0002
 	lda.w #$0178
 	sta.b $00
-	jsr.w $BB50
+	jsr.w CODE_9FBB50
 	ldy.w #$0004
 	lda.w #$017B
 	sta.b $00
-	jsr.w $BB50
+	jsr.w CODE_9FBB50
 	ldy.w #$0006
 	lda.w #$017E
 	sta.b $00
-	jsr.w $BB50
+	jsr.w CODE_9FBB50
 	ldy.w #$0008
 	lda.w #$0181
 	sta.b $00
-	jsr.w $BB50
+	jsr.w CODE_9FBB50
 CODE_9FBB4F:
 	rtl

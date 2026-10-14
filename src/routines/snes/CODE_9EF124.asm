@@ -13,4 +13,4 @@ CODE_9EF135:
 CODE_9EF13B:
 	sta.b $AD
 	bpl CODE_9EF142
-	jmp.w $F1CE
+	jmp.w CODE_9EF1CE

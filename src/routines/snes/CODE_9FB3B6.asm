@@ -6,4 +6,4 @@ CODE_9FB3B6:
 	sta.w $1023,x
 	lda.l $7E34C6
 	bne CODE_9FB3CC
-	jmp.w $B518
+	jmp.w CODE_9FB518

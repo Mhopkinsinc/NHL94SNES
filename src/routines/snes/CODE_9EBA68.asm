@@ -47,4 +47,4 @@ CODE_9EBA84:
 	bne CODE_9EBA67
 	lda.w #$0026
 	sta.b $A5
-	jmp.w $B85E
+	jmp.w AddPenalty

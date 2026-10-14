@@ -35,7 +35,7 @@ CODE_9C9F48:
 	sta.b $0A
 	lda.w #$7D00
 	sta.b $08
-	jsr.w $9FC7
+	jsr.w CODE_9C9FC7
 	lda.b $00
 	cmp.w #$0000
 	bne CODE_9C9FB0
@@ -43,7 +43,7 @@ CODE_9C9F48:
 	sta.b $0A
 	lda.w #$24F8
 	sta.b $08
-	jsr.w $9FC7
+	jsr.w CODE_9C9FC7
 CODE_9C9FB0:
 	lda.b $A7
 	asl a

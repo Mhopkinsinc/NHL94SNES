@@ -33,4 +33,4 @@ CODE_9F977F:
 	lda.b $B5
 	cmp.w #$0003
 	bcs CODE_9F9789
-	jmp.w $9794
+	jmp.w CODE_9F9794

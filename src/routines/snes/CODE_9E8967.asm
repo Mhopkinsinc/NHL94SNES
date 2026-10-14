@@ -8,4 +8,4 @@ CODE_9E8967:
 	bne CODE_9E8981
 	lda.w #$0004
 	sta.b $A5
-	jmp.w $8C18
+	jmp.w assreplace

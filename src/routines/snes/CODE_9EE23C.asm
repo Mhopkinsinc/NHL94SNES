@@ -92,4 +92,4 @@ CODE_9EE2FE:
 	lda.w gmode
 	bit.w #$0010
 	beq CODE_9EE30B
-	jmp.w $E387
+	jmp.w CODE_9EE387

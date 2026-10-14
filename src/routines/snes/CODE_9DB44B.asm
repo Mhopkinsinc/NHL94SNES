@@ -78,7 +78,7 @@ CODE_9DB4C0:
 	sta.w VTIMEL
 	lda.w #$0000
 	sta.w HTIMEL
-	jsr.w $B44B
+	jsr.w CODE_9DB44B
 	rtl
 	sep #$20
 	lda.w $0BCF

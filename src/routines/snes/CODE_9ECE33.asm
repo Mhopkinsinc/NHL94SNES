@@ -12,4 +12,4 @@ CODE_9ECE33:
 	lda.b [$8D],y
 	bit.w #$0080
 	beq CODE_9ECE4B
-	jmp.w $CF40
+	jmp.w CODE_9ECF40

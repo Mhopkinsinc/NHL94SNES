@@ -75,4 +75,4 @@ CODE_9BAD81:
 	sta.b $C1
 	lda.w #$0020
 	trb.w sflags
-	jmp.w $ABAB
+	jmp.w CODE_9BABAB

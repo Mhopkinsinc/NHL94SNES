@@ -27,4 +27,4 @@ CODE_9EC9E2:
 	and.w #$00FF
 	cmp.w #$0025
 	beq CODE_9ECA05
-	jmp.w $CAB7
+	jmp.w CODE_9ECAB7

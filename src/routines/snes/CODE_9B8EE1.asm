@@ -7,4 +7,4 @@ CODE_9B8EE1:
 	adc.w $1DAF
 	sec
 	sbc.w $1D9B
-	jmp.w $91A1
+	jmp.w CODE_9B91A1

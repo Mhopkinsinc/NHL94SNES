@@ -21,4 +21,4 @@ CODE_9EC7DF:
 	tya
 	cmp.b [$8D]
 	bne CODE_9EC7E7
-	jmp.w $C881
+	jmp.w CODE_9EC881

@@ -10,4 +10,4 @@ CODE_9F8DA4:
 	jsl.l CODE_9C98DF
 	lda.w #$FFFF
 	sta.w $1E8D
-	jmp.w $8433
+	jmp.w CODE_9F8433

@@ -7,7 +7,7 @@ CODE_9D9A5C:
 	sta.b $12
 	lda.w #$47F4
 	sta.b $10
-	jsr.w $9B9B
+	jsr.w CODE_9D9B9B
 	lsr a
 	eor.w #$FFFF
 	inc a
@@ -40,4 +40,4 @@ CODE_9D9A94:
 	bne CODE_9D9AA8
 	lda.w #$FFFF
 	sta.b $08
-	jmp.w $9B0F
+	jmp.w CODE_9D9B0F

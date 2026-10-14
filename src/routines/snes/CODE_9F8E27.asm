@@ -7,4 +7,4 @@ CODE_9F8E27:
 	lda.w sflags3
 	bit.w #$0008
 	beq CODE_9F8E3E
-	jmp.w $9243
+	jmp.w CODE_9F9243

@@ -7,4 +7,4 @@ CODE_9FE3DC:
 CODE_9FE3DD:
 	sta.w tmgoalie,y
 	jsl.l setpersonel
-	jmp.w $E19E
+	jmp.w CODE_9FE19E

@@ -18,4 +18,4 @@ CODE_9C8729:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w $8644
+	jmp.w CODE_9C8644

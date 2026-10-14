@@ -93,4 +93,4 @@ CODE_9F9A25:
 CODE_9F9A2D:
 	sta.b $A5
 	plx
-	jmp.w $9ABD
+	jmp.w CODE_9F9ABD

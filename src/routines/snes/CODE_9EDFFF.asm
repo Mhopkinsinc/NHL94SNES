@@ -16,4 +16,4 @@ CODE_9EE014:
 	iny
 	dec.b $A9
 	bpl CODE_9EE014
-	jmp.w $E0C7
+	jmp.w CODE_9EE0C7

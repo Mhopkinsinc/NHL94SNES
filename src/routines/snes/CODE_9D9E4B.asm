@@ -27,4 +27,4 @@ CODE_9D9E70:
 	sta.w $0D43
 	jsl.l CODE_9D9ECB
 CODE_9D9E86:
-	jmp.w $9E2D
+	jmp.w CODE_9D9E2D

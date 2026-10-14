@@ -23,4 +23,4 @@ CODE_9ECBE8:
 	sta.b $89
 	plx
 	stx.b $A5
-	jmp.w $CD36
+	jmp.w CODE_9ECD36

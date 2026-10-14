@@ -110,7 +110,7 @@ CODE_9FB15B:
 	sta.w $0EE3,x
 	lda.w #$0004
 	ldy.w #$0000
-	jsr.w $B1DE
+	jsr.w CODE_9FB1DE
 	bmi CODE_9FB1B1
 	lda.w puckvy
 	bpl CODE_9FB1A4
@@ -119,6 +119,6 @@ CODE_9FB15B:
 CODE_9FB197:
 	lda.w #$0004
 	ldy.w #$000C
-	jsr.w $B1DE
+	jsr.w CODE_9FB1DE
 	bmi CODE_9FB1B1
 	bra CODE_9FB1A9

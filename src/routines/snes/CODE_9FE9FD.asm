@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FE9FD:
-	jsr.w $E75E
+	jsr.w CODE_9FE75E
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$76C0

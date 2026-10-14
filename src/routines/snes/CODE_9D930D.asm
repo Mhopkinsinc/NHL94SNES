@@ -70,4 +70,4 @@ CODE_9D9396:
 	sec
 	sbc.w #$0080
 	sta.w $07DA
-	jmp.w $9221
+	jmp.w CODE_9D9221

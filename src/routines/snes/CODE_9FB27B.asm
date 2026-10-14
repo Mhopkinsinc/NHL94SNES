@@ -4,4 +4,4 @@ CODE_9FB27B:
 	lda.w $14E3,x
 	beq CODE_9FB284
 CODE_9FB281:
-	jmp.w $B304
+	jmp.w CODE_9FB304

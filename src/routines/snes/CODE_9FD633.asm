@@ -70,4 +70,4 @@ CODE_9FD69B:
 CODE_9FD6B8:
 	dec.b $B5
 	bmi CODE_9FD6BF
-	jmp.w $D625
+	jmp.w CODE_9FD625

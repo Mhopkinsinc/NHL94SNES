@@ -9,4 +9,4 @@ CODE_9BA34B:
 	dey
 	bne CODE_9BA34B
 CODE_9BA352:
-	jmp.w $A293
+	jmp.w CODE_9BA293

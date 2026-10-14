@@ -8,4 +8,4 @@ CODE_9F8DD8:
 	lda.w #$0004
 	trb.w sflags3
 	beq CODE_9F8DF6
-	jmp.w $8330
+	jmp.w CODE_9F8330

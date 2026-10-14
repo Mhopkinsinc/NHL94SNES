@@ -21,4 +21,4 @@ CODE_9BC9F0:
 	adc.b $A5
 	cmp.w #$001E
 	bcc CODE_9BC9FD
-	jmp.w $C949
+	jmp.w CODE_9BC949

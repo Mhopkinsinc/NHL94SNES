@@ -56,4 +56,4 @@ CODE_9BA106:
 	dex
 	dex
 	bmi CODE_9BA10F
-	jmp.w $9FDC
+	jmp.w CODE_9B9FDC

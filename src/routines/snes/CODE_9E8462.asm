@@ -22,4 +22,4 @@ CODE_9E8490:
 	sbc.b $C1
 	sta.w $1003,x
 	bmi CODE_9E849E
-	jmp.w $852D
+	jmp.w CODE_9E852D

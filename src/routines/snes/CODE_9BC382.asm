@@ -13,4 +13,4 @@ CODE_9BC390:
 	adc.w $1DE9
 	cmp.w $1DC1
 	bmi CODE_9BC3A0
-	jmp.w $C2E4
+	jmp.w CODE_9BC2E4

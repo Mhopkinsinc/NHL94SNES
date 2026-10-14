@@ -11,4 +11,4 @@ CODE_9DA770:
 	and.w #$FFF0
 	sta.b $A9
 	beq CODE_9DA793
-	jmp.w $A869
+	jmp.w CODE_9DA869

@@ -58,4 +58,4 @@ CODE_9EF1B9:
 	lda.b $A9
 	sta.w $0EE4,x
 	rep #$20
-	jmp.w $DE5E
+	jmp.w CODE_9EDE5E

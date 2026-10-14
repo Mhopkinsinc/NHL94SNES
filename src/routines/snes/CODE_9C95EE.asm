@@ -24,4 +24,4 @@ CODE_9C9617:
 	sta.w $1E17
 CODE_9C961E:
 	iny
-	jmp.w $9599
+	jmp.w CODE_9C9599

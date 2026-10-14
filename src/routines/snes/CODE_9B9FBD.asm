@@ -21,4 +21,4 @@ CODE_9B9FDC:
 CODE_9B9FE8:
 	lda.w $0C53
 	beq CODE_9B9FF0
-	jmp.w $A076
+	jmp.w CODE_9BA076

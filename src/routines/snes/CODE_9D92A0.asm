@@ -10,4 +10,4 @@ CODE_9D92A0:
 	adc.w #$002F
 	cmp.w #$0080
 	bcc CODE_9D92B6
-	jmp.w $936E
+	jmp.w CODE_9D936E

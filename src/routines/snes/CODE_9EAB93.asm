@@ -2,7 +2,7 @@
 CODE_9EAB93:
 	ldx.w #$00E5
 	ldy.w #$011C
-	jsr.w $AD4E
+	jsr.w CODE_9EAD4E
 	ldx.w #$00E4
 	ldy.w #$011D
 	stx.b $14
@@ -15,7 +15,7 @@ CODE_9EAB93:
 	bne CODE_9EABD9
 	ldx.w #$FEE4
 	ldy.w #$FF1B
-	jsr.w $AD4E
+	jsr.w CODE_9EAD4E
 	ldx.w #$FEE3
 	ldy.w #$FF1C
 	stx.b $14

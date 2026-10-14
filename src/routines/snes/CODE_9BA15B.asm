@@ -11,4 +11,4 @@ CODE_9BA166:
 	lda.w #$009B
 	sta.b $0E
 	stz.w $0C55,x
-	jmp.w $A0A2
+	jmp.w CODE_9BA0A2

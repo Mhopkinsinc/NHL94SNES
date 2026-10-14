@@ -45,7 +45,7 @@ CODE_9B9768:
 CODE_9B97DF:
 	jsl.l CODE_9B9A5D
 CODE_9B97E3:
-	jsr.w $9917
+	jsr.w CODE_9B9917
 	jsl.l CODE_9DD923
 	lda.w #$0058
 	ldx.w #$00D0
@@ -55,7 +55,7 @@ CODE_9B97E3:
 	jsl.l CODE_8086BD
 	lda.w #$0005
 	sta.w $1DC5
-	jsr.w $98C9
+	jsr.w CODE_9B98C9
 CODE_9B9808:
 	jsl.l CODE_9B851F
 	jsl.l CODE_9B852C

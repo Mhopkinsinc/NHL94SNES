@@ -35,7 +35,7 @@ CODE_9B8017:
 	lda.l PadDirection,x
 	and.w #$00FF
 	sta.w $0AAC
-	jsr.w $8472
+	jsr.w CODE_9B8472
 	lda.w $0AAE
 	ora.w $0AB0
 	ora.w $0AB2

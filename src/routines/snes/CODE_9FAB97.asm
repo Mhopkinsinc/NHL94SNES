@@ -13,4 +13,4 @@ CODE_9FABA2:
 	lda.b $AD
 	pha
 	bmi CODE_9FABB3
-	jmp.w $A9EF
+	jmp.w CODE_9FA9EF

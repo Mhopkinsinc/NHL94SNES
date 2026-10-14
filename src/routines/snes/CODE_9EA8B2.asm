@@ -20,4 +20,4 @@ CODE_9EA8C9:
 	lda.w $0EC3,x
 	ora.w $0EE3,x
 	beq CODE_9EA8E5
-	jmp.w $A4F7
+	jmp.w CODE_9EA4F7

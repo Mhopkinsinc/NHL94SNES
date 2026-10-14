@@ -4,4 +4,4 @@ CODE_9ED871:
 	lda.b [$89],y
 	cmp.w #$0023
 	bcc CODE_9ED87E
-	jmp.w $DA51
+	jmp.w CODE_9EDA51

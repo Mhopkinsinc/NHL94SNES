@@ -15,4 +15,4 @@ CODE_9F9243:
 	jsl.l WaitFrame
 	jsl.l CODE_9F9307
 	jsl.l CODE_9F9298
-	jmp.w $91E0
+	jmp.w CODE_9F91E0

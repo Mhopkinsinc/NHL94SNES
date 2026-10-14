@@ -19,4 +19,4 @@ CODE_9BA110:
 	bmi CODE_9BA13C
 	tya
 	sta.w $0C55,x
-	jmp.w $A0A2
+	jmp.w CODE_9BA0A2

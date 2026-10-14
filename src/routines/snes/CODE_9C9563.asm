@@ -18,4 +18,4 @@ CODE_9C9580:
 	sta.w $1E17
 CODE_9C9587:
 	iny
-	jmp.w $94F8
+	jmp.w CODE_9C94F8

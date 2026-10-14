@@ -8,5 +8,5 @@ CODE_9B8CC4:
 	cmp.w $1D8F
 	bne CODE_9B8CDB
 	dec.b $95
-	jsr.w $8D32
+	jsr.w CODE_9B8D32
 	bra CODE_9B8D20

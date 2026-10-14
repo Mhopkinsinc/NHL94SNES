@@ -3,4 +3,4 @@ CODE_9FB455:
 	lda.b $A5
 	cmp.w $1C84
 	bne CODE_9FB45F
-	jmp.w $B517
+	jmp.w CODE_9FB517

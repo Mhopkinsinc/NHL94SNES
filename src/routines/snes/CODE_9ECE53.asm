@@ -9,4 +9,4 @@ CODE_9ECE60:
 	sec
 	sbc.w #$0020
 	bne CODE_9ECE69
-	jmp.w $CF0E
+	jmp.w CODE_9ECF0E

@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9C8E9C:
-	jsr.w $8F36
+	jsr.w CODE_9C8F36
 	lda.w $1DBD
 	dec a
 	bmi CODE_9C8E3A
@@ -22,4 +22,4 @@ CODE_9C8EBB:
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
-	jmp.w $8E22
+	jmp.w CODE_9C8E22

@@ -19,4 +19,4 @@ CODE_9F88F6:
 	dex
 	dex
 	bmi CODE_9F8904
-	jmp.w $86A4
+	jmp.w CODE_9F86A4

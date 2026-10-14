@@ -6,4 +6,4 @@ CODE_9C9056:
 	inc.b $89
 	cmp.w #$0001
 	bne CODE_9C9067
-	jmp.w $90F0
+	jmp.w CODE_9C90F0

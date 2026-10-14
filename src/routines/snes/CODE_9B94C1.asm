@@ -2,7 +2,7 @@
 CODE_9B94C1:
 	lda.w #$0006
 	sta.w $1DC5
-	jsr.w $9562
+	jsr.w CODE_9B9562
 	lda.w #$0005
 	sta.w $1DC5
 	lda.w $1DBD
@@ -26,7 +26,7 @@ CODE_9B94EF:
 	cmp.w #$0017
 	bne CODE_9B94EF
 	jsl.l CODE_9B9AB2
-	jsr.w $9562
+	jsr.w CODE_9B9562
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3

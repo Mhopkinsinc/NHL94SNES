@@ -25,4 +25,4 @@ CODE_9ED4DA:
 	lda.w #$FF0C
 	sta.b $AD
 CODE_9ED501:
-	jmp.w $DA51
+	jmp.w CODE_9EDA51

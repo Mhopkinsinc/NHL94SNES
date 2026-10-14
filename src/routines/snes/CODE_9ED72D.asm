@@ -16,4 +16,4 @@ CODE_9ED72D:
 	lda.w #$FF78
 	sta.b $A5
 CODE_9ED752:
-	jmp.w $DA51
+	jmp.w CODE_9EDA51

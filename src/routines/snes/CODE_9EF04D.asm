@@ -73,4 +73,4 @@ CODE_9EF0D5:
 	lda.w $0DF9
 	cmp.w #$0005
 	bmi CODE_9EF0EC
-	jmp.w $F1CA
+	jmp.w CODE_9EF1CA

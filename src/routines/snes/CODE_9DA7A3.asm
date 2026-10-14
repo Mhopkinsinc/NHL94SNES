@@ -69,4 +69,4 @@ CODE_9DA857:
 	ora.l $7E34F4
 	sta.l $7E34F4
 	jsl.l CODE_9D9783
-	jmp.w $A0D5
+	jmp.w CODE_9DA0D5

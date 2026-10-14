@@ -25,7 +25,7 @@ CODE_9ED243:
 	cmp.w #$0096
 	bcc CODE_9ED214
 CODE_9ED24D:
-	jsr.w $DC44
+	jsr.w CODE_9EDC44
 	jsl.l vtoa
 	jsl.l CODE_9EDC06
 	asl.w $12E3,x

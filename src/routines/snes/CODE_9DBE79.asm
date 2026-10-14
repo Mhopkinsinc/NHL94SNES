@@ -37,4 +37,4 @@ CODE_9DBE79:
 	sta.b $95
 	ldy.w $1DB9
 	bne CODE_9DBED6
-	jmp.w $C0EE
+	jmp.w CODE_9DC0EE

@@ -23,4 +23,4 @@ CODE_9EB4C1:
 	tay
 	lda.w position,y
 	bmi CODE_9EB4F1
-	jmp.w $B6CC
+	jmp.w CODE_9EB6CC

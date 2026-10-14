@@ -20,7 +20,7 @@ CODE_9E8A4F:
 	lda.w $0D71
 	sta.b $A5
 CODE_9E8A67:
-	jmp.w $A5A4
+	jmp.w CODE_9EA5A4
 	cpx.w $0AD9
 	beq CODE_9E8A88
 	ldy.w $0AD9
@@ -30,4 +30,4 @@ CODE_9E8A67:
 	beq CODE_9E8A90
 	lda.w #$0003
 	sta.b $A5
-	jmp.w $8C18
+	jmp.w assreplace

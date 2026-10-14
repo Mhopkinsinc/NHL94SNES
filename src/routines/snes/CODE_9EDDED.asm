@@ -1,3 +1,3 @@
 ; Unidentified routine.
 CODE_9EDDED:
-	jmp.w $DE57
+	jmp.w CODE_9EDE57

@@ -7,4 +7,4 @@ DATA8_9EE43F:
 	lda.w $19D4,x
 	bmi CODE_9EE47E
 CODE_9EE46D:
-	jmp.w $8BE6
+	jmp.w CODE_9E8BE6

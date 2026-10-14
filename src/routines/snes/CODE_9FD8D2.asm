@@ -14,4 +14,4 @@ CODE_9FD8E7:
 CODE_9FD8EB:
 	cmp.w #$0029
 	bcc CODE_9FD8F3
-	jmp.w $D99D
+	jmp.w CODE_9FD99D

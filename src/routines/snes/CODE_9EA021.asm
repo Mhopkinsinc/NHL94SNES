@@ -8,4 +8,4 @@ CODE_9EA021:
 	beq CODE_9EA01E
 	cmp.w #$F208
 	bne CODE_9EA038
-	jmp.w $BC24
+	jmp.w CODE_9EBC24

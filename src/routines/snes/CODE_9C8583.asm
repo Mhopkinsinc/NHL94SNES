@@ -77,4 +77,4 @@ CODE_9C8644:
 	lda.b $B1
 	bit.w #$1000
 	beq CODE_9C865A
-	jmp.w $86F3
+	jmp.w CODE_9C86F3

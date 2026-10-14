@@ -4,4 +4,4 @@ CODE_9CA2EE:
 	sta.w $0F5B
 	sta.w $0F5D
 	plb
-	jmp.w $A19B
+	jmp.w SprSort

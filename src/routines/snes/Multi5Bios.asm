@@ -25,4 +25,4 @@ CODE_9B80B6:
 	sta.w $0ACB
 	lda.w $1A0C
 	bne CODE_9B80E4
-	jmp.w $81EC
+	jmp.w CODE_9B81EC

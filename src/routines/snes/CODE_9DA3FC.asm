@@ -39,4 +39,4 @@ CODE_9DA444:
 	dex
 	dex
 	bpl CODE_9DA437
-	jmp.w $A29C
+	jmp.w CODE_9DA29C

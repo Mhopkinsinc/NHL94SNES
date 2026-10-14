@@ -10,4 +10,4 @@ CODE_9FBFA6:
 	sec
 	sbc.w $0D23
 	bne CODE_9FBFBA
-	jmp.w $C072
+	jmp.w CODE_9FC072

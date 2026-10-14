@@ -10,4 +10,4 @@ CODE_9FF613:
 CODE_9FF623:
 	lda.b $C3
 	beq CODE_9FF62A
-	jmp.w $F898
+	jmp.w CODE_9FF898

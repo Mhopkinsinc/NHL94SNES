@@ -112,4 +112,4 @@ CODE_9D9E2D:
 	lda.b $A9
 	bit.w #$1000
 	beq CODE_9D9E4B
-	jmp.w $A04C
+	jmp.w CODE_9DA04C

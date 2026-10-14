@@ -8,4 +8,4 @@ CODE_9D8BBF:
 	sta.l $7E35AC
 	lda.l $7E34BC
 	bne CODE_9D8BDE
-	jmp.w $9064
+	jmp.w CODE_9D9064

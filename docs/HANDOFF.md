@@ -20,15 +20,17 @@
 - `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
 - SpriteFrameN labels stay numbered until a frame has an SPF name.
 - The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.
+- The animation list in `src/data/frames94s.asm` has the same shape as the 94G list (eight direction pointers, then frame and time words) but the frame numbers are not the 94G SPF values, so those SPA names are not applied. `DATA8_9DE0FC` stays until that match is clear.
 
 ## Alignment
 
-- Audit is `docs/align_plan.md` (no source change). `bank9C_A000` plus `src/data/teamdata94s.asm` does cover the old bank9C_B000, C000 and D000 ranges: the next file is bank9C_E000 at `$9CEF59`.
+- Audit is `docs/align_plan.md`. The team database in `src/data/teamdata94s.asm` covers the old bank9C B000/C000/D000 range; screen text continues at `$9CEF59`.
 - Layout done: banks `$80` through `$9F` are `src/banks/` files. Code banks are `b80_engine`, `b9B_screens`, `b9C_teams`, `b9D_roster`, `b9E_game` and `b9F_flow`. Routines are in `src/routines/`, tables in `src/data/tables/`. The SNES header is `src/header/snes_header.asm`. `tools/verify_all.sh` MATCH.
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
 - `adda43` shares a file with `CODE_9BB176` because that routine falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
 - Two entries in bank `$9F` had no label. They are `CODE_9F9901` and `CODE_9FA835` (rows in `docs/name_map.csv`).
-- Next: build `src/data/frames94s.asm` from the bank `$9D` animation sequences. Extraction, SPA symbols and the doc rewrite are still ahead.
+- Next: headers on the named routines are still the short "Unidentified routine." line where the slice had no plain-English comment. Penalty, hockey and shootout locals are next.
+- Sprite animation sequences are `src/data/frames94s.asm` (the label is still `DATA8_9DE0FC`).
 
 ## State
 
@@ -38,9 +40,10 @@
   `tools/extract.py` has the `ASSETS` list (name, first address, end exclusive). The text tables are source files in
   `src/data/text/`, one per table, included where they sit in the ROM; nine take their 93S names (AttribMenuSkater,
   AttribMenuGoalie, PositionNames, GameLabels, PasstoText, StatusTextTbl, HandedTextTbl, GoalBoxText, RosterLineNames).
-  The team database (TeamList, the team records, playoffseats) is `src/data/teamdata94s.asm`, included from bank9C_A000
-  (as 93S `teamdata93s.asm`); the segment files bank9C_B000 to bank9C_D000 are gone and bank9C_E000 starts at $9CEF59.
-  The penalty/stoppage table DATA8_80D3EB (strings mixed with data) stays in bank80_D000.
+  The team database (TeamList, the team records, playoffseats) is `src/data/teamdata94s.asm`, included from
+  `src/banks/b9C_teams.asm`. `DATA8_80D3EB` is `src/data/tables/DATA8_80D3EB.asm`.
+- The notes below still say `bank80_8000` and the other old slice names. That code now lives in `src/routines/` and
+  `src/data/tables/`, included from `src/banks/`.
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
   as 93S `snes93.mac`.
 - `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.

@@ -4,4 +4,4 @@ CODE_9FEB4E:
 	ldy.b $91
 	lda.w tmgoalie,y
 	bpl CODE_9FEB5C
-	jmp.w $EC60
+	jmp.w CODE_9FEC60

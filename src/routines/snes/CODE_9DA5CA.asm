@@ -86,9 +86,9 @@ CODE_9DA5CA:
 	sta.b $91
 	stz.b $C1
 	stz.b $A5
-	jsr.w $AC4F
-	jsr.w $A973
-	jsr.w $AA83
+	jsr.w CODE_9DAC4F
+	jsr.w CODE_9DA973
+	jsr.w CODE_9DAA83
 	jsl.l CODE_9B8017
 	jsl.l CODE_9DDFF6
 	jsl.l CODE_8086BD
@@ -116,4 +116,4 @@ CODE_9DA715:
 	txa
 	eor.b $AF
 	bne CODE_9DA724
-	jmp.w $A768
+	jmp.w CODE_9DA768

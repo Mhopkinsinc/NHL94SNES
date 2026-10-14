@@ -41,4 +41,4 @@ CODE_9E8F42:
 	tyx
 	cpx.w #$001C
 	beq CODE_9E8F9E
-	jmp.w $900A
+	jmp.w CODE_9E900A

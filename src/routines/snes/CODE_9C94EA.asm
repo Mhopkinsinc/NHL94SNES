@@ -11,4 +11,4 @@ CODE_9C94F8:
 	lda.b ($A9),y
 	and.w #$00FF
 	bne CODE_9C9502
-	jmp.w $958B
+	jmp.w CODE_9C958B

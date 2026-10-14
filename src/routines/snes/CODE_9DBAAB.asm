@@ -15,9 +15,9 @@ CODE_9DBABA:
 	lda.w #$5000
 	sta.b $10
 	lda.w #$0009
-	jsr.w $B754
+	jsr.w CODE_9DB754
 	lda.w #$000A
-	jsr.w $B754
+	jsr.w CODE_9DB754
 	lda.w $0BDD
 	asl a
 	tax

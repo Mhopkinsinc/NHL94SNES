@@ -13,4 +13,4 @@ CODE_9FC1E1:
 	lda.w sflags
 	bit.w #$0100
 	beq CODE_9FC1EC
-	jmp.w $C26F
+	jmp.w CODE_9FC26F

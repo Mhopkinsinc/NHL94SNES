@@ -6,4 +6,4 @@ CODE_9C99A2:
 	beq CODE_9C99E4
 	lda.l $7E35E8
 	beq CODE_9C99B1
-	jmp.w $9A21
+	jmp.w CODE_9C9A21

@@ -78,4 +78,4 @@ CODE_9ECD7C:
 	lda.b [$8D],y
 	and.w #$00FF
 	beq CODE_9ECD98
-	jmp.w $CB2B
+	jmp.w CODE_9ECB2B

@@ -48,4 +48,4 @@ CODE_9BC9FD:
 	lda.b $B9
 	sta.b [$89],y
 	rep #$30
-	jmp.w $C949
+	jmp.w CODE_9BC949

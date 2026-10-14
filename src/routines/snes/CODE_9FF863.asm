@@ -8,4 +8,4 @@ CODE_9FF863:
 	sta.b $B7
 	lda.w #$0008
 	sta.b $B9
-	jmp.w $F898
+	jmp.w CODE_9FF898

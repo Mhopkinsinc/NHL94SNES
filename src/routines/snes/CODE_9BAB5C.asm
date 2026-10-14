@@ -24,4 +24,4 @@ CODE_9BAB5C:
 	sta.b $C1
 	lda.w #$0002
 	trb.w sflags3
-	jmp.w $ACE5
+	jmp.w CODE_9BACE5

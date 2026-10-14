@@ -62,4 +62,4 @@ CODE_9D8489:
 	jsl.l CODE_9FBE08
 	lda.w $1DB9
 	bne CODE_9D851D
-	jmp.w $8631
+	jmp.w CODE_9D8631

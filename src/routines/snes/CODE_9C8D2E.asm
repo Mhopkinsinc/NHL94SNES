@@ -74,6 +74,6 @@ CODE_9C8DD7:
 	sta.w $1DF5
 	jsl.l CODE_9DDFF6
 	jsl.l CODE_8086BD
-	jsr.w $8F9B
+	jsr.w CODE_9C8F9B
 	jsl.l CODE_9DD923
 	bra CODE_9C8E3A

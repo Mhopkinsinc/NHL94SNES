@@ -91,7 +91,7 @@ CODE_9BCB7B:
 	lda.l $7E35D0
 	sta.b $AD
 	jsl.l eraser
-	jsr.w $CBD8
+	jsr.w CODE_9BCBD8
 	jsl.l CODE_9FBF75
 	jsl.l CODE_8085FF
-	jmp.w $C946
+	jmp.w CODE_9BC946

@@ -24,14 +24,14 @@ CODE_9EE495:
 	lda.w $0792
 	and.w #$0003
 	sta.w $1043,x
-	jsr.w $E5E6
+	jsr.w CODE_9EE5E6
 CODE_9EE4BE:
 	lda.w $1EA5
 	bmi CODE_9EE502
 	lda.b $A5
 	cmp.w $1EA5
 	bmi CODE_9EE4D3
-	jsr.w $E593
+	jsr.w CODE_9EE593
 	lda.w $1163,x
 	sta.w $1EAB
 CODE_9EE4D3:

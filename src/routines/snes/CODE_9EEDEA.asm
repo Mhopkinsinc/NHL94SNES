@@ -11,4 +11,4 @@ CODE_9EEDEF:
 	sta.w passdir
 CODE_9EEDFD:
 	jsl.l CODE_9EEE04
-	jmp.w $8BE6
+	jmp.w CODE_9E8BE6

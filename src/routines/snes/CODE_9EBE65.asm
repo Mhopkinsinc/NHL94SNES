@@ -27,4 +27,4 @@ CODE_9EBE8D:
 	lda.w #$FFFF
 	sta.w $19EC,y
 	sta.w $19D4,x
-	jmp.w $BE24
+	jmp.w CODE_9EBE24

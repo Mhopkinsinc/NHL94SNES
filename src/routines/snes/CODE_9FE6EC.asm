@@ -20,4 +20,4 @@ CODE_9FE712:
 	lda.b $A9
 	ora.b $B1
 	bne CODE_9FE71B
-	jmp.w $E618
+	jmp.w CODE_9FE618

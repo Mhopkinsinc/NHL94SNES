@@ -12,4 +12,4 @@ CODE_9E955F:
 	lda.b $A5
 	ora.b $A9
 	bne CODE_9E957C
-	jmp.w $976E
+	jmp.w CODE_9E976E

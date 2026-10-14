@@ -9,4 +9,4 @@ CODE_9EF7C7:
 	lda.w gmode
 	bit.w #$0020
 	bne CODE_9EF7D6
-	jmp.w $F829
+	jmp.w CODE_9EF829

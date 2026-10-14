@@ -38,4 +38,4 @@ CODE_9E9BD2:
 	cmp.w #$FEED
 	bmi CODE_9E9C0D
 CODE_9E9C0A:
-	jmp.w $9D0D
+	jmp.w CODE_9E9D0D

@@ -5,4 +5,4 @@ CODE_9BA1B8:
 	stx.b $B5
 	lda.l $7E340C,x
 	beq CODE_9BA1C3
-	jmp.w $A31C
+	jmp.w CODE_9BA31C

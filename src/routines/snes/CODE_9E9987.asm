@@ -69,4 +69,4 @@ CODE_9E99FD:
 	cmp.w $0DF9
 	bcc CODE_9E9A11
 CODE_9E9A0E:
-	jmp.w $98FB
+	jmp.w CODE_9E98FB

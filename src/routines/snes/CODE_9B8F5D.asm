@@ -9,4 +9,4 @@ CODE_9B8F5D:
 	sta.w $07E0
 	lda.w #$FFFF
 	sta.w $07D8
-	jmp.w $8F28
+	jmp.w CODE_9B8F28

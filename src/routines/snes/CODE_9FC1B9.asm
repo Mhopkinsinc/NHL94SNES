@@ -7,4 +7,4 @@ CODE_9FC1B9:
 	bit.w #$1000
 	beq CODE_9FC1CE
 	lda.b $B5
-	jmp.w $936C
+	jmp.w CODE_9F936C

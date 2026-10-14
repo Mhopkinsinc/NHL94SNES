@@ -40,7 +40,7 @@ CODE_9DA8DF:
 	lda.w #$001A
 	sta.b $B5
 CODE_9DA917:
-	jsr.w $A921
+	jsr.w CODE_9DA921
 	lda.b $B1
 	sta.b [$91],y
 	lda.b $AD

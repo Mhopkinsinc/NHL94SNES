@@ -240,4 +240,4 @@ CODE_9DD9AD:
 	lda.l $7E3454
 	cmp.w #$0021
 	bcs CODE_9DDC18
-	jmp.w $DCF3
+	jmp.w CODE_9DDCF3

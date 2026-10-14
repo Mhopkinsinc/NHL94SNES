@@ -56,4 +56,4 @@ CODE_9F9CFB:
 	jsl.l CODE_9ECE15
 	pla
 	sta.b $A9
-	jmp.w $9CD8
+	jmp.w CODE_9F9CD8

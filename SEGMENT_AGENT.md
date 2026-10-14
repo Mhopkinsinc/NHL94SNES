@@ -35,8 +35,7 @@ None: every segment is source (MATCH). Later passes name the auto labels (see `d
 ## Sources
 
 - Reference ROM: `lst/nhl94snes.sfc` (not in the repo; `tools/prebuild.py` says where to put it, its SHA-1 and size).
-- Each segment `src/bankXX_YYYY.asm` has one `org`; every segment is source. Binary blocks are data assets in `src/data/` (Segment
-  rules).
+- Each bank is `src/banks/b*.asm`: an `org`, then `incsrc` lines in ROM order. Routines are `src/routines/<module>/<Name>.asm`. Data is `src/data/` (`gfx/`, `sound/`, `text/`, `tables/`, `teamdata94s.asm`, `frames94s.asm`). The internal header is `src/header/snes_header.asm`. The old `src/bankXX_YYYY.asm` slices are gone.
 - Starting text: `python3 tools/disasm65816.py lst/nhl94snes.sfc output/quickpass` writes a quick pass per segment
   (`output/quickpass/bankXX_YYYY.asm`). It decodes from the vectors by recursive descent with M/X tracking, and also decodes the
   instruction starts in `tools/codemap.txt` (from the NHL94SNESVault DiztinGUIsh export) where the bytes agree. Every instruction line
@@ -647,3 +646,6 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Bank $9E: the eight slices are `src/banks/b9E_game.asm`, split the same way. Matched 93S names are in `routines/logic/` and `routines/penalty/`. MATCH.
 - Bank $9F: the eight slices are `src/banks/b9F_flow.asm`, split the same way. `setteams` stays in `ClearTeamStats.asm` (that routine falls through into it). Two entries with no label are `CODE_9F9901` and `CODE_9FA835`. MATCH.
 - Bank $80: the eight slices are `src/banks/b80_engine.asm`, split the same way. ShootoutWonBy, ShootoutShooters, InitShooters and ShooterSelectList are in `routines/shootout/`. The internal header and vectors are `src/header/snes_header.asm`. MATCH.
+- Animation sequences from bank `$9D` are `src/data/frames94s.asm`. The 94G SPA names are not applied: the frame numbers do not match the 94G SPF values. MATCH.
+- Raw `jmp.w`/`jsr.w` targets and `dd` long pointers that already had a label now use that label (745 jumps, 190 pointers). Targets with no label stay numbers. MATCH.
+- START_HERE.md, PROMPT.md and the Sources note in this file describe `src/banks/`, `src/routines/` and `src/data/`.

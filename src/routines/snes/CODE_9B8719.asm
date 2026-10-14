@@ -3,7 +3,7 @@ CODE_9B8719:
 	jsl.l CODE_9B8D86
 	cmp.w #$0000
 	bmi CODE_9B8725
-	jsr.w $8C7A
+	jsr.w CODE_9B8C7A
 CODE_9B8725:
 	lda.w #$0001
 	sta.l $7E3468
@@ -50,4 +50,4 @@ CODE_9B8769:
 	sta.b $8D
 	pla
 	sta.b $8F
-	jmp.w $880D
+	jmp.w CODE_9B880D

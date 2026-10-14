@@ -34,4 +34,4 @@ CODE_9EE87E:
 	pla
 	sta.b $91
 	jsl.l CODE_9EE220
-	jmp.w $E77E
+	jmp.w CODE_9EE77E

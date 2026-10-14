@@ -11,4 +11,4 @@ CODE_9ED4A0:
 CODE_9ED4B4:
 	lda.w $1543,x
 	beq CODE_9ED4BC
-	jmp.w $D49F
+	jmp.w CODE_9ED49F

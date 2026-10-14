@@ -14,4 +14,4 @@ CODE_9EAB05:
 	sta.b $A9
 	lda.w $1523,x
 	bne CODE_9EAB1B
-	jmp.w $A3DD
+	jmp.w SetSPA

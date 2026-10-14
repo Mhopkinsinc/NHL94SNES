@@ -9,4 +9,4 @@ CODE_9C902A:
 CODE_9C9039:
 	lda.b [$89]
 	bpl CODE_9C9040
-	jmp.w $9167
+	jmp.w CODE_9C9167

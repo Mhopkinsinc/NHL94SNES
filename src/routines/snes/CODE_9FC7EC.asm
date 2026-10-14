@@ -5,7 +5,7 @@ CODE_9FC7EC:
 	sec
 	sbc.w #$0010
 	bmi CODE_9FC80A
-	jsr.w $C822
+	jsr.w CODE_9FC822
 	lda.b $B3
 	bit.w $1EB3
 	beq CODE_9FC804

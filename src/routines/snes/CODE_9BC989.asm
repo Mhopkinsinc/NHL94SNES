@@ -22,4 +22,4 @@ CODE_9BC989:
 	sty.b $A5
 	bit.w #$0800
 	bne CODE_9BC9F0
-	jmp.w $C949
+	jmp.w CODE_9BC949

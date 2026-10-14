@@ -50,4 +50,4 @@ CODE_9EC838:
 	and.w #$007F
 	sta.w printy
 	iny
-	jmp.w $C7C2
+	jmp.w CODE_9EC7C2

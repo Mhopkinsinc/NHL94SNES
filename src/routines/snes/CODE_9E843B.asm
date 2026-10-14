@@ -10,4 +10,4 @@ CODE_9E843B:
 	beq CODE_9E8462
 	lda.w #$0005
 	sta.b $A5
-	jmp.w $8C18
+	jmp.w assreplace

@@ -19,4 +19,4 @@ CODE_9F8A44:
 	lda.b $B1
 	cmp.w $0E83,x
 	bne CODE_9F8A63
-	jmp.w $8AD1
+	jmp.w CODE_9F8AD1

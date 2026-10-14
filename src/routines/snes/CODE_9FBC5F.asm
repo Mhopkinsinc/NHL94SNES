@@ -12,4 +12,4 @@ CODE_9FBC6E:
 	cmp.w #$000F
 	bne CODE_9FBC7B
 CODE_9FBC78:
-	jmp.w $BD47
+	jmp.w CODE_9FBD47

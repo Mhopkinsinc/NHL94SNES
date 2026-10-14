@@ -14,4 +14,4 @@ CODE_9FBE43:
 	beq CODE_9FBE56
 	lda.l $7E3460
 	bne CODE_9FBE56
-	jmp.w $BEF8
+	jmp.w CODE_9FBEF8

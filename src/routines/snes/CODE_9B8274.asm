@@ -10,7 +10,7 @@ CODE_9B8277:
 	ldx.w $1A0C
 	beq CODE_9B828C
 CODE_9B8289:
-	jsr.w $8309
+	jsr.w CODE_9B8309
 CODE_9B828C:
 	lda.w $0ACB
 	cmp.b #$01
@@ -20,7 +20,7 @@ CODE_9B828C:
 	ldx.w $1A0C
 	beq CODE_9B82D6
 CODE_9B829E:
-	jsr.w $8309
+	jsr.w CODE_9B8309
 CODE_9B82A1:
 	lda.w $1A0C
 	beq CODE_9B82D6
@@ -30,21 +30,21 @@ CODE_9B82A6:
 	beq CODE_9B82B6
 	ldx.w #$000F
 	stx.w $077A
-	jsr.w $8309
+	jsr.w CODE_9B8309
 CODE_9B82B6:
 	lda.w $0ACD
 	cmp.b #$01
 	beq CODE_9B82C6
 	ldx.w #$000F
 	stx.w $077C
-	jsr.w $8309
+	jsr.w CODE_9B8309
 CODE_9B82C6:
 	lda.w $0ACE
 	cmp.b #$01
 	beq CODE_9B82D6
 	ldx.w #$000F
 	stx.w $077E
-	jsr.w $8309
+	jsr.w CODE_9B8309
 CODE_9B82D6:
 	lda.w $1A0E
 	beq CODE_9B8307

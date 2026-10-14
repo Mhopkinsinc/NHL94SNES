@@ -50,4 +50,4 @@ CODE_9ED90F:
 	and.w #$0007
 	sta.b $B1
 	beq CODE_9ED93F
-	jmp.w $D9A0
+	jmp.w CODE_9ED9A0

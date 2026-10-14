@@ -48,4 +48,4 @@ CODE_9F9978:
 	lda.l DATA8_80DA26,x
 	bit.b $B7
 	bne CODE_9F9987
-	jmp.w $9A5C
+	jmp.w CODE_9F9A5C

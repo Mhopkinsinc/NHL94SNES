@@ -53,4 +53,4 @@ CODE_9BC316:
 CODE_9BC351:
 	jsl.l CODE_9BC44B
 	jsl.l WaitFrame
-	jmp.w $C2C9
+	jmp.w CODE_9BC2C9

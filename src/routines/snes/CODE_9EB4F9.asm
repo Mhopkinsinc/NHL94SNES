@@ -14,4 +14,4 @@ CODE_9EB4F9:
 	sta.b $8D
 	cmp.w #$D4AD
 	bne CODE_9EB51A
-	jmp.w $B6A1
+	jmp.w CODE_9EB6A1

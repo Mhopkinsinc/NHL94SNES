@@ -51,4 +51,4 @@ CODE_9E9692:
 	sta.b $A9
 	lda.w $0CDB
 	bpl CODE_9E96A4
-	jmp.w $976E
+	jmp.w CODE_9E976E

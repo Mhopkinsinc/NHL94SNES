@@ -31,13 +31,13 @@ CODE_9D9406:
 	lsr a
 	and.b #$0F
 	sta.b $00
-	jsr.w $942A
+	jsr.w CODE_9D942A
 	rep #$20
 	pla
 	clc
 	adc.w #$0020
 	tax
 	sep #$20
-	jsr.w $9494
+	jsr.w CODE_9D9494
 	rep #$20
 	rts

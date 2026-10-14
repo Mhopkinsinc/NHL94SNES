@@ -5,8 +5,8 @@ CODE_9DB430:
 	beq CODE_9DB44A
 	stz.w $0BEF
 	stz.w $0BF1
-	jsr.w $BD36
-	jsr.w $BB14
+	jsr.w CODE_9DBD36
+	jsr.w CODE_9DBB14
 	lda.w #$0001
 	trb.w $0BFF
 CODE_9DB44A:

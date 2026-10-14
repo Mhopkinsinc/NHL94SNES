@@ -7,4 +7,4 @@ CODE_9ED92A:
 	bmi CODE_9ED93F
 	lda.w #$0008
 	sta.b $A5
-	jmp.w $DA04
+	jmp.w CODE_9EDA04

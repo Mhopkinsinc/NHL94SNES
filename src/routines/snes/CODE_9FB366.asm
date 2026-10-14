@@ -7,4 +7,4 @@ CODE_9FB366:
 	bit.w #$0002
 	bne CODE_9FB37B
 CODE_9FB378:
-	jmp.w $B518
+	jmp.w CODE_9FB518

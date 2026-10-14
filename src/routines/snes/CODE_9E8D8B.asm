@@ -19,4 +19,4 @@ CODE_9E8D8B:
 	sta.b $91
 	jsl.l CODE_9E90AE
 CODE_9E8DB2:
-	jmp.w $8E3A
+	jmp.w CODE_9E8E3A

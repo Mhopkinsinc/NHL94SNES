@@ -14,4 +14,4 @@ CODE_9E92DE:
 	lda.w #$FF01
 	sta.b $A9
 CODE_9E92F5:
-	jmp.w $8F42
+	jmp.w CODE_9E8F42

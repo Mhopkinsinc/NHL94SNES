@@ -57,4 +57,4 @@ org $9EF000
 	lda.w $0DF9
 	cmp.w #$000C
 	bmi CODE_9EF02A
-	jmp.w $9B52
+	jmp.w CODE_9E9B52

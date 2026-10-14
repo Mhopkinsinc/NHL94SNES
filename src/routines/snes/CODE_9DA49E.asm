@@ -101,4 +101,4 @@ CODE_9DA55F:
 	sta.b $10
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
-	jmp.w $A29C
+	jmp.w CODE_9DA29C

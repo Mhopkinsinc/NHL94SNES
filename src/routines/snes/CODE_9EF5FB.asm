@@ -66,4 +66,4 @@ CODE_9EF68B:
 	lda.w #$0003
 	jsl.l CODE_9C9ABC
 	jsl.l a2touchpuck
-	jmp.w $F722
+	jmp.w CODE_9EF722

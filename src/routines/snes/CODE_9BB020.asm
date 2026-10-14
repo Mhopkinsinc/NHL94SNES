@@ -52,4 +52,4 @@ CODE_9BB075:
 	lda.w #DATA8_93ED31
 	sta.b $0C
 	jsl.l MusicStart
-	jmp.w $B0C4
+	jmp.w CODE_9BB0C4

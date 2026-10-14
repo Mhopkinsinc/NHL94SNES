@@ -25,4 +25,4 @@ CODE_9F8CC1:
 	lda.w #DATA8_93ED31
 	sta.b $0C
 	jsl.l MusicStart
-	jmp.w $8D0B
+	jmp.w CODE_9F8D0B

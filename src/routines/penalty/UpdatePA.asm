@@ -37,4 +37,4 @@ CODE_9EF924:
 	sec
 	sbc.b $A5
 	sta.w printx
-	jmp.w $C7BE
+	jmp.w CODE_9EC7BE

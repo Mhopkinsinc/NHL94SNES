@@ -42,4 +42,4 @@ CODE_9FDBB0:
 	ldy.b $91
 	lda.b [$89]
 	sta.w tmline,y
-	jmp.w $DAA6
+	jmp.w CODE_9FDAA6

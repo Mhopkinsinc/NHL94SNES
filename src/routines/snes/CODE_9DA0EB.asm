@@ -62,7 +62,7 @@ CODE_9DA18A:
 	lda.b $A9
 	pha
 	jsl.l CODE_9DB0FD
-	jsr.w $AF5B
+	jsr.w CODE_9DAF5B
 	ldx.w #$0000
 	lda.w #$0000
 CODE_9DA19A:
@@ -82,7 +82,7 @@ CODE_9DA19A:
 	lda.b $AB
 	pha
 	bne CODE_9DA1C5
-	jsr.w $AE6D
+	jsr.w CODE_9DAE6D
 CODE_9DA1C5:
 	pla
 	sta.b $AB
@@ -90,8 +90,8 @@ CODE_9DA1C5:
 	sta.w printx
 	lda.w HomeTeam
 	sta.b $A9
-	jsr.w $AE6D
-	jsr.w $B0AB
+	jsr.w CODE_9DAE6D
+	jsr.w CODE_9DB0AB
 	jsl.l CODE_9DD923
 	pla
 	sta.b $A9

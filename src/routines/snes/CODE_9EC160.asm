@@ -18,4 +18,4 @@ CODE_9EC160:
 	pha
 	lda.w sfhormode
 	beq CODE_9EC180
-	jmp.w $C265
+	jmp.w CODE_9EC265

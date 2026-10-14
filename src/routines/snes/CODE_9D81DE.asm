@@ -24,4 +24,4 @@ CODE_9D8203:
 	dec.w $0D41
 	bmi CODE_9D821A
 CODE_9D8217:
-	jmp.w $8195
+	jmp.w CODE_9D8195

@@ -23,4 +23,4 @@ CODE_9EF8F4:
 	sec
 	sbc.w #$0058
 	bmi CODE_9EF903
-	jmp.w $F829
+	jmp.w CODE_9EF829

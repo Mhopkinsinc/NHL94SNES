@@ -34,4 +34,4 @@ CODE_9DBF02:
 	lda.w $1D9B
 	cmp.b $A5
 	bmi CODE_9DBF33
-	jmp.w $BFEE
+	jmp.w CODE_9DBFEE

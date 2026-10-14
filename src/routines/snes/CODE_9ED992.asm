@@ -89,4 +89,4 @@ CODE_9EDA42:
 CODE_9EDA51:
 	lda.w $19D4,x
 	bmi CODE_9EDA59
-	jmp.w $DBF3
+	jmp.w CODE_9EDBF3

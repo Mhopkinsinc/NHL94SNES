@@ -21,4 +21,4 @@ CODE_9F9698:
 	bit.w #$1000
 	beq CODE_9F96AF
 	pla
-	jmp.w $936C
+	jmp.w CODE_9F936C

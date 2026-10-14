@@ -28,4 +28,4 @@ CODE_9ED5F9:
 	bmi CODE_9ED6AE
 	cmp.w #$0109
 	bpl CODE_9ED6AE
-	jmp.w $D58D
+	jmp.w CODE_9ED58D

@@ -26,4 +26,4 @@ CODE_9FF1E4:
 	bne CODE_9FF25A
 	bit.w #$0004
 	bne CODE_9FF294
-	jmp.w $F2CC
+	jmp.w CODE_9FF2CC

@@ -60,4 +60,4 @@ CODE_9F8ADD:
 	inx
 	cpx.w #$0020
 	beq CODE_9F8AEA
-	jmp.w $8947
+	jmp.w CODE_9F8947

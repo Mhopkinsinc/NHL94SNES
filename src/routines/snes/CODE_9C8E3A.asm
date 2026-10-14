@@ -37,4 +37,4 @@ CODE_9C8E60:
 CODE_9C8E91:
 	jsr.w CODE_808F7D
 	jsl.l WaitFrame
-	jmp.w $8DFE
+	jmp.w CODE_9C8DFE

@@ -1,4 +1,4 @@
 ; Unidentified routine.
 CODE_9EDDCB:
 	jsl.l pucknothing
-	jmp.w $9788
+	jmp.w CODE_9E9788

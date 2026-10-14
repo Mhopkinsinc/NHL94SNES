@@ -183,7 +183,7 @@ CODE_9D8DA2:
 	asl a
 	asl a
 	tax
-	jsr.w $93E3
+	jsr.w CODE_9D93E3
 	ldy.w #$0012
 	lda.b [$0C],y
 	pha
@@ -202,7 +202,7 @@ CODE_9D8DA2:
 	asl a
 	asl a
 	tax
-	jsr.w $93E3
+	jsr.w CODE_9D93E3
 	plx
 	dex
 	bpl CODE_9D8DA2
@@ -429,4 +429,4 @@ CODE_9D8FF6:
 org $9D9000
 	dec.b $B5
 	beq CODE_9D9007
-	jmp.w $8F15
+	jmp.w CODE_9D8F15

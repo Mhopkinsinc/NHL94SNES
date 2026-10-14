@@ -4,4 +4,4 @@ CODE_9BB015:
 	sbc.w #$0015
 	jsl.l CODE_9C9A7F
 CODE_9BB01D:
-	jmp.w $ABAB
+	jmp.w CODE_9BABAB

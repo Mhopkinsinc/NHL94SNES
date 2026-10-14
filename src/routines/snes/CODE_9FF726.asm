@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9FF726:
-	jsr.w $F8D4
+	jsr.w CODE_9FF8D4
 CODE_9FF729:
 	lda.w #DATA8_9ADB19
 	sta.b $0C
@@ -16,4 +16,4 @@ CODE_9FF729:
 	lda.w #$0000
 CODE_9FF748:
 	sta.b $B7
-	jmp.w $F898
+	jmp.w CODE_9FF898

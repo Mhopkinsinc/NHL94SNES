@@ -20,7 +20,7 @@ CODE_9B9942:
 	cmp.w $1DC1
 	beq CODE_9B995D
 CODE_9B9947:
-	jsr.w $995F
+	jsr.w CODE_9B995F
 	lda.b $95
 	clc
 	adc.w #$0004

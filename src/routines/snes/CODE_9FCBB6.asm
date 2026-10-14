@@ -23,4 +23,4 @@ CODE_9FCBBB:
 	lda.w $0B3D,x
 	cmp.w #$0064
 	bcs CODE_9FCBEB
-	jmp.w $CCAE
+	jmp.w CODE_9FCCAE

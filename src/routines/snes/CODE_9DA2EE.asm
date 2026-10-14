@@ -11,4 +11,4 @@ CODE_9DA2F5:
 CODE_9DA302:
 	lda.w #$0000
 	sta.w $1C84,x
-	jmp.w $A486
+	jmp.w CODE_9DA486

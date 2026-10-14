@@ -9,4 +9,4 @@ CODE_9EE220:
 	stx.w $0D29
 	cpx.w $0AD9
 	beq CODE_9EE23C
-	jmp.w $E408
+	jmp.w CODE_9EE408

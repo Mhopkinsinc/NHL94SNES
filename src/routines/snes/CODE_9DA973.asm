@@ -60,7 +60,7 @@ CODE_9DA9F2:
 	lda.w #$0011
 	sta.w printx
 	stx.b $C1
-	jsr.w $A8B8
+	jsr.w CODE_9DA8B8
 	txy
 	lda.w #$007E
 	sta.b $8B
@@ -104,4 +104,4 @@ CODE_9DAA5A:
 	inx
 	cpx.w #$000E
 	bcs CODE_9DAA64
-	jmp.w $A9BE
+	jmp.w CODE_9DA9BE

@@ -55,7 +55,7 @@ CODE_9E9379:
 	sta.b $AD
 	pla
 	sta.b $B1
-	jsr.w $93E0
+	jsr.w CODE_9E93E0
 	lda.b $B1
 	pha
 	lda.b $AD

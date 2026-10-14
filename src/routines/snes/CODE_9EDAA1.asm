@@ -76,4 +76,4 @@ CODE_9EDB21:
 	sbc.w #$0007
 	beq CODE_9EDB36
 	bmi CODE_9EDB36
-	jmp.w $A539
+	jmp.w CODE_9EA539

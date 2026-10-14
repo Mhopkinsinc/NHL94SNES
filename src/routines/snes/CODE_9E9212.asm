@@ -63,4 +63,4 @@ CODE_9E928A:
 	sec
 	sbc.w #$1000
 	sta.w $0E01
-	jmp.w $DE5E
+	jmp.w CODE_9EDE5E

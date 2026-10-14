@@ -22,4 +22,4 @@ CODE_9C93E5:
 	sta.w $1E17
 CODE_9C93EC:
 	iny
-	jmp.w $9375
+	jmp.w CODE_9C9375

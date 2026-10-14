@@ -78,4 +78,4 @@ CODE_9BAE3E:
 	sta.w $0D37
 	lda.w #$0010
 	sta.w $0AF3
-	jmp.w $ABAB
+	jmp.w CODE_9BABAB

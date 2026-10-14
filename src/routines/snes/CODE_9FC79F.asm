@@ -6,16 +6,16 @@ CODE_9FC79F:
 	stz.b $B3
 	lda.w HomeTeam
 	sta.b $A5
-	jsr.w $C7EC
+	jsr.w CODE_9FC7EC
 	lda.w VisTeam
 	sta.b $A5
-	jsr.w $C7EC
+	jsr.w CODE_9FC7EC
 	ldx.w #$0000
 CODE_9FC7BD:
-	jsr.w $C7D7
+	jsr.w CODE_9FC7D7
 	lda.b $A5
 	sta.l $7E3528,x
-	jsr.w $C7D7
+	jsr.w CODE_9FC7D7
 	lda.b $A5
 	sta.l $7E3538,x
 	inx

@@ -16,7 +16,7 @@ CODE_9C8F9B:
 	lda.w $1DA3
 	sta.b $B5
 CODE_9C8FC6:
-	jsr.w $8FD7
+	jsr.w CODE_9C8FD7
 	inc.w printy
 	inc.w printy
 	inc.w $1DB9
