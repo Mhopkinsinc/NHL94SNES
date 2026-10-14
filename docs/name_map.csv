@@ -6226,3 +6226,12 @@ $97D2E2,CardThomasSteen,DATA8_97D2E2,94G,the photo of Thomas Steen (PlayerPhotoT
 $9A842A,CardTeemuSelanne,DATA8_9A842A,94G,"the photo of Teemu Selanne (PlayerPhotoTable Winnipeg 12, AllStarsWest 14); named Card<player> as 94G names its player pictures",src/data/gfx/CardTeemuSelanne.asm
 $9A9D91,CardPhilHousley,DATA8_9A9D91,94G,"the photo of Phil Housley (PlayerPhotoTable Winnipeg 17, AllStarsWest 21); named Card<player> as 94G names its player pictures",src/data/gfx/CardPhilHousley.asm
 $99823D,CardTeppoNumminen,DATA8_99823D,94G,the photo of Teppo Numminen (PlayerPhotoTable Winnipeg 18); named Card<player> as 94G names its player pictures,src/data/gfx/CardTeppoNumminen.asm
+$959E48,StreamSamplePeriodEnd,DATA8_959E48,new,"streamed sound 1, asked for at the end of a period (clockcont_0)",src/data/sound/StreamSamplePeriodEnd.asm
+$92CECD,StreamSampleGoal,DATA8_92CECD,new,"streamed sound 2, asked for by Goal",src/data/sound/StreamSampleGoal.asm
+$8FBB26,StreamSampleBigHit,DATA8_8FBB26,new,"streamed sound 3, asked for by FallDown (a big hit)",src/data/sound/StreamSampleBigHit.asm
+$90A120,StreamSampleSave,DATA8_90A120,new,"streamed sound 4, asked for by puckgoalie (a save) and setInjuryType",src/data/sound/StreamSampleSave.asm
+$94A662,StreamSamplePuckBody,DATA8_94A662,new,"streamed sound 5, asked for by puckbody",src/data/sound/StreamSamplePuckBody.asm
+$93A18D,StreamSampleOverGlass,DATA8_93A18D,new,"streamed sound 6, asked for by wallcollb (the puck over the glass)",src/data/sound/StreamSampleOverGlass.asm
+$8FDD32,TitleSong,DATA8_8FDD32,new,the song TitleScreen starts,src/data/sound/TitleSong.asm
+$90C20C,MenuSong,DATA8_90C20C,new,the song of the game setup (Opening) and of the period breaks outside the late playoff rounds,src/data/sound/MenuSong.asm
+$93ED31,PlayoffSong,DATA8_93ED31,new,the song of PlayoffScreen and of the period breaks from playoff round 2 on,src/data/sound/PlayoffSong.asm

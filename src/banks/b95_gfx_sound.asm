@@ -4,7 +4,7 @@ org $958000
 incsrc "../data/sound/DATA8_958000.asm"
 incsrc "../data/sound/DATA8_958ABD.asm"
 incsrc "../data/sound/DATA8_959490.asm"
-incsrc "../data/sound/DATA8_959E48.asm"
+incsrc "../data/sound/StreamSamplePeriodEnd.asm"
 incsrc "../data/gfx/SmallLetterSprites.asm"
 incsrc "../data/sound/DATA8_95B15C.asm"
 incsrc "../data/gfx/DATA8_95BA96.asm"

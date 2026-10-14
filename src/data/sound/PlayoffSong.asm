@@ -1,9 +1,9 @@
-; A song: a header (the second byte is the tempo), the offsets of its tracks, then each track
+; The playoff song (PlayoffScreen, and the period breaks from playoff round 2 on): header, track offsets, then the tracks
 ; in a TRAK chunk (size byte, tag, track name, then the note stream the music player reads).
 
-DATA8_93ED31:		; header, track offsets (a zero ends them), padding, then the tracks
+PlayoffSong:		; header, track offsets (a zero ends them), padding, then the tracks
 	db $01,$9A,$01,$00,$00,$00,$0E,$00
-	dw .chug_L_50-DATA8_93ED31,.chug_R_51-DATA8_93ED31,.apower_L_48-DATA8_93ED31,.apower_R_49-DATA8_93ED31,.orgn_L_31-DATA8_93ED31,.orgn_R_47-DATA8_93ED31,.orch-DATA8_93ED31,.bsec_R_45-DATA8_93ED31,.bsec_L_46-DATA8_93ED31,.drums-DATA8_93ED31,.bass-DATA8_93ED31,.xtra_crsh_15-DATA8_93ED31,.timp-DATA8_93ED31,.crshbkwd_4-DATA8_93ED31,$0000
+	dw .chug_L_50-PlayoffSong,.chug_R_51-PlayoffSong,.apower_L_48-PlayoffSong,.apower_R_49-PlayoffSong,.orgn_L_31-PlayoffSong,.orgn_R_47-PlayoffSong,.orch-PlayoffSong,.bsec_R_45-PlayoffSong,.bsec_L_46-PlayoffSong,.drums-PlayoffSong,.bass-PlayoffSong,.xtra_crsh_15-PlayoffSong,.timp-PlayoffSong,.crshbkwd_4-PlayoffSong,$0000
 	db $00,$00,$00,$00
 	db $00,$76,"TRAK"
 .chug_L_50:

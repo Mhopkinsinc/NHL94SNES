@@ -772,3 +772,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Small tables named. MATCH.
 - Print strings named. MATCH.
 - Player photos named. MATCH.
+- Screen songs and streamed samples named. MATCH.

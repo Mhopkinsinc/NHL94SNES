@@ -136,7 +136,7 @@ TitleScreen:
 	jsl.l SPCTitleToMenu
 	lda.w #$008F
 	sta.b $0E
-	lda.w #DATA8_8FDD32
+	lda.w #TitleSong
 	sta.b $0C
 	jsl.l MusicStart
 	jsl.l SpriteFrameStart

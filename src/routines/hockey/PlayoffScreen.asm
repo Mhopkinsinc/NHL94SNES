@@ -29,7 +29,7 @@ PlayoffScreen:
 	bne .loop
 	lda.w #$0093
 	sta.b $0E
-	lda.w #DATA8_93ED31
+	lda.w #PlayoffSong
 	sta.b $0C
 	jsl.l MusicStart
 	jmp.w .2

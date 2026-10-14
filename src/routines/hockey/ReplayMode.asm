@@ -712,7 +712,7 @@ org $9BB001
 	bcc .t1xxxxxxxxx
 	lda.w #$0093
 	sta.b $0E
-	lda.w #DATA8_93ED31
+	lda.w #PlayoffSong
 	sta.b $0C
 	jsl.l MusicStart
 	jmp.w .1xxxxxxxxxxxxxx
@@ -720,7 +720,7 @@ org $9BB001
 .t1xxxxxxxxx:
 	lda.w #$0090
 	sta.b $0E
-	lda.w #DATA8_90C20C
+	lda.w #MenuSong
 	sta.b $0C
 	jsl.l MusicStart
 .1xxxxxxxxxxxxxx:

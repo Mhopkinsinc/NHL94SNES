@@ -1,9 +1,9 @@
-; A song: a header (the second byte is the tempo), the offsets of its tracks, then each track
+; The title song (TitleScreen starts it): header, track offsets, padding, then the tracks
 ; in a TRAK chunk (size byte, tag, track name, then the note stream the music player reads).
 
-DATA8_8FDD32:		; header, track offsets (a zero ends them), padding, then the tracks
+TitleSong:		; header, track offsets (a zero ends them), padding, then the tracks
 	db $01,$9C,$01,$00,$00,$00,$0D,$00
-	dw .timp-DATA8_8FDD32,.orch-DATA8_8FDD32,.BASS_2-DATA8_8FDD32,.cowbell_21-DATA8_8FDD32,.crash_14-DATA8_8FDD32,.chug_18-DATA8_8FDD32,.HORN_R_26-DATA8_8FDD32,.HORN_L_16-DATA8_8FDD32,.HORN_M_25-DATA8_8FDD32,.drums-DATA8_8FDD32,.dist_A_27-DATA8_8FDD32,.dist_echo_L_28-DATA8_8FDD32,.dist_echo_R_29-DATA8_8FDD32,$0000
+	dw .timp-TitleSong,.orch-TitleSong,.BASS_2-TitleSong,.cowbell_21-TitleSong,.crash_14-TitleSong,.chug_18-TitleSong,.HORN_R_26-TitleSong,.HORN_L_16-TitleSong,.HORN_M_25-TitleSong,.drums-TitleSong,.dist_A_27-TitleSong,.dist_echo_L_28-TitleSong,.dist_echo_R_29-TitleSong,$0000
 	db $00,$00,$00,$00,$00,$00
 	db $00,$68,"TRAK"
 .timp:

@@ -49,7 +49,7 @@ Restart:
 .1:
 	lda.w #$0090
 	sta.b $0E
-	lda.w #DATA8_90C20C
+	lda.w #MenuSong
 	sta.b $0C
 	jsl.l MusicStart
 .2:
