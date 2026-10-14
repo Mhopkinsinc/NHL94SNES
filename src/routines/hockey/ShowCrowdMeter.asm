@@ -28,7 +28,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF163
+	lda.w #ShowCrowdMeterPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -136,7 +136,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF175
+	lda.w #CurrentTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -149,7 +149,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF181
+	lda.w #DbTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -165,7 +165,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF188
+	lda.w #CurrentTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -178,7 +178,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF194
+	lda.w #DbTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -205,7 +205,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF19B
+	lda.w #PeakTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -218,7 +218,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF1A4
+	lda.w #DbTxt3
 	sta.b a1
 	jsl.l print
 	pla
@@ -234,7 +234,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF1AB
+	lda.w #PeakTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -247,7 +247,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF1B4
+	lda.w #DbTxt4
 	sta.b a1
 	jsl.l print
 	pla
@@ -274,7 +274,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF1BB
+	lda.w #AverageTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -287,7 +287,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF1C7
+	lda.w #DbTxt5
 	sta.b a1
 	jsl.l print
 	pla
@@ -303,7 +303,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF1CE
+	lda.w #AverageTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -316,7 +316,7 @@ ShowCrowdMeter:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF1DA
+	lda.w #DbTxt6
 	sta.b a1
 	jsl.l print
 	pla

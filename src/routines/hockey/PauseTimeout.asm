@@ -16,7 +16,7 @@ PauseTimeout:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8E9
+	lda.w #PauseTimeoutPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -34,7 +34,7 @@ PauseTimeout:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8EE
+	lda.w #TimeoutTxt
 	sta.b a1
 	jsl.l print
 	pla

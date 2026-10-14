@@ -343,7 +343,7 @@ PlayoffScreen:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF415
+	lda.w #PlayoffScreenPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -539,7 +539,7 @@ org $9D9000
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF41A
+	lda.w #PlayoffScreenPos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -619,7 +619,7 @@ org $9D9000
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF41F
+	lda.w #N8hTxt
 	sta.b a1
 	jsl.l print
 	pla

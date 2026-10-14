@@ -7,7 +7,7 @@ DrawPlayerCard:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF6B3
+	lda.w #DrawPlayerCardPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -282,7 +282,7 @@ org $9DC002
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF6E0
+	lda.w #DrawPlayerCardPos2
 	sta.b a1
 	jsl.l print
 	pla

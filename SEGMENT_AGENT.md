@@ -770,3 +770,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Credit string labels as locals. MATCH.
 - BigFontIndex, MaxSpeed, CrowdAnimTable. MATCH.
 - Small tables named. MATCH.
+- Print strings named. MATCH.

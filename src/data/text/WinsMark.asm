@@ -3,47 +3,47 @@ WinsMark:
 	%String("Wins!")
 WinMark:
 	%String("Win!")
-DATA8_9CEF66:
+ShootoutShootersPos:
 	dw $0005 : db $AF,$00,$00
-DATA8_9CEF6B:
+ShootoutShootersPos2:
 	dw $0005 : db $BF,$09,$0A
-DATA8_9CEF70:
+LineupTxt:
 	dw $0011 : db $9F,$0A,$0B,"   Lineup   "
-DATA8_9CEF81:
+DrawShootersBackPos:
 	dw $0005 : db $AF,$00,$00
-DATA8_9CEF86:
+DrawShootersBackPos2:
 	dw $0005 : db $BF,$09,$0A
-DATA8_9CEF8B:
+LineupTxt2:
 	dw $0011 : db $9F,$0A,$0B,"   Lineup   "
 ShootoutLabel:
 	%String("Shootout")
-DATA8_9CEFA6:
+ShootersBackgroundPos:
 	dw $0005 : db $AF,$0B,$07
-DATA8_9CEFAB:
+PrintShooterNamesPos:
 	dw $0005 : db $AF,$00,$0D
-DATA8_9CEFB0:
+PrintShooterNamesPos2:
 	dw $0005 : db $AF,$00,$0E
-DATA8_9CEFB5:
+ShooterSelectListPos:
 	dw $0005 : db $AF,$00,$00
-DATA8_9CEFBA:
+PrintShooterListPos:
 	dw $0005 : db $AF,$00,$00
-DATA8_9CEFBF:
+PlayerTxt2:
 	dw $000B : db $AF,$03,$02,"Player"
-DATA8_9CEFCA:
+LeftArrowTxt3:
 	dw $0006 : db $AF,$02,$02,"{"
-DATA8_9CEFD0:
+RightArrowTxt3:
 	dw $0006 : db $AF,$09,$02,"}"
-DATA8_9CEFD6:
+PrintShooterRowsPos:
 	dw $0005 : db $AF,$00,$03
-DATA8_9CEFDB:
+EditLinesScreenPos:
 	dw $0005 : db $9F,$08,$0A
-DATA8_9CEFE0:
+EditLinesScreenPos2:
 	dw $0005 : db $BF,$0B,$01
-DATA8_9CEFE5:
+PrintLineNamesPos:
 	dw $0005 : db $9F,$08,$0A
-DATA8_9CEFEA:
+DrawEditLinesTopPos:
 	dw $0005 : db $BF,$00,$00
-DATA8_9CEFEF:
+DrawEditLinesTopPos2:
 	dw $0005 : db $BF,$07,$09
 EditLinesLabel:
 	%String("Edit Lines")

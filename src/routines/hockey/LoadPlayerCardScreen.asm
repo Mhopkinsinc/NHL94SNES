@@ -274,7 +274,7 @@ LoadPlayerCardScreen:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF6F2
+	lda.w #SwitchCardsYSwitchTeamsTxt
 	sta.b a1
 	jsl.l print
 	pla

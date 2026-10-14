@@ -6,7 +6,7 @@ ClearEditLinesMenu:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF005
+	lda.w #ClearEditLinesMenuPos
 	sta.b a1
 	jsl.l print
 	pla

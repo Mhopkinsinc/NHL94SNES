@@ -62,7 +62,7 @@ EditLinesScreen:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFDB
+	lda.w #EditLinesScreenPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -91,7 +91,7 @@ EditLinesScreen:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFE0
+	lda.w #EditLinesScreenPos2
 	sta.b a1
 	jsl.l print
 	pla

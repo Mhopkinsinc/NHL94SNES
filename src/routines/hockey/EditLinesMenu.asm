@@ -7,7 +7,7 @@ EditLinesMenu:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF00A
+	lda.w #ReturnToGameTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -20,7 +20,7 @@ EditLinesMenu:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF01D
+	lda.w #RestoreDefaultLinesTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -41,7 +41,7 @@ EditLinesMenu:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF037
+	lda.w #EditLinesMenuPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -57,7 +57,7 @@ EditLinesMenu:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF03C
+	lda.w #EditLinesMenuPos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -87,7 +87,7 @@ EditLinesMenu:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF051
+	lda.w #EditLinesMenuPos3
 	sta.b a1
 	jsl.l print
 	pla
@@ -103,7 +103,7 @@ EditLinesMenu:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF056
+	lda.w #EditLinesMenuPos4
 	sta.b a1
 	jsl.l print
 	pla

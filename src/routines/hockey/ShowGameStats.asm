@@ -18,7 +18,7 @@ ShowGameStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF360
+	lda.w #ShowGameStatsPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -34,7 +34,7 @@ ShowGameStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF365
+	lda.w #ShowGameStatsPos2
 	sta.b a1
 	jsl.l print
 	pla

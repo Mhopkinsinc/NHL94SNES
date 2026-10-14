@@ -29,7 +29,7 @@ prefmes:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF72F
+	lda.w #prefmesPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -57,7 +57,7 @@ prefmes:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF734
+	lda.w #prefmesPos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -146,7 +146,7 @@ prefmes:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF739
+	lda.w #prefmesPos3
 	sta.b a1
 	jsl.l print
 	pla

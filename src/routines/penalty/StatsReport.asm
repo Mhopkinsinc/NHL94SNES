@@ -6,7 +6,7 @@ StatsReport:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8DA
+	lda.w #StatsReportPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -26,7 +26,7 @@ StatsReport:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8DF
+	lda.w #StatsReportPos2
 	sta.b a1
 	jsl.l print
 	pla

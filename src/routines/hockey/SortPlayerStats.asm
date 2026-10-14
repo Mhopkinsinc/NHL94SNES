@@ -8,7 +8,7 @@ SortPlayerStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF34F
+	lda.w #SortPlayerStatsPos
 	sta.b a1
 	jsl.l print
 	pla

@@ -6,7 +6,7 @@ PrintShooterRows:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFD6
+	lda.w #PrintShooterRowsPos
 	sta.b a1
 	jsl.l print
 	pla

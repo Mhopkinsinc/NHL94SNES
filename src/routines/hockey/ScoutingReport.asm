@@ -22,7 +22,7 @@ ScoutingReport:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF390
+	lda.w #ScoutingReportPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -134,7 +134,7 @@ ScoutingReport:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF395
+	lda.w #ScoutingReportPos2
 	sta.b a1
 	jsl.l print
 	pla

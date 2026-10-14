@@ -467,7 +467,7 @@ puckfaceoff2:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8AE
+	lda.w #puckfaceoff2Pos
 	sta.b a1
 	jsl.l print
 	pla

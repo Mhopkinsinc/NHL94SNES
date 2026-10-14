@@ -6,7 +6,7 @@ PrintLinePlayers:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF072
+	lda.w #PrintLinePlayersPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -26,7 +26,7 @@ PrintLinePlayers:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF077
+	lda.w #PrintLinePlayersPos2
 	sta.b a1
 	jsl.l print
 	pla

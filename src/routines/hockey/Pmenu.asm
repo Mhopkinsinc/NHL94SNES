@@ -6,7 +6,7 @@ Pmenu:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8FD
+	lda.w #PmenuPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -96,7 +96,7 @@ Pmenu:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF902
+	lda.w #PmenuPos2
 	sta.b a1
 	jsl.l print
 	pla

@@ -38,7 +38,7 @@ TeamRoster:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF431
+	lda.w #PlayerRatingTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -58,7 +58,7 @@ TeamRoster:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF448
+	lda.w #TeamRosterPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -79,7 +79,7 @@ TeamRosterRedraw:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF44D
+	lda.w #TeamRosterPos2
 	sta.b a1
 	jsl.l print
 	pla

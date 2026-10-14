@@ -28,7 +28,7 @@ BadPasswordPrompt:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF24A
+	lda.w #ARetryTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -41,7 +41,7 @@ BadPasswordPrompt:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF25E
+	lda.w #YExitScreenTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -54,7 +54,7 @@ BadPasswordPrompt:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF272
+	lda.w #BadPasswordPromptPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -77,7 +77,7 @@ BadPasswordPrompt:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF282
+	lda.w #BadPasswordPromptPos2
 	sta.b a1
 	jsl.l print
 	pla

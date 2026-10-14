@@ -32,7 +32,7 @@ PasswordScreen:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF20D
+	lda.w #PasswordScreenPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -50,7 +50,7 @@ PasswordScreen:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF212
+	lda.w #PasswordTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -137,7 +137,7 @@ PasswordRedraw:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF222
+	lda.w #PasswordScreenPos2
 	sta.b a1
 	jsl.l print
 	pla

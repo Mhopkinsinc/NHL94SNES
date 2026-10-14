@@ -13,7 +13,7 @@ NewTicker3:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF867
+	lda.w #NewTicker3Pos
 	sta.b a1
 	jsl.l print
 	pla
@@ -29,7 +29,7 @@ NewTicker3:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF86C
+	lda.w #NewTicker3Pos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -67,7 +67,7 @@ NewTicker3:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF871
+	lda.w #NewTicker3Pos3
 	sta.b a1
 	jsl.l print
 	pla

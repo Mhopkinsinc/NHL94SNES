@@ -10,7 +10,7 @@ DrawPlayerStatsPage:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF309
+	lda.w #PlayerGAPtShPmTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -36,7 +36,7 @@ DrawPlayerStatsPage:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF32C
+	lda.w #GoalieGaShPtgTxt
 	sta.b a1
 	jsl.l print
 	pla

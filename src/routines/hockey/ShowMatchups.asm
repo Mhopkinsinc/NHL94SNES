@@ -6,7 +6,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF39A
+	lda.w #ShowMatchupsPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -34,7 +34,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3A9
+	lda.w #ShowMatchupsPos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -50,7 +50,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3AE
+	lda.w #ShowMatchupsPos3
 	sta.b a1
 	jsl.l print
 	pla
@@ -88,7 +88,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3B3
+	lda.w #ShowMatchupsPos4
 	sta.b a1
 	jsl.l print
 	pla
@@ -114,7 +114,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3B8
+	lda.w #ShowMatchupsPos5
 	sta.b a1
 	jsl.l print
 	pla
@@ -132,7 +132,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3BD
+	lda.w #ShowMatchupsPos6
 	sta.b a1
 	jsl.l print
 	pla
@@ -158,7 +158,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3C2
+	lda.w #ShowMatchupsPos7
 	sta.b a1
 	jsl.l print
 	pla
@@ -191,7 +191,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3C7
+	lda.w #OverallTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -212,7 +212,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3D6
+	lda.w #OverallTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -233,7 +233,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3E5
+	lda.w #ShowMatchupsPos8
 	sta.b a1
 	jsl.l print
 	pla
@@ -254,7 +254,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3EA
+	lda.w #AdvantageTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -273,7 +273,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF3F8
+	lda.w #UpArrowsTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -289,7 +289,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF402
+	lda.w #DownArrowsTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -305,7 +305,7 @@ ShowMatchups:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF40C
+	lda.w #NoneTxt
 	sta.b a1
 	jsl.l print
 	pla

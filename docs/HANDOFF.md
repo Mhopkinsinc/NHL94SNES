@@ -126,6 +126,7 @@
 - CreditNames / CreditTitles: their string labels (DATA8_80E330-DATA8_80E6B6, read only through the lists) are locals now.
 - Tables: `BigFontIndex` and `MaxSpeed` (93S; MaxSpeed written as (n*261)^2 like the 93S (n*266)^2), `CrowdAnimTable` (showcrowd's per object entries folded in as locals, their 63 raw self-pointers as label+offset).
 - Tables: `shotsets`, `FramerTiles`, `FramerMap` (93S), and from their readers `PauseMenuHandlers`, `TeamStatSources`, `PmenuValueItems`, `LetterWidths`, `StreamSfxSounds`, `MatchupPhotoOffsets`, `OAMHighMasks`, `LineChangeButtons`, the Framer variant tiles and maps, `CenterOSpots`, `TeamBlockPalettes` (its raw long pointers as label+offset). The asset file names in Extracted/ stay as they are.
+- Print strings (188, in DrawEditLinesTitlePos.asm, formerly DATA8_9CF000.asm, and WinsMark.asm): `...Txt` names from their text (as upstream's ReturnToGame / MatchupsLabel), the d-pad glyphs { } [ ] as Left / Right / Up / Down arrows, and `<Routine>Pos` for the position-only strings, after the one routine that prints them.
 
 ## Unsure
 

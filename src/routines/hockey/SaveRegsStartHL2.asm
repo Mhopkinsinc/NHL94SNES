@@ -355,7 +355,7 @@ org $9F9001
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF809
+	lda.w #SaveRegsStartHL2Pos
 	sta.b a1
 	jsl.l print
 	pla

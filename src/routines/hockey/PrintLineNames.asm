@@ -6,7 +6,7 @@ PrintLineNames:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFE5
+	lda.w #PrintLineNamesPos
 	sta.b a1
 	jsl.l print
 	pla

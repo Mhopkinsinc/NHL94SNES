@@ -6,7 +6,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFAB
+	lda.w #PrintShooterNamesPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -26,7 +26,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFB0
+	lda.w #PrintShooterNamesPos2
 	sta.b a1
 	jsl.l print
 	pla

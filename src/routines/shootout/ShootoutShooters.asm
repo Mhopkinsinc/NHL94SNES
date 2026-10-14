@@ -94,7 +94,7 @@ ShootersSetup:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEF66
+	lda.w #ShootoutShootersPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -114,7 +114,7 @@ ShootersSetup:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEF6B
+	lda.w #ShootoutShootersPos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -134,7 +134,7 @@ ShootersSetup:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEF70
+	lda.w #LineupTxt
 	sta.b a1
 	jsl.l print
 	pla

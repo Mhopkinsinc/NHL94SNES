@@ -41,7 +41,7 @@ PlayerNumName:
 	jsl.l PutDigits2
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8D7
+	lda.w #PlayerNumNamePos
 	sta.b a1
 	jsl.l appstring
 	pla

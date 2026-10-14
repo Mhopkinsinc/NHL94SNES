@@ -20,9 +20,9 @@ UpdatePA:
 	pha
 	lda.b a1
 	pha
-	lda.w #DATA8_9CF7A0>>16
+	lda.w #UpdatePAPos>>16
 	sta.b a1+2
-	lda.w #DATA8_9CF7A0
+	lda.w #UpdatePAPos
 	sta.b a1
 	jsl.l print
 	pla

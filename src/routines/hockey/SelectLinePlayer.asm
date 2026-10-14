@@ -6,7 +6,7 @@ SelectLinePlayer:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF07C
+	lda.w #SelectLinePlayerPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -219,7 +219,7 @@ SelectLinePlayer:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF081
+	lda.w #SelectLinePlayerPos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -284,7 +284,7 @@ org $9B9001
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF086
+	lda.w #PlayerTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -300,7 +300,7 @@ org $9B9001
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF091
+	lda.w #LeftArrowTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -321,7 +321,7 @@ org $9B9001
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF097
+	lda.w #RightArrowTxt
 	sta.b a1
 	jsl.l print
 	pla

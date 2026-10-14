@@ -3688,49 +3688,49 @@ $9DA051,RosterGoalieMarks,DATA8_9DA051,new,goalie marks on the roster,src/data/t
 $9CEF59,WinsMark,DATA8_9CEF59,new,Wins!,src/data/text/WinsMark.asm
 $9CEF60,WinMark,DATA8_9CEF60,new,Win!,src/data/text/WinsMark.asm
 $9CEF9C,ShootoutLabel,DATA8_9CEF9C,new,Shootout,src/data/text/WinsMark.asm
-$9CEFF4,EditLinesLabel,DATA8_9CEFF4,new,Edit Lines,src/data/text/WinsMark.asm
-$9CF041,ReturnToGame,DATA8_9CF041,new,Return to Game,src/data/text/DATA8_9CF000.asm
-$9CF05B,RestoreDefaultLines,DATA8_9CF05B,new,Restore default lines,src/data/text/DATA8_9CF000.asm
-$9CF0AC,ScoringLabel,DATA8_9CF0AC,new,Scoring,src/data/text/DATA8_9CF000.asm
-$9CF0B5,ScoringSummaryHead,DATA8_9CF0B5,new,scoring summary column headings,src/data/text/DATA8_9CF000.asm
-$9CF0D8,NoScoring,DATA8_9CF0D8,new,No Scoring,src/data/text/DATA8_9CF000.asm
-$9CF0E7,ScoringPP2,DATA8_9CF0E7,new,PP2,src/data/text/DATA8_9CF000.asm
-$9CF0EC,ScoringPP,DATA8_9CF0EC,new,PP,src/data/text/DATA8_9CF000.asm
-$9CF0F0,ScoringSH,DATA8_9CF0F0,new,SH,src/data/text/DATA8_9CF000.asm
-$9CF0F4,ScoringSH2,DATA8_9CF0F4,new,SH2,src/data/text/DATA8_9CF000.asm
-$9CF0F9,PenaltiesLabel,DATA8_9CF0F9,new,Penalties,src/data/text/DATA8_9CF000.asm
-$9CF104,PenaltySummaryHead,DATA8_9CF104,new,penalty summary column headings,src/data/text/DATA8_9CF000.asm
-$9CF127,NoPenalties,DATA8_9CF127,new,No Penalties,src/data/text/DATA8_9CF000.asm
-$9CF13D,ScrollHint,DATA8_9CF13D,new,Scroll,src/data/text/DATA8_9CF000.asm
-$9CF168,CrowdMeter,DATA8_9CF168,new,CROWD METER,src/data/text/DATA8_9CF000.asm
-$9CF1E1,OtherScores,DATA8_9CF1E1,new,Other Scores,src/data/text/DATA8_9CF000.asm
-$9CF1EF,NoOtherGames,DATA8_9CF1EF,new,No Other Games.,src/data/text/DATA8_9CF000.asm
-$9CF203,PasswordLabel,DATA8_9CF203,new,Password,src/data/text/DATA8_9CF000.asm
-$9CF22C,SelectLeft,DATA8_9CF22C,new,left select mark,src/data/text/DATA8_9CF000.asm
-$9CF236,BadPassword,DATA8_9CF236,new,Bad Password,src/data/text/DATA8_9CF000.asm
-$9CF2D3,PlayerStatsTitle,DATA8_9CF2D3,new,Player Stats,src/data/text/DATA8_9CF000.asm
-$9CF2FB,PlayerStatsHeading,DATA8_9CF2FB,new,the other Player Stats title,src/data/text/DATA8_9CF000.asm
-$9CF354,GameStats,DATA8_9CF354,new,Game Stats,src/data/text/DATA8_9CF000.asm
-$9CF36A,StatPercent,DATA8_9CF36A,new,percent sign on the stats screen,src/data/text/DATA8_9CF000.asm
-$9CF36D,StatSlash,DATA8_9CF36D,new,slash on the stats screen,src/data/text/DATA8_9CF000.asm
-$9CF37A,StarsOfTheGame,DATA8_9CF37A,new,Stars of the Game,src/data/text/DATA8_9CF000.asm
-$9CF39F,MatchupsLabel,DATA8_9CF39F,new,Matchups,src/data/text/DATA8_9CF000.asm
-$9CF424,TeamRosterTitle,DATA8_9CF424,new,Team Roster,src/data/text/DATA8_9CF000.asm
-$9CF452,TeamRosterSwap,DATA8_9CF452,new,Team Roster after switching teams,src/data/text/DATA8_9CF000.asm
-$9CF588,PlayerSelectTitle,DATA8_9CF588,new,Player select,src/data/text/DATA8_9CF000.asm
-$9CF597,GameSetupTitle,DATA8_9CF597,new,Game Setup,src/data/text/DATA8_9CF000.asm
-$9CF5A8,GameSetupAlt,DATA8_9CF5A8,new,the other Game Setup title,src/data/text/DATA8_9CF000.asm
-$9CF5B4,PlayerSelectAlt,DATA8_9CF5B4,new,the other Player select title,src/data/text/DATA8_9CF000.asm
-$9CF6B8,StrengthsLabel,DATA8_9CF6B8,new,Strengths:,src/data/text/DATA8_9CF000.asm
-$9CF6C4,StrengthsLabelB,DATA8_9CF6C4,new,the other Strengths heading,src/data/text/DATA8_9CF000.asm
-$9CF6D0,OverallRating,DATA8_9CF6D0,new,Overall Rating,src/data/text/DATA8_9CF000.asm
-$9CF6E5,TeamRating,DATA8_9CF6E5,new,Team Rating,src/data/text/DATA8_9CF000.asm
-$9CF7A5,PeriodStats,DATA8_9CF7A5,new,Period Stats,src/data/text/DATA8_9CF000.asm
-$9CF7C2,TotalShotsLine,DATA8_9CF7C2,new,"Total, Shots, and the Y-Goals switch",src/data/text/DATA8_9CF000.asm
-$9CF7DE,GoalsLabel,DATA8_9CF7DE,new,Goals,src/data/text/DATA8_9CF000.asm
-$9CF7F3,HighlightFrom,DATA8_9CF7F3,new,Highlight from game:,src/data/text/DATA8_9CF000.asm
-$9CF8B3,VersusText,DATA8_9CF8B3,new,vs.,src/data/text/DATA8_9CF000.asm
-$9CF8B8,ShootoutPenShot,DATA8_9CF8B8,new,Shootout Pen. Shot,src/data/text/DATA8_9CF000.asm
+$9CEFF4,EditLinesLabel,DATA8_9CEFF4,new,Edit Lines,src/data/text/DrawEditLinesTitlePos.asm
+$9CF041,ReturnToGame,DATA8_9CF041,new,Return to Game,src/data/text/DrawEditLinesTitlePos.asm
+$9CF05B,RestoreDefaultLines,DATA8_9CF05B,new,Restore default lines,src/data/text/DrawEditLinesTitlePos.asm
+$9CF0AC,ScoringLabel,DATA8_9CF0AC,new,Scoring,src/data/text/DrawEditLinesTitlePos.asm
+$9CF0B5,ScoringSummaryHead,DATA8_9CF0B5,new,scoring summary column headings,src/data/text/DrawEditLinesTitlePos.asm
+$9CF0D8,NoScoring,DATA8_9CF0D8,new,No Scoring,src/data/text/DrawEditLinesTitlePos.asm
+$9CF0E7,ScoringPP2,DATA8_9CF0E7,new,PP2,src/data/text/DrawEditLinesTitlePos.asm
+$9CF0EC,ScoringPP,DATA8_9CF0EC,new,PP,src/data/text/DrawEditLinesTitlePos.asm
+$9CF0F0,ScoringSH,DATA8_9CF0F0,new,SH,src/data/text/DrawEditLinesTitlePos.asm
+$9CF0F4,ScoringSH2,DATA8_9CF0F4,new,SH2,src/data/text/DrawEditLinesTitlePos.asm
+$9CF0F9,PenaltiesLabel,DATA8_9CF0F9,new,Penalties,src/data/text/DrawEditLinesTitlePos.asm
+$9CF104,PenaltySummaryHead,DATA8_9CF104,new,penalty summary column headings,src/data/text/DrawEditLinesTitlePos.asm
+$9CF127,NoPenalties,DATA8_9CF127,new,No Penalties,src/data/text/DrawEditLinesTitlePos.asm
+$9CF13D,ScrollHint,DATA8_9CF13D,new,Scroll,src/data/text/DrawEditLinesTitlePos.asm
+$9CF168,CrowdMeter,DATA8_9CF168,new,CROWD METER,src/data/text/DrawEditLinesTitlePos.asm
+$9CF1E1,OtherScores,DATA8_9CF1E1,new,Other Scores,src/data/text/DrawEditLinesTitlePos.asm
+$9CF1EF,NoOtherGames,DATA8_9CF1EF,new,No Other Games.,src/data/text/DrawEditLinesTitlePos.asm
+$9CF203,PasswordLabel,DATA8_9CF203,new,Password,src/data/text/DrawEditLinesTitlePos.asm
+$9CF22C,SelectLeft,DATA8_9CF22C,new,left select mark,src/data/text/DrawEditLinesTitlePos.asm
+$9CF236,BadPassword,DATA8_9CF236,new,Bad Password,src/data/text/DrawEditLinesTitlePos.asm
+$9CF2D3,PlayerStatsTitle,DATA8_9CF2D3,new,Player Stats,src/data/text/DrawEditLinesTitlePos.asm
+$9CF2FB,PlayerStatsHeading,DATA8_9CF2FB,new,the other Player Stats title,src/data/text/DrawEditLinesTitlePos.asm
+$9CF354,GameStats,DATA8_9CF354,new,Game Stats,src/data/text/DrawEditLinesTitlePos.asm
+$9CF36A,StatPercent,DATA8_9CF36A,new,percent sign on the stats screen,src/data/text/DrawEditLinesTitlePos.asm
+$9CF36D,StatSlash,DATA8_9CF36D,new,slash on the stats screen,src/data/text/DrawEditLinesTitlePos.asm
+$9CF37A,StarsOfTheGame,DATA8_9CF37A,new,Stars of the Game,src/data/text/DrawEditLinesTitlePos.asm
+$9CF39F,MatchupsLabel,DATA8_9CF39F,new,Matchups,src/data/text/DrawEditLinesTitlePos.asm
+$9CF424,TeamRosterTitle,DATA8_9CF424,new,Team Roster,src/data/text/DrawEditLinesTitlePos.asm
+$9CF452,TeamRosterSwap,DATA8_9CF452,new,Team Roster after switching teams,src/data/text/DrawEditLinesTitlePos.asm
+$9CF588,PlayerSelectTitle,DATA8_9CF588,new,Player select,src/data/text/DrawEditLinesTitlePos.asm
+$9CF597,GameSetupTitle,DATA8_9CF597,new,Game Setup,src/data/text/DrawEditLinesTitlePos.asm
+$9CF5A8,GameSetupAlt,DATA8_9CF5A8,new,the other Game Setup title,src/data/text/DrawEditLinesTitlePos.asm
+$9CF5B4,PlayerSelectAlt,DATA8_9CF5B4,new,the other Player select title,src/data/text/DrawEditLinesTitlePos.asm
+$9CF6B8,StrengthsLabel,DATA8_9CF6B8,new,Strengths:,src/data/text/DrawEditLinesTitlePos.asm
+$9CF6C4,StrengthsLabelB,DATA8_9CF6C4,new,the other Strengths heading,src/data/text/DrawEditLinesTitlePos.asm
+$9CF6D0,OverallRating,DATA8_9CF6D0,new,Overall Rating,src/data/text/DrawEditLinesTitlePos.asm
+$9CF6E5,TeamRating,DATA8_9CF6E5,new,Team Rating,src/data/text/DrawEditLinesTitlePos.asm
+$9CF7A5,PeriodStats,DATA8_9CF7A5,new,Period Stats,src/data/text/DrawEditLinesTitlePos.asm
+$9CF7C2,TotalShotsLine,DATA8_9CF7C2,new,"Total, Shots, and the Y-Goals switch",src/data/text/DrawEditLinesTitlePos.asm
+$9CF7DE,GoalsLabel,DATA8_9CF7DE,new,Goals,src/data/text/DrawEditLinesTitlePos.asm
+$9CF7F3,HighlightFrom,DATA8_9CF7F3,new,Highlight from game:,src/data/text/DrawEditLinesTitlePos.asm
+$9CF8B3,VersusText,DATA8_9CF8B3,new,vs.,src/data/text/DrawEditLinesTitlePos.asm
+$9CF8B8,ShootoutPenShot,DATA8_9CF8B8,new,Shootout Pen. Shot,src/data/text/DrawEditLinesTitlePos.asm
 $9BA428,ShowCrowdMeter,CODE_9BA428,new,crowd meter screen,src/routines/hockey/ShowCrowdMeter.asm
 $9BC25A,ShowOtherScores,CODE_9BC25A,new,other scores screen,src/routines/hockey/ShowOtherScores.asm
 $9BC7FB,PasswordScreen,CODE_9BC7FB,new,password entry screen,src/routines/hockey/PasswordScreen.asm
@@ -5878,3 +5878,191 @@ $9C81F0,FramerOutlineTiles,DATA8_9C81F0,new,the FramerOutline box tiles,src/data
 $9C8310,FramerOutlineMap,DATA8_9C8310,new,the FramerOutline box map,src/data/tables/FramerOutlineMap.asm
 $9E8553,CenterOSpots,DATA8_9E8553,new,"asscentero: four words per zone ($1083,x)",src/routines/snes/CenterOSpots.asm
 $9DA04D,RosterGoalieList,DATA8_9DA04D,new,"ShowRosterLine: the roster players of the goalie page (1-4, the goalies come first), with RosterGoalieMarks",src/routines/stats/ShowRosterLine.asm
+$9CF000,DrawEditLinesTitlePos,DATA8_9CF000,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF005,ClearEditLinesMenuPos,DATA8_9CF005,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF00A,ReturnToGameTxt,DATA8_9CF00A,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF01D,RestoreDefaultLinesTxt,DATA8_9CF01D,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF037,EditLinesMenuPos,DATA8_9CF037,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF03C,EditLinesMenuPos2,DATA8_9CF03C,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF051,EditLinesMenuPos3,DATA8_9CF051,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF056,EditLinesMenuPos4,DATA8_9CF056,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF072,PrintLinePlayersPos,DATA8_9CF072,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF077,PrintLinePlayersPos2,DATA8_9CF077,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF07C,SelectLinePlayerPos,DATA8_9CF07C,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF081,SelectLinePlayerPos2,DATA8_9CF081,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF086,PlayerTxt,DATA8_9CF086,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF091,LeftArrowTxt,DATA8_9CF091,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF097,RightArrowTxt,DATA8_9CF097,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF09D,DrawEditLinesBackPos,DATA8_9CF09D,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF0A2,DrawEditLinesBackPos2,DATA8_9CF0A2,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF0A7,PrintLinePlayerListPos,DATA8_9CF0A7,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF138,PrintScrollHintPos,DATA8_9CF138,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF14B,RightArrowTxt2,DATA8_9CF14B,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF151,PrintScrollArrowsPos,DATA8_9CF151,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF157,LeftArrowTxt2,DATA8_9CF157,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF15D,PrintScrollArrowsPos2,DATA8_9CF15D,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF163,ShowCrowdMeterPos,DATA8_9CF163,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF175,CurrentTxt,DATA8_9CF175,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF181,DbTxt,DATA8_9CF181,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF188,CurrentTxt2,DATA8_9CF188,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF194,DbTxt2,DATA8_9CF194,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF19B,PeakTxt,DATA8_9CF19B,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF1A4,DbTxt3,DATA8_9CF1A4,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF1AB,PeakTxt2,DATA8_9CF1AB,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF1B4,DbTxt4,DATA8_9CF1B4,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF1BB,AverageTxt,DATA8_9CF1BB,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF1C7,DbTxt5,DATA8_9CF1C7,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF1CE,AverageTxt2,DATA8_9CF1CE,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF1DA,DbTxt6,DATA8_9CF1DA,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF20D,PasswordScreenPos,DATA8_9CF20D,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF212,PasswordTxt,DATA8_9CF212,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF222,PasswordScreenPos2,DATA8_9CF222,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF227,PrintSelectLeftPos,DATA8_9CF227,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF231,PlacePasswordCursorPos,DATA8_9CF231,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF24A,ARetryTxt,DATA8_9CF24A,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF25E,YExitScreenTxt,DATA8_9CF25E,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF272,BadPasswordPromptPos,DATA8_9CF272,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF282,BadPasswordPromptPos2,DATA8_9CF282,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF287,SelectTxt,DATA8_9CF287,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF29B,ANextTxt,DATA8_9CF29B,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF2AF,YBackTxt,DATA8_9CF2AF,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF2C3,PressStartTxt,DATA8_9CF2C3,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF2E1,ShowPlayerStatsPos,DATA8_9CF2E1,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF2E6,YSwitchTeamsTxt,DATA8_9CF2E6,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF309,PlayerGAPtShPmTxt,DATA8_9CF309,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF32C,GoalieGaShPtgTxt,DATA8_9CF32C,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF34F,SortPlayerStatsPos,DATA8_9CF34F,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF360,ShowGameStatsPos,DATA8_9CF360,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF365,ShowGameStatsPos2,DATA8_9CF365,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF370,ShowStarsPos,DATA8_9CF370,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF375,ShowStarsPos2,DATA8_9CF375,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF390,ScoutingReportPos,DATA8_9CF390,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF395,ScoutingReportPos2,DATA8_9CF395,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF39A,ShowMatchupsPos,DATA8_9CF39A,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3A9,ShowMatchupsPos2,DATA8_9CF3A9,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3AE,ShowMatchupsPos3,DATA8_9CF3AE,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3B3,ShowMatchupsPos4,DATA8_9CF3B3,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3B8,ShowMatchupsPos5,DATA8_9CF3B8,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3BD,ShowMatchupsPos6,DATA8_9CF3BD,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3C2,ShowMatchupsPos7,DATA8_9CF3C2,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3C7,OverallTxt,DATA8_9CF3C7,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3D6,OverallTxt2,DATA8_9CF3D6,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3E5,ShowMatchupsPos8,DATA8_9CF3E5,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3EA,AdvantageTxt,DATA8_9CF3EA,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF3F8,UpArrowsTxt,DATA8_9CF3F8,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF402,DownArrowsTxt,DATA8_9CF402,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF40C,NoneTxt,DATA8_9CF40C,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF415,PlayoffScreenPos,DATA8_9CF415,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF41A,PlayoffScreenPos2,DATA8_9CF41A,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF41F,N8hTxt,DATA8_9CF41F,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF431,PlayerRatingTxt,DATA8_9CF431,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF448,TeamRosterPos,DATA8_9CF448,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF44D,TeamRosterPos2,DATA8_9CF44D,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF45F,ShowRosterLinePos,DATA8_9CF45F,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF464,ShowRosterLinePos2,DATA8_9CF464,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF469,YSwitchTeamsTxt2,DATA8_9CF469,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF481,NotTxt,DATA8_9CF481,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF489,PlayingTxt,DATA8_9CF489,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF495,NotTxt2,DATA8_9CF495,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF49D,PlayingTxt2,DATA8_9CF49D,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF4A9,UseToSelectTeamTxt,DATA8_9CF4A9,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF4C3,PressStartWhenDoneTxt,DATA8_9CF4C3,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF4DD,AtLeastOnePersonMustTxt,DATA8_9CF4DD,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF4FA,PlayInPlayoffModeTxt,DATA8_9CF4FA,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF515,OnlyOnePlayerPerTeamTxt,DATA8_9CF515,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF532,IsAllowedInShootoutTxt,DATA8_9CF532,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF54E,UseToSelectTeamTxt2,DATA8_9CF54E,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF56B,PressStartWhenDoneTxt2,DATA8_9CF56B,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF5A3,setoptionsPos,DATA8_9CF5A3,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF5C3,TheMultiPlayer5MustBeTxt,DATA8_9CF5C3,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF5E1,ConnectedToControllerTxt,DATA8_9CF5E1,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF5FD,Socket2Txt,DATA8_9CF5FD,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF60C,TheMultiPlayer5IsNotTxt,DATA8_9CF60C,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF62A,DesignedForUseWithTheTxt,DATA8_9CF62A,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF648,SuperNesSuperScopeTxt,DATA8_9CF648,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF663,TheMultiPlayer5IsNotTxt2,DATA8_9CF663,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF680,DesignedForUseWithTheTxt2,DATA8_9CF680,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF69E,SuperNesMouseTxt,DATA8_9CF69E,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF6B3,DrawPlayerCardPos,DATA8_9CF6B3,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF6E0,DrawPlayerCardPos2,DATA8_9CF6E0,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF6F2,SwitchCardsYSwitchTeamsTxt,DATA8_9CF6F2,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF718,updatepwrplayPos,DATA8_9CF718,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF72A,updatepwrplayPos2,DATA8_9CF72A,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF72F,prefmesPos,DATA8_9CF72F,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF734,prefmesPos2,DATA8_9CF734,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF739,prefmesPos3,DATA8_9CF739,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF73E,ShowInjuryBoxPos,DATA8_9CF73E,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF743,InjuryToOutForPeriodTxt,DATA8_9CF743,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF766,TheGameTxt,DATA8_9CF766,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF776,ClearPenaltyMessagePos,DATA8_9CF776,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF77B,ClearPenaltyMessagePos2,DATA8_9CF77B,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF796,ScoutNamePosAt,DATA8_9CF796,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF7A0,UpdatePAPos,DATA8_9CF7A0,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF7B3,DrawPeriodStatsPos,DATA8_9CF7B3,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF7B8,DrawPeriodStatsPos2,DATA8_9CF7B8,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF7BD,DrawPeriodStatsPos3,DATA8_9CF7BD,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF7E5,YShotsTxt,DATA8_9CF7E5,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF809,SaveRegsStartHL2Pos,DATA8_9CF809,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF80E,PausemodePos,DATA8_9CF80E,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF813,AttribFightingPos,DATA8_9CF813,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF817,AttribWeightPos,DATA8_9CF817,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF81C,printscores1Pos,DATA8_9CF81C,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF821,printscores1Pos2,DATA8_9CF821,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF826,RoundTxt,DATA8_9CF826,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF830,printscores1Pos3,DATA8_9CF830,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF835,printscores1Pos4,DATA8_9CF835,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF83A,printscores1Pos5,DATA8_9CF83A,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF83F,printscores1Pos6,DATA8_9CF83F,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF844,printscores1Pos7,DATA8_9CF844,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF849,printscores1Pos8,DATA8_9CF849,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF84E,printscores1Pos9,DATA8_9CF84E,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF853,printscores1Pos10,DATA8_9CF853,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF858,USBoardPos,DATA8_9CF858,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF85D,IntermissionPos,DATA8_9CF85D,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF867,NewTicker3Pos,DATA8_9CF867,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF86C,NewTicker3Pos2,DATA8_9CF86C,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF871,NewTicker3Pos3,DATA8_9CF871,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF88D,boxPos,DATA8_9CF88D,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF892,ShowGoalBoxPos,DATA8_9CF892,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF897,AssistByTxt,DATA8_9CF897,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8A9,ShowGoalBoxPos2,DATA8_9CF8A9,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8AE,puckfaceoff2Pos,DATA8_9CF8AE,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8CD,updatefaceoffPos,DATA8_9CF8CD,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8D2,EASNLogoPos,DATA8_9CF8D2,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8D7,PlayerNumNamePos,DATA8_9CF8D7,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8DA,StatsReportPos,DATA8_9CF8DA,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8DF,StatsReportPos2,DATA8_9CF8DF,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8E4,setlccordsPos,DATA8_9CF8E4,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8E9,PauseTimeoutPos,DATA8_9CF8E9,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8EE,TimeoutTxt,DATA8_9CF8EE,new,"print string, named from its text",src/data/text/DrawEditLinesTitlePos.asm
+$9CF8FD,PmenuPos,DATA8_9CF8FD,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF902,PmenuPos2,DATA8_9CF902,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF918,DrawExitPromptPos,DATA8_9CF918,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF91D,DrawExitPromptPos2,DATA8_9CF91D,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF922,DrawExitPromptPos3,DATA8_9CF922,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF927,DrawExitPromptPos4,DATA8_9CF927,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF92C,ShowMP5WarningPos,DATA8_9CF92C,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF931,PrintMP5Line1Pos,DATA8_9CF931,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF936,PrintMP5Line2Pos,DATA8_9CF936,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF93B,PrintMP5Line3Pos,DATA8_9CF93B,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CF940,PrintMP5Line4Pos,DATA8_9CF940,new,"print position string, named from the routine that prints it",src/data/text/DrawEditLinesTitlePos.asm
+$9CEF66,ShootoutShootersPos,DATA8_9CEF66,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEF6B,ShootoutShootersPos2,DATA8_9CEF6B,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEF70,LineupTxt,DATA8_9CEF70,new,"print string, named from its text",src/data/text/WinsMark.asm
+$9CEF81,DrawShootersBackPos,DATA8_9CEF81,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEF86,DrawShootersBackPos2,DATA8_9CEF86,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEF8B,LineupTxt2,DATA8_9CEF8B,new,"print string, named from its text",src/data/text/WinsMark.asm
+$9CEFA6,ShootersBackgroundPos,DATA8_9CEFA6,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFAB,PrintShooterNamesPos,DATA8_9CEFAB,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFB0,PrintShooterNamesPos2,DATA8_9CEFB0,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFB5,ShooterSelectListPos,DATA8_9CEFB5,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFBA,PrintShooterListPos,DATA8_9CEFBA,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFBF,PlayerTxt2,DATA8_9CEFBF,new,"print string, named from its text",src/data/text/WinsMark.asm
+$9CEFCA,LeftArrowTxt3,DATA8_9CEFCA,new,"print string, named from its text",src/data/text/WinsMark.asm
+$9CEFD0,RightArrowTxt3,DATA8_9CEFD0,new,"print string, named from its text",src/data/text/WinsMark.asm
+$9CEFD6,PrintShooterRowsPos,DATA8_9CEFD6,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFDB,EditLinesScreenPos,DATA8_9CEFDB,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFE0,EditLinesScreenPos2,DATA8_9CEFE0,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFE5,PrintLineNamesPos,DATA8_9CEFE5,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFEA,DrawEditLinesTopPos,DATA8_9CEFEA,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm
+$9CEFEF,DrawEditLinesTopPos2,DATA8_9CEFEF,new,"print position string, named from the routine that prints it",src/data/text/WinsMark.asm

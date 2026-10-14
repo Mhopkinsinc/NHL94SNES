@@ -6,7 +6,7 @@ PrintSelectLeft:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF227
+	lda.w #PrintSelectLeftPos
 	sta.b a1
 	jsl.l print
 	pla

@@ -14,7 +14,7 @@ AttribWeight:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF817
+	lda.w #AttribWeightPos
 	sta.b a1
 	jsl.l print
 	pla

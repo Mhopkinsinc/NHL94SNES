@@ -6,7 +6,7 @@ PrintMP5Line2:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF936
+	lda.w #PrintMP5Line2Pos
 	sta.b a1
 	jsl.l print
 	pla

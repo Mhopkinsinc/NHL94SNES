@@ -6,7 +6,7 @@ Multi5ScopeMsg:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF60C
+	lda.w #TheMultiPlayer5IsNotTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -19,7 +19,7 @@ Multi5ScopeMsg:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF62A
+	lda.w #DesignedForUseWithTheTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -32,7 +32,7 @@ Multi5ScopeMsg:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF648
+	lda.w #SuperNesSuperScopeTxt
 	sta.b a1
 	jsl.l print
 	pla

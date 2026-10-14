@@ -11,7 +11,7 @@ setlccords:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8E4
+	lda.w #setlccordsPos
 	sta.b a1
 	jsl.l print
 	pla

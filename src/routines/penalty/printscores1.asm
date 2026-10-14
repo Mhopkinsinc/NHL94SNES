@@ -33,7 +33,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF81C
+	lda.w #printscores1Pos
 	sta.b a1
 	jsl.l print
 	pla
@@ -54,7 +54,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF821
+	lda.w #printscores1Pos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -84,7 +84,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF826
+	lda.w #RoundTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -112,7 +112,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF830
+	lda.w #printscores1Pos3
 	sta.b a1
 	jsl.l print
 	pla
@@ -130,7 +130,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF835
+	lda.w #printscores1Pos4
 	sta.b a1
 	jsl.l print
 	pla
@@ -146,7 +146,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF83A
+	lda.w #printscores1Pos5
 	sta.b a1
 	jsl.l print
 	pla
@@ -173,7 +173,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF83F
+	lda.w #printscores1Pos6
 	sta.b a1
 	jsl.l print
 	pla
@@ -191,7 +191,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF844
+	lda.w #printscores1Pos7
 	sta.b a1
 	jsl.l print
 	pla
@@ -230,7 +230,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF849
+	lda.w #printscores1Pos8
 	sta.b a1
 	jsl.l print
 	pla
@@ -246,7 +246,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF84E
+	lda.w #printscores1Pos9
 	sta.b a1
 	jsl.l print
 	pla
@@ -265,7 +265,7 @@ printscores1:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF853
+	lda.w #printscores1Pos10
 	sta.b a1
 	jsl.l print
 	pla

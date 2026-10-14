@@ -11,7 +11,7 @@ PrintScrollArrows:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF14B
+	lda.w #RightArrowTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -27,7 +27,7 @@ PrintScrollArrows:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF151
+	lda.w #PrintScrollArrowsPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -44,7 +44,7 @@ PrintScrollArrows:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF157
+	lda.w #LeftArrowTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -60,7 +60,7 @@ PrintScrollArrows:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF15D
+	lda.w #PrintScrollArrowsPos2
 	sta.b a1
 	jsl.l print
 	pla

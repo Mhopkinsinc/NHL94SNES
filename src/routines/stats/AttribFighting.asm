@@ -15,7 +15,7 @@ AttribRating:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF813
+	lda.w #AttribFightingPos
 	sta.b a1
 	jsl.l print
 	pla

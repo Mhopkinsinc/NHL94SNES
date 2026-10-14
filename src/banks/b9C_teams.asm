@@ -68,6 +68,6 @@ incsrc "../data/teamdata94s.asm"
 org $9CEF59
 incsrc "../data/text/WinsMark.asm"
 org $9CF000
-incsrc "../data/text/DATA8_9CF000.asm"
+incsrc "../data/text/DrawEditLinesTitlePos.asm"
 	padbyte $FF
 	pad $9D8000

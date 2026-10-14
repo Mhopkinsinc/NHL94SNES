@@ -24,7 +24,7 @@ ShowPlayerStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF2E1
+	lda.w #ShowPlayerStatsPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -44,7 +44,7 @@ ShowPlayerStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF2E6
+	lda.w #YSwitchTeamsTxt
 	sta.b a1
 	jsl.l print
 	pla

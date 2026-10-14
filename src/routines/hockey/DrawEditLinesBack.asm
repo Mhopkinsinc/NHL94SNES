@@ -7,7 +7,7 @@ DrawEditLinesBack:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF09D
+	lda.w #DrawEditLinesBackPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -27,7 +27,7 @@ DrawEditLinesBack:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF0A2
+	lda.w #DrawEditLinesBackPos2
 	sta.b a1
 	jsl.l print
 	pla

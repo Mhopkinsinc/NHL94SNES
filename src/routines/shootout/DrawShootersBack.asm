@@ -6,7 +6,7 @@ DrawShootersBack:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEF81
+	lda.w #DrawShootersBackPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -26,7 +26,7 @@ DrawShootersBack:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEF86
+	lda.w #DrawShootersBackPos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -46,7 +46,7 @@ DrawShootersBack:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEF8B
+	lda.w #LineupTxt2
 	sta.b a1
 	jsl.l print
 	pla

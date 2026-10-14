@@ -6,7 +6,7 @@ DrawExitPrompt:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF918
+	lda.w #DrawExitPromptPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -41,7 +41,7 @@ DrawExitPrompt:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF91D
+	lda.w #DrawExitPromptPos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -68,7 +68,7 @@ DrawExitPrompt:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF922
+	lda.w #DrawExitPromptPos3
 	sta.b a1
 	jsl.l print
 	pla
@@ -93,7 +93,7 @@ DrawExitPrompt:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF927
+	lda.w #DrawExitPromptPos4
 	sta.b a1
 	jsl.l print
 	pla

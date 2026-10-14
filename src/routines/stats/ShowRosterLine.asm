@@ -6,7 +6,7 @@ ShowRosterLine:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF45F
+	lda.w #ShowRosterLinePos
 	sta.b a1
 	jsl.l print
 	pla
@@ -69,7 +69,7 @@ ShowRosterLine:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF464
+	lda.w #ShowRosterLinePos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -89,7 +89,7 @@ ShowRosterLine:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF469
+	lda.w #YSwitchTeamsTxt2
 	sta.b a1
 	jsl.l print
 	pla

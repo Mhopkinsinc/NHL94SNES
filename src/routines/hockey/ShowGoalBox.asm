@@ -42,7 +42,7 @@ ShowGoalBox:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF892
+	lda.w #ShowGoalBoxPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -126,7 +126,7 @@ ShowGoalBox:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF897
+	lda.w #AssistByTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -147,7 +147,7 @@ ShowGoalBox:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF8A9
+	lda.w #ShowGoalBoxPos2
 	sta.b a1
 	jsl.l print
 	pla

@@ -6,7 +6,7 @@ Multi5MouseMsg:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF663
+	lda.w #TheMultiPlayer5IsNotTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -19,7 +19,7 @@ Multi5MouseMsg:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF680
+	lda.w #DesignedForUseWithTheTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -32,7 +32,7 @@ Multi5MouseMsg:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF69E
+	lda.w #SuperNesMouseTxt
 	sta.b a1
 	jsl.l print
 	pla

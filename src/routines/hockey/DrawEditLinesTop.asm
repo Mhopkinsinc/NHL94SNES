@@ -6,7 +6,7 @@ DrawEditLinesTop:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFEA
+	lda.w #DrawEditLinesTopPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -27,7 +27,7 @@ DrawEditLinesTop:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFEF
+	lda.w #DrawEditLinesTopPos2
 	sta.b a1
 	jsl.l print
 	pla

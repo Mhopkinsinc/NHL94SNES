@@ -6,7 +6,7 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFBA
+	lda.w #PrintShooterListPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -64,7 +64,7 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFBF
+	lda.w #PlayerTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -80,7 +80,7 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFCA
+	lda.w #LeftArrowTxt3
 	sta.b a1
 	jsl.l print
 	pla
@@ -101,7 +101,7 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFD0
+	lda.w #RightArrowTxt3
 	sta.b a1
 	jsl.l print
 	pla

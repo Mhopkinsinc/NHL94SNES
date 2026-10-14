@@ -5,9 +5,9 @@ ShooterSelectList:
 	pha
 	lda.b a1
 	pha
-	lda.w #DATA8_9CEFB5>>16
+	lda.w #ShooterSelectListPos>>16
 	sta.b a1+2
-	lda.w #DATA8_9CEFB5
+	lda.w #ShooterSelectListPos
 	sta.b a1
 	jsl.l print
 	pla

@@ -18,7 +18,7 @@ ShootersBackground:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEFA6
+	lda.w #ShootersBackgroundPos
 	sta.b a1
 	jsl.l print
 	pla

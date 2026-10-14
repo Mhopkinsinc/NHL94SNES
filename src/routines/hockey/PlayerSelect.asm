@@ -120,7 +120,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF481
+	lda.w #NotTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -133,7 +133,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF489
+	lda.w #PlayingTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -149,7 +149,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF495
+	lda.w #NotTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -162,7 +162,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF49D
+	lda.w #PlayingTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -178,7 +178,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF4A9
+	lda.w #UseToSelectTeamTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -191,7 +191,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF4C3
+	lda.w #PressStartWhenDoneTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -315,7 +315,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF4DD
+	lda.w #AtLeastOnePersonMustTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -328,7 +328,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF4FA
+	lda.w #PlayInPlayoffModeTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -346,7 +346,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF515
+	lda.w #OnlyOnePlayerPerTeamTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -359,7 +359,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF532
+	lda.w #IsAllowedInShootoutTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -392,7 +392,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF54E
+	lda.w #UseToSelectTeamTxt2
 	sta.b a1
 	jsl.l print
 	pla
@@ -405,7 +405,7 @@ PlayerSelect:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF56B
+	lda.w #PressStartWhenDoneTxt2
 	sta.b a1
 	jsl.l print
 	pla

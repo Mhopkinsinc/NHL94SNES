@@ -28,7 +28,7 @@ ShowInjuryBox:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF73E
+	lda.w #ShowInjuryBoxPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -46,7 +46,7 @@ ShowInjuryBox:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF743
+	lda.w #InjuryToOutForPeriodTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -64,7 +64,7 @@ ShowInjuryBox:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF766
+	lda.w #TheGameTxt
 	sta.b a1
 	jsl.l print
 	pla

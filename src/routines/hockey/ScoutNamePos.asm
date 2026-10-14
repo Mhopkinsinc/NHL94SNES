@@ -6,7 +6,7 @@ ScoutNamePos:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF796+5
+	lda.w #ScoutNamePosAt+5
 	sta.b a1
 	jsl.l print
 	pla

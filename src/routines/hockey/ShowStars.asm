@@ -28,7 +28,7 @@ ShowStars:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF370
+	lda.w #ShowStarsPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -48,7 +48,7 @@ ShowStars:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF375
+	lda.w #ShowStarsPos2
 	sta.b a1
 	jsl.l print
 	pla

@@ -16,7 +16,7 @@ DrawPeriodStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF7B3
+	lda.w #DrawPeriodStatsPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -36,7 +36,7 @@ DrawPeriodStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF7B8
+	lda.w #DrawPeriodStatsPos2
 	sta.b a1
 	jsl.l print
 	pla
@@ -52,7 +52,7 @@ DrawPeriodStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF7BD
+	lda.w #DrawPeriodStatsPos3
 	sta.b a1
 	jsl.l print
 	pla
@@ -215,7 +215,7 @@ DrawPeriodStats:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF7E5
+	lda.w #YShotsTxt
 	sta.b a1
 	jsl.l print
 	pla

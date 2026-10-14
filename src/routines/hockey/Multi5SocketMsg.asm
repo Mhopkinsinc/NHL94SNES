@@ -6,7 +6,7 @@ Multi5SocketMsg:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF5C3
+	lda.w #TheMultiPlayer5MustBeTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -19,7 +19,7 @@ Multi5SocketMsg:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF5E1
+	lda.w #ConnectedToControllerTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -32,7 +32,7 @@ Multi5SocketMsg:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF5FD
+	lda.w #Socket2Txt
 	sta.b a1
 	jsl.l print
 	pla

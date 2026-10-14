@@ -45,9 +45,9 @@ updatepwrplay:
 	pha
 	lda.b a1
 	pha
-	lda.w #DATA8_9CF718>>16
+	lda.w #updatepwrplayPos>>16
 	sta.b a1+2
-	lda.w #DATA8_9CF718
+	lda.w #updatepwrplayPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -104,9 +104,9 @@ updatepwrplay:
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
-	lda.w #DATA8_9CF72A>>16
+	lda.w #updatepwrplayPos2>>16
 	sta.b a1+2
-	lda.w #DATA8_9CF72A
+	lda.w #updatepwrplayPos2
 	sta.b a1
 	jsl.l appstring
 	lda.b a0

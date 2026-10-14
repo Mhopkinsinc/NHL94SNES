@@ -6,7 +6,7 @@ PrintPasswordHelp:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF287
+	lda.w #SelectTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -19,7 +19,7 @@ PrintPasswordHelp:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF29B
+	lda.w #ANextTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -32,7 +32,7 @@ PrintPasswordHelp:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF2AF
+	lda.w #YBackTxt
 	sta.b a1
 	jsl.l print
 	pla
@@ -45,7 +45,7 @@ PrintPasswordHelp:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF2C3
+	lda.w #PressStartTxt
 	sta.b a1
 	jsl.l print
 	pla
