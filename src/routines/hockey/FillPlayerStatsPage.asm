@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C8934:
+; Build the player stats page in the stats page buffer, a row per player in the sorted order
+FillPlayerStatsPage:
 	lda.w #$007F
 	sta.b $12
 	lda.w #$2780
@@ -40,7 +40,7 @@ CODE_9C8934:
 	lda.b d1
 	pha
 	lda.w #$FFFF
-	jsl.l CODE_9C8D17
+	jsl.l SetStatColumnPal
 	lda.w #$0003
 	sta.w printx
 	stx.b d0
@@ -56,7 +56,7 @@ CODE_9C8934:
 	adc.w $1DC9
 	tax
 	lda.w #$0001
-	jsl.l CODE_9C8D17
+	jsl.l SetStatColumnPal
 	lda.w #$0011
 	sta.w printx
 	sep #$20
@@ -69,7 +69,7 @@ CODE_9C8934:
 	jsl.l PushNumberWrap
 	jsl.l PrintToStatsPage
 	lda.w #$0002
-	jsl.l CODE_9C8D17
+	jsl.l SetStatColumnPal
 	lda.w #$0014
 	sta.w printx
 	sep #$20
@@ -82,7 +82,7 @@ CODE_9C8934:
 	jsl.l PushNumberWrap
 	jsl.l PrintToStatsPage
 	lda.w #$0003
-	jsl.l CODE_9C8D17
+	jsl.l SetStatColumnPal
 	lda.w #$0017
 	sta.w printx
 	sep #$20
@@ -102,7 +102,7 @@ CODE_9C8934:
 	jsl.l PushNumberWrap
 	jsl.l PrintToStatsPage
 	lda.w #$0004
-	jsl.l CODE_9C8D17
+	jsl.l SetStatColumnPal
 	lda.w #$001A
 	sta.w printx
 	sep #$20
@@ -115,7 +115,7 @@ CODE_9C8934:
 	jsl.l PushNumberWrap
 	jsl.l PrintToStatsPage
 	lda.w #$0005
-	jsl.l CODE_9C8D17
+	jsl.l SetStatColumnPal
 	lda.w #$001D
 	sta.w printx
 	sep #$20
@@ -128,7 +128,7 @@ CODE_9C8934:
 	jsl.l PushNumberWrap
 	jsl.l PrintToStatsPage
 	lda.w #$FFFF
-	jsl.l CODE_9C8D17
+	jsl.l SetStatColumnPal
 	pla
 	sta.b d1
 	ply
@@ -138,7 +138,7 @@ CODE_9C8934:
 	lda.b d1
 	pha
 	lda.w #$FFFF
-	jsl.l CODE_9C8D17
+	jsl.l SetStatColumnPal
 	lda.w #$0003
 	sta.w printx
 	stx.b d0

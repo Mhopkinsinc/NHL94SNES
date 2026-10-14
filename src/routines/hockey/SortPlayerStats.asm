@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C8B69:
+; Player stats: print the column name, sort the player order ($1DFB) by stat column $1DF9 (ComparePlayerStats), then FillPlayerStatsPage
+SortPlayerStats:
 	lda.w $1DF9
 	sta.b d0
 	lda.b $8F
@@ -26,7 +26,7 @@ CODE_9C8B69:
 	txy
 .loop2:
 	iny
-	jsl.l CODE_9C8C22
+	jsl.l ComparePlayerStats
 	lda.w $1DC9
 	beq .2
 .1:
@@ -44,5 +44,5 @@ CODE_9C8B69:
 	inx
 	cpx.w $1DC1
 	bcc .loop
-	jsl.l CODE_9C8934
+	jsl.l FillPlayerStatsPage
 	rtl

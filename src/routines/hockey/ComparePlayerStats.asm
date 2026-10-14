@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C8C22:
+; Compare stat column $1DF9 of the players at order slots x and y ($1DFB); $1DC9 is not 0 when they swap
+ComparePlayerStats:
 	phx
 	phy
 	lda.b d0

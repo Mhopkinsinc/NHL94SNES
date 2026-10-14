@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9C8D17:
+; Text palette $2000 for the sorted stat column (A = $1DF9), else $2400
+SetStatColumnPal:
 	cmp.w $1DF9
 	beq .t1
 	lda.w #$2400

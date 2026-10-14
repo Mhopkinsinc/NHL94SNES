@@ -5,7 +5,7 @@ SwapPlayerStatsTeam:
 	sta.b a2
 	jsl.l SetPlayerStatsRange
 	jsl.l InitStatsOrder
-	jsl.l CODE_9C8B69
+	jsl.l SortPlayerStats
 	jsl.l SpriteFrameStart
 	ldx.b a2
 	lda.w HomeTeam,x
@@ -19,7 +19,7 @@ SwapPlayerStatsTeam:
 	jsl.l PrintLetterSprites
 	jsl.l DrawMatchupPictures
 	jsl.l WaitFrame
-	jsl.l CODE_9C88A0
+	jsl.l DrawPlayerStatsPage
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
 	jmp.w CODE_9C8684

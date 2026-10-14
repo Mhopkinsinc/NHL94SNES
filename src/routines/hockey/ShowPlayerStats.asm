@@ -57,7 +57,7 @@ ShowPlayerStats:
 	lda.w #$0007
 	sta.w $1DC5
 	jsl.l InitStatsOrder
-	jsl.l CODE_9C8B69
+	jsl.l SortPlayerStats
 	lda.w #$0058
 	ldx.w #$00C0
 	ldy.w #$00D0
@@ -67,7 +67,7 @@ ShowPlayerStats:
 	lda.w #$0001
 	sta.l $7E3478
 	jsl.l SendTextMap
-	jsl.l CODE_9C88A0
+	jsl.l DrawPlayerStatsPage
 	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 CODE_9C8644:
@@ -152,7 +152,7 @@ CODE_9C8684:
 	sta.b a1
 	jsl.l PrintToStatsPage
 .3:
-	jsl.l CODE_9C88A0
+	jsl.l DrawPlayerStatsPage
 .4:
 	jsl.l WaitFrame
 	jmp.w CODE_9C8644
@@ -176,7 +176,7 @@ CODE_9C86FE:
 
 .t1x2:
 	inc.w $1DC5
-	jsl.l CODE_9C88A0
+	jsl.l DrawPlayerStatsPage
 	dec.w $1DC5
 	jsl.l WaitFrame
 	inc.w $1DB9
@@ -189,7 +189,7 @@ CODE_9C86FE:
 	lda.w $1DF3
 	cmp.w #$000D
 	bne .loop
-	jsl.l CODE_9C88A0
+	jsl.l DrawPlayerStatsPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
@@ -206,7 +206,7 @@ CODE_9C874C:
 .t1x3:
 	sta.w $1DB9
 	inc.w $1DC5
-	jsl.l CODE_9C88A0
+	jsl.l DrawPlayerStatsPage
 	dec.w $1DC5
 	jsl.l WaitFrame
 	lda.w #$000D
@@ -218,7 +218,7 @@ CODE_9C874C:
 	lda.w $1DF3
 	cmp.w #$0001
 	bne .loopx
-	jsl.l CODE_9C88A0
+	jsl.l DrawPlayerStatsPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
 	sta.w $1DF3
@@ -247,13 +247,13 @@ CODE_9C87A6:
 	beq CODE_9C87C5
 CODE_9C87B7:
 	sta.w $1DF9
-	jsl.l CODE_9C8B69
-	jsl.l CODE_9C88A0
+	jsl.l SortPlayerStats
+	jsl.l DrawPlayerStatsPage
 	jmp.w CODE_9C8684
 CODE_9C87C5:
 	sta.w $1DF9
 	jsl.l SetPlayerStatsRange
 	jsl.l InitStatsOrder
-	jsl.l CODE_9C8B69
-	jsl.l CODE_9C88A0
+	jsl.l SortPlayerStats
+	jsl.l DrawPlayerStatsPage
 	jmp.w CODE_9C8684

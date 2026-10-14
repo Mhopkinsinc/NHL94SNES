@@ -70,6 +70,7 @@
 - `PWprint` (93S, same body), `PrintPasswordHelp` (from its strings).
 - `GetFrameHot` (from behavior: the GetHot job for checkpuckcoll_ccx, reading the frame data).
 - Entry and exit labels: `Mul8U_mul`, `Mul8U_res`, `Mul8XS_x`, `Mul8XS_neg`, `Mul8S_swap`, `DrawSpriteExit`, `GameStatsKeys`, `GameStatsRtl`; the four one-instruction CODE_ files among them folded into the routine before them.
+- Player stats from behavior: `DrawPlayerStatsPage`, `SortPlayerStats`, `ComparePlayerStats`, `FillPlayerStatsPage`, `SetStatColumnPal`.
 
 ## Unsure
 
