@@ -123,6 +123,7 @@
 - `assdumpin` (asstab $14), `DumpInTarget`, `StartDumpIn`, RAM `dumpinplayer` / `dumpintarget` (Y with the puck dumps it in; confirmed by the user); its y table folded in as `.ytab`.
 - `AdjustFacingDirection` (93S turn step at the 93S point; the earlier note that it did not match was about the other helper) and `GoaliePuckVector` (from behavior, where 93S calls ClampYPosition). No `CODE_` files are left.
 - The last `CODE_` labels (entry points other routines jump to, and branch targets split across them inside ShowPlayerStats, UpdateScoutingDisplay, ChkOffsides, dopass and ShootoutShooters) are named `Parent_part`. No `CODE_` labels are left in the source.
+- CreditNames / CreditTitles: their string labels (DATA8_80E330-DATA8_80E6B6, read only through the lists) are locals now.
 
 ## Unsure
 
