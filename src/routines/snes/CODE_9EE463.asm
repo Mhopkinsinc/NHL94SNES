@@ -39,7 +39,7 @@ CODE_9EE463:
 	lda.w $0792
 	and.w #$0003
 	sta.w $1043,x
-	jsr.w CODE_9EE5E6
+	jsr.w .11
 .1x:
 	lda.w $1EA5
 	bmi .4
@@ -147,7 +147,7 @@ CODE_9EE463:
 	tay
 	lda.w #$009E
 	sta.b $8B
-	lda.w #DATA8_9EE5CE
+	lda.w #.10
 	sta.b a0
 	lda.b [a0],y
 	sta.b d0
@@ -170,3 +170,91 @@ CODE_9EE463:
 	sta.w $1EA5
 	inc.w $1EA7
 	rts
+.10:
+	dw 40,120,74,-22,151,134,-22,224,177,44,227,-1
+.11:
+	lda.b d0
+	cmp.w #$002C
+	bpl .4x
+	jsl.l RandomWord
+	and.w #$00C0
+	beq .t1xxxx
+	lda.w attribute,x
+	bit.w #$0800
+	bne .1xxxxx
+	bra .2xx
+
+.t1xxxx:
+	jsl.l RandomWord
+	and.w #$00F0
+	sta.b d0
+	lda.w #$007F
+	sec
+	sbc.b d0
+	bmi .2xx
+.1xxxxx:
+	lda.w #$002D
+	bra .3x
+.2xx:
+	lda.w #$FFD3
+.3x:
+	ldy.w pfgoal,x
+	bne .2xxx
+.1xxxxxx:
+	eor.w #$FFFF
+	inc a
+.2xxx:
+	sta.w $1EA9
+	sta.w $1EA1
+	lda.w #$0028
+	sta.w $1EA3
+	lda.w #$001E
+	sta.w $1EA5
+	rts
+.4x:
+	lda.w Xpos,x
+	cmp.w #$0020
+	bpl .8x
+	cmp.w #$FFE0
+	bmi .8x
+	jsl.l RandomWord
+	and.w #$00C0
+	beq .t1xxxxx
+	lda.w attribute,x
+	bit.w #$0800
+	bne .1xxxxxxx
+	bra .5x
+
+.t1xxxxx:
+	jsl.l RandomWord
+	and.w #$00F0
+	sta.b d0
+	lda.w #$007F
+	sec
+	sbc.b d0
+	bmi .5x
+.1xxxxxxx:
+	lda.w #$002C
+	bra .6x
+.5x:
+	lda.w #$FFD4
+.6x:
+	ldy.w pfgoal,x
+	bne .1xxxxxxxx
+	eor.w #$FFFF
+	inc a
+.1xxxxxxxx:
+	sta.w $1EA9
+	sta.w $1EA1
+.7x:
+	lda.w #$0002
+	sta.w $1EA7
+	lda.w #$0097
+	sta.w $1EA3
+	lda.w #$0086
+	sta.w $1EA5
+	rts
+.8x:
+	sta.w $1EA9
+	stz.w $1EA1
+	bra .7x

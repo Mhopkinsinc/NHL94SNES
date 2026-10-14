@@ -110,7 +110,7 @@ updateplayers:
 	lda.w pflags,y
 	bit.w #$0001
 	beq .1xx
-	lda.l DATA8_9F8B6F-1,x
+	lda.l .22-1,x
 	and.w #$00FF
 	sta.b d2
 .1xx:
@@ -566,3 +566,7 @@ updateplayers:
 	sta.l $7E30F4
 .20:
 	rtl
+.21:
+	db $FD,$FA,$F7,$F4,$F1,$EE,$EB,$E8,$E6,$E3
+.22:
+	db $FF,$FF,$FE,$FE,$FE,$FD,$FD,$FD,$FC,$FC

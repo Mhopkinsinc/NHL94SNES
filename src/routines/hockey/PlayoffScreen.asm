@@ -208,7 +208,7 @@ PlayoffScreen:
 	lda.b $03,s
 	asl a
 	tax
-	lda.l DATA8_9D93AD,x
+	lda.l .8,x
 	and.w #$00FF
 	tay
 	pla
@@ -218,7 +218,7 @@ PlayoffScreen:
 	asl a
 	asl a
 	tax
-	jsr.w CODE_9D93E3
+	jsr.w .9
 	ldy.w #$0012
 	lda.b [$0C],y
 	pha
@@ -226,7 +226,7 @@ PlayoffScreen:
 	asl a
 	tax
 	inx
-	lda.l DATA8_9D93AD,x
+	lda.l .8,x
 	and.w #$00FF
 	tay
 	pla
@@ -237,7 +237,7 @@ PlayoffScreen:
 	asl a
 	asl a
 	tax
-	jsr.w CODE_9D93E3
+	jsr.w .9
 	plx
 	dex
 	bpl .loopx
@@ -325,7 +325,7 @@ PlayoffScreen:
 	sta.b a1
 	lda.w #$009D
 	sta.b $8B
-	lda.w #DATA8_9D94FE
+	lda.w #.10
 	sta.b a0
 	lda.l playoffRoundIdx
 	asl a
@@ -875,3 +875,209 @@ org $9D9000
 	sbc.w #$0080
 	sta.w $07DA
 	jmp.w .2x
+.8:
+	db $04,$06,$08,$0A,$0C,$0E,$10,$12,$14,$16,$18,$1A,$1C,$1E,$24,$26
+	db $28,$2A,$2C,$2E,$30,$32,$34,$36,$38,$3A,$3C,$3E,$44,$46,$48,$4A
+	db $4C,$4E,$50,$52,$54,$56,$58,$5A,$5C,$5E,$64,$66,$68,$6A,$6C,$6E
+	db $70,$72,$74,$76,$78,$7A
+.9:
+	txa
+	asl a
+	asl a
+	asl a
+	asl a
+	pha
+	sep #$20
+	txa
+	lsr a
+	sta.l $7F7500,x
+	inc a
+	sta.l $7F7502,x
+	tya
+	lsr a
+	lsr a
+	lsr a
+	and.b #$1C
+	clc
+	adc.b #$30
+	cpx.w #$0200
+	bcc .1xx
+	ora.b #$01
+.1xx:
+	sta.l $7F7501,x
+	sta.l $7F7503,x
+	lda.b $01,s
+	tax
+	tya
+	lsr a
+	and.b #$0F
+	sta.b $00
+	jsr.w .t1xxxxx
+	rep #$20
+	pla
+	clc
+	adc.w #$0020
+	tax
+	sep #$20
+	jsr.w .7x
+	rep #$20
+	rts
+
+.t1xxxxx:
+	lda.b #$01
+	pha
+	ldy.w #$0007
+.2xx:
+	phx
+	lda.b $03,s
+	and.b #$01
+	beq .t1xxxxxx
+	lda.b #$FF
+	sta.l $7F6700,x
+	bra .3xx
+
+.t1xxxxxx:
+	lda.b #$80
+	sta.l $7F6700,x
+.3xx:
+	inx
+	lda.b $03,s
+	and.b #$02
+	beq .t1xxxxxxx
+	lda.b #$7F
+	sta.l $7F6700,x
+	bra .4x
+
+.t1xxxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.4x:
+	txa
+	clc
+	adc.b #$0F
+	tax
+	lda.b $03,s
+	and.b #$04
+	beq .t1xxxxxxxx
+	lda.b #$7F
+	sta.l $7F6700,x
+	bra .5x
+
+.t1xxxxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.5x:
+	inx
+	lda.b $03,s
+	and.b #$08
+	beq .t1xxxxxxxxx
+	lda.b #$7F
+	sta.l $7F6700,x
+	bra .6x
+
+.t1xxxxxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.6x:
+	lda.b $00
+	sta.b $03,s
+	plx
+	inx
+	inx
+	dey
+	bpl .2xx
+	pla
+	rts
+.7x:
+	lda.b #$01
+	pha
+	ldy.w #$0007
+.1xxx:
+	phx
+	lda.b $03,s
+	and.b #$01
+	beq .t1xxxxxxxxxx
+	lda.b #$FF
+	sta.l $7F6700,x
+	bra .2xxx
+
+.t1xxxxxxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.2xxx:
+	inx
+	lda.b $03,s
+	and.b #$02
+	beq .t1xxxxxxxxxxx
+	lda.b #$FF
+	sta.l $7F6700,x
+	bra .3xxx
+
+.t1xxxxxxxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.3xxx:
+	txa
+	clc
+	adc.b #$0F
+	tax
+	lda.b $03,s
+	and.b #$04
+	beq .t1xxxxxxxxxxxx
+	lda.b #$FF
+	sta.l $7F6700,x
+	bra .4xx
+
+.t1xxxxxxxxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.4xx:
+	inx
+	lda.b $03,s
+	and.b #$08
+	beq .t1xxxxxxxxxxxxx
+	lda.b #$FF
+	sta.l $7F6700,x
+	bra .5xx
+
+.t1xxxxxxxxxxxxx:
+	lda.b #$00
+	sta.l $7F6700,x
+.5xx:
+	lda.b $00
+	sta.b $03,s
+	plx
+	inx
+	inx
+	dey
+	bpl .1xxx
+	pla
+	rts
+.10:
+	db $0A,$00,$47,$00,$94,$00,$ED,$00,$4C,$01,$10,$31,$02,$31,$05,$31
+	db $08,$31,$0B,$31,$0E,$31,$11,$31,$14,$31,$17,$46,$02,$46,$05,$46
+	db $08,$46,$0B,$46,$0E,$46,$11,$46,$14,$46,$17,$00,$3A,$01,$3B,$0A
+	db $44,$0B,$45,$FF,$30,$30,$08,$34,$04,$34,$0A,$34,$10,$34,$16,$49
+	db $04,$49,$0A,$49,$10,$49,$16,$18,$26,$02,$26,$05,$26,$08,$26,$0B
+	db $26,$0E,$26,$11,$26,$14,$26,$17,$51,$02,$51,$05,$51,$08,$51,$0B
+	db $51,$0E,$51,$11,$51,$14,$51,$17,$31,$04,$31,$0A,$31,$0F,$31,$15
+	db $46,$04,$46,$0A,$46,$0F,$46,$15,$00,$2F,$01,$30,$02,$3A,$03,$3B
+	db $08,$44,$09,$45,$0A,$4F,$0B,$50,$FF,$21,$3F,$04,$34,$08,$34,$12
+	db $49,$08,$49,$12,$1C,$1B,$02,$1B,$05,$1B,$08,$1B,$0B,$1B,$0E,$1B
+	db $11,$1B,$14,$1B,$17,$5C,$02,$5C,$05,$5C,$08,$5C,$0B,$5C,$0E,$5C
+	db $11,$5C,$14,$5C,$17,$26,$04,$26,$0A,$26,$0F,$26,$15,$51,$04,$51
+	db $0A,$51,$0F,$51,$15,$31,$07,$31,$12,$46,$07,$46,$12,$00,$24,$01
+	db $25,$02,$2F,$03,$30,$04,$3A,$05,$3B,$06,$44,$07,$45,$08,$4F,$09
+	db $50,$0A,$5A,$0B,$5B,$FF,$16,$4A,$02,$34,$0D,$49,$0D,$1E,$10,$02
+	db $10,$05,$10,$08,$10,$0B,$10,$0E,$10,$11,$10,$14,$10,$17,$67,$02
+	db $67,$05,$67,$08,$67,$0B,$67,$0E,$67,$11,$67,$14,$67,$17,$1B,$04
+	db $1B,$0A,$1B,$0F,$1B,$15,$5C,$04,$5C,$0A,$5C,$0F,$5C,$15,$26,$07
+	db $26,$12,$51,$07,$51,$12,$31,$0C,$46,$0C,$00,$19,$01,$1A,$02,$24
+	db $03,$25,$04,$2F,$05,$30,$05,$3A,$06,$45,$06,$4F,$07,$50,$08,$5A
+	db $09,$5B,$0A,$65,$0B,$66,$FF,$0B,$55,$01,$3E,$17,$1F,$10,$02,$10
+	db $05,$10,$08,$10,$0B,$10,$0E,$10,$11,$10,$14,$10,$17,$67,$02,$67
+	db $05,$67,$08,$67,$0B,$67,$0E,$67,$11,$67,$14,$67,$17,$1B,$04,$1B
+	db $0A,$1B,$0F,$1B,$15,$5C,$04,$5C,$0A,$5C,$0F,$5C,$15,$26,$07,$26
+	db $12,$51,$07,$51,$12,$31,$0C,$46,$0C,$3B,$17,$00,$19,$01,$1A,$02
+	db $24,$03,$25,$04,$2F,$05,$30,$05,$3A,$06,$45,$06,$4F,$07,$50,$08
+	db $5A,$09,$5B,$0A,$65,$0B,$66,$FF,$0B,$55,$00

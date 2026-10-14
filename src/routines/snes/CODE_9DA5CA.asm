@@ -311,7 +311,7 @@ CODE_9DA5CA:
 	sta.b a2
 	lda.w #$009D
 	sta.b $97
-	lda.w #DATA8_9DACD1
+	lda.w #.14
 	sta.b a3
 	stz.b d5
 	ldy.b d7
@@ -431,7 +431,7 @@ CODE_9DA5CA:
 	asl a
 	adc.b d0
 	tax
-	lda.l DATA8_9DAC7F,x
+	lda.l .13,x
 	ldx.b d0
 	cmp.w #$0000
 	beq .6x
@@ -460,7 +460,7 @@ CODE_9DA5CA:
 	sta.b d3
 	lda.w #$009D
 	sta.b $8B
-	lda.w #DATA8_9DACDF
+	lda.w #.15
 	sta.b a0
 	clc
 	adc.b [a0],y
@@ -519,7 +519,7 @@ CODE_9DA5CA:
 	asl a
 	adc.w #$0004
 	tax
-	lda.l DATA8_9DAC7F,x
+	lda.l .13,x
 	bne .t1xxxxxxxx
 	lda.w #$001C
 	sta.l $7E3454
@@ -544,7 +544,7 @@ CODE_9DA5CA:
 .1xxxxxxx:
 	dex
 	dex
-	lda.l DATA8_9DAC7F,x
+	lda.l .13,x
 	bne .t1xxxxxxxxx
 	lda.w #$001D
 	sta.l $7E3452
@@ -722,8 +722,19 @@ CODE_9DA5CA:
 	asl a
 	adc.b d7
 	tax
-	lda.l DATA8_9DAC7F,x
+	lda.l .13,x
 	beq .2xxxxxxxx
 .3xxxxxxx:
 	plx
 	rts
+.13:
+	dw $0001,$0001,$0001,$0001,$0001,$0001,$0001,$0000
+	dw $0001,$0000,$0000,$0001,$0001,$0001,$0001,$0000
+	dw $0001,$FFFF,$0000,$0001,$0001,$0001,$0001,$0000
+	dw $0001,$FFFF,$0000,$0001,$0001,$0001,$0001,$0000
+	dw $0001,$0001,$0001,$0000,$0000,$0000,$0001,$0000
+	dw $0000
+.14:
+	dw $0005,$001C,$001C,$0003,$0003,$0003,$0002
+.15:
+	dw $000E,$005E,$005E,$005E,$009E,$00CE,$00FE

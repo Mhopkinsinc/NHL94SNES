@@ -69,16 +69,16 @@ CODE_9EED8D:
 	asl a
 	sta.b d4
 	ldy.w $0BA5
-	lda.w DATA8_9EEED4,y
+	lda.w .6,y
 	clc
 	adc.b d4
 	jsl.l randomd0s
 	clc
-	adc.w DATA8_9EEF04,y
+	adc.w .8,y
 	sec
 	sbc.w $0D71
 	sta.b d0
-	lda.w DATA8_9EEEEC,y
+	lda.w .7,y
 	clc
 	adc.b d4
 	jsl.l randomd0s
@@ -159,3 +159,9 @@ CODE_9EED8D:
 	lsr a
 	sta.w $0CF3
 	jmp.w CODE_9EEACC
+.6:
+	dw 25,25,25,25,20,25,25,25,25,25,20,25
+.7:
+	dw 20,25,25,70,20,70,20,25,25,70,20,70
+.8:
+	dw 0,-80,80,-80,0,80,0,80,-80,-80,0,80

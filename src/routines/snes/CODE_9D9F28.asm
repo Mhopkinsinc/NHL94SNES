@@ -144,3 +144,5 @@ org $9DA000
 	bpl .3
 CODE_9DA04C:
 	rtl
+DATA8_9DA04D:
+	db $01,$02,$03,$04

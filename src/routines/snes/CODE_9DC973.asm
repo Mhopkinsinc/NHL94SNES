@@ -3,7 +3,7 @@ CODE_9DC973:
 	tay
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9DC9A2
+	lda.w #.1
 	sta.b a1
 	lda.b [a1],y
 	and.w #$00FF
@@ -23,3 +23,5 @@ CODE_9DC973:
 	dec a
 	sta.b d0
 	rtl
+.1:
+	db $04,$03,$05,$01,$02,$00

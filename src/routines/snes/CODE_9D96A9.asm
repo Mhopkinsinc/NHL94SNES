@@ -17,13 +17,13 @@ CODE_9D96A9:
 	lda.w RDMPYL
 	asl a
 	tax
-	lda.l DATA8_9D977D,x
+	lda.l .1,x
 	xba
 	and.w #$00FF
 	lsr a
 	lsr a
 	sta.b tmp1
-	lda.l DATA8_9D977D+2,x
+	lda.l .1+2,x
 	xba
 	and.w #$00FF
 	lsr a
@@ -46,7 +46,7 @@ CODE_9D96A9:
 	asl a
 	asl a
 	sta.b tmp2
-	lda.l DATA8_9D977D,x
+	lda.l .1,x
 	lsr a
 	lsr a
 	lsr a
@@ -54,7 +54,7 @@ CODE_9D96A9:
 	lsr a
 	and.w #$001F
 	sta.b tmp1
-	lda.l DATA8_9D977D+2,x
+	lda.l .1+2,x
 	lsr a
 	lsr a
 	lsr a
@@ -80,10 +80,10 @@ CODE_9D96A9:
 	asl a
 	asl a
 	tsb.b tmp2
-	lda.l DATA8_9D977D,x
+	lda.l .1,x
 	and.w #$001F
 	sta.b tmp1
-	lda.l DATA8_9D977D+2,x
+	lda.l .1+2,x
 	and.w #$001F
 	sec
 	sbc.b tmp1
@@ -105,3 +105,5 @@ CODE_9D96A9:
 	sty.b $12
 	sta.b [$10]
 	rtl
+.1:
+	dw $7FFF,$7E10,$7FFF

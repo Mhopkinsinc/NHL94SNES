@@ -488,3 +488,47 @@ ShowCrowdMeter:
 	jsl.l .7
 .rtl:
 	rtl
+.9:
+	db $EF,$E7,$E3,$E0
+.10:		; records of a byte and a pointer into .9; $00 ends them
+	db $0C : dw .9+3
+	db $06 : dw .9+2
+	db $1C : dw .9+1
+	db $08 : dw .9
+	db $22 : dw .9+3
+	db $18 : dw .9+1
+	db $14 : dw .9+3
+	db $00
+.11:
+	lda.w $19CE
+	bne .rtlx
+	ldy.w #$0033
+	ldx.w #$0000
+.loopx:
+	sep #$20
+	lda.w $1A13,x
+	inc a
+	inc a
+	sta.w $1A13,x
+	lda.w $1A12,x
+	inc a
+	inc a
+	sta.w $1A12,x
+	lda.w $1A15,x
+	inc a
+	inc a
+	sta.w $1A15,x
+	lda.w $1A14,x
+	inc a
+	inc a
+	sta.w $1A14,x
+	rep #$20
+	txa
+	clc
+	adc.w #$000C
+	tax
+	dey
+	bpl .loopx
+	inc.w $19CE
+.rtlx:
+	rtl

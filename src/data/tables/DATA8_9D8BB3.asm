@@ -1,3 +1,0 @@
-; COLDATA values for DATA8_9D8BB5
-DATA8_9D8BB3:		; COLDATA values for DATA8_9D8BB5
-	db $E7,$E0

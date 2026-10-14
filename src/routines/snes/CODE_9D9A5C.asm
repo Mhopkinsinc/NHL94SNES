@@ -7,7 +7,7 @@ CODE_9D9A5C:
 	sta.b $12
 	lda.w #$47F4
 	sta.b $10
-	jsr.w CODE_9D9B9B
+	jsr.w .9
 	lsr a
 	eor.w #$FFFF
 	inc a
@@ -75,7 +75,7 @@ CODE_9D9A5C:
 	sta.b $04
 	sta.b $06
 	lda.l $7E3466
-	jsr.w CODE_9D9BFC
+	jsr.w .10
 	lda.b $08
 	asl a
 	clc
@@ -90,7 +90,7 @@ CODE_9D9A5C:
 	sta.b $04
 	lda.l $7E3466
 	inc a
-	jsr.w CODE_9D9BFC
+	jsr.w .10
 	ldx.b $08
 	lda.l DATA8_9C9623,x
 	and.w #$00FF
@@ -118,7 +118,7 @@ CODE_9D9A5C:
 	asl a
 	sta.b $0A
 	lda.l $7E3466
-	jsr.w CODE_9D9C2A
+	jsr.w .11
 	lda.b $08
 	asl a
 	clc
@@ -133,7 +133,7 @@ CODE_9D9A5C:
 	sta.b $04
 	lda.l $7E3466
 	inc a
-	jsr.w CODE_9D9C2A
+	jsr.w .11
 .5:
 	ldx.b $08
 	cmp.w #$0020
@@ -154,4 +154,153 @@ CODE_9D9A5C:
 	jmp.w .1
 .7:
 	plb
+	rtl
+.8:
+	db $FE,$FE,$FC,$FC,$F8,$F8,$F0,$F0,$E0,$E0,$C0,$C0,$80,$80,$00,$00
+	db $FF,$FF,$7F,$7F,$3F,$3F,$1F,$1F,$0F,$0F,$07,$07,$03,$03,$01,$01
+.9:
+	stz.b $14
+	ldy.w #$0000
+.1x:
+	lda.b [$0C],y
+	and.w #$00FF
+	beq .5x
+	cmp.w #$0020
+	bne .t3
+	cpy.w #$0000
+	beq .4x
+	lda.w #$0005
+	bra .3x
+
+.t3:
+	cmp.w #$002E
+	bne .t1xxx
+	lda.w #$0003
+	bra .3x
+
+.t1xxx:
+	cmp.w #$0040
+	bne .t2x
+	lda.l $9C963E
+	and.w #$00FF
+	bra .3x
+
+.t2x:
+	cmp.w #$0030
+	bcc .t1xxxx
+	cmp.w #$003A
+	bcs .t1xxxx
+	sec
+	sbc.w #$0030
+	clc
+	adc.w #$001C
+	bra .2x
+
+.t1xxxx:
+	and.w #$00DF
+	sec
+	sbc.w #$0041
+.2x:
+	tax
+	lda.l DATA8_9C9623,x
+	and.w #$00FF
+.3x:
+	clc
+	adc.b $14
+	sta.b $14
+.4x:
+	iny
+	bra .1x
+.5x:
+	lda.b $14
+	rts
+.10:
+	asl a
+	asl a
+	asl a
+	asl a
+	tax
+	lda.w #$0008
+	sta.b $00
+.loop:
+	ldy.b $04
+	lda.b [$10],y
+	ldy.b $14
+	beq .1xx
+.loop2:
+	lsr a
+	dey
+	bne .loop2
+.1xx:
+	ldy.b $02
+	and.w $9B8B,y
+	ora.l $7E4EF4,x
+	sta.l $7E4EF4,x
+	inx
+	inx
+	inc.b $04
+	inc.b $04
+	dec.b $00
+	bne .loop
+	rts
+.11:
+	asl a
+	asl a
+	asl a
+	asl a
+	tax
+	lda.w #$0008
+	sta.b $00
+.loopx:
+	ldy.b $04
+	lda.b [$10],y
+	ldy.b $16
+	iny
+.loop2x:
+	asl a
+	dey
+	bne .loop2x
+	ldy.b $0A
+	and.w .8,y
+	sta.l $7E4EF4,x
+	inx
+	inx
+	inc.b $04
+	inc.b $04
+	dec.b $00
+	bne .loopx
+	rts
+	lda.w printy
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	adc.w printx
+	asl a
+	tax
+	lda.l $7E3466
+	ora.w #$2000
+	ora.w $0D0D
+	sta.l $7EC67C,x
+	inc a
+	sta.l $7EC77C,x
+	rtl
+	lda.w printy
+	asl a
+	asl a
+	asl a
+	asl a
+	asl a
+	adc.w printx
+	asl a
+	tax
+	lda.l $7E3466
+	ora.w #$2000
+	ora.w #$0400
+	sta.l $7EA67C,x
+	inc a
+	sta.l $7EA6BC,x
 	rtl

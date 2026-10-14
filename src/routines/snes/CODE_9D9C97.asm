@@ -8,7 +8,7 @@ CODE_9D9C97:
 	sta.b a0
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9D9CC2
+	lda.w #.1
 	sta.b a1
 	ldy.w #$0000
 	ldx.w #$0007
@@ -20,3 +20,5 @@ CODE_9D9C97:
 	dex
 	bpl .loop
 	rtl
+.1:
+	dw $0000,$000B,$000A,$0001,$0000,$0000,$0000,$0001

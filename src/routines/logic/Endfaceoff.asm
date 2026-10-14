@@ -24,7 +24,7 @@ Endfaceoff:
 	sta.b d2
 	lda.l $7E312A
 	tax
-	lda.l DATA8_9FB1F7-1,x
+	lda.l .14-1,x
 	and.w #$00FF
 	bit.w #$0080
 	beq .2
@@ -38,7 +38,7 @@ Endfaceoff:
 	sta.b d2
 	lda.l $7E312E
 	tax
-	lda.l DATA8_9FB1F7-1,x
+	lda.l .14-1,x
 	and.w #$00FF
 	bit.w #$0080
 	beq .4
@@ -161,3 +161,5 @@ Endfaceoff:
 .1x:
 	cpy.w #$0000
 	rts
+.14:
+	db $00,$08,$10,$00,$08,$10

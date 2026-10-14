@@ -113,7 +113,7 @@ asswingo:
 	tay
 	lda.w #$009E
 	sta.b $8B
-	lda.w #DATA8_9E8BB7
+	lda.w #.9
 	sta.b a0
 	iny
 	iny
@@ -165,3 +165,8 @@ asswingo:
 
 .t1x:
 	rtl
+.9:
+	dw $0050,$0014,$FFBA,$000A
+	dw $0064,$0014,$003C,$000A
+	dw $003C,$0032,$00E6,$0014
+	dw $0050,$001E,$00FA,$0014

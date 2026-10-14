@@ -5,7 +5,7 @@ Setplass:
 	bmi .t1
 	lda.w #$009F
 	sta.b a0+2
-	lda.w #DATA8_9FCEEF
+	lda.w #.1
 	sta.b a0
 	ldy.b d0
 	lda.b [a0],y
@@ -15,3 +15,5 @@ Setplass:
 
 .t1:
 	rtl
+.1:
+	db $07,$02,$02,$03,$05,$03,$05

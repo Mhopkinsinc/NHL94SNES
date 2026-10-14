@@ -41,7 +41,7 @@ CODE_9B8B60:
 	sta.b $9D
 	lda.w #$009B
 	sta.b $9F
-	lda.w #DATA8_9B8C6A
+	lda.w #.4
 	sta.b a3
 	lda.w #$009B
 	sta.b $97
@@ -126,3 +126,5 @@ CODE_9B8B60:
 .t1x:
 	jsl.l CODE_9B8970
 	rts
+.4:
+	db $01,$02,$03,$04

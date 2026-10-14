@@ -684,3 +684,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - SPCGameUpload (93S) and PlayTeamSong. MATCH.
 - Stats screen scroll IRQ and list helpers named from what they do. MATCH.
 - Gameloop from 93S. MATCH.
+- DecompressHuffman with its internal fragments and jump tables as one routine; private data tables folded into their routine. MATCH.

@@ -145,7 +145,7 @@ doplayeracc:
 	asl a
 	sta.b d0
 	tax
-	lda.l DATA8_9EAAA3,x
+	lda.l .10,x
 	ldx.b a3
 	cmp.w #$0000
 	bne .t2xx
@@ -251,3 +251,5 @@ doplayeracc:
 
 .t1xx:
 	rtl
+.10:		; steps for eight directions
+	dw $0000,$0011,$0011,$0011,$0000,$FFEF,$FFEF,$FFEF

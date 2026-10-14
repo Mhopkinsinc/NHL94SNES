@@ -52,9 +52,9 @@ CODE_9C9981:
 	asl a
 	asl a
 	tax
-	lda.l DATA8_9C9A5B-4,x
+	lda.l .7-4,x
 	sta.b $3E
-	lda.l DATA8_9C9A5B-2,x
+	lda.l .7-2,x
 	sta.b $40
 	ldy.w #$0000
 	lda.b [$3E],y
@@ -99,3 +99,6 @@ CODE_9C9981:
 	sta.l $7E35E8
 .1x:
 	rtl
+.7:		; long pointers to the blocks for the sound CPU that the code above streams in
+	dd DATA8_959E48,DATA8_92CECD,DATA8_8FBB26
+	dd DATA8_90A120,DATA8_94A662,DATA8_93A18D

@@ -514,10 +514,10 @@ CODE_9DA0D5:
 	adc.w $1C84,y
 	asl a
 	tax
-	lda.l DATA8_9DA570,x
+	lda.l .11,x
 	pha
 	tyx
-	lda.l DATA8_9DA580,x
+	lda.l .12,x
 	tay
 	plx
 	lda.w #$2600
@@ -536,10 +536,10 @@ CODE_9DA0D5:
 	adc.w $1C84,y
 	asl a
 	tax
-	lda.l DATA8_9DA570,x
+	lda.l .11,x
 	pha
 	tyx
-	lda.l DATA8_9DA580,x
+	lda.l .12,x
 	tay
 	plx
 	dey
@@ -569,3 +569,11 @@ CODE_9DA0D5:
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	jmp.w .4
+.11:
+	dw $0080,$00D0,$0030,$0000,$0030,$00D0,$009C,$0000
+.12:
+	dw $0068,$007C,$0090,$00A4,$00B8,$0100,$0100,$0100
+	dw $0100,$0100,$0100,$0100,$0100,$0100,$0100,$0100
+	dw $0100,$0100,$0100,$0100,$0100,$0100,$0100,$0100
+	dw $0100,$0100,$0100,$0100,$0100,$0100,$0100,$0100
+	dw $0100,$0100,$0100,$0100,$0100

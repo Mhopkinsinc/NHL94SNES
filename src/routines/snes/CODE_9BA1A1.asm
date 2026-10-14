@@ -113,7 +113,7 @@ CODE_9BA1A1:
 	sta.l $7E33F8
 	inc a
 	sta.l $7E340C,x
-	lda.l DATA8_9BA414,x
+	lda.l .9,x
 	sta.l $7E3420,x
 .5:
 	lda.l $7E3434,x
@@ -196,7 +196,7 @@ CODE_9BA1A1:
 	sbc.w $0ADB
 	bpl .t1xxx
 	clc
-	adc.l DATA8_9BA414,x
+	adc.l .9,x
 	sta.l $7E3420,x
 	lda.l $7E340C,x
 	inc a
@@ -303,3 +303,5 @@ CODE_9BA1A1:
 	sta.l $7E33D0,x
 	sta.l $7E33E4,x
 	rtl
+.9:
+	dw $0004,$0008,$0009,$000F,$000C,$000D,$000A,$0007,$000B,$000E

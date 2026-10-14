@@ -22,7 +22,7 @@ CompLine:
 	lda.w tmap,y
 	ldy.b a1
 	cmp.w tmap,y
-	beq CODE_9FDABF
+	beq .4
 	bpl .1
 	inc.b d0
 	inc.b d0
@@ -47,7 +47,7 @@ CompLine:
 	pla
 	ldy.b a2
 	sta.w tmline,y
-CODE_9FDAA6:
+.3:
 	pla
 	sta.b $8B
 	pla
@@ -65,10 +65,10 @@ CODE_9FDAA6:
 	pla
 	sta.b d0
 	rtl
-CODE_9FDABF:
+.4:
 	ldy.b a2
 	beq .t2
-	jmp.w CODE_9FDB5E
+	jmp.w .6
 
 .t2:
 	lda.l $7E34C6
@@ -76,34 +76,34 @@ CODE_9FDABF:
 	bne .t1
 	lda.w $19EC,y
 	bmi .t1
-	jmp.w CODE_9FDB5E
+	jmp.w .6
 
 .t1:
 	lda.w #$0002
 	sta.b d1
 	lda.w #$009F
 	sta.b $8B
-	lda.w #DATA8_9FDB34
+	lda.w #.5
 	sta.b a0
 	lda.w gsp
 	cmp.w #$0002
-	bne .1
+	bne .1x
 	lda.w $178E,y
 	ldy.b a1
 	cmp.w $178E,y
-	beq .1
+	beq .1x
 	php
 	lda.w #$009F
 	sta.b $8B
 	lda.w #$DB42
 	sta.b a0
 	plp
-	bpl .1
+	bpl .1x
 	lda.w #$009F
 	sta.b $8B
 	lda.w #$DB50
 	sta.b a0
-.1:
+.1x:
 	ldy.b a1
 	lda.w tmline,y
 	asl a
@@ -114,9 +114,59 @@ CODE_9FDABF:
 	jsl.l getlinee
 	lda.b d0
 	cmp.w #$0C01
-	bcc CODE_9FDB5E
+	bcc .6
 	ldy.b d1
 	lda.b [a0],y
 	ldy.b a2
 	sta.w tmline,y
-	jmp.w CODE_9FDAA6
+	jmp.w .3
+.5:
+	dw 0,1,2,0,1,0,1
+	dw 2,0,1,2,0,2,0
+	dw 0,1,0,0,1,0,1
+.6:
+	lda.w #$0002
+	sta.b d1
+	lda.w #$009F
+	sta.b $8B
+	lda.w #.7
+	sta.b a0
+	lda.w gsp
+	cmp.w #$0002
+	bne .1xx
+	ldy.b a2
+	lda.w $178E,y
+	ldy.b a1
+	cmp.w $178E,y
+	beq .1xx
+	php
+	lda.w #$009F
+	sta.b $8B
+	lda.w #$DBC4
+	sta.b a0
+	plp
+	bpl .1xx
+	lda.w #$009F
+	sta.b $8B
+	lda.w #$DBCA
+	sta.b a0
+.1xx:
+	lda.b [a0]
+	inc.b a0
+	inc.b a0
+	sta.b d0
+	jsl.l getlinee
+	lda.b d0
+	cmp.w #$0F34
+	bcs .2x
+	dec.b d1
+	bpl .1xx
+.2x:
+	dec.b a0
+	dec.b a0
+	ldy.b a2
+	lda.b [a0]
+	sta.w tmline,y
+	jmp.w .3
+.7:
+	dw 0,1,2,0,2,1,0,1,0

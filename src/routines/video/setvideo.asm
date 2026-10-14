@@ -135,19 +135,19 @@ setvideo:
 	asl a
 	asl a
 	tax
-	lda.l DATA8_9FBC01,x
+	lda.l .8,x
 	beq .5
 	sta.b d0
 .5:
-	lda.l DATA8_9FBC01+2,x
+	lda.l .8+2,x
 	beq .6
 	sta.b d1
 .6:
 	lda.b $00
 	clc
-	adc.l DATA8_9FBC01+4,x
+	adc.l .8+4,x
 	sta.b $00
-	lda.l DATA8_9FBC01+6,x
+	lda.l .8+6,x
 	sta.b $14
 	lda.b d0
 	clc
@@ -164,3 +164,12 @@ setvideo:
 	jsl.l DrawSprite
 .rts:
 	rts
+.8:
+	dw $0000,$0064,$0000,$0000
+	dw $0074,$0064,$0001,$0000
+	dw $0074,$0000,$0002,$0000
+	dw $0074,$FF9C,$0001,$8000
+	dw $0000,$FF9C,$0000,$8000
+	dw $FF8C,$FF9C,$0001,$C000
+	dw $FF8C,$0000,$0002,$4000
+	dw $FF8C,$0064,$0001,$4000

@@ -53,7 +53,7 @@ DrawPlayerCard:
 	tay
 	lda.w #$009D
 	sta.b $8F
-	lda.w #DATA8_9DC298
+	lda.w #.8
 	sta.b a1
 	lda.b [a1],y
 	and.w #$00FF
@@ -438,3 +438,5 @@ org $9DC002
 	sta.l $7F7500
 	jsl.l SendColours
 	rtl
+.8:
+	db $00,$04,$03,$05,$01,$02

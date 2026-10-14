@@ -270,7 +270,7 @@ puckfaceoff2:
 	sta.b d4
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FAEE2
+	lda.w #.19
 	clc
 	adc.b d4
 	sta.b a1
@@ -278,7 +278,7 @@ puckfaceoff2:
 	beq .7
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FAEFA
+	lda.w #.20
 	sta.b a1
 .7:
 	ldy.b d1
@@ -289,7 +289,7 @@ puckfaceoff2:
 	sta.b d4
 	lda.w #$009F
 	sta.b $8F
-	lda.w #DATA8_9FAF02
+	lda.w #.21
 	sta.b a1
 	ldy.b d4
 	lda.b [a1],y
@@ -762,3 +762,12 @@ puckfaceoff2:
 	lda.w #$FFFF
 	sta.w $1E8D
 	jmp.w Endfaceoff
+.19:
+	db $00,$01,$02,$03,$04,$05,$06,$00
+	db $00,$01,$05,$03,$04,$02,$00,$00
+	db $00,$03,$05,$01,$04,$00,$00,$00
+.20:
+	db $00,$04,$04,$04,$04,$04,$04,$00
+.21:
+	db $00,$00,$06,$FF,$DD,$FF,$CE,$FF,$23,$00,$CE,$FF,$CE,$FF,$F6,$FF
+	db $00,$00,$F1,$FF,$32,$00,$F6,$FF,$00,$00,$C4,$FF

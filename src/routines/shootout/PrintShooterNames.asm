@@ -39,11 +39,11 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	sta.b d1
 	lda.w #$0080
 	sta.b $9F
-	lda.w #DATA8_80CDAA
+	lda.w #.7
 	sta.b $9D
 	lda.w #$0080
 	sta.b $97
-	lda.w #DATA8_80CDA6
+	lda.w #.6
 	sta.b a3
 	lda.w SelectedPlayerIdx
 	dec a
@@ -66,7 +66,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 .1:
 	lda.w #$0080
 	sta.b $9F
-	lda.w #DATA8_80CDB6
+	lda.w #.8
 	sta.b $9D
 	lda.w #$0005
 	sta.b d1
@@ -129,3 +129,9 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 .t1:
 	jsl.l ShootersBackground
 	rtl
+.6:
+	db $01,$02,$03,$04
+.7:
+	db $03,$00,$47,$03,$00,$47,$03,$00,$47,$03,$00,$47
+.8:
+	db $03,$00,$47,$03,$00,$31,$03,$00,$32,$03,$00,$33,$03,$00,$34,$03,$00,$35

@@ -15,7 +15,7 @@ setffo:
 	jmp.w .6
 .3:
 	tyx
-	lda.l DATA8_9FBD51,x
+	lda.l .7,x
 	sta.b $00
 	lda.w $0AE7,y
 	asl a
@@ -119,3 +119,5 @@ setffo:
 
 .t1x:
 	rtl
+.7:
+	dw $0184,$0185,$0186,$0187,$0188,$0189,$018A

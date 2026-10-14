@@ -40,6 +40,7 @@
 - `SPCGameUpload` (93S; the in-game sample set `setupice` loads) and `PlayTeamSong` (`TeamSongs` slot A of the home team, else a random `DefaultSongs`).
 - Stats screens: `SetupScrollIRQ` with its hooks `IRQ_StatsScroll1`-`3` (the split BG1 scroll), `SetPlayerStatsRange`, `InitStatsOrder`, `PrintScrollArrows`.
 - `Gameloop` (`StartPer` calls it as in 93S). `CODE_9F967B` stays: besides the 93S `demoread` job it checks every controller for a pause.
+- `DecompressHuffman` is one routine now: its table builders, bit readers, the per-bit-position decoder fragments and their jump tables were only used by it and are its locals. Data tables that only one routine reads (for example the direction table of `doplayeracc`, the 93S `.ftab`) are folded into that routine the same way.
 
 ## Unsure
 

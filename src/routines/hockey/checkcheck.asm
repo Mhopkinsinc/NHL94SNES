@@ -62,7 +62,7 @@ org $9EA001
 	tay
 	lda.w #$009E
 	sta.b $8B
-	lda.w #DATA8_9EA154
+	lda.w #.4
 	sta.b a0
 	sta.w $1543,x
 	cpy.w #$0000
@@ -163,3 +163,5 @@ org $9EA001
 	jsl.l AddPenalty
 .2x:
 	jmp.w FallDown
+.4:		; word pointers into this bank, not identified yet
+	dw DATA8_9DF196&$FFFF,DATA8_9DF2AC&$FFFF,SPAshoulderchkl&$FFFF,SPAshoulderchkl&$FFFF,SPAshoulderchkl&$FFFF,SPAhipchkr&$FFFF,SPAhipchkr&$FFFF,SPAshoulderchkr&$FFFF
