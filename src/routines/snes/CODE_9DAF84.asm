@@ -6,7 +6,7 @@ CODE_9DAF84:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF5B4
+	lda.w #PlayerSelectAlt
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3

@@ -9,7 +9,7 @@ CODE_80CC25:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CEF9C
+	lda.w #ShootoutLabel
 	sta.b a1
 	jsl.l CODE_9C936C
 	lda.b $8F

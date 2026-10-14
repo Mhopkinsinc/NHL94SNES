@@ -106,7 +106,7 @@ CODE_9DBF02:
 	ldy.w #$007A
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF6B8
+	lda.w #StrengthsLabel
 	sta.b a1
 	jsl.l CODE_9C9590
 	lda.w #$009D
@@ -210,7 +210,7 @@ CODE_9DC01C:
 	ldy.w #$007A
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF6C4
+	lda.w #StrengthsLabelB
 	sta.b a1
 	jsl.l CODE_9C9590
 	lda.w #$009D
@@ -257,7 +257,7 @@ CODE_9DC0BB:
 	ldy.w #$007A
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF6D0
+	lda.w #OverallRating
 	sta.b a1
 	jsl.l CODE_9C9590
 	lda.w #$0001

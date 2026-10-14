@@ -25,7 +25,7 @@ CODE_9B8F7B:
 	lda.w #$0002
 	sta.w printy
 CODE_9B8FB5:
-	lda.w #DATA8_9B906F
+	lda.w #SkaterAttribColumns
 	sta.b a1
 	lda.w #$009B
 	sta.b $8F

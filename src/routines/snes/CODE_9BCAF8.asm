@@ -15,7 +15,7 @@ CODE_9BCAF8:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF236
+	lda.w #BadPassword
 	sta.b a1
 	jsl.l print
 	pla

@@ -3695,3 +3695,53 @@ $9FF3EE,MP5MouseHead,DATA8_9FF3EE,new,"Mouse warning, first line",src/data/text/
 $9FF404,MP5MouseNot,DATA8_9FF404,new,"not designed for use, mouse warning",src/data/text/MultiPlayer5Text.asm
 $9FF41A,MP5MouseWith,DATA8_9FF41A,new,"with the Super NES, mouse warning",src/data/text/MultiPlayer5Text.asm
 $9FF42E,MP5Mouse,DATA8_9FF42E,new,Mouse.,src/data/text/MultiPlayer5Text.asm
+$80D0EA,ShooterAttribColumns,DATA8_80D0EA,new,rating columns of the shooter list,src/data/text/ShooterAttribColumns.asm
+$9B906F,SkaterAttribColumns,DATA8_9B906F,new,skater rating columns on the line screen,src/data/text/SkaterAttribColumns.asm
+$9B8C6E,LineGoalieMarks,DATA8_9B8C6E,new,goalie marks on the line menu,src/data/text/LineGoalieMarks.asm
+$9DA051,RosterGoalieMarks,DATA8_9DA051,new,goalie marks on the roster,src/data/text/RosterGoalieMarks.asm
+$9CEF59,WinsMark,DATA8_9CEF59,new,Wins!,src/data/text/WinsMark.asm
+$9CEF60,WinMark,DATA8_9CEF60,new,Win!,src/data/text/WinsMark.asm
+$9CEF9C,ShootoutLabel,DATA8_9CEF9C,new,Shootout,src/data/text/WinsMark.asm
+$9CEFF4,EditLinesLabel,DATA8_9CEFF4,new,Edit Lines,src/data/text/WinsMark.asm
+$9CF041,ReturnToGame,DATA8_9CF041,new,Return to Game,src/data/text/DATA8_9CF000.asm
+$9CF05B,RestoreDefaultLines,DATA8_9CF05B,new,Restore default lines,src/data/text/DATA8_9CF000.asm
+$9CF0AC,ScoringLabel,DATA8_9CF0AC,new,Scoring,src/data/text/DATA8_9CF000.asm
+$9CF0B5,ScoringSummaryHead,DATA8_9CF0B5,new,scoring summary column headings,src/data/text/DATA8_9CF000.asm
+$9CF0D8,NoScoring,DATA8_9CF0D8,new,No Scoring,src/data/text/DATA8_9CF000.asm
+$9CF0E7,ScoringPP2,DATA8_9CF0E7,new,PP2,src/data/text/DATA8_9CF000.asm
+$9CF0EC,ScoringPP,DATA8_9CF0EC,new,PP,src/data/text/DATA8_9CF000.asm
+$9CF0F0,ScoringSH,DATA8_9CF0F0,new,SH,src/data/text/DATA8_9CF000.asm
+$9CF0F4,ScoringSH2,DATA8_9CF0F4,new,SH2,src/data/text/DATA8_9CF000.asm
+$9CF0F9,PenaltiesLabel,DATA8_9CF0F9,new,Penalties,src/data/text/DATA8_9CF000.asm
+$9CF104,PenaltySummaryHead,DATA8_9CF104,new,penalty summary column headings,src/data/text/DATA8_9CF000.asm
+$9CF127,NoPenalties,DATA8_9CF127,new,No Penalties,src/data/text/DATA8_9CF000.asm
+$9CF13D,ScrollHint,DATA8_9CF13D,new,Scroll,src/data/text/DATA8_9CF000.asm
+$9CF168,CrowdMeter,DATA8_9CF168,new,CROWD METER,src/data/text/DATA8_9CF000.asm
+$9CF1E1,OtherScores,DATA8_9CF1E1,new,Other Scores,src/data/text/DATA8_9CF000.asm
+$9CF1EF,NoOtherGames,DATA8_9CF1EF,new,No Other Games.,src/data/text/DATA8_9CF000.asm
+$9CF203,PasswordLabel,DATA8_9CF203,new,Password,src/data/text/DATA8_9CF000.asm
+$9CF22C,SelectLeft,DATA8_9CF22C,new,left select mark,src/data/text/DATA8_9CF000.asm
+$9CF236,BadPassword,DATA8_9CF236,new,Bad Password,src/data/text/DATA8_9CF000.asm
+$9CF2D3,PlayerStatsTitle,DATA8_9CF2D3,new,Player Stats,src/data/text/DATA8_9CF000.asm
+$9CF2FB,PlayerStatsHeading,DATA8_9CF2FB,new,the other Player Stats title,src/data/text/DATA8_9CF000.asm
+$9CF354,GameStats,DATA8_9CF354,new,Game Stats,src/data/text/DATA8_9CF000.asm
+$9CF36A,StatPercent,DATA8_9CF36A,new,percent sign on the stats screen,src/data/text/DATA8_9CF000.asm
+$9CF36D,StatSlash,DATA8_9CF36D,new,slash on the stats screen,src/data/text/DATA8_9CF000.asm
+$9CF37A,StarsOfTheGame,DATA8_9CF37A,new,Stars of the Game,src/data/text/DATA8_9CF000.asm
+$9CF39F,MatchupsLabel,DATA8_9CF39F,new,Matchups,src/data/text/DATA8_9CF000.asm
+$9CF424,TeamRosterTitle,DATA8_9CF424,new,Team Roster,src/data/text/DATA8_9CF000.asm
+$9CF452,TeamRosterSwap,DATA8_9CF452,new,Team Roster after switching teams,src/data/text/DATA8_9CF000.asm
+$9CF588,PlayerSelectTitle,DATA8_9CF588,new,Player select,src/data/text/DATA8_9CF000.asm
+$9CF597,GameSetupTitle,DATA8_9CF597,new,Game Setup,src/data/text/DATA8_9CF000.asm
+$9CF5A8,GameSetupAlt,DATA8_9CF5A8,new,the other Game Setup title,src/data/text/DATA8_9CF000.asm
+$9CF5B4,PlayerSelectAlt,DATA8_9CF5B4,new,the other Player select title,src/data/text/DATA8_9CF000.asm
+$9CF6B8,StrengthsLabel,DATA8_9CF6B8,new,Strengths:,src/data/text/DATA8_9CF000.asm
+$9CF6C4,StrengthsLabelB,DATA8_9CF6C4,new,the other Strengths heading,src/data/text/DATA8_9CF000.asm
+$9CF6D0,OverallRating,DATA8_9CF6D0,new,Overall Rating,src/data/text/DATA8_9CF000.asm
+$9CF6E5,TeamRating,DATA8_9CF6E5,new,Team Rating,src/data/text/DATA8_9CF000.asm
+$9CF7A5,PeriodStats,DATA8_9CF7A5,new,Period Stats,src/data/text/DATA8_9CF000.asm
+$9CF7C2,TotalShotsLine,DATA8_9CF7C2,new,"Total, Shots, and the Y-Goals switch",src/data/text/DATA8_9CF000.asm
+$9CF7DE,GoalsLabel,DATA8_9CF7DE,new,Goals,src/data/text/DATA8_9CF000.asm
+$9CF7F3,HighlightFrom,DATA8_9CF7F3,new,Highlight from game:,src/data/text/DATA8_9CF000.asm
+$9CF8B3,VersusText,DATA8_9CF8B3,new,vs.,src/data/text/DATA8_9CF000.asm
+$9CF8B8,ShootoutPenShot,DATA8_9CF8B8,new,Shootout Pen. Shot,src/data/text/DATA8_9CF000.asm

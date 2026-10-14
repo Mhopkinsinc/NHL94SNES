@@ -94,7 +94,7 @@ incsrc "../routines/snes/CODE_9CA554.asm"
 incsrc "../routines/snes/CODE_9CA58C.asm"
 incsrc "../data/teamdata94s.asm"
 org $9CEF59
-incsrc "../data/text/DATA8_9CEF59.asm"
+incsrc "../data/text/WinsMark.asm"
 org $9CF000
 incsrc "../data/text/DATA8_9CF000.asm"
 	padbyte $FF

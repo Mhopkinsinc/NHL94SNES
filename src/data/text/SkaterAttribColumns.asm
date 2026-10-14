@@ -1,8 +1,9 @@
-DATA8_80D0EA:		; rating columns of the shooter list: title, then a mask word and a value word; $FFFF ends it
+; Skater rating columns on the line screen
+SkaterAttribColumns:		; the player rating names: a word (2 + the text), the text, then two words; $FFFF ends them
 	%String("      Status]")
 	dw $0000,$0000
 	%String("    [Overall]")
-	dw $1F3A,$000A
+	dw $9FBA,$000A
 	%String("     [Energy]")
 	dw $0000,$0002
 	%String("    [Agility]")

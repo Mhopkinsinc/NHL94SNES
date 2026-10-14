@@ -13,7 +13,7 @@ CODE_9B93F3:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF0AC
+	lda.w #ScoringLabel
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd
@@ -30,7 +30,7 @@ CODE_9B93F3:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF0B5
+	lda.w #ScoringSummaryHead
 	sta.b a1
 	jsl.l print
 	pla

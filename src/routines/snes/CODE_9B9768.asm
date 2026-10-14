@@ -13,7 +13,7 @@ CODE_9B9768:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF0F9
+	lda.w #PenaltiesLabel
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd
@@ -30,7 +30,7 @@ CODE_9B9768:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF104
+	lda.w #PenaltySummaryHead
 	sta.b a1
 	jsl.l print
 	pla

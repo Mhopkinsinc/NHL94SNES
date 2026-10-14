@@ -32,7 +32,7 @@ CODE_9B98C9:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF127
+	lda.w #NoPenalties
 	sta.b a1
 	jsl.l print
 	pla

@@ -16,7 +16,7 @@ CODE_9BC7FB:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF203
+	lda.w #PasswordLabel
 	sta.b a1
 	jsl.l CODE_9C936C
 	lda.w #$001C

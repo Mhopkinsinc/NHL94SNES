@@ -9,7 +9,7 @@ CODE_9BC25A:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF1E1
+	lda.w #OtherScores
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l SpriteFrameEnd

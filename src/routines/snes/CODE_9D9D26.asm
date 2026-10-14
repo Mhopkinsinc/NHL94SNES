@@ -17,7 +17,7 @@ CODE_9D9D26:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF424
+	lda.w #TeamRosterTitle
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9F96E6

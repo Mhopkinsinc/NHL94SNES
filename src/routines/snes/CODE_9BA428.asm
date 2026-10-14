@@ -88,7 +88,7 @@ CODE_9BA4FE:
 	ldy.w #$0018
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF168
+	lda.w #CrowdMeter
 	sta.b a1
 	jsl.l CODE_9C936C
 	jsl.l CODE_9DDDB3

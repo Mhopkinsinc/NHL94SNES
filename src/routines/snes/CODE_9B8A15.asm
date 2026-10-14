@@ -71,7 +71,7 @@ CODE_9B8A98:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF041
+	lda.w #ReturnToGame
 	sta.b a1
 	jsl.l print
 	pla
@@ -117,7 +117,7 @@ CODE_9B8AF0:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF05B
+	lda.w #RestoreDefaultLines
 	sta.b a1
 	jsl.l print
 	pla

@@ -62,7 +62,7 @@ CODE_9D9F32:
 	sta.b d1
 	lda.w #$009D
 	sta.b $9F
-	lda.w #DATA8_9DA051
+	lda.w #RosterGoalieMarks
 	sta.b $9D
 	lda.w #$009D
 	sta.b $97

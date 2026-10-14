@@ -111,7 +111,7 @@ CODE_9B95B0:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF0E7
+	lda.w #ScoringPP2
 	sta.b a1
 	jsl.l CODE_9EC894
 	pla
@@ -127,7 +127,7 @@ CODE_9B95B0:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF0EC
+	lda.w #ScoringPP
 	sta.b a1
 	jsl.l CODE_9EC894
 	pla
@@ -143,7 +143,7 @@ CODE_9B95B0:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF0F0
+	lda.w #ScoringSH
 	sta.b a1
 	jsl.l CODE_9EC894
 	pla
@@ -159,7 +159,7 @@ CODE_9B95B0:
 	pha
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9CF0F4
+	lda.w #ScoringSH2
 	sta.b a1
 	jsl.l CODE_9EC894
 	pla
