@@ -3672,3 +3672,26 @@ $9FF179,ExitGameAsk,DATA8_9FF179,new,Exit Game?,src/data/text/ExitPromptClear.as
 $9FF18F,ExitShootoutAsk,DATA8_9FF18F,new,Exit Shootout?,src/data/text/ExitPromptClear.asm
 $9FF1A5,ExitYes,DATA8_9FF1A5,new,Yes,src/data/text/ExitPromptClear.asm
 $9FF1BB,ExitNo,DATA8_9FF1BB,new,No,src/data/text/ExitPromptClear.asm
+$9C8BCE,StatColumnNames,DATA8_9C8BCE,new,"Goalies, Goals, Assists, Points, Shots, Penalties",src/data/text/StatColumnNames.asm
+$9C9168,TeamStatNames,DATA8_9C9168,new,team stats including power play and penalties,src/data/text/TeamStatNames.asm
+$9C9258,TeamStatNamesNoPen,DATA8_9C9258,new,team stats used when OptPen is off,src/data/text/TeamStatNamesNoPen.asm
+$9C9363,LineBraces,DATA8_9C9363,new,brace characters around a line name,src/data/text/LineBraces.asm
+$9C8D2B,PercentSign,DATA8_9C8D2B,new,percent sign after a percentage,src/data/text/PercentSign.asm
+$9B8861,LineMenuNames,DATA8_9B8861,new,line names on the line menu,src/data/text/LineMenuNames.asm
+$9B88E9,BestLineNames,DATA8_9B88E9,new,line menu list that offers Best Line,src/data/text/BestLineNames.asm
+$80E2E0,CopyrightLines,DATA8_80E2E0,new,Electronic Arts and Nintendo copyright lines,src/data/text/CopyrightLines.asm
+$9ECC88,ScoutFragments,DATA8_9ECC88,new,"extremely, has, have",src/data/text/ScoutFragments.asm
+$9BC5E7,LongNYIslanders,DATA8_9BC5E7,new,on-screen name NY Islanders,src/data/text/LongNYIslanders.asm
+$9BC5F5,LongNYRangers,DATA8_9BC5F5,new,on-screen name NY Rangers,src/data/text/LongNYIslanders.asm
+$9FF35F,MultiPlayer5Text,DATA8_9FF35F,new,MultiPlayer 5 must be connected to socket 2,src/data/text/MultiPlayer5Text.asm
+$9FF372,MP5MustConnect,DATA8_9FF372,new,must be connected,src/data/text/MultiPlayer5Text.asm
+$9FF385,MP5ToController,DATA8_9FF385,new,to Controller,src/data/text/MultiPlayer5Text.asm
+$9FF394,MP5Socket2,DATA8_9FF394,new,Socket #2.,src/data/text/MultiPlayer5Text.asm
+$9FF3A0,MP5ScopeHead,DATA8_9FF3A0,new,"Super Scope warning, first line",src/data/text/MultiPlayer5Text.asm
+$9FF3B6,MP5ScopeNot,DATA8_9FF3B6,new,not designed for use,src/data/text/MultiPlayer5Text.asm
+$9FF3CC,MP5ScopeWith,DATA8_9FF3CC,new,with the Super NES,src/data/text/MultiPlayer5Text.asm
+$9FF3E0,MP5SuperScope,DATA8_9FF3E0,new,Super Scope.,src/data/text/MultiPlayer5Text.asm
+$9FF3EE,MP5MouseHead,DATA8_9FF3EE,new,"Mouse warning, first line",src/data/text/MultiPlayer5Text.asm
+$9FF404,MP5MouseNot,DATA8_9FF404,new,"not designed for use, mouse warning",src/data/text/MultiPlayer5Text.asm
+$9FF41A,MP5MouseWith,DATA8_9FF41A,new,"with the Super NES, mouse warning",src/data/text/MultiPlayer5Text.asm
+$9FF42E,MP5Mouse,DATA8_9FF42E,new,Mouse.,src/data/text/MultiPlayer5Text.asm

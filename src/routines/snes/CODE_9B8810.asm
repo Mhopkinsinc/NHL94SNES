@@ -17,13 +17,13 @@ CODE_9B8810:
 	sta.b d0
 	lda.w #$009B
 	sta.b $8F
-	lda.w #DATA8_9B8861
+	lda.w #LineMenuNames
 	sta.b a1
 	lda.l $7E34C6
 	bne .1
 	lda.w #$009B
 	sta.b $8F
-	lda.w #DATA8_9B88E9
+	lda.w #BestLineNames
 	sta.b a1
 .1:
 	jsl.l AdvanceStringPtr

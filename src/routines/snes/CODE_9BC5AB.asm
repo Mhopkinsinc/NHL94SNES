@@ -22,14 +22,14 @@ CODE_9BC5AB:
 .t1:
 	lda.w #$009B
 	sta.b $8F
-	lda.w #DATA8_9BC5E7
+	lda.w #LongNYIslanders
 	sta.b a1
 	bra CODE_9BC5E6
 
 .t2:
 	lda.w #$009B
 	sta.b $8F
-	lda.w #DATA8_9BC5F5
+	lda.w #LongNYRangers
 	sta.b a1
 CODE_9BC5E6:
 	rtl

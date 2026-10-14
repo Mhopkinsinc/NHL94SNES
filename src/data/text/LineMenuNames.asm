@@ -1,4 +1,5 @@
-DATA8_9B8861:		; the line names: each entry is a word (the bytes to the next entry), then its text
+; Line names on the line menu
+LineMenuNames:		; the line names: each entry is a word (the bytes to the next entry), then its text
 	%String("    Goalies   ]")
 	%String("   Scoring 1  ]")
 	%String("[  Scoring 2  ]")

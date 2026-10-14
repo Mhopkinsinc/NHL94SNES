@@ -17,7 +17,7 @@ CODE_9C8B69:
 	sta.b $8F
 	lda.w #$009C
 	sta.b $8F
-	lda.w #DATA8_9C8BCE
+	lda.w #StatColumnNames
 	sta.b a1
 	jsl.l AdvanceStringPtr
 	jsl.l print

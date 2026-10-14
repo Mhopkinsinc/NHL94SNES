@@ -1,4 +1,5 @@
-DATA8_9B88E9:		; as DATA8_9B8861, the list with Best Line
+; Line menu list that offers Best Line
+BestLineNames:
 	%String(" ")
 	%String("   Best Line   ")
 	%String(" ")
