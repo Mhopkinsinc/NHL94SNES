@@ -230,7 +230,7 @@ CODE_9FB8B4:
 	dec a
 	dec a
 	sta.w $0D53
-	jsl.l CODE_9CA227
+	jsl.l InitSortObjects
 	jsl.l CODE_9FBD65
 	lda.w gmode
 	bit.w #$0002

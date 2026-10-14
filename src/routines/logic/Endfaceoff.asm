@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FB092:
+; Drop the puck: pick the face off winner and send the puck off
+Endfaceoff:
 	lda.w #$2400
 	sta.b $0C
 	stz.b $0E

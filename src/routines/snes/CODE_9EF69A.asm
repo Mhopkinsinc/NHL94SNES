@@ -67,4 +67,4 @@ CODE_9EF69A:
 	jmp.w CODE_9EF68B
 
 .t2:
-	jmp.w CODE_9E9A49
+	jmp.w puckglue

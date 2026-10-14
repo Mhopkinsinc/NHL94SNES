@@ -657,3 +657,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Collisions: Bcheck, FallDown, checkcheck (with .cc), checkint (with .ci) and puckbody named from 93S by body and calls. MATCH.
 - Tails: `CODE_` files reached only by a branch or jump from the routine before them are folded into it; labels used only in one scope are locals (name_map rows "continued in the previous routine" / "branch target only used in this routine"). MATCH.
 - Locals: `CODE_` labels inside a routine file that nothing outside its scope uses are locals (named labels stay global). MATCH.
+- Whole bodies: nine routines named from the unused 93S routine whose whole body and callers agree (Endfaceoff, NewPO, resetplstuff, puckglue, InitSortObjects, shotdiradj, CalcAngleOffset, printteamname, PrintTeamNameAndScore). MATCH.

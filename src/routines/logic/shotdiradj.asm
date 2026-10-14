@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EDFF7:
+; Aim a computer shot at the open side when the goalie covers the middle of the net
+shotdiradj:
 	lda.w $19D4,x
 	bmi .t2
 	jmp.w .6
@@ -69,7 +69,7 @@ org $9EE002
 	pha
 	lda.b d3
 	pha
-	jsr.w CODE_9EE0CD
+	jsr.w CalcAngleOffset
 	lda.b d4
 	sta.b d5
 	pla
@@ -78,7 +78,7 @@ org $9EE002
 	sta.b d3
 	pla
 	sta.b d4
-	jsr.w CODE_9EE0CD
+	jsr.w CalcAngleOffset
 	lda.b d4
 	clc
 	adc.b d5

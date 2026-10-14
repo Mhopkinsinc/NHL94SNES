@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9EE0CD:
+; d4 = the cross product of the goalie vector and the post vector from the puck
+CalcAngleOffset:
 	lda.b d3
 	sec
 	sbc.w $0D71

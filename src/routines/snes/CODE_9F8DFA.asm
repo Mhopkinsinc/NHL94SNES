@@ -165,7 +165,7 @@ StartHL2:
 	lda.w #$0002
 	sta.b a2
 	jsl.l CODE_9F927D
-	jsl.l CODE_9FD252
+	jsl.l resetplstuff
 	lda.w #$0000
 	sta.l $7E3448
 	lda.w #$000B

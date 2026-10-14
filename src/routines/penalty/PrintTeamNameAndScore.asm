@@ -1,6 +1,6 @@
-; Unidentified routine.
-CODE_9F9DB0:
-	jsl.l CODE_9FBD66
+; Print team a2's name, then its score as two characters
+PrintTeamNameAndScore:
+	jsl.l printteamname
 	ldy.b a2
 	lda.w $178E,y
 	sta.b d0

@@ -161,7 +161,7 @@ puckfaceoff2:
 	inc.b a2
 	jsl.l setpersonel
 	jsl.l forcepldata
-	jsl.l CODE_9FD252
+	jsl.l resetplstuff
 	lda.w #$FFFF
 	sta.w tmtouch2
 	sta.w tmtouch3
@@ -754,11 +754,11 @@ puckfaceoff2:
 	bpl updatefaceoff
 	lda.w $1E9B
 	beq .t1xxxx
-	jsl.l CODE_9FB092
+	jsl.l Endfaceoff
 	jmp.w CODE_9FAFBE
 
 .t1xxxx:
 	stz.w $163A
 	lda.w #$FFFF
 	sta.w $1E8D
-	jmp.w CODE_9FB092
+	jmp.w Endfaceoff

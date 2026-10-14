@@ -68,7 +68,7 @@ CODE_9DA5CA:
 	sta.b a1
 	pla
 	sta.b $8F
-	jsl.l CODE_9CA227
+	jsl.l InitSortObjects
 	lda.w #$0028
 	sta.w $0E43
 	sta.w $0E4F
@@ -224,7 +224,7 @@ CODE_9DA7D7:
 	cmp.w #$0003
 	bne .2
 .1:
-	jsl.l CODE_9D98D3
+	jsl.l NewPO
 .2:
 	lda.w #$0001
 	sta.l $7E34CA

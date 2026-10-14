@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FBD66:
+; Print team d3's name, then move down two rows
+printteamname:
 	lda.w printx
 	pha
 	lda.w tmdata

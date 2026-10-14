@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9E9A49:
+; Player a2 takes the puck
+puckglue:
 	ldy.b a2
 	cpy.w shotPlIdx
 	beq .1

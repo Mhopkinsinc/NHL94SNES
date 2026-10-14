@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9D98D3:
+; Start new playoffs and build the tree
+NewPO:
 	jsl.l RandomWord
 	and.w #$001F
 	sta.b d0

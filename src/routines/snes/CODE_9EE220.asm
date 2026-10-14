@@ -1,6 +1,6 @@
 ; Unidentified routine.
 CODE_9EE220:
-	jsl.l CODE_9EDFF7
+	jsl.l shotdiradj
 	lda.w #$0007
 	pha
 	lda.w #$0008

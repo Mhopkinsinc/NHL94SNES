@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9FD252:
+; Reset the team variables and the players on both teams
+resetplstuff:
 	lda.b d0
 	pha
 	lda.b $A7

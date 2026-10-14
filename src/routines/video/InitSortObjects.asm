@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9CA227:
+; Clear the sorted objects and set up the objects from their start tables
+InitSortObjects:
 	phb
 	phk
 	plb

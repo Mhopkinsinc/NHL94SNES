@@ -139,7 +139,7 @@ printscores1:
 	sta.b $8F
 	stz.b d3
 	stz.b a2
-	jsl.l CODE_9F9DB0
+	jsl.l PrintTeamNameAndScore
 	lda.b $8F
 	pha
 	lda.b a1
@@ -156,7 +156,7 @@ printscores1:
 	inc.b d3
 	inc.b a2
 	inc.b a2
-	jsl.l CODE_9F9DB0
+	jsl.l PrintTeamNameAndScore
 	stz.b a2
 	lda.w #$0002
 	sta.b a3
