@@ -1355,7 +1355,7 @@ $9FBAF5,.loop2,CODE_9FBAF5,new,branch target only used in this routine,src/routi
 $9BC4D6,.1,CODE_9BC4D6,new,branch target only used in this routine,src/routines/snes/CODE_9BC49A.asm
 $9EE014,.1,CODE_9EE014,new,branch target only used in this routine,src/routines/snes/CODE_9EDFFF.asm
 $9C8AA8,.1,CODE_9C8AA8,new,branch target only used in this routine,src/routines/snes/CODE_9C8934.asm
-$9DBD45,.1,CODE_9DBD45,new,branch target only used in this routine,src/routines/snes/CODE_9DBD36.asm
+$9DBD45,.1,CODE_9DBD45,new,branch target only used in this routine,src/routines/hockey/NextTitleTeam.asm
 $9C8679,.1,CODE_9C8679,new,branch target only used in this routine,src/routines/snes/CODE_9C8674.asm
 $9EC977,.1,CODE_9EC977,new,branch target only used in this routine,src/routines/snes/CODE_9EC96B.asm
 $9BA276,.1,CODE_9BA276,new,branch target only used in this routine,src/routines/snes/CODE_9BA23C.asm
@@ -1547,7 +1547,7 @@ $9FD912,.1,CODE_9FD912,new,branch target only used in this routine,src/routines/
 $9FD92B,.2,CODE_9FD92B,new,branch target only used in this routine,src/routines/snes/CODE_9FD907.asm
 $9FD93E,.3,CODE_9FD93E,new,branch target only used in this routine,src/routines/snes/CODE_9FD907.asm
 $9FD960,.4,CODE_9FD960,new,branch target only used in this routine,src/routines/snes/CODE_9FD907.asm
-$9DBD11,.loop,CODE_9DBD11,new,branch target only used in this routine,src/routines/snes/CODE_9DBCF8.asm
+$9DBD11,.loop,CODE_9DBD11,new,branch target only used in this routine,src/routines/hockey/ShuffleTitleTeams.asm
 $9FC200,.1,CODE_9FC200,new,branch target only used in this routine,src/routines/snes/CODE_9FC1EC.asm
 $9FC20D,.2,CODE_9FC20D,new,branch target only used in this routine,src/routines/snes/CODE_9FC1EC.asm
 $9FC219,.3,CODE_9FC219,new,branch target only used in this routine,src/routines/snes/CODE_9FC1EC.asm
@@ -2151,7 +2151,7 @@ $9F9C94,.1,CODE_9F9C94,new,branch target only used in this routine,src/routines/
 $9F9CDD,.loop,CODE_9F9CDD,new,branch target only used in this routine,src/routines/snes/CODE_9F9C10.asm
 $9FDB99,.1,CODE_9FDB99,new,branch target only used in this routine,src/routines/logic/CompLine.asm
 $9FDBB0,.2,CODE_9FDBB0,new,branch target only used in this routine,src/routines/logic/CompLine.asm
-$9DBCF7,.rtl,CODE_9DBCF7,new,branch target only used in this routine,src/routines/snes/CODE_9DBCEB.asm
+$9DBCF7,.rtl,CODE_9DBCF7,new,branch target only used in this routine,src/routines/hockey/TitleWait.asm
 $9C9875,.loop,CODE_9C9875,new,branch target only used in this routine,src/routines/snes/CODE_9C983D.asm
 $9C9890,.rtl,CODE_9C9890,new,branch target only used in this routine,src/routines/snes/CODE_9C983D.asm
 $9FC545,.loop,CODE_9FC545,new,branch target only used in this routine,src/routines/snes/CODE_9FC4D0.asm
@@ -2482,8 +2482,8 @@ $9BAC25,.1,CODE_9BAC25,new,branch target only used in this routine,src/routines/
 $9BAC28,.2,CODE_9BAC28,new,branch target only used in this routine,src/routines/snes/CODE_9BAC11.asm
 $9BAC2D,.3,CODE_9BAC2D,new,branch target only used in this routine,src/routines/snes/CODE_9BAC11.asm
 $9BAC30,.4,CODE_9BAC30,new,branch target only used in this routine,src/routines/snes/CODE_9BAC11.asm
-$9DB88B,.loop,CODE_9DB88B,new,branch target only used in this routine,src/routines/snes/CODE_9DB884.asm
-$9DB88F,.1,CODE_9DB88F,new,branch target only used in this routine,src/routines/snes/CODE_9DB884.asm
+$9DB88B,.loop,CODE_9DB88B,new,branch target only used in this routine,src/routines/hockey/TitleDelay.asm
+$9DB88F,.1,CODE_9DB88F,new,branch target only used in this routine,src/routines/hockey/TitleDelay.asm
 $9E913E,.1,CODE_9E913E,new,branch target only used in this routine,src/routines/snes/CODE_9E9117.asm
 $9E9148,.2,CODE_9E9148,new,branch target only used in this routine,src/routines/snes/CODE_9E9117.asm
 $9E9186,.3,CODE_9E9186,new,branch target only used in this routine,src/routines/snes/CODE_9E9117.asm
@@ -2789,7 +2789,7 @@ $9DBFDD,.t1,CODE_9DBFDD,new,continued in the previous routine,src/routines/snes/
 $9DBFB0,.t1,CODE_9DBFB0,new,continued in the previous routine,src/routines/snes/CODE_9DBFA5.asm
 $9DBF83,.t1,CODE_9DBF83,new,continued in the previous routine,src/routines/snes/CODE_9DBF33.asm
 $9DBEE4,.t1,CODE_9DBEE4,new,continued in the previous routine,src/routines/snes/CODE_9DBED6.asm
-$9DBD20,.t1,CODE_9DBD20,new,continued in the previous routine,src/routines/snes/CODE_9DBCF8.asm
+$9DBD20,.t1,CODE_9DBD20,new,continued in the previous routine,src/routines/hockey/ShuffleTitleTeams.asm
 $9DBCDE,.t1,CODE_9DBCDE,new,continued in the previous routine,src/routines/snes/CODE_9DBCB3.asm
 $9DBBF1,.t1,CODE_9DBBF1,new,continued in the previous routine,src/routines/snes/CODE_9DBBA8.asm
 $9DBA94,.t1,CODE_9DBA94,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
@@ -3280,8 +3280,8 @@ $9DCBC3,.t1,CODE_9DCBC3,new,continued in the previous routine,src/routines/hocke
 $9DCA56,.t1,CODE_9DCA56,new,continued in the previous routine,src/routines/snes/CODE_9DC9C1.asm
 $9DBFD2,.t2,CODE_9DBFD2,new,continued in the previous routine,src/routines/snes/CODE_9DBFA5.asm
 $9DBF33,.t2,CODE_9DBF33,new,continued in the previous routine,src/routines/snes/CODE_9DBED6.asm
-$9DBD23,.t2,CODE_9DBD23,new,continued in the previous routine,src/routines/snes/CODE_9DBCF8.asm
-$9DBBA8,.t2,CODE_9DBBA8,new,continued in the previous routine,src/routines/snes/CODE_9DBB14.asm
+$9DBD23,.t2,CODE_9DBD23,new,continued in the previous routine,src/routines/hockey/ShuffleTitleTeams.asm
+$9DBBA8,.t2,CODE_9DBBA8,new,continued in the previous routine,src/routines/hockey/LoadTitleLogo.asm
 $9DBAAB,.t2,CODE_9DBAAB,new,continued in the previous routine,src/routines/snes/CODE_9DB9F7.asm
 $9DB7BB,.t2,CODE_9DB7BB,new,continued in the previous routine,src/routines/snes/CODE_9DB7A0.asm
 $9DABC1,.t2,CODE_9DABC1,new,continued in the previous routine,src/routines/snes/CODE_9DAB04.asm
@@ -3494,7 +3494,7 @@ $9C8C80,.t3,CODE_9C8C80,new,continued in the previous routine,src/routines/snes/
 $9C866A,.t3,CODE_9C866A,new,continued in the previous routine,src/routines/snes/CODE_9C8583.asm
 $9DC9C1,.t2,CODE_9DC9C1,new,continued in the previous routine,src/routines/hockey/DrawPlayerPicture.asm
 $9DBFA5,.t3,CODE_9DBFA5,new,continued in the previous routine,src/routines/snes/CODE_9DBED6.asm
-$9DBC25,.t3,CODE_9DBC25,new,continued in the previous routine,src/routines/snes/CODE_9DBB14.asm
+$9DBC25,.t3,CODE_9DBC25,new,continued in the previous routine,src/routines/hockey/LoadTitleLogo.asm
 $9DAB04,.t1,CODE_9DAB04,new,continued in the previous routine,src/routines/hockey/setoptions.asm
 $9DA74E,.t3,CODE_9DA74E,new,continued in the previous routine,src/routines/snes/CODE_9DA724.asm
 $9DA316,.t3,CODE_9DA316,new,continued in the previous routine,src/routines/snes/CODE_9DA2E6.asm
@@ -4416,7 +4416,7 @@ $9DAC54,.2,CODE_9DAC54,new,branch target only used in this routine,src/routines/
 $9DAC7D,.3,CODE_9DAC7D,new,branch target only used in this routine,src/routines/hockey/setoptions.asm
 $9DB8E0,.1,CODE_9DB8E0,new,branch target only used in this routine,src/routines/snes/CODE_9DB8A1.asm
 $9DB931,.1,CODE_9DB931,new,branch target only used in this routine,src/routines/snes/CODE_9DB8E6.asm
-$9DBD01,.1,CODE_9DBD01,new,branch target only used in this routine,src/routines/snes/CODE_9DBCF8.asm
+$9DBD01,.1,CODE_9DBD01,new,branch target only used in this routine,src/routines/hockey/ShuffleTitleTeams.asm
 $9DC3DA,.1,CODE_9DC3DA,new,branch target only used in this routine,src/routines/hockey/FindGoalieStrengths.asm
 $9DC40F,.1,CODE_9DC40F,new,branch target only used in this routine,src/routines/hockey/AddStrength.asm
 $9DC42B,.2,CODE_9DC42B,new,branch target only used in this routine,src/routines/hockey/AddStrength.asm
@@ -5561,3 +5561,8 @@ $9DB0FD,ClearTextMapBottom,CODE_9DB0FD,new,Behavior: MemFill of $500 bytes from 
 $9DAFB2,Multi5SocketMsg,CODE_9DAFB2,new,Behavior: the three strings it prints,src/routines/hockey/Multi5SocketMsg.asm
 $9DB005,Multi5ScopeMsg,CODE_9DB005,new,Behavior: the three strings it prints,src/routines/hockey/Multi5ScopeMsg.asm
 $9DB058,Multi5MouseMsg,CODE_9DB058,new,Behavior: the three strings it prints,src/routines/hockey/Multi5MouseMsg.asm
+$9DBCEB,TitleWait,CODE_9DBCEB,new,Behavior,src/routines/hockey/TitleWait.asm
+$9DB884,TitleDelay,CODE_9DB884,new,Behavior,src/routines/hockey/TitleDelay.asm
+$9DBCF8,ShuffleTitleTeams,CODE_9DBCF8,new,Behavior,src/routines/hockey/ShuffleTitleTeams.asm
+$9DBD36,NextTitleTeam,CODE_9DBD36,new,Behavior; TitleScreen passes it to LoadTitleLogo,src/routines/hockey/NextTitleTeam.asm
+$9DBB14,LoadTitleLogo,CODE_9DBB14,new,"Behavior: CenterIceTable entry of the team, Mode7MapToVRAM",src/routines/hockey/LoadTitleLogo.asm

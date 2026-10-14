@@ -65,7 +65,7 @@ TitleScreen:
 	jsr.w .7
 	jsr.w CODE_9DBC8B
 	stz.w $0BEB
-	stz.w $0BE9
+	stz.w titleskip
 	jsl.l FadeIn
 .loop:
 	lda.w brightness
@@ -91,7 +91,7 @@ TitleScreen:
 	lda.w #$0037
 	jsl.l CODE_80A200
 	ldx.w #$001E
-	jsl.l CODE_9DBCEB
+	jsl.l TitleWait
 	lda.w #$0000
 	jsr.w .9
 	lda.w #$0001
@@ -131,7 +131,7 @@ TitleScreen:
 	lda.w #$0036
 	jsl.l CODE_80A200
 	ldx.w #$0007
-	jsl.l CODE_9DBCEB
+	jsl.l TitleWait
 	jsr.w CODE_9DBCB3
 	jsl.l CODE_9C9891
 	lda.w #$008F
@@ -178,7 +178,7 @@ TitleScreen:
 	jsl.l WaitFrame
 	jsr.w CODE_9DB7A0
 	ldx.w #$002D
-	jsl.l CODE_9DBCEB
+	jsl.l TitleWait
 	jsr.w CODE_9DB82B
 	jsl.l SpriteFrameStart
 	jsr.w PrintCopyright
@@ -220,13 +220,13 @@ TitleScreen:
 	sta.b $0C
 	ldy.w #$2000
 	jsl.l DMAToVRAMHigh
-	jsr.w CODE_9DBCF8
+	jsr.w ShuffleTitleTeams
 	stz.w $0BFD
 	lda.w $0BD5
 	asl a
 	tax
 	lda.l $7EF000,x
-	jsr.w CODE_9DBB14
+	jsr.w LoadTitleLogo
 	lda.w #$0011
 	sta.w $0BD3
 	jsl.l WaitFrame
@@ -259,7 +259,7 @@ TitleScreen:
 	lda.w $0764
 	cmp.w #$1284
 	bcs .4
-	lda.w $0BE9
+	lda.w titleskip
 	bne .4
 	jsr.w CODE_9DBA13
 	jsr.w .5
@@ -280,8 +280,8 @@ TitleScreen:
 	beq .rts
 	stz.w $0BEF
 	stz.w $0BF1
-	jsr.w CODE_9DBD36
-	jsr.w CODE_9DBB14
+	jsr.w NextTitleTeam
+	jsr.w LoadTitleLogo
 	lda.w #$0001
 	trb.w $0BFF
 .rts:
@@ -337,7 +337,7 @@ TitleScreen:
 	bit.w $0BEB
 	beq .5x
 	lda.w #$0001
-	sta.w $0BE9
+	sta.w titleskip
 .5x:
 	sep #$20
 	lda.w brightness
@@ -585,5 +585,5 @@ TitleScreen:
 	jsr.w CODE_9DB754
 	jsl.l SpriteFrameEnd
 	ldx.w #$0004
-	jsl.l CODE_9DBCEB
+	jsl.l TitleWait
 	rts

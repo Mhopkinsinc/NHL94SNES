@@ -697,3 +697,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - Player card helpers; ShowPlayerCards tails folded. MATCH.
 - ClearTextMap2, LoadPlayerCardScreen. MATCH.
 - PlayerSelect and its helpers. MATCH.
+- Title screen helpers. MATCH.

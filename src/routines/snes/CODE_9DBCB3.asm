@@ -19,7 +19,7 @@ CODE_9DBCB3:
 .1:
 	tya
 	ldx.w #$0200
-	jsr.w CODE_9DB884
+	jsr.w TitleDelay
 	bra .loop
 
 .t1:

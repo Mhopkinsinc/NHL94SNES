@@ -7,7 +7,7 @@ CODE_9DB7A0:
 	bcc .t1
 	sta.w $0BFB
 	ldx.w #$0064
-	jsr.w CODE_9DB884
+	jsr.w TitleDelay
 	bra .loop
 
 .t1:
@@ -23,7 +23,7 @@ CODE_9DB7A0:
 	bcs .t1x
 	sta.w $0BFB
 	ldx.w #$0200
-	jsr.w CODE_9DB884
+	jsr.w TitleDelay
 	bra .loopx
 
 .t1x:

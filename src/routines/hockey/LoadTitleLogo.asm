@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DBB14:
+; Draw the centre ice logo of team A (CenterIceTable) into the mode 7 map of the title
+LoadTitleLogo:
 	pha
 	lda.w #$007F
 	sta.b $0E

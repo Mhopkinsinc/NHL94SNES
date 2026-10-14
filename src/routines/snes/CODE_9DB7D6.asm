@@ -26,7 +26,7 @@ CODE_9DB7D6:
 	adc.w #$0180
 	sta.w $0BF9
 	ldx.w #$03E8
-	jsr.w CODE_9DB884
+	jsr.w TitleDelay
 	bra CODE_9DB7D6
 
 .t1:

@@ -1,5 +1,5 @@
-; Unidentified routine.
-CODE_9DBCF8:
+; Fill $7EF000 with the 26 team numbers in random order (RandomWord, no repeats)
+ShuffleTitleTeams:
 	stz.w $0BD5
 	ldx.w #$0000
 	lda.w #$0000
