@@ -2,4 +2,4 @@
 
 PhotoPaletteAllStars:		; 16 colours: the photo colours of the all-star teams (26 and 27 of the photo palette table in
 			;   bank $9D)
-	incbin "../../../Extracted/data/pal/PhotoPaletteAllStars.pal"
+	incbin "../../../Extracted/data/gfx/pal/PhotoPaletteAllStars.pal"

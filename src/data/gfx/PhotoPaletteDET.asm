@@ -1,4 +1,4 @@
 ; Colours for one team.
 
 PhotoPaletteDET:	; the 16 colours of the Detroit player photos (the photo palette table)
-	incbin "../../../Extracted/data/pal/PhotoPaletteDET.pal"
+	incbin "../../../Extracted/data/gfx/pal/PhotoPaletteDET.pal"

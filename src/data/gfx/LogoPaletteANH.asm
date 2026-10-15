@@ -1,4 +1,4 @@
 ; Colours for one team.
 
 LogoPaletteANH:		; the 16 colours of the Anaheim logo (TeamLogoSprites and the centre ice logo)
-	incbin "../../../Extracted/data/pal/LogoPaletteANH.pal"
+	incbin "../../../Extracted/data/gfx/pal/LogoPaletteANH.pal"

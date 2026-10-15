@@ -1,4 +1,4 @@
 ; Colours for one team.
 
 PhotoPaletteLA:	; the 16 colours of the Los Angeles player photos (the photo palette table)
-	incbin "../../../Extracted/data/pal/PhotoPaletteLA.pal"
+	incbin "../../../Extracted/data/gfx/pal/PhotoPaletteLA.pal"

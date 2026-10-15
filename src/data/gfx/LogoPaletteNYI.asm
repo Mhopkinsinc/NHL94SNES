@@ -1,4 +1,4 @@
 ; Colours for one team.
 
 LogoPaletteNYI:		; the 16 colours of the New York Islanders logo (TeamLogoSprites and the centre ice logo)
-	incbin "../../../Extracted/data/pal/LogoPaletteNYI.pal"
+	incbin "../../../Extracted/data/gfx/pal/LogoPaletteNYI.pal"

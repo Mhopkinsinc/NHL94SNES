@@ -1,4 +1,4 @@
 ; Colours for one team.
 
 LogoPaletteSJ:		; the 16 colours of the San Jose logo (TeamLogoSprites and the centre ice logo)
-	incbin "../../../Extracted/data/pal/LogoPaletteSJ.pal"
+	incbin "../../../Extracted/data/gfx/pal/LogoPaletteSJ.pal"

@@ -1,4 +1,4 @@
 ; Colours for one team.
 
 PhotoPaletteNJ:	; the 16 colours of the New Jersey player photos (the photo palette table)
-	incbin "../../../Extracted/data/pal/PhotoPaletteNJ.pal"
+	incbin "../../../Extracted/data/gfx/pal/PhotoPaletteNJ.pal"

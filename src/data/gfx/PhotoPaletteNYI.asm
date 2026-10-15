@@ -1,4 +1,4 @@
 ; Colours for one team.
 
 PhotoPaletteNYI:	; the 16 colours of the New York Islanders player photos (the photo palette table)
-	incbin "../../../Extracted/data/pal/PhotoPaletteNYI.pal"
+	incbin "../../../Extracted/data/gfx/pal/PhotoPaletteNYI.pal"

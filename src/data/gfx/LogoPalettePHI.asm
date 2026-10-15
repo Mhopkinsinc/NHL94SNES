@@ -1,6 +1,6 @@
 ; The Philadelphia logo colours, then 1 team block palette (16 colours each).
 
 LogoPalettePHI:		; the 16 colours of the Philadelphia logo (TeamLogoSprites and the centre ice logo)
-	incbin "../../../Extracted/data/pal/LogoPalettePHI.pal"
+	incbin "../../../Extracted/data/gfx/pal/LogoPalettePHI.pal"
 TeamBlockPaletteBOS:	; the Boston team block colours (TeamBlockPalettes)
-	incbin "../../../Extracted/data/pal/TeamBlockPaletteBOS.pal"
+	incbin "../../../Extracted/data/gfx/pal/TeamBlockPaletteBOS.pal"

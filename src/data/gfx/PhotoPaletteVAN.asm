@@ -1,4 +1,4 @@
 ; Colours for one team.
 
 PhotoPaletteVAN:	; the 16 colours of the Vancouver player photos (the photo palette table)
-	incbin "../../../Extracted/data/pal/PhotoPaletteVAN.pal"
+	incbin "../../../Extracted/data/gfx/pal/PhotoPaletteVAN.pal"
