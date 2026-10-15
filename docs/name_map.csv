@@ -6296,3 +6296,13 @@ $95FF9B,StanleyCupMap,DATA8_95FF9B,render,PlayoffScreen pastes it in palette 3 (
 $9AE884,StanleyCupPalette,DATA8_9AE884,render,"PlayoffScreen copies it to palbuffer+$60 (palette 3, where StanleyCupMap is pasted); renders the cup in silver",src/data/gfx/StanleyCupPalette.asm
 $9AE8BF,PlayoffTiles,DATA8_9AE8BF,93S,"93S PlayoffTiles: its 6 tiles are byte for byte the tiles of 93S PlayoffTiles, sent to VRAM $1000 as 93S PlayoffScreen sends them",src/data/gfx/PlayoffTiles.asm
 $9AE027,PlayoffPalette,DATA8_9AE027,93S,"The 128 colours of 93S PlayoffTiles (2 bytes differ), unpacked into palbuffer as 93S PlayoffScreen copies them",src/data/gfx/PlayoffPalette.asm
+$95F8C6,LicenceTiles,DATA8_95F8C6,render,TitleScreen's mode 7 tiles (8bpp); rendered with LicenceNHLMap / LicenceNHLPAMap and TitlePalette they are the NHL shield and the NHLPA logo of the licence screen (DrawLicenceNHL / DrawLicenceNHLPA),src/data/gfx/LicenceTiles.asm
+$8AFF7A,LicenceNHLMap,DATA8_8AFF7A,render,"Mode 7 byte map put at column 60, row 60 by TitleScreen; renders the NHL shield over LicenceTiles",src/data/gfx/LicenceNHLMap.asm
+$87FF91,LicenceNHLPAMap,DATA8_87FF91,render,Mode 7 byte map unpacked for the second licence zoom; renders the NHLPA logo over LicenceTiles,src/data/gfx/LicenceNHLPAMap.asm
+$96A5E5,TitlePuckTiles,DATA8_96A5E5,render,Mode 7 tiles sent from tile 128; rendered with TitlePuckMap: a hockey puck (the team logo puck of the title),src/data/gfx/TitlePuckTiles.asm
+$9ADEE0,TitlePuckMap,DATA8_9ADEE0,render,"Mode 7 byte map ORed with $80 (tiles from 128, TitlePuckTiles); renders the puck",src/data/gfx/TitlePuckMap.asm
+$9ACCA9,TitlePalette,DATA8_9ACCA9,render,"TitleScreen unpacks it to $7F0000 and sends 256 colours to CGRAM; renders the licence logos, the title logo and the puck in their colours",src/data/gfx/TitlePalette.asm
+$9AE0D5,TitleSpritePalette,DATA8_9AE0D5,behavior,"TitleScreen unpacks it to $7F0100, colours 128 up (the sprite palettes), before the 256 colours go to CGRAM",src/data/gfx/TitleSpritePalette.asm
+$9ADDC6,Title94Map,DATA8_9ADDC6,render,"TitleScreen's map at VRAM $5400 over TitleLogoTiles: the ""94"" puck of the title logo",src/data/gfx/Title94Map.asm
+$9AD88C,TitleNHLMap,DATA8_9AD88C,render,TitleScreen's map at VRAM $5800 over TitleLogoTiles: the NHL letters of the title logo,src/data/gfx/TitleNHLMap.asm
+$91B188,TitleSprites,DATA8_91B188,behavior,"TitleScreen unpacks it to $7F5000, the sprite set DrawTitleSprite draws (the N, H, L letters and the licence screen sprites)",src/data/gfx/TitleSprites.asm

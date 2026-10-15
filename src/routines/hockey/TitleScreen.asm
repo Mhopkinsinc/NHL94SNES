@@ -205,9 +205,9 @@ TitleScreen:
 	sta.w $0BF3
 	lda.w #$F0C0
 	sta.w $0BEB
-	lda.w #DATA8_96A5E5>>16
+	lda.w #TitlePuckTiles>>16
 	sta.b $0E
-	lda.w #DATA8_96A5E5
+	lda.w #TitlePuckTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -434,18 +434,18 @@ TitleScreen:
 	rep #$20
 	rtl
 .7:
-	lda.w #DATA8_9ACCA9>>16
+	lda.w #TitlePalette>>16
 	sta.b $0E
-	lda.w #DATA8_9ACCA9
+	lda.w #TitlePalette
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
 	lda.w #$0000
 	sta.b $10
 	jsl.l Decompress
-	lda.w #DATA8_9AE0D5>>16
+	lda.w #TitleSpritePalette>>16
 	sta.b $0E
-	lda.w #DATA8_9AE0D5
+	lda.w #TitleSpritePalette
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -463,9 +463,9 @@ TitleScreen:
 	ldx.w #$4000
 	ldy.w #$0000
 	jsl.l FillVRAMSplit
-	lda.w #DATA8_95F8C6>>16
+	lda.w #LicenceTiles>>16
 	sta.b $0E
-	lda.w #DATA8_95F8C6
+	lda.w #LicenceTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -478,9 +478,9 @@ TitleScreen:
 	sta.b $0C
 	ldy.w #$0000
 	jsl.l DMAToVRAMHigh
-	lda.w #DATA8_8AFF7A>>16
+	lda.w #LicenceNHLMap>>16
 	sta.b $0E
-	lda.w #DATA8_8AFF7A
+	lda.w #LicenceNHLMap
 	sta.b $0C
 	lda.w #$0000
 	sta.w $079C
@@ -502,9 +502,9 @@ TitleScreen:
 	sta.b $0C
 	ldy.w #$4000
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9ADDC6>>16
+	lda.w #Title94Map>>16
 	sta.b $0E
-	lda.w #DATA8_9ADDC6
+	lda.w #Title94Map
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -520,9 +520,9 @@ TitleScreen:
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapToVRAM
-	lda.w #DATA8_9AD88C>>16
+	lda.w #TitleNHLMap>>16
 	sta.b $0E
-	lda.w #DATA8_9AD88C
+	lda.w #TitleNHLMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -538,18 +538,18 @@ TitleScreen:
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapToVRAM
-	lda.w #DATA8_87FF91>>16
+	lda.w #LicenceNHLPAMap>>16
 	sta.b $0E
-	lda.w #DATA8_87FF91
+	lda.w #LicenceNHLPAMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
 	lda.w #$0000
 	sta.b $10
 	jsl.l Decompress
-	lda.w #DATA8_9ADEE0>>16
+	lda.w #TitlePuckMap>>16
 	sta.b $0E
-	lda.w #DATA8_9ADEE0
+	lda.w #TitlePuckMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -562,9 +562,9 @@ TitleScreen:
 	sta.b $10
 	lda.w #$8080
 	jsl.l MemOr
-	lda.w #DATA8_91B188>>16
+	lda.w #TitleSprites>>16
 	sta.b $0E
-	lda.w #DATA8_91B188
+	lda.w #TitleSprites
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
