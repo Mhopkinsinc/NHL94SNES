@@ -254,10 +254,9 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - $9DCD53 is a table of long pointers read at $9DC9DD and $9DCC65 as (team $1C98 * 26 + $A5) * 4: 28 rows of 26 packed
   entries that are unpacked and converted with $9B85C2: player photos, 6 x 6 tiles (checked: DATA8_8CFDEC (CardPeterSidorkwicz), entry 390,
   renders as a face; whether the column is the roster index is not checked). After the 28 rows,
-  entries point at 16-word tables: $9AF47C, $85FFDF (DATA8_85FFDF (PhotoPaletteBOS)), $9AEA5C, ... at $20 steps, which share their first
-  words (palettes?); no reader of these found yet.
-- DATA8_87FF91 (bank87_F000): an LZ block, unpacked a 10 x 12 byte map after three words (10, 12, 16); $9DB6D7 unpacks it
-  to $7F0000 and then unpacks $9ADEE0 to $7F4000 and $91B188 to $7F5000; what reads the map is not traced.
+  entries point at the 16-colour photo palettes, one per team (PhotoPaletteANH $9AF47C, PhotoPaletteBOS $85FFDF, ...).
+- LicenceNHLPAMap (was DATA8_87FF91, bank87_F000): an LZ block, a 10 x 12 mode 7 byte map after three words (10, 12, $0010);
+  the second licence zoom unpacks it and draws the NHLPA logo over LicenceTiles.
 - CenterIceMapNHL ($88FFC6, bank88_F000) is the centre ice map of teams 26 and 27 (the all-star teams), with the tiles at
   $9AD4B6: the NHL shield.
 - $9DE0BD loads colours into CGRAM: [$0C] the colours, Y the first colour, X the count (team palettes: Y = $A0).
@@ -281,7 +280,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - RAM names marked LOW by the research (job from one or two uses): `topgoalie` / `botgoalie`, `FrameCountHold`, `RAMTag` / `RAMTag2` (copies of the 'EACDSI' tag, never read), `MapScreenStep`, `FrameTilesFail`, `SoundMono`, `PitchModVoices`, `SongUnused`, `TrackUnused`, `MusicPause`, `MusicDuck`, `reloadtime`, `otgoalscorer`, `screenmap`, `screenmap2`, `introbuf`, `introchars`, `titlelogobuf`.
 - Found in the RAM pass, left as the ROM has them: Goal adds a goal against with a word `inc.w tmgoals,x` on a byte array; UpdateHatTrick clears only hat 0's `hatvz` at a launch (no `,x`); ShowStars reads its overtime goal entry from `fox` ($7E3136) where ShowGoalBox uses `ScoreSum-6` + ScoreSumbytes; EndPenaltyShot puts the saved faceoff spot into `ltx` / `lty`, not back into `fox` / `foy`; the ShowCrowdMeter `.11` loop that raises the hot / cold table has no caller found.
 - `docs/name_map.csv` file column: every row names the file that defines the label today (15 Oct 2026; 1822 rows were pointing at pre-split bank files or moved routine files). Labels from the sym `[addr-to-line mapping]` where the name was renamed later.
-- Next: immediates that are RAM addresses (e.g. `lda.w #$xxxx` table pointers into bank $7E) and direct-page scratch ($00-$FF) are the RAM work left; then the untraced data items still in the State notes (DATA8_87FF91's map reader, the 16-word tables after the photo rows of $9DCD53). The State notes above are the layout log from the segment work; the auto names they cite are in `docs/name_map.csv` (auto_name column).
+- Next: immediates that are RAM addresses (e.g. `lda.w #$xxxx` table pointers into bank $7E) and direct-page scratch ($00-$FF) are the RAM work left; then the stale auto-name wording in the State notes (a layout log). The State notes above are the layout log from the segment work; the auto names they cite are in `docs/name_map.csv` (auto_name column).
 
 ## Setup notes
 
