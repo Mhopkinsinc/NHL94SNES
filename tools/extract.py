@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # extract.py: write the data assets (packed graphics, sprite frames, sound blocks) that the source includes by name.
 # The bytes come from the ROM. Output is Extracted/data/<category>/, which is not committed. tools/prebuild.py runs this
-# when Extracted/ is missing or stale, and this script writes Extracted/.extract-complete.json last.
+# when Extracted/ is missing or stale, and this script writes Extracted/.extract-complete.json last. It also deletes
+# the files in Extracted/data/<category>/ that are no longer assets (e.g. the old file of a renamed label).
 # src/data/README.md describes the formats (by file extension).
 # Usage: python3 tools/extract.py lst/nhl94snes.sfc           (writes every asset and the marker)
 #        python3 tools/extract.py lst/nhl94snes.sfc --check   (compares Extracted/ with the ROM, exit 1 on a difference)
@@ -335,6 +336,15 @@ if __name__ == '__main__':
             os.makedirs(os.path.dirname(path), exist_ok=True)
             open(path, 'wb').write(data)
             files.append({'path': rel.replace(os.sep, '/'), 'size': len(data)})
+    names = {os.path.join(category(name), name) for name, _, _ in ASSETS}
+    for cat in sorted({category(name) for name, _, _ in ASSETS}):
+        folder = os.path.join(EXTRACTED, 'data', cat)
+        for f in sorted(os.listdir(folder)) if os.path.isdir(folder) else []:
+            if os.path.join(cat, f) not in names and os.path.isfile(os.path.join(folder, f)):
+                if check:
+                    print(f'not an asset: Extracted/data/{cat}/{f}')
+                else:
+                    os.remove(os.path.join(folder, f)); print(f'deleted (not an asset): Extracted/data/{cat}/{f}')
     if check:
         print(f'{len(ASSETS) - bad} of {len(ASSETS)} assets match the ROM'); sys.exit(1 if bad else 0)
     marker = {'romSha1': sha1_of(rom),
