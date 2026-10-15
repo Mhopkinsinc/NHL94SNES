@@ -277,9 +277,9 @@ LoadScoutingScreen:
 	ldy.w #$0010
 	ldx.w #$0010
 	jsl.l SetColours
-	lda.w #DATA8_9AE946>>16
+	lda.w #RonBarrPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9AE946
+	lda.w #RonBarrPalette
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -298,9 +298,9 @@ LoadScoutingScreen:
 	stz.w CGDATA
 	stz.w CGDATA
 	rep #$20
-	lda.w #DATA8_9AE121>>16
+	lda.w #MenuBackPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9AE121
+	lda.w #MenuBackPalette
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

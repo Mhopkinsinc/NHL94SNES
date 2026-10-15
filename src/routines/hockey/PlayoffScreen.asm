@@ -89,9 +89,9 @@ PlayoffScreen:
 	tax
 	ldy.w #$0920
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9AE121>>16
+	lda.w #MenuBackPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9AE121
+	lda.w #MenuBackPalette
 	sta.b $0C
 	jsl.l Decompress
 	lda.w #$007F

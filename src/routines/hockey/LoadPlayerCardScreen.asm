@@ -108,9 +108,9 @@ LoadPlayerCardScreen:
 	jsl.l DMAToVRAM
 	lda.w #$0000
 	sta.l $7E35B2
-	lda.w #DATA8_93B217>>16
+	lda.w #CardBackTiles>>16
 	sta.b $0E
-	lda.w #DATA8_93B217
+	lda.w #CardBackTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -192,9 +192,9 @@ LoadPlayerCardScreen:
 	sta.b $10
 	dex
 	bne .loop
-	lda.w #DATA8_96C61F>>16
+	lda.w #CardBackMap>>16
 	sta.b $0E
-	lda.w #DATA8_96C61F
+	lda.w #CardBackMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -242,9 +242,9 @@ LoadPlayerCardScreen:
 	stz.w CGDATA
 	stz.w CGDATA
 	rep #$20
-	lda.w #DATA8_89FFC7>>16
+	lda.w #CardBackPalette>>16
 	sta.b $0E
-	lda.w #DATA8_89FFC7
+	lda.w #CardBackPalette
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
