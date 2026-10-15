@@ -7,8 +7,8 @@
 # Usage: python3 tools/extract.py lst/nhl94snes.sfc           (writes every asset and the marker)
 #        python3 tools/extract.py lst/nhl94snes.sfc --check   (compares Extracted/ with the ROM, exit 1 on a difference)
 # Each entry: file name with a format extension, first ROM address, end address (exclusive). The category folder follows the
-# extension: .spc blocks go to Extracted/data/sound/, palettes (.pal, .pal.lz ...) to Extracted/data/gfx/pal/, the
-# player photos (Card<Player>.lin.*) to Extracted/data/gfx/PlayerCards/ (as the 94G project's Graphics/Pals and
+# extension: .spc blocks go to Extracted/data/sound/, palettes (.pal, .pal.lz ...) to Extracted/data/gfx/Pals/, the
+# player photos (Card<Player>.lin.*, NoPic*.lin.*) to Extracted/data/gfx/PlayerCards/ (as the 94G project's Graphics/Pals and
 # Graphics/PlayerCards), everything else to Extracted/data/gfx/.
 import hashlib, json, os, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -474,8 +474,8 @@ def category(name):
     if name.endswith('.spc'):
         return 'sound'
     if '.pal' in name:
-        return 'gfx/pal'
-    if name.startswith('Card') and '.lin.' in name and name != 'CardBackTiles.lin.pairs':
+        return 'gfx/Pals'
+    if (name.startswith('Card') or name.startswith('NoPic')) and '.lin.' in name and name != 'CardBackTiles.lin.pairs':
         return 'gfx/PlayerCards'      # the player photos of PlayerPhotoTable
     return 'gfx'
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)

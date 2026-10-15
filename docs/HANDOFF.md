@@ -223,7 +223,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - TeamLogoSprites ($81ABDE, Huffman): a sprite set drawn with DrawSprite (frame = team, palettes from LogoPaletteTable).
   Frames 26 / 27 are the all-star (Wales / Campbell) logos, 28 / 29 the NHL shield and the NHLPA logo (LogoPaletteNHL /
   LogoPaletteNHLPA; DrawMatchupPictures on the password and other scores screens).
-- Palettes: every palette is a file in `Extracted/data/gfx/pal/` (`.pal` raw BGR555, the packed ones `.pal.lz` ...), one
+- Palettes: every palette is a file in `Extracted/data/gfx/Pals/` (`.pal` raw BGR555, the packed ones `.pal.lz` ...), one
   per label as 94G's Graphics/Pals; the uniform colours one per team with the 94G names (`BOSh.pal` home, `BOSv.pal`
   away). The palette block at $9AEA5C-$9AF59C is 16-colour palettes back to back; the team block palettes (TeamBlockPalettes)
   that sat inside the logo / photo labels are labels of their own (`TeamBlockPalette<team>`; entry 28 is never read:

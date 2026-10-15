@@ -7,8 +7,8 @@ them from the ROM into `Extracted/data/gfx/` and `Extracted/data/sound/` (gitign
 compares `Extracted/` with the ROM.
 
 - `gfx/`: graphics source. Packed and unpacked tiles, maps, palettes and sprite sets. The binary is in `Extracted/data/gfx/`;
-  the palettes are in its `pal/` folder and the player photos (`Card<Player>.lin.*`, the PlayerPhotoTable pictures) in
-  its `PlayerCards/` folder, as the 94G project's `Graphics/Pals` and `Graphics/PlayerCards`.
+  the palettes are in its `Pals/` folder and the player photos (`Card<Player>.lin.*` and the `NoPic*` stand-ins, the
+  PlayerPhotoTable pictures) in its `PlayerCards/` folder, as the 94G project's `Graphics/Pals` and `Graphics/PlayerCards`.
 - `sound/`: sound source. The upload blocks are in `Extracted/data/sound/`.
 - `text/`: the text tables as source, one file per table named after its label (`incsrc "data/text/<Label>.asm"` at its
   place in the bank file). Strings are written with the `String` macro (length word, then the text); records with
@@ -36,7 +36,7 @@ The file extension gives the format:
 | `SpriteFramesXX.bin` | The SpriteFrames frames of bank $XX, not packed. The source writes their headers and pieces, and includes their tiles from this file |
 | `.spc` | A BRR sound sample for SPCUploadBlock: big-endian loop point and length (multiples of the 9-byte BRR block), then the BRR blocks |
 
-The palettes are in `Extracted/data/gfx/pal/`, one file per label, as the 94G project's `Graphics/Pals`. The team uniform
+The palettes are in `Extracted/data/gfx/Pals/`, one file per label, as the 94G project's `Graphics/Pals`. The team uniform
 colours (HomeUniformPalettes, AwayUniformPalettes) are one file per team with the 94G names: `<team>h.pal` (home, white
 jerseys) and `<team>v.pal` (away). The per-team logo, photo and team block colours are `LogoPalette<team>.pal`,
 `PhotoPalette<team>.pal` and `TeamBlockPalette<team>.pal` (team order: the tables in bank $9C / $9D;

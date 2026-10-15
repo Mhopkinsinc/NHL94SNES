@@ -32,7 +32,7 @@ Examples:
   python3 tools/snesgfx.py tiles src/data/gfx/IceRink.chr.lz --columns 32 -o rinktiles.png
   python3 tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48 -o rink.png    (6-byte header: width, height, ...)
   python3 tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497 -o logos.png
-  python3 tools/snesgfx.py pal Extracted/data/pal/BOSh.pal Extracted/data/pal/BOSv.pal -o bos.png
+  python3 tools/snesgfx.py pal Extracted/data/gfx/Pals/BOSh.pal Extracted/data/gfx/Pals/BOSv.pal -o bos.png
   python3 tools/snesgfx.py sprites '$828000' --rom --count 64 --columns 8 --cell 64 --origin-x 32 --origin-y 48 -o frames.png
 """
 import argparse

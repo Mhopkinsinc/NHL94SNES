@@ -2,4 +2,4 @@
 
 LogoPaletteASE:		; 16 colours: the logo colours of an all-star team (26 or 27 of the logo palette table in
 			;   bank $9C)
-	incbin "../../../Extracted/data/gfx/pal/LogoPaletteASE.pal"
+	incbin "../../../Extracted/data/gfx/Pals/LogoPaletteASE.pal"
