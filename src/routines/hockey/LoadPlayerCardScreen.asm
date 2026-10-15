@@ -137,9 +137,9 @@ LoadPlayerCardScreen:
 	tax
 	ldy.w #$1000
 	jsl.l DMAToVRAM
-	lda.w #DATA8_91DDAD>>16
+	lda.w #CardFrameTiles>>16
 	sta.b $0E
-	lda.w #DATA8_91DDAD
+	lda.w #CardFrameTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

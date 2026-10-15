@@ -48,7 +48,7 @@ ASSETS = [
     ('SampleOrch.spc', 0x9199D2, 0x91B188),
     ('TitleSprites.spr.huf', 0x91B188, 0x91C7A6),
     ('SampleCrowd1.spc', 0x91C7A7, 0x91DDAD),
-    ('DATA8_91DDAD.chr.lz', 0x91DDAD, 0x91F2F9),
+    ('CardFrameTiles.chr.lz', 0x91DDAD, 0x91F2F9),
     ('SamplePassShot.spc', 0x91F2F9, 0x91FFFF),
     ('SampleCrowd2.spc', 0x928000, 0x9293F3),
     ('SamplePuckWall.spc', 0x9293F3, 0x92A7B9),
