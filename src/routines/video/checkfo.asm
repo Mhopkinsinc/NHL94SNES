@@ -2,7 +2,7 @@
 checkfo:
 	lda.w sfhormode
 	bne .rtl
-	lda.w $1E9B
+	lda.w penshot
 	bne .rtl
 	lda.w sflags
 	bit.w #$0100

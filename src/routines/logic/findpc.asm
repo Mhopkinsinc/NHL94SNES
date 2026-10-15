@@ -46,7 +46,7 @@ findpc:
 	lda.w #$FFFF
 	sta.b d2
 	ldx.w #$0000
-	lda.w $1C84,y
+	lda.w cont1team,y
 	cmp.w #$0001
 	beq .1x
 	ldx.w #$000C

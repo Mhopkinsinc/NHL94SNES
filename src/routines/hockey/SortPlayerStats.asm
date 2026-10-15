@@ -1,6 +1,6 @@
 ; Player stats: print the column name, sort the player order ($1DFB) by stat column $1DF9 (ComparePlayerStats), then FillPlayerStatsPage
 SortPlayerStats:
-	lda.w $1DF9
+	lda.w statcolumn
 	sta.b d0
 	lda.b $8F
 	pha
@@ -21,28 +21,28 @@ SortPlayerStats:
 	sta.b a1
 	jsl.l AdvanceStringPtr
 	jsl.l print
-	ldx.w $1DBD
+	ldx.w listtop
 .loop:
 	txy
 .loop2:
 	iny
 	jsl.l ComparePlayerStats
-	lda.w $1DC9
+	lda.w statstemp
 	beq .2
 .1:
 	sep #$20
-	lda.w $1DFB,y
-	sta.w $1DC9
-	lda.w $1DFB,x
-	sta.w $1DFB,y
-	lda.w $1DC9
-	sta.w $1DFB,x
+	lda.w statsorder,y
+	sta.w statstemp
+	lda.w statsorder,x
+	sta.w statsorder,y
+	lda.w statstemp
+	sta.w statsorder,x
 	rep #$20
 .2:
-	cpy.w $1DC1
+	cpy.w listend
 	bcc .loop2
 	inx
-	cpx.w $1DC1
+	cpx.w listend
 	bcc .loop
 	jsl.l FillPlayerStatsPage
 	rtl

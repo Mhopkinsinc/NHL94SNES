@@ -5,7 +5,7 @@ WaitSidePadsRelease:
 .loop:
 	ldx.w #$0008
 .loop2:
-	lda.w $1C84,x
+	lda.w cont1team,x
 	beq .1
 	lda.w JoyPad,x
 	bne .loop

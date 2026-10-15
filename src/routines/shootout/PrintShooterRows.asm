@@ -20,7 +20,7 @@ PrintShooterRows:
 	asl a
 	sta.b d0
 	ldy.b a2
-	lda.w $1DA7
+	lda.w picktop
 	inc a
 	sta.b a3
 	lda.w #PositionNames>>16
@@ -45,7 +45,7 @@ PrintShooterRows:
 	lda.w #$3800
 	sta.w printa
 	lda.b d1
-	cmp.w $1D9B
+	cmp.w curplayer
 	bne .1x
 	lda.w #$2000
 	sta.w printa

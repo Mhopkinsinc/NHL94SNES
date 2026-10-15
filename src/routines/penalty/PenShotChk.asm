@@ -6,14 +6,14 @@ PenShotChk:
 	lda.b a2
 	cmp.w puckc
 	bne .t3
-	lda.w $1E8B
+	lda.w breakaway
 	bne .t2
 	jmp.w .t3
 
 .t2:
 	jsl.l CheckBreakaway
 	lda.w IsBreakaway
-	sta.w $1E8B
+	sta.w breakaway
 	bne .t1
 	jmp.w .t3
 

@@ -15,7 +15,7 @@ lineinput:
 	and.w #$FFFE
 	sta.w tmflags,y
 	lda.w #$FFFF
-	sta.w $1D55,y
+	sta.w lcpad,y
 	jsl.l lcfound2
 	jsl.l SetLCmode2
 .2:
@@ -52,7 +52,7 @@ lineinput:
 	and.w #$FFF7
 	sta.w tmflags,y
 	lda.w #$FFFF
-	sta.w $1D55,y
+	sta.w lcpad,y
 	jmp.w lcfound2
 
 .t3:

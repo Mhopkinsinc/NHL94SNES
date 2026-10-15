@@ -3,44 +3,44 @@ AddStrength:
 	jsl.l GetPlayerRating
 	lda.b d0
 	dec a
-	cmp.w $1E7B
+	cmp.w strengths+2
 	bpl .t1
-	cmp.w $1E7F
+	cmp.w strengths+6
 	bpl .1
-	cmp.w $1E83
+	cmp.w strengths+$A
 	bpl .2
 	bra .3
 
 .t1:
-	lda.w $1E7B
+	lda.w strengths+2
 	sta.b $00
-	lda.w $1E79
+	lda.w strengths
 	sta.b $04
 	lda.b d0
-	sta.w $1E7B
+	sta.w strengths+2
 	lda.b d1
-	sta.w $1E79
+	sta.w strengths
 	lda.b $00
 	sta.b d0
 	lda.b $04
 	sta.b d1
 .1:
-	lda.w $1E7F
+	lda.w strengths+6
 	sta.b $00
-	lda.w $1E7D
+	lda.w strengths+4
 	sta.b $04
 	lda.b d0
-	sta.w $1E7F
+	sta.w strengths+6
 	lda.b d1
-	sta.w $1E7D
+	sta.w strengths+4
 	lda.b $00
 	sta.b d0
 	lda.b $04
 	sta.b d1
 .2:
 	lda.b d0
-	sta.w $1E83
+	sta.w strengths+$A
 	lda.b d1
-	sta.w $1E81
+	sta.w strengths+8
 .3:
 	rtl

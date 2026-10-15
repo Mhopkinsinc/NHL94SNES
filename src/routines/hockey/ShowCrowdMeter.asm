@@ -80,7 +80,7 @@ ShowCrowdMeter:
 	lda.w #$6F7B
 	sta.l $7F75C2
 	jsl.l SendColours
-	stz.w $1DB9
+	stz.w curitem
 	jsl.l ScreenOn
 .1:
 	jsl.l SpriteFrameStart
@@ -113,21 +113,21 @@ ShowCrowdMeter:
 	rtl
 
 .t2:
-	lda.w $1DB9
+	lda.w curitem
 	dec a
 	bmi .2
-	sta.w $1DB9
+	sta.w curitem
 	bra .1
 
 .t3:
-	lda.w $1DB9
+	lda.w curitem
 	inc a
 	cmp.w #$0003
 	bcs .2
-	sta.w $1DB9
+	sta.w curitem
 	bra .1
 .6:
-	lda.w $1DB9
+	lda.w curitem
 	beq .t1x
 .1x:
 	lda.b $8F
@@ -196,7 +196,7 @@ ShowCrowdMeter:
 	sta.b d1
 	jsl.l PushNumberWrap
 	jsl.l print
-	lda.w $1DB9
+	lda.w curitem
 	cmp.w #$0001
 	beq .t1xx
 	lda.b $8F
@@ -265,7 +265,7 @@ ShowCrowdMeter:
 	sta.b d1
 	jsl.l PushNumberWrap
 	jsl.l print
-	lda.w $1DB9
+	lda.w curitem
 	cmp.w #$0002
 	beq .t1xxx
 	lda.b $8F
@@ -334,7 +334,7 @@ ShowCrowdMeter:
 	sta.b d1
 	jsl.l PushNumberWrap
 	jsl.l print
-	lda.w $1DB9
+	lda.w curitem
 	beq .t2x
 .1xx:
 	cmp.w #$0001
@@ -376,7 +376,7 @@ ShowCrowdMeter:
 	adc.w #$0006
 	sta.b $0C
 .loop:
-	ldx.w $1DD1
+	ldx.w crowdmeterlit
 	ldy.w #$0000
 .loop2:
 	lda.b [$0C],y
@@ -454,7 +454,7 @@ ShowCrowdMeter:
 	jsl.l WaitFrame
 	pla
 	sta.b $04
-	sta.w $1DD1
+	sta.w crowdmeterlit
 	beq .rtl
 .1xxxx:
 	lda.w #CrowdMeterLitMap>>16

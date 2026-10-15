@@ -4,9 +4,9 @@ OtherScoresRtl:
 
 .waitirq:		; unused: wait for the stats scroll IRQ to set $1DCD, as ScrollGameStatsDown
 	lda.w #$0000
-	sta.w $1DCD
+	sta.w scrollirqdone
 .loop:
-	lda.w $1DCD
+	lda.w scrollirqdone
 	cmp.w #$FFFF
 	bne .loop
 	rts

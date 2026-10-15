@@ -25,5 +25,5 @@ SPCTitleToMenu:
 	sta.b $0C
 	jsl.l SPCUploadBlock
 	lda.w #$0002
-	sta.w $1D68
+	sta.w sndbank
 	rtl

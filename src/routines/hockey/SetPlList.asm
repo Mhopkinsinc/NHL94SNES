@@ -14,14 +14,14 @@ SetPlList:
 	sta.b a0+2
 	lda.w #priolist
 	sta.b a0
-	lda.w $1E9B
+	lda.w penshot
 	beq .t1
 	lda.w #priolist>>16
 	sta.b a0+2
 	lda.w #priolist+7
 	sta.b a0
 	lda.b a2
-	cmp.w $1E91
+	cmp.w BA_Team
 	bne .1
 	inc.b a0
 	bra .1
@@ -68,9 +68,9 @@ SetPlList:
 	sta.b [a4],y
 	lda.b d5
 	beq .1x
-	lda.w $1E9B
+	lda.w penshot
 	beq .1x
-	lda.w $1E8F
+	lda.w BA_Skater_Offset
 	inc a
 	sta.b [a4],y
 .1x:
@@ -90,7 +90,7 @@ SetPlList:
 	inc a
 	sta.b d3
 	bne .2
-	lda.w $1E9B
+	lda.w penshot
 	beq .2
 	inc.b d3
 .2:

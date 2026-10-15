@@ -83,7 +83,7 @@ updateplayers:
 .6:
 	cpx.w passReceiverPlayerNum
 	bne .7
-	lda.w $1E89
+	lda.w onetimer
 	bne .10
 .7:
 	lda.w SPA,x

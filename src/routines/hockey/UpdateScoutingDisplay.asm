@@ -11,7 +11,7 @@ UpdateScoutingDisplay:
 .t1:
 	bvs UpdateScoutingDisplay_rtl
 .2:
-	lda.w $1D5E
+	lda.w asv
 	bmi .1
 	dec.w ScoutingReportTimer
 	bpl UpdateScoutingDisplay_rtl

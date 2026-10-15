@@ -1,6 +1,6 @@
 ; Script code %m: the visitors nickname (the third team String)
 ScoutVisNick:
-	lda.w $1CDE
+	lda.w tmdata+2
 	sta.b a1
 	bra ScoutTeamNick
 

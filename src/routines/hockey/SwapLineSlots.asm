@@ -6,7 +6,7 @@ SwapLineSlots:
 	inc a
 	sta.b a3
 	jsr.w ReadLineSlot
-	sta.w $1D93
+	sta.w lineswap
 	inc.b a3
 	inc.b a3
 	jsr.w ReadLineSlot
@@ -15,7 +15,7 @@ SwapLineSlots:
 	jsr.w WriteLineSlot
 	inc.b a3
 	inc.b a3
-	lda.w $1D93
+	lda.w lineswap
 	jsr.w WriteLineSlot
 	rts
 ; A = the byte at [a3]

@@ -10,7 +10,7 @@ SetupPenaltyShot:
 	ldx.w #$0000
 	lda.w #$0002
 	sta.b d4
-	lda.w $1E91
+	lda.w BA_Team
 	beq .1
 	ldx.w #$000C
 	lda.w #$0000
@@ -28,7 +28,7 @@ org $9FB003
 	ldx.b d4
 	lda.w teampads,x
 	beq .3
-	lda.w $1C90,x
+	lda.w goaliemode1,x
 	beq .3
 	ldy.w #$0000
 .loop:
@@ -48,7 +48,7 @@ org $9FB003
 	jsl.l PadTakeGoalie
 .3:
 	plx
-	ldy.w $1E91
+	ldy.w BA_Team
 	lda.w #$FFFF
 	sta.w tmtouch1,y
 	sta.w tmtouch2,y
@@ -59,19 +59,19 @@ org $9FB003
 	bmi .1x
 	sta.w CwdExciteLvl
 .1x:
-	lda.w $1E8D
+	lda.w BA_Sktr_SCnum
 	sta.w puckc
 	tay
-	lda.w $1E93
+	lda.w pspad
 	bmi .2x
 	sta.w playerpad,y
 .2x:
 	stz.w PenShotActive
 	inc.w PenShotActive
 	lda.w #$0001
-	sta.w $1E9D
+	sta.w penshotlive
 	lda.w #$03E8
-	sta.w $1E9F
+	sta.w pstimer
 	jsl.l ClearPenaltyBuffer
 	rtl
 .4:

@@ -2,9 +2,9 @@
 StartBreakaway:
 	jsl.l CheckBreakaway
 	lda.w IsBreakaway
-	sta.w $1E8B
+	sta.w breakaway
 	beq .rtl
-	lda.w $1E9B
+	lda.w penshot
 	bne .1
 	lda.w #$7000
 	sta.b $64
@@ -24,7 +24,7 @@ StartBreakaway:
 	bmi .3
 	ldy.w #$0002
 .3:
-	lda.w $1E9B
+	lda.w penshot
 	bne .4
 	lda.w tmBreakaways,y
 	inc a

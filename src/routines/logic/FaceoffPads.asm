@@ -1,7 +1,7 @@
 ; At a faceoff: CalcPuckDistances, restore the pad sides kept in $19F6, reset the pad / player tables ($19D4, $19EC) and give each pad a player again (findpc)
 FaceoffPads:
 	jsl.l CalcPuckDistances
-	lda.w $1E9B
+	lda.w penshot
 	bne .2
 	ldy.w #$0008
 .loop:
@@ -15,7 +15,7 @@ FaceoffPads:
 	inc a
 	inc a
 	lsr a
-	sta.w $1C84,y
+	sta.w cont1team,y
 .1:
 	dey
 	dey
@@ -70,7 +70,7 @@ FaceoffPads:
 	inc a
 	inc a
 	lsr a
-	sta.w $1C84,y
+	sta.w cont1team,y
 .6:
 	lda.w teampads+2
 	cmp.w #$0004
@@ -122,7 +122,7 @@ FaceoffPads:
 	inc a
 	inc a
 	lsr a
-	sta.w $1C84,y
+	sta.w cont1team,y
 .10:
 	stz.w benchcheer
 	ldx.w #$0016

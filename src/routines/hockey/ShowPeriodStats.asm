@@ -7,10 +7,10 @@ ShowPeriodStats:
 	jsl.l SetupScreen
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
-	stz.w $1DBD
+	stz.w listtop
 	lda.w #$0006
-	sta.w $1DC5
-	stz.w $1DB9
+	sta.w listrows
+	stz.w curitem
 	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	jsl.l DrawPeriodStats
@@ -31,8 +31,8 @@ ShowPeriodStats:
 	rtl
 
 .t2:
-	lda.w $1DB9
+	lda.w curitem
 	eor.w #$0001
-	sta.w $1DB9
+	sta.w curitem
 	jsl.l DrawPeriodStats
 	bra .1

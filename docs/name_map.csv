@@ -6793,3 +6793,103 @@ $09DA,VoiceVibSpeed,,behavior,"RAM; Vibrato step: instrument $1E, ramped by $22/
 $09EA,VoiceVibSpeedFrac,,behavior,RAM; Fraction of VoiceVibSpeed,src/ram94snes.asm
 $07FC,VoiceVolL,,behavior,"RAM; Left volume sent to the driver: SeqCmd07 APUIO2 (DSP VOL L), StepTrack command $0E; StartSoundVoice = ...",src/ram94snes.asm
 $07FE,VoiceVolR,,behavior,"RAM; Right volume: SeqCmd07 APUIO3 (DSP VOL R), StepTrack command $0E; FindFreeVoice reuses it for the new ...",src/ram94snes.asm
+$1D5E,asv,,93S,RAM; Scouting text without delays: ScoutingReport sets $FFFF while down is held and clears it at the end of the ...,src/ram94snes.asm
+$1D68,sndbank,,93S,RAM; Sample set loaded in the SPC: SPCGameUpload/SPCIntroUpload/SPCTitleUpload skip the upload when it is 1 and ...,src/ram94snes.asm
+$1C84,cont1team,,94G,"RAM; Team on pad 1 (0 none, 1 home, 2 away); StartGame turns cont1team,x into $19F6,x = (team-1)*2, ...",src/ram94snes.asm
+$1C86,cont2team,,94G,RAM; Pad 2 team word of the cont1team array (93S/94G cont2team),src/ram94snes.asm
+$1C88,cont3team,,94G,RAM; Pad 3 team word of the cont1team array (94G cont3team),src/ram94snes.asm
+$1C8A,cont4team,,94G,RAM; Pad 4 team word of the cont1team array (94G cont4team),src/ram94snes.asm
+$1C90,goaliemode1,,94G,"RAM; Home manual goalie flag, word per team indexed goaliemode1,y: StartGame copies the goalie option ($7E34C8) ...",src/ram94snes.asm
+$1C92,goaliemode2,,94G,"RAM; Visitors manual goalie flag (goaliemode1+2), set with goaliemode1 by StartGame (94G goaliemode2)",src/ram94snes.asm
+$1E3D,matchuptimer,,94G,"RAM; ScoutingReport: frames on the current matchup, the next matchup comes at 300 and paging resets it (94G ...",src/ram94snes.asm
+$1E8D,BA_Sktr_SCnum,,94G,"RAM; Penalty shot / shootout shooter object (SCnum*2, $FFFF none): Bcheck sets it on a penalty-shot foul, ...",src/ram94snes.asm
+$1E8F,BA_Skater_Offset,,94G,"RAM; Roster index of the penalty shot shooter: StartPenaltyShot = pnum of BA_Sktr_SCnum, PlayShootout = shooter ...",src/ram94snes.asm
+$1E91,BA_Team,,94G,"RAM; Shooting team of the penalty shot / shootout turn (0 home, 2 visitors): StartPenaltyShot, PlayShootout; ...",src/ram94snes.asm
+$1EA1,sopathx,,94G,RAM; assbreakaway: x of the current point of the CPU breakaway skater's path to the net (from the .10 point ...,src/ram94snes.asm
+$1EA3,sopathy,,94G,"RAM; assbreakaway: y of the current path point, negated for the bottom goal, skateto target (94G sopathy)",src/ram94snes.asm
+$1EA7,sopathpoint,,94G,"RAM; assbreakaway: index of the path point in the .10 table, cleared at the start, incremented by .9 (94G ...",src/ram94snes.asm
+$1EBD,RAMTag2,,behavior,RAM; Reset_Fast copies the 6 byte InitTag 'EACDSI' here (and to $0796 and ReplayBufferEnd) after clearing RAM; ...,src/ram94snes.asm
+$1E8B,breakaway,,behavior,"RAM; Breakaway in progress (CheckBreakaway result $1638): StartBreakaway, PenShotChk, doshot set it; Goal ...",src/ram94snes.asm
+$1E85,cardframechars,,behavior,"RAM; LoadPlayerCardScreen: first VRAM tile after the card back tiles (where CardFrameTiles go), added to every ...",src/ram94snes.asm
+$1E55,coldplayer1,,behavior,RAM; Coldest player per team (ScoutHomeCold1),src/ram94snes.asm
+$1E59,coldplayer2,,behavior,RAM; Second coldest per team (ScoutHomeCold2),src/ram94snes.asm
+$1E5D,coldplayer3,,behavior,RAM; Third coldest per team (ScoutHomeCold3),src/ram94snes.asm
+$1E6D,coldvalue1,,behavior,"RAM; Cold value of coldplayer1 per team, init $00FA",src/ram94snes.asm
+$1E71,coldvalue2,,behavior,RAM; Cold value of coldplayer2 per team,src/ram94snes.asm
+$1E75,coldvalue3,,behavior,RAM; Cold value of coldplayer3 per team,src/ram94snes.asm
+$1C8C,cont5team,,behavior,"RAM; Pad 5 (multitap) team word, the last of the five the loops over cont1team,x stop at ($0A); name extends ...",src/ram94snes.asm
+$1DD1,crowdmeterlit,,behavior,"RAM; ShowCrowdMeter: lit columns of the crowd meter (level/4), the width the CrowdMeterLitMap paste loop uses",src/ram94snes.asm
+$1DB9,curitem,,behavior,"RAM; Current item of the screen up: exit prompt choice (AskExitGame, DrawExitPrompt), card (ShowPlayerCards, ...",src/ram94snes.asm
+$1D9B,curplayer,,behavior,RAM; Roster index of the player being worked on: DrawPlayerCard/NextPlayerCard/PrevPlayerCard/DrawPlayerPicture ...,src/ram94snes.asm
+$1C94,defcontrol,,behavior,"RAM; Defense control on/off per team (word, indexed by team 0/2): PauseDefControl toggles it, Pmenu prints ...",src/ram94snes.asm
+$1D6D,gameframes,,behavior,RAM; Gameloop frames since the last faceoff: Gameloop increments it and computes $1D6D*60/$0764 (NMI frames) ...,src/ram94snes.asm
+$1E45,hotcoldsum,,behavior,RAM; ScoutingReport: per team (y 0/2) sum of rating minus base rating over the roster,src/ram94snes.asm
+$1E43,hotextreme,,behavior,RAM; ScoutingReport: 1 when the hot/cold totals differ by 8 or more; ScoutExtremely prints 'extremely ',src/ram94snes.asm
+$1E49,hotplayer1,,behavior,"RAM; ScoutingReport: hottest player per team (home, visitors at +2, $FFFF none); ScoutHomeHot1 prints it (94G ...",src/ram94snes.asm
+$1E4D,hotplayer2,,behavior,RAM; Second hottest player per team (ScoutHomeHot2),src/ram94snes.asm
+$1E51,hotplayer3,,behavior,RAM; Third hottest player per team (ScoutHomeHot3),src/ram94snes.asm
+$1E41,hotterteam,,behavior,"RAM; ScoutingReport: team number with the higher hot/cold total, $FFFF when they differ by less than 4; ...",src/ram94snes.asm
+$1E61,hotvalue1,,behavior,"RAM; ScoutingReport: hot value (rating - base rating) of hotplayer1 per team, init $FF06, compared in .t1xx",src/ram94snes.asm
+$1E65,hotvalue2,,behavior,RAM; Hot value of hotplayer2 per team,src/ram94snes.asm
+$1E69,hotvalue3,,behavior,RAM; Hot value of hotplayer3 per team,src/ram94snes.asm
+$1DED,irqline1,,behavior,"RAM; Line of the first split IRQ: SetupScrollIRQ/SetupBandIRQ store A here and SetIRQ at it, IRQ_BandEnd ...",src/ram94snes.asm
+$1DEF,irqline2,,behavior,"RAM; Line of the second split IRQ: SetupScrollIRQ/SetupBandIRQ store X, IRQ_StatsScroll1/IRQ_BandStart load ...",src/ram94snes.asm
+$1DF1,irqline3,,behavior,"RAM; Line of the third split IRQ: SetupScrollIRQ stores Y, IRQ_StatsScroll2 loads VTIME from it",src/ram94snes.asm
+$1DF3,irqvscroll1,,behavior,"RAM; BG1VOFS written by IRQ_StatsScroll1 (low byte, then $1DF4): the scroll routines step it by 2 per frame for ...",src/ram94snes.asm
+$1DF5,irqvscroll2,,behavior,"RAM; BG1VOFS of the second split, written by IRQ_StatsScroll2; ShowGameStats/ShowPlayerStats and the summary ...",src/ram94snes.asm
+$1DF7,irqvscroll3,,behavior,"RAM; BG1VOFS of the third split, written by IRQ_StatsScroll3; SetupScrollIRQ sets $FFFF",src/ram94snes.asm
+$1EAD,lastperiod,,behavior,"RAM; Period just finished: PeriodOver copies gsp, StartGame clears it, DrawPeriodStats shows the periods up to it",src/ram94snes.asm
+$1D55,lcpad,,behavior,"RAM; Per team (y = 0/2) the pad (d4) that opened the line change box, negative = none: doinput sets it and ...",src/ram94snes.asm
+$1E17,letterx,,behavior,"RAM; X of the next sprite letter: PrintLetterSprites, PrintSmallLetterSprites, PrintStringSprites, ...",src/ram94snes.asm
+$1E1B,lettery,,behavior,"RAM; Y of the sprite letters (Y on entry), passed to DrawSprite by the same routines",src/ram94snes.asm
+$1D8B,linecursor,,behavior,"RAM; Line editor slot cursor row: EditLinesScreen starts it at 4 and moves it within 0..lineslots-1, ...",src/ram94snes.asm
+$1D97,linemenuitem,,behavior,"RAM; EditLinesMenu item: 0 Return to Game, 1 Restore default lines (down/up set it, the button acts on it, ...",src/ram94snes.asm
+$1D8F,lineplayer,,behavior,"RAM; SetLineSlot: the player being put in the cursor slot (A on entry), compared with the slots for the swap ...",src/ram94snes.asm
+$1D9F,lineslots,,behavior,"RAM; Rows (slots) of the line being edited: EditLinesScreen sets 5, drops it to 4 for lines 6-7 and back; ...",src/ram94snes.asm
+$1D93,lineswap,,behavior,RAM; Temporary slot byte while SetLineSlot (.5) and SwapLineSlots swap two line slots,src/ram94snes.asm
+$1DA3,listcount,,behavior,RAM; Size of the current list: the defense/forward (SelectLinePlayer) or skater (ShooterSelectList) count of ...,src/ram94snes.asm
+$1DC1,listend,,behavior,"RAM; End of the current list: penalty count ($163C), goal count, other games + 1, last player card (players+6), ...",src/ram94snes.asm
+$1DC5,listrows,,behavior,"RAM; Rows of a scrolled stats list in the window / sent to VRAM (5 summaries, 6 game stats, 7 player stats; one ...",src/ram94snes.asm
+$1DBD,listtop,,behavior,"RAM; First row shown of a scrolled stats list (game stats, penalty/scoring summaries, other scores: ...",src/ram94snes.asm
+$1E3F,matchuphold,,behavior,"RAM; ScoutingReport: $FFFF once a pad paged the matchups (A/C/Y), stops the automatic paging and the screentimer",src/ram94snes.asm
+$1E89,onetimer,,behavior,RAM; A one-timer shot is under way: asspassrec sets 1 when the receiver shoots the pass directly (counts ...,src/ram94snes.asm
+$1E1F,otgoalscorer,,behavior,"RAM; ShowStars: player (+$1A for visitors, $FFFF none) taken from a goal entry whose period field is 3 ...",src/ram94snes.asm
+$1DE9,otherskip,,behavior,"RAM; Other scores: 1 when FillOtherScores skipped the user's game ($7E35D6), added into the row math of ...",src/ram94snes.asm
+$1E9B,penshot,,behavior,"RAM; Penalty shot pending / under way: StartPenaltyShot sets 1, EndPenaltyShot and StartGame clear; Goal, ...",src/ram94snes.asm
+$1E9D,penshotlive,,behavior,"RAM; Set 1 by SetupPenaltyShot when the shot starts, cleared by puckfaceoff (.9) and StartGame; ...",src/ram94snes.asm
+$1E87,picattr,,behavior,"RAM; DrawPlayerPicture: map attribute (palette) of the picture, $3400 home / $2400 visitors, added to the ...",src/ram94snes.asm
+$1DAB,pickfirst,,behavior,"RAM; Pick list: roster index of the first player of the listed category (goalie count, + forwards for defense), ...",src/ram94snes.asm
+$1DAF,pickrows,,behavior,"RAM; Line editor pick list rows shown = min(9, listcount) (SelectLinePlayer), bound of the cursor, used by ...",src/ram94snes.asm
+$1DA7,picktop,,behavior,"RAM; Pick list (line editor, shootout shooters): roster index of the first player shown; ...",src/ram94snes.asm
+$1EB9,pmenucount,,behavior,RAM; Items in that pause menu list (PauseMenu/ChoosePauseMenu set it with pmenulist); bounds psitem and psfirst,src/ram94snes.asm
+$1EB7,pmenulist,,behavior,"RAM; Pause menu list shown (0-5): PauseMenu/ChoosePauseMenu pick it, Pmenu prints items and values by it, ...",src/ram94snes.asm
+$1EBB,pregamepause,,behavior,"RAM; StartGame sets 1 when any pad has a team; StartPer then opens the pause menu at the start (startpause), ...",src/ram94snes.asm
+$1E97,psfoxsave,,behavior,RAM; StartPenaltyShot saves the faceoff spot x ($7E3136) here and zeroes it; EndPenaltyShot puts it back into ...,src/ram94snes.asm
+$1E99,psfoysave,,behavior,RAM; StartPenaltyShot saves the faceoff spot y ($7E3138); EndPenaltyShot puts it into $7E30FA (last touch y),src/ram94snes.asm
+$1E93,pspad,,behavior,"RAM; Pad index (into $19F6) controlling the penalty shooter, $FFFF none: Bcheck copies $19D4,y, PlayShootout ...",src/ram94snes.asm
+$1E9F,pstimer,,behavior,"RAM; Penalty shot time limit: SetupPenaltyShot sets 1000, Gameloop subtracts d7 outside the shootout and calls ...",src/ram94snes.asm
+$1DCD,scrollirqdone,,behavior,RAM; IRQ_StatsScroll1 sets $FFFF each frame; the unused waits in ScrollGameStatsDown (.t1) and OtherScoresRtl ...,src/ram94snes.asm
+$1D89,shootoutdecider,,behavior,RAM; PlayShootout sets 0 before each round and 1 before the home team's turn from round 5 on; ShootoutWonBy ...,src/ram94snes.asm
+$1D81,shootoutmode,,behavior,"RAM; Nonzero during the shootout: PlayShootout sets 1 and clears it at the end, Opening clears it; ...",src/ram94snes.asm
+$1D83,shootoutstop,,behavior,"RAM; Shootout turn whistle: PlayShootout .t1 clears it, SetPA sets 1 in shootoutmode when the ref animation is ...",src/ram94snes.asm
+$1D87,shootoutturnover,,behavior,"RAM; Shootout turn finished: cleared at each PlayShootout turn, incremented by puckfaceoff after shootoutstop; ...",src/ram94snes.asm
+$1EAB,sopathface,,behavior,RAM; assbreakaway: facedir when the last path point was taken; the shot comes when facedir moves away from it,src/ram94snes.asm
+$1EA5,sopathnext,,behavior,"RAM; assbreakaway: distance toward the goal at which the next path point is taken (.9); negative = last point, ...",src/ram94snes.asm
+$1EA9,sopathside,,behavior,"RAM; assbreakaway: x side of the path (first point x, signed by pfgoal); sopathx is negated by it and a ...",src/ram94snes.asm
+$1E2B,star1,,behavior,"RAM; ShowStars: first star (player index, +$1A for visitors until printing)",src/ram94snes.asm
+$1E31,star1score,,behavior,"RAM; ShowStars: 32-bit score of star1 (low word compared with d0, high at +2 with $A7)",src/ram94snes.asm
+$1E2D,star2,,behavior,RAM; ShowStars: second star,src/ram94snes.asm
+$1E35,star2score,,behavior,RAM; ShowStars: 32-bit score of star2,src/ram94snes.asm
+$1E2F,star3,,behavior,RAM; ShowStars: third star,src/ram94snes.asm
+$1E39,star3score,,behavior,RAM; ShowStars: 32-bit score of star3,src/ram94snes.asm
+$1E23,stargoalieend,,behavior,"RAM; ShowStars: end of the team's goalie indexes (GoalieCount, +$1A for visitors); below it the goalie scoring ...",src/ram94snes.asm
+$1E21,starplayerend,,behavior,"RAM; ShowStars: end of the team's player indexes in the scan (GetPlayerCount, +$1A for visitors)",src/ram94snes.asm
+$1E25,starswapplayer,,behavior,RAM; ShowStars: player pushed down a place while inserting into the three stars,src/ram94snes.asm
+$1E27,starswapscore,,behavior,"RAM; ShowStars: 32-bit star score (low word, high word at +2) of the player pushed down while inserting",src/ram94snes.asm
+$1DF9,statcolumn,,behavior,"RAM; Player stats page column: 0 = goalies, 1-5 = skater sort column; left/right in ShowPlayerStats, ...",src/ram94snes.asm
+$1E15,statpenrows,,behavior,"RAM; Game stats: $10 when penalties are on, 0 when off (ShowGameStats); PrintTeamStatRows ORs it with each ...",src/ram94snes.asm
+$1DFB,statsorder,,behavior,"RAM; Player stats row order, a byte per roster player (InitStatsOrder fills 0,1,2..; ...",src/ram94snes.asm
+$1DC9,statstemp,,behavior,"RAM; Player stats scratch: ComparePlayerStats returns nonzero to swap and uses it as a temp, SortPlayerStats ...",src/ram94snes.asm
+$1E79,strengths,,behavior,"RAM; Player card best three ratings as (column, rating) word pairs: FindSkaterStrengths/FindGoalieStrengths ...",src/ram94snes.asm
+$1EB3,teambit,,behavior,"RAM; InitializeGameStructures: 1 << (team & $F), tested and ORed into the used-team bit sets $B3 / d3",src/ram94snes.asm
+$1EAF,teamtaken,,behavior,RAM; InitializeGameStructures: nonzero when the random team's bit was already set (pick again),src/ram94snes.asm

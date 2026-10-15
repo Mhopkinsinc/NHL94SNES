@@ -1,15 +1,15 @@
 ; Show the previous player card.
 PrevPlayerCard:
-	lda.w $1DB9
+	lda.w curitem
 	beq PlayerCardsWait
-	dec.w $1DB9
-	lda.w $1DB9
+	dec.w curitem
+	lda.w curitem
 	sec
 	sbc.w #$0007
 	bmi .2
 	inc a
 	inc a
-	sta.w $1D9B
+	sta.w curplayer
 	ldy.b a2
 	lda.w #$009C
 	sta.b $97
@@ -20,24 +20,24 @@ PrevPlayerCard:
 	adc.b [a3],y
 	sta.b a3
 .loop:
-	dec.w $1D9B
+	dec.w curplayer
 	beq .1
 	bmi .1
 	ldy.w #$0000
 .loop2:
 	lda.b [a3],y
 	and.w #$00FF
-	cmp.w $1D9B
+	cmp.w curplayer
 	beq .loop
 	iny
 	cpy.w #$0006
 	bmi .loop2
 .1:
-	dec.w $1D9B
-	lda.w $1D9B
+	dec.w curplayer
+	lda.w curplayer
 	clc
 	adc.w #$0007
-	sta.w $1DB9
+	sta.w curitem
 .2:
 	jsl.l DrawPlayerCard
 	jmp.w PlayerCardsRedraw

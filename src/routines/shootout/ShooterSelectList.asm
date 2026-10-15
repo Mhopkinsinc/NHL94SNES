@@ -49,19 +49,19 @@ ShooterSelectList:
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	lda.w #$0007
-	sta.w $1DEF
+	sta.w irqline2
 	jsl.l GetPlayerCount
 	lda.b d0
-	sta.w $1DA3
+	sta.w listcount
 	jsl.l GoalieCount
-	lda.w $1DA3
+	lda.w listcount
 	sec
 	sbc.b d0
-	sta.w $1DA3
+	sta.w listcount
 	lda.b d0
-	sta.w $1DAB
+	sta.w pickfirst
 	lda.b d0
-	sta.w $1DA7
+	sta.w picktop
 	lda.w #$0000
 	sta.b a3+2
 	lda.w #homeshooters
@@ -75,39 +75,39 @@ ShooterSelectList:
 .list:
 	lda.b a3
 	clc
-	adc.w $1DB9
+	adc.w curitem
 	sta.b a3
 	lda.b [a3]
 	and.w #$00FF
 	dec a
-	sta.w $1D9B
+	sta.w curplayer
 	lda.w #$0008
 	clc
-	adc.w $1DA7
+	adc.w picktop
 	sec
-	sbc.w $1D9B
+	sbc.w curplayer
 	bpl .t1
-	lda.w $1D9B
+	lda.w curplayer
 	sec
 	sbc.w #$0008
 	sec
-	sbc.w $1DA7
+	sbc.w picktop
 	bmi .zero
 	clc
-	adc.w $1DA7
-	sta.w $1DA7
+	adc.w picktop
+	sta.w picktop
 .zero:
 	lda.w #$0000
 	bra .1
 
 .t1:
-	lda.w $1DA7
+	lda.w picktop
 	clc
 	adc.w #$0008
 	sec
-	sbc.w $1D9B
+	sbc.w curplayer
 .1:
-	sta.w $1D9B
+	sta.w curplayer
 	jsl.l PrintShooterList
 .2:
 	jsl.l SendTextMap
@@ -153,46 +153,46 @@ ShooterSelectList:
 	jmp.w .2
 
 .t3:
-	lda.w $1D9B
+	lda.w curplayer
 	dec a
 	bmi .t5
-	sta.w $1D9B
+	sta.w curplayer
 	jsl.l PrintShooterList
 	jmp.w .2
 
 .t4:
-	lda.w $1D9B
+	lda.w curplayer
 	inc a
 	cmp.w #$0009
 	bpl .t6
-	sta.w $1D9B
+	sta.w curplayer
 	jsl.l PrintShooterList
 	jmp.w .2
 
 .t5:
-	lda.w $1DA7
+	lda.w picktop
 	sec
-	sbc.w $1DAB
+	sbc.w pickfirst
 	clc
 	adc.w #$0009
-	cmp.w $1DA3
+	cmp.w listcount
 	bmi .t1xx
 	jmp.w .2
 
 .t1xx:
-	inc.w $1DA7
+	inc.w picktop
 	jsl.l PrintShooterList
 	jmp.w .2
 
 .t6:
-	lda.w $1DA7
+	lda.w picktop
 	dec a
-	cmp.w $1DAB
+	cmp.w pickfirst
 	bpl .t1x2
 	jmp.w .2
 
 .t1x2:
-	dec.w $1DA7
+	dec.w picktop
 	jsl.l PrintShooterList
 org $80D001
 	jmp.w .2

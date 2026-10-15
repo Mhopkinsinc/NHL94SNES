@@ -216,15 +216,15 @@ puckfaceoff2:
 
 .t1x:
 	beq .5
-	lda.w $1E9B
+	lda.w penshot
 	beq .2xxx
 	phx
 	ldx.w #$0008
-	lda.w $1E91
+	lda.w BA_Team
 	beq .1xxx
 	ldx.w #$0014
 .1xxx:
-	lda.w $1E8F
+	lda.w BA_Skater_Offset
 	sta.w pnum,x
 	sta.b d3
 	plx
@@ -274,7 +274,7 @@ puckfaceoff2:
 	clc
 	adc.b d4
 	sta.b a1
-	lda.w $1E9B
+	lda.w penshot
 	beq .7
 	lda.w #$009F
 	sta.b $8F
@@ -406,24 +406,24 @@ puckfaceoff2:
 	sta.b a3
 	pla
 	sta.b $97
-	lda.w $1E9B
+	lda.w penshot
 	beq .6x
 	ldx.w #$0008
 .loopxx:
 	lda.w padside,x
-	cmp.w $1E91
+	cmp.w BA_Team
 	bne .2xxxx
-	cpx.w $1E93
+	cpx.w pspad
 	beq .2xxxx
 .1xxxx:
 	ora.w #$8000
 	sta.w padside,x
-	stz.w $1C84,x
+	stz.w cont1team,x
 .2xxxx:
 	dex
 	dex
 	bpl .loopxx
-	lda.w $1E91
+	lda.w BA_Team
 	eor.w #$0002
 	sta.b d0
 	tax
@@ -453,7 +453,7 @@ puckfaceoff2:
 .4xx:
 	ora.w #$8000
 	sta.w padside,x
-	stz.w $1C84,x
+	stz.w cont1team,x
 .5x:
 	dex
 	dex
@@ -533,7 +533,7 @@ puckfaceoff2:
 	lda.l FaceOffMap+2
 	sta.b $C8
 	clc
-	lda.w $1E9B
+	lda.w penshot
 	bne .t2xx
 .loop4:
 	lda.l FaceOffMap
@@ -571,11 +571,11 @@ puckfaceoff2:
 	lda.w #$0008
 	sta.b d1
 	jsl.l Framer
-	lda.w $1E91
+	lda.w BA_Team
 	sta.b a2
 	lda.w #$0005
 	sta.w printy
-	lda.w $1E8F
+	lda.w BA_Skater_Offset
 	sta.b d0
 	jsl.l PlayerInitialName
 	lda.w #$0014
@@ -603,7 +603,7 @@ puckfaceoff2:
 	pla
 	sta.b $8F
 	inc.w printy
-	lda.w $1E91
+	lda.w BA_Team
 	eor.w #$0002
 	sta.b a2
 	tay
@@ -622,7 +622,7 @@ puckfaceoff2:
 	sta.w printx
 	lda.w #$0002
 	sta.w printy
-	lda.w $1D81
+	lda.w shootoutmode
 	beq .t1xxx
 	lda.w #ShootoutPenShot>>16
 	sta.b $8F
@@ -642,8 +642,8 @@ puckfaceoff2:
 	lda.l $7E34C6
 	beq .3xxxx
 .1xxxxx:
-	lda.w $1E9B
-	ora.w $1E9D
+	lda.w penshot
+	ora.w penshotlive
 	bne .3xxxx
 	lda.w printy
 	clc
@@ -692,7 +692,7 @@ puckfaceoff2:
 	sta.b d0
 	ldx.b a3
 	sta.w temp1,x
-	lda.w $1E9B
+	lda.w penshot
 	beq .4xxx
 	lda.w #$00B4
 	sta.w temp1,x
@@ -752,7 +752,7 @@ puckfaceoff2:
 	sbc.b tmp0
 	sta.w temp1,x
 	bpl updatefaceoff
-	lda.w $1E9B
+	lda.w penshot
 	beq .t1xxxx
 	jsl.l Endfaceoff
 	jmp.w SetupPenaltyShot
@@ -760,7 +760,7 @@ puckfaceoff2:
 .t1xxxx:
 	stz.w PenShotActive
 	lda.w #$FFFF
-	sta.w $1E8D
+	sta.w BA_Sktr_SCnum
 	jmp.w Endfaceoff
 .19:
 	db $00,$01,$02,$03,$04,$05,$06,$00

@@ -6,8 +6,8 @@ puckglue:
 	lda.w #$0003
 	jsl.l PuckSfx
 	jsl.l EndPenaltyShot
-	stz.w $1E8B
-	stz.w $1E89
+	stz.w breakaway
+	stz.w onetimer
 .1:
 	ldy.b a2
 	sty.w puckc

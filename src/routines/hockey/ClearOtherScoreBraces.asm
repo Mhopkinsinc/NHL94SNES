@@ -2,9 +2,9 @@
 ClearOtherScoreBraces:
 	lda.w #$0004
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	asl a
-	adc.w $1DBD
+	adc.w listtop
 	sta.w printy
 	lda.w #$2000
 	sta.w printa
@@ -15,9 +15,9 @@ ClearOtherScoreBraces:
 	jsl.l PrintToStatsPage
 	lda.w #$0004
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	dec a
 	sta.b $14
 	asl a

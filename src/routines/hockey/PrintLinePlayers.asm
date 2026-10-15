@@ -80,7 +80,7 @@ PrintLinePlayers:
 	lda.w #$3800
 	sta.w printa
 	lda.b d1
-	cmp.w $1D8B
+	cmp.w linecursor
 	bne .1x
 	lda.w #$2000
 	sta.w printa

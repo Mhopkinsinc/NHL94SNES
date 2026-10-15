@@ -6,9 +6,9 @@ ShowPenaltySummary:
 	sta.l $7E3452
 	jsl.l SetupScreen
 	lda.w #$0000
-	sta.w $1DB9
-	sta.w $1DBD
-	sta.w $1DC1
+	sta.w curitem
+	sta.w listtop
+	sta.w listend
 	ldx.w #$0058
 	ldy.w #$0018
 	lda.w #PenaltiesLabel>>16
@@ -38,8 +38,8 @@ ShowPenaltySummary:
 	pla
 	sta.b $8F
 	lda.w PenSumLength
-	sta.w $1DC1
-	lda.w $1DC1
+	sta.w listend
+	lda.w listend
 	cmp.w #$0006
 	bcc .2
 .1:
@@ -54,7 +54,7 @@ ShowPenaltySummary:
 	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	lda.w #$0005
-	sta.w $1DC5
+	sta.w listrows
 	jsr.w DrawPenaltyPage
 PenaltySummaryLoop:
 	jsl.l ReadPausePad

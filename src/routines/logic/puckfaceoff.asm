@@ -1,11 +1,11 @@
 ; Assignment: the puck at the start of play
 puckfaceoff:
 	stz.w CrowdLoud
-	lda.w $1D81
+	lda.w shootoutmode
 	beq .t4
-	lda.w $1D83
+	lda.w shootoutstop
 	beq .t4
-	inc.w $1D87
+	inc.w shootoutturnover
 	rtl
 
 .t4:
@@ -60,23 +60,23 @@ puckfaceoff:
 	jmp.w .9
 
 .t2xx:
-	lda.w $1E9B
-	ora.w $1E9D
+	lda.w penshot
+	ora.w penshotlive
 	beq .t1xxx
 	jmp.w .9
 
 .t1xxx:
 	lda.w #$FFFF
-	sta.w $1D55
-	sta.w $1D57
+	sta.w lcpad
+	sta.w lcpad+2
 	lda.w #$0008
 	trb.w tmflags
 	trb.w tmflags+2
-	lda.w $1C84
-	ora.w $1C86
-	ora.w $1C88
-	ora.w $1C8A
-	ora.w $1C8C
+	lda.w cont1team
+	ora.w cont2team
+	ora.w cont3team
+	ora.w cont4team
+	ora.w cont5team
 	beq .1xx2
 	lda.w sfhormode
 	beq .1xx2
@@ -117,27 +117,27 @@ puckfaceoff:
 
 .t1:
 	lda.b d0
-	cmp.w $1C84
+	cmp.w cont1team
 	bne .t3x
 	jmp.w .8
 
 .t3x:
-	cmp.w $1C86
+	cmp.w cont2team
 	bne .t1xxxx
 	jmp.w .8
 
 .t1xxxx:
-	cmp.w $1C88
+	cmp.w cont3team
 	bne .t2
 	jmp.w .8
 
 .t2:
-	cmp.w $1C8A
+	cmp.w cont4team
 	bne .t1xxxxx
 	jmp.w .8
 
 .t1xxxxx:
-	cmp.w $1C8C
+	cmp.w cont5team
 	bne .4
 	jmp.w .8
 .4:
@@ -178,7 +178,7 @@ puckfaceoff:
 	ldy.w #$0002
 .1xxxx:
 	lda.w #$FFFF
-	sta.w $1D55,y
+	sta.w lcpad,y
 	jsl.l SetLCmode
 	ply
 	sty.b a2
@@ -216,7 +216,7 @@ puckfaceoff:
 .8:
 	rtl
 .9:
-	stz.w $1E9D
+	stz.w penshotlive
 	stz.b d0
 	jsl.l .t1xxxxxxx
 	lda.w #$0020

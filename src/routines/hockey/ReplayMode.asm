@@ -698,7 +698,7 @@ org $9BB001
 	lda.w SoundFadeSpeed
 	bne .loopxx
 	jsl.l forceblack
-	lda.w $1D81
+	lda.w shootoutmode
 	bne .1xxxxxxxxxxxxxx
 	lda.w replaymusic
 	beq .1xxxxxxxxxxxxxx

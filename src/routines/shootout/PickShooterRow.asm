@@ -1,6 +1,6 @@
 ; button on a row: the goalie row cycles the goalie, a shooter row opens ShooterSelectList
 PickShooterRow:
-	lda.w $1DB9
+	lda.w curitem
 	bne ShooterSelectList
 	jsl.l GoalieCount
 	lda.w #homeshooters>>16

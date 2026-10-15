@@ -42,12 +42,12 @@ Bcheck:
 	jsl.l FallDown
 	jsl.l PenShotChk
 	beq .t2
-	lda.w $1E8D
+	lda.w BA_Sktr_SCnum
 	bpl .t2
 	ldy.b a2
-	sty.w $1E8D
+	sty.w BA_Sktr_SCnum
 	lda.w playerpad,y
-	sta.w $1E93
+	sta.w pspad
 	lda.w #$0024
 	sta.b d0
 	jsl.l AddPenalty

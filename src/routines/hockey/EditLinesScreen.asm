@@ -15,9 +15,9 @@ EditLinesScreen:
 	jsl.l SetupScreen
 	jsl.l DrawEditLinesTop
 	lda.w #$0005
-	sta.w $1D9F
+	sta.w lineslots
 	dec a
-	sta.w $1D8B
+	sta.w linecursor
 	jsl.l PrintLineNames
 	lda.w #$0005
 	ldx.w #$0068
@@ -118,11 +118,11 @@ EditLinesScreen:
 .1x:
 	lda.b d0
 	clc
-	adc.w $1D8B
+	adc.w linecursor
 	bmi .5
-	cmp.w $1D9F
+	cmp.w lineslots
 	bpl .5
-	sta.w $1D8B
+	sta.w linecursor
 	jsl.l PrintLineNames
 	jmp.w .5
 
@@ -140,21 +140,21 @@ EditLinesScreen:
 	sta.w SelectedPlayerIdx
 	cmp.w #$0006
 	bmi .t1x2
-	lda.w $1D9F
+	lda.w lineslots
 	cmp.w #$0004
 	beq .4
-	dec.w $1D9F
-	lda.w $1D8B
+	dec.w lineslots
+	lda.w linecursor
 	beq .4
-	dec.w $1D8B
+	dec.w linecursor
 	bra .4
 
 .t1x2:
-	lda.w $1D9F
+	lda.w lineslots
 	cmp.w #$0005
 	beq .4
-	inc.w $1D9F
-	inc.w $1D8B
+	inc.w lineslots
+	inc.w linecursor
 .4:
 	jsl.l PrintLineNames
 .5:

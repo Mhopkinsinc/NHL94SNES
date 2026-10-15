@@ -152,12 +152,12 @@ org $9EA001
 .1xx:
 	jsl.l PenShotChk
 	beq .2x
-	lda.w $1E8D
+	lda.w BA_Sktr_SCnum
 	bpl .2x
 	ldy.b a2
-	sty.w $1E8D
+	sty.w BA_Sktr_SCnum
 	lda.w playerpad,y
-	sta.w $1E93
+	sta.w pspad
 	lda.w #$0024
 	sta.b d0
 	jsl.l AddPenalty

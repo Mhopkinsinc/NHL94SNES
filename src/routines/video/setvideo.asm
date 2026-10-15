@@ -38,7 +38,7 @@ setvideo:
 	rtl
 
 .t3:
-	lda.w $1EBB
+	lda.w pregamepause
 	bne .rtl
 	lda.w sflags
 	and.w #$0800

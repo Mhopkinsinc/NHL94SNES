@@ -1,10 +1,10 @@
 ; The player select screen after the game setup: each pad moves its icon under the visitors or home team ($1C84-$1C8C), start goes on
 PlayerSelect:
-	stz.w $1C84
-	stz.w $1C86
-	stz.w $1C88
-	stz.w $1C8A
-	stz.w $1C8C
+	stz.w cont1team
+	stz.w cont2team
+	stz.w cont3team
+	stz.w cont4team
+	stz.w cont5team
 	lda.l $7E34CC
 	bne .t1
 	rtl
@@ -55,9 +55,9 @@ PlayerSelect:
 	cmp.w #$0004
 	bcs .2
 	lda.w #$0001
-	sta.w $1C84
+	sta.w cont1team
 	jsl.l FigureJoy
-	lda.w $1C84
+	lda.w cont1team
 	dec a
 	beq .1
 	lda.w VisTeam
@@ -67,7 +67,7 @@ PlayerSelect:
 	inc.b $AB
 .2:
 	lda.w #$0001
-	sta.w $1C84
+	sta.w cont1team
 .3:
 	lda.b d1
 	pha
@@ -254,7 +254,7 @@ PlayerSelect:
 	beq .t1xxxx
 .1xx:
 	lda.w #$0000
-	sta.w $1C84,x
+	sta.w cont1team,x
 	jmp.w .10
 
 .t1xxxx:
@@ -269,7 +269,7 @@ PlayerSelect:
 	ldx.w #$0000
 	lda.w #$0000
 .loopx:
-	ora.w $1C84,x
+	ora.w cont1team,x
 	inx
 	inx
 	cpx.w #$000A
@@ -286,7 +286,7 @@ PlayerSelect:
 	txa
 	asl a
 	tay
-	lda.w $1C84,y
+	lda.w cont1team,y
 	beq .2x
 	sta.b $14
 	txa
@@ -296,7 +296,7 @@ PlayerSelect:
 	lda.b $16
 	asl a
 	tay
-	lda.w $1C84,y
+	lda.w cont1team,y
 	cmp.b $14
 	beq .t2xx
 	dec.b $16
@@ -429,30 +429,30 @@ PlayerSelect:
 .6:
 	bit.w #$0200
 	beq .9
-	lda.w $1C84,x
+	lda.w cont1team,x
 	beq .8
 	cmp.w #$0001
 	bne .10
 .7:
 	lda.w #$0000
-	sta.w $1C84,x
+	sta.w cont1team,x
 	bra .10
 .8:
 	lda.b $AB
 	bne .10
 	lda.w #$0002
-	sta.w $1C84,x
+	sta.w cont1team,x
 	bra .10
 .9:
 	bit.w #$0100
 	beq .10
-	lda.w $1C84,x
+	lda.w cont1team,x
 	cmp.w #$0001
 	beq .10
 	cmp.w #$0002
 	beq .7
 	lda.w #$0001
-	sta.w $1C84,x
+	sta.w cont1team,x
 .10:
 	inx
 	inx
@@ -511,7 +511,7 @@ PlayerSelect:
 	asl a
 	asl a
 	clc
-	adc.w $1C84,y
+	adc.w cont1team,y
 	asl a
 	tax
 	lda.l .11,x
@@ -533,7 +533,7 @@ PlayerSelect:
 	asl a
 	asl a
 	clc
-	adc.w $1C84,y
+	adc.w cont1team,y
 	asl a
 	tax
 	lda.l .11,x

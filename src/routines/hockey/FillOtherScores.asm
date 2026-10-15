@@ -9,7 +9,7 @@ FillOtherScores:
 	clc
 	adc.l printfontset
 	jsl.l MemFill
-	lda.w $1DC1
+	lda.w listend
 	cmp.w #$0001
 	beq .4
 	lda.w #$2400
@@ -17,25 +17,25 @@ FillOtherScores:
 	lda.w #$0000
 	sta.w printy
 	lda.b $00
-	sta.w $1DB9
-	stz.w $1DE9
+	sta.w curitem
+	stz.w otherskip
 .2:
 	cmp.l $7E35D6
 	bne .t1
 .1:
-	inc.w $1DE9
+	inc.w otherskip
 	bra .3
 
 .t1:
-	lda.w $1DB9
-	cmp.w $1DC1
+	lda.w curitem
+	cmp.w listend
 	beq .4
 	jsr.w PrintOtherScore
 	inc.w printy
 .3:
-	lda.w $1DB9
+	lda.w curitem
 	inc a
-	sta.w $1DB9
+	sta.w curitem
 	bra .2
 .4:
 	rtl

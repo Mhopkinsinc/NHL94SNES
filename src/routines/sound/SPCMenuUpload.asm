@@ -1,12 +1,12 @@
 ; Upload the menu sample set (MenuSampleList, sound table MenuSfxTable) and mark $1D68 = 2, unless it is loaded
 SPCMenuUpload:
 	stz.w cursong
-	lda.w $1D68
+	lda.w sndbank
 	cmp.w #$0002
 	beq .1
 	jsl.l forceblack
 	lda.w #$0002
-	sta.w $1D68
+	sta.w sndbank
 	sep #$20
 	dec.w SoundLock
 	rep #$20

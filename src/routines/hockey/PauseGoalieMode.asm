@@ -5,8 +5,8 @@ PauseGoalieMode:
 	beq .1
 	jsl.l GetPadTeam
 	ldy.b a2
-	lda.w $1C90,y
+	lda.w goaliemode1,y
 	eor.w #$0001
-	sta.w $1C90,y
+	sta.w goaliemode1,y
 .1:
 	jmp.w PauseMenuPoll

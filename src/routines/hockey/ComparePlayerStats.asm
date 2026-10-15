@@ -5,34 +5,34 @@ ComparePlayerStats:
 	lda.b d0
 	pha
 	sep #$20
-	lda.w $1DFB,y
+	lda.w statsorder,y
 	rep #$20
 	and.w #$00FF
 	tay
 	sep #$20
-	lda.w $1DFB,x
+	lda.w statsorder,x
 	rep #$20
 	and.w #$00FF
 	tax
-	stx.w $1DC9
+	stx.w statstemp
 	lda.b a2
 	beq .2
 .1:
 	lda.w #$001A
 .2:
 	clc
-	adc.w $1DC9
+	adc.w statstemp
 	tax
-	sty.w $1DC9
+	sty.w statstemp
 	lda.b a2
 	beq .4
 .3:
 	lda.w #$001A
 .4:
 	clc
-	adc.w $1DC9
+	adc.w statstemp
 	tay
-	lda.w $1DF9
+	lda.w statcolumn
 	cmp.w #$0001
 	beq .t3
 .5:
@@ -88,16 +88,16 @@ ComparePlayerStats:
 	lda.w tmgoals,x
 	rep #$20
 	and.w #$00FF
-	sta.w $1DC9
+	sta.w statstemp
 	sep #$20
 	lda.w passists,x
 	rep #$20
 	and.w #$00FF
 	clc
-	adc.w $1DC9
-	sta.w $1DC9
+	adc.w statstemp
+	sta.w statstemp
 	lda.b d0
-	cmp.w $1DC9
+	cmp.w statstemp
 	beq .6
 	bmi .6
 	bra .7
@@ -120,11 +120,11 @@ ComparePlayerStats:
 	bpl .7
 .6:
 	lda.w #$0000
-	sta.w $1DC9
+	sta.w statstemp
 	bra .8
 .7:
 	lda.w #$0001
-	sta.w $1DC9
+	sta.w statstemp
 .8:
 	pla
 	sta.b d0

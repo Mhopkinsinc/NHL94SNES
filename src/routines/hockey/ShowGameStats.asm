@@ -50,28 +50,28 @@ ShowGameStats:
 	lda.w #$2BFF
 	sta.l $7F7522
 	jsl.l SendColours
-	stz.w $1DBD
+	stz.w listtop
 	lda.w #$0006
-	sta.w $1DC5
+	sta.w listrows
 	lda.w #$0010
-	sta.w $1DA3
+	sta.w listcount
 	lda.w #$0010
-	sta.w $1E15
+	sta.w statpenrows
 	lda.l OptPen
 	bne .2
 .1:
 	lda.w #$000B
-	sta.w $1DA3
+	sta.w listcount
 	lda.w #$0000
-	sta.w $1E15
+	sta.w statpenrows
 .2:
-	dec.w $1DA3
+	dec.w listcount
 	lda.w #$0060
 	ldx.w #$00C8
 	ldy.w #$00D8
 	jsl.l SetupScrollIRQ
 	lda.w #$0010
-	sta.w $1DF5
+	sta.w irqvscroll2
 	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	jsr.w PrintTeamStatRows

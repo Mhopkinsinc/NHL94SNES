@@ -4,7 +4,7 @@ PulsePauseSide:
 	beq .2
 	ldx.w pausepad
 	bmi .2
-	lda.w $1C84,x
+	lda.w cont1team,x
 	beq .2
 	dec a
 	beq .t1

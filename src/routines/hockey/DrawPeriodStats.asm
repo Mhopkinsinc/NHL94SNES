@@ -113,7 +113,7 @@ DrawPeriodStats:
 	bra .2
 
 .t1:
-	cpx.w $1EAD
+	cpx.w lastperiod
 	beq .t2
 	bmi .t2
 	jmp.w .3
@@ -133,7 +133,7 @@ DrawPeriodStats:
 	tax
 	lda.w #$2000
 	sta.w printa
-	lda.w $1DB9
+	lda.w curitem
 	beq .t1x
 .1:
 	lda.b d4

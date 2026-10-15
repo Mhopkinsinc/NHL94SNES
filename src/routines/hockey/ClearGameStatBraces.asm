@@ -2,7 +2,7 @@
 ClearGameStatBraces:
 	lda.w #$0001
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	asl a
 	sta.w printy
 	lda.w #$2000
@@ -14,9 +14,9 @@ ClearGameStatBraces:
 	jsl.l PrintToStatsPage
 	lda.w #$0001
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	asl a
 	sta.w printy
 	lda.w #$2000
@@ -29,14 +29,14 @@ ClearGameStatBraces:
 	rts
 
 SendGameStatsPage:
-	lda.w $1DBD
+	lda.w listtop
 	xba
 	lsr a
 	adc.w #$2780
 	sta.b $0C
 	lda.w #$007F
 	sta.b $0E
-	lda.w $1DC5
+	lda.w listrows
 	inc a
 	xba
 	lsr a

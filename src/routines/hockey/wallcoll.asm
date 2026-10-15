@@ -178,7 +178,7 @@ org $9E9000
 	lda.w puckc
 	bpl .rtl
 	jsl.l EndPenaltyShot
-	stz.w $1E8B
-	stz.w $1E89
+	stz.w breakaway
+	stz.w onetimer
 .rtl:
 	rtl

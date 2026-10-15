@@ -35,24 +35,24 @@ assbreakaway:
 	stz.w temp2,x
 	lda.w #$0008
 	sta.w temp2b,x
-	stz.w $1EA7
+	stz.w sopathpoint
 	lda.w seed
 	and.w #$0003
 	sta.w temp3,x
 	jsr.w .11
 .1x:
-	lda.w $1EA5
+	lda.w sopathnext
 	bmi .4
 	lda.b d0
-	cmp.w $1EA5
+	cmp.w sopathnext
 	bmi .3
 	jsr.w .9
 	lda.w facedir,x
-	sta.w $1EAB
+	sta.w sopathface
 .3:
-	lda.w $1EA1
+	lda.w sopathx
 	sta.b d0
-	lda.w $1EA3
+	lda.w sopathy
 	sta.b d1
 	lda.w pfgoal,x
 	bne .1xx
@@ -73,7 +73,7 @@ assbreakaway:
 .4:
 	lda.w facedir,x
 	sec
-	sbc.w $1EAB
+	sbc.w sopathface
 	beq .3
 	inc a
 	and.w #$0007
@@ -94,7 +94,7 @@ assbreakaway:
 	inc a
 	inc a
 	sta.b d0
-	ldy.w $1EA9
+	ldy.w sopathside
 	bpl .1xxx
 	lda.b d0
 	clc
@@ -141,9 +141,9 @@ assbreakaway:
 .nocallback:		; the skateto callback that does nothing
 	rtl
 .9:
-	lda.w $1EA7
+	lda.w sopathpoint
 	asl a
-	adc.w $1EA7
+	adc.w sopathpoint
 	asl a
 	tay
 	lda.w #$009E
@@ -152,7 +152,7 @@ assbreakaway:
 	sta.b a0
 	lda.b [a0],y
 	sta.b d0
-	lda.w $1EA9
+	lda.w sopathside
 	bpl .1xxxx
 	lda.w #$0000
 	sec
@@ -160,16 +160,16 @@ assbreakaway:
 	sta.b d0
 .1xxxx:
 	lda.b d0
-	sta.w $1EA1
+	sta.w sopathx
 	iny
 	iny
 	lda.b [a0],y
-	sta.w $1EA3
+	sta.w sopathy
 	iny
 	iny
 	lda.b [a0],y
-	sta.w $1EA5
-	inc.w $1EA7
+	sta.w sopathnext
+	inc.w sopathpoint
 	rts
 .10:
 	dw 40,120,74,-22,151,134,-22,224,177,44,227,-1
@@ -205,12 +205,12 @@ assbreakaway:
 	eor.w #$FFFF
 	inc a
 .2xxx:
-	sta.w $1EA9
-	sta.w $1EA1
+	sta.w sopathside
+	sta.w sopathx
 	lda.w #$0028
-	sta.w $1EA3
+	sta.w sopathy
 	lda.w #$001E
-	sta.w $1EA5
+	sta.w sopathnext
 	rts
 .4x:
 	lda.w Xpos,x
@@ -245,17 +245,17 @@ assbreakaway:
 	eor.w #$FFFF
 	inc a
 .1xxxxxxxx:
-	sta.w $1EA9
-	sta.w $1EA1
+	sta.w sopathside
+	sta.w sopathx
 .7x:
 	lda.w #$0002
-	sta.w $1EA7
+	sta.w sopathpoint
 	lda.w #$0097
-	sta.w $1EA3
+	sta.w sopathy
 	lda.w #$0086
-	sta.w $1EA5
+	sta.w sopathnext
 	rts
 .8x:
-	sta.w $1EA9
-	stz.w $1EA1
+	sta.w sopathside
+	stz.w sopathx
 	bra .7x

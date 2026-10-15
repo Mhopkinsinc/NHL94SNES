@@ -8,7 +8,7 @@ PrintTeamAbbrev:
 	sta.b $8F
 	lda.b d3
 	beq .1
-	lda.w $1CDE
+	lda.w tmdata+2
 	sta.b a1
 .1:
 	ldy.w #$0004

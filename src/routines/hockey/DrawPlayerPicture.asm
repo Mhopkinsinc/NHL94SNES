@@ -11,12 +11,12 @@ DrawPlayerPicture:
 	lda.b a2
 	beq .t2
 	lda.w #$2400
-	sta.w $1E87
+	sta.w picattr
 	bra .1
 
 .t2:
 	lda.w #$3400
-	sta.w $1E87
+	sta.w picattr
 .1:
 	lda.b d0
 	ldy.b a2
@@ -70,7 +70,7 @@ DrawPlayerPicture:
 	sta.b $24
 	lda.l $7E35D2
 	clc
-	adc.w $1E87
+	adc.w picattr
 	ldy.b a2
 	beq .1x
 	clc
@@ -94,7 +94,7 @@ DrawPlayerPicture:
 	sta.b $24
 	lda.l $7E35D2
 	clc
-	adc.w $1E87
+	adc.w picattr
 	ldy.b a2
 	beq .1xx
 	clc
@@ -227,7 +227,7 @@ DrawPlayerPicture:
 	sta.b a1
 	stz.b $08
 	jsl.l GoalieCount
-	lda.w $1D9B
+	lda.w curplayer
 	cmp.b d0
 	bpl .t1xxxxxx
 	lda.w #$0001
@@ -251,7 +251,7 @@ DrawPlayerPicture:
 	lda.b [a3],y
 	and.w #$00FF
 	dec a
-	cmp.w $1D9B
+	cmp.w curplayer
 	beq .t1xxxxxxx
 	dey
 	bpl .loopx
@@ -272,7 +272,7 @@ DrawPlayerPicture:
 	lda.b a2
 	beq .t1xxxxxxxx
 	lda.w #$2400
-	sta.w $1E87
+	sta.w picattr
 	lda.w #$2D00
 	clc
 	adc.l MatchupPhotoOffsets,x
@@ -281,7 +281,7 @@ DrawPlayerPicture:
 
 .t1xxxxxxxx:
 	lda.w #$3400
-	sta.w $1E87
+	sta.w picattr
 	lda.w #$5100
 	clc
 	adc.l MatchupPhotoOffsets,x
@@ -299,7 +299,7 @@ DrawPlayerPicture:
 	sta.b $24
 	lda.l $7E35D2
 	clc
-	adc.w $1E87
+	adc.w picattr
 	ldy.b a2
 	beq .1xxxxx
 	clc

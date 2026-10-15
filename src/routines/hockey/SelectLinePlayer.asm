@@ -50,41 +50,41 @@ SelectLinePlayer:
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	lda.w #$0007
-	sta.w $1DEF
-	lda.w $1D9F
+	sta.w irqline2
+	lda.w lineslots
 	sec
-	sbc.w $1D8B
+	sbc.w linecursor
 	cmp.w #$0003
 	bpl .t1
 	jsl.l GetDefenseCount
 	lda.b d0
-	sta.w $1DA3
+	sta.w listcount
 	jsl.l GoalieCount
 	lda.b d0
-	sta.w $1DAB
+	sta.w pickfirst
 	jsl.l GetForwardCount
-	lda.w $1DAB
+	lda.w pickfirst
 	clc
 	adc.b d0
-	sta.w $1DAB
+	sta.w pickfirst
 	bra .3
 
 .t1:
 	jsl.l GetForwardCount
 	lda.b d0
-	sta.w $1DA3
+	sta.w listcount
 	jsl.l GoalieCount
 	lda.b d0
-	sta.w $1DAB
+	sta.w pickfirst
 .3:
-	sta.w $1DA7
+	sta.w picktop
 	lda.w #$0009
-	cmp.w $1DA3
+	cmp.w listcount
 	beq .1
 	bmi .1
-	lda.w $1DA3
+	lda.w listcount
 .1:
-	sta.w $1DAF
+	sta.w pickrows
 	lda.w SelectedPlayerIdx
 	dec a
 	asl a
@@ -96,39 +96,39 @@ SelectLinePlayer:
 	clc
 	adc.b d0
 	clc
-	adc.w $1D9F
+	adc.w lineslots
 	sec
-	sbc.w $1D8B
+	sbc.w linecursor
 	sta.b a3
 	jsr.w ReadLineSlot
-	sta.w $1D9B
-	lda.w $1DAF
+	sta.w curplayer
+	lda.w pickrows
 	clc
-	adc.w $1DA7
+	adc.w picktop
 	sec
-	sbc.w $1D9B
+	sbc.w curplayer
 	bpl .t1x
-	lda.w $1D9B
+	lda.w curplayer
 	sec
-	sbc.w $1DAF
+	sbc.w pickrows
 	sec
-	sbc.w $1DA7
+	sbc.w picktop
 	bmi .2
 	clc
-	adc.w $1DA7
-	sta.w $1DA7
+	adc.w picktop
+	sta.w picktop
 .2:
 	lda.w #$0000
 	bra .4
 
 .t1x:
-	lda.w $1DA7
+	lda.w picktop
 	clc
-	adc.w $1DAF
+	adc.w pickrows
 	sec
-	sbc.w $1D9B
+	sbc.w curplayer
 .4:
-	sta.w $1D9B
+	sta.w curplayer
 	jsl.l .10
 .5:
 	jsl.l SendTextMap
@@ -146,11 +146,11 @@ SelectLinePlayer:
 .t2:
 	bit.w #$8080
 	beq .t1xx
-	lda.w $1DA7
+	lda.w picktop
 	clc
-	adc.w $1DAF
+	adc.w pickrows
 	sec
-	sbc.w $1D9B
+	sbc.w curplayer
 	jmp.w SelectLinePlayerRtl
 
 .t1xx:
@@ -171,11 +171,11 @@ SelectLinePlayer:
 .1x:
 	lda.b d0
 	clc
-	adc.w $1D9B
+	adc.w curplayer
 	bmi .8
-	cmp.w $1DAF
+	cmp.w pickrows
 	bpl .9
-	sta.w $1D9B
+	sta.w curplayer
 	jsl.l .10
 .6:
 	jmp.w .5
@@ -189,23 +189,23 @@ SelectLinePlayer:
 	jsl.l .10
 	bra .6
 .8:
-	lda.w $1DA7
+	lda.w picktop
 	sec
-	sbc.w $1DAB
+	sbc.w pickfirst
 	clc
-	adc.w $1DAF
-	cmp.w $1DA3
+	adc.w pickrows
+	cmp.w listcount
 	bpl .6
-	inc.w $1DA7
+	inc.w picktop
 	jsl.l .10
 	lda.w #$FFFF
 	sta.w BG3VScroll
 	bra .6
 .9:
-	lda.w $1DA7
-	cmp.w $1DAB
+	lda.w picktop
+	cmp.w pickfirst
 	beq .6
-	dec.w $1DA7
+	dec.w picktop
 	jsl.l .10
 	lda.w #$FFFF
 	sta.w BG3VScroll
@@ -291,8 +291,8 @@ org $9B9001
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1DA7
-	cmp.w $1DAB
+	lda.w picktop
+	cmp.w pickfirst
 	beq .1xxxx
 	lda.b $8F
 	pha
@@ -308,12 +308,12 @@ org $9B9001
 	pla
 	sta.b $8F
 .1xxxx:
-	lda.w $1DA7
+	lda.w picktop
 	sec
-	sbc.w $1DAB
+	sbc.w pickfirst
 	clc
-	adc.w $1DAF
-	cmp.w $1DA3
+	adc.w pickrows
+	cmp.w listcount
 	bpl .2xx
 	lda.b $8F
 	pha

@@ -3,8 +3,8 @@ PrintStringSprites:
 	phb
 	phk
 	plb
-	stx.w $1E17
-	sty.w $1E1B
+	stx.w letterx
+	sty.w lettery
 	stz.b $14
 	lda.w #$0001
 	sta.b $16

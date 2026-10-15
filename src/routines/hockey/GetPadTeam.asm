@@ -11,7 +11,7 @@ GetPadTeam:
 	sta.b $93
 	ldx.w #$0000
 .loop:
-	lda.w $1C84,x
+	lda.w cont1team,x
 	cmp.b $93
 	beq .t1
 	inx
@@ -21,7 +21,7 @@ GetPadTeam:
 	bra .1
 
 .t1:
-	lda.w $1C84,x
+	lda.w cont1team,x
 	cmp.w #$0001
 	beq .1
 	inc.b a2

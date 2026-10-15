@@ -2,18 +2,18 @@
 EndPenaltyShot:
 	lda.w PenShotActive
 	beq .rtl
-	lda.w $1E9B
+	lda.w penshot
 	beq .rtl
 	phx
-	stz.w $1E9B
+	stz.w penshot
 	lda.w #$FFFF
-	sta.w $1E8D
+	sta.w BA_Sktr_SCnum
 	lda.w #$000A
 	sta.b d0
 	jsl.l ShootoutWonBy
-	lda.w $1E97
+	lda.w psfoxsave
 	sta.l $7E30F8
-	lda.w $1E99
+	lda.w psfoysave
 	sta.l $7E30FA
 	plx
 .rtl:

@@ -2,7 +2,7 @@
 GetPauseTeam:
 	stz.b a2
 	ldx.w pausepad
-	lda.w $1C84,x
+	lda.w cont1team,x
 	cmp.w #$0002
 	bne .rtl
 	lda.w #$0002

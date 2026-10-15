@@ -1,6 +1,6 @@
 ; Draw the other-scores rows, or No Other Games when the list has one entry.
 DrawOtherScoresPage:
-	lda.w $1DC1
+	lda.w listend
 	cmp.w #$0001
 	bne .t1
 .1:
@@ -21,9 +21,9 @@ DrawOtherScoresPage:
 	bra .2
 
 .t1:
-	lda.w $1DBD
+	lda.w listtop
 	asl a
-	adc.w $1DBD
+	adc.w listtop
 	xba
 	lsr a
 	lsr a
@@ -31,9 +31,9 @@ DrawOtherScoresPage:
 	sta.b $0C
 	lda.w #$007F
 	sta.b $0E
-	lda.w $1DC5
+	lda.w listrows
 	asl a
-	adc.w $1DC5
+	adc.w listrows
 	xba
 	lsr a
 	lsr a

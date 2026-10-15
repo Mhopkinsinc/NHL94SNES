@@ -6,9 +6,9 @@ ShowScoringSummary:
 	sta.l $7E3452
 	jsl.l SetupScreen
 	lda.w #$0000
-	sta.w $1DB9
-	sta.w $1DBD
-	sta.w $1DC1
+	sta.w curitem
+	sta.w listtop
+	sta.w listend
 	ldx.w #$005E
 	ldy.w #$0018
 	lda.w #ScoringLabel>>16
@@ -38,19 +38,19 @@ ShowScoringSummary:
 	pla
 	sta.b $8F
 	lda.w #$0000
-	sta.w $1DC1
+	sta.w listend
 	lda.l $7E313A
 .loop:
 	cmp.w #$0006
 	bmi .t1
 .1:
-	inc.w $1DC1
+	inc.w listend
 	sec
 	sbc.w #$0006
 	bra .loop
 
 .t1:
-	lda.w $1DC1
+	lda.w listend
 	cmp.w #$0006
 	bcc .2
 .1x:
@@ -65,7 +65,7 @@ ShowScoringSummary:
 	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	lda.w #$0005
-	sta.w $1DC5
+	sta.w listrows
 	jsr.w DrawScoringPage
 ScoringSummaryLoop:
 	jsl.l ReadPausePad

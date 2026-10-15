@@ -1,7 +1,7 @@
 ; Set the period length and stop the clock
 ResetClock:
 	jsl.l GetPeriodTime
-	lda.w $1D81
+	lda.w shootoutmode
 	beq .t1
 	lda.w #$0019
 	sta.b d0

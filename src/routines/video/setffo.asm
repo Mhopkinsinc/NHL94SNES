@@ -64,7 +64,7 @@ setffo:
 	sec
 	sbc.w #$0004
 	sta.b d0
-	lda.w $1D81
+	lda.w shootoutmode
 	bne .2x
 	lda.w position,x
 	and.w #$0007

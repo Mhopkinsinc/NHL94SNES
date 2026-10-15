@@ -71,8 +71,8 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1DA7
-	cmp.w $1DAB
+	lda.w picktop
+	cmp.w pickfirst
 	beq .1xx
 	lda.b $8F
 	pha
@@ -88,12 +88,12 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	pla
 	sta.b $8F
 .1xx:
-	lda.w $1DA7
+	lda.w picktop
 	sec
-	sbc.w $1DAB
+	sbc.w pickfirst
 	clc
 	adc.w #$0009
-	cmp.w $1DA3
+	cmp.w listcount
 	bpl .2x
 	lda.b $8F
 	pha

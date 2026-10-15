@@ -1,12 +1,12 @@
 ; Draw the visible scoring rows, or No Scoring when the list is empty.
 DrawScoringPage:
-	lda.w $1DC1
+	lda.w listend
 	cmp.w #$0000
 	beq .t1
 .1:
-	lda.w $1DBD
+	lda.w listtop
 	asl a
-	adc.w $1DBD
+	adc.w listtop
 	xba
 	lsr a
 	lsr a
@@ -14,9 +14,9 @@ DrawScoringPage:
 	sta.b $0C
 	lda.w #$007F
 	sta.b $0E
-	lda.w $1DC5
+	lda.w listrows
 	asl a
-	adc.w $1DC5
+	adc.w listrows
 	xba
 	lsr a
 	lsr a

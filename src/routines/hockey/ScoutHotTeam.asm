@@ -1,6 +1,6 @@
 ; Script code %t: the full name of the hotter team ($1E41), then " has" (" have" for the two New York teams)
 ScoutHotTeam:
-	lda.w $1E41
+	lda.w hotterteam
 	jsl.l GetTeamLongName
 	lda.w #mesarea>>16
 	sta.b $97
@@ -13,7 +13,7 @@ ScoutHotTeam:
 	sta.b $8F
 	lda.w #ScoutFragments+18
 	sta.b a1
-	lda.w $1E41
+	lda.w hotterteam
 	cmp.w #$000D
 	beq .1
 	cmp.w #$000E

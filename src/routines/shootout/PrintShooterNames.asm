@@ -76,7 +76,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	lda.w #$0005
 	sec
 	sbc.b d1
-	cmp.w $1DB9
+	cmp.w curitem
 	bne .5
 	lda.w #$2000
 	sta.w printa

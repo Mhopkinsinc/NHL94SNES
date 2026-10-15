@@ -77,6 +77,6 @@ wallcollb_out:
 	stx.b a3
 .2:
 	jsl.l EndPenaltyShot
-	stz.w $1E8B
-	stz.w $1E89
+	stz.w breakaway
+	stz.w onetimer
 	rtl

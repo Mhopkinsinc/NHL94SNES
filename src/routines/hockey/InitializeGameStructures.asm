@@ -28,23 +28,23 @@ InitializeGameStructures:
 	sta.b d0
 	jsl.l randomd0
 	jsr.w .2
-	lda.w $1EAF
+	lda.w teamtaken
 	cmp.w #$0000
 	bne .1
 	rts
 .2:
-	stz.w $1EAF
+	stz.w teamtaken
 	lda.b d0
 	sec
 	sbc.w #$0010
 	bmi .t1
 	jsr.w .t2
 	lda.b $B3
-	bit.w $1EB3
+	bit.w teambit
 	beq .1x
-	inc.w $1EAF
+	inc.w teamtaken
 .1x:
-	ora.w $1EB3
+	ora.w teambit
 	sta.b $B3
 	rts
 
@@ -53,11 +53,11 @@ InitializeGameStructures:
 	and.w #$000F
 	jsr.w .t2
 	lda.b d3
-	bit.w $1EB3
+	bit.w teambit
 	beq .1xx
-	inc.w $1EAF
+	inc.w teamtaken
 .1xx:
-	ora.w $1EB3
+	ora.w teambit
 	sta.b d3
 	rts
 
@@ -72,5 +72,5 @@ InitializeGameStructures:
 	bra .loopx
 
 .t1x:
-	sta.w $1EB3
+	sta.w teambit
 	rts

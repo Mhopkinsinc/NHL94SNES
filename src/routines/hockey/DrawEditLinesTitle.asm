@@ -42,7 +42,7 @@ DrawEditLinesTitle:
 	beq .4
 	jsl.l WaitFrame
 	lda.w #$0068
-	sta.w $1DEF
+	sta.w irqline2
 	lda.w #$0000
 	sta.l $7E3468
 .4:

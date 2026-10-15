@@ -1,6 +1,6 @@
 ; Other scores: game $1DB9, its two teams with their scores and the period label (PerLabels)
 PrintOtherScore:
-	lda.w $1DB9
+	lda.w curitem
 	asl a
 	tax
 	lda.l $7E3578,x

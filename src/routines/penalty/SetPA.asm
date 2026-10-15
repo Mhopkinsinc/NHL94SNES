@@ -39,10 +39,10 @@ SetPA2:
 	pha
 	lda.w RefStep
 	bpl .t1
-	lda.w $1D81
+	lda.w shootoutmode
 	beq .skip
 	lda.w #$0001
-	sta.w $1D83
+	sta.w shootoutstop
 .skip:
 	lda.w RefStep
 	bra .2

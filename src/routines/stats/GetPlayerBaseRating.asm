@@ -24,7 +24,7 @@ GetPlayerBaseRating:
 	sta.b a1
 	stz.b $08
 	jsl.l GoalieCount
-	lda.w $1D9B
+	lda.w curplayer
 	cmp.b d0
 	bpl .1
 	lda.w #AttribMenuGoalie>>16
@@ -57,7 +57,7 @@ GetPlayerBaseRating:
 	lda.b [a1],y
 	sta.b d4
 	plx
-	lda.w $1D9B
+	lda.w curplayer
 	sta.b d0
 	lda.w #$0000
 	sta.l $7E35F2

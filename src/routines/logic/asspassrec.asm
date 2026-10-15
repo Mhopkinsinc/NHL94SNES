@@ -169,7 +169,7 @@ asspassrec:
 	ply
 .2xx:
 	lda.w #$0001
-	sta.w $1E89
+	sta.w onetimer
 	lda.w CwdExciteLvl
 	clc
 	adc.w #$000A

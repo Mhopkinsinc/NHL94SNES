@@ -1,40 +1,40 @@
-; Set a penalty shot pending for shooter $1E8D: $1E9B = 1, the shooting team $1E91 (and its count $17CA / $17CC), the shooter number ($1E8F), the scores saved ($1E97 / $1E99)
+; Set a penalty shot pending for shooter BA_Sktr_SCnum: penshot = 1, the shooting team BA_Team (and its count tmPenShots), the shooter number (BA_Skater_Offset); the faceoff spot is saved (psfoxsave / psfoysave) and cleared
 StartPenaltyShot:
-	lda.w $1E9B
+	lda.w penshot
 	bne .2
-	lda.w $1E8D
+	lda.w BA_Sktr_SCnum
 	cmp.w #$000C
 	bmi .t1
 	lda.w #$0002
-	sta.w $1E91
+	sta.w BA_Team
 	inc.w tmPenShots+2
 	bra .1
 
 .t1:
-	stz.w $1E91
+	stz.w BA_Team
 	inc.w tmPenShots
 .1:
 	phy
-	lda.w $1E91
+	lda.w BA_Team
 	eor.w #$0002
 	tay
 	lda.w #$0001
 	sta.w tmap,y
-	ldy.w $1E91
+	ldy.w BA_Team
 	lda.w #$0001
 	sta.w tmap,y
 	ply
 	phx
-	ldx.w $1E8D
+	ldx.w BA_Sktr_SCnum
 	lda.w pnum,x
-	sta.w $1E8F
+	sta.w BA_Skater_Offset
 	plx
-	stz.w $1E9B
-	inc.w $1E9B
+	stz.w penshot
+	inc.w penshot
 	lda.l $7E3136
-	sta.w $1E97
+	sta.w psfoxsave
 	lda.l $7E3138
-	sta.w $1E99
+	sta.w psfoysave
 	lda.w #$0000
 	sta.l $7E3136
 	lda.w #$0000

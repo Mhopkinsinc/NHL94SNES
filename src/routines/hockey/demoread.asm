@@ -3,16 +3,16 @@ demoread:
 	lda.l $7E34BC
 	cmp.w #$0004
 	bne .2
-	lda.w $1C84
-	ora.w $1C86
-	ora.w $1C88
-	ora.w $1C8A
-	ora.w $1C8C
+	lda.w cont1team
+	ora.w cont2team
+	ora.w cont3team
+	ora.w cont4team
+	ora.w cont5team
 	beq .2
 	ldx.w #$0000
 .1:
 	phx
-	lda.w $1C84,x
+	lda.w cont1team,x
 	beq .t1
 	txa
 	lsr a
@@ -31,11 +31,11 @@ demoread:
 	bcc .1
 	rtl
 .2:
-	lda.w $1C84
-	ora.w $1C86
-	ora.w $1C88
-	ora.w $1C8A
-	ora.w $1C8C
+	lda.w cont1team
+	ora.w cont2team
+	ora.w cont3team
+	ora.w cont4team
+	ora.w cont5team
 	bne .3
 	jsl.l Readjoy1
 	lda.b d1

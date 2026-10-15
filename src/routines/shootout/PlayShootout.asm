@@ -6,7 +6,7 @@ PlayShootout:
 	lda.w #$0000
 	sta.l $7E34C6
 	lda.w #$0001
-	sta.w $1D81
+	sta.w shootoutmode
 	stz.b a2
 	jsl.l InitShooters
 	lda.w #$0002
@@ -19,7 +19,7 @@ PlayShootout:
 	sta.w shootoutround
 	stz.b d1
 .loop:
-	stz.w $1D89
+	stz.w shootoutdecider
 	lda.w #$0002
 	sta.b a2
 	stz.b a1
@@ -28,7 +28,7 @@ PlayShootout:
 	cmp.w #$0005
 	bmi .1
 	lda.w #$0001
-	sta.w $1D89
+	sta.w shootoutdecider
 .1:
 	stz.b a2
 	lda.w #$0002
@@ -42,14 +42,14 @@ PlayShootout:
 	lda.w tmscore
 	cmp.w tmscore+2
 	beq .loop
-	stz.w $1D81
+	stz.w shootoutmode
 	pla
 	sta.l $7E34C6
 	rtl
 
 .t1:		; a shootout turn of team $91: the shooter of this round from its list
-	stz.w $1D83
-	stz.w $1D87
+	stz.w shootoutstop
+	stz.w shootoutturnover
 	lda.b a2
 	pha
 	jsl.l ClearPenaltyBuffer
@@ -63,11 +63,11 @@ PlayShootout:
 	pla
 	sta.b a2
 	lda.w #$0000
-	sta.w $1E8D
+	sta.w BA_Sktr_SCnum
 	lda.b a2
 	beq .2
 	lda.w #$000C
-	sta.w $1E8D
+	sta.w BA_Sktr_SCnum
 .2:
 	ldy.w #$0000
 .loopx:
@@ -79,11 +79,11 @@ PlayShootout:
 	cpy.w #$000A
 	bcc .loopx
 	lda.w #$FFFF
-	sta.w $1E93
+	sta.w pspad
 	bra .3
 
 .t2:
-	sty.w $1E93
+	sty.w pspad
 .3:
 	jsl.l StartPenaltyShot
 	lda.b a2
@@ -103,11 +103,11 @@ PlayShootout:
 	rep #$20
 	and.w #$00FF
 	dec a
-	sta.w $1E8F
+	sta.w BA_Skater_Offset
 	lda.w #$000C
-	sta.w $1E8D
+	sta.w BA_Sktr_SCnum
 	lda.w #$0002
-	sta.w $1E91
+	sta.w BA_Team
 	bra .4
 
 .t2x:
@@ -126,10 +126,10 @@ PlayShootout:
 	rep #$20
 	and.w #$00FF
 	dec a
-	sta.w $1E8F
+	sta.w BA_Skater_Offset
 	lda.w #$0000
-	sta.w $1E8D
-	stz.w $1E91
+	sta.w BA_Sktr_SCnum
+	stz.w BA_Team
 .4:
 	jsl.l Gameloop
 	rtl

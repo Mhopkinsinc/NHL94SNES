@@ -80,12 +80,12 @@ ShowStars:
 	sta.w printx
 	stz.b d3
 	stz.b a2
-	lda.w $1E2B
+	lda.w star1
 	cmp.w #$001A
 	bmi .1
 	sec
 	sbc.w #$001A
-	sta.w $1E2B
+	sta.w star1
 	inc.b d3
 	lda.w #$0002
 	sta.b a2
@@ -95,7 +95,7 @@ ShowStars:
 	sta.w printy
 	lda.w #$0011
 	sta.w printx
-	lda.w $1E2B
+	lda.w star1
 	sta.b d0
 	jsl.l PlayerInitialName
 	jsl.l print
@@ -104,12 +104,12 @@ ShowStars:
 	sta.w printx
 	stz.b d3
 	stz.b a2
-	lda.w $1E2D
+	lda.w star2
 	cmp.w #$001A
 	bmi .2
 	sec
 	sbc.w #$001A
-	sta.w $1E2D
+	sta.w star2
 	inc.b d3
 	lda.w #$0002
 	sta.b a2
@@ -119,7 +119,7 @@ ShowStars:
 	sta.w printy
 	lda.w #$0011
 	sta.w printx
-	lda.w $1E2D
+	lda.w star2
 	sta.b d0
 	jsl.l PlayerInitialName
 	jsl.l print
@@ -128,12 +128,12 @@ ShowStars:
 	sta.w printx
 	stz.b d3
 	stz.b a2
-	lda.w $1E2F
+	lda.w star3
 	cmp.w #$001A
 	bmi .3
 	sec
 	sbc.w #$001A
-	sta.w $1E2F
+	sta.w star3
 	inc.b d3
 	lda.w #$0002
 	sta.b a2
@@ -143,7 +143,7 @@ ShowStars:
 	sta.w printy
 	lda.w #$0011
 	sta.w printx
-	lda.w $1E2F
+	lda.w star3
 	sta.b d0
 	jsl.l PlayerInitialName
 	jsl.l print
@@ -171,19 +171,19 @@ ShowStars:
 
 .t1:
 	lda.w #$0000
-	sta.w $1E33
+	sta.w star1score+2
 	lda.w #$0000
-	sta.w $1E31
+	sta.w star1score
 	lda.w #$0000
-	sta.w $1E37
+	sta.w star2score+2
 	lda.w #$0000
-	sta.w $1E35
+	sta.w star2score
 	lda.w #$0000
-	sta.w $1E3B
+	sta.w star3score+2
 	lda.w #$0000
-	sta.w $1E39
+	sta.w star3score
 	lda.w #$FFFF
-	sta.w $1E1F
+	sta.w otgoalscorer
 	lda.w #$007E
 	sta.b $8F
 	lda.w #$3136
@@ -205,27 +205,27 @@ ShowStars:
 	iny
 	lda.b [a1],y
 	and.w #$00FF
-	sta.w $1E1F
+	sta.w otgoalscorer
 	dey
 	lda.b [a1],y
 	and.w #$00F0
 	beq .1x
-	lda.w $1E1F
+	lda.w otgoalscorer
 	clc
 	adc.w #$001A
-	sta.w $1E1F
+	sta.w otgoalscorer
 .1x:
 	stz.b a2
 	jsl.l GetPlayerCount
 	lda.b d0
-	sta.w $1E21
+	sta.w starplayerend
 	jsl.l GoalieCount
 	lda.b d0
-	sta.w $1E23
+	sta.w stargoalieend
 	ldx.w #$0000
 .12:
 	phx
-	cpx.w $1E21
+	cpx.w starplayerend
 	bmi .t1x
 	jmp.w .16
 
@@ -233,7 +233,7 @@ ShowStars:
 	jsl.l .17
 	lda.b $A7
 	sec
-	sbc.w $1E33
+	sbc.w star1score+2
 	bmi .t2
 	bvc .1xx
 	bra .3x
@@ -251,7 +251,7 @@ ShowStars:
 .2x:
 	lda.b d0
 	sec
-	sbc.w $1E31
+	sbc.w star1score
 	beq .3x
 	bmi .t1xxx
 	bvs .3x
@@ -262,7 +262,7 @@ ShowStars:
 .3x:
 	lda.b $A7
 	sec
-	sbc.w $1E37
+	sbc.w star2score+2
 	bmi .t1xxxx
 	bvc .4
 	bra .6
@@ -280,7 +280,7 @@ ShowStars:
 .5:
 	lda.b d0
 	sec
-	sbc.w $1E35
+	sbc.w star2score
 	beq .6
 	bmi .t1xxxxxx
 	bvs .6
@@ -291,7 +291,7 @@ ShowStars:
 .6:
 	lda.b $A7
 	sec
-	sbc.w $1E3B
+	sbc.w star3score+2
 	bmi .8
 	bvc .9
 .7:
@@ -309,7 +309,7 @@ ShowStars:
 .10:
 	lda.b d0
 	sec
-	sbc.w $1E39
+	sbc.w star3score
 	beq .11
 	bmi .t1xxxxxxxx
 	bvs .11
@@ -320,49 +320,49 @@ ShowStars:
 .11:
 	bra .16
 .13:
-	lda.w $1E2B
-	sta.w $1E25
-	lda.w $1E33
-	sta.w $1E29
-	lda.w $1E31
-	sta.w $1E27
-	stx.w $1E2B
+	lda.w star1
+	sta.w starswapplayer
+	lda.w star1score+2
+	sta.w starswapscore+2
+	lda.w star1score
+	sta.w starswapscore
+	stx.w star1
 	lda.b $A7
-	sta.w $1E33
+	sta.w star1score+2
 	lda.b d0
-	sta.w $1E31
-	ldx.w $1E25
-	lda.w $1E29
+	sta.w star1score
+	ldx.w starswapplayer
+	lda.w starswapscore+2
 	sta.b $A7
-	lda.w $1E27
+	lda.w starswapscore
 	sta.b d0
 .14:
-	lda.w $1E2D
-	sta.w $1E25
-	lda.w $1E37
-	sta.w $1E29
-	lda.w $1E35
-	sta.w $1E27
-	stx.w $1E2D
+	lda.w star2
+	sta.w starswapplayer
+	lda.w star2score+2
+	sta.w starswapscore+2
+	lda.w star2score
+	sta.w starswapscore
+	stx.w star2
 	lda.b $A7
-	sta.w $1E37
+	sta.w star2score+2
 	lda.b d0
-	sta.w $1E35
-	ldx.w $1E25
-	lda.w $1E29
+	sta.w star2score
+	ldx.w starswapplayer
+	lda.w starswapscore+2
 	sta.b $A7
-	lda.w $1E27
+	lda.w starswapscore
 	sta.b d0
 .15:
-	stx.w $1E2F
+	stx.w star3
 	lda.b $A7
-	sta.w $1E3B
+	sta.w star3score+2
 	lda.b d0
-	sta.w $1E39
+	sta.w star3score
 .16:
 	plx
 	inx
-	lda.w $1E21
+	lda.w starplayerend
 	cmp.w #$001A
 	bpl .1xxx
 	cpx.w #$001A
@@ -373,12 +373,12 @@ ShowStars:
 	lda.b d0
 	clc
 	adc.w #$001A
-	sta.w $1E21
+	sta.w starplayerend
 	jsl.l GoalieCount
 	lda.b d0
 	clc
 	adc.w #$001A
-	sta.w $1E23
+	sta.w stargoalieend
 .1xxx:
 	cpx.w #$0034
 	bpl .t1xxxxxxxxx
@@ -405,9 +405,9 @@ ShowStars:
 	lda.w #$0000
 	sbc.w #$0000
 	sta.b $A7
-	cpx.w $1E23
+	cpx.w stargoalieend
 	bmi .t1xxxxxxxxxx
-	cpx.w $1E1F
+	cpx.w otgoalscorer
 	bne .2xx
 	lda.w #$000B
 	sta.b $0A

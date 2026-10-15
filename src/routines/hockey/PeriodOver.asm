@@ -10,7 +10,7 @@ PeriodOver:
 	lda.w SoundFadeSpeed
 	bne .loop
 	jsl.l forceblack
-	lda.w $1D81
+	lda.w shootoutmode
 	bne .5
 	jsl.l SPCMenuUpload
 	lda.l $7E34BC
@@ -88,7 +88,7 @@ PeriodOver:
 
 .t1x:
 	lda.w gsp
-	sta.w $1EAD
+	sta.w lastperiod
 	jsl.l FadeOutSound
 	jsl.l FadeOut
 .loopxx:
@@ -96,5 +96,5 @@ PeriodOver:
 	bne .loopxx
 	jsl.l SPCGameUpload
 	lda.w #$FFFF
-	sta.w $1E8D
+	sta.w BA_Sktr_SCnum
 	jmp.w StartPer

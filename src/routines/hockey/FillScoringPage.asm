@@ -17,7 +17,7 @@ FillScoringPage:
 	sta.w printy
 	pha
 .loop:
-	cmp.w $1DC1
+	cmp.w listend
 	beq .t1
 .1:
 	jsr.w .t4

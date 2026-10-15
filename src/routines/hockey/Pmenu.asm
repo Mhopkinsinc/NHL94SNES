@@ -15,7 +15,7 @@ Pmenu:
 	sta.b $8F
 	lda.w psfirst
 	sta.b d0
-	lda.w $1EB7
+	lda.w pmenulist
 	beq .t1
 	cmp.w #$0001
 	beq .t3
@@ -143,7 +143,7 @@ Pmenu:
 	sta.b $97
 	lda.w #PmenuValueItems
 	sta.b a3
-	lda.w $1EB7
+	lda.w pmenulist
 	asl a
 	clc
 	adc.b a3
@@ -208,7 +208,7 @@ PmenuGoalieValue:
 	sta.b $97
 	lda.w #PmenuValueItems+12
 	sta.b a3
-	lda.w $1EB7
+	lda.w pmenulist
 	asl a
 	clc
 	adc.b a3
@@ -221,7 +221,7 @@ PmenuGoalieValue:
 .t2:
 	jsl.l GetPadTeam
 	ldy.b a2
-	lda.w $1C90,y
+	lda.w goaliemode1,y
 	beq .t1
 	lda.w #GoalieOptionText>>16
 	sta.b $9B
@@ -243,7 +243,7 @@ PmenuDefValue:
 	sta.b $97
 	lda.w #PmenuValueItems+24
 	sta.b a3
-	lda.w $1EB7
+	lda.w pmenulist
 	asl a
 	clc
 	adc.b a3
@@ -256,7 +256,7 @@ PmenuDefValue:
 .t2:
 	jsl.l GetPadTeam
 	ldy.b a2
-	lda.w $1C94,y
+	lda.w defcontrol,y
 	beq .t1
 	lda.w #GoalieOptionText>>16
 	sta.b $9B

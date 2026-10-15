@@ -74,10 +74,10 @@ FigureJoy:
 	ldy.b d0
 	ldx.w #$0000
 .loopx:
-	lda.w $1C84,x
+	lda.w cont1team,x
 	beq .1
 	lda.w .5,y
-	sta.w $1C84,x
+	sta.w cont1team,x
 .1:
 	inx
 	inx

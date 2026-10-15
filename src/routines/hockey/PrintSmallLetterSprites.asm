@@ -1,7 +1,7 @@
 ; Draw string [a1] with the small letter sprites at X / Y
 PrintSmallLetterSprites:
-	stx.w $1E17
-	sty.w $1E1B
+	stx.w letterx
+	sty.w lettery
 	ldy.w #$0002
 .1:
 	tya
@@ -62,8 +62,8 @@ PrintSmallLetterSprites:
 	sta.b $10
 	stx.b $00
 	lda.w #$2000
-	ldx.w $1E17
-	ldy.w $1E1B
+	ldx.w letterx
+	ldy.w lettery
 	jsl.l DrawSprite
 	ply
 	plx
@@ -73,8 +73,8 @@ PrintSmallLetterSprites:
 	lda.w #$0002
 .2:
 	clc
-	adc.w $1E17
-	sta.w $1E17
+	adc.w letterx
+	sta.w letterx
 .3:
 	iny
 	jmp.w .1

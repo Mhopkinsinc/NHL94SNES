@@ -2,9 +2,9 @@
 PauseMenu:
 	lda.w #$FFFF
 	sta.l $7E3476
-	lda.w $1D81
+	lda.w shootoutmode
 	beq .t4
-	lda.w $1EBB
+	lda.w pregamepause
 	bne .t5
 	bra .t6
 
@@ -12,7 +12,7 @@ PauseMenu:
 	lda.w gsp
 	cmp.w #$0004
 	beq .t2
-	lda.w $1EBB
+	lda.w pregamepause
 	bne .t3
 	bra .t1
 
@@ -22,30 +22,30 @@ PauseMenu:
 
 .t2:
 	lda.w #$000F
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0001
-	sta.w $1EB7
+	sta.w pmenulist
 	bra .t7
 
 .t3:
 	lda.w #$0009
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0002
-	sta.w $1EB7
+	sta.w pmenulist
 	bra .t7
 
 .t5:
 	lda.w #$0006
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0003
-	sta.w $1EB7
+	sta.w pmenulist
 	bra .t7
 
 .t6:
 	lda.w #$0006
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0004
-	sta.w $1EB7
+	sta.w pmenulist
 	bra .t7
 
 .t7:
@@ -73,7 +73,7 @@ PauseMenuPoll:
 	bit.w #$0400
 	beq .t2
 	inc.w psitem
-	lda.w $1EB9
+	lda.w pmenucount
 	cmp.w psitem
 	beq .t1
 	lda.w psitem
@@ -107,7 +107,7 @@ PauseMenuPoll:
 	asl a
 	sta.b d0
 	tay
-	lda.w $1EB7
+	lda.w pmenulist
 	beq .t1x
 	cmp.w #$0001
 	beq .t3x

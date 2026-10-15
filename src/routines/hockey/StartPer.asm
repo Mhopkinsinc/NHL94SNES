@@ -1,6 +1,6 @@
 ; Start a period: reset the teams, the rink and the clock, then the game loop
 StartPer:
-	lda.w $1D81
+	lda.w shootoutmode
 	bne .1
 	lda.w #$1FFF
 	tcs
@@ -15,7 +15,7 @@ StartPer:
 	jsl.l setupice_reset
 	jsl.l ResetClock
 	jsl.l InitCrowdExcite
-	lda.w $1EBB
+	lda.w pregamepause
 	beq .4
 	lda.w #$FFFF
 	sta.w pausepad
@@ -25,17 +25,17 @@ StartPer:
 	iny
 	cpy.w #$000A
 	bcs .2
-	lda.w $1C84,y
+	lda.w cont1team,y
 	beq .loop
 	eor.w #$FFFF
 	inc a
 	sta.w pausepad
 .2:
-	lda.w $1C84
-	ora.w $1C86
-	ora.w $1C88
-	ora.w $1C8A
-	ora.w $1C8C
+	lda.w cont1team
+	ora.w cont2team
+	ora.w cont3team
+	ora.w cont4team
+	ora.w cont5team
 	bne .3
 	stz.w pausepad
 .3:
@@ -68,7 +68,7 @@ StartPer:
 	bra .5
 
 .t1:
-	lda.w $1EBB
+	lda.w pregamepause
 	bne .5
 	stz.w percue
 .5:
@@ -83,6 +83,6 @@ StartPer:
 	ldy.w #$01C0
 	lda.w #$6000
 	jsl.l InitSprites
-	lda.w $1D81
+	lda.w shootoutmode
 	beq Gameloop
 	rtl

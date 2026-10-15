@@ -19,7 +19,7 @@ lcfound:
 	lda.b d0
 	sta.w tmline,y
 	lda.w #$FFFF
-	sta.w $1D55,y
+	sta.w lcpad,y
 	jsl.l setpersonel
 	jmp.w lcfound2
 

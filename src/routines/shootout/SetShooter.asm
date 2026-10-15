@@ -4,9 +4,9 @@ SetShooter:
 	phy
 	lda.w #$0009
 	sec
-	sbc.w $1D9B
+	sbc.w curplayer
 	clc
-	adc.w $1DA7
+	adc.w picktop
 	and.w #$00FF
 	sta.b d0
 	lda.w #homeshooters>>16
@@ -20,7 +20,7 @@ SetShooter:
 	lda.w #awayshooters
 	sta.b a1
 .1:
-	ldy.w $1DB9
+	ldy.w curitem
 	sep #$20
 	lda.b [a1],y
 	rep #$20
@@ -44,7 +44,7 @@ SetShooter:
 	sta.b [a1],y
 	rep #$20
 .2:
-	ldy.w $1DB9
+	ldy.w curitem
 	lda.b d0
 	sep #$20
 	sta.b [a1],y

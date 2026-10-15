@@ -1,10 +1,10 @@
 ; Draw the braces around the visible game-stat rows.
 MarkGameStatRows:
-	lda.w $1DBD
+	lda.w listtop
 	beq .1
 	lda.w #$0001
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	asl a
 	sta.w printy
 	lda.w #$2000
@@ -15,16 +15,16 @@ MarkGameStatRows:
 	sta.b a1
 	jsl.l PrintToStatsPage
 .1:
-	lda.w $1DBD
+	lda.w listtop
 	clc
-	adc.w $1DC5
-	cmp.w $1DA3
+	adc.w listrows
+	cmp.w listcount
 	beq .2
 	lda.w #$0001
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	asl a
 	sta.w printy
 	lda.w #$2000

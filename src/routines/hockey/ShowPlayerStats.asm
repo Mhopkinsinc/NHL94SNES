@@ -52,10 +52,10 @@ ShowPlayerStats:
 	pla
 	sta.b $8F
 	lda.w #$0001
-	sta.w $1DF9
+	sta.w statcolumn
 	jsl.l SetPlayerStatsRange
 	lda.w #$0007
-	sta.w $1DC5
+	sta.w listrows
 	jsl.l InitStatsOrder
 	jsl.l SortPlayerStats
 	lda.w #$0058
@@ -63,7 +63,7 @@ ShowPlayerStats:
 	ldy.w #$00D0
 	jsl.l SetupScrollIRQ
 	lda.w #$0018
-	sta.w $1DF5
+	sta.w irqvscroll2
 	lda.w #$0001
 	sta.l $7E3478
 	jsl.l SendTextMap
@@ -110,15 +110,15 @@ ShowPlayerStats_loop:
 	jmp.w SwapPlayerStatsTeam
 
 ShowPlayerStats_redraw:
-	lda.w $1DF9
+	lda.w statcolumn
 	cmp.w #$0000
 	beq .4
-	lda.w $1DB9
-	cmp.w $1DBD
+	lda.w curitem
+	cmp.w listtop
 	beq .1xxx
 	lda.w #$0001
 	sta.w printx
-	lda.w $1DB9
+	lda.w curitem
 	asl a
 	sta.w printy
 	lda.w #$2000
@@ -129,18 +129,18 @@ ShowPlayerStats_redraw:
 	sta.b a1
 	jsl.l PrintToStatsPage
 .1xxx:
-	lda.w $1DB9
+	lda.w curitem
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	dec a
-	cmp.w $1DC1
+	cmp.w listend
 	beq .3
 .2:
 	lda.w #$0001
 	sta.w printx
-	lda.w $1DB9
+	lda.w curitem
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	dec a
 	asl a
 	sta.w printy
@@ -166,66 +166,66 @@ ShowPlayerStats_exit:
 
 ShowPlayerStats_down:
 	jsl.l ClearPlayerStatBraces
-	lda.w $1DB9
+	lda.w curitem
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	dec a
-	cmp.w $1DC1
+	cmp.w listend
 	bmi .t1x2
 	jmp.w ShowPlayerStats_redraw
 
 .t1x2:
-	inc.w $1DC5
+	inc.w listrows
 	jsl.l DrawPlayerStatsPage
-	dec.w $1DC5
+	dec.w listrows
 	jsl.l WaitFrame
-	inc.w $1DB9
+	inc.w curitem
 	lda.w #$0001
-	sta.w $1DF3
+	sta.w irqvscroll1
 .loop:
 	jsl.l WaitFrame
-	inc.w $1DF3
-	inc.w $1DF3
-	lda.w $1DF3
+	inc.w irqvscroll1
+	inc.w irqvscroll1
+	lda.w irqvscroll1
 	cmp.w #$000D
 	bne .loop
 	jsl.l DrawPlayerStatsPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
-	sta.w $1DF3
+	sta.w irqvscroll1
 	jmp.w ShowPlayerStats_loop
 
 ShowPlayerStats_up:
 	jsl.l ClearPlayerStatBraces
-	lda.w $1DB9
+	lda.w curitem
 	dec a
-	cmp.w $1DBD
+	cmp.w listtop
 	bpl .t1x3
 	jmp.w ShowPlayerStats_redraw
 
 .t1x3:
-	sta.w $1DB9
-	inc.w $1DC5
+	sta.w curitem
+	inc.w listrows
 	jsl.l DrawPlayerStatsPage
-	dec.w $1DC5
+	dec.w listrows
 	jsl.l WaitFrame
 	lda.w #$000D
-	sta.w $1DF3
+	sta.w irqvscroll1
 .loopx:
 	jsl.l WaitFrame
-	dec.w $1DF3
-	dec.w $1DF3
-	lda.w $1DF3
+	dec.w irqvscroll1
+	dec.w irqvscroll1
+	lda.w irqvscroll1
 	cmp.w #$0001
 	bne .loopx
 	jsl.l DrawPlayerStatsPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
-	sta.w $1DF3
+	sta.w irqvscroll1
 	jmp.w ShowPlayerStats_loop
 
 ShowPlayerStats_left:
-	lda.w $1DF9
+	lda.w statcolumn
 	dec a
 	bpl .t1x4
 	jmp.w ShowPlayerStats_redraw
@@ -236,7 +236,7 @@ ShowPlayerStats_left:
 	bra ShowPlayerStats_column
 
 ShowPlayerStats_right:
-	lda.w $1DF9
+	lda.w statcolumn
 	cmp.w #$0005
 	bmi .t1x5
 	jmp.w ShowPlayerStats_redraw
@@ -246,12 +246,12 @@ ShowPlayerStats_right:
 	cmp.w #$0001
 	beq ShowPlayerStats_setrange
 ShowPlayerStats_column:
-	sta.w $1DF9
+	sta.w statcolumn
 	jsl.l SortPlayerStats
 	jsl.l DrawPlayerStatsPage
 	jmp.w ShowPlayerStats_redraw
 ShowPlayerStats_setrange:
-	sta.w $1DF9
+	sta.w statcolumn
 	jsl.l SetPlayerStatsRange
 	jsl.l InitStatsOrder
 	jsl.l SortPlayerStats

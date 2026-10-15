@@ -49,11 +49,11 @@ doshot:
 	jsl.l Mul16U
 	lda.b $0A
 	sta.w passspeed
-	lda.w $1E8B
+	lda.w breakaway
 	beq .3
 	jsl.l CheckBreakaway
 	lda.w IsBreakaway
-	sta.w $1E8B
+	sta.w breakaway
 .3:
 	ldx.b $E4
 	lda.w #$FFFF

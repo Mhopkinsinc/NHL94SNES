@@ -4,9 +4,9 @@ Gameloop:
 	sec
 	sbc.w oldvcount
 	beq Gameloop
-	inc.w $1D6D
+	inc.w gameframes
 	lda.w #$003C
-	ldx.w $1D6D
+	ldx.w gameframes
 	jsl.l Mul16x8U
 	lda.w FrameCount
 	sta.b $04
@@ -50,15 +50,15 @@ Gameloop:
 	bne .4
 	lda.w gmclock
 	bne .4
-	lda.w $1D81
+	lda.w shootoutmode
 	bne .t1
 	lda.w PenShotActive
 	beq .t1
 	ldx.b d7
-	lda.w $1E9F
+	lda.w pstimer
 	sec
 	sbc.b d7
-	sta.w $1E9F
+	sta.w pstimer
 	bne .2
 	jsl.l EndPenaltyShot
 .2:
@@ -114,9 +114,9 @@ Gameloop:
 .2xx:
 	jsl.l Pausemode
 .3:
-	lda.w $1D81
+	lda.w shootoutmode
 	beq .t1x
-	lda.w $1D87
+	lda.w shootoutturnover
 	beq .t1x
 	rtl
 

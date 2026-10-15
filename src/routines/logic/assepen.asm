@@ -71,7 +71,7 @@ assepen:
 	inc a
 	inc a
 	lsr a
-	sta.w $1C84,y
+	sta.w cont1team,y
 	ldx.b $E4
 	tya
 	sta.w playerpad,x

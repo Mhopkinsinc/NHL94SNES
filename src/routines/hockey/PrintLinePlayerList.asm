@@ -20,14 +20,14 @@ PrintLinePlayerList:
 	asl a
 	sta.b d0
 	ldy.b a2
-	lda.w $1DA7
+	lda.w picktop
 	inc a
 	sta.b a3
 	lda.w #PositionNames
 	sta.b $9D
 	lda.w #PositionNames>>16
 	sta.b $9F
-	lda.w $1DAF
+	lda.w pickrows
 	dec a
 	sta.b d1
 .loop:
@@ -35,7 +35,7 @@ PrintLinePlayerList:
 	sta.w printa
 	lda.b d1
 	sep #$20
-	cmp.w $1D9B
+	cmp.w curplayer
 	rep #$20
 	bne .1
 	lda.w #$2000

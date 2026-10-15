@@ -2,7 +2,7 @@
 ScoutingReport:
 	lda.w #$0001
 	sta.l $7E3474
-	stz.w $1E3F
+	stz.w matchuphold
 	jsl.l ClearTeamStats
 	jsl.l LoadScoutingScreen
 	ldx.w #$0000
@@ -12,8 +12,8 @@ ScoutingReport:
 	lda.w #$0008
 	ldx.w #$003E
 	jsl.l SetupBandIRQ
-	stz.w $1DB9
-	stz.w $1E3D
+	stz.w curitem
+	stz.w matchuptimer
 	jsl.l .10
 	jsl.l .12
 	lda.b $8F
@@ -45,7 +45,7 @@ ScoutingReport:
 	lda.w padnew
 	sta.b $14
 .loop:
-	lda.w $1C84,x
+	lda.w cont1team,x
 	beq .1
 	lda.w padnew,x
 	ora.b $14
@@ -71,24 +71,24 @@ ScoutingReport:
 	jmp.w .9
 
 .t1:
-	lda.w $1E3F
+	lda.w matchuphold
 	bne .1x
-	lda.w $1E3D
+	lda.w matchuptimer
 	inc a
 	cmp.w #$012C
 	bcs .8
-	sta.w $1E3D
+	sta.w matchuptimer
 .1x:
-	stz.w $1D5E
+	stz.w asv
 	lda.w JoyPad
 	ora.w JoyPad+2
 	bit.w #$0400
 	beq .2x
 	lda.w #$FFFF
-	sta.w $1D5E
+	sta.w asv
 .2x:
 	jsl.l UpdateScoutingDisplay
-	lda.w $1E3F
+	lda.w matchuphold
 	bne .4
 	lda.l $7E34CC
 	bne .4
@@ -102,30 +102,30 @@ ScoutingReport:
 	rtl
 .6:
 	lda.w #$FFFF
-	sta.w $1E3F
-	lda.w $1DB9
+	sta.w matchuphold
+	lda.w curitem
 	dec a
 	bpl .1xx
 	lda.w #$0006
-	sta.w $1DB9
+	sta.w curitem
 .1xx:
-	sta.w $1DB9
+	sta.w curitem
 	jsl.l ShowMatchups
-	stz.w $1E3D
+	stz.w matchuptimer
 	bra .4
 .7:
 	lda.w #$FFFF
-	sta.w $1E3F
+	sta.w matchuphold
 .8:
-	lda.w $1DB9
+	lda.w curitem
 	inc a
 	cmp.w #$0007
 	bcc .1xxx
 	lda.w #$0000
 .1xxx:
-	sta.w $1DB9
+	sta.w curitem
 	jsl.l ShowMatchups
-	stz.w $1E3D
+	stz.w matchuptimer
 	bra .4
 .9:
 	lda.b $8F
@@ -152,63 +152,63 @@ ScoutingReport:
 	bra .4
 .10:
 	lda.w #$FFFF
-	sta.w $1E49
-	sta.w $1E4B
-	sta.w $1E4D
-	sta.w $1E4F
-	sta.w $1E51
-	sta.w $1E53
-	sta.w $1E55
-	sta.w $1E57
-	sta.w $1E59
-	sta.w $1E5B
-	sta.w $1E5D
-	sta.w $1E5F
+	sta.w hotplayer1
+	sta.w hotplayer1+2
+	sta.w hotplayer2
+	sta.w hotplayer2+2
+	sta.w hotplayer3
+	sta.w hotplayer3+2
+	sta.w coldplayer1
+	sta.w coldplayer1+2
+	sta.w coldplayer2
+	sta.w coldplayer2+2
+	sta.w coldplayer3
+	sta.w coldplayer3+2
 	lda.w #$FF06
-	sta.w $1E61
-	sta.w $1E65
-	sta.w $1E69
-	sta.w $1E63
-	sta.w $1E67
-	sta.w $1E6B
+	sta.w hotvalue1
+	sta.w hotvalue2
+	sta.w hotvalue3
+	sta.w hotvalue1+2
+	sta.w hotvalue2+2
+	sta.w hotvalue3+2
 	lda.w #$00FA
-	sta.w $1E6D
-	sta.w $1E71
-	sta.w $1E75
-	sta.w $1E6F
-	sta.w $1E73
-	sta.w $1E77
-	stz.w $1E45
-	stz.w $1E47
+	sta.w coldvalue1
+	sta.w coldvalue2
+	sta.w coldvalue3
+	sta.w coldvalue1+2
+	sta.w coldvalue2+2
+	sta.w coldvalue3+2
+	stz.w hotcoldsum
+	stz.w hotcoldsum+2
 	stz.b a2
 	jsl.l .11
 	lda.w #$0002
 	sta.b a2
 	jsl.l .11
 	lda.w HomeTeam
-	sta.w $1E41
+	sta.w hotterteam
 	lda.w #$0001
-	sta.w $1E43
-	lda.w $1E45
+	sta.w hotextreme
+	lda.w hotcoldsum
 	sec
-	sbc.w $1E47
+	sbc.w hotcoldsum+2
 	bmi .t1x
 	bra .1xxxx
 
 .t1x:
 	lda.w VisTeam
-	sta.w $1E41
-	lda.w $1E47
+	sta.w hotterteam
+	lda.w hotcoldsum+2
 	sec
-	sbc.w $1E45
+	sbc.w hotcoldsum
 .1xxxx:
 	cmp.w #$0008
 	bcs .rtl
-	stz.w $1E43
+	stz.w hotextreme
 	cmp.w #$0004
 	bcs .rtl
 	lda.w #$FFFF
-	sta.w $1E41
+	sta.w hotterteam
 .rtl:
 	rtl
 .11:
@@ -217,7 +217,7 @@ ScoutingReport:
 	sta.b d4
 	ldx.w #$0000
 .loopx:
-	stx.w $1D9B
+	stx.w curplayer
 	lda.w #$0001
 	sta.b d1
 	jsl.l GetPlayerBaseRating
@@ -231,10 +231,10 @@ ScoutingReport:
 	sbc.b d2
 	sta.b d0
 	ldy.b a2
-	lda.w $1E45,y
+	lda.w hotcoldsum,y
 	clc
 	adc.b d0
-	sta.w $1E45,y
+	sta.w hotcoldsum,y
 	stx.b d3
 	jsl.l .t1xx
 	inx
@@ -247,94 +247,94 @@ ScoutingReport:
 	sta.b d1
 	lda.b d0
 	sta.b $08
-	cmp.w $1E61,y
+	cmp.w hotvalue1,y
 	beq .1xxxxx
 	bpl .t2
 .1xxxxx:
-	cmp.w $1E65,y
+	cmp.w hotvalue2,y
 	beq .2xx
 	bpl .3x
 .2xx:
-	cmp.w $1E69,y
+	cmp.w hotvalue3,y
 	beq .5x
 	bpl .4x
 	bra .5x
 
 .t2:
-	lda.w $1E61,y
+	lda.w hotvalue1,y
 	sta.b $00
-	lda.w $1E49,y
+	lda.w hotplayer1,y
 	sta.b $04
 	lda.b d0
-	sta.w $1E61,y
+	sta.w hotvalue1,y
 	lda.b d1
-	sta.w $1E49,y
+	sta.w hotplayer1,y
 	lda.b $00
 	sta.b d0
 	lda.b $04
 	sta.b d1
 .3x:
-	lda.w $1E65,y
+	lda.w hotvalue2,y
 	sta.b $00
-	lda.w $1E4D,y
+	lda.w hotplayer2,y
 	sta.b $04
 	lda.b d0
-	sta.w $1E65,y
+	sta.w hotvalue2,y
 	lda.b d1
-	sta.w $1E4D,y
+	sta.w hotplayer2,y
 	lda.b $00
 	sta.b d0
 	lda.b $04
 	sta.b d1
 .4x:
 	lda.b d0
-	sta.w $1E69,y
+	sta.w hotvalue3,y
 	lda.b d1
-	sta.w $1E51,y
+	sta.w hotplayer3,y
 .5x:
 	lda.b d3
 	sta.b d1
 	lda.b $08
 	sta.b d0
-	cmp.w $1E6D,y
+	cmp.w coldvalue1,y
 	bmi .t1xxx
-	cmp.w $1E71,y
+	cmp.w coldvalue2,y
 	bmi .6x
-	cmp.w $1E75,y
+	cmp.w coldvalue3,y
 	bmi .7x
 	bra .8x
 
 .t1xxx:
-	lda.w $1E6D,y
+	lda.w coldvalue1,y
 	sta.b $00
-	lda.w $1E55,y
+	lda.w coldplayer1,y
 	sta.b $04
 	lda.b d0
-	sta.w $1E6D,y
+	sta.w coldvalue1,y
 	lda.b d1
-	sta.w $1E55,y
+	sta.w coldplayer1,y
 	lda.b $00
 	sta.b d0
 	lda.b $04
 	sta.b d1
 .6x:
-	lda.w $1E71,y
+	lda.w coldvalue2,y
 	sta.b $00
-	lda.w $1E59,y
+	lda.w coldplayer2,y
 	sta.b $04
 	lda.b d0
-	sta.w $1E71,y
+	sta.w coldvalue2,y
 	lda.b d1
-	sta.w $1E59,y
+	sta.w coldplayer2,y
 	lda.b $00
 	sta.b d0
 	lda.b $04
 	sta.b d1
 .7x:
 	lda.b d0
-	sta.w $1E75,y
+	sta.w coldvalue3,y
 	lda.b d1
-	sta.w $1E5D,y
+	sta.w coldplayer3,y
 .8x:
 	rtl
 .12:
@@ -347,7 +347,7 @@ ScoutingReport:
 	sta.b [a0]
 	inc.b a0
 	inc.b a0
-	lda.w $1E41
+	lda.w hotterteam
 	bmi .1xxxxxx
 	lda.w #$001E
 	sta.b [a0]
@@ -374,7 +374,7 @@ ScoutingReport:
 	inc.b a0
 	lda.w #$FFFF
 	sta.b [a0]
-	stz.w $1D5E
+	stz.w asv
 	lda.w #$7FFF
 	sta.w screentimer
 	rtl

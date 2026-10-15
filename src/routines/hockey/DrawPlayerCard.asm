@@ -35,16 +35,16 @@ DrawPlayerCard:
 	clc
 	adc.b [a3],y
 	sta.b a3
-	ldy.w $1DB9
+	ldy.w curitem
 	bne .t2
 	jmp.w .5
 
 .t2:
-	lda.w $1DB9
+	lda.w curitem
 	sec
 	sbc.w #$0007
 	bmi .t1
-	sta.w $1D9B
+	sta.w curplayer
 	bra .2
 
 .t1:
@@ -61,9 +61,9 @@ DrawPlayerCard:
 	lda.b [a3],y
 	and.w #$00FF
 	dec a
-	sta.w $1D9B
+	sta.w curplayer
 .2:
-	lda.w $1D9B
+	lda.w curplayer
 	sta.b d0
 	jsl.l PlayerNumName
 	lda.b [a1]
@@ -79,7 +79,7 @@ DrawPlayerCard:
 	sta.w printy
 	jsl.l print
 	jsl.l GoalieCount
-	lda.w $1D9B
+	lda.w curplayer
 	cmp.b d0
 	bmi .t2x
 	jmp.w .t4
@@ -113,7 +113,7 @@ DrawPlayerCard:
 	sta.b $8F
 	lda.w #RatingNames+178
 	sta.b a1
-	lda.w $1E79
+	lda.w strengths
 	sta.b d0
 	bpl .t1x
 .1:
@@ -128,14 +128,14 @@ DrawPlayerCard:
 	sta.b $8F
 	lda.w #RatingNames+178
 	sta.b a1
-	lda.w $1E7D
+	lda.w strengths+4
 	sta.b d0
 	bpl .t3
 .1x:
 	jmp.w .4
 
 .t3:
-	lda.w $1E7F
+	lda.w strengths+6
 	cmp.w #$0050
 	bpl .t1xx
 	jmp.w .4
@@ -149,14 +149,14 @@ DrawPlayerCard:
 	sta.b $8F
 	lda.w #RatingNames+178
 	sta.b a1
-	lda.w $1E81
+	lda.w strengths+8
 	sta.b d0
 	bpl .t2xx
 .1x2:
 	jmp.w .4
 
 .t2xx:
-	lda.w $1E83
+	lda.w strengths+$A
 	cmp.w #$0050
 	bpl .t1xxx
 .1xx:
@@ -177,7 +177,7 @@ DrawPlayerCard:
 	lda.b d0
 	clc
 	adc.b d1
-	cmp.w $1D9B
+	cmp.w curplayer
 org $9DC002
 	beq .t1x2
 	bmi .t1x2
@@ -217,7 +217,7 @@ org $9DC002
 	sta.b $8F
 	lda.w #RatingNames
 	sta.b a1
-	lda.w $1E79
+	lda.w strengths
 	sta.b d0
 	bmi .4
 	jsl.l AdvanceStringPtr
@@ -228,10 +228,10 @@ org $9DC002
 	sta.b $8F
 	lda.w #RatingNames
 	sta.b a1
-	lda.w $1E7D
+	lda.w strengths+4
 	sta.b d0
 	bmi .4
-	lda.w $1E7F
+	lda.w strengths+6
 	cmp.w #$0050
 	bmi .4
 	jsl.l AdvanceStringPtr
@@ -242,10 +242,10 @@ org $9DC002
 	sta.b $8F
 	lda.w #RatingNames
 	sta.b a1
-	lda.w $1E81
+	lda.w strengths+8
 	sta.b d0
 	bmi .4
-	lda.w $1E83
+	lda.w strengths+$A
 	cmp.w #$0050
 	bmi .4
 	jsl.l AdvanceStringPtr
@@ -381,9 +381,9 @@ org $9DC002
 	ldy.w #$00A2
 	jsl.l PrintSmallLetterSprites
 .6:
-	lda.w $1DB9
+	lda.w curitem
 	beq .t1xxxx
-	lda.w $1D9B
+	lda.w curplayer
 	ldx.w #$000D
 	ldy.w #$0004
 	jsl.l DrawPlayerPicture

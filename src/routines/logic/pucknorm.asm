@@ -78,13 +78,13 @@ pucknorm_move:
 	lda.w gmode
 	bit.w #$0002
 	bne .t1
-	lda.w $1E91
+	lda.w BA_Team
 	beq .7
 .5:
 	bra .6
 
 .t1:
-	lda.w $1E91
+	lda.w BA_Team
 	bne .7
 .6:
 	lda.w puckvy

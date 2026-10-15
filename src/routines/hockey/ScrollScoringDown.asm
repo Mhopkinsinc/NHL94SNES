@@ -1,33 +1,33 @@
 ; Scroll the scoring summary down one page.
 ScrollScoringDown:
 	lda.w #$0006
-	sta.w $1DC5
+	sta.w listrows
 	jsr.w DrawScoringPage
 	lda.w #$0005
-	sta.w $1DC5
-	lda.w $1DBD
+	sta.w listrows
+	lda.w listtop
 	clc
 	adc.w #$0005
-	cmp.w $1DC1
+	cmp.w listend
 	bpl ScoringSummaryWait
 .1:
 	sec
 	sbc.w #$0004
-	sta.w $1DBD
+	sta.w listtop
 	lda.w #$0001
-	sta.w $1DF3
+	sta.w irqvscroll1
 	lda.w #$0018
-	sta.w $1DF5
+	sta.w irqvscroll2
 .loop:
 	jsl.l WaitFrame
-	inc.w $1DF3
-	inc.w $1DF3
-	lda.w $1DF3
+	inc.w irqvscroll1
+	inc.w irqvscroll1
+	lda.w irqvscroll1
 	cmp.w #$0017
 	bne .loop
 	jsl.l PrintScrollArrows
 	jsr.w DrawScoringPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
-	sta.w $1DF3
+	sta.w irqvscroll1
 	bra ScoringSummaryLoop

@@ -1,7 +1,7 @@
 ; Yes or No exit prompt
 AskExitGame:
 	lda.w #$0000
-	sta.w $1DB9
+	sta.w curitem
 .1:
 	jsl.l DrawExitPrompt
 	jsl.l SendTextMap
@@ -20,26 +20,26 @@ AskExitGame:
 	bra .1
 
 .t1:
-	lda.w $1DB9
+	lda.w curitem
 	dec a
 	bpl .t3
 	bra .1
 
 .t2:
-	lda.w $1DB9
+	lda.w curitem
 	inc a
 	cmp.w #$0002
 	bmi .t3
 	bra .1
 
 .t3:
-	sta.w $1DB9
+	sta.w curitem
 	bra .1
 
 .t4:
 	lda.w #$0000
-	sta.w $1DB9
+	sta.w curitem
 .2:
 	jsl.l WaitButtonRelease
-	lda.w $1DB9
+	lda.w curitem
 	rtl

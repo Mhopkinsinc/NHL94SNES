@@ -268,7 +268,7 @@ InProgress_exit:
 	jsl.l assreplace
 ; InProgress: coinsearch for both teams (not in a shootout), restore the registers
 InProgress_coin:
-	lda.w $1E9B
+	lda.w penshot
 	bne .1
 	stz.b a2
 	jsl.l coinsearch

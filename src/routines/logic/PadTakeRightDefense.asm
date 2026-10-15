@@ -5,7 +5,7 @@ PadTakeRightDefense:
 	bcc .1
 	ldy.w #$0002
 .1:
-	lda.w $1C94,y
+	lda.w defcontrol,y
 	bne .t1
 	rtl
 

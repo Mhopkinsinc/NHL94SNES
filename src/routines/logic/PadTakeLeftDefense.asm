@@ -5,7 +5,7 @@ PadTakeLeftDefense:
 	bcc .1
 	ldy.w #$0002
 .1:
-	lda.w $1C94,y
+	lda.w defcontrol,y
 	bne .t1
 	rtl
 
@@ -19,7 +19,7 @@ PadTakePosition:
 	phx
 	ldy.b d4
 	ldx.w #$0000
-	lda.w $1C84,y
+	lda.w cont1team,y
 	cmp.w #$0001
 	beq .1
 	ldx.w #$000C

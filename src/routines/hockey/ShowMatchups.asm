@@ -60,21 +60,21 @@ ShowMatchups:
 	lda.w HomeTeam
 	sta.b d1
 	jsl.l DrawTeamBlocks
-	lda.w $1DB9
+	lda.w curitem
 	bne .t1
 	jmp.w .t2
 
 .t1:
-	dec.w $1DB9
+	dec.w curitem
 	lda.w #$FFFF
 	sta.l $7E3454
 	sta.l $7E3452
 	stz.b a2
-	lda.w $1DB9
+	lda.w curitem
 	sta.l $7E345A
 	lda.w #$0002
 	sta.b a2
-	lda.w $1DB9
+	lda.w curitem
 	sta.l $7E345C
 	jsl.l DrawMatchupPictures
 	lda.w #$3568
@@ -95,10 +95,10 @@ ShowMatchups:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1DB9
+	lda.w curitem
 	jsl.l GetMatchupPlayer
 	lda.b d0
-	sta.w $1D9B
+	sta.w curplayer
 	lda.w #$0001
 	sta.b d1
 	jsl.l GetPlayerRating
@@ -121,7 +121,7 @@ ShowMatchups:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1D9B
+	lda.w curplayer
 	sta.b d0
 	jsl.l PlayerInitialName
 	jsl.l print
@@ -139,10 +139,10 @@ ShowMatchups:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1DB9
+	lda.w curitem
 	jsl.l GetMatchupPlayer
 	lda.b d0
-	sta.w $1D9B
+	sta.w curplayer
 	lda.w #$0001
 	sta.b d1
 	jsl.l GetPlayerRating
@@ -165,7 +165,7 @@ ShowMatchups:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1D9B
+	lda.w curplayer
 	sta.b d0
 	jsl.l PlayerInitialName
 	lda.w #$0021
@@ -173,7 +173,7 @@ ShowMatchups:
 	sbc.b [a1]
 	sta.w printx
 	jsl.l print
-	inc.w $1DB9
+	inc.w curitem
 	jmp.w .1
 
 .t2:
@@ -240,7 +240,7 @@ ShowMatchups:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1DB9
+	lda.w curitem
 	sta.b d0
 	lda.w #LineSlotNames>>16
 	sta.b $8F

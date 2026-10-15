@@ -36,7 +36,7 @@ doinput:
 	beq .1xx
 	ldy.w #$0002
 .1xx:
-	lda.w $1D55,y
+	lda.w lcpad,y
 	ply
 	cmp.w #$0000
 	bmi .2
@@ -118,10 +118,10 @@ doinput:
 	beq .1xxxx
 	ldy.w #$0002
 .1xxxx:
-	lda.w $1D55,y
+	lda.w lcpad,y
 	bpl .14
 	lda.b d4
-	sta.w $1D55,y
+	sta.w lcpad,y
 	jmp.w SetLCmode
 .16:
 	jml.l burst
@@ -131,7 +131,7 @@ doinput:
 	bmi .1xxxxx
 	ldy.w #$0002
 .1xxxxx:
-	lda.w $1C90,y
+	lda.w goaliemode1,y
 	beq .14
 	jml.l PadTakeGoalie
 .18:

@@ -12,14 +12,14 @@ PrintTeamStatRows:
 	lda.w #$0000
 	sta.w printy
 	lda.w #$0000
-	sta.w $1DB9
-	lda.w $1DA3
+	sta.w curitem
+	lda.w listcount
 	sta.b d4
 .loop:
 	jsr.w .t2
 	inc.w printy
 	inc.w printy
-	inc.w $1DB9
+	inc.w curitem
 	dec.b d4
 	bpl .loop
 	rts
@@ -29,7 +29,7 @@ PrintTeamStatRows:
 	sta.w printa
 	lda.w #$0009
 	sta.w printx
-	lda.w $1DB9
+	lda.w curitem
 	sta.b d0
 	lda.w #TeamStatNames>>16
 	sta.b $8F
@@ -64,7 +64,7 @@ org $9C9000
 	sta.b $8B
 	lda.w #TeamStatSources
 	sta.b a0
-	lda.w $1DB9
+	lda.w curitem
 	sta.b d0
 .3:
 	lda.b [a0]
@@ -73,7 +73,7 @@ org $9C9000
 
 .t2x:
 	and.w #$00F0
-	ora.w $1E15
+	ora.w statpenrows
 	beq .1x
 	dec.b d0
 	bmi .t1x

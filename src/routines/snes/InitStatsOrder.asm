@@ -5,9 +5,9 @@ InitStatsOrder:
 .loop:
 	iny
 	sep #$20
-	sta.w $1DFB,y
+	sta.w statsorder,y
 	rep #$20
 	inc a
-	cpy.w $1DC1
+	cpy.w listend
 	bcc .loop
 	rtl

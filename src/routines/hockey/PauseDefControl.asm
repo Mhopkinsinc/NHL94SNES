@@ -5,8 +5,8 @@ PauseDefControl:
 	beq PauseDefStore
 	jsl.l GetPadTeam
 	ldy.b a2
-	lda.w $1C94,y
+	lda.w defcontrol,y
 	eor.w #$0001
-	sta.w $1C94,y
+	sta.w defcontrol,y
 PauseDefStore:
 	jmp.w PauseMenuPoll

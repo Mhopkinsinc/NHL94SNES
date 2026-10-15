@@ -54,7 +54,7 @@ DrawExitPrompt:
 	sta.b $8F
 	lda.w #ExitGameAsk
 	sta.b a1
-	lda.w $1D81
+	lda.w shootoutmode
 	beq .1
 	lda.w #ExitShootoutAsk>>16
 	sta.b $8F
@@ -77,7 +77,7 @@ DrawExitPrompt:
 	sta.b $8F
 	lda.w #$2400
 	sta.w printa
-	lda.w $1DB9
+	lda.w curitem
 	bne .2
 	lda.w #$2000
 	sta.w printa
@@ -102,7 +102,7 @@ DrawExitPrompt:
 	sta.b $8F
 	lda.w #$2400
 	sta.w printa
-	lda.w $1DB9
+	lda.w curitem
 	beq .3
 	lda.w #$2000
 	sta.w printa

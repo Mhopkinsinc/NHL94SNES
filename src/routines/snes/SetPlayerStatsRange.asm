@@ -1,23 +1,23 @@
 ; The first and last row of the player stats list: the goalies or the skaters
 SetPlayerStatsRange:
-	lda.w $1DF9
+	lda.w statcolumn
 	cmp.w #$0000
 	beq .t1
 	jsl.l GoalieCount
 	lda.b d0
-	sta.w $1DBD
+	sta.w listtop
 	jsl.l GetPlayerCount
 	lda.b d0
-	sta.w $1DC1
+	sta.w listend
 	bra .1
 
 .t1:
-	stz.w $1DBD
+	stz.w listtop
 	jsl.l GoalieCount
 	lda.b d0
-	sta.w $1DC1
+	sta.w listend
 .1:
-	dec.w $1DC1
-	lda.w $1DBD
-	sta.w $1DB9
+	dec.w listend
+	lda.w listtop
+	sta.w curitem
 	rtl

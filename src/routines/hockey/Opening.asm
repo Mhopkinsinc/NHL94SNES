@@ -20,7 +20,7 @@ Opening:
 	lda.w #$0000
 	sta.w brightness
 	jsl.l ReadAnyPad
-	stz.w $1D68
+	stz.w sndbank
 	jsl.l TitleScreen
 	jsl.l FadeOutSound
 .loop2:
@@ -58,7 +58,7 @@ Restart:
 	sta.w jmlvector
 	jsl.l CheckPAL
 	jsl.l setoptions
-	stz.w $1D81
+	stz.w shootoutmode
 	lda.l $7E34BC
 	cmp.w #$0004
 	bne StartGame

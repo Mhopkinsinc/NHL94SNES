@@ -90,7 +90,7 @@ Reset_Fast:
 .loop8:
 	lda.w InitTag,x
 	sta.w RAMTag,x
-	sta.w $1EBD,x
+	sta.w RAMTag2,x
 	sta.l ReplayBufferEnd,x
 	dex
 	bpl .loop8

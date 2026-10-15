@@ -184,7 +184,7 @@ asspenalty:
 	inc a
 	inc a
 	lsr a
-	sta.w $1C84,y
+	sta.w cont1team,y
 .2xxx:
 	ldx.b a2
 	ldy.w padsitnext,x
@@ -202,7 +202,7 @@ asspenalty:
 	ora.w #$FF00
 	sta.w padside,y
 	lda.w #$0000
-	sta.w $1C84,y
+	sta.w cont1team,y
 	phy
 	iny
 	iny

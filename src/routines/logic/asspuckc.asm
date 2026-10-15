@@ -40,7 +40,7 @@ asspuckc:
 .3x:
 	sta.w temp1,x
 	jsl.l checkob
-	lda.w $1E8B
+	lda.w breakaway
 	beq .t1x
 	lda.w Ypos,x
 	sta.b d0

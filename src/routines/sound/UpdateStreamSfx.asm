@@ -4,7 +4,7 @@ UpdateStreamSfx:
 	lda.w SoundLock
 	and.w #$00FF
 	bne .3
-	lda.w $1D68
+	lda.w sndbank
 	cmp.w #$0002
 	beq .3
 	lda.w gmclock

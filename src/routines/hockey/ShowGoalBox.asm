@@ -23,8 +23,8 @@ ShowGoalBox:
 	bne .loop
 	ldx.b xsave
 	lda.w #$FFFF
-	sta.w $1D55
-	sta.w $1D57
+	sta.w lcpad
+	sta.w lcpad+2
 	stz.b a2
 	jsl.l lcfound2
 	inc.b a2

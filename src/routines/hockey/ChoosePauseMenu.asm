@@ -6,27 +6,27 @@ ChoosePauseMenu:
 	beq .t1
 	lda.w InIntermission
 	bne .t1
-	lda.w $1C84,x
+	lda.w cont1team,x
 	and.w #$0002
 	tay
 	lda.w tmtimeouts,y
 	beq .t1
 	lda.w #$0011
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0005
-	sta.w $1EB7
+	sta.w pmenulist
 	bra .1
 
 .t1:
 	lda.w #$0010
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0000
-	sta.w $1EB7
+	sta.w pmenulist
 .1:
 	lda.w psfirst
 	clc
 	adc.w #$0005
-	cmp.w $1EB9
+	cmp.w pmenucount
 	bcc .rtl
 	dec.w psfirst
 .rtl:

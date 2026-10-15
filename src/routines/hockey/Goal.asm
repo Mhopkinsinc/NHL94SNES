@@ -24,13 +24,13 @@ Goal:
 	bra .in
 
 .t2:
-	lda.w $1E91
+	lda.w BA_Team
 	beq .6
 .1:
 	jsl.l EndPenaltyShot
 	jmp.w .16
 .in:
-	lda.w $1E91
+	lda.w BA_Team
 	beq .1
 .6:
 	jsl.l ChkShotStat
@@ -75,9 +75,9 @@ Goal:
 	inc a
 	sta.w tmSHGoals,y
 .4:
-	lda.w $1E9B
+	lda.w penshot
 	bne .t1xx
-	lda.w $1E8B
+	lda.w breakaway
 	beq .5
 	ldy.b a2
 	lda.w tmBreakawayGoals,y
@@ -91,7 +91,7 @@ Goal:
 	inc a
 	sta.w tmPenShotGoals,y
 .5:
-	lda.w $1E89
+	lda.w onetimer
 	beq .1xx
 	ldy.b a2
 	lda.w tmOneTimerGoals,y
@@ -131,8 +131,8 @@ Goal:
 	lda.b $83
 	sta.w sfxmutetime
 	jsl.l EndPenaltyShot
-	stz.w $1E8B
-	stz.w $1E89
+	stz.w breakaway
+	stz.w onetimer
 	phx
 	lda.w gsp
 	asl a

@@ -1,9 +1,9 @@
 ; Show or clear the scroll arrows beside a summary list, then send the text map
 PrintScrollArrows:
-	lda.w $1DBD
+	lda.w listtop
 	clc
 	adc.w #$0005
-	cmp.w $1DC1
+	cmp.w listend
 	bpl .t1
 	lda.b $8F
 	pha
@@ -35,7 +35,7 @@ PrintScrollArrows:
 	pla
 	sta.b $8F
 .1:
-	lda.w $1DBD
+	lda.w listtop
 	dec a
 	bmi .t1x
 	lda.b $8F

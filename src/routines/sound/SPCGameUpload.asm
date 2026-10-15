@@ -1,11 +1,11 @@
 ; Upload the in-game sample set, unless it is the one loaded
 SPCGameUpload:
-	lda.w $1D68
+	lda.w sndbank
 	cmp.w #$0001
 	beq .rtl
 	jsl.l forceblack
 	lda.w #$0001
-	sta.w $1D68
+	sta.w sndbank
 	sep #$20
 	dec.w SoundLock
 	rep #$20

@@ -1,25 +1,25 @@
 ; Scroll the game stats up one row.
 ScrollGameStatsUp:
 	jsr.w ClearGameStatBraces
-	lda.w $1DBD
+	lda.w listtop
 	dec a
 	bmi MarkGameStatRows
-	sta.w $1DBD
-	inc.w $1DC5
+	sta.w listtop
+	inc.w listrows
 	jsr.w SendGameStatsPage
-	dec.w $1DC5
+	dec.w listrows
 	jsl.l WaitFrame
 	lda.w #$000D
-	sta.w $1DF3
+	sta.w irqvscroll1
 .loop:
 	jsl.l WaitFrame
-	dec.w $1DF3
-	dec.w $1DF3
-	lda.w $1DF3
+	dec.w irqvscroll1
+	dec.w irqvscroll1
+	lda.w irqvscroll1
 	cmp.w #$0001
 	bne .loop
 	jsr.w SendGameStatsPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
-	sta.w $1DF3
+	sta.w irqvscroll1
 	jmp.w GameStatsKeys

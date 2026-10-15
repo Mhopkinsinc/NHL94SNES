@@ -12,6 +12,6 @@ IRQ_BandStart:
 	rep #$20
 	lda.w #IRQ_BandEnd
 	sta.w IRQHook
-	lda.w $1DEF
+	lda.w irqline2
 	sta.w VTIMEL
 	rtl

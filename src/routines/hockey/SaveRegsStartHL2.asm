@@ -76,7 +76,7 @@ StartHL2:
 	jsl.l WaitFadeOut
 	jsl.l forceblack
 	jsl.l FadeOutSound
-	lda.w $1D68
+	lda.w sndbank
 	cmp.w #$0001
 	beq .1
 	jsl.l SPCGameUpload
@@ -112,11 +112,11 @@ StartHL2:
 	dex
 	dex
 	bpl .loop
-	stz.w $1C84
-	stz.w $1C86
-	stz.w $1C88
-	stz.w $1C8A
-	stz.w $1C8C
+	stz.w cont1team
+	stz.w cont2team
+	stz.w cont3team
+	stz.w cont4team
+	stz.w cont5team
 	lda.w #$0078
 	jsl.l randoma8
 	adc.w #$0078

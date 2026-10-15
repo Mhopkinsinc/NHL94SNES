@@ -41,17 +41,17 @@ Intermission:
 	iny
 	cpy.w #$000A
 	bcs .1
-	lda.w $1C84,y
+	lda.w cont1team,y
 	beq .loopx
 	eor.w #$FFFF
 	inc a
 	sta.w pausepad
 .1:
-	lda.w $1C84
-	ora.w $1C86
-	ora.w $1C88
-	ora.w $1C8A
-	ora.w $1C8C
+	lda.w cont1team
+	ora.w cont2team
+	ora.w cont3team
+	ora.w cont4team
+	ora.w cont5team
 	bne .2
 	stz.w pausepad
 .2:

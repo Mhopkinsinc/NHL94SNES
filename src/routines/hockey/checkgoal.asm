@@ -196,8 +196,8 @@ checkgoal:
 	bpl .8
 .1xxx:
 	jsl.l ChkShotStat
-	stz.w $1E8B
-	stz.w $1E89
+	stz.w breakaway
+	stz.w onetimer
 	lda.w #$0009
 	jsl.l PuckSfx
 	lda.l crowdlevel

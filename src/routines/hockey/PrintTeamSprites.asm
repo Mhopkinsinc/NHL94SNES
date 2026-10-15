@@ -3,8 +3,8 @@ PrintTeamSprites:
 	phb
 	phk
 	plb
-	stx.w $1E17
-	sty.w $1E1B
+	stx.w letterx
+	sty.w lettery
 	stz.b $14
 	stz.b $16
 	lda.b d1
@@ -95,7 +95,7 @@ PrintTeamSprites_go:
 	lda.w #$00F8
 	sec
 	sbc.b $14
-	sta.w $1E17
+	sta.w letterx
 	bra .5
 
 .t1xx:
@@ -104,8 +104,8 @@ PrintTeamSprites_go:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.w $1E17
-	sta.w $1E17
+	adc.w letterx
+	sta.w letterx
 .5:
 	lda.b (d1),y
 	and.w #$00FF
@@ -174,8 +174,8 @@ PrintTeamSprites_go:
 	bne .7
 	lda.w #$3E00
 .7:
-	ldx.w $1E17
-	ldy.w $1E1B
+	ldx.w letterx
+	ldy.w lettery
 	jsl.l DrawSprite
 	plx
 	ply
@@ -183,8 +183,8 @@ PrintTeamSprites_go:
 	and.w #$00FF
 .8:
 	clc
-	adc.w $1E17
-	sta.w $1E17
+	adc.w letterx
+	sta.w letterx
 .9:
 	iny
 	jmp.w .5

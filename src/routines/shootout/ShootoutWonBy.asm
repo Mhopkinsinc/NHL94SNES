@@ -1,13 +1,13 @@
 ; "<team> Wins!" once the shootout is decided
 ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
-	lda.w $1D81
+	lda.w shootoutmode
 	bne .t1
 	jmp.w .3
 
 .t1:
 	lda.w #$000A
 	sta.b d0
-	lda.w $1D89
+	lda.w shootoutdecider
 	bne .t3
 	jmp.w .3
 

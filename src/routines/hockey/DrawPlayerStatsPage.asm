@@ -2,7 +2,7 @@
 DrawPlayerStatsPage:
 	lda.b d1
 	pha
-	lda.w $1DF9
+	lda.w statcolumn
 	beq .t1
 	lda.b $8F
 	pha
@@ -17,7 +17,7 @@ DrawPlayerStatsPage:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1DC5
+	lda.w listrows
 	sta.b d1
 	dec.b d1
 	lda.w #$007E
@@ -43,7 +43,7 @@ DrawPlayerStatsPage:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1DC1
+	lda.w listend
 	sta.b d1
 	lda.w #$007E
 	sta.b $0E
@@ -53,7 +53,7 @@ DrawPlayerStatsPage:
 	ldx.w #$04C0
 	jsl.l DMAToVRAM
 .1:
-	lda.w $1DB9
+	lda.w curitem
 	xba
 	lsr a
 	adc.w #$2780

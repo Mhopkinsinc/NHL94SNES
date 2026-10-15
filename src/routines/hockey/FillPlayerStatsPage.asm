@@ -9,7 +9,7 @@ FillPlayerStatsPage:
 	clc
 	adc.l printfontset
 	jsl.l MemFill
-	ldy.w $1DBD
+	ldy.w listtop
 	tya
 	dec a
 	asl a
@@ -18,11 +18,11 @@ FillPlayerStatsPage:
 	inc.w printy
 	inc.w printy
 	sep #$20
-	lda.w $1DFB,y
+	lda.w statsorder,y
 	rep #$20
 	and.w #$00FF
 	tax
-	lda.w $1DF9
+	lda.w statcolumn
 	beq .t1
 	jsl.l .3
 	bra .2
@@ -31,7 +31,7 @@ FillPlayerStatsPage:
 	jsl.l .4
 .2:
 	iny
-	cpy.w $1DC1
+	cpy.w listend
 	beq .1
 	bcc .1
 	rtl
@@ -46,14 +46,14 @@ FillPlayerStatsPage:
 	stx.b d0
 	jsl.l PlayerInitialName
 	jsl.l PrintToStatsPage
-	stx.w $1DC9
+	stx.w statstemp
 	lda.b a2
 	beq .2x
 .1x:
 	lda.w #$001A
 .2x:
 	clc
-	adc.w $1DC9
+	adc.w statstemp
 	tax
 	lda.w #$0001
 	jsl.l SetStatColumnPal
@@ -144,13 +144,13 @@ FillPlayerStatsPage:
 	stx.b d0
 	jsl.l PlayerInitialName
 	jsl.l PrintToStatsPage
-	stx.w $1DC9
+	stx.w statstemp
 	lda.b a2
 	beq .1xx
 	lda.w #$001A
 .1xx:
 	clc
-	adc.w $1DC9
+	adc.w statstemp
 	tax
 	lda.w #$0012
 	sta.w printx

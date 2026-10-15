@@ -3,11 +3,11 @@ SwapPlayerCardTeam:
 	lda.b a2
 	eor.w #$0002
 	sta.b a2
-	stz.w $1DB9
+	stz.w curitem
 	jsl.l GetPlayerCount
 	lda.b d0
 	clc
 	adc.w #$0006
-	sta.w $1DC1
+	sta.w listend
 	jsl.l DrawPlayerCard
 	jmp.w PlayerCardsRedraw

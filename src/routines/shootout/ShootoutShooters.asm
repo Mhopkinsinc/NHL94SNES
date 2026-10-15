@@ -8,10 +8,10 @@ ShootoutShooters:
 	lda.w #$0002
 	sta.b d0
 .team:
-	lda.w $1C84
+	lda.w cont1team
 	cmp.b d0
 	beq .t1
-	lda.w $1C86
+	lda.w cont2team
 	cmp.b d0
 	beq .t1
 	jmp.w ShootersExit
@@ -26,7 +26,7 @@ ShootoutShooters:
 	jsl.l ShootersSetup
 	jsl.l SendColours
 	jsl.l ShootersBackground
-	stz.w $1DB9
+	stz.w curitem
 	lda.w #$0001
 	sta.w SelectedPlayerIdx
 	stz.w DispAttribCtr
@@ -71,16 +71,16 @@ ShootersSetGoalie:
 	sta.w tmgoalie,y
 	rtl
 ShootersUp:
-	lda.w $1DB9
+	lda.w curitem
 	beq ShootersNext
-	dec.w $1DB9
+	dec.w curitem
 	jsl.l PrintShooterNames
 	bra ShootersNext
 ShootersDown:
-	lda.w $1DB9
+	lda.w curitem
 	cmp.w #$0005
 	bpl ShootersNext
-	inc.w $1DB9
+	inc.w curitem
 	jsl.l PrintShooterNames
 	bra ShootersNext
 ShootersPick:

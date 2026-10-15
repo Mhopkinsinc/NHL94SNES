@@ -9,12 +9,12 @@ ShowPlayerCards:
 	sta.b a2
 	lda.b a2
 	pha
-	stz.w $1DB9
+	stz.w curitem
 	jsl.l GetPlayerCount
 	lda.b d0
 	clc
 	adc.w #$0006
-	sta.w $1DC1
+	sta.w listend
 	jsl.l ScreenOn
 	jsl.l DrawPlayerCard
 PlayerCardsRedraw:

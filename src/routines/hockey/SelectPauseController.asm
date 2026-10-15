@@ -23,7 +23,7 @@ SelectPauseController:
 	lda.w JoyPad,x
 	bit.w #$000F
 	bne .1
-	lda.w $1C84,x
+	lda.w cont1team,x
 	beq .1
 	lda.b $01,s
 	jsl.l ReadjoyA
@@ -42,7 +42,7 @@ SelectPauseController:
 	pla
 	asl a
 	tax
-	lda.w $1C84,x
+	lda.w cont1team,x
 	eor.w #$FFFF
 	inc a
 	cmp.w pausepad
@@ -57,7 +57,7 @@ SelectPauseController:
 	sta.w pausepadidle
 	lda.w #$0014
 	sta.w repeatdelay
-	lda.w $1EB7
+	lda.w pmenulist
 	beq .t1x
 	cmp.w #$0005
 	beq .t1x
@@ -90,7 +90,7 @@ SelectPauseController:
 .1x:
 	stz.w pausepadidle
 	ldx.w pausepad
-	lda.w $1C84,x
+	lda.w cont1team,x
 	eor.w #$FFFF
 	inc a
 	sta.w pausepad
@@ -102,11 +102,11 @@ SelectPauseController:
 .5:
 	lda.w demoflag
 	beq .7
-	lda.w $1C84
-	ora.w $1C86
-	ora.w $1C88
-	ora.w $1C8A
-	ora.w $1C8C
+	lda.w cont1team
+	ora.w cont2team
+	ora.w cont3team
+	ora.w cont4team
+	ora.w cont5team
 	bne .7
 	dec.w pausetimer
 	bne .7
@@ -120,11 +120,11 @@ SelectPauseController:
 	jmp.w SelectPauseController
 
 .t1xxx:
-	lda.w $1C84
-	ora.w $1C86
-	ora.w $1C88
-	ora.w $1C8A
-	ora.w $1C8C
+	lda.w cont1team
+	ora.w cont2team
+	ora.w cont3team
+	ora.w cont4team
+	ora.w cont5team
 	beq .rtl
 	lda.w #$EA60
 	sta.w pausetimer

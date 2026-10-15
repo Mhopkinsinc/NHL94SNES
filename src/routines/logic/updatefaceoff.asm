@@ -21,7 +21,7 @@ updatefaceoff:
 	rtl
 
 .t2:
-	lda.w $1E9B
+	lda.w penshot
 	bne .t1
 	lda.b $8F
 	pha
@@ -80,5 +80,5 @@ updatefaceoff:
 	sta.b d2
 	jsl.l eraser
 	stz.w FrameCount
-	stz.w $1D6D
+	stz.w gameframes
 	rtl

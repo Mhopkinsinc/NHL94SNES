@@ -42,8 +42,8 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	lda.w mp5readall
 	ora.w mp5warning
 	bne .1
-	lda.w $1C8A
-	ora.w $1C8C
+	lda.w cont4team
+	ora.w cont5team
 	bne .1
 	lda.w mp5readdelay
 	beq .t1

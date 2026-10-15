@@ -14,18 +14,18 @@ ShowOtherScores:
 	jsl.l PrintLetterSprites
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
-	stz.w $1DB9
+	stz.w curitem
 	lda.w #$0000
 	cmp.l $7E35D6
 	bne .2
 .1:
 	inc a
 .2:
-	sta.w $1DBD
+	sta.w listtop
 	jsl.l GetShifter
 	lda.b d1
 	inc a
-	sta.w $1DC1
+	sta.w listend
 	jsl.l FillOtherScores
 	jsl.l SendTextMap
 	lda.w #$0050
@@ -35,7 +35,7 @@ ShowOtherScores:
 	jsl.l MenuScreenHDMA
 	jsl.l ScreenOn
 	lda.w #$0005
-	sta.w $1DC5
+	sta.w listrows
 	jsl.l DrawOtherScoresPage
 OtherScoresLoop:
 	jsl.l ReadPausePad
@@ -54,7 +54,7 @@ OtherScoresLoop:
 	bit.w #$0400
 	bne ScrollOtherScoresDown
 OtherScoresNext:
-	lda.w $1DBD
+	lda.w listtop
 	beq .3
 	dec a
 	bne .2
@@ -64,9 +64,9 @@ OtherScoresNext:
 .2:
 	lda.w #$0004
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	asl a
-	adc.w $1DBD
+	adc.w listtop
 	sta.w printy
 	lda.w #$2000
 	sta.w printa
@@ -76,18 +76,18 @@ OtherScoresNext:
 	sta.b a1
 	jsl.l PrintToStatsPage
 .3:
-	lda.w $1DBD
+	lda.w listtop
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	clc
-	adc.w $1DE9
-	cmp.w $1DC1
+	adc.w otherskip
+	cmp.w listend
 	bpl .4
 	lda.w #$0004
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	dec a
 	sta.b $14
 	asl a

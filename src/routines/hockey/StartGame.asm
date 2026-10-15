@@ -51,21 +51,21 @@ StartGame_go:
 	pla
 	sta.b a2
 	lda.l $7E34C8
-	sta.w $1C90
-	sta.w $1C92
+	sta.w goaliemode1
+	sta.w goaliemode2
 	lda.w #$0001
 	sta.w tmtimeouts
 	sta.w tmtimeouts+2
-	stz.w $1E9B
-	stz.w $1E9D
-	stz.w $1EAD
+	stz.w penshot
+	stz.w penshotlive
+	stz.w lastperiod
 	lda.w #$0001
 	sta.l $7E344E
 	stz.w teampads
 	stz.w teampads+2
 	ldx.w #$0008
 .2:
-	lda.w $1C84,x
+	lda.w cont1team,x
 	cmp.w #$0001
 	bne .t1
 	inc.w teampads
@@ -80,10 +80,10 @@ StartGame_go:
 	dex
 	bpl .2
 	jsl.l setupice
-	stz.w $1EBB
+	stz.w pregamepause
 	ldx.w #$0000
 .loopx:
-	lda.w $1C84,x
+	lda.w cont1team,x
 	dec a
 	asl a
 	sta.w padside,x
@@ -93,7 +93,7 @@ StartGame_go:
 	bcc .loopx
 	ldx.w #$0000
 .loop2x:
-	lda.w $1C84,x
+	lda.w cont1team,x
 	bne .t1x
 	inx
 	inx
@@ -103,10 +103,10 @@ StartGame_go:
 
 .t1x:
 	lda.w #$0001
-	sta.w $1EBB
+	sta.w pregamepause
 .4:
 	lda.w #$FFFF
-	sta.w $1E8D
-	lda.w $1D81
+	sta.w BA_Sktr_SCnum
+	lda.w shootoutmode
 	beq StartPer
 	rtl

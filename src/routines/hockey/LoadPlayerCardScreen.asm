@@ -124,7 +124,7 @@ LoadPlayerCardScreen:
 	lsr a
 	lsr a
 	adc.l $7E35B2
-	sta.w $1E85
+	sta.w cardframechars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -177,7 +177,7 @@ LoadPlayerCardScreen:
 .loop2:
 	lda.b [$10],y
 	clc
-	adc.w $1E85
+	adc.w cardframechars
 	clc
 	adc.l $7E35AC
 	clc

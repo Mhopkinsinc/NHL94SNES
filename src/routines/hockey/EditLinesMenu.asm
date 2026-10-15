@@ -30,10 +30,10 @@ EditLinesMenu:
 	jsl.l SendTextMap
 	jsl.l WaitButtonRelease
 	lda.w #$0000
-	sta.w $1D97
+	sta.w linemenuitem
 .1:
 	lda.w #$0000
-	cmp.w $1D97
+	cmp.w linemenuitem
 	bne .t1
 	lda.b $8F
 	pha
@@ -79,7 +79,7 @@ EditLinesMenu:
 	pla
 	sta.b $8F
 	lda.w #$0001
-	cmp.w $1D97
+	cmp.w linemenuitem
 	bne .t1x
 	lda.b $8F
 	pha
@@ -140,14 +140,14 @@ EditLinesMenu:
 	jmp.w .1
 .5:
 	lda.w #$0000
-	sta.w $1D97
+	sta.w linemenuitem
 	bra .4
 .6:
 	lda.w #$0001
-	sta.w $1D97
+	sta.w linemenuitem
 	bra .4
 .7:
-	lda.w $1D97
+	lda.w linemenuitem
 	cmp.w #$0000
 	beq .t1xx
 	bra .t2

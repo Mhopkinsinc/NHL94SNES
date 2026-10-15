@@ -2,7 +2,7 @@
 ClearPlayerStatBraces:
 	lda.w #$0001
 	sta.w printx
-	lda.w $1DB9
+	lda.w curitem
 	asl a
 	sta.w printy
 	lda.w #$2000
@@ -14,9 +14,9 @@ ClearPlayerStatBraces:
 	jsl.l PrintToStatsPage
 	lda.w #$0001
 	sta.w printx
-	lda.w $1DB9
+	lda.w curitem
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	dec a
 	asl a
 	sta.w printy

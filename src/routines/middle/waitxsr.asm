@@ -9,7 +9,7 @@ waitxsr:
 	txa
 	asl a
 	tay
-	lda.w $1C84,y
+	lda.w cont1team,y
 	beq .1
 	txa
 	jsl.l ReadjoyA

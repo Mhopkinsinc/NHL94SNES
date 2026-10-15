@@ -39,7 +39,7 @@ ShootersBackground:
 	beq .rtl
 	jsl.l WaitFrame
 	lda.w #$0050
-	sta.w $1DEF
+	sta.w irqline2
 	lda.w #$0000
 	sta.l $7E3468
 .rtl:
