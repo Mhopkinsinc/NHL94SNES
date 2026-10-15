@@ -33,7 +33,7 @@ asseben:
 	ldy.w position,x
 	bne .3
 .2:
-	lda.w #DATA8_9DE452
+	lda.w #SPAgwallright
 .3:
 	jml.l SetSPAUpdate
 

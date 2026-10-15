@@ -63,7 +63,7 @@ findpc:
 	cmp.w #$EBE3
 	bcc .4
 .2x:
-	cmp.w #DATA8_9DF196
+	cmp.w #SPAcrosscheck
 	bcc .3
 	cmp.w #$F343
 	bcc .4

@@ -6413,6 +6413,18 @@ $9AEE1C,EALogoEPalette,DATA8_9AEE1C,render,IntroSequence: palette 3 (and sprite 
 $9AEE3C,EALogoAPalette,DATA8_9AEE3C,render,IntroSequence: palette 4 (and sprite palette 4); EALogoAMap's tiles use only that row: the red A of the boot EA logo,src/data/gfx/EALogoAPalette.asm
 $9AEE5C,EALogoSportsPalette,DATA8_9AEE5C,render,"IntroSequence fades it into palette 2, the row of the SPORTS tiles of EALogoMap (blue ramp)",src/data/gfx/EALogoSportsPalette.asm
 $9AEE7C,EALogoTextPalette,DATA8_9AEE7C,render,"IntroSequence fades it into palette 1, the row of the ELECTRONIC ARTS tiles of EALogoMap",src/data/gfx/EALogoTextPalette.asm
-$9ACEB6,PlayerMarkerPalette,DATA8_9ACEB6,render,"setplayercolors copies it into sprite palette 2, the palette of SpriteFrames 373-394 only (the controllers' arrows and stars, rendered); PlayerSelect sends it to sprite palette 1",src/data/gfx/PlayerMarkerPalette.asm
+$9ACEB6,PlayerMarkerPalette,DATA8_9ACEB6,render,"setplayercolors copies it into sprite palette 2, the palette of SpriteFrames frames 374-395 only (the controllers' arrows and stars, rendered); PlayerSelect sends it to sprite palette 1",src/data/gfx/PlayerMarkerPalette.asm
 $9AD1B6,CardSpritePalette,DATA8_9AD1B6,code,"LoadPlayerCardScreen sends its first 16 colours to sprite palette 0, the palette of the SmallLetterSprites the card prints with",src/data/gfx/CardSpritePalette.asm
 $9AD3B6,SetupSpritePalette,DATA8_9AD3B6,render,"SetupScreen / LoadScoutingScreen send it to sprite palette 0, the palette of LetterSprites (gold letters, rendered; the CROWD METER title)",src/data/gfx/SetupSpritePalette.asm
+$9DE452,SPAgwallright,DATA8_9DE452,code,asseben gives a goalie it where skaters get SPAwallright (leaving the bench); frames 370-373 rendered: the goalie climbing,src/data/frames94s.asm
+$9DE484,SPAgwallleft,DATA8_9DE484,code,assbench gives a goalie it where skaters get SPAwallleft (going to the bench); SPAgwallright's frames reversed,src/data/frames94s.asm
+$9DE528,SPAgpoke,DATA8_9DE528,code,"assgoalie: the controlled goalie's X button (padnew $0040; Y with a direction is SPAgdive), and the CPU goalie at random when an opponent has the puck within $23, then $F0 frames before again (poke check by behaviour)",src/data/frames94s.asm
+$9DE59A,SPAgcover2,DATA8_9DE59A,code,"SPAgcover's frames with a 20-frame hold, not 90; nothing sets it",src/data/frames94s.asm
+$9DE66C,SPAgcover,DATA8_9DE66C,code,assgoalie: the goalie drops onto the puck and holds 90 frames ($1543 = $5A) when an opponent is within $14 of it (rendered: down on the ice),src/data/frames94s.asm
+$9DE73E,SPAgbutterfly,DATA8_9DE73E,code,GoalieSaveList entry 8: assgoalie picks it for a slow shot (puckvy within $800) straight at the goalie; rendered: the butterfly drop,src/data/frames94s.asm
+$9DE7D0,SPAgsprawll,DATA8_9DE7D0,code,"GoalieSaveList entry 7, the left of the pair 6/7 picked for a shot from a wide angle (same right/left rule as the other pairs); rendered: a sprawl",src/data/frames94s.asm
+$9DE862,SPAgsprawlr,DATA8_9DE862,code,"GoalieSaveList entry 6, the right of the pair 6/7 picked for a shot from a wide angle; rendered: a sprawl",src/data/frames94s.asm
+$9DF196,SPAcrosscheck,DATA8_9DF196,94G,"checkcheck: the check straight ahead (relative direction 0), with the same away-from-the-crease limits as 94G SPAcrosscheck; rendered: the stick held across in both hands",src/data/frames94s.asm
+$9DFEC2,SPAunused1,DATA8_9DFEC2,code,no code sets it (updateanim only compares SPA with its address); skater frames with the stick raised,src/data/frames94s.asm
+$9DFF04,SPAunused2,DATA8_9DFF04,code,"no code sets it; skater frames with the stick raised, longer than SPAunused1",src/data/frames94s.asm
+$9DFF5A,SPAunused3,DATA8_9DFF5A,code,no code sets it; one skater frame,src/data/frames94s.asm

@@ -164,4 +164,4 @@ org $9EA001
 .2x:
 	jmp.w FallDown
 .4:		; check animation by direction (93S .list, with a 94 animation first)
-	dw DATA8_9DF196&$FFFF,SPAshoulderchkr&$FFFF,SPAhipchkr&$FFFF,SPAhipchkr&$FFFF,SPAhipchkr&$FFFF,SPAhipchkl&$FFFF,SPAhipchkl&$FFFF,SPAshoulderchkl&$FFFF
+	dw SPAcrosscheck&$FFFF,SPAshoulderchkr&$FFFF,SPAhipchkr&$FFFF,SPAhipchkr&$FFFF,SPAhipchkr&$FFFF,SPAhipchkl&$FFFF,SPAhipchkl&$FFFF,SPAshoulderchkl&$FFFF

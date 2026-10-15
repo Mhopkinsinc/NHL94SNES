@@ -114,12 +114,12 @@ SPAgskate:
 .d5:	dw 634,10,635,10,636,10,637,-15
 .d6:	dw 638,10,639,10,640,10,641,-15
 .d7:	dw 642,10,643,10,644,10,645,-15
-DATA8_9DE452:
-	dw .d0,.d0,.d0,.d3,.d3,.d3,.d3,DATA8_9DE484
+SPAgwallright:		; the goalie's SPAwallright: asseben gives it to a goalie leaving the bench
+	dw .d0,.d0,.d0,.d3,.d3,.d3,.d3,SPAgwallleft
 	dw 0
 .d0:	dw 370,8,371,8,372,8,373,-8
 .d3:	dw 373,8,372,8,371,8,370,-8
-DATA8_9DE484:
+SPAgwallleft:		; the goalie's SPAwallleft: assbench gives it to a goalie going to the bench
 	dw .d0,.d0,.d0,.d3,.d3,.d3,.d3,SPAgdive
 	dw 0
 .d0:	dw 373,8,372,8,371,8,370,-8
@@ -135,7 +135,7 @@ SPAgdive:
 .d5:	dw 672,8,673,48,672,-8
 .d6:	dw 674,8,675,48,674,-8
 .d7:	dw 676,8,677,48,676,-8
-DATA8_9DE528:
+SPAgpoke:		; assgoalie: the controlled goalie's X button, the CPU goalie at random when an opponent has the puck near
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 678,4,679,15,678,-6
@@ -146,7 +146,7 @@ DATA8_9DE528:
 .d5:	dw 688,4,689,15,688,-6
 .d6:	dw 690,4,691,15,690,-6
 .d7:	dw 692,4,693,15,692,-6
-DATA8_9DE59A:
+SPAgcover2:		; SPAgcover's frames held 20, not 90; nothing sets it
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 694,6,695,6,696,20,695,6,694,6,646,-8
@@ -157,7 +157,7 @@ DATA8_9DE59A:
 .d5:	dw 709,6,710,6,711,20,710,6,709,6,656,-8
 .d6:	dw 712,6,713,6,714,20,713,6,712,6,658,-8
 .d7:	dw 715,6,716,6,717,20,716,6,715,6,660,-8
-DATA8_9DE66C:
+SPAgcover:		; assgoalie: the goalie drops on the puck for 90 frames when an opponent is near it
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 694,6,695,6,696,90,695,6,694,6,646,-4
@@ -168,7 +168,7 @@ DATA8_9DE66C:
 .d5:	dw 709,6,710,6,711,90,710,6,709,6,656,-4
 .d6:	dw 712,6,713,6,714,90,713,6,712,6,658,-4
 .d7:	dw 715,6,716,6,717,90,716,6,715,6,660,-4
-DATA8_9DE73E:
+SPAgbutterfly:		; GoalieSaveList 8: a slow shot straight at the goalie
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 718,6,719,6,720,20,646,-4
@@ -179,7 +179,7 @@ DATA8_9DE73E:
 .d5:	dw 733,6,734,6,735,20,656,-4
 .d6:	dw 736,6,737,6,738,20,658,-4
 .d7:	dw 739,6,740,6,741,20,660,-4
-DATA8_9DE7D0:
+SPAgsprawll:		; GoalieSaveList 7: a shot from a wide angle, to the left
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 742,4,743,4,744,20,646,-4
@@ -190,7 +190,7 @@ DATA8_9DE7D0:
 .d5:	dw 757,4,758,4,759,20,656,-4
 .d6:	dw 760,4,761,4,762,20,658,-4
 .d7:	dw 763,4,764,4,765,20,660,-4
-DATA8_9DE862:
+SPAgsprawlr:		; GoalieSaveList 6: a shot from a wide angle, to the right
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 766,4,767,4,768,20,646,-4
@@ -378,7 +378,7 @@ SPAskateback:
 .d5:	dw 176,8,177,8,176,8,178,-8
 .d6:	dw 179,8,180,8,179,8,181,-8
 .d7:	dw 182,8,183,8,182,8,184,-8
-DATA8_9DF196:
+SPAcrosscheck:		; checkcheck: the check straight ahead, away from the crease (94G SPAcrosscheck)
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
 .d0:	dw 518,1,519,10,518,-8
@@ -683,18 +683,18 @@ SPAbenchcheckl:
 .d2:	dw 903,10,904,10,905,10,905,90,916,-20
 .d4:	dw 908,10,909,10,910,10,910,90,916,-20
 .d6:	dw 913,10,914,10,915,10,915,90,916,-20
-DATA8_9DFEC2:
+SPAunused1:		; nothing sets it (updateanim only compares SPA with its address)
 	dw .d0,.d0,.d0,.d0,.d0,.d0,.d6,.d6
 	dw 0
 .d0:	dw 167,6,821,6,822,15,823,6,821,6,11,-6
 .d6:	dw 179,6,824,6,825,15,826,6,824,6,31,-6
-DATA8_9DFF04:
+SPAunused2:		; nothing sets it
 	dw .d0,.d0,.d0,.d0,.d0,.d0,.d6,.d6
 	dw 0
 .d0:	dw 167,6,821,15,827,15,828,15,829,15,828,15,829,15,821,10
 	dw 170,-6
 .d6:	dw 179,6,824,15,830,15,831,15,830,15,831,15,824,10,179,-6
-DATA8_9DFF5A:
+SPAunused3:		; nothing sets it
 	dw .d0,.d0,.d0,.d0,.d0,.d0,.d0,.d0
 	dw 0
 .d0:	dw 173,-52

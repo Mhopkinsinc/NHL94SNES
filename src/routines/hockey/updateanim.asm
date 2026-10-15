@@ -76,7 +76,7 @@ updateanim:
 	stz.w $1543,x
 	stz.w pfalock,x
 	lda.w SPA,x
-	cmp.w #DATA8_9DFEC2
+	cmp.w #SPAunused1
 	bcs .1x
 	cmp.w #SPAbenchcheckr
 	bcs .6

@@ -272,7 +272,7 @@ assgoalie:
 	bcs .18
 	lda.w #$005A
 	sta.w $1543,x
-	lda.w #DATA8_9DE66C
+	lda.w #SPAgcover
 	jsl.l SetSPAFromA
 .20:
 	rtl
@@ -282,7 +282,7 @@ assgoalie:
 .22:
 	sta.w facedir,x
 	sta.w pfalock,x
-	lda.w #DATA8_9DE528
+	lda.w #SPAgpoke
 	jsl.l SetSPAFromA
 	lda.w #$00F0
 	sta.w $0BEB,x

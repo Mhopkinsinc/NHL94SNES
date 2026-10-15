@@ -118,7 +118,7 @@ assbench:
 	lda.w #SPAwallleft
 	ldy.w position,x
 	bne .4
-	lda.w #DATA8_9DE484
+	lda.w #SPAgwallleft
 .4:
 	jsl.l SetSPAFromA
 	lda.w #$0064
