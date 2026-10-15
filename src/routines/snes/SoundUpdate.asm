@@ -1,7 +1,7 @@
 ; per frame: fade, envelopes, and the song ticks that are due; nothing while SoundLock is set
 SoundUpdate:		; per frame: fade, envelopes, and the song ticks that are due; nothing while SoundLock is set
 	sep #$30
-	lda.b $50
+	lda.b SoundBank
 	pha
 	plb
 	lda.w SoundLock

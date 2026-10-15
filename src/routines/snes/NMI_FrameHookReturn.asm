@@ -6,7 +6,7 @@ NMI_FrameHookReturn:
 	jsr.w SoundUpdate
 	jsl.l UpdateStreamSfx
 	rep #$30
-	stz.b $38
+	stz.b NMISkip
 	ply
 	plx
 	pla

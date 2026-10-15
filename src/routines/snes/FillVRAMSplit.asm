@@ -41,7 +41,7 @@ FillVRAMSplit:
 
 .t1:
 	txa
-	ldx.b $3C
+	ldx.b DMAQueueTail
 .loop:
 	pha
 	cmp.w #$1001
@@ -91,5 +91,5 @@ FillVRAMSplit:
 	beq .2
 	bcs .loop
 .2:
-	stx.b $3C
+	stx.b DMAQueueTail
 	rtl

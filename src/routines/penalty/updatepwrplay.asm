@@ -63,13 +63,13 @@ updatepwrplay:
 	cmp.w #$0001
 	beq .one
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0005
 	jsl.l QueueSound
 	bra .time
 .one:
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0005
 	jsl.l QueueSound
 	phx

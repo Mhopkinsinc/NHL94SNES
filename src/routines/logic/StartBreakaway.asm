@@ -7,7 +7,7 @@ StartBreakaway:
 	lda.w penshot
 	bne .1
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0005
 	jsl.l QueueSound
 .1:

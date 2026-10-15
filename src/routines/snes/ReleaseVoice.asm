@@ -10,16 +10,16 @@ ReleaseVoice:
 	phy
 	rep #$20
 	lda.w VoiceInst,x
-	sta.b $4E
+	sta.b InstPtr
 	ldy.b #$15
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	lsr a
 	and.w #$7000
 	clc
 	adc.w #$0FFF
 	sta.w VoiceGain,x
 	ldy.b #$10
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	xba
 	ply
 	sep #$20
@@ -42,7 +42,7 @@ ReleaseVoice:
 .1:
 	lda.b #$81
 .2:
-	sta.b $5B
+	sta.b DSPGain
 	jsr.w SeqCmd0C
 .3:
 	rts

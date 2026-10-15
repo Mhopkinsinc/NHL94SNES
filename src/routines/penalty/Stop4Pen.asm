@@ -102,7 +102,7 @@ Stop4Pen:
 	sta.w replaydelay
 .2x:
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0015
 	jsl.l QueueSound
 	stz.w Pencntdwn

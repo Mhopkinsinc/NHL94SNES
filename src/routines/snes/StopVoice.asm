@@ -17,5 +17,5 @@ StopVoice:
 	lda.b #$FF
 	sta.w VoiceTrack,y
 	lda.b #$9F
-	sta.b $5B
+	sta.b DSPGain
 	jmp.w SeqCmd0C

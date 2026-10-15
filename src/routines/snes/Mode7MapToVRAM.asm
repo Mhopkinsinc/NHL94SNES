@@ -62,7 +62,7 @@ Mode7MapToVRAM:
 	rtl
 .3:
 	stx.b $0C
-	ldx.b $3C
+	ldx.b DMAQueueTail
 .loopx:
 	lda.b $0C
 	sta.w DMAQueue+1,x
@@ -89,7 +89,7 @@ Mode7MapToVRAM:
 	tax
 	dec.b $1A
 	bne .loopx
-	stx.b $3C
+	stx.b DMAQueueTail
 	rtl
 
 .t1:

@@ -1,7 +1,7 @@
 ; Add a DMA of X bytes from [$0C] to video memory at Y to the NMI transfer list
 QueueVRAMDMA:
 	txa
-	ldx.b $3C
+	ldx.b DMAQueueTail
 .loop:
 	sta.b $14
 	cmp.w #$1000
@@ -39,5 +39,5 @@ QueueVRAMDMA:
 	beq .2
 	bcs .loop
 .2:
-	stx.b $3C
+	stx.b DMAQueueTail
 	rtl

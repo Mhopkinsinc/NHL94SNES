@@ -7,7 +7,7 @@ QueueSound:
 	pha
 	sep #$30
 	dec.w SoundLock
-	lda.b $50
+	lda.b SoundBank
 	pha
 	plb
 	rep #$30
@@ -15,15 +15,15 @@ QueueSound:
 	sep #$10
 	asl a
 	tay
-	lda.b [$34],y
+	lda.b [SoundTable],y
 	clc
-	adc.b $34
-	sta.b $4E
+	adc.b SoundTable
+	sta.b InstPtr
 	ldx.b #$00
 	txy
 .1:
 	lda.w VoiceInst,x
-	cmp.b $4E
+	cmp.b InstPtr
 	beq .3
 .2:
 	inx
@@ -32,10 +32,10 @@ QueueSound:
 	cpy.b #$08
 	bne .1
 	ldx.b #$10
-	stx.b $4A
+	stx.b CurTrack
 	ldx.b #$20
 	stx.w CurTrackOfs
-	lda.b $4E
+	lda.b InstPtr
 	sta.w TrackInst,x
 	lda.w sflags
 	bit.w #$0800

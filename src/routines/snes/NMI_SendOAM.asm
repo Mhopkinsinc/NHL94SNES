@@ -1,8 +1,8 @@
 ; NMI: send the sprite table to OAM when it is ready and there is time
 NMI_SendOAM:
-	stx.b $3A
+	stx.b DMAQueueHead
 	rep #$20
-	lda.b $3E
+	lda.b DMABudget
 	cmp.w #$026E
 	bcc NMI_Tick
 	sep #$20

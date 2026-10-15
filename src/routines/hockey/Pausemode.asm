@@ -97,7 +97,7 @@ Pausemode:
 	jsl.l setvideo
 	jsl.l SpriteFrameEnd
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0012
 	jsl.l QueueSound
 	lda.w #$0013

@@ -15,10 +15,10 @@ sfx:
 	sta.b $12
 	asl a
 	tay
-	lda.b [$34],y
+	lda.b [SoundTable],y
 	clc
-	adc.b $34
-	sta.b $4E
+	adc.b SoundTable
+	sta.b InstPtr
 	lda.b $0D
 	and.w #$00FF
 	cmp.w #$0080
@@ -27,7 +27,7 @@ sfx:
 .1:
 	tax
 	jsl.l Mul8S
-	sta.b $64
+	sta.b SfxVelocity
 	lda.b $0F
 	and.w #$00FF
 	cmp.w #$0080
@@ -37,23 +37,23 @@ sfx:
 	tax
 	jsl.l Mul8S
 	clc
-	adc.b $64
+	adc.b SfxVelocity
 	lsr a
 	lsr a
 	lsr a
-	sta.b $64
+	sta.b SfxVelocity
 	cmp.w #$0070
 	bcs .t1
 	xba
-	sta.b $64
+	sta.b SfxVelocity
 	bra .3
 
 .t1:
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 .3:
 	ldy.w #$0002
-	lda.b [$4E],y
+	lda.b [InstPtr],y
 	tax
 	lda.w seed
 	and.w #$003F

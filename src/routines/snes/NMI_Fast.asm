@@ -9,7 +9,7 @@ NMI_Fast:
 	lda.w #$0000
 	tcd
 	lda.w RDNMI
-	lda.b $38
+	lda.b NMISkip
 	beq .t1
 	pla
 	plb
@@ -19,7 +19,7 @@ NMI_Fast:
 	phx
 	phy
 	lda.w #$16D3
-	sta.b $3E
+	sta.b DMABudget
 	sep #$10
 	ldx.w NMIHookNext+1
 	beq .1

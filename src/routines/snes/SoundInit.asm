@@ -6,8 +6,8 @@ SoundInit:
 	lda.b #$FF
 	sta.w SoundLock
 	jsl.l SoundVoicesOff
-	ldx.b $36
-	stx.b $50
+	ldx.b SoundTable+2
+	stx.b SoundBank
 	ldx.w #$021A
 .loop:
 	stz.w SongUnused,x
@@ -29,6 +29,6 @@ SoundInit:
 	lda.b #$12
 	sta.w TempoTick
 	stz.w SoundLock
-	stz.b $66
+	stz.b VoiceRotor
 	plp
 	rtl

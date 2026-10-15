@@ -3,7 +3,7 @@ UpdateVoices:
 	ldx.b #$00
 	txy
 .loop:
-	sty.b $4B
+	sty.b CurVoice
 	stx.w VoiceOfs
 	lda.w VoiceState,y
 	beq .1

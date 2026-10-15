@@ -4,44 +4,44 @@ MulFrac8:
 	bvc .hw
 	rep #$20
 	asl a
-	sta.b $40
+	sta.b MulCand+2
 	lsr a
 	and.w #$00FF
-	sta.b $3E
+	sta.b MulCand
 	lda.w #$0000
-	asl.b $40
+	asl.b MulCand+2
 	bcc .0
-	adc.b $3E
+	adc.b MulCand
 .0:
 	asl a
-	asl.b $40
+	asl.b MulCand+2
 	bcc .1
-	adc.b $3E
+	adc.b MulCand
 .1:
 	asl a
-	asl.b $40
+	asl.b MulCand+2
 	bcc .2
-	adc.b $3E
+	adc.b MulCand
 .2:
 	asl a
-	asl.b $40
+	asl.b MulCand+2
 	bcc .3
-	adc.b $3E
+	adc.b MulCand
 .3:
 	asl a
-	asl.b $40
+	asl.b MulCand+2
 	bcc .4
-	adc.b $3E
+	adc.b MulCand
 .4:
 	asl a
-	asl.b $40
+	asl.b MulCand+2
 	bcc .5
-	adc.b $3E
+	adc.b MulCand
 .5:
 	asl a
-	asl.b $40
+	asl.b MulCand+2
 	bcc .6
-	adc.b $3E
+	adc.b MulCand
 .6:
 	asl a
 	xba

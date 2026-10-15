@@ -14,9 +14,9 @@ SPCGameUpload:
 	inc.w SoundLock
 	rep #$20
 	lda.w #GameSfxTable>>16
-	sta.b $36
+	sta.b SoundTable+2
 	lda.w #GameSfxTable
-	sta.b $34
+	sta.b SoundTable
 	jsl.l SoundInit
 	ldx.w #$0000
 .loop:

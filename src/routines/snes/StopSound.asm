@@ -7,22 +7,22 @@ StopSound:
 	sep #$30
 	dec.w SoundLock
 	pha
-	lda.b $50
+	lda.b SoundBank
 	pha
 	plb
 	pla
 	asl a
 	tay
 	rep #$20
-	lda.b [$34],y
+	lda.b [SoundTable],y
 	clc
-	adc.b $34
-	sta.b $4E
+	adc.b SoundTable
+	sta.b InstPtr
 	ldx.b #$00
 	txy
 .loop:
 	lda.w VoiceInst,x
-	cmp.b $4E
+	cmp.b InstPtr
 	bne .1
 	jsr.w StopVoice
 .1:

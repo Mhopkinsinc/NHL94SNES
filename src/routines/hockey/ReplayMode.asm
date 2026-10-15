@@ -601,7 +601,7 @@ ReplayMode:
 	cmp.w #$0016
 	bcs .t2xxxx
 	lda.w recsfxvol2
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w recsfx2
 	and.w #$00FF
 	jsl.l QueueSound
@@ -634,7 +634,7 @@ ReplayMode:
 	cmp.w #$0016
 	bcs .t1xxxxxxxx
 	lda.w recsfxvol
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w recsfx
 	and.w #$00FF
 	jsl.l QueueSound

@@ -12,8 +12,8 @@ IntroSequence:
 	lda.w #$6000
 	ldx.w #$0000
 	jsl.l InitSprites
-	stz.b $3A
-	stz.b $3C
+	stz.b DMAQueueHead
+	stz.b DMAQueueTail
 	lda.w #.1
 	sta.b $0C
 	lda.w #$009F
@@ -31,7 +31,7 @@ IntroSequence:
 	jsl.l SetFrameHook
 	jsl.l ScreenOn
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	ldx.w #$003C
 .loop:
 	jsl.l WaitFrame
@@ -44,8 +44,8 @@ IntroSequence:
 	jsl.l RandomWord
 	jsr.w .4
 	bne .t1
-	lda.b $3C
-	cmp.b $3A
+	lda.b DMAQueueTail
+	cmp.b DMAQueueHead
 	beq .loop2
 	bra .loop2
 

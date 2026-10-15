@@ -10,6 +10,6 @@ BlankScreen:
 	jsl.l WaitFrame
 	stz.w HDMAEN
 	rep #$20
-	lda.b $3A
-	sta.b $3C
+	lda.b DMAQueueHead
+	sta.b DMAQueueTail
 	rtl

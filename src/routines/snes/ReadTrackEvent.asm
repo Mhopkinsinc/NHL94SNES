@@ -1,21 +1,21 @@
 ; Read the next event of the track at $4C
 ReadTrackEvent:
-	lda.b $4C
-	sta.b $56
+	lda.b CurTrackPtr
+	sta.b EventPtr
 	jsr.w ReadVarLen
-	lda.b [$56]
-	inc.b $56
+	lda.b [EventPtr]
+	inc.b EventPtr
 	tay
-	sty.b $60
+	sty.b EventCode
 	cpy.b #$D9
 	bcc .t3
 	cpy.b #$E7
 	bne .t1
-	lda.b [$56]
+	lda.b [EventPtr]
 	and.w #$00FF
 	sec
-	adc.b $56
-	sta.b $56
+	adc.b EventPtr
+	sta.b EventPtr
 	jmp.w .2
 
 .t1:
@@ -38,40 +38,40 @@ ReadTrackEvent:
 	cpy.b #$E2
 	bne .t2
 .1:
-	lda.b [$56]
-	inc.b $56
+	lda.b [EventPtr]
+	inc.b EventPtr
 	tay
-	sty.b $5A
+	sty.b EventData1
 	jmp.w .2
 
 .t2:
 	cpy.b #$DF
 	bne .t1x
-	lda.b [$56]
-	inc.b $56
+	lda.b [EventPtr]
+	inc.b EventPtr
 	tay
-	sty.b $5A
-	lda.b [$56]
-	inc.b $56
+	sty.b EventData1
+	lda.b [EventPtr]
+	inc.b EventPtr
 	tay
-	sty.b $5E
+	sty.b EventData2
 	jmp.w .2
 
 .t1x:
 	cpy.b #$E5
 	bne .2
-	lda.b [$56]
-	inc.b $56
-	inc.b $56
-	sta.b $5E
+	lda.b [EventPtr]
+	inc.b EventPtr
+	inc.b EventPtr
+	sta.b EventData2
 	jmp.w .2
 
 .t3:
-	lda.b [$56]
-	inc.b $56
+	lda.b [EventPtr]
+	inc.b EventPtr
 	tay
-	sty.b $5A
+	sty.b EventData1
 	jsr.w ReadVarLen
-	sta.b $5E
+	sta.b EventData2
 .2:
 	rts

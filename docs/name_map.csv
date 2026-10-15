@@ -7044,3 +7044,38 @@ $DB,introM7D,,behavior,"RAM; Mode 7 matrix D (y scale) of the intro, always stor
 $E6,PlayersUnused,,behavior,RAM; never read: updateplayers sets $FFFF for every object at the top of the per-object loop (lda #$FFFF / sta ...,src/ram94snes.asm
 $EA,curobjteam,,behavior,"RAM; never read. Team of the object being updated, 0 = home, 2 = away: updateplayers sets 0 before the loop and 2 ...",src/ram94snes.asm
 $EC,curobjopp,,behavior,"RAM; never read. The other team of the object being updated (2 for the home objects, 0 from X = $0C on), set ...",src/ram94snes.asm
+$5C,BendAmount,,behavior,"RAM; StepTrack event $E5 (pitch bend): signed bend byte, sta TrackBend,x and $5C; its sign selects ...",src/ram94snes.asm
+$32,ClipBottomUnused,,behavior,"RAM; ResetPPURegs sta.b $32 = $00E0 (224, screen height); never read anywhere",src/ram94snes.asm
+$30,ClipTopUnused,,behavior,"RAM; ResetPPURegs is the only access: sta.b $30 = $FFF0 (with $2C = $FFF0, $2E = $0100, $32 = $00E0: ...",src/ram94snes.asm
+$4A,CurTrack,,behavior,RAM; Track number being worked: StepTrack txa : sta $4A (restores X from it at the end); ...,src/ram94snes.asm
+$4C,CurTrackPtr,,behavior,"RAM; StepTrack: lda TrackPtr,x : sta $4C; after each ReadTrackEvent copies EventPtr ($56) back to ...",src/ram94snes.asm
+$4B,CurVoice,,behavior,"RAM; Voice number being worked: FindFreeVoice returns it ($FF = none, stx $4B; the steal scan keeps ...",src/ram94snes.asm
+$3E,DMABudget,,behavior,RAM; NMI_Fast sets $16D3 each NMI; NMI_HookReturn subtracts the CGRAM DMA (len+$48) and per queue ...,src/ram94snes.asm
+$3A,DMAQueueHead,,behavior,"RAM; Read index into the DMAQueue ring ($0100, 8-byte entries, and #$03FF): NMI_HookReturn ldx $3A ...",src/ram94snes.asm
+$3C,DMAQueueTail,,behavior,"RAM; Write index of the DMAQueue ring: QueueVRAMDMA, DMAToVRAMHigh, FillVRAM, FillVRAMSplit, ...",src/ram94snes.asm
+$5B,DSPGain,,behavior,"RAM; GAIN byte sent by SeqCmd0C / SeqCmd0C0B (APUIO2 with command $0C, APUIO1 = voice): ReleaseVoice ...",src/ram94snes.asm
+$60,EventCode,,behavior,"RAM; ReadTrackEvent sty $60 = event status byte; StepTrack dispatches on it ($D9/$DA stop, $DB loop, ...",src/ram94snes.asm
+$5A,EventData1,,behavior,"RAM; ReadTrackEvent: first data byte of the event (sty $5A): note velocity for notes (< $D9), program ...",src/ram94snes.asm
+$5E,EventData2,,behavior,"RAM; ReadTrackEvent: second data item: note length (ReadVarLen) for notes, controller value ($DF: ...",src/ram94snes.asm
+$62,EventEAUnused,,behavior,RAM; StepTrack event $EA: EventData1 and #$FF -> $62 (word store); never read anywhere,src/ram94snes.asm
+$56,EventPtr,,behavior,"RAM; Long read pointer into the song ($58 = EventPtr+2 = song bank: MusicStart lda $0E : sta $58, 8-bit)",src/ram94snes.asm
+$5A,GainWord,,behavior,"RAM; UpdateSfxVoices: lda VoiceGain,x : sta $5A so that $5B (its high byte) is the DSP GAIN ...",src/ram94snes.asm
+$4E,InstPtr,,behavior,RAM; Sound/instrument entry pointer (SoundTable + offset) of the sound being started/stopped/updated: ...,src/ram94snes.asm
+$3E,MulCand,,behavior,RAM; Multiplicand of the software multiply (taken when Mode7InUse bit 6 is set): MulFrac8 $3E = A low ...,src/ram94snes.asm
+$43,MulFracResult,,behavior,RAM; MulFrac16 returns A*Y/128 in A and $43 (soft path: lda $43 = MulProd+1; hardware path: MPYM*2 -> ...,src/ram94snes.asm
+$46,MulPlier,,behavior,"RAM; MulFrac16: sty $46 (multiplier Y), lda $46 : lsr : sta $46 each step, the carry adds MulCand ...",src/ram94snes.asm
+$42,MulProd,,behavior,"RAM; MulFrac16: stz $42/$44, adds MulCand ($3E/$40) into $42/$44 (32-bit) for each set multiplier ...",src/ram94snes.asm
+$40,MulShift,,behavior,"RAM; MulFrac8: sta $40 = A*2, then asl $40 seven times; each carry (a bit of the high byte B) adds ...",src/ram94snes.asm
+$38,NMISkip,,behavior,"RAM; NMI_Fast: lda.b $38 : beq -> nonzero = just pla/plb/rti (no hook, DMA, OAM, sound)",src/ram94snes.asm
+$5A,NotePitch,,behavior,"RAM; Pitch word of the note: StartSoundVoice PitchTable[note] -> VoiceBasePitch and $5A, bent by ...",src/ram94snes.asm
+$60,SendPitch,,behavior,"RAM; UpdateSfxVoices: VoicePitch,x (+ VoiceVibOfs while the vibrato runs) -> $60; SeqCmd0B sends $60 ...",src/ram94snes.asm
+$64,SfxVelocity,,behavior,"RAM; Velocity of the next sound effect, in the high byte ($65 = SfxVelocity+1): PlaySound lda $65 : ...",src/ram94snes.asm
+$50,SoundBank,,behavior,"RAM; Bank of the sound entries: SoundInit ldx $36 : stx $50 (SoundTable bank, 16-bit store)",src/ram94snes.asm
+$34,SoundTable,,behavior,"RAM; Long pointer to the sound/instrument offset table; $36 = SoundTable+2 (bank, stored as a word so ...",src/ram94snes.asm
+$5C,StartGain,,behavior,"RAM; StartSoundVoice: instrument word $0A -> VoiceGain,x and $5C (and recsfxvol for track $10)",src/ram94snes.asm
+$68,StealCount,,behavior,"RAM; FindFreeVoice steal scan (no free voice): lda #$08 : sta $68 ... dec $68 : bne, the voices left ...",src/ram94snes.asm
+$42,StreamLoop,,behavior,"RAM; UpdateStreamSfx: $42 = byte-swapped first word of the stream block header, then ldy $42 -> Y = ...",src/ram94snes.asm
+$3E,StreamSrc,,behavior,"RAM; Long pointer ($40 = StreamSrc+2, bank) to the sample bytes sent to the sound CPU: ...",src/ram94snes.asm
+$52,VarLenAcc,,behavior,"RAM; ReadVarLen: sta $52 = value so far, then ($52 << 7) or $54 for each continuation byte (top bit ...",src/ram94snes.asm
+$54,VarLenByte,,behavior,"RAM; ReadVarLen: the next byte and #$7F, ORed into the shifted VarLenAcc",src/ram94snes.asm
+$66,VoiceRotor,,behavior,"RAM; FindFreeVoice: lda $66 : inc : and #$07 : sta $66, the search starts at that voice (round ...",src/ram94snes.asm

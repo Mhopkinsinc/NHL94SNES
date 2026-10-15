@@ -2,8 +2,8 @@
 WaitDMAQueue:
 	pha
 .loop:
-	lda.b $3A
-	cmp.b $3C
+	lda.b DMAQueueHead
+	cmp.b DMAQueueTail
 	bne .loop
 	pla
 	rtl

@@ -29,7 +29,7 @@ SPCStreamStart:
 	bne .ack
 	ldy.w #$0000
 .loop:
-	lda.b [$3E],y
+	lda.b [StreamSrc],y
 	sta.w APUIO2
 	iny
 	tya
@@ -46,8 +46,8 @@ SPCStreamStart:
 	rep #$20
 	tya
 	clc
-	adc.b $3E
+	adc.b StreamSrc
 	sta.l SPCStreamPtr
-	lda.b $40
+	lda.b StreamSrc+2
 	sta.l SPCStreamPtr+2
 	rtl

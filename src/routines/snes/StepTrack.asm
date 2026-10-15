@@ -1,7 +1,7 @@
 ; Track X: count down its wait, or play its events until the next wait
 StepTrack:
 	txa
-	sta.b $4A
+	sta.b CurTrack
 	asl a
 	tax
 	stx.w CurTrackOfs
@@ -13,13 +13,13 @@ StepTrack:
 
 .t1:
 	lda.w TrackPtr,x
-	sta.b $4C
+	sta.b CurTrackPtr
 .2:
 	jsr.w ReadTrackEvent
-	lda.b $56
-	sta.b $4C
+	lda.b EventPtr
+	sta.b CurTrackPtr
 	ldx.w CurTrackOfs
-	ldy.b $60
+	ldy.b EventCode
 	cpy.b #$D9
 	bcs .t1x
 	jmp.w .11
@@ -51,7 +51,7 @@ StepTrack:
 	cpy.b #$DD
 	bne .t1xxx
 .1xx:
-	ldy.b $5A
+	ldy.b EventData1
 	sty.w TempoTick
 	jmp.w .12
 
@@ -61,40 +61,40 @@ StepTrack:
 	jmp.w .10
 .3:
 	lda.w TrackInst,x
-	sta.b $4E
+	sta.b InstPtr
 	sep #$20
 	lda.w SoundMono
 	bne .t1xxxx
 	ldy.b #$12
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	sta.w InstVolL
 	iny
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	bra .2x
 
 .t1xxxx:
 	ldy.b #$17
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	sta.w InstVolL
 .2x:
 	sta.w InstVolR
-	ldx.b $4A
+	ldx.b CurTrack
 	lda.w InstVolL
 	xba
-	lda.b $5A
+	lda.b EventData1
 	jsr.w MulFrac8
 	sta.w TrackVolL,x
 	lda.w InstVolR
 	xba
-	lda.b $5A
+	lda.b EventData1
 	jsr.w MulFrac8
 	sta.w TrackVolR,x
 	ldy.b #$07
 .loop:
 	lda.w VoiceTrack,y
-	cmp.b $4A
+	cmp.b CurTrack
 	bne .1xxx
-	ldx.b $4A
+	ldx.b CurTrack
 	lda.w TrackVolL,x
 	xba
 	lda.w VoiceVelocity,y
@@ -125,8 +125,8 @@ StepTrack:
 	rep #$20
 	jmp.w .12
 .4:
-	lda.b $5E
-	sta.b $5A
+	lda.b EventData2
+	sta.b EventData1
 	jmp.w .3
 .10:
 	cpy.b #$DF
@@ -134,21 +134,21 @@ StepTrack:
 	jmp.w .t5
 
 .t1xxxxx:
-	ldy.b $5A
+	ldy.b EventData1
 	cpy.b #$07
 	beq .4
 .1xxxx:
 	cpy.b #$40
 	bne .t2x
 	sep #$20
-	ldx.b $4A
-	lda.b $5E
+	ldx.b CurTrack
+	lda.b EventData2
 	sta.w TrackSustain,x
 	bne .3x
 	ldx.b #$07
 .loopx:
 	lda.w VoiceTrack,x
-	cmp.b $4A
+	cmp.b CurTrack
 	bne .2xx
 	lda.w VoiceState,x
 	beq .2xx
@@ -172,8 +172,8 @@ StepTrack:
 	cpy.b #$0B
 	bne .t1xxxxxx
 	sep #$20
-	ldx.b $4A
-	lda.b $5E
+	ldx.b CurTrack
+	lda.b EventData2
 	sta.w TrackVolL,x
 	rep #$20
 	jmp.w .12
@@ -182,8 +182,8 @@ StepTrack:
 	cpy.b #$0C
 	bne .t4
 	sep #$20
-	ldx.b $4A
-	lda.b $5E
+	ldx.b CurTrack
+	lda.b EventData2
 	sta.w TrackVolR,x
 	rep #$20
 	jmp.w .12
@@ -192,7 +192,7 @@ StepTrack:
 	cpy.b #$32
 	bne .t1x2
 	sep #$20
-	lda.b $5E
+	lda.b EventData2
 	sta.w EchoVoices
 	jsr.w SeqCmd08
 	rep #$20
@@ -202,7 +202,7 @@ StepTrack:
 	cpy.b #$33
 	bne .t2xx
 	sep #$20
-	lda.b $5E
+	lda.b EventData2
 	sta.w EchoDelay
 	jsr.w SeqCmd08
 	rep #$20
@@ -212,7 +212,7 @@ StepTrack:
 	cpy.b #$34
 	bne .t1xxxxxxx
 	sep #$20
-	lda.b $5E
+	lda.b EventData2
 	sta.w EchoVolume
 	jsr.w SeqCmd08
 	rep #$20
@@ -222,7 +222,7 @@ StepTrack:
 	cpy.b #$35
 	bne .t3x
 	sep #$20
-	lda.b $5E
+	lda.b EventData2
 	sta.w EchoFeedback
 	jsr.w SeqCmd08
 	rep #$20
@@ -232,7 +232,7 @@ StepTrack:
 	cpy.b #$37
 	bne .t1x2x
 	sep #$20
-	lda.b $5E
+	lda.b EventData2
 	sta.w SoundVolume+1
 	jsr.w SeqCmd08Init_send
 	rep #$20
@@ -247,7 +247,7 @@ StepTrack:
 	cpy.b #$39
 	bne .t1xxxxxxxx
 	sep #$20
-	lda.b $5E
+	lda.b EventData2
 	sta.w NoiseVoices
 	jsr.w SeqCmd08Init_send
 	rep #$20
@@ -265,7 +265,7 @@ StepTrack:
 	jmp.w .9
 
 .t2x2:
-	lda.b $5E
+	lda.b EventData2
 	sep #$20
 	asl a
 	rep #$20
@@ -274,20 +274,20 @@ StepTrack:
 	asl a
 	sep #$20
 	xba
-	ldx.b $4A
+	ldx.b CurTrack
 	sta.w TrackBend,x
-	sta.b $5C
+	sta.b BendAmount
 	lda.w TrackBendRange,x
 	bne .t1x3
 .1x2:
 	jmp.w .8
 
 .t1x3:
-	sta.b $60
+	sta.b EventCode
 	ldy.b #$07
 .4x:
 	lda.w VoiceTrack,y
-	cmp.b $4A
+	cmp.b CurTrack
 	beq .t3xx
 	jmp.w .7
 
@@ -297,12 +297,12 @@ StepTrack:
 	asl a
 	tax
 	phx
-	lda.b $5C
+	lda.b BendAmount
 	beq .t1xxxxxxxxx
 	bmi .t2xxxx
 	lda.w VoiceNote,y
 	clc
-	adc.b $60
+	adc.b EventCode
 	asl a
 	tax
 	rep #$20
@@ -310,64 +310,64 @@ StepTrack:
 	plx
 	sec
 	sbc.w VoiceBasePitch,x
-	sta.b $5E
+	sta.b EventData2
 	sep #$20
-	lda.b $5C
+	lda.b BendAmount
 	tay
 	rep #$20
-	lda.b $5E
+	lda.b EventData2
 	jsr.w MulFrac16
 	clc
 	adc.w VoiceBasePitch,x
-	sta.b $5A
+	sta.b EventData1
 	bra .6
 
 .t1xxxxxxxxx:
 	rep #$20
 	plx
 	lda.w VoiceBasePitch,x
-	sta.b $5A
+	sta.b EventData1
 	bra .6
 
 .t2xxxx:
 	lda.w VoiceNote,y
 	sec
-	sbc.b $60
+	sbc.b EventCode
 	asl a
 	tax
 	rep #$20
 	lda.l PitchTable,x
-	sta.b $5A
+	sta.b EventData1
 	plx
 	lda.w VoiceBasePitch,x
 	sec
-	sbc.b $5A
-	sta.b $5E
+	sbc.b EventData1
+	sta.b EventData2
 	sep #$20
 	lda.b #$00
 	sec
-	sbc.b $5C
+	sbc.b BendAmount
 	bpl .t1xxxxxxxxxx
 	rep #$20
-	lda.b $5E
-	sta.b $43
+	lda.b EventData2
+	sta.b MulFracResult
 	bra .5
 
 .t1xxxxxxxxxx:
 	tay
 	rep #$20
-	lda.b $5E
+	lda.b EventData2
 	jsr.w MulFrac16
 .5:
 	lda.w VoiceBasePitch,x
 	sec
-	sbc.b $43
-	sta.b $5A
+	sbc.b MulFracResult
+	sta.b EventData1
 .6:
 	ldy.b #$02
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	clc
-	adc.b $5A
+	adc.b EventData1
 	sta.w VoicePitch,x
 	ply
 .7:
@@ -381,7 +381,7 @@ StepTrack:
 .9:
 	cpy.b #$DC
 	bne .4xx
-	lda.b $5A
+	lda.b EventData1
 	and.w #$00FF
 	cmp.w #$006A
 	bne .2xxx
@@ -390,29 +390,29 @@ StepTrack:
 .2xxx:
 	asl a
 	tay
-	lda.b [$34],y
+	lda.b [SoundTable],y
 	clc
-	adc.b $34
+	adc.b SoundTable
 	sta.w TrackInst,x
-	sta.b $4E
+	sta.b InstPtr
 	sep #$20
-	ldx.b $4A
+	ldx.b CurTrack
 	ldy.b #$2F
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	sta.w TrackBendRange,x
 	stz.w TrackBend,x
 	lda.w SoundMono
 	bne .t1xxxxxxxxxxx
 	ldy.b #$12
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	sta.w TrackVolL,x
 	iny
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	bra .3xx
 
 .t1xxxxxxxxxxx:
 	ldy.b #$17
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	sta.w TrackVolL,x
 .3xx:
 	sta.w TrackVolR,x
@@ -421,15 +421,15 @@ StepTrack:
 	cpy.b #$EA
 	bne .2xxxx
 .1xxxxxxx:
-	lda.b $5A
+	lda.b EventData1
 	and.w #$00FF
-	sta.b $62
+	sta.b EventEAUnused
 .2xxxx:
 	rep #$20
 	jmp.w .12
 .11:
 	sep #$20
-	lda.b $4A
+	lda.b CurTrack
 	cmp.b #$09
 	bne .1xxxxxxxx
 	asl a
@@ -440,26 +440,26 @@ StepTrack:
 	asl a
 	tay
 	rep #$20
-	lda.b [$34],y
+	lda.b [SoundTable],y
 	clc
-	adc.b $34
-	sta.b $4E
-	lda.b $4E
+	adc.b SoundTable
+	sta.b InstPtr
+	lda.b InstPtr
 	sta.w TrackInst,x
 	sep #$20
-	ldx.b $4A
+	ldx.b CurTrack
 	ldy.b #$12
-	lda.b [$4E],y
+	lda.b [InstPtr],y
 	sta.w TrackVolL,x
 	iny
-	lda.b [$4E],y
+	lda.b [InstPtr],y
 	sta.w TrackVolR,x
 	ldy.b #$2F
-	lda.b [$4E],y
+	lda.b [InstPtr],y
 	sta.w TrackBendRange,x
 	stz.w TrackBend,x
 .1xxxxxxxx:
-	lda.b $4A
+	lda.b CurTrack
 	asl a
 	tax
 	rep #$20
@@ -477,11 +477,11 @@ StepTrack:
 
 .t2xxxxx:
 	sta.w TrackWait,x
-	lda.b $4C
+	lda.b CurTrackPtr
 	sta.w TrackPtr,x
 .13:
 	dec.w TrackWait,x
 .14:
 	sep #$30
-	ldx.b $4A
+	ldx.b CurTrack
 	rts

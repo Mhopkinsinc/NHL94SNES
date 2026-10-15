@@ -2,7 +2,7 @@
 SeqCmd0C0B:
 	lda.w APUIO0
 	bne SeqCmd0C0B
-	lda.b $5B
+	lda.b DSPGain
 	sta.w APUIO2
 	sty.w APUIO1
 	lda.b #$0C
@@ -15,7 +15,7 @@ SeqCmd0B:
 	lda.w APUIO0
 	bne SeqCmd0B
 	rep #$20
-	lda.b $60
+	lda.b SendPitch
 	sta.w APUIO2
 	sep #$20
 	sty.w APUIO1

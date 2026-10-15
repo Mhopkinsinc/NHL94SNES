@@ -9,10 +9,10 @@ ResetPPURegs:
 	sta.w BG2VScroll
 	sta.w BG3VScroll
 	lda.w #$FFF0
-	sta.b $30
+	sta.b ClipTopUnused
 	sta.b $2C
 	lda.w #$00E0
-	sta.b $32
+	sta.b ClipBottomUnused
 	lda.w #$0100
 	sta.b $2E
 	sep #$20

@@ -36,18 +36,18 @@ NMI_HookReturn:
 	stx.w CGADD
 	ldx.b #$01
 	stx.w MDMAEN
-	lda.b $3E
+	lda.b DMABudget
 	sec
 	sbc.w CGDMALen
 	sbc.w #$0048
-	sta.b $3E
+	sta.b DMABudget
 	stz.w CGDMALen
 .1:
 	sep #$20
 	rep #$10
-	ldx.b $3A
+	ldx.b DMAQueueHead
 .2:
-	cpx.b $3C
+	cpx.b DMAQueueTail
 	beq .t1
 	lda.w DMAQueue,x
 	bmi .4
@@ -57,13 +57,13 @@ NMI_HookReturn:
 	lda.w DMAQueue+1,x
 	sta.w A1T0L
 	rep #$20
-	lda.b $3E
+	lda.b DMABudget
 	sec
 	sbc.w #$0066
 	bcc .5
 	sbc.w DMAQueue+4,x
 	bcc .5
-	sta.b $3E
+	sta.b DMABudget
 	lda.w DMAQueue+2,x
 	sta.w A1T0H
 	lda.w DMAQueue+4,x
@@ -92,11 +92,11 @@ NMI_HookReturn:
 	rep #$20
 	and.w #$00FF
 	tay
-	lda.b $3E
+	lda.b DMABudget
 	sec
 	sbc.w #$005C
 	bcc .5
-	sta.b $3E
+	sta.b DMABudget
 	lda.w DMAQueue+2,x
 	sta.w VMADDL
 	lda.w DMAQueue+4,x
@@ -114,7 +114,7 @@ NMI_HookReturn:
 	sep #$20
 	jmp.w .2
 .5:
-	stx.b $3A
+	stx.b DMAQueueHead
 	jmp.w NMI_Tick
 .6:
 	lda.w DMAQueue+1,x
@@ -122,13 +122,13 @@ NMI_HookReturn:
 	rep #$20
 	lda.w #$1808
 	sta.w DMAP0
-	lda.b $3E
+	lda.b DMABudget
 	sec
 	sbc.w #$0078
 	bcc .5
 	sbc.w DMAQueue+4,x
 	bcc .5
-	sta.b $3E
+	sta.b DMABudget
 	lda.w DMAQueue+2,x
 	sta.w A1T0H
 	lda.w DMAQueue+4,x
@@ -156,13 +156,13 @@ NMI_HookReturn:
 	rep #$20
 	lda.w #$1908
 	sta.w DMAP0
-	lda.b $3E
+	lda.b DMABudget
 	sec
 	sbc.w #$0079
 	bcc .5
 	sbc.w DMAQueue+4,x
 	bcc .5
-	sta.b $3E
+	sta.b DMABudget
 	lda.w DMAQueue+2,x
 	sta.w A1T0H
 	lda.w DMAQueue+4,x
@@ -188,13 +188,13 @@ NMI_HookReturn:
 	rep #$20
 	lda.w #$1800
 	sta.w DMAP0
-	lda.b $3E
+	lda.b DMABudget
 	sec
 	sbc.w #$007D
 	bcc .8
 	sbc.w DMAQueue+4,x
 	bcc .8
-	sta.b $3E
+	sta.b DMABudget
 	lda.w DMAQueue+2,x
 	sta.w A1T0H
 	lda.w DMAQueue+4,x
@@ -221,13 +221,13 @@ NMI_HookReturn:
 	rep #$20
 	lda.w #$1900
 	sta.w DMAP0
-	lda.b $3E
+	lda.b DMABudget
 	sec
 	sbc.w #$007D
 	bcc .8
 	sbc.w DMAQueue+4,x
 	bcc .8
-	sta.b $3E
+	sta.b DMABudget
 	lda.w DMAQueue+2,x
 	sta.w A1T0H
 	lda.w DMAQueue+4,x

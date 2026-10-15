@@ -2,7 +2,7 @@
 SeqCmd0C:
 	lda.w APUIO0
 	bne SeqCmd0C
-	lda.b $5B
+	lda.b DSPGain
 	sta.w APUIO2
 	sty.w APUIO1
 	lda.b #$0C

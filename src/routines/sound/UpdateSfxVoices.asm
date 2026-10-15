@@ -3,7 +3,7 @@ UpdateSfxVoices:
 	ldx.b #$00
 	txy
 .3:
-	sty.b $4B
+	sty.b CurVoice
 	stx.w VoiceOfs
 	lda.w VoiceState,y
 	bne .t1
@@ -18,19 +18,19 @@ UpdateSfxVoices:
 .1:
 	rep #$20
 	lda.w VoiceInst,x
-	sta.b $4E
+	sta.b InstPtr
 	lda.w VoicePitch,x
-	sta.b $60
+	sta.b SendPitch
 	lda.w VoiceGain,x
-	sta.b $5A
+	sta.b GainWord
 	lda.w VoiceAge,x
 	inc a
 	sta.w VoiceAge,x
 	ldy.b #$1A
-	cmp.b ($4E),y
+	cmp.b (InstPtr),y
 	bcs .2
 	ldy.b #$18
-	cmp.b ($4E),y
+	cmp.b (InstPtr),y
 	bcc .2
 	dec.w VoiceVibCount,x
 	bmi .t3
@@ -39,34 +39,34 @@ UpdateSfxVoices:
 
 .t3:
 	ldy.b #$2A
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	clc
 	adc.w VoiceVibRateFrac,x
 	sta.w VoiceVibRateFrac,x
 	iny
 	iny
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	adc.w VoiceVibRate,x
 	sta.w VoiceVibRate,x
 	sta.w VoiceVibCount,x
 	ldy.b #$26
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	clc
 	adc.w VoiceVibDepthFrac,x
 	sta.w VoiceVibDepthFrac,x
 	iny
 	iny
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	adc.w VoiceVibDepth,x
 	sta.w VoiceVibDepth,x
 	ldy.b #$22
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	clc
 	adc.w VoiceVibSpeedFrac,x
 	sta.w VoiceVibSpeedFrac,x
 	iny
 	iny
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	adc.w VoiceVibSpeed,x
 	sta.w VoiceVibSpeed,x
 	bit.w VoiceVibDir,x
@@ -78,7 +78,7 @@ UpdateSfxVoices:
 	cmp.w VoiceVibDepth,x
 	bcc .4
 	ldy.b #$2D
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	and.w #$4000
 	bne .t1x
 .1x:
@@ -100,7 +100,7 @@ UpdateSfxVoices:
 	cmp.w VoiceVibDepth,x
 	bcc .4
 	ldy.b #$2D
-	lda.b ($4E),y
+	lda.b (InstPtr),y
 	bmi .t1xx
 	stz.w VoiceVibOfs,x
 	bra .4
@@ -110,14 +110,14 @@ UpdateSfxVoices:
 .4:
 	lda.w VoiceVibOfs,x
 	clc
-	adc.b $60
-	sta.b $60
+	adc.b SendPitch
+	sta.b SendPitch
 .5:
 	ply
 	cpy.b #$02
 	bne .7
 	sep #$20
-	ldy.b $4B
+	ldy.b CurVoice
 	jsr.w SeqCmd0B
 .6:
 	jmp.w .8
@@ -128,23 +128,23 @@ UpdateSfxVoices:
 	ldy.b #$10
 	lda.w VoiceGain,x
 	sec
-	sbc.b ($4E),y
+	sbc.b (InstPtr),y
 	sta.w VoiceGain,x
 	bcs .t1xxx
 	sep #$20
-	ldy.b $4B
+	ldy.b CurVoice
 	jsr.w StopVoice
 	bra .8
 
 .t1xxx:
 	sep #$20
-	ldy.b $4B
+	ldy.b CurVoice
 	jsr.w SeqCmd0B
 	bra .8
 
 .t2x:
 	sep #$20
-	ldy.b $4B
+	ldy.b CurVoice
 	jsr.w SeqCmd0C0B
 .8:
 	sep #$20

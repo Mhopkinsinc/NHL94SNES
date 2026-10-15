@@ -39,7 +39,7 @@ UpdateStreamSfx:
 	asl a
 	tax
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.l StreamSfxSounds-2,x
 	jsl.l QueueSound
 	lda.w #$0003
@@ -53,22 +53,22 @@ UpdateStreamSfx:
 	asl a
 	tax
 	lda.l .7-4,x
-	sta.b $3E
+	sta.b StreamSrc
 	lda.l .7-2,x
-	sta.b $40
+	sta.b StreamSrc+2
 	ldy.w #$0000
-	lda.b [$3E],y
+	lda.b [StreamSrc],y
 	xba
-	sta.b $42
+	sta.b StreamLoop
 	ldy.w #$0002
-	lda.b [$3E],y
+	lda.b [StreamSrc],y
 	xba
 	tax
-	ldy.b $42
-	lda.b $3E
+	ldy.b StreamLoop
+	lda.b StreamSrc
 	clc
 	adc.w #$0004
-	sta.b $3E
+	sta.b StreamSrc
 	jsl.l SPCStreamStart
 	lda.w #$0001
 	sta.l streamstate
@@ -89,7 +89,7 @@ UpdateStreamSfx:
 	asl a
 	tax
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.l StreamSfxSounds-2,x
 	jsl.l QueueSound
 	rtl

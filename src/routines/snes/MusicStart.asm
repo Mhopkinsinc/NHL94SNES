@@ -23,7 +23,7 @@ MusicStart:
 	sta.w TempoTick
 	sep #$10
 	lda.b $0E
-	sta.b $58
+	sta.b EventPtr+2
 	rep #$20
 	lda.b $0C
 	sta.w SongPtr

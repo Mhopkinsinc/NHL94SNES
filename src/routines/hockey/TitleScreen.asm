@@ -87,7 +87,7 @@ TitleScreen:
 	sta.w IniDispShadow
 	jsr.w TitleZoomIn
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0037
 	jsl.l PlaySound
 	ldx.w #$001E

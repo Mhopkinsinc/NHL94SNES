@@ -108,7 +108,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	ora.b #$80
 	sta.w $2F40,x
 	rep #$30
-	ldx.b $3C
+	ldx.b DMAQueueTail
 	lda.b $04
 	sta.w DMAQueue,x
 	lda.b $06
@@ -165,7 +165,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	lda.w PieceY
 	sta.w DMAQueue+4,x
 	bne .t1x
-	stx.b $3C
+	stx.b DMAQueueTail
 	plb
 	ply
 	plx
@@ -182,7 +182,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	clc
 	adc.w #$0008
 	and.w #$03FF
-	sta.b $3C
+	sta.b DMAQueueTail
 	plb
 	ply
 	plx
@@ -277,7 +277,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	ora.b #$80
 	sta.w $2F40,x
 	rep #$30
-	ldx.b $3C
+	ldx.b DMAQueueTail
 	lda.b $04
 	sta.w DMAQueue,x
 	lda.b $06
@@ -328,7 +328,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	and.w #$03FF
 	ldy.w PieceY
 	bne .t1xxxx
-	sta.b $3C
+	sta.b DMAQueueTail
 	plb
 	ply
 	plx
@@ -356,7 +356,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	clc
 	adc.w #$0008
 	and.w #$03FF
-	sta.b $3C
+	sta.b DMAQueueTail
 	plb
 	ply
 	plx
@@ -419,7 +419,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	ora.b #$80
 	sta.w $3032,x
 	rep #$30
-	ldx.b $3C
+	ldx.b DMAQueueTail
 	lda.b $04
 	sta.w DMAQueue,x
 	lda.b $06
@@ -457,7 +457,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	clc
 	adc.w #$0008
 	and.w #$03FF
-	sta.b $3C
+	sta.b DMAQueueTail
 	plb
 	ply
 	plx
