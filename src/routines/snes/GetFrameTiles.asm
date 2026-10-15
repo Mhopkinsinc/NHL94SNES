@@ -5,7 +5,7 @@ GetFrameTiles:
 	ldx.w FrameByNumber
 	beq .5
 	ldx.w DrawFrameNum
-	lda.w $2740,x
+	lda.w FrameCacheOf,x
 	bpl .3
 .2:
 	lda.b r3
@@ -43,15 +43,15 @@ GetFrameTiles:
 	tax
 .4:
 	lda.w CacheUseMark
-	sta.w $2D40,x
-	lda.w $2E40,x
+	sta.w FrameCacheUse,x
+	lda.w FrameCacheTile,x
 	rts
 .5:
 	lda.b p0
-	cmp.w $2540,x
+	cmp.w FrameCacheAddr,x
 	bne .1x
 	lda.b p0+2
-	cmp.w $2640,x
+	cmp.w FrameCacheBank,x
 	beq .4
 .1x:
 	inx

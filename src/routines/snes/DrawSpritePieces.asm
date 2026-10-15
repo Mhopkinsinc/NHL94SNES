@@ -174,7 +174,7 @@ DrawSpritePieces:
 	ldx.w FrameByNumber
 	beq FindCachedFrame
 	ldx.w DrawFrameNum
-	lda.w $2740,x
+	lda.w FrameCacheOf,x
 	bmi LoadFrameTiles
 	xba
 	and.w #$00FF

@@ -7091,3 +7091,14 @@ $20,r6,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94sne
 $24,r7,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
 $28,r8,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
 $2C,r9,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
+$7E2540,FrameCacheAddr,,behavior,RAM; address of the frame (LoadFrameTiles; FindCachedFrame compares it),src/ram94snes.asm
+$7E2640,FrameCacheBank,,behavior,RAM; bank of the frame,src/ram94snes.asm
+$7E2740,FrameCacheOf,,behavior,"RAM; a byte per frame number ($2741 + DrawFrameNum): its cache entry, $FF none (InitSprites fills $FF)",src/ram94snes.asm
+$7E2B40,FrameCacheNum,,behavior,RAM; frame number of the entry,src/ram94snes.asm
+$7E2C40,FrameCacheAlloc,,behavior,"RAM; the entry's allocation: block run index | $8000 (16x16 blocks), else the single tile run index",src/ram94snes.asm
+$7E2D40,FrameCacheUse,,behavior,"RAM; use bits: GetFrameTiles sets CacheUseMark when drawn, SpriteFrameStart shifts them each frame",src/ram94snes.asm
+$7E2E40,FrameCacheTile,,behavior,RAM; first VRAM tile of the entry's tiles (the DMA destination),src/ram94snes.asm
+$7E2F40,BlockRuns,,behavior,RAM; 16x16 block area of sprite VRAM (InitSprites: one free run of SpriteBlockTiles / 4),src/ram94snes.asm
+$7E2FB9,BlockRunPrev,,behavior,RAM; previous run of each block run ($FF = none),src/ram94snes.asm
+$7E3032,TileRuns,,behavior,RAM; single 8x8 tile area (from SpriteBlockTiles to $200),src/ram94snes.asm
+$7E3093,TileRunPrev,,behavior,RAM; previous run of each tile run ($FF = none),src/ram94snes.asm

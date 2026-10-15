@@ -34,7 +34,7 @@ FreeFrameTiles:
 	ldx.w FrameByNumber
 	beq .3
 	ldy.w DrawFrameNum
-	lda.w $2740,y
+	lda.w FrameCacheOf,y
 	bpl FreeCacheEntryA
 .2:
 	plb
@@ -43,10 +43,10 @@ FreeFrameTiles:
 	rtl
 .3:
 	lda.b p0
-	cmp.w $2540,x
+	cmp.w FrameCacheAddr,x
 	bne .1x
 	lda.b p0+2
-	cmp.w $2640,x
+	cmp.w FrameCacheBank,x
 	beq FreeCacheEntry_go
 .1x:
 	inx
@@ -64,11 +64,11 @@ FreeCacheEntryA:
 FreeCacheEntry:
 	sep #$20
 	lda.b #$FF
-	sta.w $2741,y
+	sta.w FrameCacheOf+1,y
 	rep #$20
 ; FreeCacheEntry after the slot byte is cleared; FreeFrameTiles enters here
 FreeCacheEntry_go:
-	lda.w $2C40,x
+	lda.w FrameCacheAlloc,x
 	sta.b r0
 	dec.w FrameCacheCount
 	beq .1
@@ -78,23 +78,23 @@ FreeCacheEntry_go:
 	cmp.b r0+2
 	beq .1
 	tay
-	lda.w $2540,y
-	sta.w $2540,x
-	lda.w $2640,y
-	sta.w $2640,x
-	lda.w $2B40,y
-	sta.w $2B40,x
-	lda.w $2C40,y
-	sta.w $2C40,x
-	lda.w $2E40,y
-	sta.w $2E40,x
-	lda.w $2D40,y
-	sta.w $2D40,x
-	ldy.w $2B40,x
+	lda.w FrameCacheAddr,y
+	sta.w FrameCacheAddr,x
+	lda.w FrameCacheBank,y
+	sta.w FrameCacheBank,x
+	lda.w FrameCacheNum,y
+	sta.w FrameCacheNum,x
+	lda.w FrameCacheAlloc,y
+	sta.w FrameCacheAlloc,x
+	lda.w FrameCacheTile,y
+	sta.w FrameCacheTile,x
+	lda.w FrameCacheUse,y
+	sta.w FrameCacheUse,x
+	ldy.w FrameCacheNum,x
 	txa
 	lsr a
 	sep #$20
-	sta.w $2741,y
+	sta.w FrameCacheOf+1,y
 	rep #$20
 .1:
 	ldx.b r0
@@ -103,10 +103,10 @@ FreeCacheEntry_go:
 
 .t2:
 	sep #$30
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 	and.b #$40
 	bne .2
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 	and.b #$3F
 	sta.b r3+2
 	clc
@@ -114,7 +114,7 @@ FreeCacheEntry_go:
 	tay
 	and.b #$07
 	beq .1x
-	lda.w $2F40,y
+	lda.w BlockRuns,y
 	bmi .1x
 	clc
 	adc.b r3+2
@@ -123,19 +123,19 @@ FreeCacheEntry_go:
 	txa
 	and.b #$07
 	beq .t1
-	lda.w $2FB9,x
+	lda.w BlockRunPrev,x
 	bmi .t1
 	tay
-	lda.w $2F40,y
+	lda.w BlockRuns,y
 	bmi .t1
 	clc
 	adc.b r3+2
-	sta.w $2F40,y
+	sta.w BlockRuns,y
 	tya
-	adc.w $2F40,y
+	adc.w BlockRuns,y
 	tax
 	tya
-	sta.w $2FB9,x
+	sta.w BlockRunPrev,x
 	rep #$30
 	plb
 	ply
@@ -144,24 +144,24 @@ FreeCacheEntry_go:
 
 .t1:
 	lda.b r3+2
-	sta.w $2F40,x
+	sta.w BlockRuns,x
 	txa
 	clc
 	adc.b r3+2
 	tay
 	txa
-	sta.w $2FB9,y
+	sta.w BlockRunPrev,y
 	rep #$30
 	plb
 	ply
 	plx
 	rtl
 .2:
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 	and.b #$40
 	beq .t1x
 	lda.b #$08
-	sta.w $2F40,x
+	sta.w BlockRuns,x
 	txa
 	clc
 	adc.b #$08
@@ -169,7 +169,7 @@ FreeCacheEntry_go:
 	bra .2
 
 .t1x:
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 	and.b #$3F
 	sta.b r3+2
 	txa
@@ -178,20 +178,20 @@ FreeCacheEntry_go:
 	tay
 	and.b #$07
 	beq .1xx
-	lda.w $2F40,y
+	lda.w BlockRuns,y
 	bmi .1xx
 	clc
 	adc.b r3+2
 	sta.b r3+2
 .1xx:
 	lda.b r3+2
-	sta.w $2F40,x
+	sta.w BlockRuns,x
 	txa
 	clc
 	adc.b r3+2
 	tay
 	txa
-	sta.w $2FB9,y
+	sta.w BlockRunPrev,y
 	rep #$30
 	plb
 	ply
@@ -199,31 +199,31 @@ FreeCacheEntry_go:
 	rtl
 .3:
 	sep #$30
-	lda.w $3032,x
+	lda.w TileRuns,x
 	and.b #$7F
 	sta.b r3+2
 	clc
 	adc.b r0
 	tay
-	lda.w $3032,y
+	lda.w TileRuns,y
 	bmi .1xxx
 	clc
 	adc.b r3+2
 	sta.b r3+2
 .1xxx:
-	lda.w $3093,x
+	lda.w TileRunPrev,x
 	bmi .t1xx
 	tay
-	lda.w $3032,y
+	lda.w TileRuns,y
 	bmi .t1xx
 	clc
 	adc.b r3+2
-	sta.w $3032,y
+	sta.w TileRuns,y
 	tya
-	adc.w $3032,y
+	adc.w TileRuns,y
 	tax
 	tya
-	sta.w $3093,x
+	sta.w TileRunPrev,x
 	rep #$30
 	plb
 	ply
@@ -232,13 +232,13 @@ FreeCacheEntry_go:
 
 .t1xx:
 	lda.b r3+2
-	sta.w $3032,x
+	sta.w TileRuns,x
 	txa
 	clc
 	adc.b r3+2
 	tay
 	txa
-	sta.w $3093,y
+	sta.w TileRunPrev,y
 	rep #$30
 	plb
 	ply
@@ -254,7 +254,7 @@ FreeCacheEntry_go:
 	lda.w SpriteBlockTiles
 .loop:
 	tax
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 	and.w #$00FF
 	beq .t1xxx
 	cmp.w #$0010

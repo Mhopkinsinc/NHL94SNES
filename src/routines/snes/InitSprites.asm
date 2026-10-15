@@ -23,17 +23,17 @@ InitSprites:		; A: SpriteVRAM, X: SpritesReserved, Y: sizes the 16x16 block area
 	tax
 	lda.b #$00
 .loop:
-	sta.w $2F40,x
+	sta.w BlockRuns,x
 	txa
 	sec
 	sbc.b #$08
-	sta.w $2FB9,x
+	sta.w BlockRunPrev,x
 	tax
 	lda.b #$08
 	cpx.b #$00
 	bpl .loop
 	lda.b #$FF
-	sta.w $2FB9
+	sta.w BlockRunPrev
 	rep #$30
 	lda.w #$0002
 	sta.w CacheUseMark
@@ -42,11 +42,11 @@ InitSprites:		; A: SpriteVRAM, X: SpritesReserved, Y: sizes the 16x16 block area
 	sbc.w SpriteBlockTiles
 	sep #$30
 	tax
-	sta.w $3032
-	stz.w $3032,x
-	stz.w $3093,x
+	sta.w TileRuns
+	stz.w TileRuns,x
+	stz.w TileRunPrev,x
 	lda.b #$FF
-	sta.w $3093
+	sta.w TileRunPrev
 	rep #$30
 	lda.w #$0080
 	sta.w SpritesLeft
@@ -68,7 +68,7 @@ InitSprites:		; A: SpriteVRAM, X: SpritesReserved, Y: sizes the 16x16 block area
 	ldx.w #$03D0
 	lda.w #$FFFF
 .loopx:
-	sta.w $2740,x
+	sta.w FrameCacheOf,x
 	dex
 	dex
 	bpl .loopx

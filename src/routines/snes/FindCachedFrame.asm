@@ -1,10 +1,10 @@
 ; Find the tile cache entry of the frame at [p0]; fall into LoadFrameTiles when it is not cached
 FindCachedFrame:
 	lda.b p0
-	cmp.w $2540,x
+	cmp.w FrameCacheAddr,x
 	bne .1
 	lda.b p0+2
-	cmp.w $2640,x
+	cmp.w FrameCacheBank,x
 	beq DrawSpritePieces_exit
 .1:
 	inx
@@ -58,7 +58,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	lda.b #$00
 .loop:
 	tax
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 	beq .t3
 	cmp.b #$10
 	bcs .1
@@ -84,7 +84,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	rep #$30
 	stx.b r2+2
 	sep #$30
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 	sec
 	sbc.b r3
 	beq .1x
@@ -94,19 +94,19 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	adc.b r3
 	tay
 	lda.b r3+2
-	sta.w $2F40,y
+	sta.w BlockRuns,y
 	txa
-	sta.w $2FB9,y
+	sta.w BlockRunPrev,y
 	phy
 	tya
 	adc.b r3+2
 	tay
 	pla
-	sta.w $2FB9,y
+	sta.w BlockRunPrev,y
 .1x:
 	lda.b r3
 	ora.b #$80
-	sta.w $2F40,x
+	sta.w BlockRuns,x
 	rep #$30
 	ldx.b DMAQueueTail
 	lda.b r1
@@ -121,21 +121,21 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	ldy.w DrawFrameNum
 	sep #$20
 	lda.w FrameCacheCount
-	sta.w $2741,y
+	sta.w FrameCacheOf+1,y
 	rep #$20
 	lda.w FrameCacheCount
 	asl a
 	tay
 	lda.w DrawFrameNum
-	sta.w $2B40,y
+	sta.w FrameCacheNum,y
 	lda.b p0
-	sta.w $2540,y
+	sta.w FrameCacheAddr,y
 	lda.b p0+2
-	sta.w $2640,y
+	sta.w FrameCacheBank,y
 	inc.w FrameCacheCount
 	lda.b r2+2
 	ora.w #$8000
-	sta.w $2C40,y
+	sta.w FrameCacheAlloc,y
 	lda.b r2+2
 	and.w #$FFF8
 	asl a
@@ -145,7 +145,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	clc
 	adc.b r3
 	asl a
-	sta.w $2E40,y
+	sta.w FrameCacheTile,y
 	asl a
 	asl a
 	asl a
@@ -196,7 +196,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	lda.b #$00
 .2:
 	tax
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 	beq .4
 	cmp.b #$08
 	bne .3
@@ -205,9 +205,9 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	sta.b r8+2
 	txa
 	clc
-	adc.w $2F40,x
+	adc.w BlockRuns,x
 	tax
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 	beq .t1xx
 	cmp.b #$10
 	bcs .t1xx
@@ -219,7 +219,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	lda.b r8+2
 	cmp.b r3
 	bcs .5
-	lda.w $2F40,x
+	lda.w BlockRuns,x
 .3:
 	and.b #$3F
 	sta.b r8+2
@@ -242,12 +242,12 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 .loopxx:
 	lda.b r3+2
 	sec
-	sbc.w $2F40,x
+	sbc.w BlockRuns,x
 	beq .1xx
 	bmi .t1xxx
 	sta.b r3+2
 	lda.b #$C8
-	sta.w $2F40,x
+	sta.w BlockRuns,x
 	txa
 	clc
 	adc.b #$08
@@ -263,19 +263,19 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	adc.b r3+2
 	tay
 	lda.b r8+2
-	sta.w $2F40,y
+	sta.w BlockRuns,y
 	txa
-	sta.w $2FB9,y
+	sta.w BlockRunPrev,y
 	phy
 	tya
 	adc.b r8+2
 	tay
 	pla
-	sta.w $2FB9,y
+	sta.w BlockRunPrev,y
 .1xx:
 	lda.b r3+2
 	ora.b #$80
-	sta.w $2F40,x
+	sta.w BlockRuns,x
 	rep #$30
 	ldx.b DMAQueueTail
 	lda.b r1
@@ -290,21 +290,21 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	ldy.w DrawFrameNum
 	sep #$20
 	lda.w FrameCacheCount
-	sta.w $2741,y
+	sta.w FrameCacheOf+1,y
 	rep #$20
 	lda.w FrameCacheCount
 	asl a
 	tay
 	lda.w DrawFrameNum
-	sta.w $2B40,y
+	sta.w FrameCacheNum,y
 	lda.b p0
-	sta.w $2540,y
+	sta.w FrameCacheAddr,y
 	lda.b p0+2
-	sta.w $2640,y
+	sta.w FrameCacheBank,y
 	inc.w FrameCacheCount
 	lda.b r2+2
 	ora.w #$8000
-	sta.w $2C40,y
+	sta.w FrameCacheAlloc,y
 	lda.b r2+2
 	and.w #$FFF8
 	asl a
@@ -314,7 +314,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	clc
 	adc.b r3
 	asl a
-	sta.w $2E40,y
+	sta.w FrameCacheTile,y
 	asl a
 	asl a
 	asl a
@@ -371,7 +371,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	lda.b #$00
 .loopxxx:
 	tax
-	lda.w $3032,x
+	lda.w TileRuns,x
 	beq .t1xxxxx
 	bmi .1xxx
 	cmp.b r3
@@ -379,7 +379,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 .1xxx:
 	txa
 	clc
-	adc.w $3032,x
+	adc.w TileRuns,x
 	and.b #$7F
 	bra .loopxxx
 
@@ -395,7 +395,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	rep #$30
 	stx.b r2+2
 	sep #$30
-	lda.w $3032,x
+	lda.w TileRuns,x
 	sec
 	sbc.b r3
 	beq .1xxxx
@@ -405,19 +405,19 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	adc.b r3
 	tay
 	lda.b r3+2
-	sta.w $3032,y
+	sta.w TileRuns,y
 	txa
-	sta.w $3093,y
+	sta.w TileRunPrev,y
 	phy
 	tya
 	adc.b r3+2
 	tay
 	pla
-	sta.w $3093,y
+	sta.w TileRunPrev,y
 .1xxxx:
 	lda.b r3
 	ora.b #$80
-	sta.w $3032,x
+	sta.w TileRuns,x
 	rep #$30
 	ldx.b DMAQueueTail
 	lda.b r1
@@ -429,24 +429,24 @@ LoadFrameTiles:		; allocate VRAM for the frame at [p0], queue the DMA of its til
 	ldy.w DrawFrameNum
 	sep #$20
 	lda.w FrameCacheCount
-	sta.w $2741,y
+	sta.w FrameCacheOf+1,y
 	rep #$20
 	lda.w FrameCacheCount
 	asl a
 	tay
 	lda.w DrawFrameNum
-	sta.w $2B40,y
+	sta.w FrameCacheNum,y
 	lda.b p0
-	sta.w $2540,y
+	sta.w FrameCacheAddr,y
 	lda.b p0+2
-	sta.w $2640,y
+	sta.w FrameCacheBank,y
 	inc.w FrameCacheCount
 	lda.b r2+2
-	sta.w $2C40,y
+	sta.w FrameCacheAlloc,y
 	lda.b r2+2
 	clc
 	adc.w SpriteBlockTiles
-	sta.w $2E40,y
+	sta.w FrameCacheTile,y
 	asl a
 	asl a
 	asl a

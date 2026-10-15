@@ -916,3 +916,19 @@ EventEAUnused = $62		; StepTrack event $EA: EventData1 and #$FF -> $62 (word sto
 SfxVelocity = $64		; Velocity of the next sound effect, in the high byte ($65 = SfxVelocity+1): PlaySound lda $65 : ...
 VoiceRotor = $66		; FindFreeVoice: lda $66 : inc : and #$07 : sta $66, the search starts at that voice (round ...
 StealCount = $68		; FindFreeVoice steal scan (no free voice): lda #$08 : sta $68 ... dec $68 : bne, the voices left ...
+
+; The sprite tile cache (bank $7E; the sprite routines run with the data bank at $7E and use 16-bit addresses). An entry
+; per cached frame, 128 entries, a word each, indexed by entry * 2:
+FrameCacheAddr = $7E2540	; address of the frame (LoadFrameTiles; FindCachedFrame compares it)
+FrameCacheBank = $7E2640	; bank of the frame
+FrameCacheOf = $7E2740	; a byte per frame number ($2741 + DrawFrameNum): its cache entry, $FF none (InitSprites fills $FF)
+FrameCacheNum = $7E2B40	; frame number of the entry
+FrameCacheAlloc = $7E2C40	; the entry's allocation: block run index | $8000 (16x16 blocks), else the single tile run index
+FrameCacheUse = $7E2D40	; use bits: GetFrameTiles sets CacheUseMark when drawn, SpriteFrameStart shifts them each frame
+			; and frees the entry when they run out
+FrameCacheTile = $7E2E40	; first VRAM tile of the entry's tiles (the DMA destination)
+; The two tile allocators: runs of free / used space, a byte each (run length, | $80 = used), with back links
+BlockRuns = $7E2F40	; 16x16 block area of sprite VRAM (InitSprites: one free run of SpriteBlockTiles / 4)
+BlockRunPrev = $7E2FB9	; previous run of each block run ($FF = none)
+TileRuns = $7E3032	; single 8x8 tile area (from SpriteBlockTiles to $200)
+TileRunPrev = $7E3093	; previous run of each tile run ($FF = none)

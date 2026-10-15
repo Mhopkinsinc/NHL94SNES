@@ -33,12 +33,12 @@ SpriteFrameStart:	; start filling OAMDrawBuf after the reserved entries; free th
 	asl a
 	tax
 .1:
-	lda.w $2D40,x
+	lda.w FrameCacheUse,x
 	bmi .t1
 	lsr a
-	sta.w $2D40,x
+	sta.w FrameCacheUse,x
 	bcc .t1
-	ldy.w $2B40,x
+	ldy.w FrameCacheNum,x
 	sep #$20
 	lda.b #$80
 	pha
