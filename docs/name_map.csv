@@ -7002,3 +7002,6 @@ $7F8000,titlescale,,behavior,RAM; BuildTitlePath: mode 7 scale of each of the $5
 $7F8A00,titlexofs,,behavior,RAM; BuildTitlePath: x offset of each title path step; TitleScreen adds $190.,src/ram94snes.asm
 $7F9400,titleyscroll,,behavior,"RAM; BuildTitlePath: y scroll of each title path step, read by TitleScreen.",src/ram94snes.asm
 $7FA000,titlelogobuf,,behavior,"RAM; LoadTitleLogo: mode 7 buffer of the title team logo (header +0 / +2 / +4, then the map; pixel pairs at +0 ...",src/ram94snes.asm
+$0BC9,GoalieUnused,,behavior,RAM; assgoalietopuck clears it when the assignment starts,src/ram94snes.asm
+$0C0B,FaceoffUnused,,behavior,"RAM; per player (12 words): FaceoffPads clears it with goalieflags, goalieturnwait, goaliedivewait",src/ram94snes.asm
+$1D60,PauseUnused,,behavior,RAM; Pausemode clears it when the pause menu is left (with pregamepause),src/ram94snes.asm

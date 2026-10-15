@@ -815,3 +815,8 @@ titlescale = $7F8000	; BuildTitlePath: mode 7 scale of each of the $500 title lo
 titlexofs = $7F8A00	; BuildTitlePath: x offset of each title path step; TitleScreen adds $190.
 titleyscroll = $7F9400	; BuildTitlePath: y scroll of each title path step, read by TitleScreen.
 titlelogobuf = $7FA000	; LoadTitleLogo: mode 7 buffer of the title team logo (header +0 / +2 / +4, then the map; pixel pairs at +0 ...
+
+; Cleared but never set or read (no job in the ROM)
+GoalieUnused = $0BC9	; assgoalietopuck clears it when the assignment starts
+FaceoffUnused = $0C0B	; per player (12 words): FaceoffPads clears it with goalieflags, goalieturnwait, goaliedivewait
+PauseUnused = $1D60	; Pausemode clears it when the pause menu is left (with pregamepause)

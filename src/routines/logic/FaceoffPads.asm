@@ -132,7 +132,7 @@ FaceoffPads:
 	stz.w goalieflags,x
 	stz.w goalieturnwait,x
 	stz.w goaliedivewait,x
-	stz.w $0C0B,x
+	stz.w FaceoffUnused,x
 	dex
 	dex
 	bpl .loop8

@@ -57,7 +57,7 @@ Pausemode:
 	lda.w #$0000
 	sta.l pausemenuon
 	stz.w pregamepause
-	stz.w $1D60
+	stz.w PauseUnused
 	jsl.l FadeOut
 	jsl.l WaitFadeOut
 	jsl.l forceblack

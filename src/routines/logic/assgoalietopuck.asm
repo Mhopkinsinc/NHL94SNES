@@ -51,7 +51,7 @@ assgoalietopuck:
 	and.w #$FFFD
 	sta.w pflags,x
 	stz.w temp1,x
-	stz.w $0BC9
+	stz.w GoalieUnused
 .5:
 	lda.w temp1,x
 	sec
