@@ -1,4 +1,4 @@
-; Play song slot A of the home team, or a random default song
+; Play song slot A of the home team (TeamSongs), or a random DefaultSongs song when it has none
 PlayTeamSong:
 	phx
 	ldx.w MusicOn

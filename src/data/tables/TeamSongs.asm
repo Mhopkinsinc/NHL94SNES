@@ -1,5 +1,5 @@
 ; Data table.
-TeamSongs:		; songs for MusicStart, six per team (long pointers, $FFFFFFFF none), by home team and song slot
+TeamSongs:		; songs for MusicStart, six per team (long pointers, $FFFFFFFF none), by home team and song slot (0 first faceoff of a period, 1 faceoff on a home power play, 2 other faceoffs, 3 home goal, 4 faceoff on a home penalty kill, 5 random in the third period)
 	dd $FFFFFFFF,$FFFFFFFF,$FFFFFFFF,$FFFFFFFF
 	dd $FFFFFFFF,$FFFFFFFF,DATA8_999A9C,DATA8_9AAF99
 	dd DATA8_9AADE5,$FFFFFFFF,DATA8_9AB2DF,DATA8_999A9C
