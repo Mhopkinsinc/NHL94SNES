@@ -150,7 +150,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 
 **Applied equates (source=new):** `mesareaEnd` (`$0A48`, PushNumber and PushTime). `gmStatBase` (`$1742`; now `tmPwrGoals`, the power play goals word). `playoffRoundIdx` (`$7E35D4`). `rosterNone` (`$FFFC`, the three `cmp.w` sites beside `TMPDOUT`).
 
-**Keep raw:** `$C3` in `vtoa`. (`$00`-`$2F` are the register names `r0`-`r9`, `p0`, `p1` since 15 Oct 2026, at the user's request.) `#$000B`, `#$000A`, `#$0012` in setplayer. `$14` in setplayer until one owner is proven (`$0CE5` is `ThirdPBonus`, as 93S). `#$0800`, `#$0040`, `#$2000`, `#$4000` except the converted flag sites. `PenOffsides` is `$12` here (93S uses `$10`).
+**Keep raw:** (`$C3` in `vtoa` is `d7+2`, the octant index 94G builds in `d2`; `$00`-`$2F` are the register names `r0`-`r9`, `p0`, `p1` since 15 Oct 2026, at the user's request.) `#$000B`, `#$000A`, `#$0012` in setplayer. `$14` in setplayer until one owner is proven (`$0CE5` is `ThirdPBonus`, as 93S). `#$0800`, `#$0040`, `#$2000`, `#$4000` except the converted flag sites. `PenOffsides` is `$12` here (93S uses `$10`).
 
 **Deferred:** `#$0024` in AddPenalty. (`$0B7D` is `asscur`, `$163A` is `PenShotActive`, and `$7E34C6` is `OptLine`: the setup menu edits it as Line Changes, 0 off / 1 on / 2 automatic, where 93S uses 0 = on.)
 
@@ -183,7 +183,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - Labels: no auto label (`CODE_`, `DATA8_`) is left. Every name and the auto name it replaced are in `docs/name_map.csv`
   (address, name, auto_name, source, note, file; the file column names the file that defines the label).
 - RAM: `src/ram94snes.asm`. Every RAM operand in the routines is a name or NAME+offset (WRAM, bank $7E / $7F, the
-  direct page, and the RAM pointer immediates); only `$C3` in vtoa stays raw. See the RAM notes below.
+  direct page, and the RAM pointer immediates); no raw RAM operand is left. See the RAM notes below.
 - Data assets: binaries are extracted to `Extracted/` by `tools/prebuild.py` (`tools/extract.py` has the `ASSETS` list:
   name, first address, end exclusive; formats in `src/data/README.md`). Packed streams stay packed.
 - `src/macros/snes94.mac` holds the `String` macro (length word counting itself, then text) and the `Player` macro, as 93S.
