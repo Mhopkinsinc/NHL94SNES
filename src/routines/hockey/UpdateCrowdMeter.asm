@@ -29,13 +29,13 @@ UpdateCrowdMeter:
 .3:
 	inc.w CrowdMeterCount
 	lda.w CrowdMeterSum+2
-	sta.b $0A
+	sta.b r2+2
 	lda.w CrowdMeterSum
-	sta.b $08
+	sta.b r2
 	lda.w CrowdMeterCount
-	sta.b $04
+	sta.b r1
 	jsl.l Div32U
-	lda.b $00
+	lda.b r0
 	sta.w CrowdAvg
 	ply
 	plx

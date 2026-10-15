@@ -4,7 +4,7 @@ SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else
 	bcc .bad
 	cmp.w #$2100
 	bcs .bad
-	stx.b $14
+	stx.b r3
 	tax
 	lda.l Ram7E,x
 	ora.l Ram7E+2,x
@@ -15,26 +15,26 @@ SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else
 	cmp.w #$007F
 	bne .bad
 .heap:
-	stx.b $08
-	sta.b $0E
-	stz.b $0C
+	stx.b r2
+	sta.b p0+2
+	stz.b p0
 	lda.l Ram7E,x
 	sec
 	sbc.w #$0006
 	tay
-	lda.b [$0C],y
+	lda.b [p0],y
 	beq .bad
 	dey
 	dey
 	tyx
-	lda.b [$0C],y
-	sta.b $16
+	lda.b [p0],y
+	sta.b r3+2
 	iny
 	iny
 	iny
 	iny
 	sec
-	sbc.b $14
+	sbc.b r3
 	bcc .togrow
 	cmp.w #$0009
 	bcs .shrink
@@ -44,85 +44,85 @@ SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else
 .bad:
 	jmp.w .exit
 .shrink:
-	lda.b [$0C],y
-	sta.b $02
+	lda.b [p0],y
+	sta.b r0+2
 	beq .split
 	tay
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	beq .mergenext
 .split:
 	txy
-	lda.b $16
+	lda.b r3+2
 	sec
 	sbc.w #$0008
-	sbc.b $14
-	sta.b $00
-	lda.b $14
-	sta.b [$0C],y
+	sbc.b r3
+	sta.b r0
+	lda.b r3
+	sta.b [p0],y
 	tya
 	clc
-	adc.b $14
+	adc.b r3
 	adc.w #$0008
 	iny
 	iny
 	iny
 	iny
-	sta.b [$0C],y
-	sta.b $04
+	sta.b [p0],y
+	sta.b r1
 	tay
-	lda.b $00
-	sta.b [$0C],y
+	lda.b r0
+	sta.b [p0],y
 	jmp.w .newfree
 .mergenext:
 	dey
 	dey
-	lda.b [$0C],y
-	sta.b $06
-	ldy.b $02
+	lda.b [p0],y
+	sta.b r1+2
+	ldy.b r0+2
 	iny
 	iny
 	iny
 	iny
-	lda.b [$0C],y
-	sta.b $02
+	lda.b [p0],y
+	sta.b r0+2
 	txy
-	lda.b $16
+	lda.b r3+2
 	sec
-	sbc.b $14
-	sta.b $00
-	lda.b $14
-	sta.b [$0C],y
+	sbc.b r3
+	sta.b r0
+	lda.b r3
+	sta.b [p0],y
 	tya
 	clc
-	adc.b $14
+	adc.b r3
 	adc.w #$0008
 	iny
 	iny
 	iny
 	iny
-	sta.b [$0C],y
-	sta.b $04
+	sta.b [p0],y
+	sta.b r1
 	tay
-	lda.b $00
+	lda.b r0
 	clc
-	adc.b $06
-	sta.b [$0C],y
+	adc.b r1+2
+	sta.b [p0],y
 .newfree:
 	iny
 	iny
 	lda.w #$0000
-	sta.b [$0C],y
+	sta.b [p0],y
 	iny
 	iny
-	lda.b $02
-	sta.b [$0C],y
+	lda.b r0+2
+	sta.b [p0],y
 	iny
 	iny
 	txa
-	sta.b [$0C],y
-	ldy.b $02
+	sta.b [p0],y
+	ldy.b r0+2
 	beq .done
 .linkprev:
 	iny
@@ -131,77 +131,77 @@ SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else
 	iny
 	iny
 	iny
-	lda.b $04
-	sta.b [$0C],y
+	lda.b r1
+	sta.b [p0],y
 .done:
 	jmp.w .exit
 .grow:
-	lda.b [$0C],y
-	sta.b $02
+	lda.b [p0],y
+	sta.b r0+2
 	beq .move
 	tay
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	bne .move
 	dey
 	dey
-	lda.b [$0C],y
+	lda.b [p0],y
 	clc
 	adc.w #$0008
-	adc.b $16
-	cmp.b $14
+	adc.b r3+2
+	cmp.b r3
 	beq .wholenext
 	bcc .move
-	lda.b $14
+	lda.b r3
 	sec
-	sbc.b $16
-	sta.b $00
-	lda.b [$0C],y
+	sbc.b r3+2
+	sta.b r0
+	lda.b [p0],y
 	sec
-	sbc.b $00
-	sta.b $00
+	sbc.b r0
+	sta.b r0
 	iny
 	iny
 	iny
 	iny
-	lda.b [$0C],y
-	sta.b $02
+	lda.b [p0],y
+	sta.b r0+2
 	txy
-	lda.b $14
-	sta.b [$0C],y
+	lda.b r3
+	sta.b [p0],y
 	iny
 	iny
 	iny
 	iny
 	tya
 	clc
-	adc.b $14
+	adc.b r3
 	adc.w #$0004
-	sta.b [$0C],y
-	sta.b $04
+	sta.b [p0],y
+	sta.b r1
 	tay
-	lda.b $00
-	sta.b [$0C],y
+	lda.b r0
+	sta.b [p0],y
 	jmp.w .newfree
 .wholenext:
-	ldy.b $02
+	ldy.b r0+2
 	iny
 	iny
 	iny
 	iny
-	lda.b [$0C],y
-	sta.b $02
+	lda.b [p0],y
+	sta.b r0+2
 	txy
-	sty.b $04
-	lda.b $14
-	sta.b [$0C],y
+	sty.b r1
+	lda.b r3
+	sta.b [p0],y
 	iny
 	iny
 	iny
 	iny
-	lda.b $02
-	sta.b [$0C],y
+	lda.b r0+2
+	sta.b [p0],y
 	tay
 	bne .tolinkprev
 	jmp.w .exit
@@ -211,55 +211,55 @@ SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else
 	txy
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$4000
-	lda.b $16
+	lda.b r3+2
 	pha
-	lda.b $08
+	lda.b r2
 	pha
 	lda.w #$0000
-	ldx.b $14
+	ldx.b r3
 	phx
 	ldy.w #$0000
 	jsl.l NewHandle
 	plx
-	stx.b $14
+	stx.b r3
 	plx
-	stx.b $08
+	stx.b r2
 	plx
-	stx.b $16
+	stx.b r3+2
 	tax
-	sta.b $0A
+	sta.b r2+2
 	lda.l Ram7E,x
 	tay
 	sep #$20
 	lda.b #$54
-	sta.b $10
+	sta.b p1
 	lda.l Ram7E+2,x
-	sta.b $11
-	ldx.b $08
+	sta.b p1+1
+	ldx.b r2
 	lda.l Ram7E+2,x
-	sta.b $12
+	sta.b p1+2
 	lda.b #$6B
-	sta.b $13
+	sta.b p1+3
 	rep #$20
 	lda.l Ram7E,x
 	tax
-	lda.b $16
+	lda.b r3+2
 	phb
 	jsl.l $000010		; mvn written to $10-$13 above, then rtl
 	plb
-	lda.b $08
+	lda.b r2
 	jsl.l DisposeHandle
-	ldx.b $0A
+	ldx.b r2+2
 	lda.l Ram7E,x
 	tay
 	lda.l Ram7E+2,x
-	ldx.b $08
+	ldx.b r2
 	sta.l Ram7E+2,x
 	tya
 	sta.l Ram7E,x
-	ldx.b $0A
+	ldx.b r2+2
 	lda.w #$0000
 	sta.l Ram7E,x
 	sta.l Ram7E+2,x

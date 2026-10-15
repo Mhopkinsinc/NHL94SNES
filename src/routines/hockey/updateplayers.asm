@@ -125,32 +125,32 @@ updateplayers:
 	tyx
 .10:
 	lda.w velstep
-	sta.b $0C
+	sta.b p0
 	lda.w Xvel,x
 	beq .1xxx
 	tax
-	lda.b $0C
+	lda.b p0
 	jsl.l Mul16x8XS
 	ldx.b curobj
-	lda.b $08
+	lda.b r2
 	clc
 	adc.w Xfrac,x
 	sta.w Xfrac,x
-	lda.b $0A
+	lda.b r2+2
 	adc.w Xpos,x
 	sta.w Xpos,x
 .1xxx:
 	lda.w Yvel,x
 	beq .2xx
 	tax
-	lda.b $0C
+	lda.b p0
 	jsl.l Mul16x8XS
 	ldx.b curobj
-	lda.b $08
+	lda.b r2
 	clc
 	adc.w Yfrac,x
 	sta.w Yfrac,x
-	lda.b $0A
+	lda.b r2+2
 	adc.w Ypos,x
 	sta.w Ypos,x
 .2xx:
@@ -170,11 +170,11 @@ updateplayers:
 	lda.w velstep
 	jsl.l Mul16x8XS
 	ldx.b curobj
-	lda.b $08
+	lda.b r2
 	clc
 	adc.w puckzfrac
 	sta.w puckzfrac
-	lda.b $0A
+	lda.b r2+2
 	adc.w puckz
 	sta.w puckz
 	bpl .11
@@ -189,8 +189,8 @@ updateplayers:
 	bmi .11
 	asl a
 	asl a
-	sta.b $0C
-	stz.b $0E
+	sta.b p0
+	stz.b p0+2
 	lda.w #$0007
 	jsl.l sfx
 .11:
@@ -228,7 +228,7 @@ updateplayers:
 	sta.w puckdist2,x
 	cpx.w #$0018
 	bcs .12
-	sta.b $14
+	sta.b r3
 	lda.w position,x
 	bmi .12
 	beq .12
@@ -236,7 +236,7 @@ updateplayers:
 	and.w #$1000
 	ora.w pfalock,x
 	bne .12
-	lda.b $14
+	lda.b r3
 	cpx.w #$000C
 	bcs .t1xx
 	cmp.w tmnear
@@ -475,7 +475,7 @@ updateplayers:
 .1xxxxxxxxx:
 	sec
 	sbc.w #$010D
-	sta.b $00
+	sta.b r0
 	lda.w OldYpos,x
 	bit.w #$8000
 	beq .2xxxxx
@@ -484,7 +484,7 @@ updateplayers:
 .2xxxxx:
 	sec
 	sbc.w #$010D
-	eor.b $00
+	eor.b r0
 	bmi .4x
 	lda.w Ypos,x
 	bit.w #$8000

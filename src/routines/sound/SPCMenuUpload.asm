@@ -22,9 +22,9 @@ SPCMenuUpload:
 	ldx.w #$0000
 .loop:
 	lda.l MenuSampleList,x
-	sta.b $0C
+	sta.b p0
 	lda.l MenuSampleList+2,x
-	sta.b $0E
+	sta.b p0+2
 	phx
 	jsl.l SPCUploadBlock
 	plx

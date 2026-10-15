@@ -145,6 +145,22 @@ OOlist = $15C3		; 16 bytes: object order list, bottom of the screen last
 gameclock = $1632	; game clock seconds; gameclock+2 = jiffies
 
 ; Direct page the game logic uses as the 68k registers.
+; The engine's parameter / scratch registers at the bottom of the direct page, 4 bytes each like a0-a6 / d0-d7 (NAME+2 is
+; the upper word or the bank). What each holds changes per routine: the divider and multiplier take their operands in
+; r0-r2, Decompress / MemCopy / the DMA and map routines take a source long pointer in p0 and a destination in p1,
+; DrawSprite the frame in r0 and the sprite set in p1.
+r0 = $00
+r1 = $04
+r2 = $08
+p0 = $0C		; long pointer; p0+2 is the bank
+p1 = $10		; long pointer; p1+2 is the bank
+r3 = $14
+r4 = $18
+r5 = $1C
+r6 = $20
+r7 = $24
+r8 = $28
+r9 = $2C
 a0 = $89		; long pointer; a0+2 is the bank
 a1 = $8D		; long pointer; a1+2 is the bank
 a2 = $91		; team index, 0 = home

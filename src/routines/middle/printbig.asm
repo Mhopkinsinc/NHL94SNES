@@ -155,7 +155,7 @@ printbig:
 	asl a
 	asl a
 	sta.w printa
-	lda.b $01,s
+	lda.b r0+1,s
 	and.w #$0040
 	asl a
 	asl a

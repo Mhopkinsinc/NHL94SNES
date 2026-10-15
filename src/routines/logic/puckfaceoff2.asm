@@ -62,10 +62,10 @@ puckfaceoff2:
 	lsr a
 	lsr a
 	lsr a
-	sta.b $14
+	sta.b r3
 	lda.w PBnum
 	and.w #$000F
-	cmp.b $14
+	cmp.b r3
 	beq .t3
 	bcs .t1
 .3:

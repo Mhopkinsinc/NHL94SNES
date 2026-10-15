@@ -53,13 +53,13 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	sbc.b d0
 	lsr a
 	sta.w printx
-	sta.b $00
+	sta.b r0
 	lda.w #$000D
 	sta.w printy
 	lda.w #$0006
 	sta.b d1
 	jsl.l Framer
-	lda.b $00
+	lda.b r0
 	inc a
 	sta.w printx
 	lda.w #$000E

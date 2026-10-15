@@ -8,12 +8,12 @@ Create_HotCold_Table:
 	bcc .1
 	lda.w #$000C
 .1:
-	sta.b $14
+	sta.b r3
 	lda.w seed
 	and.w #$0010
 	beq .4
 	sep #$20
-	lda.b $14
+	lda.b r3
 	sta.w HotColdTable,x
 .3:
 	rep #$20
@@ -24,6 +24,6 @@ Create_HotCold_Table:
 	sep #$20
 	lda.b #$00
 	sec
-	sbc.b $14
+	sbc.b r3
 	sta.w HotColdTable,x
 	bra .3

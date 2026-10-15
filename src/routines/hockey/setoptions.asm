@@ -198,23 +198,23 @@ setoptions:
 	sta.l OptPlayers
 .5:
 	lda.w #BigLetterTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #BigLetterTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #bigtextbuf>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #bigtextbuf
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #bigtextbuf>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #bigtextbuf
-	sta.b $0C
+	sta.b p0
 	lda.w #hlsavebuf>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #hlsavebuf
-	sta.b $10
-	stx.b $00
+	sta.b p1
+	stx.b r0
 	jsl.l LinearToPlanar
 	lda.w #$0000
 	sta.l matchupphotos
@@ -684,13 +684,13 @@ setoptions:
 	cpx.w #$0000
 	bne .rtsx
 	lda.b a1+2
-	sta.b $0E
+	sta.b p0+2
 	lda.b a1
-	sta.b $0C
+	sta.b p0
 	lda.w #$0000
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0A5C
-	sta.b $10
+	sta.b p1
 	ldx.w #$0031
 	jsl.l MemCopy
 .rtsx:

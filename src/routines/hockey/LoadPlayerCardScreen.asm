@@ -2,13 +2,13 @@
 LoadPlayerCardScreen:
 	jsl.l FadeOut
 	lda.w #TeamLogoSprites>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TeamLogoSprites
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$7800
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	jsl.l WaitFadeOut
 	jsl.l forceblack
@@ -33,13 +33,13 @@ LoadPlayerCardScreen:
 	jsl.l ClearTextMap
 	jsl.l ClearTextMap2
 	lda.w #SmallFontTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SmallFontTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	lda.l smallfontchars
 	asl a
 	asl a
@@ -76,13 +76,13 @@ LoadPlayerCardScreen:
 	sta.b d0
 	jsl.l RemapTiles
 	lda.w #TeamBlocksTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TeamBlocksTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -95,9 +95,9 @@ LoadPlayerCardScreen:
 	sbc.w #$0100
 	sta.l picchars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.l scorechars
 	asl a
 	asl a
@@ -109,13 +109,13 @@ LoadPlayerCardScreen:
 	lda.w #$0000
 	sta.l cardbackchars
 	lda.w #CardBackTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CardBackTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -126,93 +126,93 @@ LoadPlayerCardScreen:
 	adc.l cardbackchars
 	sta.w cardframechars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
-	stx.b $10
-	stx.b $00
+	sta.b p0
+	stx.b p1
+	stx.b r0
 	jsl.l LinearToPlanar
-	lda.b $10
-	sta.b $0C
+	lda.b p1
+	sta.b p0
 	tax
 	ldy.w #$1000
 	jsl.l DMAToVRAM
 	lda.w #CardFrameTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CardFrameTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #CardPictureMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CardPictureMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$7780
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.l picboxmap
 	asl a
-	sta.b $14
+	sta.b r3
 	lda.l picboxmap+2
 	tax
-	lda.b $10
+	lda.b p1
 	clc
 	adc.w #$0006
-	sta.b $10
+	sta.b p1
 .loop:
-	ldy.b $14
+	ldy.b r3
 	dey
 	dey
 .loop2:
-	lda.b [$10],y
+	lda.b [p1],y
 	clc
 	adc.w cardframechars
 	clc
 	adc.l charofs2
 	clc
 	adc.w #$1000
-	sta.b [$10],y
+	sta.b [p1],y
 	dey
 	dey
 	bpl .loop2
-	lda.b $10
+	lda.b p1
 	clc
-	adc.b $14
-	sta.b $10
+	adc.b r3
+	sta.b p1
 	dex
 	bne .loop
 	lda.w #CardBackMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CardBackMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap2>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap2
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.w #$001C
-	sta.b $26
+	sta.b r7+2
 	ldx.w #$0000
 	ldy.w #$0000
 	lda.l cardbackchars
@@ -222,18 +222,18 @@ LoadPlayerCardScreen:
 	adc.w #$1000
 	jsl.l PasteMap
 	lda.w #SetupScreenPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SetupScreenPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0000
 	ldx.w #$0040
 	jsl.l SetColours
@@ -243,25 +243,25 @@ LoadPlayerCardScreen:
 	stz.w CGDATA
 	rep #$20
 	lda.w #CardBackPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CardBackPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0040
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w #CardSpritePalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CardSpritePalette
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0080
 	ldx.w #$0010
 	jsl.l SetColours

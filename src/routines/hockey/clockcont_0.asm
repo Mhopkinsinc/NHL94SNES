@@ -7,7 +7,7 @@ clockcont_0:
 	jsl.l assinsert
 	lda.w #$0001
 	jsl.l StreamSfx
-	stz.b $0C
+	stz.b p0
 	lda.w gsp
 	cmp.w #$0002
 	bcs .t1
@@ -55,7 +55,7 @@ clockcont_0:
 	lda.l OptPlayMode
 	cmp.w #$0000
 	beq .4
-	inc.b $0C
+	inc.b p0
 	lda.w #$0009
 	sta.b d0
 	lda.w #$000B
@@ -118,7 +118,7 @@ clockcont_0:
 	lda.w #$0004
 	sta.b d0
 	jsl.l AddPenalty2
-	lda.b $0C
+	lda.b p0
 	beq .rtl
 	lda.w #$0032
 	sta.b d0

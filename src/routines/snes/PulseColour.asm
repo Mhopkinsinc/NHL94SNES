@@ -3,16 +3,16 @@ PulseColour:
 	phx
 	phy
 	lda.b vcount
-	sta.b $08
+	sta.b r2
 	lda.w #$001E
-	sta.b $04
+	sta.b r1
 	jsl.l Div16x8U
 	lda.w RDMPYL
 	sta.b tmp0
-	lda.b $00
-	sta.b $08
+	lda.b r0
+	sta.b r2
 	lda.w #$0002
-	sta.b $04
+	sta.b r1
 	jsl.l Div16x8U
 	lda.w RDMPYL
 	asl a
@@ -34,10 +34,10 @@ PulseColour:
 	ldx.b tmp0
 	jsl.l Mul16S
 	lda.w #$001E
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
 	plx
-	lda.b $00
+	lda.b r0
 	clc
 	adc.b tmp1
 	and.w #$001F
@@ -67,10 +67,10 @@ PulseColour:
 	ldx.b tmp0
 	jsl.l Mul16S
 	lda.w #$001E
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
 	plx
-	lda.b $00
+	lda.b r0
 	clc
 	adc.b tmp1
 	and.w #$001F
@@ -91,19 +91,19 @@ PulseColour:
 	ldx.b tmp0
 	jsl.l Mul16S
 	lda.w #$001E
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
 	plx
-	lda.b $00
+	lda.b r0
 	clc
 	adc.b tmp1
 	and.w #$001F
 	ora.b tmp2
 	ply
 	plx
-	stx.b $10
-	sty.b $12
-	sta.b [$10]
+	stx.b p1
+	sty.b p1+2
+	sta.b [p1]
 	rtl
 .1:
 	dw $7FFF,$7E10,$7FFF

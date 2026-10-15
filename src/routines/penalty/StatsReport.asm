@@ -34,34 +34,34 @@ StatsReport:
 	pla
 	sta.b a1+2
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$C800
-	sta.b $0C
+	sta.b p0
 	lda.w #$0000
-	sta.b $24
+	sta.b r7
 	lda.w #$0055
-	sta.b $26
+	sta.b r7+2
 	lda.w #$0020
-	sta.b $18
+	sta.b r4
 	lda.w #$001C
-	sta.b $1A
+	sta.b r4+2
 	lda.w #$0400
 	sta.w MapVRAM
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$C800
-	sta.b $0C
+	sta.b p0
 	lda.w #$0010
-	sta.b $24
+	sta.b r7
 	lda.w #$0055
-	sta.b $26
+	sta.b r7+2
 	lda.w #$0020
-	sta.b $18
+	sta.b r4
 	lda.w #$001C
-	sta.b $1A
+	sta.b r4+2
 	lda.w #$0800
 	sta.w MapVRAM
 	ldx.w #$0000

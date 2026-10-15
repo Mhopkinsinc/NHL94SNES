@@ -60,16 +60,16 @@ PrintShooterRows:
 	and.w #$00FF
 	dec a
 	sta.b d0
-	sta.b $04
-	stz.b $08
+	sta.b r1
+	stz.b r2
 	jsl.l GoalieCount
-	lda.b $04
+	lda.b r1
 	cmp.b d0
 	bpl .2
 	lda.w #$0010
-	sta.b $08
+	sta.b r2
 .2:
-	lda.b $04
+	lda.b r1
 	sta.b d0
 	jsl.l GetNameandAttrib
 	inc.b a3

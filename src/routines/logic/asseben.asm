@@ -22,7 +22,7 @@ asseben:
 	lda.w #$000E
 	jsl.l Mul16x8XS
 	plx
-	lda.b $08
+	lda.b r2
 	sta.w Ypos,x
 	lda.w #$FF78
 	sta.w Xpos,x

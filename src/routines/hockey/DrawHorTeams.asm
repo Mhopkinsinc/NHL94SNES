@@ -35,16 +35,16 @@ DrawHorTeams:
 	sta.l colourbuf+$1FE
 .1:
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$75C0
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0060
 	ldx.w #$0020
 	jsl.l DMAToCGRAM
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$76C0
-	sta.b $0C
+	sta.b p0
 	ldy.w #$00E0
 	ldx.w #$0020
 	jsl.l WaitFrame

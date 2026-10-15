@@ -48,9 +48,9 @@ Restart:
 	bne .loop
 .1:
 	lda.w #MenuSong>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuSong
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 .2:
 	stz.w sfhormode

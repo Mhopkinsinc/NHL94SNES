@@ -11,7 +11,7 @@ SeatPenaltyBox:
 	lda.w position,x
 	bpl .1
 	jsl.l PenBoxSpot
-	lda.b $08
+	lda.b r2
 	sta.w Ypos,x
 	lda.w #$0088
 	sta.w Xpos,x

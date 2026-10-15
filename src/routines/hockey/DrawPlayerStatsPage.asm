@@ -21,9 +21,9 @@ DrawPlayerStatsPage:
 	sta.b d1
 	dec.b d1
 	lda.w #$007E
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$39B4
-	sta.b $0C
+	sta.b p0
 	ldy.w #$00E0
 	ldx.w #$00C0
 	jsl.l DMAToVRAM
@@ -46,9 +46,9 @@ DrawPlayerStatsPage:
 	lda.w listend
 	sta.b d1
 	lda.w #$007E
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$39B4
-	sta.b $0C
+	sta.b p0
 	ldy.w #$00E0
 	ldx.w #$04C0
 	jsl.l DMAToVRAM
@@ -57,9 +57,9 @@ DrawPlayerStatsPage:
 	xba
 	lsr a
 	adc.w #$2780
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.b d1
 	xba
 	lsr a

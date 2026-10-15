@@ -18,7 +18,7 @@ asspenalty:
 	lda.w #$0008
 	sta.w temp2b,x
 	jsl.l PenBoxSpot
-	lda.b $08
+	lda.b r2
 	sta.b d1
 	sta.w temp4,x
 	lda.w #$0088

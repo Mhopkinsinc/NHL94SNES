@@ -9,9 +9,9 @@ Gameloop:
 	ldx.w gameframes
 	jsl.l Mul16x8U
 	lda.w FrameCount
-	sta.b $04
+	sta.b r1
 	jsl.l Div32U
-	lda.b $00
+	lda.b r0
 	sta.w gamefps
 	lda.w gsp
 	cmp.w #$0002

@@ -2,13 +2,13 @@
 LoadScoutingScreen:
 	jsl.l FadeOut
 	lda.w #TeamLogoSprites>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TeamLogoSprites
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$7800
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	jsl.l WaitFadeOut
 	jsl.l forceblack
@@ -45,13 +45,13 @@ LoadScoutingScreen:
 	ldx.w #$0020
 	jsl.l FillVRAM
 	lda.w #SmallFontTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SmallFontTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -95,13 +95,13 @@ LoadScoutingScreen:
 	sta.l scorechars
 	jsl.l RemapTiles
 	lda.w #TeamBlocksTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TeamBlocksTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -113,9 +113,9 @@ LoadScoutingScreen:
 	adc.l outlinechars
 	sta.l outlinechars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.l scorechars
 	asl a
 	asl a
@@ -125,20 +125,20 @@ LoadScoutingScreen:
 	tay
 	jsl.l DMAToVRAM
 	lda.w #FramerOutlineTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #FramerOutlineTiles
-	sta.b $0C
+	sta.b p0
 	ldx.w #$0120
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #MenuBackTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuBackTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -148,32 +148,32 @@ LoadScoutingScreen:
 	lsr a
 	sta.l backchars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$1000
 	jsl.l DMAToVRAM
 	lda.w #MenuBackMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuBackMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap2>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap2
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.w #$001C
-	sta.b $26
+	sta.b r7+2
 	ldx.w #$0000
 	ldy.w #$0000
 	lda.l charofs2
@@ -181,34 +181,34 @@ LoadScoutingScreen:
 	adc.w #$0C00
 	jsl.l PasteMap
 	lda.w #SetupScreenPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SetupScreenPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0000
 	ldx.w #$0030
 	jsl.l SetColours
 	lda.w #RonBarrTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #RonBarrTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w HomeTeam
@@ -223,24 +223,24 @@ LoadScoutingScreen:
 	sta.b a2
 .2:
 	lda.w #RonBarrMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #RonBarrMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	sec
 	sbc.w #$0008
 	tay
-	lda.b $10
+	lda.b p1
 	clc
 	adc.w #$0006
-	sta.b $10
+	sta.b p1
 .loop:
-	lda.b [$10],y
+	lda.b [p1],y
 	beq .3
 	clc
 	adc.l backchars
@@ -255,41 +255,41 @@ LoadScoutingScreen:
 	dey
 	bpl .loop
 	lda.w #SetupScreenPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SetupScreenPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0000
 	ldx.w #$0010
 	jsl.l SetColours
-	lda.b $0C
+	lda.b p0
 	clc
 	adc.w #$0020
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0010
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w #RonBarrPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #RonBarrPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0020
 	ldx.w #$0010
 	jsl.l SetColours
@@ -299,18 +299,18 @@ LoadScoutingScreen:
 	stz.w CGDATA
 	rep #$20
 	lda.w #MenuBackPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuBackPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0030
 	ldx.w #$0020
 	jsl.l SetColours
@@ -319,16 +319,16 @@ LoadScoutingScreen:
 	adc.w #$1000
 	sta.l outlinechars
 	lda.w #SetupSpritePalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SetupSpritePalette
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0080
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w #UnusedSetupSpritePalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #UnusedSetupSpritePalette
-	sta.b $0C
+	sta.b p0
 	ldy.w #$00C0
 	ldx.w #$0010
 	jsl.l SetColours

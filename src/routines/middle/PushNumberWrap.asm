@@ -32,9 +32,9 @@ PushNumberWidth:
 	phx
 	lda.b d0
 .loop:
-	sta.b $08
+	sta.b r2
 	lda.w #$000A
-	sta.b $04
+	sta.b r1
 	dey
 	jsl.l Div16x8U
 	lda.w RDMPYL
@@ -43,10 +43,10 @@ PushNumberWidth:
 	adc.b #$30
 	sta.w PushWidthBuf,y
 	rep #$20
-	lda.b $00
+	lda.b r0
 	bne .loop
 	plx
 	pla
 	sta.b d0
-	lda.b $00
+	lda.b r0
 	rtl

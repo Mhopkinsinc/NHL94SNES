@@ -1,4 +1,4 @@
-; sound driver command $11: X bytes from sound RAM address Y to [$0C]
+; sound driver command $11: X bytes from sound RAM address Y to [p0]
 SPCDownload:
 	sep #$20
 .wait:
@@ -27,7 +27,7 @@ SPCDownload:
 	cmp.w APUIO1
 	beq .waitbyte
 	lda.w APUIO2
-	sta.b [$0C],y
+	sta.b [p0],y
 	iny
 	tya
 	sta.w APUIO1

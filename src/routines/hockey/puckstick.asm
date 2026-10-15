@@ -93,19 +93,19 @@ puckstick:
 	phx
 	tax
 	jsl.l Mul16S
-	lda.b $0A
+	lda.b r2+2
 	sta.b d0+2
-	lda.b $08
+	lda.b r2
 	sta.b d0
 	lda.w puckvy
 	tax
 	jsl.l Mul16S
 	plx
-	lda.b $08
+	lda.b r2
 	clc
 	adc.b d0
 	sta.b d0
-	lda.b $0A
+	lda.b r2+2
 	adc.b d0+2
 	sta.b d0+2
 	stz.b d1
@@ -117,7 +117,7 @@ puckstick:
 	phx
 	ldx.w #$02BC
 	jsl.l Mul16x8U
-	lda.b $08
+	lda.b r2
 	sta.b d1
 	plx
 .1xx:
@@ -135,9 +135,9 @@ puckstick:
 	tax
 	jsl.l Mul16U
 	plx
-	lda.b $08
+	lda.b r2
 	cmp.b d0
-	lda.b $0A
+	lda.b r2+2
 	sbc.b d0+2
 	bcs .t2
 	lda.w position,x

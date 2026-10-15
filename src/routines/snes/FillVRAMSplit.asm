@@ -1,13 +1,13 @@
 ; Fill X bytes of video memory at Y with the word A, the low bytes then the high bytes
 FillVRAMSplit:
-	sta.b $16
+	sta.b r3+2
 	lda.w IniDispShadow-1
 	bpl .t1
 	txa
 	pha
 	sta.w DAS1L
 	sty.w VMADDL
-	sty.b $14
+	sty.b r3
 	ldy.w #$0016
 	sty.w A1T1L
 	lda.w #$1808
@@ -21,9 +21,9 @@ FillVRAMSplit:
 	pla
 	sta.w DAS1L
 	clc
-	adc.b $14
+	adc.b r3
 	pha
-	ldy.b $14
+	ldy.b r3
 	sty.w VMADDL
 	ldy.w #$0017
 	sty.w A1T1L

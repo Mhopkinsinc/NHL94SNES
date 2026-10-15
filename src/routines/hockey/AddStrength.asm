@@ -13,29 +13,29 @@ AddStrength:
 
 .t1:
 	lda.w strengths+2
-	sta.b $00
+	sta.b r0
 	lda.w strengths
-	sta.b $04
+	sta.b r1
 	lda.b d0
 	sta.w strengths+2
 	lda.b d1
 	sta.w strengths
-	lda.b $00
+	lda.b r0
 	sta.b d0
-	lda.b $04
+	lda.b r1
 	sta.b d1
 .1:
 	lda.w strengths+6
-	sta.b $00
+	sta.b r0
 	lda.w strengths+4
-	sta.b $04
+	sta.b r1
 	lda.b d0
 	sta.w strengths+6
 	lda.b d1
 	sta.w strengths+4
-	lda.b $00
+	lda.b r0
 	sta.b d0
-	lda.b $04
+	lda.b r1
 	sta.b d1
 .2:
 	lda.b d0

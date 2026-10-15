@@ -16,7 +16,7 @@ print:
 	lda.l smallfontchars
 	adc.l printfontset
 	ora.w printa
-	sta.b $14
+	sta.b r3
 .2:
 	tya
 	cmp.b [a1]
@@ -37,7 +37,7 @@ print:
 	asl a
 	tax
 	lda.l SmallFontMap+6,x
-	adc.b $14
+	adc.b r3
 	plx
 .3:
 	cmp.l textmap,x
@@ -75,7 +75,7 @@ print:
 	asl a
 	asl a
 	sta.w printa
-	lda.b $01,s
+	lda.b r0+1,s
 	and.w #$0040
 	asl a
 	asl a

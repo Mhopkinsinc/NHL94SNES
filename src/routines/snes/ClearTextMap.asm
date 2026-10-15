@@ -1,9 +1,9 @@
 ; Fill the text map with the blank tile
 ClearTextMap:
 	lda.w #textmap>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap
-	sta.b $10
+	sta.b p1
 	lda.l blankchar
 	clc
 	adc.l charofs

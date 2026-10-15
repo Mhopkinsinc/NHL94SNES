@@ -1,4 +1,4 @@
-; Copy X bytes from [$0C] to [$10]
+; Copy X bytes from [p0] to [p1]
 MemCopy:
 	txa
 	txy
@@ -6,18 +6,18 @@ MemCopy:
 	bcc .1
 	dey
 	sep #$20
-	lda.b [$0C],y
-	sta.b [$10],y
+	lda.b [p0],y
+	sta.b [p1],y
 	rep #$20
 .1:
 	dey
 	dey
 .loop:
-	lda.b [$0C],y
-	sta.b [$10],y
+	lda.b [p0],y
+	sta.b [p1],y
 	dey
 	dey
 	bne .loop
-	lda.b [$0C]
-	sta.b [$10]
+	lda.b [p0]
+	sta.b [p1]
 	rtl

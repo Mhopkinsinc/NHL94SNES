@@ -23,7 +23,7 @@ burst:
 	ldx.w #$0233
 	jsl.l Mul16U
 	ldx.b a3
-	lda.b $0A
+	lda.b r2+2
 	sta.b burstspeed
 	lda.w facedir,x
 	asl a

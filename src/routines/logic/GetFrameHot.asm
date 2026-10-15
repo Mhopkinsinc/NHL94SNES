@@ -10,13 +10,13 @@ GetFrameHot:
 	lda.l SpriteFrames,x
 	clc
 	adc.w #$8000
-	sta.b $0C
+	sta.b p0
 	lda.l SpriteFrames+2,x
 	adc.w #$0082
-	sta.b $0E
+	sta.b p0+2
 	tyx
 	ldy.w #$0012
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$00FF
 	cmp.w #$0080
 	bcc .1
@@ -24,7 +24,7 @@ GetFrameHot:
 .1:
 	sta.b d0
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$00FF
 	cmp.w #$0080
 	bcc .2
@@ -32,7 +32,7 @@ GetFrameHot:
 .2:
 	sta.b d1
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$00FF
 	cmp.w #$0080
 	bcc .3
@@ -42,7 +42,7 @@ GetFrameHot:
 	sbc.b d0
 	sta.b d0
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$00FF
 	cmp.w #$0080
 	bcc .4

@@ -1,21 +1,21 @@
-; SPCUpload of the sample at [$0C]: loop point and length (big-endian words), then the BRR blocks
+; SPCUpload of the sample at [p0]: loop point and length (big-endian words), then the BRR blocks
 SPCUploadBlock:
 	sep #$20
 	dec.w SoundLock
 	rep #$20
 	ldy.w #$0000
-	lda.b [$0C],y
+	lda.b [p0],y
 	xba
-	sta.b $14
+	sta.b r3
 	ldy.w #$0002
-	lda.b [$0C],y
+	lda.b [p0],y
 	xba
 	tax
-	ldy.b $14
-	lda.b $0C
+	ldy.b r3
+	lda.b p0
 	clc
 	adc.w #$0004
-	sta.b $0C
+	sta.b p0
 	jsl.l SPCUpload
 	sep #$20
 	inc.w SoundLock

@@ -1,8 +1,8 @@
 ; a block of X bytes; A bit 14 = locked; Y = $7E or $7F for that bank only, else either. Returns the handle, 0 if no room
 NewHandle:
-	stx.b $14
+	stx.b r3
 	and.w #$4000
-	sta.b $16
+	sta.b r3+2
 	ldx.w #$2000
 .find:
 	lda.l Ram7E,x
@@ -22,7 +22,7 @@ NewHandle:
 	eor.w #$0001
 	sta.w NewHandleSkipBank
 	lda.w #$007E
-	sta.b $0E
+	sta.b p0+2
 	cmp.w NewHandleSkipBank
 	beq .try7F
 	ldy.w HeapStart7E
@@ -31,7 +31,7 @@ NewHandle:
 	bne .found
 .try7F:
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	cmp.w NewHandleSkipBank
 	beq .compact
 	ldy.w HeapStart7F
@@ -41,7 +41,7 @@ NewHandle:
 .compact:
 	jsl.l HeapCompact
 	lda.w #$007E
-	sta.b $0E
+	sta.b p0+2
 	cmp.w NewHandleSkipBank
 	beq .retry7F
 	ldy.w HeapStart7E
@@ -50,7 +50,7 @@ NewHandle:
 	bne .found
 .retry7F:
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	cmp.w NewHandleSkipBank
 	beq .fail
 	ldy.w HeapStart7F
@@ -63,7 +63,7 @@ NewHandle:
 .found:
 	ldx.w NewHandleSlot
 	sta.l Ram7E,x
-	lda.b $0E
+	lda.b p0+2
 	sta.l Ram7E+2,x
 	txa
 .exit:

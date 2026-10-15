@@ -43,19 +43,19 @@ ScoutingReport:
 	jsl.l ReadPads
 	ldx.w #$0002
 	lda.w padnew
-	sta.b $14
+	sta.b r3
 .loop:
 	lda.w cont1team,x
 	beq .1
 	lda.w padnew,x
-	ora.b $14
-	sta.b $14
+	ora.b r3
+	sta.b r3
 .1:
 	inx
 	inx
 	cpx.w #$000A
 	bcc .loop
-	lda.b $14
+	lda.b r3
 	bit.w #$1000
 	bne .5
 	bit.w #$0800
@@ -246,7 +246,7 @@ ScoutingReport:
 	lda.b d3
 	sta.b d1
 	lda.b d0
-	sta.b $08
+	sta.b r2
 	cmp.w hotvalue1,y
 	beq .1xxxxx
 	bpl .t2
@@ -262,29 +262,29 @@ ScoutingReport:
 
 .t2:
 	lda.w hotvalue1,y
-	sta.b $00
+	sta.b r0
 	lda.w hotplayer1,y
-	sta.b $04
+	sta.b r1
 	lda.b d0
 	sta.w hotvalue1,y
 	lda.b d1
 	sta.w hotplayer1,y
-	lda.b $00
+	lda.b r0
 	sta.b d0
-	lda.b $04
+	lda.b r1
 	sta.b d1
 .3x:
 	lda.w hotvalue2,y
-	sta.b $00
+	sta.b r0
 	lda.w hotplayer2,y
-	sta.b $04
+	sta.b r1
 	lda.b d0
 	sta.w hotvalue2,y
 	lda.b d1
 	sta.w hotplayer2,y
-	lda.b $00
+	lda.b r0
 	sta.b d0
-	lda.b $04
+	lda.b r1
 	sta.b d1
 .4x:
 	lda.b d0
@@ -294,7 +294,7 @@ ScoutingReport:
 .5x:
 	lda.b d3
 	sta.b d1
-	lda.b $08
+	lda.b r2
 	sta.b d0
 	cmp.w coldvalue1,y
 	bmi .t1xxx
@@ -306,29 +306,29 @@ ScoutingReport:
 
 .t1xxx:
 	lda.w coldvalue1,y
-	sta.b $00
+	sta.b r0
 	lda.w coldplayer1,y
-	sta.b $04
+	sta.b r1
 	lda.b d0
 	sta.w coldvalue1,y
 	lda.b d1
 	sta.w coldplayer1,y
-	lda.b $00
+	lda.b r0
 	sta.b d0
-	lda.b $04
+	lda.b r1
 	sta.b d1
 .6x:
 	lda.w coldvalue2,y
-	sta.b $00
+	sta.b r0
 	lda.w coldplayer2,y
-	sta.b $04
+	sta.b r1
 	lda.b d0
 	sta.w coldvalue2,y
 	lda.b d1
 	sta.w coldplayer2,y
-	lda.b $00
+	lda.b r0
 	sta.b d0
-	lda.b $04
+	lda.b r1
 	sta.b d1
 .7x:
 	lda.b d0

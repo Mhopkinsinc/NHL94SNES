@@ -3,11 +3,11 @@ StreamSfx:
 	sep #$20
 	dec.w SoundLock
 	rep #$20
-	sta.b $14
+	sta.b r3
 	phx
 	lda.l streamsfx
 	beq .1
-	cmp.b $14
+	cmp.b r3
 	beq .2
 	lda.l streamsfx
 	cmp.w #$0003
@@ -19,7 +19,7 @@ StreamSfx:
 .1:
 	lda.w #$0000
 	sta.l streamstate
-	lda.b $14
+	lda.b r3
 	sta.l streamsfx
 .2:
 	sep #$20

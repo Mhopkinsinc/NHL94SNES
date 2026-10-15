@@ -134,19 +134,19 @@ checkplcoll:
 	lda.b d3
 	ldx.b d1
 	jsl.l Mul16x8S
-	lda.b $0A
+	lda.b r2+2
 	sta.b d1+2
-	lda.b $08
+	lda.b r2
 	sta.b d1
 	lda.b d2
 	ldx.b d0
 	jsl.l Mul16x8S
 	ldx.b a3
-	lda.b $08
+	lda.b r2
 	clc
 	adc.b d1
 	sta.b d1
-	lda.b $0A
+	lda.b r2+2
 	adc.b d1+2
 	sta.b d1+2
 	bpl .t1xx
@@ -275,18 +275,18 @@ checkplcoll:
 	lda.b d2
 	ldx.b d1
 	jsl.l Mul16x8S
-	lda.b $0A
+	lda.b r2+2
 	sta.b d1+2
-	lda.b $08
+	lda.b r2
 	sta.b d1
 	lda.b d3
 	ldx.b d0
 	jsl.l Mul16x8S
-	lda.b $08
+	lda.b r2
 	sec
 	sbc.b d1
 	sta.b d1
-	lda.b $0A
+	lda.b r2+2
 	sbc.b d1+2
 	sta.b d1+2
 	lda.b d1+1
@@ -309,20 +309,20 @@ checkplcoll:
 	ldx.b d4
 	jsl.l Mul16x8XS
 	lda.b d1
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	sta.b d0
 	sta.b d1
 	lda.b d3
 	ldx.b d5
 	jsl.l Mul16x8S
-	lda.b $08
+	lda.b r2
 	sta.b tmp0
 	lda.b d2
 	ldx.b d0
 	jsl.l Mul16x8S
-	lda.b $08
+	lda.b r2
 	clc
 	adc.b tmp0
 	ldx.b a3
@@ -332,12 +332,12 @@ checkplcoll:
 	lda.b d2
 	ldx.b d5
 	jsl.l Mul16x8S
-	lda.b $08
+	lda.b r2
 	sta.b tmp0
 	lda.b d3
 	ldx.b d0
 	jsl.l Mul16x8S
-	lda.b $08
+	lda.b r2
 	sec
 	sbc.b tmp0
 	ldx.b a3
@@ -347,14 +347,14 @@ checkplcoll:
 	lda.b d2
 	ldx.b d1
 	jsl.l Mul16x8S
-	lda.b $08
+	lda.b r2
 	clc
 	adc.w Xvel,y
 	sta.w Xvel,y
 	lda.b d3
 	ldx.b d1
 	jsl.l Mul16x8S
-	lda.b $08
+	lda.b r2
 	clc
 	adc.w Yvel,y
 	sta.w Yvel,y

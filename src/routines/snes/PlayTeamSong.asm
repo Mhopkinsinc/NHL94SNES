@@ -3,7 +3,7 @@ PlayTeamSong:
 	phx
 	ldx.w MusicOn
 	bne .2
-	sta.b $14
+	sta.b r3
 	inc a
 	pha
 	lda.w HomeTeam
@@ -11,15 +11,15 @@ PlayTeamSong:
 	adc.w HomeTeam
 	asl a
 	clc
-	adc.b $14
+	adc.b r3
 	asl a
 	asl a
 	tax
 	lda.l TeamSongs+2,x
 	bmi .t1
-	sta.b $0E
+	sta.b p0+2
 	lda.l TeamSongs,x
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 	bra .1
 
@@ -30,9 +30,9 @@ PlayTeamSong:
 	asl a
 	tax
 	lda.l DefaultSongs,x
-	sta.b $0C
+	sta.b p0
 	lda.l DefaultSongs+2,x
-	sta.b $0E
+	sta.b p0+2
 	jsl.l MusicStart
 .1:
 	pla

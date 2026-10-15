@@ -336,17 +336,17 @@ org $9F9001
 	cmp.w #$0002
 	bcc .t2
 	lda.w #PlayoffSong>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PlayoffSong
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 	bra .10
 
 .t2:
 	lda.w #MenuSong>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuSong
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 .10:
 	lda.b a1+2
@@ -440,18 +440,18 @@ org $9F9001
 .13:
 	jsl.l LoadCenterIce
 	lda.w #FaceOffTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #FaceOffTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.l faceoffvrcset
 	asl a
 	asl a

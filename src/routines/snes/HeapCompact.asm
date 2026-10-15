@@ -4,13 +4,13 @@ HeapCompact:
 	phx
 	phy
 	lda.w #$007E
-	sta.b $0E
-	stz.b $0C
+	sta.b p0+2
+	stz.b p0
 	ldy.w HeapStart7E
 	jsr.w HeapCompactBank
 	lda.w #$007F
-	sta.b $0E
-	stz.b $0C
+	sta.b p0+2
+	stz.b p0
 	ldy.w HeapStart7F
 	jsr.w HeapCompactBank
 	ply

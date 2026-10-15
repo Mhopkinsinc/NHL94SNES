@@ -1,52 +1,52 @@
 ; $08-$0B / $04 into $00, unsigned; $7FFF when the quotient does not fit
 Div32U:
 	sep #$20
-	lda.b $0B
+	lda.b r2+3
 	beq .hi0
-	cmp.b $05
+	cmp.b r1+1
 	bcc .go
 	jmp.w Div_Overflow
 .go:
 	rep #$20
-	lda.b $0A
+	lda.b r2+2
 	ldx.w #$0010
 .loop:
-	asl.b $08
+	asl.b r2
 	rol a
 	bcs .sub
-	cmp.b $04
+	cmp.b r1
 	bcc .bit
 .sub:
-	sbc.b $04
+	sbc.b r1
 	sec
 .bit:
-	rol.b $00
+	rol.b r0
 	dex
 	bne .loop
 	rtl
 	sep #$20		; not reached
 .hi0:
-	lda.b $05
+	lda.b r1+1
 	beq Div32U_ByteDivisor
-	lda.b $0A
+	lda.b r2+2
 	beq Div16U_Go
-	cmp.b $05
+	cmp.b r1+1
 	bcc Div_8Bits
 	rep #$20
-	lda.b $0A
+	lda.b r2+2
 	and.w #$00FF
 	ldx.w #$0010
 .loop2:
-	asl.b $08
+	asl.b r2
 	rol a
 	bcs .sub2
-	cmp.b $04
+	cmp.b r1
 	bcc .bit2
 .sub2:
-	sbc.b $04
+	sbc.b r1
 	sec
 .bit2:
-	rol.b $00
+	rol.b r0
 	dex
 	bne .loop2
 	rtl

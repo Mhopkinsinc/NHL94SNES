@@ -7,7 +7,7 @@ Mul16S:
 	eor.w #$FFFF
 	inc a
 	tay
-	sta.b $00
+	sta.b r0
 	txa
 	beq Mul16_Zero
 	bpl Mul16XS_Neg

@@ -1,29 +1,29 @@
-; Add a DMA of X bytes from [$0C] to video memory at Y to the NMI transfer list
+; Add a DMA of X bytes from [p0] to video memory at Y to the NMI transfer list
 QueueVRAMDMA:
 	txa
 	ldx.b DMAQueueTail
 .loop:
-	sta.b $14
+	sta.b r3
 	cmp.w #$1000
 	bcc .1
 	lda.w #$1000
 .1:
 	sta.w DMAQueue+4,x
 	lsr a
-	sta.b $16
+	sta.b r3+2
 	tya
 	sta.w DMAQueue+6,x
 	clc
-	adc.b $16
+	adc.b r3+2
 	tay
-	lda.b $0C
+	lda.b p0
 	sta.w DMAQueue+1,x
 	clc
-	adc.b $16
-	adc.b $16
-	sta.b $0C
+	adc.b r3+2
+	adc.b r3+2
+	sta.b p0
 	sep #$20
-	lda.b $0E
+	lda.b p0+2
 	sta.w DMAQueue+3,x
 	lda.b #$01
 	sta.w DMAQueue,x
@@ -33,7 +33,7 @@ QueueVRAMDMA:
 	adc.w #$0008
 	and.w #$03FF
 	tax
-	lda.b $14
+	lda.b r3
 	sec
 	sbc.w #$1000
 	beq .2

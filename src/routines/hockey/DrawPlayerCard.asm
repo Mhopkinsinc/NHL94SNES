@@ -388,9 +388,9 @@ org $9DC002
 	ldy.w #$0004
 	jsl.l DrawPlayerPicture
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.l homepicaddr
-	sta.b $0C
+	sta.b p0
 	lda.l picchars
 	asl a
 	asl a
@@ -403,9 +403,9 @@ org $9DC002
 	jsl.l WaitFrame
 	jsl.l DMAToVRAM
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.l vispicaddr
-	sta.b $0C
+	sta.b p0
 	lda.l picchars
 	asl a
 	asl a
@@ -418,9 +418,9 @@ org $9DC002
 	jsl.l DMAToVRAM
 	jsl.l SendTextMap
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$7780
-	sta.b $0C
+	sta.b p0
 	lda.w #$0400
 	sta.w MapVRAM
 	ldx.w #$000C

@@ -1,9 +1,9 @@
 ; Fill the other-scores rows, skipping this game.
 FillOtherScores:
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$2780
-	sta.b $10
+	sta.b p1
 	ldx.w #$4D80
 	lda.l smallfontchars
 	clc
@@ -16,7 +16,7 @@ FillOtherScores:
 	sta.w printa
 	lda.w #$0000
 	sta.w printy
-	lda.b $00
+	lda.b r0
 	sta.w curitem
 	stz.w otherskip
 .2:

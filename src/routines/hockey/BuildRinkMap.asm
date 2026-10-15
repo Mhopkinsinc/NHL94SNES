@@ -1,13 +1,13 @@
 ; Unpack IceRinkMap to $7FC800 and copy the home team's centre ice logo map (CenterIceTable+4) into its middle
 BuildRinkMap:
 	lda.w #IceRinkMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #IceRinkMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$C800
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w HomeTeam
 	asl a
@@ -15,55 +15,55 @@ BuildRinkMap:
 	asl a
 	tax
 	lda.l CenterIceTable+4,x
-	sta.b $0C
+	sta.b p0
 	lda.l CenterIceTable+6,x
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$D8B6
 	sec
-	sbc.b [$0C]
-	sta.b $10
-	lda.b [$0C]
+	sbc.b [p0]
+	sta.b p1
+	lda.b [p0]
 	asl a
-	sta.b $14
-	inc.b $0C
-	inc.b $0C
-	lda.b [$0C]
+	sta.b r3
+	inc.b p0
+	inc.b p0
+	lda.b [p0]
 	tay
 	cmp.w #$0006
 	bcc .1
-	lda.b $10
+	lda.b p1
 	sec
 	sbc.w #$0060
-	sta.b $10
+	sta.b p1
 .1:
-	lda.b $0C
+	lda.b p0
 	clc
 	adc.w #$0004
-	sta.b $0C
+	sta.b p0
 .loop:
 	ldx.w #$0000
 .loop2:
-	lda.b [$0C]
+	lda.b [p0]
 	clc
 	adc.l centericechars
 	adc.w #$1400
-	sta.b [$10]
+	sta.b [p1]
 	inx
 	inx
-	inc.b $0C
-	inc.b $0C
-	inc.b $10
-	inc.b $10
-	cpx.b $14
+	inc.b p0
+	inc.b p0
+	inc.b p1
+	inc.b p1
+	cpx.b r3
 	bne .loop2
-	lda.b $10
+	lda.b p1
 	clc
 	adc.w #$0060
 	sec
-	sbc.b $14
-	sta.b $10
+	sbc.b r3
+	sta.b p1
 	dey
 	bne .loop
 	rtl

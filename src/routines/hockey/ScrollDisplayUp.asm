@@ -14,22 +14,22 @@ ScrollDisplayUp:
 .3:
 	dec.w VertLineScrolling
 	lda.w #$0007
-	sta.b $14
+	sta.b r3
 	lda.w #$007E
-	sta.b $12
+	sta.b p1+2
 	lda.w #$3B78
-	sta.b $10
-	lda.b $12
-	sta.b $0E
+	sta.b p1
+	lda.b p1+2
+	sta.b p0+2
 .loop:
 	ldx.w #$0028
-	lda.b $10
+	lda.b p1
 	clc
 	adc.w #$0040
-	sta.b $0C
+	sta.b p0
 	jsl.l MemCopy
-	lda.b $0C
-	sta.b $10
-	dec.b $14
+	lda.b p0
+	sta.b p1
+	dec.b r3
 	bpl .loop
 	rtl

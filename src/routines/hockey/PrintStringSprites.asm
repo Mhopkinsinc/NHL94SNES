@@ -5,9 +5,9 @@ PrintStringSprites:
 	plb
 	stx.w letterx
 	sty.w lettery
-	stz.b $14
+	stz.b r3
 	lda.w #$0001
-	sta.b $16
+	sta.b r3+2
 	lda.b a1
 	sta.b d1
 	lda.w #$FFFF

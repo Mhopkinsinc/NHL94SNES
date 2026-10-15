@@ -1,14 +1,14 @@
 ; the handle of address A in bank X, 0 if none
 FindHandle:
-	stx.b $16
-	sta.b $14
+	stx.b r3+2
+	sta.b r3
 	ldx.w #$2000
 .loop:
 	lda.l Ram7E,x
-	cmp.b $14
+	cmp.b r3
 	bne .next
 	lda.l Ram7E+2,x
-	cmp.b $16
+	cmp.b r3+2
 	beq .found
 .next:
 	inx

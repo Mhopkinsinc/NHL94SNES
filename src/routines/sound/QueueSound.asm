@@ -11,7 +11,7 @@ QueueSound:
 	pha
 	plb
 	rep #$30
-	lda.b $01,s
+	lda.b r0+1,s
 	sep #$10
 	asl a
 	tay

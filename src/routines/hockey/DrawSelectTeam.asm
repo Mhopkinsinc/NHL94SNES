@@ -6,13 +6,13 @@ DrawSelectTeam:
 	lda.w #$0001
 	sta.l bigtextchar
 	lda.w #$1800
-	sta.b $14
+	sta.b r3
 	ldy.w #$0060
 	lda.b d1
 	cmp.w HomeTeam
 	bne .1
 	ldx.w #$1C00
-	stx.b $14
+	stx.b r3
 	ldy.w #$0070
 	lda.w #$0018
 	sta.l bigtextchar
@@ -22,19 +22,19 @@ DrawSelectTeam:
 	asl a
 	tax
 	lda.l TeamBlockPalettes+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.l TeamBlockPalettes,x
-	sta.b $0C
+	sta.b p0
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w HomeTeam
 	cmp.w VisTeam
 	bne .t1
-	lda.b $14
+	lda.b r3
 	cmp.w #$1800
 	beq .t1
 	lda.w #$1800
-	sta.b $14
+	sta.b r3
 	ldy.w #$0060
 	lda.b d1
 	bra .1
@@ -67,7 +67,7 @@ DrawSelectTeam:
 	clc
 	adc.l printfontset
 	clc
-	adc.b $14
+	adc.b r3
 	sta.l textmap,x
 	iny
 	iny
@@ -82,7 +82,7 @@ DrawSelectTeam:
 	clc
 	adc.l printfontset
 	clc
-	adc.b $14
+	adc.b r3
 	sta.l textmap+$2E,x
 	iny
 	iny
@@ -95,9 +95,9 @@ DrawSelectTeam:
 	asl a
 	tax
 	lda.l TeamPlaceNames,x
-	sta.b $0C
+	sta.b p0
 	lda.w #$009C
-	sta.b $0E
+	sta.b p0+2
 	lda.w printx
 	pha
 	lda.w #$005C

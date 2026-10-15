@@ -9,17 +9,17 @@ Mul16x8U_go:
 	sep #$20
 	sta.w WRMPYA
 	sty.w WRMPYB
-	stz.b $0A
+	stz.b r2+2
 	xba
 	sta.w WRMPYA
 	ldx.w RDMPYL
-	stx.b $08
+	stx.b r2
 	sty.w WRMPYB
-	stz.b $0B
+	stz.b r2+3
 	rep #$20
-	lda.b $09
+	lda.b r2+1
 	clc
 	adc.w RDMPYL
-	sta.b $09
+	sta.b r2+1
 	ply
 	rtl

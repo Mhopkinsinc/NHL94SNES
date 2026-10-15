@@ -17,15 +17,15 @@ EASNLogo:
 	pla
 	sta.b a1+2
 	lda.w #EASNLogoMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #EASNLogoMap
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	ldx.w #$0001
 	ldy.w #$0019
 	lda.w #$2000

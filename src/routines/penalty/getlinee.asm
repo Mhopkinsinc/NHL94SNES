@@ -32,8 +32,8 @@ getlinee:
 	asl a
 	adc.b a1
 	sta.b a1
-	stz.b $08
-	stz.b $04
+	stz.b r2
+	stz.b r1
 	lda.w #priolist>>16
 	sta.b a0+2
 	lda.w #priolist
@@ -52,7 +52,7 @@ getlinee:
 	and.w #$00FF
 	asl a
 	sta.b d3
-	inc.b $04
+	inc.b r1
 	lda.b a2
 	beq .1
 	lda.w #$0034
@@ -60,15 +60,15 @@ getlinee:
 	adc.b d3
 	tay
 	lda.w tmpde-2,y
-	adc.b $08
-	sta.b $08
+	adc.b r2
+	sta.b r2
 .3:
 	dec.b d4
 	bpl .2
 	phx
 	jsl.l Div16U
 	plx
-	lda.b $00
+	lda.b r0
 	sta.b d0
 	pla
 	sta.b a1+2

@@ -49,13 +49,13 @@ updatereplay:
 	sta.w WMDATA
 	lda.w Xpos+1,x
 	and.b #$0F
-	sta.b $14
+	sta.b r3
 	lda.w Ypos+1,x
 	asl a
 	asl a
 	asl a
 	asl a
-	ora.b $14
+	ora.b r3
 	sta.w WMDATA
 	lda.w Ypos,x
 	sta.w WMDATA
@@ -63,13 +63,13 @@ updatereplay:
 	sta.w WMDATA
 	lda.w frame+1,x
 	and.b #$3F
-	sta.b $14
+	sta.b r3
 	lda.w attribute+1,x
 	and.b #$18
 	asl a
 	asl a
 	asl a
-	ora.b $14
+	ora.b r3
 	sta.w WMDATA
 	inx
 	inx
@@ -88,7 +88,7 @@ updatereplay:
 	lda.b #$FF
 .3:
 	and.b #$0F
-	sta.b $14
+	sta.b r3
 	lda.w position+2,x
 	bpl .4
 	lda.b #$FF
@@ -97,7 +97,7 @@ updatereplay:
 	asl a
 	asl a
 	asl a
-	ora.b $14
+	ora.b r3
 	sta.w WMDATA
 	inx
 	inx

@@ -15,7 +15,7 @@ linebar:
 	tax
 	lda.w #$002F
 	jsl.l Mul16x8U
-	lda.b $0A
+	lda.b r2+2
 	clc
 	adc.w #$001D
 	sta.w mesarea+2
@@ -31,7 +31,7 @@ linebar:
 	lda.w #$0054
 	jsl.l Mul16x8U
 	plx
-	lda.b $0A
+	lda.b r2+2
 	inc a
 	inc a
 	sta.b [a1]

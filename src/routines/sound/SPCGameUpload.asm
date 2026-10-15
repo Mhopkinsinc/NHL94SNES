@@ -21,9 +21,9 @@ SPCGameUpload:
 	ldx.w #$0000
 .loop:
 	lda.l GameSampleList,x
-	sta.b $0C
+	sta.b p0
 	lda.l GameSampleList+2,x
-	sta.b $0E
+	sta.b p0+2
 	phx
 	jsl.l SPCUploadBlock
 	plx

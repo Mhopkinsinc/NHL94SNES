@@ -4,22 +4,22 @@ PuckSfx:
 	lda.w puckvx
 	cmp.w #$8000
 	ror a
-	sta.b $0C
+	sta.b p0
 	lda.w puckvy
 	cmp.w #$8000
 	ror a
-	sta.b $0E
+	sta.b p0+2
 	pla
 sfx:
 	phx
-	sta.b $12
+	sta.b p1+2
 	asl a
 	tay
 	lda.b [SoundTable],y
 	clc
 	adc.b SoundTable
 	sta.b InstPtr
-	lda.b $0D
+	lda.b p0+1
 	and.w #$00FF
 	cmp.w #$0080
 	bcc .1
@@ -28,7 +28,7 @@ sfx:
 	tax
 	jsl.l Mul8S
 	sta.b SfxVelocity
-	lda.b $0F
+	lda.b p0+3
 	and.w #$00FF
 	cmp.w #$0080
 	bcc .2
@@ -60,9 +60,9 @@ sfx:
 	clc
 	adc.w #$00C0
 	jsl.l Mul16x8U
-	lda.b $09
-	sta.b $0C
-	lda.b $12
+	lda.b r2+1
+	sta.b p0
+	lda.b p1+2
 	jsl.l QueueSound
 	tay
 	sep #$20
@@ -76,7 +76,7 @@ sfx:
 	tya
 	asl a
 	tay
-	lda.b $0C
+	lda.b p0
 	sta.w VoicePitch,y
 	sta.w recsfxpitch
 .1x:

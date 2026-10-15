@@ -5,9 +5,9 @@ setsortcords:
 	lda.w sfhormode
 	bne .10
 	lda.w #SpriteFrames>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #SpriteFrames
-	sta.b $10
+	sta.b p1
 	lda.w benchframe
 	lsr a
 	lsr a
@@ -17,7 +17,7 @@ setsortcords:
 	and.w #$0007
 	clc
 	adc.l .1-2,x
-	sta.b $00
+	sta.b r0
 	lda.w Vpos
 	sec
 	sbc.l .2-2,x
@@ -124,7 +124,7 @@ setsortcords:
 	cmp.w #SPFcupover+8
 	bcs .8
 	adc.w #SPFcupover-SPFcup-1	; DrawSprite index of the cup over SPFcup+n
-	sta.b $00
+	sta.b r0
 	lda.w sprattr
 	and.w #$F000
 	ldx.w sprx

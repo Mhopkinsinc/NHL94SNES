@@ -2,9 +2,9 @@
 Div16x8U:
 	sep #$20
 Div16x8U_Go:
-	lda.b $04
+	lda.b r1
 	beq Div_Overflow
-	ldx.b $08
+	ldx.b r2
 	stx.w WRDIVL
 	sta.w WRDIVB
 	rep #$20
@@ -12,5 +12,5 @@ Div16x8U_Go:
 	plx
 	nop
 	lda.w RDDIVL
-	sta.b $00
+	sta.b r0
 	rtl

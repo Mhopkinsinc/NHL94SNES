@@ -7,9 +7,9 @@ FramerNineTile:
 	adc.l printfontset
 	sta.b tmp0
 	lda.w #FramerNineTileMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #FramerNineTileMap+6
-	sta.b $0C
+	sta.b p0
 	jsr.w FramerRow
 	lda.b tmp2
 	lsr a
@@ -21,12 +21,12 @@ FramerNineTile:
 	dec.b d1
 .loop:
 	lda.w #FramerNineTileMap+12
-	sta.b $0C
+	sta.b p0
 	jsr.w FramerRow
 	dec.b d1
 	bne .loop
 	lda.w #FramerNineTileMap+18
-	sta.b $0C
+	sta.b p0
 	jsr.w FramerRow
 	inx
 	inx

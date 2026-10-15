@@ -21,17 +21,17 @@ PeriodOver:
 	cmp.w #$0002
 	bcc .t1
 	lda.w #PlayoffSong>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PlayoffSong
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 	jmp.w .5
 
 .t1:
 	lda.w #MenuSong>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuSong
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 .5:
 	lda.w gmode

@@ -46,7 +46,7 @@ dopass:
 	sbc.w passdir
 	sec
 	sbc.w #$0004
-	stz.b $00
+	stz.b r0
 	and.w #$0007
 	beq .4
 	cmp.w #$0001
@@ -55,9 +55,9 @@ dopass:
 	bne .5
 .3:
 	lda.w #$1000
-	sta.b $00
+	sta.b r0
 .4:
-	lda.b $00
+	lda.b r0
 	clc
 	adc.w puckdist2,y
 	bcs .5
@@ -97,13 +97,13 @@ dopass:
 	lda.w #$0050
 	jsl.l Mul8XS
 	asl a
-	sta.b $14
+	sta.b r3
 	ldx.b curobj
 	lda.w Yvel,x
 	cmp.w #$8000
 	ror a
 	clc
-	adc.b $14
+	adc.b r3
 	sta.w puckvy
 	dec.b a0
 	dec.b a0
@@ -114,13 +114,13 @@ dopass:
 	lda.w #$0050
 	jsl.l Mul8XS
 	asl a
-	sta.b $14
+	sta.b r3
 	ldx.b curobj
 	lda.w Xvel,x
 	cmp.w #$8000
 	ror a
 	clc
-	adc.b $14
+	adc.b r3
 	sta.w puckvx
 	jsl.l RandomWord
 	and.w #$0FFF
@@ -243,7 +243,7 @@ dopass_count:
 	ldy.b a0
 	ldx.w Xvel,y
 	jsl.l Mul16XS
-	lda.b $0A
+	lda.b r2+2
 	clc
 	adc.b d0
 	sta.b d2
@@ -254,7 +254,7 @@ dopass_count:
 	asl a
 	ldx.w Yvel,y
 	jsl.l Mul16XS
-	lda.b $0A
+	lda.b r2+2
 	clc
 	adc.b d1
 	sta.b d3
@@ -292,7 +292,7 @@ dopass_count:
 	ldy.b a0
 	ldx.w Xvel,y
 	jsl.l Mul16XS
-	lda.b $0A
+	lda.b r2+2
 	clc
 	adc.b d0
 	sta.b d2
@@ -303,7 +303,7 @@ dopass_count:
 	asl a
 	ldx.w Yvel,y
 	jsl.l Mul16XS
-	lda.b $0A
+	lda.b r2+2
 	clc
 	adc.b d1
 	sta.b d3
@@ -325,9 +325,9 @@ dopass_count:
 	ldx.b d2
 	jsl.l Mul16x8XS
 	lda.b d4
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	xba
 	and.w #$FF00
 	sta.w puckvx
@@ -335,9 +335,9 @@ dopass_count:
 	ldx.b d3
 	jsl.l Mul16x8XS
 	lda.b d4
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	xba
 	and.w #$FF00
 	sta.w puckvy

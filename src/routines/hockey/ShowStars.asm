@@ -410,9 +410,9 @@ ShowStars:
 	cpx.w otgoalscorer
 	bne .2xx
 	lda.w #$000B
-	sta.b $0A
+	sta.b r2+2
 	lda.w #$71B0
-	sta.b $08
+	sta.b r2
 	jsr.w .18
 .2xx:
 	sep #$20
@@ -462,7 +462,7 @@ ShowStars:
 	and.w #$00FF
 	cmp.b d1
 	bmi .3xx
-	sta.b $04
+	sta.b r1
 	sep #$20
 	lda.w tmgoals,x
 	rep #$20
@@ -470,24 +470,24 @@ ShowStars:
 	phx
 	ldx.w #$0064
 	jsl.l Mul8U
-	sta.b $08
+	sta.b r2
 	jsl.l Div16U
 	plx
-	lda.b $00
+	lda.b r0
 	cmp.w #$0003
 	bpl .3xx
 	lda.w #$0000
-	sta.b $0A
+	sta.b r2+2
 	lda.w #$7D00
-	sta.b $08
+	sta.b r2
 	jsr.w .18
-	lda.b $00
+	lda.b r0
 	cmp.w #$0000
 	bne .3xx
 	lda.w #$0001
-	sta.b $0A
+	sta.b r2+2
 	lda.w #$24F8
-	sta.b $08
+	sta.b r2
 	jsr.w .18
 .3xx:
 	lda.b d0+2
@@ -505,9 +505,9 @@ ShowStars:
 .18:
 	lda.b d0
 	clc
-	adc.b $08
+	adc.b r2
 	sta.b d0
 	lda.b d0+2
-	adc.b $0A
+	adc.b r2+2
 	sta.b d0+2
 	rts

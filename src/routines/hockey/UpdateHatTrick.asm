@@ -121,11 +121,11 @@ UpdateHatTrick:
 	adc.l hatstep,x
 	clc
 	adc.w #SPFhat-1-1		; DrawSprite index (frame - 1); the step counts from 1
-	sta.b $00
+	sta.b r0
 	lda.w #SpriteFrames>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #SpriteFrames
-	sta.b $10
+	sta.b p1
 	lda.l hatz,x
 	lsr a
 	lsr a
@@ -158,7 +158,7 @@ UpdateHatTrick:
 	jsl.l DrawSprite
 	ldx.b d4
 	lda.w #SPFhatshadow-1
-	sta.b $00
+	sta.b r0
 	lda.l haty,x
 	lsr a
 	lsr a

@@ -4,25 +4,25 @@ SendBigText:
 	sta.l screenmap+6
 	sta.l screenmap+8
 	lda.w #$007E
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$A676
-	sta.b $0C
+	sta.b p0
 	lda.w #$0800
 	sta.w MapVRAM
 	lda.w #$0000
-	sta.b $24
+	sta.b r7
 	lda.w #$0020
-	sta.b $18
+	sta.b r4
 	lda.w #$0002
-	sta.b $1A
+	sta.b r4+2
 	ldy.w printy
-	sty.b $26
+	sty.b r7+2
 	ldx.w #$0000
 	jsl.l MapPartToVRAM
 	lda.w #bigtextbuf>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #bigtextbuf
-	sta.b $0C
+	sta.b p0
 	ldy.w #$4000
 	lda.l bigtextchar
 	inc a

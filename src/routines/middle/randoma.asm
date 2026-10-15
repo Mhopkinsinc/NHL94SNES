@@ -8,6 +8,6 @@ randoma:
 	plx
 	jsl.l Mul16U
 	plx
-	lda.b $0A
+	lda.b r2+2
 	clc
 	rtl

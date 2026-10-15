@@ -3,43 +3,43 @@ Mul16U:
 	phy
 	tay
 	beq Mul16_Zero
-	sta.b $00
+	sta.b r0
 	txa
 	beq Mul16_Zero
 Mul16U_Go:
 	sep #$20
 	sta.w WRMPYA
 	sty.w WRMPYB
-	stz.b $08
+	stz.b r2
 	xba
 	sta.w WRMPYA
 	ldx.w RDMPYL
-	stx.b $04
+	stx.b r1
 	sty.w WRMPYB
-	stz.b $0B
-	ldy.b $01
+	stz.b r2+3
+	ldy.b r0+1
 	ldx.w RDMPYL
-	stx.b $09
+	stx.b r2+1
 	sty.w WRMPYB
 	xba
 	sta.w WRMPYA
 	ldx.w RDMPYL
-	stx.b $06
+	stx.b r1+2
 	sty.w WRMPYB
 	rep #$20
-	lda.b $09
+	lda.b r2+1
 	clc
 	adc.w RDMPYL
-	sta.b $09
+	sta.b r2+1
 	bcc .nocarry
-	inc.b $0B
+	inc.b r2+3
 .nocarry:
-	lda.b $04
+	lda.b r1
 	clc
-	adc.b $08
-	sta.b $08
-	lda.b $06
-	adc.b $0A
-	sta.b $0A
+	adc.b r2
+	sta.b r2
+	lda.b r1+2
+	adc.b r2+2
+	sta.b r2+2
 	ply
 	rtl

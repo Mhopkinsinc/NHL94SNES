@@ -8,20 +8,20 @@ AttribEnergy:
 	adc.b d0
 	tay
 	lda.w tmpde,y
-	sta.b $08
+	sta.b r2
 	lda.l OptLine
 	cmp.w #$0002
 	bne .2
 .1:
 	lda.w #$1000
-	sta.b $08
+	sta.b r2
 .2:
 	lda.w #$0028
-	sta.b $04
+	sta.b r1
 	phx
 	jsl.l Div16x8U
 	plx
-	lda.b $00
+	lda.b r0
 	cmp.w #$0065
 	bcc .3
 	lda.w #$0064

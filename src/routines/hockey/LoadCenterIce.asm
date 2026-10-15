@@ -6,23 +6,23 @@ LoadCenterIce:
 	asl a
 	tax
 	lda.l CenterIceTable,x
-	sta.b $0C
+	sta.b p0
 	lda.l CenterIceTable+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $12
-	sta.b $0E
-	stz.b $0C
-	stx.b $10
-	stx.b $00
+	sta.b p1+2
+	sta.b p0+2
+	stz.b p0
+	stx.b p1
+	stx.b r0
 	jsl.l LinearToPlanar
-	ldx.b $10
-	stx.b $0C
+	ldx.b p1
+	stx.b p0
 	txa
 	lsr a
 	lsr a

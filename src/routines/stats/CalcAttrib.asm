@@ -5,14 +5,14 @@ CalcAttrib:
 	adc.b d0
 	asl a
 	asl a
-	sta.b $00
+	sta.b r0
 	stz.b d0+2
 	ldy.b a2
 	beq .1
-	lda.b $00
+	lda.b r0
 	clc
 	adc.w #$0138
-	sta.b $00
+	sta.b r0
 .1:
 	lda.w #$009C
 	sta.b a0+2
@@ -61,14 +61,14 @@ CalcAttrib:
 	lda.w #$000F
 	sec
 	sbc.b d2
-	sta.b $10
+	sta.b p1
 	lsr a
 	clc
 	adc.b a0
-	sta.b $0C
+	sta.b p0
 	lda.b a0+2
-	sta.b $0E
-	lda.b [$0C]
+	sta.b p0+2
+	lda.b [p0]
 	sta.b d3
 	lda.b d2
 	lsr a
@@ -83,7 +83,7 @@ CalcAttrib:
 	lda.b d3
 	and.w #$000F
 	sta.b d3
-	lda.b $10
+	lda.b p1
 	dec a
 	dec a
 	dec a
@@ -92,41 +92,41 @@ CalcAttrib:
 	dec a
 .4:
 	clc
-	adc.b $00
+	adc.b r0
 	tax
 	lda.l usehotcold
 	beq .5
 	lda.w HotColdTable,x
 	and.w #$00FF
 .5:
-	sta.b $16
+	sta.b r3+2
 	cmp.w #$0080
 	bcc .6
 	lda.w #$0100
-	sbc.b $16
+	sbc.b r3+2
 .6:
-	sta.b $14
+	sta.b r3
 	asl a
 	clc
-	adc.b $14
+	adc.b r3
 	lsr a
 	lsr a
 	bit.w #$2000
 	beq .7
 	ora.w #$C000
 .7:
-	sta.b $14
-	lda.b $16
+	sta.b r3
+	lda.b r3+2
 	bit.w #$0080
 	beq .8
 	lda.w #$0000
 	sec
-	sbc.b $14
-	sta.b $14
+	sbc.b r3
+	sta.b r3
 .8:
 	lda.b d4+2
 	bmi .t3
-	ldx.b $10
+	ldx.b p1
 	lda.l .19,x
 	and.w #$00FF
 	beq .t1
@@ -134,7 +134,7 @@ CalcAttrib:
 	ldx.b d3
 	jsl.l Mul8U
 	clc
-	adc.b $14
+	adc.b r3
 	bpl .9
 	lda.w #$0000
 .9:
@@ -153,9 +153,9 @@ CalcAttrib:
 	jmp.w .17
 
 .t3:
-	lda.b $10
+	lda.b p1
 	clc
-	adc.b $08
+	adc.b r2
 	tax
 	lda.l .18,x
 	ldx.b d3
@@ -163,8 +163,8 @@ CalcAttrib:
 	clc
 	adc.b d0
 	sta.b d0
-	lda.b $14
-	ldy.b $08
+	lda.b r3
+	ldy.b r2
 	beq .1xx
 	asl a
 .1xx:
@@ -183,7 +183,7 @@ CalcAttrib:
 	bpl .14
 	eor.w #$FFFF
 	inc a
-	ldx.b $08
+	ldx.b r2
 	bne .t1x
 	tax
 	lda.w #$000A
@@ -204,7 +204,7 @@ CalcAttrib:
 	lda.w #$0000
 	bra .16
 .14:
-	ldx.b $08
+	ldx.b r2
 	bne .t1xx
 	tax
 	lda.w #$000A
@@ -225,7 +225,7 @@ CalcAttrib:
 .16:
 	sta.b d0
 	plx
-	lda.b $08
+	lda.b r2
 	beq .17
 	lsr.b d0
 .17:

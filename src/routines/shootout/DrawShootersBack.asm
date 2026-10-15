@@ -54,26 +54,26 @@ DrawShootersBack:
 	pla
 	sta.b a1+2
 	lda.w #MenuBackMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuBackMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap2>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap2
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.w #$001C
-	sta.b $26
+	sta.b r7+2
 	ldx.w #$0000
 	ldy.w #$0000
 	lda.l charofs2

@@ -146,7 +146,7 @@ FaceoffPads:
 	lda.w teampads
 	beq .15
 	lda.w #$0005
-	sta.b $0C
+	sta.b p0
 	ldx.w fopadfirst
 	lda.w #$FFFF
 	sta.w fopadfirst
@@ -171,13 +171,13 @@ FaceoffPads:
 	bpl .14
 	ldx.w #$0008
 .14:
-	dec.b $0C
+	dec.b p0
 	bne .11
 .15:
 	lda.w teampads+2
 	beq .rtl
 	lda.w #$0005
-	sta.b $0C
+	sta.b p0
 	ldx.w fopadfirst+2
 	lda.w #$FFFF
 	sta.w fopadfirst+2
@@ -203,7 +203,7 @@ FaceoffPads:
 	bpl .19
 	ldx.w #$0008
 .19:
-	dec.b $0C
+	dec.b p0
 	bne .16
 .rtl:
 	rtl

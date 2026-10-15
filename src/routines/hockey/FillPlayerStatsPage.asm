@@ -1,9 +1,9 @@
 ; Build the player stats page in the stats page buffer, a row per player in the sorted order
 FillPlayerStatsPage:
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$2780
-	sta.b $10
+	sta.b p1
 	ldx.w #$4D80
 	lda.l smallfontchars
 	clc
@@ -183,17 +183,17 @@ FillPlayerStatsPage:
 	phx
 	ldx.w #$0064
 	jsl.l Mul8XS
-	sta.b $08
+	sta.b r2
 	plx
 	sep #$20
 	lda.w pshots,x
 	rep #$20
 	and.w #$00FF
-	sta.b $04
+	sta.b r1
 	cmp.w #$0000
 	beq .t1x
 	jsl.l Div16U
-	lda.b $00
+	lda.b r0
 	sta.b d0
 	bra .2xx
 

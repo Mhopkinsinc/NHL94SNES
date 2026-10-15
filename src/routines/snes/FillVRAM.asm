@@ -1,13 +1,13 @@
 ; Fill X bytes of video memory at Y with the word A
 FillVRAM:
-	sta.b $16
+	sta.b r3+2
 	lda.w IniDispShadow-1
 	bpl .t1
 	stx.w DAS1L
 	cpy.w #$0000
 	bmi .1
 	sty.w VMADDL
-	sty.b $14
+	sty.b r3
 .1:
 	ldy.w #$0016
 	sty.w A1T1L
@@ -22,7 +22,7 @@ FillVRAM:
 	rep #$20
 	txa
 	lsr a
-	adc.b $14
+	adc.b r3
 	tay
 	rtl
 

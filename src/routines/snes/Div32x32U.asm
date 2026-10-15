@@ -2,31 +2,31 @@
 Div32x32U:
 	phx
 	phy
-	stz.b $00
-	stz.b $02
+	stz.b r0
+	stz.b r0+2
 	ldy.w #$0000
-	lda.b $06
+	lda.b r1+2
 	bmi .loop
 .norm:
 	iny
-	asl.b $04
-	rol.b $06
+	asl.b r1
+	rol.b r1+2
 	bpl .norm
 .loop:
-	lda.b $08
+	lda.b r2
 	sec
-	sbc.b $04
+	sbc.b r1
 	tax
-	lda.b $0A
-	sbc.b $06
+	lda.b r2+2
+	sbc.b r1+2
 	bcc .bit
-	stx.b $08
-	sta.b $0A
+	stx.b r2
+	sta.b r2+2
 .bit:
-	rol.b $00
-	rol.b $02
-	lsr.b $06
-	ror.b $04
+	rol.b r0
+	rol.b r0+2
+	lsr.b r1+2
+	ror.b r1
 	dey
 	bpl .loop
 	ply

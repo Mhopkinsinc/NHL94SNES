@@ -1,9 +1,9 @@
 ; Fill the text map from row 12 down with the blank tile
 ClearTextMapBottom:
 	lda.w #$007E
-	sta.b $12
+	sta.b p1+2
 	lda.w #$3AF4
-	sta.b $10
+	sta.b p1
 	lda.l blankchar
 	clc
 	adc.l charofs

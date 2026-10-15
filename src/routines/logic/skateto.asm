@@ -24,7 +24,7 @@ skateto:
 .1:
 	eor.w #$FFFF
 	inc a
-	sta.b $14
+	sta.b r3
 	clc
 	adc.b d0
 	sec
@@ -39,7 +39,7 @@ skateto:
 .2:
 	eor.w #$FFFF
 	inc a
-	sta.b $16
+	sta.b r3+2
 	clc
 	adc.b d1
 	sec
@@ -59,13 +59,13 @@ skateto:
 	lda.w Yvel,x
 	jsl.l ApproxLength
 	pha
-	lda.b $14
+	lda.b r3
 	clc
 	adc.b d0+2
 	sec
 	sbc.w Xpos,x
 	tay
-	lda.b $16
+	lda.b r3+2
 	clc
 	adc.b d1+2
 	sec
@@ -73,12 +73,12 @@ skateto:
 	jsl.l ApproxLength
 	tay
 	pla
-	sta.b $14
+	sta.b r3
 	pla
 	sta.b d1
 	pla
 	sta.b d0
-	lda.b $14
+	lda.b r3
 	cmp.w #$1000
 	bcs .t1
 	cpy.w #$0005

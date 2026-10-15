@@ -1,4 +1,4 @@
-; Free the VRAM tiles of the frame at [$0C]
+; Free the VRAM tiles of the frame at [p0]
 FreeFrameTiles:
 	phx
 	phy
@@ -8,22 +8,22 @@ FreeFrameTiles:
 	plb
 	jmp.w .1
 
-.t1:		; the same for frame A of the sprite set at [$10]
+.t1:		; the same for frame A of the sprite set at [p1]
 	phx
 	phy
 	sta.w DrawFrameNum
 	asl a
 	asl a
 	tay
-	lda.b [$10],y
+	lda.b [p1],y
 	clc
-	adc.b $10
-	sta.b $0C
+	adc.b p1
+	sta.b p0
 	iny
 	iny
-	lda.b [$10],y
-	adc.b $12
-	sta.b $0E
+	lda.b [p1],y
+	adc.b p1+2
+	sta.b p0+2
 	phb
 	pea.w $7E7E
 	plb
@@ -42,10 +42,10 @@ FreeFrameTiles:
 	plx
 	rtl
 .3:
-	lda.b $0C
+	lda.b p0
 	cmp.w $2540,x
 	bne .1x
-	lda.b $0E
+	lda.b p0+2
 	cmp.w $2640,x
 	beq FreeCacheEntry_go
 .1x:
@@ -69,13 +69,13 @@ FreeCacheEntry:
 ; FreeCacheEntry after the slot byte is cleared; FreeFrameTiles enters here
 FreeCacheEntry_go:
 	lda.w $2C40,x
-	sta.b $00
+	sta.b r0
 	dec.w FrameCacheCount
 	beq .1
-	stx.b $02
+	stx.b r0+2
 	lda.w FrameCacheCount
 	asl a
-	cmp.b $02
+	cmp.b r0+2
 	beq .1
 	tay
 	lda.w $2540,y
@@ -97,7 +97,7 @@ FreeCacheEntry_go:
 	sta.w $2741,y
 	rep #$20
 .1:
-	ldx.b $00
+	ldx.b r0
 	bmi .t2
 	jmp.w .3
 
@@ -108,17 +108,17 @@ FreeCacheEntry_go:
 	bne .2
 	lda.w $2F40,x
 	and.b #$3F
-	sta.b $16
+	sta.b r3+2
 	clc
-	adc.b $00
+	adc.b r0
 	tay
 	and.b #$07
 	beq .1x
 	lda.w $2F40,y
 	bmi .1x
 	clc
-	adc.b $16
-	sta.b $16
+	adc.b r3+2
+	sta.b r3+2
 .1x:
 	txa
 	and.b #$07
@@ -129,7 +129,7 @@ FreeCacheEntry_go:
 	lda.w $2F40,y
 	bmi .t1
 	clc
-	adc.b $16
+	adc.b r3+2
 	sta.w $2F40,y
 	tya
 	adc.w $2F40,y
@@ -143,11 +143,11 @@ FreeCacheEntry_go:
 	rtl
 
 .t1:
-	lda.b $16
+	lda.b r3+2
 	sta.w $2F40,x
 	txa
 	clc
-	adc.b $16
+	adc.b r3+2
 	tay
 	txa
 	sta.w $2FB9,y
@@ -171,24 +171,24 @@ FreeCacheEntry_go:
 .t1x:
 	lda.w $2F40,x
 	and.b #$3F
-	sta.b $16
+	sta.b r3+2
 	txa
 	clc
-	adc.b $16
+	adc.b r3+2
 	tay
 	and.b #$07
 	beq .1xx
 	lda.w $2F40,y
 	bmi .1xx
 	clc
-	adc.b $16
-	sta.b $16
+	adc.b r3+2
+	sta.b r3+2
 .1xx:
-	lda.b $16
+	lda.b r3+2
 	sta.w $2F40,x
 	txa
 	clc
-	adc.b $16
+	adc.b r3+2
 	tay
 	txa
 	sta.w $2FB9,y
@@ -201,15 +201,15 @@ FreeCacheEntry_go:
 	sep #$30
 	lda.w $3032,x
 	and.b #$7F
-	sta.b $16
+	sta.b r3+2
 	clc
-	adc.b $00
+	adc.b r0
 	tay
 	lda.w $3032,y
 	bmi .1xxx
 	clc
-	adc.b $16
-	sta.b $16
+	adc.b r3+2
+	sta.b r3+2
 .1xxx:
 	lda.w $3093,x
 	bmi .t1xx
@@ -217,7 +217,7 @@ FreeCacheEntry_go:
 	lda.w $3032,y
 	bmi .t1xx
 	clc
-	adc.b $16
+	adc.b r3+2
 	sta.w $3032,y
 	tya
 	adc.w $3032,y
@@ -231,11 +231,11 @@ FreeCacheEntry_go:
 	rtl
 
 .t1xx:
-	lda.b $16
+	lda.b r3+2
 	sta.w $3032,x
 	txa
 	clc
-	adc.b $16
+	adc.b r3+2
 	tay
 	txa
 	sta.w $3093,y
@@ -250,7 +250,7 @@ FreeCacheEntry_go:
 	pea.w $7E7E
 	plb
 	plb
-	stz.b $14
+	stz.b r3
 	lda.w SpriteBlockTiles
 .loop:
 	tax
@@ -260,17 +260,17 @@ FreeCacheEntry_go:
 	cmp.w #$0010
 	bcs .1xxxx
 	clc
-	adc.b $14
-	sta.b $14
+	adc.b r3
+	sta.b r3
 .1xxxx:
 	and.w #$003F
-	sta.b $2A
+	sta.b r8+2
 	txa
 	clc
-	adc.b $2A
+	adc.b r8+2
 	bra .loop
 
 .t1xxx:
 	plb
-	lda.b $14
+	lda.b r3
 	rtl

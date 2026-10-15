@@ -35,13 +35,13 @@ setupice:
 	bne .loop2
 	jsl.l SPCGameUpload
 	lda.w #IceRinkTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #IceRinkTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -51,20 +51,20 @@ setupice:
 	lsr a
 	sta.l centericechars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$1000
 	jsl.l DMAToVRAM
 	jsl.l LoadCenterIce
 	lda.w #FaceOffTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #FaceOffTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -75,15 +75,15 @@ setupice:
 	adc.l faceoffvrcset
 	sta.l EASNcset
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #RinkLogoTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #RinkLogoTiles
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	txa
 	lsr a
@@ -94,15 +94,15 @@ setupice:
 	adc.l EASNcset
 	sta.l refcharshor
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #RefTilesHor>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #RefTilesHor
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	txa
 	lsr a
@@ -113,15 +113,15 @@ setupice:
 	adc.l refcharshor
 	sta.l refchars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #RefTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #RefTiles
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	txa
 	lsr a
@@ -134,9 +134,9 @@ setupice:
 	inc a
 	sta.l smallfontchars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #$0000
@@ -144,9 +144,9 @@ setupice:
 	ldx.w #$0020
 	jsl.l FillVRAM
 	lda.w #SmallFontTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SmallFontTiles
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	txa
 	lsr a
@@ -180,9 +180,9 @@ setupice:
 	sta.b d0
 	jsl.l RemapTiles
 	lda.w #BigFontTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #BigFontTiles
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	txa
 	lsr a
@@ -194,15 +194,15 @@ setupice:
 	adc.l BigFontChars
 	sta.l scorechars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #TeamBlocksTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TeamBlocksTiles
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	txa
 	lsr a
@@ -213,9 +213,9 @@ setupice:
 	adc.l scorechars
 	sta.l ExtraChars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 setupice_reset:

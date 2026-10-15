@@ -1,9 +1,9 @@
 ; Draw the objects tied to rink scrolling (the pad labels)
 setffo:
 	lda.w #SpriteFrames>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #SpriteFrames
-	sta.b $10
+	sta.b p1
 	lda.w #$000C
 	sta.b a2
 .1:
@@ -16,7 +16,7 @@ setffo:
 .3:
 	tyx
 	lda.l .7,x
-	sta.b $00
+	sta.b r0
 	lda.w PadControlObj,y
 	asl a
 	tax
@@ -90,7 +90,7 @@ setffo:
 	cmp.w #$00FF
 	beq .t1
 	adc.w #SPFsmallfont-1		; DrawSprite index (frame - 1) of the glyph
-	sta.b $00
+	sta.b r0
 	ldx.b d0
 	ldy.b d1
 	lda.w #$2000

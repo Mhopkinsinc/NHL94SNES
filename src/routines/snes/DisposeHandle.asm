@@ -25,17 +25,17 @@ DisposeHandle:		; free handle A and its block, joined with free neighbours
 .heap:
 	sec
 	sbc.w #$0008
-	sta.b $14
-	stx.b $0E
-	stz.b $0C
+	sta.b r3
+	stx.b p0+2
+	stz.b p0
 .find:
-	cpy.b $14
+	cpy.b r3
 	beq .found
 	iny
 	iny
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	beq .exit
 	tay
 	bra .find
@@ -44,25 +44,25 @@ DisposeHandle:		; free handle A and its block, joined with free neighbours
 	iny
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	beq .prev
 	tay
 	tax
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	bne .prev
 	txy
-	lda.b [$0C],y
-	sta.b $00
+	lda.b [p0],y
+	sta.b r0
 	iny
 	iny
 	iny
 	iny
-	lda.b [$0C],y
-	sta.b $04
+	lda.b [p0],y
+	sta.b r1
 	tay
-	lda.b $14
+	lda.b r3
 	cpy.w #$0000
 	beq .size
 	iny
@@ -71,48 +71,48 @@ DisposeHandle:		; free handle A and its block, joined with free neighbours
 	iny
 	iny
 	iny
-	sta.b [$0C],y
+	sta.b [p0],y
 .size:
 	tay
-	lda.b [$0C],y
+	lda.b [p0],y
 	clc
-	adc.b $00
+	adc.b r0
 	adc.w #$0008
-	sta.b [$0C],y
+	sta.b [p0],y
 	iny
 	iny
 	iny
 	iny
-	lda.b $04
-	sta.b [$0C],y
+	lda.b r1
+	sta.b [p0],y
 .prev:
-	ldy.b $14
+	ldy.b r3
 	iny
 	iny
 	lda.w #$0000
-	sta.b [$0C],y
+	sta.b [p0],y
 	iny
 	iny
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	cmp.w #$FFFF
 	beq .done
 	tay
 	tax
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	bne .done
-	ldy.b $14
-	lda.b [$0C],y
-	sta.b $00
+	ldy.b r3
+	lda.b [p0],y
+	sta.b r0
 	iny
 	iny
 	iny
 	iny
-	lda.b [$0C],y
-	sta.b $04
+	lda.b [p0],y
+	sta.b r1
 	tay
 	txa
 	cpy.w #$0000
@@ -123,19 +123,19 @@ DisposeHandle:		; free handle A and its block, joined with free neighbours
 	iny
 	iny
 	iny
-	sta.b [$0C],y
+	sta.b [p0],y
 .size2:
 	tay
-	lda.b [$0C],y
+	lda.b [p0],y
 	clc
-	adc.b $00
+	adc.b r0
 	adc.w #$0008
-	sta.b [$0C],y
+	sta.b [p0],y
 	iny
 	iny
 	iny
 	iny
-	lda.b $04
-	sta.b [$0C],y
+	lda.b r1
+	sta.b [p0],y
 .done:
 	rtl

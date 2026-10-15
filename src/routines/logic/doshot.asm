@@ -13,14 +13,14 @@ doshot:
 
 .t2:
 	lda.w #$0001
-	sta.b $01,s
+	sta.b r0+1,s
 	lda.w #$1000
 	tsb.w sflags
 	lda.w SPA,x
 	cmp.w #SPAshotb
 	bne .1
 	lda.w #$0001
-	sta.b $01,s
+	sta.b r0+1,s
 	lda.w passspeed
 	lsr a
 	lsr a
@@ -35,7 +35,7 @@ doshot:
 	cmp.w #$001E
 	bcc .2
 	lda.w #$0002
-	sta.b $01,s
+	sta.b r0+1,s
 .2:
 	lda.w shotspd,x
 	stx.b a0
@@ -44,10 +44,10 @@ doshot:
 	tax
 	lda.w passspeed
 	jsl.l Mul16x8U
-	ldx.b $08
+	ldx.b r2
 	lda.w #$2570
 	jsl.l Mul16U
-	lda.b $0A
+	lda.b r2+2
 	sta.w passspeed
 	lda.w breakaway
 	beq .3
@@ -126,7 +126,7 @@ doshot:
 	adc.w #$0010
 	ldx.b d3
 	jsl.l Mul16U
-	lda.b $08
+	lda.b r2
 	lsr a
 	lsr a
 	lsr a
@@ -147,29 +147,29 @@ doshot:
 .3x:
 	pha
 	jsl.l randomd0s
-	adc.b $03,s
-	sta.b $03,s
-	lda.b $01,s
+	adc.b r0+3,s
+	sta.b r0+3,s
+	lda.b r0+1,s
 	sta.b d0
 	cmp.w #$003D
 	bcc .4x
 	lda.w #$003C
 	sta.b d0
-	sta.b $01,s
+	sta.b r0+1,s
 .4x:
-	lda.b $05,s
+	lda.b r1+1,s
 	bpl .5x
 	lsr.b d0
 .5x:
 	jsl.l randomd0sd0
-	lda.b $05,s
+	lda.b r1+1,s
 	adc.b d0
-	sta.b $05,s
+	sta.b r1+1,s
 	pla
 	lsr a
 	jsl.l randoma
-	adc.b $05,s
-	sta.b $05,s
+	adc.b r1+1,s
+	sta.b r1+1,s
 .6:
 	ldx.w passspeed
 	lda.w #$0044
@@ -177,9 +177,9 @@ doshot:
 	plx
 	jsl.l Mul16S
 	lda.b d3
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	asl a
 	sta.w puckvx
 	ldx.w passspeed
@@ -188,9 +188,9 @@ doshot:
 	plx
 	jsl.l Mul16S
 	lda.b d3
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	asl a
 	sta.w puckvy
 	ldx.b curobj
@@ -199,23 +199,23 @@ doshot:
 	tax
 	lda.w passspeed
 	jsl.l Mul16x8U
-	ldx.b $08
+	ldx.b r2
 	lda.w #$0044
 	jsl.l Mul16x8U
 	lda.b d3
-	sta.b $04
+	sta.b r1
 	jsl.l Div32U
-	lda.b $00
+	lda.b r0
 	asl a
 	sta.b d1
 	lda.w #$0B33
 	ldx.b d3
 	jsl.l Mul16U
 	lda.w passspeed
-	sta.b $04
+	sta.b r1
 	jsl.l Div32U
 	ldx.b curobj
-	lda.b $00
+	lda.b r0
 	lsr a
 	adc.b d1
 	cmp.w #$1801

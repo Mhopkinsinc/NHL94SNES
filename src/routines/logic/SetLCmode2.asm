@@ -31,7 +31,7 @@ SetLCmode2:
 	lda.w printx
 	pha
 .loop:
-	lda.b $01,s
+	lda.b r0+1,s
 	sta.w printx
 	lda.b d4
 	sta.b d0

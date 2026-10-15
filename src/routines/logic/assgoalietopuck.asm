@@ -14,7 +14,7 @@ assgoalietopuck:
 	eor.w #$FFFF
 	inc a
 .1:
-	sta.b $00
+	sta.b r0
 	cmp.w #$00E4
 	bmi .2
 	cmp.w #$0104
@@ -151,7 +151,7 @@ assgoalietopuck:
 	ora.w #$FF00
 .3x:
 	clc
-	adc.b $01,s
+	adc.b r0+1,s
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -166,7 +166,7 @@ assgoalietopuck:
 	ora.w #$FF00
 .4x:
 	clc
-	adc.b $03,s
+	adc.b r0+3,s
 	sec
 	sbc.w Ypos,x
 	sta.b d1

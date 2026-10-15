@@ -9,13 +9,13 @@ InitSetupChars:
 	ldx.w #$0020
 	jsl.l FillVRAM
 	lda.w #SmallFontTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SmallFontTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a

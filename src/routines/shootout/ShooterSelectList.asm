@@ -22,22 +22,22 @@ ShooterSelectList:
 	sta.b d2
 	jsl.l eraser
 	lda.w #PlayerListMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PlayerListMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap2>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap2
-	sta.b $10
+	sta.b p1
 	ldx.w #$0001
 	ldy.w #$0001
 	lda.l charofs2

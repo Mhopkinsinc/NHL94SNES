@@ -3,7 +3,7 @@ DrawMatchupPictures:
 	lda.b a2
 	pha
 	lda.l setupvis
-	sta.b $00
+	sta.b r0
 	bpl .t1
 	lda.l setuphome
 	bpl .1
@@ -15,15 +15,15 @@ DrawMatchupPictures:
 	ldy.w #$0001
 	jsl.l DrawPlayerPicture
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$7780
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap2>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap2
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	ldx.w #$0001
 	ldy.w #$0001
 	lda.w #$0000
@@ -36,16 +36,16 @@ DrawMatchupPictures:
 	asl a
 	tax
 	lda.l LogoPaletteTable+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.l LogoPaletteTable,x
-	sta.b $0C
+	sta.b p0
 	ldy.w #$00A0
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$7800
-	sta.b $10
+	sta.b p1
 	lda.w #$2400
 	ldx.w #$000C
 	ldy.w #$000C
@@ -54,22 +54,22 @@ DrawMatchupPictures:
 	ldy.w #$0001
 	jsl.l ClearPictureBox
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$7700
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap2>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap2
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	ldx.w #$0001
 	ldy.w #$0001
 	lda.w #$0000
 	jsl.l PasteMap
 .2:
 	lda.l setuphome
-	sta.b $00
+	sta.b r0
 	bpl .t1x
 	lda.l setupvis
 	bpl .1x
@@ -80,15 +80,15 @@ DrawMatchupPictures:
 	ldy.w #$0001
 	jsl.l DrawPlayerPicture
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$7780
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap2>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap2
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	ldx.w #$0018
 	ldy.w #$0001
 	lda.w #$0000
@@ -101,16 +101,16 @@ DrawMatchupPictures:
 	asl a
 	tax
 	lda.l LogoPaletteTable+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.l LogoPaletteTable,x
-	sta.b $0C
+	sta.b p0
 	ldy.w #$00B0
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$7800
-	sta.b $10
+	sta.b p1
 	lda.w #$2600
 	ldx.w #$00C4
 	ldy.w #$000C
@@ -119,15 +119,15 @@ DrawMatchupPictures:
 	ldy.w #$0001
 	jsl.l ClearPictureBox
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$7700
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap2>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap2
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	ldx.w #$0018
 	ldy.w #$0001
 	lda.w #$0000
@@ -141,9 +141,9 @@ DrawMatchupPictures:
 	bpl .t1xx
 .1xx:
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.l homepicaddr
-	sta.b $0C
+	sta.b p0
 	lda.l picchars
 	asl a
 	asl a
@@ -156,9 +156,9 @@ DrawMatchupPictures:
 	jsl.l WaitFrame
 	jsl.l DMAToVRAM
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.l vispicaddr
-	sta.b $0C
+	sta.b p0
 	lda.l picchars
 	asl a
 	asl a

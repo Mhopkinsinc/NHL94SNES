@@ -14,10 +14,10 @@ Mul16x8XS_mul:
 Mul16x8XS_negres:
 	lda.w #$0000
 	sec
-	sbc.b $08
-	sta.b $08
+	sbc.b r2
+	sta.b r2
 	lda.w #$0000
-	sbc.b $0A
-	sta.b $0A
+	sbc.b r2+2
+	sta.b r2+2
 	ply
 	rtl

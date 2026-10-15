@@ -1,4 +1,4 @@
-; DMA X bytes of colours from [$0C] to CGRAM at colour Y
+; DMA X bytes of colours from [p0] to CGRAM at colour Y
 DMAToCGRAM:
 	sep #$20
 	lda.w IniDispShadow
@@ -13,9 +13,9 @@ DMAToCGRAM:
 	sta.w DAS1L
 	lda.w #DMA_CGRAM
 	sta.w DMAP1
-	lda.b $0C
+	lda.b p0
 	sta.w A1T1L
-	ldx.b $0E
+	ldx.b p0+2
 	stx.w A1B1
 	ldx.b #$02
 	stx.w MDMAEN
@@ -26,9 +26,9 @@ DMAToCGRAM:
 .t1:
 	sty.w CGDMAColour
 	rep #$20
-	lda.b $0E
+	lda.b p0+2
 	sta.w CGDMABank
-	lda.b $0C
+	lda.b p0
 	sta.w CGDMASrc
 	txa
 	asl a
@@ -44,8 +44,8 @@ DMAToCGRAM:
 	asl a
 	tay
 .loop:
-	lda.b [$0C],y
-	sta.b [$10],y
+	lda.b [p0],y
+	sta.b [p1],y
 	iny
 	iny
 	dex
@@ -58,7 +58,7 @@ DMAToCGRAM:
 	asl a
 	tay
 .loopx:
-	sta.b [$10],y
+	sta.b [p1],y
 	iny
 	iny
 	dex
@@ -68,28 +68,28 @@ DMAToCGRAM:
 .t2:
 	and.w #$00FF
 	xba
-	sta.b $14
+	sta.b r3
 	tya
 	asl a
 	tay
 .loopx2:
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$001F
-	ora.b $14
+	ora.b r3
 	sta.w WRMPYA
 	nop
 	rep #$20
 	lda.w RDMPYL
 	xba
 	and.w #$001F
-	sta.b [$10],y
-	lda.b [$0C],y
+	sta.b [p1],y
+	lda.b [p0],y
 	asl a
 	asl a
 	asl a
 	xba
 	and.w #$001F
-	ora.b $14
+	ora.b r3
 	sta.w WRMPYA
 	nop
 	rep #$20
@@ -98,14 +98,14 @@ DMAToCGRAM:
 	lsr a
 	lsr a
 	and.w #$03E0
-	ora.b [$10],y
-	sta.b [$10],y
-	lda.b [$0C],y
+	ora.b [p1],y
+	sta.b [p1],y
+	lda.b [p0],y
 	xba
 	lsr a
 	lsr a
 	and.w #$001F
-	ora.b $14
+	ora.b r3
 	sta.w WRMPYA
 	nop
 	rep #$20
@@ -113,8 +113,8 @@ DMAToCGRAM:
 	asl a
 	asl a
 	and.w #$7C00
-	ora.b [$10],y
-	sta.b [$10],y
+	ora.b [p1],y
+	sta.b [p1],y
 	iny
 	iny
 	dex

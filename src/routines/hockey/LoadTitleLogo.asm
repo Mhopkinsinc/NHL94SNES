@@ -2,9 +2,9 @@
 LoadTitleLogo:
 	pha
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$4000
-	sta.b $0C
+	sta.b p0
 	lda.w #$0000
 	sta.w MapVRAM
 	ldx.w #$003C
@@ -17,9 +17,9 @@ LoadTitleLogo:
 	tax
 	phx
 	lda.l CenterIceTable+4,x
-	sta.b $0C
+	sta.b p0
 	lda.l CenterIceTable+6,x
-	sta.b $0E
+	sta.b p0+2
 	jsr.w .t3
 	txa
 	lsr a
@@ -36,31 +36,31 @@ LoadTitleLogo:
 	adc.w #$0040
 	tay
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$A000
-	sta.b $0C
+	sta.b p0
 	lda.w #$0000
 	sta.w MapVRAM
 	jsl.l Mode7MapToVRAM
 	plx
 	lda.l CenterIceTable,x
-	sta.b $0C
+	sta.b p0
 	lda.l CenterIceTable+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	jsr.w .t2
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$A000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0000
 	jsl.l DMAToVRAMHigh
 	rts
@@ -115,7 +115,7 @@ LoadTitleLogo:
 	ldy.w LogoSrcOfs
 	sep #$20
 .loopx:
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.b d0
 	and.b #$0F
 	ora.w LogoPalBits
@@ -143,12 +143,12 @@ LoadTitleLogo:
 	sta.w LogoPalBits
 	ldx.w #$0000
 	ldy.w #$0000
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.b d0
 	sta.l titlelogobuf,x
 	ldx.w #$0002
 	ldy.w #$0002
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.b d0+2
 	sta.l titlelogobuf,x
 	ldx.w #$0004
@@ -164,13 +164,13 @@ LoadTitleLogo:
 	ldy.w #$0006
 	sep #$20
 .loopx2:
-	lda.b [$0C],y
+	lda.b [p0],y
 	inc a
 	sta.l titlelogobuf,x
 	iny
 	cmp.b #$00
 	beq .1
-	lda.b [$0C],y
+	lda.b [p0],y
 	bit.b #$1C
 	beq .1
 	lda.b #$70

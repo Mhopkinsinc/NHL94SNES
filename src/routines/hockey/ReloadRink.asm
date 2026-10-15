@@ -5,13 +5,13 @@ ReloadRink:
 	sta.w FrameByNumber
 	jsl.l BuildRinkMap
 	lda.w #IceRinkTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #IceRinkTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	phx
 	jsl.l WaitFadeOut
@@ -32,9 +32,9 @@ ReloadRink:
 	sta.w OBSEL
 	rep #$20
 	lda.w #palbuffer>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #palbuffer
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0000
 	ldx.w #$0040
 	jsl.l DMAToCGRAM
@@ -44,9 +44,9 @@ ReloadRink:
 	sta.l charofs2
 	plx
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$1000
 	jsl.l DMAToVRAM
 	lda.w HomeTeam
@@ -55,23 +55,23 @@ ReloadRink:
 	asl a
 	tax
 	lda.l CenterIceTable+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.l CenterIceTable,x
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
-	stx.b $10
-	stx.b $00
+	stx.b p1
+	stx.b r0
 	lda.w #$007F
-	sta.b $0E
-	sta.b $12
-	stz.b $0C
+	sta.b p0+2
+	sta.b p1+2
+	stz.b p0
 	jsl.l LinearToPlanar
-	ldx.b $10
-	stx.b $0C
+	ldx.b p1
+	stx.b p0
 	lda.l centericechars
 	asl a
 	asl a
@@ -81,18 +81,18 @@ ReloadRink:
 	tay
 	jsl.l DMAToVRAM
 	lda.w #FaceOffTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #FaceOffTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.l faceoffvrcset
 	asl a
 	asl a
@@ -102,46 +102,46 @@ ReloadRink:
 	tay
 	jsl.l DMAToVRAM
 	lda.w #RinkLogoTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #RinkLogoTiles
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #RefTilesHor>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #RefTilesHor
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #RefTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #RefTiles
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #SmallFontTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SmallFontTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -178,13 +178,13 @@ ReloadRink:
 	sta.b d0
 	jsl.l RemapTiles
 	lda.w #BigFontTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #BigFontTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -196,15 +196,15 @@ ReloadRink:
 	adc.l BigFontChars
 	sta.l scorechars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #TeamBlocksTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TeamBlocksTiles
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	txa
 	lsr a
@@ -214,9 +214,9 @@ ReloadRink:
 	lsr a
 	adc.l scorechars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w reloadtime

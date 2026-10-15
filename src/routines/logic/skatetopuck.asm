@@ -29,7 +29,7 @@ skatetopuck:
 	ora.w #$FF00
 .1:
 	clc
-	adc.b $01,s
+	adc.b r0+1,s
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -45,7 +45,7 @@ org $9EB000
 	ora.w #$FF00
 .2:
 	clc
-	adc.b $03,s
+	adc.b r0+3,s
 	sec
 	sbc.w Ypos,x
 	sta.b d1
@@ -83,7 +83,7 @@ org $9EB000
 	sta.b tmp0
 	pla
 	sta.b d0
-	sta.b $00
+	sta.b r0
 	pla
 	sta.b d1
 	lda.w facedir,x
@@ -96,7 +96,7 @@ org $9EB000
 .5:
 	lda.w puckc
 	bmi .4
-	lda.b $00
+	lda.b r0
 	lsr a
 	lsr a
 	lsr a

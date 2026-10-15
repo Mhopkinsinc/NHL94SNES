@@ -1,7 +1,7 @@
 ; Print string d0 of the string list [a1]
 PrintStringFromList:
 	lda.b d0
-	sta.b $10
+	sta.b p1
 .1:
 	lda.b d0
 	bne .t1

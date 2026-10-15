@@ -1,17 +1,17 @@
-; Copy X colours from [$0C] into the colour buffer at colour Y
-SetColours:		; copy X colours from [$0C] into the colour buffer $7F7500, from colour Y
-	stx.b $16
+; Copy X colours from [p0] into the colour buffer at colour Y
+SetColours:		; copy X colours from [p0] into the colour buffer $7F7500, from colour Y
+	stx.b r3+2
 	tya
 	asl a
 	tax
 	ldy.w #$0000
 .loop:
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.l colourbuf,x
 	iny
 	iny
 	inx
 	inx
-	dec.b $16
+	dec.b r3+2
 	bne .loop
 	rtl

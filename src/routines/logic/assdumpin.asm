@@ -121,9 +121,9 @@ assdumpin:
 	ldx.b d0
 	jsl.l Mul16x8XS
 	lda.b d2
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	xba
 	and.w #$FF00
 	sta.w puckvx
@@ -131,9 +131,9 @@ assdumpin:
 	ldx.b d1
 	jsl.l Mul16x8XS
 	lda.b d2
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	xba
 	and.w #$FF00
 	sta.w puckvy

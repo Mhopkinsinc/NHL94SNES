@@ -17,7 +17,7 @@ SelectPauseController:
 	lda.w #$0000
 	pha
 .loop:
-	lda.b $01,s
+	lda.b r0+1,s
 	asl a
 	tax
 	lda.w JoyPad,x
@@ -25,14 +25,14 @@ SelectPauseController:
 	bne .1
 	lda.w cont1team,x
 	beq .1
-	lda.b $01,s
+	lda.b r0+1,s
 	jsl.l ReadjoyA
 	lda.b d3
 	bne .t2
 .1:
-	lda.b $01,s
+	lda.b r0+1,s
 	inc a
-	sta.b $01,s
+	sta.b r0+1,s
 	cmp.w #$0005
 	bcc .loop
 	pla

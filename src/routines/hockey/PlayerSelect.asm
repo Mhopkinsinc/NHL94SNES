@@ -28,16 +28,16 @@ PlayerSelect:
 	lda.w #$FFFC
 	sta.w BG3VScroll
 	lda.w #$007E
-	sta.b $12
+	sta.b p1+2
 	lda.w #$A676
-	sta.b $10
+	sta.b p1
 	lda.w #$0000
 	ldx.w #$0800
 	jsl.l MemFill
 	lda.w #$007E
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$A676
-	sta.b $0C
+	sta.b p0
 	lda.w #$0000
 	ldx.w #$0800
 	ldy.w #$0800
@@ -106,9 +106,9 @@ PlayerSelect:
 	pla
 	sta.b d1
 	lda.w #PlayerMarkerPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PlayerMarkerPalette
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0090
 	ldx.w #$0010
 	jsl.l SetColours
@@ -288,18 +288,18 @@ PlayerSelect:
 	tay
 	lda.w cont1team,y
 	beq .2x
-	sta.b $14
+	sta.b r3
 	txa
 	dec a
-	sta.b $16
+	sta.b r3+2
 .loop3:
-	lda.b $16
+	lda.b r3+2
 	asl a
 	tay
 	lda.w cont1team,y
-	cmp.b $14
+	cmp.b r3
 	beq .t2xx
-	dec.b $16
+	dec.b r3+2
 	bpl .loop3
 .2x:
 	dex
@@ -486,14 +486,14 @@ PlayerSelect:
 	jsl.l PrintLetterSprites
 	jsl.l DrawMatchupPictures
 	jsl.l SendColours
-	lda.b $10
+	lda.b p1
 	pha
-	lda.b $12
+	lda.b p1+2
 	pha
 	lda.w #SpriteFrames>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #SpriteFrames
-	sta.b $10
+	sta.b p1
 	ldy.w #$0000
 .loopxxxx:
 	phy
@@ -506,7 +506,7 @@ PlayerSelect:
 	lsr a
 	clc
 	adc.w #SPFpad+1-1		; DrawSprite index (frame - 1) of the controller's star
-	sta.b $00
+	sta.b r0
 	lda.b d1+2
 	asl a
 	asl a
@@ -528,7 +528,7 @@ PlayerSelect:
 	lsr a
 	clc
 	adc.w #SPFsmallfont+1-1	; DrawSprite index (frame - 1) of the controller number
-	sta.b $00
+	sta.b r0
 	lda.b d1+2
 	asl a
 	asl a
@@ -563,9 +563,9 @@ PlayerSelect:
 	bcc .loopxxxx
 .4xx:
 	pla
-	sta.b $12
+	sta.b p1+2
 	pla
-	sta.b $10
+	sta.b p1
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	jmp.w .4

@@ -22,9 +22,9 @@ SPCTitleUpload:
 	ldx.w #$0000
 .loop:
 	lda.l TitleSampleList,x
-	sta.b $0C
+	sta.b p0
 	lda.l TitleSampleList+2,x
-	sta.b $0E
+	sta.b p0+2
 	phx
 	jsl.l SPCUploadBlock
 	plx

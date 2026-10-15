@@ -1,4 +1,4 @@
-; A = the first VRAM tile of the frame at [$0C], loaded now if needed; negative if there is no room
+; A = the first VRAM tile of the frame at [p0], loaded now if needed; negative if there is no room
 GetFrameTiles:
 	ldy.w FrameCacheCount
 	beq .2
@@ -8,7 +8,7 @@ GetFrameTiles:
 	lda.w $2740,x
 	bpl .3
 .2:
-	lda.b $14
+	lda.b r3
 	pha
 	sep #$20
 	lda.b #$80
@@ -26,7 +26,7 @@ GetFrameTiles:
 	bpl .t1
 .1:
 	pla
-	sta.b $14
+	sta.b r3
 	lda.w #$FFFF
 	sta.w FrameTilesFail
 	rts
@@ -34,7 +34,7 @@ GetFrameTiles:
 .t1:
 	tax
 	pla
-	sta.b $14
+	sta.b r3
 	bra .4
 .3:
 	xba
@@ -47,10 +47,10 @@ GetFrameTiles:
 	lda.w $2E40,x
 	rts
 .5:
-	lda.b $0C
+	lda.b p0
 	cmp.w $2540,x
 	bne .1x
-	lda.b $0E
+	lda.b p0+2
 	cmp.w $2640,x
 	beq .4
 .1x:
@@ -60,10 +60,10 @@ GetFrameTiles:
 	bne .5
 	bra .2
 
-.t1x:		; DrawSprite with the frame at [$0C]
-	sta.b $14
-	stx.b $1C
-	sty.b $1E
+.t1x:		; DrawSprite with the frame at [p0]
+	sta.b r3
+	stx.b r5
+	sty.b r5+2
 	phb
 	pea.w $7E7E
 	plb

@@ -1,8 +1,8 @@
-; LZ data at [$0C] (after its header) to WRAM
+; LZ data at [p0] (after its header) to WRAM
 DecompressLZ:
-	lda.b $10
+	lda.b p1
 	sta.b LZOutAddr
-	lda.b $12
+	lda.b p1+2
 	sta.b LZCopySrc+2
 	stz.b LZCmd
 	stz.b LZCmdByte2
@@ -11,7 +11,7 @@ DecompressLZ:
 	sep #$20
 	ldy.w #$0005
 .2:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.b LZCmd
 	and.b #$80
@@ -19,7 +19,7 @@ DecompressLZ:
 	jmp.w .t3
 
 .t1:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.b LZCmdByte2
 	lda.b LZCmd
@@ -32,7 +32,7 @@ DecompressLZ:
 	sta.b LZOutAddr
 	sep #$20
 .loop:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.w WMDATA
 	dex
@@ -80,10 +80,10 @@ DecompressLZ:
 	jmp.w .t2
 
 .t1x:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.b LZCmdByte2
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.b LZCmdByte3
 	rep #$20
@@ -99,7 +99,7 @@ DecompressLZ:
 	sta.b LZOutAddr
 	sep #$20
 .loopx:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.w WMDATA
 	dex
@@ -150,19 +150,19 @@ DecompressLZ:
 	clc
 	adc.b LZOutAddr
 	sta.b LZOutAddr
-	lda.b [$0C],y
+	lda.b [p0],y
 	xba
 	sta.b LZDistance
 	iny
 	iny
 	sep #$20
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.b LZLenLo
 	txa
 	beq .1xx
 .loopxx:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.w WMDATA
 	dex
@@ -212,7 +212,7 @@ DecompressLZ:
 	sta.b LZOutAddr
 	sep #$20
 .loopxxx:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.w WMDATA
 	dex
@@ -230,7 +230,7 @@ DecompressLZ:
 	sta.b LZOutAddr
 	sep #$20
 .loopxxxx:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.w WMDATA
 	dex

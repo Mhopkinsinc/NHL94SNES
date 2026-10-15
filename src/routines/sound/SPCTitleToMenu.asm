@@ -5,24 +5,24 @@ SPCTitleToMenu:
 	jsl.l SPCCmd04
 	jsl.l SPCCmd04
 	lda.w #SampleTimp>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SampleTimp
-	sta.b $0C
+	sta.b p0
 	jsl.l SPCUploadBlock
 	lda.w #SampleDist>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SampleDist
-	sta.b $0C
+	sta.b p0
 	jsl.l SPCUploadBlock
 	lda.w #SamplePlayoffOrgan>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SamplePlayoffOrgan
-	sta.b $0C
+	sta.b p0
 	jsl.l SPCUploadBlock
 	lda.w #SampleAPower>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SampleAPower
-	sta.b $0C
+	sta.b p0
 	jsl.l SPCUploadBlock
 	lda.w #$0002
 	sta.w sndbank

@@ -19,7 +19,7 @@ DecompressPairs:	; byte pair data at Y (after its header) to WRAM
 	inc.w DecompBuf,x
 	iny
 	lda.w $0000,y
-	sta.b $00
+	sta.b r0
 	beq .7
 .loop2:
 	iny
@@ -32,7 +32,7 @@ DecompressPairs:	; byte pair data at Y (after its header) to WRAM
 	lda.w $0000,y
 	sta.w DecompTab2,x
 	dec.w DecompBuf,x
-	dec.b $00
+	dec.b r0
 	bne .loop2
 	bra .7
 .2:

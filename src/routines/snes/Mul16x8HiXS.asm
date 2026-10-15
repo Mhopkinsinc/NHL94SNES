@@ -13,6 +13,6 @@ Mul16x8HiXS_Neg:
 	jsl.l Mul16x8HiU_Pre
 	eor.w #$FFFF
 	inc a
-	sta.b $09
+	sta.b r2+1
 	ply
 	rtl

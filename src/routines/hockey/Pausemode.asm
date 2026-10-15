@@ -2,13 +2,13 @@
 Pausemode:
 	phx
 	lda.w #textmap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #textmap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007E
-	sta.b $12
+	sta.b p1+2
 	lda.w #$4F7E
-	sta.b $10
+	sta.b p1
 	ldx.w #$0800
 	jsl.l MemCopy
 	plx
@@ -64,13 +64,13 @@ Pausemode:
 	jsl.l SoundInit
 	phx
 	lda.w #$007E
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$4F7E
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap
-	sta.b $10
+	sta.b p1
 	ldx.w #$0800
 	jsl.l MemCopy
 	plx

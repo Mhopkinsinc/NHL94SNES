@@ -50,12 +50,12 @@ AvgCline:
 	bpl .loop
 	lda.b d1
 	beq .3
-	sta.b $04
+	sta.b r1
 	phx
 	lda.b d0
-	sta.b $08
+	sta.b r2
 	jsl.l Div16U
-	lda.b $00
+	lda.b r0
 	sta.b d0
 	plx
 .3:

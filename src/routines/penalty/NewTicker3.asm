@@ -74,7 +74,7 @@ NewTicker3:
 	sta.b a1
 	pla
 	sta.b a1+2
-	lda.b $01,s
+	lda.b r0+1,s
 	sta.w printx
 	lda.l playoffRoundIdx
 	inc a
@@ -88,7 +88,7 @@ NewTicker3:
 	lda.w #GameLabels
 	sta.b a1
 	jsl.l PrintStringFromList
-	lda.b $01,s
+	lda.b r0+1,s
 	clc
 	adc.w #$0015
 	sta.w printx

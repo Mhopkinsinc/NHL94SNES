@@ -15,26 +15,26 @@ wallcoll:
 	txy
 	ldx.w Yvel,y
 	jsl.l Mul16x8S
-	lda.b $09
+	lda.b r2+1
 	sta.b d0
 	ldx.w Xvel,y
 	lda.b d1
 	jsl.l Mul16x8S
 	lda.b d0
 	sec
-	sbc.b $09
+	sbc.b r2+1
 	eor.w #$FFFF
 	inc a
 	sta.b d2
 	ldx.w Xvel,y
-	lda.b $01,s
+	lda.b r0+1,s
 	jsl.l Mul16x8S
-	lda.b $09
+	lda.b r2+1
 	sta.b d0
 	ldx.w Yvel,y
 	lda.b d1
 	jsl.l Mul16x8S
-	lda.b $09
+	lda.b r2+1
 	clc
 	adc.b d0
 	sta.b d3
@@ -117,9 +117,9 @@ org $9E9000
 	sbc.w #$000A
 	bmi .1x
 	lda.w Xvel,x
-	sta.b $0C
+	sta.b p0
 	lda.w Yvel,x
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$000D
 	jsl.l sfx
 .1x:
@@ -137,28 +137,28 @@ org $9E9000
 	lda.w #$FC18
 	sta.b d2
 .7:
-	lda.b $01,s
+	lda.b r0+1,s
 	ldx.b d3
 	jsl.l Mul16x8S
-	lda.b $09
+	lda.b r2+1
 	sta.b tmp0
-	lda.b $03,s
+	lda.b r0+3,s
 	ldx.b d2
 	jsl.l Mul16x8S
 	lda.b tmp0
 	sec
-	sbc.b $09
+	sbc.b r2+1
 	ldx.b a3
 	sta.w Xvel,x
-	lda.b $03,s
+	lda.b r0+3,s
 	ldx.b d3
 	jsl.l Mul16x8S
-	lda.b $09
+	lda.b r2+1
 	sta.b d3
-	lda.b $01,s
+	lda.b r0+1,s
 	ldx.b d2
 	jsl.l Mul16x8S
-	lda.b $09
+	lda.b r2+1
 	clc
 	adc.b d3
 	ldx.b a3

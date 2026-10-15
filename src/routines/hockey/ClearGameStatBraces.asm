@@ -33,9 +33,9 @@ SendGameStatsPage:
 	xba
 	lsr a
 	adc.w #$2780
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w listrows
 	inc a
 	xba

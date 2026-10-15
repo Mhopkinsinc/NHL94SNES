@@ -28,9 +28,9 @@ PlayoffScreen:
 	lda.w MusicOn
 	bne .loop
 	lda.w #PlayoffSong>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PlayoffSong
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 	jmp.w .2
 
@@ -56,29 +56,29 @@ PlayoffScreen:
 	sta.w TM
 	rep #$30
 	lda.w #MenuBackTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuBackTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$3000
 	jsl.l DMAToVRAM
 	lda.w #MenuBackMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuBackMap
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0246
-	sta.b $0C
+	sta.b p0
 	phx
 	ldx.w #$0240
 	ldy.w #$0800
@@ -90,25 +90,25 @@ PlayoffScreen:
 	ldy.w #$0920
 	jsl.l DMAToVRAM
 	lda.w #MenuBackPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuBackPalette
-	sta.b $0C
+	sta.b p0
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0000
 	ldx.w #$0010
 	jsl.l DMAToCGRAM
 	lda.w #PlayoffTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PlayoffTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -118,28 +118,28 @@ PlayoffScreen:
 	lsr a
 	sta.l smallfontchars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$1000
 	jsl.l DMAToVRAM
 	lda.w #PlayoffPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PlayoffPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #palbuffer>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #palbuffer
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #SmallFontTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SmallFontTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -160,13 +160,13 @@ PlayoffScreen:
 	sta.b a1
 	jsl.l RemapTiles
 	lda.w #SmallFontTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #SmallFontTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	txa
 	lsr a
@@ -177,9 +177,9 @@ PlayoffScreen:
 	adc.l BigFontChars
 	sta.l scorechars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #$031A
@@ -188,9 +188,9 @@ PlayoffScreen:
 	sta.l palbuffer+$C2
 	sta.l palbuffer+$E2
 	lda.w #$007E
-	sta.b $12
+	sta.b p1+2
 	lda.w #$3674
-	sta.b $10
+	sta.b p1
 	ldx.w #$001B
 .loopx:
 	phx
@@ -199,30 +199,30 @@ PlayoffScreen:
 	asl a
 	tax
 	lda.l TeamBlockPalettes+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.l TeamBlockPalettes,x
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0008
-	lda.b [$0C],y
+	lda.b [p0],y
 	pha
-	lda.b $03,s
+	lda.b r0+3,s
 	asl a
 	tax
 	lda.l .8,x
 	and.w #$00FF
 	tay
 	pla
-	sta.b [$10],y
-	lda.b $01,s
+	sta.b [p1],y
+	lda.b r0+1,s
 	asl a
 	asl a
 	asl a
 	tax
 	jsr.w .9
 	ldy.w #$0012
-	lda.b [$0C],y
+	lda.b [p0],y
 	pha
-	lda.b $03,s
+	lda.b r0+3,s
 	asl a
 	tax
 	inx
@@ -230,8 +230,8 @@ PlayoffScreen:
 	and.w #$00FF
 	tay
 	pla
-	sta.b [$10],y
-	lda.b $01,s
+	sta.b [p1],y
+	lda.b r0+1,s
 	asl a
 	inc a
 	asl a
@@ -246,76 +246,76 @@ PlayoffScreen:
 	adc.w #$0070
 	sta.l cupchars
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$6700
-	sta.b $0C
+	sta.b p0
 	ldx.w #$0E00
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #StanleyCupPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #StanleyCupPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #(palbuffer+$60)>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #palbuffer+$60		; palette 3
-	sta.b $10
+	sta.b p1
 	ldx.w #$0020
 	jsl.l MemCopy
 	lda.w #StanleyCupTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #StanleyCupTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #BigLetterTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #BigLetterTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #bigtextbuf>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #bigtextbuf
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #bigtextbuf>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #bigtextbuf
-	sta.b $0C
+	sta.b p0
 	lda.w #hlsavebuf>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #hlsavebuf
-	sta.b $10
-	stx.b $00
+	sta.b p1
+	stx.b r0
 	jsl.l LinearToPlanar
 	lda.w #bigtextbuf>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #bigtextbuf
-	sta.b $10
+	sta.b p1
 	lda.w #$0000
 	ldx.w #$8000
 	jsl.l MemFill
 	lda.w #$007E
-	sta.b $12
+	sta.b p1+2
 	lda.w #$A676
-	sta.b $10
+	sta.b p1
 	lda.w #$0000
 	ldx.w #$4002
 	jsl.l MemFill
@@ -381,9 +381,9 @@ PlayoffScreen:
 	asl a
 	tax
 	lda.l TeamPlaceNames,x
-	sta.b $0C
+	sta.b p0
 	lda.w #$009C
-	sta.b $0E
+	sta.b p0+2
 	lda.w printx
 	pha
 	lda.w #$005C
@@ -468,9 +468,9 @@ org $9D9000
 
 .t1x:
 	lda.w #bigtextbuf>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #bigtextbuf
-	sta.b $0C
+	sta.b p0
 	ldy.w #$4000
 	lda.l bigtextchar
 	inc a
@@ -590,24 +590,24 @@ org $9D9000
 	bne .loopxxx
 .1x:
 	lda.w #StanleyCupMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #StanleyCupMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #$007E
-	sta.b $12
+	sta.b p1+2
 	lda.w #$A676
-	sta.b $10
+	sta.b p1
 	lda.w #$0080
-	sta.b $24
+	sta.b r7
 	ldx.w #$003D
 	ldy.w #$0008
 	lda.l cupchars
@@ -636,33 +636,33 @@ org $9D9000
 	sta.l screenmap+2
 	sta.l screenmap2+2
 	lda.w #screenmap2>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #screenmap2
-	sta.b $0C
+	sta.b p0
 	lda.w #$3800
 	sta.w MapVRAM
 	lda.w #$0020
-	sta.b $24
-	stz.b $26
+	sta.b r7
+	stz.b r7+2
 	lda.w #$0040
-	sta.b $18
+	sta.b r4
 	lda.w #$0020
-	sta.b $1A
+	sta.b r4+2
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
 	lda.w #screenmap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #screenmap
-	sta.b $0C
+	sta.b p0
 	stz.w MapVRAM
 	lda.w #$0020
-	sta.b $24
-	stz.b $26
+	sta.b r7
+	stz.b r7+2
 	lda.w #$0040
-	sta.b $18
+	sta.b r4
 	lda.w #$001C
-	sta.b $1A
+	sta.b r4+2
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
@@ -683,9 +683,9 @@ org $9D9000
 	lda.w #$FFFF
 	sta.l palbuffer+$26
 	lda.w #$007E
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$3614
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0010
 	ldx.w #$0070
 	jsl.l DMAToCGRAM
@@ -708,9 +708,9 @@ org $9D9000
 	ldy.w #$007E
 	jsl.l PulseColour
 	lda.w #$007E
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$3614
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0010
 	ldx.w #$0010
 	jsl.l DMAToCGRAM
@@ -765,19 +765,19 @@ org $9D9000
 	jmp.w .4
 
 .t1xxxx:
-	sta.b $24
+	sta.b r7
 	pha
 	lda.w #screenmap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #screenmap
-	sta.b $0C
+	sta.b p0
 	stz.w MapVRAM
-	stz.b $26
+	stz.b r7+2
 	lda.w #$0001
-	sta.b $18
+	sta.b r4
 	lda.w #$001C
-	sta.b $1A
-	lda.b $24
+	sta.b r4+2
+	lda.b r7
 	sec
 	sbc.w #$0020
 	and.w #$003F
@@ -786,19 +786,19 @@ org $9D9000
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
 	lda.w #screenmap2>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #screenmap2
-	sta.b $0C
+	sta.b p0
 	lda.w #$3800
 	sta.w MapVRAM
 	plx
 	pla
-	sta.b $24
-	stz.b $26
+	sta.b r7
+	stz.b r7+2
 	lda.w #$0001
-	sta.b $18
+	sta.b r4
 	lda.w #$0020
-	sta.b $1A
+	sta.b r4+2
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
 	bra .4
@@ -811,19 +811,19 @@ org $9D9000
 	sec
 	sbc.w #$0010
 	bcc .4
-	sta.b $24
+	sta.b r7
 	pha
 	lda.w #screenmap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #screenmap
-	sta.b $0C
+	sta.b p0
 	stz.w MapVRAM
-	stz.b $26
+	stz.b r7+2
 	lda.w #$0001
-	sta.b $18
+	sta.b r4
 	lda.w #$001C
-	sta.b $1A
-	lda.b $24
+	sta.b r4+2
+	lda.b r7
 	sec
 	sbc.w #$0020
 	and.w #$003F
@@ -832,19 +832,19 @@ org $9D9000
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
 	lda.w #screenmap2>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #screenmap2
-	sta.b $0C
+	sta.b p0
 	lda.w #$3800
 	sta.w MapVRAM
 	plx
 	pla
-	sta.b $24
-	stz.b $26
+	sta.b r7
+	stz.b r7+2
 	lda.w #$0001
-	sta.b $18
+	sta.b r4
 	lda.w #$0020
-	sta.b $1A
+	sta.b r4+2
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
 .4:
@@ -906,12 +906,12 @@ org $9D9000
 .1xx:
 	sta.l colourbuf+1,x
 	sta.l colourbuf+3,x
-	lda.b $01,s
+	lda.b r0+1,s
 	tax
 	tya
 	lsr a
 	and.b #$0F
-	sta.b $00
+	sta.b r0
 	jsr.w .t1xxxxx
 	rep #$20
 	pla
@@ -929,7 +929,7 @@ org $9D9000
 	ldy.w #$0007
 .2xx:
 	phx
-	lda.b $03,s
+	lda.b r0+3,s
 	and.b #$01
 	beq .t1xxxxxx
 	lda.b #$FF
@@ -941,7 +941,7 @@ org $9D9000
 	sta.l brackettiles,x
 .3xx:
 	inx
-	lda.b $03,s
+	lda.b r0+3,s
 	and.b #$02
 	beq .t1xxxxxxx
 	lda.b #$7F
@@ -956,7 +956,7 @@ org $9D9000
 	clc
 	adc.b #$0F
 	tax
-	lda.b $03,s
+	lda.b r0+3,s
 	and.b #$04
 	beq .t1xxxxxxxx
 	lda.b #$7F
@@ -968,7 +968,7 @@ org $9D9000
 	sta.l brackettiles,x
 .5x:
 	inx
-	lda.b $03,s
+	lda.b r0+3,s
 	and.b #$08
 	beq .t1xxxxxxxxx
 	lda.b #$7F
@@ -979,8 +979,8 @@ org $9D9000
 	lda.b #$00
 	sta.l brackettiles,x
 .6x:
-	lda.b $00
-	sta.b $03,s
+	lda.b r0
+	sta.b r0+3,s
 	plx
 	inx
 	inx
@@ -994,7 +994,7 @@ org $9D9000
 	ldy.w #$0007
 .1xxx:
 	phx
-	lda.b $03,s
+	lda.b r0+3,s
 	and.b #$01
 	beq .t1xxxxxxxxxx
 	lda.b #$FF
@@ -1006,7 +1006,7 @@ org $9D9000
 	sta.l brackettiles,x
 .2xxx:
 	inx
-	lda.b $03,s
+	lda.b r0+3,s
 	and.b #$02
 	beq .t1xxxxxxxxxxx
 	lda.b #$FF
@@ -1021,7 +1021,7 @@ org $9D9000
 	clc
 	adc.b #$0F
 	tax
-	lda.b $03,s
+	lda.b r0+3,s
 	and.b #$04
 	beq .t1xxxxxxxxxxxx
 	lda.b #$FF
@@ -1033,7 +1033,7 @@ org $9D9000
 	sta.l brackettiles,x
 .4xx:
 	inx
-	lda.b $03,s
+	lda.b r0+3,s
 	and.b #$08
 	beq .t1xxxxxxxxxxxxx
 	lda.b #$FF
@@ -1044,8 +1044,8 @@ org $9D9000
 	lda.b #$00
 	sta.l brackettiles,x
 .5xx:
-	lda.b $00
-	sta.b $03,s
+	lda.b r0
+	sta.b r0+3,s
 	plx
 	inx
 	inx

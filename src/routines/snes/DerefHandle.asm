@@ -4,7 +4,7 @@ DerefHandle:
 	bcc .bad
 	cmp.w #$2100
 	bcs .bad
-	stx.b $14
+	stx.b r3
 	tax
 	lda.l Ram7E,x
 	ora.l Ram7E+2,x

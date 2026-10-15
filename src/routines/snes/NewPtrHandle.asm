@@ -1,7 +1,7 @@
 ; a handle for fixed memory at A in bank X; returns the handle, 0 if none is free
 NewPtrHandle:
-	stx.b $16
-	sta.b $14
+	stx.b r3+2
+	sta.b r3
 	ldx.w #$2000
 .find:
 	lda.l Ram7E,x
@@ -16,9 +16,9 @@ NewPtrHandle:
 	lda.w #$0000
 	bra .exit
 .slot:
-	lda.b $14
+	lda.b r3
 	sta.l Ram7E,x
-	lda.b $16
+	lda.b r3+2
 	sta.l Ram7E+2,x
 	txa
 .exit:

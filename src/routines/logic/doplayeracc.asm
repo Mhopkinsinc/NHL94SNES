@@ -120,7 +120,7 @@ doplayeracc:
 	sta.b d1
 	jsl.l vtoa
 	sec
-	sbc.b $01,s
+	sbc.b r0+1,s
 	inc a
 	and.w #$0007
 	cmp.w #$0003
@@ -193,9 +193,9 @@ doplayeracc:
 	lda.b tmp0
 	ldx.b d4
 	jsl.l Mul16x8S
-	lda.b $0A
+	lda.b r2+2
 	sta.b d4+2
-	lda.b $08
+	lda.b r2
 	sta.b d4
 	ldx.b a3
 	lda.w pfrev,x

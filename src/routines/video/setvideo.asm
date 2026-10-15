@@ -44,28 +44,28 @@ setvideo:
 	and.w #$0800
 	bne .rtl
 	lda.w #SpriteFrames>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #SpriteFrames
-	sta.b $10
+	sta.b p1
 	ldy.w #$0000
 	lda.w #SPFarrow-1		; DrawSprite index (frame - 1) of the controller's first arrow
-	sta.b $00
+	sta.b r0
 	jsr.w .t1
 	ldy.w #$0002
 	lda.w #SPFarrow+3-1
-	sta.b $00
+	sta.b r0
 	jsr.w .t1
 	ldy.w #$0004
 	lda.w #SPFarrow+6-1
-	sta.b $00
+	sta.b r0
 	jsr.w .t1
 	ldy.w #$0006
 	lda.w #SPFarrow+9-1
-	sta.b $00
+	sta.b r0
 	jsr.w .t1
 	ldy.w #$0008
 	lda.w #SPFarrow+12-1
-	sta.b $00
+	sta.b r0
 	jsr.w .t1
 .rtl:
 	rtl
@@ -143,12 +143,12 @@ setvideo:
 	beq .6
 	sta.b d1
 .6:
-	lda.b $00
+	lda.b r0
 	clc
 	adc.l .8+4,x
-	sta.b $00
+	sta.b r0
 	lda.l .8+6,x
-	sta.b $14
+	sta.b r3
 	lda.b d0
 	clc
 	adc.w #$0080
@@ -160,7 +160,7 @@ setvideo:
 	adc.w #$0070
 	tay
 	lda.w #$2000
-	ora.b $14
+	ora.b r3
 	jsl.l DrawSprite
 .rts:
 	rts

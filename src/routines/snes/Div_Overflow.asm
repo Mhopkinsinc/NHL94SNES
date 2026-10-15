@@ -2,16 +2,16 @@
 Div_Overflow:
 	rep #$20
 	lda.w #$7FFF
-	sta.b $00
+	sta.b r0
 	rtl
 	sep #$20		; not reached
 Div32U_ByteDivisor:		; $08-$0A / $04 (8-bit) with the hardware divider, high byte first
-	lda.b $0A
+	lda.b r2+2
 	beq Div16x8U_Go
-	cmp.b $04
+	cmp.b r1
 	bcs Div_Overflow
-	ldx.b $09
-	lda.b $04
+	ldx.b r2+1
+	lda.b r1
 	stx.w WRDIVL
 	sta.w WRDIVB
 	phx
@@ -19,11 +19,11 @@ Div32U_ByteDivisor:		; $08-$0A / $04 (8-bit) with the hardware divider, high byt
 	nop
 	nop
 	lda.w RDDIVL
-	sta.b $01
+	sta.b r0+1
 	lda.w RDMPYL
-	sta.b $09
-	lda.b $04
-	ldx.b $08
+	sta.b r2+1
+	lda.b r1
+	ldx.b r2
 	stx.w WRDIVL
 	sta.w WRDIVB
 	phx
@@ -31,6 +31,6 @@ Div32U_ByteDivisor:		; $08-$0A / $04 (8-bit) with the hardware divider, high byt
 	nop
 	nop
 	lda.w RDDIVL
-	sta.b $00
+	sta.b r0
 	rep #$20
 	rtl

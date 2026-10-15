@@ -9,11 +9,11 @@ SuperDiv:
 	lda.b #$00
 	xba
 	lda.l passbits+$F
-	sta.b $14
+	sta.b r3
 .loop:
 	lda.l passbits,x
 	sta.w WRDIVL
-	lda.b $14
+	lda.b r3
 	sta.w WRDIVH
 	lda.b d0
 	sta.w WRDIVB
@@ -31,10 +31,10 @@ SuperDiv:
 	adc.b #$00
 	xba
 	lda.w RDMPYL
-	sta.b $14
+	sta.b r3
 	dex
 	bpl .loop
-	lda.b $14
+	lda.b r3
 	sta.b d0
 	plx
 	rep #$30
@@ -53,11 +53,11 @@ SuperDiv:
 	clc
 	ldx.b #$0E
 	lda.l passbits+$F
-	sta.b $14
+	sta.b r3
 .loopx:
-	ldy.b $14
+	ldy.b r3
 	lda.l passbits,x
-	sta.b $14
+	sta.b r3
 	tya
 	ror a
 	sta.l passbits,x

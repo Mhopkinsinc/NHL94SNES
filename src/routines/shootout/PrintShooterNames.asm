@@ -92,10 +92,10 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 .3:
 	ldx.w #$0000
 	lda.l matchuphome
-	lda.b $12
-	sta.b $0E
-	lda.b $10
-	sta.b $0C
+	lda.b p1+2
+	sta.b p0+2
+	lda.b p1
+	sta.b p0
 	jsl.l FreeFrameTiles
 .4:
 	plx

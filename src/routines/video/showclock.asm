@@ -13,9 +13,9 @@ showclock:
 	lda.w #$003A
 	sta.w mesarea+4
 	lda.w gameclock
-	sta.b $08
+	sta.b r2
 	lda.w #$000A
-	sta.b $04
+	sta.b r1
 	jsl.l Div16x8U
 	lda.w RDMPYL
 	clc
@@ -23,10 +23,10 @@ showclock:
 	sep #$20
 	sta.w mesarea+6
 	rep #$20
-	lda.b $00
-	sta.b $08
+	lda.b r0
+	sta.b r2
 	lda.w #$0006
-	sta.b $04
+	sta.b r1
 	jsl.l Div16x8U
 	lda.w RDMPYL
 	clc
@@ -34,10 +34,10 @@ showclock:
 	sep #$20
 	sta.w mesarea+5
 	rep #$20
-	lda.b $00
-	sta.b $08
+	lda.b r0
+	sta.b r2
 	lda.w #$000A
-	sta.b $04
+	sta.b r1
 	jsl.l Div16x8U
 	lda.w RDMPYL
 	clc
@@ -45,7 +45,7 @@ showclock:
 	sep #$20
 	sta.w mesarea+3
 	rep #$20
-	lda.b $00
+	lda.b r0
 	beq .1
 	clc
 	adc.w #$0030

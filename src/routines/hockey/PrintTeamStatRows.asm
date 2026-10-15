@@ -1,9 +1,9 @@
 ; Print each team-stat name and both teams' numbers.
 PrintTeamStatRows:
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$2780
-	sta.b $10
+	sta.b p1
 	ldx.w #$4D80
 	lda.l smallfontchars
 	clc

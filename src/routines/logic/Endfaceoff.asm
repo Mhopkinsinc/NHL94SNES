@@ -1,8 +1,8 @@
 ; Drop the puck: pick the face off winner and send the puck off
 Endfaceoff:
 	lda.w #$2400
-	sta.b $0C
-	stz.b $0E
+	sta.b p0
+	stz.b p0+2
 	lda.w #$0007
 	jsl.l sfx
 	lda.w #$0100

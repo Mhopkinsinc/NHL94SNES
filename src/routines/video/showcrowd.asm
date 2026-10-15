@@ -21,7 +21,7 @@ showcrowd:
 .1:
 	ldx.w #$0028
 .2:
-	stx.b $08
+	stx.b r2
 	cpx.w #$0000
 	beq .1x
 	cpx.w #$000A
@@ -33,9 +33,9 @@ showcrowd:
 
 .t2:
 	lda.w #$009B
-	sta.b $12
+	sta.b p1+2
 	lda.l CrowdAnimTable,x
-	sta.b $10
+	sta.b p1
 	lda.w crowdanim,x
 	beq .t1x
 org $9BA000
@@ -53,7 +53,7 @@ org $9BA000
 	cpx.w #$0028
 	beq .3
 	ldy.w #$0008
-	lda.b [$10],y
+	lda.b [p1],y
 	asl a
 	asl a
 	asl a
@@ -72,10 +72,10 @@ org $9BA000
 	sta.w crowdanim,x
 	tay
 	stz.w crowdanimstep,x
-	lda.b [$10],y
-	sta.b $0C
+	lda.b [p1],y
+	sta.b p0
 	lda.w #$009B
-	sta.b $0E
+	sta.b p0+2
 	bra .7
 .4:
 	lda.w puckz
@@ -117,19 +117,19 @@ org $9BA000
 	bra .3
 .7:
 	ldy.w #$0006
-	lda.b [$10],y
+	lda.b [p1],y
 	asl a
-	adc.b [$10],y
+	adc.b [p1],y
 	sta.w crowdanimtime,x
 	ldy.w crowdanimstep,x
-	lda.b [$0C],y
+	lda.b [p0],y
 	bmi .5
 	tax
-	lda.b [$10]
+	lda.b [p1]
 	jsl.l Mul8U
 	ldy.w #$0004
 	clc
-	adc.b [$10],y
+	adc.b [p1],y
 	asl a
 	asl a
 	asl a
@@ -137,11 +137,11 @@ org $9BA000
 	asl a
 	clc
 	adc.w #CrowdTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #CrowdTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	ldy.w #$0002
-	lda.b [$10],y
+	lda.b [p1],y
 	asl a
 	asl a
 	asl a
@@ -149,7 +149,7 @@ org $9BA000
 	clc
 	adc.w #$1000
 	tay
-	lda.b [$10]
+	lda.b [p1]
 	asl a
 	asl a
 	asl a
@@ -157,7 +157,7 @@ org $9BA000
 	asl a
 	tax
 	jsl.l DMAToVRAM
-	ldx.b $08
+	ldx.b r2
 	cpx.w #$0028
 	bne .8
 	lda.w crowdanim+$26
@@ -168,7 +168,7 @@ org $9BA000
 	stz.w crowdanimtime+$24
 	stz.w crowdanimtime+$26
 .8:
-	ldx.b $08
+	ldx.b r2
 	dex
 	dex
 	bmi .t1xx
@@ -183,16 +183,16 @@ org $9BA000
 	sta.w crowdanimtime,x
 	bpl .8
 	ldy.w crowdanim,x
-	lda.b [$10],y
-	sta.b $0C
+	lda.b [p1],y
+	sta.b p0
 	lda.w #$009B
-	sta.b $0E
+	sta.b p0+2
 	ldy.w crowdanimstep,x
-	lda.b [$0C],y
+	lda.b [p0],y
 	bmi .t1xxx
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	bmi .t1xxx
 	tya
 	sta.w crowdanimstep,x
@@ -222,10 +222,10 @@ org $9BA000
 	sta.w crowdanim,x
 .2x:
 	ldy.w crowdanim,x
-	lda.b [$10],y
-	sta.b $0C
+	lda.b [p1],y
+	sta.b p0
 	lda.w #$009B
-	sta.b $0E
+	sta.b p0+2
 	stz.w crowdanimstep,x
 	jmp.w .7
 .3x:

@@ -14,7 +14,7 @@ assgoalie:
 	eor.w #$FFFF
 	inc a
 .1:
-	sta.b $00
+	sta.b r0
 	cmp.w #$00E4
 	bmi .2
 	cmp.w #$0104
@@ -34,7 +34,7 @@ assgoalie:
 	eor.w #$FFFF
 	inc a
 .3:
-	sta.b $00
+	sta.b r0
 	cmp.w #$00E4
 	bmi .4
 	lda.w #$FFFD
@@ -491,10 +491,10 @@ assgoalie:
 	beq .1xxxxxxxxx
 	ora.w #$FF80
 .1xxxxxxxxx:
-	sta.b $14
+	sta.b r3
 	cmp.w #$8000
 	ror a
-	adc.b $14
+	adc.b r3
 	clc
 	adc.w pucky
 	sta.b d1
@@ -520,10 +520,10 @@ assgoalie:
 	beq .1xxxxxxxxxx
 	ora.w #$FF00
 .1xxxxxxxxxx:
-	sta.b $14
+	sta.b r3
 	cmp.w #$8000
 	ror a
-	adc.b $14
+	adc.b r3
 	clc
 	adc.w puckx
 	sta.b d0
@@ -595,9 +595,9 @@ assgoalie:
 	lda.b d4
 	jsl.l Mul16x8XS
 	lda.b d2
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	sta.b d1
 	lda.b d4
 	adc.w #$0006
@@ -605,9 +605,9 @@ assgoalie:
 	ldx.b d0
 	jsl.l Mul16x8XS
 	lda.b d2
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	sta.b d0
 	ldx.b curobj
 .5x:
@@ -682,13 +682,13 @@ assgoalie:
 	sec
 	sbc.w Xpos,x
 	sta.b d0
-	sta.b $02
+	sta.b r0+2
 	bit.w #$8000
 	beq .2xxxxxxx
 	eor.w #$FFFF
 	inc a
 .2xxxxxxx:
-	sta.b $00
+	sta.b r0
 	lda.w puckvy
 	xba
 	lsr a
@@ -708,7 +708,7 @@ assgoalie:
 	eor.w #$FFFF
 	inc a
 .4xx:
-	sta.b $04
+	sta.b r1
 	jsl.l vtoa
 	lda.b d0
 	cmp.w #$0008
@@ -746,25 +746,25 @@ assgoalie:
 	bra .41
 
 .t1xxxxxxxxxxxx:
-	lda.b $02
+	lda.b r0+2
 	bpl .36
 .34:
 	lda.w #$0007
 	bra .41
 .35:
-	lda.b $02
+	lda.b r0+2
 	bpl .34
 .36:
 	lda.w #$0001
 	bra .41
 .37:
-	lda.b $00
-	cmp.b $04
+	lda.b r0
+	cmp.b r1
 	bpl .36
 	bra .34
 .38:
-	lda.b $04
-	cmp.b $00
+	lda.b r1
+	cmp.b r0
 	bpl .36
 	bra .34
 .39:
@@ -882,7 +882,7 @@ assgoalie:
 	eor.w #$FFFF
 	inc a
 .1xxxxxxxxxxxxxxxxxx:
-	sta.b $00
+	sta.b r0
 	lda.w Xvel,y
 	bit.w #$8000
 	beq .2xxxxxxxxx
@@ -890,7 +890,7 @@ assgoalie:
 	inc a
 .2xxxxxxxxx:
 	lsr a
-	cmp.b $00
+	cmp.b r0
 	bcs .t2xxxxx
 	lda.w goaliestopped
 	bne .7x

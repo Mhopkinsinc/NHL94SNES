@@ -18,12 +18,12 @@ GetNameandAttrib:
 	pha
 	lda.b a1+2
 	pha
-	lda.b $08
+	lda.b r2
 	pha
 	jsl.l PlayerNumName
 	jsl.l print
 	pla
-	sta.b $08
+	sta.b r2
 	lda.w #$0019
 	sta.w printx
 	lda.l pausesubmenu

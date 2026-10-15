@@ -2,15 +2,15 @@
 DrawLicenceNHL:
 	jsl.l SpriteFrameStart
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$5000
-	sta.b $10
+	sta.b p1
 	lda.w #$0009
 	jsr.w DrawTitleSprite
 	lda.w #$000A
 	jsr.w DrawTitleSprite
 	lda.w #$000B
-	sta.b $00
+	sta.b r0
 	ldx.w #$003C
 	ldy.w #$00B0
 	lda.w #$2800

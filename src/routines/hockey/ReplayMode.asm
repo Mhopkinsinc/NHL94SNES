@@ -21,21 +21,21 @@ ReplayMode:
 	sta.w replaylock
 	sta.l replaypanel
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$C800
-	sta.b $0C
+	sta.b p0
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.w #$0055
-	sta.b $26
+	sta.b r7+2
 	lda.w #$0008
-	sta.b $18
+	sta.b r4
 	lda.w #$0008
-	sta.b $1A
+	sta.b r4+2
 	lda.w #$0000
 	sta.w MapVRAM
 	lda.w #$2000
-	sta.b $14
+	sta.b r3
 	lda.l charofs
 	ldx.w #$0002
 	ldy.w #$0002
@@ -69,14 +69,14 @@ ReplayMode:
 	lda.w ReplayBufferPtr
 	sec
 	sbc.w #ReplayBufferStart
-	sta.b $08
+	sta.b r2
 	lda.w ReplayBufferPtr+2
 	sbc.w #$007E
-	sta.b $0A
+	sta.b r2+2
 	lda.w #replaysize
-	sta.b $04
+	sta.b r1
 	jsl.l Div32U
-	lda.b $0A
+	lda.b r2+2
 	bne .loop
 	lda.w ReplayBufferPtr+2
 	sta.b a4+2
@@ -95,7 +95,7 @@ ReplayMode:
 	lsr a
 	pha
 .loop3:
-	lda.b $01,s
+	lda.b r0+1,s
 	beq .t1
 	jsl.l adda4
 	pla
@@ -711,17 +711,17 @@ org $9BB001
 	cmp.w #$0002
 	bcc .t1xxxxxxxxx
 	lda.w #PlayoffSong>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PlayoffSong
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 	jmp.w .1xxxxxxxxxxxxxx
 
 .t1xxxxxxxxx:
 	lda.w #MenuSong>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #MenuSong
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 .1xxxxxxxxxxxxxx:
 	rtl

@@ -7079,3 +7079,15 @@ $3E,StreamSrc,,behavior,"RAM; Long pointer ($40 = StreamSrc+2, bank) to the samp
 $52,VarLenAcc,,behavior,"RAM; ReadVarLen: sta $52 = value so far, then ($52 << 7) or $54 for each continuation byte (top bit ...",src/ram94snes.asm
 $54,VarLenByte,,behavior,"RAM; ReadVarLen: the next byte and #$7F, ORed into the shifted VarLenAcc",src/ram94snes.asm
 $66,VoiceRotor,,behavior,"RAM; FindFreeVoice: lda $66 : inc : and #$07 : sta $66, the search starts at that voice (round ...",src/ram94snes.asm
+$0C,p0,,behavior,RAM; long pointer; p0+2 is the bank,src/ram94snes.asm
+$10,p1,,behavior,RAM; long pointer; p1+2 is the bank,src/ram94snes.asm
+$00,r0,,behavior,"RAM; engine parameter / scratch register (4 bytes; r0+2 the upper word): divider and multiplier operands, DrawSprite frame",src/ram94snes.asm
+$04,r1,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
+$08,r2,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
+$14,r3,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
+$18,r4,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
+$1C,r5,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
+$20,r6,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
+$24,r7,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
+$28,r8,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm
+$2C,r9,,behavior,RAM; engine parameter / scratch register (4 bytes),src/ram94snes.asm

@@ -4,7 +4,7 @@ Mul16XS:
 	tay
 	beq Mul16_Zero
 Mul16XS_TestX:
-	sta.b $00
+	sta.b r0
 	txa
 	beq Mul16_Zero
 	bpl Mul16U_Go

@@ -15,7 +15,7 @@ RestoreReplayFrame:
 	lda.w WMDATA
 	sta.w Xpos,x
 	lda.w WMDATA
-	sta.b $14
+	sta.b r3
 	and.b #$0F
 	bit.b #$08
 	beq .1
@@ -24,7 +24,7 @@ RestoreReplayFrame:
 	sta.w Xpos+1,x
 	lda.w WMDATA
 	sta.w Ypos,x
-	lda.b $14
+	lda.b r3
 	lsr a
 	lsr a
 	lsr a
@@ -37,13 +37,13 @@ RestoreReplayFrame:
 	lda.w WMDATA
 	sta.w frame,x
 	lda.w WMDATA
-	sta.b $14
+	sta.b r3
 	and.b #$3F
 	sta.w frame+1,x
 	lda.w attribute+1,x
 	and.b #$E7
 	sta.w attribute+1,x
-	lda.b $14
+	lda.b r3
 	lsr a
 	lsr a
 	lsr a
@@ -64,7 +64,7 @@ RestoreReplayFrame:
 	sta.w rostnum+2,x
 	stz.w position+1,x
 	lda.w WMDATA
-	sta.b $14
+	sta.b r3
 	and.b #$0F
 	cmp.b #$0F
 	bne .3
@@ -73,7 +73,7 @@ RestoreReplayFrame:
 .3:
 	sta.w position,x
 	stz.w position+3,x
-	lda.b $14
+	lda.b r3
 	lsr a
 	lsr a
 	lsr a
@@ -130,30 +130,30 @@ RestoreReplayFrame:
 	lda.w WMDATA
 	sta.b d7
 	lda.w WMDATA
-	sta.b $14
+	sta.b r3
 	and.b #$0F
 	sta.w PadControlObj
-	lda.b $14
+	lda.b r3
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	sta.w PadControlObj+2
 	lda.w WMDATA
-	sta.b $14
+	sta.b r3
 	and.b #$0F
 	sta.w PadControlObj+4
-	lda.b $14
+	lda.b r3
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	sta.w PadControlObj+6
 	lda.w WMDATA
-	sta.b $14
+	sta.b r3
 	and.b #$0F
 	sta.w PadControlObj+8
-	lda.b $14
+	lda.b r3
 	lsr a
 	lsr a
 	lsr a

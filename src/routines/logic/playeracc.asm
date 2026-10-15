@@ -67,7 +67,7 @@ playeracc:
 	lda.b d7
 	jsl.l Mul16x8XS
 	ldx.b curobj
-	lda.b $08
+	lda.b r2
 	adc.w Xvel,x
 	sta.b d0
 	xba
@@ -86,7 +86,7 @@ playeracc:
 	lda.b d7
 	jsl.l Mul16x8XS
 	ldx.b curobj
-	lda.b $08
+	lda.b r2
 	adc.w Yvel,x
 	sta.b d1
 	xba
@@ -125,7 +125,7 @@ playeracc:
 	asl a
 	asl a
 	jsl.l Mul16x8U
-	lda.b $0A
+	lda.b r2+2
 	asl a
 	asl a
 	tax

@@ -11,7 +11,7 @@ findpc:
 	bne .loop
 	ldx.b xsave
 	lda.w #$0008
-	sta.b $00
+	sta.b r0
 	ldy.w puckc
 	bmi .9
 	lda.w position,x
@@ -38,7 +38,7 @@ findpc:
 	bne .2
 	ldy.w #$0004
 .2:
-	sty.b $00
+	sty.b r0
 .9:
 	lda.w #$0006
 	sta.b d1
@@ -78,10 +78,10 @@ findpc:
 	cmp.b d4
 	bne .8
 .5:
-	stz.b $14
+	stz.b r3
 	lda.w puckc
 	bmi .7
-	lda.b $00
+	lda.b r0
 	cmp.w #$0008
 	beq .7
 	eor.w puckdir,x
@@ -99,12 +99,12 @@ findpc:
 	asl a
 	asl a
 	clc
-	adc.b $14
-	sta.b $14
+	adc.b r3
+	sta.b r3
 .7:
 	lda.w puckdist,x
 	clc
-	adc.b $14
+	adc.b r3
 	bcs .8
 	cmp.b d2
 	bcs .8

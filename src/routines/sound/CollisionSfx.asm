@@ -4,8 +4,8 @@ CollisionSfx:
 	ldy.w Xvel,x
 	lda.w Yvel,x
 	jsl.l ApproxLength
-	sta.b $14
-	lda.b $01,s
+	sta.b r3
+	lda.b r0+1,s
 	tay
 	lda.w Xvel,y
 	pha
@@ -14,22 +14,22 @@ CollisionSfx:
 	pla
 	jsl.l ApproxLength
 	ply
-	cmp.b $14
+	cmp.b r3
 	bcs .t1
 	lda.w Xvel,x
-	sta.b $0C
+	sta.b p0
 	lda.w Yvel,x
-	sta.b $0E
+	sta.b p0+2
 	bra .1
 
 .t1:
 	lda.w Xvel,y
-	sta.b $0C
+	sta.b p0
 	lda.w Yvel,y
-	sta.b $0E
+	sta.b p0+2
 .1:
-	asl.b $0C
-	asl.b $0E
+	asl.b p0
+	asl.b p0+2
 	lda.w #$000F
 	jsl.l sfx
 	rtl

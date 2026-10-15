@@ -158,7 +158,7 @@ ResolveGames:
 	sta.w WinBits
 	lda.b d3
 	jsl.l Mul16U
-	lda.b $08
+	lda.b r2
 	tsb.w WinBits
 	lda.l playoffRoundIdx
 	inc a
@@ -203,7 +203,7 @@ ResolveGames:
 	sta.w WinBits
 	lda.b d3
 	jsl.l Mul16U
-	lda.b $08
+	lda.b r2
 	tsb.w WinBits
 	lda.l playoffRoundIdx
 	inc a

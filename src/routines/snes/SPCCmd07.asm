@@ -1,4 +1,4 @@
-; sound driver command $07, X and 5 bytes from [$0C]
+; sound driver command $07, X and 5 bytes from [p0]
 SPCCmd07:
 	sep #$30
 .wait:
@@ -6,10 +6,10 @@ SPCCmd07:
 	bne .wait
 	stx.w APUIO1
 	ldy.b #$00
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO2
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO3
 	iny
 	lda.b #$07
@@ -17,13 +17,13 @@ SPCCmd07:
 .ack:
 	cmp.w APUIO0
 	bne .ack
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO1
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO2
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO3
 	ldx.b #$81
 	stx.w APUIO0

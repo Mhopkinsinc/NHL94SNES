@@ -15,13 +15,13 @@ Reset_Fast:
 	stz.w OAMDATA
 	ldx.w #BGMODE
 .loop:
-	stz.b $00,x
+	stz.b r0,x
 	inx
 	cpx.w #BG1HOFS
 	bne .loop
 .loop2:
-	stz.b $00,x
-	stz.b $00,x
+	stz.b r0,x
+	stz.b r0,x
 	inx
 	cpx.w #VMAIN
 	bne .loop2
@@ -29,21 +29,21 @@ Reset_Fast:
 	sta.w VMAIN
 	inx
 .loop3:
-	stz.b $00,x
+	stz.b r0,x
 	inx
 	cpx.w #M7A
 	bne .loop3
 	ldy.w #$0000
 .loop4:
-	stz.b $00,x
+	stz.b r0,x
 	lda.w Mode7Identity,y
-	sta.b $00,x
+	sta.b r0,x
 	iny
 	inx
 	cpx.w #CGADD
 	bne .loop4
 .loop5:
-	stz.b $00,x
+	stz.b r0,x
 	inx
 	cpx.w #CGWSEL
 	bne .loop5
@@ -66,14 +66,14 @@ Reset_Fast:
 	sta.w WRIO
 	ldx.w #WRMPYA
 .loop6:
-	stz.b $00,x
+	stz.b r0,x
 	inx
 	cpx.w #HDMAEN
 	bne .loop6
 	rep #$20
 	lda.w #SoundDriver
-	sta.b $0C
-	stz.b $0E
+	sta.b p0
+	stz.b p0+2
 	jsl.l SPCIPLUpload
 	sep #$20
 	rep #$20

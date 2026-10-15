@@ -30,44 +30,44 @@ DrawPlayerPicture:
 	asl a
 	tax
 	lda.l PlayerPhotoTable,x
-	sta.b $0C
+	sta.b p0
 	lda.l PlayerPhotoTable+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
-	stx.b $00
+	stx.b r0
 	lda.b a2
 	beq .t1x
 	lda.w #$6900
-	sta.b $10
+	sta.b p1
 	sta.l vispicaddr
 	bra .2
 
 .t1x:
 	lda.w #$6F00
-	sta.b $10
+	sta.b p1
 	sta.l homepicaddr
 .2:
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	jsl.l LinearToPlanar
 	jsl.l .6
 	bne .t1xx
 	lda.w #PhotoMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PhotoMap
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.l picchars
 	clc
 	adc.w picattr
@@ -83,15 +83,15 @@ DrawPlayerPicture:
 
 .t1xx:
 	lda.w #PhotoMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PhotoMap
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.l picchars
 	clc
 	adc.w picattr
@@ -114,11 +114,11 @@ DrawPlayerPicture:
 	lda.w #$009D
 	sta.b a1+2
 	lda.b [a1]
-	sta.b $0C
+	sta.b p0
 	inc.b a1
 	inc.b a1
 	lda.b [a1]
-	sta.b $0E
+	sta.b p0+2
 	lda.b a2
 	beq .t1xxx
 	ldy.w #$0010
@@ -131,33 +131,33 @@ DrawPlayerPicture:
 	jsl.l SetColours
 	rtl
 .5:
-	sta.b $26
-	lda.b $12
-	sta.b $16
-	stx.b $1C
+	sta.b r7+2
+	lda.b p1+2
+	sta.b r3+2
+	stx.b r5
 	tya
 	asl a
-	ldx.b $24
+	ldx.b r7
 	jsl.l Mul16U
-	lda.b $1C
+	lda.b r5
 	asl a
 	clc
-	adc.b $08
-	adc.b $10
-	sta.b $10
+	adc.b r2
+	adc.b p1
+	sta.b p1
 	ldy.w #$0000
-	lda.b [$0C],y
-	sta.b $18
+	lda.b [p0],y
+	sta.b r4
 	iny
 	iny
-	lda.b [$0C],y
-	sta.b $1A
-	lda.b $0C
+	lda.b [p0],y
+	sta.b r4+2
+	lda.b p0
 	clc
 	adc.w #$0006
-	sta.b $0C
+	sta.b p0
 .loop:
-	ldx.b $18
+	ldx.b r4
 	ldy.w #$0000
 .loop2:
 	tya
@@ -165,43 +165,43 @@ DrawPlayerPicture:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.b $18
+	adc.b r4
 	dec a
 	asl a
-	adc.b $10
-	sta.b $14
-	lda.b [$0C],y
+	adc.b p1
+	sta.b r3
+	lda.b [p0],y
 	clc
-	adc.b $26
+	adc.b r7+2
 	ora.w #$4000
-	sta.b [$14]
+	sta.b [r3]
 	iny
 	iny
 	dex
 	bne .loop2
-	lda.b $24
+	lda.b r7
 	asl a
-	adc.b $10
-	sta.b $10
-	lda.b $18
+	adc.b p1
+	sta.b p1
+	lda.b r4
 	asl a
-	adc.b $0C
-	sta.b $0C
-	dec.b $1A
+	adc.b p0
+	sta.b p0
+	dec.b r4+2
 	bne .loop
 	rtl
 .6:
 	jsl.l .9
 	beq .1xxx
 	jsl.l .7
-	sta.b $14
+	sta.b r3
 	jsl.l .8
 	bne .t1xxxx
-	lda.b $14
+	lda.b r3
 	rtl
 
 .t1xxxx:
-	lda.b $14
+	lda.b r3
 	eor.w #$0001
 .1xxx:
 	rtl
@@ -225,7 +225,7 @@ DrawPlayerPicture:
 	sta.b a1+2
 	lda.w #AttribMenuSkater
 	sta.b a1
-	stz.b $08
+	stz.b r2
 	jsl.l GoalieCount
 	lda.w curplayer
 	cmp.b d0
@@ -288,15 +288,15 @@ DrawPlayerPicture:
 	sta.l homepicaddr
 .2x:
 	lda.w #PhotoMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #PhotoMap
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.l picchars
 	clc
 	adc.w picattr
@@ -318,11 +318,11 @@ DrawPlayerPicture:
 	lda.w #$009D
 	sta.b a1+2
 	lda.b [a1]
-	sta.b $0C
+	sta.b p0
 	inc.b a1
 	inc.b a1
 	lda.b [a1]
-	sta.b $0E
+	sta.b p0+2
 	lda.b a2
 	beq .t1xxxxxxxxx
 	ldy.w #$0010

@@ -10,11 +10,11 @@ ResetPPURegs:
 	sta.w BG3VScroll
 	lda.w #$FFF0
 	sta.b ClipTopUnused
-	sta.b $2C
+	sta.b r9
 	lda.w #$00E0
 	sta.b ClipBottomUnused
 	lda.w #$0100
-	sta.b $2E
+	sta.b r9+2
 	sep #$20
 	stz.w CGADSUB
 	stz.w CGWSEL

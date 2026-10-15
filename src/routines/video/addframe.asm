@@ -4,9 +4,9 @@ addframe:		; draw SpriteFrames frame $0CCD (at most $3D0) at $0CCF, $0CD1
 	cmp.w #$03D1
 	bcs .rtl
 	lda.w #SpriteFrames>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #SpriteFrames
-	sta.b $10
+	sta.b p1
 	lda.w sprhflip
 	beq .1
 	lda.w #$4000
@@ -26,7 +26,7 @@ addframe:		; draw SpriteFrames frame $0CCD (at most $3D0) at $0CCF, $0CD1
 	bcc .4
 	lda.w #$03D0
 .4:
-	sta.b $00
+	sta.b r0
 	lda.w sprattr
 	ldx.w sprx
 	ldy.w spry

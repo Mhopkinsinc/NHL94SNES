@@ -135,9 +135,9 @@ TitleScreen:
 	jsr.w TitleWindowWipe
 	jsl.l SPCTitleToMenu
 	lda.w #TitleSong>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TitleSong
-	sta.b $0C
+	sta.b p0
 	jsl.l MusicStart
 	jsl.l SpriteFrameStart
 	jsr.w PrintCopyright
@@ -148,9 +148,9 @@ TitleScreen:
 	jsl.l SpriteFrameStart
 	jsr.w PrintCopyright
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$5000
-	sta.b $10
+	sta.b p1
 	lda.w #$0009
 	jsr.w DrawTitleSprite
 	lda.w #$0010
@@ -164,9 +164,9 @@ TitleScreen:
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #$0000
 	sta.w MapVRAM
 	ldx.w #$003C
@@ -183,9 +183,9 @@ TitleScreen:
 	jsl.l SpriteFrameStart
 	jsr.w PrintCopyright
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$5000
-	sta.b $10
+	sta.b p1
 	lda.w #$0009
 	jsr.w DrawTitleSprite
 	lda.w #$000A
@@ -206,18 +206,18 @@ TitleScreen:
 	lda.w #$F0C0
 	sta.w TitleSkipMask
 	lda.w #TitlePuckTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TitlePuckTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$2000
 	jsl.l DMAToVRAMHigh
 	jsr.w ShuffleTitleTeams
@@ -435,27 +435,27 @@ TitleScreen:
 	rtl
 .7:
 	lda.w #TitlePalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TitlePalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #TitleSpritePalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TitleSpritePalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0100
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0000
 	ldx.w #$0100
 	jsl.l DMAToCGRAM
@@ -464,119 +464,119 @@ TitleScreen:
 	ldy.w #$0000
 	jsl.l FillVRAMSplit
 	lda.w #LicenceTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #LicenceTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0000
 	jsl.l DMAToVRAMHigh
 	lda.w #LicenceNHLMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #LicenceNHLMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$0000
 	sta.w MapVRAM
 	ldx.w #$003C
 	ldy.w #$003C
 	jsl.l Mode7MapToVRAM
 	lda.w #TitleLogoTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TitleLogoTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$4000
 	jsl.l DMAToVRAM
 	lda.w #Title94Map>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #Title94Map
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #$5400
 	sta.w MapVRAM
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapToVRAM
 	lda.w #TitleNHLMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TitleNHLMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #$5800
 	sta.w MapVRAM
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapToVRAM
 	lda.w #LicenceNHLPAMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #LicenceNHLPAMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #TitlePuckMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TitlePuckMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$4000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
-	lda.b $10
+	lda.b p1
 	clc
 	adc.w #$0006
-	sta.b $10
+	sta.b p1
 	lda.w #$8080
 	jsl.l MemOr
 	lda.w #TitleSprites>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #TitleSprites
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$5000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	rts
 .8:
 	ldx.w #$0BCB
 	lda.w #$0000
 .loopxx:
-	sta.b $00,x
+	sta.b r0,x
 	inx
 	inx
 	cpx.w #$0C01

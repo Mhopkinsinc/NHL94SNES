@@ -1,6 +1,6 @@
-; Copy part of map [$0C] into the screen map at column X, row Y, adding A to each entry
+; Copy part of map [p0] into the screen map at column X, row Y, adding A to each entry
 MapPartToVRAMOffset:
-	sta.b $16
+	sta.b r3+2
 	lda.w IniDispShadow-1
 	bmi .t1
 .1:
@@ -18,63 +18,63 @@ MapPartToVRAMOffset:
 	adc.w #$0400
 	sta.w MapVRAM
 .2:
-	stx.b $1C
-	sty.b $1E
+	stx.b r5
+	sty.b r5+2
 	ldy.w #$0000
-	lda.b [$0C],y
+	lda.b [p0],y
 	asl a
 	pha
-	ldx.b $26
+	ldx.b r7+2
 	jsl.l Mul16U
-	asl.b $24
-	lda.b $0C
+	asl.b r7
+	lda.b p0
 	clc
 	adc.w #$0006
-	adc.b $24
-	adc.b $08
-	sta.b $0C
+	adc.b r7
+	adc.b r2
+	sta.b p0
 	pla
-	sta.b $24
-	lda.b $1E
+	sta.b r7
+	lda.b r5+2
 	asl a
 	asl a
 	asl a
 	asl a
 	asl a
 	adc.w MapVRAM
-	ora.b $1C
+	ora.b r5
 	tax
 .3:
 	stx.w VMADDL
 	phx
-	lda.b $18
+	lda.b r4
 	clc
-	adc.b $1C
+	adc.b r5
 	cmp.w #$0021
 	bcs .5
-	ldx.b $18
+	ldx.b r4
 	ldy.w #$0000
 .loop:
-	lda.b [$0C],y
+	lda.b [p0],y
 	clc
-	adc.b $16
-	ora.b $14
+	adc.b r3+2
+	ora.b r3
 	sta.w VMDATAL
 	iny
 	iny
 	dex
 	bne .loop
 .4:
-	lda.b $0C
+	lda.b p0
 	clc
-	adc.b $24
-	sta.b $0C
+	adc.b r7
+	sta.b p0
 	pla
 	clc
 	adc.w #$0020
 	tax
-	inc.b $1E
-	lda.b $1E
+	inc.b r5+2
+	lda.b r5+2
 	cmp.w #$0020
 	bne .2x
 .1xx:
@@ -83,39 +83,39 @@ MapPartToVRAMOffset:
 	adc.w MapScreenStep
 	tax
 .2x:
-	dec.b $1A
+	dec.b r4+2
 	bne .3
 	rtl
 .5:
 	lda.w #$0020
-	sbc.b $1C
-	sta.b $20
+	sbc.b r5
+	sta.b r6
 	tax
 	ldy.w #$0000
 .loopx:
-	lda.b [$0C],y
+	lda.b [p0],y
 	clc
-	adc.b $16
-	ora.b $14
+	adc.b r3+2
+	ora.b r3
 	sta.w VMDATAL
 	iny
 	iny
 	dex
 	bne .loopx
-	lda.b $01,s
+	lda.b r0+1,s
 	clc
 	adc.w #$0400
 	and.w #$FFE0
 	sta.w VMADDL
-	lda.b $18
+	lda.b r4
 	sec
-	sbc.b $20
+	sbc.b r6
 	tax
 .loop2:
-	lda.b [$0C],y
+	lda.b [p0],y
 	clc
-	adc.b $16
-	ora.b $14
+	adc.b r3+2
+	ora.b r3
 	sta.w VMDATAL
 	iny
 	iny

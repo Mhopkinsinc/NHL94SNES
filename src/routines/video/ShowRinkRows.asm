@@ -80,19 +80,19 @@ org $9FC002
 	adc.w #$0400
 	sta.b tmp2
 	lda.b tmp1
-	sta.b $04
+	sta.b r1
 .loop:
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.b tmp0
-	sta.b $0C
+	sta.b p0
 	ldy.b tmp2
 	ldx.w #$0040
 	jsl.l DMAToVRAM
 	lda.b tmp0
 	clc
 	adc.w #$0040
-	sta.b $0C
+	sta.b p0
 	lda.b tmp2
 	clc
 	adc.w #$0400
@@ -109,7 +109,7 @@ org $9FC002
 	and.w #$03FF
 	ora.w #$0400
 	sta.b tmp2
-	dec.b $04
+	dec.b r1
 	bne .loop
 .4:
 	lda.w Hscroll
@@ -118,11 +118,11 @@ org $9FC002
 	sta.w BG2HScroll
 	lda.w Vscroll
 	and.w #$0007
-	sta.b $14
+	sta.b r3
 	lda.w vramrow
 	asl a
 	asl a
 	asl a
-	ora.b $14
+	ora.b r3
 	sta.w BG2VScroll
 	rtl

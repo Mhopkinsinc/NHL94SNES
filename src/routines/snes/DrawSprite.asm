@@ -1,43 +1,43 @@
-; draw frame $00 of the sprite set at [$10] at X, Y; A is xored into the tile and attribute word
+; draw frame $00 of the sprite set at [p1] at X, Y; A is xored into the tile and attribute word
 DrawSprite:
 		;   of each piece, and its flip bits also mirror the piece positions
-	sta.b $14
-	stx.b $1C
-	sty.b $1E
+	sta.b r3
+	stx.b r5
+	sty.b r5+2
 	phb
 	pea.w $7E7E
 	plb
 	plb
-	lda.b $00
+	lda.b r0
 	sta.w DrawFrameNum
 	asl a
 	asl a
 	tay
-	lda.b [$10],y
+	lda.b [p1],y
 	clc
-	adc.b $10
-	sta.b $0C
+	adc.b p1
+	sta.b p0
 	iny
 	iny
-	lda.b [$10],y
-	adc.b $12
-	sta.b $0E
+	lda.b [p1],y
+	adc.b p1+2
+	sta.b p0+2
 DrawSprite_draw:
 	jsr.w GetFrameTiles
 	bmi .1
-	sta.b $16
+	sta.b r3+2
 	ldx.w OAMNext
 	ldy.w #$0000
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$00FF
-	sta.b $00
+	sta.b r0
 	bra .6
 .1:
 	plb
 	rtl
 .6:
 	ldy.w #$0016
-	lda.b $14
+	lda.b r3
 	bit.w #$8000
 	beq .t1
 	jmp.w DrawSpritePieces
@@ -49,26 +49,26 @@ DrawSprite_draw:
 .2:
 	lda.w SpritesLeft
 	beq .1
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w PieceX
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w PieceY
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w PieceTile
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$00FF
 	sta.w PieceSize
 	iny
 	sty.w PieceNext
 	lda.w PieceY
 	clc
-	adc.b $1E
+	adc.b r5+2
 	cmp.w #$FFF0
 	bmi .1x
 	cmp.w #$00E0
@@ -77,27 +77,27 @@ DrawSprite_draw:
 	jmp.w .5
 
 .t2:
-	sta.b $26
+	sta.b r7+2
 	lda.w PieceX
 	clc
-	adc.b $1C
+	adc.b r5
 	cmp.w #$0100
 	bpl .5
 	cmp.w #$FFF0
 	bmi .5
-	sta.b $20
+	sta.b r6
 	sta.w $0000,x
-	lda.b $26
+	lda.b r7+2
 	sta.w $0001,x
 	lda.w PieceTile
 	clc
-	adc.b $16
-	eor.b $14
+	adc.b r3+2
+	eor.b r3
 	sta.w $0002,x
 	ldy.w OAMHiPtr
 	ldx.w OAMHiShift
 	sep #$20
-	lda.b $21
+	lda.b r6+1
 	bpl .t3
 	lda.w PieceSize
 	beq .t1x
@@ -143,7 +143,7 @@ DrawSprite_draw:
 	tax
 .5:
 	ldy.w PieceNext
-	dec.b $00
+	dec.b r0
 	beq .7
 	jmp.w .2
 .7:
@@ -152,26 +152,26 @@ DrawSprite_draw:
 .8:
 	lda.w SpritesLeft
 	beq .7
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w PieceX
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w PieceY
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w PieceTile
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$00FF
 	sta.w PieceSize
 	iny
 	sty.w PieceNext
 	lda.w PieceY
 	clc
-	adc.b $1E
+	adc.b r5+2
 	cmp.w #$FFF0
 	bmi .1xx
 	cmp.w #$00E0
@@ -180,10 +180,10 @@ DrawSprite_draw:
 	jmp.w .5x
 
 .t1xxxx:
-	sta.b $26
+	sta.b r7+2
 	lda.w PieceSize
 	beq .t2x
-	lda.b $1C
+	lda.b r5
 	sec
 	sbc.w PieceX
 	sec
@@ -191,7 +191,7 @@ DrawSprite_draw:
 	bra .2x
 
 .t2x:
-	lda.b $1C
+	lda.b r5
 	sec
 	sbc.w PieceX
 	sec
@@ -201,19 +201,19 @@ DrawSprite_draw:
 	bpl .5x
 	cmp.w #$FFF0
 	bmi .5x
-	sta.b $20
+	sta.b r6
 	sta.w $0000,x
-	lda.b $26
+	lda.b r7+2
 	sta.w $0001,x
 	lda.w PieceTile
 	clc
-	adc.b $16
-	eor.b $14
+	adc.b r3+2
+	eor.b r3
 	sta.w $0002,x
 	ldy.w OAMHiPtr
 	ldx.w OAMHiShift
 	sep #$20
-	lda.b $21
+	lda.b r6+1
 	bpl .t2xx
 	lda.w PieceSize
 	beq .t1xxxxx
@@ -259,7 +259,7 @@ DrawSprite_draw:
 	tax
 .5x:
 	ldy.w PieceNext
-	dec.b $00
+	dec.b r0
 	beq DrawSpriteExit
 	jmp.w .8
 ; The exit of DrawSprite and DrawSpritePieces

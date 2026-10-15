@@ -89,9 +89,9 @@ OtherScoresNext:
 	clc
 	adc.w listrows
 	dec a
-	sta.b $14
+	sta.b r3
 	asl a
-	adc.b $14
+	adc.b r3
 	inc a
 	sta.w printy
 	lda.w #$2000

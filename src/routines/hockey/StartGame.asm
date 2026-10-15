@@ -11,7 +11,7 @@ StartGame_go:
 	ldx.w #$0AD7
 	lda.w #$0000
 .loop:
-	sta.b $00,x
+	sta.b r0,x
 	inx
 	cpx.w #$1A11
 	bne .loop

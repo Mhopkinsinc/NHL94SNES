@@ -14,13 +14,13 @@ PrintTeamNameAndScore:
 	lda.w #$0020
 	sta.w mesarea+2
 	lda.b d0
-	sta.b $08
+	sta.b r2
 	lda.w #$000A
-	sta.b $04
+	sta.b r1
 	phx
 	jsl.l Div16x8U
 	plx
-	lda.b $00
+	lda.b r0
 	beq .1
 	adc.w #$0030
 	sta.w mesarea+2

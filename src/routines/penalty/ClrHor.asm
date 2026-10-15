@@ -32,9 +32,9 @@ ClrHor:
 	jsl.l printscores1
 .2:
 	lda.w #palbuffer>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #palbuffer
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0000
 	ldx.w #$0080
 	jsl.l DMAToCGRAM

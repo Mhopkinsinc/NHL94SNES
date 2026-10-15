@@ -1,9 +1,9 @@
 ; Build the scoring summary page in the stats page buffer: a line per goal ($7E313C, 6 bytes each)
 FillScoringPage:
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$2780
-	sta.b $10
+	sta.b p1
 	ldx.w #$4D80
 	lda.l smallfontchars
 	clc

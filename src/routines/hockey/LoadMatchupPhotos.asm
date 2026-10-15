@@ -26,16 +26,16 @@ LoadMatchupPhotos:
 	asl a
 	tax
 	lda.l PlayerPhotoTable,x
-	sta.b $0C
+	sta.b p0
 	lda.l PlayerPhotoTable+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
-	stx.b $00
-	lda.b $01,s
+	stx.b r0
+	lda.b r0+1,s
 	tax
 	lda.b a2
 	beq .t1x
@@ -47,11 +47,11 @@ LoadMatchupPhotos:
 .2:
 	clc
 	adc.l MatchupPhotoOffsets,x
-	sta.b $10
+	sta.b p1
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	jsl.l LinearToPlanar
 	plx
 	dex

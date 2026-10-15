@@ -14,14 +14,14 @@ makepde:
 	pla
 	ldx.b d0
 	jsl.l Mul16S
-	lda.b $0A
-	asl.b $08
+	lda.b r2+2
+	asl.b r2
 	rol a
-	asl.b $08
+	asl.b r2
 	rol a
-	asl.b $08
+	asl.b r2
 	rol a
-	asl.b $08
+	asl.b r2
 	rol a
 	sta.b d0
 	ldx.b a3

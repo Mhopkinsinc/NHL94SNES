@@ -18,7 +18,7 @@ PuckCarrierPad:
 	ldy.w #$0008
 .2:
 	lda.w #$0005
-	sta.b $14
+	sta.b r3
 	txa
 .3:
 	cmp.w padside,y
@@ -36,7 +36,7 @@ PuckCarrierPad:
 	bpl .1x
 	ldy.w #$0008
 .1x:
-	dec.b $14
+	dec.b r3
 	bne .3
 	plx
 .6:

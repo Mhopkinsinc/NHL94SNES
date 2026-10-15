@@ -76,7 +76,7 @@ checkgoal:
 	lda.w #$FF01
 	sta.b d0
 	lda.w #$FF01
-	sta.b $0C
+	sta.b p0
 	lda.w Yfrac,x
 	sec
 	sbc.w OldYfrac,x
@@ -95,8 +95,8 @@ checkgoal:
 	sta.b d0
 	lda.w #$0000
 	sec
-	sbc.b $0C
-	sta.b $0C
+	sbc.b p0
+	sta.b p0
 	lda.w #$0000
 	sec
 	sbc.b d5
@@ -106,7 +106,7 @@ checkgoal:
 	clc
 	adc.b d3
 	sta.b d5
-	sta.b $08
+	sta.b r2
 	lda.w Xfrac,x
 	sec
 	sbc.w OldXfrac,x
@@ -116,7 +116,7 @@ checkgoal:
 	sta.b d3+2
 	lda.b d3+1
 	sta.b d3
-	ldx.b $08
+	ldx.b r2
 	jsl.l Mul16S
 	ldx.b a3
 	lda.b d1
@@ -125,19 +125,19 @@ checkgoal:
 	eor.w #$FFFF
 	inc a
 .4:
-	sta.b $04
-	lda.b $0A
+	sta.b r1
+	lda.b r2+2
 	bit.w #$8000
 	beq .5
 	eor.w #$FFFF
 	inc a
 .5:
-	cmp.b $04
+	cmp.b r1
 	bcs .6
 	lda.b d1
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	sta.b d5
 	ldx.b a3
 	lda.b d2
@@ -173,12 +173,12 @@ checkgoal:
 .9:
 	stz.b d1
 	lda.w pucky
-	eor.b $0C
+	eor.b p0
 	bmi .7
 	lda.w #$0000
 	sec
-	sbc.b $0C
-	sta.b $0C
+	sbc.b p0
+	sta.b p0
 	lda.w #$0000
 	sec
 	sbc.b d0

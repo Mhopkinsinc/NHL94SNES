@@ -32,7 +32,7 @@ CompLine:
 	jsl.l getlinee
 	lda.b d0
 	sta.b d1
-	lda.b $01,s
+	lda.b r0+1,s
 	inc a
 	sta.b d0
 	jsl.l getlinee

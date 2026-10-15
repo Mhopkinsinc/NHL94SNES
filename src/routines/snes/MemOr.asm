@@ -1,34 +1,34 @@
-; OR the word A into X bytes at [$10]
+; OR the word A into X bytes at [p1]
 MemOr:
-	sta.b $14
+	sta.b r3
 	txy
 	dey
 	dey
 .loop:
-	lda.b [$10],y
-	ora.b $14
-	sta.b [$10],y
+	lda.b [p1],y
+	ora.b r3
+	sta.b [p1],y
 	dey
 	dey
 	bne .loop
-	lda.b [$10]
-	ora.b $14
-	sta.b [$10]
+	lda.b [p1]
+	ora.b r3
+	sta.b [p1]
 	rtl
 
 .t1:
-	sta.b $14
+	sta.b r3
 	txy
 	dey
 	dey
 .loopx:
-	lda.b [$10],y
-	and.b $14
-	sta.b [$10],y
+	lda.b [p1],y
+	and.b r3
+	sta.b [p1],y
 	dey
 	dey
 	bne .loopx
-	lda.b [$10]
-	and.b $14
-	sta.b [$10]
+	lda.b [p1]
+	and.b r3
+	sta.b [p1]
 	rtl

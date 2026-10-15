@@ -1,12 +1,12 @@
 ; Title: draw sprite A of the title set at $7F5000 at its position from the .1 / .2 tables
 DrawTitleSprite:
-	sta.b $00
+	sta.b r0
 	asl a
 	tax
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$5000
-	sta.b $10
+	sta.b p1
 	lda.l .2,x
 	tay
 	lda.l .1,x

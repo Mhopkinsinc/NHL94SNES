@@ -1,19 +1,19 @@
-; Copy byte map [$0C] (width, height) into the mode 7 map at column X, row Y
+; Copy byte map [p0] (width, height) into the mode 7 map at column X, row Y
 Mode7MapToVRAM:
-	stx.b $1C
-	sty.b $1E
+	stx.b r5
+	sty.b r5+2
 	ldy.w #$0000
-	lda.b [$0C],y
-	sta.b $18
+	lda.b [p0],y
+	sta.b r4
 	iny
 	iny
-	lda.b [$0C],y
-	sta.b $1A
-	lda.b $0C
+	lda.b [p0],y
+	sta.b r4+2
+	lda.b p0
 	clc
 	adc.w #$0006
 	tax
-	lda.b $1E
+	lda.b r5+2
 	asl a
 	asl a
 	asl a
@@ -22,14 +22,14 @@ Mode7MapToVRAM:
 	asl a
 	asl a
 	adc.w MapVRAM
-	ora.b $1C
+	ora.b r5
 	tay
 	lda.w IniDispShadow-1
 	bmi .1
 	jmp.w .3
 .1:
 	sep #$20
-	lda.b $0E
+	lda.b p0+2
 	sta.w A1B1
 	stz.w DMAP1
 	stz.w VMAIN
@@ -37,7 +37,7 @@ Mode7MapToVRAM:
 	sta.w BBAD1
 	rep #$20
 .loop:
-	lda.b $18
+	lda.b r4
 	sta.w DAS1L
 	stx.w A1T1L
 	sty.w VMADDL
@@ -47,13 +47,13 @@ Mode7MapToVRAM:
 	rep #$20
 	txa
 	clc
-	adc.b $18
+	adc.b r4
 	tax
 	tya
 	clc
 	adc.w #$0080
 	tay
-	dec.b $1A
+	dec.b r4+2
 	bne .loop
 	sep #$20
 	lda.b #$80
@@ -61,15 +61,15 @@ Mode7MapToVRAM:
 	rep #$20
 	rtl
 .3:
-	stx.b $0C
+	stx.b p0
 	ldx.b DMAQueueTail
 .loopx:
-	lda.b $0C
+	lda.b p0
 	sta.w DMAQueue+1,x
 	clc
-	adc.b $18
-	sta.b $0C
-	lda.b $18
+	adc.b r4
+	sta.b p0
+	lda.b r4
 	sta.w DMAQueue+4,x
 	tya
 	sta.w DMAQueue+6,x
@@ -77,7 +77,7 @@ Mode7MapToVRAM:
 	adc.w #$0080
 	tay
 	sep #$20
-	lda.b $0E
+	lda.b p0+2
 	sta.w DMAQueue+3,x
 	lda.b #$FB
 	sta.w DMAQueue,x
@@ -87,36 +87,36 @@ Mode7MapToVRAM:
 	adc.w #$0008
 	and.w #$03FF
 	tax
-	dec.b $1A
+	dec.b r4+2
 	bne .loopx
 	stx.b DMAQueueTail
 	rtl
 
 .t1:
-	sta.b $26
-	stx.b $1C
+	sta.b r7+2
+	stx.b r5
 	tya
 	asl a
-	ldx.b $24
+	ldx.b r7
 	jsl.l Mul16U
-	lda.b $1C
+	lda.b r5
 	asl a
 	clc
-	adc.b $08
-	adc.b $10
-	sta.b $10
-	ldx.b $22
+	adc.b r2
+	adc.b p1
+	sta.b p1
+	ldx.b r6+2
 	ldy.w #$0000
 .loopxx:
-	lda.b [$0C]
+	lda.b [p0]
 	and.w #$00FF
 	beq .2
 	clc
-	adc.b $26
-	sta.b [$10],y
+	adc.b r7+2
+	sta.b [p1],y
 	iny
 	iny
-	inc.b $0C
+	inc.b p0
 	dex
 	bne .loopxx
 .1x:
@@ -126,9 +126,9 @@ Mode7MapToVRAM:
 	bmi .1x
 	lda.w #$0020
 	clc
-	adc.b $26
-	sta.b [$10],y
+	adc.b r7+2
+	sta.b [p1],y
 	iny
 	iny
-	inc.b $0C
+	inc.b p0
 	bra .2

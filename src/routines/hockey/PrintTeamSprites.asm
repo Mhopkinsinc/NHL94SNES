@@ -5,8 +5,8 @@ PrintTeamSprites:
 	plb
 	stx.w letterx
 	sty.w lettery
-	stz.b $14
-	stz.b $16
+	stz.b r3
+	stz.b r3+2
 	lda.b d1
 	pha
 	bmi .t1
@@ -18,7 +18,7 @@ PrintTeamSprites:
 	bra PrintTeamSprites_go
 
 .t1:
-	inc.b $16
+	inc.b r3+2
 	sep #$30
 	lda.b a1+2
 	pha
@@ -80,26 +80,26 @@ PrintTeamSprites_go:
 	and.w #$00FF
 .2:
 	clc
-	adc.b $14
-	sta.b $14
+	adc.b r3
+	sta.b r3
 .3:
 	iny
 	bra PrintTeamSprites_go
 .4:
 	ldy.w #$0000
-	lda.b $16
+	lda.b r3+2
 	beq .t1xx
 	lda.b a2
 	bmi .t1xx
 	bne .5
 	lda.w #$00F8
 	sec
-	sbc.b $14
+	sbc.b r3
 	sta.w letterx
 	bra .5
 
 .t1xx:
-	lda.b $14
+	lda.b r3
 	lsr a
 	eor.w #$FFFF
 	inc a
@@ -154,15 +154,15 @@ PrintTeamSprites_go:
 	tax
 .6:
 	lda.w #SpriteFrames>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #SpriteFrames
-	sta.b $10
+	sta.b p1
 	phy
 	phx
 	txa
 	clc
 	adc.w #SPFbigfont-1		; DrawSprite index (frame - 1) of the letter
-	sta.b $00
+	sta.b r0
 	lda.l horblocks
 	bne .t1xxxxx
 	lda.w #$3800

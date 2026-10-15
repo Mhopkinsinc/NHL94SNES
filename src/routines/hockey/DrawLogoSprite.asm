@@ -1,25 +1,25 @@
 ; Draw the logo of team A as sprites at x, y with its LogoPaletteTable palette
 DrawLogoSprite:
-	sta.b $00
-	stx.b $04
-	sty.b $08
-	lda.b $00
+	sta.b r0
+	stx.b r1
+	sty.b r2
+	lda.b r0
 	asl a
 	asl a
 	tax
 	lda.l LogoPaletteTable+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.l LogoPaletteTable,x
-	sta.b $0C
+	sta.b p0
 	ldy.w #$00A0
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$7800
-	sta.b $10
+	sta.b p1
 	lda.w #$2400
-	ldx.b $04
-	ldy.b $08
+	ldx.b r1
+	ldy.b r2
 	jsl.l DrawSprite
 	rtl

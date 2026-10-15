@@ -1,36 +1,36 @@
 ; $08-$0B / $04 into $00, signed; $7FFF when the quotient does not fit
 Div32S:
-	lda.b $04
+	lda.b r1
 	bmi .divneg
-	lda.b $0A
+	lda.b r2+2
 	bmi .dividendneg
 	jmp.w Div32U
 .divneg:
 	eor.w #$FFFF
 	inc a
-	sta.b $04
-	lda.b $0A
+	sta.b r1
+	lda.b r2+2
 	bpl .negate
 	lda.w #$0000
 	sec
-	sbc.b $08
-	sta.b $08
+	sbc.b r2
+	sta.b r2
 	lda.w #$0000
-	sbc.b $0A
-	sta.b $0A
+	sbc.b r2+2
+	sta.b r2+2
 	jmp.w Div32U
 .dividendneg:
 	lda.w #$0000
 	sec
-	sbc.b $08
-	sta.b $08
+	sbc.b r2
+	sta.b r2
 	lda.w #$0000
-	sbc.b $0A
-	sta.b $0A
+	sbc.b r2+2
+	sta.b r2+2
 .negate:
 	jsl.l Div32U
 	lda.w #$0000
 	sec
-	sbc.b $00
-	sta.b $00
+	sbc.b r0
+	sta.b r0
 	rtl

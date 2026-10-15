@@ -51,10 +51,10 @@ PrintLetterSprites:
 	phx
 	phy
 	lda.w #LetterSprites>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #LetterSprites
-	sta.b $10
-	stx.b $00
+	sta.b p1
+	stx.b r0
 	lda.w #$2000
 	ldx.w letterx
 	ldy.w lettery

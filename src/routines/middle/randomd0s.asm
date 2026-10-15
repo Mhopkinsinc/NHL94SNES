@@ -1,9 +1,9 @@
 ; A = a random number from -A to A-1
 randomd0s:
-	sta.b $14
+	sta.b r3
 	asl a
 	jsl.l randoma
 	sec
-	sbc.b $14
+	sbc.b r3
 	clc
 	rtl

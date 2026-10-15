@@ -11,13 +11,13 @@ FramerRow:
 	adc.w printm
 	sta.b tmp2
 	tax
-	lda.b [$0C]
+	lda.b [p0]
 	clc
 	adc.b tmp0
 	sta.l textmap,x
-	inc.b $0C
-	inc.b $0C
-	lda.b [$0C]
+	inc.b p0
+	inc.b p0
+	lda.b [p0]
 	clc
 	adc.b tmp0
 	ldy.b d0
@@ -29,9 +29,9 @@ FramerRow:
 	sta.l textmap,x
 	dey
 	bne .loop
-	inc.b $0C
-	inc.b $0C
-	lda.b [$0C]
+	inc.b p0
+	inc.b p0
+	lda.b [p0]
 	clc
 	adc.b tmp0
 	sta.l textmap+2,x

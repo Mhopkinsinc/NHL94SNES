@@ -2,21 +2,21 @@
 PrintToStatsPage:
 	phx
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.b [a1]
 	dec a
 	dec a
-	sta.b $22
+	sta.b r6+2
 	inc.b a1
 	inc.b a1
 	lda.b a1+2
-	sta.b $0E
+	sta.b p0+2
 	lda.b a1
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$2780
-	sta.b $10
+	sta.b p1
 	ldy.w printy
 	ldx.w printx
 	lda.l smallfontchars
@@ -28,33 +28,33 @@ PrintToStatsPage:
 	rtl
 
 .t1:
-	sta.b $26
-	stx.b $1C
+	sta.b r7+2
+	stx.b r5
 	tya
 	asl a
-	ldx.b $24
+	ldx.b r7
 	jsl.l Mul16U
-	lda.b $1C
+	lda.b r5
 	asl a
 	clc
-	adc.b $08
-	adc.b $10
-	sta.b $10
+	adc.b r2
+	adc.b p1
+	sta.b p1
 	ldy.w #$0000
 .loop:
-	lda.b [$0C]
+	lda.b [p0]
 	and.w #$00FF
 	beq .2
 	asl a
 	tax
 	lda.l SmallFontMap+6,x
 	clc
-	adc.b $26
-	sta.b [$10],y
+	adc.b r7+2
+	sta.b [p1],y
 	iny
 	iny
-	inc.b $0C
-	dec.b $22
+	inc.b p0
+	dec.b r6+2
 	bne .loop
 .1:
 	rtl
@@ -63,9 +63,9 @@ PrintToStatsPage:
 	bmi .1
 	lda.w #$0020
 	clc
-	adc.b $26
-	sta.b [$10],y
+	adc.b r7+2
+	sta.b [p1],y
 	iny
 	iny
-	inc.b $0C
+	inc.b p0
 	bra .2

@@ -27,11 +27,11 @@ setplayer:
 	lda.w tmpdst,y
 	sta.b d1
 	tya
-	sta.b $14
+	sta.b r3
 	asl a
-	adc.b $14
+	adc.b r3
 	asl a
-	sta.b $14
+	sta.b r3
 	lda.b d1
 	bpl .da
 	lda.w #$000A
@@ -181,10 +181,10 @@ org $9FD000
 	sta.w weight,x
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$0000
 	jsl.l .8
@@ -196,10 +196,10 @@ org $9FD000
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$0001
 	jsl.l .8
@@ -207,10 +207,10 @@ org $9FD000
 	ldy.w #$0002
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w PPBonus
@@ -234,10 +234,10 @@ org $9FD000
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w HmAwBonus
@@ -264,10 +264,10 @@ org $9FD000
 	ldy.w #$0003
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$0004
 	jsl.l .8
@@ -279,10 +279,10 @@ org $9FD000
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w ThirdPBonus
@@ -312,10 +312,10 @@ org $9FD000
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w PPBonus
@@ -329,10 +329,10 @@ org $9FD000
 	ldy.w #$0005
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w PPBonus
@@ -350,10 +350,10 @@ org $9FD000
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$0008
 	jsl.l .8
@@ -361,10 +361,10 @@ org $9FD000
 	ldy.w #$0006
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w ThirdPBonus
@@ -380,10 +380,10 @@ org $9FD000
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w PPBonus
@@ -395,10 +395,10 @@ org $9FD000
 	ldy.w #$0007
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$000B
 	jsl.l .8
@@ -407,10 +407,10 @@ org $9FD000
 	plx
 	rtl
 .8:
-	sta.b $16
+	sta.b r3+2
 	tya
 	clc
-	adc.b $14
+	adc.b r3
 	tay
 	sep #$20
 	lda.w HotColdTable,y
@@ -421,7 +421,7 @@ org $9FD000
 	ora.b #$00
 .1xx:
 	clc
-	adc.b $16
+	adc.b r3+2
 	bpl .2x
 	lda.b #$00
 .2x:

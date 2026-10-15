@@ -50,32 +50,32 @@ DrawTeamBlocks:
 
 .t2:
 	lda.w #$1800
-	sta.b $14
+	sta.b r3
 	ldy.w #$0060
 	lda.b d1
 	cmp.w HomeTeam
 	bne .1x
 	ldx.w #$1C00
-	stx.b $14
+	stx.b r3
 	ldy.w #$0070
 .1x:
 	asl a
 	asl a
 	tax
 	lda.l TeamBlockPalettes+2,x
-	sta.b $0E
+	sta.b p0+2
 	lda.l TeamBlockPalettes,x
-	sta.b $0C
+	sta.b p0
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w HomeTeam
 	cmp.w VisTeam
 	bne .t1x
-	lda.b $14
+	lda.b r3
 	cmp.w #$1800
 	beq .t1x
 	lda.w #$1800
-	sta.b $14
+	sta.b r3
 	ldy.w #$0060
 	lda.b d1
 	bra .1x
@@ -106,7 +106,7 @@ DrawTeamBlocks:
 	clc
 	adc.l printfontset
 	clc
-	adc.b $14
+	adc.b r3
 	sta.l textmap,x
 	iny
 	iny
@@ -121,7 +121,7 @@ DrawTeamBlocks:
 	clc
 	adc.l printfontset
 	clc
-	adc.b $14
+	adc.b r3
 	sta.l textmap+$2E,x
 	iny
 	iny

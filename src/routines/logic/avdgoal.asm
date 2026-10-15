@@ -5,13 +5,13 @@ avdgoal:
 	plb
 	stz.b tmp2
 	lda.w Xpos,x
-	sta.b $0C
+	sta.b p0
 	lda.w Ypos,x
-	sta.b $0E
+	sta.b p0+2
 	lda.b d0
-	sta.b $10
+	sta.b p1
 	lda.b d1
-	sta.b $12
+	sta.b p1+2
 	lda.w position,x
 	bne .t1
 	jmp.w .28
@@ -22,12 +22,12 @@ avdgoal:
 	jsr.w .27
 	ldx.w #$00E4
 	ldy.w #$011D
-	stx.b $14
-	sty.b $16
+	stx.b r3
+	sty.b r3+2
 	lda.w #$0108
-	sta.b $22
+	sta.b r6+2
 	lda.w topgoalie
-	sta.b $20
+	sta.b r6
 	lda.b tmp2
 	bne .t2
 	ldx.w #$FEE4
@@ -35,12 +35,12 @@ avdgoal:
 	jsr.w .27
 	ldx.w #$FEE3
 	ldy.w #$FF1C
-	stx.b $14
-	sty.b $16
+	stx.b r3
+	sty.b r3+2
 	lda.w #$FEF8
-	sta.b $22
+	sta.b r6+2
 	lda.w botgoalie
-	sta.b $20
+	sta.b r6
 	lda.b tmp2
 	bne .2
 	ldx.b curobj
@@ -48,18 +48,18 @@ avdgoal:
 	rtl
 
 .t2:
-	lda.b $14
-	ldy.b $16
-	sty.b $14
-	sta.b $16
-	lda.b $0E
+	lda.b r3
+	ldy.b r3+2
+	sty.b r3
+	sta.b r3+2
+	lda.b p0+2
 	eor.w #$FFFF
 	inc a
-	sta.b $0E
-	lda.b $12
+	sta.b p0+2
+	lda.b p1+2
 	eor.w #$FFFF
 	inc a
-	sta.b $12
+	sta.b p1+2
 	lda.b tmp0
 	bit.w #$000A
 	beq .1
@@ -88,38 +88,38 @@ avdgoal:
 
 .t2x:
 	ldx.b curobj
-	lda.b $0E
+	lda.b p0+2
 	cmp.w #$FEF8
 	bpl .t1xx
-	lda.b $12
+	lda.b p1+2
 	cmp.w #$FEF8
 	bmi .3
 	bra .8
 
 .t1xx:
-	lda.b $12
+	lda.b p1+2
 	cmp.w #$FEF8
 	bmi .5
-	ldy.b $20
+	ldy.b r6
 	bmi .3
-	lda.b $0C
-	cmp.b $10
+	lda.b p0
+	cmp.b p1
 	bmi .4
 	cmp.w Xpos,y
 	bmi .3
-	lda.b $16
+	lda.b r3+2
 	sta.b d1
 .3:
 	rts
 .4:
 	cmp.w Xpos,y
 	bpl .rts
-	lda.b $16
+	lda.b r3+2
 	sta.b d1
 .rts:
 	rts
 .5:
-	lda.b $16
+	lda.b r3+2
 	sta.b d1
 	bra .10
 .6:
@@ -127,57 +127,57 @@ avdgoal:
 	sta.b d0
 	rts
 .7:
-	lda.b $0E
+	lda.b p0+2
 	cmp.w #$FEF8
 	bpl .9
 .8:
-	lda.b $0C
+	lda.b p0
 	cmp.w #$FFCB
 	bmi .6
 	cmp.w #$0036
 	bpl .17
-	lda.b $14
+	lda.b r3
 	sta.b d1
 	bra .12
 .9:
-	lda.b $12
+	lda.b p1+2
 	cmp.w #$FEF8
 	bpl .t1xxx
-	lda.b $22
+	lda.b r6+2
 	sta.b d1
-	ldy.b $20
+	ldy.b r6
 	bmi .12
-	lda.b $0C
+	lda.b p0
 	cmp.w Xpos,y
 	bmi .6
 	bra .17
 
 .t1xxx:
-	ldy.b $20
+	ldy.b r6
 	bmi .13
 .10:
-	lda.b $10
+	lda.b p1
 	sec
 	sbc.w Xpos,y
 	pha
-	lda.b $0C
+	lda.b p0
 	sec
-	sbc.b $10
-	eor.b $01,s
+	sbc.b p1
+	eor.b r0+1,s
 	bpl .14
 	pla
-	lda.b $0C
+	lda.b p0
 	cmp.w Xpos,y
 	bpl .17
 	bra .23
 .11:
-	lda.b $16
+	lda.b r3+2
 	sta.b d1
 	lda.b tmp1
 	and.w #$0008
 	bne .13
 .12:
-	lda.b $10
+	lda.b p1
 	bpl .t1xxxx
 	cmp.w #$FFCB
 	bmi .13
@@ -200,7 +200,7 @@ avdgoal:
 	cmp.w #$0010
 	bne .17
 .16:
-	lda.b $16
+	lda.b r3+2
 	sta.b d1
 	rts
 .17:
@@ -219,11 +219,11 @@ avdgoal:
 	cmp.w #$0010
 	bne .17
 .20:
-	lda.b $14
+	lda.b r3
 	sta.b d1
 	rts
 .21:
-	lda.b $14
+	lda.b r3
 	sta.b d1
 	lda.b tmp1
 	and.w #$0002
@@ -256,22 +256,22 @@ avdgoal:
 	dw .7,.11,.18,.15,.21,$0000,.19
 	dw $0000,.24,.25,$0000,$0000,.22
 .27:
-	stx.b $14
-	sty.b $16
+	stx.b r3
+	sty.b r3+2
 	stz.b tmp0
 	stz.b tmp1
-	ldx.b $0E
-	ldy.b $12
-	cpx.b $14
+	ldx.b p0+2
+	ldy.b p1+2
+	cpx.b r3
 	bpl .4x
 	lda.w #$0008
 	sta.b tmp0
-	cpy.b $14
+	cpy.b r3
 	bpl .5x
 .1xx:
 	rts
 .2x:
-	cpy.b $16
+	cpy.b r3+2
 	bmi .6x
 	lda.w #$0002
 	sta.b tmp1
@@ -284,20 +284,20 @@ avdgoal:
 	sta.b tmp1
 	bra .7x
 .4x:
-	cpy.b $14
+	cpy.b r3
 	bpl .5x
 	lda.w #$0008
 	sta.b tmp1
 .5x:
-	cpx.b $16
+	cpx.b r3+2
 	bmi .2x
 	lda.w #$0002
 	sta.b tmp0
-	cpy.b $16
+	cpy.b r3+2
 	bpl .1xx
 .6x:
-	ldx.b $0C
-	ldy.b $10
+	ldx.b p0
+	ldy.b p1
 	cpx.w #$002C
 	bmi .3x
 	lda.b tmp0
@@ -330,8 +330,8 @@ avdgoal:
 	jsr.w .48
 	ldx.w #$0101
 	ldy.w #$011D
-	stx.b $14
-	sty.b $16
+	stx.b r3
+	sty.b r3+2
 	lda.b tmp2
 	bne .t1xxxxx
 	ldx.w #$FEE4
@@ -339,8 +339,8 @@ avdgoal:
 	jsr.w .48
 	ldx.w #$FEE3
 	ldy.w #$FEFF
-	stx.b $14
-	sty.b $16
+	stx.b r3
+	sty.b r3+2
 	lda.b tmp2
 	bne .2xxx
 	ldx.b curobj
@@ -348,18 +348,18 @@ avdgoal:
 	rtl
 
 .t1xxxxx:
-	lda.b $14
-	ldy.b $16
-	sty.b $14
-	sta.b $16
-	lda.b $0E
+	lda.b r3
+	ldy.b r3+2
+	sty.b r3
+	sta.b r3+2
+	lda.b p0+2
 	eor.w #$FFFF
 	inc a
-	sta.b $0E
-	lda.b $12
+	sta.b p0+2
+	lda.b p1+2
 	eor.w #$FFFF
 	inc a
-	sta.b $12
+	sta.b p1+2
 	lda.b tmp0
 	bit.w #$000A
 	beq .1xxxx
@@ -388,16 +388,16 @@ avdgoal:
 
 .t3:
 	ldx.b curobj
-	lda.b $0E
+	lda.b p0+2
 	cmp.w #$FEF8
 	bpl .t1xxxxxxx
-	lda.b $12
+	lda.b p1+2
 	cmp.w #$FEF8
 	bmi .t2xx
 	bra .31
 
 .t1xxxxxxx:
-	lda.b $12
+	lda.b p1+2
 	cmp.w #$FEF8
 	bpl .t2xx
 	bra .33
@@ -408,7 +408,7 @@ avdgoal:
 .t1xxxxxxxx:
 	cmp.w Xpos,y
 	bpl .36
-	lda.b $16
+	lda.b r3+2
 	sta.b d1
 	rts
 .29:
@@ -416,16 +416,16 @@ avdgoal:
 	sta.b d0
 	rts
 .30:
-	lda.b $0E
+	lda.b p0+2
 	cmp.w #$FEF8
 	bpl .32
 .31:
-	lda.b $0C
+	lda.b p0
 	cmp.w #$FFDB
 	bmi .29
 	cmp.w #$0026
 	bpl .39
-	lda.b $14
+	lda.b r3
 	sta.b d1
 	bra .35
 .32:
@@ -433,17 +433,17 @@ avdgoal:
 	bit.w #$0002
 	bne .36
 .33:
-	lda.b $16
+	lda.b r3+2
 	sta.b d1
 	bra .35
 .34:
-	lda.b $16
+	lda.b r3+2
 	sta.b d1
 	lda.b tmp1
 	and.w #$0008
 	bne .36
 .35:
-	lda.b $10
+	lda.b p1
 	bpl .t1xxxxxxxxx
 	cmp.w #$FFDB
 	bmi .36
@@ -463,7 +463,7 @@ avdgoal:
 	cmp.w #$0010
 	bne .39
 .38:
-	lda.b $16
+	lda.b r3+2
 	sta.b d1
 	rts
 .39:
@@ -482,11 +482,11 @@ avdgoal:
 	cmp.w #$0010
 	bne .39
 .42:
-	lda.b $14
+	lda.b r3
 	sta.b d1
 	rts
 .43:
-	lda.b $14
+	lda.b r3
 	sta.b d1
 	lda.b tmp1
 	and.w #$0002
@@ -517,22 +517,22 @@ avdgoal:
 	dw .30,.34,.40,.37,.43,$0000,.41
 	dw $0000,.45,.46,$0000,$0000,.44
 .48:
-	stx.b $14
-	sty.b $16
+	stx.b r3
+	sty.b r3+2
 	stz.b tmp0
 	stz.b tmp1
-	ldx.b $0E
-	ldy.b $12
-	cpx.b $14
+	ldx.b p0+2
+	ldy.b p1+2
+	cpx.b r3
 	bpl .4xx
 	lda.w #$0008
 	sta.b tmp0
-	cpy.b $14
+	cpy.b r3
 	bpl .5xx
 .1xxxxx:
 	rts
 .2xxxx:
-	cpy.b $16
+	cpy.b r3+2
 	bmi .6xx
 	lda.w #$0002
 	sta.b tmp1
@@ -545,20 +545,20 @@ avdgoal:
 	sta.b tmp1
 	bra .7xx
 .4xx:
-	cpy.b $14
+	cpy.b r3
 	bpl .5xx
 	lda.w #$0008
 	sta.b tmp1
 .5xx:
-	cpx.b $16
+	cpx.b r3+2
 	bmi .2xxxx
 	lda.w #$0002
 	sta.b tmp0
-	cpy.b $16
+	cpy.b r3+2
 	bpl .1xxxxx
 .6xx:
-	ldx.b $0C
-	ldy.b $10
+	ldx.b p0
+	ldy.b p1
 	cpx.w #$0024
 	bmi .3xx
 	lda.b tmp0

@@ -1,28 +1,28 @@
-; Huffman data at [$0C] to WRAM at [$10]
+; Huffman data at [p0] to WRAM at [p1]
 DecompressHuffman:
 	sep #$10
-	lda.b $0C
+	lda.b p0
 	clc
 	adc.w #$0005
-	sta.b $0C
-	lda.b ($0C)
+	sta.b p0
+	lda.b (p0)
 	sta.b HuffEscape
-	inc.b $0C
-	lda.b ($0C)
-	inc.b $0C
-	inc.b $0C
+	inc.b p0
+	lda.b (p0)
+	inc.b p0
+	inc.b p0
 	xba
 	sta.b HuffBits
 	ldy.b #$08
 	stz.b HuffSymCount
 	stz.b HuffCode
 	lda.w #$0010
-	sta.b $14
+	sta.b r3
 	ldx.b #$FE
 .2:
 	inx
 	inx
-	dec.b $14
+	dec.b r3
 	asl.b HuffCode
 	lda.b HuffCode
 	sec
@@ -44,16 +44,16 @@ DecompressHuffman:
 
 .t1:
 	lda.b HuffCode
-	sta.b $00
-	lda.b $14
+	sta.b r0
+	lda.b r3
 	clc
 	beq .1
 .loop:
-	asl.b $00
+	asl.b r0
 	dec a
 	bne .loop
 .1:
-	lda.b $00
+	lda.b r0
 	sta.w HuffLimit,x
 	bcc .2
 	txa
@@ -96,7 +96,7 @@ DecompressHuffman:
 	txy
 	stz.b HuffLenIdx
 .3:
-	stx.b $00
+	stx.b r0
 	lda.b HuffLenIdx
 	asl a
 	tax
@@ -107,16 +107,16 @@ DecompressHuffman:
 	ldx.b HuffLenIdx
 	lda.l .4,x
 	sta.b HuffSpan
-	ldx.b $00
+	ldx.b r0
 	bra .8
 .4:		; lookup table entries for a code of each length, plus 1
 	db $81,$41,$21,$11,$09,$05,$03,$02
 .5:
 	lda.b HuffLenIdx
 	asl a
-	sta.b $00
+	sta.b r0
 	lda.w DecompBuf,y
-	sta.b $01
+	sta.b r0+1
 	iny
 	cmp.b HuffEscape
 	bne .1x
@@ -124,21 +124,21 @@ DecompressHuffman:
 	inc a
 	sta.b HuffEscapeLen
 	lda.b #$12
-	sta.b $00
+	sta.b r0
 .1x:
-	sty.b $04
+	sty.b r1
 	ldy.b HuffSpan
 	bra .7
 .6:
-	lda.b $01
+	lda.b r0+1
 	sta.w DecompTab1,x
-	lda.b $00
+	lda.b r0
 	sta.w DecompTab2,x
 	inx
 .7:
 	dey
 	bne .6
-	ldy.b $04
+	ldy.b r1
 .8:
 	dec.b HuffSymCount
 	bpl .5
@@ -146,9 +146,9 @@ DecompressHuffman:
 	lda.b HuffMaxLen
 	cmp.b HuffLenIdx
 	bcs .3
-	stx.b $00
+	stx.b r0
 .9:
-	ldx.b $00
+	ldx.b r0
 	beq .1xx
 	lda.b #$10
 .loopx:
@@ -162,9 +162,9 @@ DecompressHuffman:
 	rep #$20
 	lda.l .10-$10,x	; by the longest code length, from 9 bits up
 	sta.w HuffLongVec
-	ldy.b $12
+	ldy.b p1+2
 	sty.w WMADDH
-	lda.b $10
+	lda.b p1
 	sta.w WMADDL
 	lda.b HuffBits
 	ldx.b HuffStartBits
@@ -190,12 +190,12 @@ DecompressHuffman:
 .19:
 	asl a
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldx.w DecompTab1,y
 	stx.w WMDATA
-	stx.b $08
+	stx.b r2
 .20:
 	sta.b HuffBits
 	ldy.b HuffBits+1
@@ -209,7 +209,7 @@ DecompressHuffman:
 .23:
 	ldx.b #$10
 	stz.b HuffBitsExt
-	lda.b ($0C)
+	lda.b (p0)
 	and.w #$00FF
 	ora.b HuffBitsExt+1
 	sta.b HuffBitsExt+1
@@ -230,14 +230,14 @@ DecompressHuffman:
 .30:
 	asl a
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 .31:
 	asl a
 	ldx.w DecompTab1,y
 	stx.w WMDATA
-	stx.b $08
+	stx.b r2
 .32:
 	sta.b HuffBits
 	ldy.b HuffBits+1
@@ -251,7 +251,7 @@ DecompressHuffman:
 .35:
 	ldx.b #$0E
 	stz.b HuffBitsExt
-	lda.b ($0C)
+	lda.b (p0)
 	and.w #$00FF
 	asl a
 	ora.b HuffBitsExt+1
@@ -271,16 +271,16 @@ DecompressHuffman:
 .41:
 	asl a
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 .42:
 	asl a
 .43:
 	asl a
 	ldx.w DecompTab1,y
 	stx.w WMDATA
-	stx.b $08
+	stx.b r2
 .44:
 	sta.b HuffBits
 	ldy.b HuffBits+1
@@ -294,7 +294,7 @@ DecompressHuffman:
 .47:
 	ldx.b #$0C
 	stz.b HuffBitsExt
-	lda.b ($0C)
+	lda.b (p0)
 	and.w #$00FF
 	asl a
 	asl a
@@ -313,9 +313,9 @@ DecompressHuffman:
 .52:
 	asl a
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 .53:
 	asl a
 .54:
@@ -324,7 +324,7 @@ DecompressHuffman:
 	asl a
 	ldx.w DecompTab1,y
 	stx.w WMDATA
-	stx.b $08
+	stx.b r2
 .56:
 	sta.b HuffBits
 	ldy.b HuffBits+1
@@ -338,7 +338,7 @@ DecompressHuffman:
 .59:
 	ldx.b #$0A
 	stz.b HuffBitsExt
-	lda.b ($0C)
+	lda.b (p0)
 	and.w #$00FF
 	asl a
 	asl a
@@ -356,9 +356,9 @@ DecompressHuffman:
 .63:
 	asl a
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 .64:
 	asl a
 .65:
@@ -369,7 +369,7 @@ DecompressHuffman:
 	asl a
 	ldx.w DecompTab1,y
 	stx.w WMDATA
-	stx.b $08
+	stx.b r2
 .68:
 	sta.b HuffBits
 	ldy.b HuffBits+1
@@ -383,7 +383,7 @@ DecompressHuffman:
 .71:
 	ldx.b #$08
 	stz.b HuffBitsExt
-	lda.b ($0C)
+	lda.b (p0)
 	and.w #$00FF
 	asl a
 	asl a
@@ -400,9 +400,9 @@ DecompressHuffman:
 .74:
 	asl a
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 .75:
 	asl a
 .76:
@@ -415,7 +415,7 @@ DecompressHuffman:
 	asl a
 	ldx.w DecompTab1,y
 	stx.w WMDATA
-	stx.b $08
+	stx.b r2
 .80:
 	sta.b HuffBits
 	ldy.b HuffBits+1
@@ -429,7 +429,7 @@ DecompressHuffman:
 .83:
 	ldx.b #$06
 	stz.b HuffBitsExt
-	lda.b ($0C)
+	lda.b (p0)
 	and.w #$00FF
 	asl a
 	asl a
@@ -445,9 +445,9 @@ DecompressHuffman:
 .85:
 	asl a
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 .86:
 	asl a
 .87:
@@ -462,7 +462,7 @@ DecompressHuffman:
 	asl a
 	ldx.w DecompTab1,y
 	stx.w WMDATA
-	stx.b $08
+	stx.b r2
 .92:
 	sta.b HuffBits
 	ldy.b HuffBits+1
@@ -476,7 +476,7 @@ DecompressHuffman:
 .95:
 	ldx.b #$04
 	stz.b HuffBitsExt
-	lda.b ($0C)
+	lda.b (p0)
 	and.w #$00FF
 	asl a
 	asl a
@@ -491,9 +491,9 @@ DecompressHuffman:
 .96:
 	asl a
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 .97:
 	asl a
 .98:
@@ -510,7 +510,7 @@ DecompressHuffman:
 	asl a
 	ldx.w DecompTab1,y
 	stx.w WMDATA
-	stx.b $08
+	stx.b r2
 .104:
 	sta.b HuffBits
 	ldy.b HuffBits+1
@@ -524,7 +524,7 @@ DecompressHuffman:
 .107:
 	ldx.b #$02
 	stz.b HuffBitsExt
-	lda.b ($0C)
+	lda.b (p0)
 	and.w #$00FF
 	asl a
 	asl a
@@ -726,9 +726,9 @@ org $80C001
 	beq .146
 .128:
 	sta.w WMDATA
-	sta.b $08
+	sta.b r2
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	lda.b HuffBitsExt+1
 	jmp (.129-2,x)
 .129:
@@ -764,9 +764,9 @@ org $80C001
 .137:
 	asl a
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	dey
 	beq .145
 	asl a
@@ -807,13 +807,13 @@ org $80C001
 	jmp.w .20
 .146:
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	lda.b HuffBitsExt+1
 	jsr.w .152
 	sta.b HuffBits
 	jsr.w .150
 	beq .148
-	ldy.b $08
+	ldy.b r2
 .loopxx:
 	sty.w WMDATA
 	dec a
@@ -826,7 +826,7 @@ org $80C001
 	sta.b HuffBits
 	jsr.w .150
 	beq .148
-	ldy.b $08
+	ldy.b r2
 .loopxxx:
 	sty.w WMDATA
 	dec a
@@ -841,7 +841,7 @@ org $80C001
 	sta.b HuffBits
 	ldy.b HuffBits+1
 	sty.w WMDATA
-	sty.b $08
+	sty.b r2
 	ldy.b #$08
 	jsr.w .152
 	jmp (.11,x)
@@ -870,29 +870,29 @@ org $80C001
 	rts
 .3x:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldy.b #$08
 	bra .1xxxx
 .4x:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldy.b #$08
 	bra .2x
 .5x:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldy.b #$08
 	sta.b HuffBits
 	lda.b HuffNumber
 	rts
 .7x:
-	stx.b $00
+	stx.b r0
 	ldx.b #$02
 .1xxxxx:
 	asl a
@@ -901,7 +901,7 @@ org $80C001
 .2xx:
 	inx
 	bcc .1xxxxx
-	stx.b $04
+	stx.b r1
 .3xx:
 	asl a
 	rol.b HuffNumber
@@ -911,26 +911,26 @@ org $80C001
 	dex
 	bne .3xx
 	sta.b HuffBits
-	asl.b $04
-	ldx.b $04
+	asl.b r1
+	ldx.b r1
 	lda.l .151-4,x
-	ldx.b $00
+	ldx.b r0
 	clc
 	adc.b HuffNumber
 	sta.b HuffNumber
 	rts
 .5xx:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldy.b #$08
 	bra .2xx
 .6x:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldy.b #$08
 	bra .4xx
 .150:
@@ -958,23 +958,23 @@ org $80C001
 	rts
 .3xxx:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldx.b #$10
 	bra .1xxxxxx
 .4xxx:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldx.b #$10
 	bra .2xxx
 .5xxx:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldx.b #$10
 	sta.b HuffBits
 	lda.b HuffNumber
@@ -989,7 +989,7 @@ org $80C001
 .2xxxx:
 	iny
 	bcc .1xxxxxxx
-	sty.b $14
+	sty.b r3
 .3xxxx:
 	asl a
 	rol.b HuffNumber
@@ -1001,7 +1001,7 @@ org $80C001
 	bne .3xxxx
 	sta.b HuffBits
 	txy
-	lda.b $14
+	lda.b r3
 	and.w #$00FF
 	asl a
 	tax
@@ -1013,16 +1013,16 @@ org $80C001
 	rts
 .5xxxx:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldx.b #$10
 	bra .2xxxx
 .6xx:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldx.b #$10
 	bra .4xxxx
 .151:		; bases of the variable-length numbers in the bit stream
@@ -1039,9 +1039,9 @@ org $80C001
 
 .t1xx:
 	sep #$20
-	lda.b ($0C)
+	lda.b (p0)
 	rep #$20
-	inc.b $0C
+	inc.b p0
 	ldx.b #$10
 	dey
 	bne .152

@@ -158,26 +158,26 @@ pucknorm_move:
 	eor.b d0
 	bmi .15
 	lda.b d0
-	stz.b $08
+	stz.b r2
 	lsr a
-	ror.b $08
+	ror.b r2
 	lsr a
-	ror.b $08
+	ror.b r2
 	lsr a
-	ror.b $08
+	ror.b r2
 	lsr a
-	ror.b $08
+	ror.b r2
 	bit.w #$0800
 	beq .1xx
 	ora.w #$F000
 .1xx:
-	sta.b $0A
+	sta.b r2+2
 	lda.w puckvy
-	sta.b $04
+	sta.b r1
 	jsl.l Div32S
-	lda.b $00
+	lda.b r0
 	sta.w puckcross+2,y
-	lda.b $00
+	lda.b r0
 	asl a
 	asl a
 	asl a

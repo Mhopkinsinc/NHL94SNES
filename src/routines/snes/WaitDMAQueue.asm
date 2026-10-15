@@ -41,7 +41,7 @@ WaitDMAQueue:
 	rtl
 
 .t2x:
-	sta.b $14
+	sta.b r3
 	iny
 .3:
 	jsl.l WaitFrame
@@ -54,12 +54,12 @@ WaitDMAQueue:
 
 .t1xxx:
 	lda.w JoyPad
-	and.b $14
+	and.b r3
 	beq .3
 	rtl
 
 .t2xx:
-	sta.b $14
+	sta.b r3
 	iny
 .4:
 	jsl.l WaitFrame
@@ -72,6 +72,6 @@ WaitDMAQueue:
 
 .t1xxxx:
 	lda.w JoyPad+2
-	and.b $14
+	and.b r3
 	beq .4
 	rtl

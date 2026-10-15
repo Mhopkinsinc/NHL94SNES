@@ -1,27 +1,27 @@
-; Write the OAM entries of each piece of the frame at [$0C]; DrawSprite jumps here
+; Write the OAM entries of each piece of the frame at [p0]; DrawSprite jumps here
 DrawSpritePieces:
 	lda.w SpritesLeft
 	beq DrawSpriteExit
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w PieceX
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w PieceY
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w PieceTile
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	and.w #$00FF
 	sta.w PieceSize
 	iny
 	sty.w PieceNext
 	lda.w PieceSize
 	beq .t1
-	lda.b $1E
+	lda.b r5+2
 	sec
 	sbc.w PieceY
 	sec
@@ -29,7 +29,7 @@ DrawSpritePieces:
 	bra .2
 
 .t1:
-	lda.b $1E
+	lda.b r5+2
 	sec
 	sbc.w PieceY
 	sec
@@ -43,13 +43,13 @@ DrawSpritePieces:
 	jmp.w .6
 
 .t2:
-	sta.b $26
-	lda.b $14
+	sta.b r7+2
+	lda.b r3
 	and.w #$4000
 	beq .t3
 	lda.w PieceSize
 	beq .t1x
-	lda.b $1C
+	lda.b r5
 	sec
 	sbc.w PieceX
 	sec
@@ -57,7 +57,7 @@ DrawSpritePieces:
 	bra .3
 
 .t1x:
-	lda.b $1C
+	lda.b r5
 	sec
 	sbc.w PieceX
 	sec
@@ -67,25 +67,25 @@ DrawSpritePieces:
 .t3:
 	lda.w PieceX
 	clc
-	adc.b $1C
+	adc.b r5
 .3:
 	cmp.w #$0100
 	bpl .6
 	cmp.w #$FFF0
 	bmi .6
-	sta.b $20
+	sta.b r6
 	sta.w $0000,x
-	lda.b $26
+	lda.b r7+2
 	sta.w $0001,x
 	lda.w PieceTile
 	clc
-	adc.b $16
-	eor.b $14
+	adc.b r3+2
+	eor.b r3
 	sta.w $0002,x
 	ldy.w OAMHiPtr
 	ldx.w OAMHiShift
 	sep #$20
-	lda.b $21
+	lda.b r6+1
 	bpl .t2x
 	lda.w PieceSize
 	beq .t1xx
@@ -131,7 +131,7 @@ DrawSpritePieces:
 	tax
 .6:
 	ldy.w PieceNext
-	dec.b $00
+	dec.b r0
 	beq .t1xxxxx
 	jmp.w DrawSpritePieces
 
@@ -139,7 +139,7 @@ DrawSpritePieces:
 	plb
 	rtl
 
-.t2xx:		; make sure the tiles of the frame at [$0C] are in VRAM; A = its tile cache entry, negative if no room
+.t2xx:		; make sure the tiles of the frame at [p0] are in VRAM; A = its tile cache entry, negative if no room
 	phx
 	phy
 	phb
@@ -148,22 +148,22 @@ DrawSpritePieces:
 	plb
 	jmp.w .7
 
-.t1xxxxxx:		; the same for frame A of the sprite set at [$10]
+.t1xxxxxx:		; the same for frame A of the sprite set at [p1]
 	phx
 	phy
 	sta.w DrawFrameNum
 	asl a
 	asl a
 	tay
-	lda.b [$10],y
+	lda.b [p1],y
 	clc
-	adc.b $10
-	sta.b $0C
+	adc.b p1
+	sta.b p0
 	iny
 	iny
-	lda.b [$10],y
-	adc.b $12
-	sta.b $0E
+	lda.b [p1],y
+	adc.b p1+2
+	sta.b p0+2
 	phb
 	pea.w $7E7E
 	plb

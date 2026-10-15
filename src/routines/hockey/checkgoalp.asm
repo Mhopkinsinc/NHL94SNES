@@ -48,10 +48,10 @@ checkgoalp:
 	sec
 	sbc.w Xpos,y
 	sta.b d1
-	sta.b $04
+	sta.b r1
 	tax
 	jsl.l Mul8S
-	sta.b $08
+	sta.b r2
 	ldx.b a3
 	lsr a
 	lsr a
@@ -59,11 +59,11 @@ checkgoalp:
 	bcs .2
 	sta.b d2
 	lda.b d3
-	sta.b $06
+	sta.b r1+2
 	tax
 	jsl.l Mul8S
 	asl a
-	sta.b $0A
+	sta.b r2+2
 	ldx.b a3
 	clc
 	adc.b d2
@@ -79,8 +79,8 @@ checkgoalp:
 	pha
 	lda.b d2
 	pha
-	lda.b $04
-	ldy.b $06
+	lda.b r1
+	ldy.b r1+2
 	jsl.l ApproxLength
 	inc a
 	sta.b d2

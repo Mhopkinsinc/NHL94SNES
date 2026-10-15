@@ -22,7 +22,7 @@ GetPlayerBaseRating:
 	sta.b a1+2
 	lda.w #AttribMenuSkater
 	sta.b a1
-	stz.b $08
+	stz.b r2
 	jsl.l GoalieCount
 	lda.w curplayer
 	cmp.b d0
@@ -32,7 +32,7 @@ GetPlayerBaseRating:
 	lda.w #AttribMenuGoalie
 	sta.b a1
 	lda.w #$0010
-	sta.b $08
+	sta.b r2
 .1:
 	phx
 	ldx.b d1
@@ -63,7 +63,7 @@ GetPlayerBaseRating:
 	sta.l usehotcold
 	jsl.l CalcAttrib
 	lda.b d0
-	sta.b $00
+	sta.b r0
 	pla
 	sta.b a1+2
 	pla
@@ -81,6 +81,6 @@ GetPlayerBaseRating:
 	dex
 	bpl .loopx
 	ldx.b xsave
-	lda.b $00
+	lda.b r0
 	sta.b d0
 	rtl

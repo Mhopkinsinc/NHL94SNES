@@ -15,9 +15,9 @@ IntroSequence:
 	stz.b DMAQueueHead
 	stz.b DMAQueueTail
 	lda.w #.1
-	sta.b $0C
+	sta.b p0
 	lda.w #$009F
-	sta.b $0E
+	sta.b p0+2
 	jsl.l .33
 	jsr.w .2
 	stz.b introHookFlags
@@ -63,9 +63,9 @@ IntroSequence:
 	sta.w CGDATA
 	rep #$20
 	lda.w #EALogoEPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #EALogoEPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	ldy.w #$0030
 	ldx.w #$0010
 	jsl.l DMAToCGRAM
@@ -73,9 +73,9 @@ IntroSequence:
 	ldx.w #$0010
 	jsl.l DMAToCGRAM
 	lda.w #EALogoAPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #EALogoAPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	ldy.w #$0040
 	ldx.w #$0010
 	jsl.l DMAToCGRAM
@@ -99,22 +99,22 @@ IntroSequence:
 	cpx.w #$4000
 	bcc .loopx
 	lda.w #EALogoTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$0094
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$8010
-	sta.b $10
+	sta.b p1
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	jsl.l Decompress
 	lda.w #EALogoMap
-	sta.b $0C
+	sta.b p0
 	lda.w #EALogoMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$4000
-	sta.b $10
+	sta.b p1
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	jsl.l Decompress
 	stz.w VMADDL
 	sep #$20
@@ -152,13 +152,13 @@ IntroSequence:
 	bmi .loop3
 	rep #$20
 	lda.w #EALogoSprites
-	sta.b $0C
+	sta.b p0
 	lda.w #EALogoSprites>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$4A40
-	sta.b $10
+	sta.b p1
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	jsl.l Decompress
 	rts
 .3:
@@ -242,9 +242,9 @@ IntroSequence:
 
 .t1xxx:
 	lda.w #$4000
-	sta.b $10
+	sta.b p1
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	jsr.w .32
 	lda.w #$0008
 	tsb.b introHookFlags
@@ -275,9 +275,9 @@ IntroSequence:
 	jsr.w .23
 .2xx:
 	lda.w #EALogoEMap
-	sta.b $0C
+	sta.b p0
 	lda.w #EALogoEMap>>16
-	sta.b $0E
+	sta.b p0+2
 	jsl.l .26
 	lda.w #$00C0
 	tsb.b introHookFlags
@@ -292,11 +292,11 @@ IntroSequence:
 .10:
 	jsl.l SpriteFrameStart
 	lda.w #$4A40
-	sta.b $10
+	sta.b p1
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $00
+	sta.b r0
 	lda.w #$0000
 	ldx.w #$0038
 	ldy.w #$002F
@@ -315,9 +315,9 @@ IntroSequence:
 	jsr.w .23
 .2xxx:
 	lda.w #EALogoAMap
-	sta.b $0C
+	sta.b p0
 	lda.w #EALogoAMap>>16
-	sta.b $0E
+	sta.b p0+2
 	jsl.l .26
 	lda.w #$00C0
 	tsb.b introHookFlags
@@ -332,17 +332,17 @@ IntroSequence:
 .12:
 	jsl.l SpriteFrameStart
 	lda.w #$4A40
-	sta.b $10
+	sta.b p1
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $00
+	sta.b r0
 	lda.w #$0000
 	ldx.w #$0038
 	ldy.w #$002F
 	jsl.l DrawSprite
 	lda.w #$0001
-	sta.b $00
+	sta.b r0
 	lda.w #$0000
 	ldx.w #$0038
 	ldy.w #$002F
@@ -403,9 +403,9 @@ IntroSequence:
 
 .t1xxxxxxx:
 	lda.w #EALogoEPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #EALogoEPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0030
 	sta.b tmp0
 	jsr.w .29
@@ -424,9 +424,9 @@ IntroSequence:
 
 .t1xxxxxxxx:
 	lda.w #EALogoAPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #EALogoAPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0040
 	sta.b tmp0
 	jsr.w .29
@@ -442,9 +442,9 @@ IntroSequence:
 
 .t1xxxxxxxxx:
 	lda.w #EALogoSportsPalette
-	sta.b $0C
+	sta.b p0
 	lda.w #EALogoSportsPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0020
 	sta.b tmp0
 	jsr.w .29
@@ -547,7 +547,7 @@ IntroSequence:
 .loop2xx:
 	lda.b d1
 	beq .1xxxxxxxxxx
-	lda.b [$0C],y
+	lda.b [p0],y
 .1xxxxxxxxxx:
 	sta.l introbuf+$40,x
 	iny
@@ -567,31 +567,31 @@ IntroSequence:
 .t1xxxxxxxxxxx:
 	rep #$30
 .28:
-	lda.b $0C
+	lda.b p0
 	pha
-	lda.b $0E
+	lda.b p0+2
 	pha
 	lda.w #$4040
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	ldx.w #$1C00
 	lda.w #$0A00
 	jsl.l .t1xxxxxxxxxxxx
 	pla
-	sta.b $0E
+	sta.b p0+2
 	pla
-	sta.b $0C
+	sta.b p0
 	rtl
 
 .t1xxxxxxxxxxxx:
 	php
 	sta.w DAS0L
-	lda.b $0C
+	lda.b p0
 	sta.w A1T0L
 	stx.w VMADDL
 	sep #$20
-	lda.b $0E
+	lda.b p0+2
 	sta.w A1B0
 	lda.b #$01
 	sta.w DMAP0
@@ -604,9 +604,9 @@ IntroSequence:
 	rtl
 .29:
 	lda.w #$4000
-	sta.b $10
+	sta.b p1
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	jsr.w .32
 	lda.w #$0010
 	sta.b tmp1
@@ -676,8 +676,8 @@ IntroSequence:
 .32:
 	ldy.w #$0000
 .loopxxxxx:
-	lda.b [$0C],y
-	sta.b [$10],y
+	lda.b [p0],y
+	sta.b [p1],y
 	iny
 	iny
 	cpy.w #$0020
@@ -697,14 +697,14 @@ IntroSequence:
 	lda.b introHookFlags
 	bit.w #$0008
 	beq .3xx
-	lda.b $0C
+	lda.b p0
 	pha
-	lda.b $0E
+	lda.b p0+2
 	pha
 	lda.b tmp2
-	sta.b $0C
+	sta.b p0
 	lda.b tmp3
-	sta.b $0E
+	sta.b p0+2
 	ldy.b tmp0
 	ldx.b tmp1
 	jsl.l DMAToCGRAM
@@ -713,17 +713,17 @@ IntroSequence:
 	beq .2xxxxxx
 .1xxxxxxxxxxxx:
 	lda.b introPal2Src
-	sta.b $0C
+	sta.b p0
 	lda.b introPal2Src+2
-	sta.b $0E
+	sta.b p0+2
 	ldy.b tmp4
 	ldx.b tmp5
 	jsl.l DMAToCGRAM
 .2xxxxxx:
 	pla
-	sta.b $0E
+	sta.b p0+2
 	pla
-	sta.b $0C
+	sta.b p0
 	lda.w #$0208
 	trb.b introHookFlags
 .3xx:
@@ -767,62 +767,62 @@ IntroSequence:
 	lda.b #$80
 	sta.w VMAIN
 	ldy.w #$0000
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w BGMODE
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w M7SEL
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w TM
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w TS
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
-	ora.b [$0C],y
+	ora.b [p0],y
 	sta.w BG1SC
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
-	ora.b [$0C],y
+	ora.b [p0],y
 	sta.w BG2SC
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
-	ora.b [$0C],y
+	ora.b [p0],y
 	sta.w BG3SC
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
-	ora.b [$0C],y
+	ora.b [p0],y
 	sta.w BG4SC
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	iny
 	iny
-	ora.b [$0C],y
+	ora.b [p0],y
 	sta.w BG12NBA
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	lsr a
 	lsr a
 	lsr a
 	lsr a
 	iny
 	iny
-	ora.b [$0C],y
+	ora.b [p0],y
 	sta.w BG34NBA
 	rep #$20
 	rtl

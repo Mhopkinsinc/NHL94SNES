@@ -5,9 +5,9 @@ QueueTextDMA:
 	tay
 	asl a
 	adc.w #textmap
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w textdirtyhi
 	beq .rtl
 	sec

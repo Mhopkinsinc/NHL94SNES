@@ -21,14 +21,14 @@ assscore:
 	lda.w #$00C0
 	jsl.l Mul16x8XS
 	ldx.b a3
-	lda.b $09
+	lda.b r2+1
 	sta.w Xvel,x
 	lda.w Yvel,x
 	tax
 	lda.w #$00C0
 	jsl.l Mul16x8XS
 	ldx.b a3
-	lda.b $09
+	lda.b r2+1
 	sta.w Yvel,x
 	txa
 	lsr a

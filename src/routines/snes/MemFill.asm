@@ -1,31 +1,31 @@
-; Fill X bytes at [$10] with the word A
+; Fill X bytes at [p1] with the word A
 MemFill:
 	txy
 	dey
 	dey
 .loop:
-	sta.b [$10],y
+	sta.b [p1],y
 	dey
 	dey
 	bne .loop
-	sta.b [$10]
+	sta.b [p1]
 	rtl
 
 .t1:
-	sta.b $14
+	sta.b r3
 	txy
 	dey
 	dey
 .loopx:
-	lda.b [$10],y
+	lda.b [p1],y
 	clc
-	adc.b $14
-	sta.b [$10],y
+	adc.b r3
+	sta.b [p1],y
 	dey
 	dey
 	bne .loopx
-	lda.b [$10]
+	lda.b [p1]
 	clc
-	adc.b $14
-	sta.b [$10]
+	adc.b r3
+	sta.b [p1]
 	rtl

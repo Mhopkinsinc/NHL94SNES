@@ -6,18 +6,18 @@ ShowCrowdMeter:
 	sta.l setuphome
 	jsl.l SetupScreen
 	lda.w #CrowdMeterFramePalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CrowdMeterFramePalette
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0050
 	ldx.w #$0010
 	jsl.l SetColours
@@ -43,23 +43,23 @@ ShowCrowdMeter:
 	sta.b d1
 	jsl.l FramerNineTile
 	lda.w #CrowdMeterTiles>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CrowdMeterTiles
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
-	stx.b $10
-	stx.b $00
+	sta.b p0
+	stx.b p1
+	stx.b r0
 	jsl.l LinearToPlanar
-	lda.b $10
-	sta.b $0C
+	lda.b p1
+	sta.b p0
 	tax
 	lda.l nextfreechar
 	asl a
@@ -71,9 +71,9 @@ ShowCrowdMeter:
 	tay
 	jsl.l DMAToVRAM
 	lda.w #CrowdMeterPalette>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CrowdMeterPalette
-	sta.b $0C
+	sta.b p0
 	ldy.w #$0070
 	ldx.w #$0010
 	jsl.l SetColours
@@ -352,50 +352,50 @@ ShowCrowdMeter:
 	jsl.l .8
 	rtl
 .7:
-	sta.b $26
-	stx.b $1C
+	sta.b r7+2
+	stx.b r5
 	tya
 	asl a
-	ldx.b $24
+	ldx.b r7
 	jsl.l Mul16U
-	lda.b $1C
+	lda.b r5
 	asl a
 	clc
-	adc.b $08
-	adc.b $10
-	sta.b $10
+	adc.b r2
+	adc.b p1
+	sta.b p1
 	ldy.w #$0000
-	lda.b [$0C],y
-	sta.b $18
+	lda.b [p0],y
+	sta.b r4
 	iny
 	iny
-	lda.b [$0C],y
-	sta.b $1A
-	lda.b $0C
+	lda.b [p0],y
+	sta.b r4+2
+	lda.b p0
 	clc
 	adc.w #$0006
-	sta.b $0C
+	sta.b p0
 .loop:
 	ldx.w crowdmeterlit
 	ldy.w #$0000
 .loop2:
-	lda.b [$0C],y
+	lda.b [p0],y
 	clc
-	adc.b $26
-	sta.b [$10],y
+	adc.b r7+2
+	sta.b [p1],y
 	iny
 	iny
 	dex
 	bne .loop2
-	lda.b $24
+	lda.b r7
 	asl a
-	adc.b $10
-	sta.b $10
-	lda.b $18
+	adc.b p1
+	sta.b p1
+	lda.b r4
 	asl a
-	adc.b $0C
-	sta.b $0C
-	dec.b $1A
+	adc.b p0
+	sta.b p0
+	dec.b r4+2
 	bne .loop
 	rtl
 .8:
@@ -406,43 +406,43 @@ ShowCrowdMeter:
 .1xxx:
 	lsr a
 	lsr a
-	sta.b $04
+	sta.b r1
 	cmp.w #$0013
 	bmi .t1xxxxx
 .2xx:
 	lda.w #$0000
-	sta.b $04
+	sta.b r1
 	lda.w #CrowdMeterBrokenMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CrowdMeterBrokenMap
-	sta.b $0C
+	sta.b p0
 	bra .3x
 
 .t1xxxxx:
 	lda.w #CrowdMeterMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CrowdMeterMap
-	sta.b $0C
+	sta.b p0
 .3x:
-	lda.b $04
+	lda.b r1
 	pha
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.w #$001C
-	sta.b $26
+	sta.b r7+2
 	ldx.w #$0007
 	ldy.w #$000B
 	lda.l charofs
@@ -453,31 +453,31 @@ ShowCrowdMeter:
 	jsl.l PasteMap
 	jsl.l WaitFrame
 	pla
-	sta.b $04
+	sta.b r1
 	sta.w crowdmeterlit
 	beq .rtl
 .1xxxx:
 	lda.w #CrowdMeterLitMap>>16
-	sta.b $0E
+	sta.b p0+2
 	lda.w #CrowdMeterLitMap
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
+	sta.b p0
 	lda.w #textmap>>16
-	sta.b $12
+	sta.b p1+2
 	lda.w #textmap
-	sta.b $10
+	sta.b p1
 	lda.w #$0020
-	sta.b $24
+	sta.b r7
 	lda.w #$001C
-	sta.b $26
+	sta.b r7+2
 	ldx.w #$0007
 	ldy.w #$000B
 	lda.l charofs

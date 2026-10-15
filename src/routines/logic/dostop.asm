@@ -17,9 +17,9 @@ dostop:
 	cpx.w puckc
 	bne .2
 	lda.w Xvel,x
-	sta.b $0C
+	sta.b p0
 	lda.w Yvel,x
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0011
 	jsl.l sfx
 .2:
@@ -51,19 +51,19 @@ StopNA:
 	adc.w legstr,x
 	ldx.w timestep
 	jsl.l Mul8U
-	sta.b $08
+	sta.b r2
 	plx
 	lda.w Xvel,x
 	bpl .t2
 	clc
-	adc.b $08
+	adc.b r2
 	sta.w Xvel,x
 	bmi .2
 	bra .1
 
 .t2:
 	sec
-	sbc.b $08
+	sbc.b r2
 	sta.w Xvel,x
 	bpl .2
 .1:
@@ -72,14 +72,14 @@ StopNA:
 	lda.w Yvel,x
 	bpl .t1x
 	clc
-	adc.b $08
+	adc.b r2
 	sta.w Yvel,x
 	bmi .4
 	bra .3
 
 .t1x:
 	sec
-	sbc.b $08
+	sbc.b r2
 	sta.w Yvel,x
 	bpl .4
 .3:
