@@ -4,7 +4,7 @@ InitCrowdExcite:
 	cmp.w #$0003
 	beq .rtl
 	stz.b $00
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0000
 	beq .1
 	cmp.w #$0004

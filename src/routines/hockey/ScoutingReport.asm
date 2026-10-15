@@ -1,7 +1,7 @@
 ; The scouting report screen: both teams, the matchups and the scrolling commentary until Start
 ScoutingReport:
 	lda.w #$0001
-	sta.l $7E3474
+	sta.l matchupphotos
 	stz.w matchuphold
 	jsl.l ClearTeamStats
 	jsl.l LoadScoutingScreen
@@ -90,7 +90,7 @@ ScoutingReport:
 	jsl.l UpdateScoutingDisplay
 	lda.w matchuphold
 	bne .4
-	lda.l $7E34CC
+	lda.l notdemo
 	bne .4
 	dec.w screentimer
 	bmi .5
@@ -98,7 +98,7 @@ ScoutingReport:
 	jmp.w .3
 .5:
 	lda.w #$0000
-	sta.l $7E3474
+	sta.l matchupphotos
 	rtl
 .6:
 	lda.w #$FFFF

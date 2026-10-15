@@ -6,12 +6,12 @@ DerefHandle:
 	bcs .bad
 	stx.b $14
 	tax
-	lda.l $7E0000,x
-	ora.l $7E0002,x
+	lda.l Ram7E,x
+	ora.l Ram7E+2,x
 	beq .bad
-	lda.l $7E0002,x
+	lda.l Ram7E+2,x
 	pha
-	lda.l $7E0000,x
+	lda.l Ram7E,x
 	plx
 	bra .exit
 .bad:

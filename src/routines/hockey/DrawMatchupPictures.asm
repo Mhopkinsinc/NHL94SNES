@@ -2,15 +2,15 @@
 DrawMatchupPictures:
 	lda.b a2
 	pha
-	lda.l $7E3454
+	lda.l setupvis
 	sta.b $00
 	bpl .t1
-	lda.l $7E3452
+	lda.l setuphome
 	bpl .1
 	lda.w #$0002
 	sta.b a2
 .1:
-	lda.l $7E345C
+	lda.l matchupvis
 	ldx.w #$0001
 	ldy.w #$0001
 	jsl.l DrawPlayerPicture
@@ -31,7 +31,7 @@ DrawMatchupPictures:
 	bra .2
 
 .t1:
-	lda.l $7E3454
+	lda.l setupvis
 	asl a
 	asl a
 	tax
@@ -68,14 +68,14 @@ DrawMatchupPictures:
 	lda.w #$0000
 	jsl.l PasteMap
 .2:
-	lda.l $7E3452
+	lda.l setuphome
 	sta.b $00
 	bpl .t1x
-	lda.l $7E3454
+	lda.l setupvis
 	bpl .1x
 	stz.b a2
 .1x:
-	lda.l $7E345A
+	lda.l matchuphome
 	ldx.w #$0018
 	ldy.w #$0001
 	jsl.l DrawPlayerPicture
@@ -96,7 +96,7 @@ DrawMatchupPictures:
 	bra .3
 
 .t1x:
-	lda.l $7E3452
+	lda.l setuphome
 	asl a
 	asl a
 	tax
@@ -133,18 +133,18 @@ DrawMatchupPictures:
 	lda.w #$0000
 	jsl.l PasteMap
 .3:
-	lda.l $7E3478
+	lda.l playerstatson
 	bne .5
-	lda.l $7E3454
+	lda.l setupvis
 	bmi .1xx
-	lda.l $7E3452
+	lda.l setuphome
 	bpl .t1xx
 .1xx:
 	lda.w #$007F
 	sta.b $0E
-	lda.l $7E3470
+	lda.l homepicaddr
 	sta.b $0C
-	lda.l $7E35D2
+	lda.l picchars
 	asl a
 	asl a
 	asl a
@@ -157,9 +157,9 @@ DrawMatchupPictures:
 	jsl.l DMAToVRAM
 	lda.w #$007F
 	sta.b $0E
-	lda.l $7E3472
+	lda.l vispicaddr
 	sta.b $0C
-	lda.l $7E35D2
+	lda.l picchars
 	asl a
 	asl a
 	asl a

@@ -9,9 +9,9 @@ EditLinesScreen:
 	stz.w DispAttribCtr
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$FFFF
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	jsl.l DrawEditLinesTop
 	lda.w #$0005
@@ -54,7 +54,7 @@ EditLinesScreen:
 	jsr.w SetLineSlot
 .1:
 	lda.w #$0001
-	sta.l $7E3468
+	sta.l drawlinesback
 	jsl.l PrintLineNames
 	lda.b $8F
 	pha
@@ -75,7 +75,7 @@ EditLinesScreen:
 	sta.b $8F
 	lda.w #LineMenuNames
 	sta.b a1
-	lda.l $7E34C6
+	lda.l OptLine
 	bne .2
 	lda.w #BestLineNames>>16
 	sta.b $8F
@@ -127,7 +127,7 @@ EditLinesScreen:
 	jmp.w .5
 
 .t2x:
-	lda.l $7E34C6
+	lda.l OptLine
 	beq .5
 	lda.b d0
 	clc

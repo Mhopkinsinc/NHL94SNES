@@ -13,13 +13,13 @@ ReplayMode:
 	stz.w textdirtyhi
 	lda.l blankchar
 	clc
-	adc.l $7E35AA
+	adc.l charofs
 	ldx.w #$0400
 	ldy.w #$0000
 	jsl.l FillVRAMSplit
 	lda.w #$FFFF
 	sta.w replaylock
-	sta.l $7E35F0
+	sta.l replaypanel
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$C800
@@ -36,7 +36,7 @@ ReplayMode:
 	sta.w MapVRAM
 	lda.w #$2000
 	sta.b $14
-	lda.l $7E35AA
+	lda.l charofs
 	ldx.w #$0002
 	ldy.w #$0002
 	jsl.l MapPartToVRAMOffset
@@ -512,17 +512,17 @@ ReplayMode:
 	lda.b d1
 	bit.w #$8000
 	beq .2xxxxxxxxx
-	lda.l $7E35F0
+	lda.l replaypanel
 	beq .1xxxxxxxxxxx
 	lda.l blankchar
 	clc
-	adc.l $7E35AA
+	adc.l charofs
 	ldx.w #$0180
 	ldy.w #$0000
 	jsl.l FillVRAMSplit
 	jsl.l WaitFrame
 	lda.w #$0000
-	sta.l $7E35F0
+	sta.l replaypanel
 .1xxxxxxxxxxx:
 	lda.w sflags3
 	eor.w #$0002
@@ -703,7 +703,7 @@ org $9BB001
 	lda.w replaymusic
 	beq .1xxxxxxxxxxxxxx
 	jsl.l SPCMenuUpload
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	beq .t1xxxxxxxxx
 	cmp.w #$0004
 	beq .t1xxxxxxxxx

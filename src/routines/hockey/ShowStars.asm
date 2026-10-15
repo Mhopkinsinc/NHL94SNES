@@ -186,7 +186,7 @@ ShowStars:
 	sta.w otgoalscorer
 	lda.w #$007E
 	sta.b $8F
-	lda.w #$3136
+	lda.w #ScoreSum-6
 	sta.b a1
 	ldy.w #$0000
 	lda.b [a1],y

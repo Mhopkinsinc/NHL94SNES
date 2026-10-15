@@ -1,6 +1,6 @@
 ; Playoffs: play the highlight of each game of the round that has one
 DoHiLights:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	beq .rtl
 	jsl.l GetShifter
 	lda.b d1
@@ -8,13 +8,13 @@ DoHiLights:
 	sta.b a0
 .loop:
 	ldx.b a0
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	bit.w #$0004
 	bne .1
 	bit.w #$0002
 	beq .1
 	and.w #$FFFD
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	jsl.l SaveRegsStartHL2
 .1:
 	dec.b a0

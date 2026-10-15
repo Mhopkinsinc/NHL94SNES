@@ -11,7 +11,7 @@ ResetClock:
 	lda.w gsp
 	cmp.w #$0003
 	bmi .1
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	bne .1
 	lda.w #$012C
 	sta.b d0

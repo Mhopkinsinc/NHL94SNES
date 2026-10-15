@@ -17,9 +17,9 @@ Stop4Pen:
 	cmp.w #$000E
 	beq .1
 	pha
-	lda.l $7E30F8
+	lda.l ltx
 	sta.b d0
-	lda.l $7E30FA
+	lda.l lty
 	sta.b d1
 	pla
 	cmp.w #$0006
@@ -85,9 +85,9 @@ Stop4Pen:
 	sta.b d0
 .5:
 	lda.b d0
-	sta.l $7E3136
+	sta.l fox
 	lda.b d1
-	sta.l $7E3138
+	sta.l foy
 	jsl.l limitfo
 .6:
 	lda.b $83

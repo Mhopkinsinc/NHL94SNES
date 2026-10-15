@@ -1,7 +1,7 @@
 ; Bad password: wait for a button, then offer retry or exit
 BadPasswordPrompt:
 	jsl.l DecodePW
-	lda.l $7E34D0
+	lda.l postarts
 	bpl PasswordCursorRtl
 .loop:
 	lda.w JoyPad
@@ -98,5 +98,5 @@ BadPasswordPrompt:
 
 .t1:
 	lda.w #$0002
-	sta.l $7E34BC
+	sta.l OptPlayMode
 	jml.l Restart

@@ -1,9 +1,9 @@
 ; Other scores screen
 ShowOtherScores:
 	lda.w #$001C
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$001D
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	ldx.w #$0049
 	ldy.w #$0018
@@ -16,7 +16,7 @@ ShowOtherScores:
 	jsl.l SendColours
 	stz.w curitem
 	lda.w #$0000
-	cmp.l $7E35D6
+	cmp.l gamenum
 	bne .2
 .1:
 	inc a
@@ -59,7 +59,7 @@ OtherScoresNext:
 	dec a
 	bne .2
 .1:
-	cmp.l $7E35D6
+	cmp.l gamenum
 	beq .3
 .2:
 	lda.w #$0004

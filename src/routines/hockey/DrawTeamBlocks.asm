@@ -10,7 +10,7 @@ DrawTeamBlocks:
 	clc
 	adc.w #$0024
 	tax
-	lda.l $7E3464
+	lda.l cardblock
 	beq .1
 	txa
 	sec
@@ -25,9 +25,9 @@ DrawTeamBlocks:
 	inc a
 	inc a
 	tay
-	lda.l $7E346A
+	lda.l pausesubmenu
 	bne .t1
-	lda.l $7E3464
+	lda.l cardblock
 	bne .t1
 	bra .2
 
@@ -42,9 +42,9 @@ DrawTeamBlocks:
 	iny
 .2:
 	jsl.l PrintTeamSprites
-	lda.l $7E3462
+	lda.l horblocks
 	beq .t2
-	lda.l $7E3460
+	lda.l redrawblocks
 	bne .t2
 	jmp.w .3
 
@@ -122,7 +122,7 @@ DrawTeamBlocks:
 	adc.l printfontset
 	clc
 	adc.b $14
-	sta.l $7E3822,x
+	sta.l textmap+$2E,x
 	iny
 	iny
 	inx

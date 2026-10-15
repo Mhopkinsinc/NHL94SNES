@@ -1,7 +1,7 @@
 ; Set the default menu choices at power on
 DefaultMenus:
 	lda.w #$FFFF
-	sta.l $7E34CC
+	sta.l notdemo
 	lda.w #$007E
 	sta.b $8B
 	lda.w #$34BC

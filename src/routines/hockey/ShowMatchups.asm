@@ -67,18 +67,18 @@ ShowMatchups:
 .t1:
 	dec.w curitem
 	lda.w #$FFFF
-	sta.l $7E3454
-	sta.l $7E3452
+	sta.l setupvis
+	sta.l setuphome
 	stz.b a2
 	lda.w curitem
-	sta.l $7E345A
+	sta.l matchuphome
 	lda.w #$0002
 	sta.b a2
 	lda.w curitem
-	sta.l $7E345C
+	sta.l matchupvis
 	jsl.l DrawMatchupPictures
 	lda.w #$3568
-	sta.l $7F7500
+	sta.l colourbuf
 	jsl.l SendColours
 	lda.w #$0002
 	sta.b a2
@@ -178,9 +178,9 @@ ShowMatchups:
 
 .t2:
 	lda.w HomeTeam
-	sta.l $7E3452
+	sta.l setuphome
 	lda.w VisTeam
-	sta.l $7E3454
+	sta.l setupvis
 	jsl.l DrawMatchupPictures
 	jsl.l SendColours
 	lda.w #$0002

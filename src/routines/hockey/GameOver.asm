@@ -3,13 +3,13 @@ GameOver:
 	stz.w FrameByNumber
 	jsl.l EncodePW
 	jsl.l PlayoffScreen
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0001
 	beq .t1
 	jml.l Restart
 
 .t1:
-	lda.l $7E35D6
+	lda.l gamenum
 	bpl .t2
 	jml.l Restart
 

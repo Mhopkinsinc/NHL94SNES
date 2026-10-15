@@ -13,7 +13,7 @@ PeriodOver:
 	lda.w shootoutmode
 	bne .5
 	jsl.l SPCMenuUpload
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	beq .t1
 	cmp.w #$0004
 	beq .t1
@@ -66,7 +66,7 @@ PeriodOver:
 	bcc .3
 	lda.w #$0003
 	sta.w gsp
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	bne .2
 	lda.w #$0004
 	sta.w gsp

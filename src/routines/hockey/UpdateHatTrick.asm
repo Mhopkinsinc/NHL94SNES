@@ -5,7 +5,7 @@ UpdateHatTrick:
 	lda.w sflags
 	and.w #$0800
 	bne .rtl
-	lda.l $7E3448
+	lda.l hattrick
 	bne .t1
 .rtl:
 	rtl
@@ -14,7 +14,7 @@ UpdateHatTrick:
 	ldx.w #$0012
 .1:
 	stx.b d4
-	lda.l $7E340C,x
+	lda.l hatstep,x
 	beq .t3
 	jmp.w .7
 
@@ -52,7 +52,7 @@ UpdateHatTrick:
 	asl a
 	asl a
 	asl a
-	sta.l $7E33A8,x
+	sta.l haty,x
 	jsl.l RandomWord
 	and.w #$003F
 	clc
@@ -60,17 +60,17 @@ UpdateHatTrick:
 	sta.b d2
 	lda.b d1
 	sec
-	sbc.l $7E33A8,x
+	sbc.l haty,x
 	tax
 	lda.b d2
 	jsl.l DivX8S
 	ldx.b d4
-	sta.l $7E33E4,x
+	sta.l hatvy,x
 	lda.b d0
 	and.w #$0100
 	beq .t2
 	lda.w #$1100
-	sta.l $7E3394,x
+	sta.l hatx,x
 	lda.b d0
 	sec
 	sbc.w #$1100
@@ -78,7 +78,7 @@ UpdateHatTrick:
 
 .t2:
 	lda.w #$FF00
-	sta.l $7E3394,x
+	sta.l hatx,x
 	lda.b d0
 	sec
 	sbc.w #$FF00
@@ -87,7 +87,7 @@ UpdateHatTrick:
 	lda.b d2
 	jsl.l DivX8S
 	ldx.b d4
-	sta.l $7E33D0,x
+	sta.l hatvx,x
 	lda.b d2
 	lsr a
 	lsr a
@@ -97,7 +97,7 @@ UpdateHatTrick:
 	sta.b d2
 	asl a
 	adc.b d2
-	sta.l $7E33BC,x
+	sta.l hatz,x
 	jsl.l RandomWord
 	lsr a
 	lsr a
@@ -108,17 +108,17 @@ UpdateHatTrick:
 	sta.b d2
 	asl a
 	adc.b d2
-	sta.l $7E3434,x
+	sta.l hatkind,x
 	lda.w #$0000
-	sta.l $7E33F8
+	sta.l hatvz
 	inc a
-	sta.l $7E340C,x
+	sta.l hatstep,x
 	lda.l .9,x
-	sta.l $7E3420,x
+	sta.l hattimer,x
 .5:
-	lda.l $7E3434,x
+	lda.l hatkind,x
 	clc
-	adc.l $7E340C,x
+	adc.l hatstep,x
 	clc
 	adc.w #SPFhat-1-1		; DrawSprite index (frame - 1); the step counts from 1
 	sta.b $00
@@ -126,7 +126,7 @@ UpdateHatTrick:
 	sta.b $12
 	lda.w #SpriteFrames
 	sta.b $10
-	lda.l $7E33BC,x
+	lda.l hatz,x
 	lsr a
 	lsr a
 	lsr a
@@ -134,7 +134,7 @@ UpdateHatTrick:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.l $7E33A8,x
+	adc.l haty,x
 	lsr a
 	lsr a
 	lsr a
@@ -144,7 +144,7 @@ UpdateHatTrick:
 	ora.w #$F000
 .1xx:
 	tay
-	lda.l $7E3394,x
+	lda.l hatx,x
 	lsr a
 	lsr a
 	lsr a
@@ -159,7 +159,7 @@ UpdateHatTrick:
 	ldx.b d4
 	lda.w #SPFhatshadow-1
 	sta.b $00
-	lda.l $7E33A8,x
+	lda.l haty,x
 	lsr a
 	lsr a
 	lsr a
@@ -169,7 +169,7 @@ UpdateHatTrick:
 	ora.w #$F000
 .3:
 	tay
-	lda.l $7E3394,x
+	lda.l hatx,x
 	lsr a
 	lsr a
 	lsr a
@@ -191,24 +191,24 @@ UpdateHatTrick:
 .t1xx:
 	rtl
 .7:
-	lda.l $7E3420,x
+	lda.l hattimer,x
 	sec
 	sbc.w timestep
 	bpl .t1xxx
 	clc
 	adc.l .9,x
-	sta.l $7E3420,x
-	lda.l $7E340C,x
+	sta.l hattimer,x
+	lda.l hatstep,x
 	inc a
 	cmp.w #$0004
 	bne .1xxx
 	lda.w #$0001
 .1xxx:
-	sta.l $7E340C,x
+	sta.l hatstep,x
 	bra .8
 
 .t1xxx:
-	sta.l $7E3420,x
+	sta.l hattimer,x
 .8:
 	ldy.w timestep
 	beq .1xxxx
@@ -220,20 +220,20 @@ UpdateHatTrick:
 	jmp.w .5
 
 .t3x:
-	lda.l $7E33D0,x
-	ora.l $7E33E4,x
+	lda.l hatvx,x
+	ora.l hatvy,x
 	beq .rtlx
-	lda.l $7E3394,x
+	lda.l hatx,x
 	clc
-	adc.l $7E33D0,x
-	sta.l $7E3394,x
-	lda.l $7E33A8,x
+	adc.l hatvx,x
+	sta.l hatx,x
+	lda.l haty,x
 	clc
-	adc.l $7E33E4,x
-	sta.l $7E33A8,x
-	lda.l $7E33BC,x
+	adc.l hatvy,x
+	sta.l haty,x
+	lda.l hatz,x
 	beq .t2x
-	lda.l $7E33F8,x
+	lda.l hatvz,x
 	lsr a
 	lsr a
 	bit.w #$2000
@@ -243,28 +243,28 @@ UpdateHatTrick:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.l $7E33BC,x
+	adc.l hatz,x
 	bmi .t1xxxx
-	sta.l $7E33BC,x
-	lda.l $7E33F8,x
+	sta.l hatz,x
+	lda.l hatvz,x
 	clc
 	adc.w #$0006
-	sta.l $7E33F8,x
+	sta.l hatvz,x
 .rtlx:
 	rtl
 
 .t1xxxx:
 	lda.w #$0000
-	sta.l $7E33BC,x
+	sta.l hatz,x
 	rtl
 
 .t2x:
 	lda.w #$0000
-	sta.l $7E33F8,x
-	sta.l $7E33BC,x
+	sta.l hatvz,x
+	sta.l hatz,x
 	lda.w #$03E8
-	sta.l $7E3420,x
-	lda.l $7E33D0,x
+	sta.l hattimer,x
+	lda.l hatvx,x
 	cmp.w #$0010
 	bcc .t1xxxxx
 	cmp.w #$FFF0
@@ -280,9 +280,9 @@ UpdateHatTrick:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.l $7E33D0,x
-	sta.l $7E33D0,x
-	lda.l $7E33E4,x
+	adc.l hatvx,x
+	sta.l hatvx,x
+	lda.l hatvy,x
 	lsr a
 	lsr a
 	lsr a
@@ -294,14 +294,14 @@ UpdateHatTrick:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.l $7E33E4,x
-	sta.l $7E33E4,x
+	adc.l hatvy,x
+	sta.l hatvy,x
 	rtl
 
 .t1xxxxx:
 	lda.w #$0000
-	sta.l $7E33D0,x
-	sta.l $7E33E4,x
+	sta.l hatvx,x
+	sta.l hatvy,x
 	rtl
 .9:
 	dw $0004,$0008,$0009,$000F,$000C,$000D,$000A,$0007,$000B,$000E

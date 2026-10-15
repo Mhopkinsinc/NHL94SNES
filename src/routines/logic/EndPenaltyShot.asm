@@ -12,9 +12,9 @@ EndPenaltyShot:
 	sta.b d0
 	jsl.l ShootoutWonBy
 	lda.w psfoxsave
-	sta.l $7E30F8
+	sta.l ltx
 	lda.w psfoysave
-	sta.l $7E30FA
+	sta.l lty
 	plx
 .rtl:
 	rtl

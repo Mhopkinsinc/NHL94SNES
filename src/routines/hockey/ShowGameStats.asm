@@ -1,9 +1,9 @@
 ; Game stats screen: both teams and the stat rows
 ShowGameStats:
 	lda.w VisTeam
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w HomeTeam
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	ldx.w #$0050
 	ldy.w #$0018
@@ -46,9 +46,9 @@ ShowGameStats:
 	jsl.l DrawTeamBlocks
 	jsl.l SpriteFrameEnd
 	lda.w #$FFFF
-	sta.l $7F7542
+	sta.l colourbuf+$42
 	lda.w #$2BFF
-	sta.l $7F7522
+	sta.l colourbuf+$22
 	jsl.l SendColours
 	stz.w listtop
 	lda.w #$0006

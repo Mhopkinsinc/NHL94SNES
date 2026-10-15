@@ -94,7 +94,7 @@ CalcAttrib:
 	clc
 	adc.b $00
 	tax
-	lda.l $7E35F2
+	lda.l usehotcold
 	beq .5
 	lda.w HotColdTable,x
 	and.w #$00FF

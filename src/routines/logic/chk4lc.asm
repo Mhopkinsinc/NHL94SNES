@@ -1,6 +1,6 @@
 ; Should the computer call a line change? Then shoot the puck in
 chk4lc:
-	lda.l $7E34C6
+	lda.l OptLine
 	cmp.w #$0002
 	beq .t1
 	lda.w pucky
@@ -45,7 +45,7 @@ chk4lc:
 	bcs .t1
 	lda.w PenShotActive
 	bne .t1
-	lda.l $7E34C6
+	lda.l OptLine
 	beq .t1
 	jsl.l CompLine
 	jsl.l setpersonel

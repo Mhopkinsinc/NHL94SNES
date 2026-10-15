@@ -7,7 +7,7 @@ Opening:
 	lda.w #$0000
 	tax
 .loop:
-	sta.l $7F0000,x
+	sta.l Ram7F,x
 	dex
 	dex
 	bne .loop
@@ -59,7 +59,7 @@ Restart:
 	jsl.l CheckPAL
 	jsl.l setoptions
 	stz.w shootoutmode
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	bne StartGame
 	jsl.l PlayShootout

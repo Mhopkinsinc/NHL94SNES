@@ -6,9 +6,9 @@ LockHandle:		; set the locked bit of handle A's block
 	cmp.w #$2100
 	bcs .exit
 	tax
-	lda.l $7E0002,x
+	lda.l Ram7E+2,x
 	tay
-	lda.l $7E0000,x
+	lda.l Ram7E,x
 	tyx
 	ldy.w HeapStart7E
 	cpx.w #$007E

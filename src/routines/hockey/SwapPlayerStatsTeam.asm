@@ -9,7 +9,7 @@ SwapPlayerStatsTeam:
 	jsl.l SpriteFrameStart
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E3454
+	sta.l setupvis
 	ldx.w #$0049
 	ldy.w #$0018
 	lda.w #PlayerStatsHeading>>16

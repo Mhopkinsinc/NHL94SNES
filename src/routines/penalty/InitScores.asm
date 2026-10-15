@@ -9,14 +9,14 @@ InitScores:
 	sta.b a0
 .1:
 	lda.b d1
-	cmp.l $7E35D6
+	cmp.l gamenum
 	beq .4
 	ldx.b a0
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	bit.w #$0004
 	bne .4
 	lda.w #$0000
-	sta.l $7E3568,x
+	sta.l gsper,x
 	lda.w #$0003
 	jsl.l randoma8
 	inc a

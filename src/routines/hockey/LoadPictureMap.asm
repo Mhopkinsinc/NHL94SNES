@@ -9,10 +9,10 @@ LoadPictureMap:
 	lda.w #$7780
 	sta.b $10
 	jsl.l Decompress
-	lda.l $7F7780
+	lda.l picboxmap
 	asl a
 	sta.b $14
-	lda.l $7F7782
+	lda.l picboxmap+2
 	tax
 	lda.b $10
 	clc
@@ -25,7 +25,7 @@ LoadPictureMap:
 .loop2:
 	lda.b [$10],y
 	clc
-	adc.l $7E35AC
+	adc.l charofs2
 	clc
 	adc.w #$0C00
 	sta.b [$10],y

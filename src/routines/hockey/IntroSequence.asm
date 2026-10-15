@@ -93,7 +93,7 @@ IntroSequence:
 	ldx.w #$0000
 	lda.w #$0000
 .loopx:
-	sta.l $7F4000,x
+	sta.l introbuf,x
 	inx
 	inx
 	cpx.w #$4000
@@ -123,9 +123,9 @@ IntroSequence:
 	ldy.w #$4000
 	ldx.w #$0000
 .loop2x:
-	lda.l $7F4006,x
+	lda.l introbuf+6,x
 	sta.w VMDATAL
-	lda.l $7F8010,x
+	lda.l introchars,x
 	sta.w VMDATAH
 	inx
 	dey
@@ -135,16 +135,16 @@ IntroSequence:
 	ldy.w #$0000
 	sep #$20
 .loop3:
-	lda.l $7F4000,x
+	lda.l introbuf,x
 	phx
 	tyx
-	sta.l $7F4040,x
+	sta.l introbuf+$40,x
 	plx
 	iny
-	lda.l $7F8010,x
+	lda.l introchars,x
 	phx
 	tyx
-	sta.l $7F4040,x
+	sta.l introbuf+$40,x
 	plx
 	inx
 	iny
@@ -549,7 +549,7 @@ IntroSequence:
 	beq .1xxxxxxxxxx
 	lda.b [$0C],y
 .1xxxxxxxxxx:
-	sta.l $7F4040,x
+	sta.l introbuf+$40,x
 	iny
 	inx
 	inx
@@ -619,7 +619,7 @@ IntroSequence:
 	ldx.w #$0000
 	ldy.w #$0001
 .loopxxx:
-	lda.l $7F4000,x
+	lda.l introbuf,x
 	pha
 	and.w #$001F
 	cmp.w #$001F
@@ -628,7 +628,7 @@ IntroSequence:
 	adc.w #$0001
 	and.w #$001F
 .1xxxxxxxxxxx:
-	sta.l $7F4000,x
+	sta.l introbuf,x
 	pla
 	pha
 	and.w #$03E0
@@ -638,8 +638,8 @@ IntroSequence:
 	adc.w #$0020
 	and.w #$03E0
 .2xxxxx:
-	ora.l $7F4000,x
-	sta.l $7F4000,x
+	ora.l introbuf,x
+	sta.l introbuf,x
 	pla
 	and.w #$7C00
 	cmp.w #$7C00
@@ -648,8 +648,8 @@ IntroSequence:
 	adc.w #$0400
 	and.w #$7C00
 .3x:
-	ora.l $7F4000,x
-	sta.l $7F4000,x
+	ora.l introbuf,x
+	sta.l introbuf,x
 	and.w #$7FFF
 	cmp.w #$7FFF
 	beq .4x

@@ -24,12 +24,12 @@ clockcont_0:
 	lda.w bosgames
 	cmp.w #$0007
 	beq .3
-	lda.l $7E35D6
+	lda.l gamenum
 	asl a
 	sta.b a0
 	tax
 	stz.b d3
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	bit.w #$0001
 	beq .1
 	lda.w #$0010
@@ -47,12 +47,12 @@ clockcont_0:
 	adc.b d3
 	phx
 	tax
-	lda.l $7E3548,x
+	lda.l gspotwins,x
 	plx
 	cmp.w #$0003
 	bne .4
 .3:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0000
 	beq .4
 	inc.b $0C
@@ -129,7 +129,7 @@ clockcont_0:
 	lda.w gsp
 	cmp.w #$0003
 	bne .1xx
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	beq .7
 .1xx:
 	jsl.l EndPenaltyShot

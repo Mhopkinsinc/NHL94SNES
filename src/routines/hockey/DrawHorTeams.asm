@@ -1,7 +1,7 @@
 ; Horizontal rink: draw both team blocks (home at x $14, visitors at x 3, row 2) and send their palette rows
 DrawHorTeams:
 	lda.w #$0001
-	sta.l $7E3462
+	sta.l horblocks
 	lda.b a2
 	pha
 	stz.b a2
@@ -22,17 +22,17 @@ DrawHorTeams:
 	pla
 	sta.b a2
 	lda.w #$0000
-	sta.l $7E3462
+	sta.l horblocks
 	lda.w #$0000
-	sta.l $7E3460
+	sta.l redrawblocks
 	lda.w #$1D47
-	sta.l $7F76C2
-	sta.l $7F76E2
-	lda.l $7E3476
+	sta.l colourbuf+$1C2
+	sta.l colourbuf+$1E2
+	lda.l pausemenuon
 	bne .1
 	lda.w #$FFFF
-	sta.l $7F76DE
-	sta.l $7F76FE
+	sta.l colourbuf+$1DE
+	sta.l colourbuf+$1FE
 .1:
 	lda.w #$007F
 	sta.b $0E

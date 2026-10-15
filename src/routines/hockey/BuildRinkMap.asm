@@ -47,7 +47,7 @@ BuildRinkMap:
 .loop2:
 	lda.b [$0C]
 	clc
-	adc.l $7E35B8
+	adc.l centericechars
 	adc.w #$1400
 	sta.b [$10]
 	inx

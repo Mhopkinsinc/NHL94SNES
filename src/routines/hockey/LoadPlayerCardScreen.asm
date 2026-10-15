@@ -25,11 +25,11 @@ LoadPlayerCardScreen:
 	sta.w TM
 	rep #$30
 	lda.w #$FF00
-	sta.l $7E35AA
+	sta.l charofs
 	sta.l printfontset
 	stz.w printm
 	lda.w #$0000
-	sta.l $7E35AC
+	sta.l charofs2
 	jsl.l ClearTextMap
 	jsl.l ClearTextMap2
 	lda.w #SmallFontTiles>>16
@@ -93,7 +93,7 @@ LoadPlayerCardScreen:
 	adc.l scorechars
 	sec
 	sbc.w #$0100
-	sta.l $7E35D2
+	sta.l picchars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -107,7 +107,7 @@ LoadPlayerCardScreen:
 	tay
 	jsl.l DMAToVRAM
 	lda.w #$0000
-	sta.l $7E35B2
+	sta.l cardbackchars
 	lda.w #CardBackTiles>>16
 	sta.b $0E
 	lda.w #CardBackTiles
@@ -123,7 +123,7 @@ LoadPlayerCardScreen:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35B2
+	adc.l cardbackchars
 	sta.w cardframechars
 	lda.w #$007F
 	sta.b $0E
@@ -161,10 +161,10 @@ LoadPlayerCardScreen:
 	lda.w #$7780
 	sta.b $10
 	jsl.l Decompress
-	lda.l $7F7780
+	lda.l picboxmap
 	asl a
 	sta.b $14
-	lda.l $7F7782
+	lda.l picboxmap+2
 	tax
 	lda.b $10
 	clc
@@ -179,7 +179,7 @@ LoadPlayerCardScreen:
 	clc
 	adc.w cardframechars
 	clc
-	adc.l $7E35AC
+	adc.l charofs2
 	clc
 	adc.w #$1000
 	sta.b [$10],y
@@ -215,9 +215,9 @@ LoadPlayerCardScreen:
 	sta.b $26
 	ldx.w #$0000
 	ldy.w #$0000
-	lda.l $7E35B2
+	lda.l cardbackchars
 	clc
-	adc.l $7E35AC
+	adc.l charofs2
 	clc
 	adc.w #$1000
 	jsl.l PasteMap
@@ -266,7 +266,7 @@ LoadPlayerCardScreen:
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w #$0000
-	sta.l $7F7500
+	sta.l colourbuf
 	jsl.l SendColours
 	lda.b $8F
 	pha

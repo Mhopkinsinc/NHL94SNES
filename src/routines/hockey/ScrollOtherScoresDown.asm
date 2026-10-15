@@ -20,7 +20,7 @@ ScrollOtherScoresDown:
 	sbc.w #$0004
 	sec
 	sbc.w otherskip
-	cmp.l $7E35D6
+	cmp.l gamenum
 	bne .2
 .1:
 	clc

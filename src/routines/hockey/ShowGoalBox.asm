@@ -32,9 +32,9 @@ ShowGoalBox:
 	jsl.l lcfound2
 	lda.w #$007E
 	sta.b $9B
-	lda.w #$3136
+	lda.w #ScoreSum-6
 	clc
-	adc.l $7E313A
+	adc.l ScoreSumbytes
 	sta.b a4
 	lda.b $8F
 	pha

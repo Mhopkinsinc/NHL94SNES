@@ -1,6 +1,6 @@
 ; In the demo, Start pauses and any other button ends it (back through Restart); in mode 4 with controller sides, Start on any of them pauses from that pad
 demoread:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	bne .2
 	lda.w cont1team

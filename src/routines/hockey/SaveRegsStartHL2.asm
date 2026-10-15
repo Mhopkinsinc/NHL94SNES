@@ -82,9 +82,9 @@ StartHL2:
 	jsl.l SPCGameUpload
 .1:
 	ldx.b a0
-	lda.l $7E3528,x
+	lda.l gst1,x
 	sta.w HomeTeam
-	lda.l $7E3538,x
+	lda.l gst2,x
 	sta.w VisTeam
 	lda.b a0
 	pha
@@ -130,12 +130,12 @@ StartHL2:
 	lda.b $8B
 	pha
 	ldx.b a0
-	lda.l $7E3568,x
+	lda.l gsper,x
 	dec a
 	sta.w gsp
-	lda.l $7E3578,x
+	lda.l gss1,x
 	sta.w tmscore
-	lda.l $7E3588,x
+	lda.l gss2,x
 	sta.w tmscore+2
 	lda.w #$0010
 	sta.w gmode
@@ -167,7 +167,7 @@ StartHL2:
 	jsl.l .16
 	jsl.l resetplstuff
 	lda.w #$0000
-	sta.l $7E3448
+	sta.l hattrick
 	lda.w #$000B
 	sta.b d0
 	lda.w #$009F
@@ -298,9 +298,9 @@ org $9F9001
 	jsl.l FadeOutSound
 	ldx.b a0
 	lda.w tmscore
-	sta.l $7E3578,x
+	sta.l gss1,x
 	lda.w tmscore+2
-	sta.l $7E3588,x
+	sta.l gss2,x
 	jsl.l SetupTeamForIntermission
 	ldx.w #$0000
 .loop5:
@@ -328,7 +328,7 @@ org $9F9001
 	lda.w MusicOn
 	bne .loop6
 	jsl.l SPCMenuUpload
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	beq .t2
 	cmp.w #$0004
 	beq .t2
@@ -412,15 +412,15 @@ org $9F9001
 	ldx.b xsave
 	ldx.b a0
 	lda.w #$0004
-	sta.l $7E3568,x
-	lda.l $7E3578,x
-	cmp.l $7E3588,x
+	sta.l gsper,x
+	lda.l gss1,x
+	cmp.l gss2,x
 	bne .t1xx
 	jmp.w StartHL2
 
 .t1xx:
 	lda.w #$0005
-	sta.l $7E3568,x
+	sta.l gsper,x
 	lda.b d1
 	sta.b d3
 	jsl.l NewTicker3
@@ -452,7 +452,7 @@ org $9F9001
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.l $7E35BA
+	lda.l faceoffvrcset
 	asl a
 	asl a
 	asl a
@@ -512,35 +512,35 @@ org $9F9001
 	rtl
 .17:
 	ldx.b a0
-	lda.l $7E3578,x
-	cmp.l $7E3588,x
+	lda.l gss1,x
+	cmp.l gss2,x
 	bne .1x
 	jsl.l RandomWord
 	and.w #$0001
 	ldx.b a0
 	pha
 	clc
-	adc.l $7E3578,x
-	sta.l $7E3578,x
+	adc.l gss1,x
+	sta.l gss1,x
 	pla
 	eor.w #$0001
-	adc.l $7E3588,x
-	sta.l $7E3588,x
+	adc.l gss2,x
+	sta.l gss2,x
 .1x:
 	lda.w #$0005
-	sta.l $7E3568,x
+	sta.l gsper,x
 	rtl
 .18:
 	ldx.w #$0000
 .loopxxx:
 	lda.w OOlist+$10,x
-	sta.l $7E47F4,x
+	sta.l hlsavebuf,x
 	inx
 	inx
 	cpx.w #$0781
 	bcc .loopxxx
-	lda.l $7E313A
-	sta.l $7E47F4,x
+	lda.l ScoreSumbytes
+	sta.l hlsavebuf,x
 	inx
 	inx
 	stz.w tmgoalie
@@ -560,16 +560,16 @@ org $9F9001
 .19:
 	ldx.w #$0000
 .loopxxxx:
-	lda.l $7E47F4,x
+	lda.l hlsavebuf,x
 	sta.w OOlist+$10,x
 	inx
 	inx
 	cpx.w #$0781
 	bcc .loopxxxx
-	lda.l $7E47F4,x
+	lda.l hlsavebuf,x
 	inx
 	inx
-	sta.l $7E313A
+	sta.l ScoreSumbytes
 	rtl
 .20:
 	dw 0,-240,-70,-140,20,-110,-100,-60,25,-40,70,-80

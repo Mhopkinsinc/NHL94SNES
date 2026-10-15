@@ -5,8 +5,8 @@ NewHandle:
 	sta.b $16
 	ldx.w #$2000
 .find:
-	lda.l $7E0000,x
-	ora.l $7E0002,x
+	lda.l Ram7E,x
+	ora.l Ram7E+2,x
 	beq .slot
 	inx
 	inx
@@ -62,9 +62,9 @@ NewHandle:
 	bra .exit
 .found:
 	ldx.w NewHandleSlot
-	sta.l $7E0000,x
+	sta.l Ram7E,x
 	lda.b $0E
-	sta.l $7E0002,x
+	sta.l Ram7E+2,x
 	txa
 .exit:
 	rtl

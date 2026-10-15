@@ -6,14 +6,14 @@ burst:
 
 .t1:
 	jsl.l getpde
-	lda.l $7E34C6
+	lda.l OptLine
 	beq .1
 	lda.b d0
 	sec
 	sbc.w #$00CC
 	sta.b d0
 	jsl.l setpde
-	lda.l $7E34C6
+	lda.l OptLine
 	cmp.w #$0002
 	bne .1
 	lda.w #$1000

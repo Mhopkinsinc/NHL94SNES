@@ -74,7 +74,7 @@ RenderBigText:
 	asl a
 	sta.b $04
 	sta.b $06
-	lda.l $7E3466
+	lda.l bigtextchar
 	jsr.w .10
 	lda.b $08
 	asl a
@@ -88,7 +88,7 @@ RenderBigText:
 	asl a
 	asl a
 	sta.b $04
-	lda.l $7E3466
+	lda.l bigtextchar
 	inc a
 	jsr.w .10
 	ldx.b $08
@@ -104,10 +104,10 @@ RenderBigText:
 	inc.w printx
 	lda.b $06
 	sta.b $04
-	lda.l $7E3466
+	lda.l bigtextchar
 	inc a
 	inc a
-	sta.l $7E3466
+	sta.l bigtextchar
 	lda.b $08
 	bmi .7
 	cmp.w #$0020
@@ -117,7 +117,7 @@ RenderBigText:
 	sta.b $16
 	asl a
 	sta.b $0A
-	lda.l $7E3466
+	lda.l bigtextchar
 	jsr.w .11
 	lda.b $08
 	asl a
@@ -131,7 +131,7 @@ RenderBigText:
 	asl a
 	asl a
 	sta.b $04
-	lda.l $7E3466
+	lda.l bigtextchar
 	inc a
 	jsr.w .11
 .5:
@@ -234,8 +234,8 @@ RenderBigText:
 .1xx:
 	ldy.b $02
 	and.w .8+16,y
-	ora.l $7E4EF4,x
-	sta.l $7E4EF4,x
+	ora.l bigtextbuf,x
+	sta.l bigtextbuf,x
 	inx
 	inx
 	inc.b $04
@@ -262,7 +262,7 @@ RenderBigText:
 	bne .loop2x
 	ldy.b $0A
 	and.w .8,y
-	sta.l $7E4EF4,x
+	sta.l bigtextbuf,x
 	inx
 	inx
 	inc.b $04
@@ -283,12 +283,12 @@ BigLetterPlayoff:
 	adc.w printx
 	asl a
 	tax
-	lda.l $7E3466
+	lda.l bigtextchar
 	ora.w #$2000
 	ora.w printa
-	sta.l $7EC67C,x
+	sta.l screenmap2+6,x
 	inc a
-	sta.l $7EC77C,x
+	sta.l screenmap2+$106,x
 	rtl
 ; jmlvector letter hook of DrawSelectTeam: put letter tile $7E3466 (two rows) at printx / printy of the $7EA67C map
 BigLetterSelect:
@@ -301,10 +301,10 @@ BigLetterSelect:
 	adc.w printx
 	asl a
 	tax
-	lda.l $7E3466
+	lda.l bigtextchar
 	ora.w #$2000
 	ora.w #$0400
-	sta.l $7EA67C,x
+	sta.l screenmap+$C,x
 	inc a
-	sta.l $7EA6BC,x
+	sta.l screenmap+$4C,x
 	rtl

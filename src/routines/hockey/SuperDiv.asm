@@ -8,7 +8,7 @@ SuperDiv:
 	ldx.b #$0E
 	lda.b #$00
 	xba
-	lda.l $7E3517
+	lda.l passbits+$F
 	sta.b $14
 .loop:
 	lda.l passbits,x
@@ -52,7 +52,7 @@ SuperDiv:
 	phy
 	clc
 	ldx.b #$0E
-	lda.l $7E3517
+	lda.l passbits+$F
 	sta.b $14
 .loopx:
 	ldy.b $14
@@ -64,7 +64,7 @@ SuperDiv:
 	dex
 	bpl .loopx
 	lda.b #$00
-	sta.l $7E3517
+	sta.l passbits+$F
 	ply
 	plx
 	rep #$30
@@ -78,7 +78,7 @@ SuperDiv:
 	phx
 	ldx.w #$0000
 .loopxx:
-	lda.l $7E3509,x
+	lda.l passbits+1,x
 	asl a
 	asl a
 	xba
@@ -89,8 +89,8 @@ SuperDiv:
 	cpx.w #$000E
 	bcc .loopxx
 	lda.w #$0000
-	sta.l $7E3517
-	sta.l $7E3516
+	sta.l passbits+$F
+	sta.l passbits+$E
 	plx
 	clc
 	rtl

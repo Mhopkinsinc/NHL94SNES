@@ -44,8 +44,8 @@ StartPer:
 	ldx.w #$001C
 	stx.b a3
 	lda.w #$0000
-	sta.l $7E3136
-	sta.l $7E3138
+	sta.l fox
+	sta.l foy
 	lda.w #$001B
 	sta.b d0
 	jsl.l assreplace
@@ -56,7 +56,7 @@ StartPer:
 	sta.w recsfx
 	sta.w recsfx2
 	sta.w percue
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	beq .t1
 	lda.w #$0010

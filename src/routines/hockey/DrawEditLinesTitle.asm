@@ -1,6 +1,6 @@
 ; Line editor: the EditLinesLabel title sprites, the team name and picture; the background first when $7E3468 is set
 DrawEditLinesTitle:
-	lda.l $7E3468
+	lda.l drawlinesback
 	beq .1
 	jsr.w DrawEditLinesBack
 .1:
@@ -38,13 +38,13 @@ DrawEditLinesTitle:
 	jsl.l DrawTeamBlocks
 	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
-	lda.l $7E3468
+	lda.l drawlinesback
 	beq .4
 	jsl.l WaitFrame
 	lda.w #$0068
 	sta.w irqline2
 	lda.w #$0000
-	sta.l $7E3468
+	sta.l drawlinesback
 .4:
 	jsl.l SendColours
 	rtl

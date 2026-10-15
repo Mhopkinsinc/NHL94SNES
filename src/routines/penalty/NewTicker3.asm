@@ -4,7 +4,7 @@ NewTicker3:
 	asl a
 	sta.b a0
 	tax
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	bit.w #$0006
 	bne NewTicker2
 	lda.b $8F
@@ -79,7 +79,7 @@ NewTicker3:
 	lda.l playoffRoundIdx
 	inc a
 	sta.b d0
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	bne .1
 	stz.b d0
 .1:
@@ -93,7 +93,7 @@ NewTicker3:
 	adc.w #$0015
 	sta.w printx
 	ldx.b a0
-	lda.l $7E3568,x
+	lda.l gsper,x
 	dec a
 	sta.b d0
 	lda.w #PerLabels>>16
@@ -104,15 +104,15 @@ NewTicker3:
 	lda.w #$2000
 	sta.w printa
 	ldx.b a0
-	lda.l $7E3528,x
+	lda.l gst1,x
 	sta.b d0
-	lda.l $7E3578,x
+	lda.l gss1,x
 	sta.b d1
 	jsl.l TickerTeam
 	ldx.b a0
-	lda.l $7E3538,x
+	lda.l gst2,x
 	sta.b d0
-	lda.l $7E3588,x
+	lda.l gss2,x
 	sta.b d1
 	jsl.l TickerTeam
 	pla

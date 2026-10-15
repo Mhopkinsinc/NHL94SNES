@@ -2,7 +2,7 @@
 WritePassBits:
 	jsl.l ClrPassBits
 	stz.b d7
-	lda.l $7E34D0
+	lda.l postarts
 	sta.b d0
 	lda.w #$0020
 	sta.b d1
@@ -17,12 +17,12 @@ WritePassBits:
 	lda.w #$0004
 	sta.b d1
 	jsl.l .t1
-	lda.l $7E34F2
+	lda.l potreeteam
 	sta.b d0
 	lda.w #$0010
 	sta.b d1
 	jsl.l .t1
-	lda.l $7E34CE
+	lda.l pojoy
 	sta.b d0
 	lda.w #$0004
 	sta.b d1
@@ -39,11 +39,11 @@ WritePassBits:
 	stz.b a1
 .loop:
 	ldx.b a1
-	lda.l $7E3548,x
+	lda.l gspotwins,x
 	sta.b d0
 	jsl.l .t1
 	ldx.b a1
-	lda.l $7E3558,x
+	lda.l gspobwins,x
 	sta.b d0
 	jsl.l .t1
 	inc.b a1

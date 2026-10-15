@@ -87,7 +87,7 @@ PrintLinePlayers:
 	lda.b [a3]
 	and.w #$00FF
 	dec a
-	sta.l $7E345A
+	sta.l matchuphome
 .1x:
 	lda.w #$0005
 	sta.w printx

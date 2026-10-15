@@ -1,12 +1,12 @@
 ; The playoff tree screen
 PlayoffScreen:
 	lda.w #$FFFF
-	sta.l $7E346C
-	sta.l $7E346E
+	sta.l phototeams
+	sta.l phototeams+2
 	lda.w #$0000
-	sta.l $7E35AA
-	sta.l $7E35AC
-	lda.l $7E34BC
+	sta.l charofs
+	sta.l charofs2
+	lda.l OptPlayMode
 	bne .t3
 	jmp.w .3
 
@@ -149,7 +149,7 @@ PlayoffScreen:
 	lsr a
 	sta.b d0
 	adc.l smallfontchars
-	sta.l $7E35AE
+	sta.l BigFontChars
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
@@ -174,7 +174,7 @@ PlayoffScreen:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35AE
+	adc.l BigFontChars
 	sta.l scorechars
 	lda.w #$007F
 	sta.b $0E
@@ -183,10 +183,10 @@ PlayoffScreen:
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
 	lda.w #$031A
-	sta.l $7E3676
-	sta.l $7E3696
-	sta.l $7E36B6
-	sta.l $7E36D6
+	sta.l palbuffer+$82
+	sta.l palbuffer+$A2
+	sta.l palbuffer+$C2
+	sta.l palbuffer+$E2
 	lda.w #$007E
 	sta.b $12
 	lda.w #$3674
@@ -244,7 +244,7 @@ PlayoffScreen:
 	lda.l scorechars
 	clc
 	adc.w #$0070
-	sta.l $7E35C6
+	sta.l cupchars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$6700
@@ -321,7 +321,7 @@ PlayoffScreen:
 	jsl.l MemFill
 	lda.w #$007E
 	sta.b $8F
-	lda.w #$34D2
+	lda.w #potree
 	sta.b a1
 	lda.w #$009D
 	sta.b $8B
@@ -351,7 +351,7 @@ PlayoffScreen:
 	pla
 	sta.b $8F
 	lda.w #$0001
-	sta.l $7E3466
+	sta.l bigtextchar
 .loop2:
 	lda.b [a0]
 	inc.b a0
@@ -368,10 +368,10 @@ PlayoffScreen:
 	and.w #$00FF
 	sta.b $CD
 	tay
-	lda.l $7E34F2
+	lda.l potreeteam
 	tax
 	tya
-	eor.l $7E34D2,x
+	eor.l potree,x
 	and.w #$00FF
 	bne .1
 	lda.w #$3400
@@ -422,9 +422,9 @@ PlayoffScreen:
 	lda.b [a2]
 	clc
 	adc.l scorechars
-	sta.l $7EA676,x
+	sta.l screenmap+6,x
 	ora.w #$4000
-	sta.l $7EA686,x
+	sta.l screenmap+$16,x
 	inx
 	inx
 	inc.b a2
@@ -433,7 +433,7 @@ PlayoffScreen:
 	clc
 	adc.l scorechars
 .loop3:
-	sta.l $7EA676,x
+	sta.l screenmap+6,x
 	inx
 	inx
 	dec.b tmp0
@@ -444,9 +444,9 @@ PlayoffScreen:
 	clc
 	adc.l scorechars
 	ora.w #$8000
-	sta.l $7EA766,x
+	sta.l screenmap+$F6,x
 	ora.w #$C000
-	sta.l $7EA776,x
+	sta.l screenmap+$106,x
 	inx
 	inx
 	inc.b a2
@@ -456,7 +456,7 @@ PlayoffScreen:
 	adc.l scorechars
 	ora.w #$8000
 .loop4:
-	sta.l $7EA766,x
+	sta.l screenmap+$F6,x
 	inx
 	inx
 	dec.b tmp1
@@ -472,7 +472,7 @@ org $9D9000
 	lda.w #$4EF4
 	sta.b $0C
 	ldy.w #$4000
-	lda.l $7E3466
+	lda.l bigtextchar
 	inc a
 	asl a
 	asl a
@@ -500,7 +500,7 @@ org $9D9000
 	tay
 .loop2x:
 	lda.b [tmp0]
-	sta.l $7EA876,x
+	sta.l screenmap+$206,x
 	lda.b tmp0
 	clc
 	adc.l PlayoffBracketMap
@@ -573,12 +573,12 @@ org $9D9000
 	lda.w #$0005
 	sta.w mesarea
 	ldx.b a2
-	lda.l $7E3548,x
+	lda.l gspotwins,x
 	adc.w #$0030
 	sta.w mesarea+2
 	lda.w #$002D
 	sta.w mesarea+3
-	lda.l $7E3558,x
+	lda.l gspobwins,x
 	adc.w #$0030
 	sta.w mesarea+4
 	lda.w #$6E82
@@ -610,7 +610,7 @@ org $9D9000
 	sta.b $24
 	ldx.w #$003D
 	ldy.w #$0008
-	lda.l $7E35C6
+	lda.l cupchars
 	ora.w #$0C00
 	jsl.l PasteMap
 	lda.b $8F
@@ -630,11 +630,11 @@ org $9D9000
 	sta.w printm
 	jsl.l PWprint
 	lda.w #$0080
-	sta.l $7EA670
-	sta.l $7EC676
+	sta.l screenmap
+	sta.l screenmap2
 	lda.w #$0020
-	sta.l $7EA672
-	sta.l $7EC678
+	sta.l screenmap+2
+	sta.l screenmap2+2
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$C676
@@ -678,10 +678,10 @@ org $9D9000
 	lda.w #$FFFC
 	sta.w BG3VScroll
 	lda.w #$1D47
-	sta.l $7E3616
-	sta.l $7E361E
+	sta.l palbuffer+$22
+	sta.l palbuffer+$2A
 	lda.w #$FFFF
-	sta.l $7E361A
+	sta.l palbuffer+$26
 	lda.w #$007E
 	sta.b $0E
 	lda.w #$3614
@@ -890,9 +890,9 @@ org $9D9000
 	sep #$20
 	txa
 	lsr a
-	sta.l $7F7500,x
+	sta.l colourbuf,x
 	inc a
-	sta.l $7F7502,x
+	sta.l colourbuf+2,x
 	tya
 	lsr a
 	lsr a
@@ -904,8 +904,8 @@ org $9D9000
 	bcc .1xx
 	ora.b #$01
 .1xx:
-	sta.l $7F7501,x
-	sta.l $7F7503,x
+	sta.l colourbuf+1,x
+	sta.l colourbuf+3,x
 	lda.b $01,s
 	tax
 	tya
@@ -933,24 +933,24 @@ org $9D9000
 	and.b #$01
 	beq .t1xxxxxx
 	lda.b #$FF
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 	bra .3xx
 
 .t1xxxxxx:
 	lda.b #$80
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 .3xx:
 	inx
 	lda.b $03,s
 	and.b #$02
 	beq .t1xxxxxxx
 	lda.b #$7F
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 	bra .4x
 
 .t1xxxxxxx:
 	lda.b #$00
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 .4x:
 	txa
 	clc
@@ -960,24 +960,24 @@ org $9D9000
 	and.b #$04
 	beq .t1xxxxxxxx
 	lda.b #$7F
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 	bra .5x
 
 .t1xxxxxxxx:
 	lda.b #$00
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 .5x:
 	inx
 	lda.b $03,s
 	and.b #$08
 	beq .t1xxxxxxxxx
 	lda.b #$7F
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 	bra .6x
 
 .t1xxxxxxxxx:
 	lda.b #$00
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 .6x:
 	lda.b $00
 	sta.b $03,s
@@ -998,24 +998,24 @@ org $9D9000
 	and.b #$01
 	beq .t1xxxxxxxxxx
 	lda.b #$FF
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 	bra .2xxx
 
 .t1xxxxxxxxxx:
 	lda.b #$00
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 .2xxx:
 	inx
 	lda.b $03,s
 	and.b #$02
 	beq .t1xxxxxxxxxxx
 	lda.b #$FF
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 	bra .3xxx
 
 .t1xxxxxxxxxxx:
 	lda.b #$00
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 .3xxx:
 	txa
 	clc
@@ -1025,24 +1025,24 @@ org $9D9000
 	and.b #$04
 	beq .t1xxxxxxxxxxxx
 	lda.b #$FF
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 	bra .4xx
 
 .t1xxxxxxxxxxxx:
 	lda.b #$00
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 .4xx:
 	inx
 	lda.b $03,s
 	and.b #$08
 	beq .t1xxxxxxxxxxxxx
 	lda.b #$FF
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 	bra .5xx
 
 .t1xxxxxxxxxxxxx:
 	lda.b #$00
-	sta.l $7F6700,x
+	sta.l brackettiles,x
 .5xx:
 	lda.b $00
 	sta.b $03,s

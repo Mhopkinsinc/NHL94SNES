@@ -2,32 +2,32 @@
 setoptions:
 	jsl.l FadeOut
 	lda.w #$0001
-	sta.l $7E3474
+	sta.l matchupphotos
 	lda.w #$0000
-	sta.l $7E3478
+	sta.l playerstatson
 	lda.w #$FFFF
-	sta.l $7E346C
-	sta.l $7E346E
+	sta.l phototeams
+	sta.l phototeams+2
 	lda.w #$0001
-	sta.l $7E3460
-	sta.l $7E3458
-	sta.l $7E3456
+	sta.l redrawblocks
+	sta.l cardtimer
+	sta.l teamschanged
 	lda.w #$0005
-	sta.l $7E345E
+	sta.l setupmatchup
 	jsl.l forceblack
 	jsl.l ClearTextMap
 	jsl.l InitSetupChars
-	lda.l $7E34BE
+	lda.l OptTeam1
 	sta.w HomeTeam
-	lda.l $7E34C0
+	lda.l OptTeam2
 	sta.w VisTeam
 	jsl.l setteams
 	lda.w VisTeam
 	clc
 	adc.w #$0021
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w HomeTeam
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	sep #$20
 	lda.b #$01
@@ -41,13 +41,13 @@ setoptions:
 	sta.b a1
 	jsl.l PrintLetterSprites
 	lda.w #$1D47
-	sta.l $7F750A
+	sta.l colourbuf+$A
 	lda.w #$FFFF
-	sta.l $7F750E
+	sta.l colourbuf+$E
 	lda.w #$14A5
-	sta.l $7F7682
+	sta.l colourbuf+$182
 	lda.w #$6F7B
-	sta.l $7F75C2
+	sta.l colourbuf+$C2
 	jsl.l SendColours
 	jsl.l SpriteFrameEnd
 	jsl.l SendTextMap
@@ -73,7 +73,7 @@ setoptions:
 	sta.w OldXpos
 	sta.w OldXpos+$C
 	lda.w #$FFFF
-	sta.l $7E34CC
+	sta.l notdemo
 	lda.b a2
 	pha
 	lda.w #$0000
@@ -182,20 +182,20 @@ setoptions:
 .t1xx:
 	lda.w #$001C
 	jsl.l randoma8
-	sta.l $7E34BE
+	sta.l OptTeam1
 	sta.w HomeTeam
 .loop:
 	lda.w #$001C
 	jsl.l randoma8
-	cmp.l $7E34BE
+	cmp.l OptTeam1
 	beq .loop
-	sta.l $7E34C0
+	sta.l OptTeam2
 	sta.w VisTeam
 	lda.w #$0000
-	sta.l $7E34CC
+	sta.l notdemo
 	lda.w #$0000
-	sta.l $7E34BC
-	sta.l $7E34CA
+	sta.l OptPlayMode
+	sta.l OptPlayers
 .5:
 	lda.w #BigLetterTiles>>16
 	sta.b $0E
@@ -217,8 +217,8 @@ setoptions:
 	stx.b $00
 	jsl.l LinearToPlanar
 	lda.w #$0000
-	sta.l $7E3474
-	lda.l $7E34BC
+	sta.l matchupphotos
+	lda.l OptPlayMode
 	cmp.w #$0002
 	beq .1x
 	cmp.w #$0003
@@ -227,20 +227,20 @@ setoptions:
 	jsl.l NewPO
 .2x:
 	lda.w #$0001
-	sta.l $7E34CA
-	lda.l $7E34BC
+	sta.l OptPlayers
+	lda.l OptPlayMode
 	cmp.w #$0001
 	bcc .3x
 	cmp.w #$0004
 	bcs .3x
 	lda.w #$0005
-	sta.l $7E34CA
+	sta.l OptPlayers
 .3x:
-	lda.l $7E34CA
+	lda.l OptPlayers
 	sec
 	sbc.w #$0005
-	sta.l $7E34CE
-	lda.l $7E34BC
+	sta.l pojoy
+	lda.l OptPlayMode
 	cmp.w #$0001
 	bne .4
 	jsl.l PasswordScreen
@@ -300,10 +300,10 @@ setoptions:
 	lda.b d2
 	beq .2xxx
 	lda.w #$0005
-	sta.l $7E345E
+	sta.l setupmatchup
 	lda.w #$0001
-	sta.l $7E3456
-	sta.l $7E3458
+	sta.l teamschanged
+	sta.l cardtimer
 .2xxx:
 	lda.w #$007E
 	sta.b $93
@@ -319,7 +319,7 @@ setoptions:
 	sta.b d4
 	lda.b [a2],y
 	sta.b d3
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0002
 	bcc .3xx
 	cmp.w #$0004
@@ -390,15 +390,15 @@ setoptions:
 	sta.b d3
 	bra .4x
 .10:
-	lda.l $7E3456
+	lda.l teamschanged
 	beq .1xxxxxx
-	lda.l $7E34BE
+	lda.l OptTeam1
 	sta.w HomeTeam
-	lda.l $7E34C0
+	lda.l OptTeam2
 	sta.w VisTeam
 	jsl.l setteams
 	lda.w #$0000
-	sta.l $7E3456
+	sta.l teamschanged
 .1xxxxxx:
 	lda.l blankchar
 	sta.b d2
@@ -424,7 +424,7 @@ setoptions:
 	lda.w #GameSetupNames
 	sta.b a1
 	stx.b d0
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	asl a
 	asl a
 	asl a
@@ -512,7 +512,7 @@ setoptions:
 	jsl.l print
 	bra .5xx
 .11:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	asl a
 	asl a
 	asl a
@@ -522,7 +522,7 @@ setoptions:
 	lda.l .13,x
 	bne .t1xxxxxxxx
 	lda.w #$001C
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$0001
 	sta.w printx
 	lda.w #$000A
@@ -535,19 +535,19 @@ setoptions:
 	sta.b d2
 	jsl.l eraser
 	lda.w #$0001
-	sta.l $7E3460
+	sta.l redrawblocks
 	bra .1xxxxxxx
 
 .t1xxxxxxxx:
 	lda.w VisTeam
-	sta.l $7E3454
+	sta.l setupvis
 .1xxxxxxx:
 	dex
 	dex
 	lda.l .13,x
 	bne .t1xxxxxxxxx
 	lda.w #$001D
-	sta.l $7E3452
+	sta.l setuphome
 	lda.w #$0016
 	sta.w printx
 	lda.w #$000A
@@ -560,17 +560,17 @@ setoptions:
 	sta.b d2
 	jsl.l eraser
 	lda.w #$0001
-	sta.l $7E3460
+	sta.l redrawblocks
 	bra .5xxx
 
 .t1xxxxxxxxx:
 	lda.w HomeTeam
-	sta.l $7E3452
+	sta.l setuphome
 .5xxx:
-	lda.l $7E3458
+	lda.l cardtimer
 	dec a
 	dec a
-	sta.l $7E3458
+	sta.l cardtimer
 	bmi .t1xxxxxxxxxx
 	rts
 
@@ -584,7 +584,7 @@ setoptions:
 	lda.w #GameSetupAlt
 	sta.b a1
 	jsl.l PrintLetterSprites
-	lda.l $7E3454
+	lda.l setupvis
 	cmp.w #$001C
 	bpl .1xxxxxxxx
 	lda.w #$0001
@@ -595,7 +595,7 @@ setoptions:
 	sta.b d1
 	jsl.l DrawTeamBlocks
 .1xxxxxxxx:
-	lda.l $7E3452
+	lda.l setuphome
 	cmp.w #$001C
 	bpl .2xxxxxx
 	lda.w #$0016
@@ -606,7 +606,7 @@ setoptions:
 	sta.b d1
 	jsl.l DrawTeamBlocks
 .2xxxxxx:
-	lda.l $7E3452
+	lda.l setuphome
 	bpl .3xxxxx
 	lda.w #$0000
 	sta.b $8F
@@ -619,7 +619,7 @@ setoptions:
 	ldy.w #$0043
 	jsl.l PrintTeamSprites
 .3xxxxx:
-	lda.l $7E3454
+	lda.l setupvis
 	bpl .4xxx
 	lda.w #mesarea>>16
 	sta.b $8F
@@ -640,45 +640,45 @@ setoptions:
 
 .t2xxx:
 	lda.w #$0078
-	sta.l $7E3458
-	lda.l $7E345E
+	sta.l cardtimer
+	lda.l setupmatchup
 	inc a
 	cmp.w #$0007
 	bcc .1xxxxxxxxx
 	lda.w #$0000
 .1xxxxxxxxx:
-	sta.l $7E345E
+	sta.l setupmatchup
 	cmp.w #$0006
 	beq .rts
-	lda.l $7E3452
+	lda.l setuphome
 	cmp.w #$001C
 	bpl .2xxxxxxx
 	lda.w #$FFFF
-	sta.l $7E3452
+	sta.l setuphome
 	ldx.w #$0000
 	jsr.w .t1xxxxxxxxxxx
 .2xxxxxxx:
-	lda.l $7E3454
+	lda.l setupvis
 	cmp.w #$001C
 	bpl .3xxxxxx
 	lda.w #$FFFF
-	sta.l $7E3454
+	sta.l setupvis
 	ldx.w #$0002
 	jsr.w .t1xxxxxxxxxxx
 .3xxxxxx:
 	stz.b a2
-	lda.l $7E345E
-	sta.l $7E345A
+	lda.l setupmatchup
+	sta.l matchuphome
 	lda.w #$0002
 	sta.b a2
-	lda.l $7E345E
-	sta.l $7E345C
+	lda.l setupmatchup
+	sta.l matchupvis
 .rts:
 	rts
 
 .t1xxxxxxxxxxx:
 	stx.b a2
-	lda.l $7E345E
+	lda.l setupmatchup
 	jsl.l GetMatchupPlayer
 	jsl.l PlayerShortName
 	cpx.w #$0000
@@ -715,7 +715,7 @@ setoptions:
 	bra .3xxxxxxx
 
 .t1xxxxxxxxxxxx:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	asl a
 	asl a
 	asl a

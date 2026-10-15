@@ -2,7 +2,7 @@
 LoadMatchupPhotos:
 	stx.b a2
 	lda.w HomeTeam,x
-	cmp.l $7E346C,x
+	cmp.l phototeams,x
 	bne .t1
 	rtl
 
@@ -17,7 +17,7 @@ LoadMatchupPhotos:
 	jsl.l GetMatchupPlayer
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E346C,x
+	sta.l phototeams,x
 	ldx.w #$001A
 	jsl.l Mul8U
 	clc

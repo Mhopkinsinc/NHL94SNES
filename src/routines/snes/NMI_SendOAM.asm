@@ -24,10 +24,10 @@ NMI_SendOAM:
 	sta.w MDMAEN
 NMI_Tick:
 	rep #$30
-	lda.l $7E35D8
+	lda.l vcountfrac
 	clc
-	adc.l $7E35DA
-	sta.l $7E35D8
+	adc.l vcountstep
+	sta.l vcountfrac
 	lda.b $83
 	adc.w #$0001
 	sta.b $83

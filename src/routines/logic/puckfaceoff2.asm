@@ -38,7 +38,7 @@ puckfaceoff2:
 	sta.w recsfx
 	sta.w recsfx2
 	lda.w #$0000
-	sta.l $7E3448
+	sta.l hattrick
 	lda.l crowdlevel
 	cmp.w #$0258
 	bcc .1
@@ -81,7 +81,7 @@ puckfaceoff2:
 .t3:
 	ldy.w percue
 	bne .1x
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	beq .4
 	jsl.l RandomWord
@@ -114,16 +114,16 @@ puckfaceoff2:
 	lda.w #$8200
 	trb.w sflags
 	lda.w #$0000
-	sta.l $7E344A
-	sta.l $7E344C
+	sta.l refwindow
+	sta.l penmsgbox
 	lda.w #$0500
 	tsb.w sflags
 	jsl.l ClrHor
 	stz.w Vpos
 	stz.w Hpos
-	lda.l $7E3136
+	lda.l fox
 	sta.w puckx
-	lda.l $7E3138
+	lda.l foy
 	sta.w pucky
 	stz.w puckvx
 	stz.w puckvy
@@ -314,10 +314,10 @@ puckfaceoff2:
 	lda.b d4
 	cmp.w #$0009
 	bpl .12
-	lda.l $7E3136
+	lda.l fox
 	eor.b d0
 	bpl .10
-	lda.l $7E3138
+	lda.l foy
 	lsr a
 	lsr a
 	lsr a
@@ -331,7 +331,7 @@ puckfaceoff2:
 	adc.b d1
 	sta.b d1
 .10:
-	lda.l $7E3136
+	lda.l fox
 	lsr a
 	lsr a
 	bit.w #$2000
@@ -346,11 +346,11 @@ puckfaceoff2:
 .12:
 	lda.b d0
 	clc
-	adc.l $7E3136
+	adc.l fox
 	sta.b d0
 	lda.b d1
 	clc
-	adc.l $7E3138
+	adc.l foy
 	sta.b d1
 .13:
 	lda.b d0
@@ -476,13 +476,13 @@ puckfaceoff2:
 	sta.b $8F
 	lda.w #$0036
 	sta.b d0
-	lda.l $7E3136
+	lda.l fox
 	bpl .7x
 	lda.w #$00BE
 	sta.b d0
 .7x:
 	lda.b d0
-	sta.l $7E3126
+	sta.l fodropx
 	sec
 	sbc.w #$002E
 	lsr a
@@ -490,7 +490,7 @@ puckfaceoff2:
 	lsr a
 	sta.w printx
 	lda.w #$005C
-	sta.l $7E3128
+	sta.l fodropy
 	lda.w #$0003
 	sta.w printy
 	lda.w printy
@@ -516,7 +516,7 @@ puckfaceoff2:
 	jsl.l marktexthi
 	jsl.l SeatPenaltyBox
 	lda.w #FaceOffMap+6
-	sta.l $7E3120
+	sta.l fobox
 	sta.b tmp0
 	lda.w #$009A
 	sta.b tmp1
@@ -541,8 +541,8 @@ puckfaceoff2:
 .loop5:
 	lda.b [tmp0],y
 	clc
-	adc.l $7E35BA
-	adc.l $7E35AA
+	adc.l faceoffvrcset
+	adc.l charofs
 	sta.l textmap,x
 	iny
 	iny
@@ -639,7 +639,7 @@ puckfaceoff2:
 	jsl.l printbig
 .17:
 	ldx.b a3
-	lda.l $7E34C6
+	lda.l OptLine
 	beq .3xxxx
 .1xxxxx:
 	lda.w penshot
@@ -698,27 +698,27 @@ puckfaceoff2:
 	sta.w temp1,x
 .4xxx:
 	lda.w #$0001
-	sta.l $7E312A
+	sta.l fofdata2
 	lda.w #$8000
-	sta.l $7E312C
-	sta.l $7E3134
+	sta.l fofdata2+2
+	sta.l fofdata+2
 	lda.w #$0004
-	sta.l $7E312E
+	sta.l fofdata2+4
 	lda.w #$A800
-	sta.l $7E3130
+	sta.l fofdata2+6
 	lda.w #$0007
-	sta.l $7E3132
+	sta.l fofdata
 	lda.w gmode
 	bit.w #$0002
 	bne .5xx
 	lda.w #$8800
-	sta.l $7E312C
+	sta.l fofdata2+2
 	lda.w #$A000
-	sta.l $7E3130
+	sta.l fofdata2+6
 .5xx:
 	lda.w #$FFFF
-	sta.l $7E3122
-	sta.l $7E3124
+	sta.l fodir1
+	sta.l fodir2
 	stx.b xsave
 	ldx.w #$001A
 .loopxxx:

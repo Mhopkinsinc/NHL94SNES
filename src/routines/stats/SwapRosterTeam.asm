@@ -6,7 +6,7 @@ SwapRosterTeam:
 	jsl.l SpriteFrameStart
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E3454
+	sta.l setupvis
 	ldx.w #$004C
 	ldy.w #$0018
 	lda.w #TeamRosterSwap>>16

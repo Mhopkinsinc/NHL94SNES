@@ -17,13 +17,13 @@ StartGame_go:
 	bne .loop
 	ldx.w #$30F4
 .loop2:
-	sta.l $7E0000,x
+	sta.l Ram7E,x
 	inx
 	cpx.w #$3479
 	bne .loop2
-	lda.l $7E347A
+	lda.l gamesstarted
 	inc a
-	sta.l $7E347A
+	sta.l gamesstarted
 	stz.w gmode
 	lda.l OptPen
 	cmp.w #$0001
@@ -50,7 +50,7 @@ StartGame_go:
 	jsl.l LoadTeamLines
 	pla
 	sta.b a2
-	lda.l $7E34C8
+	lda.l OptGoalie
 	sta.w goaliemode1
 	sta.w goaliemode2
 	lda.w #$0001
@@ -60,7 +60,7 @@ StartGame_go:
 	stz.w penshotlive
 	stz.w lastperiod
 	lda.w #$0001
-	sta.l $7E344E
+	sta.l newperiod
 	stz.w teampads
 	stz.w teampads+2
 	ldx.w #$0008

@@ -9,7 +9,7 @@ AttribEnergy:
 	tay
 	lda.w tmpde,y
 	sta.b $08
-	lda.l $7E34C6
+	lda.l OptLine
 	cmp.w #$0002
 	bne .2
 .1:

@@ -11,7 +11,7 @@ FillScoringPage:
 	jsl.l MemFill
 	lda.w #$007E
 	sta.b $97
-	lda.w #$313C
+	lda.w #ScoreSum
 	sta.b a3
 	lda.w #$0000
 	sta.w printy

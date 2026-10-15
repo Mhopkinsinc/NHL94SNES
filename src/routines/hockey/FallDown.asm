@@ -263,7 +263,7 @@ FallDown:
 	lda.w gmode
 	bit.w #$0010
 	bne .23
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	beq .23
 	lda.w position,x

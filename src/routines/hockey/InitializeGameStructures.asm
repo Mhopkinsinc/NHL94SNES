@@ -1,7 +1,7 @@
 ; Random team pairs for the 8 other games ($7E3528 / $7E3538), none of them HomeTeam or VisTeam and no team twice (bit sets $B3 / d3)
 InitializeGameStructures:
 	lda.w #$FFFF
-	sta.l $7E35D6
+	sta.l gamenum
 	stz.b d3
 	stz.b $B3
 	lda.w HomeTeam
@@ -14,10 +14,10 @@ InitializeGameStructures:
 .loop:
 	jsr.w .1
 	lda.b d0
-	sta.l $7E3528,x
+	sta.l gst1,x
 	jsr.w .1
 	lda.b d0
-	sta.l $7E3538,x
+	sta.l gst2,x
 	inx
 	inx
 	cpx.w #$0010

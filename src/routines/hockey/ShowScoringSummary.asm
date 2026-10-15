@@ -1,9 +1,9 @@
 ; Scoring summary for both teams. Start leaves.
 ShowScoringSummary:
 	lda.w VisTeam
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w HomeTeam
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	lda.w #$0000
 	sta.w curitem
@@ -18,11 +18,11 @@ ShowScoringSummary:
 	jsl.l PrintLetterSprites
 	jsl.l SpriteFrameEnd
 	lda.w #$FFFF
-	sta.l $7F75C2
+	sta.l colourbuf+$C2
 	lda.w #$2BFF
-	sta.l $7F7502
+	sta.l colourbuf+2
 	lda.w #$6F7B
-	sta.l $7F7522
+	sta.l colourbuf+$22
 	jsl.l SendColours
 	lda.b $8F
 	pha
@@ -39,7 +39,7 @@ ShowScoringSummary:
 	sta.b $8F
 	lda.w #$0000
 	sta.w listend
-	lda.l $7E313A
+	lda.l ScoreSumbytes
 .loop:
 	cmp.w #$0006
 	bmi .t1

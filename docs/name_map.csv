@@ -6893,3 +6893,112 @@ $1DC9,statstemp,,behavior,"RAM; Player stats scratch: ComparePlayerStats returns
 $1E79,strengths,,behavior,"RAM; Player card best three ratings as (column, rating) word pairs: FindSkaterStrengths/FindGoalieStrengths ...",src/ram94snes.asm
 $1EB3,teambit,,behavior,"RAM; InitializeGameStructures: 1 << (team & $F), tested and ORed into the used-team bit sets $B3 / d3",src/ram94snes.asm
 $1EAF,teamtaken,,behavior,RAM; InitializeGameStructures: nonzero when the random team's bit was already set (pick again),src/ram94snes.asm
+$7E30F4,carriedy,,93S,"RAM; updateplayers stores pucky here while puckc >= 0, as 93S updateplayers .cy stores carriedy.",src/ram94snes.asm
+$7E30F6,ltplayer,,93S,RAM; a2touchpuck stores the touching player (index / 2) here like 93S a2touchpuck sta ltplayer.,src/ram94snes.asm
+$7E30F8,ltx,,93S,"RAM; a2touchpuck stores Xpos,y (93S ltx); Stop4Pen loads it as the OOP faceoff x like 93S; EndPenaltyShot ...",src/ram94snes.asm
+$7E30FA,lty,,93S,"RAM; a2touchpuck stores Ypos,y (93S lty); Stop4Pen loads it into d1 like 93S.",src/ram94snes.asm
+$7E3120,fobox,,93S,"RAM; puckfaceoff2 sets it (FaceOffMap+6) when the faceoff box is drawn, Endfaceoff clears it, SetLCmode2 / ...",src/ram94snes.asm
+$7E3122,fodir1,,93S,RAM; Endfaceoff loads it into d3 (home pull direction) as 93S lda fodir1; puckfaceoff2 sets $FFFF.,src/ram94snes.asm
+$7E3124,fodir2,,93S,"RAM; Endfaceoff loads it into d3 when the winner faces down, as 93S fodir2; puckfaceoff2 sets $FFFF.",src/ram94snes.asm
+$7E3126,fodropx,,93S,RAM; puckfaceoff2 sets the faceoff box x; updatefaceoff ((x-$2E)/8 to printx) and checkfo read it as 93S fodropx.,src/ram94snes.asm
+$7E3128,fodropy,,93S,RAM; puckfaceoff2 sets $5C; updatefaceoff ((y-$44)/8 to printy) and checkfo read it as 93S fodropy.,src/ram94snes.asm
+$7E312A,fofdata2,,93S,RAM; Faceoff pull frame / attribute pairs of the home ($312A/$312C) and visiting ($312E/$3130) centre: ...,src/ram94snes.asm
+$7E3132,fofdata,,93S,RAM; Frame / attribute of the faceoff ref: updatefaceoff stores the drop frame here (93S sta fofdata); ...,src/ram94snes.asm
+$7E3136,fox,,93S,"RAM; Faceoff spot x: limitfo clamps it, puckfaceoff2 puts it in puckx, StartPer clears it, StartPenaltyShot ...",src/ram94snes.asm
+$7E3138,foy,,93S,"RAM; Faceoff spot y: limitfo compares / sets it against the blue line (93S foy), puckfaceoff2 puts it in pucky, ...",src/ram94snes.asm
+$7E313A,ScoreSumbytes,,93S,RAM; Goal adds 6 per goal (capped at $258) and writes the goal at #$313C+it; ShowScoringSummary loops on it; ...,src/ram94snes.asm
+$7E313C,ScoreSum,,93S,"RAM; Extra, not in the list (only immediate #$313C): the goal log Goal writes 6 bytes per goal into (93S ...",src/ram94snes.asm
+$7E34BC,OptPlayMode,,93S,RAM; Setup menu row 0 'Play Mode' (base of the 7-word option block setoptions edits; choices Regular Season .. ...,src/ram94snes.asm
+$7E34BE,OptTeam1,,93S,RAM; Setup row 1 'Home': setoptions copies it to HomeTeam; NewPO takes it as the user's team (93S OptTeam1).,src/ram94snes.asm
+$7E34C0,OptTeam2,,93S,"RAM; Setup row 2 'Visitor', copied to VisTeam; FigureJoy stores the opponent here like 93S FigureJoy sta OptTeam2.",src/ram94snes.asm
+$7E34C6,OptLine,,93S,"RAM; setup row 5 Line Changes: 0 off, 1 on, 2 automatic (93S / 94G use 0 = on); readers test 0 or 2",src/ram94snes.asm
+$7E34CA,OptPlayers,,93S,"RAM; FigureJoy regular season: index * 4 into the controller team list, as 93S FigureJoy .fjnpo lda OptPlayers; ...",src/ram94snes.asm
+$7E34CC,notdemo,,93S,"RAM; DefaultMenus sets $FFFF, setoptions clears it for the attract demo; FigureJoy / PlayerSelect / ...",src/ram94snes.asm
+$7E34CE,pojoy,,93S,RAM; ReadPassBits stores the range-4 field here like 93S sta pojoy; FigureJoy adds it to the pad list index; ...,src/ram94snes.asm
+$7E34D0,postarts,,93S,"RAM; ReadPassBits stores the range-32 field ($FFFF on a bad checksum) like 93S postarts; maketree, ...",src/ram94snes.asm
+$7E34D2,potree,,93S,"RAM; FigureJoy reads byte [#$34D2 + potreeteam] as 93S potree,potreeteam; PlayoffScreen compares potree,x.",src/ram94snes.asm
+$7E34F2,potreeteam,,93S,"RAM; ReadPassBits range-16 field (93S potreeteam); NewPO, FigureJoy, EncodePW, PlayoffScreen.",src/ram94snes.asm
+$7E3518,tpassbits,,93S,"RAM; ResolveGames copies passbits here and EncodePW copies it back, as 93S tpassbits.",src/ram94snes.asm
+$7E3528,gst1,,93S,"RAM; Playoff game team 1 (8 words): FigureJoy / SetScore compare and load it like 93S gst1,y.",src/ram94snes.asm
+$7E3538,gst2,,93S,"RAM; Playoff game team 2 (93S gst2): FigureJoy, SetScore, PrintOtherScore.",src/ram94snes.asm
+$7E3548,gspotwins,,93S,"RAM; ReadPassBits second range-5 series field per game, as 93S gspotwins.",src/ram94snes.asm
+$7E3558,gspobwins,,93S,"RAM; ReadPassBits first range-5 series field per game, as 93S gspobwins.",src/ram94snes.asm
+$7E3568,gsper,,93S,"RAM; InitScores clears it per game (93S sta gsper,y); SetScore, SaveRegsStartHL2.",src/ram94snes.asm
+$7E3578,gss1,,93S,"RAM; SetScore: team 1 score (93S gss1,y).",src/ram94snes.asm
+$7E3588,gss2,,93S,"RAM; SetScore: team 2 score (93S gss2,y).",src/ram94snes.asm
+$7E3598,gsflags,,93S,"RAM; ReadPassBits / InitScores test and set bit 2 (series over) as 93S gsflags,y.",src/ram94snes.asm
+$7E35AA,charofs,,93S,"RAM; Tile offset added to text map words: setupice / ReloadRink set $FF00, PlayoffScreen 0; PushRef, EASNLogo, ...",src/ram94snes.asm
+$7E35AC,charofs2,,93S,"RAM; Second tile offset, cleared with charofs by the screen setups (SetupScreen, LoadScoutingScreen, setupice) ...",src/ram94snes.asm
+$7E35AE,BigFontChars,,93S,"RAM; setupice sets it to Framercset+4 ahead of the BigFontTiles; printbig adds it, as 93S BigFontChars.",src/ram94snes.asm
+$7E35BA,faceoffvrcset,,93S,RAM; LoadCenterIce sets it after the logo tiles; setupice loads FaceOffTiles there and puckfaceoff2 adds it to ...,src/ram94snes.asm
+$7E35C2,ExtraChars,,93S,"RAM; setupice: first tile after TeamBlocksTiles (the last set), as 93S setupice sta ExtraChars; no reader found.",src/ram94snes.asm
+$7E35C8,refcharshor,,93S,"RAM; setupice: first tile of RefTilesHor; PushRef uses it on the horizontal rink, as 93S refcharshor.",src/ram94snes.asm
+$7E35CA,refchars,,93S,"RAM; setupice: first tile of RefTiles; PushRef uses it on the vertical rink, as 93S refchars.",src/ram94snes.asm
+$7E35D6,gamenum,,93S,"RAM; FigureJoy stores -1 or the user's game index and InitScores skips that game, as 93S gamenum.",src/ram94snes.asm
+$7E35DC,tickerstart,,93S,"RAM; Intermission saves TickerNum here; IntermissionTick plays DoHiLights when the ticker comes round to it, as ...",src/ram94snes.asm
+$7E47F4,hlsavebuf,,93S,"RAM; SaveRegsStartHL2 copies gmode-1 ($15D3) .. +$780 and then ScoreSumbytes here and back, as 93S StartHL2 ...",src/ram94snes.asm
+$7E3452,setuphome,,94G,"RAM; setoptions sets HomeTeam ($1D logo, $FFFF while a player picture shows) like 94G GameSetUp setuphome; ...",src/ram94snes.asm
+$7E3454,setupvis,,94G,"RAM; As setuphome for the visitors (left) box: VisTeam (+$21 asks SetupScreen for SetupBack), $1C logo, $FFFF ...",src/ram94snes.asm
+$7E3458,cardtimer,,94G,RAM; setoptions .11: counts down by 2 each pass; below 0 it is reset to $78 and the next matchup picture is ...,src/ram94snes.asm
+$7E345A,matchuphome,,94G,"RAM; Player (or matchup slot in matchup photo mode) whose picture DrawMatchupPictures draws in the home box, ...",src/ram94snes.asm
+$7E345C,matchupvis,,94G,RAM; As matchuphome for the visitors box (94G matchupvis); set by setoptions and ShowMatchups.,src/ram94snes.asm
+$7E34C8,OptGoalie,,94G,RAM; Setup row 6 'Goalie' (Automatic / Manual); StartGame copies it to goaliemode1 / goaliemode2 as 94G ...,src/ram94snes.asm
+$7E35B0,EASNcset,,94G,RAM; setupice: first tile of RinkLogoTiles after the faceoff tiles; EASNLogo pastes EASNLogoMap with it (93S ...,src/ram94snes.asm
+$7E0000,Ram7E,,behavior,"RAM; Bank $7E base indexed by an address in X: HeapInit writes the heap block header (+0 size, +2 flags, +4 ...",src/ram94snes.asm
+$7F0000,Ram7F,,behavior,RAM; Bank $7F base indexed by an address in X: HeapInit writes the bank $7F heap block header (+0..+6 as ...,src/ram94snes.asm
+$7E3394,hatx,,behavior,"RAM; UpdateHatTrick: x (12.4 fixed) of each of the ten hats, plus hatvx each step, >>4 for the DrawSprite x.",src/ram94snes.asm
+$7E33A8,haty,,behavior,"RAM; UpdateHatTrick: y of each hat (12.4), plus hatvy each step, used for the hat and its shadow.",src/ram94snes.asm
+$7E33BC,hatz,,behavior,"RAM; UpdateHatTrick: height of each hat, lowered by hatvz until 0 (landed); subtracted from y for the hat sprite.",src/ram94snes.asm
+$7E33D0,hatvx,,behavior,"RAM; UpdateHatTrick: x speed of each hat (DivX8S at launch), damped on landing.",src/ram94snes.asm
+$7E33E4,hatvy,,behavior,"RAM; UpdateHatTrick: y speed of each hat, damped on landing.",src/ram94snes.asm
+$7E33F8,hatvz,,behavior,"RAM; UpdateHatTrick: fall speed of each hat: +6 each step, >>2 taken from hatz (the launch clears only slot 0: ...",src/ram94snes.asm
+$7E340C,hatstep,,behavior,"RAM; UpdateHatTrick: animation step 1-3 of each hat, 0 = not launched yet; StartHatTrick clears the ten slots.",src/ram94snes.asm
+$7E3420,hattimer,,behavior,"RAM; UpdateHatTrick: frames to the hat's next animation step (reloaded from its .9 table, $3E8 once landed).",src/ram94snes.asm
+$7E3434,hatkind,,behavior,"RAM; UpdateHatTrick: kind of hat * 3 (0, 3, 6), added to the step for the SPFhat frame.",src/ram94snes.asm
+$7E3448,hattrick,,behavior,"RAM; StartHatTrick sets 1, UpdateHatTrick runs only while it is set, puckfaceoff2 and SaveRegsStartHL2 clear it.",src/ram94snes.asm
+$7E344A,refwindow,,behavior,RAM; PushRef sets 1 when it draws a ref frame other than the little offsides ref (6) and clears it when it ...,src/ram94snes.asm
+$7E344C,penmsgbox,,behavior,RAM; prefmes sets 1 after framing the vertical penalty message and erases that box and clears it the next time; ...,src/ram94snes.asm
+$7E344E,newperiod,,behavior,RAM; StartGame and SetupTeamForIntermission set 1 at a period start; puckfaceoff skips the teampads line change ...,src/ram94snes.asm
+$7E3450,pspuckback,,behavior,RAM; pucknorm: during a penalty shot (PenShotActive) counts the frames the loose puck moves back from the goal; ...,src/ram94snes.asm
+$7E3456,teamschanged,,behavior,RAM; setoptions: set at entry and when a mode / team row changes; .10 then copies OptTeam1 / OptTeam2 to ...,src/ram94snes.asm
+$7E345E,setupmatchup,,behavior,"RAM; setoptions: matchup shown on the game setup screen, 0-5 (GetMatchupPlayer slot) cycling to 6 = team logos; ...",src/ram94snes.asm
+$7E3460,redrawblocks,,behavior,"RAM; Nonzero: DrawTeamBlocks / DrawSelectTeam also write the block palette and map (setoptions, SetHor, ...",src/ram94snes.asm
+$7E3462,horblocks,,behavior,"RAM; Set while DrawHorTeams draws the blocks: DrawTeamBlocks skips the map when redrawblocks is 0, ...",src/ram94snes.asm
+$7E3464,cardblock,,behavior,"RAM; Set while DrawPlayerCard draws its team block: DrawTeamBlocks moves the name sprites (x -8, +4 / +4).",src/ram94snes.asm
+$7E3466,bigtextchar,,behavior,"RAM; RenderBigText: next letter tile (+2 per letter), used by the BigLetter hooks and by SendBigText / ...",src/ram94snes.asm
+$7E3468,drawlinesback,,behavior,RAM; EditLinesScreen sets 1; DrawEditLinesTitle then draws DrawEditLinesBack first and clears it.,src/ram94snes.asm
+$7E346A,pausesubmenu,,behavior,RAM; PauseEditLines / PauseShootoutSetup set it around EditLinesScreen / ShootoutShooters run from the pause ...,src/ram94snes.asm
+$7E346C,phototeams,,behavior,"RAM; LoadMatchupPhotos: team (home +0, visitors +2) whose matchup photos are unpacked in the $7F photo buffer, ...",src/ram94snes.asm
+$7E3470,homepicaddr,,behavior,RAM; DrawPlayerPicture: bank $7F address of the home picture tiles ($6F00 or $5100+MatchupPhotoOffsets); ...,src/ram94snes.asm
+$7E3472,vispicaddr,,behavior,RAM; As homepicaddr for the visitors picture ($6900 or $2D00+MatchupPhotoOffsets).,src/ram94snes.asm
+$7E3474,matchupphotos,,behavior,RAM; ScoutingReport / setoptions set 1: DrawPlayerPicture takes the preloaded matchup photos ...,src/ram94snes.asm
+$7E3476,pausemenuon,,behavior,"RAM; PauseMenu sets $FFFF, Pausemode / Intermission clear it after; DrawHorTeams leaves the pulsing side ...",src/ram94snes.asm
+$7E3478,playerstatson,,behavior,RAM; ShowPlayerStats sets 1 while it runs; DrawMatchupPictures then skips the picture DMA.,src/ram94snes.asm
+$7E347A,gamesstarted,,behavior,RAM; StartGame increments it right after clearing $30F4-$3478 (count of games started; no reader found).,src/ram94snes.asm
+$7E35B2,cardbackchars,,behavior,RAM; LoadPlayerCardScreen: first tile of CardBackTiles (set 0) and the map base of the card back.,src/ram94snes.asm
+$7E35B4,backchars,,behavior,"RAM; SetupScreen / LoadScoutingScreen: first BG2 tile after MenuBackTiles, where the screen background ...",src/ram94snes.asm
+$7E35B8,centericechars,,behavior,RAM; setupice: tile count of IceRinkTiles = first tile of the centre ice logo; LoadCenterIce DMAs the logo ...,src/ram94snes.asm
+$7E35BE,ninetilechars,,behavior,RAM; SetupScreen: first tile of FramerNineTileTiles (then +$1400 palette); FramerNineTile builds its box from it.,src/ram94snes.asm
+$7E35C0,outlinechars,,behavior,RAM; SetupScreen / LoadScoutingScreen: first tile of FramerOutlineTiles (then +$1000); FramerOutline builds its ...,src/ram94snes.asm
+$7E35C4,nextfreechar,,behavior,RAM; SetupScreen: running next free tile while it loads each set; ShowCrowdMeter puts CrowdMeterTiles there and ...,src/ram94snes.asm
+$7E35C6,cupchars,,behavior,"RAM; PlayoffScreen: scorechars+$70, the StanleyCupTiles after the bracket tiles; StanleyCupMap is pasted with it.",src/ram94snes.asm
+$7E35D2,picchars,,behavior,RAM; SetupScreen / LoadPlayerCardScreen: tile base of the two picture boxes; DrawPlayerPicture adds it to the ...,src/ram94snes.asm
+$7E35D8,vcountfrac,,behavior,RAM; NMI_Tick: fraction accumulator; its carry adds an extra vcount tick.,src/ram94snes.asm
+$7E35DA,vcountstep,,behavior,"RAM; CheckPAL: 0 on NTSC, $3333 on PAL; NMI_Tick adds it to vcountfrac each frame (60 / 50 time step).",src/ram94snes.asm
+$7E35F0,replaypanel,,behavior,RAM; ReplayMode sets $FFFF when it draws the control panel (map at $7FC800); the first B press blanks it and ...,src/ram94snes.asm
+$7E35F2,usehotcold,,behavior,"RAM; GetPlayerRating / GetNameandAttrib set 1, GetPlayerBaseRating 0; CalcAttrib adds the hot / cold table only ...",src/ram94snes.asm
+$7E4EF4,bigtextbuf,,behavior,"RAM; RenderBigText ORs the letter pixels in here, PlayerSelect clears $290 bytes, SendBigText / PlayoffScreen ...",src/ram94snes.asm
+$7EA670,screenmap,,behavior,"RAM; PlayoffScreen map buffer (+0 width $80, +2 height $20, words from +6: bracket, team blocks, Stanley Cup); ...",src/ram94snes.asm
+$7EC676,screenmap2,,behavior,"RAM; Second PlayoffScreen map ($80 x $20: +0 / +2 header, words from +6) for the BigLetterPlayoff letters, sent ...",src/ram94snes.asm
+$7EE67C,OAMHiMasks,,behavior,"RAM; Reset_Fast copies OAMHighMasks (ROM $80FF00, 16 bytes) here; DrawSprite / DrawSpritePieces AND with $E67C,x.",src/ram94snes.asm
+$7EF000,titleteams,,behavior,RAM; ShuffleTitleTeams fills it with the 26 team numbers in random order; TitleScreen / NextTitleTeam read word ...,src/ram94snes.asm
+$7F4000,introbuf,,behavior,"RAM; IntroSequence work buffer (it clears $4000 bytes from here): EALogoMap unpacked here (map words at +6, ...",src/ram94snes.asm
+$7F8010,introchars,,behavior,RAM; IntroSequence unpacks EALogoTiles here and sends them as the mode 7 character bytes (VMDATAH); the same ...,src/ram94snes.asm
+$7F6700,brackettiles,,behavior,RAM; PlayoffScreen draws the $70 bracket tiles (bytes $FF / $80 / $7F / $00) here and DMAs $E00 bytes to VRAM.,src/ram94snes.asm
+$7F7500,colourbuf,,behavior,RAM; The colour buffer SetColours fills and SendColours sends (256 colours) on the menu screens; PlayoffScreen ...,src/ram94snes.asm
+$7F7700,logoboxmap,,behavior,"RAM; SetupScreen pastes the 7 x 7 part of MenuBackMap here (header 7, 7 at +0 / +2, words from +6); ...",src/ram94snes.asm
+$7F7780,picboxmap,,behavior,"RAM; LoadPictureMap / LoadPlayerCardScreen unpack the 7 x 7 PictureMap here (+0 width, +2 height, words from ...",src/ram94snes.asm
+$7F8000,titlescale,,behavior,RAM; BuildTitlePath: mode 7 scale of each of the $500 title logo path steps; TitleScreen reads it.,src/ram94snes.asm
+$7F8A00,titlexofs,,behavior,RAM; BuildTitlePath: x offset of each title path step; TitleScreen adds $190.,src/ram94snes.asm
+$7F9400,titleyscroll,,behavior,"RAM; BuildTitlePath: y scroll of each title path step, read by TitleScreen.",src/ram94snes.asm
+$7FA000,titlelogobuf,,behavior,"RAM; LoadTitleLogo: mode 7 buffer of the title team logo (header +0 / +2 / +4, then the map; pixel pairs at +0 ...",src/ram94snes.asm

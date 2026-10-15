@@ -275,7 +275,7 @@ org $9DC002
 	ldy.w #$0004
 	jsl.l ClearPictureBox
 	lda.w #$0001
-	sta.l $7E3464
+	sta.l cardblock
 	lda.b $8F
 	pha
 	lda.b a1
@@ -294,7 +294,7 @@ org $9DC002
 	sta.b d1
 	jsl.l DrawTeamBlocks
 	lda.w #$0000
-	sta.l $7E3464
+	sta.l cardblock
 	ldy.b a2
 	lda.w #$009C
 	sta.b $8F
@@ -389,9 +389,9 @@ org $9DC002
 	jsl.l DrawPlayerPicture
 	lda.w #$007F
 	sta.b $0E
-	lda.l $7E3470
+	lda.l homepicaddr
 	sta.b $0C
-	lda.l $7E35D2
+	lda.l picchars
 	asl a
 	asl a
 	asl a
@@ -404,9 +404,9 @@ org $9DC002
 	jsl.l DMAToVRAM
 	lda.w #$007F
 	sta.b $0E
-	lda.l $7E3472
+	lda.l vispicaddr
 	sta.b $0C
-	lda.l $7E35D2
+	lda.l picchars
 	asl a
 	asl a
 	asl a
@@ -435,7 +435,7 @@ org $9DC002
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	lda.w #$3568
-	sta.l $7F7500
+	sta.l colourbuf
 	jsl.l SendColours
 	rtl
 .8:

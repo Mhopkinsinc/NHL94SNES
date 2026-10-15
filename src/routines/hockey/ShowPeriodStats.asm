@@ -1,9 +1,9 @@
 ; Period stats for both teams. Start leaves, Y swaps the view.
 ShowPeriodStats:
 	lda.w VisTeam
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w HomeTeam
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours

@@ -80,8 +80,8 @@ Reset_Fast:
 	lda.w #$0000
 	tax
 .loop7:
-	sta.l $7E0000,x
-	sta.l $7F0000,x
+	sta.l Ram7E,x
+	sta.l Ram7F,x
 	dex
 	dex
 	bne .loop7
@@ -98,7 +98,7 @@ Reset_Fast:
 	beq .1
 .loop9:
 	lda.l $80FEFF,x
-	sta.l $7EE67B,x
+	sta.l OAMHiMasks-1,x
 	dex
 	bne .loop9
 .1:

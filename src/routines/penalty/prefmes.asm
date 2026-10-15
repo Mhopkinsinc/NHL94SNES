@@ -21,7 +21,7 @@ prefmes:
 	jmp.w .t5
 
 .t1:
-	lda.l $7E344C
+	lda.l penmsgbox
 	beq .1
 	lda.b $8F
 	pha
@@ -44,7 +44,7 @@ prefmes:
 	sta.b d2
 	jsl.l eraser
 	lda.w #$0000
-	sta.l $7E344C
+	sta.l penmsgbox
 .1:
 	lda.b d0
 	bpl .t4
@@ -69,7 +69,7 @@ prefmes:
 	lda.w #PenaltyList
 	sta.b a1
 	ldy.b d0
-	lda.l $7E344C
+	lda.l penmsgbox
 	beq .t3
 	cpy.w #$0006
 	bne .t1x
@@ -126,7 +126,7 @@ prefmes:
 	dec.b d0
 .2:
 	lda.w #$0001
-	sta.l $7E344C
+	sta.l penmsgbox
 	lda.w #$0003
 	sta.b d1
 	jsl.l Framer

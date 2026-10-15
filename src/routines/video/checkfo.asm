@@ -14,15 +14,15 @@ checkfo:
 	sta.w sprpriority
 	ldx.w #$0000
 .loop:
-	lda.l $7E3126
+	lda.l fodropx
 	sta.w sprx
-	lda.l $7E3128
+	lda.l fodropy
 	sta.w spry
-	lda.l $7E312A,x
+	lda.l fofdata2,x
 	clc
 	adc.w #SPFfaceoff-1
 	sta.w sprframe
-	lda.l $7E312C,x
+	lda.l fofdata2+2,x
 	and.w #$0800
 	sta.w sprhflip
 	lda.w #$0000

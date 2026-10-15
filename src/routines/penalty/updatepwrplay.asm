@@ -1,6 +1,6 @@
 ; Show the power play box: the time left and the team on the power play
 updatepwrplay:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	beq .off
 	stz.b a2

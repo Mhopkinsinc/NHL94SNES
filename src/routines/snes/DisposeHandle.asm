@@ -5,13 +5,13 @@ DisposeHandle:		; free handle A and its block, joined with free neighbours
 	cmp.w #$2100
 	bcs .exit
 	tax
-	lda.l $7E0002,x
+	lda.l Ram7E+2,x
 	tay
-	lda.l $7E0000,x
+	lda.l Ram7E,x
 	pha
 	lda.w #$0000
-	sta.l $7E0000,x
-	sta.l $7E0002,x
+	sta.l Ram7E,x
+	sta.l Ram7E+2,x
 	pla
 	tyx
 	ldy.w HeapStart7E

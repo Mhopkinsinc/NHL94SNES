@@ -55,7 +55,7 @@ puckfaceoff:
 	lda.w #$FFFF
 	sta.w temp1,x
 	sta.w temp2,x
-	lda.l $7E34C6
+	lda.l OptLine
 	bne .t2xx
 	jmp.w .9
 
@@ -84,7 +84,7 @@ puckfaceoff:
 	tsb.w sflags
 	jsl.l ClrHor
 .1xx2:
-	lda.l $7E344E
+	lda.l newperiod
 	bne .2
 	lda.w teampads
 	beq .2
@@ -93,7 +93,7 @@ puckfaceoff:
 	sta.b d0
 	jsl.l .5
 .2:
-	lda.l $7E344E
+	lda.l newperiod
 	bne .3
 	lda.w teampads+2
 	beq .3
@@ -103,7 +103,7 @@ puckfaceoff:
 	jsl.l .6
 .3:
 	lda.w #$0000
-	sta.l $7E344E
+	sta.l newperiod
 	stz.b a1
 	lda.w #$0002
 	sta.b a2
@@ -111,7 +111,7 @@ puckfaceoff:
 	jsl.l .1
 	jmp.w .9
 .1:
-	lda.l $7E34C6
+	lda.l OptLine
 	bne .t1
 	jmp.w .8
 
@@ -145,7 +145,7 @@ puckfaceoff:
 	jsl.l setpersonel
 	jml.l printscores1
 .5:
-	lda.l $7E34C6
+	lda.l OptLine
 	cmp.w #$0002
 	bne .7
 	stz.b a2
@@ -155,7 +155,7 @@ puckfaceoff:
 	sta.b d0
 	bra .4
 .6:
-	lda.l $7E34C6
+	lda.l OptLine
 	cmp.w #$0002
 	bne .7
 	stz.b a1

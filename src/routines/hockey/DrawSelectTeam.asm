@@ -4,7 +4,7 @@ DrawSelectTeam:
 	pha
 	phx
 	lda.w #$0001
-	sta.l $7E3466
+	sta.l bigtextchar
 	lda.w #$1800
 	sta.b $14
 	ldy.w #$0060
@@ -15,7 +15,7 @@ DrawSelectTeam:
 	stx.b $14
 	ldy.w #$0070
 	lda.w #$0018
-	sta.l $7E3466
+	sta.l bigtextchar
 .1:
 	lda.b d1
 	asl a
@@ -40,7 +40,7 @@ DrawSelectTeam:
 	bra .1
 
 .t1:
-	lda.l $7E3460
+	lda.l redrawblocks
 	beq .1x
 	ldy.w #$0000
 	lda.w #TeamBlocksMap>>16
@@ -83,7 +83,7 @@ DrawSelectTeam:
 	adc.l printfontset
 	clc
 	adc.b $14
-	sta.l $7E3822,x
+	sta.l textmap+$2E,x
 	iny
 	iny
 	inx

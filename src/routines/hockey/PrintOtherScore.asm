@@ -3,21 +3,21 @@ PrintOtherScore:
 	lda.w curitem
 	asl a
 	tax
-	lda.l $7E3578,x
+	lda.l gss1,x
 	sta.b d0
-	lda.l $7E3528,x
+	lda.l gst1,x
 	jsr.w PrintOtherScoreTeam
 	inc.w printy
-	lda.l $7E3588,x
+	lda.l gss2,x
 	sta.b d0
-	lda.l $7E3538,x
+	lda.l gst2,x
 	jsr.w PrintOtherScoreTeam
 	lda.w #$0017
 	sta.w printx
-	lda.l $7E3568,x
+	lda.l gsper,x
 	sta.b d0
-	lda.l $7E3578,x
-	cmp.l $7E3588,x
+	lda.l gss1,x
+	cmp.l gss2,x
 	beq .2
 	lda.b d0
 	cmp.w #$0004

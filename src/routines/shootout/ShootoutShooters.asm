@@ -19,9 +19,9 @@ ShootoutShooters:
 .t1:
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$FFFF
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	jsl.l ShootersSetup
 	jsl.l SendColours

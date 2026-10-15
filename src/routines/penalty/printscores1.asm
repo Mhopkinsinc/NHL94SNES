@@ -45,7 +45,7 @@ printscores1:
 	lda.w #$0005
 	sta.b d1
 	jsl.l Framer
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	beq .t2
 	lda.b $8F

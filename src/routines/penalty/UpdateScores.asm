@@ -7,12 +7,12 @@ UpdateScores:
 	sta.b a0
 .loop:
 	lda.b d1
-	cmp.l $7E35D6
+	cmp.l gamenum
 	beq .1
 	ldx.b a0
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	and.w #$FFFD
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	bit.w #$0004
 	bne .1
 	jsl.l SetScore

@@ -10,5 +10,5 @@ NextTitleTeam:
 	sta.w TitleTeamIdx
 	asl a
 	tax
-	lda.l $7EF000,x
+	lda.l titleteams,x
 	rts

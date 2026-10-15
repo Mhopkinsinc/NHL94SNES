@@ -7,12 +7,12 @@ a2touchpuck:
 
 .t2:
 	lda.w Xpos,y
-	sta.l $7E30F8
+	sta.l ltx
 	lda.w Ypos,y
-	sta.l $7E30FA
+	sta.l lty
 	tya
 	lsr a
-	sta.l $7E30F6
+	sta.l ltplayer
 	stz.b a0
 	lda.w pfteam,y
 	beq .1

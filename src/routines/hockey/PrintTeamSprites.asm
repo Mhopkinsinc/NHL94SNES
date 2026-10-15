@@ -163,7 +163,7 @@ PrintTeamSprites_go:
 	clc
 	adc.w #SPFbigfont-1		; DrawSprite index (frame - 1) of the letter
 	sta.b $00
-	lda.l $7E3462
+	lda.l horblocks
 	bne .t1xxxxx
 	lda.w #$3800
 	bra .7

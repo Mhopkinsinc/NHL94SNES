@@ -20,7 +20,7 @@ ClearPictureBox:
 .loop:
 	lda.l blankchar
 	clc
-	adc.l $7E35AA
+	adc.l charofs
 	ldx.w #$000C
 	jsl.l MemFill
 	lda.b $10

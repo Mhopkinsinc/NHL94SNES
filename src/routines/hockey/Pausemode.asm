@@ -55,7 +55,7 @@ Pausemode:
 	jsl.l PauseMenu
 	bne .loop
 	lda.w #$0000
-	sta.l $7E3476
+	sta.l pausemenuon
 	stz.w pregamepause
 	stz.w $1D60
 	jsl.l FadeOut

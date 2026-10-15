@@ -20,7 +20,7 @@ maketree:
 	cpx.w #$0010
 	bne .loop2
 	ldx.b xsave
-	lda.l $7E34D0
+	lda.l postarts
 	asl a
 	asl a
 	asl a
@@ -28,7 +28,7 @@ maketree:
 	sta.b d1
 	lda.w #$007E
 	sta.b $8B
-	lda.w #$34D2
+	lda.w #potree
 	sta.b a0
 	lda.w #$ED59
 	clc
@@ -70,7 +70,7 @@ maketree:
 	bmi .1
 	lda.b d2
 	asl a
-	adc.w #$34D2
+	adc.w #potree
 	sta.b a0
 	lda.w #$007E
 	sta.b $8B
@@ -78,12 +78,12 @@ maketree:
 .loop5:
 	ldx.b a1
 	lda.w #$0000
-	sta.l $7E3578,x
-	sta.l $7E3588,x
-	sta.l $7E3568,x
-	lda.l $7E3598,x
+	sta.l gss1,x
+	sta.l gss2,x
+	sta.l gsper,x
+	lda.l gsflags,x
 	and.w #$FFFD
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	jsl.l .t2
 	inc.b a1
 	inc.b a1
@@ -120,29 +120,29 @@ maketree:
 	beq .t1
 	cmp.w #$0005
 	beq .t1
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	ora.w #$0001
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
-	sta.l $7E3538,x
+	sta.l gst2,x
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
-	sta.l $7E3528,x
+	sta.l gst1,x
 	rtl
 
 .t1:
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	and.w #$FFFE
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
-	sta.l $7E3528,x
+	sta.l gst1,x
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
-	sta.l $7E3538,x
+	sta.l gst2,x
 	rtl

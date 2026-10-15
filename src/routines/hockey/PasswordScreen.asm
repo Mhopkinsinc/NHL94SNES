@@ -20,9 +20,9 @@ PasswordScreen:
 	sta.b a1
 	jsl.l PrintLetterSprites
 	lda.w #$001C
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$001D
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours

@@ -2,7 +2,7 @@
 FramerNineTile:
 	phx
 	phy
-	lda.l $7E35BE
+	lda.l ninetilechars
 	clc
 	adc.l printfontset
 	sta.b tmp0

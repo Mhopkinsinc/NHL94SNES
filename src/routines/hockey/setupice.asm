@@ -4,9 +4,9 @@ setupice:
 	bne setupice
 	jsl.l forceblack
 	lda.w #$FF00
-	sta.l $7E35AA
+	sta.l charofs
 	lda.w #$0000
-	sta.l $7E35AC
+	sta.l charofs2
 	sep #$20
 	lda.b #$03
 	sta.w OBSEL
@@ -25,7 +25,7 @@ setupice:
 .loop:
 	lda.l $9AD0B6,x
 	sta.l palbuffer,x
-	sta.l $7E36F4,x
+	sta.l palbuffer+$100,x
 	dex
 	dex
 	bpl .loop
@@ -49,7 +49,7 @@ setupice:
 	lsr a
 	lsr a
 	lsr a
-	sta.l $7E35B8
+	sta.l centericechars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -72,8 +72,8 @@ setupice:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35BA
-	sta.l $7E35B0
+	adc.l faceoffvrcset
+	sta.l EASNcset
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -91,8 +91,8 @@ setupice:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35B0
-	sta.l $7E35C8
+	adc.l EASNcset
+	sta.l refcharshor
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -110,8 +110,8 @@ setupice:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35C8
-	sta.l $7E35CA
+	adc.l refcharshor
+	sta.l refchars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -129,7 +129,7 @@ setupice:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35CA
+	adc.l refchars
 	sta.l blankchar
 	inc a
 	sta.l smallfontchars
@@ -158,7 +158,7 @@ setupice:
 	adc.l smallfontchars
 	sta.l Framercset
 	adc.w #$0004
-	sta.l $7E35AE
+	sta.l BigFontChars
 	lda.w #$007F
 	sta.b $8B
 	lda.w #$0000
@@ -191,7 +191,7 @@ setupice:
 	lsr a
 	lsr a
 	sta.b d0
-	adc.l $7E35AE
+	adc.l BigFontChars
 	sta.l scorechars
 	lda.w #$007F
 	sta.b $0E
@@ -211,7 +211,7 @@ setupice:
 	lsr a
 	lsr a
 	adc.l scorechars
-	sta.l $7E35C2
+	sta.l ExtraChars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000

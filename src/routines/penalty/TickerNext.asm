@@ -2,7 +2,7 @@
 TickerNext:
 	lda.w TickerNum
 	bmi .1
-	ora.l $7E35D6
+	ora.l gamenum
 	bne .2
 .1:
 	jsl.l GetShifter

@@ -150,7 +150,7 @@ updatereplay:
 	sta.w WMDATA
 	lda.l crowdlevel
 	sta.w WMDATA
-	lda.l $7E35E1
+	lda.l crowdlevel+1
 	sta.w WMDATA
 	lda.w PBnum
 	sta.w WMDATA

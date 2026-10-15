@@ -18,7 +18,7 @@ ReturnGoalies:
 	sta.w tmgoalie,y
 	lda.w teampads,y
 	bne .t1
-	lda.l $7E3138
+	lda.l foy
 	sta.b d1
 	jmp.w CPgoalie
 

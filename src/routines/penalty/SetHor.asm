@@ -33,7 +33,7 @@ SetHor:
 	ror a
 	sta.w puckvy
 	lda.w #$0001
-	sta.l $7E3460
+	sta.l redrawblocks
 	jsl.l forceblack
 	lda.w #$0001
 	sta.w sfhormode

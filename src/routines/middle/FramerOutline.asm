@@ -2,7 +2,7 @@
 FramerOutline:
 	phx
 	phy
-	lda.l $7E35C0
+	lda.l outlinechars
 	clc
 	adc.l printfontset
 	sta.b tmp0

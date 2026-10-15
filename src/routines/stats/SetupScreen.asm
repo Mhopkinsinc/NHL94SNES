@@ -28,12 +28,12 @@ SetupScreen:
 	sta.w TM
 	rep #$30
 	lda.w #$FF00
-	sta.l $7E35AA
+	sta.l charofs
 	sta.l printfontset
 	lda.w #$0000
-	sta.l $7E35AC
+	sta.l charofs2
 	lda.l smallfontchars
-	sta.l $7E35C4
+	sta.l nextfreechar
 	asl a
 	asl a
 	asl a
@@ -57,8 +57,8 @@ SetupScreen:
 	lsr a
 	sta.b d0
 	clc
-	adc.l $7E35C4
-	sta.l $7E35C4
+	adc.l nextfreechar
+	sta.l nextfreechar
 	sta.l Framercset
 	lda.w #$007F
 	sta.b $8B
@@ -80,8 +80,8 @@ SetupScreen:
 	lda.w #$0004
 	sta.b d0
 	clc
-	adc.l $7E35C4
-	sta.l $7E35C4
+	adc.l nextfreechar
+	sta.l nextfreechar
 	sta.l scorechars
 	jsl.l RemapTiles
 	lda.w #TeamBlocksTiles>>16
@@ -100,17 +100,17 @@ SetupScreen:
 	lsr a
 	lsr a
 	clc
-	adc.l $7E35C4
-	sta.l $7E35C4
-	sta.l $7E35BE
+	adc.l nextfreechar
+	sta.l nextfreechar
+	sta.l ninetilechars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.l $7E35C4
-	sta.l $7E35BE
+	lda.l nextfreechar
+	sta.l ninetilechars
 	lda.w #FramerNineTileTiles>>16
 	sta.b $0E
 	lda.w #FramerNineTileTiles
@@ -123,13 +123,13 @@ SetupScreen:
 	lsr a
 	lsr a
 	clc
-	adc.l $7E35C4
-	sta.l $7E35C4
-	sta.l $7E35C0
+	adc.l nextfreechar
+	sta.l nextfreechar
+	sta.l outlinechars
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.l $7E35C4
-	sta.l $7E35C0
+	lda.l nextfreechar
+	sta.l outlinechars
 	lda.w #FramerOutlineTiles>>16
 	sta.b $0E
 	lda.w #FramerOutlineTiles
@@ -142,14 +142,14 @@ SetupScreen:
 	lsr a
 	lsr a
 	clc
-	adc.l $7E35C4
-	sta.l $7E35C4
+	adc.l nextfreechar
+	sta.l nextfreechar
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.l $7E35C4
+	lda.l nextfreechar
 	sec
 	sbc.w #$0100
-	sta.l $7E35D2
+	sta.l picchars
 	lda.w #MenuBackTiles>>16
 	sta.b $0E
 	lda.w #MenuBackTiles
@@ -165,7 +165,7 @@ SetupScreen:
 	lsr a
 	lsr a
 	lsr a
-	sta.l $7E35B4
+	sta.l backchars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -201,8 +201,8 @@ SetupScreen:
 	lda.w #$0C00
 	jsl.l PasteMapPart
 	lda.w #$0007
-	sta.l $7F7700
-	sta.l $7F7702
+	sta.l logoboxmap
+	sta.l logoboxmap+2
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -217,7 +217,7 @@ SetupScreen:
 	sta.b $26
 	ldx.w #$0000
 	ldy.w #$0000
-	lda.l $7E35AC
+	lda.l charofs2
 	clc
 	adc.w #$0C00
 	jsl.l PasteMap
@@ -237,14 +237,14 @@ SetupScreen:
 	ldy.w #$0000
 	ldx.w #$0030
 	jsl.l SetColours
-	lda.l $7E3454
+	lda.l setupvis
 	cmp.w #$0021
 	bcs .t1
 	jmp.w .3
 
 .t1:
 	sbc.w #$0021
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #SetupBackTiles>>16
 	sta.b $0E
 	lda.w #SetupBackTiles
@@ -281,13 +281,13 @@ SetupScreen:
 	lda.b [$10],y
 	beq .1
 	clc
-	adc.l $7E35B4
+	adc.l backchars
 	clc
-	adc.l $7E35AC
+	adc.l charofs2
 	clc
 	adc.w #$0800
 	tyx
-	sta.l $7E3FF4,x
+	sta.l textmap2,x
 .1:
 	dey
 	dey
@@ -353,14 +353,14 @@ SetupScreen:
 	ldy.w #$0030
 	ldx.w #$0020
 	jsl.l SetColours
-	lda.l $7E35BE
+	lda.l ninetilechars
 	clc
 	adc.w #$1400
-	sta.l $7E35BE
-	lda.l $7E35C0
+	sta.l ninetilechars
+	lda.l outlinechars
 	clc
 	adc.w #$1000
-	sta.l $7E35C0
+	sta.l outlinechars
 	lda.w HomeTeam
 	cmp.w #$0018
 	bcs .1x
@@ -396,7 +396,7 @@ SetupScreen:
 	jsl.l SpriteFrameStart
 	jsl.l LoadPictureMap
 	lda.w #$3568
-	sta.l $7F7500
+	sta.l colourbuf
 	jsl.l DrawMatchupPictures
 	pla
 	sta.b a2

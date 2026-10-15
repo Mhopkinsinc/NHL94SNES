@@ -34,6 +34,6 @@ FramerRow:
 	lda.b [$0C]
 	clc
 	adc.b tmp0
-	sta.l $7E37F6,x
+	sta.l textmap+2,x
 	inc.w printy
 	rts

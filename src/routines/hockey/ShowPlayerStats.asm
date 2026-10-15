@@ -5,9 +5,9 @@ ShowPlayerStats:
 	pha
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$001D
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	ldx.w #$0049
 	ldy.w #$0018
@@ -65,7 +65,7 @@ ShowPlayerStats:
 	lda.w #$0018
 	sta.w irqvscroll2
 	lda.w #$0001
-	sta.l $7E3478
+	sta.l playerstatson
 	jsl.l SendTextMap
 	jsl.l DrawPlayerStatsPage
 	jsl.l MenuScreenHDMA
@@ -159,7 +159,7 @@ ShowPlayerStats_redraw:
 
 ShowPlayerStats_exit:
 	lda.w #$0000
-	sta.l $7E3478
+	sta.l playerstatson
 	pla
 	sta.b a2
 	rtl

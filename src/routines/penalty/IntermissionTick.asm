@@ -8,7 +8,7 @@ IntermissionTick:
 	cmp.w #$0150
 	bcc IntermissionTick_done
 	jsl.l TickerNext
-	lda.l $7E35DC
+	lda.l tickerstart
 	cmp.w TickerNum
 	bne IntermissionTick
 	jsl.l DoHiLights

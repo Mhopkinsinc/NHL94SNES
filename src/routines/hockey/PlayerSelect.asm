@@ -5,7 +5,7 @@ PlayerSelect:
 	stz.w cont3team
 	stz.w cont4team
 	stz.w cont5team
-	lda.l $7E34CC
+	lda.l notdemo
 	bne .t1
 	rtl
 
@@ -49,7 +49,7 @@ PlayerSelect:
 	sta.w fadestep
 	stz.b d1
 	stz.b $AB
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0001
 	bcc .2
 	cmp.w #$0004
@@ -76,13 +76,13 @@ PlayerSelect:
 	ldx.w #$0000
 	lda.w #$0000
 .loop:
-	sta.l $7E4EF4,x
+	sta.l bigtextbuf,x
 	inx
 	inx
 	cpx.w #$0290
 	bcc .loop
 	lda.w #$FFFF
-	sta.l $7E3460
+	sta.l redrawblocks
 	lda.w #$0001
 	sta.w printx
 	lda.w #$000A
@@ -278,7 +278,7 @@ PlayerSelect:
 	beq .t1xxxxx
 	jsl.l FigureJoy
 .1xxx:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	bne .3x
 	ldx.w #$0005
@@ -456,7 +456,7 @@ PlayerSelect:
 .10:
 	inx
 	inx
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	bne .1xxxxxx
 	cpx.w #$0004
@@ -469,13 +469,13 @@ PlayerSelect:
 .t1xxxxxxx:
 	jsl.l SpriteFrameStart
 	lda.w VisTeam
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w HomeTeam
-	sta.l $7E3452
+	sta.l setuphome
 	lda.b $AB
 	beq .1xxxxxxx
 	lda.w #$001C
-	sta.l $7E3454
+	sta.l setupvis
 .1xxxxxxx:
 	ldx.w #$0047
 	ldy.w #$0018
@@ -553,7 +553,7 @@ PlayerSelect:
 	ply
 	iny
 	iny
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	bne .3xx
 	cpy.w #$0004

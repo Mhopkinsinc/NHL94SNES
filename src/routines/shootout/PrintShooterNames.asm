@@ -83,7 +83,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	lda.b [a3]
 	and.w #$00FF
 	dec a
-	sta.l $7E345A
+	sta.l matchuphome
 	phx
 	ldx.b a2
 	lda.w HomeTeam,x
@@ -91,7 +91,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	bcc .4
 .3:
 	ldx.w #$0000
-	lda.l $7E345A
+	lda.l matchuphome
 	lda.b $12
 	sta.b $0E
 	lda.b $10

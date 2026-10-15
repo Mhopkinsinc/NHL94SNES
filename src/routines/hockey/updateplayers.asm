@@ -563,7 +563,7 @@ updateplayers:
 	lda.w puckc
 	bmi .20
 	lda.w pucky
-	sta.l $7E30F4
+	sta.l carriedy
 .20:
 	rtl
 .21:

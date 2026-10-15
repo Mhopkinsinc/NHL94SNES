@@ -6,10 +6,10 @@ SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else
 	bcs .bad
 	stx.b $14
 	tax
-	lda.l $7E0000,x
-	ora.l $7E0002,x
+	lda.l Ram7E,x
+	ora.l Ram7E+2,x
 	beq .bad
-	lda.l $7E0002,x
+	lda.l Ram7E+2,x
 	cmp.w #$007E
 	beq .heap
 	cmp.w #$007F
@@ -18,7 +18,7 @@ SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else
 	stx.b $08
 	sta.b $0E
 	stz.b $0C
-	lda.l $7E0000,x
+	lda.l Ram7E,x
 	sec
 	sbc.w #$0006
 	tay
@@ -230,20 +230,20 @@ SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else
 	stx.b $16
 	tax
 	sta.b $0A
-	lda.l $7E0000,x
+	lda.l Ram7E,x
 	tay
 	sep #$20
 	lda.b #$54
 	sta.b $10
-	lda.l $7E0002,x
+	lda.l Ram7E+2,x
 	sta.b $11
 	ldx.b $08
-	lda.l $7E0002,x
+	lda.l Ram7E+2,x
 	sta.b $12
 	lda.b #$6B
 	sta.b $13
 	rep #$20
-	lda.l $7E0000,x
+	lda.l Ram7E,x
 	tax
 	lda.b $16
 	phb
@@ -252,16 +252,16 @@ SetHandleSize:		; resize handle A's block to X bytes: in place when it can, else
 	lda.b $08
 	jsl.l DisposeHandle
 	ldx.b $0A
-	lda.l $7E0000,x
+	lda.l Ram7E,x
 	tay
-	lda.l $7E0002,x
+	lda.l Ram7E+2,x
 	ldx.b $08
-	sta.l $7E0002,x
+	sta.l Ram7E+2,x
 	tya
-	sta.l $7E0000,x
+	sta.l Ram7E,x
 	ldx.b $0A
 	lda.w #$0000
-	sta.l $7E0000,x
-	sta.l $7E0002,x
+	sta.l Ram7E,x
+	sta.l Ram7E+2,x
 .exit:
 	rtl

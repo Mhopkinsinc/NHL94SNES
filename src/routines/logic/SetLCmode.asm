@@ -1,6 +1,6 @@
 ; Open the line change box for player X's team, when line changes are on and the box is not open
 SetLCmode:
-	lda.l $7E34C6
+	lda.l OptLine
 	cmp.w #$0001
 	bne .t1
 	jsl.l loadTeamStruct

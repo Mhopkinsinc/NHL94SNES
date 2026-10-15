@@ -7,7 +7,7 @@ SetColours:		; copy X colours from [$0C] into the colour buffer $7F7500, from co
 	ldy.w #$0000
 .loop:
 	lda.b [$0C],y
-	sta.l $7F7500,x
+	sta.l colourbuf,x
 	iny
 	iny
 	inx

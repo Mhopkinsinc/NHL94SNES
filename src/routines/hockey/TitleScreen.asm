@@ -225,7 +225,7 @@ TitleScreen:
 	lda.w TitleTeamIdx
 	asl a
 	tax
-	lda.l $7EF000,x
+	lda.l titleteams,x
 	jsr.w LoadTitleLogo
 	lda.w #$0011
 	sta.w TitleM7TM
@@ -317,9 +317,9 @@ TitleScreen:
 .2x:
 	asl a
 	tax
-	lda.l $7F8000,x
+	lda.l titlescale,x
 	sta.w TitleM7Scale
-	lda.l $7F8A00,x
+	lda.l titlexofs,x
 	ldy.w TitlePathFlip
 	beq .3x
 	eor.w #$FFFF
@@ -328,7 +328,7 @@ TitleScreen:
 	clc
 	adc.w #$0190
 	sta.w TitleM7HOfs
-	lda.l $7F9400,x
+	lda.l titleyscroll,x
 	sta.w TitleM7VOfs
 .4x:
 	plp

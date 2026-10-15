@@ -20,7 +20,7 @@ FillOtherScores:
 	sta.w curitem
 	stz.w otherskip
 .2:
-	cmp.l $7E35D6
+	cmp.l gamenum
 	bne .t1
 .1:
 	inc.w otherskip

@@ -12,32 +12,32 @@ ReadPassBits:
 	sta.b a1
 .0:
 	ldx.b a1
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	and.w #$FFFB
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	lda.w #$0005
 	sta.b d0
 	jsl.l .sd
 	lda.b d0
 	ldx.b a1
-	sta.l $7E3558,x
+	sta.l gspobwins,x
 	cmp.w #$0004
 	bne .nsf0
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	ora.w #$0004
-	sta.l $7E3598,x
+	sta.l gsflags,x
 .nsf0:
 	lda.w #$0005
 	sta.b d0
 	jsl.l .sd
 	ldx.b a1
 	lda.b d0
-	sta.l $7E3548,x
+	sta.l gspotwins,x
 	cmp.w #$0004
 	bne .nsf1
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	ora.w #$0004
-	sta.l $7E3598,x
+	sta.l gsflags,x
 .nsf1:
 	dec.b a1
 	dec.b a1
@@ -52,12 +52,12 @@ ReadPassBits:
 	sta.b d0
 	jsl.l .sd
 	lda.b d0
-	sta.l $7E34CE
+	sta.l pojoy
 	lda.w #$0010
 	sta.b d0
 	jsl.l .sd
 	lda.b d0
-	sta.l $7E34F2
+	sta.l potreeteam
 	lda.w #$0004
 	sta.b d0
 	jsl.l .sd
@@ -72,7 +72,7 @@ ReadPassBits:
 	sta.b d0
 	jsl.l .sd
 	lda.b d0
-	sta.l $7E34D0
+	sta.l postarts
 	lda.b d7
 	and.w #$01FF
 	sta.b tmp0
@@ -80,7 +80,7 @@ ReadPassBits:
 	cmp.b tmp0
 	beq .rtl
 	lda.w #$FFFF
-	sta.l $7E34D0
+	sta.l postarts
 .rtl:
 	rtl
 .sd:		;d0 = passbits mod d0, added to the checksum d7

@@ -6,7 +6,7 @@ ClearTextMapBottom:
 	sta.b $10
 	lda.l blankchar
 	clc
-	adc.l $7E35AA
+	adc.l charofs
 	ldx.w #$0500
 	jsl.l MemFill
 	rtl

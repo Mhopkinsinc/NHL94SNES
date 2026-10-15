@@ -25,10 +25,10 @@ LoadScoutingScreen:
 	sta.w TM
 	rep #$30
 	lda.w #$FF00
-	sta.l $7E35AA
+	sta.l charofs
 	sta.l printfontset
 	lda.w #$0000
-	sta.l $7E35AC
+	sta.l charofs2
 	lda.l blankchar
 	asl a
 	asl a
@@ -39,7 +39,7 @@ LoadScoutingScreen:
 	lda.l blankchar
 	inc a
 	sta.l smallfontchars
-	sta.l $7E35C0
+	sta.l outlinechars
 	lda.w #$0000
 	ldy.w #$FFFF
 	ldx.w #$0020
@@ -61,8 +61,8 @@ LoadScoutingScreen:
 	lsr a
 	sta.b d0
 	clc
-	adc.l $7E35C0
-	sta.l $7E35C0
+	adc.l outlinechars
+	sta.l outlinechars
 	lda.b d0
 	clc
 	adc.l smallfontchars
@@ -87,8 +87,8 @@ LoadScoutingScreen:
 	lda.w #$0004
 	sta.b d0
 	clc
-	adc.l $7E35C0
-	sta.l $7E35C0
+	adc.l outlinechars
+	sta.l outlinechars
 	lda.b d0
 	clc
 	adc.l Framercset
@@ -110,8 +110,8 @@ LoadScoutingScreen:
 	lsr a
 	lsr a
 	clc
-	adc.l $7E35C0
-	sta.l $7E35C0
+	adc.l outlinechars
+	sta.l outlinechars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -146,7 +146,7 @@ LoadScoutingScreen:
 	lsr a
 	lsr a
 	lsr a
-	sta.l $7E35B4
+	sta.l backchars
 	lda.w #$007F
 	sta.b $0E
 	lda.w #$0000
@@ -176,7 +176,7 @@ LoadScoutingScreen:
 	sta.b $26
 	ldx.w #$0000
 	ldy.w #$0000
-	lda.l $7E35AC
+	lda.l charofs2
 	clc
 	adc.w #$0C00
 	jsl.l PasteMap
@@ -243,13 +243,13 @@ LoadScoutingScreen:
 	lda.b [$10],y
 	beq .3
 	clc
-	adc.l $7E35B4
+	adc.l backchars
 	clc
-	adc.l $7E35AC
+	adc.l charofs2
 	clc
 	adc.w #$0800
 	tyx
-	sta.l $7E3FF4,x
+	sta.l textmap2,x
 .3:
 	dey
 	dey
@@ -314,10 +314,10 @@ LoadScoutingScreen:
 	ldy.w #$0030
 	ldx.w #$0020
 	jsl.l SetColours
-	lda.l $7E35C0
+	lda.l outlinechars
 	clc
 	adc.w #$1000
-	sta.l $7E35C0
+	sta.l outlinechars
 	lda.w #SetupSpritePalette>>16
 	sta.b $0E
 	lda.w #SetupSpritePalette

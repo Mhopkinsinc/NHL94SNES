@@ -18,7 +18,7 @@ NewPO:
 	sta.b $8B
 	lda.w #$000F
 	sta.b d1
-	lda.l $7E34BE
+	lda.l OptTeam1
 	sta.b d2
 	cmp.w #$001A
 	bcc .1
@@ -38,14 +38,14 @@ NewPO:
 	lda.b d1
 	eor.w #$000F
 	sta.b d1
-	sta.l $7E34F2
+	sta.l potreeteam
 	lda.b d0
-	sta.l $7E34D0
+	sta.l postarts
 	lda.w #$0000
 	sta.l playoffRoundIdx
 	lda.w #$0007
 	sta.w bosgames
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0002
 	beq .1x
 	stz.w bosgames
@@ -54,8 +54,8 @@ NewPO:
 	ldx.w #$0000
 	txa
 .loopx:
-	sta.l $7E3548,x
-	sta.l $7E3558,x
+	sta.l gspotwins,x
+	sta.l gspobwins,x
 	inx
 	inx
 	dec.b d0

@@ -30,7 +30,7 @@ Intermission:
 	sta.w tickervc
 	jsl.l InitTicker
 	lda.w TickerNum
-	sta.l $7E35DC
+	sta.l tickerstart
 	stz.w psfirst
 	stz.w psitem
 	lda.w #$FFFF
@@ -87,7 +87,7 @@ Intermission:
 	jsl.l PauseMenu
 	bne .loop2
 	lda.w #$0000
-	sta.l $7E3476
+	sta.l pausemenuon
 	stz.w InIntermission
 	stz.w demoflag
 Intermission_rtl:

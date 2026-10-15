@@ -66,7 +66,7 @@ wallcollb_out:
 	stz.w frame+$1E
 	lda.w gmclock
 	bne .2
-	lda.l $7E30F6
+	lda.l ltplayer
 	asl a
 	sta.b a3
 	tax

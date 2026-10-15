@@ -29,9 +29,9 @@ LoadCenterIce:
 	lsr a
 	lsr a
 	lsr a
-	adc.l $7E35B8
-	sta.l $7E35BA
-	lda.l $7E35B8
+	adc.l centericechars
+	sta.l faceoffvrcset
+	lda.l centericechars
 	asl a
 	asl a
 	asl a

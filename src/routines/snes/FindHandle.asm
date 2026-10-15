@@ -4,10 +4,10 @@ FindHandle:
 	sta.b $14
 	ldx.w #$2000
 .loop:
-	lda.l $7E0000,x
+	lda.l Ram7E,x
 	cmp.b $14
 	bne .next
-	lda.l $7E0002,x
+	lda.l Ram7E+2,x
 	cmp.b $16
 	beq .found
 .next:

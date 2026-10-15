@@ -56,7 +56,7 @@ setsortcords:
 	sta.b d2
 	cpx.w #$0018
 	bcs .6
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	bne .3x
 	lda.w position,x

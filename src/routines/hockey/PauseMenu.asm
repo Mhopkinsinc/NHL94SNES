@@ -1,7 +1,7 @@
 ; Pick which pause menu is up, then read the pad and run the selected item.
 PauseMenu:
 	lda.w #$FFFF
-	sta.l $7E3476
+	sta.l pausemenuon
 	lda.w shootoutmode
 	beq .t4
 	lda.w pregamepause
@@ -56,8 +56,8 @@ PauseMenu:
 	lda.w #$0002
 	sta.w timestep
 	lda.w #$FFFF
-	sta.l $7F76DE
-	sta.l $7F76FE
+	sta.l colourbuf+$1DE
+	sta.l colourbuf+$1FE
 PauseMenuPoll:
 	jsl.l Pmenu
 	jsl.l SelectPauseController

@@ -8,7 +8,7 @@ pucknorm:
 	lda.w #$0078
 	sta.w temp2b+puckobj
 	lda.w #$0000
-	sta.l $7E3450
+	sta.l pspuckback
 pucknorm_move:
 	lda.w puckcross+2
 	sec
@@ -95,15 +95,15 @@ pucknorm_move:
 	dec a
 	bpl .9
 .8:
-	lda.l $7E3450
+	lda.l pspuckback
 	inc a
-	sta.l $7E3450
+	sta.l pspuckback
 	cmp.w #$0030
 	bcc .10
 	jsl.l EndPenaltyShot
 .9:
 	lda.w #$0000
-	sta.l $7E3450
+	sta.l pspuckback
 .10:
 	lda.w puckx
 	cmp.w OldXpos+puckobj
@@ -120,7 +120,7 @@ pucknorm_move:
 	bra .13
 .11:
 	lda.w #$0000
-	sta.l $7E3450
+	sta.l pspuckback
 .12:
 	lda.w #$0078
 	sta.w temp2b+puckobj

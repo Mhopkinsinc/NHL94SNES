@@ -1,9 +1,9 @@
 ; Crowd meter screen
 ShowCrowdMeter:
 	lda.w VisTeam
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w HomeTeam
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	lda.w #CrowdMeterFramePalette>>16
 	sta.b $0E
@@ -61,7 +61,7 @@ ShowCrowdMeter:
 	lda.b $10
 	sta.b $0C
 	tax
-	lda.l $7E35C4
+	lda.l nextfreechar
 	asl a
 	asl a
 	asl a
@@ -78,7 +78,7 @@ ShowCrowdMeter:
 	ldx.w #$0010
 	jsl.l SetColours
 	lda.w #$6F7B
-	sta.l $7F75C2
+	sta.l colourbuf+$C2
 	jsl.l SendColours
 	stz.w curitem
 	jsl.l ScreenOn
@@ -445,9 +445,9 @@ ShowCrowdMeter:
 	sta.b $26
 	ldx.w #$0007
 	ldy.w #$000B
-	lda.l $7E35AA
+	lda.l charofs
 	clc
-	adc.l $7E35C4
+	adc.l nextfreechar
 	clc
 	adc.w #$1C00
 	jsl.l PasteMap
@@ -480,9 +480,9 @@ ShowCrowdMeter:
 	sta.b $26
 	ldx.w #$0007
 	ldy.w #$000B
-	lda.l $7E35AA
+	lda.l charofs
 	clc
-	adc.l $7E35C4
+	adc.l nextfreechar
 	clc
 	adc.w #$1C00
 	jsl.l .7

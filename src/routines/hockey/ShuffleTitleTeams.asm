@@ -13,7 +13,7 @@ ShuffleTitleTeams:
 .loop:
 	cpx.w TitleTeamIdx
 	bcs .t2
-	cmp.l $7EF000,x
+	cmp.l titleteams,x
 	beq .t1
 	inx
 	inx
@@ -25,7 +25,7 @@ ShuffleTitleTeams:
 
 .t2:
 	plx
-	sta.l $7EF000,x
+	sta.l titleteams,x
 	inx
 	inx
 	stx.w TitleTeamIdx

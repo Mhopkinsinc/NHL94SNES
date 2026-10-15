@@ -40,7 +40,7 @@ SelectLinePlayer:
 	sta.b $10
 	ldx.w #$0001
 	ldy.w #$0001
-	lda.l $7E35AC
+	lda.l charofs2
 	clc
 	adc.w #$0C00
 	jsl.l WaitFrame

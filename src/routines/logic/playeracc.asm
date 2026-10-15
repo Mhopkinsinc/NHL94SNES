@@ -108,7 +108,7 @@ playeracc:
 	jsl.l getpde
 	lda.w legspd,x
 	pha
-	lda.l $7E34C6
+	lda.l OptLine
 	cmp.w #$0002
 	bne .3
 	lda.w #$1000
@@ -161,7 +161,7 @@ playeracc:
 	lda.b d1
 	sta.w Yvel,x
 .5:
-	lda.l $7E34C6
+	lda.l OptLine
 	beq .t1x
 	lda.w seed
 	and.w #$003F

@@ -1,14 +1,14 @@
 ; Record the played playoff game and the series wins
 ResolveGames:
-	lda.l $7E35D6
+	lda.l gamenum
 	asl a
 	sta.b d0
 	stz.b a0
 	tax
 	lda.w tmscore
-	sta.l $7E3578,x
+	sta.l gss1,x
 	lda.w tmscore+2
-	sta.l $7E3588,x
+	sta.l gss2,x
 	jsl.l GetShifter
 	lda.b d1
 	asl a
@@ -20,19 +20,19 @@ ResolveGames:
 .4:
 	ldx.b a0
 	lda.w #$0004
-	cmp.l $7E3548,x
+	cmp.l gspotwins,x
 	beq .3
-	cmp.l $7E3558,x
+	cmp.l gspobwins,x
 	beq .3
 	stz.b d3
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	bit.w #$0001
 	beq .1
 	lda.w #$0010
 	sta.b d3
 .1:
-	lda.l $7E3578,x
-	cmp.l $7E3588,x
+	lda.l gss1,x
+	cmp.l gss2,x
 	bpl .2
 	lda.b d3
 	eor.w #$0010
@@ -42,9 +42,9 @@ ResolveGames:
 	clc
 	adc.b d3
 	tax
-	lda.l $7E3548,x
+	lda.l gspotwins,x
 	inc a
-	sta.l $7E3548,x
+	sta.l gspotwins,x
 .3:
 	dec.b a0
 	dec.b a0
@@ -57,14 +57,14 @@ ResolveGames:
 	jmp.w .7
 
 .t3:
-	lda.l $7E35D6
+	lda.l gamenum
 	asl a
 	sta.b a0
 	tax
 	lda.w #$0004
-	cmp.l $7E3548,x
+	cmp.l gspotwins,x
 	beq .t1
-	cmp.l $7E3558,x
+	cmp.l gspobwins,x
 	beq .t1
 	jmp.w .8
 
@@ -86,25 +86,25 @@ ResolveGames:
 .6:
 	ldx.b a0
 	lda.b d1
-	cmp.l $7E35D6
+	cmp.l gamenum
 	beq .t1x
 	lda.w #$0004
-	cmp.l $7E3548,x
+	cmp.l gspotwins,x
 	beq .t1x
-	cmp.l $7E3558,x
+	cmp.l gspobwins,x
 	beq .t1x
-	lda.l $7E3548,x
+	lda.l gspotwins,x
 	inc a
-	sta.l $7E3548,x
+	sta.l gspotwins,x
 	jsl.l RandomWord
 	lsr a
 	bcc .6
-	lda.l $7E3548,x
+	lda.l gspotwins,x
 	dec a
-	sta.l $7E3548,x
-	lda.l $7E3558,x
+	sta.l gspotwins,x
+	lda.l gspobwins,x
 	inc a
-	sta.l $7E3558,x
+	sta.l gspobwins,x
 	bra .6
 
 .t1x:
@@ -116,7 +116,7 @@ ResolveGames:
 	ldx.w #$000E
 .loop:
 	lda.l passbits,x
-	sta.l $7E3518,x
+	sta.l tpassbits,x
 	dex
 	dex
 	bpl .loop
@@ -131,7 +131,7 @@ ResolveGames:
 	stz.b d3
 .loopx:
 	ldx.b a0
-	lda.l $7E3548,x
+	lda.l gspotwins,x
 	cmp.w #$0004
 	beq .1x
 	lda.b d1
@@ -142,8 +142,8 @@ ResolveGames:
 .1x:
 	lda.b a0
 	lda.w #$0000
-	sta.l $7E3548,x
-	sta.l $7E3558,x
+	sta.l gspotwins,x
+	sta.l gspobwins,x
 	dec.b a0
 	dec.b a0
 	dec.b d1
@@ -169,8 +169,8 @@ ResolveGames:
 	stz.b d3
 .loopxx:
 	ldx.b a0
-	lda.l $7E3588,x
-	cmp.l $7E3578,x
+	lda.l gss2,x
+	cmp.l gss1,x
 	bcc .1xx
 	lda.b d1
 	asl a
@@ -179,7 +179,7 @@ ResolveGames:
 	tsb.b d3
 .1xx:
 	ldx.b a0
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	bit.w #$0001
 	beq .2x
 	lda.b d1

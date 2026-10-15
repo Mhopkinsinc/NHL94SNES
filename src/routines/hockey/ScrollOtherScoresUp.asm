@@ -7,7 +7,7 @@ ScrollOtherScoresUp:
 	jmp.w OtherScoresNext
 
 .t2:
-	cmp.l $7E35D6
+	cmp.l gamenum
 	bne .1
 	cmp.w #$0000
 	bne .t1

@@ -79,7 +79,7 @@ LoadTitleLogo:
 	ldx.w #$0000
 	lda.w #$0000
 .loop:
-	sta.l $7FA000,x
+	sta.l titlelogobuf,x
 	inx
 	inx
 	cpx.w #$0040
@@ -119,7 +119,7 @@ LoadTitleLogo:
 	sta.b d0
 	and.b #$0F
 	ora.w LogoPalBits
-	sta.l $7FA001,x
+	sta.l titlelogobuf+1,x
 	lda.b d0
 	lsr a
 	lsr a
@@ -127,7 +127,7 @@ LoadTitleLogo:
 	lsr a
 	and.b #$0F
 	ora.w LogoPalBits
-	sta.l $7FA000,x
+	sta.l titlelogobuf,x
 	inx
 	inx
 	iny
@@ -145,15 +145,15 @@ LoadTitleLogo:
 	ldy.w #$0000
 	lda.b [$0C],y
 	sta.b d0
-	sta.l $7FA000,x
+	sta.l titlelogobuf,x
 	ldx.w #$0002
 	ldy.w #$0002
 	lda.b [$0C],y
 	sta.b $A7
-	sta.l $7FA000,x
+	sta.l titlelogobuf,x
 	ldx.w #$0004
 	lda.w #$0010
-	sta.l $7FA000,x
+	sta.l titlelogobuf,x
 	lda.b d0
 	ldx.b $A7
 	jsl.l Mul8U
@@ -166,7 +166,7 @@ LoadTitleLogo:
 .loopx2:
 	lda.b [$0C],y
 	inc a
-	sta.l $7FA000,x
+	sta.l titlelogobuf,x
 	iny
 	cmp.b #$00
 	beq .1

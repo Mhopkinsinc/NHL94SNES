@@ -60,27 +60,27 @@ limitfo:
 	bne .t1
 	lda.w #$FFA8
 	sta.b d1
-	cmp.l $7E3138
+	cmp.l foy
 	bmi .3
 	lda.w #$FFBF
-	sta.l $7E3138
+	sta.l foy
 	bra .2
 
 .t1:
 	lda.b d1
-	cmp.l $7E3138
+	cmp.l foy
 	bpl .3
 	lda.w #$0041
-	sta.l $7E3138
+	sta.l foy
 .2:
 	lda.w #$0046
 	sta.b d0
-	lda.l $7E3136
+	lda.l fox
 	bpl .1
 	lda.w #$FFBA
 	sta.b d0
 .1:
 	lda.b d0
-	sta.l $7E3136
+	sta.l fox
 .3:
 	rtl

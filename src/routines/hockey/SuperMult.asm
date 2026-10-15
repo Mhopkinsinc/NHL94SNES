@@ -19,27 +19,27 @@ SuperMult:
 	clc
 	adc.b $DD
 	sta.l passbits
-	lda.l $7E350A
+	lda.l passbits+2
 	adc.b $DF
-	sta.l $7E350A
-	lda.l $7E350C
+	sta.l passbits+2
+	lda.l passbits+4
 	adc.b $E1
-	sta.l $7E350C
-	lda.l $7E350E
+	sta.l passbits+4
+	lda.l passbits+6
 	adc.b $E3
-	sta.l $7E350E
-	lda.l $7E3510
+	sta.l passbits+6
+	lda.l passbits+8
 	adc.b $E5
-	sta.l $7E3510
-	lda.l $7E3512
+	sta.l passbits+8
+	lda.l passbits+$A
 	adc.b $E7
-	sta.l $7E3512
-	lda.l $7E3514
+	sta.l passbits+$A
+	lda.l passbits+$C
 	adc.b $E9
-	sta.l $7E3514
-	lda.l $7E3516
+	sta.l passbits+$C
+	lda.l passbits+$E
 	adc.b $EB
-	sta.l $7E3516
+	sta.l passbits+$E
 .1:
 	asl.b $DD
 	rol.b $DF

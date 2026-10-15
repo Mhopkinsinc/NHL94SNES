@@ -71,7 +71,7 @@ CompLine:
 	jmp.w .6
 
 .t2:
-	lda.l $7E34C6
+	lda.l OptLine
 	cmp.w #$0002
 	bne .t1
 	lda.w c1playernum,y

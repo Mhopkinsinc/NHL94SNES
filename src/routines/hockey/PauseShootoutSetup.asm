@@ -7,9 +7,9 @@ PauseShootoutSetup:
 
 .t1:
 	lda.w #$0001
-	sta.l $7E346A
+	sta.l pausesubmenu
 	jsl.l ShootoutShooters
 	lda.w #$0000
-	sta.l $7E346A
+	sta.l pausesubmenu
 	jsl.l ReloadRink
 	bra PauseSubmenuDone

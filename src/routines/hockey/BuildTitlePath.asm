@@ -5,13 +5,13 @@ BuildTitlePath:
 .loop:
 	tya
 	jsr.w TitlePathScale
-	sta.l $7F8000,x
+	sta.l titlescale,x
 	tya
 	jsr.w TitlePathX
-	sta.l $7F8A00,x
+	sta.l titlexofs,x
 	tya
 	jsr.w TitlePathY
-	sta.l $7F9400,x
+	sta.l titleyscroll,x
 	inx
 	inx
 	iny

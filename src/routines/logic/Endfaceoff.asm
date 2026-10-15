@@ -8,21 +8,21 @@ Endfaceoff:
 	lda.w #$0100
 	trb.w sflags
 	lda.w #$0000
-	sta.l $7E3120
+	sta.l fobox
 	lda.w #$0400
 	trb.w sflags
 	stz.w replaydelay
 	stz.w gmclock
 	lda.w #$0010
 	tsb.w sflags3
-	lda.l $7E3122
+	lda.l fodir1
 	sta.b d3
 	lda.w #$0800
 	sta.b d4
 	stz.b a1
 	lda.w #$0010
 	sta.b d2
-	lda.l $7E312A
+	lda.l fofdata2
 	tax
 	lda.l .14-1,x
 	and.w #$00FF
@@ -36,7 +36,7 @@ Endfaceoff:
 	clc
 	adc.b d2
 	sta.b d2
-	lda.l $7E312E
+	lda.l fofdata2+4
 	tax
 	lda.l .14-1,x
 	and.w #$00FF
@@ -57,10 +57,10 @@ Endfaceoff:
 	sta.b a1
 .5:
 	ldx.b a1
-	lda.l $7E312C,x
+	lda.l fofdata2+2,x
 	bit.w #$0800
 	beq .6
-	lda.l $7E3124
+	lda.l fodir2
 	sta.b d3
 	lda.w #$F800
 	sta.b d4

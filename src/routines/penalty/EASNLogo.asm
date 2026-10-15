@@ -30,8 +30,8 @@ EASNLogo:
 	ldy.w #$0019
 	lda.w #$2000
 	clc
-	adc.l $7E35B0
-	adc.l $7E35AA
+	adc.l EASNcset
+	adc.l charofs
 	jsl.l PasteMap
 	lda.w #$0321
 	cmp.w textdirtylo

@@ -1,10 +1,10 @@
 ; the shootout: both shooter lists, then a turn for each team every round, until after five rounds
 PlayShootout:
 		;   $178E and $1790 differ
-	lda.l $7E34C6
+	lda.l OptLine
 	pha
 	lda.w #$0000
-	sta.l $7E34C6
+	sta.l OptLine
 	lda.w #$0001
 	sta.w shootoutmode
 	stz.b a2
@@ -44,7 +44,7 @@ PlayShootout:
 	beq .loop
 	stz.w shootoutmode
 	pla
-	sta.l $7E34C6
+	sta.l OptLine
 	rtl
 
 .t1:		; a shootout turn of team $91: the shooter of this round from its list

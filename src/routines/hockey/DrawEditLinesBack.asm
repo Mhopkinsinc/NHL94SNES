@@ -64,7 +64,7 @@ DrawEditLinesBack:
 	sta.b $26
 	ldx.w #$0000
 	ldy.w #$0000
-	lda.l $7E35AC
+	lda.l charofs2
 	clc
 	adc.w #$0C00
 	jsl.l PasteMap

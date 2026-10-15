@@ -30,7 +30,7 @@ PushRef:
 	cmp.w #$0006
 	beq .1
 	lda.w #$0001
-	sta.l $7E344A
+	sta.l refwindow
 .1:
 	lda.b d0
 	ldx.w #$0070
@@ -42,12 +42,12 @@ PushRef:
 	sta.b a0
 	lda.w #$0084
 	sta.b tmp1
-	lda.l $7E35CA
+	lda.l refchars
 	ora.w #$2000
 	sta.b tmp0
 	lda.w sfhormode
 	beq .2
-	lda.l $7E35C8
+	lda.l refcharshor
 	sta.b tmp0
 	lda.w #$03DA
 	sta.b tmp1
@@ -68,7 +68,7 @@ PushRef:
 	lda.b [a0]
 	clc
 	adc.b tmp0
-	adc.l $7E35AA
+	adc.l charofs
 	ldx.b tmp1
 	sta.l textmap,x
 	txa
@@ -121,7 +121,7 @@ PushRef:
 	sta.b d0
 	jsl.l prefmes
 	lda.w #$0000
-	sta.l $7E344A
+	sta.l refwindow
 .5:
 	pla
 	sta.b $8F

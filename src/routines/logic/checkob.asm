@@ -59,7 +59,7 @@ checkob:
 	lda.w #$8000
 	trb.w sflags
 	beq .4
-	lda.l $7E344A
+	lda.l refwindow
 	bne .4
 	lda.w #$0005
 	sta.b d0

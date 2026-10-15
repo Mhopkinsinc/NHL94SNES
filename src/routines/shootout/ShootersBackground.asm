@@ -1,6 +1,6 @@
 ; Shootout shooters: the background, the Shootout title and the team
 ShootersBackground:
-	lda.l $7E3468
+	lda.l drawlinesback
 	beq .2
 	jsl.l DrawShootersBack
 .2:
@@ -35,12 +35,12 @@ ShootersBackground:
 	jsl.l DrawTeamBlocks
 	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
-	lda.l $7E3468
+	lda.l drawlinesback
 	beq .rtl
 	jsl.l WaitFrame
 	lda.w #$0050
 	sta.w irqline2
 	lda.w #$0000
-	sta.l $7E3468
+	sta.l drawlinesback
 .rtl:
 	rtl

@@ -26,7 +26,7 @@ GetNameandAttrib:
 	sta.b $08
 	lda.w #$0019
 	sta.w printx
-	lda.l $7E346A
+	lda.l pausesubmenu
 	bne .1
 	inc.w printx
 .1:
@@ -37,7 +37,7 @@ GetNameandAttrib:
 
 .t1:
 	lda.w #$0001
-	sta.l $7E35F2
+	sta.l usehotcold
 	jsl.l CalcAttrib
 .2:
 	lda.w #attribjmp>>16

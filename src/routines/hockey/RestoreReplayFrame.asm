@@ -162,7 +162,7 @@ RestoreReplayFrame:
 	lda.w WMDATA
 	sta.l crowdlevel
 	lda.w WMDATA
-	sta.l $7E35E1
+	sta.l crowdlevel+1
 	lda.w WMDATA
 	sta.w PBnum
 	bpl .t1xx

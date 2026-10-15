@@ -5,7 +5,7 @@ NewTicker2:
 	bmi .rtl
 	dec.w TickerNum
 	lda.b d3
-	cmp.l $7E35D6
+	cmp.l gamenum
 	beq NewTicker2
 	bra NewTicker3
 .rtl:

@@ -1,7 +1,7 @@
 ; Draw the picture of player A of team a2 (PlayerPhotoTable) at x, y
 DrawPlayerPicture:
 	sta.b d0
-	lda.l $7E3474
+	lda.l matchupphotos
 	beq .t1
 	jmp.w .10
 
@@ -43,13 +43,13 @@ DrawPlayerPicture:
 	beq .t1x
 	lda.w #$6900
 	sta.b $10
-	sta.l $7E3472
+	sta.l vispicaddr
 	bra .2
 
 .t1x:
 	lda.w #$6F00
 	sta.b $10
-	sta.l $7E3470
+	sta.l homepicaddr
 .2:
 	lda.w #$007F
 	sta.b $0E
@@ -68,7 +68,7 @@ DrawPlayerPicture:
 	sta.b $10
 	lda.w #$0020
 	sta.b $24
-	lda.l $7E35D2
+	lda.l picchars
 	clc
 	adc.w picattr
 	ldy.b a2
@@ -92,7 +92,7 @@ DrawPlayerPicture:
 	sta.b $10
 	lda.w #$0020
 	sta.b $24
-	lda.l $7E35D2
+	lda.l picchars
 	clc
 	adc.w picattr
 	ldy.b a2
@@ -276,7 +276,7 @@ DrawPlayerPicture:
 	lda.w #$2D00
 	clc
 	adc.l MatchupPhotoOffsets,x
-	sta.l $7E3472
+	sta.l vispicaddr
 	bra .2x
 
 .t1xxxxxxxx:
@@ -285,7 +285,7 @@ DrawPlayerPicture:
 	lda.w #$5100
 	clc
 	adc.l MatchupPhotoOffsets,x
-	sta.l $7E3470
+	sta.l homepicaddr
 .2x:
 	lda.w #PhotoMap>>16
 	sta.b $0E
@@ -297,7 +297,7 @@ DrawPlayerPicture:
 	sta.b $10
 	lda.w #$0020
 	sta.b $24
-	lda.l $7E35D2
+	lda.l picchars
 	clc
 	adc.w picattr
 	ldy.b a2

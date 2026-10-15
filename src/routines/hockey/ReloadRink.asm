@@ -39,9 +39,9 @@ ReloadRink:
 	ldx.w #$0040
 	jsl.l DMAToCGRAM
 	lda.w #$FF00
-	sta.l $7E35AA
+	sta.l charofs
 	lda.w #$0000
-	sta.l $7E35AC
+	sta.l charofs2
 	plx
 	lda.w #$007F
 	sta.b $0E
@@ -72,7 +72,7 @@ ReloadRink:
 	jsl.l LinearToPlanar
 	ldx.b $10
 	stx.b $0C
-	lda.l $7E35B8
+	lda.l centericechars
 	asl a
 	asl a
 	asl a
@@ -93,7 +93,7 @@ ReloadRink:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.l $7E35BA
+	lda.l faceoffvrcset
 	asl a
 	asl a
 	asl a
@@ -193,7 +193,7 @@ ReloadRink:
 	lsr a
 	lsr a
 	sta.b d0
-	adc.l $7E35AE
+	adc.l BigFontChars
 	sta.l scorechars
 	lda.w #$007F
 	sta.b $0E

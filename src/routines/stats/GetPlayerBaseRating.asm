@@ -60,7 +60,7 @@ GetPlayerBaseRating:
 	lda.w curplayer
 	sta.b d0
 	lda.w #$0000
-	sta.l $7E35F2
+	sta.l usehotcold
 	jsl.l CalcAttrib
 	lda.b d0
 	sta.b $00

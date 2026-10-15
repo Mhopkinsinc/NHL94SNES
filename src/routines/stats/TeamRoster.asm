@@ -9,9 +9,9 @@ TeamRoster:
 	stz.w DispAttribCtr
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$001D
-	sta.l $7E3452
+	sta.l setuphome
 	jsl.l SetupScreen
 	ldx.w #$004C
 	ldy.w #$0018
@@ -29,7 +29,7 @@ TeamRoster:
 	sta.b $10
 	lda.l blankchar
 	clc
-	adc.l $7E35AA
+	adc.l charofs
 	ldx.w #$0800
 	jsl.l MemFill
 	lda.b $8F
@@ -98,9 +98,9 @@ TeamRosterRedraw:
 	jsl.l DrawTeamBlocks
 	jsl.l SpriteFrameEnd
 	lda.w #$7F97
-	sta.l $7F7502
+	sta.l colourbuf+2
 	lda.w #$FFFF
-	sta.l $7F7542
+	sta.l colourbuf+$42
 	jsl.l SendColours
 	jsl.l ShowRosterLine
 TeamRosterLoop:

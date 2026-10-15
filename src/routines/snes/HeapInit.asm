@@ -10,24 +10,24 @@ HeapInit:
 	stx.w HeapStart7E
 	sty.w HeapStart7F
 	lda.w #$FFFF
-	sta.l $7E0006,x
+	sta.l Ram7E+6,x
 	lda.w #$0000
-	sta.l $7E0004,x
-	sta.l $7E0002,x
+	sta.l Ram7E+4,x
+	sta.l Ram7E+2,x
 	lda.w #$FFF8
 	sec
 	sbc.w HeapStart7E
-	sta.l $7E0000,x
+	sta.l Ram7E,x
 	tyx
 	lda.w #$FFFF
-	sta.l $7F0006,x
+	sta.l Ram7F+6,x
 	lda.w #$0000
-	sta.l $7F0004,x
-	sta.l $7F0002,x
+	sta.l Ram7F+4,x
+	sta.l Ram7F+2,x
 	lda.w #$FFF8
 	sec
 	sbc.w HeapStart7F
-	sta.l $7F0000,x
+	sta.l Ram7F,x
 	ldx.w #$00FE
 	lda.w #$0000
 .clear:

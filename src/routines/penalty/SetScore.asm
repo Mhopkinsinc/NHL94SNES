@@ -2,7 +2,7 @@
 SetScore:
 	phx
 	ldx.b a0
-	lda.l $7E3568,x
+	lda.l gsper,x
 	cmp.w #$0004
 	bcc .t3
 	jmp.w .3
@@ -25,14 +25,14 @@ SetScore:
 	lda.b $8F
 	pha
 	ldx.b a0
-	lda.l $7E3568,x
+	lda.l gsper,x
 	cmp.w #$0003
 	bne .t2
 	lda.w #$0005
-	sta.l $7E3568,x
-	lda.l $7E3578,x
+	sta.l gsper,x
+	lda.l gss1,x
 	sec
-	sbc.l $7E3588,x
+	sbc.l gss2,x
 	bit.w #$8000
 	beq .1
 	eor.w #$FFFF
@@ -43,45 +43,45 @@ SetScore:
 	lda.w gsp
 	cmp.w #$0004
 	bne .t1
-	lda.l $7E3578,x
-	cmp.l $7E3588,x
+	lda.l gss1,x
+	cmp.l gss2,x
 	bne .2
 	inc a
-	sta.l $7E3578,x
+	sta.l gss1,x
 	bra .2
 
 .t1:
 	lda.w #$0003
-	sta.l $7E3568,x
-	lda.l $7E3598,x
+	sta.l gsper,x
+	lda.l gsflags,x
 	ora.w #$0002
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	bra .2
 
 .t2:
-	lda.l $7E3568,x
+	lda.l gsper,x
 	inc a
-	sta.l $7E3568,x
-	lda.l $7E3528,x
+	sta.l gsper,x
+	lda.l gst1,x
 	sta.b d0
-	lda.l $7E3538,x
+	lda.l gst2,x
 	sta.b d1
 	jsl.l .4
 	ldx.b a0
-	lda.l $7E3578,x
+	lda.l gss1,x
 	clc
 	adc.b d0
-	sta.l $7E3578,x
-	lda.l $7E3538,x
+	sta.l gss1,x
+	lda.l gst2,x
 	sta.b d0
-	lda.l $7E3528,x
+	lda.l gst1,x
 	sta.b d1
 	jsl.l .4
 	ldx.b a0
-	lda.l $7E3588,x
+	lda.l gss2,x
 	clc
 	adc.b d0
-	sta.l $7E3588,x
+	sta.l gss2,x
 .2:
 	pla
 	sta.b $8F

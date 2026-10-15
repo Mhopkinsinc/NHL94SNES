@@ -16,7 +16,7 @@ updatefaceoff:
 	clc
 	adc.w #$000A
 	sta.b d0
-	sta.l $7E3132
+	sta.l fofdata
 .rtl:
 	rtl
 
@@ -36,7 +36,7 @@ updatefaceoff:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.l $7E3126
+	lda.l fodropx
 	sec
 	sbc.w #$002E
 	lsr a
@@ -48,7 +48,7 @@ updatefaceoff:
 	ora.w #$E000
 .2:
 	sta.w printx
-	lda.l $7E3128
+	lda.l fodropy
 	sec
 	sbc.w #$0044
 	lsr a

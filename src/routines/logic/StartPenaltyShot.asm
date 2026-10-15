@@ -31,13 +31,13 @@ StartPenaltyShot:
 	plx
 	stz.w penshot
 	inc.w penshot
-	lda.l $7E3136
+	lda.l fox
 	sta.w psfoxsave
-	lda.l $7E3138
+	lda.l foy
 	sta.w psfoysave
 	lda.w #$0000
-	sta.l $7E3136
+	sta.l fox
 	lda.w #$0000
-	sta.l $7E3138
+	sta.l foy
 .2:
 	rtl

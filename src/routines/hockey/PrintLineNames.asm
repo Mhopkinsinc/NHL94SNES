@@ -19,7 +19,7 @@ PrintLineNames:
 	sta.b $8F
 	lda.w #LineMenuNames
 	sta.b a1
-	lda.l $7E34C6
+	lda.l OptLine
 	bne .1
 	lda.w #BestLineNames>>16
 	sta.b $8F

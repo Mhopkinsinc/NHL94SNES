@@ -158,22 +158,22 @@ Goal:
 	inc a
 	sta.w tmPerGoals,x
 	plx
-	lda.l $7E313A
+	lda.l ScoreSumbytes
 	cmp.w #$0258
 	bne .3x
 	sec
 	sbc.w #$0006
-	sta.l $7E313A
+	sta.l ScoreSumbytes
 .3x:
 	lda.w #$007E
 	sta.b $8B
-	lda.w #$313C
+	lda.w #ScoreSum
 	clc
-	adc.l $7E313A
+	adc.l ScoreSumbytes
 	sta.b a0
-	lda.l $7E313A
+	lda.l ScoreSumbytes
 	adc.w #$0006
-	sta.l $7E313A
+	sta.l ScoreSumbytes
 	jsl.l GetPeriodTimeRemaining
 	lda.b d0
 	sta.b [a0]

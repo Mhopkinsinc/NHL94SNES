@@ -73,7 +73,7 @@ printbig:
 	tax
 	lda.l BigFontMap+6,x
 	clc
-	adc.l $7E35AE
+	adc.l BigFontChars
 	adc.l printfontset
 	ora.w printa
 	ldx.b d1
@@ -93,29 +93,29 @@ printbig:
 	ldx.b d0
 	lda.l $9ABDDB,x
 	clc
-	adc.l $7E35AE
+	adc.l BigFontChars
 	adc.l printfontset
 	ora.w printa
 	ldx.b d1
-	sta.l $7E3834,x
+	sta.l textmap+$40,x
 	lda.b d2
 	beq .1
 	ldx.b d0
 	lda.l BigFontMap+8,x
 	clc
-	adc.l $7E35AE
+	adc.l BigFontChars
 	adc.l printfontset
 	ora.w printa
 	ldx.b d1
-	sta.l $7E37F6,x
+	sta.l textmap+2,x
 	ldx.b d0
 	lda.l $9ABDDD,x
 	clc
-	adc.l $7E35AE
+	adc.l BigFontChars
 	adc.l printfontset
 	ora.w printa
 	ldx.b d1
-	sta.l $7E3836,x
+	sta.l textmap+$42,x
 	inc.w printx
 .1:
 	inc.w printx
@@ -125,12 +125,12 @@ printbig:
 .6:
 	lda.l $9ABD6F
 	clc
-	adc.l $7E35AE
+	adc.l BigFontChars
 	adc.l printfontset
 	ora.w printa
 	ldx.b d1
 	sta.l textmap,x
-	sta.l $7E3834,x
+	sta.l textmap+$40,x
 	txa
 	lsr a
 	cmp.w textdirtylo

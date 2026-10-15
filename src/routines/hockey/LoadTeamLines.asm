@@ -35,7 +35,7 @@ LoadTeamLines:
 	sta.b d0
 	cmp.w #$0038
 	bmi .loop
-	lda.l $7E34C6
+	lda.l OptLine
 	bne .1
 	jsl.l GetTeamLines
 	ldy.b a2

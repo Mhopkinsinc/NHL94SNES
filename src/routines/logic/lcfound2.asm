@@ -11,7 +11,7 @@ lcfound2:
 	inc.b d1
 	lda.l blankchar
 	sta.b d2
-	lda.l $7E3120
+	lda.l fobox
 	bne .2
 	jsl.l eraser
 .2:
