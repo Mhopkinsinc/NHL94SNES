@@ -309,7 +309,7 @@ ASSETS = [
     ('PlayerListMap.map.lz', 0x9AE9C7, 0x9AE9F0),
     ('PictureMap.map.lz', 0x9AE9F0, 0x9AEA15),
     ('CardPictureMap.map.lz', 0x9AEA15, 0x9AEA3A),
-    ('DATA8_9AF59C.spc', 0x9AF59C, 0x9AF5BB),
+    ('SampleOrgan.spc', 0x9AF59C, 0x9AF5BB),
     ('FramerTiles.chr', 0x9C8000, 0x9C8080),
     ('FramerNineTileTiles.chr', 0x9C8098, 0x9C81D8),
     ('FramerOutlineTiles.chr', 0x9C81F0, 0x9C8310),

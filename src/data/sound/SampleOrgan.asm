@@ -1,9 +1,9 @@
-; A BRR sound sample for the sound CPU: its loop point and length, then the BRR blocks.
+; In-game sample 10: the organ, a 27-byte looping tone; sounds $B and $C (the same sample, left and right volumes swapped) are the instruments every TeamSongs / DefaultSongs song sets on its left and right tracks (StepTrack event $DC)
 
-DATA8_9AF59C:		; for SPCUploadBlock, as DATA8_9A8000
+SampleOrgan:		; for SPCUploadBlock, as DATA8_9A8000
 	db $00,$09
 	db $00,$1B
-	incbin "../../../Extracted/data/sound/DATA8_9AF59C.spc":4..31
+	incbin "../../../Extracted/data/sound/SampleOrgan.spc":4..31
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF

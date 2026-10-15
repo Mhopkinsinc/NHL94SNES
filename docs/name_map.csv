@@ -6328,3 +6328,4 @@ $94B287,SamplePlayerWall,DATA8_94B287,behavior,In-game sample 12: sound $D (wall
 $94E225,SampleCheck,DATA8_94E225,behavior,In-game sample 14: sound $F (CollisionSfx; 94G SFXcheck),src/data/sound/SampleCheck.asm
 $95CBEA,SampleStop,DATA8_95CBEA,behavior,In-game sample 16: sound $11 (dostop; 93S SFXstop),src/data/sound/SampleStop.asm
 $95D3F2,SampleWhistle,DATA8_95D3F2,behavior,In-game sample 19: sound $15 (Stop4Pen; 94G SFXwhistle),src/data/sound/SampleWhistle.asm
+$9AF59C,SampleOrgan,DATA8_9AF59C,behavior,In-game sample 10 (sounds $B / $C): the instrument all 53 team organ songs set on their left and right tracks (StepTrack event $DC $0B / $0C); a 27-byte looping tone,src/routines/snes/CheckPAL.asm
