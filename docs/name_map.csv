@@ -6287,3 +6287,8 @@ $9AE946,RonBarrPalette,DATA8_9AE946,render,Loaded into palette 2 after RonBarrTi
 $96C61F,CardBackMap,DATA8_96C61F,render,"LoadPlayerCardScreen pastes it in palette 4 (+$1000) over CardBackTiles: the player card frame (EA SPORTS, the NHL shield, the NHLPA logo)",src/data/gfx/CardBackMap.asm
 $93B217,CardBackTiles,DATA8_93B217,render,"LoadPlayerCardScreen's linear background tiles, drawn with CardBackMap",src/data/gfx/CardBackTiles.asm
 $89FFC7,CardBackPalette,DATA8_89FFC7,render,LoadPlayerCardScreen loads it into palette 4 for CardBackMap; renders the card frame in its colours,src/data/gfx/CardBackPalette.asm
+$96D7AC,CrowdMeterTiles,DATA8_96D7AC,render,"ShowCrowdMeter's linear tiles for the meter bar (the CrowdMeter maps, palette 7)",src/data/gfx/CrowdMeterTiles.asm
+$9ACFB6,CrowdMeterPalette,DATA8_9ACFB6,render,"ShowCrowdMeter loads it into palette 7, where it pastes the CrowdMeter maps (+$1C00)",src/data/gfx/CrowdMeterPalette.asm
+$9AE919,CrowdMeterMap,DATA8_9AE919,render,ShowCrowdMeter pastes it when the level fits the 18 columns: the unlit bar,src/data/gfx/CrowdMeterMap.asm
+$9AE8EC,CrowdMeterLitMap,DATA8_9AE8EC,render,ShowCrowdMeter pastes as many of its columns as the level: the lit bar,src/data/gfx/CrowdMeterLitMap.asm
+$9ADFCB,CrowdMeterBrokenMap,DATA8_9ADFCB,render,ShowCrowdMeter pastes it when the level is past the 18 columns: the bar with cracked glass (94G's broken crowd meter),src/data/gfx/CrowdMeterBrokenMap.asm

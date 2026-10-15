@@ -1,6 +1,6 @@
-; Data.
+; The crowd meter bar colours (palette 7)
 
-DATA8_9ACFB6:		; colours, not packed, that a screen setup loads into CGRAM; not identified yet
+CrowdMeterPalette:		; colours, not packed, that a screen setup loads into CGRAM
 	dw $0000,$0000,$0160,$016B,$000B,$6318,$03E0,$03FF
 	dw $001F,$7C1F,$7C1F,$7C1F,$7C1F,$7C1F,$7C1F,$7C1F
 	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000

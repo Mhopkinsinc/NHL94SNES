@@ -42,9 +42,9 @@ ShowCrowdMeter:
 	lda.w #$0005
 	sta.b d1
 	jsl.l FramerNineTile
-	lda.w #DATA8_96D7AC>>16
+	lda.w #CrowdMeterTiles>>16
 	sta.b $0E
-	lda.w #DATA8_96D7AC
+	lda.w #CrowdMeterTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -70,9 +70,9 @@ ShowCrowdMeter:
 	adc.w #$1000
 	tay
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9ACFB6>>16
+	lda.w #CrowdMeterPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9ACFB6
+	lda.w #CrowdMeterPalette
 	sta.b $0C
 	ldy.w #$0070
 	ldx.w #$0010
@@ -412,16 +412,16 @@ ShowCrowdMeter:
 .2xx:
 	lda.w #$0000
 	sta.b $04
-	lda.w #DATA8_9ADFCB>>16
+	lda.w #CrowdMeterBrokenMap>>16
 	sta.b $0E
-	lda.w #DATA8_9ADFCB
+	lda.w #CrowdMeterBrokenMap
 	sta.b $0C
 	bra .3x
 
 .t1xxxxx:
-	lda.w #DATA8_9AE919>>16
+	lda.w #CrowdMeterMap>>16
 	sta.b $0E
-	lda.w #DATA8_9AE919
+	lda.w #CrowdMeterMap
 	sta.b $0C
 .3x:
 	lda.b $04
@@ -457,9 +457,9 @@ ShowCrowdMeter:
 	sta.w $1DD1
 	beq .rtl
 .1xxxx:
-	lda.w #DATA8_9AE8EC>>16
+	lda.w #CrowdMeterLitMap>>16
 	sta.b $0E
-	lda.w #DATA8_9AE8EC
+	lda.w #CrowdMeterLitMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
