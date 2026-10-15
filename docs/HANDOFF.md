@@ -8,7 +8,7 @@
 - Assets: the 302 binaries are no longer committed. `tools/prebuild.py` extracts them into `Extracted/data/` and writes `Extracted/.extract-complete.json` last. It deletes the files in `Extracted/data/sound` and `gfx` that are no longer assets (the old file of a renamed label); `--check` lists them. Asm `incbin`s those files. Packed streams stay packed. `SpriteFramesXX.bin` is still one ROM cut per bank (headers in source, tiles by range), not one `.chr` per frame.
 - penalty, hockey and shootout: local labels inside the named routines now use the 93S names (shootout copy loops use the 94G names). `ResetBench` holds the tail that was `CODE_9FCDFA`. `updatepwrplay` holds its print tail. `SetPA2` is the referee step `UpdatePA` calls. New equates in `src/ram94snes.asm`: `gmclock`, `PenBuf`, `RefPen`, `xsave`, `a4`, `d3`–`d6`, `PenIcing`, `PenGoal`, `gmpen`, `sfwrap`, `sf2drec`, `sf2pwrplay`, `sf2pwrtm`, `pf2inj`, the `TMPD*` roster states, `PWrange`, `pwlength`, `replaysize`, `Oldrow`, `vramrow`, `pfalock`, `PerTimeTotal`, `tmteam`, `TempPlOffset`, `OptPen`, `PassWord`, `passbits`, `PlList`, `ReplayBufferStart`, `ReplayBufferEnd`, `priolist`, `PerLabels`, and the scouting-report scroll words.
 - `routines/snes`, banks `$9E`, `$9F`, `$9B`, `$9D`, `$9C` and `$80`: each `CODE_` entry was compared with the 93S routines. A name was applied only when the opening instructions and the small immediates matched one 93S routine, or when the body and the callers were the same routine (password bits, the ticker, `chkpk`). Those files moved to the 93S folder. The rest did not match one routine and stay `CODE_`. New equates from that pass: `xc1`, `yc1`, `sf2replay`, `sfslock`, `mesarea` (`$0A2A`; `$0A2C` is `mesarea+2`).
-- `data/text`, `data/tables`, `data/sound` and `data/gfx`: `DATA8_` blocks were compared with the 93S tables. The ones that match already have those names (the nine text tables, team data). The remaining blocks are mixed banks and stay `DATA8_`.
+- `data/text`, `data/tables`, `data/sound` and `data/gfx`: `DATA8_` blocks were compared with the 93S tables. The ones that match already have those names (the nine text tables, team data). The other blocks were named later from their readers and renders.
 - Animations: `src/data/frames94s.asm` is `SPAList`, each animation labelled with its direction lists `.d0`-`.d7`. The ones that are 93S animations take the 93S SPA name: the player animations by their frames and times (the 94 player frames below 225 keep the 93S numbers; from 225 up to 354 they are 8 higher), the others where the code that sets them is the 93S code (the `FallDown` tests, `GoalieSaveList`, `asseben`). The 94G SPA names are not used: the frame numbers are not the 94G SPF values. Code that sets or tests SPA uses the labels.
 - Named routine files have a one-line header. `CODE_` files still say they are unidentified. That is the placeholder.
 - Branch targets that were only used inside one routine are 92-style locals (`.loop`, `.rtl`, `.1`). 1108 `CODE_` files that were only the next bytes of the previous routine were folded into that routine.
@@ -148,7 +148,7 @@
 
 User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**, 14 Oct 2026).
 
-**Applied equates (source=new):** `mesareaEnd` (`$0A48`, PushNumber and PushTime). `gmStatBase` (`$1742`). `playoffRoundIdx` (`$7E35D4`). `rosterNone` (`$FFFC`, the three `cmp.w` sites beside `TMPDOUT`).
+**Applied equates (source=new):** `mesareaEnd` (`$0A48`, PushNumber and PushTime). `gmStatBase` (`$1742`; now `tmPwrGoals`, the power play goals word). `playoffRoundIdx` (`$7E35D4`). `rosterNone` (`$FFFC`, the three `cmp.w` sites beside `TMPDOUT`).
 
 **Keep raw:** `$C3` in `vtoa`. (`$00`-`$2F` are the register names `r0`-`r9`, `p0`, `p1` since 15 Oct 2026, at the user's request.) `#$000B`, `#$000A`, `#$0012` in setplayer. `$14` in setplayer until one owner is proven (`$0CE5` is `ThirdPBonus`, as 93S). `#$0800`, `#$0040`, `#$2000`, `#$4000` except the converted flag sites. `PenOffsides` is `$12` here (93S uses `$10`).
 
@@ -160,8 +160,8 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
 - Sprite frames are named by SPF group (15 Oct 2026). `src/ram94snes.asm` holds the 56 `SPF` equates (first frame of each group, frame numbers count from 1); frame `SPFgroup+n` is labelled `SpriteFrame_group_n` (`SpriteFrame_skate_0` is frame 41), and the offset table is `dd SpriteFrame_x_n-SpriteFrames`. The animations in `frames94s.asm` and the code that sets frames (assdopen, setsortcords, checkfo, showzam, setffo, setvideo, PlayerSelect, PrintTeamSprites, UpdateHatTrick, InitSortObjects, the puck code, puckgoalie) use the equates; DrawSprite takes the frame number - 1, so those sites are written `SPFx-1`. Groups SPFskatewp-SPFhold are the 93S groups frame for frame; 94S drops the fight frames (SPFgloves, SPFfight, SPFfinjury), adds `SPFcupover` (the cup that setsortcords draws over SPFcup in palette 0), and keeps the 93S order for SPFPen-SPFbglass (SPFPen has 9 frames: +7 / +8 are the box sitting frames). New groups, named after the animation or routine that uses them: gwall, crosscheck, gpoke, gcover, gbutterfly, gsprawll, gsprawlr, pump2, unused (only SPAunused1/2), the four board groups, benchcheck, bench, bigfont, hat, hatshadow. `SPFreplay` (the replay cursor, the only setffo slot ReplayMode sets) is confirmed in game. `frame` ($0D97) is the per-object frame number (93S name). `tools/spriteframes.py frames` still writes `SpriteFrameN` labels: rename its output if a bank is ever regenerated.
 - No auto label (`CODE_`, `DATA8_`) is left in the source (15 Oct 2026). Data with no reader takes an `Unused` name (`SampleUnused`, `SPAunused1`-`3`, `UnusedSineTable`, `UnusedSetupSpritePalette`; RAM `GoalieUnused`, `FaceoffUnused`, `PauseUnused`).
-- `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. Phrases in `DATA8_9CF000` that are a title are named. Cursor-only records in that bank stay `DATA8_`.
-- `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `AttribRating` has no 94 counterpart, and the distance code uses `ApproxLength` (the larger part plus a share of the smaller), not a square root; `sroot` exists only for the crowd meter (`UpdateCrowdMeter`). `StreamSfx` (was CODE_9C9A7F) asks for one of six streamed sound effects; `UpdateStreamSfx` streams its sample to the sound CPU and plays it.
+- `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. The phrases and cursor records of the screen text block at `$9CF000` are named (`ReturnToGame`, `ScoringLabel`, `SelectLeft` ...).
+- `chkpk2`'s `.t2` (was `CODE_9E828B`) is its other-team half. `AttribRating` has no 94 counterpart, and the distance code uses `ApproxLength` (the larger part plus a share of the smaller), not a square root; `sroot` exists only for the crowd meter (`UpdateCrowdMeter`). `StreamSfx` (was CODE_9C9A7F) asks for one of six streamed sound effects; `UpdateStreamSfx` streams its sample to the sound CPU and plays it.
 - `$7E35D0` is `blankchar`, the blank tile `EraseScoutName` stores the way 93S stores it.
 - `#$0800` and `#$0040` stay raw except `showclock` (`sf2replay`) and `freezewindow` (`sfslock`). `#$2000` and `#$4000` stay raw except `chkpk` (`sf2pwrplay`) and `chkpk2` (`sf2pwrtm`).
 
@@ -170,119 +170,104 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - Audit is `docs/align_plan.md`. The team database in `src/data/teamdata94s.asm` covers the old bank9C B000/C000/D000 range; screen text continues at `$9CEF59`.
 - Layout done: banks `$80` through `$9F` are `src/banks/` files. Code banks are `b80_engine`, `b9B_screens`, `b9C_teams`, `b9D_roster`, `b9E_game` and `b9F_flow`. Routines are in `src/routines/`, tables in `src/data/tables/`. The SNES header is `src/header/snes_header.asm`. `tools/verify_all.sh` MATCH.
 - Abbreviation labels now follow the team-record strings: ANH, LA, NJ, OTW, SJ, TB (30 names in `docs/name_map.csv`).
-- `adda43` shares a file with `CODE_9BB176` because that routine falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
+- `adda43` shares `adda4`'s file because `adda4` (its `.t1`, was `CODE_9BB176`) falls through into it. `setteams` shares `ClearTeamStats` for the same reason.
 - Two entries in bank `$9F` had no label. They are `AttribWeight` and `puckfaceoff2` (rows in `docs/name_map.csv`).
-- Headers: named routines have a one-line header. Unnamed `CODE_` slices keep the unidentified placeholder. Penalty, hockey, shootout and the matched `routines/snes` entries are named.
+- Headers: every routine has a one-line header.
 
 ## State
 
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
-- Banks $80 to $9F are source (MATCH): every segment of the ROM is source.
-- Data assets: binaries are extracted to `Extracted/` by `tools/prebuild.py` (formats in `src/data/README.md`).
-  `tools/extract.py` has the `ASSETS` list (name, first address, end exclusive). The text tables are source files in
-  `src/data/text/`, one per table, included where they sit in the ROM; nine take their 93S names (AttribMenuSkater,
-  AttribMenuGoalie, PositionNames, GameLabels, PasstoText, StatusTextTbl, HandedTextTbl, GoalBoxText, RosterLineNames).
-  The team database (TeamList, the team records, playoffseats) is `src/data/teamdata94s.asm`, included from
-  `src/banks/b9C_teams.asm`. `PenaltyList` is `src/data/tables/PenaltyList.asm`.
-- The notes below still say `bank80_8000` and the other old slice names. That code now lives in `src/routines/` and
-  `src/data/tables/`, included from `src/banks/`.
-- `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
-  as 93S `snes93.mac`.
-- `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
-- Raw RAM is the main thing left: about 600 WRAM addresses ($0100-$1FFF, about 4000 uses) and 170 long $7E/$7F addresses (about 900 uses) in `src/routines/` are still numbers.
-- bank80_9000: math, sine, sound driver commands and the heap, named from what the code does. Left raw: the direct-page
-  math scratch ($00-$0B, $3E-$46) and $07E1/$07E2 (bit 6 of $07E2 makes the fraction multiplies skip the mode 7
-  multiplier). The sound command numbers are the driver's; their meaning needs the SPC side.
-- bank80_A000: the music/sound effect player. Entry points, tables and four RAM flags are named; the sequencer internals
-  (voice allocation, track command interpreter $D9-$EA, envelopes) and the per-voice RAM tables ($0804-$0A09) are auto
-  labels / raw addresses for a naming pass. It ends with InitSprites, SpriteFrameStart and SpriteFrameEnd.
-- bank80_B000: sprites and decompression. OAM buffer RAM is named; the tile cache tables ($2540-$2E40 in bank $7E, $07BA
-  count, $07C0-$07D0 work) and the two allocators ($2F40/$2FB9 blocks of four tiles, $3032/$3093 single tiles) are raw,
-  and their routines are auto labels with comments. The decompressors are called from the dispatcher at $80C373 (format
-  word $FB10 LZ, $FB46 pairs, $FB30 Huffman, $FB7A DecompressRLE). $80B07E, $80B389, $80B394, $80B724 and $80B8AE have no
-  direct caller found; the Vault names DecompressHuffman LoadGameSetupScreen, which does not fit the code. The OAM high
-  table masks DrawSprite reads (`and.w OAMHiMasks,x` ... with the data bank at $7E) are in WRAM at
-  $7EE67C-$7EE68B; Reset_Fast copies them there from `OAMHighMasks` ($80FF00).
-- bank80_C000: the Huffman decoder's long-code handlers and bit readers (auto labels), DecompressRLE, Decompress,
-  SoundDriver (SPC700 bytes as db; the SPC side is not disassembled), then the shootout. The shootout routines and RAM
-  with a 94G counterpart take its names; the rounds loop ($80C81C, called from bank $9F), the screen drawing and the
-  menu RAM ($1D81 shootout on, $1D89, $1DB9 cursor, $1D9B/$1DA3/$1DA7/$1DAB list scroll, $7E3468 redraw) are raw/auto.
-  $178E/$1790 decide the shootout but are used elsewhere too; not named.
-- bank80_D000: the rest of the ShooterSelectList screen ($0D47 rating column, $1D9B cursor row, $1DA7 first row), then
-  data read from other banks. Its tables are labelled with auto names where code references them (Vault DATA8_ names);
-  the penalty/stoppage table PenaltyList (strings with variable trailing data) and the 48-byte records from $80DDA0
-  (they continue into bank80_E000) are plain db until their readers are disassembled.
-- bank80_E000: data only. The records end at $80E2E0; then the copyright lines, CreditTitles / CreditNames (read from bank
-  $9D) with their strings, long pointer tables DATA8_80E6C1 (TitleSampleList) / DATA8_80E6FD (MenuSampleList) / DATA8_80E73D (read from bank $9C), and $FF
-  fill to $80F000 written as `padbyte $FF` / `pad $80F000`.
-- bank80_F000: $FF fill, OAMHighMasks (the OAM high table masks; Reset_Fast copies
-  them to OAMHiMasks, $7EE67C, where DrawSprite reads them), the internal header (checksum $9B52, complement
-  $64AD, 1 MB, LoROM/FastROM) and the vectors (NMI, Reset, IRQ; COP/BRK/ABORT are $0000).
-- bank81_8000: the start of IceRinkTiles, LZ-packed rink tiles ($818000-$81ABDD) that $9FB6F7 and $9FE7AD unpack to
-  $7F0000 and copy to VRAM $1000. The rink map is the packed block at $92E053 (header words: width $30, height $71, then
-  $0308, a format word no code reads: every 4bpp background map has $0308 there, the mode 7 maps $0010; it renders with
-  `tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48`). Its palette is `RinkPalette` ($9AD0B6, the second
-  half of the CrowdMeterPalette block): setupice copies its 128 colours to both halves of palbuffer.
-- bank81_A000 ends IceRinkTiles at $81ABDE and starts TeamLogoSprites ($81ABDE-$81FE44, Huffman, $7C00 bytes unpacked):
-  a sprite set the team setup code in bank $9D unpacks to $7F7800 and draws with DrawSprite (frame = team, palettes from
-  the long pointer table at $9C8497). `tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497` renders all of its frames.
-  bank81_B000 to bank81_F000 continue it (`incbin "data/gfx/TeamLogos.spr.huf":<start>..<end>`; bank81_F000
-  starts at byte 17442 and ends the asset at $81FE45);
-  after it, $81FE45-$81FFFF is a song (SongGoTeamGoC) from TeamSongs (bank80_D000): header, track offsets, TRAK chunks
-  "left"/"right". The note stream format (commands $D9-$EA of the player in bank80_A000) is not decoded yet; the second
-  chunk's size byte ($CA) reaches past the bank end, but its track ends (command $D9) inside the bank.
-- TeamSongs ($80DA56, six long pointers per team, $FFFFFFFF none) and DefaultSongs ($80DCF6) are read by the music code
-  at $9C9B5F: slot A of the home team ($1C98), else a random DefaultSongs entry. The other long pointer tables in bank80_D000
-  are `asstab` (was DATA8_80D324) and `GameSampleList` (was DATA8_80DD16).
-- `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
-  the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
-- bank82_8000: SpriteFrames ($828000), the main sprite set: an offset table of 976 frames (`dd SpriteFrame_x_n-SpriteFrames`), then frames in order, contiguous, in the ROM halves
-  of banks $82-$8E. Each bank's frames are a data asset (SpriteFramesXX.bin in tools/extract.py; bank $82: $828F40-$82FEA8);
-  the source writes each frame's header and pieces and includes its tiles from the asset. Frames cross 4 KB edges, so segment
-  edges move to frame boundaries (bank82_9000 starts at $82908B). `tools/spriteframes.py frames FROM TO` writes the source
-  of the frames that start in a range and prints where the next segment starts; `info` gives each bank's frames and its
-  asset range for tools/extract.py; `table` writes the offset table. Header words +4..+$A are the box of the frame's pixels (left, right, top, bottom; true for 973 of the 976 frames, the other three are a few pixels off; nothing reads them), bytes +$12/+$13 the hot spot (GetHot), +$14/+$15 the stick point (GetFrameHot, for the puck-stick contact in checkpuckcoll_ccx).
-  After the frames, each bank ends with a small Huffman block (bank $82: $82FEA9-$82FFF6, $3A0 bytes unpacked).
-- SpriteFrames banks: before the first segment of a bank, add its asset (`tools/spriteframes.py info`) to the ASSETS list
-  in tools/extract.py.
-- Centre ice logos: the rink loader $9BC17C reads the per-team table at $9C83B7 (8 bytes per home team $1C98: long pointer to
-  the logo tiles, then to the logo map). The tiles are linear 4bpp packed for DecompressHuffman (converted to planar by
-  $9B85C2; `tools/snesgfx.py tiles/map --linear`), the map is not packed (width, height, a word, then map words, which
-  $9BC1D5 pastes into the rink map with palette 5). Most of the tiles are in bank $9A; a few sit at bank ends after the
-  sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38, CenterIceTilesVAN (23) at $86FE78, CenterIceTilesCGY (3) at $8DFF3D, CenterIceTilesTB (21) at $97FE85, CenterIceTilesNYI (13) at $98FECB, CenterIceTilesOTW (15) at $99FEC0; the rest are in bank $9A). Team index = the logo order of
-  TeamLogoSprites.
-- $9DCD53 is a table of long pointers read at $9DC9DD and $9DCC65 as (team $1C98 * 26 + $A5) * 4: 28 rows of 26 packed
-  entries that are unpacked and converted with $9B85C2: player photos, 6 x 6 tiles (checked: DATA8_8CFDEC (CardPeterSidorkwicz), entry 390,
-  renders as a face; whether the column is the roster index is not checked). After the 28 rows,
-  entries point at the 16-colour photo palettes, one per team (PhotoPaletteANH $9AF47C, PhotoPaletteBOS $85FFDF, ...).
-- LicenceNHLPAMap (was DATA8_87FF91, bank87_F000): an LZ block, a 10 x 12 mode 7 byte map after three words (10, 12, $0010);
-  the second licence zoom unpacks it and draws the NHLPA logo over LicenceTiles.
-- CenterIceMapNHL ($88FFC6, bank88_F000) is the centre ice map of teams 26 and 27 (the all-star teams), with the tiles at
-  $9AD4B6: the NHL shield.
-- $9DE0BD loads colours into CGRAM: [$0C] the colours, Y the first colour, X the count (team palettes: Y = $A0).
-  DATA8_89FFC7 (bank89_F000) is an LZ-packed palette that $9DC8E4 loads at colour $40; its screen is not identified.
-- DATA8_8AFF7A (bank8A_F000) has the layout of DATA8_87FF91 (LicenceNHLPAMap) unpacked (10 x 12 byte map after three words) and is read at
-  $9DB635, near the code that unpacks DATA8_87FF91 (LicenceNHLPAMap); both are likely tile pictures of one screen, not identified yet.
-- Songs at bank ends: SongGoTeamGoC (bank81_F000) and SongCharge (bank8B_F000, TeamSongs entries 31, 32, 79), both
-  header + TRAK chunks "left"/"right"; the note bytes are not decoded yet.
-- Sound uploads: DATA8_80E6C1 (15 entries) and DATA8_80E6FD (16) in bank80_E000 are lists of long pointers to blocks for
-  SPCUploadBlock ($809906: big-endian sound RAM address and length, then the bytes). $9C9860 and $9C97B0 set the sound effect
-  table ([$34] = $9BB4C9), call SoundInit and send every block of one list; $9C9800 sends DATA8_80E73D (one block, $8F8000)
-  with [$34] = $80E741, so the data from $80E741 in bank80_E000 is a sound effect table (still plain db). The blocks are
-  probably samples and sound data; DATA8_8ED897 (bank8E_D000-F000, asset DATA8_8ED897 (SampleBrass).spc) is one of them.
-- Songs: the TRAK chunk size before each "TRAK" tag is a big-endian word (SongBuildupCharge has $0166); in bank81_F000 and
-  bank8B_F000 its high byte $00 is written at the end of the padding.
-- Bank $8F: DATA8_8F8000 ($8F8000-$8FBB25, upload block of DATA8_80E73D (IntroSampleList)), DATA8_8FBB26 ($8FBB26-$8FDD31, upload block in a
-  long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
-  no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
-  photo share: a generic skater), then $FF fill.
-- RAM pass (15 Oct 2026): every raw WRAM operand ($0100-$1FFF) and every raw long $7E / $7F operand in `src/routines` is a name or NAME+offset. Three are cleared but never set or read, so they take Unused names: `GoalieUnused` ($0BC9, assgoalietopuck), `FaceoffUnused` ($0C0B, a per-player array FaceoffPads clears) and `PauseUnused` ($1D60, Pausemode). The sort object arrays and the variables at $0CD5-$0D55 keep the 93S struct and declaration order (so their names are 93S); the team struct fields follow the stats screen rows `TeamStatSources` feeds them to; the 5-pad multitap code keeps per-pad arrays where 93S / 94G have scalars (`c1playernum`, `cont1team` .. `cont5team`, `padside`, `playerpad`). Shared RAM: the title screen and credits reuse $0BCB-$0BFF (their names are applied only in their routines, the game names elsewhere); DecompressPairs / DecompressHuffman use the DMA queue RAM as `DecompBuf`; the stats / card / scouting screens share `curitem`, `listtop`, `listend`, `listcount`, `curplayer`, each in its own way; `screenmap` / `screenmap2` (playoff screen) lie inside the replay buffer.
-- RAM names marked LOW by the research (job from one or two uses): `topgoalie` / `botgoalie`, `FrameCountHold`, `RAMTag` / `RAMTag2` (copies of the 'EACDSI' tag, never read), `MapScreenStep`, `FrameTilesFail`, `SoundMono`, `PitchModVoices`, `SongUnused`, `TrackUnused`, `MusicPause`, `MusicDuck`, `reloadtime`, `otgoalscorer`, `screenmap`, `screenmap2`, `introbuf`, `introchars`, `titlelogobuf`.
-- Found in the RAM pass, left as the ROM has them: Goal adds a goal against with a word `inc.w tmgoals,x` on a byte array; UpdateHatTrick clears only hat 0's `hatvz` at a launch (no `,x`); ShowStars reads its overtime goal entry from `fox` ($7E3136) where ShowGoalBox uses `ScoreSum-6` + ScoreSumbytes; EndPenaltyShot puts the saved faceoff spot into `ltx` / `lty`, not back into `fox` / `foy`; the ShowCrowdMeter `.11` loop that raises the hot / cold table has no caller found.
-- `docs/name_map.csv` file column: every row names the file that defines the label today (15 Oct 2026; 1822 rows were pointing at pre-split bank files or moved routine files). Labels from the sym `[addr-to-line mapping]` where the name was renamed later.
-- Direct page (15 Oct 2026): the 68000-style registers are written with their halves (`a1+2`, `d0+2` ..., as 93S); `vcount`, `a5`, `tmp3`-`tmp5`, `crowdhold`, `curobj`; the decompressors (`Huff*`, `LZ*`), the NMI / DMA queue (`DMAQueueHead`, `DMAQueueTail`, `DMABudget`), the software multiply, the sound stream and sequencer (`SoundTable`, `InstPtr`, `EventPtr`, `EventData1` ...), the intro and SuperMult (`mulres`, 93S). Addresses with different jobs in different routines carry one name per routine (the replacer applies a name only in the routines it is proven for). `EventData1` / `EventData2` / `EventCode` are also scratch in StepTrack's pitch bend and StartSoundVoice. RAM pointer immediates (`lda.w #name` / `#name>>16` pairs into bank $7E) use the names.
-- $00-$2F, the engine's parameter and scratch slots, are named like the a / d registers (user's choice): 4 bytes each, `r0` $00, `r1` $04, `r2` $08, `p0` $0C and `p1` $10 (the long pointers: source and destination of Decompress, MemCopy and the DMA / map routines), `r3`-`r9` $14-$2C; NAME+2 is the upper word or bank. Their job changes per routine. Left raw on purpose: `$C3` in vtoa (the octant index).
-- Next: the stale auto-name wording in the State notes (a layout log). The State notes above are the layout log from the segment work; the auto names they cite are in `docs/name_map.csv` (auto_name column).
+- Every bank ($80-$9F) is source. Code lives in `src/routines/<module>/<Routine>.asm`, tables in `src/data/tables/`, text in
+  `src/data/text/`, graphics and sound wrappers in `src/data/gfx/` and `src/data/sound/`, all included from `src/banks/`.
+  The team database is `src/data/teamdata94s.asm`, the animations `src/data/frames94s.asm`.
+- Labels: no auto label (`CODE_`, `DATA8_`) is left. Every name and the auto name it replaced are in `docs/name_map.csv`
+  (address, name, auto_name, source, note, file; the file column names the file that defines the label).
+- RAM: `src/ram94snes.asm`. Every RAM operand in the routines is a name or NAME+offset (WRAM, bank $7E / $7F, the
+  direct page, and the RAM pointer immediates); only `$C3` in vtoa stays raw. See the RAM notes below.
+- Data assets: binaries are extracted to `Extracted/` by `tools/prebuild.py` (`tools/extract.py` has the `ASSETS` list:
+  name, first address, end exclusive; formats in `src/data/README.md`). Packed streams stay packed.
+- `src/macros/snes94.mac` holds the `String` macro (length word counting itself, then text) and the `Player` macro, as 93S.
+  `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
+- Tools: `tools/snesgfx.py` (unpack, blocks, tiles, map, sprites renders), `tools/spriteframes.py` (writes the SpriteFrames
+  source with the SPF group labels and the offset table), `tools/songwav.py` (plays the songs and samples to WAV).
+
+### Formats
+
+- Packed blocks: `tools/snesgfx.py blocks` finds 238 (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to the size in
+  its header. `Decompress` dispatches on the format word: $FB10 DecompressLZ, $FB46 DecompressPairs, $FB30
+  DecompressHuffman, $FB7A DecompressRLE.
+- Maps (unpacked): width, height, a format word no code reads ($0308 in the 4bpp background maps, $0010 in the mode 7
+  maps), then the map words from +6.
+- SpriteFrames ($828000, frames in the ROM halves of banks $82-$8E): an offset table of 976 frames
+  (`dd SpriteFrame_x_n-SpriteFrames`), then the frames. A frame: piece count, flags (bit 7: 16x16 tiles), tile count, the
+  box of its pixels (left, right, top, bottom; exact for 973 frames; nothing reads it), the two transfer sizes, the tile
+  offset, the hot spot (bytes +$12/+$13, GetHot), the stick point (+$14/+$15, GetFrameHot), the pieces, then the tiles.
+  Frames are named by SPF group (`SPFgroup+n` is `SpriteFrame_group_n`; groups in `src/ram94snes.asm`). Each bank's frames
+  are one asset (SpriteFramesXX.bin); the source writes headers and pieces and includes the tiles by range. Several banks
+  end with other data after their frames (centre ice logos, player photos, songs).
+- Songs: header, track offsets, TRAK chunks (big-endian size word before each "TRAK" tag); the note stream is the
+  sequencer's events $D9-$EA (StepTrack, ReadTrackEvent); `tools/songwav.py` plays them.
+- Sound uploads: TitleSampleList, MenuSampleList and IntroSampleList (bank $80) are long pointer lists of blocks for
+  SPCUploadBlock (big-endian sound RAM address and length, then the bytes); each block is one BRR sample. The SPC upload
+  routines set SoundTable (MenuSfxTable, IntroSfxTable ...), call SoundInit and send every block of one list.
+
+### Graphics notes
+
+- The rink: IceRinkTiles (LZ, $818000) and IceRinkMap ($92E053, 48 x 113) unpacked by setupice / ReloadRink, the map built
+  by BuildRinkMap at $7FC800 with the home team's centre ice logo pasted in; RinkPalette ($9AD0B6, the end of the
+  CrowdMeterPalette block) gives its 128 colours. `tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48` renders it.
+- Centre ice logos: LoadCenterIce reads CenterIceTable ($9C83B7, 8 bytes per home team: long pointers to the logo tiles and
+  map). The tiles are linear 4bpp packed for DecompressHuffman (converted to planar by LinearToPlanar); BuildRinkMap pastes
+  the map with palette 5. Teams 26 and 27 (the all-star teams) use CenterIceMapNHL with CenterIceTilesNHL (the NHL shield).
+- TeamLogoSprites ($81ABDE, Huffman): a sprite set drawn with DrawSprite (frame = team, palettes from LogoPaletteTable).
+- Player photos: PlayerPhotoTable ($9DCD53) has 28 rows of 26 long pointers to packed photos (6 x 6 tiles, LinearToPlanar),
+  read by DrawPlayerPicture and LoadMatchupPhotos as (team * 26 + slot) * 4; the entries after the rows point at the photo
+  palettes, one per team. Players without their own photo share the NoPicSkater1-3 / NoPicGoalie pictures.
+- The licence screens: LicenceTiles with LicenceNHLMap / LicenceNHLPAMap (mode 7 byte maps, 10 x 12) for the two zooms.
+- The OAM high table masks: Reset_Fast copies OAMHighMasks ($80FF00) to OAMHiMasks ($7EE67C), which DrawSprite reads.
+- The sprite tile cache (bank $7E): FrameCache* tables (128 entries), FrameCacheOf (entry of each frame number) and two
+  run allocators (BlockRuns for 16x16 blocks, TileRuns for single tiles). LoadFrameTiles allocates and queues the DMA,
+  SpriteFrameStart ages the entries (FrameCacheUse) and frees the unused ones.
+
+### RAM notes
+
+- Sort objects: word arrays of 16 objects ($20 bytes; Xpos and Ypos have a 17th, the replay cursor point) in the 93S
+  struct order, so their names are 93S; 94S keeps height only for the puck (puckz ...) and drops Zvel, limpact, pf2fight.
+- The variables at $0CD5-$0D55 keep the 93S declaration order (93S names). The team struct is word pairs (home, away)
+  indexed by a2; its stat fields are named by the stats screen rows TeamStatSources feeds them to.
+- The 5-pad multitap code keeps per-pad arrays where 93S / 94G have scalars (`c1playernum`, `cont1team` .. `cont5team`,
+  `padside`, `playerpad`, `teampads`); the multitap state is `mp5*`.
+- Shared RAM: the title screen and credits reuse $0BCB-$0BFF; DecompressPairs / DecompressHuffman use the DMA queue RAM as
+  `DecompBuf`; the stats / card / scouting screens share `curitem`, `listtop`, `listend`, `listcount`, `curplayer`, each in
+  its own way; `screenmap` / `screenmap2` (playoff screen) lie inside the replay buffer. Direct page addresses with
+  different jobs in different routines carry one name per routine. The names in each case apply only in the routines
+  they were proven for.
+- Direct page: the 68000-style registers `a0`-`a5`, `d0`-`d7` (NAME+2 is the upper word or bank, as 93S writes them), the
+  engine's parameter registers `r0`-`r9`, `p0`, `p1` ($00-$2F, 4 bytes each; p0 / p1 are the long pointers: source and
+  destination of Decompress, MemCopy and the DMA / map routines), `tmp0`-`tmp5`, `vcount`, then the engine state
+  (decompressors `Huff*` / `LZ*`, the DMA queue, the software multiply, the sound sequencer and stream).
+- Sound: the sequencer's Track* arrays (17 tracks; track 16 is the sound effects) and Voice* arrays (8 voices) at
+  $0804-$0A09, the echo / noise settings by the driver commands they feed.
+- Cleared but never set or read: `GoalieUnused`, `FaceoffUnused`, `PauseUnused`. RAM names resting on one or two uses
+  (LOW in the research): `topgoalie` / `botgoalie`, `FrameCountHold`, `RAMTag` / `RAMTag2`, `MapScreenStep`,
+  `FrameTilesFail`, `SoundMono`, `PitchModVoices`, `SongUnused`, `TrackUnused`, `MusicPause`, `MusicDuck`, `reloadtime`,
+  `otgoalscorer`, `screenmap`, `screenmap2`, `introbuf`, `introchars`, `titlelogobuf`, `introPal2Src`, `NMISkip`.
+
+### Found in the ROM, left as it is
+
+- Goal adds a goal against with a word `inc.w tmgoals,x` on a byte array.
+- UpdateHatTrick clears only hat 0's `hatvz` at a launch (no `,x`).
+- ShowStars reads its overtime goal entry from `fox` ($7E3136) where ShowGoalBox uses `ScoreSum-6` + ScoreSumbytes.
+- EndPenaltyShot puts the saved faceoff spot into `ltx` / `lty`, not back into `fox` / `foy`.
+- The ShowCrowdMeter `.11` loop that raises the hot / cold table has no caller found.
+- Three SpriteFrames boxes (frames 243, 395, 407) are a few pixels off the frames' pixels.
+
+### Still open
+
+- No caller found for some sprite and decompressor entry points (GetFrameTiles `.t1x`, DrawSpritePieces `.t2xx` and
+  `.t1xxxxxx`, FreeFrameTiles `.t1`, FreeCacheEntry_go `.t2x`); they may be reached through jump tables or be dead.
+- The SPC700 side of the sound driver (SoundDriver, db) is not disassembled; the command numbers are the driver's.
+- Next: nothing queued. The segment-era layout log that was here is in git history (before this rewrite).
 
 ## Setup notes
 
