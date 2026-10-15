@@ -62,7 +62,7 @@ ASSETS = [
     ('StreamSampleOverGlass.spc', 0x93A18D, 0x93B217),
     ('CardBackTiles.lin.pairs', 0x93B217, 0x93C20B),
     ('SamplePuckPost.spc', 0x93C20B, 0x93D187),
-    ('DATA8_93D187.spc', 0x93D187, 0x93DFAD),
+    ('SampleUnused.spc', 0x93D187, 0x93DFAD),
     ('SampleDist.spc', 0x93DFAD, 0x93ED31),
     ('SampleKick.spc', 0x93FAB1, 0x93FFFB),
     ('TitleLogoTiles.chr.lz', 0x948000, 0x948D6F),

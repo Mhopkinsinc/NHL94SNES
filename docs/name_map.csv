@@ -6406,3 +6406,4 @@ $9AB2DF,SongDefense,DATA8_9AB2DF,94G,"Team organ song (TeamSongs BOS 4, BUF 4, C
 $958ABD,SampleClap,DATA8_958ABD,behavior,"In-game sample 18 (sound $14): a hand clap, identified by listening (the user); the second instrument of 7 TeamSongs songs (StepTrack event $DC $6A)",src/data/sound/SampleClap.asm
 $94ED96,SampleUnused13,DATA8_94ED96,code,"In-game sample 13: only sound $E plays it, and no code plays sound $E (unused)",src/data/sound/SampleUnused13.asm
 $96AA64,SampleUnused15,DATA8_96AA64,code,"In-game sample 15: only sound $10 plays it, and no code plays sound $10 (unused)",src/data/sound/SampleUnused15.asm
+$93D187,SampleUnused,DATA8_93D187,code,"A BRR sample in no sample list and with no reader, so it never reaches the sound CPU (unused)",src/data/sound/SampleUnused.asm
