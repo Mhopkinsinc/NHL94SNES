@@ -8,7 +8,7 @@ FreeFrameTiles:
 	plb
 	jmp.w .1
 
-.t1:		; the same for frame A of the sprite set at [p1]
+.freeframe:		; unused entry (no caller in the ROM): free the tiles of frame A of the sprite set at [p1]
 	phx
 	phy
 	sta.w DrawFrameNum
@@ -245,7 +245,7 @@ FreeCacheEntry_go:
 	plx
 	rtl
 
-.t2x:
+.countfree:		; unused entry (no caller in the ROM): A = the sum of the free run lengths in BlockRuns, walking the runs from index SpriteBlockTiles
 	phb
 	pea.w $7E7E
 	plb

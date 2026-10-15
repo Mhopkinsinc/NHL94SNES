@@ -261,11 +261,10 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - EndPenaltyShot puts the saved faceoff spot into `ltx` / `lty`, not back into `fox` / `foy`.
 - The ShowCrowdMeter `.11` loop that raises the hot / cold table has no caller found.
 - Three SpriteFrames boxes (frames 243, 395, 407) are a few pixels off the frames' pixels.
+- Five sprite library entry points have no caller anywhere in the ROM (no call, no jump, no pointer in any table): GetFrameTiles `.drawat`, DrawSpritePieces `.cacheat` / `.cacheframe`, FreeFrameTiles `.freeframe`, FreeCacheEntry_go `.countfree`. Each follows an rtl with its own setup: entries of EA's sprite library that 94S does not use.
 
 ### Still open
 
-- No caller found for some sprite and decompressor entry points (GetFrameTiles `.t1x`, DrawSpritePieces `.t2xx` and
-  `.t1xxxxxx`, FreeFrameTiles `.t1`, FreeCacheEntry_go `.t2x`); they may be reached through jump tables or be dead.
 - The SPC700 side of the sound driver (SoundDriver, db) is not disassembled; the command numbers are the driver's.
 - Next: nothing queued. The segment-era layout log that was here is in git history (before this rewrite).
 
