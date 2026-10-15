@@ -3,7 +3,7 @@
 org $968000
 incsrc "../data/sound/DATA8_968000.asm"
 incsrc "../data/sound/DATA8_968646.asm"
-incsrc "../data/gfx/PlayoffTiles.asm"
+incsrc "../data/gfx/StanleyCupTiles.asm"
 incsrc "../data/sound/DATA8_969190.asm"
 incsrc "../data/sound/DATA8_9696E3.asm"
 incsrc "../data/sound/DATA8_969C09.asm"

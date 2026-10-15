@@ -1,6 +1,6 @@
-; The playoff screen tiles (the Stanley Cup and the bracket pieces), as 93S PlayoffTiles for PlayoffScreen
+; The playoff tree tiles (6): the tiles of 93S PlayoffTiles, byte for byte, sent to VRAM $1000 as 93S does
 
-PlayoffTiles:		; packed for DecompressLZ, read by a screen setup
-	db $10,$FB
-	db $00,$07,$40
-	incbin "../../../Extracted/data/gfx/DATA8_968C02.lz":5..1422
+PlayoffTiles:		; packed for DecompressHuffman by a screen setup
+	db $30,$FB
+	db $00,$00,$C0
+	incbin "../../../Extracted/data/gfx/DATA8_9AE8BF.huf":5..45

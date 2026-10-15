@@ -101,9 +101,9 @@ PlayoffScreen:
 	ldy.w #$0000
 	ldx.w #$0010
 	jsl.l DMAToCGRAM
-	lda.w #DATA8_9AE8BF>>16
+	lda.w #PlayoffTiles>>16
 	sta.b $0E
-	lda.w #DATA8_9AE8BF
+	lda.w #PlayoffTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -123,9 +123,9 @@ PlayoffScreen:
 	sta.b $0C
 	ldy.w #$1000
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9AE027>>16
+	lda.w #PlayoffPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9AE027
+	lda.w #PlayoffPalette
 	sta.b $0C
 	lda.w #palbuffer>>16
 	sta.b $12
@@ -252,9 +252,9 @@ PlayoffScreen:
 	ldx.w #$0E00
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9AE884>>16
+	lda.w #StanleyCupPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9AE884
+	lda.w #StanleyCupPalette
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -265,15 +265,15 @@ PlayoffScreen:
 	sta.b $0E
 	lda.w #$0000
 	sta.b $0C
-	lda.w #$007E
+	lda.w #(palbuffer+$60)>>16
 	sta.b $12
-	lda.w #$3654
+	lda.w #palbuffer+$60		; palette 3
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
-	lda.w #PlayoffTiles>>16
+	lda.w #StanleyCupTiles>>16
 	sta.b $0E
-	lda.w #PlayoffTiles
+	lda.w #StanleyCupTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -589,9 +589,9 @@ org $9D9000
 	dec.b d4
 	bne .loopxxx
 .1x:
-	lda.w #DATA8_95FF9B>>16
+	lda.w #StanleyCupMap>>16
 	sta.b $0E
-	lda.w #DATA8_95FF9B
+	lda.w #StanleyCupMap
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

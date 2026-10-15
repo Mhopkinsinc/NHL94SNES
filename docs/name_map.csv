@@ -6250,7 +6250,7 @@ $9ADF59,BigLetterMap,DATA8_9ADF59,new,RenderBigText reads the letter tiles from 
 $96BABD,BigFontTiles,DATA8_96BABD,93S,rendered: a bold outlined A-Z; at the 93S BigFontTiles position in setupice (after FramerTiles),src/data/gfx/BigFontTiles.asm
 $95F1AE,MenuBackTiles,DATA8_95F1AE,new,rendered: the menu background (bevelled boxes on a pattern); loaded with MenuBackMap,src/data/gfx/MenuBackTiles.asm
 $9ABA95,MenuBackMap,DATA8_9ABA95,new,the 32 x 28 background map of the menu screens,src/data/gfx/MenuBackMap.asm
-$968C02,PlayoffTiles,DATA8_968C02,93S,rendered: the Stanley Cup and bracket pieces; PlayoffScreen loads it as 93S PlayoffScreen loads PlayoffTiles,src/data/gfx/PlayoffTiles.asm
+$968C02,StanleyCupTiles,DATA8_968C02,render,"Rendered with StanleyCupMap and StanleyCupPalette: the Stanley Cup (58 tiles, one per map tile). Was named PlayoffTiles from the load order; the 93S PlayoffTiles content is PlayoffTiles / PlayoffPalette at $9AE8BF / $9AE027",src/data/gfx/StanleyCupTiles.asm
 $94D6A5,RonBarrTiles,DATA8_94D6A5,93S,"rendered: the announcer at the desk (EA SPORTS microphone flag): the scouting report picture, as 93S RonBarrMap / 94G RonBarrMap",src/data/gfx/RonBarrTiles.asm
 $9AC0CC,RonBarrMap,DATA8_9AC0CC,93S,the scouting report background map that goes with RonBarrTiles,src/data/gfx/RonBarrMap.asm
 $9ACDB0,SmallFontMap,DATA8_9ACDB0,93S,print reads it (after a 6 byte header) where 93S print reads SmallFontMap,src/data/gfx/SmallFontMap.asm
@@ -6292,3 +6292,7 @@ $9ACFB6,CrowdMeterPalette,DATA8_9ACFB6,render,"ShowCrowdMeter loads it into pale
 $9AE919,CrowdMeterMap,DATA8_9AE919,render,ShowCrowdMeter pastes it when the level fits the 18 columns: the unlit bar,src/data/gfx/CrowdMeterMap.asm
 $9AE8EC,CrowdMeterLitMap,DATA8_9AE8EC,render,ShowCrowdMeter pastes as many of its columns as the level: the lit bar,src/data/gfx/CrowdMeterLitMap.asm
 $9ADFCB,CrowdMeterBrokenMap,DATA8_9ADFCB,render,ShowCrowdMeter pastes it when the level is past the 18 columns: the bar with cracked glass (94G's broken crowd meter),src/data/gfx/CrowdMeterBrokenMap.asm
+$95FF9B,StanleyCupMap,DATA8_95FF9B,render,PlayoffScreen pastes it in palette 3 (+$0C00); its tiles are StanleyCupTiles 0-57; renders the Stanley Cup,src/data/gfx/StanleyCupMap.asm
+$9AE884,StanleyCupPalette,DATA8_9AE884,render,"PlayoffScreen copies it to palbuffer+$60 (palette 3, where StanleyCupMap is pasted); renders the cup in silver",src/data/gfx/StanleyCupPalette.asm
+$9AE8BF,PlayoffTiles,DATA8_9AE8BF,93S,"93S PlayoffTiles: its 6 tiles are byte for byte the tiles of 93S PlayoffTiles, sent to VRAM $1000 as 93S PlayoffScreen sends them",src/data/gfx/PlayoffTiles.asm
+$9AE027,PlayoffPalette,DATA8_9AE027,93S,"The 128 colours of 93S PlayoffTiles (2 bytes differ), unpacked into palbuffer as 93S PlayoffScreen copies them",src/data/gfx/PlayoffPalette.asm
