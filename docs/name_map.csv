@@ -6428,3 +6428,4 @@ $9DF196,SPAcrosscheck,DATA8_9DF196,94G,"checkcheck: the check straight ahead (re
 $9DFEC2,SPAunused1,DATA8_9DFEC2,code,no code sets it (updateanim only compares SPA with its address); skater frames with the stick raised,src/data/frames94s.asm
 $9DFF04,SPAunused2,DATA8_9DFF04,code,"no code sets it; skater frames with the stick raised, longer than SPAunused1",src/data/frames94s.asm
 $9DFF5A,SPAunused3,DATA8_9DFF5A,code,no code sets it; one skater frame,src/data/frames94s.asm
+$9EDC94,UnusedSineTable,DATA8_9EDC94,code,"A sine of amplitude 10 over 8 steps (0,-7,-10,-7,0,7,10,7,0,-7); no code reads it (no operand in bank $9E points into it)",src/routines/snes/UnusedSineTable.asm
