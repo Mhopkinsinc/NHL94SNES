@@ -1,260 +1,261 @@
 ; SpriteFrames, the main sprite set DrawSprite uses: skaters, goalies, the nets, the puck,
-; markers, the crowd and a sprite font. The offset table (one 4-byte offset per frame; the
-; first offset ends the table) is followed by this bank's frames. A frame is the piece count,
+; markers, the bench, the Zamboni, two sprite fonts and the hat trick hats. Frames are in the
+; SPF groups of ram94snes.asm: frame SPFgroup+n is SpriteFrame_group_n. The offset table (one
+; 4-byte offset per frame; the first offset ends the table) is followed by this bank's frames. A frame is the piece count,
 ; flags (bit 7: 16x16 tiles), tile count, four words not traced, the two transfer sizes, the
 ; tile offset, four bytes not traced, the pieces, then the tiles.
 
 SpriteFrames:		; frame offsets
-	dd $00000F40,$0000108B,$00001224,$00001348
-	dd $0000146C,$00001590,$0000173B,$00001934
-	dd $00001A7F,$00001C2A,$00001D75,$00001EE7
-	dd $00002092,$0000223D,$0000240F,$000025BA
-	dd $0000272C,$00002877,$000029E9,$00002BBB
-	dd $00002D66,$00002EB1,$0000304A,$000031BC
-	dd $0000332E,$00003479,$000035C4,$0000376F
-	dd $000038E1,$00003A8C,$00003BFE,$00003D70
-	dd $00003F1B,$000040C6,$00004271,$000043E3
-	dd $00004555,$000046C7,$00004872,$00004A1D
-	dd $00004BC8,$00004D3A,$00004EAC,$0000501E
-	dd $00005190,$00005302,$00005426,$0000554A
-	dd $0000566E,$00005792,$000058B6,$00005A01
-	dd $00005B4C,$00005CBE,$00005E57,$00005FA2
-	dd $000060ED,$00006238,$00006383,$0000652E
-	dd $00006679,$000067C4,$000068D6,$00006A21
-	dd $00006B6C,$00006C90,$00006DB4,$00006F26
-	dd $0000704A,$0000716E,$00007292,$00007404
-	dd $000075C4,$00007736,$0000792F,$00007A7A
-	dd $00007BEC,$00007D37,$00010000,$000101C0
-	dd $00010332,$000104A4,$00010616,$000107C1
-	dd $0001096C,$00010ADE,$00010C29,$00010DD4
-	dd $00010F7F,$000110A3,$0001124E,$000113E7
-	dd $00011559,$000116F2,$000118EB,$00011A96
-	dd $00011C08,$00011DA1,$00011F13,$000120BE
-	dd $000121E2,$00012354,$0001254D,$000126F8
-	dd $000128A3,$000129C7,$00012B12,$00012CBD
-	dd $00012EB6,$00013061,$000131AC,$000132F7
-	dd $00013469,$0001363B,$0001380D,$000139B8
-	dd $00013B03,$00013CAE,$00013E20,$00013F92
-	dd $0001413D,$00014336,$000144F6,$000146B6
-	dd $00014801,$00014973,$00014B5A,$00014CCC
-	dd $00014E77,$00014FC2,$0001515B,$00015354
-	dd $000155D4,$000156F8,$00015843,$0001598E
-	dd $00015B39,$00015D6B,$00015F64,$000160D6
-	dd $00016248,$000163F3,$0001659E,$000166E9
-	dd $00016834,$00016958,$00016A7C,$00016C27
-	dd $00016DD2,$00016FCB,$000171C4,$0001736F
-	dd $0001751A,$00017665,$000177B0,$000178FB
-	dd $00017A46,$00017BF1,$00017D9C,$00020000
-	dd $000201AB,$000202CF,$00020441,$0002058C
-	dd $00020737,$00020882,$000209F4,$00020B9F
-	dd $00020D98,$00020F6A,$000210DC,$0002124E
-	dd $0002140E,$000215B9,$00021764,$00021924
-	dd $00021AF6,$00021C8F,$00021DDA,$00021F85
-	dd $00022157,$00022302,$00022474,$0002261F
-	dd $00022791,$0002298A,$00022B98,$00022DB8
-	dd $00022FB1,$000231AA,$000233A3,$000235B1
-	dd $000237AA,$000239F1,$00023C86,$00023E58
-	dd $0002408A,$00024283,$00024443,$000245DC
-	dd $0002479C,$00024995,$00024B07,$00024CA0
-	dd $00024E99,$000250B9,$000252B2,$00025499
-	dd $00025692,$00025879,$000259EB,$00025C32
-	dd $00025E79,$00025FEB,$0002620B,$000263CB
-	dd $00026576,$0002676F,$000268E1,$00026A1A
-	dd $00026B8C,$00026D4C,$00026F0C,$00027045
-	dd $000271B7,$000272A2,$0002733F,$000273DC
-	dd $00027479,$0002753D,$000275DA,$0002763E
-	dd $000276DB,$000278D4,$00027A94,$00027C2D
-	dd $00027DC6,$00030000,$00030172,$0003036B
-	dd $0003053D,$00030736,$00030881,$00030A6F
-	dd $00030C68,$00030DDA,$00030EFE,$000310A9
-	dd $000312A2,$0003143B,$00031694,$000318ED
-	dd $00031B34,$00031CA6,$00031EC6,$0003211F
-	dd $0003239F,$00032598,$000327CA,$0003299C
-	dd $00032BCE,$00032DC7,$00032F39,$000330F9
-	dd $000332A4,$000333C8,$00033588,$00033733
-	dd $00033905,$00033AD7,$00033CAC,$00033EA5
-	dd $000340EC,$000342AC,$00034445,$0003463E
-	dd $000347FE,$00034A30,$00034C65,$00034E5E
-	dd $00034FF7,$00035109,$00035302,$00035570
-	dd $000356E2,$000358A2,$00035A74,$00035D42
-	dd $00035F02,$000360C2,$000362BB,$00036502
-	dd $000366C2,$00036882,$00036A54,$00036CFB
-	dd $00036E94,$000370B4,$0003730D,$0003758D
-	dd $00037726,$0003791F,$00037B9F,$00037E1F
-	dd $00040000,$000401D2,$00040419,$00040660
-	dd $00040820,$00040992,$00040C12,$00040E59
-	dd $00040FE0,$00041152,$000412EB,$000414BD
-	dd $00041608,$00041801,$00041A5A,$00041C7A
-	dd $00041E25,$0004207E,$0004234C,$000425A5
-	dd $000427C5,$00042A1E,$00042CC5,$00042F1E
-	dd $000430F0,$00043262,$00043482,$00043669
-	dd $0004383B,$00043A94,$00043D02,$00043F49
-	dd $0004411B,$0004434D,$0004461B,$0004489B
-	dd $00044ABB,$00044CED,$00044F0D,$000451B4
-	dd $000453AD,$00045534,$0004572D,$00045926
-	dd $00045B1F,$00045D06,$00045EFF,$000460AA
-	dd $00046243,$000463DC,$000465AE,$0004676E
-	dd $000468B9,$00046A52,$00046BC4,$00046D84
-	dd $00046F7D,$00047164,$0004730F,$00047481
-	dd $000475F3,$0004779E,$00047937,$00047A49
-	dd $00047B5B,$00047C7F,$00050000,$00050232
-	dd $000503DD,$000505D6,$000506A1,$00050801
-	dd $000508D3,$0005099E,$00050AFE,$00050BD0
-	dd $00050C9B,$00050DFB,$00050ECD,$00050F98
-	dd $000510F8,$000511CA,$00051295,$000513F5
-	dd $000514C7,$0005156B,$0005160F,$000516B3
-	dd $00051757,$000517FB,$0005189F,$00051911
-	dd $0005194E,$0005198B,$000519C8,$00051A05
-	dd $00051A42,$00051A7F,$00051ABC,$00051AF9
-	dd $00051B36,$00051B73,$00051BB0,$00051D37
-	dd $00051F77,$00051FDB,$00052078,$00052115
-	dd $000521E7,$00052284,$00052321,$00052385
-	dd $00052470,$0005255B,$00052646,$0005270A
-	dd $000527F5,$000528E0,$00052992,$00052CAE
-	dd $00053063,$0005343F,$00053806,$00053BE2
-	dd $00053FD0,$00054142,$00054314,$0005455B
-	dd $00054754,$00054791,$000547CE,$0005480B
-	dd $00054848,$00054885,$000548C2,$000548FF
-	dd $0005493C,$00054979,$000549B6,$000549F3
-	dd $00054A30,$00054A6D,$00054AAA,$00054AE7
-	dd $00055334,$000555DB,$000557D4,$00055A8D
-	dd $00055CAD,$00055E1F,$00056078,$000562F8
-	dd $0005659F,$00056786,$000569A6,$00056B66
-	dd $00056D38,$00056F0A,$0005718A,$000573BC
-	dd $00057603,$00057883,$00057AA3,$00057D23
-	dd $00060000,$00060259,$000604B2,$000606AB
-	dd $000608F2,$00060B4B,$00060E07,$00061039
-	dd $00061247,$000614A3,$00061663,$00061823
-	dd $00061A1C,$00061B67,$00061CD9,$00061E84
-	dd $00061FCF,$0006217A,$00062373,$0006251E
-	dd $000626C9,$00062814,$0006295F,$00062B0A
-	dd $00062CDC,$00062E87,$000630B9,$00063279
-	dd $000633EB,$0006355D,$000636CF,$000637F3
-	dd $0006393E,$00063A89,$00063BD4,$00063DA6
-	dd $00063F51,$0006409C,$000641C0,$00064332
-	dd $000644A4,$00064664,$000647AF,$00064921
-	dd $00064A93,$00064B7E,$00064DB0,$00065030
-	dd $00065262,$00065494,$000656ED,$0006590D
-	dd $00065AA6,$00065C78,$00065DC3,$00065F5C
-	dd $00066155,$00066315,$0006656E,$000667C7
-	dd $000669C0,$00066BB9,$00066D04,$00066EFD
-	dd $00067096,$0006728F,$00067461,$00067621
-	dd $00067853,$0006799E,$00067B10,$00067D09
-	dd $00067E7B,$00070000,$00070199,$00070359
-	dd $0007052B,$0007075D,$0007092F,$00070AEF
-	dd $00070D21,$00070EE1,$0007107A,$0007123A
-	dd $0007135E,$000714D0,$000716C9,$00071889
-	dd $00071A22,$00071BCD,$00071D18,$00071E8A
-	dd $00072035,$0007228E,$00072487,$00072632
-	dd $000727DD,$0007294F,$00072B6F,$00072DB6
-	dd $00072F4F,$0007316F,$00073341,$00073513
-	dd $000736BE,$0007387E,$00073A3E,$00073BFE
-	dd $00073DA9,$00073F90,$00074129,$00074322
-	dd $0007451B,$000746B4,$00074886,$00074A58
-	dd $00074BCA,$00074D75,$00074EE7,$000750E0
-	dd $00075252,$00075424,$000755CF,$000757DD
-	dd $00075A0F,$00075C68,$00075E3A,$00076033
-	dd $00076205,$000763EC,$0007655E,$0007671E
-	dd $000768C9,$00076A89,$00076C82,$00076E2D
-	dd $00076FC6,$000771BF,$000773B8,$00077563
-	dd $0007775C,$0007798E,$00077BD5,$00077DCE
-	dd $00080000,$000801F9,$00080392,$000804DD
-	dd $0008069D,$00080836,$000809E1,$00080B53
-	dd $00080CFE,$00080EA9,$000810A2,$00081214
-	dd $000813E6,$00081591,$0008172A,$0008189C
-	dd $000819E7,$00081B59,$00081D19,$00081F00
-	dd $00082099,$00082280,$00082479,$0008264B
-	dd $00082892,$00082A64,$00082C0F,$00082DBA
-	dd $00082FDA,$00083185,$000833B7,$00083529
-	dd $00083722,$0008391B,$00083AED,$00083CE6
-	dd $00083E31,$00083F7C,$000840EE,$00084260
-	dd $00084420,$000845B9,$000847B2,$000849AB
-	dd $00084B44,$00084D04,$00084E28,$00084F4C
-	dd $000850E5,$0008527E,$00085477,$00085685
-	dd $00085845,$00085A77,$00085CD0,$00085EA2
-	dd $000860FB,$0008632D,$0008654D,$00086746
-	dd $0008699F,$00086BE6,$00086E3F,$00087011
-	dd $0008720A,$00087463,$000875D5,$000876F9
-	dd $0008786B,$00087A64,$00087C0F,$00087E08
-	dd $00090000,$000901D2,$000903CB,$000905EB
-	dd $0009081D,$00090AC4,$00090BD6,$00090DCF
-	dd $00090FA1,$000911D3,$0009136C,$000914DE
-	dd $00091629,$00091822,$00091994,$00091ADF
-	dd $00091C51,$00091DC3,$00091F35,$0009212E
-	dd $000922C7,$00092499,$00092692,$00092804
-	dd $00092976,$00092B48,$00092D08,$00092EA1
-	dd $00093013,$00093185,$000932F7,$00093529
-	dd $0009369B,$00093846,$000939B8,$00093B2A
-	dd $00093C4E,$00093E47,$00093FF2,$00094116
-	dd $00094288,$0009439A,$000944AC,$000946DE
-	dd $000948D7,$00094A49,$00094CA2,$00094E14
-	dd $00094F86,$000951B8,$00095378,$000954C3
-	dd $00095635,$000957CE,$000958F2,$00095AEB
-	dd $00095D1D,$00095E41,$00096028,$0009626F
-	dd $00096456,$000965C8,$0009673A,$000968AC
-	dd $00096A1E,$00096B90,$00096D02,$00096F49
-	dd $00097142,$0009733B,$00097594,$00097814
-	dd $00097A34,$00097C8D,$000A0000,$000A0280
-	dd $000A0440,$000A0600,$000A0859,$000A09F2
-	dd $000A0B8B,$000A0D4B,$000A0F7D,$000A113D
-	dd $000A12E8,$000A1493,$000A15DE,$000A17C5
-	dd $000A18E9,$000A1A5B,$000A1C06,$000A1E5F
-	dd $000A201F,$000A2218,$000A2471,$000A2631
-	dd $000A2803,$000A29FC,$000A2BBC,$000A2DDC
-	dd $000A2F4E,$000A3039,$000A31E4,$000A3356
-	dd $000A34EF,$000A3688,$000A38A8,$000A3A68
-	dd $000A3C4F,$000A3DE8,$000A3FA8,$000A4168
-	dd $000A434F,$000A44E8,$000A4741,$000A4973
-	dd $000A4B45,$000A4D2C,$000A4EFE,$000A50F7
-	dd $000A5290,$000A5489,$000A5649,$000A5830
-	dd $000A5A17,$000A5B89,$000A5DF7,$000A603E
-	dd $000A625E,$000A63D0,$000A6542,$000A66A2
-	dd $000A6802,$000A699B,$000A6B6D,$000A6CDF
-	dd $000A6E51,$000A6FEA,$000A7171,$000A7331
-	dd $000A747C,$000A75B5,$000A7727,$000A7872
-	dd $000A79E4,$000A7B2F,$000A7C7A,$000B0000
-	dd $000B0247,$000B0419,$000B05D9,$000B0799
-	dd $000B096B,$000B0B64,$000B0D4B,$000B0F1D
-	dd $000B113D,$000B136F,$000B14E1,$000B1653
-	dd $000B1813,$000B1A0C,$000B1C53,$000B1E4C
-	dd $000B1FBE,$000B2109,$000B227B,$000B249B
-	dd $000B2634,$000B28DB,$000B2AD4,$000B2CCD
-	dd $000B2EC6,$000B3038,$000B326A,$000B3403
-	dd $000B359C,$000B375C,$000B38CE,$000B3B4E
-	dd $000B3D6E,$000B3F07,$000B3FF2,$000B41B2
-	dd $000B446B,$000B4712,$000B490B,$000B4A7D
-	dd $000B4CD6,$000B4F2F,$000B5161,$000B5348
-	dd $000B5628,$000B58BD,$000B5B16,$000B5CD6
-	dd $000B5E48,$000B601A,$000B6213,$000B63E5
-	dd $000B6557,$000B66C9,$000B6802,$000B69FB
-	dd $000B6BBB,$000B6D2D,$000B6E3F,$000B7071
-	dd $000B721C,$000B74FC,$000B76F5,$000B78EE
-	dd $000B7AAE,$000B7C20,$000B7DF2,$000C0000
-	dd $000C0160,$000C0284,$000C041D,$000C05B6
-	dd $000C0728,$000C0888,$000C0A21,$000C0BBA
-	dd $000C0DDA,$000C0FAC,$000C10E5,$000C1257
-	dd $000C13A2,$000C1514,$000C165F,$000C17BF
-	dd $000C18E3,$000C1C71,$000C1FFF,$000C23DB
-	dd $000C2790,$000C2BBA,$000C2F21,$000C32AF
-	dd $000C366B,$000C3B5F,$000C3F97,$000C43A1
-	dd $000C4784,$000C47E8,$000C484C,$000C48B0
-	dd $000C4914,$000C4978,$000C49DC,$000C4A40
-	dd $000C4AA4,$000C4B08,$000C4B6C,$000C4BD0
-	dd $000C4C34,$000C4C98,$000C4CFC,$000C4D60
-	dd $000C4DC4,$000C4E28,$000C4E8C,$000C4EF0
-	dd $000C4F54,$000C4FB8,$000C501C,$000C5080
-	dd $000C50E4,$000C5148,$000C51AC,$000C51E9
-	dd $000C524D,$000C52B1,$000C5315,$000C5379
-	dd $000C53DD,$000C5441,$000C54A5,$000C5509
-	dd $000C556D,$000C55D1,$000C5635,$000C5672
-	dd $000C56AF,$000C56EC,$000C5729,$000C5766
-	dd $000C57A3,$000C57E0,$000C581D,$000C585A
-SpriteFrame0:
+	dd SpriteFrame_skatewp_0-SpriteFrames,SpriteFrame_skatewp_1-SpriteFrames,SpriteFrame_skatewp_2-SpriteFrames,SpriteFrame_skatewp_3-SpriteFrames
+	dd SpriteFrame_skatewp_4-SpriteFrames,SpriteFrame_skatewp_5-SpriteFrames,SpriteFrame_skatewp_6-SpriteFrames,SpriteFrame_skatewp_7-SpriteFrames
+	dd SpriteFrame_skatewp_8-SpriteFrames,SpriteFrame_skatewp_9-SpriteFrames,SpriteFrame_skatewp_10-SpriteFrames,SpriteFrame_skatewp_11-SpriteFrames
+	dd SpriteFrame_skatewp_12-SpriteFrames,SpriteFrame_skatewp_13-SpriteFrames,SpriteFrame_skatewp_14-SpriteFrames,SpriteFrame_skatewp_15-SpriteFrames
+	dd SpriteFrame_skatewp_16-SpriteFrames,SpriteFrame_skatewp_17-SpriteFrames,SpriteFrame_skatewp_18-SpriteFrames,SpriteFrame_skatewp_19-SpriteFrames
+	dd SpriteFrame_skatewp_20-SpriteFrames,SpriteFrame_skatewp_21-SpriteFrames,SpriteFrame_skatewp_22-SpriteFrames,SpriteFrame_skatewp_23-SpriteFrames
+	dd SpriteFrame_skatewp_24-SpriteFrames,SpriteFrame_skatewp_25-SpriteFrames,SpriteFrame_skatewp_26-SpriteFrames,SpriteFrame_skatewp_27-SpriteFrames
+	dd SpriteFrame_skatewp_28-SpriteFrames,SpriteFrame_skatewp_29-SpriteFrames,SpriteFrame_skatewp_30-SpriteFrames,SpriteFrame_skatewp_31-SpriteFrames
+	dd SpriteFrame_skatewp_32-SpriteFrames,SpriteFrame_skatewp_33-SpriteFrames,SpriteFrame_skatewp_34-SpriteFrames,SpriteFrame_skatewp_35-SpriteFrames
+	dd SpriteFrame_skatewp_36-SpriteFrames,SpriteFrame_skatewp_37-SpriteFrames,SpriteFrame_skatewp_38-SpriteFrames,SpriteFrame_skatewp_39-SpriteFrames
+	dd SpriteFrame_skate_0-SpriteFrames,SpriteFrame_skate_1-SpriteFrames,SpriteFrame_skate_2-SpriteFrames,SpriteFrame_skate_3-SpriteFrames
+	dd SpriteFrame_skate_4-SpriteFrames,SpriteFrame_skate_5-SpriteFrames,SpriteFrame_skate_6-SpriteFrames,SpriteFrame_skate_7-SpriteFrames
+	dd SpriteFrame_skate_8-SpriteFrames,SpriteFrame_skate_9-SpriteFrames,SpriteFrame_skate_10-SpriteFrames,SpriteFrame_skate_11-SpriteFrames
+	dd SpriteFrame_skate_12-SpriteFrames,SpriteFrame_skate_13-SpriteFrames,SpriteFrame_skate_14-SpriteFrames,SpriteFrame_skate_15-SpriteFrames
+	dd SpriteFrame_skate_16-SpriteFrames,SpriteFrame_skate_17-SpriteFrames,SpriteFrame_skate_18-SpriteFrames,SpriteFrame_skate_19-SpriteFrames
+	dd SpriteFrame_skate_20-SpriteFrames,SpriteFrame_skate_21-SpriteFrames,SpriteFrame_skate_22-SpriteFrames,SpriteFrame_skate_23-SpriteFrames
+	dd SpriteFrame_skate_24-SpriteFrames,SpriteFrame_skate_25-SpriteFrames,SpriteFrame_skate_26-SpriteFrames,SpriteFrame_skate_27-SpriteFrames
+	dd SpriteFrame_skate_28-SpriteFrames,SpriteFrame_skate_29-SpriteFrames,SpriteFrame_skate_30-SpriteFrames,SpriteFrame_skate_31-SpriteFrames
+	dd SpriteFrame_skate_32-SpriteFrames,SpriteFrame_skate_33-SpriteFrames,SpriteFrame_skate_34-SpriteFrames,SpriteFrame_skate_35-SpriteFrames
+	dd SpriteFrame_skate_36-SpriteFrames,SpriteFrame_skate_37-SpriteFrames,SpriteFrame_skate_38-SpriteFrames,SpriteFrame_skate_39-SpriteFrames
+	dd SpriteFrame_turnl_0-SpriteFrames,SpriteFrame_turnl_1-SpriteFrames,SpriteFrame_turnl_2-SpriteFrames,SpriteFrame_turnl_3-SpriteFrames
+	dd SpriteFrame_turnl_4-SpriteFrames,SpriteFrame_turnl_5-SpriteFrames,SpriteFrame_turnl_6-SpriteFrames,SpriteFrame_turnl_7-SpriteFrames
+	dd SpriteFrame_turnr_0-SpriteFrames,SpriteFrame_turnr_1-SpriteFrames,SpriteFrame_turnr_2-SpriteFrames,SpriteFrame_turnr_3-SpriteFrames
+	dd SpriteFrame_turnr_4-SpriteFrames,SpriteFrame_turnr_5-SpriteFrames,SpriteFrame_turnr_6-SpriteFrames,SpriteFrame_turnr_7-SpriteFrames
+	dd SpriteFrame_swing_0-SpriteFrames,SpriteFrame_swing_1-SpriteFrames,SpriteFrame_swing_2-SpriteFrames,SpriteFrame_swing_3-SpriteFrames
+	dd SpriteFrame_swing_4-SpriteFrames,SpriteFrame_swing_5-SpriteFrames,SpriteFrame_swing_6-SpriteFrames,SpriteFrame_swing_7-SpriteFrames
+	dd SpriteFrame_swing_8-SpriteFrames,SpriteFrame_swing_9-SpriteFrames,SpriteFrame_swing_10-SpriteFrames,SpriteFrame_swing_11-SpriteFrames
+	dd SpriteFrame_swing_12-SpriteFrames,SpriteFrame_swing_13-SpriteFrames,SpriteFrame_swing_14-SpriteFrames,SpriteFrame_swing_15-SpriteFrames
+	dd SpriteFrame_swing_16-SpriteFrames,SpriteFrame_swing_17-SpriteFrames,SpriteFrame_swing_18-SpriteFrames,SpriteFrame_swing_19-SpriteFrames
+	dd SpriteFrame_swing_20-SpriteFrames,SpriteFrame_swing_21-SpriteFrames,SpriteFrame_swing_22-SpriteFrames,SpriteFrame_swing_23-SpriteFrames
+	dd SpriteFrame_swing_24-SpriteFrames,SpriteFrame_swing_25-SpriteFrames,SpriteFrame_swing_26-SpriteFrames,SpriteFrame_swing_27-SpriteFrames
+	dd SpriteFrame_swing_28-SpriteFrames,SpriteFrame_swing_29-SpriteFrames,SpriteFrame_swing_30-SpriteFrames,SpriteFrame_swing_31-SpriteFrames
+	dd SpriteFrame_swing_32-SpriteFrames,SpriteFrame_swing_33-SpriteFrames,SpriteFrame_swing_34-SpriteFrames,SpriteFrame_swing_35-SpriteFrames
+	dd SpriteFrame_swing_36-SpriteFrames,SpriteFrame_swing_37-SpriteFrames,SpriteFrame_swing_38-SpriteFrames,SpriteFrame_swing_39-SpriteFrames
+	dd SpriteFrame_swing_40-SpriteFrames,SpriteFrame_swing_41-SpriteFrames,SpriteFrame_swing_42-SpriteFrames,SpriteFrame_swing_43-SpriteFrames
+	dd SpriteFrame_swing_44-SpriteFrames,SpriteFrame_swing_45-SpriteFrames,SpriteFrame_swing_46-SpriteFrames,SpriteFrame_swing_47-SpriteFrames
+	dd SpriteFrame_stop_0-SpriteFrames,SpriteFrame_stop_1-SpriteFrames,SpriteFrame_stop_2-SpriteFrames,SpriteFrame_stop_3-SpriteFrames
+	dd SpriteFrame_stop_4-SpriteFrames,SpriteFrame_stop_5-SpriteFrames,SpriteFrame_stop_6-SpriteFrames,SpriteFrame_stop_7-SpriteFrames
+	dd SpriteFrame_stop_8-SpriteFrames,SpriteFrame_stop_9-SpriteFrames,SpriteFrame_stop_10-SpriteFrames,SpriteFrame_stop_11-SpriteFrames
+	dd SpriteFrame_stop_12-SpriteFrames,SpriteFrame_stop_13-SpriteFrames,SpriteFrame_stop_14-SpriteFrames,SpriteFrame_stop_15-SpriteFrames
+	dd SpriteFrame_skateb_0-SpriteFrames,SpriteFrame_skateb_1-SpriteFrames,SpriteFrame_skateb_2-SpriteFrames,SpriteFrame_skateb_3-SpriteFrames
+	dd SpriteFrame_skateb_4-SpriteFrames,SpriteFrame_skateb_5-SpriteFrames,SpriteFrame_skateb_6-SpriteFrames,SpriteFrame_skateb_7-SpriteFrames
+	dd SpriteFrame_skateb_8-SpriteFrames,SpriteFrame_skateb_9-SpriteFrames,SpriteFrame_skateb_10-SpriteFrames,SpriteFrame_skateb_11-SpriteFrames
+	dd SpriteFrame_skateb_12-SpriteFrames,SpriteFrame_skateb_13-SpriteFrames,SpriteFrame_skateb_14-SpriteFrames,SpriteFrame_skateb_15-SpriteFrames
+	dd SpriteFrame_skateb_16-SpriteFrames,SpriteFrame_skateb_17-SpriteFrames,SpriteFrame_skateb_18-SpriteFrames,SpriteFrame_skateb_19-SpriteFrames
+	dd SpriteFrame_skateb_20-SpriteFrames,SpriteFrame_skateb_21-SpriteFrames,SpriteFrame_skateb_22-SpriteFrames,SpriteFrame_skateb_23-SpriteFrames
+	dd SpriteFrame_celebrate_0-SpriteFrames,SpriteFrame_celebrate_1-SpriteFrames,SpriteFrame_celebrate_2-SpriteFrames,SpriteFrame_celebrate_3-SpriteFrames
+	dd SpriteFrame_celebrate_4-SpriteFrames,SpriteFrame_celebrate_5-SpriteFrames,SpriteFrame_celebrate_6-SpriteFrames,SpriteFrame_celebrate_7-SpriteFrames
+	dd SpriteFrame_celebrate_8-SpriteFrames,SpriteFrame_celebrate_9-SpriteFrames,SpriteFrame_celebrate_10-SpriteFrames,SpriteFrame_celebrate_11-SpriteFrames
+	dd SpriteFrame_celebrate_12-SpriteFrames,SpriteFrame_celebrate_13-SpriteFrames,SpriteFrame_celebrate_14-SpriteFrames,SpriteFrame_celebrate_15-SpriteFrames
+	dd SpriteFrame_pump_0-SpriteFrames,SpriteFrame_pump_1-SpriteFrames,SpriteFrame_pump_2-SpriteFrames,SpriteFrame_pump_3-SpriteFrames
+	dd SpriteFrame_pump_4-SpriteFrames,SpriteFrame_pump_5-SpriteFrames,SpriteFrame_pump_6-SpriteFrames,SpriteFrame_pump_7-SpriteFrames
+	dd SpriteFrame_pump_8-SpriteFrames,SpriteFrame_pump_9-SpriteFrames,SpriteFrame_pump_10-SpriteFrames,SpriteFrame_pump_11-SpriteFrames
+	dd SpriteFrame_pump_12-SpriteFrames,SpriteFrame_pump_13-SpriteFrames,SpriteFrame_pump_14-SpriteFrames,SpriteFrame_pump_15-SpriteFrames
+	dd SpriteFrame_cup_0-SpriteFrames,SpriteFrame_cup_1-SpriteFrames,SpriteFrame_cup_2-SpriteFrames,SpriteFrame_cup_3-SpriteFrames
+	dd SpriteFrame_cup_4-SpriteFrames,SpriteFrame_cup_5-SpriteFrames,SpriteFrame_cup_6-SpriteFrames,SpriteFrame_cup_7-SpriteFrames
+	dd SpriteFrame_cupover_0-SpriteFrames,SpriteFrame_cupover_1-SpriteFrames,SpriteFrame_cupover_2-SpriteFrames,SpriteFrame_cupover_3-SpriteFrames
+	dd SpriteFrame_cupover_4-SpriteFrames,SpriteFrame_cupover_5-SpriteFrames,SpriteFrame_cupover_6-SpriteFrames,SpriteFrame_cupover_7-SpriteFrames
+	dd SpriteFrame_hipl_0-SpriteFrames,SpriteFrame_hipl_1-SpriteFrames,SpriteFrame_hipl_2-SpriteFrames,SpriteFrame_hipl_3-SpriteFrames
+	dd SpriteFrame_hipl_4-SpriteFrames,SpriteFrame_hipl_5-SpriteFrames,SpriteFrame_hipl_6-SpriteFrames,SpriteFrame_hipl_7-SpriteFrames
+	dd SpriteFrame_hipr_0-SpriteFrames,SpriteFrame_hipr_1-SpriteFrames,SpriteFrame_hipr_2-SpriteFrames,SpriteFrame_hipr_3-SpriteFrames
+	dd SpriteFrame_hipr_4-SpriteFrames,SpriteFrame_hipr_5-SpriteFrames,SpriteFrame_hipr_6-SpriteFrames,SpriteFrame_hipr_7-SpriteFrames
+	dd SpriteFrame_shoulderl_0-SpriteFrames,SpriteFrame_shoulderl_1-SpriteFrames,SpriteFrame_shoulderl_2-SpriteFrames,SpriteFrame_shoulderl_3-SpriteFrames
+	dd SpriteFrame_shoulderl_4-SpriteFrames,SpriteFrame_shoulderl_5-SpriteFrames,SpriteFrame_shoulderl_6-SpriteFrames,SpriteFrame_shoulderl_7-SpriteFrames
+	dd SpriteFrame_shoulderr_0-SpriteFrames,SpriteFrame_shoulderr_1-SpriteFrames,SpriteFrame_shoulderr_2-SpriteFrames,SpriteFrame_shoulderr_3-SpriteFrames
+	dd SpriteFrame_shoulderr_4-SpriteFrames,SpriteFrame_shoulderr_5-SpriteFrames,SpriteFrame_shoulderr_6-SpriteFrames,SpriteFrame_shoulderr_7-SpriteFrames
+	dd SpriteFrame_sweep_0-SpriteFrames,SpriteFrame_sweep_1-SpriteFrames,SpriteFrame_sweep_2-SpriteFrames,SpriteFrame_sweep_3-SpriteFrames
+	dd SpriteFrame_sweep_4-SpriteFrames,SpriteFrame_sweep_5-SpriteFrames,SpriteFrame_sweep_6-SpriteFrames,SpriteFrame_sweep_7-SpriteFrames
+	dd SpriteFrame_sweep_8-SpriteFrames,SpriteFrame_sweep_9-SpriteFrames,SpriteFrame_sweep_10-SpriteFrames,SpriteFrame_sweep_11-SpriteFrames
+	dd SpriteFrame_sweep_12-SpriteFrames,SpriteFrame_sweep_13-SpriteFrames,SpriteFrame_sweep_14-SpriteFrames,SpriteFrame_sweep_15-SpriteFrames
+	dd SpriteFrame_fallback_0-SpriteFrames,SpriteFrame_fallback_1-SpriteFrames,SpriteFrame_fallback_2-SpriteFrames,SpriteFrame_fallback_3-SpriteFrames
+	dd SpriteFrame_fallback_4-SpriteFrames,SpriteFrame_fallback_5-SpriteFrames,SpriteFrame_fallback_6-SpriteFrames,SpriteFrame_fallback_7-SpriteFrames
+	dd SpriteFrame_fallback_8-SpriteFrames,SpriteFrame_fallback_9-SpriteFrames,SpriteFrame_fallback_10-SpriteFrames,SpriteFrame_fallback_11-SpriteFrames
+	dd SpriteFrame_fallback_12-SpriteFrames,SpriteFrame_fallback_13-SpriteFrames,SpriteFrame_fallback_14-SpriteFrames,SpriteFrame_fallback_15-SpriteFrames
+	dd SpriteFrame_fallback_16-SpriteFrames,SpriteFrame_fallback_17-SpriteFrames,SpriteFrame_fallback_18-SpriteFrames,SpriteFrame_fallback_19-SpriteFrames
+	dd SpriteFrame_fallback_20-SpriteFrames,SpriteFrame_fallback_21-SpriteFrames,SpriteFrame_fallback_22-SpriteFrames,SpriteFrame_fallback_23-SpriteFrames
+	dd SpriteFrame_fallback_24-SpriteFrames,SpriteFrame_fallback_25-SpriteFrames,SpriteFrame_fallback_26-SpriteFrames,SpriteFrame_fallback_27-SpriteFrames
+	dd SpriteFrame_fallback_28-SpriteFrames,SpriteFrame_fallback_29-SpriteFrames,SpriteFrame_fallback_30-SpriteFrames,SpriteFrame_fallback_31-SpriteFrames
+	dd SpriteFrame_fallfwd_0-SpriteFrames,SpriteFrame_fallfwd_1-SpriteFrames,SpriteFrame_fallfwd_2-SpriteFrames,SpriteFrame_fallfwd_3-SpriteFrames
+	dd SpriteFrame_fallfwd_4-SpriteFrames,SpriteFrame_fallfwd_5-SpriteFrames,SpriteFrame_fallfwd_6-SpriteFrames,SpriteFrame_fallfwd_7-SpriteFrames
+	dd SpriteFrame_fallfwd_8-SpriteFrames,SpriteFrame_fallfwd_9-SpriteFrames,SpriteFrame_fallfwd_10-SpriteFrames,SpriteFrame_fallfwd_11-SpriteFrames
+	dd SpriteFrame_fallfwd_12-SpriteFrames,SpriteFrame_fallfwd_13-SpriteFrames,SpriteFrame_fallfwd_14-SpriteFrames,SpriteFrame_fallfwd_15-SpriteFrames
+	dd SpriteFrame_fallfwd_16-SpriteFrames,SpriteFrame_fallfwd_17-SpriteFrames,SpriteFrame_fallfwd_18-SpriteFrames,SpriteFrame_fallfwd_19-SpriteFrames
+	dd SpriteFrame_fallfwd_20-SpriteFrames,SpriteFrame_fallfwd_21-SpriteFrames,SpriteFrame_fallfwd_22-SpriteFrames,SpriteFrame_fallfwd_23-SpriteFrames
+	dd SpriteFrame_fallfwd_24-SpriteFrames,SpriteFrame_fallfwd_25-SpriteFrames,SpriteFrame_fallfwd_26-SpriteFrames,SpriteFrame_fallfwd_27-SpriteFrames
+	dd SpriteFrame_fallfwd_28-SpriteFrames,SpriteFrame_fallfwd_29-SpriteFrames,SpriteFrame_fallfwd_30-SpriteFrames,SpriteFrame_fallfwd_31-SpriteFrames
+	dd SpriteFrame_duck_0-SpriteFrames,SpriteFrame_duck_1-SpriteFrames,SpriteFrame_duck_2-SpriteFrames,SpriteFrame_duck_3-SpriteFrames
+	dd SpriteFrame_duck_4-SpriteFrames,SpriteFrame_duck_5-SpriteFrames,SpriteFrame_duck_6-SpriteFrames,SpriteFrame_duck_7-SpriteFrames
+	dd SpriteFrame_hold_0-SpriteFrames,SpriteFrame_hold_1-SpriteFrames,SpriteFrame_hold_2-SpriteFrames,SpriteFrame_hold_3-SpriteFrames
+	dd SpriteFrame_hold_4-SpriteFrames,SpriteFrame_hold_5-SpriteFrames,SpriteFrame_hold_6-SpriteFrames,SpriteFrame_hold_7-SpriteFrames
+	dd SpriteFrame_Pen_0-SpriteFrames,SpriteFrame_Pen_1-SpriteFrames,SpriteFrame_Pen_2-SpriteFrames,SpriteFrame_Pen_3-SpriteFrames
+	dd SpriteFrame_Pen_4-SpriteFrames,SpriteFrame_Pen_5-SpriteFrames,SpriteFrame_Pen_6-SpriteFrames,SpriteFrame_Pen_7-SpriteFrames
+	dd SpriteFrame_Pen_8-SpriteFrames,SpriteFrame_gwall_0-SpriteFrames,SpriteFrame_gwall_1-SpriteFrames,SpriteFrame_gwall_2-SpriteFrames
+	dd SpriteFrame_gwall_3-SpriteFrames,SpriteFrame_arrow_0-SpriteFrames,SpriteFrame_arrow_1-SpriteFrames,SpriteFrame_arrow_2-SpriteFrames
+	dd SpriteFrame_arrow_3-SpriteFrames,SpriteFrame_arrow_4-SpriteFrames,SpriteFrame_arrow_5-SpriteFrames,SpriteFrame_arrow_6-SpriteFrames
+	dd SpriteFrame_arrow_7-SpriteFrames,SpriteFrame_arrow_8-SpriteFrames,SpriteFrame_arrow_9-SpriteFrames,SpriteFrame_arrow_10-SpriteFrames
+	dd SpriteFrame_arrow_11-SpriteFrames,SpriteFrame_arrow_12-SpriteFrames,SpriteFrame_arrow_13-SpriteFrames,SpriteFrame_arrow_14-SpriteFrames
+	dd SpriteFrame_pad_0-SpriteFrames,SpriteFrame_pad_1-SpriteFrames,SpriteFrame_pad_2-SpriteFrames,SpriteFrame_pad_3-SpriteFrames
+	dd SpriteFrame_pad_4-SpriteFrames,SpriteFrame_pad_5-SpriteFrames,SpriteFrame_replay_0-SpriteFrames,SpriteFrame_puck_0-SpriteFrames
+	dd SpriteFrame_puck_1-SpriteFrames,SpriteFrame_puck_2-SpriteFrames,SpriteFrame_puck_3-SpriteFrames,SpriteFrame_puck_4-SpriteFrames
+	dd SpriteFrame_puck_5-SpriteFrames,SpriteFrame_puck_6-SpriteFrames,SpriteFrame_puck_7-SpriteFrames,SpriteFrame_puck_8-SpriteFrames
+	dd SpriteFrame_puck_9-SpriteFrames,SpriteFrame_puck_10-SpriteFrames,SpriteFrame_goal_0-SpriteFrames,SpriteFrame_goal_1-SpriteFrames
+	dd SpriteFrame_Siren_0-SpriteFrames,SpriteFrame_Siren_1-SpriteFrames,SpriteFrame_Siren_2-SpriteFrames,SpriteFrame_Siren_3-SpriteFrames
+	dd SpriteFrame_Siren_4-SpriteFrames,SpriteFrame_Siren_5-SpriteFrames,SpriteFrame_Siren_6-SpriteFrames,SpriteFrame_Siren_7-SpriteFrames
+	dd SpriteFrame_Siren_8-SpriteFrames,SpriteFrame_Siren_9-SpriteFrames,SpriteFrame_Siren_10-SpriteFrames,SpriteFrame_Siren_11-SpriteFrames
+	dd SpriteFrame_Siren_12-SpriteFrames,SpriteFrame_Siren_13-SpriteFrames,SpriteFrame_faceoff_0-SpriteFrames,SpriteFrame_faceoff_1-SpriteFrames
+	dd SpriteFrame_faceoff_2-SpriteFrames,SpriteFrame_faceoff_3-SpriteFrames,SpriteFrame_faceoff_4-SpriteFrames,SpriteFrame_faceoff_5-SpriteFrames
+	dd SpriteFrame_faceoff_6-SpriteFrames,SpriteFrame_faceoff_7-SpriteFrames,SpriteFrame_faceoff_8-SpriteFrames,SpriteFrame_faceoff_9-SpriteFrames
+	dd SpriteFrame_smallfont_0-SpriteFrames,SpriteFrame_smallfont_1-SpriteFrames,SpriteFrame_smallfont_2-SpriteFrames,SpriteFrame_smallfont_3-SpriteFrames
+	dd SpriteFrame_smallfont_4-SpriteFrames,SpriteFrame_smallfont_5-SpriteFrames,SpriteFrame_smallfont_6-SpriteFrames,SpriteFrame_smallfont_7-SpriteFrames
+	dd SpriteFrame_smallfont_8-SpriteFrames,SpriteFrame_smallfont_9-SpriteFrames,SpriteFrame_smallfont_10-SpriteFrames,SpriteFrame_smallfont_11-SpriteFrames
+	dd SpriteFrame_smallfont_12-SpriteFrames,SpriteFrame_smallfont_13-SpriteFrames,SpriteFrame_smallfont_14-SpriteFrames,SpriteFrame_zamboni_0-SpriteFrames
+	dd SpriteFrame_flip_0-SpriteFrames,SpriteFrame_flip_1-SpriteFrames,SpriteFrame_flip_2-SpriteFrames,SpriteFrame_flip_3-SpriteFrames
+	dd SpriteFrame_flip_4-SpriteFrames,SpriteFrame_flip_5-SpriteFrames,SpriteFrame_flip_6-SpriteFrames,SpriteFrame_flip_7-SpriteFrames
+	dd SpriteFrame_stumble_0-SpriteFrames,SpriteFrame_stumble_1-SpriteFrames,SpriteFrame_stumble_2-SpriteFrames,SpriteFrame_stumble_3-SpriteFrames
+	dd SpriteFrame_stumble_4-SpriteFrames,SpriteFrame_stumble_5-SpriteFrames,SpriteFrame_stumble_6-SpriteFrames,SpriteFrame_stumble_7-SpriteFrames
+	dd SpriteFrame_stumble_8-SpriteFrames,SpriteFrame_stumble_9-SpriteFrames,SpriteFrame_stumble_10-SpriteFrames,SpriteFrame_stumble_11-SpriteFrames
+	dd SpriteFrame_stumble_12-SpriteFrames,SpriteFrame_stumble_13-SpriteFrames,SpriteFrame_stumble_14-SpriteFrames,SpriteFrame_stumble_15-SpriteFrames
+	dd SpriteFrame_stumble_16-SpriteFrames,SpriteFrame_stumble_17-SpriteFrames,SpriteFrame_stumble_18-SpriteFrames,SpriteFrame_stumble_19-SpriteFrames
+	dd SpriteFrame_stumble_20-SpriteFrames,SpriteFrame_stumble_21-SpriteFrames,SpriteFrame_stumble_22-SpriteFrames,SpriteFrame_stumble_23-SpriteFrames
+	dd SpriteFrame_hook_0-SpriteFrames,SpriteFrame_hook_1-SpriteFrames,SpriteFrame_hook_2-SpriteFrames,SpriteFrame_hook_3-SpriteFrames
+	dd SpriteFrame_hook_4-SpriteFrames,SpriteFrame_hook_5-SpriteFrames,SpriteFrame_hook_6-SpriteFrames,SpriteFrame_hook_7-SpriteFrames
+	dd SpriteFrame_hook_8-SpriteFrames,SpriteFrame_hook_9-SpriteFrames,SpriteFrame_hook_10-SpriteFrames,SpriteFrame_hook_11-SpriteFrames
+	dd SpriteFrame_hook_12-SpriteFrames,SpriteFrame_hook_13-SpriteFrames,SpriteFrame_hook_14-SpriteFrames,SpriteFrame_hook_15-SpriteFrames
+	dd SpriteFrame_catch_0-SpriteFrames,SpriteFrame_catch_1-SpriteFrames,SpriteFrame_catch_2-SpriteFrames,SpriteFrame_catch_3-SpriteFrames
+	dd SpriteFrame_catch_4-SpriteFrames,SpriteFrame_catch_5-SpriteFrames,SpriteFrame_catch_6-SpriteFrames,SpriteFrame_catch_7-SpriteFrames
+	dd SpriteFrame_catch_8-SpriteFrames,SpriteFrame_catch_9-SpriteFrames,SpriteFrame_catch_10-SpriteFrames,SpriteFrame_catch_11-SpriteFrames
+	dd SpriteFrame_catch_12-SpriteFrames,SpriteFrame_catch_13-SpriteFrames,SpriteFrame_catch_14-SpriteFrames,SpriteFrame_catch_15-SpriteFrames
+	dd SpriteFrame_bglass_0-SpriteFrames,SpriteFrame_bglass_1-SpriteFrames,SpriteFrame_bglass_2-SpriteFrames,SpriteFrame_bglass_3-SpriteFrames
+	dd SpriteFrame_bglass_4-SpriteFrames,SpriteFrame_crosscheck_0-SpriteFrames,SpriteFrame_crosscheck_1-SpriteFrames,SpriteFrame_crosscheck_2-SpriteFrames
+	dd SpriteFrame_crosscheck_3-SpriteFrames,SpriteFrame_crosscheck_4-SpriteFrames,SpriteFrame_crosscheck_5-SpriteFrames,SpriteFrame_crosscheck_6-SpriteFrames
+	dd SpriteFrame_crosscheck_7-SpriteFrames,SpriteFrame_crosscheck_8-SpriteFrames,SpriteFrame_crosscheck_9-SpriteFrames,SpriteFrame_crosscheck_10-SpriteFrames
+	dd SpriteFrame_crosscheck_11-SpriteFrames,SpriteFrame_crosscheck_12-SpriteFrames,SpriteFrame_crosscheck_13-SpriteFrames,SpriteFrame_crosscheck_14-SpriteFrames
+	dd SpriteFrame_crosscheck_15-SpriteFrames,SpriteFrame_Goalie_0-SpriteFrames,SpriteFrame_Goalie_1-SpriteFrames,SpriteFrame_Goalie_2-SpriteFrames
+	dd SpriteFrame_Goalie_3-SpriteFrames,SpriteFrame_Goalie_4-SpriteFrames,SpriteFrame_Goalie_5-SpriteFrames,SpriteFrame_Goalie_6-SpriteFrames
+	dd SpriteFrame_Goalie_7-SpriteFrames,SpriteFrame_Goalie_8-SpriteFrames,SpriteFrame_Goalie_9-SpriteFrames,SpriteFrame_Goalie_10-SpriteFrames
+	dd SpriteFrame_Goalie_11-SpriteFrames,SpriteFrame_Goalie_12-SpriteFrames,SpriteFrame_Goalie_13-SpriteFrames,SpriteFrame_Goalie_14-SpriteFrames
+	dd SpriteFrame_Goalie_15-SpriteFrames,SpriteFrame_Goalie_16-SpriteFrames,SpriteFrame_Goalie_17-SpriteFrames,SpriteFrame_Goalie_18-SpriteFrames
+	dd SpriteFrame_Goalie_19-SpriteFrames,SpriteFrame_Goalie_20-SpriteFrames,SpriteFrame_Goalie_21-SpriteFrames,SpriteFrame_Goalie_22-SpriteFrames
+	dd SpriteFrame_Goalie_23-SpriteFrames,SpriteFrame_Goalie_24-SpriteFrames,SpriteFrame_Goalie_25-SpriteFrames,SpriteFrame_Goalie_26-SpriteFrames
+	dd SpriteFrame_Goalie_27-SpriteFrames,SpriteFrame_Goalie_28-SpriteFrames,SpriteFrame_Goalie_29-SpriteFrames,SpriteFrame_Goalie_30-SpriteFrames
+	dd SpriteFrame_Goalie_31-SpriteFrames,SpriteFrame_Goalie_32-SpriteFrames,SpriteFrame_Goalie_33-SpriteFrames,SpriteFrame_Goalie_34-SpriteFrames
+	dd SpriteFrame_Goalie_35-SpriteFrames,SpriteFrame_Goalie_36-SpriteFrames,SpriteFrame_Goalie_37-SpriteFrames,SpriteFrame_Goalie_38-SpriteFrames
+	dd SpriteFrame_Goalie_39-SpriteFrames,SpriteFrame_Goalie_40-SpriteFrames,SpriteFrame_Goalie_41-SpriteFrames,SpriteFrame_Goalie_42-SpriteFrames
+	dd SpriteFrame_Goalie_43-SpriteFrames,SpriteFrame_Goalie_44-SpriteFrames,SpriteFrame_Goalie_45-SpriteFrames,SpriteFrame_Goalie_46-SpriteFrames
+	dd SpriteFrame_Goalie_47-SpriteFrames,SpriteFrame_Goalie_48-SpriteFrames,SpriteFrame_Goalie_49-SpriteFrames,SpriteFrame_Goalie_50-SpriteFrames
+	dd SpriteFrame_Goalie_51-SpriteFrames,SpriteFrame_Goalie_52-SpriteFrames,SpriteFrame_Goalie_53-SpriteFrames,SpriteFrame_Goalie_54-SpriteFrames
+	dd SpriteFrame_Goalie_55-SpriteFrames,SpriteFrame_Goalie_56-SpriteFrames,SpriteFrame_Goalie_57-SpriteFrames,SpriteFrame_Goalie_58-SpriteFrames
+	dd SpriteFrame_Goalie_59-SpriteFrames,SpriteFrame_Goalie_60-SpriteFrames,SpriteFrame_Goalie_61-SpriteFrames,SpriteFrame_Goalie_62-SpriteFrames
+	dd SpriteFrame_Goalie_63-SpriteFrames,SpriteFrame_Goalie_64-SpriteFrames,SpriteFrame_Goalie_65-SpriteFrames,SpriteFrame_Goalie_66-SpriteFrames
+	dd SpriteFrame_Goalie_67-SpriteFrames,SpriteFrame_Goalie_68-SpriteFrames,SpriteFrame_Goalie_69-SpriteFrames,SpriteFrame_Goalie_70-SpriteFrames
+	dd SpriteFrame_Goalie_71-SpriteFrames,SpriteFrame_Goalie_72-SpriteFrames,SpriteFrame_Goalie_73-SpriteFrames,SpriteFrame_Goalie_74-SpriteFrames
+	dd SpriteFrame_Goalie_75-SpriteFrames,SpriteFrame_Goalie_76-SpriteFrames,SpriteFrame_Goalie_77-SpriteFrames,SpriteFrame_Goalie_78-SpriteFrames
+	dd SpriteFrame_Goalie_79-SpriteFrames,SpriteFrame_Goalie_80-SpriteFrames,SpriteFrame_Goalie_81-SpriteFrames,SpriteFrame_Goalie_82-SpriteFrames
+	dd SpriteFrame_Goalie_83-SpriteFrames,SpriteFrame_Goalie_84-SpriteFrames,SpriteFrame_Goalie_85-SpriteFrames,SpriteFrame_Goalie_86-SpriteFrames
+	dd SpriteFrame_Goalie_87-SpriteFrames,SpriteFrame_Goalie_88-SpriteFrames,SpriteFrame_Goalie_89-SpriteFrames,SpriteFrame_Goalie_90-SpriteFrames
+	dd SpriteFrame_Goalie_91-SpriteFrames,SpriteFrame_Goalie_92-SpriteFrames,SpriteFrame_Goalie_93-SpriteFrames,SpriteFrame_Goalie_94-SpriteFrames
+	dd SpriteFrame_Goalie_95-SpriteFrames,SpriteFrame_Goalie_96-SpriteFrames,SpriteFrame_Goalie_97-SpriteFrames,SpriteFrame_Goalie_98-SpriteFrames
+	dd SpriteFrame_Goalie_99-SpriteFrames,SpriteFrame_Goalie_100-SpriteFrames,SpriteFrame_Goalie_101-SpriteFrames,SpriteFrame_Goalie_102-SpriteFrames
+	dd SpriteFrame_Goalie_103-SpriteFrames,SpriteFrame_Goalie_104-SpriteFrames,SpriteFrame_Goalie_105-SpriteFrames,SpriteFrame_Goalie_106-SpriteFrames
+	dd SpriteFrame_Goalie_107-SpriteFrames,SpriteFrame_Goalie_108-SpriteFrames,SpriteFrame_Goalie_109-SpriteFrames,SpriteFrame_Goalie_110-SpriteFrames
+	dd SpriteFrame_Goalie_111-SpriteFrames,SpriteFrame_gready_0-SpriteFrames,SpriteFrame_gready_1-SpriteFrames,SpriteFrame_gready_2-SpriteFrames
+	dd SpriteFrame_gready_3-SpriteFrames,SpriteFrame_gready_4-SpriteFrames,SpriteFrame_gready_5-SpriteFrames,SpriteFrame_gready_6-SpriteFrames
+	dd SpriteFrame_gready_7-SpriteFrames,SpriteFrame_gready_8-SpriteFrames,SpriteFrame_gready_9-SpriteFrames,SpriteFrame_gready_10-SpriteFrames
+	dd SpriteFrame_gready_11-SpriteFrames,SpriteFrame_gready_12-SpriteFrames,SpriteFrame_gready_13-SpriteFrames,SpriteFrame_gready_14-SpriteFrames
+	dd SpriteFrame_gready_15-SpriteFrames,SpriteFrame_gdive_0-SpriteFrames,SpriteFrame_gdive_1-SpriteFrames,SpriteFrame_gdive_2-SpriteFrames
+	dd SpriteFrame_gdive_3-SpriteFrames,SpriteFrame_gdive_4-SpriteFrames,SpriteFrame_gdive_5-SpriteFrames,SpriteFrame_gdive_6-SpriteFrames
+	dd SpriteFrame_gdive_7-SpriteFrames,SpriteFrame_gdive_8-SpriteFrames,SpriteFrame_gdive_9-SpriteFrames,SpriteFrame_gdive_10-SpriteFrames
+	dd SpriteFrame_gdive_11-SpriteFrames,SpriteFrame_gdive_12-SpriteFrames,SpriteFrame_gdive_13-SpriteFrames,SpriteFrame_gdive_14-SpriteFrames
+	dd SpriteFrame_gdive_15-SpriteFrames,SpriteFrame_gpoke_0-SpriteFrames,SpriteFrame_gpoke_1-SpriteFrames,SpriteFrame_gpoke_2-SpriteFrames
+	dd SpriteFrame_gpoke_3-SpriteFrames,SpriteFrame_gpoke_4-SpriteFrames,SpriteFrame_gpoke_5-SpriteFrames,SpriteFrame_gpoke_6-SpriteFrames
+	dd SpriteFrame_gpoke_7-SpriteFrames,SpriteFrame_gpoke_8-SpriteFrames,SpriteFrame_gpoke_9-SpriteFrames,SpriteFrame_gpoke_10-SpriteFrames
+	dd SpriteFrame_gpoke_11-SpriteFrames,SpriteFrame_gpoke_12-SpriteFrames,SpriteFrame_gpoke_13-SpriteFrames,SpriteFrame_gpoke_14-SpriteFrames
+	dd SpriteFrame_gpoke_15-SpriteFrames,SpriteFrame_gcover_0-SpriteFrames,SpriteFrame_gcover_1-SpriteFrames,SpriteFrame_gcover_2-SpriteFrames
+	dd SpriteFrame_gcover_3-SpriteFrames,SpriteFrame_gcover_4-SpriteFrames,SpriteFrame_gcover_5-SpriteFrames,SpriteFrame_gcover_6-SpriteFrames
+	dd SpriteFrame_gcover_7-SpriteFrames,SpriteFrame_gcover_8-SpriteFrames,SpriteFrame_gcover_9-SpriteFrames,SpriteFrame_gcover_10-SpriteFrames
+	dd SpriteFrame_gcover_11-SpriteFrames,SpriteFrame_gcover_12-SpriteFrames,SpriteFrame_gcover_13-SpriteFrames,SpriteFrame_gcover_14-SpriteFrames
+	dd SpriteFrame_gcover_15-SpriteFrames,SpriteFrame_gcover_16-SpriteFrames,SpriteFrame_gcover_17-SpriteFrames,SpriteFrame_gcover_18-SpriteFrames
+	dd SpriteFrame_gcover_19-SpriteFrames,SpriteFrame_gcover_20-SpriteFrames,SpriteFrame_gcover_21-SpriteFrames,SpriteFrame_gcover_22-SpriteFrames
+	dd SpriteFrame_gcover_23-SpriteFrames,SpriteFrame_gbutterfly_0-SpriteFrames,SpriteFrame_gbutterfly_1-SpriteFrames,SpriteFrame_gbutterfly_2-SpriteFrames
+	dd SpriteFrame_gbutterfly_3-SpriteFrames,SpriteFrame_gbutterfly_4-SpriteFrames,SpriteFrame_gbutterfly_5-SpriteFrames,SpriteFrame_gbutterfly_6-SpriteFrames
+	dd SpriteFrame_gbutterfly_7-SpriteFrames,SpriteFrame_gbutterfly_8-SpriteFrames,SpriteFrame_gbutterfly_9-SpriteFrames,SpriteFrame_gbutterfly_10-SpriteFrames
+	dd SpriteFrame_gbutterfly_11-SpriteFrames,SpriteFrame_gbutterfly_12-SpriteFrames,SpriteFrame_gbutterfly_13-SpriteFrames,SpriteFrame_gbutterfly_14-SpriteFrames
+	dd SpriteFrame_gbutterfly_15-SpriteFrames,SpriteFrame_gbutterfly_16-SpriteFrames,SpriteFrame_gbutterfly_17-SpriteFrames,SpriteFrame_gbutterfly_18-SpriteFrames
+	dd SpriteFrame_gbutterfly_19-SpriteFrames,SpriteFrame_gbutterfly_20-SpriteFrames,SpriteFrame_gbutterfly_21-SpriteFrames,SpriteFrame_gbutterfly_22-SpriteFrames
+	dd SpriteFrame_gbutterfly_23-SpriteFrames,SpriteFrame_gsprawll_0-SpriteFrames,SpriteFrame_gsprawll_1-SpriteFrames,SpriteFrame_gsprawll_2-SpriteFrames
+	dd SpriteFrame_gsprawll_3-SpriteFrames,SpriteFrame_gsprawll_4-SpriteFrames,SpriteFrame_gsprawll_5-SpriteFrames,SpriteFrame_gsprawll_6-SpriteFrames
+	dd SpriteFrame_gsprawll_7-SpriteFrames,SpriteFrame_gsprawll_8-SpriteFrames,SpriteFrame_gsprawll_9-SpriteFrames,SpriteFrame_gsprawll_10-SpriteFrames
+	dd SpriteFrame_gsprawll_11-SpriteFrames,SpriteFrame_gsprawll_12-SpriteFrames,SpriteFrame_gsprawll_13-SpriteFrames,SpriteFrame_gsprawll_14-SpriteFrames
+	dd SpriteFrame_gsprawll_15-SpriteFrames,SpriteFrame_gsprawll_16-SpriteFrames,SpriteFrame_gsprawll_17-SpriteFrames,SpriteFrame_gsprawll_18-SpriteFrames
+	dd SpriteFrame_gsprawll_19-SpriteFrames,SpriteFrame_gsprawll_20-SpriteFrames,SpriteFrame_gsprawll_21-SpriteFrames,SpriteFrame_gsprawll_22-SpriteFrames
+	dd SpriteFrame_gsprawll_23-SpriteFrames,SpriteFrame_gsprawlr_0-SpriteFrames,SpriteFrame_gsprawlr_1-SpriteFrames,SpriteFrame_gsprawlr_2-SpriteFrames
+	dd SpriteFrame_gsprawlr_3-SpriteFrames,SpriteFrame_gsprawlr_4-SpriteFrames,SpriteFrame_gsprawlr_5-SpriteFrames,SpriteFrame_gsprawlr_6-SpriteFrames
+	dd SpriteFrame_gsprawlr_7-SpriteFrames,SpriteFrame_gsprawlr_8-SpriteFrames,SpriteFrame_gsprawlr_9-SpriteFrames,SpriteFrame_gsprawlr_10-SpriteFrames
+	dd SpriteFrame_gsprawlr_11-SpriteFrames,SpriteFrame_gsprawlr_12-SpriteFrames,SpriteFrame_gsprawlr_13-SpriteFrames,SpriteFrame_gsprawlr_14-SpriteFrames
+	dd SpriteFrame_gsprawlr_15-SpriteFrames,SpriteFrame_gsprawlr_16-SpriteFrames,SpriteFrame_gsprawlr_17-SpriteFrames,SpriteFrame_gsprawlr_18-SpriteFrames
+	dd SpriteFrame_gsprawlr_19-SpriteFrames,SpriteFrame_gsprawlr_20-SpriteFrames,SpriteFrame_gsprawlr_21-SpriteFrames,SpriteFrame_gsprawlr_22-SpriteFrames
+	dd SpriteFrame_gsprawlr_23-SpriteFrames,SpriteFrame_pump2_0-SpriteFrames,SpriteFrame_pump2_1-SpriteFrames,SpriteFrame_pump2_2-SpriteFrames
+	dd SpriteFrame_pump2_3-SpriteFrames,SpriteFrame_pump2_4-SpriteFrames,SpriteFrame_pump2_5-SpriteFrames,SpriteFrame_pump2_6-SpriteFrames
+	dd SpriteFrame_pump2_7-SpriteFrames,SpriteFrame_pump2_8-SpriteFrames,SpriteFrame_pump2_9-SpriteFrames,SpriteFrame_pump2_10-SpriteFrames
+	dd SpriteFrame_pump2_11-SpriteFrames,SpriteFrame_pump2_12-SpriteFrames,SpriteFrame_pump2_13-SpriteFrames,SpriteFrame_pump2_14-SpriteFrames
+	dd SpriteFrame_pump2_15-SpriteFrames,SpriteFrame_pump2_16-SpriteFrames,SpriteFrame_pump2_17-SpriteFrames,SpriteFrame_pump2_18-SpriteFrames
+	dd SpriteFrame_pump2_19-SpriteFrames,SpriteFrame_pump2_20-SpriteFrames,SpriteFrame_pump2_21-SpriteFrames,SpriteFrame_pump2_22-SpriteFrames
+	dd SpriteFrame_pump2_23-SpriteFrames,SpriteFrame_pump2_24-SpriteFrames,SpriteFrame_pump2_25-SpriteFrames,SpriteFrame_pump2_26-SpriteFrames
+	dd SpriteFrame_pump2_27-SpriteFrames,SpriteFrame_pump2_28-SpriteFrames,SpriteFrame_pump2_29-SpriteFrames,SpriteFrame_pump2_30-SpriteFrames
+	dd SpriteFrame_unused_0-SpriteFrames,SpriteFrame_unused_1-SpriteFrames,SpriteFrame_unused_2-SpriteFrames,SpriteFrame_unused_3-SpriteFrames
+	dd SpriteFrame_unused_4-SpriteFrames,SpriteFrame_unused_5-SpriteFrames,SpriteFrame_unused_6-SpriteFrames,SpriteFrame_unused_7-SpriteFrames
+	dd SpriteFrame_unused_8-SpriteFrames,SpriteFrame_unused_9-SpriteFrames,SpriteFrame_unused_10-SpriteFrames,SpriteFrame_boardfront_0-SpriteFrames
+	dd SpriteFrame_boardfront_1-SpriteFrames,SpriteFrame_boardfront_2-SpriteFrames,SpriteFrame_boardfront_3-SpriteFrames,SpriteFrame_boardfront_4-SpriteFrames
+	dd SpriteFrame_boardfront_5-SpriteFrames,SpriteFrame_boardfront_6-SpriteFrames,SpriteFrame_boardfront_7-SpriteFrames,SpriteFrame_boardfront_8-SpriteFrames
+	dd SpriteFrame_boardfront_9-SpriteFrames,SpriteFrame_boardfront_10-SpriteFrames,SpriteFrame_boardfront_11-SpriteFrames,SpriteFrame_boardfront_12-SpriteFrames
+	dd SpriteFrame_boardfront_13-SpriteFrames,SpriteFrame_boardfront_14-SpriteFrames,SpriteFrame_boardfront_15-SpriteFrames,SpriteFrame_boardright_0-SpriteFrames
+	dd SpriteFrame_boardright_1-SpriteFrames,SpriteFrame_boardright_2-SpriteFrames,SpriteFrame_boardright_3-SpriteFrames,SpriteFrame_boardright_4-SpriteFrames
+	dd SpriteFrame_boardright_5-SpriteFrames,SpriteFrame_boardright_6-SpriteFrames,SpriteFrame_boardright_7-SpriteFrames,SpriteFrame_boardright_8-SpriteFrames
+	dd SpriteFrame_boardright_9-SpriteFrames,SpriteFrame_boardright_10-SpriteFrames,SpriteFrame_boardright_11-SpriteFrames,SpriteFrame_boardright_12-SpriteFrames
+	dd SpriteFrame_boardright_13-SpriteFrames,SpriteFrame_boardright_14-SpriteFrames,SpriteFrame_boardright_15-SpriteFrames,SpriteFrame_boardback_0-SpriteFrames
+	dd SpriteFrame_boardback_1-SpriteFrames,SpriteFrame_boardback_2-SpriteFrames,SpriteFrame_boardback_3-SpriteFrames,SpriteFrame_boardback_4-SpriteFrames
+	dd SpriteFrame_boardback_5-SpriteFrames,SpriteFrame_boardback_6-SpriteFrames,SpriteFrame_boardback_7-SpriteFrames,SpriteFrame_boardback_8-SpriteFrames
+	dd SpriteFrame_boardback_9-SpriteFrames,SpriteFrame_boardback_10-SpriteFrames,SpriteFrame_boardback_11-SpriteFrames,SpriteFrame_boardback_12-SpriteFrames
+	dd SpriteFrame_boardback_13-SpriteFrames,SpriteFrame_boardback_14-SpriteFrames,SpriteFrame_boardback_15-SpriteFrames,SpriteFrame_boardleft_0-SpriteFrames
+	dd SpriteFrame_boardleft_1-SpriteFrames,SpriteFrame_boardleft_2-SpriteFrames,SpriteFrame_boardleft_3-SpriteFrames,SpriteFrame_boardleft_4-SpriteFrames
+	dd SpriteFrame_boardleft_5-SpriteFrames,SpriteFrame_boardleft_6-SpriteFrames,SpriteFrame_boardleft_7-SpriteFrames,SpriteFrame_boardleft_8-SpriteFrames
+	dd SpriteFrame_boardleft_9-SpriteFrames,SpriteFrame_boardleft_10-SpriteFrames,SpriteFrame_boardleft_11-SpriteFrames,SpriteFrame_boardleft_12-SpriteFrames
+	dd SpriteFrame_boardleft_13-SpriteFrames,SpriteFrame_boardleft_14-SpriteFrames,SpriteFrame_boardleft_15-SpriteFrames,SpriteFrame_benchcheck_0-SpriteFrames
+	dd SpriteFrame_benchcheck_1-SpriteFrames,SpriteFrame_benchcheck_2-SpriteFrames,SpriteFrame_benchcheck_3-SpriteFrames,SpriteFrame_benchcheck_4-SpriteFrames
+	dd SpriteFrame_benchcheck_5-SpriteFrames,SpriteFrame_benchcheck_6-SpriteFrames,SpriteFrame_benchcheck_7-SpriteFrames,SpriteFrame_benchcheck_8-SpriteFrames
+	dd SpriteFrame_benchcheck_9-SpriteFrames,SpriteFrame_benchcheck_10-SpriteFrames,SpriteFrame_benchcheck_11-SpriteFrames,SpriteFrame_benchcheck_12-SpriteFrames
+	dd SpriteFrame_benchcheck_13-SpriteFrames,SpriteFrame_benchcheck_14-SpriteFrames,SpriteFrame_benchcheck_15-SpriteFrames,SpriteFrame_benchcheck_16-SpriteFrames
+	dd SpriteFrame_benchcheck_17-SpriteFrames,SpriteFrame_benchcheck_18-SpriteFrames,SpriteFrame_benchcheck_19-SpriteFrames,SpriteFrame_benchcheck_20-SpriteFrames
+	dd SpriteFrame_bench_0-SpriteFrames,SpriteFrame_bench_1-SpriteFrames,SpriteFrame_bench_2-SpriteFrames,SpriteFrame_bench_3-SpriteFrames
+	dd SpriteFrame_bench_4-SpriteFrames,SpriteFrame_bench_5-SpriteFrames,SpriteFrame_bench_6-SpriteFrames,SpriteFrame_bench_7-SpriteFrames
+	dd SpriteFrame_bench_8-SpriteFrames,SpriteFrame_bench_9-SpriteFrames,SpriteFrame_bench_10-SpriteFrames,SpriteFrame_bench_11-SpriteFrames
+	dd SpriteFrame_bigfont_0-SpriteFrames,SpriteFrame_bigfont_1-SpriteFrames,SpriteFrame_bigfont_2-SpriteFrames,SpriteFrame_bigfont_3-SpriteFrames
+	dd SpriteFrame_bigfont_4-SpriteFrames,SpriteFrame_bigfont_5-SpriteFrames,SpriteFrame_bigfont_6-SpriteFrames,SpriteFrame_bigfont_7-SpriteFrames
+	dd SpriteFrame_bigfont_8-SpriteFrames,SpriteFrame_bigfont_9-SpriteFrames,SpriteFrame_bigfont_10-SpriteFrames,SpriteFrame_bigfont_11-SpriteFrames
+	dd SpriteFrame_bigfont_12-SpriteFrames,SpriteFrame_bigfont_13-SpriteFrames,SpriteFrame_bigfont_14-SpriteFrames,SpriteFrame_bigfont_15-SpriteFrames
+	dd SpriteFrame_bigfont_16-SpriteFrames,SpriteFrame_bigfont_17-SpriteFrames,SpriteFrame_bigfont_18-SpriteFrames,SpriteFrame_bigfont_19-SpriteFrames
+	dd SpriteFrame_bigfont_20-SpriteFrames,SpriteFrame_bigfont_21-SpriteFrames,SpriteFrame_bigfont_22-SpriteFrames,SpriteFrame_bigfont_23-SpriteFrames
+	dd SpriteFrame_bigfont_24-SpriteFrames,SpriteFrame_bigfont_25-SpriteFrames,SpriteFrame_bigfont_26-SpriteFrames,SpriteFrame_bigfont_27-SpriteFrames
+	dd SpriteFrame_bigfont_28-SpriteFrames,SpriteFrame_bigfont_29-SpriteFrames,SpriteFrame_bigfont_30-SpriteFrames,SpriteFrame_bigfont_31-SpriteFrames
+	dd SpriteFrame_bigfont_32-SpriteFrames,SpriteFrame_bigfont_33-SpriteFrames,SpriteFrame_bigfont_34-SpriteFrames,SpriteFrame_bigfont_35-SpriteFrames
+	dd SpriteFrame_bigfont_36-SpriteFrames,SpriteFrame_bigfont_37-SpriteFrames,SpriteFrame_hat_0-SpriteFrames,SpriteFrame_hat_1-SpriteFrames
+	dd SpriteFrame_hat_2-SpriteFrames,SpriteFrame_hat_3-SpriteFrames,SpriteFrame_hat_4-SpriteFrames,SpriteFrame_hat_5-SpriteFrames
+	dd SpriteFrame_hat_6-SpriteFrames,SpriteFrame_hat_7-SpriteFrames,SpriteFrame_hat_8-SpriteFrames,SpriteFrame_hatshadow_0-SpriteFrames
+SpriteFrame_skatewp_0:
 	db $03,$80
 	dw $0009
 	dw -6,7,-30,4
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame0
+	dw .tiles-SpriteFrame_skatewp_0
 	db $02,$E4,$00,$00
 	dw -6,-30,$0800 : db $FF
 	dw -6,-14,$0802 : db $FF
@@ -262,12 +263,12 @@ SpriteFrame0:
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":43..331
 
-SpriteFrame1:
+SpriteFrame_skatewp_1:
 	db $05,$80
 	dw $000B
 	dw -9,9,-29,5
 	dw $00C0,$00A0
-	dw .tiles-SpriteFrame1
+	dw .tiles-SpriteFrame_skatewp_1
 	db $01,$E5,$00,$00
 	dw -3,-29,$0800 : db $FF
 	dw -9,-13,$0802 : db $FF
@@ -276,57 +277,57 @@ SpriteFrame1:
 	dw 0,3,$0814 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":388..740
-SpriteFrame2:
+SpriteFrame_skatewp_2:
 	db $02,$80
 	dw $0008
 	dw -5,6,-27,4
 	dw $0080,$0080
-	dw .tiles-SpriteFrame2
+	dw .tiles-SpriteFrame_skatewp_2
 	db $02,$E7,$00,$00
 	dw -5,-27,$0800 : db $FF
 	dw -5,-11,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":776..1032
-SpriteFrame3:
+SpriteFrame_skatewp_3:
 	db $02,$80
 	dw $0008
 	dw -6,9,-26,5
 	dw $0080,$0080
-	dw .tiles-SpriteFrame3
+	dw .tiles-SpriteFrame_skatewp_3
 	db $00,$E7,$00,$00
 	dw -6,-26,$0800 : db $FF
 	dw -4,-10,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":1068..1324
-SpriteFrame4:
+SpriteFrame_skatewp_4:
 	db $02,$80
 	dw $0008
 	dw -5,8,-26,4
 	dw $0080,$0080
-	dw .tiles-SpriteFrame4
+	dw .tiles-SpriteFrame_skatewp_4
 	db $02,$E7,$00,$00
 	dw -4,-26,$0800 : db $FF
 	dw -5,-10,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":1360..1616
-SpriteFrame5:
+SpriteFrame_skatewp_5:
 	db $03,$80
 	dw $000C
 	dw -7,18,-21,7
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame5
+	dw .tiles-SpriteFrame_skatewp_5
 	db $11,$FA,$00,$00
 	dw -7,-21,$0800 : db $FF
 	dw -7,-5,$0802 : db $FF
 	dw 9,-10,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":1659..2043
-SpriteFrame6:
+SpriteFrame_skatewp_6:
 	db $05,$80
 	dw $000E
 	dw -10,19,-25,3
 	dw $0100,$00C0
-	dw .tiles-SpriteFrame6
+	dw .tiles-SpriteFrame_skatewp_6
 	db $0F,$F5,$00,$00
 	dw -5,-25,$0800 : db $FF
 	dw -10,-9,$0802 : db $FF
@@ -335,48 +336,48 @@ SpriteFrame6:
 	dw 19,-17,$0807 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":2100..2548
-SpriteFrame7:
+SpriteFrame_skatewp_7:
 	db $03,$80
 	dw $0009
 	dw -6,17,-26,2
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame7
+	dw .tiles-SpriteFrame_skatewp_7
 	db $0D,$F6,$00,$00
 	dw -6,-13,$0800 : db $FF
 	dw -2,-29,$0802 : db $FF
 	dw 10,-13,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":2591..2879
-SpriteFrame8:
+SpriteFrame_skatewp_8:
 	db $03,$80
 	dw $000C
 	dw -8,16,-25,4
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame8
+	dw .tiles-SpriteFrame_skatewp_8
 	db $10,$F8,$00,$00
 	dw -8,-25,$0800 : db $FF
 	dw -8,-9,$0802 : db $FF
 	dw 8,-12,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":2922..3306
-SpriteFrame9:
+SpriteFrame_skatewp_9:
 	db $03,$80
 	dw $0009
 	dw -6,15,-24,4
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame9
+	dw .tiles-SpriteFrame_skatewp_9
 	db $10,$F9,$00,$00
 	dw -6,-11,$0800 : db $FF
 	dw -6,-27,$0802 : db $FF
 	dw 10,-11,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":3349..3637
-SpriteFrame10:
+SpriteFrame_skatewp_10:
 	db $04,$80
 	dw $000A
 	dw -2,21,-23,6
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame10
+	dw .tiles-SpriteFrame_skatewp_10
 	db $12,$00,$00,$00
 	dw -1,-23,$0800 : db $FF
 	dw -2,-7,$0802 : db $FF
@@ -384,12 +385,12 @@ SpriteFrame10:
 	dw 14,1,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":3687..4007
-SpriteFrame11:
+SpriteFrame_skatewp_11:
 	db $03,$80
 	dw $000C
 	dw -5,23,-23,5
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame11
+	dw .tiles-SpriteFrame_skatewp_11
 	db $14,$03,$00,$00
 	dw -1,-23,$0800 : db $FF
 	dw -5,-7,$0802 : db $FF
@@ -397,24 +398,24 @@ SpriteFrame11:
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":4050..4434
 
-SpriteFrame12:
+SpriteFrame_skatewp_12:
 	db $03,$80
 	dw $000C
 	dw -5,21,-23,6
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame12
+	dw .tiles-SpriteFrame_skatewp_12
 	db $12,$03,$00,$00
 	dw -1,-23,$0800 : db $FF
 	dw -5,-7,$0802 : db $FF
 	dw 11,-7,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":4477..4861
-SpriteFrame13:
+SpriteFrame_skatewp_13:
 	db $04,$80
 	dw $000D
 	dw -11,22,-25,3
 	dw $00E0,$00C0
-	dw .tiles-SpriteFrame13
+	dw .tiles-SpriteFrame_skatewp_13
 	db $14,$FF,$00,$00
 	dw -5,-25,$0800 : db $FF
 	dw -11,-9,$0802 : db $FF
@@ -422,24 +423,24 @@ SpriteFrame13:
 	dw 21,-1,$0806 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":4911..5327
-SpriteFrame14:
+SpriteFrame_skatewp_14:
 	db $03,$80
 	dw $000C
 	dw -9,19,-24,4
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame14
+	dw .tiles-SpriteFrame_skatewp_14
 	db $10,$03,$00,$00
 	dw -5,-24,$0800 : db $FF
 	dw -9,-8,$0802 : db $FF
 	dw 7,-8,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":5370..5754
-SpriteFrame15:
+SpriteFrame_skatewp_15:
 	db $04,$80
 	dw $000A
 	dw -9,16,-25,6
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame15
+	dw .tiles-SpriteFrame_skatewp_15
 	db $0B,$06,$00,$00
 	dw -6,-25,$0800 : db $FF
 	dw -9,-9,$0802 : db $FF
@@ -447,24 +448,24 @@ SpriteFrame15:
 	dw 15,-1,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":5804..6124
-SpriteFrame16:
+SpriteFrame_skatewp_16:
 	db $03,$80
 	dw $0009
 	dw -6,16,-23,11
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame16
+	dw .tiles-SpriteFrame_skatewp_16
 	db $0F,$08,$00,$00
 	dw -6,-23,$0800 : db $FF
 	dw -6,-7,$0802 : db $FF
 	dw 10,6,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":6167..6455
-SpriteFrame17:
+SpriteFrame_skatewp_17:
 	db $04,$80
 	dw $000A
 	dw -6,18,-24,9
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame17
+	dw .tiles-SpriteFrame_skatewp_17
 	db $0D,$0A,$00,$00
 	dw -6,-24,$0800 : db $FF
 	dw -6,-8,$0802 : db $FF
@@ -472,12 +473,12 @@ SpriteFrame17:
 	dw 18,3,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":6505..6825
-SpriteFrame18:
+SpriteFrame_skatewp_18:
 	db $04,$80
 	dw $000D
 	dw -12,19,-24,9
 	dw $00E0,$00C0
-	dw .tiles-SpriteFrame18
+	dw .tiles-SpriteFrame_skatewp_18
 	db $11,$06,$00,$00
 	dw -6,-24,$0800 : db $FF
 	dw -12,-8,$0802 : db $FF
@@ -485,36 +486,36 @@ SpriteFrame18:
 	dw 13,8,$0806 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":6875..7291
-SpriteFrame19:
+SpriteFrame_skatewp_19:
 	db $03,$80
 	dw $000C
 	dw -9,19,-24,9
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame19
+	dw .tiles-SpriteFrame_skatewp_19
 	db $10,$06,$00,$00
 	dw -9,-24,$0800 : db $FF
 	dw -9,-8,$0802 : db $FF
 	dw 7,-2,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":7334..7718
-SpriteFrame20:
+SpriteFrame_skatewp_20:
 	db $03,$80
 	dw $0009
 	dw -7,7,-23,16
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame20
+	dw .tiles-SpriteFrame_skatewp_20
 	db $FE,$0D,$00,$00
 	dw -6,-23,$0800 : db $FF
 	dw -7,-7,$0802 : db $FF
 	dw 0,9,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":7761..8049
-SpriteFrame21:
+SpriteFrame_skatewp_21:
 	db $05,$80
 	dw $000B
 	dw -7,9,-23,18
 	dw $00C0,$00A0
-	dw .tiles-SpriteFrame21
+	dw .tiles-SpriteFrame_skatewp_21
 	db $01,$0E,$00,$00
 	dw -7,-23,$0800 : db $FF
 	dw -7,-7,$0802 : db $FF
@@ -524,12 +525,12 @@ SpriteFrame21:
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":8106..8458
 
-SpriteFrame22:
+SpriteFrame_skatewp_22:
 	db $04,$80
 	dw $000A
 	dw -7,6,-23,17
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame22
+	dw .tiles-SpriteFrame_skatewp_22
 	db $FF,$0E,$00,$00
 	dw -7,-23,$0800 : db $FF
 	dw -7,-7,$0802 : db $FF
@@ -537,12 +538,12 @@ SpriteFrame22:
 	dw 0,17,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":8508..8828
-SpriteFrame23:
+SpriteFrame_skatewp_23:
 	db $04,$80
 	dw $000A
 	dw -8,7,-24,19
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame23
+	dw .tiles-SpriteFrame_skatewp_23
 	db $04,$0E,$00,$00
 	dw -6,-24,$0800 : db $FF
 	dw -8,-8,$0802 : db $FF
@@ -550,48 +551,48 @@ SpriteFrame23:
 	dw 0,16,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":8878..9198
-SpriteFrame24:
+SpriteFrame_skatewp_24:
 	db $03,$80
 	dw $0009
 	dw -6,5,-23,16
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame24
+	dw .tiles-SpriteFrame_skatewp_24
 	db $00,$0E,$00,$00
 	dw -6,-23,$0800 : db $FF
 	dw -5,-7,$0802 : db $FF
 	dw -3,9,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":9241..9529
-SpriteFrame25:
+SpriteFrame_skatewp_25:
 	db $03,$80
 	dw $0009
 	dw -12,8,-24,8
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame25
+	dw .tiles-SpriteFrame_skatewp_25
 	db $F5,$03,$00,$00
 	dw -7,-24,$0800 : db $FF
 	dw -7,-8,$0802 : db $FF
 	dw -15,4,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":9572..9860
-SpriteFrame26:
+SpriteFrame_skatewp_26:
 	db $03,$80
 	dw $000C
 	dw -14,14,-22,9
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame26
+	dw .tiles-SpriteFrame_skatewp_26
 	db $F3,$05,$00,$00
 	dw -5,-22,$0800 : db $FF
 	dw -14,-6,$0802 : db $FF
 	dw 2,-6,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":9903..10287
-SpriteFrame27:
+SpriteFrame_skatewp_27:
 	db $04,$80
 	dw $000A
 	dw -12,11,-24,9
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame27
+	dw .tiles-SpriteFrame_skatewp_27
 	db $F5,$06,$00,$00
 	dw -4,-24,$0800 : db $FF
 	dw -4,-8,$0802 : db $FF
@@ -599,24 +600,24 @@ SpriteFrame27:
 	dw -12,8,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":10337..10657
-SpriteFrame28:
+SpriteFrame_skatewp_28:
 	db $03,$80
 	dw $000C
 	dw -14,10,-23,9
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame28
+	dw .tiles-SpriteFrame_skatewp_28
 	db $F3,$04,$00,$00
 	dw -5,-23,$0800 : db $FF
 	dw -5,-7,$0802 : db $FF
 	dw -21,-2,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":10700..11084
-SpriteFrame29:
+SpriteFrame_skatewp_29:
 	db $04,$80
 	dw $000A
 	dw -13,9,-23,8
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame29
+	dw .tiles-SpriteFrame_skatewp_29
 	db $F7,$08,$00,$00
 	dw -4,-23,$0800 : db $FF
 	dw -13,-7,$0802 : db $FF
@@ -624,12 +625,12 @@ SpriteFrame29:
 	dw 3,1,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":11134..11454
-SpriteFrame30:
+SpriteFrame_skatewp_30:
 	db $04,$80
 	dw $000A
 	dw -16,6,-23,8
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame30
+	dw .tiles-SpriteFrame_skatewp_30
 	db $F2,$04,$00,$00
 	dw -8,-23,$0800 : db $FF
 	dw -16,-7,$0802 : db $FF
@@ -637,24 +638,24 @@ SpriteFrame30:
 	dw 0,1,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":11504..11824
-SpriteFrame31:
+SpriteFrame_skatewp_31:
 	db $03,$80
 	dw $000C
 	dw -20,11,-26,4
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame31
+	dw .tiles-SpriteFrame_skatewp_31
 	db $EF,$02,$00,$00
 	dw -7,-26,$0800 : db $FF
 	dw -20,-10,$0802 : db $FF
 	dw -4,-10,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":11867..12251
-SpriteFrame32:
+SpriteFrame_skatewp_32:
 	db $03,$80
 	dw $000C
 	dw -17,7,-25,4
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame32
+	dw .tiles-SpriteFrame_skatewp_32
 	db $F0,$03,$00,$00
 	dw -7,-25,$0800 : db $FF
 	dw -17,-9,$0802 : db $FF
@@ -662,24 +663,24 @@ SpriteFrame32:
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":12294..12678
 
-SpriteFrame33:
+SpriteFrame_skatewp_33:
 	db $03,$80
 	dw $000C
 	dw -20,11,-25,3
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame33
+	dw .tiles-SpriteFrame_skatewp_33
 	db $EE,$FE,$00,$00
 	dw -7,-25,$0800 : db $FF
 	dw -20,-9,$0802 : db $FF
 	dw -4,-9,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":12721..13105
-SpriteFrame34:
+SpriteFrame_skatewp_34:
 	db $04,$80
 	dw $000A
 	dw -18,5,-25,5
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame34
+	dw .tiles-SpriteFrame_skatewp_34
 	db $F0,$FE,$00,$00
 	dw -7,-25,$0800 : db $FF
 	dw -18,-9,$0802 : db $FF
@@ -687,12 +688,12 @@ SpriteFrame34:
 	dw -2,-1,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":13155..13475
-SpriteFrame35:
+SpriteFrame_skatewp_35:
 	db $04,$80
 	dw $000A
 	dw -16,6,-25,4
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame35
+	dw .tiles-SpriteFrame_skatewp_35
 	db $F2,$FB,$00,$00
 	dw -7,-25,$0800 : db $FF
 	dw -16,-9,$0802 : db $FF
@@ -700,12 +701,12 @@ SpriteFrame35:
 	dw 0,-1,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":13525..13845
-SpriteFrame36:
+SpriteFrame_skatewp_36:
 	db $04,$80
 	dw $000A
 	dw -15,8,-26,4
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame36
+	dw .tiles-SpriteFrame_skatewp_36
 	db $F5,$F7,$00,$00
 	dw -15,-11,$0800 : db $FF
 	dw -4,-27,$0802 : db $FF
@@ -713,48 +714,48 @@ SpriteFrame36:
 	dw 1,-3,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":13895..14215
-SpriteFrame37:
+SpriteFrame_skatewp_37:
 	db $03,$80
 	dw $000C
 	dw -15,9,-26,3
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame37
+	dw .tiles-SpriteFrame_skatewp_37
 	db $F2,$FA,$00,$00
 	dw -15,-12,$0800 : db $FF
 	dw 1,-12,$0802 : db $FF
 	dw -4,-28,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":14258..14642
-SpriteFrame38:
+SpriteFrame_skatewp_38:
 	db $03,$80
 	dw $000C
 	dw -15,16,-26,0
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame38
+	dw .tiles-SpriteFrame_skatewp_38
 	db $F6,$F5,$00,$00
 	dw -15,-15,$0800 : db $FF
 	dw 1,-15,$0802 : db $FF
 	dw -3,-31,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":14685..15069
-SpriteFrame39:
+SpriteFrame_skatewp_39:
 	db $03,$80
 	dw $000C
 	dw -16,12,-26,3
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame39
+	dw .tiles-SpriteFrame_skatewp_39
 	db $F1,$F8,$00,$00
 	dw -3,-26,$0800 : db $FF
 	dw -3,-10,$0802 : db $FF
 	dw -19,-14,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":15112..15496
-SpriteFrame40:
+SpriteFrame_skate_0:
 	db $04,$80
 	dw $000A
 	dw -10,7,-26,4
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame40
+	dw .tiles-SpriteFrame_skate_0
 	db $F8,$FD,$00,$00
 	dw -10,-26,$0800 : db $FF
 	dw -8,-10,$0802 : db $FF
@@ -762,12 +763,12 @@ SpriteFrame40:
 	dw 6,-18,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":15546..15866
-SpriteFrame41:
+SpriteFrame_skate_1:
 	db $04,$80
 	dw $000A
 	dw -12,8,-24,6
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame41
+	dw .tiles-SpriteFrame_skate_1
 	db $F6,$FD,$00,$00
 	dw -12,-24,$0800 : db $FF
 	dw -9,-8,$0802 : db $FF
@@ -775,12 +776,12 @@ SpriteFrame41:
 	dw 4,-16,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":15916..16236
-SpriteFrame42:
+SpriteFrame_skate_2:
 	db $04,$80
 	dw $000A
 	dw -13,7,-25,4
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame42
+	dw .tiles-SpriteFrame_skate_2
 	db $F6,$FF,$00,$00
 	dw -13,-25,$0800 : db $FF
 	dw -4,-9,$0802 : db $FF
@@ -789,12 +790,12 @@ SpriteFrame42:
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":16286..16606
 
-SpriteFrame43:
+SpriteFrame_skate_3:
 	db $04,$80
 	dw $000A
 	dw -14,6,-25,4
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame43
+	dw .tiles-SpriteFrame_skate_3
 	db $F4,$FA,$00,$00
 	dw -14,-25,$0800 : db $FF
 	dw -7,-9,$0802 : db $FF
@@ -802,12 +803,12 @@ SpriteFrame43:
 	dw 2,-17,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":16656..16976
-SpriteFrame44:
+SpriteFrame_skate_4:
 	db $04,$80
 	dw $000A
 	dw -9,9,-24,3
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame44
+	dw .tiles-SpriteFrame_skate_4
 	db $F9,$FB,$00,$00
 	dw -9,-24,$0800 : db $FF
 	dw -3,-8,$0802 : db $FF
@@ -815,91 +816,91 @@ SpriteFrame44:
 	dw 7,-16,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":17026..17346
-SpriteFrame45:
+SpriteFrame_skate_5:
 	db $02,$80
 	dw $0008
 	dw -4,9,-23,6
 	dw $0080,$0080
-	dw .tiles-SpriteFrame45
+	dw .tiles-SpriteFrame_skate_5
 	db $FE,$F9,$00,$00
 	dw -3,-23,$0800 : db $FF
 	dw -4,-7,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":17382..17638
-SpriteFrame46:
+SpriteFrame_skate_6:
 	db $02,$80
 	dw $0008
 	dw -4,11,-23,5
 	dw $0080,$0080
-	dw .tiles-SpriteFrame46
+	dw .tiles-SpriteFrame_skate_6
 	db $02,$FC,$00,$00
 	dw 0,-23,$0800 : db $FF
 	dw -4,-7,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":17674..17930
-SpriteFrame47:
+SpriteFrame_skate_7:
 	db $02,$80
 	dw $0008
 	dw -5,8,-24,6
 	dw $0080,$0080
-	dw .tiles-SpriteFrame47
+	dw .tiles-SpriteFrame_skate_7
 	db $FF,$FB,$00,$00
 	dw -2,-24,$0800 : db $FF
 	dw -5,-8,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":17966..18222
-SpriteFrame48:
+SpriteFrame_skate_8:
 	db $02,$80
 	dw $0008
 	dw -5,5,-24,6
 	dw $0080,$0080
-	dw .tiles-SpriteFrame48
+	dw .tiles-SpriteFrame_skate_8
 	db $FC,$F6,$00,$00
 	dw -5,-24,$0800 : db $FF
 	dw -5,-8,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":18258..18514
-SpriteFrame49:
+SpriteFrame_skate_9:
 	db $02,$80
 	dw $0008
 	dw -2,7,-25,4
 	dw $0080,$0080
-	dw .tiles-SpriteFrame49
+	dw .tiles-SpriteFrame_skate_9
 	db $FE,$F7,$00,$00
 	dw -2,-25,$0800 : db $FF
 	dw -2,-9,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":18550..18806
-SpriteFrame50:
+SpriteFrame_skate_10:
 	db $03,$80
 	dw $0009
 	dw -5,13,-24,6
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame50
+	dw .tiles-SpriteFrame_skate_10
 	db $0C,$FE,$00,$00
 	dw -5,-24,$0800 : db $FF
 	dw -4,-8,$0802 : db $FF
 	dw 11,-16,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":18849..19137
-SpriteFrame51:
+SpriteFrame_skate_11:
 	db $03,$80
 	dw $0009
 	dw -5,19,-22,7
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame51
+	dw .tiles-SpriteFrame_skate_11
 	db $12,$01,$00,$00
 	dw 0,-22,$0800 : db $FF
 	dw -5,-6,$0802 : db $FF
 	dw 16,-14,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":19180..19468
-SpriteFrame52:
+SpriteFrame_skate_12:
 	db $04,$80
 	dw $000A
 	dw -4,18,-25,5
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame52
+	dw .tiles-SpriteFrame_skate_12
 	db $10,$FD,$00,$00
 	dw -4,-25,$0800 : db $FF
 	dw -4,-9,$0802 : db $FF
@@ -907,12 +908,12 @@ SpriteFrame52:
 	dw 12,-16,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":19518..19838
-SpriteFrame53:
+SpriteFrame_skate_13:
 	db $05,$80
 	dw $000B
 	dw -7,18,-23,5
 	dw $00C0,$00A0
-	dw .tiles-SpriteFrame53
+	dw .tiles-SpriteFrame_skate_13
 	db $10,$00,$00,$00
 	dw -1,-23,$0800 : db $FF
 	dw -7,-7,$0802 : db $FF
@@ -921,24 +922,24 @@ SpriteFrame53:
 	dw 9,1,$0814 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":19895..20247
-SpriteFrame54:
+SpriteFrame_skate_14:
 	db $03,$80
 	dw $0009
 	dw -7,13,-24,7
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame54
+	dw .tiles-SpriteFrame_skate_14
 	db $0A,$01,$00,$00
 	dw -7,-24,$0800 : db $FF
 	dw -7,-8,$0802 : db $FF
 	dw 9,-10,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":20290..20578
-SpriteFrame55:
+SpriteFrame_skate_15:
 	db $03,$80
 	dw $0009
 	dw -7,14,-22,6
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame55
+	dw .tiles-SpriteFrame_skate_15
 	db $0D,$02,$00,$00
 	dw -7,-22,$0800 : db $FF
 	dw -7,-6,$0802 : db $FF
@@ -946,72 +947,72 @@ SpriteFrame55:
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":20621..20909
 
-SpriteFrame56:
+SpriteFrame_skate_16:
 	db $03,$80
 	dw $0009
 	dw -3,16,-18,9
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame56
+	dw .tiles-SpriteFrame_skate_16
 	db $0E,$08,$00,$00
 	dw -2,-6,$0800 : db $FF
 	dw -3,-22,$0802 : db $FF
 	dw 14,-6,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":20952..21240
-SpriteFrame57:
+SpriteFrame_skate_17:
 	db $03,$80
 	dw $0009
 	dw -3,15,-21,9
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame57
+	dw .tiles-SpriteFrame_skate_17
 	db $0C,$04,$00,$00
 	dw -3,-21,$0800 : db $FF
 	dw -2,-5,$0802 : db $FF
 	dw 13,-13,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":21283..21571
-SpriteFrame58:
+SpriteFrame_skate_18:
 	db $03,$80
 	dw $000C
 	dw -9,16,-20,5
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame58
+	dw .tiles-SpriteFrame_skate_18
 	db $0E,$02,$00,$00
 	dw -9,-10,$0800 : db $FF
 	dw 7,-10,$0802 : db $FF
 	dw -4,-26,$0804 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":21614..21998
-SpriteFrame59:
+SpriteFrame_skate_19:
 	db $03,$80
 	dw $0009
 	dw -7,15,-22,7
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame59
+	dw .tiles-SpriteFrame_skate_19
 	db $0D,$01,$00,$00
 	dw -7,-8,$0800 : db $FF
 	dw -4,-24,$0802 : db $FF
 	dw 9,-8,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":22041..22329
-SpriteFrame60:
+SpriteFrame_skate_20:
 	db $03,$80
 	dw $0009
 	dw -7,12,-22,5
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame60
+	dw .tiles-SpriteFrame_skate_20
 	db $0A,$05,$00,$00
 	dw -7,-10,$0800 : db $FF
 	dw -7,-26,$0802 : db $FF
 	dw 9,-10,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":22372..22660
-SpriteFrame61:
+SpriteFrame_skate_21:
 	db $04,$80
 	dw $0007
 	dw -8,12,-19,4
 	dw $0080,$0060
-	dw .tiles-SpriteFrame61
+	dw .tiles-SpriteFrame_skate_21
 	db $0A,$02,$00,$00
 	dw -8,-19,$0800 : db $FF
 	dw 8,-11,$0802 : db $00
@@ -1019,58 +1020,58 @@ SpriteFrame61:
 	dw 1,-3,$0812 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":22710..22934
-SpriteFrame62:
+SpriteFrame_skate_22:
 	db $03,$80
 	dw $0009
 	dw -8,12,-21,5
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame62
+	dw .tiles-SpriteFrame_skate_22
 	db $09,$04,$00,$00
 	dw -8,-21,$0800 : db $FF
 	dw -6,-5,$0802 : db $FF
 	dw 8,-13,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":22977..23265
-SpriteFrame63:
+SpriteFrame_skate_23:
 	db $03,$80
 	dw $0009
 	dw -6,14,-18,10
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame63
+	dw .tiles-SpriteFrame_skate_23
 	db $0C,$09,$00,$00
 	dw -6,-5,$0800 : db $FF
 	dw -4,-21,$0802 : db $FF
 	dw 10,-5,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":23308..23596
-SpriteFrame64:
+SpriteFrame_skate_24:
 	db $02,$80
 	dw $0008
 	dw -5,12,-20,6
 	dw $0080,$0080
-	dw .tiles-SpriteFrame64
+	dw .tiles-SpriteFrame_skate_24
 	db $0A,$08,$00,$00
 	dw -3,-9,$0800 : db $FF
 	dw -5,-25,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":23632..23888
-SpriteFrame65:
+SpriteFrame_skate_25:
 	db $02,$80
 	dw $0008
 	dw -5,6,-21,5
 	dw $0080,$0080
-	dw .tiles-SpriteFrame65
+	dw .tiles-SpriteFrame_skate_25
 	db $01,$08,$00,$00
 	dw -5,-21,$0800 : db $FF
 	dw -5,-5,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":23924..24180
-SpriteFrame66:
+SpriteFrame_skate_26:
 	db $04,$80
 	dw $000A
 	dw -10,9,-20,7
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame66
+	dw .tiles-SpriteFrame_skate_26
 	db $FF,$07,$00,$00
 	dw -9,-20,$0800 : db $FF
 	dw -10,-4,$0802 : db $FF
@@ -1078,46 +1079,46 @@ SpriteFrame66:
 	dw 6,4,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":24230..24550
-SpriteFrame67:
+SpriteFrame_skate_27:
 	db $02,$80
 	dw $0008
 	dw -9,8,-21,6
 	dw $0080,$0080
-	dw .tiles-SpriteFrame67
+	dw .tiles-SpriteFrame_skate_27
 	db $FB,$04,$00,$00
 	dw -9,-21,$0800 : db $FF
 	dw -6,-5,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":24586..24842
 
-SpriteFrame68:
+SpriteFrame_skate_28:
 	db $02,$80
 	dw $0008
 	dw -12,4,-19,7
 	dw $0080,$0080
-	dw .tiles-SpriteFrame68
+	dw .tiles-SpriteFrame_skate_28
 	db $F7,$07,$00,$00
 	dw -12,-19,$0800 : db $FF
 	dw -11,-3,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":24878..25134
-SpriteFrame69:
+SpriteFrame_skate_29:
 	db $02,$80
 	dw $0008
 	dw -9,4,-22,6
 	dw $0080,$0080
-	dw .tiles-SpriteFrame69
+	dw .tiles-SpriteFrame_skate_29
 	db $F9,$05,$00,$00
 	dw -8,-22,$0800 : db $FF
 	dw -9,-6,$0802 : db $FF
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":25170..25426
-SpriteFrame70:
+SpriteFrame_skate_30:
 	db $04,$80
 	dw $000A
 	dw -15,5,-25,5
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame70
+	dw .tiles-SpriteFrame_skate_30
 	db $F4,$06,$00,$00
 	dw -9,-25,$0800 : db $FF
 	dw -15,-9,$0802 : db $FF
@@ -1125,12 +1126,12 @@ SpriteFrame70:
 	dw 1,-1,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":25476..25796
-SpriteFrame71:
+SpriteFrame_skate_31:
 	db $06,$80
 	dw $000C
 	dw -16,10,-24,4
 	dw $00C0,$00C0
-	dw .tiles-SpriteFrame71
+	dw .tiles-SpriteFrame_skate_31
 	db $F3,$05,$00,$00
 	dw -16,-24,$0800 : db $FF
 	dw -7,-8,$0802 : db $FF
@@ -1140,12 +1141,12 @@ SpriteFrame71:
 	dw 9,0,$0815 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":25860..26244
-SpriteFrame72:
+SpriteFrame_skate_32:
 	db $04,$80
 	dw $000A
 	dw -17,6,-23,7
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame72
+	dw .tiles-SpriteFrame_skate_32
 	db $F2,$06,$00,$00
 	dw -17,-8,$0800 : db $FF
 	dw -8,-24,$0802 : db $FF
@@ -1153,12 +1154,12 @@ SpriteFrame72:
 	dw -1,0,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":26294..26614
-SpriteFrame73:
+SpriteFrame_skate_33:
 	db $05,$80
 	dw $000E
 	dw -18,10,-23,6
 	dw $0100,$00C0
-	dw .tiles-SpriteFrame73
+	dw .tiles-SpriteFrame_skate_33
 	db $F1,$05,$00,$00
 	dw -18,-23,$0800 : db $FF
 	dw -15,-7,$0802 : db $FF
@@ -1167,24 +1168,24 @@ SpriteFrame73:
 	dw -2,-15,$0807 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":26671..27119
-SpriteFrame74:
+SpriteFrame_skate_34:
 	db $03,$80
 	dw $0009
 	dw -16,5,-24,6
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame74
+	dw .tiles-SpriteFrame_skate_34
 	db $F3,$06,$00,$00
 	dw -10,-24,$0800 : db $FF
 	dw -10,-8,$0802 : db $FF
 	dw -18,-10,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":27162..27450
-SpriteFrame75:
+SpriteFrame_skate_35:
 	db $04,$80
 	dw $000A
 	dw -15,6,-25,3
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame75
+	dw .tiles-SpriteFrame_skate_35
 	db $F4,$03,$00,$00
 	dw -15,-12,$0800 : db $FF
 	dw -5,-28,$0802 : db $FF
@@ -1192,24 +1193,24 @@ SpriteFrame75:
 	dw 1,-4,$0805 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":27500..27820
-SpriteFrame76:
+SpriteFrame_skate_36:
 	db $03,$80
 	dw $0009
 	dw -15,6,-24,6
 	dw $00A0,$0080
-	dw .tiles-SpriteFrame76
+	dw .tiles-SpriteFrame_skate_36
 	db $F5,$06,$00,$00
 	dw -9,-24,$0800 : db $FF
 	dw -9,-8,$0802 : db $FF
 	dw -17,-11,$0804 : db $00
 .tiles:
 	incbin "../../../Extracted/data/gfx/SpriteFrames82.bin":27863..28151
-SpriteFrame77:
+SpriteFrame_skate_37:
 	db $04,$80
 	dw $000A
 	dw -16,4,-24,3
 	dw $00C0,$0080
-	dw .tiles-SpriteFrame77
+	dw .tiles-SpriteFrame_skate_37
 	db $F3,$03,$00,$00
 	dw -16,-12,$0800 : db $FF
 	dw -7,-28,$0802 : db $FF

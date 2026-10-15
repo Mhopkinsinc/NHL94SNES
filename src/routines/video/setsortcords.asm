@@ -31,8 +31,8 @@ setsortcords:
 	pla
 	jsl.l DrawSprite
 	bra .10
-.1:		; read with an index from 1, as .2 and .3
-	dw $0394,$0394,$039A,$039A
+.1:		; read with an index from 1, as .2 and .3: DrawSprite index (frame - 1) of the first bench frame
+	dw SPFbench-1,SPFbench-1,SPFbench+6-1,SPFbench+6-1
 .2:
 	dw $FF31,$FFB9,$FF31,$FFB9
 .3:
@@ -62,24 +62,24 @@ setsortcords:
 	lda.w position,x
 	bmi .t1
 .3x:
-	lda.w $0D97,x
-	cmp.w #$0170
+	lda.w frame,x
+	cmp.w #SPFPen+7
 	beq .4
-	cmp.w #$0171
+	cmp.w #SPFPen+8
 	bne .6
 .4:
 	lda.w sfhormode
 	bne .t2
-	lda.w #$0171
-	sta.w $0D97,x
+	lda.w #SPFPen+8
+	sta.w frame,x
 	bra .6
 
 .t1:
 	jmp.w .8
 
 .t2:
-	lda.w #$0170
-	sta.w $0D97,x
+	lda.w #SPFPen+7
+	sta.w frame,x
 .6:
 	lda.w Xpos,x
 	sta.b d0
@@ -91,17 +91,17 @@ setsortcords:
 	sta.w $0CD1
 	lda.b d0
 	sta.w $0CCF
-	lda.w $0D97,x
+	lda.w frame,x
 	sta.w $0E23,x
 	bne .1xx
 	cpx.w #$0018
 	bcs .8
 .1xx:
 	sta.w $0CCD
-	lda.w $0D97,x
-	cmp.w #$0171
+	lda.w frame,x
+	cmp.w #SPFPen+8
 	beq .9
-	cmp.w #$0380
+	cmp.w #SPFbenchcheck
 	bcs .9
 	lda.w attribute,x
 	and.w #$0800
@@ -119,11 +119,11 @@ setsortcords:
 	stx.w $0CC9
 	jsl.l addframe
 	lda.w $0CCD
-	cmp.w #$00D9
+	cmp.w #SPFcup
 	bcc .8
-	cmp.w #$00E9
+	cmp.w #SPFcupover+8
 	bcs .8
-	adc.w #$0007
+	adc.w #SPFcupover-SPFcup-1	; DrawSprite index of the cup over SPFcup+n
 	sta.b $00
 	lda.w $0CC9
 	and.w #$F000

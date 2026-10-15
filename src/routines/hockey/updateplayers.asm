@@ -524,8 +524,8 @@ updateplayers:
 	bpl .1xxxxxxxxxx
 	lda.w #$FF78
 	sta.w $0D71
-	ldx.w $0DB3
-	cpx.w #$018C
+	ldx.w frame+$1C
+	cpx.w #SPFpuck
 	bne .1xxxxxxxxxx
 	sta.w $0D73
 .1xxxxxxxxxx:
@@ -534,8 +534,8 @@ updateplayers:
 	bmi .2xxxxxx
 	lda.w #$0088
 	sta.w $0D71
-	ldx.w $0DB3
-	cpx.w #$018C
+	ldx.w frame+$1C
+	cpx.w #SPFpuck
 	bne .2xxxxxx
 	sta.w $0D73
 .2xxxxxx:

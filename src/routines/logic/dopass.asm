@@ -194,7 +194,7 @@ dopass_count:
 	jsl.l assinsert
 	ldx.b a3
 	ldy.b a0
-	lda.w $0D97,y
+	lda.w frame,y
 	pha
 	lda.w attribute,y
 	bit.w #$0800
@@ -215,12 +215,12 @@ dopass_count:
 	lda.l $9D0000,x
 	ldx.b a3
 	ldy.b a0
-	sta.w $0D97,y
+	sta.w frame,y
 	lda.b a0
 	jsl.l GetHot
 	ldy.b a0
 	pla
-	sta.w $0D97,y
+	sta.w frame,y
 	lda.b d1
 	clc
 	adc.w Ypos,y

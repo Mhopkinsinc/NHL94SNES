@@ -505,7 +505,7 @@ PlayerSelect:
 	tya
 	lsr a
 	clc
-	adc.w #$0185
+	adc.w #SPFpad+1-1		; DrawSprite index (frame - 1) of the controller's star
 	sta.b $00
 	lda.b $AB
 	asl a
@@ -527,7 +527,7 @@ PlayerSelect:
 	tya
 	lsr a
 	clc
-	adc.w #$01B1
+	adc.w #SPFsmallfont+1-1	; DrawSprite index (frame - 1) of the controller number
 	sta.b $00
 	lda.b $AB
 	asl a

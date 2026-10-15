@@ -120,7 +120,7 @@ UpdateHatTrick:
 	clc
 	adc.l $7E340C,x
 	clc
-	adc.w #$03C5
+	adc.w #SPFhat-1-1		; DrawSprite index (frame - 1); the step counts from 1
 	sta.b $00
 	lda.w #SpriteFrames>>16
 	sta.b $12
@@ -157,7 +157,7 @@ UpdateHatTrick:
 	lda.w #$2000
 	jsl.l DrawSprite
 	ldx.b d4
-	lda.w #$03CF
+	lda.w #SPFhatshadow-1
 	sta.b $00
 	lda.l $7E33A8,x
 	lsr a

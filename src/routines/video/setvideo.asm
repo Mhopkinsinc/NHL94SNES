@@ -48,23 +48,23 @@ setvideo:
 	lda.w #SpriteFrames
 	sta.b $10
 	ldy.w #$0000
-	lda.w #$0175
+	lda.w #SPFarrow-1		; DrawSprite index (frame - 1) of the controller's first arrow
 	sta.b $00
 	jsr.w .t1
 	ldy.w #$0002
-	lda.w #$0178
+	lda.w #SPFarrow+3-1
 	sta.b $00
 	jsr.w .t1
 	ldy.w #$0004
-	lda.w #$017B
+	lda.w #SPFarrow+6-1
 	sta.b $00
 	jsr.w .t1
 	ldy.w #$0006
-	lda.w #$017E
+	lda.w #SPFarrow+9-1
 	sta.b $00
 	jsr.w .t1
 	ldy.w #$0008
-	lda.w #$0181
+	lda.w #SPFarrow+12-1
 	sta.b $00
 	jsr.w .t1
 .rtl:

@@ -2,7 +2,7 @@
 GetHot:
 	phx
 	tay
-	lda.w $0D97,y
+	lda.w frame,y
 	dec a
 	asl a
 	asl a

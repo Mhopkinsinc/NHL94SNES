@@ -1,702 +1,702 @@
 ; The sprite animations. SPA holds the address of one. Each animation: eight words, the frame list for each
-; direction, a word of attributes (bit 0 = the animation loops), then the frame lists: pairs of (SpriteFrames frame,
-; time in frames), in decimal; a negative time marks the last pair. A direction may point at the next animation
+; direction, a word of attributes (bit 0 = the animation loops), then the frame lists: pairs of (SPF frame (ram94snes.asm),
+; time in frames), times in decimal; a negative time marks the last pair. A direction may point at the next animation
 ; instead of a list. Then $FF fill to the end of the bank.
 SPAList:		; the animations (SPA): SPA 0 is no animation
 	dw 0
 SPAgready:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 1
-.d0:	dw 534,180,646,20,534,10,647,20,534,-10
-.d1:	dw 537,130,648,10,649,20,537,1,537,-9
-.d2:	dw 540,210,650,10,651,20,540,1,540,-9
-.d3:	dw 543,100,652,20,653,10,543,1,543,-9
-.d4:	dw 546,240,654,10,655,30,654,10,546,-10
-.d5:	dw 549,180,656,20,657,20,549,1,549,-9
-.d6:	dw 552,120,658,20,659,20,658,10,552,-10
-.d7:	dw 555,180,660,20,661,20,555,1,555,-9
+.d0:	dw SPFGoalie,180,SPFgready,20,SPFGoalie,10,SPFgready+1,20,SPFGoalie,-10
+.d1:	dw SPFGoalie+3,130,SPFgready+2,10,SPFgready+3,20,SPFGoalie+3,1,SPFGoalie+3,-9
+.d2:	dw SPFGoalie+6,210,SPFgready+4,10,SPFgready+5,20,SPFGoalie+6,1,SPFGoalie+6,-9
+.d3:	dw SPFGoalie+9,100,SPFgready+6,20,SPFgready+7,10,SPFGoalie+9,1,SPFGoalie+9,-9
+.d4:	dw SPFGoalie+12,240,SPFgready+8,10,SPFgready+9,30,SPFgready+8,10,SPFGoalie+12,-10
+.d5:	dw SPFGoalie+15,180,SPFgready+10,20,SPFgready+11,20,SPFGoalie+15,1,SPFGoalie+15,-9
+.d6:	dw SPFGoalie+18,120,SPFgready+12,20,SPFgready+13,20,SPFgready+12,10,SPFGoalie+18,-10
+.d7:	dw SPFGoalie+21,180,SPFgready+14,20,SPFgready+15,20,SPFGoalie+21,1,SPFGoalie+21,-9
 SPAgready2:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 534,-30
-.d1:	dw 537,-30
-.d2:	dw 540,-30
-.d3:	dw 543,-30
-.d4:	dw 546,-30
-.d5:	dw 549,-30
-.d6:	dw 552,-30
-.d7:	dw 555,-30
+.d0:	dw SPFGoalie,-30
+.d1:	dw SPFGoalie+3,-30
+.d2:	dw SPFGoalie+6,-30
+.d3:	dw SPFGoalie+9,-30
+.d4:	dw SPFGoalie+12,-30
+.d5:	dw SPFGoalie+15,-30
+.d6:	dw SPFGoalie+18,-30
+.d7:	dw SPFGoalie+21,-30
 SPAgglover:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 535,-32
-.d1:	dw 538,-32
-.d2:	dw 541,-32
-.d3:	dw 544,-32
-.d4:	dw 547,-32
-.d5:	dw 550,-32
-.d6:	dw 553,-32
-.d7:	dw 556,-32
+.d0:	dw SPFGoalie+1,-32
+.d1:	dw SPFGoalie+4,-32
+.d2:	dw SPFGoalie+7,-32
+.d3:	dw SPFGoalie+10,-32
+.d4:	dw SPFGoalie+13,-32
+.d5:	dw SPFGoalie+16,-32
+.d6:	dw SPFGoalie+19,-32
+.d7:	dw SPFGoalie+22,-32
 SPAgglovel:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 536,-32
-.d1:	dw 539,-32
-.d2:	dw 542,-32
-.d3:	dw 545,-32
-.d4:	dw 548,-32
-.d5:	dw 551,-32
-.d6:	dw 554,-32
-.d7:	dw 557,-32
+.d0:	dw SPFGoalie+2,-32
+.d1:	dw SPFGoalie+5,-32
+.d2:	dw SPFGoalie+8,-32
+.d3:	dw SPFGoalie+11,-32
+.d4:	dw SPFGoalie+14,-32
+.d5:	dw SPFGoalie+17,-32
+.d6:	dw SPFGoalie+20,-32
+.d7:	dw SPFGoalie+23,-32
 SPAgstickr:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 598,-32
-.d1:	dw 600,-32
-.d2:	dw 602,-32
-.d3:	dw 604,-32
-.d4:	dw 606,-32
-.d5:	dw 608,-32
-.d6:	dw 610,-32
-.d7:	dw 612,-32
+.d0:	dw SPFGoalie+64,-32
+.d1:	dw SPFGoalie+66,-32
+.d2:	dw SPFGoalie+68,-32
+.d3:	dw SPFGoalie+70,-32
+.d4:	dw SPFGoalie+72,-32
+.d5:	dw SPFGoalie+74,-32
+.d6:	dw SPFGoalie+76,-32
+.d7:	dw SPFGoalie+78,-32
 SPAgstickl:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 599,-32
-.d1:	dw 601,-32
-.d2:	dw 603,-32
-.d3:	dw 605,-32
-.d4:	dw 607,-32
-.d5:	dw 609,-32
-.d6:	dw 611,-32
-.d7:	dw 613,-32
+.d0:	dw SPFGoalie+65,-32
+.d1:	dw SPFGoalie+67,-32
+.d2:	dw SPFGoalie+69,-32
+.d3:	dw SPFGoalie+71,-32
+.d4:	dw SPFGoalie+73,-32
+.d5:	dw SPFGoalie+75,-32
+.d6:	dw SPFGoalie+77,-32
+.d7:	dw SPFGoalie+79,-32
 SPAgstackr:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 574,8,575,-20
-.d1:	dw 576,8,577,-20
-.d2:	dw 576,8,577,-20
-.d3:	dw 578,8,579,-20
-.d4:	dw 580,8,581,-20
-.d5:	dw 582,8,583,-20
-.d6:	dw 582,8,583,-20
-.d7:	dw 584,8,585,-20
+.d0:	dw SPFGoalie+40,8,SPFGoalie+41,-20
+.d1:	dw SPFGoalie+42,8,SPFGoalie+43,-20
+.d2:	dw SPFGoalie+42,8,SPFGoalie+43,-20
+.d3:	dw SPFGoalie+44,8,SPFGoalie+45,-20
+.d4:	dw SPFGoalie+46,8,SPFGoalie+47,-20
+.d5:	dw SPFGoalie+48,8,SPFGoalie+49,-20
+.d6:	dw SPFGoalie+48,8,SPFGoalie+49,-20
+.d7:	dw SPFGoalie+50,8,SPFGoalie+51,-20
 SPAgstackl:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 586,8,587,-20
-.d1:	dw 588,8,589,-20
-.d2:	dw 588,8,589,-20
-.d3:	dw 590,8,591,-20
-.d4:	dw 592,8,593,-20
-.d5:	dw 594,8,595,-20
-.d6:	dw 594,8,595,-20
-.d7:	dw 596,8,597,-20
+.d0:	dw SPFGoalie+52,8,SPFGoalie+53,-20
+.d1:	dw SPFGoalie+54,8,SPFGoalie+55,-20
+.d2:	dw SPFGoalie+54,8,SPFGoalie+55,-20
+.d3:	dw SPFGoalie+56,8,SPFGoalie+57,-20
+.d4:	dw SPFGoalie+58,8,SPFGoalie+59,-20
+.d5:	dw SPFGoalie+60,8,SPFGoalie+61,-20
+.d6:	dw SPFGoalie+60,8,SPFGoalie+61,-20
+.d7:	dw SPFGoalie+62,8,SPFGoalie+63,-20
 SPAgswing:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 558,5,559,8,558,-16
-.d1:	dw 560,5,561,8,560,-16
-.d2:	dw 562,5,563,8,562,-16
-.d3:	dw 564,5,565,8,564,-16
-.d4:	dw 566,5,567,8,566,-16
-.d5:	dw 568,5,569,8,568,-16
-.d6:	dw 570,5,571,8,570,-16
-.d7:	dw 572,5,573,8,572,-16
+.d0:	dw SPFGoalie+24,5,SPFGoalie+25,8,SPFGoalie+24,-16
+.d1:	dw SPFGoalie+26,5,SPFGoalie+27,8,SPFGoalie+26,-16
+.d2:	dw SPFGoalie+28,5,SPFGoalie+29,8,SPFGoalie+28,-16
+.d3:	dw SPFGoalie+30,5,SPFGoalie+31,8,SPFGoalie+30,-16
+.d4:	dw SPFGoalie+32,5,SPFGoalie+33,8,SPFGoalie+32,-16
+.d5:	dw SPFGoalie+34,5,SPFGoalie+35,8,SPFGoalie+34,-16
+.d6:	dw SPFGoalie+36,5,SPFGoalie+37,8,SPFGoalie+36,-16
+.d7:	dw SPFGoalie+38,5,SPFGoalie+39,8,SPFGoalie+38,-16
 SPAgskate:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 1
-.d0:	dw 614,10,615,10,616,10,617,-15
-.d1:	dw 618,10,619,10,620,10,621,-15
-.d2:	dw 622,10,623,10,624,10,625,-15
-.d3:	dw 626,10,627,10,628,10,629,-15
-.d4:	dw 630,10,631,10,632,10,633,-15
-.d5:	dw 634,10,635,10,636,10,637,-15
-.d6:	dw 638,10,639,10,640,10,641,-15
-.d7:	dw 642,10,643,10,644,10,645,-15
+.d0:	dw SPFGoalie+80,10,SPFGoalie+81,10,SPFGoalie+82,10,SPFGoalie+83,-15
+.d1:	dw SPFGoalie+84,10,SPFGoalie+85,10,SPFGoalie+86,10,SPFGoalie+87,-15
+.d2:	dw SPFGoalie+88,10,SPFGoalie+89,10,SPFGoalie+90,10,SPFGoalie+91,-15
+.d3:	dw SPFGoalie+92,10,SPFGoalie+93,10,SPFGoalie+94,10,SPFGoalie+95,-15
+.d4:	dw SPFGoalie+96,10,SPFGoalie+97,10,SPFGoalie+98,10,SPFGoalie+99,-15
+.d5:	dw SPFGoalie+100,10,SPFGoalie+101,10,SPFGoalie+102,10,SPFGoalie+103,-15
+.d6:	dw SPFGoalie+104,10,SPFGoalie+105,10,SPFGoalie+106,10,SPFGoalie+107,-15
+.d7:	dw SPFGoalie+108,10,SPFGoalie+109,10,SPFGoalie+110,10,SPFGoalie+111,-15
 SPAgwallright:		; the goalie's SPAwallright: asseben gives it to a goalie leaving the bench
 	dw .d0,.d0,.d0,.d3,.d3,.d3,.d3,SPAgwallleft
 	dw 0
-.d0:	dw 370,8,371,8,372,8,373,-8
-.d3:	dw 373,8,372,8,371,8,370,-8
+.d0:	dw SPFgwall,8,SPFgwall+1,8,SPFgwall+2,8,SPFgwall+3,-8
+.d3:	dw SPFgwall+3,8,SPFgwall+2,8,SPFgwall+1,8,SPFgwall,-8
 SPAgwallleft:		; the goalie's SPAwallleft: assbench gives it to a goalie going to the bench
 	dw .d0,.d0,.d0,.d3,.d3,.d3,.d3,SPAgdive
 	dw 0
-.d0:	dw 373,8,372,8,371,8,370,-8
-.d3:	dw 370,8,371,8,372,8,373,-8
+.d0:	dw SPFgwall+3,8,SPFgwall+2,8,SPFgwall+1,8,SPFgwall,-8
+.d3:	dw SPFgwall,8,SPFgwall+1,8,SPFgwall+2,8,SPFgwall+3,-8
 SPAgdive:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 662,8,663,48,662,-8
-.d1:	dw 664,8,665,48,664,-8
-.d2:	dw 666,8,667,48,666,-8
-.d3:	dw 668,8,669,48,668,-8
-.d4:	dw 670,8,671,48,670,-8
-.d5:	dw 672,8,673,48,672,-8
-.d6:	dw 674,8,675,48,674,-8
-.d7:	dw 676,8,677,48,676,-8
+.d0:	dw SPFgdive,8,SPFgdive+1,48,SPFgdive,-8
+.d1:	dw SPFgdive+2,8,SPFgdive+3,48,SPFgdive+2,-8
+.d2:	dw SPFgdive+4,8,SPFgdive+5,48,SPFgdive+4,-8
+.d3:	dw SPFgdive+6,8,SPFgdive+7,48,SPFgdive+6,-8
+.d4:	dw SPFgdive+8,8,SPFgdive+9,48,SPFgdive+8,-8
+.d5:	dw SPFgdive+10,8,SPFgdive+11,48,SPFgdive+10,-8
+.d6:	dw SPFgdive+12,8,SPFgdive+13,48,SPFgdive+12,-8
+.d7:	dw SPFgdive+14,8,SPFgdive+15,48,SPFgdive+14,-8
 SPAgpoke:		; assgoalie: the controlled goalie's X button, the CPU goalie at random when an opponent has the puck near
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 678,4,679,15,678,-6
-.d1:	dw 680,4,681,15,680,-6
-.d2:	dw 682,4,683,15,682,-6
-.d3:	dw 684,4,685,15,684,-6
-.d4:	dw 686,4,687,15,686,-6
-.d5:	dw 688,4,689,15,688,-6
-.d6:	dw 690,4,691,15,690,-6
-.d7:	dw 692,4,693,15,692,-6
+.d0:	dw SPFgpoke,4,SPFgpoke+1,15,SPFgpoke,-6
+.d1:	dw SPFgpoke+2,4,SPFgpoke+3,15,SPFgpoke+2,-6
+.d2:	dw SPFgpoke+4,4,SPFgpoke+5,15,SPFgpoke+4,-6
+.d3:	dw SPFgpoke+6,4,SPFgpoke+7,15,SPFgpoke+6,-6
+.d4:	dw SPFgpoke+8,4,SPFgpoke+9,15,SPFgpoke+8,-6
+.d5:	dw SPFgpoke+10,4,SPFgpoke+11,15,SPFgpoke+10,-6
+.d6:	dw SPFgpoke+12,4,SPFgpoke+13,15,SPFgpoke+12,-6
+.d7:	dw SPFgpoke+14,4,SPFgpoke+15,15,SPFgpoke+14,-6
 SPAgcover2:		; SPAgcover's frames held 20, not 90; nothing sets it
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 694,6,695,6,696,20,695,6,694,6,646,-8
-.d1:	dw 697,6,698,6,699,20,698,6,697,6,648,-8
-.d2:	dw 700,6,701,6,702,20,701,6,700,6,650,-8
-.d3:	dw 703,6,704,6,705,20,704,6,703,6,652,-8
-.d4:	dw 706,6,707,6,708,20,707,6,706,6,654,-8
-.d5:	dw 709,6,710,6,711,20,710,6,709,6,656,-8
-.d6:	dw 712,6,713,6,714,20,713,6,712,6,658,-8
-.d7:	dw 715,6,716,6,717,20,716,6,715,6,660,-8
+.d0:	dw SPFgcover,6,SPFgcover+1,6,SPFgcover+2,20,SPFgcover+1,6,SPFgcover,6,SPFgready,-8
+.d1:	dw SPFgcover+3,6,SPFgcover+4,6,SPFgcover+5,20,SPFgcover+4,6,SPFgcover+3,6,SPFgready+2,-8
+.d2:	dw SPFgcover+6,6,SPFgcover+7,6,SPFgcover+8,20,SPFgcover+7,6,SPFgcover+6,6,SPFgready+4,-8
+.d3:	dw SPFgcover+9,6,SPFgcover+10,6,SPFgcover+11,20,SPFgcover+10,6,SPFgcover+9,6,SPFgready+6,-8
+.d4:	dw SPFgcover+12,6,SPFgcover+13,6,SPFgcover+14,20,SPFgcover+13,6,SPFgcover+12,6,SPFgready+8,-8
+.d5:	dw SPFgcover+15,6,SPFgcover+16,6,SPFgcover+17,20,SPFgcover+16,6,SPFgcover+15,6,SPFgready+10,-8
+.d6:	dw SPFgcover+18,6,SPFgcover+19,6,SPFgcover+20,20,SPFgcover+19,6,SPFgcover+18,6,SPFgready+12,-8
+.d7:	dw SPFgcover+21,6,SPFgcover+22,6,SPFgcover+23,20,SPFgcover+22,6,SPFgcover+21,6,SPFgready+14,-8
 SPAgcover:		; assgoalie: the goalie drops on the puck for 90 frames when an opponent is near it
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 694,6,695,6,696,90,695,6,694,6,646,-4
-.d1:	dw 697,6,698,6,699,90,698,6,697,6,648,-4
-.d2:	dw 700,6,701,6,702,90,701,6,700,6,650,-4
-.d3:	dw 703,6,704,6,705,90,704,6,703,6,652,-4
-.d4:	dw 706,6,707,6,708,90,707,6,706,6,654,-4
-.d5:	dw 709,6,710,6,711,90,710,6,709,6,656,-4
-.d6:	dw 712,6,713,6,714,90,713,6,712,6,658,-4
-.d7:	dw 715,6,716,6,717,90,716,6,715,6,660,-4
+.d0:	dw SPFgcover,6,SPFgcover+1,6,SPFgcover+2,90,SPFgcover+1,6,SPFgcover,6,SPFgready,-4
+.d1:	dw SPFgcover+3,6,SPFgcover+4,6,SPFgcover+5,90,SPFgcover+4,6,SPFgcover+3,6,SPFgready+2,-4
+.d2:	dw SPFgcover+6,6,SPFgcover+7,6,SPFgcover+8,90,SPFgcover+7,6,SPFgcover+6,6,SPFgready+4,-4
+.d3:	dw SPFgcover+9,6,SPFgcover+10,6,SPFgcover+11,90,SPFgcover+10,6,SPFgcover+9,6,SPFgready+6,-4
+.d4:	dw SPFgcover+12,6,SPFgcover+13,6,SPFgcover+14,90,SPFgcover+13,6,SPFgcover+12,6,SPFgready+8,-4
+.d5:	dw SPFgcover+15,6,SPFgcover+16,6,SPFgcover+17,90,SPFgcover+16,6,SPFgcover+15,6,SPFgready+10,-4
+.d6:	dw SPFgcover+18,6,SPFgcover+19,6,SPFgcover+20,90,SPFgcover+19,6,SPFgcover+18,6,SPFgready+12,-4
+.d7:	dw SPFgcover+21,6,SPFgcover+22,6,SPFgcover+23,90,SPFgcover+22,6,SPFgcover+21,6,SPFgready+14,-4
 SPAgbutterfly:		; GoalieSaveList 8: a slow shot straight at the goalie
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 718,6,719,6,720,20,646,-4
-.d1:	dw 721,6,722,6,723,20,648,-4
-.d2:	dw 724,6,725,6,726,20,650,-4
-.d3:	dw 727,6,728,6,729,20,652,-4
-.d4:	dw 730,6,731,6,732,20,654,-4
-.d5:	dw 733,6,734,6,735,20,656,-4
-.d6:	dw 736,6,737,6,738,20,658,-4
-.d7:	dw 739,6,740,6,741,20,660,-4
+.d0:	dw SPFgbutterfly,6,SPFgbutterfly+1,6,SPFgbutterfly+2,20,SPFgready,-4
+.d1:	dw SPFgbutterfly+3,6,SPFgbutterfly+4,6,SPFgbutterfly+5,20,SPFgready+2,-4
+.d2:	dw SPFgbutterfly+6,6,SPFgbutterfly+7,6,SPFgbutterfly+8,20,SPFgready+4,-4
+.d3:	dw SPFgbutterfly+9,6,SPFgbutterfly+10,6,SPFgbutterfly+11,20,SPFgready+6,-4
+.d4:	dw SPFgbutterfly+12,6,SPFgbutterfly+13,6,SPFgbutterfly+14,20,SPFgready+8,-4
+.d5:	dw SPFgbutterfly+15,6,SPFgbutterfly+16,6,SPFgbutterfly+17,20,SPFgready+10,-4
+.d6:	dw SPFgbutterfly+18,6,SPFgbutterfly+19,6,SPFgbutterfly+20,20,SPFgready+12,-4
+.d7:	dw SPFgbutterfly+21,6,SPFgbutterfly+22,6,SPFgbutterfly+23,20,SPFgready+14,-4
 SPAgsprawll:		; GoalieSaveList 7: a shot from a wide angle, to the left
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 742,4,743,4,744,20,646,-4
-.d1:	dw 745,4,746,4,747,20,648,-4
-.d2:	dw 748,4,749,4,750,20,650,-4
-.d3:	dw 751,4,752,4,753,20,652,-4
-.d4:	dw 754,4,755,4,756,20,654,-4
-.d5:	dw 757,4,758,4,759,20,656,-4
-.d6:	dw 760,4,761,4,762,20,658,-4
-.d7:	dw 763,4,764,4,765,20,660,-4
+.d0:	dw SPFgsprawll,4,SPFgsprawll+1,4,SPFgsprawll+2,20,SPFgready,-4
+.d1:	dw SPFgsprawll+3,4,SPFgsprawll+4,4,SPFgsprawll+5,20,SPFgready+2,-4
+.d2:	dw SPFgsprawll+6,4,SPFgsprawll+7,4,SPFgsprawll+8,20,SPFgready+4,-4
+.d3:	dw SPFgsprawll+9,4,SPFgsprawll+10,4,SPFgsprawll+11,20,SPFgready+6,-4
+.d4:	dw SPFgsprawll+12,4,SPFgsprawll+13,4,SPFgsprawll+14,20,SPFgready+8,-4
+.d5:	dw SPFgsprawll+15,4,SPFgsprawll+16,4,SPFgsprawll+17,20,SPFgready+10,-4
+.d6:	dw SPFgsprawll+18,4,SPFgsprawll+19,4,SPFgsprawll+20,20,SPFgready+12,-4
+.d7:	dw SPFgsprawll+21,4,SPFgsprawll+22,4,SPFgsprawll+23,20,SPFgready+14,-4
 SPAgsprawlr:		; GoalieSaveList 6: a shot from a wide angle, to the right
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 766,4,767,4,768,20,646,-4
-.d1:	dw 769,4,770,4,771,20,648,-4
-.d2:	dw 772,4,773,4,774,20,650,-4
-.d3:	dw 775,4,776,4,777,20,652,-4
-.d4:	dw 778,4,779,4,780,20,654,-4
-.d5:	dw 781,4,782,4,783,20,656,-4
-.d6:	dw 784,4,785,4,786,20,658,-4
-.d7:	dw 787,4,788,4,789,20,660,-4
+.d0:	dw SPFgsprawlr,4,SPFgsprawlr+1,4,SPFgsprawlr+2,20,SPFgready,-4
+.d1:	dw SPFgsprawlr+3,4,SPFgsprawlr+4,4,SPFgsprawlr+5,20,SPFgready+2,-4
+.d2:	dw SPFgsprawlr+6,4,SPFgsprawlr+7,4,SPFgsprawlr+8,20,SPFgready+4,-4
+.d3:	dw SPFgsprawlr+9,4,SPFgsprawlr+10,4,SPFgsprawlr+11,20,SPFgready+6,-4
+.d4:	dw SPFgsprawlr+12,4,SPFgsprawlr+13,4,SPFgsprawlr+14,20,SPFgready+8,-4
+.d5:	dw SPFgsprawlr+15,4,SPFgsprawlr+16,4,SPFgsprawlr+17,20,SPFgready+10,-4
+.d6:	dw SPFgsprawlr+18,4,SPFgsprawlr+19,4,SPFgsprawlr+20,20,SPFgready+12,-4
+.d7:	dw SPFgsprawlr+21,4,SPFgsprawlr+22,4,SPFgsprawlr+23,20,SPFgready+14,-4
 SPAwallright:
 	dw .d0,.d1,.d1,.d3,.d3,.d3,.d3,SPAwallleft
 	dw 0
-.d0:	dw 365,8,366,8,367,8,368,-15
-.d1:	dw 361,8,362,8,363,8,364,-8
-.d3:	dw 364,8,363,8,362,8,361,-8
+.d0:	dw SPFPen+4,8,SPFPen+5,8,SPFPen+6,8,SPFPen+7,-15
+.d1:	dw SPFPen,8,SPFPen+1,8,SPFPen+2,8,SPFPen+3,-8
+.d3:	dw SPFPen+3,8,SPFPen+2,8,SPFPen+1,8,SPFPen,-8
 SPAwallleft:
 	dw .d0,.d1,.d1,.d3,.d3,.d3,.d3,SPApflip
 	dw 0
-.d0:	dw 367,8,366,8,365,8,368,-15
-.d1:	dw 364,8,363,8,362,8,361,-8
-.d3:	dw 361,8,362,8,363,8,364,-8
+.d0:	dw SPFPen+6,8,SPFPen+5,8,SPFPen+4,8,SPFPen+7,-15
+.d1:	dw SPFPen+3,8,SPFPen+2,8,SPFPen+1,8,SPFPen,-8
+.d3:	dw SPFPen,8,SPFPen+1,8,SPFPen+2,8,SPFPen+3,-8
 SPApflip:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 1
-.d0:	dw 398,4,399,4,400,4,401,4,402,4,399,4,403,4,397,-4
-.d1:	dw 405,2,397,2,404,2,401,2,406,2,401,2,404,2,397,-2
-.d2:	dw 400,2,399,2,398,2,397,2,403,2,399,2,402,2,401,-2
-.d3:	dw 404,4,397,4,405,4,397,4,404,4,401,4,406,4,401,-4
-.d4:	dw 397,-4096
-.d5:	dw 397,-4096
-.d6:	dw 401,-4096
-.d7:	dw 401,-4096
+.d0:	dw SPFpuck+2,4,SPFpuck+3,4,SPFpuck+4,4,SPFpuck+5,4,SPFpuck+6,4,SPFpuck+3,4,SPFpuck+7,4,SPFpuck+1,-4
+.d1:	dw SPFpuck+9,2,SPFpuck+1,2,SPFpuck+8,2,SPFpuck+5,2,SPFpuck+10,2,SPFpuck+5,2,SPFpuck+8,2,SPFpuck+1,-2
+.d2:	dw SPFpuck+4,2,SPFpuck+3,2,SPFpuck+2,2,SPFpuck+1,2,SPFpuck+7,2,SPFpuck+3,2,SPFpuck+6,2,SPFpuck+5,-2
+.d3:	dw SPFpuck+8,4,SPFpuck+1,4,SPFpuck+9,4,SPFpuck+1,4,SPFpuck+8,4,SPFpuck+5,4,SPFpuck+10,4,SPFpuck+5,-4
+.d4:	dw SPFpuck+1,-4096
+.d5:	dw SPFpuck+1,-4096
+.d6:	dw SPFpuck+5,-4096
+.d7:	dw SPFpuck+5,-4096
 SPAglide:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 1,-8
-.d1:	dw 6,-8
-.d2:	dw 11,-8
-.d3:	dw 16,-8
-.d4:	dw 21,-8
-.d5:	dw 26,-8
-.d6:	dw 31,-8
-.d7:	dw 36,-8
+.d0:	dw SPFskatewp,-8
+.d1:	dw SPFskatewp+5,-8
+.d2:	dw SPFskatewp+10,-8
+.d3:	dw SPFskatewp+15,-8
+.d4:	dw SPFskatewp+20,-8
+.d5:	dw SPFskatewp+25,-8
+.d6:	dw SPFskatewp+30,-8
+.d7:	dw SPFskatewp+35,-8
 SPAskatewp:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 2,10,3,10,4,10,5,10,1,-15
-.d1:	dw 7,10,8,10,9,10,10,10,6,-15
-.d2:	dw 12,10,13,10,14,10,15,10,11,-15
-.d3:	dw 17,10,18,10,19,10,20,10,16,-15
-.d4:	dw 22,10,23,10,24,10,25,10,21,-15
-.d5:	dw 27,10,28,10,29,10,30,10,26,-15
-.d6:	dw 32,10,33,10,34,10,35,10,31,-15
-.d7:	dw 37,10,38,10,39,10,40,10,36,-15
+.d0:	dw SPFskatewp+1,10,SPFskatewp+2,10,SPFskatewp+3,10,SPFskatewp+4,10,SPFskatewp,-15
+.d1:	dw SPFskatewp+6,10,SPFskatewp+7,10,SPFskatewp+8,10,SPFskatewp+9,10,SPFskatewp+5,-15
+.d2:	dw SPFskatewp+11,10,SPFskatewp+12,10,SPFskatewp+13,10,SPFskatewp+14,10,SPFskatewp+10,-15
+.d3:	dw SPFskatewp+16,10,SPFskatewp+17,10,SPFskatewp+18,10,SPFskatewp+19,10,SPFskatewp+15,-15
+.d4:	dw SPFskatewp+21,10,SPFskatewp+22,10,SPFskatewp+23,10,SPFskatewp+24,10,SPFskatewp+20,-15
+.d5:	dw SPFskatewp+26,10,SPFskatewp+27,10,SPFskatewp+28,10,SPFskatewp+29,10,SPFskatewp+25,-15
+.d6:	dw SPFskatewp+31,10,SPFskatewp+32,10,SPFskatewp+33,10,SPFskatewp+34,10,SPFskatewp+30,-15
+.d7:	dw SPFskatewp+36,10,SPFskatewp+37,10,SPFskatewp+38,10,SPFskatewp+39,10,SPFskatewp+35,-15
 SPAskate:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 42,10,43,10,44,10,45,10,41,-15
-.d1:	dw 47,10,48,10,49,10,50,10,46,-15
-.d2:	dw 52,10,53,10,54,10,55,10,51,-15
-.d3:	dw 57,10,58,10,59,10,60,10,56,-15
-.d4:	dw 62,10,63,10,64,10,65,10,61,-15
-.d5:	dw 67,10,68,10,69,10,70,10,66,-15
-.d6:	dw 72,10,73,10,74,10,75,10,71,-15
-.d7:	dw 77,10,78,10,79,10,80,10,76,-15
+.d0:	dw SPFskate+1,10,SPFskate+2,10,SPFskate+3,10,SPFskate+4,10,SPFskate,-15
+.d1:	dw SPFskate+6,10,SPFskate+7,10,SPFskate+8,10,SPFskate+9,10,SPFskate+5,-15
+.d2:	dw SPFskate+11,10,SPFskate+12,10,SPFskate+13,10,SPFskate+14,10,SPFskate+10,-15
+.d3:	dw SPFskate+16,10,SPFskate+17,10,SPFskate+18,10,SPFskate+19,10,SPFskate+15,-15
+.d4:	dw SPFskate+21,10,SPFskate+22,10,SPFskate+23,10,SPFskate+24,10,SPFskate+20,-15
+.d5:	dw SPFskate+26,10,SPFskate+27,10,SPFskate+28,10,SPFskate+29,10,SPFskate+25,-15
+.d6:	dw SPFskate+31,10,SPFskate+32,10,SPFskate+33,10,SPFskate+34,10,SPFskate+30,-15
+.d7:	dw SPFskate+36,10,SPFskate+37,10,SPFskate+38,10,SPFskate+39,10,SPFskate+35,-15
 SPAturnl:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 81,-12
-.d1:	dw 82,-12
-.d2:	dw 83,-12
-.d3:	dw 84,-12
-.d4:	dw 85,-12
-.d5:	dw 86,-12
-.d6:	dw 87,-12
-.d7:	dw 88,-12
+.d0:	dw SPFturnl,-12
+.d1:	dw SPFturnl+1,-12
+.d2:	dw SPFturnl+2,-12
+.d3:	dw SPFturnl+3,-12
+.d4:	dw SPFturnl+4,-12
+.d5:	dw SPFturnl+5,-12
+.d6:	dw SPFturnl+6,-12
+.d7:	dw SPFturnl+7,-12
 SPAturnr:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 89,-12
-.d1:	dw 90,-12
-.d2:	dw 91,-12
-.d3:	dw 92,-12
-.d4:	dw 93,-12
-.d5:	dw 94,-12
-.d6:	dw 95,-12
-.d7:	dw 96,-12
+.d0:	dw SPFturnr,-12
+.d1:	dw SPFturnr+1,-12
+.d2:	dw SPFturnr+2,-12
+.d3:	dw SPFturnr+3,-12
+.d4:	dw SPFturnr+4,-12
+.d5:	dw SPFturnr+5,-12
+.d6:	dw SPFturnr+6,-12
+.d7:	dw SPFturnr+7,-12
 SPAstop:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 1
-.d0:	dw 145,4,146,-4
-.d1:	dw 147,4,148,-4
-.d2:	dw 149,4,150,-4
-.d3:	dw 151,4,152,-4
-.d4:	dw 153,4,154,-4
-.d5:	dw 155,4,156,-4
-.d6:	dw 157,4,158,-4
-.d7:	dw 159,4,160,-4
+.d0:	dw SPFstop,4,SPFstop+1,-4
+.d1:	dw SPFstop+2,4,SPFstop+3,-4
+.d2:	dw SPFstop+4,4,SPFstop+5,-4
+.d3:	dw SPFstop+6,4,SPFstop+7,-4
+.d4:	dw SPFstop+8,4,SPFstop+9,-4
+.d5:	dw SPFstop+10,4,SPFstop+11,-4
+.d6:	dw SPFstop+12,4,SPFstop+13,-4
+.d7:	dw SPFstop+14,4,SPFstop+15,-4
 SPApassf:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 100,4,101,4,102,-20
-.d1:	dw 106,4,107,4,108,-20
-.d2:	dw 112,4,113,4,114,-20
-.d3:	dw 118,4,119,4,120,-20
-.d4:	dw 124,4,125,4,126,-20
-.d5:	dw 130,4,131,4,132,-20
-.d6:	dw 136,4,137,4,138,-20
-.d7:	dw 142,4,143,4,144,-20
+.d0:	dw SPFswing+3,4,SPFswing+4,4,SPFswing+5,-20
+.d1:	dw SPFswing+9,4,SPFswing+10,4,SPFswing+11,-20
+.d2:	dw SPFswing+15,4,SPFswing+16,4,SPFswing+17,-20
+.d3:	dw SPFswing+21,4,SPFswing+22,4,SPFswing+23,-20
+.d4:	dw SPFswing+27,4,SPFswing+28,4,SPFswing+29,-20
+.d5:	dw SPFswing+33,4,SPFswing+34,4,SPFswing+35,-20
+.d6:	dw SPFswing+39,4,SPFswing+40,4,SPFswing+41,-20
+.d7:	dw SPFswing+45,4,SPFswing+46,4,SPFswing+47,-20
 SPApassb:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 100,4,99,4,98,-20
-.d1:	dw 106,4,105,4,104,-20
-.d2:	dw 112,4,111,4,110,-20
-.d3:	dw 118,4,117,4,116,-20
-.d4:	dw 124,4,123,4,122,-20
-.d5:	dw 130,4,129,4,128,-20
-.d6:	dw 136,4,135,4,134,-20
-.d7:	dw 142,4,141,4,140,-20
+.d0:	dw SPFswing+3,4,SPFswing+2,4,SPFswing+1,-20
+.d1:	dw SPFswing+9,4,SPFswing+8,4,SPFswing+7,-20
+.d2:	dw SPFswing+15,4,SPFswing+14,4,SPFswing+13,-20
+.d3:	dw SPFswing+21,4,SPFswing+20,4,SPFswing+19,-20
+.d4:	dw SPFswing+27,4,SPFswing+26,4,SPFswing+25,-20
+.d5:	dw SPFswing+33,4,SPFswing+32,4,SPFswing+31,-20
+.d6:	dw SPFswing+39,4,SPFswing+38,4,SPFswing+37,-20
+.d7:	dw SPFswing+45,4,SPFswing+44,4,SPFswing+43,-20
 SPAshotf:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 100,4,99,4,98,4,97,4,99,0,100,0,101,0,102,-20
-.d1:	dw 106,4,105,4,104,4,103,4,105,0,106,0,107,0,108,-20
-.d2:	dw 112,4,111,4,110,4,109,4,111,0,112,0,113,0,114,-20
-.d3:	dw 118,4,117,4,116,4,115,4,117,0,118,0,119,0,120,-20
-.d4:	dw 124,4,123,4,122,4,121,4,123,0,124,0,125,0,126,-20
-.d5:	dw 130,4,129,4,128,4,127,4,129,0,130,0,131,0,132,-20
-.d6:	dw 136,4,135,4,134,4,133,4,135,0,136,0,137,0,138,-20
-.d7:	dw 142,4,141,4,140,4,139,4,141,0,142,0,143,0,144,-20
+.d0:	dw SPFswing+3,4,SPFswing+2,4,SPFswing+1,4,SPFswing,4,SPFswing+2,0,SPFswing+3,0,SPFswing+4,0,SPFswing+5,-20
+.d1:	dw SPFswing+9,4,SPFswing+8,4,SPFswing+7,4,SPFswing+6,4,SPFswing+8,0,SPFswing+9,0,SPFswing+10,0,SPFswing+11,-20
+.d2:	dw SPFswing+15,4,SPFswing+14,4,SPFswing+13,4,SPFswing+12,4,SPFswing+14,0,SPFswing+15,0,SPFswing+16,0,SPFswing+17,-20
+.d3:	dw SPFswing+21,4,SPFswing+20,4,SPFswing+19,4,SPFswing+18,4,SPFswing+20,0,SPFswing+21,0,SPFswing+22,0,SPFswing+23,-20
+.d4:	dw SPFswing+27,4,SPFswing+26,4,SPFswing+25,4,SPFswing+24,4,SPFswing+26,0,SPFswing+27,0,SPFswing+28,0,SPFswing+29,-20
+.d5:	dw SPFswing+33,4,SPFswing+32,4,SPFswing+31,4,SPFswing+30,4,SPFswing+32,0,SPFswing+33,0,SPFswing+34,0,SPFswing+35,-20
+.d6:	dw SPFswing+39,4,SPFswing+38,4,SPFswing+37,4,SPFswing+36,4,SPFswing+38,0,SPFswing+39,0,SPFswing+40,0,SPFswing+41,-20
+.d7:	dw SPFswing+45,4,SPFswing+44,4,SPFswing+43,4,SPFswing+42,4,SPFswing+44,0,SPFswing+45,0,SPFswing+46,0,SPFswing+47,-20
 SPAshotb:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 100,4,101,4,102,4,102,4,101,0,100,0,99,0,98,-20
-.d1:	dw 106,4,107,4,108,4,108,4,107,0,106,0,105,0,104,-20
-.d2:	dw 112,4,113,4,114,4,114,4,113,0,112,0,111,0,110,-20
-.d3:	dw 118,4,119,4,120,4,120,4,119,0,118,0,117,0,116,-20
-.d4:	dw 124,4,125,4,126,4,126,4,125,0,124,0,123,0,122,-20
-.d5:	dw 130,4,131,4,132,4,132,4,131,0,130,0,129,0,128,-20
-.d6:	dw 136,4,137,4,138,4,138,4,137,0,136,0,135,0,134,-20
-.d7:	dw 142,4,143,4,144,4,144,4,143,0,142,0,141,0,140,-20
+.d0:	dw SPFswing+3,4,SPFswing+4,4,SPFswing+5,4,SPFswing+5,4,SPFswing+4,0,SPFswing+3,0,SPFswing+2,0,SPFswing+1,-20
+.d1:	dw SPFswing+9,4,SPFswing+10,4,SPFswing+11,4,SPFswing+11,4,SPFswing+10,0,SPFswing+9,0,SPFswing+8,0,SPFswing+7,-20
+.d2:	dw SPFswing+15,4,SPFswing+16,4,SPFswing+17,4,SPFswing+17,4,SPFswing+16,0,SPFswing+15,0,SPFswing+14,0,SPFswing+13,-20
+.d3:	dw SPFswing+21,4,SPFswing+22,4,SPFswing+23,4,SPFswing+23,4,SPFswing+22,0,SPFswing+21,0,SPFswing+20,0,SPFswing+19,-20
+.d4:	dw SPFswing+27,4,SPFswing+28,4,SPFswing+29,4,SPFswing+29,4,SPFswing+28,0,SPFswing+27,0,SPFswing+26,0,SPFswing+25,-20
+.d5:	dw SPFswing+33,4,SPFswing+34,4,SPFswing+35,4,SPFswing+35,4,SPFswing+34,0,SPFswing+33,0,SPFswing+32,0,SPFswing+31,-20
+.d6:	dw SPFswing+39,4,SPFswing+40,4,SPFswing+41,4,SPFswing+41,4,SPFswing+40,0,SPFswing+39,0,SPFswing+38,0,SPFswing+37,-20
+.d7:	dw SPFswing+45,4,SPFswing+46,4,SPFswing+47,4,SPFswing+47,4,SPFswing+46,0,SPFswing+45,0,SPFswing+44,0,SPFswing+43,-20
 SPAonetimerf:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 98,55,99,2,100,2,101,2,102,-20
-.d1:	dw 104,55,105,2,106,2,107,2,108,-20
-.d2:	dw 110,55,111,2,112,2,113,2,114,-20
-.d3:	dw 116,55,117,2,118,2,119,2,120,-20
-.d4:	dw 122,55,123,2,124,2,125,2,126,-20
-.d5:	dw 128,55,129,2,130,2,131,2,132,-20
-.d6:	dw 134,55,135,2,136,2,137,2,138,-20
-.d7:	dw 140,55,141,2,142,2,143,2,144,-20
+.d0:	dw SPFswing+1,55,SPFswing+2,2,SPFswing+3,2,SPFswing+4,2,SPFswing+5,-20
+.d1:	dw SPFswing+7,55,SPFswing+8,2,SPFswing+9,2,SPFswing+10,2,SPFswing+11,-20
+.d2:	dw SPFswing+13,55,SPFswing+14,2,SPFswing+15,2,SPFswing+16,2,SPFswing+17,-20
+.d3:	dw SPFswing+19,55,SPFswing+20,2,SPFswing+21,2,SPFswing+22,2,SPFswing+23,-20
+.d4:	dw SPFswing+25,55,SPFswing+26,2,SPFswing+27,2,SPFswing+28,2,SPFswing+29,-20
+.d5:	dw SPFswing+31,55,SPFswing+32,2,SPFswing+33,2,SPFswing+34,2,SPFswing+35,-20
+.d6:	dw SPFswing+37,55,SPFswing+38,2,SPFswing+39,2,SPFswing+40,2,SPFswing+41,-20
+.d7:	dw SPFswing+43,55,SPFswing+44,2,SPFswing+45,2,SPFswing+46,2,SPFswing+47,-20
 SPAonetimerb:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 102,55,101,2,100,2,99,2,98,-20
-.d1:	dw 108,55,107,2,106,2,105,2,104,-20
-.d2:	dw 114,55,113,2,112,2,111,2,110,-20
-.d3:	dw 120,55,119,2,118,2,117,2,116,-20
-.d4:	dw 126,55,125,2,124,2,123,2,122,-20
-.d5:	dw 132,55,131,2,130,2,129,2,128,-20
-.d6:	dw 138,55,137,2,136,2,135,2,134,-20
-.d7:	dw 144,55,143,2,142,2,141,2,140,-20
+.d0:	dw SPFswing+5,55,SPFswing+4,2,SPFswing+3,2,SPFswing+2,2,SPFswing+1,-20
+.d1:	dw SPFswing+11,55,SPFswing+10,2,SPFswing+9,2,SPFswing+8,2,SPFswing+7,-20
+.d2:	dw SPFswing+17,55,SPFswing+16,2,SPFswing+15,2,SPFswing+14,2,SPFswing+13,-20
+.d3:	dw SPFswing+23,55,SPFswing+22,2,SPFswing+21,2,SPFswing+20,2,SPFswing+19,-20
+.d4:	dw SPFswing+29,55,SPFswing+28,2,SPFswing+27,2,SPFswing+26,2,SPFswing+25,-20
+.d5:	dw SPFswing+35,55,SPFswing+34,2,SPFswing+33,2,SPFswing+32,2,SPFswing+31,-20
+.d6:	dw SPFswing+41,55,SPFswing+40,2,SPFswing+39,2,SPFswing+38,2,SPFswing+37,-20
+.d7:	dw SPFswing+47,55,SPFswing+46,2,SPFswing+45,2,SPFswing+44,2,SPFswing+43,-20
 SPAglideback:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 161,-8
-.d1:	dw 164,-8
-.d2:	dw 167,-8
-.d3:	dw 170,-8
-.d4:	dw 173,-8
-.d5:	dw 176,-8
-.d6:	dw 179,-8
-.d7:	dw 182,-8
+.d0:	dw SPFskateb,-8
+.d1:	dw SPFskateb+3,-8
+.d2:	dw SPFskateb+6,-8
+.d3:	dw SPFskateb+9,-8
+.d4:	dw SPFskateb+12,-8
+.d5:	dw SPFskateb+15,-8
+.d6:	dw SPFskateb+18,-8
+.d7:	dw SPFskateb+21,-8
 SPAskateback:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 161,8,162,8,161,8,163,-8
-.d1:	dw 164,8,165,8,164,8,166,-8
-.d2:	dw 167,8,168,8,167,8,169,-8
-.d3:	dw 170,8,171,8,170,8,172,-8
-.d4:	dw 173,8,174,8,173,8,175,-8
-.d5:	dw 176,8,177,8,176,8,178,-8
-.d6:	dw 179,8,180,8,179,8,181,-8
-.d7:	dw 182,8,183,8,182,8,184,-8
+.d0:	dw SPFskateb,8,SPFskateb+1,8,SPFskateb,8,SPFskateb+2,-8
+.d1:	dw SPFskateb+3,8,SPFskateb+4,8,SPFskateb+3,8,SPFskateb+5,-8
+.d2:	dw SPFskateb+6,8,SPFskateb+7,8,SPFskateb+6,8,SPFskateb+8,-8
+.d3:	dw SPFskateb+9,8,SPFskateb+10,8,SPFskateb+9,8,SPFskateb+11,-8
+.d4:	dw SPFskateb+12,8,SPFskateb+13,8,SPFskateb+12,8,SPFskateb+14,-8
+.d5:	dw SPFskateb+15,8,SPFskateb+16,8,SPFskateb+15,8,SPFskateb+17,-8
+.d6:	dw SPFskateb+18,8,SPFskateb+19,8,SPFskateb+18,8,SPFskateb+20,-8
+.d7:	dw SPFskateb+21,8,SPFskateb+22,8,SPFskateb+21,8,SPFskateb+23,-8
 SPAcrosscheck:		; checkcheck: the check straight ahead, away from the crease (94G SPAcrosscheck)
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 518,1,519,10,518,-8
-.d1:	dw 520,1,521,10,520,-8
-.d2:	dw 522,1,523,10,522,-8
-.d3:	dw 524,1,525,10,524,-8
-.d4:	dw 526,1,527,10,526,-8
-.d5:	dw 528,1,529,10,528,-8
-.d6:	dw 530,1,531,10,530,-8
-.d7:	dw 532,1,533,10,532,-8
+.d0:	dw SPFcrosscheck,1,SPFcrosscheck+1,10,SPFcrosscheck,-8
+.d1:	dw SPFcrosscheck+2,1,SPFcrosscheck+3,10,SPFcrosscheck+2,-8
+.d2:	dw SPFcrosscheck+4,1,SPFcrosscheck+5,10,SPFcrosscheck+4,-8
+.d3:	dw SPFcrosscheck+6,1,SPFcrosscheck+7,10,SPFcrosscheck+6,-8
+.d4:	dw SPFcrosscheck+8,1,SPFcrosscheck+9,10,SPFcrosscheck+8,-8
+.d5:	dw SPFcrosscheck+10,1,SPFcrosscheck+11,10,SPFcrosscheck+10,-8
+.d6:	dw SPFcrosscheck+12,1,SPFcrosscheck+13,10,SPFcrosscheck+12,-8
+.d7:	dw SPFcrosscheck+14,1,SPFcrosscheck+15,10,SPFcrosscheck+14,-8
 SPAsweepchk:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 265,4,266,8,265,-4
-.d1:	dw 267,4,268,8,267,-4
-.d2:	dw 269,4,270,8,269,-4
-.d3:	dw 271,4,272,8,271,-4
-.d4:	dw 273,4,274,8,273,-4
-.d5:	dw 275,4,276,8,275,-4
-.d6:	dw 277,4,278,8,277,-4
-.d7:	dw 279,4,280,8,279,-4
+.d0:	dw SPFsweep,4,SPFsweep+1,8,SPFsweep,-4
+.d1:	dw SPFsweep+2,4,SPFsweep+3,8,SPFsweep+2,-4
+.d2:	dw SPFsweep+4,4,SPFsweep+5,8,SPFsweep+4,-4
+.d3:	dw SPFsweep+6,4,SPFsweep+7,8,SPFsweep+6,-4
+.d4:	dw SPFsweep+8,4,SPFsweep+9,8,SPFsweep+8,-4
+.d5:	dw SPFsweep+10,4,SPFsweep+11,8,SPFsweep+10,-4
+.d6:	dw SPFsweep+12,4,SPFsweep+13,8,SPFsweep+12,-4
+.d7:	dw SPFsweep+14,4,SPFsweep+15,8,SPFsweep+14,-4
 SPAshoulderchkl:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 249,-24
-.d1:	dw 250,-24
-.d2:	dw 251,-24
-.d3:	dw 252,-24
-.d4:	dw 253,-24
-.d5:	dw 254,-24
-.d6:	dw 255,-24
-.d7:	dw 256,-24
+.d0:	dw SPFshoulderl,-24
+.d1:	dw SPFshoulderl+1,-24
+.d2:	dw SPFshoulderl+2,-24
+.d3:	dw SPFshoulderl+3,-24
+.d4:	dw SPFshoulderl+4,-24
+.d5:	dw SPFshoulderl+5,-24
+.d6:	dw SPFshoulderl+6,-24
+.d7:	dw SPFshoulderl+7,-24
 SPAshoulderchkr:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 257,-24
-.d1:	dw 258,-24
-.d2:	dw 259,-24
-.d3:	dw 260,-24
-.d4:	dw 261,-24
-.d5:	dw 262,-24
-.d6:	dw 263,-24
-.d7:	dw 264,-24
+.d0:	dw SPFshoulderr,-24
+.d1:	dw SPFshoulderr+1,-24
+.d2:	dw SPFshoulderr+2,-24
+.d3:	dw SPFshoulderr+3,-24
+.d4:	dw SPFshoulderr+4,-24
+.d5:	dw SPFshoulderr+5,-24
+.d6:	dw SPFshoulderr+6,-24
+.d7:	dw SPFshoulderr+7,-24
 SPAhipchkl:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 233,-24
-.d1:	dw 234,-24
-.d2:	dw 235,-24
-.d3:	dw 236,-24
-.d4:	dw 237,-24
-.d5:	dw 238,-24
-.d6:	dw 239,-24
-.d7:	dw 240,-24
+.d0:	dw SPFhipl,-24
+.d1:	dw SPFhipl+1,-24
+.d2:	dw SPFhipl+2,-24
+.d3:	dw SPFhipl+3,-24
+.d4:	dw SPFhipl+4,-24
+.d5:	dw SPFhipl+5,-24
+.d6:	dw SPFhipl+6,-24
+.d7:	dw SPFhipl+7,-24
 SPAhipchkr:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 241,-24
-.d1:	dw 242,-24
-.d2:	dw 243,-24
-.d3:	dw 244,-24
-.d4:	dw 245,-24
-.d5:	dw 246,-24
-.d6:	dw 247,-24
-.d7:	dw 248,-24
+.d0:	dw SPFhipr,-24
+.d1:	dw SPFhipr+1,-24
+.d2:	dw SPFhipr+2,-24
+.d3:	dw SPFhipr+3,-24
+.d4:	dw SPFhipr+4,-24
+.d5:	dw SPFhipr+5,-24
+.d6:	dw SPFhipr+6,-24
+.d7:	dw SPFhipr+7,-24
 SPAburst:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 41,-24
-.d1:	dw 46,-24
-.d2:	dw 51,-24
-.d3:	dw 56,-24
-.d4:	dw 61,-24
-.d5:	dw 66,-24
-.d6:	dw 71,-24
-.d7:	dw 76,-24
+.d0:	dw SPFskate,-24
+.d1:	dw SPFskate+5,-24
+.d2:	dw SPFskate+10,-24
+.d3:	dw SPFskate+15,-24
+.d4:	dw SPFskate+20,-24
+.d5:	dw SPFskate+25,-24
+.d6:	dw SPFskate+30,-24
+.d7:	dw SPFskate+35,-24
 SPAHold:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 353,-30
-.d1:	dw 354,-30
-.d2:	dw 355,-30
-.d3:	dw 356,-30
-.d4:	dw 357,-30
-.d5:	dw 358,-30
-.d6:	dw 359,-30
-.d7:	dw 360,-30
+.d0:	dw SPFhold,-30
+.d1:	dw SPFhold+1,-30
+.d2:	dw SPFhold+2,-30
+.d3:	dw SPFhold+3,-30
+.d4:	dw SPFhold+4,-30
+.d5:	dw SPFhold+5,-30
+.d6:	dw SPFhold+6,-30
+.d7:	dw SPFhold+7,-30
 SPAHold2:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 353,-72
-.d1:	dw 354,-72
-.d2:	dw 355,-72
-.d3:	dw 356,-72
-.d4:	dw 357,-72
-.d5:	dw 358,-72
-.d6:	dw 359,-72
-.d7:	dw 360,-72
+.d0:	dw SPFhold,-72
+.d1:	dw SPFhold+1,-72
+.d2:	dw SPFhold+2,-72
+.d3:	dw SPFhold+3,-72
+.d4:	dw SPFhold+4,-72
+.d5:	dw SPFhold+5,-72
+.d6:	dw SPFhold+6,-72
+.d7:	dw SPFhold+7,-72
 SPAhook2:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 481,18,482,18,481,18,482,-18
-.d1:	dw 483,18,484,18,483,18,484,-18
-.d2:	dw 485,18,486,18,485,18,486,-18
-.d3:	dw 487,18,488,18,487,18,488,-18
-.d4:	dw 489,18,490,18,489,18,490,-18
-.d5:	dw 491,18,492,18,491,18,492,-18
-.d6:	dw 493,18,494,18,493,18,494,-18
-.d7:	dw 495,18,496,18,495,18,496,-18
+.d0:	dw SPFhook,18,SPFhook+1,18,SPFhook,18,SPFhook+1,-18
+.d1:	dw SPFhook+2,18,SPFhook+3,18,SPFhook+2,18,SPFhook+3,-18
+.d2:	dw SPFhook+4,18,SPFhook+5,18,SPFhook+4,18,SPFhook+5,-18
+.d3:	dw SPFhook+6,18,SPFhook+7,18,SPFhook+6,18,SPFhook+7,-18
+.d4:	dw SPFhook+8,18,SPFhook+9,18,SPFhook+8,18,SPFhook+9,-18
+.d5:	dw SPFhook+10,18,SPFhook+11,18,SPFhook+10,18,SPFhook+11,-18
+.d6:	dw SPFhook+12,18,SPFhook+13,18,SPFhook+12,18,SPFhook+13,-18
+.d7:	dw SPFhook+14,18,SPFhook+15,18,SPFhook+14,18,SPFhook+15,-18
 SPAflail:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 41,-90
-.d1:	dw 46,-90
-.d2:	dw 51,-90
-.d3:	dw 56,-90
-.d4:	dw 61,-90
-.d5:	dw 66,-90
-.d6:	dw 71,-90
-.d7:	dw 76,-90
+.d0:	dw SPFskate,-90
+.d1:	dw SPFskate+5,-90
+.d2:	dw SPFskate+10,-90
+.d3:	dw SPFskate+15,-90
+.d4:	dw SPFskate+20,-90
+.d5:	dw SPFskate+25,-90
+.d6:	dw SPFskate+30,-90
+.d7:	dw SPFskate+35,-90
 SPAfallfwd:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 313,6,314,6,315,100,316,8,345,-8
-.d1:	dw 317,6,318,6,319,100,320,8,346,-8
-.d2:	dw 321,6,322,6,323,100,324,8,347,-8
-.d3:	dw 325,6,326,6,327,100,328,8,348,-8
-.d4:	dw 329,6,330,6,331,100,332,8,349,-8
-.d5:	dw 333,6,334,6,335,100,336,8,350,-8
-.d6:	dw 337,6,338,6,339,100,340,8,351,-8
-.d7:	dw 341,6,342,6,343,100,344,8,352,-8
+.d0:	dw SPFfallfwd,6,SPFfallfwd+1,6,SPFfallfwd+2,100,SPFfallfwd+3,8,SPFduck,-8
+.d1:	dw SPFfallfwd+4,6,SPFfallfwd+5,6,SPFfallfwd+6,100,SPFfallfwd+7,8,SPFduck+1,-8
+.d2:	dw SPFfallfwd+8,6,SPFfallfwd+9,6,SPFfallfwd+10,100,SPFfallfwd+11,8,SPFduck+2,-8
+.d3:	dw SPFfallfwd+12,6,SPFfallfwd+13,6,SPFfallfwd+14,100,SPFfallfwd+15,8,SPFduck+3,-8
+.d4:	dw SPFfallfwd+16,6,SPFfallfwd+17,6,SPFfallfwd+18,100,SPFfallfwd+19,8,SPFduck+4,-8
+.d5:	dw SPFfallfwd+20,6,SPFfallfwd+21,6,SPFfallfwd+22,100,SPFfallfwd+23,8,SPFduck+5,-8
+.d6:	dw SPFfallfwd+24,6,SPFfallfwd+25,6,SPFfallfwd+26,100,SPFfallfwd+27,8,SPFduck+6,-8
+.d7:	dw SPFfallfwd+28,6,SPFfallfwd+29,6,SPFfallfwd+30,100,SPFfallfwd+31,8,SPFduck+7,-8
 SPAfallback:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 281,6,282,6,283,100,284,8,345,-8
-.d1:	dw 285,6,286,6,287,100,288,8,346,-8
-.d2:	dw 289,6,290,6,291,100,292,8,347,-8
-.d3:	dw 293,6,294,6,295,100,296,8,348,-8
-.d4:	dw 297,6,298,6,299,100,300,8,349,-8
-.d5:	dw 301,6,302,6,303,100,304,8,350,-8
-.d6:	dw 305,6,306,6,307,100,308,8,351,-8
-.d7:	dw 309,6,310,6,311,100,312,8,352,-8
+.d0:	dw SPFfallback,6,SPFfallback+1,6,SPFfallback+2,100,SPFfallback+3,8,SPFduck,-8
+.d1:	dw SPFfallback+4,6,SPFfallback+5,6,SPFfallback+6,100,SPFfallback+7,8,SPFduck+1,-8
+.d2:	dw SPFfallback+8,6,SPFfallback+9,6,SPFfallback+10,100,SPFfallback+11,8,SPFduck+2,-8
+.d3:	dw SPFfallback+12,6,SPFfallback+13,6,SPFfallback+14,100,SPFfallback+15,8,SPFduck+3,-8
+.d4:	dw SPFfallback+16,6,SPFfallback+17,6,SPFfallback+18,100,SPFfallback+19,8,SPFduck+4,-8
+.d5:	dw SPFfallback+20,6,SPFfallback+21,6,SPFfallback+22,100,SPFfallback+23,8,SPFduck+5,-8
+.d6:	dw SPFfallback+24,6,SPFfallback+25,6,SPFfallback+26,100,SPFfallback+27,8,SPFduck+6,-8
+.d7:	dw SPFfallback+28,6,SPFfallback+29,6,SPFfallback+30,100,SPFfallback+31,8,SPFduck+7,-8
 SPAfaceoff:
 	dw .d0,.d1,.d1,.d1,.d1,.d1,.d1,.d1
 	dw 0
-.d0:	dw 1,2,266,10,265,-6
-.d1:	dw 21,2,274,10,273,-6
+.d0:	dw SPFskatewp,2,SPFsweep+1,10,SPFsweep,-6
+.d1:	dw SPFskatewp+20,2,SPFsweep+9,10,SPFsweep+8,-6
 SPAfaceoffr:
 	dw .d0,.d1,.d1,.d1,.d1,.d1,.d1,.d1
 	dw 0
-.d0:	dw 1,-5
-.d1:	dw 21,-5
+.d0:	dw SPFskatewp,-5
+.d1:	dw SPFskatewp+20,-5
 SPAsiren:
 	dw .d0,.d0,.d0,.d0,.d0,.d0,.d0,.d0
 	dw 1
-.d0:	dw 409,3,410,3,411,3,412,3,413,3,414,3,415,3,416,3
-	dw 417,3,418,3,419,3,420,3,421,3,422,-3
+.d0:	dw SPFSiren,3,SPFSiren+1,3,SPFSiren+2,3,SPFSiren+3,3,SPFSiren+4,3,SPFSiren+5,3,SPFSiren+6,3,SPFSiren+7,3
+	dw SPFSiren+8,3,SPFSiren+9,3,SPFSiren+10,3,SPFSiren+11,3,SPFSiren+12,3,SPFSiren+13,-3
 SPAstanley:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 1
-.d0:	dw 217,-30
-.d1:	dw 218,-30
-.d2:	dw 219,-30
-.d3:	dw 220,-30
-.d4:	dw 221,-30
-.d5:	dw 222,-30
-.d6:	dw 223,-30
-.d7:	dw 224,-30
+.d0:	dw SPFcup,-30
+.d1:	dw SPFcup+1,-30
+.d2:	dw SPFcup+2,-30
+.d3:	dw SPFcup+3,-30
+.d4:	dw SPFcup+4,-30
+.d5:	dw SPFcup+5,-30
+.d6:	dw SPFcup+6,-30
+.d7:	dw SPFcup+7,-30
 SPAflip:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 449,6,450,6,451,6,452,6,283,100,284,8,345,-8
-.d1:	dw 449,6,450,6,451,6,452,6,287,100,288,8,346,-8
-.d2:	dw 449,6,450,6,451,6,452,6,291,100,292,8,347,-8
-.d3:	dw 453,6,454,6,455,6,456,6,295,100,296,8,348,-8
-.d4:	dw 453,6,454,6,455,6,456,6,299,100,300,8,349,-8
-.d5:	dw 453,6,454,6,455,6,456,6,303,100,304,8,350,-8
-.d6:	dw 453,6,454,6,455,6,456,6,307,100,308,8,351,-8
-.d7:	dw 449,6,450,6,451,6,452,6,311,100,312,8,352,-8
+.d0:	dw SPFflip,6,SPFflip+1,6,SPFflip+2,6,SPFflip+3,6,SPFfallback+2,100,SPFfallback+3,8,SPFduck,-8
+.d1:	dw SPFflip,6,SPFflip+1,6,SPFflip+2,6,SPFflip+3,6,SPFfallback+6,100,SPFfallback+7,8,SPFduck+1,-8
+.d2:	dw SPFflip,6,SPFflip+1,6,SPFflip+2,6,SPFflip+3,6,SPFfallback+10,100,SPFfallback+11,8,SPFduck+2,-8
+.d3:	dw SPFflip+4,6,SPFflip+5,6,SPFflip+6,6,SPFflip+7,6,SPFfallback+14,100,SPFfallback+15,8,SPFduck+3,-8
+.d4:	dw SPFflip+4,6,SPFflip+5,6,SPFflip+6,6,SPFflip+7,6,SPFfallback+18,100,SPFfallback+19,8,SPFduck+4,-8
+.d5:	dw SPFflip+4,6,SPFflip+5,6,SPFflip+6,6,SPFflip+7,6,SPFfallback+22,100,SPFfallback+23,8,SPFduck+5,-8
+.d6:	dw SPFflip+4,6,SPFflip+5,6,SPFflip+6,6,SPFflip+7,6,SPFfallback+26,100,SPFfallback+27,8,SPFduck+6,-8
+.d7:	dw SPFflip,6,SPFflip+1,6,SPFflip+2,6,SPFflip+3,6,SPFfallback+30,100,SPFfallback+31,8,SPFduck+7,-8
 SPAstumble:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 457,6,458,6,459,8,458,6,457,-6
-.d1:	dw 460,6,461,6,462,8,461,6,460,-6
-.d2:	dw 463,6,464,6,465,8,464,6,463,-6
-.d3:	dw 466,6,467,6,468,8,467,6,466,-6
-.d4:	dw 469,6,470,6,471,8,470,6,469,-6
-.d5:	dw 472,6,473,6,474,8,473,6,472,-6
-.d6:	dw 475,6,476,6,477,8,476,6,475,-6
-.d7:	dw 478,6,479,6,480,8,479,6,478,-6
+.d0:	dw SPFstumble,6,SPFstumble+1,6,SPFstumble+2,8,SPFstumble+1,6,SPFstumble,-6
+.d1:	dw SPFstumble+3,6,SPFstumble+4,6,SPFstumble+5,8,SPFstumble+4,6,SPFstumble+3,-6
+.d2:	dw SPFstumble+6,6,SPFstumble+7,6,SPFstumble+8,8,SPFstumble+7,6,SPFstumble+6,-6
+.d3:	dw SPFstumble+9,6,SPFstumble+10,6,SPFstumble+11,8,SPFstumble+10,6,SPFstumble+9,-6
+.d4:	dw SPFstumble+12,6,SPFstumble+13,6,SPFstumble+14,8,SPFstumble+13,6,SPFstumble+12,-6
+.d5:	dw SPFstumble+15,6,SPFstumble+16,6,SPFstumble+17,8,SPFstumble+16,6,SPFstumble+15,-6
+.d6:	dw SPFstumble+18,6,SPFstumble+19,6,SPFstumble+20,8,SPFstumble+19,6,SPFstumble+18,-6
+.d7:	dw SPFstumble+21,6,SPFstumble+22,6,SPFstumble+23,8,SPFstumble+22,6,SPFstumble+21,-6
 SPAhook:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 481,-30
-.d1:	dw 483,-30
-.d2:	dw 485,-30
-.d3:	dw 487,-30
-.d4:	dw 489,-30
-.d5:	dw 491,-30
-.d6:	dw 493,-30
-.d7:	dw 495,-30
+.d0:	dw SPFhook,-30
+.d1:	dw SPFhook+2,-30
+.d2:	dw SPFhook+4,-30
+.d3:	dw SPFhook+6,-30
+.d4:	dw SPFhook+8,-30
+.d5:	dw SPFhook+10,-30
+.d6:	dw SPFhook+12,-30
+.d7:	dw SPFhook+14,-30
 SPAcatch:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 497,6,498,-6
-.d1:	dw 499,6,500,-6
-.d2:	dw 501,6,502,-6
-.d3:	dw 503,6,504,-6
-.d4:	dw 505,6,506,-6
-.d5:	dw 507,6,508,-6
-.d6:	dw 509,6,510,-6
-.d7:	dw 511,6,512,-6
+.d0:	dw SPFcatch,6,SPFcatch+1,-6
+.d1:	dw SPFcatch+2,6,SPFcatch+3,-6
+.d2:	dw SPFcatch+4,6,SPFcatch+5,-6
+.d3:	dw SPFcatch+6,6,SPFcatch+7,-6
+.d4:	dw SPFcatch+8,6,SPFcatch+9,-6
+.d5:	dw SPFcatch+10,6,SPFcatch+11,-6
+.d6:	dw SPFcatch+12,6,SPFcatch+13,-6
+.d7:	dw SPFcatch+14,6,SPFcatch+15,-6
 SPAbglass:
 	dw .d0,.d0,.d0,.d0,.d0,.d0,.d0,.d0
 	dw 0
-.d0:	dw 513,8,514,8,515,8,516,8,517,-1000
+.d0:	dw SPFbglass,8,SPFbglass+1,8,SPFbglass+2,8,SPFbglass+3,8,SPFbglass+4,-1000
 SPAinjury1:
 	dw .d0,.d0,.d0,.d3,.d3,.d3,.d3,.d0
 	dw 0
-.d0:	dw 281,20,282,20,283,1000,283,-1000
-.d3:	dw 297,20,298,20,299,1000,299,-1000
+.d0:	dw SPFfallback,20,SPFfallback+1,20,SPFfallback+2,1000,SPFfallback+2,-1000
+.d3:	dw SPFfallback+16,20,SPFfallback+17,20,SPFfallback+18,1000,SPFfallback+18,-1000
 SPAcelebrate:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 201,5,185,6,186,6,185,12,186,40,185,-5
-.d1:	dw 203,5,187,6,188,6,187,12,188,40,187,-5
-.d2:	dw 205,5,189,6,190,6,189,12,190,40,189,-5
-.d3:	dw 207,5,191,6,192,6,191,12,192,40,191,-5
-.d4:	dw 209,5,193,6,194,6,193,12,194,40,193,-5
-.d5:	dw 211,5,195,6,196,6,195,12,196,40,195,-5
-.d6:	dw 213,5,197,6,198,6,197,12,198,40,197,-5
-.d7:	dw 215,5,199,6,200,6,199,12,200,40,199,-5
+.d0:	dw SPFpump,5,SPFcelebrate,6,SPFcelebrate+1,6,SPFcelebrate,12,SPFcelebrate+1,40,SPFcelebrate,-5
+.d1:	dw SPFpump+2,5,SPFcelebrate+2,6,SPFcelebrate+3,6,SPFcelebrate+2,12,SPFcelebrate+3,40,SPFcelebrate+2,-5
+.d2:	dw SPFpump+4,5,SPFcelebrate+4,6,SPFcelebrate+5,6,SPFcelebrate+4,12,SPFcelebrate+5,40,SPFcelebrate+4,-5
+.d3:	dw SPFpump+6,5,SPFcelebrate+6,6,SPFcelebrate+7,6,SPFcelebrate+6,12,SPFcelebrate+7,40,SPFcelebrate+6,-5
+.d4:	dw SPFpump+8,5,SPFcelebrate+8,6,SPFcelebrate+9,6,SPFcelebrate+8,12,SPFcelebrate+9,40,SPFcelebrate+8,-5
+.d5:	dw SPFpump+10,5,SPFcelebrate+10,6,SPFcelebrate+11,6,SPFcelebrate+10,12,SPFcelebrate+11,40,SPFcelebrate+10,-5
+.d6:	dw SPFpump+12,5,SPFcelebrate+12,6,SPFcelebrate+13,6,SPFcelebrate+12,12,SPFcelebrate+13,40,SPFcelebrate+12,-5
+.d7:	dw SPFpump+14,5,SPFcelebrate+14,6,SPFcelebrate+15,6,SPFcelebrate+14,12,SPFcelebrate+15,40,SPFcelebrate+14,-5
 SPApump:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 201,8,202,8,201,-8
-.d1:	dw 203,8,204,8,203,-8
-.d2:	dw 205,8,206,8,205,-8
-.d3:	dw 207,8,208,8,207,-8
-.d4:	dw 209,8,210,8,209,-8
-.d5:	dw 211,8,212,8,211,-8
-.d6:	dw 213,8,214,8,213,-8
-.d7:	dw 215,8,216,8,215,-8
+.d0:	dw SPFpump,8,SPFpump+1,8,SPFpump,-8
+.d1:	dw SPFpump+2,8,SPFpump+3,8,SPFpump+2,-8
+.d2:	dw SPFpump+4,8,SPFpump+5,8,SPFpump+4,-8
+.d3:	dw SPFpump+6,8,SPFpump+7,8,SPFpump+6,-8
+.d4:	dw SPFpump+8,8,SPFpump+9,8,SPFpump+8,-8
+.d5:	dw SPFpump+10,8,SPFpump+11,8,SPFpump+10,-8
+.d6:	dw SPFpump+12,8,SPFpump+13,8,SPFpump+12,-8
+.d7:	dw SPFpump+14,8,SPFpump+15,8,SPFpump+14,-8
 SPApump2:
 	dw .d0,.d1,.d2,.d3,.d4,.d5,.d6,.d7
 	dw 0
-.d0:	dw 185,5,186,15,790,10,791,5,792,5,793,5,790,5,791,5
-	dw 792,5,793,5,186,5,185,5,1,1,1,1,1,-3
-.d1:	dw 187,5,188,20,794,5,795,15,796,10,795,10,796,10,795,10
-	dw 796,5,797,20,6,1,6,1,6,1,6,1,6,-1
-.d2:	dw 189,5,190,20,798,5,799,5,800,5,801,10,800,5,801,10
-	dw 800,10,11,1,11,1,11,1,11,1,11,1,11,-1
-.d3:	dw 191,5,192,20,802,5,803,5,804,5,805,10,804,5,805,10
-	dw 804,10,16,1,16,1,16,1,16,1,16,1,16,-1
-.d4:	dw 193,5,194,15,806,10,807,5,808,5,809,5,806,5,807,5
-	dw 808,5,809,5,194,5,193,5,21,1,21,1,21,-3
-.d5:	dw 195,5,196,20,810,5,811,10,812,10,811,10,810,5,195,5
-	dw 26,1,26,1,26,1,26,1,26,1,26,1,26,-1
-.d6:	dw 197,5,198,20,197,5,813,5,814,10,815,5,816,5,814,5
-	dw 815,5,816,5,814,5,815,5,816,5,813,5,31,-5
-.d7:	dw 215,5,199,5,200,15,199,5,817,5,818,15,819,5,820,5
-	dw 818,10,817,5,215,5,36,1,36,1,36,1,36,-2
+.d0:	dw SPFcelebrate,5,SPFcelebrate+1,15,SPFpump2,10,SPFpump2+1,5,SPFpump2+2,5,SPFpump2+3,5,SPFpump2,5,SPFpump2+1,5
+	dw SPFpump2+2,5,SPFpump2+3,5,SPFcelebrate+1,5,SPFcelebrate,5,SPFskatewp,1,SPFskatewp,1,SPFskatewp,-3
+.d1:	dw SPFcelebrate+2,5,SPFcelebrate+3,20,SPFpump2+4,5,SPFpump2+5,15,SPFpump2+6,10,SPFpump2+5,10,SPFpump2+6,10,SPFpump2+5,10
+	dw SPFpump2+6,5,SPFpump2+7,20,SPFskatewp+5,1,SPFskatewp+5,1,SPFskatewp+5,1,SPFskatewp+5,1,SPFskatewp+5,-1
+.d2:	dw SPFcelebrate+4,5,SPFcelebrate+5,20,SPFpump2+8,5,SPFpump2+9,5,SPFpump2+10,5,SPFpump2+11,10,SPFpump2+10,5,SPFpump2+11,10
+	dw SPFpump2+10,10,SPFskatewp+10,1,SPFskatewp+10,1,SPFskatewp+10,1,SPFskatewp+10,1,SPFskatewp+10,1,SPFskatewp+10,-1
+.d3:	dw SPFcelebrate+6,5,SPFcelebrate+7,20,SPFpump2+12,5,SPFpump2+13,5,SPFpump2+14,5,SPFpump2+15,10,SPFpump2+14,5,SPFpump2+15,10
+	dw SPFpump2+14,10,SPFskatewp+15,1,SPFskatewp+15,1,SPFskatewp+15,1,SPFskatewp+15,1,SPFskatewp+15,1,SPFskatewp+15,-1
+.d4:	dw SPFcelebrate+8,5,SPFcelebrate+9,15,SPFpump2+16,10,SPFpump2+17,5,SPFpump2+18,5,SPFpump2+19,5,SPFpump2+16,5,SPFpump2+17,5
+	dw SPFpump2+18,5,SPFpump2+19,5,SPFcelebrate+9,5,SPFcelebrate+8,5,SPFskatewp+20,1,SPFskatewp+20,1,SPFskatewp+20,-3
+.d5:	dw SPFcelebrate+10,5,SPFcelebrate+11,20,SPFpump2+20,5,SPFpump2+21,10,SPFpump2+22,10,SPFpump2+21,10,SPFpump2+20,5,SPFcelebrate+10,5
+	dw SPFskatewp+25,1,SPFskatewp+25,1,SPFskatewp+25,1,SPFskatewp+25,1,SPFskatewp+25,1,SPFskatewp+25,1,SPFskatewp+25,-1
+.d6:	dw SPFcelebrate+12,5,SPFcelebrate+13,20,SPFcelebrate+12,5,SPFpump2+23,5,SPFpump2+24,10,SPFpump2+25,5,SPFpump2+26,5,SPFpump2+24,5
+	dw SPFpump2+25,5,SPFpump2+26,5,SPFpump2+24,5,SPFpump2+25,5,SPFpump2+26,5,SPFpump2+23,5,SPFskatewp+30,-5
+.d7:	dw SPFpump+14,5,SPFcelebrate+14,5,SPFcelebrate+15,15,SPFcelebrate+14,5,SPFpump2+27,5,SPFpump2+28,15,SPFpump2+29,5,SPFpump2+30,5
+	dw SPFpump2+28,10,SPFpump2+27,5,SPFpump+14,5,SPFskatewp+35,1,SPFskatewp+35,1,SPFskatewp+35,1,SPFskatewp+35,-2
 SPAboardfront:
 	dw .d0,.d0,.d2,.d2,.d4,.d4,.d6,.d6
 	dw 0
-.d0:	dw 832,6,833,6,834,6,835,75,332,-6
-.d2:	dw 836,6,837,6,838,6,839,75,324,-6
-.d4:	dw 840,6,841,6,842,6,843,75,332,-6
-.d6:	dw 844,6,845,6,846,6,847,75,340,-6
+.d0:	dw SPFboardfront,6,SPFboardfront+1,6,SPFboardfront+2,6,SPFboardfront+3,75,SPFfallfwd+19,-6
+.d2:	dw SPFboardfront+4,6,SPFboardfront+5,6,SPFboardfront+6,6,SPFboardfront+7,75,SPFfallfwd+11,-6
+.d4:	dw SPFboardfront+8,6,SPFboardfront+9,6,SPFboardfront+10,6,SPFboardfront+11,75,SPFfallfwd+19,-6
+.d6:	dw SPFboardfront+12,6,SPFboardfront+13,6,SPFboardfront+14,6,SPFboardfront+15,75,SPFfallfwd+27,-6
 SPAboardback:
 	dw .d0,.d0,.d2,.d2,.d4,.d4,.d6,.d6
 	dw 0
-.d0:	dw 864,6,865,6,866,6,867,75,316,-6
-.d2:	dw 868,6,869,6,870,6,871,75,292,-6
-.d4:	dw 872,6,873,6,874,6,875,75,332,-6
-.d6:	dw 876,6,877,6,878,6,879,75,308,-6
+.d0:	dw SPFboardback,6,SPFboardback+1,6,SPFboardback+2,6,SPFboardback+3,75,SPFfallfwd+3,-6
+.d2:	dw SPFboardback+4,6,SPFboardback+5,6,SPFboardback+6,6,SPFboardback+7,75,SPFfallback+11,-6
+.d4:	dw SPFboardback+8,6,SPFboardback+9,6,SPFboardback+10,6,SPFboardback+11,75,SPFfallfwd+19,-6
+.d6:	dw SPFboardback+12,6,SPFboardback+13,6,SPFboardback+14,6,SPFboardback+15,75,SPFfallback+27,-6
 SPAboardright:
 	dw .d0,.d0,.d2,.d2,.d4,.d4,.d6,.d6
 	dw 0
-.d0:	dw 848,6,849,6,850,6,851,75,284,-6
-.d2:	dw 852,6,853,6,854,6,855,75,288,-6
-.d4:	dw 856,6,857,6,858,6,859,75,300,-6
-.d6:	dw 860,6,861,6,862,6,863,75,312,-6
+.d0:	dw SPFboardright,6,SPFboardright+1,6,SPFboardright+2,6,SPFboardright+3,75,SPFfallback+3,-6
+.d2:	dw SPFboardright+4,6,SPFboardright+5,6,SPFboardright+6,6,SPFboardright+7,75,SPFfallback+7,-6
+.d4:	dw SPFboardright+8,6,SPFboardright+9,6,SPFboardright+10,6,SPFboardright+11,75,SPFfallback+19,-6
+.d6:	dw SPFboardright+12,6,SPFboardright+13,6,SPFboardright+14,6,SPFboardright+15,75,SPFfallback+31,-6
 SPAboardleft:
 	dw .d0,.d0,.d2,.d2,.d4,.d4,.d6,.d6
 	dw 0
-.d0:	dw 880,6,881,6,882,6,883,75,316,-6
-.d2:	dw 884,6,885,6,886,6,887,75,288,-6
-.d4:	dw 888,6,889,6,890,6,891,75,332,-6
-.d6:	dw 892,6,893,6,894,6,895,75,336,-6
+.d0:	dw SPFboardleft,6,SPFboardleft+1,6,SPFboardleft+2,6,SPFboardleft+3,75,SPFfallfwd+3,-6
+.d2:	dw SPFboardleft+4,6,SPFboardleft+5,6,SPFboardleft+6,6,SPFboardleft+7,75,SPFfallback+7,-6
+.d4:	dw SPFboardleft+8,6,SPFboardleft+9,6,SPFboardleft+10,6,SPFboardleft+11,75,SPFfallfwd+19,-6
+.d6:	dw SPFboardleft+12,6,SPFboardleft+13,6,SPFboardleft+14,6,SPFboardleft+15,75,SPFfallfwd+23,-6
 SPAbenchcheckr:
 	dw .d0,.d0,.d2,.d2,.d4,.d4,.d6,.d6
 	dw 0
-.d0:	dw 896,10,897,10,900,10,900,90,916,-20
-.d2:	dw 901,10,902,10,905,10,905,90,916,-20
-.d4:	dw 906,10,907,10,910,10,910,90,916,-20
-.d6:	dw 911,10,912,10,915,10,915,90,916,-20
+.d0:	dw SPFbenchcheck,10,SPFbenchcheck+1,10,SPFbenchcheck+4,10,SPFbenchcheck+4,90,SPFbenchcheck+20,-20
+.d2:	dw SPFbenchcheck+5,10,SPFbenchcheck+6,10,SPFbenchcheck+9,10,SPFbenchcheck+9,90,SPFbenchcheck+20,-20
+.d4:	dw SPFbenchcheck+10,10,SPFbenchcheck+11,10,SPFbenchcheck+14,10,SPFbenchcheck+14,90,SPFbenchcheck+20,-20
+.d6:	dw SPFbenchcheck+15,10,SPFbenchcheck+16,10,SPFbenchcheck+19,10,SPFbenchcheck+19,90,SPFbenchcheck+20,-20
 SPAbenchcheckl:
 	dw .d0,.d0,.d2,.d2,.d4,.d4,.d6,.d6
 	dw 0
-.d0:	dw 898,10,899,10,900,10,900,90,916,-20
-.d2:	dw 903,10,904,10,905,10,905,90,916,-20
-.d4:	dw 908,10,909,10,910,10,910,90,916,-20
-.d6:	dw 913,10,914,10,915,10,915,90,916,-20
+.d0:	dw SPFbenchcheck+2,10,SPFbenchcheck+3,10,SPFbenchcheck+4,10,SPFbenchcheck+4,90,SPFbenchcheck+20,-20
+.d2:	dw SPFbenchcheck+7,10,SPFbenchcheck+8,10,SPFbenchcheck+9,10,SPFbenchcheck+9,90,SPFbenchcheck+20,-20
+.d4:	dw SPFbenchcheck+12,10,SPFbenchcheck+13,10,SPFbenchcheck+14,10,SPFbenchcheck+14,90,SPFbenchcheck+20,-20
+.d6:	dw SPFbenchcheck+17,10,SPFbenchcheck+18,10,SPFbenchcheck+19,10,SPFbenchcheck+19,90,SPFbenchcheck+20,-20
 SPAunused1:		; nothing sets it (updateanim only compares SPA with its address)
 	dw .d0,.d0,.d0,.d0,.d0,.d0,.d6,.d6
 	dw 0
-.d0:	dw 167,6,821,6,822,15,823,6,821,6,11,-6
-.d6:	dw 179,6,824,6,825,15,826,6,824,6,31,-6
+.d0:	dw SPFskateb+6,6,SPFunused,6,SPFunused+1,15,SPFunused+2,6,SPFunused,6,SPFskatewp+10,-6
+.d6:	dw SPFskateb+18,6,SPFunused+3,6,SPFunused+4,15,SPFunused+5,6,SPFunused+3,6,SPFskatewp+30,-6
 SPAunused2:		; nothing sets it
 	dw .d0,.d0,.d0,.d0,.d0,.d0,.d6,.d6
 	dw 0
-.d0:	dw 167,6,821,15,827,15,828,15,829,15,828,15,829,15,821,10
-	dw 170,-6
-.d6:	dw 179,6,824,15,830,15,831,15,830,15,831,15,824,10,179,-6
+.d0:	dw SPFskateb+6,6,SPFunused,15,SPFunused+6,15,SPFunused+7,15,SPFunused+8,15,SPFunused+7,15,SPFunused+8,15,SPFunused,10
+	dw SPFskateb+9,-6
+.d6:	dw SPFskateb+18,6,SPFunused+3,15,SPFunused+9,15,SPFunused+10,15,SPFunused+9,15,SPFunused+10,15,SPFunused+3,10,SPFskateb+18,-6
 SPAunused3:		; nothing sets it
 	dw .d0,.d0,.d0,.d0,.d0,.d0,.d0,.d0
 	dw 0
-.d0:	dw 173,-52
+.d0:	dw SPFskateb+12,-52
 	padbyte $FF
 	pad $9E8000

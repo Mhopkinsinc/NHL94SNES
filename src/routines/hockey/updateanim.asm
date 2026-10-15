@@ -97,7 +97,7 @@ updateanim:
 	sta.w SPAcnt,x
 .4:
 	lda.b d2
-	sta.w $0D97,x
+	sta.w frame,x
 .5:
 	ply
 	rtl

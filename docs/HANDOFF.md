@@ -158,7 +158,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - asstab entry $10 is `assbreakaway` (94G job, given by asspuckc on a breakaway); entry $14 is `assdumpin` (Y with the puck dumps it in; confirmed by the user).
 - The last `CODE_` labels became locals or names: `CODE_9FD459` is `.3`, `CODE_9FA1B7` is `USBoard_rtl`, and `CODE_9EB3C4` is a local of `chkprogress`.
 - `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
-- SpriteFrameN labels stay numbered until a frame has an SPF name.
+- Sprite frames are named by SPF group (15 Oct 2026). `src/ram94snes.asm` holds the 56 `SPF` equates (first frame of each group, frame numbers count from 1); frame `SPFgroup+n` is labelled `SpriteFrame_group_n` (`SpriteFrame_skate_0` is frame 41), and the offset table is `dd SpriteFrame_x_n-SpriteFrames`. The animations in `frames94s.asm` and the code that sets frames (assdopen, setsortcords, checkfo, showzam, setffo, setvideo, PlayerSelect, PrintTeamSprites, UpdateHatTrick, InitSortObjects, the puck code, puckgoalie) use the equates; DrawSprite takes the frame number - 1, so those sites are written `SPFx-1`. Groups SPFskatewp-SPFhold are the 93S groups frame for frame; 94S drops the fight frames (SPFgloves, SPFfight, SPFfinjury), adds `SPFcupover` (the cup that setsortcords draws over SPFcup in palette 0), and keeps the 93S order for SPFPen-SPFbglass (SPFPen has 9 frames: +7 / +8 are the box sitting frames). New groups, named after the animation or routine that uses them: gwall, crosscheck, gpoke, gcover, gbutterfly, gsprawll, gsprawlr, pump2, unused (only SPAunused1/2), the four board groups, benchcheck, bench, bigfont, hat, hatshadow. `frame` ($0D97) is the per-object frame number (93S name). `tools/spriteframes.py frames` still writes `SpriteFrameN` labels: rename its output if a bank is ever regenerated.
 - No auto label (`CODE_`, `DATA8_`) is left in the source (15 Oct 2026). Data with no reader takes an `Unused` name (`SampleUnused`, `SPAunused1`-`3`, `UnusedSineTable`, `UnusedSetupSpritePalette`).
 - `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. Phrases in `DATA8_9CF000` that are a title are named. Cursor-only records in that bank stay `DATA8_`.
 - `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `AttribRating` has no 94 counterpart, and the distance code uses `ApproxLength` (the larger part plus a share of the smaller), not a square root; `sroot` exists only for the crowd meter (`UpdateCrowdMeter`). `StreamSfx` (was CODE_9C9A7F) asks for one of six streamed sound effects; `UpdateStreamSfx` streams its sample to the sound CPU and plays it.
@@ -235,8 +235,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   are `asstab` (was DATA8_80D324) and `GameSampleList` (was DATA8_80DD16).
 - `tools/snesgfx.py blocks` finds 238 packed blocks in the ROM (204 Huffman, 28 LZ, 4 RLE, 2 pairs), each unpacking to
   the size in its header; the 51 that code loads directly (lda #bank / lda #address before Decompress) are all among them.
-- bank82_8000: SpriteFrames ($828000), the main sprite set: an offset table of 976 frames (dd, raw offsets until the
-  frames are source; then `dd SpriteFrameN-SpriteFrames` can replace them), then frames in order, contiguous, in the ROM halves
+- bank82_8000: SpriteFrames ($828000), the main sprite set: an offset table of 976 frames (`dd SpriteFrame_x_n-SpriteFrames`), then frames in order, contiguous, in the ROM halves
   of banks $82-$8E. Each bank's frames are a data asset (SpriteFramesXX.bin in tools/extract.py; bank $82: $828F40-$82FEA8);
   the source writes each frame's header and pieces and includes its tiles from the asset. Frames cross 4 KB edges, so segment
   edges move to frame boundaries (bank82_9000 starts at $82908B). `tools/spriteframes.py frames FROM TO` writes the source
@@ -277,7 +276,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Next: name the RAM variables (93S / 94G names where the use matches, else from behavior; the most used raw ones are $1DB9, $0EC3, $0EE3, $0D0D, $1003, $0D71, $19D4), the per-voice sound RAM ($0804-$0A09), the tile cache and allocator RAM of bank $80, and the 976 numbered `SpriteFrameN` frames (by the animations that use them). The State notes above are the layout log from the segment work; the auto names they cite are in `docs/name_map.csv` (auto_name column).
+- Next: name the RAM variables (93S / 94G names where the use matches, else from behavior; the most used raw ones are $1DB9, $0EC3, $0EE3, $0D0D, $1003, $0D71, $19D4), the per-voice sound RAM ($0804-$0A09), the tile cache and allocator RAM of bank $80. The State notes above are the layout log from the segment work; the auto names they cite are in `docs/name_map.csv` (auto_name column).
 
 ## Setup notes
 

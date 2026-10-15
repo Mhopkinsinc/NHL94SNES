@@ -35,11 +35,11 @@ RestoreReplayFrame:
 .2:
 	sta.w $0DB8,x
 	lda.w WMDATA
-	sta.w $0D97,x
+	sta.w frame,x
 	lda.w WMDATA
 	sta.b $14
 	and.b #$3F
-	sta.w $0D98,x
+	sta.w frame+1,x
 	lda.w $0E04,x
 	and.b #$E7
 	sta.w $0E04,x

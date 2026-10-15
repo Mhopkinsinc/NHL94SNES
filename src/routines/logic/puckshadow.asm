@@ -1,7 +1,7 @@
 ; Assignment: the puck shadow follows the puck
 puckshadow:
-	lda.w $0D97,x
-	cmp.w #$018C
+	lda.w frame,x
+	cmp.w #SPFpuck
 	bne .t2
 	lda.w $0D71
 	sta.w Xpos,x

@@ -71,9 +71,9 @@ puckgoalie:
 	eor.w #$0002
 	sta.b d2
 .4:
-	lda.w $0D97,y
+	lda.w frame,y
 	sec
-	sbc.w #$0296
+	sbc.w #SPFgdive		; goalie dive frames SPFgdive..+15
 	cmp.w #$0010
 	bcs .t2
 	lda.w $0DF9

@@ -138,8 +138,8 @@ puckfaceoff2:
 	stz.w $0D6F
 	lda.w #$FEF4
 	sta.w $0DD1
-	lda.w #$018C
-	sta.w $0DB5
+	lda.w #SPFpuck
+	sta.w frame+$1E
 	stz.w $11C1
 	stz.w $0E21
 	stz.w $0E1F
@@ -208,7 +208,7 @@ puckfaceoff2:
 	sta.w Xpos,x
 	stz.w Ypos,x
 	lda.w #$0001
-	sta.w $0D97,x
+	sta.w frame,x
 	lda.w position,x
 	sta.b d1
 	bpl .t1x

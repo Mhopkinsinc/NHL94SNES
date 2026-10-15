@@ -20,7 +20,7 @@ checkfo:
 	sta.w $0CD1
 	lda.l $7E312A,x
 	clc
-	adc.w #$01A6
+	adc.w #SPFfaceoff-1
 	sta.w $0CCD
 	lda.l $7E312C,x
 	and.w #$0800

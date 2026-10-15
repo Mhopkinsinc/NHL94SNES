@@ -308,7 +308,7 @@ org $9F9001
 	sta.w Xpos,x
 	stz.w Ypos,x
 	lda.w #$0001
-	sta.w $0D97,x
+	sta.w frame,x
 	inx
 	inx
 	cpx.w #$0018

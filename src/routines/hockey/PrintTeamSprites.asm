@@ -161,7 +161,7 @@ PrintTeamSprites_go:
 	phx
 	txa
 	clc
-	adc.w #$03A0
+	adc.w #SPFbigfont-1		; DrawSprite index (frame - 1) of the letter
 	sta.b $00
 	lda.l $7E3462
 	bne .t1xxxxx

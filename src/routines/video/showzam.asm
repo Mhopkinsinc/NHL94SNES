@@ -21,7 +21,7 @@ showzam:
 	sta.w $0CCF
 	lda.w #$00C8
 	sta.w $0CD1
-	lda.w #$01C0
+	lda.w #SPFzamboni
 	sta.w $0CCD
 	jsl.l addframe
 .rtl:

@@ -89,7 +89,7 @@ setffo:
 	and.w #$00FF
 	cmp.w #$00FF
 	beq .t1
-	adc.w #$01B0
+	adc.w #SPFsmallfont-1		; DrawSprite index (frame - 1) of the glyph
 	sta.b $00
 	ldx.b d0
 	ldy.b d1
@@ -119,5 +119,5 @@ setffo:
 
 .t1x:
 	rtl
-.7:
-	dw $0184,$0185,$0186,$0187,$0188,$0189,$018A
+.7:		; DrawSprite index (frame - 1) of each label
+	dw SPFpad-1,SPFpad+1-1,SPFpad+2-1,SPFpad+3-1,SPFpad+4-1,SPFpad+5-1,SPFreplay-1

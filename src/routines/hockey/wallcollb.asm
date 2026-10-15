@@ -63,7 +63,7 @@ wallcollb_out:
 	lda.w #$8000
 	tsb.w $0E1F
 .1:
-	stz.w $0DB5
+	stz.w frame+$1E
 	lda.w gmclock
 	bne .2
 	lda.l $7E30F6
