@@ -126,11 +126,11 @@ assbreakaway:
 	jsl.l vtoa
 	jsl.l Findhittype
 	beq .t1xxx
-	lda.w #DATA8_9DF020
+	lda.w #SPAonetimerb
 	bra .7
 
 .t1xxx:
-	lda.w #DATA8_9DEF6E
+	lda.w #SPAonetimerf
 .7:
 	jsl.l SetSPAFromA
 	jsl.l updateanim

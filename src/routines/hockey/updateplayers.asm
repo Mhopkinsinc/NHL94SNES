@@ -92,7 +92,7 @@ updateplayers:
 	jmp.w .11
 
 .t1x:
-	cmp.w #DATA8_9DFC76
+	cmp.w #SPAboardfront
 	bcc .t2x
 	jmp.w .11
 

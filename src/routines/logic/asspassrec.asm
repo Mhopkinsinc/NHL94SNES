@@ -68,9 +68,9 @@ asspassrec:
 	rtl
 .8:
 	lda.w SPA,x
-	cmp.w #DATA8_9DEF6E
+	cmp.w #SPAonetimerf
 	beq .10
-	cmp.w #DATA8_9DF020
+	cmp.w #SPAonetimerb
 	beq .10
 	phy
 	ldy.w #$0000
@@ -103,11 +103,11 @@ asspassrec:
 	jsl.l vtoa
 	jsl.l Findhittype
 	beq .t1xx
-	lda.w #DATA8_9DF020
+	lda.w #SPAonetimerb
 	bra .3x
 
 .t1xx:
-	lda.w #DATA8_9DEF6E
+	lda.w #SPAonetimerf
 .3x:
 	jsl.l SetSPAFromA
 	jmp.w .7

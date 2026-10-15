@@ -119,7 +119,7 @@ checkcoll:
 
 .t3:
 	lda.w SPA,x
-	cmp.w #DATA8_9DFC76
+	cmp.w #SPAboardfront
 	bcs .rtl
 	lda.w $0E43,x
 	sta.w Xpos,x

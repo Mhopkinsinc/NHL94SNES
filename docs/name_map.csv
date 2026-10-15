@@ -4596,9 +4596,9 @@ $9DEE5C,SPAshotb,DATA8_9DEE5C,93S,93S SPAshotb: same frames and times as 93S,src
 $9DF0D2,SPAglideback,DATA8_9DF0D2,93S,93S SPAglideback: same frames and times as 93S,src/data/frames94s.asm
 $9DF104,SPAskateback,DATA8_9DF104,93S,93S SPAskateback: same frames as 93S,src/data/frames94s.asm
 $9DF208,SPAsweepchk,DATA8_9DF208,93S,"93S SPAsweepchk: set as in 93S Sweepcheck, same times as 93S and 94G",src/data/frames94s.asm
-$9DF27A,SPAshoulderchkr,DATA8_9DF27A,93S,93S SPAshoulderchkr: same frames and times as 93S,src/data/frames94s.asm
-$9DF2DE,SPAhipchkr,DATA8_9DF2DE,93S,93S SPAhipchkr: same frames and times as 93S,src/data/frames94s.asm
-$9DF310,SPAshoulderchkl,DATA8_9DF310,93S,93S SPAshoulderchkl: same frames and times as 93S,src/data/frames94s.asm
+$9DF27A,SPAshoulderchkl,DATA8_9DF27A,93S,"93S SPAshoulderchkl: the 93S frames +8 (the 94 player frames from 225 are 8 higher, as SPAsweepchk, SPAfallfwd, SPAHold), the 93S SPAList order, and checkcheck's check table slot 7 as the 93S .list (was named SPAshoulderchkr from the unshifted frame number)",src/data/frames94s.asm
+$9DF2DE,SPAhipchkl,DATA8_9DF2DE,93S,"93S SPAhipchkl: the 93S frames +8, the 93S SPAList order, and checkcheck's check table slots 5-6 as the 93S .list (was named SPAhipchkr from the unshifted frame number)",src/data/frames94s.asm
+$9DF310,SPAhipchkr,DATA8_9DF310,93S,"93S SPAhipchkr: the 93S frames +8, the 93S SPAList order, and checkcheck's check table slots 2-4 as the 93S .list (was named SPAshoulderchkl from the unshifted frame number)",src/data/frames94s.asm
 $9DF342,SPAburst,DATA8_9DF342,93S,93S SPAburst: same frames and times as 93S,src/data/frames94s.asm
 $9DF49C,SPAfallfwd,DATA8_9DF49C,93S,"93S SPAfallfwd: in the 93S FallDown order of tests and sets, same times as 93S",src/data/frames94s.asm
 $9DF54E,SPAfallback,DATA8_9DF54E,93S,"93S SPAfallback: in the 93S FallDown order of tests and sets, same times as 93S",src/data/frames94s.asm
@@ -6272,3 +6272,12 @@ $9DF46A,SPAflail,DATA8_9DF46A,93S,"holdcheck: the first of its animations, where
 $9DF3A6,SPAHold2,DATA8_9DF3A6,93S,"holdcheck: second and fifth, where 93S holdcheck uses SPAHold2 both times; also checkplcoll and check4check",src/data/frames94s.asm
 $9DF3D8,SPAhook2,DATA8_9DF3D8,93S,"holdcheck: fourth, where 93S holdcheck uses SPAhook2",src/data/frames94s.asm
 $9DFA84,SPApump2,DATA8_9DFA84,93S,assscore gives the scorer it where 93S assscore gives SPApump (other frames; the 93S-identical SPApump at $9DFA12 has no reader),src/data/frames94s.asm
+$9DF2AC,SPAshoulderchkr,DATA8_9DF2AC,93S,"93S SPAshoulderchkr: the 93S frames +8, the 93S SPAList order, and checkcheck's check table slot 1 as the 93S .list",src/data/frames94s.asm
+$9DEF6E,SPAonetimerf,DATA8_9DEF6E,behavior,"One-timer shot, forehand: SPAshotf release frames after a held windup; assbreakaway and asspassrec pick it by Findhittype where 94G setonetimeranim picks SPAshotf",src/data/frames94s.asm
+$9DF020,SPAonetimerb,DATA8_9DF020,behavior,"One-timer shot, backhand: SPAshotb release frames after a held windup; picked where 94G setonetimeranim picks SPAshotb",src/data/frames94s.asm
+$9DFC76,SPAboardfront,DATA8_9DFC76,94G,"94G SPAboardfront: FallDown sets it when the checked player is past the top goal line (Ypos set to $128), as 94G FallList 0",src/data/frames94s.asm
+$9DFCD8,SPAboardback,DATA8_9DFCD8,94G,"94G SPAboardback: FallDown sets it past the bottom goal line (Ypos set to -$128), as 94G FallList 2",src/data/frames94s.asm
+$9DFD3A,SPAboardright,DATA8_9DFD3A,94G,"94G SPAboardright: FallDown sets it on the right side boards (Xpos $82), swapped with SPAboardleft by the flip bit as in 94G",src/data/frames94s.asm
+$9DFD9C,SPAboardleft,DATA8_9DFD9C,94G,"94G SPAboardleft: FallDown sets it on the left side boards (Xpos -$82), swapped with SPAboardright by the flip bit as in 94G",src/data/frames94s.asm
+$9DFE60,SPAbenchcheckl,DATA8_9DFE60,94G,"94G SPAbenchcheckl: FallDown sets it on the left boards near center ice (flip bit clear), as 94G",src/data/frames94s.asm
+$9DFDFE,SPAbenchcheckr,DATA8_9DFDFE,94G,"94G SPAbenchcheckr: FallDown sets it on the left boards near center ice with the flip bit set, as 94G",src/data/frames94s.asm

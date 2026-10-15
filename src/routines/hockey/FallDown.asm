@@ -107,7 +107,7 @@ FallDown:
 	bit.w #$0800
 	bne .12
 .9:
-	lda.w #DATA8_9DFD3A
+	lda.w #SPAboardright
 	bra .13
 .10:
 	lda.w Ypos,y
@@ -133,7 +133,7 @@ FallDown:
 	bit.w #$0800
 	bne .9
 .12:
-	lda.w #DATA8_9DFD9C
+	lda.w #SPAboardleft
 .13:
 	ldx.b a2
 	sta.w pfalock,x
@@ -177,7 +177,7 @@ FallDown:
 	lda.w #$0000
 	sta.w $0EE3,y
 .16:
-	lda.w #DATA8_9DFC76
+	lda.w #SPAboardfront
 	bra .13
 .17:
 	lda.w Xpos,y
@@ -195,7 +195,7 @@ FallDown:
 	lda.w #$0000
 	sta.w $0EE3,y
 .18:
-	lda.w #DATA8_9DFCD8
+	lda.w #SPAboardback
 	jmp.w .13
 .19:
 	jmp.w .27
@@ -379,11 +379,11 @@ FallDown:
 	lda.w attribute,x
 	bit.w #$0800
 	bne .t1xxx
-	lda.w #DATA8_9DFE60
+	lda.w #SPAbenchcheckl
 	bra .2xxx
 
 .t1xxx:
-	lda.w #DATA8_9DFDFE
+	lda.w #SPAbenchcheckr
 .2xxx:
 	sta.w pfalock,x
 	jsl.l SetSPAFromA

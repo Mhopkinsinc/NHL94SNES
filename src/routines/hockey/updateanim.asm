@@ -33,7 +33,7 @@ updateanim:
 	bne .1
 .3:
 	lda.w SPA,x
-	cmp.w #DATA8_9DFDFE
+	cmp.w #SPAbenchcheckr
 	bcs .t1x
 	lda.w attribute,x
 	bit.w #$0800
@@ -78,7 +78,7 @@ updateanim:
 	lda.w SPA,x
 	cmp.w #DATA8_9DFEC2
 	bcs .1x
-	cmp.w #DATA8_9DFDFE
+	cmp.w #SPAbenchcheckr
 	bcs .6
 .1x:
 	lda.b d1
