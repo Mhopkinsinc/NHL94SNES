@@ -60,9 +60,9 @@ SetTeamColors:
 	sta.b $10
 	ldx.w #$0020
 	jsl.l MemCopy
-	lda.w #DATA8_9ACEB6>>16
+	lda.w #PlayerMarkerPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9ACEB6
+	lda.w #PlayerMarkerPalette
 	sta.b $0C
 	lda.w #palbuffer>>16
 	sta.b $12

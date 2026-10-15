@@ -105,9 +105,9 @@ PlayerSelect:
 	jsl.l SendTextMap
 	pla
 	sta.b d1
-	lda.w #DATA8_9ACEB6>>16
+	lda.w #PlayerMarkerPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9ACEB6
+	lda.w #PlayerMarkerPalette
 	sta.b $0C
 	ldy.w #$0090
 	ldx.w #$0010

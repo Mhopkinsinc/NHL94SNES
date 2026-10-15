@@ -258,9 +258,9 @@ LoadPlayerCardScreen:
 	ldy.w #$0040
 	ldx.w #$0010
 	jsl.l SetColours
-	lda.w #DATA8_9AD1B6>>16
+	lda.w #CardSpritePalette>>16
 	sta.b $0E
-	lda.w #DATA8_9AD1B6
+	lda.w #CardSpritePalette
 	sta.b $0C
 	ldy.w #$0080
 	ldx.w #$0010

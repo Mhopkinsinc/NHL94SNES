@@ -1,6 +1,6 @@
-; Data.
+; The colours of the player markers (the arrows and stars of each controller: SpriteFrames 373-394, the only frames in sprite palette 2): setplayercolors copies the first 16 into sprite palette 2 in the game, PlayerSelect into sprite palette 1; the rest is not read
 
-DATA8_9ACEB6:		; colours, not packed, that screen setups in banks $9D and $9F load into CGRAM; not identified yet
+PlayerMarkerPalette:
 	dw $7FF2,$1084,$0000,$6F7B,$000D,$0012,$4A5B,$35B6
 	dw $4A52,$6F7B,$009B,$22C0,$0D5F,$0814,$17FF,$7E6F
 	dw $0000,$0000,$0000,$7000,$0000,$0000,$0000,$7000

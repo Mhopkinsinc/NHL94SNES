@@ -372,9 +372,9 @@ SetupScreen:
 	lda.w #$0002
 	sta.b a2
 .2:
-	lda.w #DATA8_9AD3B6>>16
+	lda.w #SetupSpritePalette>>16
 	sta.b $0E
-	lda.w #DATA8_9AD3B6
+	lda.w #SetupSpritePalette
 	sta.b $0C
 	ldy.w #$0080
 	ldx.w #$0010

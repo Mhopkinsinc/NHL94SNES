@@ -1,6 +1,6 @@
-; Data.
+; Sprite palette 0 of the player card screen (LoadPlayerCardScreen sends the first 16 colours), the palette of its small letter sprites (SmallLetterSprites pieces use palette 0); the green ramp after them is not read
 
-DATA8_9AD1B6:		; colours, not packed, that a screen setup loads into CGRAM; not identified yet
+CardSpritePalette:
 	dw $0000,$60C6,$D4A5,$D484,$C863,$3C42,$0000,$0842
 	dw $1084,$98C6,$D8C0,$801B,$7FFF,$C210,$1F9F,$801B
 	dw $0320,$0300,$0300,$0300,$0300,$0300,$0300,$0300

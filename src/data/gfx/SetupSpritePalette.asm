@@ -1,6 +1,6 @@
-; Data.
+; Sprite palette 0 of the setup and scouting screens (SetupScreen, LoadScoutingScreen): the gold of the big letter sprites (LetterSprites pieces use palette 0), e.g. the CROWD METER title
 
-DATA8_9AD3B6:		; colours, not packed, that screen setups load into CGRAM; not identified yet
+SetupSpritePalette:
 	dw $0200,$6821,$6145,$7D4A,$7E0F,$058E,$9234,$1E76
 	dw $2AB8,$B71B,$435D,$4FBF,$8000,$741F,$741F,$741F
 	dw $0000,$0000,$0000,$0000,$0000,$0000,$0000,$0000

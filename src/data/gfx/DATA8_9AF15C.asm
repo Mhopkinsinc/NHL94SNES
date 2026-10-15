@@ -1,6 +1,6 @@
 ; Data.
 
-DATA8_9AF15C:		; colours, not packed, that screen setups load into CGRAM; not identified yet
+DATA8_9AF15C:		; three palette rows: SetupScreen and LoadScoutingScreen send the first (a gold ramp) to sprite palette 4, which no sprite on those screens uses (not identified yet); the second and third are the ANH and BUF team blocks (TeamBlockPalettes)
 	dw $0000,$1D47,$01AF,$81F1,$8232,$0674,$0696,$86D8
 	dw $86D8,$8696,$8674,$0232,$01F1,$81AF,$81AF,$FFFF
 	dw $0000,$6F7B,$3DEF,$C210,$4A52,$5294,$DAD6,$E318
