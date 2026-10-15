@@ -20,7 +20,7 @@ playeracc:
 	bmi .2
 	stz.b d1
 .2:
-	lda.w $12C3,x
+	lda.w weight,x
 	lsr a
 	lsr a
 	lsr a
@@ -29,9 +29,9 @@ playeracc:
 	clc
 	adc.w #$0020
 	clc
-	adc.w $12E3,x
+	adc.w legstr,x
 	sta.b d2
-	lda.w $12E3,x
+	lda.w legstr,x
 	lsr a
 	adc.b d2
 	sta.b d2
@@ -41,7 +41,7 @@ playeracc:
 	bmi .t1
 	cpx.w puckc
 	beq .t1
-	lda.w $12E3,x
+	lda.w legstr,x
 	asl a
 	adc.b d2
 	adc.w #$0008
@@ -53,7 +53,7 @@ playeracc:
 	ldy.w $0D07
 	bmi .1x
 	sec
-	sbc.w $12E3,x
+	sbc.w legstr,x
 .1x:
 	clc
 	adc.w #$0008
@@ -68,7 +68,7 @@ playeracc:
 	jsl.l Mul16x8XS
 	ldx.b $E4
 	lda.b $08
-	adc.w $0EC3,x
+	adc.w Xvel,x
 	sta.b d0
 	xba
 	and.w #$00FF
@@ -87,7 +87,7 @@ playeracc:
 	jsl.l Mul16x8XS
 	ldx.b $E4
 	lda.b $08
-	adc.w $0EE3,x
+	adc.w Yvel,x
 	sta.b d1
 	xba
 	and.w #$00FF
@@ -106,7 +106,7 @@ playeracc:
 	pha
 	ldx.b $E4
 	jsl.l getpde
-	lda.w $1303,x
+	lda.w legspd,x
 	pha
 	lda.l $7E34C6
 	cmp.w #$0002
@@ -157,9 +157,9 @@ playeracc:
 	cmp.b d3
 	bcc .5
 	lda.b d0
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	lda.b d1
-	sta.w $0EE3,x
+	sta.w Yvel,x
 .5:
 	lda.l $7E34C6
 	beq .t1x
@@ -173,7 +173,7 @@ playeracc:
 	sta.b d0
 	cmp.w #$0C00
 	bmi .6
-	lda.w $1423,x
+	lda.w endurance,x
 	sta.b d2
 	clc
 	adc.b d0

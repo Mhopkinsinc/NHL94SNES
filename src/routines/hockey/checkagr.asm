@@ -2,7 +2,7 @@
 checkagr:
 	lda.w #$0014
 	sec
-	sbc.w $1443,x
+	sbc.w GGSleft,x
 	asl a
 	asl a
 	asl a
@@ -14,7 +14,7 @@ checkagr:
 .1:
 	lda.w Xpos,x
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	cmp.w #$FFD7
 	bmi .2
 	cmp.w #$0029

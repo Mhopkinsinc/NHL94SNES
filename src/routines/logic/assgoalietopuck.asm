@@ -50,26 +50,26 @@ assgoalietopuck:
 	beq .5
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
+	stz.w temp1,x
 	stz.w $0BC9
 .5:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bpl .8
-	lda.w $1343,x
+	lda.w aidef,x
 	lsr a
 	lsr a
 	clc
-	adc.w $1003,x
+	adc.w temp1,x
 	bpl .7
 	lda.w #$0000
 	bra .7
 .6:
 	jmp.w assexit
 .7:
-	sta.w $1003,x
+	sta.w temp1,x
 	lda.w puckc
 	bpl .6
 	lda.w puckvy
@@ -97,22 +97,22 @@ assgoalietopuck:
 	jsr.w GoaliePuckVector
 	jsl.l vtoa
 	jsl.l AdjustFacingDirection
-	asl.w $12E3,x
+	asl.w legstr,x
 	jsl.l .t2
-	lsr.w $12E3,x
+	lsr.w legstr,x
 	rtl
 
 .t2:
-	lda.w $1023,x
+	lda.w temp2,x
 	sec
 	sbc.b d7
-	sta.w $1023,x
+	sta.w temp2,x
 	bmi .t1
 	jmp.w .5x
 
 .t1:
 	adc.w #$0005
-	sta.w $1023,x
+	sta.w temp2,x
 	lda.w puckvx
 	xba
 	and.w #$00FF
@@ -121,7 +121,7 @@ assgoalietopuck:
 	ora.w #$FF00
 .1xx:
 	clc
-	adc.w $0D71
+	adc.w puckx
 	sta.b d0
 	lda.w puckvy
 	xba
@@ -144,7 +144,7 @@ assgoalietopuck:
 	eor.w #$FFFF
 	inc a
 	sec
-	sbc.w $0EC4,x
+	sbc.w Xvel+1,x
 	and.w #$00FF
 	bit.w #$0080
 	beq .3x
@@ -159,7 +159,7 @@ assgoalietopuck:
 	eor.w #$FFFF
 	inc a
 	sec
-	sbc.w $0EE4,x
+	sbc.w Yvel+1,x
 	and.w #$00FF
 	bit.w #$0080
 	beq .4x
@@ -174,8 +174,8 @@ assgoalietopuck:
 	pla
 	jsl.l vtoa
 	lda.b d0
-	sta.w $10A3,x
+	sta.w temp2b,x
 .5x:
-	lda.w $10A3,x
+	lda.w temp2b,x
 	sta.b d0
 	jml.l doplayeracc

@@ -2,7 +2,7 @@
 updateanim:
 	lda.w SPA,x
 	bne .2
-	stz.w $1543,x
+	stz.w pf2aip,x
 	stz.w pfalock,x
 	rtl
 .1:
@@ -73,7 +73,7 @@ updateanim:
 	bpl .2x
 	stz.b d0
 	stz.w SPAnum,x
-	stz.w $1543,x
+	stz.w pf2aip,x
 	stz.w pfalock,x
 	lda.w SPA,x
 	cmp.w #SPAunused1

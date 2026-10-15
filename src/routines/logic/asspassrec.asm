@@ -6,9 +6,9 @@ asspassrec:
 	and.w #$FFFD
 	ora.w #$0001
 	sta.w pflags,x
-	stz.w $1023,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 .3:
 	lda.w $0BAD,x
 	sec
@@ -115,7 +115,7 @@ asspassrec:
 	jmp.w .6
 .10:
 	lda.w #$000A
-	sta.w $1203,x
+	sta.w nopuck,x
 	lda.w SPAnum,x
 	cmp.w #$0010
 	bcs .9
@@ -125,7 +125,7 @@ asspassrec:
 	clc
 	adc.b d0
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b d0
 	lda.w Ypos,x
 	clc

@@ -1,21 +1,21 @@
 ; Skate toward d0 / d1, with a routine in a0 for avoiding others; slow down near the target
 skateto:
-	lda.w $1023,x
+	lda.w temp2,x
 	sec
 	sbc.w $0ADB
-	sta.w $1023,x
+	sta.w temp2,x
 	bmi .t2
 	jmp.w .7
 
 .t2:
 	adc.w #$000C
-	sta.w $1023,x
+	sta.w temp2,x
 	lda.b d0
 	sta.b $A7
 	lda.b d1
 	sta.b $AB
 	jsl.l avdgoal
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	xba
 	and.w #$00FF
 	bit.w #$0080
@@ -30,7 +30,7 @@ skateto:
 	sec
 	sbc.w Xpos,x
 	sta.b d0
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	xba
 	and.w #$00FF
 	bit.w #$0080
@@ -55,8 +55,8 @@ skateto:
 	pha
 	lda.b d1
 	pha
-	ldy.w $0EC3,x
-	lda.w $0EE3,x
+	ldy.w Xvel,x
+	lda.w Yvel,x
 	jsl.l ApproxLength
 	pha
 	lda.b $14
@@ -101,13 +101,13 @@ skateto:
 	sta.w jmlvector+2
 	jsl.l jmlvector
 	lda.b d0
-	sta.w $10A3,x
+	sta.w temp2b,x
 	cmp.w #$0008
 	bcc .7
-	lda.w $0EC3,x
-	ora.w $0EE3,x
+	lda.w Xvel,x
+	ora.w Yvel,x
 	bne .7
-	lda.w $0D71
+	lda.w puckx
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -117,6 +117,6 @@ skateto:
 	sta.b d1
 	jsl.l vtoa
 .7:
-	lda.w $10A3,x
+	lda.w temp2b,x
 	sta.b d0
 	jml.l doplayeracc

@@ -23,23 +23,23 @@ asswingd:
 	beq .1x
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
-	stz.w $1023,x
+	stz.w temp1,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 .1x:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bpl .4
 	clc
-	adc.w $1343,x
+	adc.w aidef,x
 	bpl .3
 .2x:
 	lda.w #$0000
 .3:
-	sta.w $1003,x
+	sta.w temp1,x
 .4:
 	lda.w #$0064
 	sta.b d0
@@ -118,11 +118,11 @@ asswingd:
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0
-	lda.w $0D71
+	lda.w puckx
 	eor.b d0
 	sta.b d2
 	bmi .1xx
-	lda.w $0D71
+	lda.w puckx
 	sta.b d0
 .1xx:
 	jmp.w skateto

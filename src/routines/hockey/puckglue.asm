@@ -60,13 +60,13 @@ puckglue:
 	jsl.l ChkShotStat
 	ldy.b a2
 	lda.w #$008C
-	sta.w $1083,y
+	sta.w temp5,y
 	lda.w SPA,y
 	cmp.w #SPAgdive
 	bne .6
 .5:
 	lda.w #$0005
-	sta.w $1083,y
+	sta.w temp5,y
 .6:
 	lda.b a2
 	cmp.w $0D07

@@ -67,7 +67,7 @@ chkprogress:
 	jsl.l assinsert
 	ldx.b a3
 	lda.w #$1C20
-	sta.w $1003,x
+	sta.w temp1,x
 	lda.w #$FF00
 	tsb.w RefStep
 	stz.w RefCnt

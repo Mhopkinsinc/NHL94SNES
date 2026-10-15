@@ -36,7 +36,7 @@ SprSort:
 	stz.b d2
 	ldx.w #$0000
 .loop:
-	lda.w $15C4,x
+	lda.w OOlist+1,x
 	and.w #$00FF
 	sta.b d1
 	lda.w OOlist,x

@@ -20,25 +20,25 @@ asspuckc:
 	beq .1x
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
-	stz.w $1023,x
+	stz.w temp1,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3
+	sta.w temp2b
 	lda.w $0792
 	and.w #$0003
-	sta.w $1043,x
+	sta.w temp3,x
 .1x:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bpl .3
-	adc.w $1323,x
+	adc.w aioff,x
 	bpl .3x
 .2x:
 	lda.w #$0000
 .3x:
-	sta.w $1003,x
+	sta.w temp1,x
 	jsl.l checkob
 	lda.w $1E8B
 	beq .t1x
@@ -67,7 +67,7 @@ asspuckc:
 .3:
 	lda.w #$0006
 	clc
-	adc.w $1043,x
+	adc.w temp3,x
 	sta.b d0
 	lda.w #PuckcSpots>>16
 	sta.b $8B
@@ -117,16 +117,16 @@ asspuckc:
 	ora.w #$FF00
 .2xxx:
 	sta.b d0
-	lda.w $0EC4,x
+	lda.w Xvel+1,x
 	and.w #$00FF
 	bit.w #$0080
 	beq .3xxx
 	ora.w #$FF00
 .3xxx:
 	clc
-	adc.w $0D71
+	adc.w puckx
 	sta.b d2
-	lda.w $0EE4,x
+	lda.w Yvel+1,x
 	and.w #$00FF
 	bit.w #$0080
 	beq .4x
@@ -146,7 +146,7 @@ asspuckc:
 	sta.b a0
 .6:
 	ldy.b a0
-	lda.w $0EC4,y
+	lda.w Xvel+1,y
 	and.w #$00FF
 	bit.w #$0080
 	beq .7
@@ -160,7 +160,7 @@ asspuckc:
 	bmi .9
 	cmp.w #$0015
 	bpl .9
-	lda.w $0EE4,y
+	lda.w Yvel+1,y
 	and.w #$00FF
 	bit.w #$0080
 	beq .8

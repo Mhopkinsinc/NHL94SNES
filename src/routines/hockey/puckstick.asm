@@ -29,7 +29,7 @@ puckstick:
 	ldy.b a0
 	lda.w position,y
 	beq .1
-	lda.w $1403,y
+	lda.w stickhand,y
 	jsl.l makepde
 	lda.b d0
 	pha
@@ -37,7 +37,7 @@ puckstick:
 	ldy.b a2
 	sty.b a0
 	sta.b a2
-	lda.w $1403,y
+	lda.w stickhand,y
 	sta.b d0
 	jsl.l makepde
 	lda.b a0
@@ -54,22 +54,22 @@ puckstick:
 	bcs .1
 .1x:
 	ldy.b a0
-	lda.w $1403,y
+	lda.w stickhand,y
 	jsl.l makepde
 	lda.b d0
 	adc.w #$0014
 	ldy.b a0
-	sta.w $1203,y
+	sta.w nopuck,y
 	lda.b a0
 	ldy.b a2
 	sty.b a0
 	sta.b a2
-	lda.w $1403,y
+	lda.w stickhand,y
 	jsl.l makepde
 	lda.b d0
 	adc.w #$0014
 	ldy.b a0
-	sta.w $1203,y
+	sta.w nopuck,y
 	lda.b a0
 	ldy.b a2
 	sty.b a0
@@ -113,7 +113,7 @@ puckstick:
 	bit.w #$1000
 	bne .1xx
 	ldy.b a2
-	lda.w $1403,y
+	lda.w stickhand,y
 	phx
 	ldx.w #$02BC
 	jsl.l Mul16x8U
@@ -150,7 +150,7 @@ puckstick:
 .t1x:
 	ldy.b a2
 	lda.w #$0008
-	sta.w $1203,y
+	sta.w nopuck,y
 	jmp.w .3
 
 .t2:

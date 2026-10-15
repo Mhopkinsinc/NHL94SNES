@@ -16,13 +16,13 @@ faceoffinput:
 .1:
 	lda.b d0
 	sta.b [a0]
-	lda.w $1543,x
+	lda.w pf2aip,x
 	bne .t2
 	lda.b d1
 	bit.w #$8000
 	beq .t1
 	lda.w #$0001
-	sta.w $1543,x
+	sta.w pf2aip,x
 	lda.w #SPAfaceoff
 	jml.l SetSPAFromA
 

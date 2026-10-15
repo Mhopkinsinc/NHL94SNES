@@ -10,7 +10,7 @@ doplayeracc:
 	beq .t2
 	lda.w #SPAglide
 	sta.b d1
-	lda.w $1523,x
+	lda.w pfrev,x
 	beq .1
 	lda.w #SPAglideback
 	sta.b d1
@@ -22,13 +22,13 @@ doplayeracc:
 	bcc .t3
 	cmp.w #$0009
 	bne .t1
-	lda.w $0EC3,x
-	ora.w $0EE3,x
+	lda.w Xvel,x
+	ora.w Yvel,x
 	beq .t1
 	jmp.w dostop
 
 .t1:
-	lda.w $1543,x
+	lda.w pf2aip,x
 	bne .t2
 	jmp.w SetSPA
 
@@ -46,7 +46,7 @@ doplayeracc:
 	jmp.w .4
 
 .t2x:
-	lda.w $0D71
+	lda.w puckx
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -82,7 +82,7 @@ doplayeracc:
 	eor.w #$0004
 	sta.b d2
 .2:
-	lda.w $1523,x
+	lda.w pfrev,x
 	bne .t1x
 	lda.b d3
 	bpl .4
@@ -110,13 +110,13 @@ doplayeracc:
 	cmp.w #$0005
 	bcs .4
 .3:
-	lda.w $1523,x
+	lda.w pfrev,x
 	bne .9
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	sta.b d0
-	ora.w $0EE3,x
+	ora.w Yvel,x
 	beq .1xx
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	sta.b d1
 	jsl.l vtoa
 	sec
@@ -127,10 +127,10 @@ doplayeracc:
 	bcs .9
 .1xx:
 	inc a
-	sta.w $1523,x
+	sta.w pfrev,x
 	bra .9
 .4:
-	stz.w $1523,x
+	stz.w pfrev,x
 .9:
 	pla
 	sta.b d0
@@ -157,7 +157,7 @@ doplayeracc:
 	jsl.l Mul8XS
 	ldx.b a3
 	sta.b tmp0
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	xba
 	and.w #$00FF
 	cmp.w #$0080
@@ -168,7 +168,7 @@ doplayeracc:
 	jsl.l Mul8S
 	sta.b d4
 	ldx.b a3
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	xba
 	and.w #$00FF
 	cmp.w #$0080
@@ -198,7 +198,7 @@ doplayeracc:
 	lda.b $08
 	sta.b d4
 	ldx.b a3
-	lda.w $1523,x
+	lda.w pfrev,x
 	beq .4x
 	lda.w #$0000
 	sec
@@ -208,10 +208,10 @@ doplayeracc:
 	sbc.b $B7
 	sta.b $B7
 .4x:
-	lda.w $1183,x
+	lda.w facefrac,x
 	clc
 	adc.b d4
-	sta.w $1183,x
+	sta.w facefrac,x
 	lda.w facedir,x
 	adc.b $B7
 	and.w #$0007
@@ -238,11 +238,11 @@ doplayeracc:
 	adc.w #SPAturnr
 	sta.b d1
 .7:
-	lda.w $1543,x
+	lda.w pf2aip,x
 	bne .8
 	jsl.l SetSPA
 	lda.w #$0001
-	sta.w $1543,x
+	sta.w pf2aip,x
 .8:
 	lda.b d3
 	cmp.w #$0003

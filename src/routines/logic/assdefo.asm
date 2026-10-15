@@ -33,23 +33,23 @@ assdefo:
 	beq .1x
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
-	stz.w $1023,x
+	stz.w temp1,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 .1x:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bpl .4
 	clc
-	adc.w $1323,x
+	adc.w aioff,x
 	bpl .3
 .2x:
 	lda.w #$0000
 .3:
-	sta.w $1003,x
+	sta.w temp1,x
 .4:
 	lda.w #EvadePC>>16
 	sta.b $8B
@@ -69,17 +69,17 @@ assdefo:
 	tay
 .6:
 	sty.b d0
-	lda.w $0D71
+	lda.w puckx
 	eor.b d0
 	bmi .t3
-	lda.w $0D71
+	lda.w puckx
 	bra .7
 
 .t1x:
 	rtl
 
 .t3:
-	lda.w $0D71
+	lda.w puckx
 	pha
 	asl a
 	pla

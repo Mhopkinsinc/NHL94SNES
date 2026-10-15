@@ -1,6 +1,6 @@
 ; Assignment: the player skates to the bench door and leaves
 assbench:
-	lda.w $1003,x
+	lda.w temp1,x
 	cmp.w #$0064
 	bne .t2
 	jmp.w .5
@@ -18,9 +18,9 @@ assbench:
 	beq .2
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1023,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 	lda.w #$0050
 	sta.b d0
 	lda.w pfteam,x
@@ -29,10 +29,10 @@ assbench:
 	sta.b d0
 .1xx:
 	lda.b d0
-	sta.w $1063,x
+	sta.w temp4,x
 	lda.w #$FF70
-	sta.w $1043,x
-	stz.w $1003,x
+	sta.w temp3,x
+	stz.w temp1,x
 .2:
 	lda.w newpnum,x
 	cmp.w pnum,x
@@ -47,20 +47,20 @@ assbench:
 	ora.w #$0003
 	sta.w $0B05,x
 .1x2:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bmi .t1x2
 	jmp.w .6
 
 .t1x2:
-	lda.w $1003,x
+	lda.w temp1,x
 	adc.w #$0008
-	sta.w $1003,x
+	sta.w temp1,x
 	lda.w Ypos,x
 	sec
-	sbc.w $1063,x
+	sbc.w temp4,x
 	bit.w #$8000
 	beq .2x
 .1xx2:
@@ -74,7 +74,7 @@ assbench:
 .t2x:
 	lda.w Xpos,x
 	sec
-	sbc.w $1043,x
+	sbc.w temp3,x
 	sta.b d0
 	sec
 	sbc.w #$0020
@@ -90,7 +90,7 @@ assbench:
 .1x2x:
 	jsl.l SetSPAFromA
 	lda.w #$0001
-	sta.w $1563,x
+	sta.w pfnc,x
 	lda.w facedir,x
 	cmp.w #$0004
 	beq .2xx
@@ -98,21 +98,21 @@ assbench:
 	and.w #$0007
 	sta.w facedir,x
 .2xx:
-	stz.w $0EE3,x
+	stz.w Yvel,x
 	lda.w #$F800
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	lda.b d0
 	sec
 	sbc.w #$0010
 	beq .3x
 	bpl .1
 .3x:
-	stz.w $0EC3,x
+	stz.w Xvel,x
 	lda.w facedir,x
 	cmp.w #$0004
 	bne .1
 	lda.w #$F800
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	lda.w #$0002
 	sta.w facedir,x
 	lda.w #SPAwallleft
@@ -122,7 +122,7 @@ assbench:
 .4:
 	jsl.l SetSPAFromA
 	lda.w #$0064
-	sta.w $1003,x
+	sta.w temp1,x
 	sta.w pfalock,x
 .1:
 	rtl
@@ -150,14 +150,14 @@ assbench:
 	jsl.l .8
 	jmp.w setplayer
 .6:
-	lda.w $1563,x
+	lda.w pfnc,x
 	bne .1
 	lda.w pflags,x
 	bit.w #$4008
 	bne .1
-	lda.w $1043,x
+	lda.w temp3,x
 	sta.b d0
-	lda.w $1063,x
+	lda.w temp4,x
 	sta.b d1
 	lda.w #EvadePC>>16
 	sta.b $8B

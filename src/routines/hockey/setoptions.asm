@@ -70,8 +70,8 @@ setoptions:
 	sta.b $8F
 	jsl.l InitSortObjects
 	lda.w #$0028
-	sta.w $0E43
-	sta.w $0E4F
+	sta.w OldXpos
+	sta.w OldXpos+$C
 	lda.w #$FFFF
 	sta.l $7E34CC
 	lda.b a2

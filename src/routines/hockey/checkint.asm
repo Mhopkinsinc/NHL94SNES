@@ -21,12 +21,12 @@ checkint:
 	lda.w puckc
 	cmp.b a3
 	beq .1
-	lda.w $0F23,x
+	lda.w impact,x
 	sec
 	sbc.w #$001A
 	bmi .rtl
 .1:
-	lda.w $0F23,x
+	lda.w impact,x
 	sec
 	sbc.w #$0003
 	bmi .rtl
@@ -39,7 +39,7 @@ checkint:
 	ldy.b a3
 	sty.b a2
 	stx.b a3
-	lda.w $0F23,y
+	lda.w impact,y
 	sec
 	sbc.w #$001F
 	bmi .rtl
@@ -48,7 +48,7 @@ checkint:
 	bne .rtl
 	lda.w #$0014
 	sec
-	sbc.w $1443,x
+	sbc.w GGSleft,x
 	jsl.l randoma8
 	cmp.w #$0002
 	bcs .rtl

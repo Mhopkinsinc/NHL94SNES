@@ -13,11 +13,11 @@ wallcoll:
 	lda.b d0
 	pha
 	txy
-	ldx.w $0EE3,y
+	ldx.w Yvel,y
 	jsl.l Mul16x8S
 	lda.b $09
 	sta.b d0
-	ldx.w $0EC3,y
+	ldx.w Xvel,y
 	lda.b d1
 	jsl.l Mul16x8S
 	lda.b d0
@@ -26,12 +26,12 @@ wallcoll:
 	eor.w #$FFFF
 	inc a
 	sta.b d2
-	ldx.w $0EC3,y
+	ldx.w Xvel,y
 	lda.b $01,s
 	jsl.l Mul16x8S
 	lda.b $09
 	sta.b d0
-	ldx.w $0EE3,y
+	ldx.w Yvel,y
 	lda.b d1
 	jsl.l Mul16x8S
 	lda.b $09
@@ -65,11 +65,11 @@ wallcoll:
 	and.w #$07FF
 	eor.w #$FFFF
 	inc a
-	sta.w $0E01
+	sta.w puckvz
 	sta.b d0
 	jsl.l puckflip
 	lda.w #$000A
-	ldy.w $0DF9
+	ldy.w puckz
 	cpy.w #$000B
 	bcs .2
 	lda.w #$0004
@@ -112,13 +112,13 @@ org $9E9000
 	sec
 	sbc.w #$F000
 	bpl .1x
-	lda.w $0F23,x
+	lda.w impact,x
 	sec
 	sbc.w #$000A
 	bmi .1x
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	sta.b $0C
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	sta.b $0E
 	lda.w #$000D
 	jsl.l sfx
@@ -149,7 +149,7 @@ org $9E9000
 	sec
 	sbc.b $09
 	ldx.b a3
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	lda.b $03,s
 	ldx.b d3
 	jsl.l Mul16x8S
@@ -162,10 +162,10 @@ org $9E9000
 	clc
 	adc.b d3
 	ldx.b a3
-	sta.w $0EE3,x
-	lda.w $0E01
+	sta.w Yvel,x
+	lda.w puckvz
 	bmi .8
-	stz.w $0E01
+	stz.w puckvz
 .8:
 	pla
 	pla

@@ -2,7 +2,7 @@
 Goal:
 	lda.w gmclock
 	beq .t3
-	stz.w $0E01
+	stz.w puckvz
 	stz.w puckvx
 	stz.w puckvy
 	rtl
@@ -279,11 +279,11 @@ Goal:
 	stz.w puckvx
 	stz.w puckvy
 	ldy.w #$0006
-	lda.w $0D71
+	lda.w puckx
 	bpl .13
 	ldy.w #$FFFA
 .13:
-	sty.w $0D71
+	sty.w puckx
 	ldy.w #$0110
 	lda.w pucky
 	bpl .14
@@ -291,12 +291,12 @@ Goal:
 .14:
 	sty.w pucky
 	lda.w #$0600
-	sta.w $0E01
-	stz.w $0DF9
+	sta.w puckvz
+	stz.w puckz
 	lda.w #$FFFF
 	sta.w $0D19
 	sta.w $0D1D
-	sta.w $157F
+	sta.w pfnc+puckobj
 	lda.w #$001A
 	sta.b d0
 	jsl.l assreplace
@@ -325,7 +325,7 @@ Goal:
 	lda.w position,x
 	bmi .1xxxx
 	beq .1xxxx
-	stz.w $1563,x
+	stz.w pfnc,x
 	jsl.l assinsert
 .1xxxx:
 	inx

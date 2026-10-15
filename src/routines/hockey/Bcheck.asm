@@ -11,9 +11,9 @@ Bcheck:
 	bmi .1
 	lda.w #$0010
 	clc
-	adc.w $1483,y
+	adc.w aggress,y
 	sec
-	sbc.w $12E3,x
+	sbc.w legstr,x
 	jsl.l randoma8
 	cmp.w #$000C
 	bcc .t1

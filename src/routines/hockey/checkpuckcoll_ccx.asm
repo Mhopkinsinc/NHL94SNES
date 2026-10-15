@@ -7,8 +7,8 @@ checkpuckcoll_ccx:
 	bcs .rtl
 	lda.w position,y
 	bmi .rtl
-	lda.w $1563,y
-	ora.w $1203,y
+	lda.w pfnc,y
+	ora.w nopuck,y
 	beq .4
 .rtl:
 	rtl
@@ -32,10 +32,10 @@ checkpuckcoll_ccx:
 	bne .1
 	lda.w position,y
 	beq .2
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$0005
 	bpl .1
-	lda.w $0E01
+	lda.w puckvz
 	cmp.w #$0100
 	bpl .1
 	tya
@@ -45,7 +45,7 @@ checkpuckcoll_ccx:
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	bit.w #$8000
 	beq .1x
 	eor.w #$FFFF
@@ -80,7 +80,7 @@ checkpuckcoll_ccx:
 	sta.b d0
 	lda.w #$00C4
 	sta.b d1
-	lda.w $121F
+	lda.w nopuck+puckobj
 	bmi .3
 	beq .3
 	lsr.b d1
@@ -96,7 +96,7 @@ checkpuckcoll_ccx:
 	beq .7
 	lda.w Xpos,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	bit.w #$8000
 	beq .1xx
 	eor.w #$FFFF
@@ -144,7 +144,7 @@ checkpuckcoll_ccx:
 .7:
 	lda.w Xpos,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b d0
 	cmp.w #$FFF5
 	bmi .6
@@ -196,7 +196,7 @@ checkpuckcoll_ccx:
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	bit.w #$8000
 	beq .3x
 	eor.w #$FFFF
@@ -225,13 +225,13 @@ checkpuckcoll_ccx:
 	bpl .5x
 	lda.w #$0005
 .5x:
-	cmp.w $0DF9
+	cmp.w puckz
 	bcc .6x
 	lda.b d3
 	sec
 	sbc.b d4
 	bmi .t1
-	cmp.w $0DF9
+	cmp.w puckz
 	bcc .t1
 .6x:
 	jmp.w .7
@@ -252,7 +252,7 @@ checkpuckcoll_ccx:
 	jsl.l Mul8U
 	ldx.b $E4
 	sta.b d1
-	lda.w $121F
+	lda.w nopuck+puckobj
 	bmi .2xxxx
 	beq .2xxxx
 .1xxxx:

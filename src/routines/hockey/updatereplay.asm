@@ -47,10 +47,10 @@ updatereplay:
 .loop:
 	lda.w Xpos,x
 	sta.w WMDATA
-	lda.w $0D56,x
+	lda.w Xpos+1,x
 	and.b #$0F
 	sta.b $14
-	lda.w $0DB8,x
+	lda.w Ypos+1,x
 	asl a
 	asl a
 	asl a
@@ -64,7 +64,7 @@ updatereplay:
 	lda.w frame+1,x
 	and.b #$3F
 	sta.b $14
-	lda.w $0E04,x
+	lda.w attribute+1,x
 	and.b #$18
 	asl a
 	asl a
@@ -79,9 +79,9 @@ updatereplay:
 	sta.b d2
 	ldx.w #$0000
 .loop2:
-	lda.w $13C3,x
+	lda.w rostnum,x
 	sta.w WMDATA
-	lda.w $13C5,x
+	lda.w rostnum+2,x
 	sta.w WMDATA
 	lda.w position,x
 	bpl .3
@@ -89,7 +89,7 @@ updatereplay:
 .3:
 	and.b #$0F
 	sta.b $14
-	lda.w $0F45,x
+	lda.w position+2,x
 	bpl .4
 	lda.b #$FF
 .4:
@@ -105,9 +105,9 @@ updatereplay:
 	inx
 	dec.b d2
 	bpl .loop2
-	lda.w $0DF9
+	lda.w puckz
 	sta.w WMDATA
-	lda.w $0DFB
+	lda.w shadowz
 	sta.w WMDATA
 	lda.w $0CAD
 	sta.w WMDATA

@@ -5,11 +5,11 @@ assnearest:
 	beq .1
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1043,x
-	stz.w $1023,x
+	stz.w temp3,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
-	stz.w $1003,x
+	sta.w temp2b,x
+	stz.w temp1,x
 .1:
 	lda.w position,x
 	beq .t2
@@ -28,19 +28,19 @@ assnearest:
 	jml.l assgoalie
 
 .t3:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bmi .t2x
 	jmp.w .9
 
 .t2x:
-	adc.w $1323,x
+	adc.w aioff,x
 	bpl .1x
 	lda.w #$0000
 .1x:
-	sta.w $1003,x
+	sta.w temp1,x
 	ldy.w puckc
 	bmi .t1x
 	lda.w position,y
@@ -106,7 +106,7 @@ assnearest:
 .2x:
 	lda.w #$0014
 	sec
-	sbc.w $1483,x
+	sbc.w aggress,x
 	sta.b d0
 	lda.b d1
 	sta.b tmp0
@@ -122,7 +122,7 @@ assnearest:
 	bmi .7
 	lda.w position,y
 	bne .7
-	lda.w $0D71
+	lda.w puckx
 	sta.b d0
 	lda.w #$0058
 	ldy.w pfgoal,x
@@ -148,7 +148,7 @@ assnearest:
 	cmp.w #$0002
 	bcs .9
 	lda.w #$00F0
-	sta.w $1043,x
+	sta.w temp3,x
 .9:
 	lda.w $19D4,x
 	bpl .4
@@ -160,13 +160,13 @@ assnearest:
 	bne .1xxxx
 	lda.w puckc
 	bmi .5
-	lda.w $1043,x
+	lda.w temp3,x
 	sec
 	sbc.b d7
-	sta.w $1043,x
+	sta.w temp3,x
 	cmp.w #$0000
 	bpl .5
-	stz.w $1043,x
+	stz.w temp3,x
 .1xxxx:
 	jsl.l skatetopuckinit
 	lda.b d1

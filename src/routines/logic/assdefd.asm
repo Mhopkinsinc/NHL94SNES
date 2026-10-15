@@ -23,26 +23,26 @@ assdefd:
 	beq .1x
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
-	stz.w $1023,x
+	stz.w temp1,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 .1x:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bmi .t2
 	jmp.w .15
 
 .t2:
 	clc
-	adc.w $1343,x
+	adc.w aidef,x
 	bpl .2x
 .1xx:
 	lda.w #$0000
 .2x:
-	sta.w $1003,x
+	sta.w temp1,x
 	lda.w pucky
 	sta.b d1
 	lda.w puckvy
@@ -104,12 +104,12 @@ assdefd:
 	sta.b d1
 .7:
 	lda.w #$0041
-	sta.w $1043,x
+	sta.w temp3,x
 	lda.w position,x
 	cmp.w #$0002
 	beq .8
 	lda.w #$FFBF
-	sta.w $1043,x
+	sta.w temp3,x
 .8:
 	ldy.w #$0000
 	cpx.w #$000C
@@ -131,7 +131,7 @@ assdefd:
 	bne .12
 	lda.w position,y
 	bmi .12
-	lda.w $0EE3,y
+	lda.w Yvel,y
 	bmi .10
 	lda.w #$0000
 .10:
@@ -169,14 +169,14 @@ assdefd:
 	sta.b d0
 .13:
 	lda.b d0
-	sta.w $1063,x
-	lda.w $0D71
+	sta.w temp4,x
+	lda.w puckx
 	sta.b d0
-	lda.w $1043,x
+	lda.w temp3,x
 	eor.b d0
 	sta.b d1
 	bpl .15
-	stz.w $1043,x
+	stz.w temp3,x
 	bra .15
 
 .t1:
@@ -188,7 +188,7 @@ assdefd:
 	bne .4x
 	lda.w position,y
 	bmi .4x
-	lda.w $0EE3,y
+	lda.w Yvel,y
 	bpl .1xxx
 	lda.w #$0000
 .1xxx:
@@ -227,22 +227,22 @@ assdefd:
 	sta.b d0
 .5x:
 	lda.b d0
-	sta.w $1063,x
+	sta.w temp4,x
 	lda.w #$0000
 	sec
-	sbc.w $1043,x
-	sta.w $1043,x
-	lda.w $0D71
+	sbc.w temp3,x
+	sta.w temp3,x
+	lda.w puckx
 	sta.b d0
-	lda.w $1043,x
+	lda.w temp3,x
 	eor.b d0
 	sta.b d1
 	bpl .15
-	stz.w $1043,x
+	stz.w temp3,x
 .15:
-	lda.w $1043,x
+	lda.w temp3,x
 	sta.b d0
-	lda.w $1063,x
+	lda.w temp4,x
 	sta.b d1
 	lda.w #rtss>>16
 	sta.b $8B

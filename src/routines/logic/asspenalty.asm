@@ -14,37 +14,37 @@ asspenalty:
 	lda.w #$0000
 	sta.b d4
 	jsl.l setpads
-	stz.w $1023,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 	jsl.l PenBoxSpot
 	lda.b $08
 	sta.b d1
-	sta.w $1063,x
+	sta.w temp4,x
 	lda.w #$0088
-	sta.w $1043,x
-	stz.w $1003,x
+	sta.w temp3,x
+	stz.w temp1,x
 	lda.w pflags,x
 	ora.w #$8000
 	sta.w pflags,x
 	stz.w Wallcos,x
 	stz.w Wallsin,x
 	lda.w #$0384
-	sta.w $1083,x
+	sta.w temp5,x
 .2:
-	lda.w $1083,x
+	lda.w temp5,x
 	sec
 	sbc.w $0ADB
-	sta.w $1083,x
+	sta.w temp5,x
 	bpl .6
 .1:
 	jmp.w .7
 .3:
 	rtl
 .4:
-	lda.w $1043,x
+	lda.w temp3,x
 	sta.b d0
-	lda.w $1063,x
+	lda.w temp4,x
 	sta.b d1
 	lda.w #rtss>>16
 	sta.b $8B
@@ -54,39 +54,39 @@ asspenalty:
 .6:
 	lda.w Ypos,x
 	sec
-	sbc.w $1063,x
+	sbc.w temp4,x
 	cmp.w #$FFF3
 	bmi .4
 	cmp.w #$000D
 	bpl .4
 	lda.w Xpos,x
 	sec
-	sbc.w $1043,x
+	sbc.w temp3,x
 	sta.b d0
 	sec
 	sbc.w #$FFE8
 	bmi .4
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bpl .3
 	adc.w #$0008
-	sta.w $1003,x
+	sta.w temp1,x
 	cpx.w puckc
 	bne .2x
 .1x:
 	lda.w #$FFFF
 	sta.w puckc
 	lda.w #$003C
-	sta.w $1203,x
+	sta.w nopuck,x
 .2x:
 	lda.w #SPAglide
-	sta.w $1563,x
+	sta.w pfnc,x
 	jsl.l SetSPAFromA
 	lda.w #$0006
 	sta.b d2
-	lda.w $14A3,x
+	lda.w handed,x
 	beq .3x
 	lda.w #$0002
 	sta.b d2
@@ -99,19 +99,19 @@ asspenalty:
 	and.w #$0007
 	sta.w facedir,x
 .5:
-	stz.w $0EE3,x
+	stz.w Yvel,x
 	lda.w #$1000
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	lda.b d0
 	sec
 	sbc.w #$FFF8
 	bmi .8
-	stz.w $0EC3,x
+	stz.w Xvel,x
 	lda.w facedir,x
 	cmp.b d2
 	bne .8
 .7:
-	lda.w $1063,x
+	lda.w temp4,x
 	sta.w Ypos,x
 	lda.w #$0088
 	sta.w Xpos,x

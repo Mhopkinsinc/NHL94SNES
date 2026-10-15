@@ -1,31 +1,31 @@
 ; Play sound $0F with the velocity of the faster of players X and Y
 CollisionSfx:
 	phy
-	ldy.w $0EC3,x
-	lda.w $0EE3,x
+	ldy.w Xvel,x
+	lda.w Yvel,x
 	jsl.l ApproxLength
 	sta.b $14
 	lda.b $01,s
 	tay
-	lda.w $0EC3,y
+	lda.w Xvel,y
 	pha
-	lda.w $0EE3,y
+	lda.w Yvel,y
 	tay
 	pla
 	jsl.l ApproxLength
 	ply
 	cmp.b $14
 	bcs .t1
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	sta.b $0C
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	sta.b $0E
 	bra .1
 
 .t1:
-	lda.w $0EC3,y
+	lda.w Xvel,y
 	sta.b $0C
-	lda.w $0EE3,y
+	lda.w Yvel,y
 	sta.b $0E
 .1:
 	asl.b $0C

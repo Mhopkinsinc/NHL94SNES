@@ -15,7 +15,7 @@ checkplcoll:
 	ldy.b d1
 	cpy.w #$000F
 	beq .t1
-	lda.w $15C4,y
+	lda.w OOlist+1,y
 	and.w #$00FF
 	tay
 	lda.w Ylist,y
@@ -35,7 +35,7 @@ checkplcoll:
 	bpl .1
 	lda.w pflags,y
 	and.w #$8000
-	ora.w $1563,y
+	ora.w pfnc,y
 	bne .1
 	cpy.w #$0018
 	bcs .1
@@ -50,7 +50,7 @@ checkplcoll:
 	sta.b d1
 .loopx:
 	ldy.b d1
-	lda.w $15C2,y
+	lda.w OOlist-1,y
 	and.w #$00FF
 	tay
 	lda.b d3
@@ -70,7 +70,7 @@ checkplcoll:
 	bpl .1x
 	lda.w pflags,y
 	and.w #$8000
-	ora.w $1563,y
+	ora.w pfnc,y
 	bne .1x
 	cpy.w #$0018
 	bcs .1x
@@ -113,13 +113,13 @@ checkplcoll:
 
 .t1x:
 	ldy.b a2
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	sec
-	sbc.w $0EC3,y
+	sbc.w Xvel,y
 	sta.b d0
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	sec
-	sbc.w $0EE3,y
+	sbc.w Yvel,y
 	sta.b d1
 	lda.b d0
 	ora.b d1
@@ -159,8 +159,8 @@ checkplcoll:
 	cmp.w #$F46B
 	bcs .2
 	stz.w pfalock,x
-	stz.w $1543,x
-	ldy.w $0F03,x
+	stz.w pf2aip,x
+	ldy.w impactp,x
 	lda.w SPA,y
 	cmp.w #SPAHold2
 	bcc .1x2
@@ -168,7 +168,7 @@ checkplcoll:
 	bcs .1x2
 	lda.w #$0000
 	sta.w pfalock,y
-	sta.w $1543,y
+	sta.w pf2aip,y
 .1x2:
 	ldy.b a2
 .2:
@@ -179,15 +179,15 @@ checkplcoll:
 	bcs .4
 	lda.w #$0000
 	sta.w pfalock,y
-	sta.w $1543,y
-	ldx.w $0F03,y
+	sta.w pf2aip,y
+	ldx.w impactp,y
 	lda.w SPA,x
 	cmp.w #SPAHold2
 	bcc .3
 	cmp.w #$F46B
 	bcs .3
 	stz.w pfalock,x
-	stz.w $1543,x
+	stz.w pf2aip,x
 .3:
 	ldx.b a3
 .4:
@@ -226,16 +226,16 @@ checkplcoll:
 .8:
 	lda.b d4
 	clc
-	adc.w $0F23,x
-	sta.w $0F23,x
+	adc.w impact,x
+	sta.w impact,x
 	lda.b d4
 	clc
-	adc.w $0F23,y
-	sta.w $0F23,y
+	adc.w impact,y
+	sta.w impact,y
 	txa
-	sta.w $0F03,y
+	sta.w impactp,y
 	tya
-	sta.w $0F03,x
+	sta.w impactp,x
 	lda.b d4
 	cmp.w #$0014
 	bcc .2x
@@ -292,12 +292,12 @@ checkplcoll:
 	lda.b $AA
 	sta.b d5
 	ldx.b a3
-	lda.w $12C3,x
+	lda.w weight,x
 	clc
 	adc.w #$008C
 	sta.b d0
 	ldy.b a2
-	lda.w $12C3,y
+	lda.w weight,y
 	clc
 	adc.w #$008C
 	sta.b d1
@@ -327,8 +327,8 @@ checkplcoll:
 	adc.b tmp0
 	ldx.b a3
 	clc
-	adc.w $0EC3,y
-	sta.w $0EC3,x
+	adc.w Xvel,y
+	sta.w Xvel,x
 	lda.b d2
 	ldx.b d5
 	jsl.l Mul16x8S
@@ -342,22 +342,22 @@ checkplcoll:
 	sbc.b tmp0
 	ldx.b a3
 	clc
-	adc.w $0EE3,y
-	sta.w $0EE3,x
+	adc.w Yvel,y
+	sta.w Yvel,x
 	lda.b d2
 	ldx.b d1
 	jsl.l Mul16x8S
 	lda.b $08
 	clc
-	adc.w $0EC3,y
-	sta.w $0EC3,y
+	adc.w Xvel,y
+	sta.w Xvel,y
 	lda.b d3
 	ldx.b d1
 	jsl.l Mul16x8S
 	lda.b $08
 	clc
-	adc.w $0EE3,y
-	sta.w $0EE3,y
+	adc.w Yvel,y
+	sta.w Yvel,y
 	ldx.b a3
 	lda.w #$FFFF
 	sta.w $0CDB

@@ -27,7 +27,7 @@ chk4shot:
 .t1:
 	lda.w #$0020
 	sec
-	sbc.w $13E3,x
+	sbc.w spodds,x
 	asl a
 	asl a
 	asl a
@@ -47,7 +47,7 @@ chk4shot:
 	bpl .3
 	cmp.w #$FF9C
 	bmi .3
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$0064
 	bpl .3
 	cmp.w #$FF9C
@@ -95,7 +95,7 @@ chk4shot:
 .3:
 	bra .6
 .4:
-	lda.w $1543,y
+	lda.w pf2aip,y
 	beq .5
 	stz.b d3
 	lda.w #$0001

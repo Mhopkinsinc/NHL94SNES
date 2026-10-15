@@ -2,7 +2,7 @@
 check4check:
 	lda.w #$0014
 	sec
-	sbc.w $1483,x
+	sbc.w aggress,x
 	sta.b d0
 	lda.l OptPen
 	beq .1

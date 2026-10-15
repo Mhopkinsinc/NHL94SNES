@@ -195,8 +195,8 @@ StartHL2:
 	iny
 	lda.b [a0],y
 	sta.w Ypos,x
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	inc.b a1
 	inc.b a1
 	dec.b d0

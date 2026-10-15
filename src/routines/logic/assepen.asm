@@ -18,8 +18,8 @@ assepen:
 	sec
 	sbc.b d0
 	sta.w PBnum
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	lda.w #$003C
 	sta.b d0
 	lda.w pfteam,x
@@ -47,9 +47,9 @@ assepen:
 	lda.w pflags,x
 	and.w #$6FF7
 	sta.w pflags,x
-	stz.w $1563,x
+	stz.w pfnc,x
 	lda.w #$F000
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	ldx.b a2
 	lda.w $19D0,x
 	cmp.w #$0004

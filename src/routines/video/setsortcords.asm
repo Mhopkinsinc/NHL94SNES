@@ -47,11 +47,11 @@ setsortcords:
 	lda.w #$0000
 	cpx.w #$001C
 	bne .1x
-	lda.w $0DF9
+	lda.w puckz
 .1x:
 	cpx.w #$001E
 	bne .2x
-	lda.w $0DFB
+	lda.w shadowz
 .2x:
 	sta.b d2
 	cpx.w #$0018
@@ -92,7 +92,7 @@ setsortcords:
 	lda.b d0
 	sta.w $0CCF
 	lda.w frame,x
-	sta.w $0E23,x
+	sta.w oldframe,x
 	bne .1xx
 	cpx.w #$0018
 	bcs .8

@@ -8,19 +8,19 @@ wallcollb_over:
 wallcollb:
 	cpx.w #$001C
 	bne wallcollb_bounce
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$0021
 	bpl wallcollb_over
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$0016
 	bcc wallcollb_bounce
 	lda.w pucky
 	cmp.w #$0112
 	bmi wallcollb_over
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$000D
 	bmi wallcollb_bounce
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$0010
 	bpl wallcollb_bounce
 	lda.w puckvy
@@ -57,11 +57,11 @@ wallcollb:
 wallcollb_out:
 	lda.w #$0040
 	tsb.w sflags
-	sta.w $157F
+	sta.w pfnc+puckobj
 	lda.w pucky
 	bpl .1
 	lda.w #$8000
-	tsb.w $0E1F
+	tsb.w attribute+puckobj
 .1:
 	stz.w frame+$1E
 	lda.w gmclock

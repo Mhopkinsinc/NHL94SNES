@@ -23,7 +23,7 @@ check4bench:
 	lda.w pflags,x
 	ora.w #$1000
 	sta.w pflags,x
-	stz.w $1003,x
+	stz.w temp1,x
 	lda.w #$000C
 	sta.b d0
 	jml.l assreplace
@@ -39,7 +39,7 @@ check4bench:
 	lda.w pflags,x
 	and.w #$EFFF
 	sta.w pflags,x
-	stz.w $1563,x
+	stz.w pfnc,x
 	lda.w #$FFFF
 	sta.w newpnum,x
 	sta.w newpos,x

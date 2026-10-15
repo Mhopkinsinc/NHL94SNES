@@ -2,7 +2,7 @@
 setpassmode:
 	lda.w position,x
 	bne .2
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FFF0
 	bmi .2
 	cmp.w #$0010

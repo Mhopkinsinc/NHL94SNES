@@ -61,7 +61,7 @@ resetplstuff:
 	ldx.w tmsort,y
 	stx.b a3
 .1:
-	stz.w $1543,x
+	stz.w pf2aip,x
 	lda.w pflags,x
 	and.w #$2FFF
 	sta.w pflags,x
@@ -75,13 +75,13 @@ resetplstuff:
 	lda.w #SPAglide
 .2:
 	jsl.l SetSPAFromA
-	stz.w $0F23,x
-	stz.w $1203,x
+	stz.w impact,x
+	stz.w nopuck,x
 	lda.w pflags,x
 	and.w #$FFF6
 	sta.w pflags,x
-	stz.w $1563,x
-	stz.w $1523,x
+	stz.w pfnc,x
+	stz.w pfrev,x
 	stz.w pfalock,x
 .3:
 	inc.b a3

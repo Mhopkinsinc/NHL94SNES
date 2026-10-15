@@ -53,8 +53,8 @@ puckfaceoff:
 .t1x2:
 	jsl.l ReturnGoalies
 	lda.w #$FFFF
-	sta.w $1003,x
-	sta.w $1023,x
+	sta.w temp1,x
+	sta.w temp2,x
 	lda.l $7E34C6
 	bne .t2xx
 	jmp.w .9
@@ -196,18 +196,18 @@ puckfaceoff:
 	lda.w pfteam,x
 	beq .t1xxxxxx
 	lda.w #$0168
-	sta.w $1023,y
+	sta.w temp2,y
 	txa
 	lsr a
-	sta.w $1063,y
+	sta.w temp4,y
 	bra .3x
 
 .t1xxxxxx:
 	lda.w #$0258
-	sta.w $1003,y
+	sta.w temp1,y
 	txa
 	lsr a
-	sta.w $1043,y
+	sta.w temp3,y
 .3x:
 	ldx.b a2
 	ldy.b a3
@@ -223,9 +223,9 @@ puckfaceoff:
 	sta.b d0
 	jsl.l .t1xxxxxxx
 	ldx.b a3
-	lda.w $1003,x
+	lda.w temp1,x
 	bpl .8
-	lda.w $1023,x
+	lda.w temp2,x
 	bpl .8
 	stz.b a2
 	lda.w #$0001
@@ -243,10 +243,10 @@ puckfaceoff:
 	clc
 	adc.b d0
 	tay
-	lda.w $1003,y
+	lda.w temp1,y
 	bmi .8
 .1xxxxx:
-	lda.w $1043,y
+	lda.w temp3,y
 	asl a
 	sta.b d1
 	tay
@@ -267,9 +267,9 @@ puckfaceoff:
 	clc
 	adc.b d0
 	tay
-	lda.w $1003,y
+	lda.w temp1,y
 	ora.w #$FF00
-	sta.w $1003,y
+	sta.w temp1,y
 	ldx.b a3
 	jmp.w SetLCmode2
 
@@ -278,10 +278,10 @@ puckfaceoff:
 	clc
 	adc.b d0
 	tay
-	lda.w $1003,y
+	lda.w temp1,y
 	sec
 	sbc.b d7
-	sta.w $1003,y
+	sta.w temp1,y
 	bmi .t1xxxxxxxx
 	jmp.w .8
 

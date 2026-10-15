@@ -24,20 +24,20 @@ FallDown:
 	sta.b d1
 	lda.w gmclock
 	bne .t2
-	lda.w $1403,y
+	lda.w stickhand,y
 	cmp.w #$000C
 	bcc .t2
-	lda.w $1223,y
+	lda.w nopuckb,y
 	bne .t2
 	lda.w $0792
 	and.w #$000F
 	adc.w #$000A
 	sta.b d0
 	sec
-	sbc.w $0F23,y
+	sbc.w impact,y
 	bmi .t2
 	lda.w #$003C
-	sta.w $1223,y
+	sta.w nopuckb,y
 	jmp.w .21
 
 .t1:
@@ -61,7 +61,7 @@ FallDown:
 .2:
 	ldy.b a2
 	lda.w #$0078
-	sta.w $1203,y
+	sta.w nopuck,y
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y
@@ -101,7 +101,7 @@ FallDown:
 	lda.w #$0082
 	sta.w Xpos,y
 	lda.w #$0000
-	sta.w $0EC3,y
+	sta.w Xvel,y
 .8:
 	lda.w attribute,y
 	bit.w #$0800
@@ -122,7 +122,7 @@ FallDown:
 	lda.w #$FF7E
 	sta.w Xpos,y
 	lda.w #$0000
-	sta.w $0EC3,y
+	sta.w Xvel,y
 	lda.w Ypos,y
 	cmp.w #$0058
 	bpl .11
@@ -175,7 +175,7 @@ FallDown:
 	lda.w #$0128
 	sta.w Ypos,y
 	lda.w #$0000
-	sta.w $0EE3,y
+	sta.w Yvel,y
 .16:
 	lda.w #SPAboardfront
 	bra .13
@@ -193,7 +193,7 @@ FallDown:
 	lda.w #$FED8
 	sta.w Ypos,y
 	lda.w #$0000
-	sta.w $0EE3,y
+	sta.w Yvel,y
 .18:
 	lda.w #SPAboardback
 	jmp.w .13
@@ -225,7 +225,7 @@ FallDown:
 	lda.w facedir,y
 	and.w #$0003
 	bne .21
-	lda.w $1483,x
+	lda.w aggress,x
 	sec
 	sbc.w #$000A
 	bmi .21
@@ -282,7 +282,7 @@ FallDown:
 	asl a
 	ldy.b a2
 	sec
-	sbc.w $0F23,y
+	sbc.w impact,y
 	bpl .23
 	lda.w gmclock
 	bne .23
@@ -304,18 +304,18 @@ FallDown:
 	lda.w #SPAinjury1
 	jsl.l SetSPAFromA
 	ldx.b a3
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	eor.w #$FFFF
 	inc a
 	cmp.w #$8000
 	ror a
-	sta.w $0EC3,x
-	lda.w $0EE3,x
+	sta.w Xvel,x
+	lda.w Yvel,x
 	eor.w #$FFFF
 	inc a
 	cmp.w #$8000
 	ror a
-	sta.w $0EE3,x
+	sta.w Yvel,x
 	jsl.l setInjuryType
 	lda.w #$0004
 	sta.w InjCntDown
@@ -375,7 +375,7 @@ FallDown:
 	lda.w #$FF7E
 	sta.w Xpos,x
 	lda.w #$0000
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	lda.w attribute,x
 	bit.w #$0800
 	bne .t1xxx
@@ -482,8 +482,8 @@ FallDown:
 	adc.b $AB
 	sta.w Ypos,y
 	lda.w #$0000
-	sta.w $0EC3,y
-	sta.w $0EE3,y
+	sta.w Xvel,y
+	sta.w Yvel,y
 	jmp.w .11
 .28:
 	jmp.w .20
@@ -502,8 +502,8 @@ FallDown:
 	adc.b $AB
 	sta.w Ypos,y
 	lda.w #$0000
-	sta.w $0EC3,y
-	sta.w $0EE3,y
+	sta.w Xvel,y
+	sta.w Yvel,y
 	jmp.w .8
 .30:
 	lda.b $AB
@@ -522,8 +522,8 @@ FallDown:
 	adc.b $AB
 	sta.w Ypos,y
 	lda.w #$0000
-	sta.w $0EC3,y
-	sta.w $0EE3,y
+	sta.w Xvel,y
+	sta.w Yvel,y
 	jmp.w .18
 
 .t1xxxxx:
@@ -542,6 +542,6 @@ FallDown:
 	adc.b $AB
 	sta.w Ypos,y
 	lda.w #$0000
-	sta.w $0EC3,y
-	sta.w $0EE3,y
+	sta.w Xvel,y
+	sta.w Yvel,y
 	jmp.w .16

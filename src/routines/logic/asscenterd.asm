@@ -23,20 +23,20 @@ asscenterd:
 	beq .1x
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
-	stz.w $1023,x
+	stz.w temp1,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 .1x:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bpl .2x
-	lda.w $1343,x
-	sta.w $1003,x
+	lda.w aidef,x
+	sta.w temp1,x
 .2x:
-	lda.w $0D71
+	lda.w puckx
 	pha
 	asl a
 	pla

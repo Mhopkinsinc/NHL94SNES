@@ -36,26 +36,26 @@ holdcheck:
 	lda.b d0
 	sta.w facedir,y
 	ldy.b a2
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	clc
-	adc.w $0EC3,y
+	adc.w Xvel,y
 	pha
 	asl a
 	pla
 	ror a
-	sta.w $0EC3,x
-	sta.w $0EC3,y
-	lda.w $0EE3,x
+	sta.w Xvel,x
+	sta.w Xvel,y
+	lda.w Yvel,x
 	clc
-	adc.w $0EE3,y
+	adc.w Yvel,y
 	pha
 	asl a
 	pla
 	ror a
-	sta.w $0EE3,x
-	sta.w $0EE3,y
+	sta.w Yvel,x
+	sta.w Yvel,y
 	tya
-	sta.w $0F03,x
+	sta.w impactp,x
 	lda.w #SPAflail
 	sta.w pfalock,x
 	jsl.l SetSPAFromA
@@ -64,7 +64,7 @@ holdcheck:
 	sty.b a2
 	stx.b a3
 	tya
-	sta.w $0F03,x
+	sta.w impactp,x
 	lda.w #SPAHold2
 	sta.w pfalock,x
 	ldy.w SPA,x

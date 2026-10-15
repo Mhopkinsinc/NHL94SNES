@@ -14,13 +14,13 @@ assshoot:
 	jmp.w assexit
 
 .t1:
-	lda.w $1003,x
+	lda.w temp1,x
 	sta.b d0
 	stz.b d2
-	lda.w $10A3,x
+	lda.w temp2b,x
 	sec
 	sbc.b d7
-	sta.w $10A3,x
+	sta.w temp2b,x
 	bpl ShotMode
 	lda.w #$0080
 	tsb.b d2

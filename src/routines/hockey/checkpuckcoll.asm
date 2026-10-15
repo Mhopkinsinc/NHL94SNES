@@ -1,15 +1,15 @@
 ; Puck collision with the players near it
 checkpuckcoll:
-	lda.w $0DF9
+	lda.w puckz
 	sec
 	sbc.w #$0010
 	bpl .1
-	ldy.w $15BF
+	ldy.w OOlistpos+puckobj
 .loop:
 	sty.b d1
 	cpy.w #$000F
 	beq .t1
-	lda.w $15C4,y
+	lda.w OOlist+1,y
 	and.w #$00FF
 	tay
 	lda.w Ylist,y
@@ -24,11 +24,11 @@ checkpuckcoll:
 	bra .loop
 
 .t1:
-	ldy.w $15BF
+	ldy.w OOlistpos+puckobj
 	beq .1
 .loopx:
 	sty.b d1
-	lda.w $15C2,y
+	lda.w OOlist-1,y
 	and.w #$00FF
 	tay
 	lda.w pucky

@@ -6,23 +6,23 @@ assstanley:
 	and.w #$FFFD
 	sta.w pflags,x
 	lda.w #$005A
-	sta.w $1043,x
+	sta.w temp3,x
 	lda.w Hpos
 	bpl .1
 	lda.w #$FFA6
-	sta.w $1043,x
+	sta.w temp3,x
 .1:
 	lda.w Vpos
-	sta.w $1063,x
+	sta.w temp4,x
 	lda.w #SPAstanley
 	sta.w pfalock,x
 	jsl.l SetSPAFromA
 .2:
-	lda.w $1043,x
+	lda.w temp3,x
 	sec
 	sbc.w Xpos,x
 	sta.b d0
-	lda.w $1063,x
+	lda.w temp4,x
 	sec
 	sbc.w Ypos,x
 	sta.b d1

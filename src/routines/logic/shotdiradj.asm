@@ -24,7 +24,7 @@ org $9EE002
 	jmp.w .5
 
 .t1:
-	lda.w $0EC4,y
+	lda.w Xvel+1,y
 	and.w #$00FF
 	bit.w #$0080
 	beq .1x
@@ -37,9 +37,9 @@ org $9EE002
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b d0
-	lda.w $0EE4,y
+	lda.w Yvel+1,y
 	and.w #$00FF
 	bit.w #$0080
 	beq .2

@@ -14,5 +14,5 @@ deflect:
 	sta.w puckvx
 	jsl.l RandomWord
 	and.w #$0FFF
-	sta.w $0E01
+	sta.w puckvz
 	jmp.w puckflip

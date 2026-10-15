@@ -8,7 +8,7 @@ checkcoll:
 	sty.b d2
 	sta.b d3
 .1:
-	lda.w $1563,x
+	lda.w pfnc,x
 	bne .3
 	lda.b d3
 	pha
@@ -18,9 +18,9 @@ checkcoll:
 	sta.b d2
 	lda.w Ypos,x
 	sta.b d3
-	lda.w $10C3,x
+	lda.w radiusx,x
 	sta.w $0D3B
-	lda.w $10E3,x
+	lda.w radiusy,x
 	sta.w $0D3D
 	jsl.l checkwallcoll
 	lda.w Wallcos,x
@@ -62,7 +62,7 @@ checkcoll:
 	ldy.b d1
 	cpy.w #$000F
 	beq .t1
-	lda.w $15C4,y
+	lda.w OOlist+1,y
 	and.w #$00FF
 	sta.b d4
 	tay
@@ -80,7 +80,7 @@ checkcoll:
 	lda.b d4
 	sta.w OOlist,y
 	txa
-	sta.w $15C4,y
+	sta.w OOlist+1,y
 	rep #$30
 	inc.b d1
 	bra .loop
@@ -91,7 +91,7 @@ checkcoll:
 	sta.b d1
 .loopx:
 	ldy.b d1
-	lda.w $15C2,y
+	lda.w OOlist-1,y
 	and.w #$00FF
 	sta.b d4
 	tay
@@ -108,7 +108,7 @@ checkcoll:
 	lda.b d4
 	sta.w OOlist,y
 	txa
-	sta.w $15C2,y
+	sta.w OOlist-1,y
 	rep #$30
 	dec.b d1
 	bne .loopx
@@ -121,9 +121,9 @@ checkcoll:
 	lda.w SPA,x
 	cmp.w #SPAboardfront
 	bcs .rtl
-	lda.w $0E43,x
+	lda.w OldXpos,x
 	sta.w Xpos,x
-	lda.w $0E83,x
+	lda.w OldYpos,x
 	sta.w Ypos,x
 .rtl:
 	rtl

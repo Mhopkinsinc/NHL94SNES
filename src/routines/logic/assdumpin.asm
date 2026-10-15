@@ -65,7 +65,7 @@ assdumpin:
 	plb
 	lda.w #$000F
 	sec
-	sbc.w $13A3,x
+	sbc.w passacc,x
 	asl a
 	sta.b d4
 	ldy.w dumpintarget
@@ -76,7 +76,7 @@ assdumpin:
 	clc
 	adc.w .8,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b d0
 	lda.w .7,y
 	clc
@@ -147,14 +147,14 @@ assdumpin:
 	jsl.l randoma
 	clc
 	adc.w #$10E0
-	sta.w $0E01
+	sta.w puckvz
 	jsl.l puckflip
 	ldx.b $E4
 	lda.w #$FFFF
 	sta.w dumpinplayer
 	sta.w puckc
 	lda.w #$001E
-	sta.w $1203,x
+	sta.w nopuck,x
 	txa
 	lsr a
 	sta.w $0CF3

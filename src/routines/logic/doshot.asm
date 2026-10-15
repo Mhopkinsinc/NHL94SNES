@@ -37,7 +37,7 @@ doshot:
 	lda.w #$0002
 	sta.b $01,s
 .2:
-	lda.w $1363,x
+	lda.w shotspd,x
 	stx.b a0
 	jsl.l makepde
 	adc.w #$0014
@@ -59,7 +59,7 @@ doshot:
 	lda.w #$FFFF
 	sta.w puckc
 	lda.w #$0010
-	sta.w $1203,x
+	sta.w nopuck,x
 	txa
 	lsr a
 	sta.w $0CF3
@@ -79,7 +79,7 @@ doshot:
 	sta.b a0
 	lda.b [a0],y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b d0
 	iny
 	iny
@@ -111,7 +111,7 @@ doshot:
 	cmp.w #$00C9
 	bcs .1x
 	lda.w #$0010
-	adc.w $1383,x
+	adc.w shotacc,x
 	jsl.l randoma8
 	cmp.w #$000F
 	bcs .6
@@ -121,7 +121,7 @@ doshot:
 	lsr a
 	lsr a
 	sec
-	sbc.w $1383,x
+	sbc.w shotacc,x
 	clc
 	adc.w #$0010
 	ldx.b d3
@@ -222,7 +222,7 @@ doshot:
 	bcc .1xx
 	lda.w #$1800
 .1xx:
-	sta.w $0E01
+	sta.w puckvz
 .7:
 	pla
 	jsl.l PuckSfx

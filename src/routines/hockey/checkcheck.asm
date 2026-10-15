@@ -42,8 +42,8 @@ org $9EA001
 	lda.w gmclock
 	beq .1x
 	lda.w #$0100
-	sta.w $0F23,x
-	sta.w $0F23,y
+	sta.w impact,x
+	sta.w impact,y
 .1x:
 	lda.w Xpos,y
 	sec
@@ -64,7 +64,7 @@ org $9EA001
 	sta.b $8B
 	lda.w #.4
 	sta.b a0
-	sta.w $1543,x
+	sta.w pf2aip,x
 	cpy.w #$0000
 	bne .3
 	lda.w Xpos,x
@@ -104,19 +104,19 @@ org $9EA001
 	sta.b d0
 	lda.b d0
 	sec
-	sbc.w $12C3,x
+	sbc.w weight,x
 	clc
-	adc.w $12C3,y
+	adc.w weight,y
 	lsr a
 	sec
-	sbc.w $0F23,y
+	sbc.w impact,y
 	beq .t2x
 	bmi .t2x
 	sta.b d0
 	jsl.l randomd0
 	lda.b d0
 	sec
-	sbc.w $1483,x
+	sbc.w aggress,x
 	bmi .t2x
 	jsl.l checkagr
 	lda.b d0

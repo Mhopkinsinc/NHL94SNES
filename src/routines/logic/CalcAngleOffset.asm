@@ -2,7 +2,7 @@
 CalcAngleOffset:
 	lda.b d3
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b d3
 	lda.b d4
 	sec

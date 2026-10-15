@@ -14,7 +14,7 @@ assfaceoffpl:
 	beq .1xx
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
+	stz.w temp1,x
 .1xx:
 	lda.w #$007E
 	sta.b $8B
@@ -30,7 +30,7 @@ assfaceoffpl:
 	lsr a
 	inc a
 	sta.b d0
-	lda.w $14A3,x
+	lda.w handed,x
 	bne .3
 	inc.b d0
 	inc.b d0
@@ -40,16 +40,16 @@ assfaceoffpl:
 	sta.b [a0]
 	lda.w $19D4,x
 	bpl .t2
-	lda.w $1543,x
+	lda.w pf2aip,x
 	pha
 	lda.w #$0001
-	sta.w $1543,x
+	sta.w pf2aip,x
 	pla
 	cmp.w #$0000
 	bne .t2
 	lda.w #SPAfaceoff
 	sta.b d1
-	lda.w $101F
+	lda.w temp1+puckobj
 	cmp.w #$0011
 	bcc .4
 	jsl.l RandomWord
@@ -60,7 +60,7 @@ assfaceoffpl:
 	sta.b d1
 .4:
 	lda.w #$0001
-	sta.w $1543,x
+	sta.w pf2aip,x
 	jml.l SetSPA
 
 .t2:
@@ -68,5 +68,5 @@ assfaceoffpl:
 
 .t3:
 	lda.w #$0014
-	sta.w $1203,x
+	sta.w nopuck,x
 	jml.l assexit

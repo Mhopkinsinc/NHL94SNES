@@ -21,7 +21,7 @@ RestoreReplayFrame:
 	beq .1
 	ora.b #$F0
 .1:
-	sta.w $0D56,x
+	sta.w Xpos+1,x
 	lda.w WMDATA
 	sta.w Ypos,x
 	lda.b $14
@@ -33,23 +33,23 @@ RestoreReplayFrame:
 	beq .2
 	ora.b #$F0
 .2:
-	sta.w $0DB8,x
+	sta.w Ypos+1,x
 	lda.w WMDATA
 	sta.w frame,x
 	lda.w WMDATA
 	sta.b $14
 	and.b #$3F
 	sta.w frame+1,x
-	lda.w $0E04,x
+	lda.w attribute+1,x
 	and.b #$E7
-	sta.w $0E04,x
+	sta.w attribute+1,x
 	lda.b $14
 	lsr a
 	lsr a
 	lsr a
 	and.b #$18
-	ora.w $0E04,x
-	sta.w $0E04,x
+	ora.w attribute+1,x
+	sta.w attribute+1,x
 	inx
 	inx
 	dec.b d1
@@ -59,20 +59,20 @@ RestoreReplayFrame:
 	ldx.w #$0000
 .loop2:
 	lda.w WMDATA
-	sta.w $13C3,x
+	sta.w rostnum,x
 	lda.w WMDATA
-	sta.w $13C5,x
-	stz.w $0F44,x
+	sta.w rostnum+2,x
+	stz.w position+1,x
 	lda.w WMDATA
 	sta.b $14
 	and.b #$0F
 	cmp.b #$0F
 	bne .3
 	lda.b #$FF
-	sta.w $0F44,x
+	sta.w position+1,x
 .3:
 	sta.w position,x
-	stz.w $0F46,x
+	stz.w position+3,x
 	lda.b $14
 	lsr a
 	lsr a
@@ -82,9 +82,9 @@ RestoreReplayFrame:
 	cmp.b #$0F
 	bne .4
 	lda.b #$FF
-	sta.w $0F46,x
+	sta.w position+3,x
 .4:
-	sta.w $0F45,x
+	sta.w position+2,x
 	inx
 	inx
 	inx
@@ -92,7 +92,7 @@ RestoreReplayFrame:
 	dec.b d1
 	bpl .loop2
 	lda.w WMDATA
-	sta.w $0DF9
+	sta.w puckz
 	bpl .t1
 	lda.b #$FF
 	bra .5
@@ -100,9 +100,9 @@ RestoreReplayFrame:
 .t1:
 	lda.b #$00
 .5:
-	sta.w $0DFA
+	sta.w puckz+1
 	lda.w WMDATA
-	sta.w $0DFB
+	sta.w shadowz
 	bpl .t1x
 	lda.b #$FF
 	bra .6
@@ -110,7 +110,7 @@ RestoreReplayFrame:
 .t1x:
 	lda.b #$00
 .6:
-	sta.w $0DFC
+	sta.w shadowz+1
 	lda.w WMDATA
 	sta.w $0CAD
 	lda.w WMDATA

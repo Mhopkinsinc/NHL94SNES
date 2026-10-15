@@ -96,7 +96,7 @@ Endfaceoff:
 	asl a
 	asl a
 	ldx.b a3
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	ldx.b d0
 	lda.l dirtab+2,x
 	asl a
@@ -107,7 +107,7 @@ Endfaceoff:
 	clc
 	adc.b d4
 	ldx.b a3
-	sta.w $0EE3,x
+	sta.w Yvel,x
 	lda.w #$0004
 	ldy.w #$0000
 	jsr.w .13
@@ -139,9 +139,9 @@ Endfaceoff:
 	ldx.b a3
 	jsl.l RandomWord
 	and.w #$07FF
-	sta.w $0E01
-	stz.w $0DF9
-	stz.w $1563,x
+	sta.w puckvz
+	stz.w puckz
+	stz.w pfnc,x
 	lda.w #$0018
 	sta.b d0
 	jml.l assreplace

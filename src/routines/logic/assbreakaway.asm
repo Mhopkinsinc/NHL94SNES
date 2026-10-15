@@ -12,7 +12,7 @@ assbreakaway:
 .2:
 	jsl.l GlideBack
 	lda.w #$003C
-	sta.w $1203,x
+	sta.w nopuck,x
 	jmp.w assnothing
 .8:
 	lda.w gmclock
@@ -31,14 +31,14 @@ assbreakaway:
 	beq .1x
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
-	stz.w $1023,x
+	stz.w temp1,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 	stz.w $1EA7
 	lda.w $0792
 	and.w #$0003
-	sta.w $1043,x
+	sta.w temp3,x
 	jsr.w .11
 .1x:
 	lda.w $1EA5
@@ -65,10 +65,10 @@ assbreakaway:
 	sta.b $8B
 	lda.w #.nocallback
 	sta.b a0
-	lda.w $1023,x
+	lda.w temp2,x
 	sec
 	sbc.w $0CDD
-	sta.w $1023,x
+	sta.w temp2,x
 	jml.l skateto
 .4:
 	lda.w facedir,x

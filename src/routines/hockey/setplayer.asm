@@ -173,12 +173,12 @@ org $9FD000
 	sta.b a0
 	lda.b [a0]
 	and.w #$00FF
-	sta.w $13C3,x
+	sta.w rostnum,x
 	ldy.w #$0001
 	lda.b [a0],y
 	and.w #$00F0
 	lsr a
-	sta.w $12C3,x
+	sta.w weight,x
 	lda.b [a0],y
 	and.w #$0007
 	sta.b $00
@@ -188,7 +188,7 @@ org $9FD000
 	lsr a
 	ldy.w #$0000
 	jsl.l .8
-	sta.w $12E3,x
+	sta.w legstr,x
 	ldy.w #$0002
 	lda.b [a0],y
 	lsr a
@@ -203,7 +203,7 @@ org $9FD000
 	lsr a
 	ldy.w #$0001
 	jsl.l .8
-	sta.w $1303,x
+	sta.w legspd,x
 	ldy.w #$0002
 	lda.b [a0],y
 	and.w #$0007
@@ -226,7 +226,7 @@ org $9FD000
 	clc
 	adc.w #$000F
 	lsr a
-	sta.w $1323,x
+	sta.w aioff,x
 	ldy.w #$0003
 	lda.b [a0],y
 	lsr a
@@ -250,7 +250,7 @@ org $9FD000
 	eor.w #$000F
 	clc
 	adc.w #$0007
-	sta.w $1343,x
+	sta.w aidef,x
 	bra .7
 
 .t1x:
@@ -259,7 +259,7 @@ org $9FD000
 	clc
 	adc.w #$000F
 	lsr a
-	sta.w $1343,x
+	sta.w aidef,x
 .7:
 	ldy.w #$0003
 	lda.b [a0],y
@@ -271,7 +271,7 @@ org $9FD000
 	lsr a
 	ldy.w #$0004
 	jsl.l .8
-	sta.w $1363,x
+	sta.w shotspd,x
 	ldy.w #$0004
 	lda.b [a0],y
 	lsr a
@@ -288,7 +288,7 @@ org $9FD000
 	adc.w $0CE5
 	ldy.w #$0005
 	jsl.l .8
-	sta.w $1483,x
+	sta.w aggress,x
 	lda.w attribute,x
 	and.w #$F7FF
 	sta.w attribute,x
@@ -296,7 +296,7 @@ org $9FD000
 	lda.b [a0],y
 	and.w #$0001
 	eor.w #$0001
-	sta.w $14A3,x
+	sta.w handed,x
 	bne .1x
 	lda.w attribute,x
 	ora.w #$0800
@@ -304,7 +304,7 @@ org $9FD000
 .1x:
 	lda.b [a0],y
 	and.w #$000E
-	sta.w $1463,x
+	sta.w fightagg,x
 	ldy.w #$0005
 	lda.b [a0],y
 	lsr a
@@ -325,7 +325,7 @@ org $9FD000
 	adc.w HmAwBonus
 	ldy.w #$0006
 	jsl.l .8
-	sta.w $1403,x
+	sta.w stickhand,x
 	ldy.w #$0005
 	lda.b [a0],y
 	and.w #$0007
@@ -342,7 +342,7 @@ org $9FD000
 	adc.w HmAwBonus
 	ldy.w #$0007
 	jsl.l .8
-	sta.w $1383,x
+	sta.w shotacc,x
 	ldy.w #$0006
 	lda.b [a0],y
 	lsr a
@@ -357,7 +357,7 @@ org $9FD000
 	lsr a
 	ldy.w #$0008
 	jsl.l .8
-	sta.w $1423,x
+	sta.w endurance,x
 	ldy.w #$0006
 	lda.b [a0],y
 	and.w #$0007
@@ -372,7 +372,7 @@ org $9FD000
 	adc.w $0CE5
 	ldy.w #$0009
 	jsl.l .8
-	sta.w $13E3,x
+	sta.w spodds,x
 	ldy.w #$0007
 	lda.b [a0],y
 	lsr a
@@ -391,7 +391,7 @@ org $9FD000
 	adc.w HmAwBonus
 	ldy.w #$000A
 	jsl.l .8
-	sta.w $13A3,x
+	sta.w passacc,x
 	ldy.w #$0007
 	lda.b [a0],y
 	and.w #$0007
@@ -402,7 +402,7 @@ org $9FD000
 	lsr a
 	ldy.w #$000B
 	jsl.l .8
-	sta.w $1443,x
+	sta.w GGSleft,x
 	ply
 	plx
 	rtl

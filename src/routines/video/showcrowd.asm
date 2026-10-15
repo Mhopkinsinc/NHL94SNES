@@ -78,18 +78,18 @@ org $9BA000
 	sta.b $0E
 	bra .7
 .4:
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$001A
 	bmi .5
 	asl a
-	adc.w $0DF9
+	adc.w puckz
 	clc
 	adc.w pucky
 	cmp.w #$FEB8
 	bpl .5
 	cmp.w #$FEB0
 	bmi .5
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FFF4
 	bpl .5
 	cmp.w #$FFEC
@@ -98,18 +98,18 @@ org $9BA000
 .5:
 	jmp.w .8
 .6:
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$001A
 	bmi .5
 	asl a
-	adc.w $0DF9
+	adc.w puckz
 	clc
 	adc.w pucky
 	cmp.w #$FE98
 	bpl .5
 	cmp.w #$FE90
 	bmi .5
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FFFD
 	bpl .5
 	cmp.w #$FFF4

@@ -2,7 +2,7 @@
 noturn0:
 	lda.w #$0002
 	sta.b d4
-	lda.w $1523,x
+	lda.w pfrev,x
 	beq .1
 	lda.w #$0006
 	sta.b d4
@@ -12,9 +12,9 @@ noturn0:
 .1:
 	lda.b d0
 	beq .t3
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	sta.b d0
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	sta.b d1
 	jsl.l vtoa
 	bit.w #$0008
@@ -42,7 +42,7 @@ noturn0:
 	sta.w facedir,x
 	lda.w #SPAglide
 	sta.b d1
-	lda.w $1523,x
+	lda.w pfrev,x
 	bne .t1
 	jmp.w SetSPA
 
@@ -55,7 +55,7 @@ noturn0:
 	ldy.w #$0001
 	lda.w #SPAskateback
 	sta.b d1
-	lda.w $1523,x
+	lda.w pfrev,x
 	bne .2
 	ldy.w #$0000
 	lda.w #SPAskate
@@ -73,13 +73,13 @@ noturn0:
 	lda.w #SPAskatewp
 	sta.b d1
 .2:
-	lda.w $1543,x
+	lda.w pf2aip,x
 	bne revplayeracc
 	tya
-	sta.w $1543,x
+	sta.w pf2aip,x
 	jsl.l SetSPA
 revplayeracc:
-	lda.w $1523,x
+	lda.w pfrev,x
 	beq .1
 	lda.b d2
 	eor.w #$0004

@@ -16,20 +16,20 @@ assscore:
 	rtl
 
 .t2:
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	tax
 	lda.w #$00C0
 	jsl.l Mul16x8XS
 	ldx.b a3
 	lda.b $09
-	sta.w $0EC3,x
-	lda.w $0EE3,x
+	sta.w Xvel,x
+	lda.w Yvel,x
 	tax
 	lda.w #$00C0
 	jsl.l Mul16x8XS
 	ldx.b a3
 	lda.b $09
-	sta.w $0EE3,x
+	sta.w Yvel,x
 	txa
 	lsr a
 	cmp.w puckc
@@ -37,7 +37,7 @@ assscore:
 	lda.w #$FFFF
 	sta.w puckc
 	lda.w #$0708
-	sta.w $1203,x
+	sta.w nopuck,x
 .1x2:
 	lda.w pflags,x
 	bit.w #$0002
@@ -45,31 +45,31 @@ assscore:
 	and.w #$FFFD
 	sta.w pflags,x
 	jsl.l .6
-	stz.w $1023,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 	lda.w #$005A
-	sta.w $1043,x
+	sta.w temp3,x
 	lda.w Hpos
 	bpl .2x
 	lda.w #$FFA6
-	sta.w $1043,x
+	sta.w temp3,x
 .2x:
 	lda.w Vpos
-	sta.w $1063,x
+	sta.w temp4,x
 .3:
 	lda.w #rtss>>16
 	sta.b $8B
 	lda.w #rtss
 	sta.b a0
-	lda.w $1043,x
+	lda.w temp3,x
 	sta.b d0
-	lda.w $1063,x
+	lda.w temp4,x
 	sta.b d1
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bpl .t1x
 	lda.w #SPAcelebrate
 	sta.b d1
@@ -86,7 +86,7 @@ assscore:
 .6:
 	lda.w #$0078
 	jsl.l randoma8
-	sta.w $1003,x
+	sta.w temp1,x
 	rtl
 
 .t1x:

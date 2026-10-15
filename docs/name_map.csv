@@ -6487,3 +6487,50 @@ $8EC784,SpriteFrame_bigfont_0,SpriteFrame928,new,"frame 929 = SPFbigfont (38 fra
 $8ED635,SpriteFrame_hat_0,SpriteFrame966,new,"frame 967 = SPFhat (9 frames, SpriteFrame_hat_0-8): hat trick hats, 3 kinds of 3 frames (UpdateHatTrick)",src/data/gfx/SpriteFrames8E.asm
 $8ED85A,SpriteFrame_hatshadow_0,SpriteFrame975,new,"frame 976 = SPFhatshadow (1 frame, SpriteFrame_hatshadow_0-0): the hat shadow (UpdateHatTrick)",src/data/gfx/SpriteFrames8E.asm
 $0D97,frame,,93S,"RAM; sprite frame number of each object (93S frame: updateanim stores the animation frame there)",src/ram94snes.asm
+$0D77,Xfrac,,93S,RAM; fraction of Xpos,src/ram94snes.asm
+$0DD9,Yfrac,,93S,RAM; fraction of Ypos,src/ram94snes.asm
+$0DF9,puckz,,93S,RAM; puck height (93S Zpos+puckobj),src/ram94snes.asm
+$0DFD,puckzfrac,,93S,RAM; fraction of puckz,src/ram94snes.asm
+$0DFF,puckoldz,,93S,RAM; puckz before this frame's move (93S OldZpos+puckobj),src/ram94snes.asm
+$0E01,puckvz,,93S,RAM; puck height speed (93S Zvel+puckobj),src/ram94snes.asm
+$0E23,oldframe,,93S,RAM; frame last drawn (setsortcords),src/ram94snes.asm
+$0E43,OldXpos,,93S,RAM; Xpos before this frame's move,src/ram94snes.asm
+$0E63,OldXfrac,,93S,RAM,src/ram94snes.asm
+$0E83,OldYpos,,93S,RAM,src/ram94snes.asm
+$0EA3,OldYfrac,,93S,RAM,src/ram94snes.asm
+$0EC3,Xvel,,93S,RAM; x speed (puckvx is Xvel+puckobj),src/ram94snes.asm
+$0EE3,Yvel,,93S,RAM; y speed,src/ram94snes.asm
+$0F03,impactp,,93S,RAM; the other object (index) of the last collision or hold,src/ram94snes.asm
+$0F23,impact,,93S,"RAM; impact value, added to by collisions",src/ram94snes.asm
+$1003,temp1,,93S,"RAM; assignment scratch, per object",src/ram94snes.asm
+$1023,temp2,,93S,RAM,src/ram94snes.asm
+$1043,temp3,,93S,RAM,src/ram94snes.asm
+$1063,temp4,,93S,RAM,src/ram94snes.asm
+$1083,temp5,,93S,RAM,src/ram94snes.asm
+$10A3,temp2b,,93S,RAM,src/ram94snes.asm
+$10C3,radiusx,,93S,RAM; collision width (InitSortObjects),src/ram94snes.asm
+$10E3,radiusy,,93S,RAM; collision height,src/ram94snes.asm
+$1143,SCnum,,93S,RAM; object number (index / 2),src/ram94snes.asm
+$1183,facefrac,,93S,RAM; turn fraction of facedir (doplayeracc),src/ram94snes.asm
+$1203,nopuck,,93S,RAM; no puck collision until zero,src/ram94snes.asm
+$1223,nopuckb,,93S,RAM; second count down,src/ram94snes.asm
+$12C3,weight,,93S,RAM,src/ram94snes.asm
+$12E3,legstr,,93S,RAM,src/ram94snes.asm
+$1303,legspd,,93S,RAM,src/ram94snes.asm
+$1323,aioff,,93S,RAM,src/ram94snes.asm
+$1343,aidef,,93S,RAM,src/ram94snes.asm
+$1363,shotspd,,93S,RAM,src/ram94snes.asm
+$1383,shotacc,,93S,RAM,src/ram94snes.asm
+$13A3,passacc,,93S,RAM; passacc (goalies: glove save right),src/ram94snes.asm
+$13C3,rostnum,,93S,RAM,src/ram94snes.asm
+$13E3,spodds,,93S,RAM; shot / pass odds,src/ram94snes.asm
+$1403,stickhand,,93S,RAM,src/ram94snes.asm
+$1423,endurance,,93S,RAM; endurance (goalies: stick save right),src/ram94snes.asm
+$1443,GGSleft,,93S,RAM; goalie glove save left,src/ram94snes.asm
+$1463,fightagg,,93S,RAM; fighting aggression (stored; 94S has no fights),src/ram94snes.asm
+$1483,aggress,,93S,RAM,src/ram94snes.asm
+$14A3,handed,,93S,RAM; nonzero: right handed,src/ram94snes.asm
+$1523,pfrev,,93S,RAM; nonzero: skating backwards. pflags bit pfrev,src/ram94snes.asm
+$1543,pf2aip,,93S,RAM; nonzero: animation in progress. pflags2 bit pf2aip,src/ram94snes.asm
+$1563,pfnc,,93S,RAM; nonzero: no collision mode. pflags bit pfnc,src/ram94snes.asm
+$0DFB,shadowz,,code,"RAM; height of object 15, the puck shadow (setsortcords)",src/ram94snes.asm

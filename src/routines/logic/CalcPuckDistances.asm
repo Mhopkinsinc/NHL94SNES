@@ -3,7 +3,7 @@ CalcPuckDistances:
 	ldx.w #$0000
 .loop:
 	stx.b $E4
-	lda.w $0D71
+	lda.w puckx
 	sec
 	sbc.w Xpos,x
 	sta.b d0

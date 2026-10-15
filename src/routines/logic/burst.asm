@@ -41,16 +41,16 @@ burst:
 	jsl.l Mul8XS
 	ldx.b a3
 	clc
-	adc.w $0EC3,x
-	sta.w $0EC3,x
+	adc.w Xvel,x
+	sta.w Xvel,x
 	lda.b [a0],y
 	tax
 	lda.b $D7
 	jsl.l Mul8XS
 	ldx.b a3
 	clc
-	adc.w $0EE3,x
-	sta.w $0EE3,x
+	adc.w Yvel,x
+	sta.w Yvel,x
 	lda.w #SPAburst
 	sta.w pfalock,x
 	jml.l SetSPAFromA

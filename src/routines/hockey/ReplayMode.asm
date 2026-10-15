@@ -137,16 +137,16 @@ ReplayMode:
 .t2:
 	tax
 	lda.w Xpos,x
-	sta.w $0D75
+	sta.w Xpos+$20
 	cmp.w $0CBD
 	bpl .t1x
 	lda.w $0CBD
 	sec
 	sbc.w #$0004
-	cmp.w $0D75
+	cmp.w Xpos+$20
 	bpl .2
 .1x:
-	lda.w $0D75
+	lda.w Xpos+$20
 .2:
 	bra .5
 
@@ -154,9 +154,9 @@ ReplayMode:
 	lda.w $0CBD
 	clc
 	adc.w #$0004
-	cmp.w $0D75
+	cmp.w Xpos+$20
 	bmi .5
-	lda.w $0D75
+	lda.w Xpos+$20
 .5:
 	cmp.w #$FFC0
 	bpl .1xx
@@ -169,16 +169,16 @@ ReplayMode:
 	sta.w Hpos
 	sta.w $0CBD
 	lda.w Ypos,x
-	sta.w $0DD7
+	sta.w Ypos+$20
 	cmp.w $0CBF
 	bpl .t1xx
 	lda.w $0CBF
 	sec
 	sbc.w #$0004
-	cmp.w $0DD7
+	cmp.w Ypos+$20
 	bpl .4
 .3:
-	lda.w $0DD7
+	lda.w Ypos+$20
 .4:
 	bra .6
 
@@ -186,9 +186,9 @@ ReplayMode:
 	lda.w $0CBF
 	clc
 	adc.w #$0004
-	cmp.w $0DD7
+	cmp.w Ypos+$20
 	bmi .6
-	lda.w $0DD7
+	lda.w Ypos+$20
 .6:
 	cmp.w #$FF39
 	bpl .2xx
@@ -210,15 +210,15 @@ ReplayMode:
 .7:
 	cmp.w #$FFFF
 	beq .11
-	lda.w $0D75
+	lda.w Xpos+$20
 	cmp.w $0CBD
 	bpl .t2x
 	lda.w $0CBD
 	sec
 	sbc.w #$0002
-	cmp.w $0D75
+	cmp.w Xpos+$20
 	bpl .1xxxx
-	lda.w $0D75
+	lda.w Xpos+$20
 .1xxxx:
 	bra .8
 
@@ -226,9 +226,9 @@ ReplayMode:
 	lda.w $0CBD
 	clc
 	adc.w #$0002
-	cmp.w $0D75
+	cmp.w Xpos+$20
 	bmi .8
-	lda.w $0D75
+	lda.w Xpos+$20
 .8:
 	cmp.w #$FFC0
 	bpl .1xxxxx
@@ -240,15 +240,15 @@ ReplayMode:
 .2xxx:
 	sta.w Hpos
 	sta.w $0CBD
-	lda.w $0DD7
+	lda.w Ypos+$20
 	cmp.w $0CBF
 	bpl .t1xxx
 	lda.w $0CBF
 	sec
 	sbc.w #$0002
-	cmp.w $0DD7
+	cmp.w Ypos+$20
 	bpl .3xx
-	lda.w $0DD7
+	lda.w Ypos+$20
 .3xx:
 	bra .9
 
@@ -256,9 +256,9 @@ ReplayMode:
 	lda.w $0CBF
 	clc
 	adc.w #$0002
-	cmp.w $0DD7
+	cmp.w Ypos+$20
 	bmi .9
-	lda.w $0DD7
+	lda.w Ypos+$20
 .9:
 	cmp.w #$FF39
 	bpl .2xxxx
@@ -317,12 +317,12 @@ ReplayMode:
 	bmi .4xxx
 	lda.w Xpos,y
 	sec
-	sbc.w $0D75
+	sbc.w Xpos+$20
 	sta.b d0
 	sta.b d2
 	lda.w Ypos,y
 	sec
-	sbc.w $0DD7
+	sbc.w Ypos+$20
 	sta.b d1
 	sta.b d3
 	jsl.l vtoa
@@ -393,21 +393,21 @@ ReplayMode:
 	asl.b d0
 	ldy.b d0
 	lda.w .14,y
-	adc.w $0D75
+	adc.w Xpos+$20
 	sta.b d2
 	ldx.w #$0020
 	lda.w .14,y
 	xba
 	and.w #$FF00
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	lda.w .14+2,y
 	clc
-	adc.w $0DD7
+	adc.w Ypos+$20
 	sta.b d3
 	lda.w .14+2,y
 	xba
 	and.w #$FF00
-	sta.w $0EE3,x
+	sta.w Yvel,x
 	lda.b d2
 	pha
 	lda.b d3
@@ -436,7 +436,7 @@ ReplayMode:
 	ora.w #$FF00
 .2xxxxxxx:
 	clc
-	adc.w $0D75
+	adc.w Xpos+$20
 	sta.b d2
 	lda.w Wallcos,x
 	asl a
@@ -449,14 +449,14 @@ ReplayMode:
 	eor.w #$FFFF
 	inc a
 	clc
-	adc.w $0DD7
+	adc.w Ypos+$20
 	sta.b d3
 .4xxxx:
 	lda.b d2
-	sta.w $0D75
+	sta.w Xpos+$20
 	sta.w Hpos
 	lda.b d3
-	sta.w $0DD7
+	sta.w Ypos+$20
 	sta.w Vpos
 	lda.w #$0010
 	sta.w $0AF3
@@ -476,15 +476,15 @@ ReplayMode:
 	lda.w #$000F
 	sta.w $0AF3
 	lda.w Xpos,x
-	sta.w $0D75
+	sta.w Xpos+$20
 	lda.w Ypos,x
-	sta.w $0DD7
+	sta.w Ypos+$20
 	bra .9x
 
 .t1xxxxx:
 	lda.w #$000F
 	sta.w $0AF3
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FF78
 	bpl .2xxxxxxxx
 .1xxxxxxxxxx:
@@ -495,7 +495,7 @@ ReplayMode:
 .3xxxxxx:
 	lda.w #$0088
 .4xxxxx:
-	sta.w $0D75
+	sta.w Xpos+$20
 	lda.w pucky
 	cmp.w #$FED4
 	bpl .6x
@@ -507,7 +507,7 @@ ReplayMode:
 .7x:
 	lda.w #$012C
 .8x:
-	sta.w $0DD7
+	sta.w Ypos+$20
 .9x:
 	lda.b d1
 	bit.w #$8000

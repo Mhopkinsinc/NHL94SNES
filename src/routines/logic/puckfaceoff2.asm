@@ -107,7 +107,7 @@ puckfaceoff2:
 	sta.w RefCnt
 	sta.w $0D19
 	sta.w $0D1D
-	sta.w $0DF9
+	sta.w puckz
 	sta.w $0D07
 	asl a
 	sta.w puckc
@@ -122,27 +122,27 @@ puckfaceoff2:
 	stz.w Vpos
 	stz.w Hpos
 	lda.l $7E3136
-	sta.w $0D71
+	sta.w puckx
 	lda.l $7E3138
 	sta.w pucky
 	stz.w puckvx
 	stz.w puckvy
-	stz.w $0E01
-	stz.w $0EDB
-	stz.w $0EFB
-	stz.w $0D6D
+	stz.w puckvz
+	stz.w Xvel+$18
+	stz.w Yvel+$18
+	stz.w Xpos+$18
 	lda.w #$010C
-	sta.w $0DCF
-	stz.w $0EDD
-	stz.w $0EFD
-	stz.w $0D6F
+	sta.w Ypos+$18
+	stz.w Xvel+$1A
+	stz.w Yvel+$1A
+	stz.w Xpos+$1A
 	lda.w #$FEF4
-	sta.w $0DD1
+	sta.w Ypos+$1A
 	lda.w #SPFpuck
 	sta.w frame+$1E
-	stz.w $11C1
-	stz.w $0E21
-	stz.w $0E1F
+	stz.w SPA+$1E
+	stz.w attribute+$1E
+	stz.w attribute+puckobj
 	lda.w #$0040
 	trb.w sflags
 	lda.w #$0064
@@ -356,7 +356,7 @@ puckfaceoff2:
 	lda.b d0
 	sta.w Xpos,x
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	eor.w #$FFFF
 	inc a
 	sta.b d0
@@ -367,8 +367,8 @@ puckfaceoff2:
 	eor.w #$FFFF
 	inc a
 	sta.b d1
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	jsl.l vtoa
 	lda.b d0
 	sta.w facedir,x
@@ -691,11 +691,11 @@ puckfaceoff2:
 	adc.w #$00B4
 	sta.b d0
 	ldx.b a3
-	sta.w $1003,x
+	sta.w temp1,x
 	lda.w $1E9B
 	beq .4xxx
 	lda.w #$00B4
-	sta.w $1003,x
+	sta.w temp1,x
 .4xxx:
 	lda.w #$0001
 	sta.l $7E312A
@@ -742,15 +742,15 @@ puckfaceoff2:
 .18:
 	lda.b d7
 	sta.b tmp0
-	cmp.w $1003,x
+	cmp.w temp1,x
 	bmi .1xxxxxx
 	lda.w #$0001
 	sta.b tmp0
 .1xxxxxx:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b tmp0
-	sta.w $1003,x
+	sta.w temp1,x
 	bpl updatefaceoff
 	lda.w $1E9B
 	beq .t1xxxx

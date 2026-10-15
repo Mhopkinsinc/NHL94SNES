@@ -4,7 +4,7 @@ chk4pass:
 	bne .1
 	lda.w #$0010
 	clc
-	adc.w $13E3,x
+	adc.w spodds,x
 	jsl.l randoma8
 	cmp.w #$0009
 	bcs .4
@@ -20,7 +20,7 @@ chk4pass:
 .2:
 	lda.w position,x
 	beq .3
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FFD7
 	bmi .3
 	cmp.w #$0029

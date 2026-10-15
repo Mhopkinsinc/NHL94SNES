@@ -30,27 +30,27 @@ asswingo:
 	and.w #$FFFD
 	sta.w pflags,x
 	lda.w #$FFFF
-	sta.w $1083,x
-	stz.w $1003,x
-	stz.w $1023,x
+	sta.w temp5,x
+	stz.w temp1,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 .1x:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bmi .t1
 	jmp.w .7
 
 .t1:
 	clc
-	adc.w $1343,x
+	adc.w aidef,x
 	bpl .2x
 .1xx:
 	lda.w #$0000
 .2x:
-	sta.w $1003,x
+	sta.w temp1,x
 	lda.w pucky
 	sta.b d0
 	lda.w puckvy
@@ -102,14 +102,14 @@ asswingo:
 	sta.b d2
 .5:
 	lda.b d2
-	cmp.w $1083,x
+	cmp.w temp5,x
 	bne .6
 	lda.w $0792
 	cmp.w #$0200
 	bcs .7
 .6:
 	lda.b d2
-	sta.w $1083,x
+	sta.w temp5,x
 	tay
 	lda.w #$009E
 	sta.b $8B
@@ -122,7 +122,7 @@ asswingo:
 	dey
 	jsl.l randomd0s
 	adc.b [a0],y
-	sta.w $1043,x
+	sta.w temp3,x
 	tya
 	clc
 	adc.w #$0006
@@ -132,9 +132,9 @@ asswingo:
 	dey
 	jsl.l randomd0s
 	adc.b [a0],y
-	sta.w $1063,x
+	sta.w temp4,x
 .7:
-	lda.w $1043,x
+	lda.w temp3,x
 	sta.b d0
 	lda.w position,x
 	cmp.w #$0005
@@ -144,7 +144,7 @@ asswingo:
 	sbc.b d0
 	sta.b d0
 .1xxx:
-	lda.w $1063,x
+	lda.w temp4,x
 	sta.b d1
 	lda.w pfgoal,x
 	bne .2xx

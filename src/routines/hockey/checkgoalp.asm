@@ -142,9 +142,9 @@ checkgoalp:
 	bmi .1xx
 	cmp.w #$0080
 	bpl .1xx
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	sta.b d0
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	sta.b d1
 	cmp.w #$DFFF
 	bmi .10
@@ -180,7 +180,7 @@ checkgoalp:
 	adc.b d0
 	sta.b d0
 	ldy.b a2
-	sta.w $0EC3,y
+	sta.w Xvel,y
 	lda.b d1
 	lsr a
 	lsr a
@@ -195,9 +195,9 @@ checkgoalp:
 	clc
 	adc.b d1
 	sta.b d1
-	sta.w $0EE3,y
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	sta.w Yvel,y
+	stz.w Xvel,x
+	stz.w Yvel,x
 	lda.w #$0040
 	tsb.w sflags
 	lda.w gmclock

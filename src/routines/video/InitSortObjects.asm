@@ -15,14 +15,14 @@ InitSortObjects:
 	stz.b a2
 	stz.b a3
 	stz.b a4
-	stz.w $0DF9
+	stz.w puckz
 .loop2:
 	ldx.b a2
 	ldy.b a3
 	lda.b d6
-	sta.w $1143,y
+	sta.w SCnum,y
 	lda.w #$FFFF
-	sta.w $0E23,y
+	sta.w oldframe,y
 	sta.w pnum,y
 	lda.w .3,x
 	sta.w Xpos,y
@@ -33,9 +33,9 @@ InitSortObjects:
 	lda.w .3+8,x
 	sta.w attribute,y
 	lda.w .3+10,x
-	sta.w $10C3,y
+	sta.w radiusx,y
 	lda.w .3+12,x
-	sta.w $10E3,y
+	sta.w radiusy,y
 	lda.b d6
 	asl a
 	asl a
@@ -48,11 +48,11 @@ InitSortObjects:
 	lda.w .3+16,x
 	sta.w pflags,y
 	lda.w #$0000
-	sta.w $1563,y
+	sta.w pfnc,y
 	cpy.w #$001E
 	bne .1
 	lda.w #$0001
-	sta.w $1563,y
+	sta.w pfnc,y
 .1:
 	cpx.w #$006C
 	rol a
@@ -92,8 +92,8 @@ InitSortObjects:
 
 .t1:
 	lda.w #$FFFF
-	sta.w $0F5B
-	sta.w $0F5D
+	sta.w position+$18
+	sta.w position+$1A
 	plb
 	jmp.w SprSort
 .3:		; a record of 9 words per object, read by the .loop2 loop above

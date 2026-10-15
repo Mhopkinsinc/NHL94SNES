@@ -10,7 +10,7 @@ checkgoal:
 	lda.w position,y
 	beq .t1
 .1:
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$000D
 	bpl .t1
 	ldy.b a2
@@ -40,25 +40,25 @@ checkgoal:
 	bmi .t1
 	lda.w #$FFFF
 	sta.w $0CDB
-	lda.w $0DFF
+	lda.w puckoldz
 	cmp.w #$000D
 	bmi .t2
-	lda.w $0DFF
-	sta.w $0DF9
+	lda.w puckoldz
+	sta.w puckz
 	jmp.w .10
 
 .t1:
 	rtl
 
 .t2:
-	stz.w $14DF
+	stz.w pfgoal+puckobj
 	lda.w puckc
 	bmi .2
 	tay
 	lda.w #$FFFF
 	sta.w puckc
 	lda.w #$0008
-	sta.w $1203,y
+	sta.w nopuck,y
 	lda.w pucky
 	sta.b d1
 	lda.w pfgoal,y
@@ -71,18 +71,18 @@ checkgoal:
 	lda.b d1
 	bpl .2
 	lda.w #$0001
-	sta.w $14DF
+	sta.w pfgoal+puckobj
 .2:
 	lda.w #$FF01
 	sta.b d0
 	lda.w #$FF01
 	sta.b $0C
-	lda.w $0DD9,x
+	lda.w Yfrac,x
 	sec
-	sbc.w $0EA3,x
+	sbc.w OldYfrac,x
 	sta.b d1
 	lda.w Ypos,x
-	sbc.w $0E83,x
+	sbc.w OldYpos,x
 	sta.b $AB
 	lda.b $AA
 	sta.b d1
@@ -107,12 +107,12 @@ checkgoal:
 	adc.b d3
 	sta.b d5
 	sta.b $08
-	lda.w $0D77,x
+	lda.w Xfrac,x
 	sec
-	sbc.w $0E63,x
+	sbc.w OldXfrac,x
 	sta.b d3
 	lda.w Xpos,x
-	sbc.w $0E43,x
+	sbc.w OldXpos,x
 	sta.b $B3
 	lda.b $B2
 	sta.b d3
@@ -183,9 +183,9 @@ checkgoal:
 	sec
 	sbc.b d0
 	sta.b d0
-	lda.w $14DF
+	lda.w pfgoal+puckobj
 	bne .7
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$000D
 	beq .1xxx
 	lda.b d2
@@ -233,16 +233,16 @@ checkgoal:
 	and.w #$1FFF
 	sec
 	sbc.w #$1000
-	sta.w $0E01
+	sta.w puckvz
 	jmp.w puckflip
 .10:
-	lda.w $0E01
+	lda.w puckvz
 	bit.w #$8000
 	beq .1xxxx
 	eor.w #$FFFF
 	inc a
 .1xxxx:
-	sta.w $0E01
+	sta.w puckvz
 	rtl
 .11:
 	lda.w puckvx
@@ -263,9 +263,9 @@ checkgoal:
 	stz.b d0
 	lda.w #$00FF
 	sta.b d1
-	lda.w $0D71
+	lda.w puckx
 	sec
-	sbc.w $0E5F
+	sbc.w OldXpos+puckobj
 	sta.b d2
 	bmi .1xxxxx
 	lda.w #$FF01

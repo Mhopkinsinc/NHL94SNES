@@ -2,9 +2,9 @@
 EvadePC:
 	lda.w puckc
 	bmi .rtl
-	lda.w $0EC4,x
+	lda.w Xvel+1,x
 	sec
-	sbc.w $0EE0
+	sbc.w Xvel+$1D
 	and.w #$00FF
 	bit.w #$0080
 	beq .2xx
@@ -13,14 +13,14 @@ EvadePC:
 	clc
 	adc.w Xpos,x
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	cmp.w #$FFD7
 	bmi .rtl
 	cmp.w #$0029
 	bpl .rtl
-	lda.w $0EE4,x
+	lda.w Yvel+1,x
 	sec
-	sbc.w $0F00
+	sbc.w Yvel+$1D
 	and.w #$00FF
 	bit.w #$0080
 	beq .3x
@@ -36,7 +36,7 @@ EvadePC:
 	bpl .rtl
 	lda.w Xpos,x
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b d0
 	lda.w Ypos,x
 	sec

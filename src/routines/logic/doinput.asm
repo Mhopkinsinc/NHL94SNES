@@ -140,7 +140,7 @@ doinput:
 	jsl.l checkob
 	lda.w position,x
 	bne .1xxxxxx
-	lda.w $1543,x
+	lda.w pf2aip,x
 	bne .14
 .1xxxxxx:
 	lda.w sflags

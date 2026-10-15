@@ -1,6 +1,6 @@
 ; The puck hits player a2: a fast high puck knocks him down, a slower one is caught
 puckbody:
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$0008
 	bpl .t2
 	lda.b d0
@@ -10,7 +10,7 @@ puckbody:
 
 .t2:
 	jsl.l a2touchpuck
-	ldy.w $0DF9
+	ldy.w puckz
 	cmp.w #$000E
 	bmi .t1
 	lda.w #$0005
@@ -21,10 +21,10 @@ puckbody:
 	lda.w #$0008
 	jsl.l PuckSfx
 .2:
-	stz.w $0E01
+	stz.w puckvz
 	ldy.b a2
 	lda.w #$0008
-	sta.w $1203,y
+	sta.w nopuck,y
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y
@@ -37,18 +37,18 @@ puckbody:
 	tya
 	jsl.l GetHot
 .1:
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	sta.b d2
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	sta.b d3
 	sep #$20
 	lda.b d0
-	sta.w $0EC4,x
+	sta.w Xvel+1,x
 	lda.b d1
-	sta.w $0EE4,x
+	sta.w Yvel+1,x
 	rep #$30
 	jsl.l puckflip
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$0008
 	bmi .3
 	lda.b d2
@@ -72,7 +72,7 @@ org $9EF000
 	sta.b $AF
 	cmp.w #$0900
 	bcc .4
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$000C
 	bmi .3
 	jmp.w FallDown
@@ -83,7 +83,7 @@ org $9EF000
 	lda.w pfalock,y
 	bne .3
 	inc a
-	sta.w $1543,y
+	sta.w pf2aip,y
 	lda.w #SPAcatch
 	ldx.b a2
 	jsl.l SetSPAFromA

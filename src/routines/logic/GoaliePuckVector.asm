@@ -2,7 +2,7 @@
 GoaliePuckVector:
 	phk
 	plb
-	lda.w $0D71
+	lda.w puckx
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -13,7 +13,7 @@ GoaliePuckVector:
 	bra .1
 
 .t1:
-	lda.w $0D71
+	lda.w puckx
 	sta.b d0
 	lda.w pucky
 	sec

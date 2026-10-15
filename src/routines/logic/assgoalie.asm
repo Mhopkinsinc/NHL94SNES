@@ -47,12 +47,12 @@ assgoalie:
 	beq .5
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
-	stz.w $1023,x
+	stz.w temp1,x
+	stz.w temp2,x
 	lda.w #$0008
-	sta.w $10A3,x
+	sta.w temp2b,x
 	lda.w #$FFFF
-	sta.w $1063,x
+	sta.w temp4,x
 .5:
 	ldy.w $19D4,x
 	bpl .t2
@@ -125,7 +125,7 @@ assgoalie:
 	lda.w #$FF07
 	sta.b d1
 .2x:
-	stz.w $1023,x
+	stz.w temp2,x
 	jml.l skateto
 .12:
 	lda.w $0B05,x
@@ -139,14 +139,14 @@ assgoalie:
 	bne .13
 	jsl.l StopNA
 .13:
-	lda.w $1543,x
+	lda.w pf2aip,x
 	bne .1xx
 	lda.w #SPAgready
 	jsl.l SetSPAFromA
 .1xx:
 	lda.w gmclock
 	bne .14
-	lda.w $1083,x
+	lda.w temp5,x
 	bmi .16
 	cpx.w puckc
 	bne .t1xx
@@ -155,47 +155,47 @@ assgoalie:
 	bpl .15
 	cmp.w #$FF45
 	bmi .15
-	stz.w $1083,x
+	stz.w temp5,x
 	bra .15
 
 .t1xx:
 	lda.w #$FFFF
-	sta.w $1083,x
+	sta.w temp5,x
 	bra .16
 .14:
 	rtl
 .15:
-	lda.w $1083,x
+	lda.w temp5,x
 	sec
 	sbc.b d7
-	sta.w $1083,x
+	sta.w temp5,x
 	bpl .16
 	lda.w #$0008
 	sta.b d0
 	jsl.l AddPenalty2
 .16:
-	lda.w $1543,x
+	lda.w pf2aip,x
 	beq .t1xxx
 	jmp.w .14
 
 .t1xxx:
-	lda.w $1003,x
+	lda.w temp1,x
 	sec
 	sbc.b d7
-	sta.w $1003,x
+	sta.w temp1,x
 	bmi .t2x
 	jmp.w .45
 
 .t2x:
-	lda.w $1343,x
+	lda.w aidef,x
 	lsr a
 	clc
-	adc.w $1003,x
+	adc.w temp1,x
 	cmp.w #$0000
 	bpl .1xxx
 	lda.w #$0000
 .1xxx:
-	sta.w $1003,x
+	sta.w temp1,x
 	lda.w $19D4,x
 	bpl .3x
 	lda.w pucky
@@ -215,24 +215,24 @@ assgoalie:
 	jmp.w .44
 
 .t1xxxx:
-	dec.w $1063,x
+	dec.w temp4,x
 	bpl .1xxxx
 	lda.w #$FFFF
-	sta.w $1063,x
+	sta.w temp4,x
 .1xxxx:
 	cpx.w puckc
 	beq .17
 .3x:
 	jmp.w .23
 .17:
-	lda.w $1083,x
+	lda.w temp5,x
 	bpl .1xxxxx
 	lda.w #$005A
-	sta.w $1083,x
+	sta.w temp5,x
 .1xxxxx:
 	lda.w #$FFFF
-	sta.w $1063,x
-	lda.w $1083,x
+	sta.w temp4,x
+	lda.w temp5,x
 	sec
 	sbc.w #$005A
 	bpl .18
@@ -271,7 +271,7 @@ assgoalie:
 	cmp.w #$0014
 	bcs .18
 	lda.w #$005A
-	sta.w $1543,x
+	sta.w pf2aip,x
 	lda.w #SPAgcover
 	jsl.l SetSPAFromA
 .20:
@@ -295,7 +295,7 @@ assgoalie:
 	bne .t3
 	cpx.w puckc
 	beq .18
-	lda.w $0D71
+	lda.w puckx
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -326,7 +326,7 @@ assgoalie:
 	jmp.w .2xxxx
 
 .t3:
-	lda.w $0D71
+	lda.w puckx
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -357,7 +357,7 @@ assgoalie:
 	jmp.w .21
 
 .t1xxxxxx:
-	lda.w $1063,x
+	lda.w temp4,x
 	bne .t2xxx
 	lda.w puckdist,x
 	cmp.w #$002D
@@ -449,7 +449,7 @@ assgoalie:
 	cmp.w #$0105
 	bpl .4x
 .3xxx:
-	lda.w $0D71
+	lda.w puckx
 	sta.b d0
 	lda.w pucky
 	sta.b d1
@@ -525,7 +525,7 @@ assgoalie:
 	ror a
 	adc.b $14
 	clc
-	adc.w $0D71
+	adc.w puckx
 	sta.b d0
 	bra .30
 .27:
@@ -538,7 +538,7 @@ assgoalie:
 	ora.w #$FF80
 .1xxxxxxxxxxx:
 	clc
-	adc.w $0D71
+	adc.w puckx
 	sta.b d0
 	bra .30
 .28:
@@ -554,7 +554,7 @@ assgoalie:
 	ora.w #$FF00
 .1xxxxxxxxxxxx:
 	clc
-	adc.w $0D71
+	adc.w puckx
 	sta.b d0
 .30:
 	jsl.l .49
@@ -654,14 +654,14 @@ assgoalie:
 	jmp.w .48
 
 .t3x:
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	cmp.w #$8000
 	ror a
-	sta.w $0EC3,x
-	lda.w $0EE3,x
+	sta.w Xvel,x
+	lda.w Yvel,x
 	cmp.w #$8000
 	ror a
-	sta.w $0EE3,x
+	sta.w Yvel,x
 	lda.w $0B05,x
 	bit.w #$0002
 	beq .t1x2
@@ -678,7 +678,7 @@ assgoalie:
 	ora.w #$FFC0
 .1x2:
 	clc
-	adc.w $0D71
+	adc.w puckx
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -801,11 +801,11 @@ assgoalie:
 .2xxxxxxxx:
 	cmp.w #$0002
 	bcs .39
-	lda.w $0DF9
+	lda.w puckz
 	sec
 	sbc.w #$0008
 	bpl .42
-	lda.w $0E01
+	lda.w puckvz
 	sec
 	sbc.w #$0800
 	bpl .42
@@ -856,7 +856,7 @@ assgoalie:
 .1xxxxxxxxxxxxxxxxx:
 	lda.w #$0018
 	sta.b d0
-	lda.w $0D71
+	lda.w puckx
 	bpl .44
 	lda.w #$FFE8
 	sta.b d0
@@ -876,14 +876,14 @@ assgoalie:
 	bcc .t2xxxxx
 	cmp.w #$F021
 	bcs .t2xxxxx
-	lda.w $0EE3,y
+	lda.w Yvel,y
 	bit.w #$8000
 	beq .1xxxxxxxxxxxxxxxxxx
 	eor.w #$FFFF
 	inc a
 .1xxxxxxxxxxxxxxxxxx:
 	sta.b $00
-	lda.w $0EC3,y
+	lda.w Xvel,y
 	bit.w #$8000
 	beq .2xxxxxxxxx
 	eor.w #$FFFF
@@ -894,8 +894,8 @@ assgoalie:
 	bcs .t2xxxxx
 	lda.w $0BA1
 	bne .7x
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	inc.w $0BA1
 	rtl
 
@@ -907,7 +907,7 @@ assgoalie:
 	pha
 	lda.b d0
 	pha
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	xba
 	and.w #$00FF
 	bit.w #$0080
@@ -923,7 +923,7 @@ assgoalie:
 	sec
 	sbc.w Xpos,x
 	sta.b d0
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	xba
 	and.w #$00FF
 	bit.w #$0080
@@ -966,11 +966,11 @@ assgoalie:
 .6x:
 	jsl.l vtoa
 	lda.b d0
-	sta.w $10A3,x
+	sta.w temp2b,x
 .45:
 	ldy.w $19D4,x
 	bpl .47
-	lda.w $10A3,x
+	lda.w temp2b,x
 	sta.b d2
 	sec
 	sbc.w #$0007
@@ -990,7 +990,7 @@ assgoalie:
 	lda.w iflags
 	bit.w #$0004
 	bne .46
-	lda.w $0D71
+	lda.w puckx
 	bit.w #$8000
 	beq .1xxxxxxxxxxxxxxxxxxxx
 	eor.w #$FFFF

@@ -1,12 +1,12 @@
 ; Assignment: the puck most of the time
 pucknorm:
 	lda.w #$0002
-	trb.w $129F
+	trb.w pflags+puckobj
 	beq pucknorm_move
-	stz.w $101F
-	stz.w $103F
+	stz.w temp1+puckobj
+	stz.w temp2+puckobj
 	lda.w #$0078
-	sta.w $10BF
+	sta.w temp2b+puckobj
 	lda.w #$0000
 	sta.l $7E3450
 pucknorm_move:
@@ -18,13 +18,13 @@ pucknorm_move:
 	sec
 	sbc.b d7
 	sta.w $0D1D
-	lda.w $101F
+	lda.w temp1+puckobj
 	sec
 	sbc.b d7
-	sta.w $101F
+	sta.w temp1+puckobj
 	bpl .1
 	adc.w #$0005
-	sta.w $101F
+	sta.w temp1+puckobj
 	jsl.l .14
 .1:
 	lda.w puckc
@@ -38,7 +38,7 @@ pucknorm_move:
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	lsr a
 	lsr a
 	bit.w #$2000
@@ -46,8 +46,8 @@ pucknorm_move:
 	ora.w #$C000
 .2:
 	clc
-	adc.w $0D71
-	sta.w $0D71
+	adc.w puckx
+	sta.w puckx
 	lda.b d1
 	clc
 	adc.w Ypos,y
@@ -62,9 +62,9 @@ pucknorm_move:
 	clc
 	adc.w pucky
 	sta.w pucky
-	lda.w $0EC3,y
+	lda.w Xvel,y
 	sta.w puckvx
-	lda.w $0EE3,y
+	lda.w Yvel,y
 	sta.w puckvy
 .4:
 	jsl.l puckIChk
@@ -105,15 +105,15 @@ pucknorm_move:
 	lda.w #$0000
 	sta.l $7E3450
 .10:
-	lda.w $0D71
-	cmp.w $0E5F
+	lda.w puckx
+	cmp.w OldXpos+puckobj
 	bne .12
 	lda.w pucky
-	cmp.w $0E9F
+	cmp.w OldYpos+puckobj
 	bne .12
 	lda.w #$0006
 	sta.b d0
-	dec.w $10BF
+	dec.w temp2b+puckobj
 	bpl .13
 .1x:
 	jsl.l AddPenalty2
@@ -123,11 +123,11 @@ pucknorm_move:
 	sta.l $7E3450
 .12:
 	lda.w #$0078
-	sta.w $10BF
+	sta.w temp2b+puckobj
 .13:
-	lda.w $0E01
+	lda.w puckvz
 	and.w #$FF00
-	ora.w $0DF9
+	ora.w puckz
 	beq .t1x
 	jmp.w checkpuckcoll
 
@@ -184,7 +184,7 @@ pucknorm_move:
 	asl a
 	ldx.w puckvx
 	jsl.l Mul16XS
-	adc.w $0D71
+	adc.w puckx
 	sta.b d0
 	cmp.w #$0088
 	bmi .2x

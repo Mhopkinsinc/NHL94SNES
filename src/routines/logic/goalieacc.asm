@@ -12,11 +12,11 @@ goalieacc:
 	cmp.w #$0009
 	bne .2
 .1:
-	lda.w $0EC3,x
-	ora.w $0EE3,x
+	lda.w Xvel,x
+	ora.w Yvel,x
 	bne .t3
 .2:
-	lda.w $1543,x
+	lda.w pf2aip,x
 org $9ED002
 	bne .t1
 	jml.l SetSPA

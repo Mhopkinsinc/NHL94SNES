@@ -32,7 +32,7 @@ checkwindow:
 	lda.w #$FFCE
 	sta.w $0D4F
 .2:
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	lsr a
 	lsr a
 	lsr a

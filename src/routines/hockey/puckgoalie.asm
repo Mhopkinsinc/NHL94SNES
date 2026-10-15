@@ -7,7 +7,7 @@ puckgoalie:
 
 .t1:
 	stz.b d2
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$0008
 	bpl .1
 	inc.b d2
@@ -43,21 +43,21 @@ puckgoalie:
 	adc.b d2
 	asl a
 	sta.b d2
-	lda.w $1443,y
+	lda.w GGSleft,y
 	sta.b d1
 	lda.b d2
 	beq .3
-	lda.w $13A3,y
+	lda.w passacc,y
 	sta.b d1
 	lda.b d2
 	cmp.w #$0002
 	beq .3
-	lda.w $13E3,y
+	lda.w spodds,y
 	sta.b d1
 	lda.b d2
 	cmp.w #$0004
 	beq .3
-	lda.w $1423,y
+	lda.w endurance,y
 	sta.b d1
 .3:
 	lda.b d1
@@ -76,7 +76,7 @@ puckgoalie:
 	sbc.w #SPFgdive		; goalie dive frames SPFgdive..+15
 	cmp.w #$0010
 	bcs .t2
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$0005
 	bmi .t2
 	jmp.w .7
@@ -134,19 +134,19 @@ puckgoalie:
 	sta.b a0
 	tay
 	lda.w #$0014
-	sta.w $1203,y
+	sta.w nopuck,y
 	tya
 	lsr a
 	sta.w $0CF3
 	lda.w #$000C
 	trb.w sflags
 .6:
-	stz.w $0E01
+	stz.w puckvz
 	ldy.b a2
 	lda.w #$000A
-	sta.w $1203,y
+	sta.w nopuck,y
 	lda.w #$0004
-	sta.w $1063,y
+	sta.w temp4,y
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y
@@ -171,7 +171,7 @@ puckgoalie:
 	inc.b d1
 .3x:
 	ldy.b a2
-	lda.w $0EE3,y
+	lda.w Yvel,y
 	eor.b d1
 	bmi .4x
 	lda.w #$0000
@@ -181,9 +181,9 @@ puckgoalie:
 .4x:
 	sep #$20
 	lda.b d0
-	sta.w $0EC4,x
+	sta.w Xvel+1,x
 	lda.b d1
-	sta.w $0EE4,x
+	sta.w Yvel+1,x
 	rep #$20
 	jmp.w puckflip
 .7:
@@ -193,7 +193,7 @@ puckgoalie:
 .9:
 	lda.w #$0002
 	clc
-	adc.w $1363,y
+	adc.w shotspd,y
 	xba
 	and.w #$FF00
 	asl a
@@ -218,5 +218,5 @@ puckgoalie:
 	lda.w pflags,y
 	bit.w #$1000
 	bne .8
-	stz.w $0E01
+	stz.w puckvz
 	jmp.w puckglue

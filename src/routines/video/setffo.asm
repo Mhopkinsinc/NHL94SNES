@@ -42,7 +42,7 @@ setffo:
 	cpx.w #$0020
 	beq .2
 	ldy.w #$0000
-	lda.w $13C3,x
+	lda.w rostnum,x
 	lsr a
 	lsr a
 	lsr a
@@ -56,7 +56,7 @@ setffo:
 	sbc.w #$0004
 	sta.b d0
 .1x:
-	lda.w $13C3,x
+	lda.w rostnum,x
 	and.w #$000F
 	sta.w mesarea+2,y
 	iny

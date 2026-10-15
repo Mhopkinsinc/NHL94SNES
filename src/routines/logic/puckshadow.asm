@@ -3,11 +3,11 @@ puckshadow:
 	lda.w frame,x
 	cmp.w #SPFpuck
 	bne .t2
-	lda.w $0D71
+	lda.w puckx
 	sta.w Xpos,x
 	lda.w pucky
 	sta.w Ypos,x
-	stz.w $0DFB
+	stz.w shadowz
 	lda.w sfhormode
 	beq .t1
 	inc.w Xpos,x
@@ -24,7 +24,7 @@ puckshadow:
 	lda.w #$012C
 	sta.w Ypos,x
 	lda.w #$000E
-	sta.w $0DFB
+	sta.w shadowz
 	lda.w pucky
 	bpl .rtl
 .1:
@@ -32,6 +32,6 @@ puckshadow:
 	sta.w attribute,x
 	lda.w #$FED4
 	sta.w Ypos,x
-	dec.w $0DFB
+	dec.w shadowz
 .rtl:
 	rtl

@@ -7,19 +7,19 @@ updateplayers:
 	sta.w $17B0
 	sta.w $17B2
 	sta.w $17B4
-	lda.w $0DF9
-	sta.w $0DFF
+	lda.w puckz
+	sta.w puckoldz
 	ldx.w #$001E
 .2:
 	stx.b $E4
 	lda.w Xpos,x
-	sta.w $0E43,x
-	lda.w $0D77,x
-	sta.w $0E63,x
+	sta.w OldXpos,x
+	lda.w Xfrac,x
+	sta.w OldXfrac,x
 	lda.w Ypos,x
-	sta.w $0E83,x
-	lda.w $0DD9,x
-	sta.w $0EA3,x
+	sta.w OldYpos,x
+	lda.w Yfrac,x
+	sta.w OldYfrac,x
 	cpx.w #$0018
 	beq .1
 	cpx.w #$001A
@@ -43,20 +43,20 @@ updateplayers:
 	stx.w $0B9D
 .8:
 	jsl.l updateanim
-	lda.w $1203,x
+	lda.w nopuck,x
 	sec
 	sbc.w $0ADB
 	bpl .1x
 	lda.w #$0000
 .1x:
-	sta.w $1203,x
-	lda.w $1223,x
+	sta.w nopuck,x
+	lda.w nopuckb,x
 	sec
 	sbc.w $0ADB
 	bpl .2x
 	lda.w #$0000
 .2x:
-	sta.w $1223,x
+	sta.w nopuckb,x
 	lda.w sflags3
 	bit.w #$0020
 	beq .4
@@ -99,7 +99,7 @@ updateplayers:
 .t2x:
 	cpx.w #$001C
 	bne .9
-	lda.w $0DF9
+	lda.w puckz
 	bne .10
 .9:
 	txy
@@ -114,19 +114,19 @@ updateplayers:
 	and.w #$00FF
 	sta.b d2
 .1xx:
-	ldx.w $0EC3,y
+	ldx.w Xvel,y
 	lda.b d2
 	jsl.l Mul16x8HiXS
-	sta.w $0EC3,y
-	ldx.w $0EE3,y
+	sta.w Xvel,y
+	ldx.w Yvel,y
 	lda.b d2
 	jsl.l Mul16x8HiXS
-	sta.w $0EE3,y
+	sta.w Yvel,y
 	tyx
 .10:
 	lda.w $0CDF
 	sta.b $0C
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	beq .1xxx
 	tax
 	lda.b $0C
@@ -134,13 +134,13 @@ updateplayers:
 	ldx.b $E4
 	lda.b $08
 	clc
-	adc.w $0D77,x
-	sta.w $0D77,x
+	adc.w Xfrac,x
+	sta.w Xfrac,x
 	lda.b $0A
 	adc.w Xpos,x
 	sta.w Xpos,x
 .1xxx:
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	beq .2xx
 	tax
 	lda.b $0C
@@ -148,43 +148,43 @@ updateplayers:
 	ldx.b $E4
 	lda.b $08
 	clc
-	adc.w $0DD9,x
-	sta.w $0DD9,x
+	adc.w Yfrac,x
+	sta.w Yfrac,x
 	lda.b $0A
 	adc.w Ypos,x
 	sta.w Ypos,x
 .2xx:
 	cpx.w #$001C
 	bne .11
-	lda.w $0DF9
+	lda.w puckz
 	bmi .11
 	bne .3x
-	lda.w $0E01
+	lda.w puckvz
 	beq .11
 .3x:
-	lda.w $0E01
+	lda.w puckvz
 	sec
 	sbc.w $0CE1
-	sta.w $0E01
+	sta.w puckvz
 	tax
 	lda.w $0CDF
 	jsl.l Mul16x8XS
 	ldx.b $E4
 	lda.b $08
 	clc
-	adc.w $0DFD
-	sta.w $0DFD
+	adc.w puckzfrac
+	sta.w puckzfrac
 	lda.b $0A
-	adc.w $0DF9
-	sta.w $0DF9
+	adc.w puckz
+	sta.w puckz
 	bpl .11
-	stz.w $0DF9
-	stz.w $0DFD
-	lda.w $0E01
+	stz.w puckz
+	stz.w puckzfrac
+	lda.w puckvz
 	eor.w #$FFFF
 	inc a
 	lsr a
-	sta.w $0E01
+	sta.w puckvz
 	cmp.w #$0200
 	bmi .11
 	asl a
@@ -194,7 +194,7 @@ updateplayers:
 	lda.w #$0007
 	jsl.l sfx
 .11:
-	lda.w $0D71
+	lda.w puckx
 	sec
 	sbc.w Xpos,x
 	sta.b d0
@@ -275,7 +275,7 @@ updateplayers:
 	lda.w pfgoal,x
 	beq .14
 .13:
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$000D
 	bcs .14
 	lda.w puckvy
@@ -294,18 +294,18 @@ updateplayers:
 	jmp.w .2
 
 .t1xxxx:
-	lda.w $0DCF
+	lda.w Ypos+$18
 	cmp.w #$011F
 	bmi .1xxxxx
 	lda.w #$011F
 .1xxxxx:
-	sta.w $0DCF
-	lda.w $0DD1
+	sta.w Ypos+$18
+	lda.w Ypos+$1A
 	cmp.w #$FED2
 	bpl .2xxxx
 	lda.w #$FED2
 .2xxxx:
-	sta.w $0DD1
+	sta.w Ypos+$1A
 	ldy.w #$000C
 	lda.w #$000F
 .loop:
@@ -407,7 +407,7 @@ updateplayers:
 	cmp.w #$FFCF
 	bmi .16
 	lda.w #$FFD5
-	stz.w $0EC3,x
+	stz.w Xvel,x
 	bra .16
 
 .t3x:
@@ -416,7 +416,7 @@ updateplayers:
 	cmp.w #$0031
 	bpl .16
 	lda.w #$002B
-	stz.w $0EC3,x
+	stz.w Xvel,x
 .16:
 	sta.w Xpos,x
 	lda.w Ypos,x
@@ -427,7 +427,7 @@ updateplayers:
 	bpl .17
 	lda.w #$FF1B
 	sta.w Ypos,x
-	stz.w $0EE3,x
+	stz.w Yvel,x
 	bra .17
 
 .t1xxxxxx:
@@ -437,7 +437,7 @@ updateplayers:
 	bmi .17
 	lda.w #$00E5
 	sta.w Ypos,x
-	stz.w $0EE3,x
+	stz.w Yvel,x
 .17:
 	stz.w Wallcos,x
 	stz.w Wallsin,x
@@ -445,10 +445,10 @@ updateplayers:
 	sta.b d3
 	lda.w Xpos,x
 	sta.b d2
-	cmp.w $0E43,x
+	cmp.w OldXpos,x
 	bne .t1xxxxxxx
 	lda.b d3
-	cmp.w $0E83,x
+	cmp.w OldYpos,x
 	bne .t1xxxxxxx
 	jmp.w .18
 
@@ -476,7 +476,7 @@ updateplayers:
 	sec
 	sbc.w #$010D
 	sta.b $00
-	lda.w $0E83,x
+	lda.w OldYpos,x
 	bit.w #$8000
 	beq .2xxxxx
 	eor.w #$FFFF
@@ -497,18 +497,18 @@ updateplayers:
 	cmp.w #$0117
 	bcs .18
 .4x:
-	lda.w $0E43,x
+	lda.w OldXpos,x
 	sta.w Xpos,x
-	lda.w $0E83,x
+	lda.w OldYpos,x
 	sta.w Ypos,x
 .18:
-	lda.w $0F23,x
+	lda.w impact,x
 	sec
 	sbc.w $0CDD
 	bpl .19
 	lda.w #$0000
 .19:
-	sta.w $0F23,x
+	sta.w impact,x
 	inx
 	inx
 	cpx.w #$0020
@@ -516,30 +516,30 @@ updateplayers:
 	jmp.w .15
 
 .t1xxxxxxxx:
-	lda.w $0DF9
+	lda.w puckz
 	cmp.w #$0018
 	bcs .2xxxxxx
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$FF78
 	bpl .1xxxxxxxxxx
 	lda.w #$FF78
-	sta.w $0D71
+	sta.w puckx
 	ldx.w frame+$1C
 	cpx.w #SPFpuck
 	bne .1xxxxxxxxxx
-	sta.w $0D73
+	sta.w Xpos+$1E
 .1xxxxxxxxxx:
-	lda.w $0D71
+	lda.w puckx
 	cmp.w #$0088
 	bmi .2xxxxxx
 	lda.w #$0088
-	sta.w $0D71
+	sta.w puckx
 	ldx.w frame+$1C
 	cpx.w #SPFpuck
 	bne .2xxxxxx
-	sta.w $0D73
+	sta.w Xpos+$1E
 .2xxxxxx:
-	lda.w $0DF9
+	lda.w puckz
 	bne .4xx
 	lda.w pucky
 	cmp.w #$FEC2
@@ -551,14 +551,14 @@ updateplayers:
 	bpl .3xxx
 	lda.w #$FEDB
 	sta.w pucky
-	sta.w $0DD5
+	sta.w Ypos+$1E
 .3xxx:
 	lda.w pucky
 	cmp.w #$012A
 	bmi .4xx
 	lda.w #$012A
 	sta.w pucky
-	sta.w $0DD5
+	sta.w Ypos+$1E
 .4xx:
 	lda.w puckc
 	bmi .20

@@ -43,6 +43,57 @@ Ypos = $0DB7		; y position (integer part) of each object
 pucky = $0DD3		; puck y position
 puckvx = $0EDF		; puck x speed
 puckvy = $0EFF		; puck y speed
+; Sort objects: a word per object in each array, 16 objects ($20 bytes; Xpos and Ypos have a 17th, the replay
+; cursor point), indexed by object * 2. The 93S struct order: 94S keeps height only for the puck (puckz ...) and
+; drops Zvel, limpact and pf2fight.
+Xfrac = $0D77		; fraction of Xpos
+Yfrac = $0DD9		; fraction of Ypos
+puckz = $0DF9		; puck height (93S Zpos+puckobj)
+shadowz = $0DFB		; height of object 15, the puck shadow (setsortcords)
+puckzfrac = $0DFD	; fraction of puckz
+puckoldz = $0DFF		; puckz before this frame's move (93S OldZpos+puckobj)
+puckvz = $0E01		; puck height speed (93S Zvel+puckobj)
+oldframe = $0E23		; frame last drawn (setsortcords)
+OldXpos = $0E43		; Xpos before this frame's move
+OldXfrac = $0E63
+OldYpos = $0E83
+OldYfrac = $0EA3
+Xvel = $0EC3		; x speed (puckvx is Xvel+puckobj)
+Yvel = $0EE3		; y speed
+impactp = $0F03		; the other object (index) of the last collision or hold
+impact = $0F23		; impact value, added to by collisions
+temp1 = $1003		; assignment scratch, per object
+temp2 = $1023
+temp3 = $1043
+temp4 = $1063
+temp5 = $1083
+temp2b = $10A3
+radiusx = $10C3		; collision width (InitSortObjects)
+radiusy = $10E3		; collision height
+SCnum = $1143		; object number (index / 2)
+facefrac = $1183	; turn fraction of facedir (doplayeracc)
+nopuck = $1203		; no puck collision until zero
+nopuckb = $1223		; second count down
+; player attributes, stored by setplayer in the 93S order
+weight = $12C3
+legstr = $12E3
+legspd = $1303
+aioff = $1323
+aidef = $1343
+shotspd = $1363
+shotacc = $1383
+passacc = $13A3		; passacc (goalies: glove save right)
+rostnum = $13C3
+spodds = $13E3		; shot / pass odds
+stickhand = $1403
+endurance = $1423	; endurance (goalies: stick save right)
+GGSleft = $1443		; goalie glove save left
+fightagg = $1463		; fighting aggression (stored; 94S has no fights)
+aggress = $1483
+handed = $14A3		; nonzero: right handed
+pfrev = $1523		; nonzero: skating backwards. pflags bit pfrev
+pf2aip = $1543		; nonzero: animation in progress. pflags2 bit pf2aip
+pfnc = $1563		; nonzero: no collision mode. pflags bit pfnc
 position = $0F43	; player's position (0=goalie,1=l.def,2=r.def,3=l.wing,4=center,5=r.wing; negative = none)
 SPA = $11A3		; current animation (offset into the animation data)
 SPAnum = $11C3		; index into animation (4 per frame)

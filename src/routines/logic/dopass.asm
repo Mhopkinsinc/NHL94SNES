@@ -6,7 +6,7 @@ dopass:
 	lda.w #$FFFF
 	sta.w puckc
 	lda.w #$0010
-	sta.w $1203,x
+	sta.w nopuck,x
 	txa
 	lsr a
 	sta.w $0CF3
@@ -14,7 +14,7 @@ dopass:
 	sta.b d0
 	lda.w position,x
 	beq .1
-	lda.w $13A3,x
+	lda.w passacc,x
 	sta.b d0
 .1:
 	lda.b d0
@@ -99,7 +99,7 @@ dopass:
 	asl a
 	sta.b $14
 	ldx.b $E4
-	lda.w $0EE3,x
+	lda.w Yvel,x
 	cmp.w #$8000
 	ror a
 	clc
@@ -116,7 +116,7 @@ dopass:
 	asl a
 	sta.b $14
 	ldx.b $E4
-	lda.w $0EC3,x
+	lda.w Xvel,x
 	cmp.w #$8000
 	ror a
 	clc
@@ -124,7 +124,7 @@ dopass:
 	sta.w puckvx
 	jsl.l RandomWord
 	and.w #$0FFF
-	sta.w $0E01
+	sta.w puckvz
 ; dopass once the puck velocity is set: a goalie never passes back toward his net, then the pass animation (SPAgswing / SPApassf); assdumpin ends here too
 dopass_swing:
 	lda.w position,x
@@ -164,8 +164,8 @@ dopass_swing:
 	bne .rtl
 	lda.w $19D4,x
 	bmi .rtl
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	sta.b d4
 	jsl.l findpc
 .rtl:
@@ -180,12 +180,12 @@ dopass_count:
 	sta.w $17BE,y
 .1:
 	ldx.w $0B9D,y
-	lda.w $1343,x
+	lda.w aidef,x
 	lsr a
 	clc
 	adc.w #$0001
-	adc.w $1003,x
-	sta.w $1003,x
+	adc.w temp1,x
+	sta.w temp1,x
 	lda.b a0
 	sta.w $0D07
 	ldx.b a0
@@ -231,7 +231,7 @@ dopass_count:
 	clc
 	adc.w Xpos,y
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	sta.b d0
 	lda.w #$0018
 	sta.b d6
@@ -241,7 +241,7 @@ dopass_count:
 	asl a
 	asl a
 	ldy.b a0
-	ldx.w $0EC3,y
+	ldx.w Xvel,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -252,7 +252,7 @@ dopass_count:
 	asl a
 	asl a
 	asl a
-	ldx.w $0EE3,y
+	ldx.w Yvel,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -290,7 +290,7 @@ dopass_count:
 	asl a
 	asl a
 	ldy.b a0
-	ldx.w $0EC3,y
+	ldx.w Xvel,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -301,7 +301,7 @@ dopass_count:
 	asl a
 	asl a
 	asl a
-	ldx.w $0EE3,y
+	ldx.w Yvel,y
 	jsl.l Mul16XS
 	lda.b $0A
 	clc
@@ -317,7 +317,7 @@ dopass_count:
 	ldx.b $E4
 	lda.w #$0010
 	sec
-	sbc.w $13A3,x
+	sbc.w passacc,x
 	jsl.l randomd0s
 	clc
 	adc.b d5
@@ -343,7 +343,7 @@ dopass_count:
 	sta.w puckvy
 	lda.b d2
 	clc
-	adc.w $0D71
+	adc.w puckx
 	sta.w $0BA7
 	lda.b d3
 	clc
@@ -353,9 +353,9 @@ dopass_count:
 	asl a
 	asl a
 	asl a
-	sta.w $0E01
+	sta.w puckvz
 	lda.w #$000A
-	sta.w $121F
+	sta.w nopuck+puckobj
 	ldy.b a0
 	lda.b d6
 	clc
@@ -363,7 +363,7 @@ dopass_count:
 	sta.w $0BAD,y
 	ldx.b $E4
 	lda.b d6
-	sta.w $1203,x
+	sta.w nopuck,x
 	ldy.b a2
 	lda.w $19D4,x
 	sta.w $0B01,y
@@ -371,8 +371,8 @@ dopass_count:
 	bne .rtl
 	lda.w $19D4,x
 	bmi .rtl
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	lda.w $19D4,x
 	sta.b d4
 	lda.w $0D07

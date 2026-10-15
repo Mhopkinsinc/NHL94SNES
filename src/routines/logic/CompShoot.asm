@@ -24,9 +24,9 @@ CompShoot:
 	lda.w #$0014
 .2:
 	sta.b d1
-	stz.w $1023,x
+	stz.w temp2,x
 	lda.b d1
-	sta.w $10A3,x
+	sta.w temp2b,x
 	lda.w #$0013
 	sta.b d0
 	jmp.w assreplace

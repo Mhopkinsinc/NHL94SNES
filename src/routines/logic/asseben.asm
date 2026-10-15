@@ -7,8 +7,8 @@ asseben:
 	beq .t2
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	stz.w $0B05,x
 	txa
 	lsr a
@@ -46,8 +46,8 @@ asseben:
 	lda.w pflags,x
 	and.w #$6FFF
 	sta.w pflags,x
-	stz.w $1563,x
+	stz.w pfnc,x
 	stz.w SPA,x
 	lda.w #$1000
-	sta.w $0EC3,x
+	sta.w Xvel,x
 	jml.l assexit

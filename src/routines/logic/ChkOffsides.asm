@@ -21,14 +21,14 @@ ChkOffsides:
 	bmi .t1
 	lda.b d0
 	sec
-	sbc.w $0E9F
+	sbc.w OldYpos+puckobj
 	bpl ChkOffsides_rtl
 	bra ChkOffsides_blue
 
 .t1:
 	lda.b d0
 	sec
-	sbc.w $0E9F
+	sbc.w OldYpos+puckobj
 	bmi ChkOffsides_rtl
 ChkOffsides_blue:
 	jsl.l StartBreakaway
@@ -99,14 +99,14 @@ ChkOffsides_other:
 	bmi .t1
 	lda.b d0
 	sec
-	sbc.w $0E9F
+	sbc.w OldYpos+puckobj
 	bpl ChkOffsides_rtl
 	bra .3
 
 .t1:
 	lda.b d0
 	sec
-	sbc.w $0E9F
+	sbc.w OldYpos+puckobj
 	bmi ChkOffsides_rtl
 .3:
 	jsl.l StartBreakaway
