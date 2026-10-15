@@ -33,7 +33,7 @@ third period (gsp 2), when no music plays, a 1 in 4096 chance each frame (Gamelo
 
 Examples:
   python3 tools/songwav.py list
-  python3 tools/songwav.py song DATA8_999A9C -o boston.wav
+  python3 tools/songwav.py song SongBrassBonanza -o brass.wav
   python3 tools/songwav.py all -o songs
   python3 tools/songwav.py sample SampleOrgan SampleEASportsVoice
 """

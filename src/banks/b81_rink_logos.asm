@@ -3,4 +3,4 @@
 org $818000
 incsrc "../data/gfx/IceRinkTiles.asm"
 incsrc "../data/gfx/TeamLogoSprites.asm"
-incsrc "../data/sound/DATA8_81FE45.asm"
+incsrc "../data/sound/SongGoTeamGoC.asm"

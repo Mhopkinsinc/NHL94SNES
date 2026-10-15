@@ -1,0 +1,42 @@
+; A song: a header (the second byte is the tempo), the offsets of its tracks, then each track
+; in a TRAK chunk (size byte, tag, track name, then the note stream the music player reads).
+; 94G song $6C at the same TeamSongs slots: TOR 0, TOR 1.
+; Title (the forum list of the 94G songs): O'Malley's Steps [C] {Slower}.
+
+SongOMalleysStepsSlow:		; header, track offsets (a zero ends them), padding, then the tracks
+	db $01,$78,$01,$00,$00,$00,$02,$00
+	dw .left-SongOMalleysStepsSlow,.right-SongOMalleysStepsSlow,$0000
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00
+	db $00,$DE,"TRAK"
+.left:
+	db $00,$E7,$05,"left",$00
+	db $00,$DC,$0B,$00,$B0,$7C,$11,$00,$AB,$7C,$12,$18,$B0,$7C,$12,$00
+	db $AD,$7C,$12,$18,$B0,$7C,$20,$00,$AB,$7C,$1F,$30,$AB,$7C,$0C,$00
+	db $B0,$7C,$0D,$18,$B0,$7C,$0E,$00,$AD,$7C,$0E,$18,$AB,$7C,$1B,$00
+	db $B0,$7C,$1B,$30,$AC,$7C,$12,$00,$B1,$7C,$11,$18,$B1,$7C,$12,$00
+	db $AE,$7C,$12,$18,$B1,$7C,$20,$00,$AC,$7C,$1F,$30,$AC,$7C,$0C,$00
+	db $B1,$7C,$0D,$18,$B1,$7C,$0E,$00,$AE,$7C,$0E,$18,$AC,$7C,$1B,$00
+	db $B1,$7C,$1B,$30,$AD,$7C,$12,$00,$B2,$7C,$11,$18,$B2,$7C,$12,$00
+	db $AF,$7C,$12,$18,$B2,$7C,$20,$00,$AD,$7C,$1F,$30,$AD,$7C,$0C,$00
+	db $B2,$7C,$0D,$18,$B2,$7C,$0E,$00,$AF,$7C,$0E,$18,$AD,$7C,$1B,$00
+	db $B2,$7C,$1B,$30,$AE,$7C,$12,$00,$B3,$7C,$11,$18,$B3,$7C,$12,$00
+	db $B0,$7C,$12,$18,$B3,$7C,$20,$00,$AE,$7C,$1F,$30,$AE,$7C,$0C,$00
+	db $B3,$7C,$0D,$18,$B3,$7C,$0E,$00,$B0,$7C,$0E,$18,$B3,$7C,$1B,$00
+	db $AE,$7C,$1B,$1B,$D9,$00,$00,$00,$00,$00,$00,$00,$00,$9D,$00,$00
+	db $00,$DE,"TRAK"
+.right:
+	db $00,$E7,$06,"right",$00
+	db $00,$DC,$0C,$00,$A8,$7C,$11,$00,$98,$7C,$10,$18,$98,$7C,$11,$00
+	db $A9,$7C,$11,$18,$A8,$7C,$1F,$00,$98,$7C,$20,$30,$98,$7C,$0D,$00
+	db $A8,$7C,$0C,$18,$98,$7C,$0E,$00,$A9,$7C,$0E,$18,$A8,$7C,$1B,$00
+	db $98,$7C,$1C,$30,$A9,$7C,$11,$00,$99,$7C,$10,$18,$99,$7C,$11,$00
+	db $AA,$7C,$11,$18,$A9,$7C,$1F,$00,$99,$7C,$20,$30,$99,$7C,$0D,$00
+	db $A9,$7C,$0C,$18,$99,$7C,$0E,$00,$AA,$7C,$0E,$18,$A9,$7C,$1B,$00
+	db $99,$7C,$1C,$30,$AA,$7C,$11,$00,$9A,$7C,$10,$18,$9A,$7C,$11,$00
+	db $AB,$7C,$11,$18,$AA,$7C,$1F,$00,$9A,$7C,$20,$30,$9A,$7C,$0D,$00
+	db $AA,$7C,$0C,$18,$9A,$7C,$0E,$00,$AB,$7C,$0E,$18,$AA,$7C,$1B,$00
+	db $9A,$7C,$1C,$30,$AB,$7C,$11,$00,$9B,$7C,$10,$18,$9B,$7C,$11,$00
+	db $AC,$7C,$11,$18,$AB,$7C,$1F,$00,$9B,$7C,$20,$30,$9B,$7C,$0D,$00
+	db $AB,$7C,$0C,$18,$9B,$7C,$0E,$00,$AC,$7C,$0E,$18,$AB,$7C,$1B,$00
+	db $9B,$7C,$1C,$1C,$D9,$00,$00,$00,$00,$00,$00,$00,$00
