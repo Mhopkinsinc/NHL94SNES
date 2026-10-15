@@ -72,7 +72,7 @@
 - Entry and exit labels: `Mul8U_mul`, `Mul8U_res`, `Mul8XS_x`, `Mul8XS_neg`, `Mul8S_swap`, `DrawSpriteExit`, `GameStatsKeys`, `GameStatsRtl`; the four one-instruction CODE_ files among them folded into the routine before them.
 - Player stats from behavior: `DrawPlayerStatsPage`, `SortPlayerStats`, `ComparePlayerStats`, `FillPlayerStatsPage`, `SetStatColumnPal`.
 - Sprite text from behavior: `PrintTeamSprites` (its raw `$9649` table is TeamPlaceNames now), `PrintStringSprites`, `PrintSmallLetterSprites`.
-- Raw table reads under phk / plb written as locals: ReplayMode `.14+2` (the y steps), RenderBigText `.8+16` (the second mask half). The DrawSprite `$E67C`-style operands are left: DB is not $80 there, so they are not the bank $80 credit names they would resolve to.
+- Raw table reads under phk / plb written as locals: ReplayMode `.14+2` (the y steps), RenderBigText `.8+16` (the second mask half). The DrawSprite `$E67C`-style operands (DB = $7E there) are `OAMHiMasks+n`.
 - `PuckSfx` (from behavior: sfx with the puck velocity).
 - `FadeOutSound` (from behavior: SetSoundFade $200).
 - `GameSampleList` and `GameSfxTable` (the in-game sample set block list and the sound table SPCGameUpload gives SoundInit; `#$DD66` was raw), and `DATA8_80E741` split out for the intro set the same way. The sample set uploads are named by their only callers and lists: SPCIntroUpload, SPCTitleUpload, SPCTitleToMenu and SPCMenuUpload (MenuSampleList is the title list with its last blocks replaced by the four SPCTitleToMenu sends).
@@ -201,8 +201,8 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   and their routines are auto labels with comments. The decompressors are called from the dispatcher at $80C373 (format
   word $FB10 LZ, $FB46 pairs, $FB30 Huffman, $FB7A DecompressRLE). $80B07E, $80B389, $80B394, $80B724 and $80B8AE have no
   direct caller found; the Vault names DecompressHuffman LoadGameSetupScreen, which does not fit the code. The OAM high
-  table masks DrawSprite reads (`and.w $E67C,x`, `ora.w $E680,x` ... with the data bank at $7E) are in WRAM at
-  $7EE67C-$7EE68B; what fills them is not traced yet.
+  table masks DrawSprite reads (`and.w OAMHiMasks,x` ... with the data bank at $7E) are in WRAM at
+  $7EE67C-$7EE68B; Reset_Fast copies them there from `OAMHighMasks` ($80FF00).
 - bank80_C000: the Huffman decoder's long-code handlers and bit readers (auto labels), DecompressRLE, Decompress,
   SoundDriver (SPC700 bytes as db; the SPC side is not disassembled), then the shootout. The shootout routines and RAM
   with a 94G counterpart take its names; the rounds loop ($80C81C, called from bank $9F), the screen drawing and the
@@ -215,13 +215,14 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - bank80_E000: data only. The records end at $80E2E0; then the copyright lines, CreditTitles / CreditNames (read from bank
   $9D) with their strings, long pointer tables DATA8_80E6C1 (TitleSampleList) / DATA8_80E6FD (MenuSampleList) / DATA8_80E73D (read from bank $9C), and $FF
   fill to $80F000 written as `padbyte $FF` / `pad $80F000`.
-- bank80_F000: $FF fill, DATA8_80FF00 (the OAM high table masks; DrawSprite reads the same values from WRAM $7EE67C, and
-  neither the copy into WRAM nor a reader of this table is found yet), the internal header (checksum $9B52, complement
+- bank80_F000: $FF fill, OAMHighMasks (the OAM high table masks; Reset_Fast copies
+  them to OAMHiMasks, $7EE67C, where DrawSprite reads them), the internal header (checksum $9B52, complement
   $64AD, 1 MB, LoROM/FastROM) and the vectors (NMI, Reset, IRQ; COP/BRK/ABORT are $0000).
 - bank81_8000: the start of IceRinkTiles, LZ-packed rink tiles ($818000-$81ABDD) that $9FB6F7 and $9FE7AD unpack to
   $7F0000 and copy to VRAM $1000. The rink map is the packed block at $92E053 (header words: width $30, height $71, then
-  $0308, not traced; it renders with `tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48`). Its
-  palette is not found yet.
+  $0308, a format word no code reads: every 4bpp background map has $0308 there, the mode 7 maps $0010; it renders with
+  `tools/snesgfx.py map '$92E053:6' --tiles '$818000' --width 48`). Its palette is `RinkPalette` ($9AD0B6, the second
+  half of the CrowdMeterPalette block): setupice copies its 128 colours to both halves of palbuffer.
 - bank81_A000 ends IceRinkTiles at $81ABDE and starts TeamLogoSprites ($81ABDE-$81FE44, Huffman, $7C00 bytes unpacked):
   a sprite set the team setup code in bank $9D unpacks to $7F7800 and draws with DrawSprite (frame = team, palettes from
   the long pointer table at $9C8497). `tools/snesgfx.py sprites '$81ABDE' --pal-table 9C8497` renders all of its frames.
@@ -240,7 +241,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   the source writes each frame's header and pieces and includes its tiles from the asset. Frames cross 4 KB edges, so segment
   edges move to frame boundaries (bank82_9000 starts at $82908B). `tools/spriteframes.py frames FROM TO` writes the source
   of the frames that start in a range and prints where the next segment starts; `info` gives each bank's frames and its
-  asset range for tools/extract.py; `table` writes the offset table. Header words +4..+$A and bytes +$12..+$15 are not traced.
+  asset range for tools/extract.py; `table` writes the offset table. Header words +4..+$A are the box of the frame's pixels (left, right, top, bottom; true for 973 of the 976 frames, the other three are a few pixels off; nothing reads them), bytes +$12/+$13 the hot spot (GetHot), +$14/+$15 the stick point (GetFrameHot, for the puck-stick contact in checkpuckcoll_ccx).
   After the frames, each bank ends with a small Huffman block (bank $82: $82FEA9-$82FFF6, $3A0 bytes unpacked).
 - SpriteFrames banks: before the first segment of a bank, add its asset (`tools/spriteframes.py info`) to the ASSETS list
   in tools/extract.py.

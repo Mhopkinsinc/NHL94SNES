@@ -2,8 +2,9 @@
 ; markers, the bench, the Zamboni, two sprite fonts and the hat trick hats. Frames are in the
 ; SPF groups of ram94snes.asm: frame SPFgroup+n is SpriteFrame_group_n. The offset table (one
 ; 4-byte offset per frame; the first offset ends the table) is followed by this bank's frames. A frame is the piece count,
-; flags (bit 7: 16x16 tiles), tile count, four words not traced, the two transfer sizes, the
-; tile offset, four bytes not traced, the pieces, then the tiles.
+; flags (bit 7: 16x16 tiles), tile count, the box of its pixels (left, right, top, bottom; nothing
+; reads it), the two transfer sizes, the tile offset, the hot spot x / y (signed bytes, GetHot), the
+; stick point x / y (GetFrameHot), the pieces, then the tiles.
 
 SpriteFrames:		; frame offsets
 	dd SpriteFrame_skatewp_0-SpriteFrames,SpriteFrame_skatewp_1-SpriteFrames,SpriteFrame_skatewp_2-SpriteFrames,SpriteFrame_skatewp_3-SpriteFrames

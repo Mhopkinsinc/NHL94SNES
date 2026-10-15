@@ -181,7 +181,7 @@ RenderBigText:
 .t1xxx:
 	cmp.w #$0040
 	bne .t2x
-	lda.l $9C963E
+	lda.l LetterWidths+$1B
 	and.w #$00FF
 	bra .3x
 

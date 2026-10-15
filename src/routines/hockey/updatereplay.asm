@@ -18,12 +18,12 @@ updatereplay:
 	bne .2
 	lda.w ReplayBufferPtr
 	clc
-	adc.w #$007A
+	adc.w #replaysize
 	sta.w ReplayBufferPtr
 	bcc .1x
 	inc.w ReplayBufferPtr+2
 .1x:
-	cmp.w #$E676
+	cmp.w #ReplayBufferEnd
 	bne .2
 	lda.w ReplayBufferPtr+2
 	cmp.w #$007E
@@ -32,7 +32,7 @@ updatereplay:
 	tsb.w sflags
 	lda.w #$007E
 	sta.w ReplayBufferPtr+2
-	lda.w #$577E
+	lda.w #ReplayBufferStart
 	sta.w ReplayBufferPtr
 .2:
 	sep #$20

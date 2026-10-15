@@ -91,7 +91,7 @@ printbig:
 	sta.w textdirtyhi
 .4:
 	ldx.b d0
-	lda.l $9ABDDB,x
+	lda.l BigFontMap+$9E,x
 	clc
 	adc.l BigFontChars
 	adc.l printfontset
@@ -109,7 +109,7 @@ printbig:
 	ldx.b d1
 	sta.l textmap+2,x
 	ldx.b d0
-	lda.l $9ABDDD,x
+	lda.l BigFontMap+$A0,x
 	clc
 	adc.l BigFontChars
 	adc.l printfontset
@@ -123,7 +123,7 @@ printbig:
 	iny
 	jmp.w .7
 .6:
-	lda.l $9ABD6F
+	lda.l BigFontMap+$32
 	clc
 	adc.l BigFontChars
 	adc.l printfontset

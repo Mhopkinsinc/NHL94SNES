@@ -33,4 +33,6 @@ The file extension gives the format:
 | `SpriteFramesXX.bin` | The SpriteFrames frames of bank $XX, not packed. The source writes their headers and pieces, and includes their tiles from this file |
 | `.spc` | A BRR sound sample for SPCUploadBlock: big-endian loop point and length (multiples of the 9-byte BRR block), then the BRR blocks |
 
+A map (unpacked) starts with three words: width, height, and a format word that no code reads ($0308 in the 4bpp background maps, $0010 in the mode 7 maps EALogoMap, LicenceNHLPAMap and TitlePuckMap); the map words follow at +6.
+
 An asset takes the name of the label that includes it (`MenuBackTiles.chr.lz`); one not identified yet is named by its address (`DATA8_XXXXXX.<format>`).

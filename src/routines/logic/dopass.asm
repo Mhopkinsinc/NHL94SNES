@@ -210,9 +210,9 @@ dopass_count:
 	and.w #$0007
 	asl a
 	tax
-	lda.l $9DEF6E,x
+	lda.l SPAonetimerf,x
 	tax
-	lda.l $9D0000,x
+	lda.l SPAonetimerf&$FF0000,x	; the first frame of SPAonetimerf in that direction: GetHot below takes its hot spot
 	ldx.b a3
 	ldy.b a0
 	sta.w frame,y

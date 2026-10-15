@@ -36,7 +36,7 @@ StartGame_go:
 	jsl.l InitScores
 	lda.w #$007E
 	sta.w ReplayBufferPtr+2
-	lda.w #$577E
+	lda.w #ReplayBufferStart
 	sta.w ReplayBufferPtr
 	lda.w #$0010
 	trb.w sflags

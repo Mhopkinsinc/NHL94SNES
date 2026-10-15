@@ -23,7 +23,7 @@ setupice:
 	rep #$30
 	ldx.w #$00FE
 .loop:
-	lda.l $9AD0B6,x
+	lda.l RinkPalette,x
 	sta.l palbuffer,x
 	sta.l palbuffer+$100,x
 	dex

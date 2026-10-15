@@ -90,26 +90,26 @@ DrawSpritePieces:
 	lda.w PieceSize
 	beq .t1xx
 	lda.w $0000,y
-	ora.w $E688,x
+	ora.w OAMHiMasks+12,x
 	bra .4
 
 .t1xx:
 	lda.w $0000,y
-	and.w $E67C,x
-	ora.w $E680,x
+	and.w OAMHiMasks,x
+	ora.w OAMHiMasks+4,x
 	bra .4
 
 .t2x:
 	lda.w PieceSize
 	beq .t1xxx
 	lda.w $0000,y
-	and.w $E67C,x
-	ora.w $E684,x
+	and.w OAMHiMasks,x
+	ora.w OAMHiMasks+8,x
 	bra .4
 
 .t1xxx:
 	lda.w $0000,y
-	and.w $E67C,x
+	and.w OAMHiMasks,x
 .4:
 	sta.w $0000,y
 	rep #$20

@@ -97,7 +97,7 @@ Reset_Fast:
 	ldx.w #$0010
 	beq .1
 .loop9:
-	lda.l $80FEFF,x
+	lda.l OAMHighMasks-1,x
 	sta.l OAMHiMasks-1,x
 	dex
 	bne .loop9

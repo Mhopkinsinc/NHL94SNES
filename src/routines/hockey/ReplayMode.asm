@@ -51,29 +51,29 @@ ReplayMode:
 	lda.w Hpos
 	pha
 	lda.w ReplayBufferPtr
-	cmp.w #$577E
+	cmp.w #ReplayBufferStart
 	lda.w ReplayBufferPtr+2
 	sbc.w #$007E
 	bcs .1
 .loop:
 	lda.w #$007E
 	sta.w ReplayBufferPtr+2
-	lda.w #$577E
+	lda.w #ReplayBufferStart
 	sta.w ReplayBufferPtr
 .1:
-	lda.w #$E676
+	lda.w #ReplayBufferEnd
 	cmp.w ReplayBufferPtr
 	lda.w #$007E
 	sbc.w ReplayBufferPtr+2
 	bcc .loop
 	lda.w ReplayBufferPtr
 	sec
-	sbc.w #$577E
+	sbc.w #ReplayBufferStart
 	sta.b $08
 	lda.w ReplayBufferPtr+2
 	sbc.w #$007E
 	sta.b $0A
-	lda.w #$007A
+	lda.w #replaysize
 	sta.b $04
 	jsl.l Div32U
 	lda.b $0A

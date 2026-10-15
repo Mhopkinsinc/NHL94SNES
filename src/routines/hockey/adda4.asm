@@ -39,19 +39,19 @@ adda4:
 adda43:
 	lda.b a4
 	clc
-	adc.w #$007A
+	adc.w #replaysize
 	sta.b a4
 	bcc .1
 	inc.b $9B
 .1:
-	cmp.w #$E676
+	cmp.w #ReplayBufferEnd
 	bne .rtl
 	lda.b $9B
 	cmp.w #$007E
 	bne .rtl
 	lda.w #$007E
 	sta.b $9B
-	lda.w #$577E
+	lda.w #ReplayBufferStart
 	sta.b a4
 .rtl:
 	rtl
