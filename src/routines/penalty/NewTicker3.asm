@@ -50,7 +50,7 @@ NewTicker3:
 	sta.b d1
 	jsl.l Framer
 	lda.b $83
-	sta.w $0D33
+	sta.w tickervc
 	inc.w printx
 	lda.w printy
 	sec
@@ -60,7 +60,7 @@ NewTicker3:
 	pha
 	jsl.l GetShifter
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.b $8F
 	pha
 	lda.b a1
@@ -102,7 +102,7 @@ NewTicker3:
 	sta.b a1
 	jsl.l PrintStringFromList
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	ldx.b a0
 	lda.l $7E3528,x
 	sta.b d0

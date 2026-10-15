@@ -2,9 +2,9 @@
 MoveRosterColumn:
 	lda.b d0
 	clc
-	adc.w $0D47
+	adc.w DispAttribCtr
 	sta.b d0
 	bmi TeamRosterShowLine
-	sta.w $0D47
+	sta.w DispAttribCtr
 	jsl.l ShowRosterLine
 	bra TeamRosterShowLine

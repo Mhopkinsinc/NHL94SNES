@@ -1,11 +1,11 @@
 ; Draw the energy bar of line d0
 linebar:
 	jsl.l getlinee
-	lda.w $0D0D
+	lda.w printa
 	pha
 	phx
 	lda.w #$3000
-	sta.w $0D0D
+	sta.w printa
 	lda.b d0
 	cmp.w #$1000
 	bcc .1
@@ -37,6 +37,6 @@ linebar:
 	sta.b [a1]
 	jsl.l print
 	pla
-	sta.w $0D0D
+	sta.w printa
 org $9FE000
 	rtl

@@ -160,8 +160,8 @@ setoptions:
 .t1x:
 	jsl.l ReadPads
 	lda.b $83
-	sta.w $0D35
-	sta.w $0D01
+	sta.w lastframevc
+	sta.w oldvcount
 	jsl.l Readjoy1
 	dec.w $0AC4
 	jsl.l ProcessInputWithRepeat
@@ -418,7 +418,7 @@ setoptions:
 	ldx.w #$0000
 .4xx:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #GameSetupNames>>16
 	sta.b $8F
 	lda.w #GameSetupNames
@@ -478,7 +478,7 @@ setoptions:
 	cpx.b d6
 	bne .3xxxx
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 .3xxxx:
 	stx.b d7
 	cpx.w #$0002

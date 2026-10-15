@@ -70,7 +70,7 @@ setplayer:
 	sta.b a0
 	stz.w PPBonus
 	stz.w PKBonus
-	stz.w $0CE5
+	stz.w ThirdPBonus
 	stz.w HmAwBonus
 	lda.w position,x
 	bne .t1
@@ -148,7 +148,7 @@ org $9FD000
 	bpl .6
 .4:
 	lda.w #$0002
-	sta.w $0CE5
+	sta.w ThirdPBonus
 .6:
 	pla
 	sta.b $8B
@@ -219,7 +219,7 @@ org $9FD000
 	clc
 	adc.w HmAwBonus
 	clc
-	adc.w $0CE5
+	adc.w ThirdPBonus
 	ldy.w #$0002
 	jsl.l .8
 	eor.w #$000F
@@ -285,7 +285,7 @@ org $9FD000
 	adc.b $00
 	lsr a
 	clc
-	adc.w $0CE5
+	adc.w ThirdPBonus
 	ldy.w #$0005
 	jsl.l .8
 	sta.w aggress,x
@@ -367,9 +367,9 @@ org $9FD000
 	adc.b $00
 	lsr a
 	clc
-	adc.w $0CE5
+	adc.w ThirdPBonus
 	clc
-	adc.w $0CE5
+	adc.w ThirdPBonus
 	ldy.w #$0009
 	jsl.l .8
 	sta.w spodds,x

@@ -137,7 +137,7 @@ puckgoalie:
 	sta.w nopuck,y
 	tya
 	lsr a
-	sta.w $0CF3
+	sta.w lastplayer
 	lda.w #$000C
 	trb.w sflags
 .6:

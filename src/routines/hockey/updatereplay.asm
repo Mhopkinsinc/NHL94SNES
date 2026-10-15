@@ -21,24 +21,24 @@ updatereplay:
 	adc.w #$007A
 	sta.w ReplayBufferPtr
 	bcc .1x
-	inc.w $0D21
+	inc.w ReplayBufferPtr+2
 .1x:
 	cmp.w #$E676
 	bne .2
-	lda.w $0D21
+	lda.w ReplayBufferPtr+2
 	cmp.w #$007E
 	bne .2
 	lda.w #$0010
 	tsb.w sflags
 	lda.w #$007E
-	sta.w $0D21
+	sta.w ReplayBufferPtr+2
 	lda.w #$577E
 	sta.w ReplayBufferPtr
 .2:
 	sep #$20
 	ldx.w ReplayBufferPtr
 	stx.w WMADDL
-	lda.w $0D21
+	lda.w ReplayBufferPtr+2
 	sta.w WMADDH
 	lda.b #$0F
 	sta.b d2
@@ -156,11 +156,11 @@ updatereplay:
 	sta.w WMDATA
 	lda.w Hpos
 	sta.w WMDATA
-	lda.w $0CEC
+	lda.w Hpos+1
 	sta.w WMDATA
 	lda.w Vpos
 	sta.w WMDATA
-	lda.w $0D38
+	lda.w Vpos+1
 	sta.w WMDATA
 	lda.w benchframe
 	sta.w WMDATA

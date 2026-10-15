@@ -81,7 +81,7 @@ updateplayers:
 .5:
 	sta.w $0BEB,x
 .6:
-	cpx.w $0D07
+	cpx.w passReceiverPlayerNum
 	bne .7
 	lda.w $1E89
 	bne .10
@@ -124,7 +124,7 @@ updateplayers:
 	sta.w Yvel,y
 	tyx
 .10:
-	lda.w $0CDF
+	lda.w velstep
 	sta.b $0C
 	lda.w Xvel,x
 	beq .1xxx
@@ -164,10 +164,10 @@ updateplayers:
 .3x:
 	lda.w puckvz
 	sec
-	sbc.w $0CE1
+	sbc.w gravstep
 	sta.w puckvz
 	tax
-	lda.w $0CDF
+	lda.w velstep
 	jsl.l Mul16x8XS
 	ldx.b $E4
 	lda.b $08
@@ -504,7 +504,7 @@ updateplayers:
 .18:
 	lda.w impact,x
 	sec
-	sbc.w $0CDD
+	sbc.w impactstep
 	bpl .19
 	lda.w #$0000
 .19:

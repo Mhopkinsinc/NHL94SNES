@@ -109,11 +109,11 @@ clockcont_0:
 	lda.w #$0000
 	sta.l crowdlevel
 	lda.w #$0003
-	sta.w $0CE7
+	sta.w cheercnt
 	lda.b $83
 	sec
 	sbc.w #$0096
-	sta.w $0CE9
+	sta.w cheervc
 .1x:
 	lda.w #$0004
 	sta.b d0

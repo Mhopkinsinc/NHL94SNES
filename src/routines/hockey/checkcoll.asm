@@ -1,6 +1,6 @@
 ; Move object X to its new x / y, checking wall and player collisions
 checkcoll:
-	stz.w $0CDB
+	stz.w collflag
 	lda.w sfhormode
 	beq .1
 	lda.b d2
@@ -19,9 +19,9 @@ checkcoll:
 	lda.w Ypos,x
 	sta.b d3
 	lda.w radiusx,x
-	sta.w $0D3B
+	sta.w wcradiusx
 	lda.w radiusy,x
-	sta.w $0D3D
+	sta.w wcradiusy
 	jsl.l checkwallcoll
 	lda.w Wallcos,x
 	ora.w Wallsin,x
@@ -39,8 +39,8 @@ checkcoll:
 	adc.b d1
 	sta.b d3
 	lda.w #$0001
-	sta.w $0D3B
-	sta.w $0D3D
+	sta.w wcradiusx
+	sta.w wcradiusy
 	jsl.l checkwallcoll
 .2:
 	pla
@@ -51,7 +51,7 @@ checkcoll:
 	bmi .3
 	jsl.l checkplcoll
 .3:
-	lda.w $0CDB
+	lda.w collflag
 	beq .t2
 	jmp.w .t3
 

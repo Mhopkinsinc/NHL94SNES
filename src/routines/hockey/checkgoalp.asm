@@ -13,7 +13,7 @@ checkgoalp:
 	beq .t1
 	lda.b d3
 	sec
-	sbc.w $0D3D
+	sbc.w wcradiusy
 	cmp.w #$FF16
 	bpl .1
 	bra .8
@@ -21,7 +21,7 @@ checkgoalp:
 .t1:
 	lda.b d3
 	clc
-	adc.w $0D3D
+	adc.w wcradiusy
 	cmp.w #$00EA
 	bmi .1
 .8:
@@ -32,7 +32,7 @@ checkgoalp:
 	inc a
 .1x:
 	sec
-	sbc.w $0D3B
+	sbc.w wcradiusx
 	cmp.w #$0040
 	bpl .1
 	lda.b d3

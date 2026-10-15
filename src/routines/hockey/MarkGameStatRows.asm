@@ -8,7 +8,7 @@ MarkGameStatRows:
 	asl a
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.w #LineBraces>>16
 	sta.b $8F
 	lda.w #LineBraces
@@ -28,7 +28,7 @@ MarkGameStatRows:
 	asl a
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.w #LineBraces>>16
 	sta.b $8F
 	lda.w #LineBraces+3

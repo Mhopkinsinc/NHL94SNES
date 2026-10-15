@@ -78,12 +78,12 @@ PrintLinePlayers:
 	dec.b d1
 .3:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	lda.b d1
 	cmp.w $1D8B
 	bne .1x
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.b [a3]
 	and.w #$00FF
 	dec a

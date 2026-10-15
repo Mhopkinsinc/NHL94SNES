@@ -3,11 +3,11 @@ SetStatColumnPal:
 	cmp.w $1DF9
 	beq .t1
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	bra .1
 
 .t1:
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 .1:
 	rtl

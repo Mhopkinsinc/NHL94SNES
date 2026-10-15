@@ -229,7 +229,7 @@ setupice_reset:
 	lda.b $85
 	dec a
 	dec a
-	sta.w $0D53
+	sta.w vcountmark+2
 	jsl.l InitSortObjects
 	jsl.l nullrtl
 	lda.w gmode

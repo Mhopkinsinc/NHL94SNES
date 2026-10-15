@@ -136,19 +136,19 @@ ShooterSelectList:
 	rtl
 
 .t1x:
-	lda.w $0D47
+	lda.w DispAttribCtr
 	inc a
 	cmp.w #$0010
 	bpl .2
-	sta.w $0D47
+	sta.w DispAttribCtr
 	jsl.l PrintShooterList
 	bra .2
 
 .t2:
-	lda.w $0D47
+	lda.w DispAttribCtr
 	dec a
 	bmi .2
-	sta.w $0D47
+	sta.w DispAttribCtr
 	jsl.l PrintShooterList
 	jmp.w .2
 

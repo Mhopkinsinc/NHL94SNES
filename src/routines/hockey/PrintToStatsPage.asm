@@ -22,7 +22,7 @@ PrintToStatsPage:
 	lda.l smallfontchars
 	clc
 	adc.l printfontset
-	ora.w $0D0D
+	ora.w printa
 	jsl.l .t1
 	plx
 	rtl

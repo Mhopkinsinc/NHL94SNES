@@ -70,7 +70,7 @@ a2touchpuck:
 	beq .8
 .5:
 	phx
-	lda.w $0CF2
+	lda.w iflags+1
 	and.w #$00FF
 	asl a
 	sta.b a3

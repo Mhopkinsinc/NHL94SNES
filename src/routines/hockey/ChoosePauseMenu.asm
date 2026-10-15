@@ -23,11 +23,11 @@ ChoosePauseMenu:
 	lda.w #$0000
 	sta.w $1EB7
 .1:
-	lda.w $0D13
+	lda.w psfirst
 	clc
 	adc.w #$0005
 	cmp.w $1EB9
 	bcc .rtl
-	dec.w $0D13
+	dec.w psfirst
 .rtl:
 	rtl

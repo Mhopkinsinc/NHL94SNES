@@ -153,8 +153,8 @@ StartHL2:
 	stz.w iflags
 	lda.w #$FFFF
 	sta.w RefCnt
-	sta.w $0D19
-	sta.w $0D1D
+	sta.w puckcross+2
+	sta.w puckcross+6
 	jsl.l setupice_reset
 	jsl.l ClrHor
 	stz.w Vpos
@@ -221,29 +221,29 @@ org $9F9001
 	lda.w #$00B4
 	pha
 	lda.b $83
-	sta.w $0D01
+	sta.w oldvcount
 .loop3:
 	lda.b $83
-	cmp.w $0D01
+	cmp.w oldvcount
 	beq .loop3
 	tax
 	sec
-	sbc.w $0D01
+	sbc.w oldvcount
 	sta.b d7
 	sta.w $0ADB
 	asl a
-	sta.w $0CDD
+	sta.w impactstep
 	asl a
 	asl a
 	asl a
-	sta.w $0CDF
+	sta.w velstep
 	asl a
-	sta.w $0CE1
+	sta.w gravstep
 	asl a
-	adc.w $0CE1
-	sta.w $0CE1
-	stx.w $0D35
-	stx.w $0D01
+	adc.w gravstep
+	sta.w gravstep
+	stx.w lastframevc
+	stx.w oldvcount
 	jsl.l ReadPads
 	lda.w sflags
 	bit.w #$0001

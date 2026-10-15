@@ -22,7 +22,7 @@ DrawExitPrompt:
 .loop:
 	phy
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$0006
 	sta.w printx
 	sty.w printy
@@ -49,7 +49,7 @@ DrawExitPrompt:
 	pla
 	sta.b $8F
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #ExitGameAsk>>16
 	sta.b $8F
 	lda.w #ExitGameAsk
@@ -76,11 +76,11 @@ DrawExitPrompt:
 	pla
 	sta.b $8F
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w $1DB9
 	bne .2
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 .2:
 	lda.w #ExitNo>>16
 	sta.b $8F
@@ -101,11 +101,11 @@ DrawExitPrompt:
 	pla
 	sta.b $8F
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w $1DB9
 	beq .3
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 .3:
 	lda.w #ExitYes>>16
 	sta.b $8F

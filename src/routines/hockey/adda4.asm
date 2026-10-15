@@ -30,7 +30,7 @@ adda4:
 	cmp.w ReplayBufferPtr
 	bne .t1
 	lda.b $9B
-	cmp.w $0D21
+	cmp.w ReplayBufferPtr+2
 	bne .t1
 	rtl
 

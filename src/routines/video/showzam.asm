@@ -2,10 +2,10 @@
 showzam:
 	lda.b $83
 	ldy.b $85
-	sbc.w $0D51
+	sbc.w vcountmark
 	sta.b tmp0
 	tya
-	sbc.w $0D53
+	sbc.w vcountmark+2
 	bne .rtl
 	lda.w sfhormode
 	beq .rtl

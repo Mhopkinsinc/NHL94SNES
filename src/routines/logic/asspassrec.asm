@@ -57,7 +57,7 @@ asspassrec:
 	bmi .7
 .6:
 	lda.w #$FFFF
-	sta.w $0D07
+	sta.w passReceiverPlayerNum
 	stz.w pfalock,x
 	stz.w $0BAB
 	lda.w pflags,x

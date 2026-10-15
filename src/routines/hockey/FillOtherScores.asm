@@ -13,7 +13,7 @@ FillOtherScores:
 	cmp.w #$0001
 	beq .4
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$0000
 	sta.w printy
 	lda.b $00

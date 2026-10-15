@@ -79,7 +79,7 @@ doinput:
 	bne .11
 	bit.w #$0010
 	bne .12
-	lda.w $0D07
+	lda.w passReceiverPlayerNum
 	cmp.b $E4
 	beq .6
 	lda.b d1
@@ -195,7 +195,7 @@ doinput:
 .t1xx:
 	bit.w #$0080
 	beq .23
-	ldy.w $0D07
+	ldy.w passReceiverPlayerNum
 	bmi .23
 	lda.w pflags,y
 	and.w #$1000

@@ -33,7 +33,7 @@ lcfound2:
 	lda.b $8F
 	pha
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.b d0
 	lsr a
 	lsr a
@@ -81,7 +81,7 @@ lcfound2:
 	lda.b d1
 	beq .4
 	lda.w #$0C00
-	tsb.w $0D0D
+	tsb.w printa
 .4:
 	lda.w #mesarea>>16
 	sta.b $8F
@@ -92,7 +92,7 @@ lcfound2:
 	sbc.w #$000B
 	sta.w printx
 	lda.w #$4000
-	tsb.w $0D0D
+	tsb.w printa
 	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
@@ -107,7 +107,7 @@ lcfound2:
 	xba
 	sta.w $0A2D
 	lda.w #$4000
-	trb.w $0D0D
+	trb.w printa
 	pla
 	sta.b $8F
 	pla

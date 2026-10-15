@@ -92,7 +92,7 @@ Stop4Pen:
 .6:
 	lda.b $83
 	sec
-	sbc.w $0D2B
+	sbc.w sfxmutetime
 	cmp.w #$003C
 	bcc .1x
 .1x:

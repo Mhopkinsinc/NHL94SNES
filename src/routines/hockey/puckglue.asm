@@ -45,7 +45,7 @@ puckglue:
 	lda.w gmclock
 	bne .4
 	lda.b a2
-	cmp.w $0D07
+	cmp.w passReceiverPlayerNum
 	bne .4
 	ldy.b a1
 	lda.w $17BA,y
@@ -69,7 +69,7 @@ puckglue:
 	sta.w temp5,y
 .6:
 	lda.b a2
-	cmp.w $0D07
+	cmp.w passReceiverPlayerNum
 	bne .t1
 	ldy.b a1
 	lda.w $0B01,y
@@ -82,5 +82,5 @@ puckglue:
 	jsl.l PuckCarrierPad
 .7:
 	lda.w #$FFFF
-	sta.w $0D07
+	sta.w passReceiverPlayerNum
 	rtl

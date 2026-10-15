@@ -6,7 +6,7 @@ doshot:
 	lda.w #$0008
 	trb.w sflags
 	sta.w pfalock,x
-	stx.w $0D29
+	stx.w shotplayer
 	cpx.w puckc
 	beq .t2
 	jmp.w .7
@@ -62,7 +62,7 @@ doshot:
 	sta.w nopuck,x
 	txa
 	lsr a
-	sta.w $0CF3
+	sta.w lastplayer
 	ldy.w #$0108
 	lda.w pfgoal,x
 	bne .4

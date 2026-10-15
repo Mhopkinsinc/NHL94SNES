@@ -285,7 +285,7 @@ BigLetterPlayoff:
 	tax
 	lda.l $7E3466
 	ora.w #$2000
-	ora.w $0D0D
+	ora.w printa
 	sta.l $7EC67C,x
 	inc a
 	sta.l $7EC77C,x

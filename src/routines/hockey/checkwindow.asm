@@ -13,24 +13,24 @@ checkwindow:
 	tax
 	lda.w pfgoal,x
 	beq .t1
-	lda.w $0D4F
-	adc.w $0CDD
-	sta.w $0D4F
+	lda.w yleader
+	adc.w impactstep
+	sta.w yleader
 	cmp.w #$0032
 	bmi .2
 	lda.w #$0032
-	sta.w $0D4F
+	sta.w yleader
 	bra .2
 
 .t1:
-	lda.w $0D4F
+	lda.w yleader
 	sec
-	sbc.w $0CDD
-	sta.w $0D4F
+	sbc.w impactstep
+	sta.w yleader
 	cmp.w #$FFCF
 	bpl .2
 	lda.w #$FFCE
-	sta.w $0D4F
+	sta.w yleader
 .2:
 	lda.w Yvel,x
 	lsr a
@@ -47,7 +47,7 @@ checkwindow:
 	clc
 	adc.w Ypos,x
 	clc
-	adc.w $0D4F
+	adc.w yleader
 	sta.b d2
 	sta.w yc1
 	lda.w Xpos,x

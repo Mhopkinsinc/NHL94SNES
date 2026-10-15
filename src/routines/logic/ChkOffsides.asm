@@ -50,7 +50,7 @@ ChkOffsides_blue:
 .1:
 	lda.w puckc
 	bpl .2
-	lda.w $0CF3
+	lda.w lastplayer
 	asl a
 .2:
 	cmp.w #$000C
@@ -130,7 +130,7 @@ ChkOffsides_other:
 .1:
 	lda.w puckc
 	bpl .2
-	lda.w $0CF3
+	lda.w lastplayer
 	asl a
 .2:
 	cmp.w #$000C

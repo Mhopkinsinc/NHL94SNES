@@ -326,3 +326,35 @@ SPFbench = 917		; 12 frames: the players on the bench cheering, 6 per bench (set
 SPFbigfont = 929		; 38 frames: A-Z, ., (c), 0-9 (PrintTeamSprites)
 SPFhat = 967		; 9 frames: hat trick hats, 3 kinds of 3 frames (UpdateHatTrick)
 SPFhatshadow = 976		; 1 frame: the hat shadow (UpdateHatTrick)
+
+; Game variables from $0CD5 to $0D55, in the order 93S has them (names from the 93S routines that use them the same way)
+collflag = $0CDB	; a player collision happened: checkcoll restores the old position (set by Bcheck, checkgoal)
+impactstep = $0CDD	; d7*2: impact decay this game frame (Gameloop)
+velstep = $0CDF		; d7*16: velocity to position scale this game frame
+gravstep = $0CE1	; d7*96: gravity this game frame
+pausetimer = $0CE3	; pause menu: frames left before a demo pause ends by itself
+ThirdPBonus = $0CE5	; setplayer: +2 when tied or trailing late in the 3rd period
+cheercnt = $0CE7	; crowd cheers still to play after a goal (one every 150 frames, Gameloop)
+cheervc = $0CE9		; vcount of the last crowd cheer
+lastplayer = $0CF3	; the last player who touched the puck (doshot, puckstick)
+lldisp = $0CF7		; count down for the once-a-second screen / game updates (periodicevents)
+nibblebuffer = $0CF9	; 4 words: the weights SetScore picks from
+oldvcount = $0D01	; vcount at the last game frame (d7 = vcount - oldvcount)
+passReceiverPlayerNum = $0D07	; the player the last pass was aimed at (negative = none)
+printa = $0D0D		; attribute (palette / priority bits) for print characters
+psfirst = $0D13		; pause menu: first item shown (Pmenu shows five from here)
+psitem = $0D15		; pause menu item
+puckcross = $0D17	; 2 entries of (x, frames): where / when the puck crosses the top / bottom goal line
+shotplayer = $0D29	; the player who shot last (doshot)
+sfxmutetime = $0D2B	; vcount of the last goal: Stop4Pen waits 60 frames after it
+threat = $0D2D		; direction of threat on puck handler (nonzero = threat)
+demoflag = $0D2F	; nonzero in demo mode
+TickerNum = $0D31	; playoff game the score ticker shows next
+tickervc = $0D33	; vcount when the ticker box was last shown
+lastframevc = $0D35	; vcount of the last game frame (Gameloop)
+wcradiusx = $0D3B	; wall collision radius x
+wcradiusy = $0D3D	; wall collision radius y
+screentimer = $0D41	; frames left on the scouting report screen
+DispAttribCtr = $0D47	; text column (scouting report, line and shooter lists)
+yleader = $0D4F		; lead distance on scrolling
+vcountmark = $0D51	; 32-bit vcount snapshot: elapsed time base

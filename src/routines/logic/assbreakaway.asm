@@ -67,7 +67,7 @@ assbreakaway:
 	sta.b a0
 	lda.w temp2,x
 	sec
-	sbc.w $0CDD
+	sbc.w impactstep
 	sta.w temp2,x
 	jml.l skateto
 .4:

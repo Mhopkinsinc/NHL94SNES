@@ -28,7 +28,7 @@ ChkShotStat:
 	lda.b $A7
 	pha
 	phx
-	ldx.w $0D29
+	ldx.w shotplayer
 	stx.b a3
 	stz.b a2
 	lda.w #$0002

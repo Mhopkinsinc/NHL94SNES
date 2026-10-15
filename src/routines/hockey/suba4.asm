@@ -28,7 +28,7 @@ suba4:
 
 .t2:
 	lda.b $9B
-	cmp.w $0D21
+	cmp.w ReplayBufferPtr+2
 	beq .t1
 	jml.l RestoreReplayFrame
 

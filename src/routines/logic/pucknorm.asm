@@ -10,14 +10,14 @@ pucknorm:
 	lda.w #$0000
 	sta.l $7E3450
 pucknorm_move:
-	lda.w $0D19
+	lda.w puckcross+2
 	sec
 	sbc.b d7
-	sta.w $0D19
-	lda.w $0D1D
+	sta.w puckcross+2
+	lda.w puckcross+6
 	sec
 	sbc.b d7
-	sta.w $0D1D
+	sta.w puckcross+6
 	lda.w temp1+puckobj
 	sec
 	sbc.b d7
@@ -176,7 +176,7 @@ pucknorm_move:
 	sta.b $04
 	jsl.l Div32S
 	lda.b $00
-	sta.w $0D19,y
+	sta.w puckcross+2,y
 	lda.b $00
 	asl a
 	asl a
@@ -198,9 +198,9 @@ pucknorm_move:
 	sta.b d0
 .3x:
 	lda.b d0
-	sta.w $0D17,y
+	sta.w puckcross,y
 	rtl
 .17:
 	lda.w #$FFFF
-	sta.w $0D19,y
+	sta.w puckcross+2,y
 	rtl

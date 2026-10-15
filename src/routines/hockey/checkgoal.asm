@@ -39,7 +39,7 @@ checkgoal:
 	cmp.w #$FFF7
 	bmi .t1
 	lda.w #$FFFF
-	sta.w $0CDB
+	sta.w collflag
 	lda.w puckoldz
 	cmp.w #$000D
 	bmi .t2

@@ -1,6 +1,6 @@
 ; The next line of the scouting report; scroll the text box up when it is full
 ScrollDisplayUp:
-	stz.w $0D47
+	stz.w DispAttribCtr
 	inc.w VertLineScrolling
 	lda.w VertLineScrolling
 	sec

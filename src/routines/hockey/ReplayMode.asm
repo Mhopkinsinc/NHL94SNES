@@ -42,7 +42,7 @@ ReplayMode:
 	jsl.l MapPartToVRAMOffset
 	lda.w ReplayBufferPtr
 	pha
-	lda.w $0D21
+	lda.w ReplayBufferPtr+2
 	pha
 	lda.w #$0020
 	trb.w sflags
@@ -52,25 +52,25 @@ ReplayMode:
 	pha
 	lda.w ReplayBufferPtr
 	cmp.w #$577E
-	lda.w $0D21
+	lda.w ReplayBufferPtr+2
 	sbc.w #$007E
 	bcs .1
 .loop:
 	lda.w #$007E
-	sta.w $0D21
+	sta.w ReplayBufferPtr+2
 	lda.w #$577E
 	sta.w ReplayBufferPtr
 .1:
 	lda.w #$E676
 	cmp.w ReplayBufferPtr
 	lda.w #$007E
-	sbc.w $0D21
+	sbc.w ReplayBufferPtr+2
 	bcc .loop
 	lda.w ReplayBufferPtr
 	sec
 	sbc.w #$577E
 	sta.b $08
-	lda.w $0D21
+	lda.w ReplayBufferPtr+2
 	sbc.w #$007E
 	sta.b $0A
 	lda.w #$007A
@@ -78,7 +78,7 @@ ReplayMode:
 	jsl.l Div32U
 	lda.b $0A
 	bne .loop
-	lda.w $0D21
+	lda.w ReplayBufferPtr+2
 	sta.b $9B
 	lda.w ReplayBufferPtr
 	sta.b a4
@@ -416,8 +416,8 @@ ReplayMode:
 	stz.w Wallcos,x
 	stz.w Wallsin,x
 	lda.w #$0001
-	sta.w $0D3B
-	sta.w $0D3D
+	sta.w wcradiusx
+	sta.w wcradiusy
 	jsl.l checkwallcoll
 	pla
 	sta.b d3
@@ -671,12 +671,12 @@ org $9BB001
 	pla
 	sta.w Vpos
 	pla
-	sta.w $0D21
+	sta.w ReplayBufferPtr+2
 	pla
 	sta.w ReplayBufferPtr
 	lda.w #$0020
 	trb.w sflags
-	lda.w $0D21
+	lda.w ReplayBufferPtr+2
 	sta.b $9B
 	lda.w ReplayBufferPtr
 	sta.b a4

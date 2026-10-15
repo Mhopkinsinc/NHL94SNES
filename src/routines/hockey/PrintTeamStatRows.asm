@@ -26,7 +26,7 @@ PrintTeamStatRows:
 
 .t2:
 	lda.w #$2800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$0009
 	sta.w printx
 	lda.w $1DB9
@@ -47,7 +47,7 @@ org $9C9000
 	jsl.l AdvanceStringPtr
 	jsl.l PrintToStatsPage
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	stz.b a2
 	lda.w #$001C
 	sta.w printx

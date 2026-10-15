@@ -75,7 +75,7 @@ printbig:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w $0D0D
+	ora.w printa
 	ldx.b d1
 	sta.l textmap,x
 	txa
@@ -95,7 +95,7 @@ printbig:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w $0D0D
+	ora.w printa
 	ldx.b d1
 	sta.l $7E3834,x
 	lda.b d2
@@ -105,7 +105,7 @@ printbig:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w $0D0D
+	ora.w printa
 	ldx.b d1
 	sta.l $7E37F6,x
 	ldx.b d0
@@ -113,7 +113,7 @@ printbig:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w $0D0D
+	ora.w printa
 	ldx.b d1
 	sta.l $7E3836,x
 	inc.w printx
@@ -127,7 +127,7 @@ printbig:
 	clc
 	adc.l $7E35AE
 	adc.l printfontset
-	ora.w $0D0D
+	ora.w printa
 	ldx.b d1
 	sta.l textmap,x
 	sta.l $7E3834,x
@@ -154,7 +154,7 @@ printbig:
 	asl a
 	asl a
 	asl a
-	sta.w $0D0D
+	sta.w printa
 	lda.b $01,s
 	and.w #$0040
 	asl a
@@ -164,7 +164,7 @@ printbig:
 	asl a
 	asl a
 	asl a
-	tsb.w $0D0D
+	tsb.w printa
 	pla
 	and.w #$0003
 	pha

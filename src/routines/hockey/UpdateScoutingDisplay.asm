@@ -23,7 +23,7 @@ UpdateScoutingDisplay:
 	lda.w PlayerScrollCtr
 	sta.b d0
 	bpl UpdateScoutingDisplay_para
-	stz.w $0D47
+	stz.w DispAttribCtr
 	ldy.w SelectedPlayerIdx
 	inc.w SelectedPlayerIdx
 	inc.w SelectedPlayerIdx
@@ -37,7 +37,7 @@ UpdateScoutingDisplay:
 	lda.w #$7FFF
 	sta.w ScoutingReportTimer
 	lda.w #$01E0
-	sta.w $0D41
+	sta.w screentimer
 UpdateScoutingDisplay_rtl:
 	rtl
 UpdateScoutingDisplay_scroll:
@@ -74,7 +74,7 @@ UpdateScoutingDisplay_para:
 	sta.b $93
 	lda.w #$000A
 	sta.w ScoutingReportTimer
-	lda.w $0D47
+	lda.w DispAttribCtr
 	sta.b d0
 	lda.b [a2]
 	and.w #$00FF

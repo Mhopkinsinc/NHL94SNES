@@ -39,7 +39,7 @@ FillScoringPage:
 	lda.w #$0001
 	sta.w printx
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	ldy.w #$0000
 	lda.b [a3],y
 	phy
@@ -182,7 +182,7 @@ FillScoringPage:
 	ply
 	iny
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	sep #$20
 	lda.b [a3],y
 	rep #$20

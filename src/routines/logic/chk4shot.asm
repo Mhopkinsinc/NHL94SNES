@@ -12,7 +12,7 @@ chk4shot:
 	bne .t1
 	jsl.l chkpk
 	bne .t1
-	lda.w $0D2D
+	lda.w threat
 	beq .t1
 	lda.w Ypos,x
 	cmp.w #$FF13

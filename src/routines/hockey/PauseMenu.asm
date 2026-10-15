@@ -72,37 +72,37 @@ PauseMenuPoll:
 	bne .t7
 	bit.w #$0400
 	beq .t2
-	inc.w $0D15
+	inc.w psitem
 	lda.w $1EB9
-	cmp.w $0D15
+	cmp.w psitem
 	beq .t1
-	lda.w $0D15
+	lda.w psitem
 	sec
 	sbc.w #$0005
-	cmp.w $0D13
+	cmp.w psfirst
 	bmi PauseMenuPoll
-	inc.w $0D13
+	inc.w psfirst
 	bra PauseMenuPoll
 
 .t1:
-	dec.w $0D15
+	dec.w psitem
 	bra PauseMenuPoll
 
 .t2:
 	bit.w #$0800
 	beq .t7
-	dec.w $0D15
-	lda.w $0D15
-	cmp.w $0D13
+	dec.w psitem
+	lda.w psitem
+	cmp.w psfirst
 	bpl PauseMenuPoll
-	dec.w $0D13
+	dec.w psfirst
 	bpl PauseMenuPoll
-	stz.w $0D13
-	stz.w $0D15
+	stz.w psfirst
+	stz.w psitem
 	bra PauseMenuPoll
 
 .t7:
-	lda.w $0D15
+	lda.w psitem
 	asl a
 	asl a
 	sta.b d0

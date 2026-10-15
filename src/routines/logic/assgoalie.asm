@@ -260,7 +260,7 @@ assgoalie:
 	dec.b d0
 	bpl .2xxx
 	lda.w #$0001
-	sta.w $0D2D
+	sta.w threat
 	jsl.l chk4pass
 	lda.w puckc
 	bmi .20
@@ -505,7 +505,7 @@ assgoalie:
 	cmp.w #$FF20
 	bpl .28
 .2xxxxxx:
-	lda.w $0D07
+	lda.w passReceiverPlayerNum
 	bpl .27
 	lda.w puckc
 	bmi .27

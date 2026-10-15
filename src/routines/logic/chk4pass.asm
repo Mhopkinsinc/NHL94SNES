@@ -1,6 +1,6 @@
 ; A computer player looks for a good pass
 chk4pass:
-	lda.w $0D2D
+	lda.w threat
 	bne .1
 	lda.w #$0010
 	clc

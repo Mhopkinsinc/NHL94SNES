@@ -157,7 +157,7 @@ assdumpin:
 	sta.w nopuck,x
 	txa
 	lsr a
-	sta.w $0CF3
+	sta.w lastplayer
 	jmp.w dopass_swing
 .6:		; by target: the x spread (plus the rating term)
 	dw 25,25,25,25,20,25,25,25,25,25,20,25

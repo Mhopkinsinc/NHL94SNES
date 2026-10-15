@@ -76,7 +76,7 @@ puckstick:
 	sta.b a2
 	tya
 	lsr a
-	sta.w $0CF3
+	sta.w lastplayer
 	lda.w #$000C
 	trb.w sflags
 .3:
@@ -126,7 +126,7 @@ puckstick:
 	adc.w #$2710
 	ldy.w position,x
 	beq .2x
-	cpx.w $0D07
+	cpx.w passReceiverPlayerNum
 	bne .3x
 .2x:
 	adc.w #$0BB8

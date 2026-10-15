@@ -29,7 +29,7 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	sta.b $8F
 	lda.w #ShooterAttribColumns
 	sta.b a1
-	lda.w $0D47
+	lda.w DispAttribCtr
 	sta.b d0
 	bra .3
 .2:
@@ -46,12 +46,12 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 .1x:
 	lda.b [a1]
 	bpl .t1
-	dec.w $0D47
+	dec.w DispAttribCtr
 	bra .1
 
 .t1:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	jsl.l print
 	lda.b [a1]
 	sta.b $B7

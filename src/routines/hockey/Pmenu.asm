@@ -1,4 +1,4 @@
-; Draw the pause menu: five items of the current list (by $1EB7) from item $0D13, the selected one ($0D15) highlighted, each with its value
+; Draw the pause menu: five items of the current list (by $1EB7) from item $0D13, the selected one (psitem) highlighted, each with its value
 Pmenu:
 	lda.b $8F
 	pha
@@ -13,7 +13,7 @@ Pmenu:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $0D13
+	lda.w psfirst
 	sta.b d0
 	lda.w $1EB7
 	beq .t1
@@ -81,12 +81,12 @@ Pmenu:
 	bra .loop
 .2:
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.b d0
-	cmp.w $0D15
+	cmp.w psitem
 	bne .1
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 .1:
 	lda.w #$0006
 	sta.w printx
@@ -133,7 +133,7 @@ Pmenu:
 	inc.b d0
 	lda.b d0
 	sec
-	sbc.w $0D13
+	sbc.w psfirst
 	cmp.w #$0005
 	bne .2
 	rtl

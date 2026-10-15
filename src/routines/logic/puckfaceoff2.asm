@@ -105,10 +105,10 @@ puckfaceoff2:
 	stz.w $0CA9
 	lda.w #$FFFF
 	sta.w RefCnt
-	sta.w $0D19
-	sta.w $0D1D
+	sta.w puckcross+2
+	sta.w puckcross+6
 	sta.w puckz
-	sta.w $0D07
+	sta.w passReceiverPlayerNum
 	asl a
 	sta.w puckc
 	lda.w #$8200
@@ -152,7 +152,7 @@ puckfaceoff2:
 	dec.b d4
 	bpl .loopx
 	lda.w #$003C
-	sta.w $0D4F
+	sta.w yleader
 	jsl.l ResetBench
 	stz.b a2
 	jsl.l setpersonel

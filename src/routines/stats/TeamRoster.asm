@@ -6,7 +6,7 @@ TeamRoster:
 	inc a
 	sta.b d0
 	sta.w SelectedPlayerIdx
-	stz.w $0D47
+	stz.w DispAttribCtr
 	ldx.b a2
 	lda.w HomeTeam,x
 	sta.l $7E3454
@@ -46,7 +46,7 @@ TeamRoster:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000F
 	sta.b d0
 	lda.w #$0003
@@ -66,7 +66,7 @@ TeamRoster:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000F
 	sta.b d0
 	lda.w #$0003

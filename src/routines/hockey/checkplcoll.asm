@@ -267,7 +267,7 @@ checkplcoll:
 	sta.b d0
 	pla
 	sta.b d1
-	lda.w $0CDB
+	lda.w collflag
 	bpl .t1xxx
 	jmp.w .10
 
@@ -360,7 +360,7 @@ checkplcoll:
 	sta.w Yvel,y
 	ldx.b a3
 	lda.w #$FFFF
-	sta.w $0CDB
+	sta.w collflag
 .10:
 	pla
 	sta.b d5

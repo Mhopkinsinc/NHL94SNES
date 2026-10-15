@@ -43,12 +43,12 @@ PrintShooterRows:
 	dec.b d1
 .3:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	lda.b d1
 	cmp.w $1D9B
 	bne .1x
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 .1x:
 	lda.b $8F
 	sta.b $9F
@@ -77,5 +77,5 @@ PrintShooterRows:
 	dec.b d1
 	bpl .3
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	rtl

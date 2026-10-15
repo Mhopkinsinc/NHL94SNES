@@ -15,7 +15,7 @@ print:
 	tax
 	lda.l smallfontchars
 	adc.l printfontset
-	ora.w $0D0D
+	ora.w printa
 	sta.b $14
 .2:
 	tya
@@ -74,7 +74,7 @@ print:
 	asl a
 	asl a
 	asl a
-	sta.w $0D0D
+	sta.w printa
 	lda.b $01,s
 	and.w #$0040
 	asl a
@@ -84,7 +84,7 @@ print:
 	asl a
 	asl a
 	asl a
-	tsb.w $0D0D
+	tsb.w printa
 	pla
 	and.w #$0003
 	pha

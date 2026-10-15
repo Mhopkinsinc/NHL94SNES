@@ -129,7 +129,7 @@ Goal:
 	jsl.l PlayTeamSong
 .score:
 	lda.b $83
-	sta.w $0D2B
+	sta.w sfxmutetime
 	jsl.l EndPenaltyShot
 	stz.w $1E8B
 	stz.w $1E89
@@ -275,7 +275,7 @@ Goal:
 	cmp.w #$0003
 	bcs .12
 .12:
-	stz.w $0CDB
+	stz.w collflag
 	stz.w puckvx
 	stz.w puckvy
 	ldy.w #$0006
@@ -294,8 +294,8 @@ Goal:
 	sta.w puckvz
 	stz.w puckz
 	lda.w #$FFFF
-	sta.w $0D19
-	sta.w $0D1D
+	sta.w puckcross+2
+	sta.w puckcross+6
 	sta.w pfnc+puckobj
 	lda.w #$001A
 	sta.b d0

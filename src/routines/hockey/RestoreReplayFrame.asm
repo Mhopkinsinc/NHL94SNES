@@ -179,11 +179,11 @@ RestoreReplayFrame:
 	lda.w WMDATA
 	sta.w Hpos
 	lda.w WMDATA
-	sta.w $0CEC
+	sta.w Hpos+1
 	lda.w WMDATA
 	sta.w Vpos
 	lda.w WMDATA
-	sta.w $0D38
+	sta.w Vpos+1
 	lda.w WMDATA
 	sta.w benchframe
 	lda.w WMDATA

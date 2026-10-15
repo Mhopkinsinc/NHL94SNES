@@ -19,7 +19,7 @@ PrintScrollHint:
 	sta.b d1
 	jsl.l FramerOutline
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000A
 	sta.w printx
 	lda.w #$0007

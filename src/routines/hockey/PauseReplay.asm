@@ -17,7 +17,7 @@ PauseReplay:
 	lda.b $85
 	dec a
 	dec a
-	sta.w $0D53
+	sta.w vcountmark+2
 	jsl.l ReplayMode
 	jsl.l FadeIn
 	jsl.l ScreenOn

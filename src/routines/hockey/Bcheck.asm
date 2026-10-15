@@ -70,5 +70,5 @@ Bcheck:
 	sty.b a2
 	stx.b a3
 	lda.w #$FFFF
-	sta.w $0CDB
+	sta.w collflag
 	rtl

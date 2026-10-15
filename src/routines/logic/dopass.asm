@@ -9,7 +9,7 @@ dopass:
 	sta.w nopuck,x
 	txa
 	lsr a
-	sta.w $0CF3
+	sta.w lastplayer
 	lda.w #$0007
 	sta.b d0
 	lda.w position,x
@@ -187,7 +187,7 @@ dopass_count:
 	adc.w temp1,x
 	sta.w temp1,x
 	lda.b a0
-	sta.w $0D07
+	sta.w passReceiverPlayerNum
 	ldx.b a0
 	lda.w #$0015
 	sta.b d0
@@ -375,7 +375,7 @@ dopass_count:
 	stz.w Yvel,x
 	lda.w $19D4,x
 	sta.b d4
-	lda.w $0D07
+	lda.w passReceiverPlayerNum
 	sta.b d0
 	jsl.l AssignPadIfFree
 	lda.w $19D4,x

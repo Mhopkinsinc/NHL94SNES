@@ -21,7 +21,7 @@ updatecrowdf:
 	lda.w #$0480
 .1x:
 	sec
-	sbc.w $0CDD
+	sbc.w impactstep
 	sta.l crowdlevel
 	bpl .rtl
 	lda.w #$0000

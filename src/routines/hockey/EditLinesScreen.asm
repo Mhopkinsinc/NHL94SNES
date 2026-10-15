@@ -6,7 +6,7 @@ EditLinesScreen:
 	inc a
 	sta.b d0
 	sta.w SelectedPlayerIdx
-	stz.w $0D47
+	stz.w DispAttribCtr
 	ldx.b a2
 	lda.w HomeTeam,x
 	sta.l $7E3454

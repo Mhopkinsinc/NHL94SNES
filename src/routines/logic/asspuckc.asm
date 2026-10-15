@@ -135,7 +135,7 @@ asspuckc:
 	clc
 	adc.w pucky
 	sta.b d3
-	stz.w $0D2D
+	stz.w threat
 	lda.w #$0005
 	sta.b d4
 	stz.b a0
@@ -174,7 +174,7 @@ asspuckc:
 	bmi .9
 	cmp.w #$0015
 	bpl .9
-	inc.w $0D2D
+	inc.w threat
 	lda.w Xpos,x
 	sec
 	sbc.w Xpos,y

@@ -89,7 +89,7 @@ DrawPeriodStats:
 	lda.w printx
 	sta.b d4
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000C
 	sta.w printy
 	inc.w printx
@@ -132,7 +132,7 @@ DrawPeriodStats:
 	asl a
 	tax
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	lda.w $1DB9
 	beq .t1x
 .1:
@@ -158,7 +158,7 @@ DrawPeriodStats:
 	jsl.l print
 	inc.w printy
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	ldx.w #$0068
 	ldy.w #$0040
 	lda.w #TotalShotsLine>>16

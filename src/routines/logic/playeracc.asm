@@ -50,7 +50,7 @@ playeracc:
 
 .t1:
 	lda.b d2
-	ldy.w $0D07
+	ldy.w passReceiverPlayerNum
 	bmi .1x
 	sec
 	sbc.w legstr,x

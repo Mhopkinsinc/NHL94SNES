@@ -30,8 +30,8 @@ Pausemode:
 	jsl.l SpriteFrameStart
 	jsl.l setvideo
 	jsl.l SpriteFrameEnd
-	stz.w $0D13
-	stz.w $0D15
+	stz.w psfirst
+	stz.w psitem
 .loop:
 	lda.b $8F
 	pha
@@ -106,6 +106,6 @@ Pausemode:
 	sta.w $0CAD
 	sta.w $0CB3
 	lda.b $83
-	sta.w $0D35
-	sta.w $0D01
+	sta.w lastframevc
+	sta.w oldvcount
 	rtl

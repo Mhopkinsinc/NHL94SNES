@@ -182,10 +182,10 @@ SelectLinePlayer:
 .7:
 	lda.b d0
 	clc
-	adc.w $0D47
+	adc.w DispAttribCtr
 	sta.b d0
 	bmi .6
-	sta.w $0D47
+	sta.w DispAttribCtr
 	jsl.l .10
 	bra .6
 .8:
@@ -242,7 +242,7 @@ SelectLinePlayer:
 	sta.b a1
 	lda.w #$009B
 	sta.b $8F
-	lda.w $0D47
+	lda.w DispAttribCtr
 	sta.b d0
 	lda.w SelectedPlayerIdx
 	bne .3x
@@ -265,12 +265,12 @@ SelectLinePlayer:
 .1xxx:
 	lda.b [a1]
 	bpl .t1xxx
-	dec.w $0D47
+	dec.w DispAttribCtr
 	bra .1xx
 
 .t1xxx:
 	lda.w #$3800
-	sta.w $0D0D
+	sta.w printa
 	jsl.l print
 	lda.b [a1]
 	sta.b $B7

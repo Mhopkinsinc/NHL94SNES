@@ -123,16 +123,16 @@ SetScore:
 	lda.w #$009F
 	sta.b $8F
 	lda.b [a1]
-	sta.w $0CF9
+	sta.w nibblebuffer
 	ldy.w #$0002
 	lda.b [a1],y
-	sta.w $0CFB
+	sta.w nibblebuffer+2
 	ldy.w #$0004
 	lda.b [a1],y
-	sta.w $0CFD
+	sta.w nibblebuffer+4
 	ldy.w #$0006
 	lda.b [a1],y
-	sta.w $0CFF
+	sta.w nibblebuffer+6
 	asl.b d1
 	asl.b d1
 	lda.w #TeamList>>16
@@ -156,20 +156,20 @@ org $9FA001
 	lda.w #$009F
 	sta.b $8F
 	lda.b [a1]
-	adc.w $0CF9
-	sta.w $0CF9
+	adc.w nibblebuffer
+	sta.w nibblebuffer
 	ldy.w #$0002
 	lda.b [a1],y
-	adc.w $0CFB
-	sta.w $0CFB
+	adc.w nibblebuffer+2
+	sta.w nibblebuffer+2
 	ldy.w #$0004
 	lda.b [a1],y
-	adc.w $0CFD
-	sta.w $0CFD
+	adc.w nibblebuffer+4
+	sta.w nibblebuffer+4
 	ldy.w #$0006
 	lda.b [a1],y
-	adc.w $0CFF
-	sta.w $0CFF
+	adc.w nibblebuffer+6
+	sta.w nibblebuffer+6
 	lda.w #$0004
 	sta.b d0
 	jml.l WeightedRandomSelect

@@ -2,7 +2,7 @@
 UpdateScores:
 	jsl.l GetShifter
 	lda.b d1
-	sta.w $0D31
+	sta.w TickerNum
 	asl a
 	sta.b a0
 .loop:

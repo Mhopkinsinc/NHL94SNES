@@ -74,13 +74,13 @@ assscore:
 	lda.w #SPAcelebrate
 	sta.b d1
 	sta.w pfalock,x
-	cpx.w $0D29
+	cpx.w shotplayer
 	bne .5
 .4:
 	lda.w #SPApump2
 	sta.b d1
 	lda.w #$FFFF
-	sta.w $0D29
+	sta.w shotplayer
 .5:
 	jsl.l SetSPA
 .6:

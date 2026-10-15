@@ -2,7 +2,7 @@
 checkwallcoll:
 	lda.w #$012A
 	sec
-	sbc.w $0D3D
+	sbc.w wcradiusy
 	pha
 	eor.w #$FFFF
 	inc a
@@ -11,7 +11,7 @@ checkwallcoll:
 	sta.b d5
 	lda.w #$0088
 	sec
-	sbc.w $0D3B
+	sbc.w wcradiusx
 	pha
 	eor.w #$FFFF
 	inc a

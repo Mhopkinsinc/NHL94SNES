@@ -358,7 +358,7 @@ PlayoffScreen:
 	and.w #$00FF
 	sta.w printx
 	lda.w #$3000
-	sta.w $0D0D
+	sta.w printa
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
@@ -375,7 +375,7 @@ PlayoffScreen:
 	and.w #$00FF
 	bne .1
 	lda.w #$3400
-	sta.w $0D0D
+	sta.w printa
 .1:
 	lda.b $CD
 	asl a

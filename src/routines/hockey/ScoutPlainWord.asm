@@ -68,7 +68,7 @@ ScoutTypeWord:
 .2:
 	bvs .1
 .3:
-	lda.w $0D47
+	lda.w DispAttribCtr
 	bne .t1
 	ldy.w #$0002
 .loop:
@@ -98,7 +98,7 @@ ScoutTypeWord:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $0D47
+	lda.w DispAttribCtr
 	clc
 	adc.w printx
 	sta.w printx
@@ -107,8 +107,8 @@ ScoutTypeWord:
 	adc.w printy
 	sta.w printy
 	jsl.l print
-	lda.w $0D47
+	lda.w DispAttribCtr
 	clc
 	adc.b d1
-	sta.w $0D47
+	sta.w DispAttribCtr
 	rtl

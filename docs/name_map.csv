@@ -6534,3 +6534,33 @@ $1523,pfrev,,93S,RAM; nonzero: skating backwards. pflags bit pfrev,src/ram94snes
 $1543,pf2aip,,93S,RAM; nonzero: animation in progress. pflags2 bit pf2aip,src/ram94snes.asm
 $1563,pfnc,,93S,RAM; nonzero: no collision mode. pflags bit pfnc,src/ram94snes.asm
 $0DFB,shadowz,,code,"RAM; height of object 15, the puck shadow (setsortcords)",src/ram94snes.asm
+$0CDB,collflag,,93S,"RAM; a player collision happened: checkcoll restores the old position (set by Bcheck, checkgoal)",src/ram94snes.asm
+$0CDD,impactstep,,93S,RAM; d7*2: impact decay this game frame (Gameloop),src/ram94snes.asm
+$0CDF,velstep,,93S,RAM; d7*16: velocity to position scale this game frame,src/ram94snes.asm
+$0CE1,gravstep,,93S,RAM; d7*96: gravity this game frame,src/ram94snes.asm
+$0CE3,pausetimer,,93S,RAM; pause menu: frames left before a demo pause ends by itself,src/ram94snes.asm
+$0CE5,ThirdPBonus,,93S,RAM; setplayer: +2 when tied or trailing late in the 3rd period,src/ram94snes.asm
+$0CE7,cheercnt,,93S,"RAM; crowd cheers still to play after a goal (one every 150 frames, Gameloop)",src/ram94snes.asm
+$0CE9,cheervc,,93S,RAM; vcount of the last crowd cheer,src/ram94snes.asm
+$0CF3,lastplayer,,93S,"RAM; the last player who touched the puck (doshot, puckstick)",src/ram94snes.asm
+$0CF7,lldisp,,93S,RAM; count down for the once-a-second screen / game updates (periodicevents),src/ram94snes.asm
+$0CF9,nibblebuffer,,93S,RAM; 4 words: the weights SetScore picks from,src/ram94snes.asm
+$0D01,oldvcount,,93S,RAM; vcount at the last game frame (d7 = vcount - oldvcount),src/ram94snes.asm
+$0D07,passReceiverPlayerNum,,93S,RAM; the player the last pass was aimed at (negative = none),src/ram94snes.asm
+$0D0D,printa,,93S,RAM; attribute (palette / priority bits) for print characters,src/ram94snes.asm
+$0D15,psitem,,93S,RAM; pause menu item,src/ram94snes.asm
+$0D17,puckcross,,93S,"RAM; 2 entries of (x, frames): where / when the puck crosses the top / bottom goal line",src/ram94snes.asm
+$0D29,shotplayer,,93S,RAM; the player who shot last (doshot),src/ram94snes.asm
+$0D2B,sfxmutetime,,93S,RAM; vcount of the last goal: Stop4Pen waits 60 frames after it,src/ram94snes.asm
+$0D2D,threat,,93S,RAM; direction of threat on puck handler (nonzero = threat),src/ram94snes.asm
+$0D2F,demoflag,,93S,RAM; nonzero in demo mode,src/ram94snes.asm
+$0D31,TickerNum,,93S,RAM; playoff game the score ticker shows next,src/ram94snes.asm
+$0D33,tickervc,,93S,RAM; vcount when the ticker box was last shown,src/ram94snes.asm
+$0D35,lastframevc,,93S,RAM; vcount of the last game frame (Gameloop),src/ram94snes.asm
+$0D3B,wcradiusx,,93S,RAM; wall collision radius x,src/ram94snes.asm
+$0D3D,wcradiusy,,93S,RAM; wall collision radius y,src/ram94snes.asm
+$0D41,screentimer,,93S,RAM; frames left on the scouting report screen,src/ram94snes.asm
+$0D47,DispAttribCtr,,93S,"RAM; text column (scouting report, line and shooter lists)",src/ram94snes.asm
+$0D4F,yleader,,93S,RAM; lead distance on scrolling,src/ram94snes.asm
+$0D51,vcountmark,,93S,RAM; 32-bit vcount snapshot: elapsed time base,src/ram94snes.asm
+$0D13,psfirst,,behavior,RAM; pause menu: first item shown (Pmenu shows five from here),src/ram94snes.asm

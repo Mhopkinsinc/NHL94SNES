@@ -62,7 +62,7 @@ StartPer:
 	lda.w #$0010
 	trb.w sflags
 	lda.w #$007E
-	sta.w $0D21
+	sta.w ReplayBufferPtr+2
 	lda.w #$577E
 	sta.w ReplayBufferPtr
 	bra .5
@@ -77,8 +77,8 @@ StartPer:
 	stz.w textdirtyhi
 	stz.b $83
 	stz.b $85
-	stz.w $0D35
-	stz.w $0D01
+	stz.w lastframevc
+	stz.w oldvcount
 	ldx.w #$0000
 	ldy.w #$01C0
 	lda.w #$6000

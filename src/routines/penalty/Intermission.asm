@@ -10,8 +10,8 @@ Intermission:
 	bpl .loop
 	lda.b $83
 	ldy.b $85
-	sta.w $0D51
-	sty.w $0D53
+	sta.w vcountmark
+	sty.w vcountmark+2
 	lda.w #$0001
 	trb.w sflags
 	lda.w gsp
@@ -21,18 +21,18 @@ Intermission:
 
 .t1:
 	lda.w #$0708
-	sta.w $0CE3
+	sta.w pausetimer
 	lda.w #$0001
-	sta.w $0D2F
+	sta.w demoflag
 	lda.b $83
 	sec
 	sbc.w #$0150
-	sta.w $0D33
+	sta.w tickervc
 	jsl.l InitTicker
-	lda.w $0D31
+	lda.w TickerNum
 	sta.l $7E35DC
-	stz.w $0D13
-	stz.w $0D15
+	stz.w psfirst
+	stz.w psitem
 	lda.w #$FFFF
 	sta.w pausepad
 	ldy.w #$FFFE
@@ -89,6 +89,6 @@ Intermission:
 	lda.w #$0000
 	sta.l $7E3476
 	stz.w $1A10
-	stz.w $0D2F
+	stz.w demoflag
 Intermission_rtl:
 	rtl

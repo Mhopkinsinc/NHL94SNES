@@ -30,7 +30,7 @@ ShowRosterLine:
 	sta.b $8F
 	lda.w #AttribMenuSkater
 	sta.b a1
-	lda.w $0D47
+	lda.w DispAttribCtr
 	sta.b d0
 	lda.w SelectedPlayerIdx
 	bne .top
@@ -53,7 +53,7 @@ ShowRosterLine:
 .1:
 	lda.b [a1]
 	bpl .t2
-	dec.w $0D47
+	dec.w DispAttribCtr
 	bra .col
 
 .t2:

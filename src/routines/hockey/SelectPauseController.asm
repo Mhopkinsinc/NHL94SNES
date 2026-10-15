@@ -48,8 +48,8 @@ SelectPauseController:
 	cmp.w pausepad
 	beq .3
 	stx.w pausepad
-	stz.w $0D15
-	stz.w $0D13
+	stz.w psitem
+	stz.w psfirst
 	jsl.l Pmenu
 	jsl.l SendTextMap
 	jsr.w PulseUntilRelease
@@ -100,7 +100,7 @@ SelectPauseController:
 	lda.w #$003C
 	sta.w $0AC8
 .5:
-	lda.w $0D2F
+	lda.w demoflag
 	beq .7
 	lda.w $1C84
 	ora.w $1C86
@@ -108,7 +108,7 @@ SelectPauseController:
 	ora.w $1C8A
 	ora.w $1C8C
 	bne .7
-	dec.w $0CE3
+	dec.w pausetimer
 	bne .7
 .6:
 	lda.w #$1000
@@ -127,6 +127,6 @@ SelectPauseController:
 	ora.w $1C8C
 	beq .rtl
 	lda.w #$EA60
-	sta.w $0CE3
+	sta.w pausetimer
 .rtl:
 	rtl

@@ -6,14 +6,14 @@ periodicevents:
 	jsl.l clockcont
 	lda.w sfhormode
 	bne .rtl
-	lda.w $0CF7
+	lda.w lldisp
 	sec
 	sbc.b d7
-	sta.w $0CF7
+	sta.w lldisp
 	bpl .rtl
 	clc
 	adc.w #$0018
-	sta.w $0CF7
+	sta.w lldisp
 	jsl.l ChkGoalies
 	jsl.l UpdateCwdExcite
 	jsl.l CheckLateGameSong

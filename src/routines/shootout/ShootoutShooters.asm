@@ -29,7 +29,7 @@ ShootoutShooters:
 	stz.w $1DB9
 	lda.w #$0001
 	sta.w SelectedPlayerIdx
-	stz.w $0D47
+	stz.w DispAttribCtr
 	jsl.l PrintShooterNames
 	lda.w #$0005
 	ldx.w #$0050
@@ -122,7 +122,7 @@ ShootersSetup:
 	pla
 	sta.b $8F
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000E
 	sta.b d0
 	lda.w #$0003

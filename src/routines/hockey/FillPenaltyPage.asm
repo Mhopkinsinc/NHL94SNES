@@ -40,7 +40,7 @@ FillPenaltyPage:
 	lda.w #$0001
 	sta.w printx
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	ldy.w #$0000
 	lda.b [a3],y
 	phy
@@ -134,7 +134,7 @@ FillPenaltyPage:
 	pla
 	sta.b a1
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	inc.w printy
 	lda.w #$0010
 	sta.w printx

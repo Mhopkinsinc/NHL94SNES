@@ -92,7 +92,7 @@ ScoutingReport:
 	bne .4
 	lda.l $7E34CC
 	bne .4
-	dec.w $0D41
+	dec.w screentimer
 	bmi .5
 .4:
 	jmp.w .3
@@ -376,5 +376,5 @@ ScoutingReport:
 	sta.b [a0]
 	stz.w $1D5E
 	lda.w #$7FFF
-	sta.w $0D41
+	sta.w screentimer
 	rtl
