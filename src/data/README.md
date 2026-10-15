@@ -33,4 +33,4 @@ The file extension gives the format:
 | `SpriteFramesXX.bin` | The SpriteFrames frames of bank $XX, not packed. The source writes their headers and pieces, and includes their tiles from this file |
 | `.spc` | A block for SPCUploadBlock: big-endian sound RAM address and length, then the bytes for the sound CPU |
 
-An asset not identified yet is named by its address (`DATA8_XXXXXX.<format>`).
+An asset takes the name of the label that includes it (`MenuBackTiles.chr.lz`); one not identified yet is named by its address (`DATA8_XXXXXX.<format>`).

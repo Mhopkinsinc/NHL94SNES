@@ -3,4 +3,4 @@
 StreamSampleGoal:		; for SPCUploadBlock, as DATA8_928000
 	db $00,$3F
 	db $11,$82
-	incbin "../../../Extracted/data/sound/DATA8_92CECD.spc":4..4486
+	incbin "../../../Extracted/data/sound/StreamSampleGoal.spc":4..4486

@@ -4,4 +4,4 @@ PlayerListMap:		; a 30 x 12 map packed for DecompressLZ (width, height, , then t
 			;   read in bank $9B
 	db $10,$FB
 	db $00,$02,$D6
-	incbin "../../../Extracted/data/gfx/DATA8_9AE9C7.map.lz":5..41
+	incbin "../../../Extracted/data/gfx/PlayerListMap.map.lz":5..41

@@ -4,4 +4,4 @@ CardBackMap:		; a 32 x 32 map packed for DecompressLZ (width, height, , then the
 			;   setup in bank $9D
 	db $10,$FB
 	db $00,$08,$06
-	incbin "../../../Extracted/data/gfx/DATA8_96C61F.map.lz":5..943
+	incbin "../../../Extracted/data/gfx/CardBackMap.map.lz":5..943

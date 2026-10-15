@@ -3,4 +3,4 @@
 MenuBackTiles:		; tiles packed for DecompressLZ that screen setups send to VRAM
 	db $10,$FB
 	db $00,$0D,$00
-	incbin "../../../Extracted/data/gfx/DATA8_95F1AE.chr.lz":5..1816
+	incbin "../../../Extracted/data/gfx/MenuBackTiles.chr.lz":5..1816

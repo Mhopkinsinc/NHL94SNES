@@ -4,4 +4,4 @@ PictureMap:		; a 7 x 7 map packed for DecompressLZ (width, height, , then the ma
 			;   read by a screen setup in bank $9D
 	db $10,$FB
 	db $00,$00,$68
-	incbin "../../../Extracted/data/gfx/DATA8_9AE9F0.map.lz":5..37
+	incbin "../../../Extracted/data/gfx/PictureMap.map.lz":5..37

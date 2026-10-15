@@ -4,5 +4,5 @@ TitleSprites:		; a sprite set packed for DecompressHuffman: the N, H and L lette
 			;   shield, the NHLPA logo and the licence line of an opening screen
 	db $30,$FB
 	db $00,$29,$AF
-	incbin "../../../Extracted/data/gfx/DATA8_91B188.spr.huf":5..5662
+	incbin "../../../Extracted/data/gfx/TitleSprites.spr.huf":5..5662
 	db $00

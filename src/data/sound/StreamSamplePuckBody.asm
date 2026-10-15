@@ -3,4 +3,4 @@
 StreamSamplePuckBody:		; for SPCUploadBlock, as DATA8_948D6F
 	db $0C,$21
 	db $0C,$21
-	incbin "../../../Extracted/data/sound/DATA8_94A662.spc":4..3109
+	incbin "../../../Extracted/data/sound/StreamSamplePuckBody.spc":4..3109

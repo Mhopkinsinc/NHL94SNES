@@ -3,4 +3,4 @@
 TitleLogoTiles:		; tiles packed for DecompressLZ, unpacked by a screen setup: logo pieces with a (R) mark
 	db $10,$FB
 	db $00,$16,$E0
-	incbin "../../../Extracted/data/gfx/DATA8_948000.chr.lz":5..3439
+	incbin "../../../Extracted/data/gfx/TitleLogoTiles.chr.lz":5..3439

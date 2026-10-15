@@ -3,4 +3,4 @@
 SmallFontTiles:		; tiles packed for DecompressPairs that screen setups in banks $9D and $9F send to VRAM
 	db $46,$FB
 	db $00,$0D,$40
-	incbin "../../../Extracted/data/gfx/DATA8_96A103.chr.pairs":5..1250
+	incbin "../../../Extracted/data/gfx/SmallFontTiles.chr.pairs":5..1250

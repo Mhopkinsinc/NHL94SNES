@@ -3,4 +3,4 @@
 StreamSampleSave:		; for SPCUploadBlock: sound RAM address, length (big-endian words), then the bytes
 	db $20,$E8
 	db $20,$E8
-	incbin "../../../Extracted/data/sound/DATA8_90A120.spc":4..8428
+	incbin "../../../Extracted/data/sound/StreamSampleSave.spc":4..8428

@@ -4,4 +4,4 @@ Title94Map:		; a 32 x 28 map packed for DecompressHuffman (width, height, , then
 			;   by a screen setup in bank $9D
 	db $30,$FB
 	db $00,$07,$06
-	incbin "../../../Extracted/data/gfx/DATA8_9ADDC6.map.huf":5..145
+	incbin "../../../Extracted/data/gfx/Title94Map.map.huf":5..145

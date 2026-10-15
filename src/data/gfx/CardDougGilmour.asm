@@ -4,4 +4,4 @@ CardDougGilmour:		; a player photo: 6 x 6 linear 4bpp tiles packed for Decompres
 			;   in bank $9D
 	db $30,$FB
 	db $00,$04,$80
-	incbin "../../../Extracted/data/gfx/DATA8_9AA8AB.lin.huf":5..451
+	incbin "../../../Extracted/data/gfx/CardDougGilmour.lin.huf":5..451

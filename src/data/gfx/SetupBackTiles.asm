@@ -4,4 +4,4 @@ SetupBackTiles:		; background tiles packed for DecompressHuffman, unpacked by a 
 			;   identified yet
 	db $30,$FB
 	db $00,$18,$80
-	incbin "../../../Extracted/data/gfx/DATA8_938000.chr.huf":5..4346
+	incbin "../../../Extracted/data/gfx/SetupBackTiles.chr.huf":5..4346
