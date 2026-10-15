@@ -4,4 +4,4 @@ GameSampleList:
 	dd SampleBeep,SamplePuckGoalie,SamplePuckIce,SamplePuckBody
 	dd SamplePuckPost,SamplePuckGlass,SampleOrgan,SampleCrowd2
 	dd SamplePlayerWall,DATA8_94ED96,SampleCheck,DATA8_96AA64
-	dd SampleStop,SampleCrowd1,DATA8_958ABD,SampleWhistle
+	dd SampleStop,SampleCrowd1,SampleClap,SampleWhistle

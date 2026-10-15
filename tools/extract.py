@@ -77,7 +77,7 @@ ASSETS = [
     ('DATA8_94ED96.spc', 0x94ED96, 0x94F8EC),
     ('EALogoSprites.spr.huf', 0x94F8EC, 0x94FFF9),
     ('SampleCrashBack.spc', 0x958000, 0x958ABD),
-    ('DATA8_958ABD.spc', 0x958ABD, 0x959490),
+    ('SampleClap.spc', 0x958ABD, 0x959490),
     ('SamplePuckGet.spc', 0x959490, 0x959E48),
     ('StreamSamplePeriodEnd.spc', 0x959E48, 0x95A7F7),
     ('SmallLetterSprites.spr', 0x95A7F7, 0x95B15C),

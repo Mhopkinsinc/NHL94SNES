@@ -2,7 +2,7 @@
 
 org $958000
 incsrc "../data/sound/SampleCrashBack.asm"
-incsrc "../data/sound/DATA8_958ABD.asm"
+incsrc "../data/sound/SampleClap.asm"
 incsrc "../data/sound/SamplePuckGet.asm"
 incsrc "../data/sound/StreamSamplePeriodEnd.asm"
 incsrc "../data/gfx/SmallLetterSprites.asm"
