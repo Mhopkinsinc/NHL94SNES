@@ -1,6 +1,6 @@
 ; Per team: a long pointer to the 16 colours of its team block (DrawTeamBlocks, DrawSelectTeam, PlayoffScreen)
 TeamBlockPalettes:
-	dd DATA8_9AF15C+$20,LogoPalettePHI+$20,DATA8_9AF15C+$40,PhotoPaletteANH+$100
+	dd UnusedSetupSpritePalette+$20,LogoPalettePHI+$20,UnusedSetupSpritePalette+$40,PhotoPaletteANH+$100
 	dd PhotoPaletteANH+$C0,PhotoPaletteANH+$80,PhotoPaletteANH+$E0,PhotoPaletteANH+$60
 	dd PhotoPaletteANH+$40,PhotoPaletteANH+$20,LogoPaletteLA+$120,LogoPaletteLA+$100
 	dd LogoPaletteLA+$E0,LogoPaletteLA+$C0,LogoPaletteLA+$A0,LogoPaletteLA+$80

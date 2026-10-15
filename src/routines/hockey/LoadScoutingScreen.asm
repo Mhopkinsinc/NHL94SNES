@@ -325,9 +325,9 @@ LoadScoutingScreen:
 	ldy.w #$0080
 	ldx.w #$0010
 	jsl.l SetColours
-	lda.w #DATA8_9AF15C>>16
+	lda.w #UnusedSetupSpritePalette>>16
 	sta.b $0E
-	lda.w #DATA8_9AF15C
+	lda.w #UnusedSetupSpritePalette
 	sta.b $0C
 	ldy.w #$00C0
 	ldx.w #$0010
