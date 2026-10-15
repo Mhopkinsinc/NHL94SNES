@@ -1,4 +1,4 @@
-; sound driver command $0F: start sending X bytes from [$3E] to sound RAM address Y; sends the first block
+; sound driver command $0F: start streaming a sample of X bytes from [$3E], loop point Y; sends the first block
 SPCStreamStart:
 	lda.w STAT78
 	bit.w #$007E

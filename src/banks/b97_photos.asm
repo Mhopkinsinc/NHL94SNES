@@ -2,7 +2,7 @@
 
 org $978000
 incsrc "../data/sound/DATA8_978000.asm"
-incsrc "../data/sound/DATA8_9782F8.asm"
+incsrc "../data/sound/SamplePuckBody.asm"
 incsrc "../data/sound/DATA8_9785F0.asm"
 incsrc "../data/text/PregameText.asm"
 incsrc "../data/sound/DATA8_978BBB.asm"

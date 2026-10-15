@@ -1,6 +1,6 @@
-; A block for the sound CPU: sound RAM address, length, then the bytes.
+; A BRR sound sample for the sound CPU: its loop point and length, then the BRR blocks.
 
-DATA8_928000:		; for SPCUploadBlock: sound RAM address, length (big-endian words), then the bytes
+DATA8_928000:		; for SPCUploadBlock: loop point and length (big-endian words, in bytes; multiples of the 9-byte BRR block), then the BRR blocks
 	db $00,$12
 	db $13,$EF
 	incbin "../../../Extracted/data/sound/DATA8_928000.spc":4..5107

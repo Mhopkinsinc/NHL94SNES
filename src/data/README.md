@@ -31,6 +31,6 @@ The file extension gives the format:
 | `.pal.lz`, `.pal.huf`, `.pal.rle` | Colours packed for DecompressLZ, DecompressHuffman, DecompressRLE |
 | `.lz`, `.huf` | Packed for DecompressLZ, DecompressHuffman, contents not identified yet |
 | `SpriteFramesXX.bin` | The SpriteFrames frames of bank $XX, not packed. The source writes their headers and pieces, and includes their tiles from this file |
-| `.spc` | A block for SPCUploadBlock: big-endian sound RAM address and length, then the bytes for the sound CPU |
+| `.spc` | A BRR sound sample for SPCUploadBlock: big-endian loop point and length (multiples of the 9-byte BRR block), then the BRR blocks |
 
 An asset takes the name of the label that includes it (`MenuBackTiles.chr.lz`); one not identified yet is named by its address (`DATA8_XXXXXX.<format>`).

@@ -6315,3 +6315,16 @@ $9AC1F3,TeamBlocksTiles,DATA8_9AC1F3,93S,"Loaded at scorechars, where 93S loads 
 $9AD6A6,FaceOffMap,DATA8_9AD6A6,93S,93S FaceOffMap: the same 120 map words (94 adds the width / height header); puckfaceoff2 copies it into textmap over FaceOffTiles as 93S does,src/data/gfx/CenterIceTilesLA.asm
 $9ADE57,SetupScreenPalette,DATA8_9ADE57,93S,"The 128 colours of the 93S RonBarrMap block (.ronpal; rows 1-7 the same, two colours of row 0 differ), which 93S ScoutingReport / TeamRoster send to colour 0; loaded at colour 0 by SetupScreen, LoadScoutingScreen and LoadPlayerCardScreen",src/data/gfx/TitlePuckMap.asm
 $908000,CrowdTiles,DATA8_908000,behavior,"showcrowd sends each crowd frame from here (\$90:8000 + 32 x tile, written as #CrowdTiles / #CrowdTiles>>16); rendered: the crowd",src/data/gfx/CrowdTiles.asm
+$91F2F9,SamplePassShot,DATA8_91F2F9,behavior,In-game sample 0: GameSfxTable sounds 0 (dopass) and 1 (doshot) use it; 94G plays SFXpass / SFXshotfh at those points,src/data/sound/SamplePassShot.asm
+$95B15C,SampleShotHard,DATA8_95B15C,behavior,"In-game sample 1: sound 2, doshot when passspeed >= $1E (93S SFXshothard)",src/data/sound/SampleShotHard.asm
+$959490,SamplePuckGet,DATA8_959490,behavior,"In-game sample 2: sound 3 (puckglue, puckstick; 94G SFXpuckget at puckglue)",src/data/sound/SamplePuckGet.asm
+$9293F3,SamplePuckWall,DATA8_9293F3,behavior,"In-game sample 3: sound 4 (wallcoll, the puck off the boards; 94G SFXpuckwall1)",src/data/sound/SamplePuckWall.asm
+$96DE60,SampleBeep,DATA8_96DE60,behavior,"In-game sample 4: sound 5 (StartBreakaway, updatepwrplay); 94G SFXbeep1 at both points",src/data/sound/SampleBeep.asm
+$948D6F,SamplePuckGoalie,DATA8_948D6F,behavior,"In-game sample 5: sound 6 (puckgoalie, the puck off the goalie)",src/data/sound/SamplePuckGoalie.asm
+$9AE080,SamplePuckIce,DATA8_9AE080,behavior,"In-game sample 6: sound 7 (Endfaceoff, updateplayers; 94G SFXpuckice at both)",src/data/sound/SamplePuckIce.asm
+$9782F8,SamplePuckBody,DATA8_9782F8,behavior,In-game sample 7: sound 8 (puckbody; 94G SFXpuckbody),src/data/sound/SamplePuckBody.asm
+$93C20B,SamplePuckPost,DATA8_93C20B,behavior,In-game sample 8: sound 9 (checkgoal; 94G $25 SFXpuckpost at that point),src/data/sound/SamplePuckPost.asm
+$94B287,SamplePlayerWall,DATA8_94B287,behavior,In-game sample 12: sound $D (wallcoll; 94G SFXplayerwall),src/data/sound/SamplePlayerWall.asm
+$94E225,SampleCheck,DATA8_94E225,behavior,In-game sample 14: sound $F (CollisionSfx; 94G SFXcheck),src/data/sound/SampleCheck.asm
+$95CBEA,SampleStop,DATA8_95CBEA,behavior,In-game sample 16: sound $11 (dostop; 93S SFXstop),src/data/sound/SampleStop.asm
+$95D3F2,SampleWhistle,DATA8_95D3F2,behavior,In-game sample 19: sound $15 (Stop4Pen; 94G SFXwhistle),src/data/sound/SampleWhistle.asm

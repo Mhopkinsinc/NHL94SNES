@@ -1,4 +1,4 @@
-; sound driver command $03: X bytes from [$0C] to sound RAM address Y
+; sound driver command $03: a sample of X bytes from [$0C], loop point Y (the next sample slot)
 SPCUpload:
 	sep #$20
 .wait:

@@ -2,7 +2,7 @@
 
 org $928000
 incsrc "../data/sound/DATA8_928000.asm"
-incsrc "../data/sound/DATA8_9293F3.asm"
+incsrc "../data/sound/SamplePuckWall.asm"
 incsrc "../data/gfx/LetterSprites.asm"
 incsrc "../data/sound/DATA8_92BB61.asm"
 incsrc "../data/sound/StreamSampleGoal.asm"
