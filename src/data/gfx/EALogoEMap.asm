@@ -1,7 +1,7 @@
-; Data.
+; Mode 7 byte map (18 x 10) of the EA logo E, pasted into EALogoMap by IntroSequence
 
-DATA8_9ADBD3:		; an 18 x 10 map of bytes, not packed (width, height, , then a byte per entry), read by
-			;   a routine in bank $9F; not identified yet
+EALogoEMap:		; an 18 x 10 map of bytes, not packed (width, height, , then a byte per entry), read by
+			;   a routine in bank $9F
 	db $12,$00,$0A,$00,$10,$00,$00,$00,$01,$02,$03,$03,$03,$03,$03,$04
 	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$07,$08,$08,$08,$08,$08
 	db $08,$09,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$0D,$0E,$0E,$0E

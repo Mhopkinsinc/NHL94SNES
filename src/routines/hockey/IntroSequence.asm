@@ -98,7 +98,7 @@ IntroSequence:
 	inx
 	cpx.w #$4000
 	bcc .loopx
-	lda.w #DATA8_949A00
+	lda.w #EALogoTiles
 	sta.b $0C
 	lda.w #$0094
 	sta.b $0E
@@ -107,9 +107,9 @@ IntroSequence:
 	lda.w #$007F
 	sta.b $12
 	jsl.l Decompress
-	lda.w #DATA8_9ADC8D
+	lda.w #EALogoMap
 	sta.b $0C
-	lda.w #DATA8_9ADC8D>>16
+	lda.w #EALogoMap>>16
 	sta.b $0E
 	lda.w #$4000
 	sta.b $10
@@ -151,9 +151,9 @@ IntroSequence:
 	cpy.w #$0A00
 	bmi .loop3
 	rep #$20
-	lda.w #DATA8_94F8EC
+	lda.w #EALogoSprites
 	sta.b $0C
-	lda.w #DATA8_94F8EC>>16
+	lda.w #EALogoSprites>>16
 	sta.b $0E
 	lda.w #$4A40
 	sta.b $10
@@ -274,9 +274,9 @@ IntroSequence:
 .t1xxxx:
 	jsr.w .23
 .2xx:
-	lda.w #DATA8_9ADBD3
+	lda.w #EALogoEMap
 	sta.b $0C
-	lda.w #DATA8_9ADBD3>>16
+	lda.w #EALogoEMap>>16
 	sta.b $0E
 	jsl.l .26
 	lda.w #$00C0
@@ -314,9 +314,9 @@ IntroSequence:
 .t1xxxxx:
 	jsr.w .23
 .2xxx:
-	lda.w #DATA8_9ADB19
+	lda.w #EALogoAMap
 	sta.b $0C
-	lda.w #DATA8_9ADB19>>16
+	lda.w #EALogoAMap>>16
 	sta.b $0E
 	jsl.l .26
 	lda.w #$00C0

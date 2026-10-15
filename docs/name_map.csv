@@ -6306,3 +6306,8 @@ $9AE0D5,TitleSpritePalette,DATA8_9AE0D5,behavior,"TitleScreen unpacks it to $7F0
 $9ADDC6,Title94Map,DATA8_9ADDC6,render,"TitleScreen's map at VRAM $5400 over TitleLogoTiles: the ""94"" puck of the title logo",src/data/gfx/Title94Map.asm
 $9AD88C,TitleNHLMap,DATA8_9AD88C,render,TitleScreen's map at VRAM $5800 over TitleLogoTiles: the NHL letters of the title logo,src/data/gfx/TitleNHLMap.asm
 $91B188,TitleSprites,DATA8_91B188,behavior,"TitleScreen unpacks it to $7F5000, the sprite set DrawTitleSprite draws (the N, H, L letters and the licence screen sprites)",src/data/gfx/TitleSprites.asm
+$949A00,EALogoTiles,DATA8_949A00,render,"IntroSequence unpacks it to $7F8010 and sends it as the mode 7 tile bytes; rendered with EALogoMap: SPORTS and ELECTRONIC ARTS, and the E and A of EALogoEMap / EALogoAMap",src/data/gfx/EALogoTiles.asm
+$9ADC8D,EALogoMap,DATA8_9ADC8D,render,IntroSequence's 128 x 128 mode 7 map over EALogoTiles: the EA SPORTS logo lettering,src/data/gfx/EALogoMap.asm
+$9ADBD3,EALogoEMap,DATA8_9ADBD3,render,IntroSequence pastes it at column $37 of the mode 7 map; renders the E of the EA logo,src/data/gfx/EALogoEMap.asm
+$9ADB19,EALogoAMap,DATA8_9ADB19,render,IntroSequence pastes it at the same place after EALogoEMap; renders the A of the EA logo,src/data/gfx/EALogoAMap.asm
+$94F8EC,EALogoSprites,DATA8_94F8EC,render,IntroSequence unpacks it to $7F4A40 and draws its two frames: the large E and A letters,src/data/gfx/EALogoSprites.asm
