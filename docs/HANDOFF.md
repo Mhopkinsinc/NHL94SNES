@@ -156,14 +156,11 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 
 - `$14E3` is `pfalock` from the `setplayer` pair with `SPA`.
 - asstab entry $10 is `assbreakaway` (94G job, given by asspuckc on a breakaway); entry $14 is `assdumpin` (Y with the puck dumps it in; confirmed by the user).
-- `CODE_9FD459` and `CODE_9FA1B7` are entries other slices jump to, so they stay global (`CODE_9EB3C4` is now a local of `chkprogress`).
+- The last `CODE_` labels became locals or names: `CODE_9FD459` is `.3`, `CODE_9FA1B7` is `USBoard_rtl`, and `CODE_9EB3C4` is a local of `chkprogress`.
 - `PenOffsides` is `$12` here. 93S uses `$10`. The 94S immediate is the one in the source.
 - SpriteFrameN labels stay numbered until a frame has an SPF name.
-- The asset rows marked missing or name in `docs/cleanup_plan.md` are not identified yet.
-- Animations that are new in 94 or not certain keep auto labels in `SPAList`.
-- The remaining `CODE_` entries did not uniquely match a 93S or 94G routine. Opcode identity across the two ROMs is rare, and several names collided on the same prologue, so those stay placeholders until a caller shows the job.
-- After the 2026-10-14 pass no `CODE_` files are left; the remaining `CODE_` labels are entry points inside named routines.
-- `DATA8_` blocks that are still cursors, packed bytes, or a second copy of a named table stay unnamed. `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. Phrases in `DATA8_9CF000` that are a title are named. Cursor-only records in that bank stay `DATA8_`.
+- No auto label (`CODE_`, `DATA8_`) is left in the source (15 Oct 2026). Data with no reader takes an `Unused` name (`SampleUnused`, `SPAunused1`-`3`, `UnusedSineTable`, `UnusedSetupSpritePalette`).
+- `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. Phrases in `DATA8_9CF000` that are a title are named. Cursor-only records in that bank stay `DATA8_`.
 - `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `AttribRating` has no 94 counterpart, and the distance code uses `ApproxLength` (the larger part plus a share of the smaller), not a square root; `sroot` exists only for the crowd meter (`UpdateCrowdMeter`). `StreamSfx` (was CODE_9C9A7F) asks for one of six streamed sound effects; `UpdateStreamSfx` streams its sample to the sound CPU and plays it.
 - `$7E35D0` is the blank tile `EraseScoutName` stores the way 93S stores `blankchar`. Not named.
 - `#$0800` and `#$0040` stay raw except `showclock` (`sf2replay`) and `freezewindow` (`sfslock`). `#$2000` and `#$4000` stay raw except `chkpk` (`sf2pwrplay`) and `chkpk2` (`sf2pwrtm`).
@@ -192,7 +189,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - `src/macros/snes94.mac` (included before the banks) holds the `String` macro (length word counting itself, then text),
   as 93S `snes93.mac`.
 - `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
-- bank80_8000 still has many auto `CODE_` labels and raw RAM addresses: no 93S/94G match, left for a naming pass.
+- Raw RAM is the main thing left: about 600 WRAM addresses ($0100-$1FFF, about 4000 uses) and 170 long $7E/$7F addresses (about 900 uses) in `src/routines/` are still numbers.
 - bank80_9000: math, sine, sound driver commands and the heap, named from what the code does. Left raw: the direct-page
   math scratch ($00-$0B, $3E-$46) and $07E1/$07E2 (bit 6 of $07E2 makes the fraction multiplies skip the mode 7
   multiplier). The sound command numbers are the driver's; their meaning needs the SPC side.
@@ -216,7 +213,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   the penalty/stoppage table PenaltyList (strings with variable trailing data) and the 48-byte records from $80DDA0
   (they continue into bank80_E000) are plain db until their readers are disassembled.
 - bank80_E000: data only. The records end at $80E2E0; then the copyright lines, CreditTitles / CreditNames (read from bank
-  $9D) with their strings, long pointer tables DATA8_80E6C1 / DATA8_80E6FD / DATA8_80E73D (read from bank $9C), and $FF
+  $9D) with their strings, long pointer tables DATA8_80E6C1 (TitleSampleList) / DATA8_80E6FD (MenuSampleList) / DATA8_80E73D (read from bank $9C), and $FF
   fill to $80F000 written as `padbyte $FF` / `pad $80F000`.
 - bank80_F000: $FF fill, DATA8_80FF00 (the OAM high table masks; DrawSprite reads the same values from WRAM $7EE67C, and
   neither the copy into WRAM nor a reader of this table is found yet), the internal header (checksum $9B52, complement
@@ -255,9 +252,9 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   sprite frames (team index: CenterIceTilesHFD (9) at $82FEA9, CenterIceTilesPIT (17) at $83FF47, CenterIceTilesDAL (5) at $84FF38, CenterIceTilesVAN (23) at $86FE78, CenterIceTilesCGY (3) at $8DFF3D, CenterIceTilesTBL (21) at $97FE85, CenterIceTilesNYI (13) at $98FECB, CenterIceTilesOTT (15) at $99FEC0; the rest are in bank $9A). Team index = the logo order of
   TeamLogoSprites.
 - $9DCD53 is a table of long pointers read at $9DC9DD and $9DCC65 as (team $1C98 * 26 + $A5) * 4: 28 rows of 26 packed
-  entries that are unpacked and converted with $9B85C2: player photos, 6 x 6 tiles (checked: DATA8_8CFDEC, entry 390,
+  entries that are unpacked and converted with $9B85C2: player photos, 6 x 6 tiles (checked: DATA8_8CFDEC (CardPeterSidorkwicz), entry 390,
   renders as a face; whether the column is the roster index is not checked). After the 28 rows,
-  entries point at 16-word tables: $9AF47C, $85FFDF (DATA8_85FFDF), $9AEA5C, ... at $20 steps, which share their first
+  entries point at 16-word tables: $9AF47C, $85FFDF (DATA8_85FFDF (PhotoPaletteBOS)), $9AEA5C, ... at $20 steps, which share their first
   words (palettes?); no reader of these found yet.
 - DATA8_87FF91 (bank87_F000): an LZ block, unpacked a 10 x 12 byte map after three words (10, 12, 16); $9DB6D7 unpacks it
   to $7F0000 and then unpacks $9ADEE0 to $7F4000 and $91B188 to $7F5000; what reads the map is not traced.
@@ -265,22 +262,22 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   $9AD4B6: the NHL shield.
 - $9DE0BD loads colours into CGRAM: [$0C] the colours, Y the first colour, X the count (team palettes: Y = $A0).
   DATA8_89FFC7 (bank89_F000) is an LZ-packed palette that $9DC8E4 loads at colour $40; its screen is not identified.
-- DATA8_8AFF7A (bank8A_F000) has the layout of DATA8_87FF91 unpacked (10 x 12 byte map after three words) and is read at
-  $9DB635, near the code that unpacks DATA8_87FF91; both are likely tile pictures of one screen, not identified yet.
+- DATA8_8AFF7A (bank8A_F000) has the layout of DATA8_87FF91 (LicenceNHLPAMap) unpacked (10 x 12 byte map after three words) and is read at
+  $9DB635, near the code that unpacks DATA8_87FF91 (LicenceNHLPAMap); both are likely tile pictures of one screen, not identified yet.
 - Songs at bank ends: SongGoTeamGoC (bank81_F000) and SongCharge (bank8B_F000, TeamSongs entries 31, 32, 79), both
   header + TRAK chunks "left"/"right"; the note bytes are not decoded yet.
 - Sound uploads: DATA8_80E6C1 (15 entries) and DATA8_80E6FD (16) in bank80_E000 are lists of long pointers to blocks for
   SPCUploadBlock ($809906: big-endian sound RAM address and length, then the bytes). $9C9860 and $9C97B0 set the sound effect
   table ([$34] = $9BB4C9), call SoundInit and send every block of one list; $9C9800 sends DATA8_80E73D (one block, $8F8000)
   with [$34] = $80E741, so the data from $80E741 in bank80_E000 is a sound effect table (still plain db). The blocks are
-  probably samples and sound data; DATA8_8ED897 (bank8E_D000-F000, asset DATA8_8ED897.spc) is one of them.
+  probably samples and sound data; DATA8_8ED897 (bank8E_D000-F000, asset DATA8_8ED897 (SampleBrass).spc) is one of them.
 - Songs: the TRAK chunk size before each "TRAK" tag is a big-endian word (SongBuildupCharge has $0166); in bank81_F000 and
   bank8B_F000 its high byte $00 is written at the end of the padding.
-- Bank $8F: DATA8_8F8000 ($8F8000-$8FBB25, upload block of DATA8_80E73D), DATA8_8FBB26 ($8FBB26-$8FDD31, upload block in a
+- Bank $8F: DATA8_8F8000 ($8F8000-$8FBB25, upload block of DATA8_80E73D (IntroSampleList)), DATA8_8FBB26 ($8FBB26-$8FDD31, upload block in a
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Next: naming passes. Code banks $9B to $9F (and parts of $80) still use auto labels (CODE_/DATA8_) for most routines and tables; match them to NHLPA93SNES / NHL94Genesis names, name RAM variables, and turn the remaining numeric pointers (for example in the sprite animation sequences of bank9D_E000 and the word pointer tables) into labels.
+- Next: name the RAM variables (93S / 94G names where the use matches, else from behavior; the most used raw ones are $1DB9, $0EC3, $0EE3, $0D0D, $1003, $0D71, $19D4), the per-voice sound RAM ($0804-$0A09), the tile cache and allocator RAM of bank $80, and the 976 numbered `SpriteFrameN` frames (by the animations that use them). The State notes above are the layout log from the segment work; the auto names they cite are in `docs/name_map.csv` (auto_name column).
 
 ## Setup notes
 
