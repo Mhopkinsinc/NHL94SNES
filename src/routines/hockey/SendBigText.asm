@@ -19,9 +19,9 @@ SendBigText:
 	sty.b $26
 	ldx.w #$0000
 	jsl.l MapPartToVRAM
-	lda.w #$007E
+	lda.w #bigtextbuf>>16
 	sta.b $0E
-	lda.w #$4EF4
+	lda.w #bigtextbuf
 	sta.b $0C
 	ldy.w #$4000
 	lda.l bigtextchar

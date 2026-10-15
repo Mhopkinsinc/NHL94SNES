@@ -290,24 +290,24 @@ PlayoffScreen:
 	sta.b $0E
 	lda.w #BigLetterTiles
 	sta.b $0C
-	lda.w #$007E
+	lda.w #bigtextbuf>>16
 	sta.b $12
-	lda.w #$4EF4
+	lda.w #bigtextbuf
 	sta.b $10
 	jsl.l Decompress
-	lda.w #$007E
+	lda.w #bigtextbuf>>16
 	sta.b $0E
-	lda.w #$4EF4
+	lda.w #bigtextbuf
 	sta.b $0C
-	lda.w #$007E
+	lda.w #hlsavebuf>>16
 	sta.b $12
-	lda.w #$47F4
+	lda.w #hlsavebuf
 	sta.b $10
 	stx.b $00
 	jsl.l LinearToPlanar
-	lda.w #$007E
+	lda.w #bigtextbuf>>16
 	sta.b $12
-	lda.w #$4EF4
+	lda.w #bigtextbuf
 	sta.b $10
 	lda.w #$0000
 	ldx.w #$8000
@@ -467,9 +467,9 @@ org $9D9000
 	jmp.w .loop2
 
 .t1x:
-	lda.w #$007E
+	lda.w #bigtextbuf>>16
 	sta.b $0E
-	lda.w #$4EF4
+	lda.w #bigtextbuf
 	sta.b $0C
 	ldy.w #$4000
 	lda.l bigtextchar
@@ -635,9 +635,9 @@ org $9D9000
 	lda.w #$0020
 	sta.l screenmap+2
 	sta.l screenmap2+2
-	lda.w #$007E
+	lda.w #screenmap2>>16
 	sta.b $0E
-	lda.w #$C676
+	lda.w #screenmap2
 	sta.b $0C
 	lda.w #$3800
 	sta.w MapVRAM
@@ -651,9 +651,9 @@ org $9D9000
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
-	lda.w #$007E
+	lda.w #screenmap>>16
 	sta.b $0E
-	lda.w #$A670
+	lda.w #screenmap
 	sta.b $0C
 	stz.w MapVRAM
 	lda.w #$0020
@@ -767,9 +767,9 @@ org $9D9000
 .t1xxxx:
 	sta.b $24
 	pha
-	lda.w #$007E
+	lda.w #screenmap>>16
 	sta.b $0E
-	lda.w #$A670
+	lda.w #screenmap
 	sta.b $0C
 	stz.w MapVRAM
 	stz.b $26
@@ -785,9 +785,9 @@ org $9D9000
 	phx
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
-	lda.w #$007E
+	lda.w #screenmap2>>16
 	sta.b $0E
-	lda.w #$C676
+	lda.w #screenmap2
 	sta.b $0C
 	lda.w #$3800
 	sta.w MapVRAM
@@ -813,9 +813,9 @@ org $9D9000
 	bcc .4
 	sta.b $24
 	pha
-	lda.w #$007E
+	lda.w #screenmap>>16
 	sta.b $0E
-	lda.w #$A670
+	lda.w #screenmap
 	sta.b $0C
 	stz.w MapVRAM
 	stz.b $26
@@ -831,9 +831,9 @@ org $9D9000
 	phx
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
-	lda.w #$007E
+	lda.w #screenmap2>>16
 	sta.b $0E
-	lda.w #$C676
+	lda.w #screenmap2
 	sta.b $0C
 	lda.w #$3800
 	sta.w MapVRAM

@@ -3,9 +3,9 @@ RenderBigText:
 	phb
 	phk
 	plb
-	lda.w #$007E
+	lda.w #hlsavebuf>>16
 	sta.b $12
-	lda.w #$47F4
+	lda.w #hlsavebuf
 	sta.b $10
 	jsr.w .9
 	lsr a

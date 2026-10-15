@@ -194,9 +194,9 @@ PasswordRedraw:
 .t2:
 	sta.b d4
 	jsl.l PrintSelectLeft
-	lda.w #$007E
+	lda.w #PassWord>>16
 	sta.b a0+2
-	lda.w #$34F4
+	lda.w #PassWord
 	sta.b a0
 	stz.b d0
 	ldy.b d4
@@ -255,9 +255,9 @@ PasswordRedraw:
 	dec.w printy
 	dec.w printy
 	jsl.l print
-	lda.w #$007E
+	lda.w #PassWord>>16
 	sta.b a0+2
-	lda.w #$34F4
+	lda.w #PassWord
 	sta.b a0
 	ldy.b d4
 	sep #$20

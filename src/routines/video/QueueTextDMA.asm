@@ -4,9 +4,9 @@ QueueTextDMA:
 	bmi .rtl
 	tay
 	asl a
-	adc.w #$37F4
+	adc.w #textmap
 	sta.b $0C
-	lda.w #$007E
+	lda.w #textmap>>16
 	sta.b $0E
 	lda.w textdirtyhi
 	beq .rtl

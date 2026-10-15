@@ -16,9 +16,9 @@ assfaceoffpl:
 	sta.w pflags,x
 	stz.w temp1,x
 .1xx:
-	lda.w #$007E
+	lda.w #fofdata2>>16
 	sta.b a0+2
-	lda.w #$312A
+	lda.w #fofdata2
 	sta.b a0
 	lda.w pfteam,x
 	beq .2

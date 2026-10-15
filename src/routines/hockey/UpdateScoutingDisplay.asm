@@ -27,9 +27,9 @@ UpdateScoutingDisplay:
 	ldy.w SelectedPlayerIdx
 	inc.w SelectedPlayerIdx
 	inc.w SelectedPlayerIdx
-	lda.w #$007E
+	lda.w #TestList>>16
 	sta.b a0+2
-	lda.w #$347C
+	lda.w #TestList
 	sta.b a0
 	lda.b [a0],y
 	sta.b d0

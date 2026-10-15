@@ -3,15 +3,15 @@ faceoffinput:
 	lda.w asscur,x
 	cmp.w #$0017
 	bne .t2
-	lda.w #$007E
+	lda.w #fodir1>>16
 	sta.b a0+2
-	lda.w #$3122
+	lda.w #fodir1
 	sta.b a0
 	lda.w pfgoal,x
 	beq .1
-	lda.w #$007E
+	lda.w #fodir2>>16
 	sta.b a0+2
-	lda.w #$3124
+	lda.w #fodir2
 	sta.b a0
 .1:
 	lda.b d0

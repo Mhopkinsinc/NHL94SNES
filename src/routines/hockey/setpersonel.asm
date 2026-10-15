@@ -98,9 +98,9 @@ setpersonel:
 	bpl .3
 	lda.w #$0005
 	sta.b d4
-	lda.w #$007E
+	lda.w #PlList>>16
 	sta.b a4+2
-	lda.w #$3114
+	lda.w #PlList
 	sta.b a4
 .5:
 	ldy.b d4

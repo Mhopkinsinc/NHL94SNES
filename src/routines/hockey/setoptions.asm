@@ -201,18 +201,18 @@ setoptions:
 	sta.b $0E
 	lda.w #BigLetterTiles
 	sta.b $0C
-	lda.w #$007E
+	lda.w #bigtextbuf>>16
 	sta.b $12
-	lda.w #$4EF4
+	lda.w #bigtextbuf
 	sta.b $10
 	jsl.l Decompress
-	lda.w #$007E
+	lda.w #bigtextbuf>>16
 	sta.b $0E
-	lda.w #$4EF4
+	lda.w #bigtextbuf
 	sta.b $0C
-	lda.w #$007E
+	lda.w #hlsavebuf>>16
 	sta.b $12
-	lda.w #$47F4
+	lda.w #hlsavebuf
 	sta.b $10
 	stx.b $00
 	jsl.l LinearToPlanar
@@ -305,9 +305,9 @@ setoptions:
 	sta.l teamschanged
 	sta.l cardtimer
 .2xxx:
-	lda.w #$007E
+	lda.w #OptPlayMode>>16
 	sta.b a2+2
-	lda.w #$34BC
+	lda.w #OptPlayMode
 	sta.b a2
 	lda.w #$009D
 	sta.b a3+2
@@ -452,9 +452,9 @@ setoptions:
 	stx.b d7
 	jsr.w .7
 	txy
-	lda.w #$007E
+	lda.w #OptPlayMode>>16
 	sta.b a0+2
-	lda.w #$34BC
+	lda.w #OptPlayMode
 	sta.b a0
 	lda.b [a0],y
 	sta.b d3
@@ -502,9 +502,9 @@ setoptions:
 	rts
 .7x:
 	ldy.b d7
-	lda.w #$007E
+	lda.w #OptPlayMode>>16
 	sta.b a1+2
-	lda.w #$34BC
+	lda.w #OptPlayMode
 	sta.b a1
 	lda.b [a1],y
 	sta.b d3
