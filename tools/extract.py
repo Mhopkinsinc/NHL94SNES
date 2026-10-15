@@ -314,7 +314,7 @@ ASSETS = [
     ('FramerTiles.chr', 0x9C8000, 0x9C8080),
     ('FramerNineTileTiles.chr', 0x9C8098, 0x9C81D8),
     ('FramerOutlineTiles.chr', 0x9C81F0, 0x9C8310),
-    ('DATA8_9C8328.lz', 0x9C8328, 0x9C83B7),
+    ('CrowdMeterFramePalette.lz', 0x9C8328, 0x9C83B7),
 ]
 def category(name): return 'sound' if name.endswith('.spc') else 'gfx'
 def rom_offset(a): return ((a >> 16) & 0x7F) * 0x8000 + (a & 0x7FFF)

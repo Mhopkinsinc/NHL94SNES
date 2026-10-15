@@ -5,9 +5,9 @@ ShowCrowdMeter:
 	lda.w HomeTeam
 	sta.l $7E3452
 	jsl.l SetupScreen
-	lda.w #DATA8_9C8328>>16
+	lda.w #CrowdMeterFramePalette>>16
 	sta.b $0E
-	lda.w #DATA8_9C8328
+	lda.w #CrowdMeterFramePalette
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
