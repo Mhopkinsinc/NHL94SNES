@@ -43,7 +43,7 @@ SetLCmode2:
 	bit.w #$0008
 	bne .1x
 	lda.b d4
-	cmp.w $17E6,y
+	cmp.w tmlcchoice,y
 	bne .2
 	lda.w tmline,y
 	sta.b d0

@@ -59,7 +59,7 @@ getlinee:
 .1:
 	adc.b d3
 	tay
-	lda.w $17E8,y
+	lda.w tmpde-2,y
 	adc.b $08
 	sta.b $08
 .3:

@@ -37,7 +37,7 @@ PadTakePosition:
 	bra .2
 
 .t1:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .2
 	lda.w pflags,x
 	bit.w #$1000

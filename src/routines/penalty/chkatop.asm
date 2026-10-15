@@ -20,8 +20,8 @@ chkatop:
 	sta.b d1
 .2:
 	ldy.b d1
-	lda.w $1752,y
+	lda.w tmATOP,y
 	inc a
-	sta.w $1752,y
+	sta.w tmATOP,y
 .rtl:
 	rtl

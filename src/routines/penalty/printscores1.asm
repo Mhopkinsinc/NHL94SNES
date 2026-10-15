@@ -253,7 +253,7 @@ printscores1:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $178E
+	lda.w tmscore
 	sta.b d0
 	jsl.l Mod100
 	jsl.l PushNumber
@@ -272,7 +272,7 @@ printscores1:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $1790
+	lda.w tmscore+2
 	sta.b d0
 	jsl.l Mod100
 	jsl.l PushNumber

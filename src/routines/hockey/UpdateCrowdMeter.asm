@@ -20,23 +20,23 @@ UpdateCrowdMeter:
 	bmi .2
 	sta.w CrowdPeak
 .2:
-	lda.w $19CA
+	lda.w CrowdMeterSum
 	clc
 	adc.b d0
-	sta.w $19CA
+	sta.w CrowdMeterSum
 	bcc .3
-	inc.w $19CC
+	inc.w CrowdMeterSum+2
 .3:
-	inc.w $19C8
-	lda.w $19CC
+	inc.w CrowdMeterCount
+	lda.w CrowdMeterSum+2
 	sta.b $0A
-	lda.w $19CA
+	lda.w CrowdMeterSum
 	sta.b $08
-	lda.w $19C8
+	lda.w CrowdMeterCount
 	sta.b $04
 	jsl.l Div32U
 	lda.b $00
-	sta.w $19C6
+	sta.w CrowdAvg
 	ply
 	plx
 	rtl

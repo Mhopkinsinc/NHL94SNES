@@ -9,7 +9,7 @@ showzam:
 	bne .rtl
 	lda.w sfhormode
 	beq .rtl
-	lda.w $1A10
+	lda.w InIntermission
 	beq .rtl
 	stz.w $0CC5
 	stz.w $0CD3

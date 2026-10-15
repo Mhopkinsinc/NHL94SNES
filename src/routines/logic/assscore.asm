@@ -8,7 +8,7 @@ assscore:
 	inc a
 	jsl.l StartBenchCheer
 .1x:
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	bmi .t2
 	lda.w JoyPad,y
 	and.w #$FFF0

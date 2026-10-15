@@ -1,7 +1,7 @@
 ; Put every player in the penalty box (negative position) at his box spot: Y = PenBoxSpot, X = $88 (the sideline), then assdopen
 SeatPenaltyBox:
 	lda.w $1E9B
-	ora.w $163A
+	ora.w PenShotActive
 	ora.w $1D81
 	bne .rtl
 	phx

@@ -10,8 +10,8 @@ CountPowerPlayTime:
 	sta.b d1
 .1:
 	ldy.b d1
-	lda.w $1756,y
+	lda.w tmPwrPlayTime,y
 	inc a
-	sta.w $1756,y
+	sta.w tmPwrPlayTime,y
 .rtl:
 	rtl

@@ -54,27 +54,27 @@ StartGame_go:
 	sta.w $1C90
 	sta.w $1C92
 	lda.w #$0001
-	sta.w $17E2
-	sta.w $17E4
+	sta.w tmtimeouts
+	sta.w tmtimeouts+2
 	stz.w $1E9B
 	stz.w $1E9D
 	stz.w $1EAD
 	lda.w #$0001
 	sta.l $7E344E
-	stz.w $19D0
-	stz.w $19D2
+	stz.w teampads
+	stz.w teampads+2
 	ldx.w #$0008
 .2:
 	lda.w $1C84,x
 	cmp.w #$0001
 	bne .t1
-	inc.w $19D0
+	inc.w teampads
 	bra .3
 
 .t1:
 	cmp.w #$0002
 	bne .3
-	inc.w $19D2
+	inc.w teampads+2
 .3:
 	dex
 	dex
@@ -86,7 +86,7 @@ StartGame_go:
 	lda.w $1C84,x
 	dec a
 	asl a
-	sta.w $19F6,x
+	sta.w padside,x
 	inx
 	inx
 	cpx.w #$000A

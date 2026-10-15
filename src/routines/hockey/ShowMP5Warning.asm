@@ -1,10 +1,10 @@
 ; Draw the MultiPlayer 5 warning for the controller, Super Scope, or mouse.
 ShowMP5Warning:
-	lda.w $1A0E
+	lda.w mp5warning
 	beq .rtl
 .loop:
 	jsl.l .t4
-	lda.w $1A0E
+	lda.w mp5warning
 	bne .loop
 	jsl.l Pmenu
 .rtl:

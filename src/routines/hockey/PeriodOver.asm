@@ -71,8 +71,8 @@ PeriodOver:
 	lda.w #$0004
 	sta.w gsp
 .2:
-	lda.w $178E
-	cmp.w $1790
+	lda.w tmscore
+	cmp.w tmscore+2
 	beq .3
 	lda.w #$0004
 	sta.w gsp

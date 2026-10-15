@@ -19,7 +19,7 @@ asspassrec:
 	bpl .6
 	lda.w $0BAB
 	bne .8
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	bmi .t2
 	lda.w padnew,y
 	bit.w #$8000
@@ -35,7 +35,7 @@ asspassrec:
 
 .t2:
 	ldy.b a2
-	lda.w $19D0,y
+	lda.w teampads,y
 	bne .5
 	lda.w pfgoal,x
 	bne .2
@@ -78,9 +78,9 @@ asspassrec:
 	bmi .1x
 	ldy.w #$0002
 .1x:
-	lda.w $17D2,y
+	lda.w tmOneTimerSwings,y
 	inc a
-	sta.w $17D2,y
+	sta.w tmOneTimerSwings,y
 	ply
 	lda.w #$0000
 	sec
@@ -141,7 +141,7 @@ asspassrec:
 	cmp.w #$000C
 	bcs .5x
 	stx.w puckc
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	bmi .t1xxx
 .1xx:
 	lda.w paddir,y
@@ -163,9 +163,9 @@ asspassrec:
 	bmi .1xxx
 	ldy.w #$0002
 .1xxx:
-	lda.w $17D6,y
+	lda.w tmOneTimers,y
 	inc a
-	sta.w $17D6,y
+	sta.w tmOneTimers,y
 	ply
 .2xx:
 	lda.w #$0001

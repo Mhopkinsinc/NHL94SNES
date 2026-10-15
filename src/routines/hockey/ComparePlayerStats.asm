@@ -54,8 +54,8 @@ ComparePlayerStats:
 
 .t3:
 	sep #$20
-	lda.w $18EE,y
-	cmp.w $18EE,x
+	lda.w tmgoals,y
+	cmp.w tmgoals,x
 	rep #$20
 	beq .6
 .1x:
@@ -64,8 +64,8 @@ ComparePlayerStats:
 
 .t4:
 	sep #$20
-	lda.w $1922,y
-	cmp.w $1922,x
+	lda.w passists,y
+	cmp.w passists,x
 	rep #$20
 	beq .6
 	bpl .7
@@ -73,24 +73,24 @@ ComparePlayerStats:
 
 .t5:
 	sep #$20
-	lda.w $18EE,y
+	lda.w tmgoals,y
 	rep #$20
 	and.w #$00FF
 	sta.b d0
 	sep #$20
-	lda.w $1922,y
+	lda.w passists,y
 	rep #$20
 	and.w #$00FF
 	clc
 	adc.b d0
 	sta.b d0
 	sep #$20
-	lda.w $18EE,x
+	lda.w tmgoals,x
 	rep #$20
 	and.w #$00FF
 	sta.w $1DC9
 	sep #$20
-	lda.w $1922,x
+	lda.w passists,x
 	rep #$20
 	and.w #$00FF
 	clc
@@ -104,8 +104,8 @@ ComparePlayerStats:
 
 .t6:
 	sep #$20
-	lda.w $1956,y
-	cmp.w $1956,x
+	lda.w pshots,y
+	cmp.w pshots,x
 	rep #$20
 	beq .6
 	bpl .7
@@ -113,8 +113,8 @@ ComparePlayerStats:
 
 .t1x:
 	sep #$20
-	lda.w $198A,y
-	cmp.w $198A,x
+	lda.w ppenmin,y
+	cmp.w ppenmin,x
 	rep #$20
 	beq .6
 	bpl .7

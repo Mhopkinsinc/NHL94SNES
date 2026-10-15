@@ -3,10 +3,10 @@ updateplayers:
 	lda.w #$FFFF
 	sta.w $0B9D
 	sta.w $0B9F
-	sta.w $17AE
-	sta.w $17B0
-	sta.w $17B2
-	sta.w $17B4
+	sta.w tmnear
+	sta.w tmnear+2
+	sta.w tmnearpl
+	sta.w tmnearpl+2
 	lda.w puckz
 	sta.w puckoldz
 	ldx.w #$001E
@@ -239,17 +239,17 @@ updateplayers:
 	lda.b $14
 	cpx.w #$000C
 	bcs .t1xx
-	cmp.w $17AE
+	cmp.w tmnear
 	bcs .12
-	sta.w $17AE
-	stx.w $17B2
+	sta.w tmnear
+	stx.w tmnearpl
 	bra .12
 
 .t1xx:
-	cmp.w $17B0
+	cmp.w tmnear+2
 	bcs .12
-	sta.w $17B0
-	stx.w $17B4
+	sta.w tmnear+2
+	stx.w tmnearpl+2
 .12:
 	ply
 	pla
@@ -355,7 +355,7 @@ updateplayers:
 .1xxxxxxx:
 	cpx.w #$0018
 	bcs .t1xxxxx
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .t1xxxxx
 	tay
 	lda.w $0ADD,y

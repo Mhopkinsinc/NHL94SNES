@@ -107,8 +107,8 @@ StartHL2:
 	ldx.w #$0008
 	lda.w #$FFFF
 .loop:
-	sta.w $19EC,x
-	sta.w $19F6,x
+	sta.w c1playernum,x
+	sta.w padside,x
 	dex
 	dex
 	bpl .loop
@@ -134,9 +134,9 @@ StartHL2:
 	dec a
 	sta.w gsp
 	lda.l $7E3578,x
-	sta.w $178E
+	sta.w tmscore
 	lda.l $7E3588,x
-	sta.w $1790
+	sta.w tmscore+2
 	lda.w #$0010
 	sta.w gmode
 	stz.w gmclock
@@ -254,10 +254,10 @@ org $9F9001
 .loop4:
 	lda.w gameclock
 	beq .6
-	lda.w $1634
+	lda.w gameclock+2
 	sec
 	sbc.w #$0AAA
-	sta.w $1634
+	sta.w gameclock+2
 	bcs .6
 	dec.w gameclock
 .6:
@@ -282,13 +282,13 @@ org $9F9001
 	lda.b d1
 	bit.w #$9080
 	beq .loop3
-	lda.w $178E
-	cmp.w $1790
+	lda.w tmscore
+	cmp.w tmscore+2
 	bne .9
 	jsl.l RandomWord
 	and.w #$0002
 	tax
-	inc.w $178E,x
+	inc.w tmscore,x
 .9:
 	pla
 	pla
@@ -297,9 +297,9 @@ org $9F9001
 	sta.b a0
 	jsl.l FadeOutSound
 	ldx.b a0
-	lda.w $178E
+	lda.w tmscore
 	sta.l $7E3578,x
-	lda.w $1790
+	lda.w tmscore+2
 	sta.l $7E3588,x
 	jsl.l SetupTeamForIntermission
 	ldx.w #$0000
@@ -533,7 +533,7 @@ org $9F9001
 .18:
 	ldx.w #$0000
 .loopxxx:
-	lda.w $15D3,x
+	lda.w OOlist+$10,x
 	sta.l $7E47F4,x
 	inx
 	inx
@@ -544,13 +544,13 @@ org $9F9001
 	inx
 	inx
 	stz.w tmgoalie
-	stz.w $17AC
-	stz.w $19D0
-	stz.w $19D2
+	stz.w tmgoalie+2
+	stz.w teampads
+	stz.w teampads+2
 	lda.w #$FFFF
 	ldx.w #$0000
 .loop2xxx:
-	sta.w $19D4,x
+	sta.w playerpad,x
 	inx
 	inx
 	cpx.w #$0018
@@ -561,7 +561,7 @@ org $9F9001
 	ldx.w #$0000
 .loopxxxx:
 	lda.l $7E47F4,x
-	sta.w $15D3,x
+	sta.w OOlist+$10,x
 	inx
 	inx
 	cpx.w #$0781

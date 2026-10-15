@@ -26,13 +26,13 @@ SetupPenaltyShot:
 	jsl.l .4
 org $9FB003
 	ldx.b d4
-	lda.w $19D0,x
+	lda.w teampads,x
 	beq .3
 	lda.w $1C90,x
 	beq .3
 	ldy.w #$0000
 .loop:
-	lda.w $19F6,y
+	lda.w padside,y
 	bmi .2
 	cmp.b d4
 	beq .t1
@@ -64,10 +64,10 @@ org $9FB003
 	tay
 	lda.w $1E93
 	bmi .2x
-	sta.w $19D4,y
+	sta.w playerpad,y
 .2x:
-	stz.w $163A
-	inc.w $163A
+	stz.w PenShotActive
+	inc.w PenShotActive
 	lda.w #$0001
 	sta.w $1E9D
 	lda.w #$03E8

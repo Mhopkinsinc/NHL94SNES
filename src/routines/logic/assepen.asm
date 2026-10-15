@@ -51,7 +51,7 @@ assepen:
 	lda.w #$F000
 	sta.w Xvel,x
 	ldx.b a2
-	lda.w $19D0,x
+	lda.w teampads,x
 	cmp.w #$0004
 	bcc .2x
 	ldy.w $0AF9,x
@@ -62,21 +62,21 @@ assepen:
 	bne .1x
 	ldy.w #$0000
 .1x:
-	lda.w $19F6,y
+	lda.w padside,y
 	bpl .loop
 	and.w #$00FF
 	cmp.b a2
 	bne .loop
-	sta.w $19F6,y
+	sta.w padside,y
 	inc a
 	inc a
 	lsr a
 	sta.w $1C84,y
 	ldx.b $E4
 	tya
-	sta.w $19D4,x
+	sta.w playerpad,x
 	txa
-	sta.w $19EC,y
+	sta.w c1playernum,y
 .2x:
 	ldx.b $E4
 	jml.l assexit

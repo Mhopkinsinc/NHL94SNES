@@ -12,7 +12,7 @@ PenShotChk:
 
 .t2:
 	jsl.l CheckBreakaway
-	lda.w $1638
+	lda.w IsBreakaway
 	sta.w $1E8B
 	bne .t1
 	jmp.w .t3

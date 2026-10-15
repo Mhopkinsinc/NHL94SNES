@@ -39,8 +39,8 @@ PlayShootout:
 	lda.w shootoutround
 	cmp.w #$0006
 	bmi .loop
-	lda.w $178E
-	cmp.w $1790
+	lda.w tmscore
+	cmp.w tmscore+2
 	beq .loop
 	stz.w $1D81
 	pla
@@ -71,7 +71,7 @@ PlayShootout:
 .2:
 	ldy.w #$0000
 .loopx:
-	lda.w $19F6,y
+	lda.w padside,y
 	cmp.b a2
 	beq .t2
 	iny

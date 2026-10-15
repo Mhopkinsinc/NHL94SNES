@@ -37,7 +37,7 @@ ShowPenaltySummary:
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $163C
+	lda.w PenSumLength
 	sta.w $1DC1
 	lda.w $1DC1
 	cmp.w #$0006

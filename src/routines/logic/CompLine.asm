@@ -74,7 +74,7 @@ CompLine:
 	lda.l $7E34C6
 	cmp.w #$0002
 	bne .t1
-	lda.w $19EC,y
+	lda.w c1playernum,y
 	bmi .t1
 	jmp.w .6
 
@@ -88,9 +88,9 @@ CompLine:
 	lda.w gsp
 	cmp.w #$0002
 	bne .1x
-	lda.w $178E,y
+	lda.w tmscore,y
 	ldy.b a1
-	cmp.w $178E,y
+	cmp.w tmscore,y
 	beq .1x
 	php
 	lda.w #$009F
@@ -135,9 +135,9 @@ CompLine:
 	cmp.w #$0002
 	bne .1xx
 	ldy.b a2
-	lda.w $178E,y
+	lda.w tmscore,y
 	ldy.b a1
-	cmp.w $178E,y
+	cmp.w tmscore,y
 	beq .1xx
 	php
 	lda.w #$009F

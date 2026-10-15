@@ -110,12 +110,12 @@ PenGoalStuff:
 	inc a
 	sta.w tmap,y
 	ldy.b a2
-	lda.w gmStatBase,y
+	lda.w tmPwrGoals,y
 	inc a
-	sta.w gmStatBase,y
+	sta.w tmPwrGoals,y
 	lda.w #$0001
 	tsb.w tmflags
-	tsb.w $17E0
+	tsb.w tmflags+2
 .3x:
 	pla
 	sta.b $8B

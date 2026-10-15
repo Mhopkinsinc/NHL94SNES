@@ -71,7 +71,7 @@ setvideo:
 	rtl
 
 .t1:
-	lda.w $19EC,y
+	lda.w c1playernum,y
 	bpl .t2
 	rts
 

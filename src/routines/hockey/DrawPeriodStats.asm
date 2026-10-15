@@ -140,7 +140,7 @@ DrawPeriodStats:
 	sta.w printx
 	lda.w #$000F
 	sta.w printy
-	lda.w $176C,x
+	lda.w tmPerShots+2,x
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
@@ -150,7 +150,7 @@ DrawPeriodStats:
 	sta.w printx
 	lda.w #$0014
 	sta.w printy
-	lda.w $176A,x
+	lda.w tmPerShots,x
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
@@ -186,7 +186,7 @@ DrawPeriodStats:
 	sta.w printx
 	lda.w #$000F
 	sta.w printy
-	lda.w $1780,x
+	lda.w tmPerGoals+2,x
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
@@ -196,7 +196,7 @@ DrawPeriodStats:
 	sta.w printx
 	lda.w #$0014
 	sta.w printy
-	lda.w $177E,x
+	lda.w tmPerGoals,x
 	sta.b d0
 	lda.w #$0003
 	sta.b d1

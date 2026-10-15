@@ -2,7 +2,7 @@
 Multi5ConnectCheck:
 	php
 	sep #$30
-	stz.w $1A00
+	stz.w mp5connect
 .loop:
 	lda.w HVBJOY
 	and.b #$01
@@ -42,7 +42,7 @@ Multi5ConnectCheck:
 	cmp.b #$FF
 	beq .1
 	lda.b #$80
-	sta.w $1A00
+	sta.w mp5connect
 .1:
 	lda.w $0784
 	cmp.b #$FF
@@ -51,7 +51,7 @@ Multi5ConnectCheck:
 	cmp.b #$FF
 	beq .2
 	lda.b #$40
-	tsb.w $1A00
+	tsb.w mp5connect
 .2:
 	plp
 	rtl

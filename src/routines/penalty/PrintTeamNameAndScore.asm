@@ -2,7 +2,7 @@
 PrintTeamNameAndScore:
 	jsl.l printteamname
 	ldy.b a2
-	lda.w $178E,y
+	lda.w tmscore,y
 	sta.b d0
 	jsl.l Mod100
 	lda.w #mesarea>>16

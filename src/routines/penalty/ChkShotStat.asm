@@ -40,7 +40,7 @@ ChkShotStat:
 	sta.b a2
 	stz.b a1
 .1:
-	ldy.w #$177A
+	ldy.w #tmshots
 	lda.w pfteam,x
 	beq .2
 	iny
@@ -56,15 +56,15 @@ ChkShotStat:
 	sbc.w tmap+2
 	beq .6
 	bmi .t1x
-	lda.w $175A
+	lda.w tmPPShots
 	inc a
-	sta.w $175A
+	sta.w tmPPShots
 	bra .6
 
 .t1x:
-	lda.w $175E
+	lda.w tmSHShots
 	inc a
-	sta.w $175E
+	sta.w tmSHShots
 	bra .6
 
 .t2:
@@ -73,15 +73,15 @@ ChkShotStat:
 	sbc.w tmap
 	beq .6
 	bmi .t1xx
-	lda.w $175C
+	lda.w tmPPShots+2
 	inc a
-	sta.w $175C
+	sta.w tmPPShots+2
 	bra .6
 
 .t1xx:
-	lda.w $1760
+	lda.w tmSHShots+2
 	inc a
-	sta.w $1760
+	sta.w tmSHShots+2
 .6:
 	lda.w gsp
 	asl a
@@ -92,9 +92,9 @@ ChkShotStat:
 	inx
 	inx
 .1x:
-	lda.w $176A,x
+	lda.w tmPerShots,x
 	inc a
-	sta.w $176A,x
+	sta.w tmPerShots,x
 	ldx.b a3
 	lda.w pnum,x
 	sta.b d0
@@ -109,7 +109,7 @@ ChkShotStat:
 	beq .3
 	tax
 	sep #$20
-	inc.w $1956,x
+	inc.w pshots,x
 	rep #$20
 .3:
 	ldx.b a1
@@ -124,7 +124,7 @@ ChkShotStat:
 	adc.b d0
 	tax
 	sep #$20
-	inc.w $1956,x
+	inc.w pshots,x
 	rep #$20
 .5:
 	plx

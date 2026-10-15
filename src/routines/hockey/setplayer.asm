@@ -131,10 +131,10 @@ setplayer:
 	beq .2
 	bpl .6
 .2:
-	lda.w $178E
+	lda.w tmscore
 org $9FD000
 	sec
-	sbc.w $1790
+	sbc.w tmscore+2
 	sta.b tmp0
 	beq .4
 	lda.w pfteam,x
@@ -413,7 +413,7 @@ org $9FD000
 	adc.b $14
 	tay
 	sep #$20
-	lda.w $1A12,y
+	lda.w HotColdTable,y
 	lsr a
 	lsr a
 	bit.b #$00

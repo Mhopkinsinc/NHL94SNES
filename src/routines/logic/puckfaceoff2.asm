@@ -165,8 +165,8 @@ puckfaceoff2:
 	lda.w #$FFFF
 	sta.w tmtouch2
 	sta.w tmtouch3
-	sta.w $17A0
-	sta.w $17A4
+	sta.w tmtouch2+2
+	sta.w tmtouch3+2
 	lda.b $97
 	pha
 	lda.b a3
@@ -410,14 +410,14 @@ puckfaceoff2:
 	beq .6x
 	ldx.w #$0008
 .loopxx:
-	lda.w $19F6,x
+	lda.w padside,x
 	cmp.w $1E91
 	bne .2xxxx
 	cpx.w $1E93
 	beq .2xxxx
 .1xxxx:
 	ora.w #$8000
-	sta.w $19F6,x
+	sta.w padside,x
 	stz.w $1C84,x
 .2xxxx:
 	dex
@@ -427,7 +427,7 @@ puckfaceoff2:
 	eor.w #$0002
 	sta.b d0
 	tax
-	lda.w $19D0,x
+	lda.w teampads,x
 	beq .6x
 	ldy.w $0AFD,x
 .loop2x:
@@ -437,7 +437,7 @@ puckfaceoff2:
 	bne .3xxx
 	ldy.w #$0000
 .3xxx:
-	lda.w $19F6,y
+	lda.w padside,y
 	cmp.b d0
 	bne .loop2x
 	sty.b d1
@@ -445,14 +445,14 @@ puckfaceoff2:
 	sta.w $0AFD,x
 	ldx.w #$0008
 .loop3:
-	lda.w $19F6,x
+	lda.w padside,x
 	cmp.b d0
 	bne .5x
 	cpx.b d1
 	beq .5x
 .4xx:
 	ora.w #$8000
-	sta.w $19F6,x
+	sta.w padside,x
 	stz.w $1C84,x
 .5x:
 	dex
@@ -656,14 +656,14 @@ puckfaceoff2:
 	jsl.l Framer
 	lda.w tmline
 	sta.b d0
-	lda.w $1798
+	lda.w tmline+2
 	sta.b d1
 	lda.w gmode
 	bit.w #$0002
 	bne .2xxxxx
 	lda.w tmline
 	sta.b d1
-	lda.w $1798
+	lda.w tmline+2
 	sta.b d0
 .2xxxxx:
 	inc.w printx
@@ -758,7 +758,7 @@ puckfaceoff2:
 	jmp.w SetupPenaltyShot
 
 .t1xxxx:
-	stz.w $163A
+	stz.w PenShotActive
 	lda.w #$FFFF
 	sta.w $1E8D
 	jmp.w Endfaceoff

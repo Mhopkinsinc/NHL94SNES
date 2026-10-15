@@ -2,7 +2,7 @@
 assbreakaway:
 	cpx.w puckc
 	bne .1
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .8
 .1:
 	jmp.w assexit

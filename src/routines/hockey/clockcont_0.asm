@@ -35,8 +35,8 @@ clockcont_0:
 	lda.w #$0010
 	sta.b d3
 .1:
-	lda.w $178E
-	cmp.w $1790
+	lda.w tmscore
+	cmp.w tmscore+2
 	bpl .2
 	lda.b d3
 	eor.w #$0010
@@ -73,8 +73,8 @@ clockcont_0:
 .4:
 	lda.w #$0005
 	sta.b d2
-	lda.w $178E
-	cmp.w $1790
+	lda.w tmscore
+	cmp.w tmscore+2
 	beq .8
 	bpl .5
 	ldx.w #$000C
@@ -103,8 +103,8 @@ clockcont_0:
 	lda.w #$0040
 	sta.w gmclock
 	tsb.w gmode
-	lda.w $178E
-	cmp.w $1790
+	lda.w tmscore
+	cmp.w tmscore+2
 	bmi .1x
 	lda.w #$0000
 	sta.l crowdlevel

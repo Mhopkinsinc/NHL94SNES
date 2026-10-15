@@ -162,7 +162,7 @@ dopass_swing:
 	sta.w pfalock,x
 	lda.w position,x
 	bne .rtl
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .rtl
 	stz.w Xvel,x
 	stz.w Yvel,x
@@ -175,9 +175,9 @@ dopass_count:
 	lda.w gmclock
 	bne .1
 	ldy.b a2
-	lda.w $17BE,y
+	lda.w tmpassatt,y
 	inc a
-	sta.w $17BE,y
+	sta.w tmpassatt,y
 .1:
 	ldx.w $0B9D,y
 	lda.w aidef,x
@@ -365,20 +365,20 @@ dopass_count:
 	lda.b d6
 	sta.w nopuck,x
 	ldy.b a2
-	lda.w $19D4,x
+	lda.w playerpad,x
 	sta.w $0B01,y
 	lda.w position,x
 	bne .rtl
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .rtl
 	stz.w Xvel,x
 	stz.w Yvel,x
-	lda.w $19D4,x
+	lda.w playerpad,x
 	sta.b d4
 	lda.w passReceiverPlayerNum
 	sta.b d0
 	jsl.l AssignPadIfFree
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .rtl
 	jsl.l findpc
 .rtl:

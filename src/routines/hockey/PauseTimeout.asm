@@ -5,10 +5,10 @@ PauseTimeout:
 	beq PauseDefStore
 	jsl.l GetPadTeam
 	ldy.b a2
-	lda.w $17E2,y
+	lda.w tmtimeouts,y
 	dec a
 	bmi .1
-	sta.w $17E2,y
+	sta.w tmtimeouts,y
 	jsl.l reenergizeteam
 	lda.b $8F
 	pha

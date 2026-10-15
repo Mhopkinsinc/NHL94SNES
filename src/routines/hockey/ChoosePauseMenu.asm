@@ -4,12 +4,12 @@ ChoosePauseMenu:
 	bmi .t1
 	lda.w gmclock
 	beq .t1
-	lda.w $1A10
+	lda.w InIntermission
 	bne .t1
 	lda.w $1C84,x
 	and.w #$0002
 	tay
-	lda.w $17E2,y
+	lda.w tmtimeouts,y
 	beq .t1
 	lda.w #$0011
 	sta.w $1EB9

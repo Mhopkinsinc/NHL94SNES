@@ -1,6 +1,6 @@
 ; End the penalty shot or shootout attempt in progress ($163A and $1E9B): clear it, no shooter, ShootoutWonBy 10, put back the saved scores
 EndPenaltyShot:
-	lda.w $163A
+	lda.w PenShotActive
 	beq .rtl
 	lda.w $1E9B
 	beq .rtl

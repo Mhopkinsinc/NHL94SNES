@@ -43,7 +43,7 @@ chk4lc:
 	lda.b d0
 	cmp.w #$0C01
 	bcs .t1
-	lda.w $163A
+	lda.w PenShotActive
 	bne .t1
 	lda.l $7E34C6
 	beq .t1

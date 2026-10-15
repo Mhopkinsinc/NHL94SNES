@@ -30,7 +30,7 @@ dostop:
 StopNA:
 	lda.w position,x
 	bne .t1
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .t1
 	cpx.w puckc
 	beq .t1

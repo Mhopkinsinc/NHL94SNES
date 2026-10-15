@@ -54,7 +54,7 @@ assgoalie:
 	lda.w #$FFFF
 	sta.w temp4,x
 .5:
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	bpl .t2
 	lda.w Xpos,x
 	cmp.w #$FFCB
@@ -133,7 +133,7 @@ assgoalie:
 	bne .10
 	bit.w #$0002
 	bne .11
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	lda.w paddir,y
 	cmp.w #$0008
 	bne .13
@@ -196,7 +196,7 @@ assgoalie:
 	lda.w #$0000
 .1xxx:
 	sta.w temp1,x
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .3x
 	lda.w pucky
 	sta.b d0
@@ -288,7 +288,7 @@ assgoalie:
 	sta.w $0BEB,x
 	rtl
 .23:
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	bmi .t3
 	lda.w $0ADD,y
 	cmp.w #$0001
@@ -370,7 +370,7 @@ assgoalie:
 	lda.b a2
 	eor.w #$0002
 	tay
-	lda.w $17AE,y
+	lda.w tmnear,y
 	cmp.w #$003C
 	bcs .24
 	jsl.l RandomWord
@@ -434,7 +434,7 @@ assgoalie:
 	bra .2xxxxx
 
 .t1xxxxxxxx:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .2xxxxx
 	lda.w pfgoal,x
 	eor.w #$0001
@@ -465,7 +465,7 @@ assgoalie:
 	pha
 	jmp.w .31
 .4x:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .3xxx
 	stz.b d2
 	stz.b d0
@@ -616,7 +616,7 @@ assgoalie:
 	adc.b d3
 	sta.b d1
 	sta.b d2
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	bmi .t1xxxxxxxxxx
 	cpx.w puckc
 	beq .1xxxxxxxxxxxxxx
@@ -861,7 +861,7 @@ assgoalie:
 	lda.w #$FFE8
 	sta.b d0
 .44:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .t1xxxxxxxxxxxxx
 	jmp.w .50
 
@@ -968,7 +968,7 @@ assgoalie:
 	lda.b d0
 	sta.w temp2b,x
 .45:
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	bpl .47
 	lda.w temp2b,x
 	sta.b d2
@@ -1031,11 +1031,11 @@ assgoalie:
 	sta.b a1
 .5xxx:
 	ldy.b a1
-	lda.w $17AE,y
+	lda.w tmnear,y
 	cmp.w #$0132
 	bcc .t1xxxxxxxxxxxxxxx
 	ldy.b a2
-	lda.w $17AE,y
+	lda.w tmnear,y
 	cmp.w #$0132
 	bcc .t1xxxxxxxxxxxxxxx
 	lda.w #$000F

@@ -201,7 +201,7 @@ doinput:
 	and.w #$1000
 	ora.w pfalock,y
 	bne .23
-	lda.w $19D4,y
+	lda.w playerpad,y
 	bpl .23
 	lda.w pfteam,y
 	cmp.w pfteam,x

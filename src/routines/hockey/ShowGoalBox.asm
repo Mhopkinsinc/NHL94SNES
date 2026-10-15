@@ -85,7 +85,7 @@ ShowGoalBox:
 	adc.w #$001A
 .3:
 	tay
-	lda.w $18EE,y
+	lda.w tmgoals,y
 	and.w #$00FF
 	cmp.w #$0003
 	bne .4

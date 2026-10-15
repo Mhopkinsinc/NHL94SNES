@@ -3813,7 +3813,7 @@ $9C9366,LineBraces+3,#$9366,new,"closing brace, the second string in LineBraces"
 $9C9369,LineBraces+6,#$9369,new,"blank that erases a brace, the third string in LineBraces",src/data/text/LineBraces.asm
 $0A48,mesareaEnd,#$0A48,new,end of decimal string in PushNumber and PushTime,src/ram94snes.asm
 $0AD9,puckc,shotPlIdx,93S,RAM; every routine named from 93S uses it where 93S uses puckc (asspuckc compares X with it),src/ram94snes.asm
-$1742,gmStatBase,$1742,new,team stat words cleared by ClearTeamStats,src/ram94snes.asm
+$1742,tmPwrGoals,$1742,behavior,"RAM; power play goals (PenGoalStuff, TeamStatSources Power Play row); was gmStatBase, the first team stat word ClearTeamStats clears",src/ram94snes.asm
 $7E35D4,playoffRoundIdx,$7E35D4,new,playoff round for other scores and passwords,src/ram94snes.asm
 $FFFC,rosterNone,#$FFFC,new,no roster slot beside TMPDOUT in bench checks,src/ram94snes.asm
 $9ED0FC,rtss,CODE_9ED0FC,93S,"asstab entry 0 and the do-nothing callback (lda #rtss), as 93S rtss",src/routines/logic/ChkGoalies.asm
@@ -6564,3 +6564,57 @@ $0D47,DispAttribCtr,,93S,"RAM; text column (scouting report, line and shooter li
 $0D4F,yleader,,93S,RAM; lead distance on scrolling,src/ram94snes.asm
 $0D51,vcountmark,,93S,RAM; 32-bit vcount snapshot: elapsed time base,src/ram94snes.asm
 $0D13,psfirst,,behavior,RAM; pause menu: first item shown (Pmenu shows five from here),src/ram94snes.asm
+$163C,PenSumLength,,94G,"RAM; penalty log entries (94G PenSumLength; 94S counts entries, not bytes)",src/ram94snes.asm
+$163E,PenSum,,94G,"RAM; penalty log: $41 entries of (time word, player | $80 away, penalty) (InProgress, FillPenaltyPage)",src/ram94snes.asm
+$1746,tmPwrPlays,,93S,RAM; power plays,src/ram94snes.asm
+$174A,tmPenalties,,93S,RAM; penalties,src/ram94snes.asm
+$174E,tmPenmin,,93S,RAM; penalty minutes,src/ram94snes.asm
+$1752,tmATOP,,93S,RAM; attack zone time (chkatop),src/ram94snes.asm
+$177A,tmshots,,93S,RAM; shots,src/ram94snes.asm
+$178E,tmscore,,93S,RAM; score,src/ram94snes.asm
+$1792,tmfowon,,93S,RAM; faceoffs won,src/ram94snes.asm
+$17AE,tmnear,,93S,"RAM; nearest distance to the puck this frame (updateplayers; 93S tmnear, one word here)",src/ram94snes.asm
+$17B6,tmchecks,,93S,RAM; body checks (FallDown),src/ram94snes.asm
+$17BA,tmpasscomp,,93S,RAM; completed passes (puckglue),src/ram94snes.asm
+$17E6,tmlcchoice,,93S,"RAM; the chosen line change row (lcfound, SetLCmode2)",src/ram94snes.asm
+$18EE,tmgoals,,93S,RAM; goals (goalies: goals against),src/ram94snes.asm
+$19EC,c1playernum,,93S,"RAM; per pad (5 words): the player object it controls (93S c1playernum, c2playernum ...)",src/ram94snes.asm
+$1638,IsBreakaway,,behavior,RAM; 1 while the puck carrier has a breakaway (CheckBreakaway),src/ram94snes.asm
+$163A,PenShotActive,,behavior,RAM; 1 during a penalty shot (SetupPenaltyShot .. puckfaceoff2),src/ram94snes.asm
+$1756,tmPwrPlayTime,,behavior,RAM; power play time (CountPowerPlayTime),src/ram94snes.asm
+$175A,tmPPShots,,behavior,RAM; power play shots (ChkShotStat),src/ram94snes.asm
+$175E,tmSHShots,,behavior,RAM; shorthanded shots (ChkShotStat; not on the stats screen),src/ram94snes.asm
+$1762,tmSHGoals,,behavior,RAM; shorthanded goals,src/ram94snes.asm
+$176A,tmPerShots,,behavior,RAM; shots by period: + period*4 + team*2,src/ram94snes.asm
+$177E,tmPerGoals,,behavior,RAM; goals by period: + period*4 + team*2,src/ram94snes.asm
+$17B2,tmnearpl,,behavior,"RAM; the team's player nearest the puck (updateplayers, assnearest)",src/ram94snes.asm
+$17BE,tmpassatt,,behavior,RAM; pass attempts (dopass),src/ram94snes.asm
+$17C2,tmBreakaways,,behavior,RAM; breakaways (StartBreakaway),src/ram94snes.asm
+$17C6,tmBreakawayGoals,,behavior,RAM; breakaway goals,src/ram94snes.asm
+$17CA,tmPenShots,,behavior,RAM; penalty shots (StartPenaltyShot),src/ram94snes.asm
+$17CE,tmPenShotGoals,,behavior,RAM; penalty shot goals,src/ram94snes.asm
+$17D2,tmOneTimerSwings,,behavior,RAM; one-timer swings started (asspassrec; not on the stats screen),src/ram94snes.asm
+$17D6,tmOneTimers,,behavior,RAM; one-timers (asspassrec),src/ram94snes.asm
+$17DA,tmOneTimerGoals,,behavior,RAM; one-timer goals,src/ram94snes.asm
+$17E2,tmtimeouts,,behavior,RAM; timeouts left (StartGame sets 1; PauseTimeout),src/ram94snes.asm
+$1922,passists,,behavior,RAM; assists,src/ram94snes.asm
+$1956,pshots,,behavior,RAM; shots (goalies: shots against),src/ram94snes.asm
+$198A,ppenmin,,behavior,RAM; penalty minutes,src/ram94snes.asm
+$19C0,CrowdLoud,,behavior,RAM; 1 at 110 dB or more; cleared under 105 dB (CheckCrowdMeter),src/ram94snes.asm
+$19C6,CrowdAvg,,behavior,RAM; the game's average meter (CrowdMeterSum / CrowdMeterCount),src/ram94snes.asm
+$19C8,CrowdMeterCount,,behavior,RAM; meter samples taken,src/ram94snes.asm
+$19CA,CrowdMeterSum,,behavior,RAM; 32-bit sum of the meter samples,src/ram94snes.asm
+$19CE,HotColdRaised,,behavior,RAM; nonzero while the hot / cold table is raised by 2 (LowerHotColdTable undoes it),src/ram94snes.asm
+$19D0,teampads,,behavior,RAM; pads on the home / away team,src/ram94snes.asm
+$19D4,playerpad,,behavior,"RAM; per player object: the controlling pad * 2, negative = none",src/ram94snes.asm
+$19F6,padside,,behavior,RAM; per pad: 0 home / 2 away; high byte $80 = moved for a penalty shot or shootout,src/ram94snes.asm
+$1A00,mp5connect,,behavior,"RAM; Multi5ConnectCheck: bit 7 multitap on port 1, bit 6 on port 2",src/ram94snes.asm
+$1A02,mp5readdelay,,behavior,RAM; frames to the next multitap read while pads 4 and 5 are unused,src/ram94snes.asm
+$1A04,mp5checktimer,,behavior,RAM; frames left calling Multi5ConnectCheck after a port line change,src/ram94snes.asm
+$1A06,mp5port1last,,behavior,RAM; last JOYSER0 bit 1,src/ram94snes.asm
+$1A08,mp5port2last,,behavior,RAM; last JOYSER1 bit 1,src/ram94snes.asm
+$1A0A,mp5portchg,,behavior,RAM; the port 1 change bit,src/ram94snes.asm
+$1A0C,mp5present,,behavior,RAM; bit 0: multitap on port 2 (pads 3-5 are read),src/ram94snes.asm
+$1A0E,mp5warning,,behavior,"RAM; bit 0 multitap in port 1, bit 1 Super Scope, bit 2 mouse: ShowMP5Warning shows its text",src/ram94snes.asm
+$1A10,InIntermission,,behavior,RAM; 1 during the intermission,src/ram94snes.asm
+$1A12,HotColdTable,,behavior,RAM; 52 players x 12 attribute bytes added to the ratings (Create_HotCold_Table),src/ram94snes.asm

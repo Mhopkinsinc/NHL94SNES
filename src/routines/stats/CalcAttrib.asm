@@ -96,7 +96,7 @@ CalcAttrib:
 	tax
 	lda.l $7E35F2
 	beq .5
-	lda.w $1A12,x
+	lda.w HotColdTable,x
 	and.w #$00FF
 .5:
 	sta.b $16

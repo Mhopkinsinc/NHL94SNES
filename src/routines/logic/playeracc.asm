@@ -37,7 +37,7 @@ playeracc:
 	sta.b d2
 	lda.w position,x
 	bne .7
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .t1
 	cpx.w puckc
 	beq .t1
@@ -136,7 +136,7 @@ playeracc:
 	ldx.b $E4
 	lda.w position,x
 	bne .4
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .4
 	lda.w $0B05,x
 	bit.w #$0004

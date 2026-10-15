@@ -1,6 +1,6 @@
 ; Assignment: the puck at the start of play
 puckfaceoff:
-	stz.w $19C0
+	stz.w CrowdLoud
 	lda.w $1D81
 	beq .t4
 	lda.w $1D83
@@ -38,8 +38,8 @@ puckfaceoff:
 	cmp.w #$0003
 	bne .t3
 .1xxx:
-	lda.w $178E
-	cmp.w $1790
+	lda.w tmscore
+	cmp.w tmscore+2
 	beq .t3
 	jml.l clockcont_0
 
@@ -71,7 +71,7 @@ puckfaceoff:
 	sta.w $1D57
 	lda.w #$0008
 	trb.w tmflags
-	trb.w $17E0
+	trb.w tmflags+2
 	lda.w $1C84
 	ora.w $1C86
 	ora.w $1C88
@@ -86,7 +86,7 @@ puckfaceoff:
 .1xx2:
 	lda.l $7E344E
 	bne .2
-	lda.w $19D0
+	lda.w teampads
 	beq .2
 	jsl.l .11
 	lsr a
@@ -95,7 +95,7 @@ puckfaceoff:
 .2:
 	lda.l $7E344E
 	bne .3
-	lda.w $19D2
+	lda.w teampads+2
 	beq .3
 	jsl.l .12
 	lsr a
@@ -310,7 +310,7 @@ puckfaceoff:
 .10:
 	ldy.w #$0000
 .loop:
-	lda.w $19F6,y
+	lda.w padside,y
 	cmp.b a2
 	beq .t1xxxxxxxxx
 	iny
@@ -329,12 +329,12 @@ puckfaceoff:
 	sta.b a2
 	jsl.l .10
 	tay
-	lda.w $19EC,y
+	lda.w c1playernum,y
 	rtl
 .12:
 	lda.w #$0002
 	sta.b a2
 	jsl.l .10
 	tay
-	lda.w $19EC,y
+	lda.w c1playernum,y
 	rtl

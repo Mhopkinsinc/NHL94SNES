@@ -7,7 +7,7 @@ Bcheck:
 	beq .t1
 	lda.l OptPen
 	bne .1
-	lda.w $19D4,y
+	lda.w playerpad,y
 	bmi .1
 	lda.w #$0010
 	clc
@@ -46,7 +46,7 @@ Bcheck:
 	bpl .t2
 	ldy.b a2
 	sty.w $1E8D
-	lda.w $19D4,y
+	lda.w playerpad,y
 	sta.w $1E93
 	lda.w #$0024
 	sta.b d0

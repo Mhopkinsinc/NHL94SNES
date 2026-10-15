@@ -12,9 +12,9 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	jmp.w .3
 
 .t3:
-	lda.w $178E
+	lda.w tmscore
 	sec
-	sbc.w $1790
+	sbc.w tmscore+2
 	bne .t1x
 	jmp.w .3
 
@@ -25,9 +25,9 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	pha
 	lda.b a1
 	pha
-	lda.w $178E
+	lda.w tmscore
 	sec
-	sbc.w $1790
+	sbc.w tmscore+2
 	bmi .t2
 	ldy.w #$0000
 	bra .1

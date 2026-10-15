@@ -3,7 +3,7 @@ AssignPadPlayer:
 	lda.w #$FFFF
 	sta.w dumpinplayer
 	ldy.b d4
-	lda.w $19EC,y
+	lda.w c1playernum,y
 	cmp.b d0
 	beq .rtl
 	tay
@@ -14,7 +14,7 @@ AssignPadPlayer:
 	ora.w #$0002
 	sta.w pflags,y
 	lda.w #$FFFF
-	sta.w $19D4,y
+	sta.w playerpad,y
 	lda.w position,y
 	bne .1
 	lda.w #$0000
@@ -27,9 +27,9 @@ AssignPadPlayer:
 	ora.w #$0008
 	sta.w pflags,y
 	lda.b d4
-	sta.w $19D4,y
+	sta.w playerpad,y
 	tay
 	lda.b d0
-	sta.w $19EC,y
+	sta.w c1playernum,y
 .rtl:
 	rtl

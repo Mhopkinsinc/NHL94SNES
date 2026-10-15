@@ -16,7 +16,7 @@ ReturnGoalies:
 	cmp.w #$000A
 	bcs .t1
 	sta.w tmgoalie,y
-	lda.w $19D0,y
+	lda.w teampads,y
 	bne .t1
 	lda.l $7E3138
 	sta.b d1

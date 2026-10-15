@@ -32,7 +32,7 @@ passspeed = $0D05	; speed of pass/shot
 mesarea = $0A2A		; string being built: a length word, then the bytes
 mesareaEnd = $0A48	; one past the last digit PushNumber and PushTime may write
 puckc = $0AD9		; object index of the puck carrier, negative = loose
-gmStatBase = $1742	; first word ClearTeamStats clears (through $18ED)
+tmPwrGoals = $1742	; power play goals (team word pair); the first word ClearTeamStats clears (through $18ED)
 playoffRoundIdx = $7E35D4	; playoff round for other scores and password bits
 printx = $0D0F		; x cordinate for printing (text map column)
 printy = $0D11		; y cordinate for printing
@@ -358,3 +358,63 @@ screentimer = $0D41	; frames left on the scouting report screen
 DispAttribCtr = $0D47	; text column (scouting report, line and shooter lists)
 yleader = $0D4F		; lead distance on scrolling
 vcountmark = $0D51	; 32-bit vcount snapshot: elapsed time base
+
+; Penalty shot and breakaway
+IsBreakaway = $1638	; 1 while the puck carrier has a breakaway (CheckBreakaway)
+PenShotActive = $163A	; 1 during a penalty shot (SetupPenaltyShot .. puckfaceoff2)
+PenSumLength = $163C	; penalty log entries (94G PenSumLength; 94S counts entries, not bytes)
+PenSum = $163E		; penalty log: $41 entries of (time word, player | $80 away, penalty) (InProgress, FillPenaltyPage)
+; Team struct: word pairs (home, away) indexed by a2. TeamStatSources lists the stats screen rows they feed.
+tmPwrPlays = $1746	; power plays
+tmPenalties = $174A	; penalties
+tmPenmin = $174E	; penalty minutes
+tmATOP = $1752		; attack zone time (chkatop)
+tmPwrPlayTime = $1756	; power play time (CountPowerPlayTime)
+tmPPShots = $175A	; power play shots (ChkShotStat)
+tmSHShots = $175E	; shorthanded shots (ChkShotStat; not on the stats screen)
+tmSHGoals = $1762	; shorthanded goals
+tmPerShots = $176A	; shots by period: + period*4 + team*2
+tmshots = $177A		; shots
+tmPerGoals = $177E	; goals by period: + period*4 + team*2
+tmscore = $178E		; score
+tmfowon = $1792		; faceoffs won
+tmnear = $17AE		; nearest distance to the puck this frame (updateplayers; 93S tmnear, one word here)
+tmnearpl = $17B2	; the team's player nearest the puck (updateplayers, assnearest)
+tmchecks = $17B6	; body checks (FallDown)
+tmpasscomp = $17BA	; completed passes (puckglue)
+tmpassatt = $17BE	; pass attempts (dopass)
+tmBreakaways = $17C2	; breakaways (StartBreakaway)
+tmBreakawayGoals = $17C6	; breakaway goals
+tmPenShots = $17CA	; penalty shots (StartPenaltyShot)
+tmPenShotGoals = $17CE	; penalty shot goals
+tmOneTimerSwings = $17D2	; one-timer swings started (asspassrec; not on the stats screen)
+tmOneTimers = $17D6	; one-timers (asspassrec)
+tmOneTimerGoals = $17DA	; one-timer goals
+tmtimeouts = $17E2	; timeouts left (StartGame sets 1; PauseTimeout)
+tmlcchoice = $17E6	; the chosen line change row (lcfound, SetLCmode2)
+; Per roster player bytes, $1A players per team (away at +$1A)
+tmgoals = $18EE		; goals (goalies: goals against)
+passists = $1922		; assists
+pshots = $1956		; shots (goalies: shots against)
+ppenmin = $198A		; penalty minutes
+; Crowd meter
+CrowdLoud = $19C0	; 1 at 110 dB or more; cleared under 105 dB (CheckCrowdMeter)
+CrowdAvg = $19C6	; the game's average meter (CrowdMeterSum / CrowdMeterCount)
+CrowdMeterCount = $19C8	; meter samples taken
+CrowdMeterSum = $19CA	; 32-bit sum of the meter samples
+HotColdRaised = $19CE	; nonzero while the hot / cold table is raised by 2 (LowerHotColdTable undoes it)
+; Pads (5 with the multitap)
+teampads = $19D0	; pads on the home / away team
+playerpad = $19D4	; per player object: the controlling pad * 2, negative = none
+c1playernum = $19EC	; per pad (5 words): the player object it controls (93S c1playernum, c2playernum ...)
+padside = $19F6		; per pad: 0 home / 2 away; high byte $80 = moved for a penalty shot or shootout
+mp5connect = $1A00	; Multi5ConnectCheck: bit 7 multitap on port 1, bit 6 on port 2
+mp5readdelay = $1A02	; frames to the next multitap read while pads 4 and 5 are unused
+mp5checktimer = $1A04	; frames left calling Multi5ConnectCheck after a port line change
+mp5port1last = $1A06	; last JOYSER0 bit 1
+mp5port2last = $1A08	; last JOYSER1 bit 1
+mp5portchg = $1A0A	; the port 1 change bit
+mp5present = $1A0C	; bit 0: multitap on port 2 (pads 3-5 are read)
+mp5warning = $1A0E	; bit 0 multitap in port 1, bit 1 Super Scope, bit 2 mouse: ShowMP5Warning shows its text
+InIntermission = $1A10	; 1 during the intermission
+HotColdTable = $1A12	; 52 players x 12 attribute bytes added to the ratings (Create_HotCold_Table)

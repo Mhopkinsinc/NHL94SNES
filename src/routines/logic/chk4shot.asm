@@ -8,7 +8,7 @@ chk4shot:
 	jmp.w CompShoot
 
 .t2:
-	lda.w $163A
+	lda.w PenShotActive
 	bne .t1
 	jsl.l chkpk
 	bne .t1
@@ -125,7 +125,7 @@ chk4shot:
 	sec
 	sbc.b d0
 	bmi .t1x
-	lda.w $163A
+	lda.w PenShotActive
 	beq .2x
 	lda.w #$00B0
 	lsr a

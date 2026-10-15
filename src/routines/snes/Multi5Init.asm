@@ -5,31 +5,31 @@ Multi5Init:		; check for the multitap, then clear the multitap pads and state
 	sta.w JoyPad+4
 	sta.w JoyPad+6
 	sta.w JoyPad+8
-	stz.w $1A0C
-	stz.w $1A0E
-	stz.w $1A04
-	stz.w $1A02
-	lda.w $1A00
+	stz.w mp5present
+	stz.w mp5warning
+	stz.w mp5checktimer
+	stz.w mp5readdelay
+	lda.w mp5connect
 	and.w #$0080
 	beq .t1
 	lda.w #$0001
-	tsb.w $1A0E
+	tsb.w mp5warning
 	bra .1
 
 .t1:
 	lda.w #$0001
-	trb.w $1A0E
+	trb.w mp5warning
 .1:
-	lda.w $1A00
+	lda.w mp5connect
 	and.w #$0040
 	beq .t1x
 	lda.w #$0001
-	tsb.w $1A0C
+	tsb.w mp5present
 	bra .2
 
 .t1x:
 	lda.w #$0001
-	trb.w $1A0C
+	trb.w mp5present
 .2:
 	rtl
 	db "START OF MULTI5 CONNECT CHECK"

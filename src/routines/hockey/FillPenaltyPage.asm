@@ -11,7 +11,7 @@ FillPenaltyPage:
 	jsl.l MemFill
 	lda.w #$0000
 	sta.b $97
-	lda.w #$163E
+	lda.w #PenSum
 	sta.b a3
 	lda.w #$0000
 	sta.w printy

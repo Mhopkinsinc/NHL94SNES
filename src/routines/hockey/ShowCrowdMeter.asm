@@ -328,7 +328,7 @@ ShowCrowdMeter:
 	sta.w printx
 	lda.w #$0015
 	sta.w printy
-	lda.w $19C6
+	lda.w CrowdAvg
 	sta.b d0
 	lda.w #$0004
 	sta.b d1
@@ -339,7 +339,7 @@ ShowCrowdMeter:
 .1xx:
 	cmp.w #$0001
 	beq .t1xxxx
-	lda.w $19C6
+	lda.w CrowdAvg
 	bra .5
 
 .t1xxxx:
@@ -500,28 +500,28 @@ ShowCrowdMeter:
 	db $14 : dw .9+3
 	db $00
 .11:
-	lda.w $19CE
+	lda.w HotColdRaised
 	bne .rtlx
 	ldy.w #$0033
 	ldx.w #$0000
 .loopx:
 	sep #$20
-	lda.w $1A13,x
+	lda.w HotColdTable+1,x
 	inc a
 	inc a
-	sta.w $1A13,x
-	lda.w $1A12,x
+	sta.w HotColdTable+1,x
+	lda.w HotColdTable,x
 	inc a
 	inc a
-	sta.w $1A12,x
-	lda.w $1A15,x
+	sta.w HotColdTable,x
+	lda.w HotColdTable+3,x
 	inc a
 	inc a
-	sta.w $1A15,x
-	lda.w $1A14,x
+	sta.w HotColdTable+3,x
+	lda.w HotColdTable+2,x
 	inc a
 	inc a
-	sta.w $1A14,x
+	sta.w HotColdTable+2,x
 	rep #$20
 	txa
 	clc
@@ -529,6 +529,6 @@ ShowCrowdMeter:
 	tax
 	dey
 	bpl .loopx
-	inc.w $19CE
+	inc.w HotColdRaised
 .rtlx:
 	rtl

@@ -130,7 +130,7 @@ asspenalty:
 	rtl
 .9:
 	ldy.b a2
-	lda.w $19D0,y
+	lda.w teampads,y
 	cmp.w #$0004
 	bcc .3xx
 .1xx:
@@ -155,7 +155,7 @@ asspenalty:
 	bcc .4xx
 .3xx:
 	ldx.b $E4
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .t1x
 	jmp.w .8
 
@@ -175,12 +175,12 @@ asspenalty:
 	bne .1xxx
 	ldy.w #$0000
 .1xxx:
-	lda.w $19F6,y
+	lda.w padside,y
 	bpl .loopx
 	and.w #$00FF
 	cmp.b a2
 	bne .loopx
-	sta.w $19F6,y
+	sta.w padside,y
 	inc a
 	inc a
 	lsr a
@@ -196,11 +196,11 @@ asspenalty:
 	bne .6x
 	ldy.w #$0000
 .6x:
-	lda.w $19F6,y
+	lda.w padside,y
 	cmp.b a2
 	bne .5x
 	ora.w #$FF00
-	sta.w $19F6,y
+	sta.w padside,y
 	lda.w #$0000
 	sta.w $1C84,y
 	phy
@@ -213,8 +213,8 @@ asspenalty:
 	tya
 	sta.w $0AF9,x
 	ply
-	ldx.w $19EC,y
+	ldx.w c1playernum,y
 	lda.w #$FFFF
-	sta.w $19EC,y
-	sta.w $19D4,x
+	sta.w c1playernum,y
+	sta.w playerpad,x
 	jmp.w .3xx

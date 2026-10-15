@@ -8,7 +8,7 @@ Goal:
 	rtl
 
 .t3:
-	lda.w $163A
+	lda.w PenShotActive
 	beq .6
 	lda.w pucky
 	bpl .t1
@@ -55,9 +55,9 @@ Goal:
 	sta.b a1
 .2x:
 	ldy.b a2
-	lda.w $178E,y
+	lda.w tmscore,y
 	inc a
-	sta.w $178E,y
+	sta.w tmscore,y
 	lda.w tmap
 	sec
 	sbc.w tmap+2
@@ -71,32 +71,32 @@ Goal:
 	ldy.b a2
 	bne .4
 .3:
-	lda.w $1762,y
+	lda.w tmSHGoals,y
 	inc a
-	sta.w $1762,y
+	sta.w tmSHGoals,y
 .4:
 	lda.w $1E9B
 	bne .t1xx
 	lda.w $1E8B
 	beq .5
 	ldy.b a2
-	lda.w $17C6,y
+	lda.w tmBreakawayGoals,y
 	inc a
-	sta.w $17C6,y
+	sta.w tmBreakawayGoals,y
 	bra .5
 
 .t1xx:
 	ldy.b a2
-	lda.w $17CE,y
+	lda.w tmPenShotGoals,y
 	inc a
-	sta.w $17CE,y
+	sta.w tmPenShotGoals,y
 .5:
 	lda.w $1E89
 	beq .1xx
 	ldy.b a2
-	lda.w $17DA,y
+	lda.w tmOneTimerGoals,y
 	inc a
-	sta.w $17DA,y
+	sta.w tmOneTimerGoals,y
 .1xx:
 	jsl.l MusicStop
 	lda.w #$0002
@@ -154,9 +154,9 @@ Goal:
 	bmi .2xxx
 	sta.w CwdExciteLvl
 .2xxx:
-	lda.w $177E,x
+	lda.w tmPerGoals,x
 	inc a
-	sta.w $177E,x
+	sta.w tmPerGoals,x
 	plx
 	lda.l $7E313A
 	cmp.w #$0258
@@ -210,7 +210,7 @@ Goal:
 	adc.b d0
 	tax
 	sep #$20
-	inc.w $18EE,x
+	inc.w tmgoals,x
 	rep #$20
 .6x:
 	ldy.b a2
@@ -228,7 +228,7 @@ Goal:
 	adc.b d0
 	tax
 	sep #$20
-	inc.w $1922,x
+	inc.w passists,x
 	rep #$20
 	inc.b a0
 	lda.w tmtouch3,y
@@ -245,7 +245,7 @@ Goal:
 	adc.b d0
 	tax
 	sep #$20
-	inc.w $1922,x
+	inc.w passists,x
 	rep #$20
 .9:
 	ldy.b a1
@@ -259,7 +259,7 @@ Goal:
 	clc
 	adc.b d0
 	tax
-	inc.w $18EE,x
+	inc.w tmgoals,x
 .11:
 	jsl.l PenGoalStuff
 	jsl.l printscores1
@@ -268,9 +268,9 @@ Goal:
 	jsl.l .t1xxxx
 	lda.b a2
 	bne .12
-	lda.w $1790
+	lda.w tmscore+2
 	sec
-	sbc.w $178E
+	sbc.w tmscore
 	bmi .12
 	cmp.w #$0003
 	bcs .12

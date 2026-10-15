@@ -133,9 +133,9 @@ Endfaceoff:
 	lda.w tmflags
 	and.w #$FFFB
 	sta.w tmflags
-	lda.w $17E0
+	lda.w tmflags+2
 	and.w #$FFFB
-	sta.w $17E0
+	sta.w tmflags+2
 	ldx.b a3
 	jsl.l RandomWord
 	and.w #$07FF

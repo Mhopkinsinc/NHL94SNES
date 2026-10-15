@@ -10,14 +10,14 @@ CheckCrowdMeter:
 	cmp.w #$006E
 	bmi .1
 	lda.w #$0001
-	sta.w $19C0
+	sta.w CrowdLoud
 	bra .1
 
 .t1:
-	lda.w $19C0
+	lda.w CrowdLoud
 	beq .1
 	jsl.l LowerHotColdTable
-	stz.w $19C0
+	stz.w CrowdLoud
 .1:
 	pla
 	sta.b d0

@@ -40,7 +40,7 @@ assgoalietopuck:
 	and.w $0B05,x
 	sta.w $0B05,x
 .4:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .6
 	lda.w gmclock
 	bne .6
@@ -90,7 +90,7 @@ assgoalietopuck:
 	sta.b a1
 .2x:
 	ldy.b a2
-	lda.w $17AE,y
+	lda.w tmnear,y
 	cmp.w #$0096
 	bcc .6
 .8:

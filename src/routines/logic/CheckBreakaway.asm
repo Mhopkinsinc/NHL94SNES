@@ -1,6 +1,6 @@
 ; $1638 = 1 when the puck carrier is in the attacking zone half with no opposing skater (not the goalie) between him and the goal, else 0
 CheckBreakaway:
-	stz.w $1638
+	stz.w IsBreakaway
 	lda.w puckc
 	bpl .t4
 	jmp.w .4
@@ -79,7 +79,7 @@ CheckBreakaway:
 	dec.b d2
 	bpl .loopx
 .3:
-	stz.w $1638
-	inc.w $1638
+	stz.w IsBreakaway
+	inc.w IsBreakaway
 .4:
 	rtl

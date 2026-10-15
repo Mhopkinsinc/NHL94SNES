@@ -16,7 +16,7 @@ findpc:
 	bmi .9
 	lda.w position,x
 	beq .t1
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .t1
 	lda.w pfalock,x
 	bne .t1
@@ -26,11 +26,11 @@ findpc:
 	jmp.w .10
 
 .t1:
-	lda.w $19D4,y
+	lda.w playerpad,y
 	bmi .1
 	tay
-	lda.w $19F6,y
-	cmp.w $19F6,x
+	lda.w padside,y
+	cmp.w padside,x
 	beq .9
 .1:
 	ldy.w #$0000
@@ -73,7 +73,7 @@ findpc:
 	ora.w pfalock,x
 	bne .8
 .4:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .5
 	cmp.b d4
 	bne .8
@@ -121,7 +121,7 @@ findpc:
 	beq .12
 	ldy.b d4
 	lda.b d3
-	cmp.w $19EC,y
+	cmp.w c1playernum,y
 	bne .11
 .10:
 	lda.w pfalock,x

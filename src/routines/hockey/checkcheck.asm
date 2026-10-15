@@ -156,7 +156,7 @@ org $9EA001
 	bpl .2x
 	ldy.b a2
 	sty.w $1E8D
-	lda.w $19D4,y
+	lda.w playerpad,y
 	sta.w $1E93
 	lda.w #$0024
 	sta.b d0

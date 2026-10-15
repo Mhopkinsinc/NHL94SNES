@@ -103,13 +103,13 @@ InProgress:
 	sta.w CwdExciteLvl
 .1x:
 	ldy.b a2
-	lda.w $174A,y
+	lda.w tmPenalties,y
 	inc a
-	sta.w $174A,y
-	lda.w $174E,y
+	sta.w tmPenalties,y
+	lda.w tmPenmin,y
 	clc
 	adc.b d2
-	sta.w $174E,y
+	sta.w tmPenmin,y
 	lda.w pnum,x
 	and.w #$00FF
 	ora.b d0
@@ -125,16 +125,16 @@ InProgress:
 	adc.b d0
 	tax
 	sep #$20
-	lda.w $198A,x
+	lda.w ppenmin,x
 	rep #$20
 	and.w #$00FF
 	clc
 	adc.b d2
 	sep #$20
-	sta.w $198A,x
+	sta.w ppenmin,x
 	rep #$20
 	plx
-	lda.w $163C
+	lda.w PenSumLength
 	cmp.w #$0041
 	bcs .4
 	asl a
@@ -142,7 +142,7 @@ InProgress:
 	tay
 	jsl.l GetPeriodTimeRemaining
 	lda.b d0
-	sta.w $163E,y
+	sta.w PenSum,y
 	iny
 	iny
 	lda.w TempPlOffset
@@ -151,15 +151,15 @@ InProgress:
 	ora.w #$0080
 .3:
 	sep #$20
-	sta.w $163E,y
+	sta.w PenSum,y
 	rep #$20
 	iny
 	lda.b [a0]
 	and.w #$00FF
 	sep #$20
-	sta.w $163E,y
+	sta.w PenSum,y
 	rep #$20
-	inc.w $163C
+	inc.w PenSumLength
 .4:
 	lda.w TempPlOffset
 	and.w #$00FF

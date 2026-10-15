@@ -7,7 +7,7 @@ goalieacc:
 	sta.b d0
 	cmp.w #$0008
 	bcc .t2
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	bpl .1
 	cmp.w #$0009
 	bne .2
@@ -38,7 +38,7 @@ org $9ED002
 .1x:
 	cmp.w #$0098
 	bcc .t4
-	ldy.w $19D4,x
+	ldy.w playerpad,x
 	bmi .2x
 	lda.w SPA,x
 	cmp.w #SPAgdive

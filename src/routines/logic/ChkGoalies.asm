@@ -23,7 +23,7 @@ ChkGoalies:
 	lda.w gmode
 	bit.w #$0008
 	bne .t1
-	lda.w $19D0,y
+	lda.w teampads,y
 	bne rtss
 	lda.w pucky
 	sta.b d1

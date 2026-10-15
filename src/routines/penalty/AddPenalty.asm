@@ -2,7 +2,7 @@
 AddPenalty:
 	lda.w gmclock
 	bne .rtl
-	lda.w $163A
+	lda.w PenShotActive
 	bne .rtl
 	lda.b d0
 	cmp.w #PenIcing

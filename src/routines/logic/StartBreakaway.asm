@@ -1,7 +1,7 @@
 ; At the blue line: CheckBreakaway into $1E8B; a new breakaway queues sound 5, raises CwdExciteLvl by 20 and counts it for the team ($17C2)
 StartBreakaway:
 	jsl.l CheckBreakaway
-	lda.w $1638
+	lda.w IsBreakaway
 	sta.w $1E8B
 	beq .rtl
 	lda.w $1E9B
@@ -26,9 +26,9 @@ StartBreakaway:
 .3:
 	lda.w $1E9B
 	bne .4
-	lda.w $17C2,y
+	lda.w tmBreakaways,y
 	inc a
-	sta.w $17C2,y
+	sta.w tmBreakaways,y
 .4:
 	ply
 .rtl:

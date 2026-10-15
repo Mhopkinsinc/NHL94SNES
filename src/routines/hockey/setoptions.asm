@@ -112,7 +112,7 @@ setoptions:
 	inc.w $0794
 .1:
 	jsl.l WaitFrame
-	ldx.w $1A0E
+	ldx.w mp5warning
 	txa
 	eor.b $AF
 	bne .t5
@@ -153,7 +153,7 @@ setoptions:
 	jmp.w .6
 
 .t6:
-	lda.w $1A0E
+	lda.w mp5warning
 	beq .t1x
 	jmp.w .2
 

@@ -8,7 +8,7 @@ checkagr:
 	asl a
 	asl a
 	sta.b d0
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .1
 	asl.b d0
 .1:

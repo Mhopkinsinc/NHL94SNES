@@ -39,7 +39,7 @@ updatepwrplay:
 	tsb.w sflags
 	bne .uppt
 	ldx.b a3
-	inc.w $1746,x
+	inc.w tmPwrPlays,x
 .uppt:
 	lda.b a1+2
 	pha

@@ -1,6 +1,6 @@
 ; Aim a computer shot at the open side when the goalie covers the middle of the net
 shotdiradj:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .t2
 	jmp.w .6
 

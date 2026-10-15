@@ -1,6 +1,6 @@
 ; A computer player stands still
 assnothing:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .t1
 	lda.w #$0008
 	sta.b d0

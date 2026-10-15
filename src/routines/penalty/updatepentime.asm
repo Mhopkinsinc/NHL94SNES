@@ -7,7 +7,7 @@ updatepentime:
 	jmp.w .4
 
 .t2:
-	lda.w $163A
+	lda.w PenShotActive
 	beq .t1
 	jmp.w .4
 

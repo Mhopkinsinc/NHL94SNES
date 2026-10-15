@@ -56,7 +56,7 @@ Intermission:
 	stz.w pausepad
 .2:
 	lda.w #$0001
-	sta.w $1A10
+	sta.w InIntermission
 .loop2:
 	lda.w #$0000
 	ldy.w #$001E
@@ -88,7 +88,7 @@ Intermission:
 	bne .loop2
 	lda.w #$0000
 	sta.l $7E3476
-	stz.w $1A10
+	stz.w InIntermission
 	stz.w demoflag
 Intermission_rtl:
 	rtl

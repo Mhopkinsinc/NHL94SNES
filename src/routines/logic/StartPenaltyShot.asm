@@ -7,12 +7,12 @@ StartPenaltyShot:
 	bmi .t1
 	lda.w #$0002
 	sta.w $1E91
-	inc.w $17CC
+	inc.w tmPenShots+2
 	bra .1
 
 .t1:
 	stz.w $1E91
-	inc.w $17CA
+	inc.w tmPenShots
 .1:
 	phy
 	lda.w $1E91

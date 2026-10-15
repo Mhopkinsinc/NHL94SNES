@@ -52,7 +52,7 @@ Gameloop:
 	bne .4
 	lda.w $1D81
 	bne .t1
-	lda.w $163A
+	lda.w PenShotActive
 	beq .t1
 	ldx.b d7
 	lda.w $1E9F
@@ -69,10 +69,10 @@ Gameloop:
 .loop:
 	lda.w gameclock
 	beq .2x
-	lda.w $1634
+	lda.w gameclock+2
 	sec
 	sbc.w #$0AAA
-	sta.w $1634
+	sta.w gameclock+2
 	bcs .2x
 	dec.w gameclock
 	lda.w CwdExciteLvl
@@ -104,7 +104,7 @@ Gameloop:
 	lda.w sflags
 	bit.w #$0001
 	bne .2xx
-	lda.w $1A0E
+	lda.w mp5warning
 	beq .3
 	lda.w gmode
 	bit.w #$0010

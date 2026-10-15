@@ -23,7 +23,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	txa
 	and.b #$0F
 	sta.w $0ACB
-	lda.w $1A0C
+	lda.w mp5present
 	bne .t2
 	jmp.w .2
 
@@ -40,20 +40,20 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	rol.w $0ACC
 	stz.w WRIO
 	lda.w $0AD7
-	ora.w $1A0E
+	ora.w mp5warning
 	bne .1
 	lda.w $1C8A
 	ora.w $1C8C
 	bne .1
-	lda.w $1A02
+	lda.w mp5readdelay
 	beq .t1
 	dec a
-	sta.w $1A02
+	sta.w mp5readdelay
 	jmp.w .5
 
 .t1:
 	lda.b #$1E
-	sta.w $1A02
+	sta.w mp5readdelay
 .1:
 	lda.w JOYSER1
 	lsr a
@@ -154,13 +154,13 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 .5:
 	lda.b #$80
 	sta.w WRIO
-	lda.w $1A0E
+	lda.w mp5warning
 	and.b #$01
-	sta.w $1A0E
-	lda.w $1A04
+	sta.w mp5warning
+	lda.w mp5checktimer
 	beq .2x
 .1x:
-	dec.w $1A04
+	dec.w mp5checktimer
 .2x:
 	stz.w JOYSER0
 	lda.b #$01
@@ -168,21 +168,21 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	lda.w JOYSER0
 	and.b #$02
 	tax
-	eor.w $1A06
-	stx.w $1A06
-	sta.w $1A0A
+	eor.w mp5port1last
+	stx.w mp5port1last
+	sta.w mp5portchg
 	lda.w JOYSER1
 	and.b #$02
 	tax
-	eor.w $1A08
-	stx.w $1A08
-	ora.w $1A0A
+	eor.w mp5port2last
+	stx.w mp5port2last
+	ora.w mp5portchg
 	beq .4
 .3:
 	lda.b #$10
-	sta.w $1A04
+	sta.w mp5checktimer
 .4:
-	lda.w $1A04
+	lda.w mp5checktimer
 	bne .t1x
 	bra .7
 
@@ -192,27 +192,27 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	stx.w JoyPad+4
 	stx.w JoyPad+6
 	stx.w JoyPad+8
-	lda.w $1A00
+	lda.w mp5connect
 	and.b #$80
 	beq .t2x
 	lda.b #$01
-	tsb.w $1A0E
+	tsb.w mp5warning
 	bra .6
 
 .t2x:
 	lda.b #$01
-	trb.w $1A0E
+	trb.w mp5warning
 .6:
-	lda.w $1A00
+	lda.w mp5connect
 	and.b #$40
 	beq .t1xx
 	lda.b #$01
-	tsb.w $1A0C
+	tsb.w mp5present
 	bra .10
 
 .t1xx:
 	lda.b #$01
-	trb.w $1A0C
+	trb.w mp5present
 	bra .10
 .7:
 	stz.w JOYSER0
@@ -222,7 +222,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	beq .2xx
 	ldx.w #$000F
 	stx.w JoyPad
-	ldx.w $1A0C
+	ldx.w mp5present
 	beq .2xx
 .1xx:
 	jsr.w .12
@@ -232,12 +232,12 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	beq .4x
 	ldx.w #$000F
 	stx.w JoyPad+2
-	ldx.w $1A0C
+	ldx.w mp5present
 	beq .8
 .3x:
 	jsr.w .12
 .4x:
-	lda.w $1A0C
+	lda.w mp5present
 	beq .8
 .5x:
 	lda.w $0ACC
@@ -261,7 +261,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	stx.w JoyPad+8
 	jsr.w .12
 .8:
-	lda.w $1A0E
+	lda.w mp5warning
 	beq .11
 .9:
 	lda.b $83
@@ -290,14 +290,14 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	cmp.b #$02
 	bne .t1xxxx
 	lda.b #$04
-	tsb.w $1A0E
+	tsb.w mp5warning
 	bra .1xxx
 
 .t1xxxx:
 	cmp.b #$1E
 	bne .1xxx
 	lda.b #$02
-	tsb.w $1A0E
+	tsb.w mp5warning
 .1xxx:
 	rts
 	db "MODIFIED FROM SHVC MULTI5 BIOS Ver2.00"

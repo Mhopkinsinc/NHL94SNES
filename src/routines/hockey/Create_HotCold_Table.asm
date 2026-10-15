@@ -14,7 +14,7 @@ Create_HotCold_Table:
 	beq .4
 	sep #$20
 	lda.b $14
-	sta.w $1A12,x
+	sta.w HotColdTable,x
 .3:
 	rep #$20
 	dex
@@ -25,5 +25,5 @@ Create_HotCold_Table:
 	lda.b #$00
 	sec
 	sbc.b $14
-	sta.w $1A12,x
+	sta.w HotColdTable,x
 	bra .3

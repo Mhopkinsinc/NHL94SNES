@@ -1,19 +1,19 @@
 ; Per stat of TeamStatNames: a kind word, then the RAM word of the home and away team ($FFFF = none); $FFFF ends them
 TeamStatSources:
-	dw $0010,$178E,$FFFF
-	dw $0010,$177A,$FFFF
-	dw $0012,$178E,$177A
-	dw $0001,gmStatBase,$1746
-	dw $0003,$1756,$FFFF
-	dw $0000,$175A,$FFFF
-	dw $0000,$1762,$FFFF
-	dw $0011,$17C6,$17C2
-	dw $0011,$17DA,$17D6
-	dw $0011,$17CE,$17CA
-	dw $0010,$1792,$FFFF
-	dw $0010,$17B6,$FFFF
-	dw $0001,$174A,$174E
-	dw $0013,$1752,$FFFF
-	dw $0011,$17BA,$17BE
-	dw $0012,$17BA,$17BE
+	dw $0010,tmscore,$FFFF
+	dw $0010,tmshots,$FFFF
+	dw $0012,tmscore,tmshots
+	dw $0001,tmPwrGoals,tmPwrPlays
+	dw $0003,tmPwrPlayTime,$FFFF
+	dw $0000,tmPPShots,$FFFF
+	dw $0000,tmSHGoals,$FFFF
+	dw $0011,tmBreakawayGoals,tmBreakaways
+	dw $0011,tmOneTimerGoals,tmOneTimers
+	dw $0011,tmPenShotGoals,tmPenShots
+	dw $0010,tmfowon,$FFFF
+	dw $0010,tmchecks,$FFFF
+	dw $0001,tmPenalties,tmPenmin
+	dw $0013,tmATOP,$FFFF
+	dw $0011,tmpasscomp,tmpassatt
+	dw $0012,tmpasscomp,tmpassatt
 	dw $FFFF,$FFFF,$FFFF

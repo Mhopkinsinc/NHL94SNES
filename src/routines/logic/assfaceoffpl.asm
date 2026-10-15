@@ -38,7 +38,7 @@ assfaceoffpl:
 .3:
 	lda.b d0
 	sta.b [a0]
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .t2
 	lda.w pf2aip,x
 	pha

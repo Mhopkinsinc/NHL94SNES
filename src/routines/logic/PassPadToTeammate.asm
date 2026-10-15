@@ -5,7 +5,7 @@ PassPadToTeammate:
 	bcc .1
 	ldy.w #$000C
 .1:
-	lda.w $19D4,y
+	lda.w playerpad,y
 	bpl .2
 	lda.w position,y
 	bpl .t1

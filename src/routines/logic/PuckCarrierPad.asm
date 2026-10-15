@@ -1,7 +1,7 @@
 ; When player d0 has the puck and no pad: give him the next pad of his team in turn ($0AFD), if that team has pads ($19D0)
 PuckCarrierPad:
 	ldy.b d0
-	lda.w $19D4,y
+	lda.w playerpad,y
 	bpl .6
 	phx
 	ldx.w #$0000
@@ -9,7 +9,7 @@ PuckCarrierPad:
 	bcc .1
 	ldx.w #$0002
 .1:
-	lda.w $19D0,x
+	lda.w teampads,x
 	beq .4
 	ldy.w $0AFD,x
 	dey
@@ -21,7 +21,7 @@ PuckCarrierPad:
 	sta.b $14
 	txa
 .3:
-	cmp.w $19F6,y
+	cmp.w padside,y
 	bne .5
 	sty.b d4
 	tya

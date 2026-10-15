@@ -9,7 +9,7 @@ assdumpin:
 	lda.w pflags,x
 	and.w #$FFFD
 	sta.w pflags,x
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .t3
 	lda.w dumpintarget
 	cmp.w #$0014

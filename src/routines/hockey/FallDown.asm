@@ -55,9 +55,9 @@ FallDown:
 	lda.w gmclock
 	bne .2
 	ldy.b a0
-	lda.w $17B6,y
+	lda.w tmchecks,y
 	inc a
-	sta.w $17B6,y
+	sta.w tmchecks,y
 .2:
 	ldy.b a2
 	lda.w #$0078

@@ -17,7 +17,7 @@ assnearest:
 	bne .t3
 	lda.w #$0011
 	sta.b d0
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .t1
 	jmp.w assinsert
 
@@ -53,9 +53,9 @@ assnearest:
 
 .t1x:
 	ldy.b a2
-	lda.w $17AE,y
+	lda.w tmnear,y
 	sta.b d2
-	lda.w $17B2,y
+	lda.w tmnearpl,y
 	sta.b a1
 	lda.b d2
 	bmi .3
@@ -150,7 +150,7 @@ assnearest:
 	lda.w #$00F0
 	sta.w temp3,x
 .9:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .4
 	lda.w gmclock
 	bne .6

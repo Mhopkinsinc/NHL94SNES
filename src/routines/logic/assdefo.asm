@@ -26,7 +26,7 @@ assdefo:
 
 .t2:
 	jsl.l check4bench
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bpl .1
 	lda.w pflags,x
 	bit.w #$0002

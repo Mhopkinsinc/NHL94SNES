@@ -397,10 +397,10 @@ ShowStars:
 	stz.b a1
 .1xxxx:
 	ldy.b a2
-	lda.w $178E,y
+	lda.w tmscore,y
 	ldy.b a1
 	sec
-	sbc.w $178E,y
+	sbc.w tmscore,y
 	sta.b d0
 	lda.w #$0000
 	sbc.w #$0000
@@ -416,7 +416,7 @@ ShowStars:
 	jsr.w .18
 .2xx:
 	sep #$20
-	lda.w $18EE,x
+	lda.w tmgoals,x
 	rep #$20
 	and.w #$00FF
 	phx
@@ -425,7 +425,7 @@ ShowStars:
 	plx
 	jsr.w .18
 	sep #$20
-	lda.w $1922,x
+	lda.w passists,x
 	rep #$20
 	and.w #$00FF
 	phx
@@ -434,7 +434,7 @@ ShowStars:
 	plx
 	jsr.w .18
 	sep #$20
-	lda.w $1956,x
+	lda.w pshots,x
 	rep #$20
 	and.w #$00FF
 	phx
@@ -457,14 +457,14 @@ ShowStars:
 	pla
 	sta.b d0
 	sep #$20
-	lda.w $1956,x
+	lda.w pshots,x
 	rep #$20
 	and.w #$00FF
 	cmp.b d1
 	bmi .3xx
 	sta.b $04
 	sep #$20
-	lda.w $18EE,x
+	lda.w tmgoals,x
 	rep #$20
 	and.w #$00FF
 	phx

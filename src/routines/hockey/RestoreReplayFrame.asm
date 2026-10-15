@@ -172,7 +172,7 @@ RestoreReplayFrame:
 .t1xx:
 	lda.b #$00
 .7:
-	sta.w $1625
+	sta.w PBnum+1
 	lda.w sflags
 	bit.b #$20
 	bne .t1xxx

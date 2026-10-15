@@ -52,7 +52,7 @@ doshot:
 	lda.w $1E8B
 	beq .3
 	jsl.l CheckBreakaway
-	lda.w $1638
+	lda.w IsBreakaway
 	sta.w $1E8B
 .3:
 	ldx.b $E4
@@ -243,7 +243,7 @@ doshot:
 	sbc.w puckvy
 	sta.w puckvy
 .2xx:
-	lda.w $163A
+	lda.w PenShotActive
 	beq .rtl
 	lda.w #$0012
 	sta.b d0

@@ -73,7 +73,7 @@ pucknorm_move:
 	bne .13
 	lda.w puckc
 	bpl .11
-	lda.w $163A
+	lda.w PenShotActive
 	beq .9
 	lda.w gmode
 	bit.w #$0002

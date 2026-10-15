@@ -201,7 +201,7 @@ PlayerSelect:
 	jsl.l QueueTextDMA
 .4:
 	jsl.l WaitFrame
-	ldx.w $1A0E
+	ldx.w mp5warning
 	txa
 	eor.b d2
 	bne .t5
@@ -239,7 +239,7 @@ PlayerSelect:
 	jmp.w .3
 
 .t6:
-	lda.w $1A0E
+	lda.w mp5warning
 	beq .t1xxx
 	jmp.w .4
 
@@ -247,7 +247,7 @@ PlayerSelect:
 	jsl.l ReadPads
 	ldx.w #$0000
 .5:
-	lda.w $1A0E
+	lda.w mp5warning
 	bne .1xx
 	lda.w JoyPad,x
 	and.w #$000F
@@ -372,7 +372,7 @@ PlayerSelect:
 	jsl.l ReadPads
 	ldx.w #$0008
 .loopxx:
-	lda.w $1A0E
+	lda.w mp5warning
 	bne .1xxxx
 	lda.w JoyPad,x
 	bit.w #$000F
@@ -497,7 +497,7 @@ PlayerSelect:
 	ldy.w #$0000
 .loopxxxx:
 	phy
-	lda.w $1A0E
+	lda.w mp5warning
 	bne .2xx
 	lda.w JoyPad,y
 	and.w #$000F

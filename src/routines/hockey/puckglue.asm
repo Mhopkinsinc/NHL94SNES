@@ -32,9 +32,9 @@ puckglue:
 	trb.w sflags3
 	beq .3
 	ldy.b a1
-	lda.w $1792,y
+	lda.w tmfowon,y
 	inc a
-	sta.w $1792,y
+	sta.w tmfowon,y
 	lda.l crowdlevel
 	clc
 	adc.w #$00C8
@@ -48,9 +48,9 @@ puckglue:
 	cmp.w passReceiverPlayerNum
 	bne .4
 	ldy.b a1
-	lda.w $17BA,y
+	lda.w tmpasscomp,y
 	inc a
-	sta.w $17BA,y
+	sta.w tmpasscomp,y
 .4:
 	lda.w #$000C
 	trb.w sflags

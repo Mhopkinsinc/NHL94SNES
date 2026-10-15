@@ -60,7 +60,7 @@ FillPlayerStatsPage:
 	lda.w #$0011
 	sta.w printx
 	sep #$20
-	lda.w $18EE,x
+	lda.w tmgoals,x
 	rep #$20
 	and.w #$00FF
 	sta.b d0
@@ -73,7 +73,7 @@ FillPlayerStatsPage:
 	lda.w #$0014
 	sta.w printx
 	sep #$20
-	lda.w $1922,x
+	lda.w passists,x
 	rep #$20
 	and.w #$00FF
 	sta.b d0
@@ -86,12 +86,12 @@ FillPlayerStatsPage:
 	lda.w #$0017
 	sta.w printx
 	sep #$20
-	lda.w $18EE,x
+	lda.w tmgoals,x
 	rep #$20
 	and.w #$00FF
 	sta.b d0
 	sep #$20
-	lda.w $1922,x
+	lda.w passists,x
 	rep #$20
 	and.w #$00FF
 	clc
@@ -106,7 +106,7 @@ FillPlayerStatsPage:
 	lda.w #$001A
 	sta.w printx
 	sep #$20
-	lda.w $1956,x
+	lda.w pshots,x
 	rep #$20
 	and.w #$00FF
 	sta.b d0
@@ -119,7 +119,7 @@ FillPlayerStatsPage:
 	lda.w #$001D
 	sta.w printx
 	sep #$20
-	lda.w $198A,x
+	lda.w ppenmin,x
 	rep #$20
 	and.w #$00FF
 	sta.b d0
@@ -155,7 +155,7 @@ FillPlayerStatsPage:
 	lda.w #$0012
 	sta.w printx
 	sep #$20
-	lda.w $18EE,x
+	lda.w tmgoals,x
 	rep #$20
 	and.w #$00FF
 	sta.b d0
@@ -166,7 +166,7 @@ FillPlayerStatsPage:
 	lda.w #$0016
 	sta.w printx
 	sep #$20
-	lda.w $1956,x
+	lda.w pshots,x
 	rep #$20
 	and.w #$00FF
 	sta.b d0
@@ -177,7 +177,7 @@ FillPlayerStatsPage:
 	lda.w #$001B
 	sta.w printx
 	sep #$20
-	lda.w $18EE,x
+	lda.w tmgoals,x
 	rep #$20
 	and.w #$00FF
 	phx
@@ -186,7 +186,7 @@ FillPlayerStatsPage:
 	sta.b $08
 	plx
 	sep #$20
-	lda.w $1956,x
+	lda.w pshots,x
 	rep #$20
 	and.w #$00FF
 	sta.b $04
