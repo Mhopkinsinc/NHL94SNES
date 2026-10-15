@@ -150,9 +150,9 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 
 **Applied equates (source=new):** `mesareaEnd` (`$0A48`, PushNumber and PushTime). `gmStatBase` (`$1742`). `playoffRoundIdx` (`$7E35D4`). `rosterNone` (`$FFFC`, the three `cmp.w` sites beside `TMPDOUT`).
 
-**Keep raw:** `$00`, `$04` and `$08` (divider and engine scratch). `$C3` in `vtoa`. `#$000B`, `#$000A`, `#$0012` in setplayer. `$14` and `$0CE5` in setplayer until one owner is proven. `#$0800`, `#$0040`, `#$2000`, `#$4000` except the converted flag sites. `PenOffsides` is `$12` here (93S uses `$10`).
+**Keep raw:** `$00`, `$04` and `$08` (divider and engine scratch). `$C3` in `vtoa`. `#$000B`, `#$000A`, `#$0012` in setplayer. `$14` in setplayer until one owner is proven (`$0CE5` is `ThirdPBonus`, as 93S). `#$0800`, `#$0040`, `#$2000`, `#$4000` except the converted flag sites. `PenOffsides` is `$12` here (93S uses `$10`).
 
-**Deferred:** `$0B7D,x` on the assist path. `$163A` (not `OptPen`). `$7E34C6` (not `OptLine`; map bits first). `#$0024` in AddPenalty. `$7E35D0` vs 93S `blankchar`.
+**Deferred:** `#$0024` in AddPenalty. (`$0B7D` is `asscur`, `$163A` is `PenShotActive`, and `$7E34C6` is `OptLine`: the setup menu edits it as Line Changes, 0 off / 1 on / 2 automatic, where 93S uses 0 = on.)
 
 - `$14E3` is `pfalock` from the `setplayer` pair with `SPA`.
 - asstab entry $10 is `assbreakaway` (94G job, given by asspuckc on a breakaway); entry $14 is `assdumpin` (Y with the puck dumps it in; confirmed by the user).
@@ -162,7 +162,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - No auto label (`CODE_`, `DATA8_`) is left in the source (15 Oct 2026). Data with no reader takes an `Unused` name (`SampleUnused`, `SPAunused1`-`3`, `UnusedSineTable`, `UnusedSetupSpritePalette`).
 - `AttribMenuSkater` and `AttribMenuGoalie` keep those names. The shooter list and the line screen have their own column lists, `ShooterAttribColumns` and `SkaterAttribColumns`. Phrases in `DATA8_9CF000` that are a title are named. Cursor-only records in that bank stay `DATA8_`.
 - `CODE_9E828B` is the other-team half of `chkpk2`, then unlabeled bytes. `AttribRating` has no 94 counterpart, and the distance code uses `ApproxLength` (the larger part plus a share of the smaller), not a square root; `sroot` exists only for the crowd meter (`UpdateCrowdMeter`). `StreamSfx` (was CODE_9C9A7F) asks for one of six streamed sound effects; `UpdateStreamSfx` streams its sample to the sound CPU and plays it.
-- `$7E35D0` is the blank tile `EraseScoutName` stores the way 93S stores `blankchar`. Not named.
+- `$7E35D0` is `blankchar`, the blank tile `EraseScoutName` stores the way 93S stores it.
 - `#$0800` and `#$0040` stay raw except `showclock` (`sf2replay`) and `freezewindow` (`sfslock`). `#$2000` and `#$4000` stay raw except `chkpk` (`sf2pwrplay`) and `chkpk2` (`sf2pwrtm`).
 
 ## Alignment
@@ -276,7 +276,10 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   long pointer list near $9C9A5B), DATA8_8FDD32 ($8FDD32-$8FFE73, a song with 13 tracks named timp, orch, BASS #2, ...;
   no pointer to it found), DATA8_8FFE74 ($8FFE74-$8FFFEE, the player photo that most photo-table entries without their own
   photo share: a generic skater), then $FF fill.
-- Next: name the RAM variables (93S / 94G names where the use matches, else from behavior; the most used raw ones are $1DB9, $0EC3, $0EE3, $0D0D, $1003, $0D71, $19D4), the per-voice sound RAM ($0804-$0A09), the tile cache and allocator RAM of bank $80. The State notes above are the layout log from the segment work; the auto names they cite are in `docs/name_map.csv` (auto_name column).
+- RAM pass (15 Oct 2026): every raw WRAM operand ($0100-$1FFF) and every raw long $7E / $7F operand in `src/routines` is a name or NAME+offset, except `$0BC9` (only cleared by assgoalietopuck), `$0C0B` (a per-player array FaceoffPads clears, no reader) and `$1D60` (only cleared by Pausemode). The sort object arrays and the variables at $0CD5-$0D55 keep the 93S struct and declaration order (so their names are 93S); the team struct fields follow the stats screen rows `TeamStatSources` feeds them to; the 5-pad multitap code keeps per-pad arrays where 93S / 94G have scalars (`c1playernum`, `cont1team` .. `cont5team`, `padside`, `playerpad`). Shared RAM: the title screen and credits reuse $0BCB-$0BFF (their names are applied only in their routines, the game names elsewhere); DecompressPairs / DecompressHuffman use the DMA queue RAM as `DecompBuf`; the stats / card / scouting screens share `curitem`, `listtop`, `listend`, `listcount`, `curplayer`, each in its own way; `screenmap` / `screenmap2` (playoff screen) lie inside the replay buffer.
+- RAM names marked LOW by the research (job from one or two uses): `topgoalie` / `botgoalie`, `FrameCountHold`, `RAMTag` / `RAMTag2` (copies of the 'EACDSI' tag, never read), `MapScreenStep`, `FrameTilesFail`, `SoundMono`, `PitchModVoices`, `SongUnused`, `TrackUnused`, `MusicPause`, `MusicDuck`, `reloadtime`, `otgoalscorer`, `screenmap`, `screenmap2`, `introbuf`, `introchars`, `titlelogobuf`.
+- Found in the RAM pass, left as the ROM has them: Goal adds a goal against with a word `inc.w tmgoals,x` on a byte array; UpdateHatTrick clears only hat 0's `hatvz` at a launch (no `,x`); ShowStars reads its overtime goal entry from `fox` ($7E3136) where ShowGoalBox uses `ScoreSum-6` + ScoreSumbytes; EndPenaltyShot puts the saved faceoff spot into `ltx` / `lty`, not back into `fox` / `foy`; the ShowCrowdMeter `.11` loop that raises the hot / cold table has no caller found.
+- Next: immediates that are RAM addresses (e.g. `lda.w #$xxxx` table pointers into bank $7E) and direct-page scratch ($00-$FF) are the RAM work left; then the untraced data items in the Unsure list. The State notes above are the layout log from the segment work; the auto names they cite are in `docs/name_map.csv` (auto_name column).
 
 ## Setup notes
 
