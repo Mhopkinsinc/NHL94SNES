@@ -70,7 +70,7 @@ asspuckc:
 	adc.w temp3,x
 	sta.b d0
 	lda.w #PuckcSpots>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PuckcSpots
 	sta.b a0
 	lda.w sflags
@@ -102,7 +102,7 @@ asspuckc:
 	sta.b d1
 .3xx:
 	lda.w #.chkdir>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.chkdir
 	sta.b a0
 	jml.l skateto

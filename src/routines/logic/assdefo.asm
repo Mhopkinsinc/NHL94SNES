@@ -52,7 +52,7 @@ assdefo:
 	sta.w temp1,x
 .4:
 	lda.w #EvadePC>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #EvadePC
 	sta.b a0
 	ldy.w #$0050

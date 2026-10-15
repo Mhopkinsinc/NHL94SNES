@@ -1,18 +1,18 @@
 ; Shootout shooters screen: clear the top, the frame, and the background map (MenuBackMap) in map 2
 DrawShootersBack:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawShootersBackPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawShootersBackPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$000D
@@ -20,19 +20,19 @@ DrawShootersBack:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawShootersBackPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawShootersBackPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0800
 	sta.w printa
 	lda.w #$000E
@@ -40,19 +40,19 @@ DrawShootersBack:
 	lda.w #$0003
 	sta.b d1
 	jsl.l FramerOutline
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #LineupTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #LineupTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #MenuBackMap>>16
 	sta.b $0E
 	lda.w #MenuBackMap

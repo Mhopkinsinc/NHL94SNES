@@ -20,7 +20,7 @@ PrintTeamSprites:
 .t1:
 	inc.b $16
 	sep #$30
-	lda.b $8F
+	lda.b a1+2
 	pha
 	plb
 	rep #$30

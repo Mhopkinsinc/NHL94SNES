@@ -16,19 +16,19 @@ ScoutingReport:
 	stz.w matchuptimer
 	jsl.l .10
 	jsl.l .12
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ScoutingReportPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoutingReportPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0016
 	sta.b d0
 	lda.w #$000B
@@ -128,19 +128,19 @@ ScoutingReport:
 	stz.w matchuptimer
 	bra .4
 .9:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ScoutingReportPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoutingReportPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0014
 	sta.b d0
 	lda.w #$0009

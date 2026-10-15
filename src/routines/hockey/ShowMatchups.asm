@@ -1,18 +1,18 @@
 ; Matchups screen
 ShowMatchups:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowMatchupsPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowMatchupsPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$000B
@@ -24,39 +24,39 @@ ShowMatchups:
 	ldx.w #$0056
 	ldy.w #$0010
 	lda.w #MatchupsLabel>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #MatchupsLabel
 	sta.b a1
 	jsl.l PrintLetterSprites
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowMatchupsPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowMatchupsPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w VisTeam
 	sta.b d1
 	jsl.l DrawTeamBlocks
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowMatchupsPos3>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowMatchupsPos3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w HomeTeam
 	sta.b d1
 	jsl.l DrawTeamBlocks
@@ -82,19 +82,19 @@ ShowMatchups:
 	jsl.l SendColours
 	lda.w #$0002
 	sta.b a2
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowMatchupsPos4>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowMatchupsPos4
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w curitem
 	jsl.l GetMatchupPlayer
 	lda.b d0
@@ -108,37 +108,37 @@ ShowMatchups:
 	sta.b d1
 	jsl.l PushNumberWrap
 	jsl.l print
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowMatchupsPos5>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowMatchupsPos5
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w curplayer
 	sta.b d0
 	jsl.l PlayerInitialName
 	jsl.l print
 	stz.b a2
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowMatchupsPos6>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowMatchupsPos6
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w curitem
 	jsl.l GetMatchupPlayer
 	lda.b d0
@@ -152,19 +152,19 @@ ShowMatchups:
 	sta.b d1
 	jsl.l PushNumberWrap
 	jsl.l print
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowMatchupsPos7>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowMatchupsPos7
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w curplayer
 	sta.b d0
 	jsl.l PlayerInitialName
@@ -185,19 +185,19 @@ ShowMatchups:
 	jsl.l SendColours
 	lda.w #$0002
 	sta.b a2
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #OverallTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #OverallTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l GetTeamRating
 	lda.b d0
 	pha
@@ -206,19 +206,19 @@ ShowMatchups:
 	jsl.l PushNumberWrap
 	jsl.l print
 	stz.b a2
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #OverallTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #OverallTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l GetTeamRating
 	lda.b d0
 	pha
@@ -227,91 +227,91 @@ ShowMatchups:
 	jsl.l PushNumberWrap
 	jsl.l print
 .1:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowMatchupsPos8>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowMatchupsPos8
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w curitem
 	sta.b d0
 	lda.w #LineSlotNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #LineSlotNames
 	sta.b a1
 	jsl.l AdvanceStringPtr
 	jsl.l print
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #AdvantageTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AdvantageTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b d0
 	pla
 	cmp.b d0
 	beq .t2x
 	bmi .t1x
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #UpArrowsTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #UpArrowsTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .2
 
 .t1x:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DownArrowsTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DownArrowsTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .2
 
 .t2x:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #NoneTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #NoneTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .2:
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd

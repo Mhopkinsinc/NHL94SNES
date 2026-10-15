@@ -88,19 +88,19 @@ ShootersPick:
 	jsl.l PrintShooterNames
 	bra ShootersNext
 ShootersSetup:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShootoutShootersPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShootoutShootersPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$000D
@@ -108,19 +108,19 @@ ShootersSetup:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShootoutShootersPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShootoutShootersPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0800
 	sta.w printa
 	lda.w #$000E
@@ -128,18 +128,18 @@ ShootersSetup:
 	lda.w #$0003
 	sta.b d1
 	jsl.l FramerOutline
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #LineupTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #LineupTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l ShootersBackground
 	rtl

@@ -4,7 +4,7 @@ ScoutHomeCity:
 	sta.b a1
 ScoutTeamCity:
 	lda.w #$009C
-	sta.b $8F
+	sta.b a1+2
 	ldy.w #$0004
 	lda.b a1
 	clc
@@ -12,14 +12,14 @@ ScoutTeamCity:
 	sta.b a1
 ScoutAppend:
 	lda.w #mesarea>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #mesarea
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
 	jsl.l appstring
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 ScoutTypeText:

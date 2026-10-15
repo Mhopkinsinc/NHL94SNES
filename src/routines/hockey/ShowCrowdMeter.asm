@@ -22,19 +22,19 @@ ShowCrowdMeter:
 	ldx.w #$0010
 	jsl.l SetColours
 	jsl.l SendColours
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowCrowdMeterPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowCrowdMeterPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0800
 	sta.w printa
 	lda.w #$0014
@@ -87,7 +87,7 @@ ShowCrowdMeter:
 	ldx.w #$0048
 	ldy.w #$0018
 	lda.w #CrowdMeter>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #CrowdMeter
 	sta.b a1
 	jsl.l PrintLetterSprites
@@ -130,61 +130,61 @@ ShowCrowdMeter:
 	lda.w curitem
 	beq .t1x
 .1x:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #CurrentTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #CurrentTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DbTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DbTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .2x
 
 .t1x:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #CurrentTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #CurrentTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DbTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DbTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .2x:
 	lda.w #$0014
 	sta.w printx
@@ -199,61 +199,61 @@ ShowCrowdMeter:
 	lda.w curitem
 	cmp.w #$0001
 	beq .t1xx
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PeakTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PeakTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DbTxt3>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DbTxt3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .3
 
 .t1xx:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PeakTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PeakTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DbTxt4>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DbTxt4
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .3:
 	lda.w #$0014
 	sta.w printx
@@ -268,61 +268,61 @@ ShowCrowdMeter:
 	lda.w curitem
 	cmp.w #$0002
 	beq .t1xxx
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #AverageTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AverageTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DbTxt5>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DbTxt5
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .4
 
 .t1xxx:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #AverageTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AverageTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DbTxt6>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DbTxt6
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .4:
 	lda.w #$0014
 	sta.w printx

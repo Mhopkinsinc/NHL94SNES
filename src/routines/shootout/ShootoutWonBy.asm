@@ -76,7 +76,7 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	cmp.w #$000D
 	beq .t1xx
 	lda.w #WinsMark>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #WinsMark
 	sta.b a1
 	jsl.l printbig
@@ -84,7 +84,7 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 
 .t1xx:
 	lda.w #WinMark>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #WinMark
 	sta.b a1
 	jsl.l printbig

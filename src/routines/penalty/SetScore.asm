@@ -10,19 +10,19 @@ SetScore:
 .t3:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	ldx.b a0
 	lda.l gsper,x
@@ -84,19 +84,19 @@ SetScore:
 	sta.l gss2,x
 .2:
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 .3:
@@ -106,7 +106,7 @@ SetScore:
 	asl.b d0
 	asl.b d0
 	lda.w #TeamList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TeamList
 	sta.b a1
 	ldy.b d0
@@ -121,7 +121,7 @@ SetScore:
 	adc.w #$A038
 	sta.b a1
 	lda.w #$009F
-	sta.b $8F
+	sta.b a1+2
 	lda.b [a1]
 	sta.w nibblebuffer
 	ldy.w #$0002
@@ -136,7 +136,7 @@ SetScore:
 	asl.b d1
 	asl.b d1
 	lda.w #TeamList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TeamList
 	sta.b a1
 	ldy.b d1
@@ -154,7 +154,7 @@ SetScore:
 	sta.b a1
 org $9FA001
 	lda.w #$009F
-	sta.b $8F
+	sta.b a1+2
 	lda.b [a1]
 	adc.w nibblebuffer
 	sta.w nibblebuffer

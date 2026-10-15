@@ -1,18 +1,18 @@
 ; Print the rows of the list from $1DA7, the row at the cursor ($1D9B) in another palette
 PrintShooterRows:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PrintShooterRowsPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PrintShooterRowsPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w SelectedPlayerIdx
 	dec a
 	asl a
@@ -24,9 +24,9 @@ PrintShooterRows:
 	inc a
 	sta.b a3
 	lda.w #PositionNames>>16
-	sta.b $9F
+	sta.b a5+2
 	lda.w #PositionNames
-	sta.b $9D
+	sta.b a5
 	lda.w #$0008
 	sta.b d1
 	lda.w SelectedPlayerIdx
@@ -50,10 +50,10 @@ PrintShooterRows:
 	lda.w #$2000
 	sta.w printa
 .1x:
-	lda.b $8F
-	sta.b $9F
+	lda.b a1+2
+	sta.b a5+2
 	lda.b a1
-	sta.b $9D
+	sta.b a5
 	lda.w #$0002
 	sta.w printx
 	lda.b a3

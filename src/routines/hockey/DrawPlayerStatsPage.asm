@@ -4,19 +4,19 @@ DrawPlayerStatsPage:
 	pha
 	lda.w statcolumn
 	beq .t1
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PlayerGAPtShPmTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayerGAPtShPmTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w listrows
 	sta.b d1
 	dec.b d1
@@ -30,19 +30,19 @@ DrawPlayerStatsPage:
 	bra .1
 
 .t1:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #GoalieGaShPtgTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #GoalieGaShPtgTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w listend
 	sta.b d1
 	lda.w #$007E

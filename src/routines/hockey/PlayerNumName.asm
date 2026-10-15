@@ -2,24 +2,24 @@
 PlayerNumName:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b a2
 	pha
-	lda.b $93
+	lda.b a2+2
 	pha
 	lda.b a3
 	pha
-	lda.b $97
+	lda.b a3+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	jsl.l GetPlayerRecord
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.w #mesarea
 	sta.b a3
@@ -27,8 +27,8 @@ PlayerNumName:
 	inc a
 	sta.b a1
 	lda.w #mesarea>>16
-	sta.b $97
-	sta.b $8F
+	sta.b a3+2
+	sta.b a1+2
 	lda.w #$0004
 	sta.b [a3]
 	lda.b a0
@@ -40,33 +40,33 @@ PlayerNumName:
 	sta.b d0
 	jsl.l PutDigits2
 	lda.w #PlayerNumNamePos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayerNumNamePos
 	sta.b a1
 	jsl.l appstring
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	jsl.l appstring
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $97
+	sta.b a3+2
 	pla
 	sta.b a3
 	pla
-	sta.b $93
+	sta.b a2+2
 	pla
 	sta.b a2
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	ldx.b a3

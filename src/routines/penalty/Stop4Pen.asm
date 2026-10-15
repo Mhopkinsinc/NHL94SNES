@@ -90,7 +90,7 @@ Stop4Pen:
 	sta.l foy
 	jsl.l limitfo
 .6:
-	lda.b $83
+	lda.b vcount
 	sec
 	sbc.w sfxmutetime
 	cmp.w #$003C

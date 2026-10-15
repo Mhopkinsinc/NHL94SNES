@@ -5,7 +5,7 @@ UpdateCrowdMeter:
 	lda.w CwdExciteLvl
 	asl a
 	asl a
-	stz.b $A7
+	stz.b d0+2
 	sta.b d0
 	jsl.l sroot
 	lda.b d0

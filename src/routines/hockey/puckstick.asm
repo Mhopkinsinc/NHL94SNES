@@ -94,7 +94,7 @@ puckstick:
 	tax
 	jsl.l Mul16S
 	lda.b $0A
-	sta.b $A7
+	sta.b d0+2
 	lda.b $08
 	sta.b d0
 	lda.w puckvy
@@ -106,8 +106,8 @@ puckstick:
 	adc.b d0
 	sta.b d0
 	lda.b $0A
-	adc.b $A7
-	sta.b $A7
+	adc.b d0+2
+	sta.b d0+2
 	stz.b d1
 	lda.w sflags
 	bit.w #$1000
@@ -138,7 +138,7 @@ puckstick:
 	lda.b $08
 	cmp.b d0
 	lda.b $0A
-	sbc.b $A7
+	sbc.b d0+2
 	bcs .t2
 	lda.w position,x
 	beq .t1x

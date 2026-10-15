@@ -16,7 +16,7 @@ TeamRoster:
 	ldx.w #$004C
 	ldy.w #$0018
 	lda.w #TeamRosterTitle>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TeamRosterTitle
 	sta.b a1
 	jsl.l PrintLetterSprites
@@ -32,19 +32,19 @@ TeamRoster:
 	adc.l charofs
 	ldx.w #$0800
 	jsl.l MemFill
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PlayerRatingTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayerRatingTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0800
 	sta.w printa
 	lda.w #$000F
@@ -52,19 +52,19 @@ TeamRoster:
 	lda.w #$0003
 	sta.b d1
 	jsl.l FramerOutline
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #TeamRosterPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TeamRosterPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0800
 	sta.w printa
 	lda.w #$000F
@@ -73,19 +73,19 @@ TeamRoster:
 	sta.b d1
 	jsl.l FramerOutline
 TeamRosterRedraw:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #TeamRosterPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TeamRosterPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w HomeTeam
 	sta.b d1
 	lda.b a2

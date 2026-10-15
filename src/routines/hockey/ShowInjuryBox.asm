@@ -2,15 +2,15 @@
 ShowInjuryBox:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
 	stx.b xsave
 	ldx.w #$0000
@@ -22,55 +22,55 @@ ShowInjuryBox:
 	cpx.w #$0014
 	bne .loop
 	ldx.b xsave
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowInjuryBoxPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowInjuryBoxPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0012
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
 	jsl.l Framer
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #InjuryToOutForPeriodTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #InjuryToOutForPeriodTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w TempPlOffset
 	bit.w #$4000
 	beq .1
 	and.w #$BFFF
 	sta.w TempPlOffset
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #TheGameTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TheGameTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .1:
 	jsl.l GetPlayerNumInitial
 	jsl.l print
@@ -84,15 +84,15 @@ ShowInjuryBox:
 	bpl .loop2
 	ldx.b xsave
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	ldx.b a3

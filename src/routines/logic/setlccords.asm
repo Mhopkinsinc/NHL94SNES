@@ -5,19 +5,19 @@ setlccords:
 	bne .1
 	inc.b d0
 .1:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #setlccordsPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #setlccordsPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w gmode
 	bit.w #$0002
 	beq .2

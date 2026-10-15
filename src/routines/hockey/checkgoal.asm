@@ -83,8 +83,8 @@ checkgoal:
 	sta.b d1
 	lda.w Ypos,x
 	sbc.w OldYpos,x
-	sta.b $AB
-	lda.b $AA
+	sta.b d1+2
+	lda.b d1+1
 	sta.b d1
 	cmp.w #$0000
 	beq .6
@@ -113,8 +113,8 @@ checkgoal:
 	sta.b d3
 	lda.w Xpos,x
 	sbc.w OldXpos,x
-	sta.b $B3
-	lda.b $B2
+	sta.b d3+2
+	lda.b d3+1
 	sta.b d3
 	ldx.b $08
 	jsl.l Mul16S
@@ -205,7 +205,7 @@ checkgoal:
 	adc.w #$012C
 	sta.l crowdlevel
 	lda.w #$003C
-	sta.b $81
+	sta.b crowdhold
 	lda.w CwdExciteLvl
 	clc
 	adc.w #$0028

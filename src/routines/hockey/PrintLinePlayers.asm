@@ -1,18 +1,18 @@
 ; Line editor: erase the line area and print the selected line's players by position, with the goalie marks
 PrintLinePlayers:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PrintLinePlayersPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PrintLinePlayersPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$0013
@@ -20,31 +20,31 @@ PrintLinePlayers:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PrintLinePlayersPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PrintLinePlayersPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l GoalieCount
 	lda.b d0
 	dec a
 	sta.b d1
 	lda.w #LineGoalieMarks
-	sta.b $9D
+	sta.b a5
 	lda.w #LineGoalieMarks>>16
-	sta.b $9F
+	sta.b a5+2
 	lda.w #.4
 	sta.b a3
 	lda.w #$009B
-	sta.b $97
+	sta.b a3+2
 	lda.w SelectedPlayerIdx
 	dec a
 	sta.b d0
@@ -58,9 +58,9 @@ PrintLinePlayers:
 	adc.b d0
 	sta.b a3
 	lda.w #PositionNames
-	sta.b $9D
+	sta.b a5
 	lda.w #PositionNames>>16
-	sta.b $9F
+	sta.b a5+2
 	lda.w #$0004
 	sta.b d1
 	lda.w SelectedPlayerIdx
@@ -91,20 +91,20 @@ PrintLinePlayers:
 .1x:
 	lda.w #$0005
 	sta.w printx
-	lda.b $9D
+	lda.b a5
 	sta.b a1
-	lda.b $9F
-	sta.b $8F
+	lda.b a5+2
+	sta.b a1+2
 	jsl.l print
 	lda.b a1
-	sta.b $9D
-	lda.b $8F
-	sta.b $9F
+	sta.b a5
+	lda.b a1+2
+	sta.b a5+2
 	lda.w #$0008
 	sta.w printx
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b [a3]
 	and.w #$00FF
@@ -114,7 +114,7 @@ PrintLinePlayers:
 	jsl.l print
 	inc.b a3
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	inc.w printy

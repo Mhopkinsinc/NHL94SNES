@@ -55,7 +55,7 @@ puckbody:
 	tax
 	jsl.l Mul16S
 	lda.b $0A
-	sta.b $AF
+	sta.b d2+2
 org $9EF000
 	lda.b $08
 	sta.b d2
@@ -68,8 +68,8 @@ org $9EF000
 	adc.b d2
 	sta.b d2
 	lda.b $0A
-	adc.b $AF
-	sta.b $AF
+	adc.b d2+2
+	sta.b d2+2
 	cmp.w #$0900
 	bcc .4
 	lda.w puckz

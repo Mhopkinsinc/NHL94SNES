@@ -111,7 +111,7 @@ puckgoalie:
 	adc.w #$0258
 	sta.l crowdlevel
 	lda.w #$003C
-	sta.b $81
+	sta.b crowdhold
 .5:
 	lda.w puckc
 	bmi .1xx

@@ -49,19 +49,19 @@ StartHL2:
 	inc.w printx
 	dec.w printy
 	dec.w printy
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #HighlightFrom>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #HighlightFrom
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$00B4
 	sta.b d0
 	jsl.l waitxsr
@@ -88,7 +88,7 @@ StartHL2:
 	sta.w VisTeam
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	jsl.l ClearTeamStats
 	jsl.l restoreteams
@@ -122,12 +122,12 @@ StartHL2:
 	adc.w #$0078
 	sta.w gameclock
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	ldx.b a0
 	lda.l gsper,x
@@ -171,7 +171,7 @@ StartHL2:
 	lda.w #$000B
 	sta.b d0
 	lda.w #$009F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.20
 	sta.b a0
 	stz.b a1
@@ -220,10 +220,10 @@ StartHL2:
 org $9F9001
 	lda.w #$00B4
 	pha
-	lda.b $83
+	lda.b vcount
 	sta.w oldvcount
 .loop3:
-	lda.b $83
+	lda.b vcount
 	cmp.w oldvcount
 	beq .loop3
 	tax
@@ -292,7 +292,7 @@ org $9F9001
 .9:
 	pla
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	jsl.l FadeOutSound
@@ -349,19 +349,19 @@ org $9F9001
 	sta.b $0C
 	jsl.l MusicStart
 .10:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #SaveRegsStartHL2Pos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #SaveRegsStartHL2Pos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0016
 	sta.b d0
 	lda.w #$0007

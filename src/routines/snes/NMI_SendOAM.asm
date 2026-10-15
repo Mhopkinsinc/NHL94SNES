@@ -28,12 +28,12 @@ NMI_Tick:
 	clc
 	adc.l vcountstep
 	sta.l vcountfrac
-	lda.b $83
+	lda.b vcount
 	adc.w #$0001
-	sta.b $83
+	sta.b vcount
 	bcc .2
 .1:
-	inc.b $85
+	inc.b vcount+2
 .2:
 	lda.w fadestep
 	beq .7

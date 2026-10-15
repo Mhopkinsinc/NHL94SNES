@@ -110,7 +110,7 @@ LoadTitleLogo:
 	rts
 
 .t1:
-	stz.b $A7
+	stz.b d0+2
 	ldx.w LogoDstOfs
 	ldy.w LogoSrcOfs
 	sep #$20
@@ -131,8 +131,8 @@ LoadTitleLogo:
 	inx
 	inx
 	iny
-	inc.b $A7
-	lda.b $A7
+	inc.b d0+2
+	lda.b d0+2
 	cmp.b #$20
 	bcc .loopx
 	rep #$20
@@ -149,13 +149,13 @@ LoadTitleLogo:
 	ldx.w #$0002
 	ldy.w #$0002
 	lda.b [$0C],y
-	sta.b $A7
+	sta.b d0+2
 	sta.l titlelogobuf,x
 	ldx.w #$0004
 	lda.w #$0010
 	sta.l titlelogobuf,x
 	lda.b d0
-	ldx.b $A7
+	ldx.b d0+2
 	jsl.l Mul8U
 	clc
 	adc.w #$0006
@@ -182,5 +182,5 @@ LoadTitleLogo:
 	bcc .loopx2
 	rep #$20
 	ldx.b d0
-	ldy.b $A7
+	ldy.b d0+2
 	rts

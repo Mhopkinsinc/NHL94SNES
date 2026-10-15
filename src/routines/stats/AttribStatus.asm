@@ -23,7 +23,7 @@ AttribStatus:
 	sta.b d0
 .4:
 	lda.w #StatusTextTbl>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #StatusTextTbl
 	sta.b a1
 	jml.l PrintStringFromList
@@ -46,7 +46,7 @@ AttribStatus:
 	sta.b d0
 .1x:
 	lda.w #StatusTextTbl>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #StatusTextTbl
 	sta.b a1
 	jml.l PrintStringFromList

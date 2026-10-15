@@ -167,7 +167,7 @@ puckfaceoff2:
 	sta.w tmtouch3
 	sta.w tmtouch2+2
 	sta.w tmtouch3+2
-	lda.b $97
+	lda.b a3+2
 	pha
 	lda.b a3
 	pha
@@ -269,7 +269,7 @@ puckfaceoff2:
 	asl a
 	sta.b d4
 	lda.w #$009F
-	sta.b $8F
+	sta.b a1+2
 	lda.w #.19
 	clc
 	adc.b d4
@@ -277,7 +277,7 @@ puckfaceoff2:
 	lda.w penshot
 	beq .7
 	lda.w #$009F
-	sta.b $8F
+	sta.b a1+2
 	lda.w #.20
 	sta.b a1
 .7:
@@ -288,7 +288,7 @@ puckfaceoff2:
 	asl a
 	sta.b d4
 	lda.w #$009F
-	sta.b $8F
+	sta.b a1+2
 	lda.w #.21
 	sta.b a1
 	ldy.b d4
@@ -405,7 +405,7 @@ puckfaceoff2:
 	pla
 	sta.b a3
 	pla
-	sta.b $97
+	sta.b a3+2
 	lda.w penshot
 	beq .6x
 	ldx.w #$0008
@@ -461,19 +461,19 @@ puckfaceoff2:
 .6x:
 	ldx.b a3
 	jsl.l FaceoffPads
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #puckfaceoff2Pos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #puckfaceoff2Pos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0036
 	sta.b d0
 	lda.l fox
@@ -531,13 +531,13 @@ puckfaceoff2:
 	tax
 	ldy.w #$0000
 	lda.l FaceOffMap+2
-	sta.b $C8
+	sta.b tmp1+1
 	clc
 	lda.w penshot
 	bne .t2xx
 .loop4:
 	lda.l FaceOffMap
-	sta.b $CA
+	sta.b tmp2+1
 .loop5:
 	lda.b [tmp0],y
 	clc
@@ -548,7 +548,7 @@ puckfaceoff2:
 	iny
 	inx
 	inx
-	dec.b $CA
+	dec.b tmp2+1
 	bne .loop5
 	txa
 	clc
@@ -557,7 +557,7 @@ puckfaceoff2:
 	sbc.l FaceOffMap
 	sbc.l FaceOffMap
 	tax
-	dec.b $C8
+	dec.b tmp1+1
 	bne .loop4
 	jmp.w .17
 
@@ -589,19 +589,19 @@ puckfaceoff2:
 	inc.w printy
 	lda.w #$000F
 	sta.w printx
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #VersusText>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #VersusText
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	inc.w printy
 	lda.w BA_Team
 	eor.w #$0002
@@ -625,7 +625,7 @@ puckfaceoff2:
 	lda.w shootoutmode
 	beq .t1xxx
 	lda.w #ShootoutPenShot>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShootoutPenShot
 	sta.b a1
 	jsl.l printbig
@@ -633,7 +633,7 @@ puckfaceoff2:
 
 .t1xxx:
 	lda.w #ShootoutPenShot>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShootoutPenShot+10
 	sta.b a1
 	jsl.l printbig
@@ -670,7 +670,7 @@ puckfaceoff2:
 	dec.w printy
 	dec.w printy
 	lda.w #linelist>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #linelist
 	sta.b a1
 	jsl.l PrintStringFromList
@@ -681,7 +681,7 @@ puckfaceoff2:
 	lda.b d1
 	sta.b d0
 	lda.w #linelist>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #linelist
 	sta.b a1
 	jsl.l PrintStringFromList

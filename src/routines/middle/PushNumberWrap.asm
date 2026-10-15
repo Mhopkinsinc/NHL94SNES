@@ -16,7 +16,7 @@ PushNumberWrap:
 	sta.b d0
 PushNumberWidth:
 	lda.w #$0000
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0A8E
 	sta.b a1
 	lda.b d1

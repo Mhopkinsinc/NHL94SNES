@@ -10,7 +10,7 @@ SwapRosterTeam:
 	ldx.w #$004C
 	ldy.w #$0018
 	lda.w #TeamRosterSwap>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TeamRosterSwap
 	sta.b a1
 	jsl.l PrintLetterSprites

@@ -3,11 +3,11 @@ DefaultMenus:
 	lda.w #$FFFF
 	sta.l notdemo
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$34BC
 	sta.b a0
 	lda.w #$009D
-	sta.b $8F
+	sta.b a1+2
 	lda.w #.1
 	sta.b a1
 	ldy.w #$0000

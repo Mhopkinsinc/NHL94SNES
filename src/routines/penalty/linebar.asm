@@ -24,7 +24,7 @@ linebar:
 	sta.w mesarea+5
 	sta.w mesarea+6
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	ldx.b d0

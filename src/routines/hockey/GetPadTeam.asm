@@ -2,17 +2,17 @@
 GetPadTeam:
 	stz.b a2
 	lda.w #$0001
-	sta.b $93
+	sta.b a2+2
 	ldx.w pausepad
 	bpl .t1
 	txa
 	eor.w #$FFFF
 	inc a
-	sta.b $93
+	sta.b a2+2
 	ldx.w #$0000
 .loop:
 	lda.w cont1team,x
-	cmp.b $93
+	cmp.b a2+2
 	beq .t1
 	inx
 	inx

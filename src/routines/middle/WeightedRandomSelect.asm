@@ -1,15 +1,15 @@
 ; d0 = a random index 0 ... d0 into the weight word list at $0CF9, each index as likely as its weight
 WeightedRandomSelect:
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b d1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #$0000
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0CF9
 	sta.b a1
 	stz.b d1
@@ -43,9 +43,9 @@ WeightedRandomSelect:
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $AB
+	sta.b d1+2
 	rtl

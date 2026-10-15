@@ -99,7 +99,7 @@ clockcont_0:
 	adc.w #$03E8
 	sta.l crowdlevel
 	lda.w #$003C
-	sta.b $81
+	sta.b crowdhold
 	lda.w #$0040
 	sta.w gmclock
 	tsb.w gmode
@@ -110,7 +110,7 @@ clockcont_0:
 	sta.l crowdlevel
 	lda.w #$0003
 	sta.w cheercnt
-	lda.b $83
+	lda.b vcount
 	sec
 	sbc.w #$0096
 	sta.w cheervc

@@ -2,25 +2,25 @@
 getlinee:
 	lda.b d3
 	pha
-	lda.b $B3
+	lda.b d3+2
 	pha
 	lda.b d4
 	pha
-	lda.b $B7
+	lda.b d4+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	ldy.b a2
 	lda.w tmdata,y
 	sta.b a1
 	lda.w #$009C
-	sta.b $8F
+	sta.b a1+2
 	ldy.w #$0006
 	lda.b [a1],y
 	clc
@@ -35,7 +35,7 @@ getlinee:
 	stz.b $08
 	stz.b $04
 	lda.w #priolist>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #priolist
 	sta.b a0
 	ldy.b a2
@@ -71,19 +71,19 @@ getlinee:
 	lda.b $00
 	sta.b d0
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $B7
+	sta.b d4+2
 	pla
 	sta.b d4
 	pla
-	sta.b $B3
+	sta.b d3+2
 	pla
 	sta.b d3
 	rtl

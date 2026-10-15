@@ -22,9 +22,9 @@ waitxsr:
 	jsl.l SpriteFrameStart
 	jsl.l setvideo
 	jsl.l SpriteFrameEnd
-	lda.b $83
+	lda.b vcount
 .loop3:
-	cmp.b $83
+	cmp.b vcount
 	beq .loop3
 	jsl.l ReadPads
 	pla

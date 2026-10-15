@@ -31,7 +31,7 @@ checkfornewpen:
 	sta.b d0
 	tay
 	lda.w #PenaltyList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltyList
 	sta.b a1
 	lda.b [a1],y
@@ -83,7 +83,7 @@ checkfornewpen:
 	sta.b d0
 	tay
 	lda.w #PenaltyList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltyList
 	sta.b a1
 	lda.b [a1],y

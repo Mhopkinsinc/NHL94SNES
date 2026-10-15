@@ -2,19 +2,19 @@
 CompLine:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.w #$0003
 	sta.b d0
@@ -49,19 +49,19 @@ CompLine:
 	sta.w tmline,y
 .3:
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	rtl
@@ -82,7 +82,7 @@ CompLine:
 	lda.w #$0002
 	sta.b d1
 	lda.w #$009F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.5
 	sta.b a0
 	lda.w gsp
@@ -94,13 +94,13 @@ CompLine:
 	beq .1x
 	php
 	lda.w #$009F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.5+14
 	sta.b a0
 	plp
 	bpl .1x
 	lda.w #$009F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.5+28
 	sta.b a0
 .1x:
@@ -128,7 +128,7 @@ CompLine:
 	lda.w #$0002
 	sta.b d1
 	lda.w #$009F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.7
 	sta.b a0
 	lda.w gsp
@@ -141,13 +141,13 @@ CompLine:
 	beq .1xx
 	php
 	lda.w #$009F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.7+6
 	sta.b a0
 	plp
 	bpl .1xx
 	lda.w #$009F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.7+12
 	sta.b a0
 .1xx:

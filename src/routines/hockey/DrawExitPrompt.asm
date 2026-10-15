@@ -1,18 +1,18 @@
 ; Draw the exit question and the Yes and No lines.
 DrawExitPrompt:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawExitPromptPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawExitPromptPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0016
 	sta.b d0
 	lda.w #$0007
@@ -27,7 +27,7 @@ DrawExitPrompt:
 	sta.w printx
 	sty.w printy
 	lda.w #ExitPromptClear>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ExitPromptClear
 	sta.b a1
 	jsl.l print
@@ -35,46 +35,46 @@ DrawExitPrompt:
 	iny
 	cpy.w #$0012
 	bcc .loop
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawExitPromptPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawExitPromptPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$2400
 	sta.w printa
 	lda.w #ExitGameAsk>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ExitGameAsk
 	sta.b a1
 	lda.w shootoutmode
 	beq .1
 	lda.w #ExitShootoutAsk>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ExitShootoutAsk
 	sta.b a1
 .1:
 	jsl.l print
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawExitPromptPos3>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawExitPromptPos3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$2400
 	sta.w printa
 	lda.w curitem
@@ -83,23 +83,23 @@ DrawExitPrompt:
 	sta.w printa
 .2:
 	lda.w #ExitNo>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ExitNo
 	sta.b a1
 	jsl.l print
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawExitPromptPos4>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawExitPromptPos4
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$2400
 	sta.w printa
 	lda.w curitem
@@ -108,7 +108,7 @@ DrawExitPrompt:
 	sta.w printa
 .3:
 	lda.w #ExitYes>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ExitYes
 	sta.b a1
 	jsl.l print

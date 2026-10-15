@@ -1,19 +1,19 @@
 ; Redraw the line editor background: clear the top, the frame, and the background map in map 2
 DrawEditLinesBack:
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawEditLinesBackPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawEditLinesBackPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$000D
@@ -21,19 +21,19 @@ DrawEditLinesBack:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawEditLinesBackPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawEditLinesBackPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0800
 	sta.w printa
 	lda.w #$0011

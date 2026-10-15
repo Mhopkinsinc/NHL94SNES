@@ -61,7 +61,7 @@ org $9EA001
 	asl a
 	tay
 	lda.w #$009E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.4
 	sta.b a0
 	sta.w pf2aip,x

@@ -264,7 +264,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	lda.w mp5warning
 	beq .11
 .9:
-	lda.b $83
+	lda.b vcount
 	and.b #$10
 	bne .t1xxx
 	ldx.w #$1000

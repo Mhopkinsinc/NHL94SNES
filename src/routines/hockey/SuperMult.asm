@@ -11,9 +11,9 @@ SuperMult:
 	dex
 	bpl .loop
 	lda.b d0
-	sta.b $CD
+	sta.b tmp4
 .loop2:
-	lsr.b $CD
+	lsr.b tmp4
 	bcc .1
 	lda.l passbits
 	clc
@@ -49,7 +49,7 @@ SuperMult:
 	rol.b $E7
 	rol.b $E9
 	rol.b $EB
-	lda.b $CD
+	lda.b tmp4
 	bne .loop2
 	plx
 	clc

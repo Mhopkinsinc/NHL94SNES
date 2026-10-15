@@ -4,7 +4,7 @@ GetTeamRating:
 	lda.w tmdata,y
 	sta.b a0
 	lda.w #$009C
-	sta.b $8B
+	sta.b a0+2
 	ldy.w #$0008
 	lda.b [a0],y
 	clc

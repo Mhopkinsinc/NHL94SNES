@@ -5,7 +5,7 @@ PrintTeamAbbrev:
 	lda.w tmdata
 	sta.b a1
 	lda.w #$009C
-	sta.b $8F
+	sta.b a1+2
 	lda.b d3
 	beq .1
 	lda.w tmdata+2

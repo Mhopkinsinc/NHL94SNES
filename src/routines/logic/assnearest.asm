@@ -80,7 +80,7 @@ assnearest:
 	lda.w #$0012
 	sta.b d0
 	jsl.l assinsert
-	ldx.b $E4
+	ldx.b curobj
 	jmp.w assexit
 .3:
 	lda.w #$0002
@@ -131,7 +131,7 @@ assnearest:
 .1xxx:
 	sta.b d1
 	lda.w #rtss>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #rtss
 	sta.b a0
 	jsl.l skateto
@@ -233,7 +233,7 @@ assnearest:
 	sta.b d1
 .4x:
 	lda.w #rtss>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #rtss
 	sta.b a0
 	jsl.l skateto

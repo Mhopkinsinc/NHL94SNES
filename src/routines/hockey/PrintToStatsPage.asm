@@ -9,7 +9,7 @@ PrintToStatsPage:
 	sta.b $22
 	inc.b a1
 	inc.b a1
-	lda.b $8F
+	lda.b a1+2
 	sta.b $0E
 	lda.b a1
 	sta.b $0C

@@ -2,19 +2,19 @@
 prefmes:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.w sfhormode
 	beq .t1
@@ -23,19 +23,19 @@ prefmes:
 .t1:
 	lda.l penmsgbox
 	beq .1
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #prefmesPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #prefmesPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$000E
 	sta.b d0
 	lda.w #$0003
@@ -51,21 +51,21 @@ prefmes:
 	jmp.w .3
 
 .t4:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #prefmesPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #prefmesPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltyList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltyList
 	sta.b a1
 	ldy.b d0
@@ -140,21 +140,21 @@ prefmes:
 	jsl.l ClearPenaltyMessage
 	lda.b d0
 	bmi .3
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #prefmesPos3>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #prefmesPos3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltyList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltyList
 	sta.b a1
 	ldy.b d0
@@ -174,19 +174,19 @@ prefmes:
 	jsl.l print
 .3:
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	rtl

@@ -1,22 +1,22 @@
 ; Print the selected line name and attribute column ($0D47, wrapping) and each player of the line with GetNameandAttrib
 ShowRosterLine:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowRosterLinePos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowRosterLinePos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w SelectedPlayerIdx
 	sta.b d0
 	lda.w #RosterLineNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RosterLineNames
 	sta.b a1
 	jsl.l AdvanceStringPtr
@@ -27,7 +27,7 @@ ShowRosterLine:
 	sta.w printy
 .col:
 	lda.w #AttribMenuSkater>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AttribMenuSkater
 	sta.b a1
 	lda.w DispAttribCtr
@@ -35,7 +35,7 @@ ShowRosterLine:
 	lda.w SelectedPlayerIdx
 	bne .top
 	lda.w #AttribMenuGoalie>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AttribMenuGoalie
 	sta.b a1
 	bra .top
@@ -59,23 +59,23 @@ ShowRosterLine:
 .t2:
 	jsl.l print
 	lda.b [a1]
-	sta.b $B7
+	sta.b d4+2
 	ldy.w #$0002
 	lda.b [a1],y
 	sta.b d4
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowRosterLinePos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowRosterLinePos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$0013
@@ -83,29 +83,29 @@ ShowRosterLine:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #YSwitchTeamsTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #YSwitchTeamsTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l GoalieCount
 	lda.b d0
 	dec a
 	sta.b d1
 	lda.w #RosterGoalieMarks>>16
-	sta.b $9F
+	sta.b a5+2
 	lda.w #RosterGoalieMarks
-	sta.b $9D
+	sta.b a5
 	lda.w #RosterGoalieList>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #RosterGoalieList
 	sta.b a3
 	lda.w SelectedPlayerIdx
@@ -118,7 +118,7 @@ ShowRosterLine:
 	sta.b d0
 	ldy.b a2
 	lda.w #$009C
-	sta.b $97
+	sta.b a3+2
 	lda.w tmdata,y
 	sta.b a3
 	ldy.w #$0006
@@ -128,9 +128,9 @@ ShowRosterLine:
 	adc.b d0
 	sta.b a3
 	lda.w #PositionNames>>16
-	sta.b $9F
+	sta.b a5+2
 	lda.w #PositionNames
-	sta.b $9D
+	sta.b a5
 	lda.w #$0004
 	sta.b d1
 	lda.w SelectedPlayerIdx
@@ -150,15 +150,15 @@ ShowRosterLine:
 	lda.w #$0001
 org $9DA000
 	sta.w printx
-	lda.b $9F
-	sta.b $8F
-	lda.b $9D
+	lda.b a5+2
+	sta.b a1+2
+	lda.b a5
 	sta.b a1
 	jsl.l print
-	lda.b $8F
-	sta.b $9F
+	lda.b a1+2
+	sta.b a5+2
 	lda.b a1
-	sta.b $9D
+	sta.b a5
 	lda.w #$0004
 	sta.w printx
 	lda.b [a3]

@@ -49,7 +49,7 @@ SetLCmode2:
 	sta.b d0
 .1x:
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #$0004
@@ -66,7 +66,7 @@ SetLCmode2:
 	lda.b d0
 	pha
 	lda.w #linelist>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #linelist
 	sta.b a1
 	jsl.l PrintStringFromList
@@ -85,7 +85,7 @@ SetLCmode2:
 	ldy.b a2
 	lda.w HomeTeam,y
 	lda.w #$009C
-	sta.b $8F
+	sta.b a1+2
 	lda.w tmdata,y
 	sta.b a1
 	ldy.w #$0004

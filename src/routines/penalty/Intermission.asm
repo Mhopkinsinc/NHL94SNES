@@ -8,8 +8,8 @@ Intermission:
 	dey
 	dey
 	bpl .loop
-	lda.b $83
-	ldy.b $85
+	lda.b vcount
+	ldy.b vcount+2
 	sta.w vcountmark
 	sty.w vcountmark+2
 	lda.w #$0001
@@ -24,7 +24,7 @@ Intermission:
 	sta.w pausetimer
 	lda.w #$0001
 	sta.w demoflag
-	lda.b $83
+	lda.b vcount
 	sec
 	sbc.w #$0150
 	sta.w tickervc
@@ -65,19 +65,19 @@ Intermission:
 	dey
 	dey
 	bpl .loop3
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #IntermissionPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #IntermissionPos+5
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0016
 	sta.b d0
 	lda.w #$0007

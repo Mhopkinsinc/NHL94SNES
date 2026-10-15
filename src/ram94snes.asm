@@ -211,6 +211,13 @@ d3 = $B1
 d4 = $B5
 d5 = $B9
 d6 = $BD
+a5 = $9D		; long pointer (the next of the 4-byte a registers); a5+2 is the bank
+vcount = $83		; 32-bit frame counter, +1 per NMI (NMI_Tick; 93S vcount)
+crowdhold = $81		; frames the crowd level holds before it fades (Goal 120, puckglue 20; updatecrowdf counts it down)
+tmp3 = $CB		; scratch word (after tmp0-tmp2)
+tmp4 = $CD		; scratch word
+tmp5 = $CF		; scratch word
+curobj = $E4		; object index of the object being updated (updateplayers, CalcPuckDistances store X; the assignments reload it)
 
 gmclock = $15D6		; nonzero: game clock is stopped
 PenBuf = $15DE		; up to 32 penalties: (penalty number, object) word pairs, 0 = free

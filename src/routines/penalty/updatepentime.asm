@@ -34,7 +34,7 @@ updatepentime:
 .2:
 	sta.b a0
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #$0002

@@ -1,7 +1,7 @@
 ; d0 = the square root of $A7:d0 (binary search, the range narrowed first)
 sroot:
 	phx
-	lda.b $A7
+	lda.b d0+2
 	beq .3
 	ldx.w #$0100
 	ldy.w #$1000
@@ -41,7 +41,7 @@ sroot:
 	jsl.l Mul16U
 	lda.b d0
 	cmp.b $08
-	lda.b $A7
+	lda.b d0+2
 	sbc.b $0A
 	bcs .t1x
 	pla

@@ -1,19 +1,19 @@
 ; Draw the current player card, including strengths and ratings.
 DrawPlayerCard:
 	jsl.l SpriteFrameStart
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawPlayerCardPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawPlayerCardPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$0014
@@ -28,7 +28,7 @@ DrawPlayerCard:
 	jsl.l DrawLogoSprite
 	ldy.b a2
 	lda.w #$009C
-	sta.b $97
+	sta.b a3+2
 	lda.w tmdata,y
 	sta.b a3
 	ldy.w #$000C
@@ -52,7 +52,7 @@ DrawPlayerCard:
 	adc.w #$0006
 	tay
 	lda.w #$009D
-	sta.b $8F
+	sta.b a1+2
 	lda.w #.8
 	sta.b a1
 	lda.b [a1],y
@@ -86,7 +86,7 @@ DrawPlayerCard:
 
 .t2x:
 	lda.w #RosterGroups>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RosterGroups+18
 	sta.b a1
 	lda.b [a1]
@@ -105,12 +105,12 @@ DrawPlayerCard:
 	ldx.w #$0038
 	ldy.w #$007A
 	lda.w #StrengthsLabel>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #StrengthsLabel
 	sta.b a1
 	jsl.l PrintSmallLetterSprites
 	lda.w #RatingNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RatingNames+178
 	sta.b a1
 	lda.w strengths
@@ -125,7 +125,7 @@ DrawPlayerCard:
 	ldy.w #$0084
 	jsl.l PrintSmallLetterSprites
 	lda.w #RatingNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RatingNames+178
 	sta.b a1
 	lda.w strengths+4
@@ -146,7 +146,7 @@ DrawPlayerCard:
 	ldy.w #$008E
 	jsl.l PrintSmallLetterSprites
 	lda.w #RatingNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RatingNames+178
 	sta.b a1
 	lda.w strengths+8
@@ -182,14 +182,14 @@ org $9DC002
 	beq .t1x2
 	bmi .t1x2
 	lda.w #RosterGroups>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RosterGroups
 	sta.b a1
 	bra .3
 
 .t1x2:
 	lda.w #RosterGroups>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RosterGroups+9
 	sta.b a1
 .3:
@@ -209,12 +209,12 @@ org $9DC002
 	ldx.w #$0038
 	ldy.w #$007A
 	lda.w #StrengthsLabelB>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #StrengthsLabelB
 	sta.b a1
 	jsl.l PrintSmallLetterSprites
 	lda.w #RatingNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RatingNames
 	sta.b a1
 	lda.w strengths
@@ -225,7 +225,7 @@ org $9DC002
 	ldy.w #$0084
 	jsl.l PrintSmallLetterSprites
 	lda.w #RatingNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RatingNames
 	sta.b a1
 	lda.w strengths+4
@@ -239,7 +239,7 @@ org $9DC002
 	ldy.w #$008E
 	jsl.l PrintSmallLetterSprites
 	lda.w #RatingNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RatingNames
 	sta.b a1
 	lda.w strengths+8
@@ -256,7 +256,7 @@ org $9DC002
 	ldx.w #$0098
 	ldy.w #$007A
 	lda.w #OverallRating>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #OverallRating
 	sta.b a1
 	jsl.l PrintSmallLetterSprites
@@ -276,19 +276,19 @@ org $9DC002
 	jsl.l ClearPictureBox
 	lda.w #$0001
 	sta.l cardblock
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawPlayerCardPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawPlayerCardPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	ldy.b a2
 	lda.w HomeTeam,y
 	sta.b d1
@@ -297,7 +297,7 @@ org $9DC002
 	sta.l cardblock
 	ldy.b a2
 	lda.w #$009C
-	sta.b $8F
+	sta.b a1+2
 	lda.w tmdata,y
 	sta.b a1
 	ldy.w #$0004
@@ -369,7 +369,7 @@ org $9DC002
 	ldx.w #$0066
 	ldy.w #$0098
 	lda.w #TeamRating>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TeamRating
 	sta.b a1
 	jsl.l PrintSmallLetterSprites

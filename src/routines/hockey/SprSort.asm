@@ -64,15 +64,15 @@ SprSort:
 	lda.b d2
 	bne .2
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	ply

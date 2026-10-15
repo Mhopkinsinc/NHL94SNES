@@ -112,7 +112,7 @@ DrawPlayerPicture:
 	adc.w #$D8B3
 	sta.b a1
 	lda.w #$009D
-	sta.b $8F
+	sta.b a1+2
 	lda.b [a1]
 	sta.b $0C
 	inc.b a1
@@ -222,7 +222,7 @@ DrawPlayerPicture:
 	rtl
 .8:
 	lda.w #AttribMenuSkater>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AttribMenuSkater
 	sta.b a1
 	stz.b $08
@@ -239,7 +239,7 @@ DrawPlayerPicture:
 .9:
 	ldy.b a2
 	lda.w #$009C
-	sta.b $97
+	sta.b a3+2
 	lda.w tmdata,y
 	sta.b a3
 	ldy.w #$000C
@@ -316,7 +316,7 @@ DrawPlayerPicture:
 	adc.w #$D8B3
 	sta.b a1
 	lda.w #$009D
-	sta.b $8F
+	sta.b a1+2
 	lda.b [a1]
 	sta.b $0C
 	inc.b a1

@@ -3,15 +3,15 @@ printbig:
 	phx
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
 	ldy.w #$0002
 .7:
@@ -192,15 +192,15 @@ printbig:
 	jmp.w .7
 .9:
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	plx

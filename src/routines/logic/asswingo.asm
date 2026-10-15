@@ -112,7 +112,7 @@ asswingo:
 	sta.w temp5,x
 	tay
 	lda.w #$009E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.9
 	sta.b a0
 	iny
@@ -158,7 +158,7 @@ asswingo:
 	sta.b d1
 .2xx:
 	lda.w #EvadePC>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #EvadePC
 	sta.b a0
 	jml.l skateto

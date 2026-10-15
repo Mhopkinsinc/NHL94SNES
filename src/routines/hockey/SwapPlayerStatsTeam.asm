@@ -13,7 +13,7 @@ SwapPlayerStatsTeam:
 	ldx.w #$0049
 	ldy.w #$0018
 	lda.w #PlayerStatsHeading>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayerStatsHeading
 	sta.b a1
 	jsl.l PrintLetterSprites

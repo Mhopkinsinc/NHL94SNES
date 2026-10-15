@@ -151,7 +151,7 @@ org $9FD000
 	sta.w ThirdPBonus
 .6:
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	ldy.w #$0000

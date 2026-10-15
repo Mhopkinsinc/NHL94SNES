@@ -94,7 +94,7 @@ asscentero:
 	sta.w temp5,x
 	tay
 	lda.w #CenterOSpots>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #CenterOSpots
 	sta.b a0
 	iny
@@ -128,7 +128,7 @@ asscentero:
 	sta.b d1
 .1xxx:
 	lda.w #EvadePC>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #EvadePC
 	sta.b a0
 	jml.l skateto

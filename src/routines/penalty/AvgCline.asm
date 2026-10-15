@@ -2,19 +2,19 @@
 AvgCline:
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
 	lda.b d3
 	pha
-	lda.b $B3
+	lda.b d3+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	stz.b d0
 	stz.b d1
@@ -60,19 +60,19 @@ AvgCline:
 	plx
 .3:
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $B3
+	sta.b d3+2
 	pla
 	sta.b d3
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	rtl

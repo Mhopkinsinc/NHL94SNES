@@ -17,7 +17,7 @@ assfaceoffpl:
 	stz.w temp1,x
 .1xx:
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$312A
 	sta.b a0
 	lda.w pfteam,x

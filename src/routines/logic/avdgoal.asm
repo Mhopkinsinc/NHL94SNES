@@ -43,7 +43,7 @@ avdgoal:
 	sta.b $20
 	lda.b tmp2
 	bne .2
-	ldx.b $E4
+	ldx.b curobj
 	plb
 	rtl
 
@@ -76,18 +76,18 @@ avdgoal:
 	beq .t1x
 	ldx.b tmp0
 	jsr (.26,x)
-	ldx.b $E4
+	ldx.b curobj
 	plb
 	rtl
 
 .t1x:
 	jsr.w .t2x
-	ldx.b $E4
+	ldx.b curobj
 	plb
 	rtl
 
 .t2x:
-	ldx.b $E4
+	ldx.b curobj
 	lda.b $0E
 	cmp.w #$FEF8
 	bpl .t1xx
@@ -343,7 +343,7 @@ avdgoal:
 	sty.b $16
 	lda.b tmp2
 	bne .2xxx
-	ldx.b $E4
+	ldx.b curobj
 	plb
 	rtl
 
@@ -376,18 +376,18 @@ avdgoal:
 	beq .t1xxxxxx
 	ldx.b tmp0
 	jsr (.47,x)
-	ldx.b $E4
+	ldx.b curobj
 	plb
 	rtl
 
 .t1xxxxxx:
 	jsr.w .t3
-	ldx.b $E4
+	ldx.b curobj
 	plb
 	rtl
 
 .t3:
-	ldx.b $E4
+	ldx.b curobj
 	lda.b $0E
 	cmp.w #$FEF8
 	bpl .t1xxxxxxx

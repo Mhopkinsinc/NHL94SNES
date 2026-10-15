@@ -32,19 +32,19 @@ SetPlList:
 	bpl .1
 	inc.b a0
 .1:
-	lda.b $97
+	lda.b a3+2
 	pha
 	lda.b a3
 	pha
 	jsl.l GetTeamLines
-	lda.b $97
-	sta.b $8F
+	lda.b a3+2
+	sta.b a1+2
 	lda.b a3
 	sta.b a1
 	pla
 	sta.b a3
 	pla
-	sta.b $97
+	sta.b a3+2
 	ldy.b a2
 	lda.w tmline,y
 	asl a
@@ -137,19 +137,19 @@ SetPlList:
 	bmi .5
 	beq .5
 .3x:
-	lda.b $97
+	lda.b a3+2
 	pha
 	lda.b a3
 	pha
 	jsl.l GetTeamLines
-	lda.b $97
-	sta.b $8F
+	lda.b a3+2
+	sta.b a1+2
 	lda.b a3
 	sta.b a1
 	pla
 	sta.b a3
 	pla
-	sta.b $97
+	sta.b a3+2
 	lda.b d4
 	clc
 	adc.w #$0006
@@ -159,7 +159,7 @@ SetPlList:
 	asl a
 	sta.b d0
 	lda.w #sublist>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #sublist
 	sta.b a0
 	ldy.b d0

@@ -12,10 +12,10 @@ PrintStringSprites:
 	sta.b d1
 	lda.w #$FFFF
 	sta.b a2
-	sta.b $93
+	sta.b a2+2
 	pha
 	sep #$30
-	lda.b $8F
+	lda.b a1+2
 	pha
 	plb
 	rep #$30

@@ -12,11 +12,11 @@ GetNameandAttrib:
 	ldx.b xsave
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b $08
 	pha
@@ -41,7 +41,7 @@ GetNameandAttrib:
 	jsl.l CalcAttrib
 .2:
 	lda.w #attribjmp>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #attribjmp
 	sta.b a0
 	ldy.b d4
@@ -50,15 +50,15 @@ GetNameandAttrib:
 	adc.b a0
 	sta.b a0
 	sta.w jmlvector+1
-	lda.b $8A
+	lda.b a0+1
 	sta.w jmlvector+2
 	jsl.l jmlvector
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	stx.b xsave

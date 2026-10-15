@@ -2,7 +2,7 @@
 PulseColour:
 	phx
 	phy
-	lda.b $83
+	lda.b vcount
 	sta.b $08
 	lda.w #$001E
 	sta.b $04

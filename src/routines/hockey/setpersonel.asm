@@ -99,7 +99,7 @@ setpersonel:
 	lda.w #$0005
 	sta.b d4
 	lda.w #$007E
-	sta.b $9B
+	sta.b a4+2
 	lda.w #$3114
 	sta.b a4
 .5:

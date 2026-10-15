@@ -74,7 +74,7 @@ checkpuckcoll_ccx:
 	lda.b d1
 	tax
 	jsl.l Mul8U
-	ldx.b $E4
+	ldx.b curobj
 	clc
 	adc.b d0
 	sta.b d0
@@ -188,7 +188,7 @@ checkpuckcoll_ccx:
 	tax
 	lda.l .8,x
 	sta.b d3
-	ldx.b $E4
+	ldx.b curobj
 	lda.b a2
 	jsl.l GetHot
 	ldy.b a2
@@ -250,7 +250,7 @@ checkpuckcoll_ccx:
 	lda.b d2
 	tax
 	jsl.l Mul8U
-	ldx.b $E4
+	ldx.b curobj
 	sta.b d1
 	lda.w nopuck+puckobj
 	bmi .2xxxx

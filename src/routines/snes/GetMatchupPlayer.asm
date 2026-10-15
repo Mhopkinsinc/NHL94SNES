@@ -2,7 +2,7 @@
 GetMatchupPlayer:
 	tay
 	lda.w #$009D
-	sta.b $8F
+	sta.b a1+2
 	lda.w #.1
 	sta.b a1
 	lda.b [a1],y
@@ -10,7 +10,7 @@ GetMatchupPlayer:
 	pha
 	ldy.b a2
 	lda.w #$009C
-	sta.b $8F
+	sta.b a1+2
 	lda.w tmdata,y
 	sta.b a1
 	ldy.w #$000C

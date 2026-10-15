@@ -4,13 +4,13 @@ faceoffinput:
 	cmp.w #$0017
 	bne .t2
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$3122
 	sta.b a0
 	lda.w pfgoal,x
 	beq .1
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$3124
 	sta.b a0
 .1:

@@ -7006,3 +7006,10 @@ $0BC9,GoalieUnused,,behavior,RAM; assgoalietopuck clears it when the assignment 
 $0C0B,FaceoffUnused,,behavior,"RAM; per player (12 words): FaceoffPads clears it with goalieflags, goalieturnwait, goaliedivewait",src/ram94snes.asm
 $1D60,PauseUnused,,behavior,RAM; Pausemode clears it when the pause menu is left (with pregamepause),src/ram94snes.asm
 $9AD0B6,RinkPalette,,render,"the 128 rink colours (BG palettes 0-7): setupice copies them to palbuffer and palbuffer+$100; the rink map renders with them",src/data/gfx/CrowdMeterPalette.asm
+$83,vcount,,93S,"RAM; 32-bit frame counter, +1 per NMI (NMI_Tick; 93S vcount)",src/ram94snes.asm
+$9D,a5,,behavior,RAM; long pointer (the next of the 4-byte a registers); a5+2 is the bank,src/ram94snes.asm
+$81,crowdhold,,behavior,"RAM; frames the crowd level holds before it fades (Goal 120, puckglue 20; updatecrowdf counts it down)",src/ram94snes.asm
+$CB,tmp3,,behavior,RAM; scratch word (after tmp0-tmp2),src/ram94snes.asm
+$CD,tmp4,,behavior,RAM; scratch word,src/ram94snes.asm
+$CF,tmp5,,behavior,RAM; scratch word,src/ram94snes.asm
+$E4,curobj,,behavior,"RAM; object index of the object being updated (updateplayers, CalcPuckDistances store X; the assignments reload it)",src/ram94snes.asm

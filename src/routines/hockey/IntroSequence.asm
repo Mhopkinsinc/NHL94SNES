@@ -171,9 +171,9 @@ IntroSequence:
 	lda.w #$0010
 	tsb.b $C3
 	lda.w #$0003
-	sta.b $B7
-	stz.b $BB
-	lda.b $83
+	sta.b d4+2
+	stz.b d5+2
+	lda.b vcount
 	tax
 	clc
 	adc.w #$02D0
@@ -185,7 +185,7 @@ IntroSequence:
 	jsr.w .22
 	rts
 .4:
-	lda.b $B7
+	lda.b d4+2
 	sta.b d4
 	lda.b d4
 	cmp.w #$000D
@@ -206,7 +206,7 @@ IntroSequence:
 	dw .6,.7,.8,.9,.10,.11,.12
 	dw .13,.14,.15,.16,.17,.18,.19
 .6:
-	ldx.b $BB
+	ldx.b d5+2
 	bne .t1xx
 	lda.b $D9
 	clc
@@ -224,11 +224,11 @@ IntroSequence:
 	lda.w #$0040
 	tsb.b $C3
 	lda.b d5
-	sta.b $B7
+	sta.b d4+2
 .1xx:
 	jmp.w .20
 .7:
-	ldx.b $BB
+	ldx.b d5+2
 	bne .t1xxx
 	jsr.w .30
 	bne .t1xxx
@@ -249,22 +249,22 @@ IntroSequence:
 	lda.w #$0008
 	tsb.b $C3
 	lda.b d5
-	sta.b $B7
+	sta.b d4+2
 .1xxx:
 	jmp.w .20
 .8:
-	ldx.b $BB
+	ldx.b d5+2
 	bne .1xxxx
-	lda.b $83
-	cmp.b $BF
+	lda.b vcount
+	cmp.b d6+2
 	bmi .2x
 .1xxxx:
 	lda.b d5
-	sta.b $B7
+	sta.b d4+2
 .2x:
 	jmp.w .20
 .9:
-	lda.b $BB
+	lda.b d5+2
 	bne .t1xxxx
 	lda.w #$0000
 	jsl.l PlaySound
@@ -282,12 +282,12 @@ IntroSequence:
 	lda.w #$00C0
 	tsb.b $C3
 	lda.w #$0004
-	ldx.b $BB
+	ldx.b d5+2
 	bne .1xxxxx
 	sta.b d5
 	lda.w #$0000
 .1xxxxx:
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 .10:
 	jsl.l SpriteFrameStart
@@ -303,10 +303,10 @@ IntroSequence:
 	jsl.l DrawSprite
 	jsl.l SpriteFrameEnd
 	lda.w #$0009
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 .11:
-	lda.b $BB
+	lda.b d5+2
 	bne .t1xxxxx
 	jsr.w .24
 	bra .2xxx
@@ -322,12 +322,12 @@ IntroSequence:
 	lda.w #$00C0
 	tsb.b $C3
 	lda.w #$0006
-	ldx.b $BB
+	ldx.b d5+2
 	bne .1xxxxxx
 	sta.b d5
 	lda.w #$0000
 .1xxxxxx:
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 .12:
 	jsl.l SpriteFrameStart
@@ -349,10 +349,10 @@ IntroSequence:
 	jsl.l DrawSprite
 	jsl.l SpriteFrameEnd
 	lda.w #$000A
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 .13:
-	lda.b $BB
+	lda.b d5+2
 	bne .t1xxxxxx
 	jsr.w .24
 	bra .2xxxx
@@ -364,7 +364,7 @@ IntroSequence:
 	lda.w #EALogoSportsPalette
 	sta.b tmp2
 	lda.w #$009A
-	sta.b $CB
+	sta.b tmp3
 	lda.w #$0020
 	sta.b tmp0
 	lda.w #$0010
@@ -372,18 +372,18 @@ IntroSequence:
 	lda.w #$00C8
 	tsb.b $C3
 	lda.w #$000B
-	ldx.b $BB
+	ldx.b d5+2
 	bne .1xxxxxxx
 	sta.b d5
 	lda.w #$0000
 .1xxxxxxx:
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 .14:
 	lda.w #EALogoTextPalette
 	sta.b tmp2
 	lda.w #$009A
-	sta.b $CB
+	sta.b tmp3
 	lda.w #$0010
 	sta.b tmp0
 	lda.w #$0010
@@ -391,14 +391,14 @@ IntroSequence:
 	lda.w #$0008
 	tsb.b $C3
 	lda.w #$000D
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 .15:
-	lda.b $BB
+	lda.b d5+2
 	beq .t1xxxxxxx
 .1xxxxxxxx:
 	lda.w #$0005
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 
 .t1xxxxxxx:
@@ -412,14 +412,14 @@ IntroSequence:
 	lda.w #$0005
 	sta.b d5
 	lda.w #$0001
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 .16:
-	lda.b $BB
+	lda.b d5+2
 	beq .t1xxxxxxxx
 .1xxxxxxxxx:
 	lda.w #$0007
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 
 .t1xxxxxxxx:
@@ -433,11 +433,11 @@ IntroSequence:
 	lda.w #$0007
 	sta.b d5
 	lda.w #$0001
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 .17:
 	lda.w #$0008
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 
 .t1xxxxxxxxx:
@@ -451,15 +451,15 @@ IntroSequence:
 	lda.w #$000C
 	sta.b d5
 	lda.w #$0001
-	sta.b $B7
+	sta.b d4+2
 	jmp.w .20
 .18:
-	lda.b $83
+	lda.b vcount
 	clc
 	adc.w #$001E
-	sta.b $BF
+	sta.b d6+2
 	lda.w #$0002
-	sta.b $B7
+	sta.b d4+2
 	lda.w #$0008
 	sta.b d5
 	jmp.w .20
@@ -467,12 +467,12 @@ IntroSequence:
 	lda.w brightness
 	cmp.w #$000F
 	bne .20
-	lda.b $83
+	lda.b vcount
 	cmp.b d7
 	bmi .20
 	lda.w JoyPad
 	bne .t1xxxxxxxxxx
-	lda.b $83
+	lda.b vcount
 	cmp.b d6
 	bmi .20
 	bra .t1xxxxxxxxxx
@@ -528,9 +528,9 @@ IntroSequence:
 	rtl
 .27:
 	ldy.w #$0006
-	stz.b $A7
+	stz.b d0+2
 .loopxx:
-	lda.b $A7
+	lda.b d0+2
 	asl a
 	asl a
 	asl a
@@ -558,8 +558,8 @@ IntroSequence:
 	cmp.b #$12
 	bmi .loop2xx
 	rep #$20
-	inc.b $A7
-	lda.b $A7
+	inc.b d0+2
+	lda.b d0+2
 	cmp.w #$000A
 	bmi .loopxx
 	rts
@@ -613,7 +613,7 @@ IntroSequence:
 	lda.w #$4000
 	sta.b tmp2
 	lda.w #$007F
-	sta.b $CB
+	sta.b tmp3
 	rts
 .30:
 	ldx.w #$0000
@@ -703,7 +703,7 @@ IntroSequence:
 	pha
 	lda.b tmp2
 	sta.b $0C
-	lda.b $CB
+	lda.b tmp3
 	sta.b $0E
 	ldy.b tmp0
 	ldx.b tmp1
@@ -716,8 +716,8 @@ IntroSequence:
 	sta.b $0C
 	lda.b $D3
 	sta.b $0E
-	ldy.b $CD
-	ldx.b $CF
+	ldy.b tmp4
+	ldx.b tmp5
 	jsl.l DMAToCGRAM
 .2xxxxxx:
 	pla

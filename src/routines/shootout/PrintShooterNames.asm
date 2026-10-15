@@ -1,18 +1,18 @@
 ; Shootout shooters: the shooters' names
 PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor ($1DB9) in another palette
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PrintShooterNamesPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PrintShooterNamesPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$0013
@@ -20,29 +20,29 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PrintShooterNamesPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PrintShooterNamesPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l GoalieCount
 	lda.b d0
 	dec a
 	sta.b d1
 	lda.w #$0080
-	sta.b $9F
+	sta.b a5+2
 	lda.w #.7
-	sta.b $9D
+	sta.b a5
 	lda.w #$0080
-	sta.b $97
+	sta.b a3+2
 	lda.w #.6
 	sta.b a3
 	lda.w SelectedPlayerIdx
@@ -54,20 +54,20 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	asl a
 	sta.b d0
 	lda.w #homeshooters>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #homeshooters
 	sta.b a3
 	lda.b a2
 	beq .1
 	lda.w #awayshooters>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #awayshooters
 	sta.b a3
 .1:
 	lda.w #$0080
-	sta.b $9F
+	sta.b a5+2
 	lda.w #.8
-	sta.b $9D
+	sta.b a5
 	lda.w #$0005
 	sta.b d1
 .2:
@@ -102,15 +102,15 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 .5:
 	lda.w #$0005
 	sta.w printx
-	lda.b $9F
-	sta.b $8F
-	lda.b $9D
+	lda.b a5+2
+	sta.b a1+2
+	lda.b a5
 	sta.b a1
 	jsl.l print
-	lda.b $8F
-	sta.b $9F
+	lda.b a1+2
+	sta.b a5+2
 	lda.b a1
-	sta.b $9D
+	sta.b a5
 	lda.w #$0008
 	sta.w printx
 	lda.b [a3]

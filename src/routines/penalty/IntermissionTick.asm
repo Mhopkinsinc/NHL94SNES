@@ -2,7 +2,7 @@
 IntermissionTick:
 	lda.w demoflag
 	beq IntermissionTick_done
-	lda.b $83
+	lda.b vcount
 	sec
 	sbc.w tickervc
 	cmp.w #$0150

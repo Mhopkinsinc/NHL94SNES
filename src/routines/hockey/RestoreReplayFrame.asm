@@ -6,7 +6,7 @@ RestoreReplayFrame:
 	sep #$20
 	ldx.b a4
 	stx.w WMADDL
-	lda.b $9B
+	lda.b a4+2
 	sta.w WMADDH
 	lda.b #$0F
 	sta.b d1

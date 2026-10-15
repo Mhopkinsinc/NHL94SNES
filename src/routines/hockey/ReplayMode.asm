@@ -79,7 +79,7 @@ ReplayMode:
 	lda.b $0A
 	bne .loop
 	lda.w ReplayBufferPtr+2
-	sta.b $9B
+	sta.b a4+2
 	lda.w ReplayBufferPtr
 	sta.b a4
 	lda.w #$0000
@@ -307,7 +307,7 @@ ReplayMode:
 	sta.b d5
 	lda.w #$FFFF
 	sta.b d4
-	sta.b $B7
+	sta.b d4+2
 	sta.w replaylock
 	lda.w #$0016
 	sta.b a0
@@ -359,9 +359,9 @@ ReplayMode:
 	jsl.l Mul8S
 	clc
 	adc.b d0
-	cmp.b $B7
+	cmp.b d4+2
 	bcs .4xxx
-	sta.b $B7
+	sta.b d4+2
 	lda.b a0
 	sta.b d4
 .4xxx:
@@ -370,7 +370,7 @@ ReplayMode:
 	bpl .loopx
 	lda.b d4
 	bmi .t1xxxx
-	lda.b $B7
+	lda.b d4+2
 	cmp.w #$0002
 	bcs .t1xxxx
 	lda.b d4
@@ -677,7 +677,7 @@ org $9BB001
 	lda.w #$0020
 	trb.w sflags
 	lda.w ReplayBufferPtr+2
-	sta.b $9B
+	sta.b a4+2
 	lda.w ReplayBufferPtr
 	sta.b a4
 	jsl.l RestoreReplayFrame

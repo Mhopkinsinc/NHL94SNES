@@ -2,15 +2,15 @@
 ShowGoalBox:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
 	stx.b xsave
 	ldx.w #$0000
@@ -31,24 +31,24 @@ ShowGoalBox:
 	inc.b a2
 	jsl.l lcfound2
 	lda.w #$007E
-	sta.b $9B
+	sta.b a4+2
 	lda.w #ScoreSum-6
 	clc
 	adc.l ScoreSumbytes
 	sta.b a4
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowGoalBoxPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowGoalBoxPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0013
 	sta.b d0
 	lda.w #$0005
@@ -73,7 +73,7 @@ ShowGoalBox:
 	inc.b a2
 .2:
 	lda.w #GoalBoxText>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #GoalBoxText
 	sta.b a1
 	ldy.w #$0003
@@ -120,19 +120,19 @@ ShowGoalBox:
 	sta.b d0
 	bit.w #$0080
 	bne .5
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #AssistByTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AssistByTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l PlayerShortName
 	jsl.l print
 	ldy.w #$0005
@@ -141,19 +141,19 @@ ShowGoalBox:
 	sta.b d0
 	bit.w #$0080
 	bne .5
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowGoalBoxPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowGoalBoxPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l PlayerShortName
 	jsl.l print
 .5:
@@ -167,15 +167,15 @@ ShowGoalBox:
 	bpl .loop2
 	ldx.b xsave
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	ldx.b a3

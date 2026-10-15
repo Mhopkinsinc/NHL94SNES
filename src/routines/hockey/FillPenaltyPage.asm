@@ -10,7 +10,7 @@ FillPenaltyPage:
 	adc.l printfontset
 	jsl.l MemFill
 	lda.w #$0000
-	sta.b $97
+	sta.b a3+2
 	lda.w #PenSum
 	sta.b a3
 	lda.w #$0000
@@ -55,7 +55,7 @@ FillPenaltyPage:
 	lsr a
 	sta.b d0
 	lda.w #PerLabels>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PerLabels
 	sta.b a1
 	jsl.l AdvanceStringPtr
@@ -111,7 +111,7 @@ FillPenaltyPage:
 	lda.w #PenaltyList
 	sta.b a1
 	lda.w #PenaltyList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.b [a1],y
 	clc
 	adc.b a1
@@ -123,14 +123,14 @@ FillPenaltyPage:
 	sta.b d0
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.w #$0002
 	sta.b d1
 	jsl.l PushNumberWrap
 	jsl.l PrintToStatsPage
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	lda.w #$2400

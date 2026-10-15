@@ -32,14 +32,14 @@ PrintTeamStatRows:
 	lda.w curitem
 	sta.b d0
 	lda.w #TeamStatNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TeamStatNames
 	sta.b a1
 	lda.l OptPen
 	bne .2
 .1:
 	lda.w #TeamStatNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TeamStatNamesNoPen
 org $9C9000
 	sta.b a1
@@ -61,7 +61,7 @@ org $9C9000
 
 .t1:
 	lda.w #TeamStatSources>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #TeamStatSources
 	sta.b a0
 	lda.w curitem
@@ -144,19 +144,19 @@ org $9C9000
 	sta.b d0
 	jsl.l PushNumber
 	lda.w #mesarea>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #mesarea
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
 	jsl.l appstring
 	lda.w #StatPercent>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #StatPercent
 	sta.b a1
 	jsl.l appstring
-	lda.b $97
-	sta.b $8F
+	lda.b a3+2
+	sta.b a1+2
 	lda.b a3
 	sta.b a1
 	bra .7
@@ -173,14 +173,14 @@ org $9C9000
 	lda.b [a0]
 	sta.b d1
 	lda.w #mesarea>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #mesarea
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
 	jsl.l appstring
 	lda.w #StatSlash>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #StatSlash
 	sta.b a1
 	jsl.l appstring
@@ -192,8 +192,8 @@ org $9C9000
 	sta.b d0
 	jsl.l PushNumber
 	jsl.l appstring
-	lda.b $97
-	sta.b $8F
+	lda.b a3+2
+	sta.b a1+2
 	lda.b a3
 	sta.b a1
 	bra .7

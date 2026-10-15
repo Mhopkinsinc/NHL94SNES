@@ -3,7 +3,7 @@ InitializeGameStructures:
 	lda.w #$FFFF
 	sta.l gamenum
 	stz.b d3
-	stz.b $B3
+	stz.b d3+2
 	lda.w HomeTeam
 	sta.b d0
 	jsr.w .2
@@ -39,13 +39,13 @@ InitializeGameStructures:
 	sbc.w #$0010
 	bmi .t1
 	jsr.w .t2
-	lda.b $B3
+	lda.b d3+2
 	bit.w teambit
 	beq .1x
 	inc.w teamtaken
 .1x:
 	ora.w teambit
-	sta.b $B3
+	sta.b d3+2
 	rts
 
 .t1:

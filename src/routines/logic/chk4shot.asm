@@ -61,7 +61,7 @@ chk4shot:
 	lda.b d1
 	tax
 	jsl.l Mul8S
-	ldx.b $E4
+	ldx.b curobj
 	clc
 	adc.b d0
 	sta.b tmp0

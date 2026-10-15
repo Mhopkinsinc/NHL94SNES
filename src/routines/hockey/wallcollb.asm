@@ -48,7 +48,7 @@ wallcollb:
 	adc.w #$0258
 	sta.l crowdlevel
 	lda.w #$005A
-	sta.b $81
+	sta.b crowdhold
 	lda.w CwdExciteLvl
 	clc
 	adc.w #$000F

@@ -12,7 +12,7 @@ ShowPenaltySummary:
 	ldx.w #$0058
 	ldy.w #$0018
 	lda.w #PenaltiesLabel>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltiesLabel
 	sta.b a1
 	jsl.l PrintLetterSprites
@@ -24,19 +24,19 @@ ShowPenaltySummary:
 	lda.w #$6F7B
 	sta.l colourbuf+$22
 	jsl.l SendColours
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PenaltySummaryHead>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltySummaryHead
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w PenSumLength
 	sta.w listend
 	lda.w listend

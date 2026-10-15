@@ -48,7 +48,7 @@ PlayerSelect:
 	lda.w #$000A
 	sta.w fadestep
 	stz.b d1
-	stz.b $AB
+	stz.b d1+2
 	lda.l OptPlayMode
 	cmp.w #$0001
 	bcc .2
@@ -64,7 +64,7 @@ PlayerSelect:
 	sta.w HomeTeam
 .1:
 	dec.b d1
-	inc.b $AB
+	inc.b d1+2
 .2:
 	lda.w #$0001
 	sta.w cont1team
@@ -89,13 +89,13 @@ PlayerSelect:
 	sta.w printy
 	lda.w VisTeam
 	sta.b d1
-	lda.b $AB
+	lda.b d1+2
 	pha
 	bne .1x
 	jsr.w DrawSelectTeam
 .1x:
 	pla
-	sta.b $AB
+	sta.b d1+2
 	lda.w #$0016
 	sta.w printx
 	lda.w HomeTeam
@@ -112,92 +112,92 @@ PlayerSelect:
 	ldy.w #$0090
 	ldx.w #$0010
 	jsl.l SetColours
-	lda.b $AB
+	lda.b d1+2
 	beq .t1x
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #NotTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #NotTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PlayingTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayingTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .t2
 
 .t1x:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #NotTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #NotTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PlayingTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayingTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .t2
 
 .t2:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #UseToSelectTeamTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #UseToSelectTeamTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PressStartWhenDoneTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PressStartWhenDoneTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l QueueTextDMA
 .4:
 	jsl.l WaitFrame
@@ -264,7 +264,7 @@ PlayerSelect:
 	jmp.w .6
 
 .t3x:
-	lda.b $AB
+	lda.b d1+2
 	beq .1xxx
 	ldx.w #$0000
 	lda.w #$0000
@@ -309,63 +309,63 @@ PlayerSelect:
 	rtl
 
 .t1xxxxx:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #AtLeastOnePersonMustTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AtLeastOnePersonMustTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PlayInPlayoffModeTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayInPlayoffModeTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l QueueTextDMA
 	jsl.l WaitPadsRelease
 	bra .4x
 
 .t2xx:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #OnlyOnePlayerPerTeamTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #OnlyOnePlayerPerTeamTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #IsAllowedInShootoutTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #IsAllowedInShootoutTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l QueueTextDMA
 	jsl.l WaitPadsRelease
 .4x:
@@ -386,32 +386,32 @@ PlayerSelect:
 	bra .4x
 
 .t1xxxxxx:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #UseToSelectTeamTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #UseToSelectTeamTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PressStartWhenDoneTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PressStartWhenDoneTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l QueueTextDMA
 .loopxxx:
 	ldx.w #$0008
@@ -438,7 +438,7 @@ PlayerSelect:
 	sta.w cont1team,x
 	bra .10
 .8:
-	lda.b $AB
+	lda.b d1+2
 	bne .10
 	lda.w #$0002
 	sta.w cont1team,x
@@ -472,7 +472,7 @@ PlayerSelect:
 	sta.l setupvis
 	lda.w HomeTeam
 	sta.l setuphome
-	lda.b $AB
+	lda.b d1+2
 	beq .1xxxxxxx
 	lda.w #$001C
 	sta.l setupvis
@@ -480,7 +480,7 @@ PlayerSelect:
 	ldx.w #$0047
 	ldy.w #$0018
 	lda.w #PlayerSelectTitle>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayerSelectTitle
 	sta.b a1
 	jsl.l PrintLetterSprites
@@ -507,7 +507,7 @@ PlayerSelect:
 	clc
 	adc.w #SPFpad+1-1		; DrawSprite index (frame - 1) of the controller's star
 	sta.b $00
-	lda.b $AB
+	lda.b d1+2
 	asl a
 	asl a
 	clc
@@ -529,7 +529,7 @@ PlayerSelect:
 	clc
 	adc.w #SPFsmallfont+1-1	; DrawSprite index (frame - 1) of the controller number
 	sta.b $00
-	lda.b $AB
+	lda.b d1+2
 	asl a
 	asl a
 	clc

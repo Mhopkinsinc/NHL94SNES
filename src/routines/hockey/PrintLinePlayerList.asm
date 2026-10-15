@@ -1,18 +1,18 @@
 ; Line editor player list: each row a player name and the attribute (GetNameandAttrib), the selected row highlighted
 PrintLinePlayerList:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PrintLinePlayerListPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PrintLinePlayerListPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w SelectedPlayerIdx
 	dec a
 	asl a
@@ -24,9 +24,9 @@ PrintLinePlayerList:
 	inc a
 	sta.b a3
 	lda.w #PositionNames
-	sta.b $9D
+	sta.b a5
 	lda.w #PositionNames>>16
-	sta.b $9F
+	sta.b a5+2
 	lda.w pickrows
 	dec a
 	sta.b d1
@@ -42,9 +42,9 @@ PrintLinePlayerList:
 	sta.w printa
 .1:
 	lda.b a1
-	sta.b $9D
-	lda.b $8F
-	sta.b $9F
+	sta.b a5
+	lda.b a1+2
+	sta.b a5+2
 	lda.w #$0002
 	sta.w printx
 	lda.b a3

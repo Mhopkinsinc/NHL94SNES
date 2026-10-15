@@ -85,23 +85,23 @@ SetPA2:
 	jsl.l PushRef
 .2:
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	plx

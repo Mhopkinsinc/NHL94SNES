@@ -36,7 +36,7 @@ setoptions:
 	ldx.w #$004F
 	ldy.w #$0018
 	lda.w #GameSetupTitle>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #GameSetupTitle
 	sta.b a1
 	jsl.l PrintLetterSprites
@@ -55,19 +55,19 @@ setoptions:
 	jsl.l ReadAnyPad
 	lda.w #$0000
 	sta.w sprpriority
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #setoptionsPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #setoptionsPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l InitSortObjects
 	lda.w #$0028
 	sta.w OldXpos
@@ -114,12 +114,12 @@ setoptions:
 	jsl.l WaitFrame
 	ldx.w mp5warning
 	txa
-	eor.b $AF
+	eor.b d2+2
 	bne .t5
 	jmp.w .t6
 
 .t5:
-	stx.b $AF
+	stx.b d2+2
 	txa
 	beq .t4
 	bit.w #$0001
@@ -159,7 +159,7 @@ setoptions:
 
 .t1x:
 	jsl.l ReadPads
-	lda.b $83
+	lda.b vcount
 	sta.w lastframevc
 	sta.w oldvcount
 	jsl.l Readjoy1
@@ -306,11 +306,11 @@ setoptions:
 	sta.l cardtimer
 .2xxx:
 	lda.w #$007E
-	sta.b $93
+	sta.b a2+2
 	lda.w #$34BC
 	sta.b a2
 	lda.w #$009D
-	sta.b $97
+	sta.b a3+2
 	lda.w #.14
 	sta.b a3
 	stz.b d5
@@ -420,7 +420,7 @@ setoptions:
 	lda.w #$3800
 	sta.w printa
 	lda.w #GameSetupNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #GameSetupNames
 	sta.b a1
 	stx.b d0
@@ -437,7 +437,7 @@ setoptions:
 	beq .6x
 	bpl .2xxxxx
 	lda.w #PlayoffSetupNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayoffSetupNames
 	sta.b a1
 .2xxxxx:
@@ -453,21 +453,21 @@ setoptions:
 	jsr.w .7
 	txy
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$34BC
 	sta.b a0
 	lda.b [a0],y
 	sta.b d3
 	lda.w #$009D
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.15
 	sta.b a0
 	clc
 	adc.b [a0],y
 	sta.b a0
 .loopx:
-	lda.b $8B
-	sta.b $8F
+	lda.b a0+2
+	sta.b a1+2
 	lda.b a0
 	sta.b a1
 	clc
@@ -503,7 +503,7 @@ setoptions:
 .7x:
 	ldy.b d7
 	lda.w #$007E
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$34BC
 	sta.b a1
 	lda.b [a1],y
@@ -580,7 +580,7 @@ setoptions:
 	ldx.w #$004F
 	ldy.w #$0018
 	lda.w #GameSetupAlt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #GameSetupAlt
 	sta.b a1
 	jsl.l PrintLetterSprites
@@ -609,7 +609,7 @@ setoptions:
 	lda.l setuphome
 	bpl .3xxxxx
 	lda.w #$0000
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0A5C
 	sta.b a1
 	stz.b a2
@@ -622,7 +622,7 @@ setoptions:
 	lda.l setupvis
 	bpl .4xxx
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #$0002
@@ -683,7 +683,7 @@ setoptions:
 	jsl.l PlayerShortName
 	cpx.w #$0000
 	bne .rtsx
-	lda.b $8F
+	lda.b a1+2
 	sta.b $0E
 	lda.b a1
 	sta.b $0C

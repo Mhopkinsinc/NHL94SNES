@@ -1,18 +1,18 @@
 ; Draw the pause menu: five items of the current list (by $1EB7) from item $0D13, the selected one (psitem) highlighted, each with its value
 Pmenu:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PmenuPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PmenuPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w psfirst
 	sta.b d0
 	lda.w pmenulist
@@ -29,42 +29,42 @@ Pmenu:
 
 .t1:
 	lda.w #PauseMenuItems>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PauseMenuItems
 	sta.b a0
 	bra .t7
 
 .t2:
 	lda.w #PauseMenuItems>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PauseMenuItems+210
 	sta.b a0
 	bra .t7
 
 .t3:
 	lda.w #PauseMenuItems>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PauseMenuItems+429
 	sta.b a0
 	bra .t7
 
 .t4:
 	lda.w #PauseMenuItems>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PauseMenuItems+626
 	sta.b a0
 	bra .t7
 
 .t5:
 	lda.w #PauseMenuItems>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PauseMenuItems+732
 	sta.b a0
 	bra .t7
 
 .t6:
 	lda.w #PauseMenuItems>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PauseMenuItems+808
 	sta.b a0
 	bra .t7
@@ -90,21 +90,21 @@ Pmenu:
 .1:
 	lda.w #$0006
 	sta.w printx
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PmenuPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PmenuPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	ldy.w #$001E
@@ -140,7 +140,7 @@ Pmenu:
 
 .t3x:
 	lda.w #PmenuValueItems>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #PmenuValueItems
 	sta.b a3
 	lda.w pmenulist
@@ -165,7 +165,7 @@ Pmenu:
 	lda.w tmdata,y
 	sta.b a4
 	lda.w #$009C
-	sta.b $9B
+	sta.b a4+2
 	ldy.w #$0000
 	lda.b [a4],y
 	clc
@@ -205,7 +205,7 @@ PmenuRtl:
 	rtl
 PmenuGoalieValue:
 	lda.w #PmenuValueItems>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #PmenuValueItems+12
 	sta.b a3
 	lda.w pmenulist
@@ -224,14 +224,14 @@ PmenuGoalieValue:
 	lda.w goaliemode1,y
 	beq .t1
 	lda.w #GoalieOptionText>>16
-	sta.b $9B
+	sta.b a4+2
 	lda.w #GoalieOptionText+18
 	sta.b a4
 	bra .1
 
 .t1:
 	lda.w #GoalieOptionText>>16
-	sta.b $9B
+	sta.b a4+2
 	lda.w #GoalieOptionText
 	sta.b a4
 .1:
@@ -240,7 +240,7 @@ PmenuGoalieValue:
 	rtl
 PmenuDefValue:
 	lda.w #PmenuValueItems>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #PmenuValueItems+24
 	sta.b a3
 	lda.w pmenulist
@@ -259,14 +259,14 @@ PmenuDefValue:
 	lda.w defcontrol,y
 	beq .t1
 	lda.w #GoalieOptionText>>16
-	sta.b $9B
+	sta.b a4+2
 	lda.w #GoalieOptionText+39
 	sta.b a4
 	bra .1
 
 .t1:
 	lda.w #GoalieOptionText>>16
-	sta.b $9B
+	sta.b a4+2
 	lda.w #GoalieOptionText+43
 	sta.b a4
 .1:

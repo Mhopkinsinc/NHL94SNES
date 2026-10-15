@@ -86,7 +86,7 @@ checkplcoll:
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b d2
 	pha
@@ -135,7 +135,7 @@ checkplcoll:
 	ldx.b d1
 	jsl.l Mul16x8S
 	lda.b $0A
-	sta.b $AB
+	sta.b d1+2
 	lda.b $08
 	sta.b d1
 	lda.b d2
@@ -147,8 +147,8 @@ checkplcoll:
 	adc.b d1
 	sta.b d1
 	lda.b $0A
-	adc.b $AB
-	sta.b $AB
+	adc.b d1+2
+	sta.b d1+2
 	bpl .t1xx
 	jmp.w .11
 
@@ -191,7 +191,7 @@ checkplcoll:
 .3:
 	ldx.b a3
 .4:
-	lda.b $AA
+	lda.b d1+1
 	sta.b d1
 	lda.w pfteam,x
 	cmp.w pfteam,y
@@ -276,7 +276,7 @@ checkplcoll:
 	ldx.b d1
 	jsl.l Mul16x8S
 	lda.b $0A
-	sta.b $AB
+	sta.b d1+2
 	lda.b $08
 	sta.b d1
 	lda.b d3
@@ -287,9 +287,9 @@ checkplcoll:
 	sbc.b d1
 	sta.b d1
 	lda.b $0A
-	sbc.b $AB
-	sta.b $AB
-	lda.b $AA
+	sbc.b d1+2
+	sta.b d1+2
+	lda.b d1+1
 	sta.b d5
 	ldx.b a3
 	lda.w weight,x
@@ -371,7 +371,7 @@ checkplcoll:
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla

@@ -59,7 +59,7 @@ assscore:
 	sta.w temp4,x
 .3:
 	lda.w #rtss>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #rtss
 	sta.b a0
 	lda.w temp3,x

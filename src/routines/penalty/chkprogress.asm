@@ -18,7 +18,7 @@ chkprogress:
 	lda.w #$0008
 	trb.w gmode
 	lda.w #PenBuf>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PenBuf
 	sta.b a0
 .loop:
@@ -39,7 +39,7 @@ chkprogress:
 	sta.b d0
 	tay
 	lda.w #PenaltyList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltyList
 	sta.b a1
 	clc
@@ -94,7 +94,7 @@ chkprogress:
 .t1x:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	stx.b xsave
 	ldx.w #$0000
@@ -109,7 +109,7 @@ chkprogress:
 ; chkprogress: look for any penalty left in PenBuf (93S .find); InProgress when there is one, else InProgress_exit
 chkprogress_find:
 	lda.w #PenBuf>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PenBuf
 	sta.b a0
 .loop:

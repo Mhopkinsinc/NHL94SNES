@@ -15,7 +15,7 @@ NewPO:
 	adc.w #$ED59
 	sta.b a0
 	lda.w #$009C
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$000F
 	sta.b d1
 	lda.l OptTeam1

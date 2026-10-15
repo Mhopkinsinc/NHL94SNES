@@ -74,7 +74,7 @@ checkwallcoll:
 	eor.w #$FFFF
 	inc a
 .1x:
-	sta.b $CD
+	sta.b tmp4
 	lda.b d3
 	sec
 	sbc.b d5
@@ -85,9 +85,9 @@ checkwallcoll:
 	inc a
 .2:
 	sta.b $D7
-	cmp.b $CD
+	cmp.b tmp4
 	bcc .t1x
-	lda.b $CD
+	lda.b tmp4
 	lsr a
 	lsr a
 	adc.b $D7
@@ -96,7 +96,7 @@ checkwallcoll:
 .t1x:
 	lsr a
 	lsr a
-	adc.b $CD
+	adc.b tmp4
 .5:
 	cmp.w #$0041
 	bcc .6

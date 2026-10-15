@@ -2,7 +2,7 @@
 CalcPuckDistances:
 	ldx.w #$0000
 .loop:
-	stx.b $E4
+	stx.b curobj
 	lda.w puckx
 	sec
 	sbc.w Xpos,x
@@ -16,7 +16,7 @@ CalcPuckDistances:
 	lsr a
 	tax
 	jsl.l Mul8U
-	ldx.b $E4
+	ldx.b curobj
 	sta.w puckdist2,x
 	lda.w pucky
 	sec
@@ -31,14 +31,14 @@ CalcPuckDistances:
 	lsr a
 	tax
 	jsl.l Mul8U
-	ldx.b $E4
+	ldx.b curobj
 	clc
 	adc.w puckdist2,x
 	sta.w puckdist2,x
 	ply
 	pla
 	jsl.l ApproxLength_abs
-	ldx.b $E4
+	ldx.b curobj
 	sta.w puckdist,x
 	jsl.l vtoa
 	sta.w puckdir,x

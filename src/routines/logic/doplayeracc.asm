@@ -194,7 +194,7 @@ doplayeracc:
 	ldx.b d4
 	jsl.l Mul16x8S
 	lda.b $0A
-	sta.b $B7
+	sta.b d4+2
 	lda.b $08
 	sta.b d4
 	ldx.b a3
@@ -205,15 +205,15 @@ doplayeracc:
 	sbc.b d4
 	sta.b d4
 	lda.w #$0000
-	sbc.b $B7
-	sta.b $B7
+	sbc.b d4+2
+	sta.b d4+2
 .4x:
 	lda.w facefrac,x
 	clc
 	adc.b d4
 	sta.w facefrac,x
 	lda.w facedir,x
-	adc.b $B7
+	adc.b d4+2
 	and.w #$0007
 	sta.w facedir,x
 	sta.b d2

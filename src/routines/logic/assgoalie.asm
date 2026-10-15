@@ -73,7 +73,7 @@ assgoalie:
 	bcs .10
 .7:
 	lda.w #rtss>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #rtss
 	sta.b a0
 	ldy.w #$0004
@@ -109,7 +109,7 @@ assgoalie:
 	jmp.w .13
 .11:
 	lda.w #rtss>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #rtss
 	sta.b a0
 	ldy.w #$0004
@@ -403,13 +403,13 @@ assgoalie:
 	adc.l crowdlevel
 	sta.l crowdlevel
 	lda.w #$001E
-	sta.b $81
+	sta.b crowdhold
 	rtl
 .24:
 	lda.w pfgoal,x
 	bne .t1xxxxxxx
 	lda.w #$0000
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$0D17
 	sta.b a0
 	lda.w #$0104
@@ -609,7 +609,7 @@ assgoalie:
 	jsl.l Div32S
 	lda.b $00
 	sta.b d0
-	ldx.b $E4
+	ldx.b curobj
 .5x:
 	lda.b d1
 	clc
@@ -829,7 +829,7 @@ assgoalie:
 .42:
 	asl.b d0
 	lda.w #GoalieSaveList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #GoalieSaveList
 	sta.b a1
 	ldy.b d0
@@ -841,7 +841,7 @@ assgoalie:
 	adc.w #$0096
 	sta.l crowdlevel
 	lda.w #$001E
-	sta.b $81
+	sta.b crowdhold
 .43:
 	lda.b [a0]
 	sta.b d0

@@ -83,7 +83,7 @@ DrawTeamBlocks:
 .t1x:
 	ldy.w #$0000
 	lda.w #TeamBlocksMap>>16
-	sta.b $93
+	sta.b a2+2
 	lda.w #TeamBlocksMap+6
 	sta.b a2
 	lda.w printy

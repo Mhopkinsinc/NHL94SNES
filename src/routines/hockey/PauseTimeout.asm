@@ -10,37 +10,37 @@ PauseTimeout:
 	bmi .1
 	sta.w tmtimeouts,y
 	jsl.l reenergizeteam
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PauseTimeoutPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PauseTimeoutPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0016
 	sta.b d0
 	lda.w #$0007
 	sta.b d1
 	jsl.l Framer
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #TimeoutTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TimeoutTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	ldy.b a2
 	lda.w HomeTeam,y
 	jsl.l GetTeamLongName

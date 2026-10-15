@@ -8,34 +8,34 @@ PWprint:
 .t1:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a2
 	pha
-	lda.b $93
+	lda.b a2+2
 	pha
 	lda.w #PasstoText>>16
-	sta.b $93
+	sta.b a2+2
 	lda.w #PasstoText
 	sta.b a2
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #PassWord>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PassWord
 	sta.b a0
 	lda.w #$0012
@@ -55,28 +55,28 @@ PWprint:
 	dec.b d1
 	bpl .loop
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	jsl.l print
 	pla
-	sta.b $93
+	sta.b a2+2
 	pla
 	sta.b a2
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 .1:

@@ -6,23 +6,23 @@ DrawPeriodStats:
 	ldx.w #$004C
 	ldy.w #$0018
 	lda.w #PeriodStats>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PeriodStats
 	sta.b a1
 	jsl.l PrintLetterSprites
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawPeriodStatsPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawPeriodStatsPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$0013
@@ -30,35 +30,35 @@ DrawPeriodStats:
 	lda.l smallfontchars
 	sta.b d2
 	jsl.l eraser
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawPeriodStatsPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawPeriodStatsPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w VisTeam
 	sta.b d1
 	jsl.l DrawTeamBlocks
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #DrawPeriodStatsPos3>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #DrawPeriodStatsPos3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w HomeTeam
 	sta.b d1
 	jsl.l DrawTeamBlocks
@@ -96,19 +96,19 @@ DrawPeriodStats:
 	cpx.w #$0004
 	bne .t1
 	dec.w printx
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #TotalShotsLine>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TotalShotsLine
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	inc.w printy
 	bra .2
 
@@ -120,7 +120,7 @@ DrawPeriodStats:
 
 .t2:
 	lda.w #PerLabels>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PerLabels
 	sta.b a1
 	stx.b d0
@@ -162,23 +162,23 @@ DrawPeriodStats:
 	ldx.w #$0068
 	ldy.w #$0040
 	lda.w #TotalShotsLine>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TotalShotsLine+7
 	sta.b a1
 	jsl.l PrintLetterSprites
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #TotalShotsLine>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #TotalShotsLine+14
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .3
 
 .t1x:
@@ -205,22 +205,22 @@ DrawPeriodStats:
 	ldx.w #$0068
 	ldy.w #$0040
 	lda.w #GoalsLabel>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #GoalsLabel
 	sta.b a1
 	jsl.l PrintLetterSprites
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #YShotsTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #YShotsTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .3:
 	rtl

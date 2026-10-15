@@ -10,7 +10,7 @@ FillScoringPage:
 	adc.l printfontset
 	jsl.l MemFill
 	lda.w #$007E
-	sta.b $97
+	sta.b a3+2
 	lda.w #ScoreSum
 	sta.b a3
 	lda.w #$0000
@@ -54,7 +54,7 @@ FillScoringPage:
 	lsr a
 	sta.b d0
 	lda.w #PerLabels>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PerLabels
 	sta.b a1
 	jsl.l AdvanceStringPtr
@@ -105,67 +105,67 @@ FillScoringPage:
 	beq .3
 	cmp.w #$0003
 	beq .t1x
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ScoringPP2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoringPP2
 	sta.b a1
 	jsl.l PrintToStatsPage
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .3
 
 .t1x:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ScoringPP>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoringPP
 	sta.b a1
 	jsl.l PrintToStatsPage
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .3
 
 .t2:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ScoringSH>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoringSH
 	sta.b a1
 	jsl.l PrintToStatsPage
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .3
 
 .t3:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ScoringSH2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoringSH2
 	sta.b a1
 	jsl.l PrintToStatsPage
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .3:
 	ply
 	iny

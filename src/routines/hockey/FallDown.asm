@@ -254,7 +254,7 @@ FallDown:
 	adc.w #$012C
 	sta.l crowdlevel
 	lda.w #$002D
-	sta.b $81
+	sta.b crowdhold
 	lda.w puckc
 	sta.b d0
 	bmi .22
@@ -362,7 +362,7 @@ FallDown:
 	adc.w #$0258
 	sta.l crowdlevel
 	lda.w #$002D
-	sta.b $81
+	sta.b crowdhold
 	rtl
 .26:
 	lda.w CwdExciteLvl
@@ -407,15 +407,15 @@ FallDown:
 	bpl .2xxxx
 	ldy.w #$FF16
 .2xxxx:
-	stx.b $A7
-	sty.b $AB
+	stx.b d0+2
+	sty.b d1+2
 	lda.b d2
 	sec
-	sbc.b $A7
+	sbc.b d0+2
 	sta.b d0
 	lda.b d3
 	sec
-	sbc.b $AB
+	sbc.b d1+2
 	sta.b d1
 	ldy.b d0
 	jsl.l ApproxLength
@@ -444,7 +444,7 @@ FallDown:
 	eor.w #$FFFF
 	inc a
 .2xxxxx:
-	sta.b $AF
+	sta.b d2+2
 	lda.b d1
 	xba
 	tax
@@ -463,9 +463,9 @@ FallDown:
 	eor.w #$FFFF
 	inc a
 .4x:
-	cmp.b $AF
+	cmp.b d2+2
 	bcs .30
-	lda.b $A7
+	lda.b d0+2
 	bpl .29
 	lda.b d5
 	dec a
@@ -475,11 +475,11 @@ FallDown:
 	clc
 	adc.w #$0006
 	clc
-	adc.b $A7
+	adc.b d0+2
 	sta.w Xpos,y
 	lda.b d1
 	clc
-	adc.b $AB
+	adc.b d1+2
 	sta.w Ypos,y
 	lda.w #$0000
 	sta.w Xvel,y
@@ -495,18 +495,18 @@ FallDown:
 	sec
 	sbc.w #$0006
 	clc
-	adc.b $A7
+	adc.b d0+2
 	sta.w Xpos,y
 	lda.b d1
 	clc
-	adc.b $AB
+	adc.b d1+2
 	sta.w Ypos,y
 	lda.w #$0000
 	sta.w Xvel,y
 	sta.w Yvel,y
 	jmp.w .8
 .30:
-	lda.b $AB
+	lda.b d1+2
 	bpl .t1xxxxx
 	lda.b d5
 	inc a
@@ -515,11 +515,11 @@ FallDown:
 	bcs .28
 	lda.b d0
 	clc
-	adc.b $A7
+	adc.b d0+2
 	sta.w Xpos,y
 	lda.b d1
 	clc
-	adc.b $AB
+	adc.b d1+2
 	sta.w Ypos,y
 	lda.w #$0000
 	sta.w Xvel,y
@@ -535,11 +535,11 @@ FallDown:
 	bcc .28
 	lda.b d0
 	clc
-	adc.b $A7
+	adc.b d0+2
 	sta.w Xpos,y
 	lda.b d1
 	clc
-	adc.b $AB
+	adc.b d1+2
 	sta.w Ypos,y
 	lda.w #$0000
 	sta.w Xvel,y

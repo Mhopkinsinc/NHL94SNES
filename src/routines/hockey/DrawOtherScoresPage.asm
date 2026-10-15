@@ -4,19 +4,19 @@ DrawOtherScoresPage:
 	cmp.w #$0001
 	bne .t1
 .1:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #NoOtherGames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #NoOtherGames
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l QueueTextDMA
 	bra .2
 

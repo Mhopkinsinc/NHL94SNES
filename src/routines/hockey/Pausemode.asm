@@ -33,19 +33,19 @@ Pausemode:
 	stz.w psfirst
 	stz.w psitem
 .loop:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PausemodePos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PausemodePos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0016
 	sta.b d0
 	lda.w #$0007
@@ -105,7 +105,7 @@ Pausemode:
 	lda.w #$FFFF
 	sta.w recsfx
 	sta.w recsfx2
-	lda.b $83
+	lda.b vcount
 	sta.w lastframevc
 	sta.w oldvcount
 	rtl

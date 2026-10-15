@@ -102,7 +102,7 @@ assdumpin:
 .1x:
 	lda.w #$0060
 .2x:
-	ldx.b $E4
+	ldx.b curobj
 	ldy.w position,x
 	beq .t1xx
 	cmp.w #$0010
@@ -149,7 +149,7 @@ assdumpin:
 	adc.w #$10E0
 	sta.w puckvz
 	jsl.l puckflip
-	ldx.b $E4
+	ldx.b curobj
 	lda.w #$FFFF
 	sta.w dumpinplayer
 	sta.w puckc

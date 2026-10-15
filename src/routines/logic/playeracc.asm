@@ -7,7 +7,7 @@ playeracc:
 	sta.b d1
 	lda.l .8,x
 	sta.b d0
-	ldx.b $E4
+	ldx.b curobj
 	lda.w Wallsin,x
 	beq .1
 	eor.b d0
@@ -66,7 +66,7 @@ playeracc:
 	tax
 	lda.b d7
 	jsl.l Mul16x8XS
-	ldx.b $E4
+	ldx.b curobj
 	lda.b $08
 	adc.w Xvel,x
 	sta.b d0
@@ -85,7 +85,7 @@ playeracc:
 	tax
 	lda.b d7
 	jsl.l Mul16x8XS
-	ldx.b $E4
+	ldx.b curobj
 	lda.b $08
 	adc.w Yvel,x
 	sta.b d1
@@ -104,7 +104,7 @@ playeracc:
 	pha
 	lda.b d0
 	pha
-	ldx.b $E4
+	ldx.b curobj
 	jsl.l getpde
 	lda.w legspd,x
 	pha
@@ -132,8 +132,8 @@ playeracc:
 	lda.l MaxSpeed,x
 	sta.b d2
 	lda.l MaxSpeed+2,x
-	sta.b $AF
-	ldx.b $E4
+	sta.b d2+2
+	ldx.b curobj
 	lda.w position,x
 	bne .4
 	lda.w playerpad,x
@@ -141,19 +141,19 @@ playeracc:
 	lda.w goalieflags,x
 	bit.w #$0004
 	bne .4
-	lda.b $AF
+	lda.b d2+2
 	lsr a
 	lsr a
 	eor.w #$FFFF
 	inc a
-	adc.b $AF
-	sta.b $AF
+	adc.b d2+2
+	sta.b d2+2
 .4:
 	pla
 	sta.b d0
 	pla
 	sta.b d1
-	lda.b $AF
+	lda.b d2+2
 	cmp.b d3
 	bcc .5
 	lda.b d0

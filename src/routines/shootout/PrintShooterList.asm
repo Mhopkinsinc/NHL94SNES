@@ -1,18 +1,18 @@
 ; Shootout shooters: the player list rows
 PrintShooterList:		; draw the ShooterSelectList list: the title of rating column $0D47, the scroll marks, the rows
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PrintShooterListPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PrintShooterListPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$000D
@@ -26,7 +26,7 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	sta.w printy
 .1:
 	lda.w #ShooterAttribColumns>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShooterAttribColumns
 	sta.b a1
 	lda.w DispAttribCtr
@@ -54,39 +54,39 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	sta.w printa
 	jsl.l print
 	lda.b [a1]
-	sta.b $B7
+	sta.b d4+2
 	ldy.w #$0002
 	lda.b [a1],y
 	sta.b d4
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PlayerTxt2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayerTxt2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w picktop
 	cmp.w pickfirst
 	beq .1xx
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #LeftArrowTxt3>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #LeftArrowTxt3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .1xx:
 	lda.w picktop
 	sec
@@ -95,19 +95,19 @@ PrintShooterList:		; draw the ShooterSelectList list: the title of rating column
 	adc.w #$0009
 	cmp.w listcount
 	bpl .2x
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #RightArrowTxt3>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RightArrowTxt3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .2x:
 	jsl.l PrintShooterRows
 	rtl

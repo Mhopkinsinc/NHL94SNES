@@ -13,19 +13,19 @@ ChkShotStat:
 .t3:
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a2
 	pha
-	lda.b $93
+	lda.b a2+2
 	pha
 	lda.b a3
 	pha
-	lda.b $97
+	lda.b a3+2
 	pha
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	phx
 	ldx.w shotplayer
@@ -129,19 +129,19 @@ ChkShotStat:
 .5:
 	plx
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	pla
-	sta.b $97
+	sta.b a3+2
 	pla
 	sta.b a3
 	pla
-	sta.b $93
+	sta.b a2+2
 	pla
 	sta.b a2
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	lda.w CwdExciteLvl

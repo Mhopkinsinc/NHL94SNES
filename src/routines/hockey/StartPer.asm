@@ -75,8 +75,8 @@ StartPer:
 	lda.w #$FFFF
 	sta.w textdirtylo
 	stz.w textdirtyhi
-	stz.b $83
-	stz.b $85
+	stz.b vcount
+	stz.b vcount+2
 	stz.w lastframevc
 	stz.w oldvcount
 	ldx.w #$0000

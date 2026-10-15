@@ -10,7 +10,7 @@ CalcAngleOffset:
 	ldx.b d0
 	jsl.l Mul16S
 	lda.b $0A
-	sta.b $B7
+	sta.b d4+2
 	lda.b $08
 	sta.b d4
 	lda.b d1
@@ -20,7 +20,7 @@ CalcAngleOffset:
 	sec
 	sbc.b $08
 	sta.b $08
-	lda.b $B7
+	lda.b d4+2
 	sbc.b $0A
 	sta.b $0A
 	lda.b d2

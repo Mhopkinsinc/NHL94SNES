@@ -212,7 +212,7 @@ FillPlayerStatsPage:
 	lda.w #$001E
 	sta.w printx
 	lda.w #PercentSign>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PercentSign
 	sta.b a1
 	jsl.l PrintToStatsPage

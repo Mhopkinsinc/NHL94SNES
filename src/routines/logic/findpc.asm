@@ -128,43 +128,43 @@ findpc:
 	bne .12
 	lda.b d4
 	pha
-	lda.b $B7
+	lda.b d4+2
 	pha
 	lda.b d5
 	pha
-	lda.b $BB
+	lda.b d5+2
 	pha
 	lda.b d6
 	pha
-	lda.b $BF
+	lda.b d6+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	jsl.l Sweepcheck
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $BF
+	sta.b d6+2
 	pla
 	sta.b d6
 	pla
-	sta.b $BB
+	sta.b d5+2
 	pla
 	sta.b d5
 	pla
-	sta.b $B7
+	sta.b d4+2
 	pla
 	sta.b d4
 	bra .12

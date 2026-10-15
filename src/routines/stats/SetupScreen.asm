@@ -61,20 +61,20 @@ SetupScreen:
 	sta.l nextfreechar
 	sta.l Framercset
 	lda.w #$007F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$0000
 	sta.b a0
 	lda.w #PixelRemap8F>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PixelRemap8F
 	sta.b a1
 	jsl.l RemapTiles
 	lda.w #FramerTiles>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #FramerTiles
 	sta.b a0
 	lda.w #PixelRemap87>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PixelRemap87
 	sta.b a1
 	lda.w #$0004

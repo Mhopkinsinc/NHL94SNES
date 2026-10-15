@@ -12,7 +12,7 @@ PrevPlayerCard:
 	sta.w curplayer
 	ldy.b a2
 	lda.w #$009C
-	sta.b $97
+	sta.b a3+2
 	lda.w tmdata,y
 	sta.b a3
 	ldy.w #$000C

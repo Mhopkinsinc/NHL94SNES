@@ -1,6 +1,6 @@
 ; Main game loop: wait for a frame, the clock, the music, one frame of game logic, the pause
 Gameloop:
-	lda.b $83
+	lda.b vcount
 	sec
 	sbc.w oldvcount
 	beq Gameloop
@@ -25,7 +25,7 @@ Gameloop:
 	jsl.l PlayTeamSong
 .1:
 	jsl.l RandomWord
-	lda.b $83
+	lda.b vcount
 	tax
 	sec
 	sbc.w oldvcount
@@ -88,7 +88,7 @@ Gameloop:
 .4:
 	lda.w cheercnt
 	beq .1xx
-	lda.b $83
+	lda.b vcount
 	sec
 	sbc.w cheervc
 	cmp.w #$0096

@@ -12,25 +12,25 @@ ShowPlayerStats:
 	ldx.w #$0049
 	ldy.w #$0018
 	lda.w #PlayerStatsTitle>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayerStatsTitle
 	sta.b a1
 	jsl.l PrintLetterSprites
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowPlayerStatsPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowPlayerStatsPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0800
 	sta.w printa
 	lda.w #$000E
@@ -38,19 +38,19 @@ ShowPlayerStats:
 	lda.w #$0003
 	sta.b d1
 	jsl.l FramerOutline
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #YSwitchTeamsTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #YSwitchTeamsTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0001
 	sta.w statcolumn
 	jsl.l SetPlayerStatsRange
@@ -124,7 +124,7 @@ ShowPlayerStats_redraw:
 	lda.w #$2000
 	sta.w printa
 	lda.w #LineBraces>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #LineBraces
 	sta.b a1
 	jsl.l PrintToStatsPage
@@ -147,7 +147,7 @@ ShowPlayerStats_redraw:
 	lda.w #$2000
 	sta.w printa
 	lda.w #LineBraces>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #LineBraces+3
 	sta.b a1
 	jsl.l PrintToStatsPage

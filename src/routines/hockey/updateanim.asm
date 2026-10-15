@@ -25,7 +25,7 @@ updateanim:
 	phy
 	sta.b a0
 	lda.w #$009D
-	sta.b $8B
+	sta.b a0+2
 	ldy.w #$0010
 	lda.b [a0],y
 	sta.b d1

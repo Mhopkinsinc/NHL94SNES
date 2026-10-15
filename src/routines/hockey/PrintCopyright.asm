@@ -1,7 +1,7 @@
 ; Print the two copyright lines.
 PrintCopyright:
 	lda.w #CopyrightLines>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #CopyrightLines
 	sta.b a1
 	lda.w #$0000
@@ -9,7 +9,7 @@ PrintCopyright:
 	ldy.w #$00B8
 	jsl.l PrintStringSprites
 	lda.w #CopyrightLines>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #CopyrightLines+23
 	sta.b a1
 	lda.w #$0000

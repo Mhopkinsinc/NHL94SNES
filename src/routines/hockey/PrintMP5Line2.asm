@@ -1,16 +1,16 @@
 ; Print the second MultiPlayer 5 warning line, centered.
 PrintMP5Line2:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PrintMP5Line2Pos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PrintMP5Line2Pos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra PrintCentered

@@ -62,7 +62,7 @@ assbreakaway:
 	sta.b d1
 .1xx:
 	lda.w #.nocallback>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.nocallback
 	sta.b a0
 	lda.w temp2,x
@@ -147,7 +147,7 @@ assbreakaway:
 	asl a
 	tay
 	lda.w #$009E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.10
 	sta.b a0
 	lda.b [a0],y

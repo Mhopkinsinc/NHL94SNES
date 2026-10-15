@@ -1,6 +1,6 @@
 ; Every game loop: let the crowd level fade
 updatecrowdf:
-	lda.b $81
+	lda.b crowdhold
 	beq .t1
 	cmp.w #$003C
 	bcc .1
@@ -11,7 +11,7 @@ updatecrowdf:
 	bpl .2
 	lda.w #$0000
 .2:
-	sta.b $81
+	sta.b crowdhold
 	rtl
 
 .t1:

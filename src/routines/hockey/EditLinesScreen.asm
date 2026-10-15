@@ -56,48 +56,48 @@ EditLinesScreen:
 	lda.w #$0001
 	sta.l drawlinesback
 	jsl.l PrintLineNames
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #EditLinesScreenPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #EditLinesScreenPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w SelectedPlayerIdx
 	sta.b d0
 	lda.w #LineMenuNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #LineMenuNames
 	sta.b a1
 	lda.l OptLine
 	bne .2
 	lda.w #BestLineNames>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #BestLineNames
 	sta.b a1
 .2:
 	jsl.l AdvanceStringPtr
 	jsl.l print
 	jsl.l SendTextMap
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #EditLinesScreenPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #EditLinesScreenPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jmp.w .5
 
 .t3:

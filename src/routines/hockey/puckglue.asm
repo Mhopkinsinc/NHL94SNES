@@ -40,7 +40,7 @@ puckglue:
 	adc.w #$00C8
 	sta.l crowdlevel
 	lda.w #$0014
-	sta.b $81
+	sta.b crowdhold
 .3:
 	lda.w gmclock
 	bne .4

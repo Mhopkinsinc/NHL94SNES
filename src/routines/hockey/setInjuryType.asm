@@ -9,7 +9,7 @@ setInjuryType:
 	adc.w #$012C
 	sta.l crowdlevel
 	lda.w #$003C
-	sta.b $81
+	sta.b crowdhold
 	lda.w #$0004
 	jsl.l StreamSfx
 	ldy.b a2

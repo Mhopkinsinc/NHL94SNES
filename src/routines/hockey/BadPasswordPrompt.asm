@@ -9,58 +9,58 @@ BadPasswordPrompt:
 	bne .loop
 	bit.w #$8080
 	bne .loop
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #BadPassword>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #BadPassword
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ARetryTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ARetryTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #YExitScreenTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #YExitScreenTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #BadPasswordPromptPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #BadPasswordPromptPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l QueueTextDMA
 .loop2:
 	jsl.l ReadPads
@@ -71,19 +71,19 @@ BadPasswordPrompt:
 	bne .t1
 	bit.w #$8080
 	beq .loop2
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #BadPasswordPromptPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #BadPasswordPromptPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$000F
 	sta.b d0
 	lda.w #$0003

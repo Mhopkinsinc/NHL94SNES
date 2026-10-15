@@ -9,17 +9,17 @@ AttribRating:
 	sta.b d1
 	jsl.l PushNumberWrap
 	jsl.l print
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #AttribFightingPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AttribFightingPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	rtl

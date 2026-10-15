@@ -72,11 +72,11 @@ assepen:
 	inc a
 	lsr a
 	sta.w cont1team,y
-	ldx.b $E4
+	ldx.b curobj
 	tya
 	sta.w playerpad,x
 	txa
 	sta.w c1playernum,y
 .2x:
-	ldx.b $E4
+	ldx.b curobj
 	jml.l assexit

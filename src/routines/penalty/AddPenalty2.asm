@@ -7,15 +7,15 @@ AddPenalty2:
 .t2:
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b d0
 	cmp.w #$000E
@@ -29,7 +29,7 @@ AddPenalty2:
 	adc.w #$00C8
 	sta.l crowdlevel
 	lda.w #$002D
-	sta.b $81
+	sta.b crowdhold
 	lda.w pfteam,x
 	beq .3
 	lda.l crowdlevel
@@ -41,7 +41,7 @@ AddPenalty2:
 	sta.l crowdlevel
 .3:
 	lda.w #PenBuf>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenBuf
 	sta.b a1
 	lda.w #$001F
@@ -69,7 +69,7 @@ AddPenalty2:
 	ora.b d0
 	sta.b [a1]
 	lda.w #PenaltyList>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PenaltyList
 	sta.b a0
 	ldy.b d0
@@ -90,15 +90,15 @@ AddPenalty2:
 	sta.b [a1]
 .4:
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 .5:

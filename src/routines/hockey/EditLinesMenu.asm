@@ -1,32 +1,32 @@
 ; Edit Lines menu: Return to Game and Restore default lines
 EditLinesMenu:
 	jsr.w ClearEditLinesMenu
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ReturnToGameTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ReturnToGameTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #RestoreDefaultLinesTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RestoreDefaultLinesTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l SendTextMap
 	jsl.l WaitButtonRelease
 	lda.w #$0000
@@ -35,95 +35,95 @@ EditLinesMenu:
 	lda.w #$0000
 	cmp.w linemenuitem
 	bne .t1
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #EditLinesMenuPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #EditLinesMenuPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .2
 
 .t1:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #EditLinesMenuPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #EditLinesMenuPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .2:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ReturnToGame>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ReturnToGame
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0001
 	cmp.w linemenuitem
 	bne .t1x
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #EditLinesMenuPos3>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #EditLinesMenuPos3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	bra .3
 
 .t1x:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #EditLinesMenuPos4>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #EditLinesMenuPos4
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .3:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #RestoreDefaultLines>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RestoreDefaultLines
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l SendTextMap
 	jsl.l WaitFrame
 	jsl.l ReadPads

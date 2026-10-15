@@ -9,7 +9,7 @@ ScoutHomeNick:
 	sta.b a1
 ScoutTeamNick:
 	lda.w #$009C
-	sta.b $8F
+	sta.b a1+2
 	ldy.w #$0004
 	lda.b a1
 	clc

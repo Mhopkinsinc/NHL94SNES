@@ -26,12 +26,12 @@ PrintOtherScore:
 	inc.b d0
 .2:
 	lda.w #PerLabels>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PerLabels
 	sta.b a0
 .loop:
-	lda.b $8B
-	sta.b $8F
+	lda.b a0+2
+	sta.b a1+2
 	lda.b a0
 	sta.b a1
 	lda.b [a0]

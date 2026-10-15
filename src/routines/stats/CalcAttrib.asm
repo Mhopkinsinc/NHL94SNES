@@ -6,7 +6,7 @@ CalcAttrib:
 	asl a
 	asl a
 	sta.b $00
-	stz.b $A7
+	stz.b d0+2
 	ldy.b a2
 	beq .1
 	lda.b $00
@@ -15,7 +15,7 @@ CalcAttrib:
 	sta.b $00
 .1:
 	lda.w #$009C
-	sta.b $8B
+	sta.b a0+2
 	lda.w tmdata,y
 	sta.b a0
 	clc
@@ -46,7 +46,7 @@ CalcAttrib:
 	asl a
 	tax
 	lda.l BitMaskTable,x
-	bit.b $B7
+	bit.b d4+2
 	bne .t2
 	jmp.w .12
 
@@ -56,7 +56,7 @@ CalcAttrib:
 	cpx.w #$001A
 	bne .2x
 .1x:
-	inc.b $A7
+	inc.b d0+2
 .2x:
 	lda.w #$000F
 	sec
@@ -66,7 +66,7 @@ CalcAttrib:
 	clc
 	adc.b a0
 	sta.b $0C
-	lda.b $8B
+	lda.b a0+2
 	sta.b $0E
 	lda.b [$0C]
 	sta.b d3
@@ -124,7 +124,7 @@ CalcAttrib:
 	sbc.b $14
 	sta.b $14
 .8:
-	lda.b $B7
+	lda.b d4+2
 	bmi .t3
 	ldx.b $10
 	lda.l .19,x
@@ -229,7 +229,7 @@ CalcAttrib:
 	beq .17
 	lsr.b d0
 .17:
-	lda.b $A7
+	lda.b d0+2
 	bne .rtl
 	lda.b d0
 	cmp.w #$0064

@@ -27,7 +27,7 @@ maketree:
 	asl a
 	sta.b d1
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #potree
 	sta.b a0
 	lda.w #$ED59
@@ -35,7 +35,7 @@ maketree:
 	adc.b d1
 	sta.b a1
 	lda.w #$009C
-	sta.b $8F
+	sta.b a1+2
 	ldy.w #$000E
 	sty.b d2
 .loop3:
@@ -46,8 +46,8 @@ maketree:
 	bpl .loop3
 	lda.w #$34E2
 	sta.b a1
-	lda.b $8B
-	sta.b $8F
+	lda.b a0+2
+	sta.b a1+2
 	lda.w WinBits
 	sta.b d0
 .loop4:
@@ -73,7 +73,7 @@ maketree:
 	adc.w #potree
 	sta.b a0
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	stz.b a1
 .loop5:
 	ldx.b a1

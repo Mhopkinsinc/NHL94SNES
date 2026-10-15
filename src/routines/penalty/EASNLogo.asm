@@ -3,19 +3,19 @@ EASNLogo:
 	lda.w sflags
 	bit.w #sf2pwrplay
 	bne .rtl
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #EASNLogoPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #EASNLogoPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #EASNLogoMap>>16
 	sta.b $0E
 	lda.w #EASNLogoMap

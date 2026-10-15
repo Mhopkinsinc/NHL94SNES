@@ -14,7 +14,7 @@ PauseReplay:
 	jsl.l forceblack
 	lda.b d7
 	pha
-	lda.b $85
+	lda.b vcount+2
 	dec a
 	dec a
 	sta.w vcountmark+2

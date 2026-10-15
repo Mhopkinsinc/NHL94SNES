@@ -47,7 +47,7 @@ asspenalty:
 	lda.w temp4,x
 	sta.b d1
 	lda.w #rtss>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #rtss
 	sta.b a0
 	jml.l skateto
@@ -154,7 +154,7 @@ asspenalty:
 	beq .4xx
 	bcc .4xx
 .3xx:
-	ldx.b $E4
+	ldx.b curobj
 	lda.w playerpad,x
 	bpl .t1x
 	jmp.w .8

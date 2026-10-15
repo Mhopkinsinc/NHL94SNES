@@ -55,7 +55,7 @@ doshot:
 	lda.w IsBreakaway
 	sta.w breakaway
 .3:
-	ldx.b $E4
+	ldx.b curobj
 	lda.w #$FFFF
 	sta.w puckc
 	lda.w #$0010
@@ -74,7 +74,7 @@ doshot:
 	asl a
 	tay
 	lda.w #shotsets>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #shotsets
 	sta.b a0
 	lda.b [a0],y
@@ -193,7 +193,7 @@ doshot:
 	lda.b $00
 	asl a
 	sta.w puckvy
-	ldx.b $E4
+	ldx.b curobj
 	pla
 	beq .7
 	tax
@@ -214,7 +214,7 @@ doshot:
 	lda.w passspeed
 	sta.b $04
 	jsl.l Div32U
-	ldx.b $E4
+	ldx.b curobj
 	lda.b $00
 	lsr a
 	adc.b d1

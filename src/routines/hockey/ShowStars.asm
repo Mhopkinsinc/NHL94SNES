@@ -22,19 +22,19 @@ ShowStars:
 	cpx.w #$0014
 	bne .loop2
 	ldx.b xsave
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowStarsPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowStarsPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0013
 	sta.b d0
 	lda.w #$0008
@@ -42,37 +42,37 @@ ShowStars:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowStarsPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowStarsPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0015
 	sta.b d0
 	lda.w #$0007
 	sta.b d1
 	jsl.l Framer
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #StarsOfTheGame>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #StarsOfTheGame
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l .t1
 	lda.w #$0005
 	sta.w printy
@@ -185,7 +185,7 @@ ShowStars:
 	lda.w #$FFFF
 	sta.w otgoalscorer
 	lda.w #$007E
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoreSum-6
 	sta.b a1
 	ldy.w #$0000
@@ -231,7 +231,7 @@ ShowStars:
 
 .t1x:
 	jsl.l .17
-	lda.b $A7
+	lda.b d0+2
 	sec
 	sbc.w star1score+2
 	bmi .t2
@@ -260,7 +260,7 @@ ShowStars:
 .t1xxx:
 	bvs .13
 .3x:
-	lda.b $A7
+	lda.b d0+2
 	sec
 	sbc.w star2score+2
 	bmi .t1xxxx
@@ -289,7 +289,7 @@ ShowStars:
 .t1xxxxxx:
 	bvs .14
 .6:
-	lda.b $A7
+	lda.b d0+2
 	sec
 	sbc.w star3score+2
 	bmi .8
@@ -327,13 +327,13 @@ ShowStars:
 	lda.w star1score
 	sta.w starswapscore
 	stx.w star1
-	lda.b $A7
+	lda.b d0+2
 	sta.w star1score+2
 	lda.b d0
 	sta.w star1score
 	ldx.w starswapplayer
 	lda.w starswapscore+2
-	sta.b $A7
+	sta.b d0+2
 	lda.w starswapscore
 	sta.b d0
 .14:
@@ -344,18 +344,18 @@ ShowStars:
 	lda.w star2score
 	sta.w starswapscore
 	stx.w star2
-	lda.b $A7
+	lda.b d0+2
 	sta.w star2score+2
 	lda.b d0
 	sta.w star2score
 	ldx.w starswapplayer
 	lda.w starswapscore+2
-	sta.b $A7
+	sta.b d0+2
 	lda.w starswapscore
 	sta.b d0
 .15:
 	stx.w star3
-	lda.b $A7
+	lda.b d0+2
 	sta.w star3score+2
 	lda.b d0
 	sta.w star3score
@@ -404,7 +404,7 @@ ShowStars:
 	sta.b d0
 	lda.w #$0000
 	sbc.w #$0000
-	sta.b $A7
+	sta.b d0+2
 	cpx.w stargoalieend
 	bmi .t1xxxxxxxxxx
 	cpx.w otgoalscorer
@@ -490,14 +490,14 @@ ShowStars:
 	sta.b $08
 	jsr.w .18
 .3xx:
-	lda.b $A7
+	lda.b d0+2
 	asl a
-	sta.b $A7
+	sta.b d0+2
 	lda.b d0
 	asl a
-	lda.b $A7
+	lda.b d0+2
 	adc.w #$0000
-	sta.b $A7
+	sta.b d0+2
 	lda.b d0
 	and.w #$7FFF
 	sta.b d0
@@ -507,7 +507,7 @@ ShowStars:
 	clc
 	adc.b $08
 	sta.b d0
-	lda.b $A7
+	lda.b d0+2
 	adc.b $0A
-	sta.b $A7
+	sta.b d0+2
 	rts

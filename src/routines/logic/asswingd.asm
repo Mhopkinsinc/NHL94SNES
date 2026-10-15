@@ -115,7 +115,7 @@ asswingd:
 	sta.b d1
 .7:
 	lda.w #rtss>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #rtss
 	sta.b a0
 	lda.w puckx

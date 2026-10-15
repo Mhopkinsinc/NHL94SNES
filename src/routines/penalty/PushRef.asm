@@ -3,23 +3,23 @@ PushRef:
 	phx
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	lda.b d2
 	pha
-	lda.b $AF
+	lda.b d2+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b d0
 	cmp.w #$0040
@@ -37,7 +37,7 @@ PushRef:
 	jsl.l Mul8U
 	sta.b d0
 	lda.w #RefsMap>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #RefsMap
 	sta.b a0
 	lda.w #$0084
@@ -52,7 +52,7 @@ PushRef:
 	lda.w #$03DA
 	sta.b tmp1
 	lda.w #RefsMapHor>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #RefsMapHor+6
 	sta.b a0
 .2:
@@ -124,23 +124,23 @@ PushRef:
 	sta.l refwindow
 .5:
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $AF
+	sta.b d2+2
 	pla
 	sta.b d2
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	plx

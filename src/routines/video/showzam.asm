@@ -1,7 +1,7 @@
 ; Draw the zamboni moving across the horizontal rink
 showzam:
-	lda.b $83
-	ldy.b $85
+	lda.b vcount
+	ldy.b vcount+2
 	sbc.w vcountmark
 	sta.b tmp0
 	tya

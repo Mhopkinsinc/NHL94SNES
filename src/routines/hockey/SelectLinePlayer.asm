@@ -1,18 +1,18 @@
 ; Line editor: pick a player for the cursor slot from the list (attribute pages, up / down); A = the player, negative when cancelled
 SelectLinePlayer:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #SelectLinePlayerPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #SelectLinePlayerPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l SpriteFrameStart
 	lda.w #$0020
 	sta.b d0
@@ -213,19 +213,19 @@ SelectLinePlayer:
 	sta.w BG1VScroll
 	jmp.w .6
 .10:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #SelectLinePlayerPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #SelectLinePlayerPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0020
 	sta.b d0
 	lda.w #$000D
@@ -241,7 +241,7 @@ SelectLinePlayer:
 	lda.w #SkaterAttribColumns
 	sta.b a1
 	lda.w #$009B
-	sta.b $8F
+	sta.b a1+2
 	lda.w DispAttribCtr
 	sta.b d0
 	lda.w SelectedPlayerIdx
@@ -249,7 +249,7 @@ SelectLinePlayer:
 	lda.w #AttribMenuGoalie
 	sta.b a1
 	lda.w #AttribMenuGoalie>>16
-	sta.b $8F
+	sta.b a1+2
 	bra .3x
 .2x:
 	lda.b a1
@@ -273,40 +273,40 @@ SelectLinePlayer:
 	sta.w printa
 	jsl.l print
 	lda.b [a1]
-	sta.b $B7
+	sta.b d4+2
 	ldy.w #$0002
 org $9B9001
 	lda.b [a1],y
 	sta.b d4
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PlayerTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayerTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w picktop
 	cmp.w pickfirst
 	beq .1xxxx
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #LeftArrowTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #LeftArrowTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .1xxxx:
 	lda.w picktop
 	sec
@@ -315,19 +315,19 @@ org $9B9001
 	adc.w pickrows
 	cmp.w listcount
 	bpl .2xx
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #RightArrowTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #RightArrowTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .2xx:
 	jsr.w PrintLinePlayerList
 	rtl

@@ -245,7 +245,7 @@ assdefd:
 	lda.w temp4,x
 	sta.b d1
 	lda.w #rtss>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #rtss
 	sta.b a0
 	jsl.l skateto

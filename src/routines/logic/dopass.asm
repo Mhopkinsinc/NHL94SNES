@@ -89,7 +89,7 @@ dopass:
 	adc.w #$DA08
 	sta.b a0
 	lda.w #$0080
-	sta.b $8B
+	sta.b a0+2
 	lda.b [a0]
 	cmp.w #$8000
 	ror a
@@ -98,7 +98,7 @@ dopass:
 	jsl.l Mul8XS
 	asl a
 	sta.b $14
-	ldx.b $E4
+	ldx.b curobj
 	lda.w Yvel,x
 	cmp.w #$8000
 	ror a
@@ -115,7 +115,7 @@ dopass:
 	jsl.l Mul8XS
 	asl a
 	sta.b $14
-	ldx.b $E4
+	ldx.b curobj
 	lda.w Xvel,x
 	cmp.w #$8000
 	ror a
@@ -314,7 +314,7 @@ dopass_count:
 .4:
 	sta.b d5
 	sta.w passspeed
-	ldx.b $E4
+	ldx.b curobj
 	lda.w #$0010
 	sec
 	sbc.w passacc,x
@@ -361,7 +361,7 @@ dopass_count:
 	clc
 	adc.w #$0006
 	sta.w passwait,y
-	ldx.b $E4
+	ldx.b curobj
 	lda.b d6
 	sta.w nopuck,x
 	ldy.b a2

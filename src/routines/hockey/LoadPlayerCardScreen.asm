@@ -56,20 +56,20 @@ LoadPlayerCardScreen:
 	lsr a
 	sta.b d0
 	lda.w #$007F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$0000
 	sta.b a0
 	lda.w #PixelRemap8F>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PixelRemap8F
 	sta.b a1
 	jsl.l RemapTiles
 	lda.w #FramerTiles>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #FramerTiles
 	sta.b a0
 	lda.w #PixelRemap87>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PixelRemap87
 	sta.b a1
 	lda.w #$0004
@@ -268,19 +268,19 @@ LoadPlayerCardScreen:
 	lda.w #$0000
 	sta.l colourbuf
 	jsl.l SendColours
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #SwitchCardsYSwitchTeamsTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #SwitchCardsYSwitchTeamsTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l SendTextMap2
 	ldx.w #$0000
 	ldy.w #$0180

@@ -5,7 +5,7 @@ AttribHanded:
 	eor.w #$0001
 	sta.b d0
 	lda.w #HandedTextTbl>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #HandedTextTbl
 	sta.b a1
 	jml.l PrintStringFromList

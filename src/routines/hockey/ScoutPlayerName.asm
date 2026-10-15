@@ -4,19 +4,19 @@ ScoutPlayerName:
 	lda.b a0
 	pha
 	jsl.l GetPlayerRecord
-	lda.b $8B
-	sta.b $8F
+	lda.b a0+2
+	sta.b a1+2
 	lda.b a0
 	sta.b a1
 	lda.w #mesarea>>16
-	sta.b $97
+	sta.b a3+2
 	lda.w #mesarea
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
 	jsl.l appstring
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	pla

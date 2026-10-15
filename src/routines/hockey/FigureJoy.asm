@@ -17,7 +17,7 @@ FigureJoy:
 .t3:
 	jsl.l GetShifter
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #potree
 	sta.b a0
 	lda.l potreeteam
@@ -92,7 +92,7 @@ FigureJoy:
 	sta.b d0
 	tay
 	lda.w #$009D
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.5+32
 	sta.b a0
 	iny

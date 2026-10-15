@@ -2,11 +2,11 @@
 GetPlayerName:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b a2
 	pha
-	lda.b $93
+	lda.b a2+2
 	pha
 	stz.b a2
 	lda.w TempPlOffset
@@ -19,11 +19,11 @@ GetPlayerName:
 .1:
 	jsl.l PlayerNumName
 	pla
-	sta.b $93
+	sta.b a2+2
 	pla
 	sta.b a2
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	rtl

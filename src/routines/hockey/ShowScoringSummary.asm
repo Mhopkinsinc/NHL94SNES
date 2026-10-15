@@ -12,7 +12,7 @@ ShowScoringSummary:
 	ldx.w #$005E
 	ldy.w #$0018
 	lda.w #ScoringLabel>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoringLabel
 	sta.b a1
 	jsl.l PrintLetterSprites
@@ -24,19 +24,19 @@ ShowScoringSummary:
 	lda.w #$6F7B
 	sta.l colourbuf+$22
 	jsl.l SendColours
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ScoringSummaryHead>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoringSummaryHead
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0000
 	sta.w listend
 	lda.l ScoreSumbytes

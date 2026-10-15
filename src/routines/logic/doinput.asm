@@ -80,7 +80,7 @@ doinput:
 	bit.w #$0010
 	bne .12
 	lda.w passReceiverPlayerNum
-	cmp.b $E4
+	cmp.b curobj
 	beq .6
 	lda.b d1
 	bit.w #$0080
@@ -149,7 +149,7 @@ doinput:
 	bit.w #$0008
 	bne .t2x
 	lda.w dumpinplayer
-	cmp.b $E4
+	cmp.b curobj
 	beq .23
 	lda.b d1
 	bit.w #$8000

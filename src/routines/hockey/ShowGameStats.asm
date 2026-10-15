@@ -8,39 +8,39 @@ ShowGameStats:
 	ldx.w #$0050
 	ldy.w #$0018
 	lda.w #GameStats>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #GameStats
 	sta.b a1
 	jsl.l PrintLetterSprites
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowGameStatsPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowGameStatsPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w VisTeam
 	sta.b d1
 	jsl.l DrawTeamBlocks
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShowGameStatsPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShowGameStatsPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w HomeTeam
 	sta.b d1
 	jsl.l DrawTeamBlocks

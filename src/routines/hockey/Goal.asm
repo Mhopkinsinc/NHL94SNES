@@ -124,11 +124,11 @@ Goal:
 	adc.w #$01F4
 	sta.l crowdlevel
 	lda.w #$0078
-	sta.b $81
+	sta.b crowdhold
 	lda.w #$0003
 	jsl.l PlayTeamSong
 .score:
-	lda.b $83
+	lda.b vcount
 	sta.w sfxmutetime
 	jsl.l EndPenaltyShot
 	stz.w breakaway
@@ -166,7 +166,7 @@ Goal:
 	sta.l ScoreSumbytes
 .3x:
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #ScoreSum
 	clc
 	adc.l ScoreSumbytes

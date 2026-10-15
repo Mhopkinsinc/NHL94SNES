@@ -29,7 +29,7 @@ adda4:
 	lda.b a4
 	cmp.w ReplayBufferPtr
 	bne .t1
-	lda.b $9B
+	lda.b a4+2
 	cmp.w ReplayBufferPtr+2
 	bne .t1
 	rtl
@@ -42,15 +42,15 @@ adda43:
 	adc.w #replaysize
 	sta.b a4
 	bcc .1
-	inc.b $9B
+	inc.b a4+2
 .1:
 	cmp.w #ReplayBufferEnd
 	bne .rtl
-	lda.b $9B
+	lda.b a4+2
 	cmp.w #$007E
 	bne .rtl
 	lda.w #$007E
-	sta.b $9B
+	sta.b a4+2
 	lda.w #ReplayBufferStart
 	sta.b a4
 .rtl:

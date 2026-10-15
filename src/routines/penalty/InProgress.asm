@@ -36,7 +36,7 @@ InProgress:
 	sta.b d0
 	tay
 	lda.w #PenaltyList>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PenaltyList
 	sta.b a1
 	lda.b [a1],y
@@ -61,11 +61,11 @@ InProgress:
 .t1x:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b d1
 	pha
-	lda.b $AB
+	lda.b d1+2
 	pha
 	stx.b xsave
 	ldx.w #$0000
@@ -193,7 +193,7 @@ InProgress:
 	sta.w tmpdst,y
 	lda.w #$1000
 	trb.b d2
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a0
 	pha
@@ -219,7 +219,7 @@ InProgress:
 	pla
 	sta.b a0
 	pla
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$000D
 	sta.b d0
 	jsl.l assreplace
@@ -233,11 +233,11 @@ InProgress:
 	bpl .loop3
 	ldx.b xsave
 	pla
-	sta.b $AB
+	sta.b d1+2
 	pla
 	sta.b d1
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	ldx.b a3
@@ -286,7 +286,7 @@ InProgress_coin:
 	bpl .loop
 	ldx.b xsave
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	ldx.b a3

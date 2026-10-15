@@ -6,7 +6,7 @@ PrintTeamNameAndScore:
 	sta.b d0
 	jsl.l Mod100
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #$0004

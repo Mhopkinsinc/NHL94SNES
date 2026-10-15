@@ -11,9 +11,9 @@ skateto:
 	adc.w #$000C
 	sta.w temp2,x
 	lda.b d0
-	sta.b $A7
+	sta.b d0+2
 	lda.b d1
-	sta.b $AB
+	sta.b d1+2
 	jsl.l avdgoal
 	lda.w Xvel,x
 	xba
@@ -61,13 +61,13 @@ skateto:
 	pha
 	lda.b $14
 	clc
-	adc.b $A7
+	adc.b d0+2
 	sec
 	sbc.w Xpos,x
 	tay
 	lda.b $16
 	clc
-	adc.b $AB
+	adc.b d1+2
 	sec
 	sbc.w Ypos,x
 	jsl.l ApproxLength
@@ -97,7 +97,7 @@ skateto:
 .6:
 	lda.b a0
 	sta.w jmlvector+1
-	lda.b $8A
+	lda.b a0+1
 	sta.w jmlvector+2
 	jsl.l jmlvector
 	lda.b d0

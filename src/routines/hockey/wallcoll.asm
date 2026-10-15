@@ -92,13 +92,13 @@ wallcoll:
 	asl a
 	pla
 	ror a
-	sta.b $A7
+	sta.b d0+2
 	lda.b d3
 	sec
 	sbc.b d0
 org $9E9000
 	sec
-	sbc.b $A7
+	sbc.b d0+2
 	sta.b d3
 	bra .7
 .5:

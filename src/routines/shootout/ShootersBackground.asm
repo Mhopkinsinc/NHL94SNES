@@ -8,23 +8,23 @@ ShootersBackground:
 	ldx.w #$0058
 	ldy.w #$0018
 	lda.w #ShootoutLabel>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShootoutLabel
 	sta.b a1
 	jsl.l PrintLetterSprites
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ShootersBackgroundPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ShootersBackgroundPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w HomeTeam
 	sta.b d1
 	lda.b a2

@@ -15,7 +15,7 @@ PasswordScreen:
 	ldx.w #$0053
 	ldy.w #$0018
 	lda.w #PasswordLabel>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PasswordLabel
 	sta.b a1
 	jsl.l PrintLetterSprites
@@ -26,41 +26,41 @@ PasswordScreen:
 	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
 	jsl.l SendColours
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PasswordScreenPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PasswordScreenPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0011
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
 	jsl.l FramerOutline
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PasswordTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PasswordTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	dec.w printx
 	dec.w printx
 	lda.w #PasstoText>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #PasstoText
 	sta.b a0
 	lda.w #$0004
@@ -69,7 +69,7 @@ PasswordScreen:
 	lda.w #$0005
 	sta.b d1
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #$000D
@@ -87,7 +87,7 @@ PasswordScreen:
 	dec.b d1
 	bpl .loop2
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	jsl.l print
@@ -119,7 +119,7 @@ PasswordScreen:
 	plx
 	sta.w PWCharStr+2
 	lda.w #$0000
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0A4A
 	sta.b a1
 	inc.w printx
@@ -131,19 +131,19 @@ PasswordScreen:
 PasswordRedraw:
 	jsr.w PrintPasswordHelp
 .1:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PasswordScreenPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PasswordScreenPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l PWprint
 	jsl.l QueueTextDMA
 .loop:
@@ -195,7 +195,7 @@ PasswordRedraw:
 	sta.b d4
 	jsl.l PrintSelectLeft
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$34F4
 	sta.b a0
 	stz.b d0
@@ -230,7 +230,7 @@ PasswordRedraw:
 	plx
 	sta.w PWCharStr+2
 	lda.w #$0000
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0A4A
 	sta.b a1
 	inc.w printx
@@ -248,7 +248,7 @@ PasswordRedraw:
 	plx
 	sta.w PWCharStr+2
 	lda.w #$0000
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0A4A
 	sta.b a1
 	inc.w printx
@@ -256,7 +256,7 @@ PasswordRedraw:
 	dec.w printy
 	jsl.l print
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$34F4
 	sta.b a0
 	ldy.b d4

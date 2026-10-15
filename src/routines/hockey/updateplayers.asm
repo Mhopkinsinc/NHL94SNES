@@ -11,7 +11,7 @@ updateplayers:
 	sta.w puckoldz
 	ldx.w #$001E
 .2:
-	stx.b $E4
+	stx.b curobj
 	lda.w Xpos,x
 	sta.w OldXpos,x
 	lda.w Xfrac,x
@@ -131,7 +131,7 @@ updateplayers:
 	tax
 	lda.b $0C
 	jsl.l Mul16x8XS
-	ldx.b $E4
+	ldx.b curobj
 	lda.b $08
 	clc
 	adc.w Xfrac,x
@@ -145,7 +145,7 @@ updateplayers:
 	tax
 	lda.b $0C
 	jsl.l Mul16x8XS
-	ldx.b $E4
+	ldx.b curobj
 	lda.b $08
 	clc
 	adc.w Yfrac,x
@@ -169,7 +169,7 @@ updateplayers:
 	tax
 	lda.w velstep
 	jsl.l Mul16x8XS
-	ldx.b $E4
+	ldx.b curobj
 	lda.b $08
 	clc
 	adc.w puckzfrac
@@ -207,7 +207,7 @@ updateplayers:
 	lsr a
 	tax
 	jsl.l Mul8U
-	ldx.b $E4
+	ldx.b curobj
 	sta.w puckdist2,x
 	lda.w pucky
 	sec
@@ -222,7 +222,7 @@ updateplayers:
 	lsr a
 	tax
 	jsl.l Mul8U
-	ldx.b $E4
+	ldx.b curobj
 	clc
 	adc.w puckdist2,x
 	sta.w puckdist2,x
@@ -254,7 +254,7 @@ updateplayers:
 	ply
 	pla
 	jsl.l ApproxLength_abs
-	ldx.b $E4
+	ldx.b curobj
 	sta.w puckdist,x
 	cpx.w #$0018
 	bcs .14
@@ -327,7 +327,7 @@ updateplayers:
 	ldx.w #$0000
 .15:
 	stx.b a3
-	stx.b $E4
+	stx.b curobj
 	cpx.w #$000C
 	bne .1xxxxxx
 	lda.w #$0002
@@ -387,7 +387,7 @@ updateplayers:
 	sta.w jmlvector+1
 	lda.l asstab+1,x
 	sta.w jmlvector+2
-	ldx.b $E4
+	ldx.b curobj
 	jsl.l loadTeamStruct
 	jsl.l jmlvector
 .1xxxxxxxx:

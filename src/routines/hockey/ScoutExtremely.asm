@@ -7,7 +7,7 @@ ScoutExtremely:
 
 .t1:
 	lda.w #ScoutFragments>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoutFragments
 	sta.b a1
 	jmp.w ScoutAppend

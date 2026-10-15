@@ -3,7 +3,7 @@ ScoutPlainWord:
 	lda.w #$FFFF
 	sta.w PlayerScrollCtr
 	lda.w #mesarea>>16
-	sta.b $8B
+	sta.b a0+2
 	lda.w #mesarea+2
 	sta.b a0
 	stz.b d1
@@ -52,7 +52,7 @@ ScoutPlainWord:
 	inc a
 	sta.w mesarea
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 ScoutTypeWord:
@@ -85,19 +85,19 @@ ScoutTypeWord:
 	bra .loop
 
 .t1:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #ScoutNamePosAt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #ScoutNamePosAt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w DispAttribCtr
 	clc
 	adc.w printx

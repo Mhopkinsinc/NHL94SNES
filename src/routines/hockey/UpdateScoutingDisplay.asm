@@ -17,7 +17,7 @@ UpdateScoutingDisplay:
 	bpl UpdateScoutingDisplay_rtl
 .1:
 	lda.w #PregameText>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PregameText
 	sta.b a1
 	lda.w PlayerScrollCtr
@@ -28,7 +28,7 @@ UpdateScoutingDisplay:
 	inc.w SelectedPlayerIdx
 	inc.w SelectedPlayerIdx
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$347C
 	sta.b a0
 	lda.b [a0],y
@@ -47,8 +47,8 @@ UpdateScoutingDisplay_scroll:
 	jsl.l ScrollDisplayUp
 .1:
 	jsl.l ScrollDisplayUp
-	lda.b $8F
-	sta.b $93
+	lda.b a1+2
+	sta.b a2+2
 	lda.b a1
 	sta.b a2
 	bra UpdateScoutingDisplay_next
@@ -70,8 +70,8 @@ UpdateScoutingDisplay_para:
 	clc
 	adc.b d0
 	sta.b a2
-	lda.b $8F
-	sta.b $93
+	lda.b a1+2
+	sta.b a2+2
 	lda.w #$000A
 	sta.w ScoutingReportTimer
 	lda.w DispAttribCtr

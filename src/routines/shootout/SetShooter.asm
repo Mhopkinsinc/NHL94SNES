@@ -10,13 +10,13 @@ SetShooter:
 	and.w #$00FF
 	sta.b d0
 	lda.w #homeshooters>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #homeshooters
 	sta.b a1
 	lda.b a2
 	beq .1
 	lda.w #awayshooters>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #awayshooters
 	sta.b a1
 .1:

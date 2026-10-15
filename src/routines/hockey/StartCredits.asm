@@ -107,7 +107,7 @@ RollCredits:
 	lda.l CreditTitles,x
 	sta.b a1
 	lda.w #$0080
-	sta.b $8F
+	sta.b a1+2
 	ldx.w #$0080
 	ldy.w CreditTitleY
 	jsl.l PrintStringSprites
@@ -117,7 +117,7 @@ RollCredits:
 	lda.l CreditNames,x
 	sta.b a1
 	lda.w #$0080
-	sta.b $8F
+	sta.b a1+2
 	ldx.w #$0080
 	ldy.w CreditNameY
 	jsl.l PrintStringSprites

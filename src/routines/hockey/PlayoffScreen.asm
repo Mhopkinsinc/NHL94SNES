@@ -151,11 +151,11 @@ PlayoffScreen:
 	adc.l smallfontchars
 	sta.l BigFontChars
 	lda.w #$007F
-	sta.b $8B
+	sta.b a0+2
 	lda.w #$0000
 	sta.b a0
 	lda.w #PixelRemap8F>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PixelRemap8F
 	sta.b a1
 	jsl.l RemapTiles
@@ -320,11 +320,11 @@ PlayoffScreen:
 	ldx.w #$4002
 	jsl.l MemFill
 	lda.w #$007E
-	sta.b $8F
+	sta.b a1+2
 	lda.w #potree
 	sta.b a1
 	lda.w #$009D
-	sta.b $8B
+	sta.b a0+2
 	lda.w #.10
 	sta.b a0
 	lda.l playoffRoundIdx
@@ -337,19 +337,19 @@ PlayoffScreen:
 	inc.b a0
 	and.w #$00FF
 	sta.b d4
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PlayoffScreenPos>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayoffScreenPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0001
 	sta.l bigtextchar
 .loop2:
@@ -366,7 +366,7 @@ PlayoffScreen:
 	lda.b [a1]
 	inc.b a1
 	and.w #$00FF
-	sta.b $CD
+	sta.b tmp4
 	tay
 	lda.l potreeteam
 	tax
@@ -377,7 +377,7 @@ PlayoffScreen:
 	lda.w #$3400
 	sta.w printa
 .1:
-	lda.b $CD
+	lda.b tmp4
 	asl a
 	tax
 	lda.l TeamPlaceNames,x
@@ -395,7 +395,7 @@ PlayoffScreen:
 	jsl.l RenderBigText
 	pla
 	sta.w printx
-	lda.b $CD
+	lda.b tmp4
 	asl a
 	asl a
 	asl a
@@ -404,7 +404,7 @@ PlayoffScreen:
 	sta.b a2
 	lda.w #$0000
 	adc.w #$007F
-	sta.b $93
+	sta.b a2+2
 	lda.w printy
 	asl a
 	asl a
@@ -524,28 +524,28 @@ org $9D9000
 	asl a
 	asl a
 	asl a
-	sta.b $AF
+	sta.b d2+2
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
 	asl a
 	asl a
 	asl a
-	sta.b $A7
-	stz.b $B3
-	lda.b $8F
+	sta.b d0+2
+	stz.b d3+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #PlayoffScreenPos2>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #PlayoffScreenPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w bosgames
 	cmp.w #$0007
 	beq .1x
@@ -567,7 +567,7 @@ org $9D9000
 	asl a
 	sta.w printy
 	lda.w #mesarea>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #$0005
@@ -613,19 +613,19 @@ org $9D9000
 	lda.l cupchars
 	ora.w #$0C00
 	jsl.l PasteMap
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
 	lda.w #N8hTxt>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #N8hTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$6E82
 	sta.w printm
 	jsl.l PWprint
@@ -700,7 +700,7 @@ org $9D9000
 	jmp.w .3
 
 .t2x:
-	lda.b $83
+	lda.b vcount
 	cmp.b d7
 	beq .2x
 	sta.b d7
@@ -720,28 +720,28 @@ org $9D9000
 	bne .t1xx
 	bit.w #$0100
 	bne .t3x
-	lda.b $B3
+	lda.b d3+2
 	bne .3x
 	jmp.w .2x
 
 .t1xx:
 	lda.w #$FFFE
-	sta.b $B3
+	sta.b d3+2
 	jmp.w .3x
 
 .t3x:
 	lda.w #$0002
-	sta.b $B3
+	sta.b d3+2
 .3x:
 	lda.w Hscroll
 	clc
-	adc.b $B3
-	cmp.b $AF
+	adc.b d3+2
+	cmp.b d2+2
 	bcs .t2xx
 	jmp.w .5
 
 .t2xx:
-	cmp.b $A7
+	cmp.b d0+2
 	bcc .t1xxx
 	jmp.w .5
 
@@ -752,7 +752,7 @@ org $9D9000
 	jmp.w .4
 
 .t3xx:
-	lda.b $B3
+	lda.b d3+2
 	bmi .t2xxx
 	lda.w Hscroll
 	lsr a
@@ -864,7 +864,7 @@ org $9D9000
 	cmp.w #$02A8
 	bne .6
 .5:
-	stz.b $B3
+	stz.b d3+2
 .6:
 	lda.w Hscroll
 	sec

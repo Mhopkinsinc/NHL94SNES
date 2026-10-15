@@ -12,14 +12,14 @@ GetPlayerRating:
 	ldx.b xsave
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.w #AttribMenuSkater>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AttribMenuSkater
 	sta.b a1
 	stz.b $08
@@ -28,7 +28,7 @@ GetPlayerRating:
 	cmp.b d0
 	bpl .1
 	lda.w #AttribMenuGoalie>>16
-	sta.b $8F
+	sta.b a1+2
 	lda.w #AttribMenuGoalie
 	sta.b a1
 	lda.w #$0010
@@ -52,7 +52,7 @@ GetPlayerRating:
 	adc.b [a1]
 	sta.b a1
 	lda.b [a1]
-	sta.b $B7
+	sta.b d4+2
 	ldy.w #$0002
 	lda.b [a1],y
 	sta.b d4
@@ -65,11 +65,11 @@ GetPlayerRating:
 	lda.b d0
 	sta.b $00
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	stx.b xsave
