@@ -1,32 +1,32 @@
 ; Scroll the penalty summary down one page.
 ScrollPenaltyDown:
 	lda.w #$0006
-	sta.w $1DC5
+	sta.w listrows
 	jsr.w DrawPenaltyPage
 	lda.w #$0005
-	sta.w $1DC5
-	lda.w $1DBD
+	sta.w listrows
+	lda.w listtop
 	clc
 	adc.w #$0005
-	cmp.w $1DC1
-	bpl CODE_9B9822
+	cmp.w listend
+	bpl PenaltySummaryWait
 	sec
 	sbc.w #$0004
-	sta.w $1DBD
+	sta.w listtop
 	lda.w #$0001
-	sta.w $1DF3
+	sta.w irqvscroll1
 	lda.w #$0018
-	sta.w $1DF5
+	sta.w irqvscroll2
 .loop:
 	jsl.l WaitFrame
-	inc.w $1DF3
-	inc.w $1DF3
-	lda.w $1DF3
+	inc.w irqvscroll1
+	inc.w irqvscroll1
+	lda.w irqvscroll1
 	cmp.w #$0017
 	bne .loop
-	jsl.l CODE_9B9AB2
+	jsl.l PrintScrollArrows
 	jsr.w DrawPenaltyPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
-	sta.w $1DF3
-	bra CODE_9B9808
+	sta.w irqvscroll1
+	bra PenaltySummaryLoop

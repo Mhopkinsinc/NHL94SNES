@@ -150,7 +150,6 @@ Status in the table: **extracted** means the bytes are already a named file the 
 | Name | Address | Where used |
 |---|---|---|
 | `mesareaEnd` | `$0A48` | `PushNumber`, `PushTime` only |
-| `shotPlIdx` | `$0AD9` | Shot / highlight / `ShotMode` path |
 | `gmStatBase` | `$1742` | `ClearTeamStats`, team stat pointers |
 | `playoffRoundIdx` | `$7E35D4` | `GetShifter`, passwords, other scores |
 | `rosterNone` | `$FFFC` | `cmp.w` beside `TMPDOUT` in `TryAddPlayerToList`, `ResetBench`, `reenergizeteam` |
@@ -161,11 +160,11 @@ Status in the table: **extracted** means the bytes are already a named file the 
 
 ### Defer until investigated
 
-`$7E34C6` (not `OptLine`; map bits or split before naming). `$163A` (penalty suppress, not `OptPen`). `$0B7D,x` (pass target on assist path). `#$0024` in `AddPenalty` (match 94G penalty id). `$7E35D0` / `blankchar` (compare stored tile to 93S before naming). `CODE_9EE220`, `CODE_9FD85F`, rejected 93S routine names — name from behavior one at a time.
+`$7E34C6` (not `OptLine`; map bits or split before naming). `$163A` (penalty suppress, not `OptPen`). `$0B7D,x` (pass target on assist path). `#$0024` in `AddPenalty` (match 94G penalty id). `$7E35D0` / `blankchar` (compare stored tile to 93S before naming).
 
 ### DATA8 and sprites
 
-Mixed `DATA8_9CF000` cursors: stay `DATA8_` or `Cursor_…` only when tied to one screen. Optional: `StoppageMessages` for `DATA8_80D3EB` (not `PenaltyList`). `SpriteFrameN` and `DATA8_9DE0FC` stay numbered until SPF mapping is proven (project decision, not backlog).
+Mixed `DATA8_9CF000` cursors: stay `DATA8_` or `Cursor_…` only when tied to one screen. `DATA8_80D3EB` is `PenaltyList` (same layout and readers as 93S). `SpriteFrameN` stays numbered until SPF mapping is proven. The animation list is `SPAList`; animations that match 93S take the 93S SPA names.
 
 ### Missing assets
 

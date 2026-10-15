@@ -3,14 +3,14 @@ puckflip:
 	lda.b d0
 	and.w #$0001
 	sta.b d0
-	eor.w $117F
+	eor.w facedir+puckobj
 	and.w #$0003
-	sta.w $117F
+	sta.w facedir+puckobj
 	lda.w #$FFFF
-	sta.w $11FF
+	sta.w SPAcnt+puckobj
 	phx
 	ldx.w #$001C
-	lda.w #$E978
+	lda.w #SPApflip
 	jsl.l SetSPAFromA
 	plx
 	rtl

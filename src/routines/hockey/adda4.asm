@@ -29,29 +29,29 @@ adda4:
 	lda.b a4
 	cmp.w ReplayBufferPtr
 	bne .t1
-	lda.b $9B
-	cmp.w $0D21
+	lda.b a4+2
+	cmp.w ReplayBufferPtr+2
 	bne .t1
 	rtl
 
 .t1:
-	jsl.l CODE_9BB19D
+	jsl.l RestoreReplayFrame
 adda43:
 	lda.b a4
 	clc
-	adc.w #$007A
+	adc.w #replaysize
 	sta.b a4
 	bcc .1
-	inc.b $9B
+	inc.b a4+2
 .1:
-	cmp.w #$E676
+	cmp.w #ReplayBufferEnd
 	bne .rtl
-	lda.b $9B
+	lda.b a4+2
 	cmp.w #$007E
 	bne .rtl
 	lda.w #$007E
-	sta.b $9B
-	lda.w #$577E
+	sta.b a4+2
+	lda.w #ReplayBufferStart
 	sta.b a4
 .rtl:
 	rtl

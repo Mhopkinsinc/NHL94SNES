@@ -1,40 +1,40 @@
 ; Print the scroll hint under a summary list.
 PrintScrollHint:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF138
+	lda.w #PrintScrollHintPos>>16
+	sta.b a1+2
+	lda.w #PrintScrollHintPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$000E
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000A
 	sta.w printx
 	lda.w #$0007
 	sta.w printy
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #ScrollHint>>16
+	sta.b a1+2
 	lda.w #ScrollHint
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	rtl

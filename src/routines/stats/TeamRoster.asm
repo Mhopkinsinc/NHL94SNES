@@ -1,91 +1,91 @@
 ; Team roster for the team in a2. Y switches team, start leaves.
 TeamRoster:
-	jsl.l CODE_9DE0E9
+	jsl.l GetPauseTeam
 	ldy.b a2
 	lda.w tmline,y
 	inc a
 	sta.b d0
 	sta.w SelectedPlayerIdx
-	stz.w $0D47
+	stz.w DispAttribCtr
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$001D
-	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	sta.l setuphome
+	jsl.l SetupScreen
 	ldx.w #$004C
 	ldy.w #$0018
-	lda.w #$009C
-	sta.b $8F
+	lda.w #TeamRosterTitle>>16
+	sta.b a1+2
 	lda.w #TeamRosterTitle
 	sta.b a1
-	jsl.l CODE_9C936C
-	jsl.l CODE_9F96E6
-	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
-	lda.w #$007E
-	sta.b $12
-	lda.w #$37F4
-	sta.b $10
-	lda.l $7E35D0
+	jsl.l PrintLetterSprites
+	jsl.l FadeIn
+	jsl.l MenuScreenHDMA
+	jsl.l ScreenOn
+	lda.w #textmap>>16
+	sta.b p1+2
+	lda.w #textmap
+	sta.b p1
+	lda.l blankchar
 	clc
-	adc.l $7E35AA
+	adc.l charofs
 	ldx.w #$0800
-	jsl.l CODE_808EDF
-	lda.b $8F
+	jsl.l MemFill
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF431
+	lda.w #PlayerRatingTxt>>16
+	sta.b a1+2
+	lda.w #PlayerRatingTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000F
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D80DD
-	lda.b $8F
+	jsl.l FramerOutline
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF448
+	lda.w #TeamRosterPos>>16
+	sta.b a1+2
+	lda.w #TeamRosterPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$000F
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D80DD
-CODE_9D9DE2:
-	lda.b $8F
+	jsl.l FramerOutline
+TeamRosterRedraw:
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF44D
+	lda.w #TeamRosterPos2>>16
+	sta.b a1+2
+	lda.w #TeamRosterPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w HomeTeam
 	sta.b d1
 	lda.b a2
@@ -95,24 +95,24 @@ CODE_9D9DE2:
 	lda.w #$0030
 .1:
 	sta.b d0
-	jsl.l CODE_9FBE08
+	jsl.l DrawTeamBlocks
 	jsl.l SpriteFrameEnd
 	lda.w #$7F97
-	sta.l $7F7502
+	sta.l colourbuf+2
 	lda.w #$FFFF
-	sta.l $7F7542
-	jsl.l CODE_9DE0D4
-	jsl.l CODE_9D9ECB
-CODE_9D9E2D:
-	jsl.l CODE_9DD923
+	sta.l colourbuf+$42
+	jsl.l SendColours
+	jsl.l ShowRosterLine
+TeamRosterLoop:
+	jsl.l SendTextMap
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
-	jsl.l CODE_9B851F
+	jsl.l ReadPads
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000
 	beq .t1
-	jmp.w CODE_9DA04C
+	jmp.w RosterRtl
 
 .t1:
 	bit.w #$4000
@@ -129,17 +129,17 @@ CODE_9D9E2D:
 	bne .1
 	inc.b d0
 	inc.b d0
-	bit.w #DMA_OAM
-	beq CODE_9D9E86
+	bit.w #$0400
+	beq TeamRosterShowLine
 .1:
 	lda.b d0
 	clc
 	adc.w SelectedPlayerIdx
 	sta.b d0
-	bmi CODE_9D9E86
+	bmi TeamRosterShowLine
 	cmp.w #$0008
-	bcs CODE_9D9E86
+	bcs TeamRosterShowLine
 	sta.w SelectedPlayerIdx
-	jsl.l CODE_9D9ECB
-CODE_9D9E86:
-	jmp.w CODE_9D9E2D
+	jsl.l ShowRosterLine
+TeamRosterShowLine:
+	jmp.w TeamRosterLoop

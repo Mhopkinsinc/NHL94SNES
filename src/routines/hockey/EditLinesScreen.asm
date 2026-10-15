@@ -1,34 +1,34 @@
 ; Change the lines on the ice. Start opens the line menu.
 EditLinesScreen:
-	jsl.l CODE_9DE0E9
+	jsl.l GetPauseTeam
 	ldy.b a2
 	lda.w tmline,y
 	inc a
 	sta.b d0
 	sta.w SelectedPlayerIdx
-	stz.w $0D47
+	stz.w DispAttribCtr
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$FFFF
-	sta.l $7E3452
-	jsl.l CODE_9DD9AD
-	jsl.l CODE_9B890F
+	sta.l setuphome
+	jsl.l SetupScreen
+	jsl.l DrawEditLinesTop
 	lda.w #$0005
-	sta.w $1D9F
+	sta.w lineslots
 	dec a
-	sta.w $1D8B
+	sta.w linecursor
 	jsl.l PrintLineNames
 	lda.w #$0005
 	ldx.w #$0068
-	jsl.l CODE_9DCCF5
-	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
-CODE_9B86E5:
-	jsl.l CODE_9DD923
+	jsl.l SetupBandIRQ
+	jsl.l MenuScreenHDMA
+	jsl.l ScreenOn
+.3:
+	jsl.l SendTextMap
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
-	jsl.l CODE_9B851F
+	jsl.l ReadPads
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000
@@ -36,11 +36,11 @@ CODE_9B86E5:
 	jsr.w EditLinesMenu
 	cmp.w #$0000
 	beq .t1
-	jmp.w CODE_9B8860
+	jmp.w EditLinesRtl
 
 .t1:
 	jsl.l PrintLineNames
-	bra CODE_9B86E5
+	bra .3
 
 .t2:
 	bit.w #$8080
@@ -48,57 +48,57 @@ CODE_9B86E5:
 	jmp.w .t3
 
 .t1x:
-	jsl.l CODE_9B8D86
+	jsl.l SelectLinePlayer
 	cmp.w #$0000
 	bmi .1
-	jsr.w CODE_9B8C7A
+	jsr.w SetLineSlot
 .1:
 	lda.w #$0001
-	sta.l $7E3468
+	sta.l drawlinesback
 	jsl.l PrintLineNames
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CEFDB
+	lda.w #EditLinesScreenPos>>16
+	sta.b a1+2
+	lda.w #EditLinesScreenPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w SelectedPlayerIdx
 	sta.b d0
-	lda.w #$009B
-	sta.b $8F
+	lda.w #LineMenuNames>>16
+	sta.b a1+2
 	lda.w #LineMenuNames
 	sta.b a1
-	lda.l $7E34C6
+	lda.l OptLine
 	bne .2
-	lda.w #$009B
-	sta.b $8F
+	lda.w #BestLineNames>>16
+	sta.b a1+2
 	lda.w #BestLineNames
 	sta.b a1
 .2:
 	jsl.l AdvanceStringPtr
 	jsl.l print
-	jsl.l CODE_9DD923
-	lda.b $8F
+	jsl.l SendTextMap
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CEFE0
+	lda.w #EditLinesScreenPos2>>16
+	sta.b a1+2
+	lda.w #EditLinesScreenPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	jmp.w CODE_9B880D
+	sta.b a1+2
+	jmp.w .5
 
 .t3:
 	stz.b d0
@@ -109,53 +109,53 @@ CODE_9B86E5:
 	dec.b d0
 	bit.w #$0200
 	bne .t2x
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne .1x
 	inc.b d0
 	inc.b d0
 	bit.w #$0800
-	beq CODE_9B880D
+	beq .5
 .1x:
 	lda.b d0
 	clc
-	adc.w $1D8B
-	bmi CODE_9B880D
-	cmp.w $1D9F
-	bpl CODE_9B880D
-	sta.w $1D8B
+	adc.w linecursor
+	bmi .5
+	cmp.w lineslots
+	bpl .5
+	sta.w linecursor
 	jsl.l PrintLineNames
-	jmp.w CODE_9B880D
+	jmp.w .5
 
 .t2x:
-	lda.l $7E34C6
-	beq CODE_9B880D
+	lda.l OptLine
+	beq .5
 	lda.b d0
 	clc
 	adc.w SelectedPlayerIdx
 	dec a
-	bmi CODE_9B880D
+	bmi .5
 	cmp.w #$0007
-	bcs CODE_9B880D
+	bcs .5
 	inc a
 	sta.w SelectedPlayerIdx
 	cmp.w #$0006
 	bmi .t1x2
-	lda.w $1D9F
+	lda.w lineslots
 	cmp.w #$0004
-	beq CODE_9B8809
-	dec.w $1D9F
-	lda.w $1D8B
-	beq CODE_9B8809
-	dec.w $1D8B
-	bra CODE_9B8809
+	beq .4
+	dec.w lineslots
+	lda.w linecursor
+	beq .4
+	dec.w linecursor
+	bra .4
 
 .t1x2:
-	lda.w $1D9F
+	lda.w lineslots
 	cmp.w #$0005
-	beq CODE_9B8809
-	inc.w $1D9F
-	inc.w $1D8B
-CODE_9B8809:
+	beq .4
+	inc.w lineslots
+	inc.w linecursor
+.4:
 	jsl.l PrintLineNames
-CODE_9B880D:
-	jmp.w CODE_9B86E5
+.5:
+	jmp.w .3

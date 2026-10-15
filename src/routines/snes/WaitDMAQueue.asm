@@ -1,77 +1,77 @@
-; Unidentified routine.
+; Wait until the DMA queue is empty ($3A = $3C)
 WaitDMAQueue:
 	pha
 .loop:
-	lda.b $3A
-	cmp.b $3C
+	lda.b DMAQueueHead
+	cmp.b DMAQueueTail
 	bne .loop
 	pla
 	rtl
 
 .t1:
 	iny
-CODE_8085A4:
+.1:
 	jsl.l WaitFrame
 	dex
-	bne .t1
+	bne .t1x
 	dey
-	bne .t1
+	bne .t1x
 	lda.w #$0000
 	rtl
 
-.t1:
+.t1x:
 	lda.w JoyPad
-	beq CODE_8085A4
+	beq .1
 	rtl
 
 .t2:
 	iny
-CODE_8085B9:
+.2:
 	jsl.l WaitFrame
 	dex
-	bne .t1
+	bne .t1xx
 	dey
-	bne .t1
+	bne .t1xx
 	lda.w #$0000
 	rtl
 
-.t1:
-	lda.w $0778
-	beq CODE_8085B9
+.t1xx:
+	lda.w JoyPad+2
+	beq .2
 	rtl
 
-.t2:
-	sta.b $14
+.t2x:
+	sta.b r3
 	iny
-CODE_8085D0:
+.3:
 	jsl.l WaitFrame
 	dex
-	bne .t1
+	bne .t1xxx
 	dey
-	bne .t1
+	bne .t1xxx
 	lda.w #$0000
 	rtl
 
-.t1:
+.t1xxx:
 	lda.w JoyPad
-	and.b $14
-	beq CODE_8085D0
+	and.b r3
+	beq .3
 	rtl
 
-.t2:
-	sta.b $14
+.t2xx:
+	sta.b r3
 	iny
-CODE_8085E9:
+.4:
 	jsl.l WaitFrame
 	dex
-	bne .t1
+	bne .t1xxxx
 	dey
-	bne .t1
+	bne .t1xxxx
 	lda.w #$0000
 	rtl
 
-.t1:
-	lda.w $0778
-	and.b $14
-	beq CODE_8085E9
+.t1xxxx:
+	lda.w JoyPad+2
+	and.b r3
+	beq .4
 	rtl

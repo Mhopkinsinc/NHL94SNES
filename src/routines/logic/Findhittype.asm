@@ -1,4 +1,4 @@
-; Unidentified routine.
+; Swing type of player X for direction d0: forehand or backhand
 Findhittype:
 	lda.b d0
 	eor.w #$FFFF
@@ -12,7 +12,7 @@ Findhittype:
 	beq .t1
 	phx
 	ldx.b d0
-	lda.l DATA8_9EE6C7,x
+	lda.l .1,x
 	plx
 	and.w #$00FF
 	rtl
@@ -20,7 +20,9 @@ Findhittype:
 .t1:
 	phx
 	ldx.b d0
-	lda.l DATA8_9EE6C7+3,x
+	lda.l .1+3,x
 	plx
 	and.w #$00FF
 	rtl
+.1:
+	db $00,$00,$00,$00,$01,$01,$01,$01,$00,$00,$00

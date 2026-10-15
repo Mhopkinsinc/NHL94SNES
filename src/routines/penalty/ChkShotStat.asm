@@ -1,0 +1,153 @@
+; If a shot was taken, add it to the shooting team's shots
+ChkShotStat:
+	lda.w #$1000
+	trb.w sflags
+	bne .t1
+	jmp.w .7
+
+.t1:
+	lda.w gmclock
+	beq .t3
+	jmp.w .7
+
+.t3:
+	lda.b a1
+	pha
+	lda.b a1+2
+	pha
+	lda.b a2
+	pha
+	lda.b a2+2
+	pha
+	lda.b a3
+	pha
+	lda.b a3+2
+	pha
+	lda.b d0
+	pha
+	lda.b d0+2
+	pha
+	phx
+	ldx.w shotplayer
+	stx.b a3
+	stz.b a2
+	lda.w #$0002
+	sta.b a1
+	txa
+	cmp.w #$000C
+	bmi .1
+	lda.w #$0002
+	sta.b a2
+	stz.b a1
+.1:
+	ldy.w #tmshots
+	lda.w pfteam,x
+	beq .2
+	iny
+	iny
+.2:
+	lda.w $0000,y
+	inc a
+	sta.w $0000,y
+	ldy.b a2
+	bne .t2
+	lda.w tmap
+	sec
+	sbc.w tmap+2
+	beq .6
+	bmi .t1x
+	lda.w tmPPShots
+	inc a
+	sta.w tmPPShots
+	bra .6
+
+.t1x:
+	lda.w tmSHShots
+	inc a
+	sta.w tmSHShots
+	bra .6
+
+.t2:
+	lda.w tmap+2
+	sec
+	sbc.w tmap
+	beq .6
+	bmi .t1xx
+	lda.w tmPPShots+2
+	inc a
+	sta.w tmPPShots+2
+	bra .6
+
+.t1xx:
+	lda.w tmSHShots+2
+	inc a
+	sta.w tmSHShots+2
+.6:
+	lda.w gsp
+	asl a
+	asl a
+	tax
+	lda.b a2
+	beq .1x
+	inx
+	inx
+.1x:
+	lda.w tmPerShots,x
+	inc a
+	sta.w tmPerShots,x
+	ldx.b a3
+	lda.w pnum,x
+	sta.b d0
+	lda.b a2
+	beq .2x
+	lda.w #$001A
+.2x:
+	clc
+	adc.b d0
+	ldx.b a2
+	cmp.w tmgoalie,x
+	beq .3
+	tax
+	sep #$20
+	inc.w pshots,x
+	rep #$20
+.3:
+	ldx.b a1
+	lda.w tmgoalie,x
+	sta.b d0
+	bmi .5
+	lda.b a1
+	beq .4
+	lda.w #$001A
+.4:
+	clc
+	adc.b d0
+	tax
+	sep #$20
+	inc.w pshots,x
+	rep #$20
+.5:
+	plx
+	pla
+	sta.b d0+2
+	pla
+	sta.b d0
+	pla
+	sta.b a3+2
+	pla
+	sta.b a3
+	pla
+	sta.b a2+2
+	pla
+	sta.b a2
+	pla
+	sta.b a1+2
+	pla
+	sta.b a1
+	lda.w CwdExciteLvl
+	clc
+	adc.w #$000A
+	bmi .7
+	sta.w CwdExciteLvl
+.7:
+	rtl

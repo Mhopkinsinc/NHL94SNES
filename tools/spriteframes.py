@@ -3,8 +3,10 @@
 
 SpriteFrames starts with a table of 4-byte offsets from $828000, one per frame (the first offset ends the table). The frames
 follow in order, contiguous, in the ROM half of each bank. A frame: piece count, flags (bit 7: tiles in 16x16 blocks),
-tile count, four words, the byte counts of the two tile transfers, the offset of its tiles, four bytes, the pieces
-(x, y, tile and attribute word, size byte), then its tiles. The source writes the header and pieces, and includes the
+tile count, the box of its pixels (left, right, top, bottom; nothing reads it), the byte counts of the two tile
+transfers, the offset of its tiles, the hot spot x / y (signed bytes, GetHot) and the stick point x / y (GetFrameHot),
+the pieces (x, y, tile and attribute word, size byte), then its tiles. Frame labels are SpriteFrame_<group>_<n>, from the
+SPF group equates in src/ram94snes.asm (frame numbers count from 1: frame SPFgroup+n). The source writes the header and pieces, and includes the
 tiles from the bank's data asset src/data/gfx/SpriteFramesXX.bin (tools/extract.py ASSETS).
 
 Commands:
@@ -18,12 +20,33 @@ Example:
 """
 import argparse
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROM = os.path.join(ROOT, 'lst', 'nhl94snes.sfc')
 BASE = 0x828000
 rom = open(ROM, 'rb').read()
+
+
+def spf_groups():
+    """[(first frame, group)] from the SPF equates in src/ram94snes.asm."""
+    g = []
+    for l in open(os.path.join(ROOT, 'src', 'ram94snes.asm'), encoding='latin-1'):
+        m = re.match(r'SPF(\w+) = (\d+)\b', l)
+        if m:
+            g.append((int(m[2]), m[1]))
+    return sorted(g)
+
+
+GROUPS = spf_groups()
+
+
+def label(n):
+    """Label of frame index n (0-based; frame number n + 1)."""
+    f = n + 1
+    first, name = max((b, g) for b, g in GROUPS if b <= f)
+    return 'SpriteFrame_%s_%d' % (name, f - first)
 
 
 def lorom_offset(a):
@@ -63,17 +86,18 @@ def frame_source(n, a, asset_start):
     pieces, tiles = byte(a), word(a + 0x10)
     if tiles != 0x16 + 7 * pieces:
         sys.exit('frame %d at $%06X: tiles at +$%X, not after its pieces' % (n, a, tiles))
-    lines = ['SpriteFrame%d:' % n,
+    lab = label(n)
+    lines = [lab + ':',
              '\tdb $%02X,$%02X' % (byte(a), byte(a + 1)),
              '\tdw $%04X' % word(a + 2),
              '\tdw %d,%d,%d,%d' % (sword(a + 4), sword(a + 6), sword(a + 8), sword(a + 10)),
              '\tdw $%04X,$%04X' % (word(a + 0xC), word(a + 0xE)),
-             '\tdw .tiles-SpriteFrame%d' % n,
+             '\tdw .tiles-' + lab,
              '\tdb ' + ','.join('$%02X' % byte(a + i) for i in range(0x12, 0x16))]
     for k in range(pieces):
         q = a + 0x16 + 7 * k
         lines.append('\tdw %d,%d,$%04X : db $%02X' % (sword(q), sword(q + 2), word(q + 4), byte(q + 6)))
-    lines += ['.tiles:', '\tincbin "data/gfx/SpriteFrames%02X.bin":%d..%d'
+    lines += ['.tiles:', '\tincbin "../../../Extracted/data/gfx/SpriteFrames%02X.bin":%d..%d'
               % (a >> 16, a + tiles - asset_start, frame_end(a) - asset_start)]
     return lines
 
@@ -95,9 +119,9 @@ def cmd_frames(args):
 
 
 def cmd_table(args):
-    offs = [a - BASE for a in frame_addrs()]
-    for i in range(0, len(offs), 4):
-        print('\tdd ' + ','.join('$%08X' % o for o in offs[i:i + 4]))
+    n = len(frame_addrs())
+    for i in range(0, n, 4):
+        print('\tdd ' + ','.join(label(k) + '-SpriteFrames' for k in range(i, min(n, i + 4))))
 
 
 def cmd_info(args):

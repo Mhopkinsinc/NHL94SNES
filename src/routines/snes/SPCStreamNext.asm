@@ -1,9 +1,9 @@
-; Unidentified routine.
-SPCStreamNext:		; sound driver command $10: send the next block of the stream; returns the bytes still left
+; sound driver command $10: send the next block of the stream; returns the bytes still left
+SPCStreamNext:
 	lda.l SPCStreamPtr
-	sta.b $3E
+	sta.b StreamSrc
 	lda.l SPCStreamPtr+2
-	sta.b $40
+	sta.b StreamSrc+2
 	lda.w STAT78
 	bit.w #$0010
 	beq .small
@@ -40,7 +40,7 @@ SPCStreamNext:		; sound driver command $10: send the next block of the stream; r
 	cmp.w APUIO0
 	bne .ack
 .loop:
-	lda.b [$3E],y
+	lda.b [StreamSrc],y
 	sta.w APUIO2
 	iny
 	tya
@@ -56,7 +56,7 @@ SPCStreamNext:		; sound driver command $10: send the next block of the stream; r
 	rep #$20
 	tya
 	clc
-	adc.b $3E
+	adc.b StreamSrc
 	sta.l SPCStreamPtr
 	lda.l SPCStreamLeft
 	rtl

@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCCmd04:		; sound driver command $04
+; sound driver command $04 (drop the last uploaded sample)
+SPCCmd04:
 	sep #$20
 .wait:
 	lda.w APUIO0

@@ -7,5 +7,5 @@ PauseGameStats:
 
 .t1:
 	jsl.l ShowGameStats
-	jsl.l CODE_9FE79F
+	jsl.l ReloadRink
 	bra PauseSubmenuDone

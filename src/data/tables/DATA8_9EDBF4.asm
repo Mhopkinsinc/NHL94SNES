@@ -1,3 +1,0 @@
-; Data table.
-DATA8_9EDBF4:
-	dw $E1E2,$E214,$E2AA,$E2FC,$E246,$E278,$E862,$E7D0,$E73E

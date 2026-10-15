@@ -3,7 +3,7 @@ Stop4Pen:
 	lda.w #$FFFF
 	tsb.w gmclock
 	beq .t1
-	jmp.w CODE_9EB388
+	jmp.w .6
 
 .t1:
 	stz.b d0
@@ -17,14 +17,14 @@ Stop4Pen:
 	cmp.w #$000E
 	beq .1
 	pha
-	lda.l $7E30F8
+	lda.l ltx
 	sta.b d0
-	lda.l $7E30FA
+	lda.l lty
 	sta.b d1
 	pla
 	cmp.w #$0006
 	beq .1
-	ldy.w $0D71
+	ldy.w puckx
 	sty.b d0
 	ldy.w pucky
 	sty.b d1
@@ -85,26 +85,26 @@ Stop4Pen:
 	sta.b d0
 .5:
 	lda.b d0
-	sta.l $7E3136
+	sta.l fox
 	lda.b d1
-	sta.l $7E3138
-	jsl.l CODE_9FB601
-CODE_9EB388:
-	lda.b $83
+	sta.l foy
+	jsl.l limitfo
+.6:
+	lda.b vcount
 	sec
-	sbc.w $0D2B
+	sbc.w sfxmutetime
 	cmp.w #$003C
-	bcc .1
-.1:
-	lda.w $0CA9
-	bne .2
+	bcc .1x
+.1x:
+	lda.w replaydelay
+	bne .2x
 	lda.w #$001E
-	sta.w $0CA9
-.2:
+	sta.w replaydelay
+.2x:
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0015
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	stz.w Pencntdwn
 	lda.w #$0004
 	tsb.w gmode

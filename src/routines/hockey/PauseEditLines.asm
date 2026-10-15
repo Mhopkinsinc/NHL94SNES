@@ -7,9 +7,9 @@ PauseEditLines:
 
 .t1:
 	lda.w #$0001
-	sta.l $7E346A
+	sta.l pausesubmenu
 	jsl.l EditLinesScreen
 	lda.w #$0000
-	sta.l $7E346A
-	jsl.l CODE_9FE79F
+	sta.l pausesubmenu
+	jsl.l ReloadRink
 	bra PauseSubmenuDone

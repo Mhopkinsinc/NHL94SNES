@@ -4,38 +4,38 @@ NewTicker3:
 	asl a
 	sta.b a0
 	tax
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	bit.w #$0006
 	bne NewTicker2
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF867
+	lda.w #NewTicker3Pos>>16
+	sta.b a1+2
+	lda.w #NewTicker3Pos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w sflags
 	bit.w #$0001
 	bne .pj
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF86C
+	lda.w #NewTicker3Pos2>>16
+	sta.b a1+2
+	lda.w #NewTicker3Pos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 .pj:
 	lda.w sfhormode
 	bne .frame
@@ -48,9 +48,9 @@ NewTicker3:
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
-	jsl.l CODE_9D8000
-	lda.b $83
-	sta.w $0D33
+	jsl.l Framer
+	lda.b vcount
+	sta.w tickervc
 	inc.w printx
 	lda.w printy
 	sec
@@ -60,59 +60,59 @@ NewTicker3:
 	pha
 	jsl.l GetShifter
 	lda.w #$2400
-	sta.w $0D0D
-	lda.b $8F
+	sta.w printa
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF871
+	lda.w #NewTicker3Pos3>>16
+	sta.b a1+2
+	lda.w #NewTicker3Pos3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $01,s
+	sta.b a1+2
+	lda.b r0+1,s
 	sta.w printx
 	lda.l playoffRoundIdx
 	inc a
 	sta.b d0
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	bne .1
 	stz.b d0
 .1:
-	lda.w #$0080
-	sta.b $8F
+	lda.w #GameLabels>>16
+	sta.b a1+2
 	lda.w #GameLabels
 	sta.b a1
-	jsl.l CODE_9ECFC6
-	lda.b $01,s
+	jsl.l PrintStringFromList
+	lda.b r0+1,s
 	clc
 	adc.w #$0015
 	sta.w printx
 	ldx.b a0
-	lda.l $7E3568,x
+	lda.l gsper,x
 	dec a
 	sta.b d0
-	lda.w #$0080
-	sta.b $8F
+	lda.w #PerLabels>>16
+	sta.b a1+2
 	lda.w #PerLabels
 	sta.b a1
-	jsl.l CODE_9ECFC6
+	jsl.l PrintStringFromList
 	lda.w #$2000
-	sta.w $0D0D
+	sta.w printa
 	ldx.b a0
-	lda.l $7E3528,x
+	lda.l gst1,x
 	sta.b d0
-	lda.l $7E3578,x
+	lda.l gss1,x
 	sta.b d1
 	jsl.l TickerTeam
 	ldx.b a0
-	lda.l $7E3538,x
+	lda.l gst2,x
 	sta.b d0
-	lda.l $7E3588,x
+	lda.l gss2,x
 	sta.b d1
 	jsl.l TickerTeam
 	pla

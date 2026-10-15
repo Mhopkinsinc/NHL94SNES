@@ -1,0 +1,4 @@
+; x, y speed for each direction
+dirtab:
+	dw $0000,$00C8,$008D,$008D,$00C8,$0000,$008D,$FF73
+	dw $0000,$FF38,$FF73,$FF73,$FF38,$0000,$FF73,$008D

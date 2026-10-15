@@ -1,0 +1,11 @@
+; The sound table of the intro sample set (SPCIntroUpload gives it to SoundInit)
+IntroSfxTable:
+	db $02,$00,$FC,$00,$62,$05,$00,$00,$B4,$00,$00,$70,$00,$70,$00,$00
+	db $00,$70,$00,$7F,$70,$70,$00,$FF,$E0,$70,$00,$00,$00,$00,$00,$00
+	db $00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$00,$01,$00,$00,$00
+	db $00,$00
+	padbyte $FF
+	pad $80F000
+org $80F000
+	padbyte $FF
+	pad $80FF00

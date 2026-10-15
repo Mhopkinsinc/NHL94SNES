@@ -1,63 +1,63 @@
 ; Penalty summary for both teams. Start leaves.
 ShowPenaltySummary:
 	lda.w VisTeam
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w HomeTeam
-	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	sta.l setuphome
+	jsl.l SetupScreen
 	lda.w #$0000
-	sta.w $1DB9
-	sta.w $1DBD
-	sta.w $1DC1
+	sta.w curitem
+	sta.w listtop
+	sta.w listend
 	ldx.w #$0058
 	ldy.w #$0018
-	lda.w #$009C
-	sta.b $8F
+	lda.w #PenaltiesLabel>>16
+	sta.b a1+2
 	lda.w #PenaltiesLabel
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l SpriteFrameEnd
 	lda.w #$FFFF
-	sta.l $7F75C2
+	sta.l colourbuf+$C2
 	lda.w #$2BFF
-	sta.l $7F7502
+	sta.l colourbuf+2
 	lda.w #$6F7B
-	sta.l $7F7522
-	jsl.l CODE_9DE0D4
-	lda.b $8F
+	sta.l colourbuf+$22
+	jsl.l SendColours
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #PenaltySummaryHead>>16
+	sta.b a1+2
 	lda.w #PenaltySummaryHead
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.w $163C
-	sta.w $1DC1
-	lda.w $1DC1
+	sta.b a1+2
+	lda.w PenSumLength
+	sta.w listend
+	lda.w listend
 	cmp.w #$0006
 	bcc .2
 .1:
 	jsl.l PrintScrollHint
 .2:
-	jsr.w CODE_9B9917
-	jsl.l CODE_9DD923
+	jsr.w FillPenaltyPage
+	jsl.l SendTextMap
 	lda.w #$0058
 	ldx.w #$00D0
 	ldy.w #$00E0
-	jsl.l CODE_9BCDF8
-	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l SetupScrollIRQ
+	jsl.l MenuScreenHDMA
+	jsl.l ScreenOn
 	lda.w #$0005
-	sta.w $1DC5
+	sta.w listrows
 	jsr.w DrawPenaltyPage
-CODE_9B9808:
-	jsl.l CODE_9B851F
+PenaltySummaryLoop:
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d3
 	bit.w #$1000
@@ -67,8 +67,8 @@ CODE_9B9808:
 .t1:
 	bit.w #$0800
 	bne ScrollPenaltyUp
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne ScrollPenaltyDown
-CODE_9B9822:
+PenaltySummaryWait:
 	jsl.l WaitFrame
-	bra CODE_9B9808
+	bra PenaltySummaryLoop

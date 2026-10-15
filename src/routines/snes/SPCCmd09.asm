@@ -1,17 +1,17 @@
-; Unidentified routine.
-SPCCmd09:		; sound driver command $09, 5 bytes from [$0C]
+; sound driver command $09 (echo volume, feedback, buffer address and delay), 5 bytes from [p0]
+SPCCmd09:
 	sep #$30
 .wait:
 	lda.w APUIO0
 	bne .wait
 	ldy.b #$00
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO1
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO2
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO3
 	iny
 	lda.b #$09
@@ -19,10 +19,10 @@ SPCCmd09:		; sound driver command $09, 5 bytes from [$0C]
 .ack:
 	cmp.w APUIO0
 	bne .ack
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO1
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO2
 	ldx.b #$83
 	stx.w APUIO0

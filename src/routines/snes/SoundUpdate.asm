@@ -1,43 +1,43 @@
 ; per frame: fade, envelopes, and the song ticks that are due; nothing while SoundLock is set
 SoundUpdate:		; per frame: fade, envelopes, and the song ticks that are due; nothing while SoundLock is set
 	sep #$30
-	lda.b $50
+	lda.b SoundBank
 	pha
 	plb
 	lda.w SoundLock
-	bne CODE_80ADE8
+	bne .6
 	rep #$20
 	lda.w SoundFadeSpeed
-	beq CODE_80ADC6
+	beq .5
 	lda.w SoundVolume
 	sec
 	sbc.w SoundFadeSpeed
 	sta.w SoundVolume
 	bcs .t1
 	jsl.l SoundInit
-	bra CODE_80ADC6
+	bra .5
 
 .t1:
 	sep #$20
-	jsr.w CODE_80A40F
-CODE_80ADC6:
+	jsr.w SeqCmd08Init_send
+.5:
 	sep #$20
-	lda.w $07F1
+	lda.w MusicPause
 	beq .2
 .1:
-	lda.w $07F8
+	lda.w SoundVolume+1
 	pha
-	stz.w $07F8
+	stz.w SoundVolume+1
 .2:
-	lda.w $07F1
+	lda.w MusicPause
 	beq .4
 .3:
 	pla
-	sta.w $07F8
+	sta.w SoundVolume+1
 .4:
-	jsr.w CODE_80AC7B
+	jsr.w UpdateSfxVoices
 	lda.w MusicOn
-	beq CODE_80ADE8
-	jsr.w CODE_80AC4A
-CODE_80ADE8:
+	beq .6
+	jsr.w SequencerTick
+.6:
 	rts

@@ -2,33 +2,33 @@
 ClearOtherScoreBraces:
 	lda.w #$0004
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	asl a
-	adc.w $1DBD
+	adc.w listtop
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
-	lda.w #$009C
-	sta.b $8F
+	sta.w printa
+	lda.w #LineBraces>>16
+	sta.b a1+2
 	lda.w #LineBraces+6
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	lda.w #$0004
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	dec a
-	sta.b $14
+	sta.b r3
 	asl a
-	adc.b $14
+	adc.b r3
 	inc a
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
-	lda.w #$009C
-	sta.b $8F
+	sta.w printa
+	lda.w #LineBraces>>16
+	sta.b a1+2
 	lda.w #LineBraces+6
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	rts

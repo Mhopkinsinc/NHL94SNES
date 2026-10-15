@@ -2,34 +2,34 @@
 Multi5Init:		; check for the multitap, then clear the multitap pads and state
 	jsl.l Multi5ConnectCheck
 	lda.w #$000F
-	sta.w $077A
-	sta.w $077C
-	sta.w $077E
-	stz.w $1A0C
-	stz.w $1A0E
-	stz.w $1A04
-	stz.w $1A02
-	lda.w $1A00
+	sta.w JoyPad+4
+	sta.w JoyPad+6
+	sta.w JoyPad+8
+	stz.w mp5present
+	stz.w mp5warning
+	stz.w mp5checktimer
+	stz.w mp5readdelay
+	lda.w mp5connect
 	and.w #$0080
 	beq .t1
 	lda.w #$0001
-	tsb.w $1A0E
-	bra CODE_9B838A
+	tsb.w mp5warning
+	bra .1
 
 .t1:
 	lda.w #$0001
-	trb.w $1A0E
-CODE_9B838A:
-	lda.w $1A00
+	trb.w mp5warning
+.1:
+	lda.w mp5connect
 	and.w #$0040
-	beq .t1
+	beq .t1x
 	lda.w #$0001
-	tsb.w $1A0C
-	bra CODE_9B83A0
+	tsb.w mp5present
+	bra .2
 
-.t1:
+.t1x:
 	lda.w #$0001
-	trb.w $1A0C
-CODE_9B83A0:
+	trb.w mp5present
+.2:
 	rtl
 	db "START OF MULTI5 CONNECT CHECK"

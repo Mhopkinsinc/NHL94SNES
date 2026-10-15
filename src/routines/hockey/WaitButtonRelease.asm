@@ -2,7 +2,7 @@
 WaitButtonRelease:
 	phx
 	pha
-	ldx.w $0AC6
+	ldx.w pausepad
 .loop:
 	lda.w JoyPad,x
 	bne .loop

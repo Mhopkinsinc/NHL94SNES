@@ -5,9 +5,9 @@ ShooterSelectList:
 	pha
 	lda.b a1
 	pha
-	lda.w #DATA8_9CEFB5>>16
+	lda.w #ShooterSelectListPos>>16
 	sta.b a1+2
-	lda.w #DATA8_9CEFB5
+	lda.w #ShooterSelectListPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -18,50 +18,50 @@ ShooterSelectList:
 	sta.b d0
 	lda.w #$000D
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.w #$009A
-	sta.b $0E
-	lda.w #DATA8_9AE9C7
-	sta.b $0C
+	lda.w #PlayerListMap>>16
+	sta.b p0+2
+	lda.w #PlayerListMap
+	sta.b p0
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$0000
-	sta.b $10
+	sta.b p1
 	jsl.l Decompress
 	lda.w #$007F
-	sta.b $0E
+	sta.b p0+2
 	lda.w #$0000
-	sta.b $0C
-	lda.w #$007E
-	sta.b $12
-	lda.w #$3FF4
-	sta.b $10
+	sta.b p0
+	lda.w #textmap2>>16
+	sta.b p1+2
+	lda.w #textmap2
+	sta.b p1
 	ldx.w #$0001
 	ldy.w #$0001
-	lda.l $7E35AC
+	lda.l charofs2
 	clc
 	adc.w #$0C00
-	jsl.l CODE_808E2D
-	jsl.l CODE_9DD938
-	jsl.l CODE_9DD962
+	jsl.l PasteMap
+	jsl.l SendTextMapRows
+	jsl.l SendTextMap2Rows
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	lda.w #$0007
-	sta.w $1DEF
+	sta.w irqline2
 	jsl.l GetPlayerCount
 	lda.b d0
-	sta.w $1DA3
+	sta.w listcount
 	jsl.l GoalieCount
-	lda.w $1DA3
+	lda.w listcount
 	sec
 	sbc.b d0
-	sta.w $1DA3
+	sta.w listcount
 	lda.b d0
-	sta.w $1DAB
+	sta.w pickfirst
 	lda.b d0
-	sta.w $1DA7
+	sta.w picktop
 	lda.w #$0000
 	sta.b a3+2
 	lda.w #homeshooters
@@ -75,124 +75,124 @@ ShooterSelectList:
 .list:
 	lda.b a3
 	clc
-	adc.w $1DB9
+	adc.w curitem
 	sta.b a3
 	lda.b [a3]
 	and.w #$00FF
 	dec a
-	sta.w $1D9B
+	sta.w curplayer
 	lda.w #$0008
 	clc
-	adc.w $1DA7
+	adc.w picktop
 	sec
-	sbc.w $1D9B
+	sbc.w curplayer
 	bpl .t1
-	lda.w $1D9B
+	lda.w curplayer
 	sec
 	sbc.w #$0008
 	sec
-	sbc.w $1DA7
+	sbc.w picktop
 	bmi .zero
 	clc
-	adc.w $1DA7
-	sta.w $1DA7
+	adc.w picktop
+	sta.w picktop
 .zero:
 	lda.w #$0000
-	bra CODE_80CF41
+	bra .1
 
 .t1:
-	lda.w $1DA7
+	lda.w picktop
 	clc
 	adc.w #$0008
 	sec
-	sbc.w $1D9B
-CODE_80CF41:
-	sta.w $1D9B
-	jsl.l CODE_80D004
-CODE_80CF48:
-	jsl.l CODE_9DD923
-	jsl.l CODE_9DD94D
+	sbc.w curplayer
+.1:
+	sta.w curplayer
+	jsl.l PrintShooterList
+.2:
+	jsl.l SendTextMap
+	jsl.l SendTextMap2
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
-	jsl.l CODE_9B851F
+	jsl.l ReadPads
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$1000
-	bne .1
+	bne .1x
 	bit.w #$0800
 	bne .t4
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne .t3
 	bit.w #$0100
-	bne .t1
+	bne .t1x
 	bit.w #$0200
 	bne .t2
 	bit.w #$8080
-	beq CODE_80CF48
-	jsl.l CODE_80D2BD
-.1:
+	beq .2
+	jsl.l SetShooter
+.1x:
 	lda.w #$0001
-	sta.l $7E3468
+	sta.l drawlinesback
 	rtl
 
-.t1:
-	lda.w $0D47
+.t1x:
+	lda.w DispAttribCtr
 	inc a
 	cmp.w #$0010
-	bpl CODE_80CF48
-	sta.w $0D47
-	jsl.l CODE_80D004
-	bra CODE_80CF48
+	bpl .2
+	sta.w DispAttribCtr
+	jsl.l PrintShooterList
+	bra .2
 
 .t2:
-	lda.w $0D47
+	lda.w DispAttribCtr
 	dec a
-	bmi CODE_80CF48
-	sta.w $0D47
-	jsl.l CODE_80D004
-	jmp.w CODE_80CF48
+	bmi .2
+	sta.w DispAttribCtr
+	jsl.l PrintShooterList
+	jmp.w .2
 
 .t3:
-	lda.w $1D9B
+	lda.w curplayer
 	dec a
 	bmi .t5
-	sta.w $1D9B
-	jsl.l CODE_80D004
-	jmp.w CODE_80CF48
+	sta.w curplayer
+	jsl.l PrintShooterList
+	jmp.w .2
 
 .t4:
-	lda.w $1D9B
+	lda.w curplayer
 	inc a
 	cmp.w #$0009
 	bpl .t6
-	sta.w $1D9B
-	jsl.l CODE_80D004
-	jmp.w CODE_80CF48
+	sta.w curplayer
+	jsl.l PrintShooterList
+	jmp.w .2
 
 .t5:
-	lda.w $1DA7
+	lda.w picktop
 	sec
-	sbc.w $1DAB
+	sbc.w pickfirst
 	clc
 	adc.w #$0009
-	cmp.w $1DA3
-	bmi .t1x
-	jmp.w CODE_80CF48
+	cmp.w listcount
+	bmi .t1xx
+	jmp.w .2
 
-.t1x:
-	inc.w $1DA7
-	jsl.l CODE_80D004
-	jmp.w CODE_80CF48
+.t1xx:
+	inc.w picktop
+	jsl.l PrintShooterList
+	jmp.w .2
 
 .t6:
-	lda.w $1DA7
+	lda.w picktop
 	dec a
-	cmp.w $1DAB
+	cmp.w pickfirst
 	bpl .t1x2
-	jmp.w CODE_80CF48
+	jmp.w .2
 
 .t1x2:
-	dec.w $1DA7
-	jsl.l CODE_80D004
+	dec.w picktop
+	jsl.l PrintShooterList
 org $80D001
-	jmp.w CODE_80CF48
+	jmp.w .2

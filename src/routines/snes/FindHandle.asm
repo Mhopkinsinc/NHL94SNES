@@ -1,21 +1,21 @@
-; Unidentified routine.
-FindHandle:		; the handle of address A in bank X, 0 if none
-	stx.b $16
-	sta.b $14
+; the handle of address A in bank X, 0 if none
+FindHandle:
+	stx.b r3+2
+	sta.b r3
 	ldx.w #$2000
 .loop:
-	lda.l $7E0000,x
-	cmp.b $14
+	lda.l Ram7E,x
+	cmp.b r3
 	bne .next
-	lda.l $7E0002,x
-	cmp.b $16
+	lda.l Ram7E+2,x
+	cmp.b r3+2
 	beq .found
 .next:
 	inx
 	inx
 	inx
 	inx
-	cpx.w #INIDISP
+	cpx.w #$2100
 	bne .loop
 	lda.w #$0000
 	bra .exit

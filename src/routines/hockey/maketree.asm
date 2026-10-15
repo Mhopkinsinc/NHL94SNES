@@ -20,22 +20,22 @@ maketree:
 	cpx.w #$0010
 	bne .loop2
 	ldx.b xsave
-	lda.l $7E34D0
+	lda.l postarts
 	asl a
 	asl a
 	asl a
 	asl a
 	sta.b d1
 	lda.w #$007E
-	sta.b $8B
-	lda.w #$34D2
+	sta.b a0+2
+	lda.w #potree
 	sta.b a0
 	lda.w #$ED59
 	clc
 	adc.b d1
 	sta.b a1
 	lda.w #$009C
-	sta.b $8F
+	sta.b a1+2
 	ldy.w #$000E
 	sty.b d2
 .loop3:
@@ -46,9 +46,9 @@ maketree:
 	bpl .loop3
 	lda.w #$34E2
 	sta.b a1
-	lda.b $8B
-	sta.b $8F
-	lda.w $0AD5
+	lda.b a0+2
+	sta.b a1+2
+	lda.w WinBits
 	sta.b d0
 .loop4:
 	lda.b d0
@@ -70,26 +70,26 @@ maketree:
 	bmi .1
 	lda.b d2
 	asl a
-	adc.w #$34D2
+	adc.w #potree
 	sta.b a0
 	lda.w #$007E
-	sta.b $8B
+	sta.b a0+2
 	stz.b a1
 .loop5:
 	ldx.b a1
 	lda.w #$0000
-	sta.l $7E3578,x
-	sta.l $7E3588,x
-	sta.l $7E3568,x
-	lda.l $7E3598,x
+	sta.l gss1,x
+	sta.l gss2,x
+	sta.l gsper,x
+	lda.l gsflags,x
 	and.w #$FFFD
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	jsl.l .t2
 	inc.b a1
 	inc.b a1
 	dec.b d1
 	bpl .loop5
-	jsl.l CODE_9D995D
+	jsl.l FigureJoy
 .1:
 	stx.b xsave
 	ldx.w #$000E
@@ -113,36 +113,36 @@ maketree:
 	rtl
 
 .t2:
-	lda.w $0ACF
+	lda.w bosgames
 	cmp.w #$0002
 	beq .t1
 	cmp.w #$0003
 	beq .t1
 	cmp.w #$0005
 	beq .t1
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	ora.w #$0001
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
-	sta.l $7E3538,x
+	sta.l gst2,x
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
-	sta.l $7E3528,x
+	sta.l gst1,x
 	rtl
 
 .t1:
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	and.w #$FFFE
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
-	sta.l $7E3528,x
+	sta.l gst1,x
 	lda.b [a0]
 	inc.b a0
 	and.w #$00FF
-	sta.l $7E3538,x
+	sta.l gst2,x
 	rtl

@@ -1,17 +1,17 @@
 ; After a game: the password and the playoff screen, then the next game or the start
 GameOver:
-	stz.w $07C6
+	stz.w FrameByNumber
 	jsl.l EncodePW
-	jsl.l CODE_9D8BBF
-	lda.l $7E34BC
+	jsl.l PlayoffScreen
+	lda.l OptPlayMode
 	cmp.w #$0001
 	beq .t1
-	jml.l CODE_9F82D2
+	jml.l Restart
 
 .t1:
-	lda.l $7E35D6
+	lda.l gamenum
 	bpl .t2
-	jml.l CODE_9F82D2
+	jml.l Restart
 
 .t2:
 	lda.l PassWord
@@ -22,7 +22,7 @@ GameOver:
 	lda.w #$0004
 	trb.w sflags3
 	beq .t1x
-	jmp.w CODE_9F8330
+	jmp.w StartGame
 
 .t1x:
-	jml.l CODE_9F8334
+	jml.l StartGame_scout

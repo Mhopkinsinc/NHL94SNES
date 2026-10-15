@@ -3,7 +3,7 @@ puckfaceoff2:
 	lda.w pflags,x
 	bit.w #$0002
 	bne .t2
-	jmp.w CODE_9FAEB1
+	jmp.w .18
 
 .t2:
 	and.w #$FFFD
@@ -29,130 +29,130 @@ puckfaceoff2:
 	bne .loop2
 	ldx.b xsave
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0012
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	lda.w #$0013
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	lda.w #$FFFF
-	sta.w $0CAD
-	sta.w $0CB3
+	sta.w recsfx
+	sta.w recsfx2
 	lda.w #$0000
-	sta.l $7E3448
-	lda.l $7E35E0
+	sta.l hattrick
+	lda.l crowdlevel
 	cmp.w #$0258
 	bcc .1
 	lda.w #$0258
-	sta.l $7E35E0
+	sta.l crowdlevel
 .1:
-	lda.w $0AD3
+	lda.w brightness
 	beq .2
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
-	stz.w $0AD3
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
+	stz.w brightness
 .2:
-	jsl.l CODE_9F96E6
+	jsl.l FadeIn
 	lda.w #$000A
-	sta.w $0AD1
+	sta.w fadestep
 	lda.w MusicOn
-	bne CODE_9FA90C
+	bne .4
 	lda.w PBnum
 	beq .t3
 	lsr a
 	lsr a
 	lsr a
 	lsr a
-	sta.b $14
+	sta.b r3
 	lda.w PBnum
 	and.w #$000F
-	cmp.b $14
+	cmp.b r3
 	beq .t3
 	bcs .t1
 .3:
 	lda.w #$0004
-	jsl.l CODE_9C9B5F
-	bra CODE_9FA90C
+	jsl.l PlayTeamSong
+	bra .4
 
 .t1:
 	lda.w #$0001
-	jsl.l CODE_9C9B5F
-	bra CODE_9FA90C
+	jsl.l PlayTeamSong
+	bra .4
 
 .t3:
-	ldy.w $0CC1
+	ldy.w percue
 	bne .1x
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
-	beq CODE_9FA90C
+	beq .4
 	jsl.l RandomWord
 	and.w #$0003
-	bne CODE_9FA90C
+	bne .4
 .1x:
 	lda.w #$0000
-	ldy.w $0CC1
+	ldy.w percue
 	bne .3x
 .2x:
 	lda.w #$0002
 .3x:
-	jsl.l CODE_9C9B5F
-	stz.w $0CC1
-CODE_9FA90C:
+	jsl.l PlayTeamSong
+	stz.w percue
+.4:
 	lda.w #$000D
 	trb.w sflags
 	lda.w #$0001
 	trb.w sflags3
 	stz.w iflags
-	stz.w $0CA9
+	stz.w replaydelay
 	lda.w #$FFFF
 	sta.w RefCnt
-	sta.w $0D19
-	sta.w $0D1D
-	sta.w $0DF9
-	sta.w $0D07
+	sta.w puckcross+2
+	sta.w puckcross+6
+	sta.w puckz
+	sta.w passReceiverPlayerNum
 	asl a
-	sta.w shotPlIdx
+	sta.w puckc
 	lda.w #$8200
 	trb.w sflags
 	lda.w #$0000
-	sta.l $7E344A
-	sta.l $7E344C
+	sta.l refwindow
+	sta.l penmsgbox
 	lda.w #$0500
 	tsb.w sflags
-	jsl.l CODE_9FB9A4
+	jsl.l ClrHor
 	stz.w Vpos
 	stz.w Hpos
-	lda.l $7E3136
-	sta.w $0D71
-	lda.l $7E3138
+	lda.l fox
+	sta.w puckx
+	lda.l foy
 	sta.w pucky
 	stz.w puckvx
 	stz.w puckvy
-	stz.w $0E01
-	stz.w $0EDB
-	stz.w $0EFB
-	stz.w $0D6D
+	stz.w puckvz
+	stz.w Xvel+$18
+	stz.w Yvel+$18
+	stz.w Xpos+$18
 	lda.w #$010C
-	sta.w $0DCF
-	stz.w $0EDD
-	stz.w $0EFD
-	stz.w $0D6F
+	sta.w Ypos+$18
+	stz.w Xvel+$1A
+	stz.w Yvel+$1A
+	stz.w Xpos+$1A
 	lda.w #$FEF4
-	sta.w $0DD1
-	lda.w #$018C
-	sta.w $0DB5
-	stz.w $11C1
-	stz.w $0E21
-	stz.w $0E1F
+	sta.w Ypos+$1A
+	lda.w #SPFpuck
+	sta.w frame+$1E
+	stz.w SPA+$1E
+	stz.w attribute+$1E
+	stz.w attribute+puckobj
 	lda.w #$0040
 	trb.w sflags
 	lda.w #$0064
 	sta.b d4
-.loop:
+.loopx:
 	jsl.l checkwindow
 	dec.b d4
-	bpl .loop
+	bpl .loopx
 	lda.w #$003C
-	sta.w $0D4F
+	sta.w yleader
 	jsl.l ResetBench
 	stz.b a2
 	jsl.l setpersonel
@@ -161,13 +161,13 @@ CODE_9FA90C:
 	inc.b a2
 	jsl.l setpersonel
 	jsl.l forcepldata
-	jsl.l CODE_9FD252
+	jsl.l resetplstuff
 	lda.w #$FFFF
 	sta.w tmtouch2
 	sta.w tmtouch3
-	sta.w $17A0
-	sta.w $17A4
-	lda.b $97
+	sta.w tmtouch2+2
+	sta.w tmtouch3+2
+	lda.b a3+2
 	pha
 	lda.b a3
 	pha
@@ -176,10 +176,10 @@ CODE_9FA90C:
 	sta.b d2
 	lda.b d2
 	pha
-CODE_9FA9EF:
+.14:
 	ldx.b a3
 	cpx.w #$0018
-	bcs .1
+	bcs .1xx
 	lda.w pfteam,x
 	lsr a
 	eor.w gmode
@@ -187,59 +187,59 @@ CODE_9FA9EF:
 	lsr a
 	eor.w #$0001
 	sta.w pfgoal,x
-.1:
+.1xx:
 	lda.w pnum,x
 	asl a
 	cpx.w #$000C
-	bcc .2
+	bcc .2xx
 	clc
 	adc.w #$0034
-.2:
+.2xx:
 	tax
 	lda.w tmpdst,x
-	bmi .t2
+	bmi .t2x
 	bit.w #$1000
-	bne .t2
-	jmp.w CODE_9FABA2
+	bne .t2x
+	jmp.w .16
 
-.t2:
+.t2x:
 	ldx.b a3
 	lda.w #$FF10
 	sta.w Xpos,x
 	stz.w Ypos,x
 	lda.w #$0001
-	sta.w $0D97,x
+	sta.w frame,x
 	lda.w position,x
 	sta.b d1
-	bpl .t1
-	jmp.w CODE_9FABA2
+	bpl .t1x
+	jmp.w .16
 
-.t1:
+.t1x:
 	beq .5
-	lda.w $1E9B
-	beq .2x
+	lda.w penshot
+	beq .2xxx
 	phx
 	ldx.w #$0008
-	lda.w $1E91
-	beq .1x
+	lda.w BA_Team
+	beq .1xxx
 	ldx.w #$0014
-.1x:
-	lda.w $1E8F
+.1xxx:
+	lda.w BA_Skater_Offset
 	sta.w pnum,x
 	sta.b d3
 	plx
-.2x:
+.2xxx:
 	lda.w #$0016
 	sta.b d0
 	lda.b d1
 	cmp.w #$0004
-	bne .4
+	bne .4x
 	stz.b a2
 	lda.w pfteam,x
-	beq .3
+	beq .3xx
 	inc.b a2
 	inc.b a2
-.3:
+.3xx:
 	ldy.b a2
 	lda.w pnum,x
 	and.w #$00FF
@@ -248,7 +248,7 @@ CODE_9FA9EF:
 	sta.w tmflags,y
 	lda.w #$0017
 	sta.b d0
-.4:
+.4x:
 	jsl.l assinsert
 .5:
 	lda.w tmap
@@ -256,7 +256,7 @@ CODE_9FA9EF:
 	ldx.b a3
 	lda.w pfteam,x
 	beq .6
-	lda.w $17A8
+	lda.w tmap+2
 	sta.b d4
 .6:
 	lda.b d4
@@ -269,16 +269,16 @@ CODE_9FA9EF:
 	asl a
 	sta.b d4
 	lda.w #$009F
-	sta.b $8F
-	lda.w #DATA8_9FAEE2
+	sta.b a1+2
+	lda.w #.19
 	clc
 	adc.b d4
 	sta.b a1
-	lda.w $1E9B
+	lda.w penshot
 	beq .7
 	lda.w #$009F
-	sta.b $8F
-	lda.w #DATA8_9FAEFA
+	sta.b a1+2
+	lda.w #.20
 	sta.b a1
 .7:
 	ldy.b d1
@@ -288,8 +288,8 @@ CODE_9FA9EF:
 	asl a
 	sta.b d4
 	lda.w #$009F
-	sta.b $8F
-	lda.w #DATA8_9FAF02
+	sta.b a1+2
+	lda.w #.21
 	sta.b a1
 	ldy.b d4
 	lda.b [a1],y
@@ -314,10 +314,10 @@ CODE_9FA9EF:
 	lda.b d4
 	cmp.w #$0009
 	bpl .12
-	lda.l $7E3136
+	lda.l fox
 	eor.b d0
 	bpl .10
-	lda.l $7E3138
+	lda.l foy
 	lsr a
 	lsr a
 	lsr a
@@ -331,7 +331,7 @@ CODE_9FA9EF:
 	adc.b d1
 	sta.b d1
 .10:
-	lda.l $7E3136
+	lda.l fox
 	lsr a
 	lsr a
 	bit.w #$2000
@@ -346,17 +346,17 @@ CODE_9FA9EF:
 .12:
 	lda.b d0
 	clc
-	adc.l $7E3136
+	adc.l fox
 	sta.b d0
 	lda.b d1
 	clc
-	adc.l $7E3138
+	adc.l foy
 	sta.b d1
 .13:
 	lda.b d0
 	sta.w Xpos,x
 	sec
-	sbc.w $0D71
+	sbc.w puckx
 	eor.w #$FFFF
 	inc a
 	sta.b d0
@@ -367,8 +367,8 @@ CODE_9FA9EF:
 	eor.w #$FFFF
 	inc a
 	sta.b d1
-	stz.w $0EC3,x
-	stz.w $0EE3,x
+	stz.w Xvel,x
+	stz.w Yvel,x
 	jsl.l vtoa
 	lda.b d0
 	sta.w facedir,x
@@ -378,16 +378,16 @@ CODE_9FA9EF:
 	stz.w pfalock,x
 	stz.w SPA,x
 	lda.w position,x
-	bne .t3
-	lda.w #$E0FE
-	bra CODE_9FAB9A
+	bne .t3x
+	lda.w #SPAgready
+	bra .15
 
-.t3:
-	lda.w #$EA1A
-CODE_9FAB9A:
+.t3x:
+	lda.w #SPAglide
+.15:
 	jsl.l SetSPAFromA
-	jsl.l CODE_9EA419
-CODE_9FABA2:
+	jsl.l updateanim
+.16:
 	inc.b a3
 	inc.b a3
 	pla
@@ -395,94 +395,94 @@ CODE_9FABA2:
 	dec.b d2
 	lda.b d2
 	pha
-	bmi .t1
-	jmp.w CODE_9FA9EF
+	bmi .t1xx
+	jmp.w .14
 
-.t1:
+.t1xx:
 	pla
 	sta.b d2
 	jsl.l SprSort
 	pla
 	sta.b a3
 	pla
-	sta.b $97
-	lda.w $1E9B
-	beq .6
+	sta.b a3+2
+	lda.w penshot
+	beq .6x
 	ldx.w #$0008
-.loop:
-	lda.w $19F6,x
-	cmp.w $1E91
-	bne .2
-	cpx.w $1E93
-	beq .2
-.1:
+.loopxx:
+	lda.w padside,x
+	cmp.w BA_Team
+	bne .2xxxx
+	cpx.w pspad
+	beq .2xxxx
+.1xxxx:
 	ora.w #$8000
-	sta.w $19F6,x
-	stz.w $1C84,x
-.2:
+	sta.w padside,x
+	stz.w cont1team,x
+.2xxxx:
 	dex
 	dex
-	bpl .loop
-	lda.w $1E91
+	bpl .loopxx
+	lda.w BA_Team
 	eor.w #$0002
 	sta.b d0
 	tax
-	lda.w $19D0,x
-	beq .6
-	ldy.w $0AFD,x
-.loop2:
+	lda.w teampads,x
+	beq .6x
+	ldy.w puckpadnext,x
+.loop2x:
 	iny
 	iny
 	cpy.w #$000A
-	bne .3
+	bne .3xxx
 	ldy.w #$0000
-.3:
-	lda.w $19F6,y
+.3xxx:
+	lda.w padside,y
 	cmp.b d0
-	bne .loop2
+	bne .loop2x
 	sty.b d1
 	tya
-	sta.w $0AFD,x
+	sta.w puckpadnext,x
 	ldx.w #$0008
 .loop3:
-	lda.w $19F6,x
+	lda.w padside,x
 	cmp.b d0
-	bne .5
+	bne .5x
 	cpx.b d1
-	beq .5
-.4:
+	beq .5x
+.4xx:
 	ora.w #$8000
-	sta.w $19F6,x
-	stz.w $1C84,x
-.5:
+	sta.w padside,x
+	stz.w cont1team,x
+.5x:
 	dex
 	dex
 	bpl .loop3
-.6:
+.6x:
 	ldx.b a3
-	jsl.l CODE_9FC988
-	lda.b $8F
+	jsl.l FaceoffPads
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF8AE
+	lda.w #puckfaceoff2Pos>>16
+	sta.b a1+2
+	lda.w #puckfaceoff2Pos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0036
 	sta.b d0
-	lda.l $7E3136
-	bpl .7
+	lda.l fox
+	bpl .7x
 	lda.w #$00BE
 	sta.b d0
-.7:
+.7x:
 	lda.b d0
-	sta.l $7E3126
+	sta.l fodropx
 	sec
 	sbc.w #$002E
 	lsr a
@@ -490,7 +490,7 @@ CODE_9FABA2:
 	lsr a
 	sta.w printx
 	lda.w #$005C
-	sta.l $7E3128
+	sta.l fodropy
 	lda.w #$0003
 	sta.w printy
 	lda.w printy
@@ -503,7 +503,7 @@ CODE_9FABA2:
 	jsl.l marktextlo
 	lda.w printy
 	clc
-	adc.l DATA8_9AD6A6+2
+	adc.l FaceOffMap+2
 	dec a
 	asl a
 	asl a
@@ -511,12 +511,12 @@ CODE_9FABA2:
 	asl a
 	asl a
 	adc.w printx
-	adc.l DATA8_9AD6A6
+	adc.l FaceOffMap
 	dec a
 	jsl.l marktexthi
-	jsl.l CODE_9EBF11
-	lda.w #$D6AC
-	sta.l $7E3120
+	jsl.l SeatPenaltyBox
+	lda.w #FaceOffMap+6
+	sta.l fobox
 	sta.b tmp0
 	lda.w #$009A
 	sta.b tmp1
@@ -530,38 +530,38 @@ CODE_9FABA2:
 	asl a
 	tax
 	ldy.w #$0000
-	lda.l DATA8_9AD6A6+2
-	sta.b $C8
+	lda.l FaceOffMap+2
+	sta.b tmp1+1
 	clc
-	lda.w $1E9B
-	bne .t2
+	lda.w penshot
+	bne .t2xx
 .loop4:
-	lda.l DATA8_9AD6A6
-	sta.b $CA
+	lda.l FaceOffMap
+	sta.b tmp2+1
 .loop5:
 	lda.b [tmp0],y
 	clc
-	adc.l $7E35BA
-	adc.l $7E35AA
+	adc.l faceoffvrcset
+	adc.l charofs
 	sta.l textmap,x
 	iny
 	iny
 	inx
 	inx
-	dec.b $CA
+	dec.b tmp2+1
 	bne .loop5
 	txa
 	clc
 	adc.w #$0040
 	sec
-	sbc.l DATA8_9AD6A6
-	sbc.l DATA8_9AD6A6
+	sbc.l FaceOffMap
+	sbc.l FaceOffMap
 	tax
-	dec.b $C8
+	dec.b tmp1+1
 	bne .loop4
-	jmp.w CODE_9FADB5
+	jmp.w .17
 
-.t2:
+.t2xx:
 	lda.w #$0001
 	sta.w printy
 	lda.w #$0006
@@ -570,14 +570,14 @@ CODE_9FABA2:
 	sta.b d0
 	lda.w #$0008
 	sta.b d1
-	jsl.l CODE_9D8000
-	lda.w $1E91
+	jsl.l Framer
+	lda.w BA_Team
 	sta.b a2
 	lda.w #$0005
 	sta.w printy
-	lda.w $1E8F
+	lda.w BA_Skater_Offset
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	lda.w #$0014
 	sec
 	sbc.b [a1]
@@ -589,27 +589,27 @@ CODE_9FABA2:
 	inc.w printy
 	lda.w #$000F
 	sta.w printx
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #VersusText>>16
+	sta.b a1+2
 	lda.w #VersusText
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	inc.w printy
-	lda.w $1E91
+	lda.w BA_Team
 	eor.w #$0002
 	sta.b a2
 	tay
 	lda.w tmgoalie,y
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	lda.w #$0014
 	sec
 	sbc.b [a1]
@@ -622,29 +622,29 @@ CODE_9FABA2:
 	sta.w printx
 	lda.w #$0002
 	sta.w printy
-	lda.w $1D81
-	beq .t1x
-	lda.w #$009C
-	sta.b $8F
+	lda.w shootoutmode
+	beq .t1xxx
+	lda.w #ShootoutPenShot>>16
+	sta.b a1+2
 	lda.w #ShootoutPenShot
 	sta.b a1
-	jsl.l CODE_9ECE15
-	bra CODE_9FADB5
+	jsl.l printbig
+	bra .17
 
-.t1x:
-	lda.w #$009C
-	sta.b $8F
-	lda.w #$F8C2
+.t1xxx:
+	lda.w #ShootoutPenShot>>16
+	sta.b a1+2
+	lda.w #ShootoutPenShot+10
 	sta.b a1
-	jsl.l CODE_9ECE15
-CODE_9FADB5:
+	jsl.l printbig
+.17:
 	ldx.b a3
-	lda.l $7E34C6
-	beq .3
-.1:
-	lda.w $1E9B
-	ora.w $1E9D
-	bne .3
+	lda.l OptLine
+	beq .3xxxx
+.1xxxxx:
+	lda.w penshot
+	ora.w penshotlive
+	bne .3xxxx
 	lda.w printy
 	clc
 	adc.w #$000A
@@ -653,89 +653,121 @@ CODE_9FADB5:
 	sta.b d0
 	lda.w #$0003
 	sta.b d1
-	jsl.l CODE_9D8000
+	jsl.l Framer
 	lda.w tmline
 	sta.b d0
-	lda.w $1798
+	lda.w tmline+2
 	sta.b d1
 	lda.w gmode
 	bit.w #$0002
-	bne .2
+	bne .2xxxxx
 	lda.w tmline
 	sta.b d1
-	lda.w $1798
+	lda.w tmline+2
 	sta.b d0
-.2:
+.2xxxxx:
 	inc.w printx
 	dec.w printy
 	dec.w printy
-	lda.w #$0080
-	sta.b $8F
-	lda.w #$D6BE
+	lda.w #linelist>>16
+	sta.b a1+2
+	lda.w #linelist
 	sta.b a1
-	jsl.l CODE_9ECFC6
+	jsl.l PrintStringFromList
 	inc.w printx
 	inc.w printx
 	inc.w printx
 	inc.w printx
 	lda.b d1
 	sta.b d0
-	lda.w #$0080
-	sta.b $8F
-	lda.w #$D6BE
+	lda.w #linelist>>16
+	sta.b a1+2
+	lda.w #linelist
 	sta.b a1
-	jsl.l CODE_9ECFC6
-.3:
+	jsl.l PrintStringFromList
+.3xxxx:
 	jsl.l RandomWord
 	and.w #$007F
 	adc.w #$00B4
 	sta.b d0
 	ldx.b a3
-	sta.w $1003,x
-	lda.w $1E9B
-	beq .4
+	sta.w temp1,x
+	lda.w penshot
+	beq .4xxx
 	lda.w #$00B4
-	sta.w $1003,x
-.4:
+	sta.w temp1,x
+.4xxx:
 	lda.w #$0001
-	sta.l $7E312A
+	sta.l fofdata2
 	lda.w #$8000
-	sta.l $7E312C
-	sta.l $7E3134
+	sta.l fofdata2+2
+	sta.l fofdata+2
 	lda.w #$0004
-	sta.l $7E312E
+	sta.l fofdata2+4
 	lda.w #$A800
-	sta.l $7E3130
+	sta.l fofdata2+6
 	lda.w #$0007
-	sta.l $7E3132
+	sta.l fofdata
 	lda.w gmode
 	bit.w #$0002
-	bne .5
+	bne .5xx
 	lda.w #$8800
-	sta.l $7E312C
+	sta.l fofdata2+2
 	lda.w #$A000
-	sta.l $7E3130
-.5:
+	sta.l fofdata2+6
+.5xx:
 	lda.w #$FFFF
-	sta.l $7E3122
-	sta.l $7E3124
+	sta.l fodir1
+	sta.l fodir2
 	stx.b xsave
 	ldx.w #$001A
-.loop:
+.loopxxx:
 	pla
 	sta.b a0,x
 	dex
 	dex
-	bpl .loop
+	bpl .loopxxx
 	ldx.b xsave
 	stx.b xsave
 	ldx.w #$001E
-.loop2:
+.loop2xx:
 	pla
 	sta.b d0,x
 	dex
 	dex
-	bpl .loop2
+	bpl .loop2xx
 	ldx.b xsave
 	ldx.b a3
 	rtl
+.18:
+	lda.b d7
+	sta.b tmp0
+	cmp.w temp1,x
+	bmi .1xxxxxx
+	lda.w #$0001
+	sta.b tmp0
+.1xxxxxx:
+	lda.w temp1,x
+	sec
+	sbc.b tmp0
+	sta.w temp1,x
+	bpl updatefaceoff
+	lda.w penshot
+	beq .t1xxxx
+	jsl.l Endfaceoff
+	jmp.w SetupPenaltyShot
+
+.t1xxxx:
+	stz.w PenShotActive
+	lda.w #$FFFF
+	sta.w BA_Sktr_SCnum
+	jmp.w Endfaceoff
+.19:
+	db $00,$01,$02,$03,$04,$05,$06,$00
+	db $00,$01,$05,$03,$04,$02,$00,$00
+	db $00,$03,$05,$01,$04,$00,$00,$00
+.20:
+	db $00,$04,$04,$04,$04,$04,$04,$00
+.21:
+	db $00,$00,$06,$FF,$DD,$FF,$CE,$FF,$23,$00,$CE,$FF,$CE,$FF,$F6,$FF
+	db $00,$00,$F1,$FF,$32,$00,$F6,$FF,$00,$00,$C4,$FF

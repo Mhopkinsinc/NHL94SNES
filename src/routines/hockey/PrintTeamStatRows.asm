@@ -1,53 +1,53 @@
 ; Print each team-stat name and both teams' numbers.
 PrintTeamStatRows:
 	lda.w #$007F
-	sta.b $12
+	sta.b p1+2
 	lda.w #$2780
-	sta.b $10
+	sta.b p1
 	ldx.w #$4D80
-	lda.l $7E35B6
+	lda.l smallfontchars
 	clc
 	adc.l printfontset
-	jsl.l CODE_808EDF
+	jsl.l MemFill
 	lda.w #$0000
 	sta.w printy
 	lda.w #$0000
-	sta.w $1DB9
-	lda.w $1DA3
+	sta.w curitem
+	lda.w listcount
 	sta.b d4
 .loop:
 	jsr.w .t2
 	inc.w printy
 	inc.w printy
-	inc.w $1DB9
+	inc.w curitem
 	dec.b d4
 	bpl .loop
 	rts
 
 .t2:
 	lda.w #$2800
-	sta.w $0D0D
+	sta.w printa
 	lda.w #$0009
 	sta.w printx
-	lda.w $1DB9
+	lda.w curitem
 	sta.b d0
-	lda.w #$009C
-	sta.b $8F
+	lda.w #TeamStatNames>>16
+	sta.b a1+2
 	lda.w #TeamStatNames
 	sta.b a1
 	lda.l OptPen
 	bne .2
 .1:
-	lda.w #$009C
-	sta.b $8F
+	lda.w #TeamStatNames>>16
+	sta.b a1+2
 	lda.w #TeamStatNamesNoPen
 org $9C9000
 	sta.b a1
 .2:
 	jsl.l AdvanceStringPtr
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 	lda.w #$2400
-	sta.w $0D0D
+	sta.w printa
 	stz.b a2
 	lda.w #$001C
 	sta.w printx
@@ -60,47 +60,47 @@ org $9C9000
 	rts
 
 .t1:
-	lda.w #$009C
-	sta.b $8B
-	lda.w #DATA8_9C92FD
+	lda.w #TeamStatSources>>16
+	sta.b a0+2
+	lda.w #TeamStatSources
 	sta.b a0
-	lda.w $1DB9
+	lda.w curitem
 	sta.b d0
-CODE_9C9039:
+.3:
 	lda.b [a0]
-	bpl .t2
-	jmp.w CODE_9C9167
+	bpl .t2x
+	jmp.w .8
 
-.t2:
+.t2x:
 	and.w #$00F0
-	ora.w $1E15
-	beq .1
+	ora.w statpenrows
+	beq .1x
 	dec.b d0
-	bmi .t1
-.1:
+	bmi .t1x
+.1x:
 	lda.b a0
 	clc
 	adc.w #$0006
 	sta.b a0
-	bra CODE_9C9039
+	bra .3
 
-.t1:
+.t1x:
 	lda.b [a0]
 	and.w #$000F
 	inc.b a0
 	inc.b a0
 	cmp.w #$0001
 	bne .t3
-	jmp.w CODE_9C90F0
+	jmp.w .5
 
 .t3:
 	cmp.w #$0002
-	beq .t2x
+	beq .t2xx
 	cmp.w #$0003
-	bne .t1x
-	jmp.w CODE_9C9145
+	bne .t1xx
+	jmp.w .6
 
-.t1x:
+.t1xx:
 	lda.b [a0]
 	clc
 	adc.b a2
@@ -108,9 +108,9 @@ CODE_9C9039:
 	lda.w $0000,y
 	sta.b d0
 	jsl.l PushNumber
-	jmp.w CODE_9C9154
+	jmp.w .7
 
-.t2x:
+.t2xx:
 	lda.b [a0]
 	clc
 	adc.b a2
@@ -127,36 +127,93 @@ CODE_9C9039:
 	sta.b d1
 	lda.b d0
 	cmp.b d1
-	bpl .t1xx
+	bpl .t1xxx
 	ldx.w #$0064
-	jsl.l CODE_808F4C
+	jsl.l Mul8U
 	tax
 	lda.b d1
-	beq CODE_9C90BF
+	beq .4
 	jsl.l DivX8U
-	bra CODE_9C90BF
+	bra .4
 
-.t1xx:
+.t1xxx:
 	lda.b d0
-	beq CODE_9C90BF
+	beq .4
 	lda.w #$0064
-CODE_9C90BF:
+.4:
 	sta.b d0
 	jsl.l PushNumber
-	lda.w #$0000
-	sta.b $97
+	lda.w #mesarea>>16
+	sta.b a3+2
 	lda.w #mesarea
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
 	jsl.l appstring
-	lda.w #$009C
-	sta.b $8F
+	lda.w #StatPercent>>16
+	sta.b a1+2
 	lda.w #StatPercent
 	sta.b a1
 	jsl.l appstring
-	lda.b $97
-	sta.b $8F
+	lda.b a3+2
+	sta.b a1+2
 	lda.b a3
 	sta.b a1
-	bra CODE_9C9154
+	bra .7
+.5:
+	lda.b [a0]
+	inc.b a0
+	inc.b a0
+	clc
+	adc.b a2
+	tay
+	lda.w $0000,y
+	sta.b d0
+	jsl.l PushNumber
+	lda.b [a0]
+	sta.b d1
+	lda.w #mesarea>>16
+	sta.b a3+2
+	lda.w #mesarea
+	sta.b a3
+	lda.w #$0002
+	sta.b [a3]
+	jsl.l appstring
+	lda.w #StatSlash>>16
+	sta.b a1+2
+	lda.w #StatSlash
+	sta.b a1
+	jsl.l appstring
+	lda.b a2
+	clc
+	adc.b d1
+	tay
+	lda.w $0000,y
+	sta.b d0
+	jsl.l PushNumber
+	jsl.l appstring
+	lda.b a3+2
+	sta.b a1+2
+	lda.b a3
+	sta.b a1
+	bra .7
+.6:
+	lda.b [a0]
+	clc
+	adc.b a2
+	tay
+	lda.w $0000,y
+	sta.b d0
+	jsl.l PushTime
+.7:
+	lda.b [a1]
+	inc a
+	lsr a
+	eor.w #$FFFF
+	inc a
+	clc
+	adc.w printx
+	sta.w printx
+	jsl.l PrintToStatsPage
+.8:
+	rts

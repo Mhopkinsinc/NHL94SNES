@@ -2,55 +2,55 @@
 ScrollOtherScoresDown:
 	jsr.w ClearOtherScoreBraces
 	lda.w #$0006
-	sta.w $1DC5
+	sta.w listrows
 	jsl.l DrawOtherScoresPage
 	lda.w #$0005
-	sta.w $1DC5
-	lda.w $1DBD
+	sta.w listrows
+	lda.w listtop
 	clc
 	adc.w #$0005
 	clc
-	adc.w $1DE9
-	cmp.w $1DC1
+	adc.w otherskip
+	cmp.w listend
 	bmi .t2
-	jmp.w CODE_9BC2E4
+	jmp.w OtherScoresNext
 
 .t2:
 	sec
 	sbc.w #$0004
 	sec
-	sbc.w $1DE9
-	cmp.l $7E35D6
-	bne CODE_9BC3A8
+	sbc.w otherskip
+	cmp.l gamenum
+	bne .2
 .1:
 	clc
 	adc.w #$0005
 	clc
-	adc.w $1DE9
-	cmp.w $1DC1
+	adc.w otherskip
+	cmp.w listend
 	bmi .t1
-	jmp.w CODE_9BC2E4
+	jmp.w OtherScoresNext
 
 .t1:
 	sec
 	sbc.w #$0004
 	sec
-	sbc.w $1DE9
-CODE_9BC3A8:
-	sta.w $1DBD
+	sbc.w otherskip
+.2:
+	sta.w listtop
 	lda.w #$0001
-	sta.w $1DF3
+	sta.w irqvscroll1
 	lda.w #$0018
-	sta.w $1DF5
+	sta.w irqvscroll2
 .loop:
 	jsl.l WaitFrame
-	inc.w $1DF3
-	inc.w $1DF3
-	lda.w $1DF3
+	inc.w irqvscroll1
+	inc.w irqvscroll1
+	lda.w irqvscroll1
 	cmp.w #$0017
 	bne .loop
 	jsl.l DrawOtherScoresPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
-	sta.w $1DF3
-	jmp.w CODE_9BC2C9
+	sta.w irqvscroll1
+	jmp.w OtherScoresLoop

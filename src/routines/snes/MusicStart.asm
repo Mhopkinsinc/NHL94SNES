@@ -1,5 +1,5 @@
-; Unidentified routine.
-MusicStart:		; start the song at [$0C]: tempo from its second byte, tracks from its offset list
+; start the song at [p0]: tempo from its second byte, tracks from its offset list
+MusicStart:
 	php
 	sep #$30
 	jsl.l MusicStop
@@ -7,7 +7,7 @@ MusicStart:		; start the song at [$0C]: tempo from its second byte, tracks from 
 	lda.b #$1F
 	ldy.b #$10
 .loop:
-	sta.w $08E1,y
+	sta.w TrackUnused,y
 	dey
 	bpl .loop
 	rep #$10
@@ -18,24 +18,24 @@ MusicStart:		; start the song at [$0C]: tempo from its second byte, tracks from 
 	beq .1
 	ldx.w #$1FE0
 .1:
-	lda.b [$0C],y
+	lda.b [p0],y
 	jsl.l DivX8U
-	sta.w $07F6
+	sta.w TempoTick
 	sep #$10
-	lda.b $0E
-	sta.b $58
+	lda.b p0+2
+	sta.b EventPtr+2
 	rep #$20
-	lda.b $0C
-	sta.w $07ED
+	lda.b p0
+	sta.w SongPtr
 	ldx.b #$00
 	ldy.b #$08
 .loop2:
-	lda.b [$0C],y
+	lda.b [p0],y
 	beq .t1
 	clc
-	adc.b $0C
-	sta.w $0804,x
-	sta.w $0826,x
+	adc.b p0
+	sta.w TrackPtr,x
+	sta.w TrackLoop,x
 	iny
 	iny
 	inx
@@ -43,11 +43,11 @@ MusicStart:		; start the song at [$0C]: tempo from its second byte, tracks from 
 	bra .loop2
 
 .t1:
-	stz.w $07EF
+	stz.w SongUnused
 	sep #$20
 	ldy.b #$06
-	lda.b [$0C],y
-	sta.w $0801
+	lda.b [p0],y
+	sta.w TrackCount
 	lda.b #$01
 	sta.w MusicOn
 	inc.w SoundLock

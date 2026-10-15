@@ -1,17 +1,17 @@
-; Unidentified routine.
+; Change team a2 to the chosen line
 lcfound:
 	ldx.b a3
 	ldy.b a2
 	lda.b d2
 	sta.b d0
-	sta.w $17E6,y
+	sta.w tmlcchoice,y
 	jsl.l getlchoice
 	lda.b d0
 	bmi .t1
 	lda.w pflags,x
 	ora.w #$0008
 	sta.w pflags,x
-	jsl.l CODE_9FC757
+	jsl.l loadTeamStruct
 	ldy.b a2
 	lda.w tmflags,y
 	and.w #$FFF7
@@ -19,9 +19,9 @@ lcfound:
 	lda.b d0
 	sta.w tmline,y
 	lda.w #$FFFF
-	sta.w $1D55,y
+	sta.w lcpad,y
 	jsl.l setpersonel
-	jmp.w CODE_9FDE13
+	jmp.w lcfound2
 
 .t1:
 	rtl

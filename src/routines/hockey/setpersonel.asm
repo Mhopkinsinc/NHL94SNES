@@ -41,12 +41,12 @@ setpersonel:
 	sta.b a4+2
 	lda.w #PlList
 	sta.b a4
-CODE_9FD459:
+.3:
 	ldy.b d4
 	lda.b [a4],y
 	and.w #$00FF
 	sta.b d5
-	beq CODE_9FD4BE
+	beq .4
 	dec.b d5
 	lda.w #$0005
 	sta.b d3
@@ -67,7 +67,7 @@ CODE_9FD459:
 	beq .t1
 	dec.b d3
 	bpl .2
-	bra CODE_9FD4BE
+	bra .4
 
 .t1:
 	lda.b d4
@@ -93,21 +93,21 @@ CODE_9FD459:
 	lda.b #$00
 	sta.b [a4],y
 	rep #$20
-CODE_9FD4BE:
+.4:
 	dec.b d4
-	bpl CODE_9FD459
+	bpl .3
 	lda.w #$0005
 	sta.b d4
-	lda.w #$007E
-	sta.b $9B
-	lda.w #$3114
+	lda.w #PlList>>16
+	sta.b a4+2
+	lda.w #PlList
 	sta.b a4
-CODE_9FD4D1:
+.5:
 	ldy.b d4
 	lda.b [a4],y
 	and.w #$00FF
 	sta.b d5
-	beq CODE_9FD53A
+	beq .8
 	dec.b d5
 	lda.w #$0005
 	sta.b d3
@@ -115,25 +115,25 @@ CODE_9FD4D1:
 	ldx.w tmsort,y
 	dex
 	dex
-CODE_9FD4EA:
+.6:
 	inx
 	inx
 	stx.b a3
 	lda.w newpnum,x
 	bit.w #$0080
-	bne .t1
+	bne .t1x
 	dec.b d3
-	bpl CODE_9FD4EA
-	bra CODE_9FD4FE
+	bpl .6
+	bra .7
 
-.t1:
+.t1x:
 	stx.b a0
-CODE_9FD4FE:
+.7:
 	lda.w position,x
-	bpl .1
+	bpl .1x
 	dec.b d3
-	bpl CODE_9FD4EA
-.1:
+	bpl .6
+.1x:
 	lda.b d4
 	clc
 	adc.w #$0006
@@ -141,26 +141,26 @@ CODE_9FD4FE:
 	lda.b [a4],y
 	and.w #$00FF
 	bit.w #$0080
-	beq .2
+	beq .2xx
 	ora.w #$FF00
-.2:
+.2xx:
 	ldy.b a0
 	sta.w newpos,y
 	lda.b d5
 	and.w #$00FF
 	bit.w #$0080
-	beq .3
+	beq .3x
 	ora.w #$FF00
-.3:
+.3x:
 	sta.w newpnum,y
 	ldy.b d4
 	sep #$20
 	lda.b #$00
 	sta.b [a4],y
 	rep #$20
-CODE_9FD53A:
+.8:
 	dec.b d4
-	bpl CODE_9FD4D1
+	bpl .5
 	stx.b xsave
 	ldx.w #$0012
 .loop:

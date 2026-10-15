@@ -33,8 +33,8 @@ SetHor:
 	ror a
 	sta.w puckvy
 	lda.w #$0001
-	sta.l $7E3460
-	jsl.l CODE_8086A9
+	sta.l redrawblocks
+	jsl.l forceblack
 	lda.w #$0001
 	sta.w sfhormode
 	stz.w Hscroll
@@ -44,7 +44,7 @@ SetHor:
 	sta.w Oldrow
 	stz.w vramrow
 	jsl.l SprSort
-	jsl.l CODE_9FC896
+	jsl.l StatsReport
 	stx.b xsave
 	ldx.w #$001A
 .resta:

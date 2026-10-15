@@ -1,57 +1,57 @@
-; Unidentified routine.
-DecompressLZ:		; LZ data at [$0C] (after its header) to WRAM
-	lda.b $10
-	sta.b $6F
-	lda.b $12
-	sta.b $6D
-	stz.b $71
-	stz.b $73
-	stz.b $75
-	stz.b $77
+; LZ data at [p0] (after its header) to WRAM
+DecompressLZ:
+	lda.b p1
+	sta.b LZOutAddr
+	lda.b p1+2
+	sta.b LZCopySrc+2
+	stz.b LZCmd
+	stz.b LZCmdByte2
+	stz.b LZCmdByte3
+	stz.b LZLenLo
 	sep #$20
 	ldy.w #$0005
-CODE_80B8F0:
-	lda.b [$0C],y
+.2:
+	lda.b [p0],y
 	iny
-	sta.b $71
+	sta.b LZCmd
 	and.b #$80
 	beq .t1
 	jmp.w .t3
 
 .t1:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
-	sta.b $73
-	lda.b $71
+	sta.b LZCmdByte2
+	lda.b LZCmd
 	rep #$20
 	and.w #$0003
 	beq .1
 	tax
 	clc
-	adc.b $6F
-	sta.b $6F
+	adc.b LZOutAddr
+	sta.b LZOutAddr
 	sep #$20
 .loop:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.w WMDATA
 	dex
 	bne .loop
 .1:
 	rep #$20
-	lda.b $71
+	lda.b LZCmd
 	and.w #$0060
 	asl a
 	asl a
 	asl a
 	clc
-	adc.b $73
-	sta.b $7B
-	lda.b $6F
+	adc.b LZCmdByte2
+	sta.b LZDistance
+	lda.b LZOutAddr
 	clc
-	sbc.b $7B
-	sta.b $6B
-	lda.b $71
+	sbc.b LZDistance
+	sta.b LZCopySrc
+	lda.b LZCmd
 	and.w #$001C
 	lsr a
 	lsr a
@@ -59,35 +59,35 @@ CODE_80B8F0:
 	adc.w #$0003
 	tax
 	clc
-	adc.b $6F
-	sta.b $6F
-	sty.b $79
+	adc.b LZOutAddr
+	sta.b LZOutAddr
+	sty.b LZSrcIdx
 	ldy.w #$0000
 	sep #$20
 .loop2:
-	lda.b [$6B],y
+	lda.b [LZCopySrc],y
 	iny
 	sta.w WMDATA
 	dex
 	bne .loop2
-	ldy.b $79
-	jmp.w CODE_80B8F0
+	ldy.b LZSrcIdx
+	jmp.w .2
 
 .t3:
-	lda.b $71
+	lda.b LZCmd
 	and.b #$40
 	beq .t1x
 	jmp.w .t2
 
 .t1x:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
-	sta.b $73
-	lda.b [$0C],y
+	sta.b LZCmdByte2
+	lda.b [p0],y
 	iny
-	sta.b $75
+	sta.b LZCmdByte3
 	rep #$20
-	lda.b $73
+	lda.b LZCmdByte2
 	asl a
 	asl a
 	xba
@@ -95,74 +95,74 @@ CODE_80B8F0:
 	beq .1x
 	tax
 	clc
-	adc.b $6F
-	sta.b $6F
+	adc.b LZOutAddr
+	sta.b LZOutAddr
 	sep #$20
 .loopx:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.w WMDATA
 	dex
 	bne .loopx
 .1x:
 	rep #$20
-	lda.b $73
+	lda.b LZCmdByte2
 	and.w #$003F
 	xba
 	clc
-	adc.b $75
-	sta.b $7B
-	lda.b $6F
+	adc.b LZCmdByte3
+	sta.b LZDistance
+	lda.b LZOutAddr
 	clc
-	sbc.b $7B
-	sta.b $6B
-	lda.b $71
+	sbc.b LZDistance
+	sta.b LZCopySrc
+	lda.b LZCmd
 	and.w #$003F
 	clc
 	adc.w #$0004
 	tax
 	clc
-	adc.b $6F
-	sta.b $6F
+	adc.b LZOutAddr
+	sta.b LZOutAddr
 	sep #$20
-	sty.b $79
+	sty.b LZSrcIdx
 	ldy.w #$0000
 .loop2x:
-	lda.b [$6B],y
+	lda.b [LZCopySrc],y
 	iny
 	sta.w WMDATA
 	dex
 	bne .loop2x
-	ldy.b $79
-	jmp.w CODE_80B8F0
+	ldy.b LZSrcIdx
+	jmp.w .2
 
 .t2:
-	lda.b $71
+	lda.b LZCmd
 	and.b #$20
 	beq .t1xx
-	jmp.w CODE_80BA21
+	jmp.w .4
 
 .t1xx:
-	lda.b $71
+	lda.b LZCmd
 	rep #$20
 	and.w #$0003
 	tax
 	clc
-	adc.b $6F
-	sta.b $6F
-	lda.b [$0C],y
+	adc.b LZOutAddr
+	sta.b LZOutAddr
+	lda.b [p0],y
 	xba
-	sta.b $7B
+	sta.b LZDistance
 	iny
 	iny
 	sep #$20
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
-	sta.b $77
+	sta.b LZLenLo
 	txa
 	beq .1xx
 .loopxx:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	sta.w WMDATA
 	dex
@@ -170,29 +170,71 @@ CODE_80B8F0:
 .1xx:
 	rep #$20
 	clc
-	lda.b $6F
-	sbc.b $7B
-	sta.b $6B
-	lda.b $71
+	lda.b LZOutAddr
+	sbc.b LZDistance
+	sta.b LZCopySrc
+	lda.b LZCmd
 	and.w #$000C
 	lsr a
 	lsr a
 	xba
 	clc
-	adc.b $77
+	adc.b LZLenLo
 	adc.w #$0005
 	tax
 	clc
-	adc.b $6F
-	sta.b $6F
+	adc.b LZOutAddr
+	sta.b LZOutAddr
 	sep #$20
-	sty.b $79
+	sty.b LZSrcIdx
 	ldy.w #$0000
-CODE_80BA13:
-	lda.b [$6B],y
+.3:
+	lda.b [LZCopySrc],y
 	iny
 	sta.w WMDATA
 	dex
-	bne CODE_80BA13
-	ldy.b $79
-	jmp.w CODE_80B8F0
+	bne .3
+	ldy.b LZSrcIdx
+	jmp.w .2
+.4:
+	lda.b LZCmd
+	and.b #$1F
+	asl a
+	asl a
+	adc.b #$04
+	cmp.b #$71
+	bcs .t1xxx
+	rep #$20
+	and.w #$00FF
+	tax
+	clc
+	adc.b LZOutAddr
+	sta.b LZOutAddr
+	sep #$20
+.loopxxx:
+	lda.b [p0],y
+	iny
+	sta.w WMDATA
+	dex
+	bne .loopxxx
+	jmp.w .2
+
+.t1xxx:
+	lda.b LZCmd
+	rep #$20
+	and.w #$0003
+	beq .1xxx
+	tax
+	clc
+	adc.b LZOutAddr
+	sta.b LZOutAddr
+	sep #$20
+.loopxxxx:
+	lda.b [p0],y
+	iny
+	sta.w WMDATA
+	dex
+	bne .loopxxxx
+.1xxx:
+	rep #$20
+	rts

@@ -1,95 +1,53 @@
-; From the bench: wait out the lock, then take the assignment
+; Assignment: the player comes onto the ice from the bench
 asseben:
-	lda.w gmclock
-	bne CODE_9E82A0
+	lda.w pfalock,x
+	bne .t1
 	lda.w pflags,x
 	bit.w #$0002
-	beq .1
+	beq .t2
 	and.w #$FFFD
 	sta.w pflags,x
-	stz.w $1003,x
-	stz.w $1023,x
-	lda.w #$0008
-	sta.w $10A3
-	lda.w $0792
-	and.w #$0003
-	sta.w $1043,x
+	stz.w Xvel,x
+	stz.w Yvel,x
+	stz.w goalieflags,x
+	txa
+	lsr a
+	sec
+	sbc.w #$0006
+	bmi .1
+	inc a
 .1:
-	lda.w $1003,x
-	sec
-	sbc.b d7
-	sta.w $1003,x
-	bpl CODE_9E8321
-	adc.w $1323,x
-	bpl .3
+	phx
+	tax
+	lda.w #$000E
+	jsl.l Mul16x8XS
+	plx
+	lda.b r2
+	sta.w Ypos,x
+	lda.w #$FF78
+	sta.w Xpos,x
+	lda.w #$0002
+	sta.w facedir,x
+	sta.w pfalock,x
+	lda.w #SPAwallright
+	ldy.w position,x
+	bne .3
 .2:
-	lda.w #$0000
+	lda.w #SPAgwallright
 .3:
-	sta.w $1003,x
-	jsl.l CODE_9EC417
-	lda.w $1E8B
-	beq .t1
-	lda.w Ypos,x
-	sta.b d0
-	bpl .4
-	lda.w #$0000
-	sec
-	sbc.b d0
-	sta.b d0
-.4:
-	cmp.w #$0090
-	bpl .t1
-	lda.w #$0010
-	sta.b d0
-	jsl.l assreplace
-	bra CODE_9E8373
+	jml.l SetSPAUpdate
 
 .t1:
-	jsl.l CODE_9FDBD0
-	jsl.l CODE_9EDED4
-	lda.w $0B7D,x
-	cmp.w #$0011
-	bne CODE_9E8321
-	jsl.l CODE_9EE89F
-CODE_9E8321:
-	lda.w #$0006
-	clc
-	adc.w $1043,x
-	sta.b d0
-	lda.w #$0080
-	sta.b $8B
-	lda.w #$D398
-	sta.b a0
-	lda.w sflags
-	bit.w #$8000
-	beq .2
-.1:
-	lda.w position,x
-	sta.b d0
-.2:
-	lda.b d0
-	asl a
-	asl a
-	tay
-	lda.b [a0],y
-	sta.b d0
-	iny
-	iny
-	lda.b [a0],y
-	sta.b d1
-	lda.w pfgoal,x
-	bne .3
-	lda.w #$0000
-	sec
-	sbc.b d0
-	sta.b d0
-	lda.w #$0000
-	sec
-	sbc.b d1
-	sta.b d1
-.3:
-	lda.w #$009E
-	sta.b $8B
-	lda.w #$8374
-	sta.b a0
-	jml.l CODE_9EA5A4
+	rtl
+
+.t2:
+	lda.w #$0004
+	sta.w facedir,x
+	lda.w pflags,x
+	and.w #$6FFF
+	sta.w pflags,x
+	stz.w pfnc,x
+	stz.w SPA,x
+	lda.w #$1000
+	sta.w Xvel,x
+	jml.l assexit

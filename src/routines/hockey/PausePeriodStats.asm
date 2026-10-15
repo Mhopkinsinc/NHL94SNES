@@ -7,5 +7,5 @@ PausePeriodStats:
 
 .t1:
 	jsl.l ShowPeriodStats
-	jsl.l CODE_9FE79F
+	jsl.l ReloadRink
 	jmp.w PauseSubmenuDone

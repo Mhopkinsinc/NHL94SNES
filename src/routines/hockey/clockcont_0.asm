@@ -6,12 +6,12 @@ clockcont_0:
 	sta.b d0
 	jsl.l assinsert
 	lda.w #$0001
-	jsl.l CODE_9C9A7F
-	stz.b $0C
+	jsl.l StreamSfx
+	stz.b p0
 	lda.w gsp
 	cmp.w #$0002
 	bcs .t1
-	jmp.w CODE_9F8C96
+	jmp.w .8
 
 .t1:
 	lda.w #$0008
@@ -21,22 +21,22 @@ clockcont_0:
 	lda.l playoffRoundIdx
 	cmp.w #$0003
 	bne .4
-	lda.w $0ACF
+	lda.w bosgames
 	cmp.w #$0007
 	beq .3
-	lda.l $7E35D6
+	lda.l gamenum
 	asl a
 	sta.b a0
 	tax
 	stz.b d3
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	bit.w #$0001
 	beq .1
 	lda.w #$0010
 	sta.b d3
 .1:
-	lda.w $178E
-	cmp.w $1790
+	lda.w tmscore
+	cmp.w tmscore+2
 	bpl .2
 	lda.b d3
 	eor.w #$0010
@@ -47,15 +47,15 @@ clockcont_0:
 	adc.b d3
 	phx
 	tax
-	lda.l $7E3548,x
+	lda.l gspotwins,x
 	plx
 	cmp.w #$0003
 	bne .4
 .3:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0000
 	beq .4
-	inc.b $0C
+	inc.b p0
 	lda.w #$0009
 	sta.b d0
 	lda.w #$000B
@@ -73,9 +73,9 @@ clockcont_0:
 .4:
 	lda.w #$0005
 	sta.b d2
-	lda.w $178E
-	cmp.w $1790
-	beq CODE_9F8C96
+	lda.w tmscore
+	cmp.w tmscore+2
+	beq .8
 	bpl .5
 	ldx.w #$000C
 	stx.b a3
@@ -92,36 +92,47 @@ clockcont_0:
 	stx.b a3
 	dec.b d2
 	bpl .5
-CODE_9F8C43:
+.7:
 	jsl.l ClearPenaltyBuffer
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$03E8
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$003C
-	sta.b $81
+	sta.b crowdhold
 	lda.w #$0040
 	sta.w gmclock
 	tsb.w gmode
-	lda.w $178E
-	cmp.w $1790
-	bmi .1
+	lda.w tmscore
+	cmp.w tmscore+2
+	bmi .1x
 	lda.w #$0000
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$0003
-	sta.w $0CE7
-	lda.b $83
+	sta.w cheercnt
+	lda.b vcount
 	sec
 	sbc.w #$0096
-	sta.w $0CE9
-.1:
+	sta.w cheervc
+.1x:
 	lda.w #$0004
 	sta.b d0
-	jsl.l CODE_9EB88A
-	lda.b $0C
+	jsl.l AddPenalty2
+	lda.b p0
 	beq .rtl
 	lda.w #$0032
 	sta.b d0
-	jsl.l CODE_9EB88A
+	jsl.l AddPenalty2
 .rtl:
 	rtl
+.8:
+	lda.w gsp
+	cmp.w #$0003
+	bne .1xx
+	lda.l OptPlayMode
+	beq .7
+.1xx:
+	jsl.l EndPenaltyShot
+	lda.w #$0002
+	sta.b d0
+	jml.l ShootoutWonBy

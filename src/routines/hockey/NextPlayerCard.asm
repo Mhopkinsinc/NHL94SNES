@@ -1,17 +1,17 @@
 ; Show the next player card.
 NextPlayerCard:
-	lda.w $1DB9
-	cmp.w $1DC1
-	bpl CODE_9DBDA8
-	inc.w $1DB9
-	lda.w $1DB9
+	lda.w curitem
+	cmp.w listend
+	bpl PlayerCardsWait
+	inc.w curitem
+	lda.w curitem
 	sec
 	sbc.w #$0007
 	bmi .1
-	sta.w $1D9B
+	sta.w curplayer
 	ldy.b a2
 	lda.w #$009C
-	sta.b $97
+	sta.b a3+2
 	lda.w tmdata,y
 	sta.b a3
 	ldy.w #$000C
@@ -19,21 +19,21 @@ NextPlayerCard:
 	adc.b [a3],y
 	sta.b a3
 .loop:
-	inc.w $1D9B
+	inc.w curplayer
 	ldy.w #$0000
 .loop2:
 	lda.b [a3],y
 	and.w #$00FF
-	cmp.w $1D9B
+	cmp.w curplayer
 	beq .loop
 	iny
 	cpy.w #$0006
 	bmi .loop2
-	dec.w $1D9B
-	lda.w $1D9B
+	dec.w curplayer
+	lda.w curplayer
 	clc
 	adc.w #$0007
-	sta.w $1DB9
+	sta.w curitem
 .1:
 	jsl.l DrawPlayerCard
-	jmp.w CODE_9DBD7B
+	jmp.w PlayerCardsRedraw

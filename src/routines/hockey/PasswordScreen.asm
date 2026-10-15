@@ -1,66 +1,66 @@
 ; Password entry screen
 PasswordScreen:
-	jsl.l CODE_9F96F7
-	jsl.l CODE_9F9708
+	jsl.l FadeOut
+	jsl.l WaitFadeOut
 	lda.w #$FF7F
 	and.l PassWord
 	sta.l PassWord
-	jsl.l CODE_9DD977
+	jsl.l ClearTextMap
 	stz.w textdirtylo
 	lda.w #$03FF
 	sta.w textdirtyhi
-	jsl.l CODE_9B8017
-	jsl.l CODE_9B8526
+	jsl.l ReadPads
+	jsl.l ReadAnyPad
 	jsl.l SpriteFrameStart
 	ldx.w #$0053
 	ldy.w #$0018
-	lda.w #$009C
-	sta.b $8F
+	lda.w #PasswordLabel>>16
+	sta.b a1+2
 	lda.w #PasswordLabel
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	lda.w #$001C
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$001D
-	sta.l $7E3452
-	jsl.l CODE_9DDDB3
+	sta.l setuphome
+	jsl.l DrawMatchupPictures
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9DE0D4
-	lda.b $8F
+	jsl.l SendColours
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF20D
+	lda.w #PasswordScreenPos>>16
+	sta.b a1+2
+	lda.w #PasswordScreenPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0011
 	sta.b d0
 	lda.w #$0005
 	sta.b d1
-	jsl.l CODE_9D80DD
-	lda.b $8F
+	jsl.l FramerOutline
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF212
+	lda.w #PasswordTxt>>16
+	sta.b a1+2
+	lda.w #PasswordTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	dec.w printx
 	dec.w printx
-	lda.w #$009B
-	sta.b $8B
+	lda.w #PasstoText>>16
+	sta.b a0+2
 	lda.w #PasstoText
 	sta.b a0
 	lda.w #$0004
@@ -68,8 +68,8 @@ PasswordScreen:
 .loop:
 	lda.w #$0005
 	sta.b d1
-	lda.w #$0000
-	sta.b $8F
+	lda.w #mesarea>>16
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #$000D
@@ -86,8 +86,8 @@ PasswordScreen:
 	inc.b a1
 	dec.b d1
 	bpl .loop2
-	lda.w #$0000
-	sta.b $8F
+	lda.w #mesarea>>16
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	jsl.l print
@@ -109,17 +109,17 @@ PasswordScreen:
 	sta.b d5
 .1:
 	jsl.l PlacePasswordCursor
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	lda.w #$0003
-	sta.w $0A4A
+	sta.w PWCharStr
 	phx
 	ldy.b d5
 	tyx
 	lda.l PasstoText,x
 	plx
-	sta.w $0A4C
+	sta.w PWCharStr+2
 	lda.w #$0000
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0A4A
 	sta.b a1
 	inc.w printx
@@ -127,29 +127,29 @@ PasswordScreen:
 	dec.w printy
 	jsl.l print
 	lda.w #$000A
-	sta.w $0AD1
-CODE_9BC946:
-	jsr.w CODE_9BCBD8
-CODE_9BC949:
-	lda.b $8F
+	sta.w fadestep
+PasswordRedraw:
+	jsr.w PrintPasswordHelp
+.1:
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF222
+	lda.w #PasswordScreenPos2>>16
+	sta.b a1+2
+	lda.w #PasswordScreenPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	jsl.l CODE_9BC6C9
-	jsl.l CODE_9FBF75
+	sta.b a1+2
+	jsl.l PWprint
+	jsl.l QueueTextDMA
 .loop:
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
-	jsl.l CODE_9B84F5
+	jsl.l ReadPads
+	jsl.l Readjoy1
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	beq .loop
@@ -168,20 +168,20 @@ CODE_9BC949:
 	bit.w #$8080
 	bne .t1
 	bit.w #$0100
-	bne CODE_9BC9F0
+	bne .2
 	stz.b d0
 	dec.b d0
 	bit.w #$0200
-	bne CODE_9BC9F0
+	bne .2
 	ldy.w #$0006
 	sty.b d0
-	bit.w #DMA_OAM
-	bne CODE_9BC9F0
+	bit.w #$0400
+	bne .2
 	ldy.w #$FFFA
 	sty.b d0
 	bit.w #$0800
-	bne CODE_9BC9F0
-	jmp.w CODE_9BC949
+	bne .2
+	jmp.w .1
 
 .t1:
 	lda.b d4
@@ -189,48 +189,48 @@ CODE_9BC949:
 	adc.b d0
 	cmp.w #$0010
 	bcc .t2
-	jmp.w CODE_9BC949
+	jmp.w .1
 
 .t2:
 	sta.b d4
 	jsl.l PrintSelectLeft
-	lda.w #$007E
-	sta.b $8B
-	lda.w #$34F4
+	lda.w #PassWord>>16
+	sta.b a0+2
+	lda.w #PassWord
 	sta.b a0
 	stz.b d0
 	ldy.b d4
 	lda.b [a0],y
 	and.w #$00FF
 	cmp.w #$001E
-	bcs CODE_9BC9F0
+	bcs .2
 	sec
 	sbc.b d5
 	sta.b d0
-CODE_9BC9F0:
+.2:
 	lda.b d5
 	clc
 	adc.b d0
 	cmp.w #$001E
-	bcc .t1
-	jmp.w CODE_9BC949
+	bcc .t1x
+	jmp.w .1
 
-.t1:
+.t1x:
 	pha
 	jsl.l PlacePasswordCursor
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
 	lda.w #$0003
-	sta.w $0A4A
+	sta.w PWCharStr
 	phx
 	ldy.b d5
 	tyx
 	lda.l PasstoText,x
 	plx
-	sta.w $0A4C
+	sta.w PWCharStr+2
 	lda.w #$0000
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0A4A
 	sta.b a1
 	inc.w printx
@@ -240,28 +240,28 @@ CODE_9BC9F0:
 	pla
 	sta.b d5
 	jsl.l PlacePasswordCursor
-	jsl.l CODE_9D80DD
+	jsl.l FramerOutline
 	phx
 	ldy.b d5
 	tyx
 	lda.l PasstoText,x
 	plx
-	sta.w $0A4C
+	sta.w PWCharStr+2
 	lda.w #$0000
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0A4A
 	sta.b a1
 	inc.w printx
 	dec.w printy
 	dec.w printy
 	jsl.l print
-	lda.w #$007E
-	sta.b $8B
-	lda.w #$34F4
+	lda.w #PassWord>>16
+	sta.b a0+2
+	lda.w #PassWord
 	sta.b a0
 	ldy.b d4
 	sep #$20
 	lda.b d5
 	sta.b [a0],y
 	rep #$30
-	jmp.w CODE_9BC949
+	jmp.w .1

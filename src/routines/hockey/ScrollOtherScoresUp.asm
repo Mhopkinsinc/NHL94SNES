@@ -1,41 +1,41 @@
 ; Scroll the other-scores list up one page.
 ScrollOtherScoresUp:
 	jsr.w ClearOtherScoreBraces
-	lda.w $1DBD
+	lda.w listtop
 	dec a
 	bpl .t2
-	jmp.w CODE_9BC2E4
+	jmp.w OtherScoresNext
 
 .t2:
-	cmp.l $7E35D6
-	bne CODE_9BC3F5
+	cmp.l gamenum
+	bne .1
 	cmp.w #$0000
 	bne .t1
-	jmp.w CODE_9BC2E4
+	jmp.w OtherScoresNext
 
 .t1:
 	dec a
-CODE_9BC3F5:
-	sta.w $1DBD
+.1:
+	sta.w listtop
 	lda.w #$0006
-	sta.w $1DC5
+	sta.w listrows
 	jsl.l DrawOtherScoresPage
 	jsl.l WaitFrame
 	lda.w #$0015
-	sta.w $1DF3
+	sta.w irqvscroll1
 	lda.w #$0018
-	sta.w $1DF5
+	sta.w irqvscroll2
 .loop:
 	jsl.l WaitFrame
-	dec.w $1DF3
-	dec.w $1DF3
-	lda.w $1DF3
+	dec.w irqvscroll1
+	dec.w irqvscroll1
+	lda.w irqvscroll1
 	cmp.w #$0001
 	bne .loop
 	lda.w #$0005
-	sta.w $1DC5
+	sta.w listrows
 	jsl.l DrawOtherScoresPage
 	jsl.l WaitFrame
 	lda.w #$FFFF
-	sta.w $1DF3
-	jmp.w CODE_9BC2C9
+	sta.w irqvscroll1
+	jmp.w OtherScoresLoop

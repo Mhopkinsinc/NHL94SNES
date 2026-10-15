@@ -9,4 +9,14 @@ GetPlayerRecord:
 	clc
 	adc.b [a0]
 	sta.b a0
-	bra CODE_9FC752
+	bra .2
+.1:
+	lda.b a0
+	clc
+	adc.b [a0]
+	adc.w #$0008
+	sta.b a0
+.2:
+	dec.b d0
+	bpl .1
+	rtl

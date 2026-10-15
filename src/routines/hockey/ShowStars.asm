@@ -22,57 +22,57 @@ ShowStars:
 	cpx.w #$0014
 	bne .loop2
 	ldx.b xsave
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF370
+	lda.w #ShowStarsPos>>16
+	sta.b a1+2
+	lda.w #ShowStarsPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0013
 	sta.b d0
 	lda.w #$0008
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF375
+	lda.w #ShowStarsPos2>>16
+	sta.b a1+2
+	lda.w #ShowStarsPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0015
 	sta.b d0
 	lda.w #$0007
 	sta.b d1
-	jsl.l CODE_9D8000
-	lda.b $8F
+	jsl.l Framer
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #StarsOfTheGame>>16
+	sta.b a1+2
 	lda.w #StarsOfTheGame
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	jsl.l .t1
 	lda.w #$0005
 	sta.w printy
@@ -80,72 +80,72 @@ ShowStars:
 	sta.w printx
 	stz.b d3
 	stz.b a2
-	lda.w $1E2B
+	lda.w star1
 	cmp.w #$001A
 	bmi .1
 	sec
 	sbc.w #$001A
-	sta.w $1E2B
+	sta.w star1
 	inc.b d3
 	lda.w #$0002
 	sta.b a2
 .1:
-	jsl.l CODE_9FBD66
+	jsl.l printteamname
 	lda.w #$0005
 	sta.w printy
 	lda.w #$0011
 	sta.w printx
-	lda.w $1E2B
+	lda.w star1
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l print
 	inc.w printy
 	lda.w #$000D
 	sta.w printx
 	stz.b d3
 	stz.b a2
-	lda.w $1E2D
+	lda.w star2
 	cmp.w #$001A
 	bmi .2
 	sec
 	sbc.w #$001A
-	sta.w $1E2D
+	sta.w star2
 	inc.b d3
 	lda.w #$0002
 	sta.b a2
 .2:
-	jsl.l CODE_9FBD66
+	jsl.l printteamname
 	lda.w #$0006
 	sta.w printy
 	lda.w #$0011
 	sta.w printx
-	lda.w $1E2D
+	lda.w star2
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l print
 	inc.w printy
 	lda.w #$000D
 	sta.w printx
 	stz.b d3
 	stz.b a2
-	lda.w $1E2F
+	lda.w star3
 	cmp.w #$001A
 	bmi .3
 	sec
 	sbc.w #$001A
-	sta.w $1E2F
+	sta.w star3
 	inc.b d3
 	lda.w #$0002
 	sta.b a2
 .3:
-	jsl.l CODE_9FBD66
+	jsl.l printteamname
 	lda.w #$0007
 	sta.w printy
 	lda.w #$0011
 	sta.w printx
-	lda.w $1E2F
+	lda.w star3
 	sta.b d0
-	jsl.l CODE_9FC427
+	jsl.l PlayerInitialName
 	jsl.l print
 	stx.b xsave
 	ldx.w #$0012
@@ -171,22 +171,22 @@ ShowStars:
 
 .t1:
 	lda.w #$0000
-	sta.w $1E33
+	sta.w star1score+2
 	lda.w #$0000
-	sta.w $1E31
+	sta.w star1score
 	lda.w #$0000
-	sta.w $1E37
+	sta.w star2score+2
 	lda.w #$0000
-	sta.w $1E35
+	sta.w star2score
 	lda.w #$0000
-	sta.w $1E3B
+	sta.w star3score+2
 	lda.w #$0000
-	sta.w $1E39
+	sta.w star3score
 	lda.w #$FFFF
-	sta.w $1E1F
+	sta.w otgoalscorer
 	lda.w #$007E
-	sta.b $8F
-	lda.w #$3136
+	sta.b a1+2
+	lda.w #ScoreSum-6
 	sta.b a1
 	ldy.w #$0000
 	lda.b [a1],y
@@ -205,94 +205,309 @@ ShowStars:
 	iny
 	lda.b [a1],y
 	and.w #$00FF
-	sta.w $1E1F
+	sta.w otgoalscorer
 	dey
 	lda.b [a1],y
 	and.w #$00F0
 	beq .1x
-	lda.w $1E1F
+	lda.w otgoalscorer
 	clc
 	adc.w #$001A
-	sta.w $1E1F
+	sta.w otgoalscorer
 .1x:
 	stz.b a2
 	jsl.l GetPlayerCount
 	lda.b d0
-	sta.w $1E21
+	sta.w starplayerend
 	jsl.l GoalieCount
 	lda.b d0
-	sta.w $1E23
+	sta.w stargoalieend
 	ldx.w #$0000
-CODE_9C9DA1:
+.12:
 	phx
-	cpx.w $1E21
-	bmi .t1
-	jmp.w CODE_9C9E8E
+	cpx.w starplayerend
+	bmi .t1x
+	jmp.w .16
 
-.t1:
-	jsl.l CODE_9C9EC5
-	lda.b $A7
+.t1x:
+	jsl.l .17
+	lda.b d0+2
 	sec
-	sbc.w $1E33
+	sbc.w star1score+2
 	bmi .t2
-	bvc CODE_9C9DBC
-	bra CODE_9C9DD6
+	bvc .1xx
+	bra .3x
 
 .t2:
-	bvc CODE_9C9DD6
-CODE_9C9DBC:
-	beq CODE_9C9DC6
-	bmi .t1
-	bvs CODE_9C9DC6
-	bra CODE_9C9E29
+	bvc .3x
+.1xx:
+	beq .2x
+	bmi .t1xx
+	bvs .2x
+	bra .13
 
-.t1:
-	bvs CODE_9C9E29
-CODE_9C9DC6:
+.t1xx:
+	bvs .13
+.2x:
 	lda.b d0
 	sec
-	sbc.w $1E31
-	beq CODE_9C9DD6
-	bmi .t1
-	bvs CODE_9C9DD6
-	bra CODE_9C9E29
+	sbc.w star1score
+	beq .3x
+	bmi .t1xxx
+	bvs .3x
+	bra .13
 
-.t1:
-	bvs CODE_9C9E29
-CODE_9C9DD6:
-	lda.b $A7
+.t1xxx:
+	bvs .13
+.3x:
+	lda.b d0+2
 	sec
-	sbc.w $1E37
-	bmi .t1
-	bvc CODE_9C9DE4
-	bra CODE_9C9DFE
+	sbc.w star2score+2
+	bmi .t1xxxx
+	bvc .4
+	bra .6
 
-.t1:
-	bvc CODE_9C9DFE
-CODE_9C9DE4:
-	beq CODE_9C9DEE
-	bmi .t1
-	bvs CODE_9C9DEE
-	bra CODE_9C9E55
+.t1xxxx:
+	bvc .6
+.4:
+	beq .5
+	bmi .t1xxxxx
+	bvs .5
+	bra .14
 
-.t1:
-	bvs CODE_9C9E55
-CODE_9C9DEE:
+.t1xxxxx:
+	bvs .14
+.5:
 	lda.b d0
 	sec
-	sbc.w $1E35
-	beq CODE_9C9DFE
-	bmi .t1
-	bvs CODE_9C9DFE
-	bra CODE_9C9E55
+	sbc.w star2score
+	beq .6
+	bmi .t1xxxxxx
+	bvs .6
+	bra .14
 
-.t1:
-	bvs CODE_9C9E55
-CODE_9C9DFE:
-	lda.b $A7
+.t1xxxxxx:
+	bvs .14
+.6:
+	lda.b d0+2
 	sec
-	sbc.w $1E3B
-	bmi CODE_9C9E0B
-	bvc CODE_9C9E0D
-CODE_9C9E08:
-	jmp.w CODE_9C9E8E
+	sbc.w star3score+2
+	bmi .8
+	bvc .9
+.7:
+	jmp.w .16
+.8:
+	bvc .7
+.9:
+	beq .10
+	bmi .t1xxxxxxx
+	bvs .10
+	bra .15
+
+.t1xxxxxxx:
+	bvs .15
+.10:
+	lda.b d0
+	sec
+	sbc.w star3score
+	beq .11
+	bmi .t1xxxxxxxx
+	bvs .11
+	bra .15
+
+.t1xxxxxxxx:
+	bvs .15
+.11:
+	bra .16
+.13:
+	lda.w star1
+	sta.w starswapplayer
+	lda.w star1score+2
+	sta.w starswapscore+2
+	lda.w star1score
+	sta.w starswapscore
+	stx.w star1
+	lda.b d0+2
+	sta.w star1score+2
+	lda.b d0
+	sta.w star1score
+	ldx.w starswapplayer
+	lda.w starswapscore+2
+	sta.b d0+2
+	lda.w starswapscore
+	sta.b d0
+.14:
+	lda.w star2
+	sta.w starswapplayer
+	lda.w star2score+2
+	sta.w starswapscore+2
+	lda.w star2score
+	sta.w starswapscore
+	stx.w star2
+	lda.b d0+2
+	sta.w star2score+2
+	lda.b d0
+	sta.w star2score
+	ldx.w starswapplayer
+	lda.w starswapscore+2
+	sta.b d0+2
+	lda.w starswapscore
+	sta.b d0
+.15:
+	stx.w star3
+	lda.b d0+2
+	sta.w star3score+2
+	lda.b d0
+	sta.w star3score
+.16:
+	plx
+	inx
+	lda.w starplayerend
+	cmp.w #$001A
+	bpl .1xxx
+	cpx.w #$001A
+	bmi .1xxx
+	lda.w #$0002
+	sta.b a2
+	jsl.l GetPlayerCount
+	lda.b d0
+	clc
+	adc.w #$001A
+	sta.w starplayerend
+	jsl.l GoalieCount
+	lda.b d0
+	clc
+	adc.w #$001A
+	sta.w stargoalieend
+.1xxx:
+	cpx.w #$0034
+	bpl .t1xxxxxxxxx
+	jmp.w .12
+
+.t1xxxxxxxxx:
+	rtl
+.17:
+	stz.b a2
+	lda.w #$0002
+	sta.b a1
+	cpx.w #$001A
+	bmi .1xxxx
+	lda.w #$0002
+	sta.b a2
+	stz.b a1
+.1xxxx:
+	ldy.b a2
+	lda.w tmscore,y
+	ldy.b a1
+	sec
+	sbc.w tmscore,y
+	sta.b d0
+	lda.w #$0000
+	sbc.w #$0000
+	sta.b d0+2
+	cpx.w stargoalieend
+	bmi .t1xxxxxxxxxx
+	cpx.w otgoalscorer
+	bne .2xx
+	lda.w #$000B
+	sta.b r2+2
+	lda.w #$71B0
+	sta.b r2
+	jsr.w .18
+.2xx:
+	sep #$20
+	lda.w tmgoals,x
+	rep #$20
+	and.w #$00FF
+	phx
+	ldx.w #$2AF8
+	jsl.l Mul16U
+	plx
+	jsr.w .18
+	sep #$20
+	lda.w passists,x
+	rep #$20
+	and.w #$00FF
+	phx
+	ldx.w #$2774
+	jsl.l Mul16U
+	plx
+	jsr.w .18
+	sep #$20
+	lda.w pshots,x
+	rep #$20
+	and.w #$00FF
+	phx
+	ldx.w #$000A
+	jsl.l Mul16U
+	plx
+	jsr.w .18
+	bra .3xx
+
+.t1xxxxxxxxxx:
+	lda.b d0
+	pha
+	jsl.l GetPeriodTime
+	lda.b d0
+	phx
+	ldx.w #$0028
+	jsl.l DivX8U
+	plx
+	sta.b d1
+	pla
+	sta.b d0
+	sep #$20
+	lda.w pshots,x
+	rep #$20
+	and.w #$00FF
+	cmp.b d1
+	bmi .3xx
+	sta.b r1
+	sep #$20
+	lda.w tmgoals,x
+	rep #$20
+	and.w #$00FF
+	phx
+	ldx.w #$0064
+	jsl.l Mul8U
+	sta.b r2
+	jsl.l Div16U
+	plx
+	lda.b r0
+	cmp.w #$0003
+	bpl .3xx
+	lda.w #$0000
+	sta.b r2+2
+	lda.w #$7D00
+	sta.b r2
+	jsr.w .18
+	lda.b r0
+	cmp.w #$0000
+	bne .3xx
+	lda.w #$0001
+	sta.b r2+2
+	lda.w #$24F8
+	sta.b r2
+	jsr.w .18
+.3xx:
+	lda.b d0+2
+	asl a
+	sta.b d0+2
+	lda.b d0
+	asl a
+	lda.b d0+2
+	adc.w #$0000
+	sta.b d0+2
+	lda.b d0
+	and.w #$7FFF
+	sta.b d0
+	rtl
+.18:
+	lda.b d0
+	clc
+	adc.b r2
+	sta.b d0
+	lda.b d0+2
+	adc.b r2+2
+	sta.b d0+2
+	rts

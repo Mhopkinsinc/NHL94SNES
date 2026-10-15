@@ -15,7 +15,7 @@ compares `Extracted/` with the ROM.
   NHLPA93SNES `teamdata93s.asm`; bank9C_A000 includes it.
 
 Where a header is already spelled as `db`/`dw`, the `incbin` is the rest of that asset (`incbin "../../../Extracted/data/gfx/<name>":<start>..<end>`, decimal, end exclusive). IceRinkTiles and TeamLogoSprites are that shape. SpriteFrames keeps one `Extracted` file per bank; the source writes each frame's header and pieces and includes that frame's tiles by range. The file is still a ROM cut of the frame region, not one `.chr` per frame.
-`tools/snesgfx.py` unpacks the packed formats and renders tiles, maps and sprite sets to PNG.
+`tools/snesgfx.py` unpacks the packed formats and renders tiles, maps and sprite sets to PNG. `tools/songwav.py` plays the organ songs (TeamSongs / DefaultSongs) and decodes the sample blocks to WAV. `tools/spc700dis.py` disassembles sound CPU code in the asar syntax of `tables/SoundDriver.asm`.
 
 The file extension gives the format:
 
@@ -31,6 +31,8 @@ The file extension gives the format:
 | `.pal.lz`, `.pal.huf`, `.pal.rle` | Colours packed for DecompressLZ, DecompressHuffman, DecompressRLE |
 | `.lz`, `.huf` | Packed for DecompressLZ, DecompressHuffman, contents not identified yet |
 | `SpriteFramesXX.bin` | The SpriteFrames frames of bank $XX, not packed. The source writes their headers and pieces, and includes their tiles from this file |
-| `.spc` | A block for SPCUploadBlock: big-endian sound RAM address and length, then the bytes for the sound CPU |
+| `.spc` | A BRR sound sample for SPCUploadBlock: big-endian loop point and length (multiples of the 9-byte BRR block), then the BRR blocks |
 
-An asset not identified yet is named by its address (`DATA8_XXXXXX.<format>`).
+A map (unpacked) starts with three words: width, height, and a format word that no code reads ($0308 in the 4bpp background maps, $0010 in the mode 7 maps EALogoMap, LicenceNHLPAMap and TitlePuckMap); the map words follow at +6.
+
+An asset takes the name of the label that includes it (`MenuBackTiles.chr.lz`); one not identified yet is named by its address (`DATA8_XXXXXX.<format>`).

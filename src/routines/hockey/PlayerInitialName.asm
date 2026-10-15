@@ -1,0 +1,67 @@
+; mesarea = the first initial, a period and the last name of roster player d0 of team a2 (no number)
+PlayerInitialName:
+	lda.b d0
+	pha
+	lda.b d0+2
+	pha
+	lda.b a2
+	pha
+	lda.b a2+2
+	pha
+	lda.b a0
+	pha
+	lda.b a0+2
+	pha
+	jsl.l GetPlayerRecord
+	lda.w #mesarea>>16
+	sta.b a1+2
+	lda.w #mesarea
+	sta.b a1
+	lda.w #$0002
+	sta.b [a1]
+	inc.b a1
+	inc.b a1
+	lda.b [a0]
+	sta.b d0
+	clc
+	adc.b a0
+	sta.b a2
+	lda.b a0+2
+	sta.b a2+2
+	inc.b a0
+	inc.b a0
+	lda.b [a0]
+	inc.b a0
+	sta.b [a1]
+	inc.b a1
+	lda.w #$002E
+	sta.b [a1]
+	inc.b a1
+.loop:
+	lda.b [a0]
+	inc.b a0
+	and.w #$00FF
+	cmp.w #$0020
+	bne .loop
+.loop2:
+	lda.b [a0]
+	inc.b a0
+	sta.b [a1]
+	inc.b a1
+	lda.b a0
+	cmp.b a2
+	bne .loop2
+	jsl.l MesAreaDone
+	pla
+	sta.b a0+2
+	pla
+	sta.b a0
+	pla
+	sta.b a2+2
+	pla
+	sta.b a2
+	pla
+	sta.b d0+2
+	pla
+	sta.b d0
+	rtl

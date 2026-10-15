@@ -1,32 +1,32 @@
 ; After a playoff game, work out the winners and the new password
 EncodePW:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	bne .t2
-	jmp.w CODE_9BC7FA
+	jmp.w .4
 
 .t2:
 	lda.w #$0001
-	sta.l $7E34BC
+	sta.l OptPlayMode
 	jsl.l ResolveGames
 	jsl.l maketree
 	lda.l playoffRoundIdx
 	cmp.w #$0004
 	beq .t1
-	lda.l $7E35D6
+	lda.l gamenum
 	bpl .1
-	lda.l $7E34CE
+	lda.l pojoy
 	sec
 	sbc.w #$0002
-	bmi CODE_9BC7D9
+	bmi .3
 	lda.l playoffRoundIdx
 	cmp.w #$0001
-	bne CODE_9BC7D9
-	lda.l $7E34F2
+	bne .3
+	lda.l potreeteam
 	eor.w #$0001
-	sta.l $7E34F2
-	lda.l $7E34CE
+	sta.l potreeteam
+	lda.l pojoy
 	eor.w #$0001
-	sta.l $7E34CE
+	sta.l pojoy
 .1:
 	jsl.l WritePassBits
 	jsl.l BitstoPW
@@ -35,7 +35,7 @@ EncodePW:
 	beq .2
 	ldx.w #$000E
 .loop:
-	lda.l $7E3518,x
+	lda.l tpassbits,x
 	sta.l passbits,x
 	dex
 	dex
@@ -45,17 +45,17 @@ EncodePW:
 	jml.l maketree
 
 .t1:
-	jsl.l CODE_9BCDE2
-CODE_9BC7D9:
+	jsl.l ResetPassWord
+.3:
 	lda.w #$0080
 	ora.l PassWord
 	sta.l PassWord
 	lda.w #$0002
-	sta.l $7E34BC
-	lda.w $0ACF
+	sta.l OptPlayMode
+	lda.w bosgames
 	cmp.w #$0007
-	beq CODE_9BC7FA
+	beq .4
 	lda.w #$0003
-	sta.l $7E34BC
-CODE_9BC7FA:
+	sta.l OptPlayMode
+.4:
 	rtl

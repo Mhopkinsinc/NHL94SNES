@@ -5,9 +5,9 @@ PushTime:
 	lda.w #mesareaEnd
 	sta.b a1
 	lda.b d0
-	sta.b $08
+	sta.b r2
 	lda.w #$000A
-	sta.b $04
+	sta.b r1
 	jsl.l Div16x8U
 	dec.b a1
 	sep #$20
@@ -16,10 +16,10 @@ PushTime:
 	adc.b #$30
 	sta.b [a1]
 	rep #$30
-	lda.b $00
-	sta.b $08
+	lda.b r0
+	sta.b r2
 	lda.w #$0006
-	sta.b $04
+	sta.b r1
 	jsl.l Div16x8U
 	dec.b a1
 	sep #$20
@@ -33,10 +33,10 @@ PushTime:
 	lda.b #$3A
 	sta.b [a1]
 	rep #$30
-	lda.b $00
-	sta.b $08
+	lda.b r0
+	sta.b r2
 	lda.w #$000A
-	sta.b $04
+	sta.b r1
 	jsl.l Div16x8U
 	dec.b a1
 	sep #$20
@@ -45,7 +45,7 @@ PushTime:
 	adc.b #$30
 	sta.b [a1]
 	rep #$30
-	lda.b $00
+	lda.b r0
 	beq .noz
 	dec.b a1
 	sep #$20

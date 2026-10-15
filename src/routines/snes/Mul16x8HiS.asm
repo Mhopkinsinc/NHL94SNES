@@ -1,5 +1,5 @@
-; Unidentified routine.
-Mul16x8HiS:		; X * A / 256 into A and $09, both signed
+; X * A / 256 into A and $09, both signed
+Mul16x8HiS:
 	phy
 	tay
 	beq Mul16x8Hi_Zero

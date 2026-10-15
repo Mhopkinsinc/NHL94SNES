@@ -1,22 +1,22 @@
 ; "<team> Wins!" once the shootout is decided
 ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
-	lda.w $1D81
+	lda.w shootoutmode
 	bne .t1
-	jmp.w CODE_80CA05
+	jmp.w .3
 
 .t1:
 	lda.w #$000A
 	sta.b d0
-	lda.w $1D89
+	lda.w shootoutdecider
 	bne .t3
-	jmp.w CODE_80CA05
+	jmp.w .3
 
 .t3:
-	lda.w $178E
+	lda.w tmscore
 	sec
-	sbc.w $1790
+	sbc.w tmscore+2
 	bne .t1x
-	jmp.w CODE_80CA05
+	jmp.w .3
 
 .t1x:
 	phx
@@ -25,19 +25,19 @@ ShootoutWonBy:		; "<team> Wins!" once the shootout is decided
 	pha
 	lda.b a1
 	pha
-	lda.w $178E
+	lda.w tmscore
 	sec
-	sbc.w $1790
+	sbc.w tmscore+2
 	bmi .t2
 	ldy.w #$0000
-	bra CODE_80C97D
+	bra .1
 
 .t2:
 	ldy.w #$0002
-CODE_80C97D:
+.1:
 	phy
 	lda.w HomeTeam,y
-	jsl.l CODE_9BC5AB
+	jsl.l GetTeamLongName
 	lda.b [a1]
 	and.w #$00FF
 	dec a
@@ -53,18 +53,18 @@ CODE_80C97D:
 	sbc.b d0
 	lsr a
 	sta.w printx
-	sta.b $00
+	sta.b r0
 	lda.w #$000D
 	sta.w printy
 	lda.w #$0006
 	sta.b d1
-	jsl.l CODE_9D8000
-	lda.b $00
+	jsl.l Framer
+	lda.b r0
 	inc a
 	sta.w printx
 	lda.w #$000E
 	sta.w printy
-	jsl.l CODE_9ECE15
+	jsl.l printbig
 	lda.w #$000C
 	sta.w printx
 	lda.w #$0010
@@ -72,23 +72,23 @@ CODE_80C97D:
 	ply
 	lda.w HomeTeam,y
 	cmp.w #$000E
-	beq .t1
+	beq .t1xx
 	cmp.w #$000D
-	beq .t1
-	lda.w #$009C
-	sta.b $8F
+	beq .t1xx
+	lda.w #WinsMark>>16
+	sta.b a1+2
 	lda.w #WinsMark
 	sta.b a1
-	jsl.l CODE_9ECE15
-	bra CODE_80C9F8
+	jsl.l printbig
+	bra .2
 
-.t1:
-	lda.w #$009C
-	sta.b $8F
+.t1xx:
+	lda.w #WinMark>>16
+	sta.b a1+2
 	lda.w #WinMark
 	sta.b a1
-	jsl.l CODE_9ECE15
-CODE_80C9F8:
+	jsl.l printbig
+.2:
 	pla
 	sta.b a1
 	pla
@@ -97,6 +97,6 @@ CODE_80C9F8:
 	plx
 	lda.w #$0010
 	sta.b d0
-CODE_80CA05:
-	jsl.l CODE_9EB88A
+.3:
+	jsl.l AddPenalty2
 	rtl
