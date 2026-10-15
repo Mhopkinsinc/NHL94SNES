@@ -14,7 +14,7 @@ UpdateStreamSfx:
 	bra .2
 
 .t1:
-	stz.w $0CC3
+	stz.w cursong
 .2:
 	lda.l streamsfx
 	beq .3

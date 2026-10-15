@@ -1,21 +1,21 @@
 ; Title: reset the credits state (entry $0BDD, step $0BD9, the two text y positions $0BDF / $0BE3)
 StartCredits:
-	stz.w $0BDD
-	stz.w $0BE1
+	stz.w CreditTitleIdx
+	stz.w CreditNameIdx
 	lda.w #$0000
-	sta.w $0BD9
+	sta.w CreditStep
 	lda.w #$00E0
-	sta.w $0BDF
+	sta.w CreditTitleY
 	lda.w #$00F0
-	sta.w $0BE3
-	stz.w $0BDB
+	sta.w CreditNameY
+	stz.w CreditTime
 	rts
 
 RollCredits:
 	lda.w $0764
-	cmp.w $0BDB
+	cmp.w CreditTime
 	bcc .rts
-	lda.w $0BD9
+	lda.w CreditStep
 	cmp.w #$0003
 	bne .t1
 .rts:
@@ -24,74 +24,74 @@ RollCredits:
 .t1:
 	cmp.w #$0000
 	bne .2
-	lda.w $0BDF
+	lda.w CreditTitleY
 	dec a
 	dec a
 	cmp.w #$00B9
 	bmi .3
-	dec.w $0BDF
-	dec.w $0BDF
+	dec.w CreditTitleY
+	dec.w CreditTitleY
 .1:
-	dec.w $0BE3
-	dec.w $0BE3
+	dec.w CreditNameY
+	dec.w CreditNameY
 	lda.w #$0002
 	bra .5
 .2:
 	cmp.w #$0001
 	bne .4
-	lda.w $0BE3
+	lda.w CreditNameY
 	dec a
 	dec a
 	cmp.w #$00C9
 	bpl .1
 .3:
 	lda.w #$0002
-	sta.w $0BD9
+	sta.w CreditStep
 	lda.w #$0046
 	bra .5
 .4:
-	inc.w $0BE1
-	lda.w $0BE1
+	inc.w CreditNameIdx
+	lda.w CreditNameIdx
 	asl a
 	tax
 	lda.l CreditNames,x
 	bne .t2
-	inc.w $0BDD
-	lda.w $0BDD
+	inc.w CreditTitleIdx
+	lda.w CreditTitleIdx
 	asl a
 	tax
 	lda.l CreditTitles,x
 	beq .t1x
-	inc.w $0BE1
+	inc.w CreditNameIdx
 	lda.w #$00E0
-	sta.w $0BDF
+	sta.w CreditTitleY
 	lda.w #$00F0
-	sta.w $0BE3
+	sta.w CreditNameY
 	lda.w #$0000
-	sta.w $0BD9
+	sta.w CreditStep
 	lda.w #$000F
 	bra .5
 
 .t1x:
 	lda.w #$0003
-	sta.w $0BD9
+	sta.w CreditStep
 	lda.w #$00E0
-	sta.w $0BDF
+	sta.w CreditTitleY
 	lda.w #$00F0
-	sta.w $0BE3
+	sta.w CreditNameY
 	lda.w #$002D
 	bra .5
 
 .t2:
 	lda.w #$0001
-	sta.w $0BD9
+	sta.w CreditStep
 	lda.w #$00E0
-	sta.w $0BE3
+	sta.w CreditNameY
 	lda.w #$000F
 .5:
 	clc
 	adc.w $0764
-	sta.w $0BDB
+	sta.w CreditTime
 	jsl.l SpriteFrameStart
 	lda.w #$007F
 	sta.b $12
@@ -101,7 +101,7 @@ RollCredits:
 	jsr.w DrawTitleSprite
 	lda.w #$000A
 	jsr.w DrawTitleSprite
-	lda.w $0BDD
+	lda.w CreditTitleIdx
 	asl a
 	tax
 	lda.l CreditTitles,x
@@ -109,9 +109,9 @@ RollCredits:
 	lda.w #$0080
 	sta.b $8F
 	ldx.w #$0080
-	ldy.w $0BDF
+	ldy.w CreditTitleY
 	jsl.l PrintStringSprites
-	lda.w $0BE1
+	lda.w CreditNameIdx
 	asl a
 	tax
 	lda.l CreditNames,x
@@ -119,7 +119,7 @@ RollCredits:
 	lda.w #$0080
 	sta.b $8F
 	ldx.w #$0080
-	ldy.w $0BE3
+	ldy.w CreditNameY
 	jsl.l PrintStringSprites
 	jsl.l SpriteFrameEnd
 	rts

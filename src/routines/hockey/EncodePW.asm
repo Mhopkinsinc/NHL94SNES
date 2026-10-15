@@ -52,7 +52,7 @@ EncodePW:
 	sta.l PassWord
 	lda.w #$0002
 	sta.l $7E34BC
-	lda.w $0ACF
+	lda.w bosgames
 	cmp.w #$0007
 	beq .4
 	lda.w #$0003

@@ -36,7 +36,7 @@ Goal:
 	jsl.l ChkShotStat
 	jsl.l freezewindow
 	lda.w #$001E
-	sta.w $0CA9
+	sta.w replaydelay
 	stz.b a2
 	lda.w #$0002
 	sta.b a1

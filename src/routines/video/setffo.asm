@@ -8,7 +8,7 @@ setffo:
 	sta.b a2
 .1:
 	ldy.b a2
-	lda.w $0AE7,y
+	lda.w PadControlObj,y
 	cmp.w #$000F
 	bne .3
 .2:
@@ -17,7 +17,7 @@ setffo:
 	tyx
 	lda.l .7,x
 	sta.b $00
-	lda.w $0AE7,y
+	lda.w PadControlObj,y
 	asl a
 	tax
 	lda.w Xpos,x

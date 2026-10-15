@@ -54,7 +54,7 @@ PauseMenu:
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	lda.w #$0002
-	sta.w $0ADB
+	sta.w timestep
 	lda.w #$FFFF
 	sta.l $7F76DE
 	sta.l $7F76FE

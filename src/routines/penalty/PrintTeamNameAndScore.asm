@@ -27,5 +27,5 @@ PrintTeamNameAndScore:
 .1:
 	lda.w RDMPYL
 	adc.w #$0030
-	sta.w $0A2D
+	sta.w mesarea+3
 	jml.l print

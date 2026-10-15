@@ -193,7 +193,7 @@ UpdateHatTrick:
 .7:
 	lda.l $7E3420,x
 	sec
-	sbc.w $0ADB
+	sbc.w timestep
 	bpl .t1xxx
 	clc
 	adc.l .9,x
@@ -210,7 +210,7 @@ UpdateHatTrick:
 .t1xxx:
 	sta.l $7E3420,x
 .8:
-	ldy.w $0ADB
+	ldy.w timestep
 	beq .1xxxx
 .loop:
 	jsl.l .t3x

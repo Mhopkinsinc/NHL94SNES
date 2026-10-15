@@ -86,7 +86,7 @@ updatepwrplay:
 	tay
 	lda.w #$0659
 	sta.w $094A,y
-	sta.w $0CAF
+	sta.w recsfxpitch
 .wide:
 	rep #$20
 	plx

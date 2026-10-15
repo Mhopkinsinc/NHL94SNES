@@ -1,6 +1,6 @@
 ; Upload the menu sample set (MenuSampleList, sound table MenuSfxTable) and mark $1D68 = 2, unless it is loaded
 SPCMenuUpload:
-	stz.w $0CC3
+	stz.w cursong
 	lda.w $1D68
 	cmp.w #$0002
 	beq .1

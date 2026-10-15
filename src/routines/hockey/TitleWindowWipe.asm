@@ -10,12 +10,12 @@ TitleWindowWipe:
 	inc a
 	and.w #$00FF
 	beq .1
-	sta.w $0BCB
+	sta.w TitleWH1
 	sec
 	sbc.w #$0020
 	bmi .1
 	and.w #$00FF
-	sta.w $0BCF
+	sta.w TitleWH3Low
 .1:
 	tya
 	ldx.w #$0200
@@ -25,6 +25,6 @@ TitleWindowWipe:
 .t1:
 	stz.w $07D6
 	lda.w #$00FF
-	sta.w $0BCB
-	sta.w $0BCF
+	sta.w TitleWH1
+	sta.w TitleWH3Low
 	rts

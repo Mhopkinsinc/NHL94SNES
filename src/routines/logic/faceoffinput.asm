@@ -1,6 +1,6 @@
 ; Pad input for a player taking a face off
 faceoffinput:
-	lda.w $0B7D,x
+	lda.w asscur,x
 	cmp.w #$0017
 	bne .t2
 	lda.w #$007E

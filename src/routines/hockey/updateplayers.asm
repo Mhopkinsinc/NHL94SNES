@@ -1,8 +1,8 @@
 ; Animation, speed, position, input and assignment for every object
 updateplayers:
 	lda.w #$FFFF
-	sta.w $0B9D
-	sta.w $0B9F
+	sta.w topgoalie
+	sta.w botgoalie
 	sta.w tmnear
 	sta.w tmnear+2
 	sta.w tmnearpl
@@ -36,23 +36,23 @@ updateplayers:
 	bne .8
 	lda.w Ypos,x
 	bpl .t3
-	stx.w $0B9F
+	stx.w botgoalie
 	bra .8
 
 .t3:
-	stx.w $0B9D
+	stx.w topgoalie
 .8:
 	jsl.l updateanim
 	lda.w nopuck,x
 	sec
-	sbc.w $0ADB
+	sbc.w timestep
 	bpl .1x
 	lda.w #$0000
 .1x:
 	sta.w nopuck,x
 	lda.w nopuckb,x
 	sec
-	sbc.w $0ADB
+	sbc.w timestep
 	bpl .2x
 	lda.w #$0000
 .2x:
@@ -72,14 +72,14 @@ updateplayers:
 	asl.b d0
 	jsl.l loadTeamStruct
 .4:
-	lda.w $0BEB,x
+	lda.w goaliedivewait,x
 	beq .6
 	sec
-	sbc.w $0ADB
+	sbc.w timestep
 	bpl .5
 	lda.w #$0000
 .5:
-	sta.w $0BEB,x
+	sta.w goaliedivewait,x
 .6:
 	cpx.w passReceiverPlayerNum
 	bne .7
@@ -103,7 +103,7 @@ updateplayers:
 	bne .10
 .9:
 	txy
-	ldx.w $0ADB
+	ldx.w timestep
 	lda.l .20,x
 	and.w #$00FF
 	sta.b d2
@@ -309,14 +309,14 @@ updateplayers:
 	ldy.w #$000C
 	lda.w #$000F
 .loop:
-	sta.w $0AE7,y
+	sta.w PadControlObj,y
 	dey
 	dey
 	bpl .loop
 	ldx.w #$0008
 	lda.w #$0000
 .loop2:
-	sta.w $0ADD,x
+	sta.w padinputdone,x
 	dex
 	dex
 	bpl .loop2
@@ -358,10 +358,10 @@ updateplayers:
 	lda.w playerpad,x
 	bmi .t1xxxxx
 	tay
-	lda.w $0ADD,y
+	lda.w padinputdone,y
 	bne .t1xxxxx
 	lda.w #$0001
-	sta.w $0ADD,y
+	sta.w padinputdone,y
 	lda.w JoyPad,y
 	sta.b d3
 	lda.w padchange,y
@@ -379,7 +379,7 @@ updateplayers:
 .t1xxxxx:
 	lda.w pfalock,x
 	bne .1xxxxxxxx
-	lda.w $0B7D,x
+	lda.w asscur,x
 	asl a
 	asl a
 	tax
@@ -398,7 +398,7 @@ updateplayers:
 	bcs .17
 	cpx.w puckc
 	beq .17
-	lda.w $0B05,x
+	lda.w goalieflags,x
 	bit.w #$0001
 	bne .17
 	lda.w Xpos,x

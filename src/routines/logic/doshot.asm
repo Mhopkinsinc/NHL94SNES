@@ -31,7 +31,7 @@ doshot:
 	sta.w passspeed
 .1:
 	lda.w passspeed
-	sta.w $0BC5
+	sta.w lastshotspeed
 	cmp.w #$001E
 	bcc .2
 	lda.w #$0002

@@ -1,8 +1,8 @@
 ; Assignment: the goalie skates out to a loose puck
 assgoalietopuck:
 	lda.w #$0006
-	ora.w $0B05,x
-	sta.w $0B05,x
+	ora.w goalieflags,x
+	sta.w goalieflags,x
 	lda.w Xpos,x
 	cmp.w #$FFD8
 	bmi .2
@@ -20,8 +20,8 @@ assgoalietopuck:
 	cmp.w #$0104
 	bpl .2
 	lda.w #$FFFB
-	and.w $0B05,x
-	sta.w $0B05,x
+	and.w goalieflags,x
+	sta.w goalieflags,x
 .2:
 	lda.w Xpos,x
 	cmp.w #$FFD0
@@ -37,8 +37,8 @@ assgoalietopuck:
 	cmp.w #$00E4
 	bmi .4
 	lda.w #$FFFD
-	and.w $0B05,x
-	sta.w $0B05,x
+	and.w goalieflags,x
+	sta.w goalieflags,x
 .4:
 	lda.w playerpad,x
 	bpl .6

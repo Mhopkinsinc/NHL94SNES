@@ -43,9 +43,9 @@ assbench:
 .t3:
 	lda.w position,x
 	bne .1x2
-	lda.w $0B05,x
+	lda.w goalieflags,x
 	ora.w #$0003
-	sta.w $0B05,x
+	sta.w goalieflags,x
 .1x2:
 	lda.w temp1,x
 	sec

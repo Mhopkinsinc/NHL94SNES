@@ -1,8 +1,8 @@
 ; Assignment: the goalie
 assgoalie:
 	lda.w #$0006
-	ora.w $0B05,x
-	sta.w $0B05,x
+	ora.w goalieflags,x
+	sta.w goalieflags,x
 	lda.w Xpos,x
 	cmp.w #$FFD8
 	bmi .2
@@ -20,8 +20,8 @@ assgoalie:
 	cmp.w #$0104
 	bpl .2
 	lda.w #$FFFB
-	and.w $0B05,x
-	sta.w $0B05,x
+	and.w goalieflags,x
+	sta.w goalieflags,x
 .2:
 	lda.w Xpos,x
 	cmp.w #$FFD0
@@ -38,8 +38,8 @@ assgoalie:
 	cmp.w #$00E4
 	bmi .4
 	lda.w #$FFFD
-	and.w $0B05,x
-	sta.w $0B05,x
+	and.w goalieflags,x
+	sta.w goalieflags,x
 .4:
 	jsl.l check4bench
 	lda.w pflags,x
@@ -102,9 +102,9 @@ assgoalie:
 	jmp.w .12
 
 .t1x:
-	lda.w $0B05,x
+	lda.w goalieflags,x
 	ora.w #$0001
-	sta.w $0B05,x
+	sta.w goalieflags,x
 .10:
 	jmp.w .13
 .11:
@@ -128,7 +128,7 @@ assgoalie:
 	stz.w temp2,x
 	jml.l skateto
 .12:
-	lda.w $0B05,x
+	lda.w goalieflags,x
 	bit.w #$0001
 	bne .10
 	bit.w #$0002
@@ -285,12 +285,12 @@ assgoalie:
 	lda.w #SPAgpoke
 	jsl.l SetSPAFromA
 	lda.w #$00F0
-	sta.w $0BEB,x
+	sta.w goaliedivewait,x
 	rtl
 .23:
 	ldy.w playerpad,x
 	bmi .t3
-	lda.w $0ADD,y
+	lda.w padinputdone,y
 	cmp.w #$0001
 	bne .t3
 	cpx.w puckc
@@ -341,7 +341,7 @@ assgoalie:
 	lda.w pfteam,y
 	cmp.w pfteam,x
 	beq .t2xxx
-	lda.w $0BEB,x
+	lda.w goaliedivewait,x
 	bne .t2xxx
 	jsl.l RandomWord
 	cmp.w #$0A00
@@ -390,7 +390,7 @@ assgoalie:
 	tya
 	jsl.l SetSPAFromA
 	lda.w #$0168
-	sta.w $0BEB,x
+	sta.w goaliedivewait,x
 	lda.w CwdExciteLvl
 	clc
 	adc.w #$000A
@@ -662,7 +662,7 @@ assgoalie:
 	cmp.w #$8000
 	ror a
 	sta.w Yvel,x
-	lda.w $0B05,x
+	lda.w goalieflags,x
 	bit.w #$0002
 	beq .t1x2
 	jmp.w .40
@@ -892,15 +892,15 @@ assgoalie:
 	lsr a
 	cmp.b $00
 	bcs .t2xxxxx
-	lda.w $0BA1
+	lda.w goaliestopped
 	bne .7x
 	stz.w Xvel,x
 	stz.w Yvel,x
-	inc.w $0BA1
+	inc.w goaliestopped
 	rtl
 
 .t2xxxxx:
-	stz.w $0BA1
+	stz.w goaliestopped
 .7x:
 	lda.b d2
 	sta.b d1

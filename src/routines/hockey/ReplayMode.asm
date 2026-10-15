@@ -18,7 +18,7 @@ ReplayMode:
 	ldy.w #$0000
 	jsl.l FillVRAMSplit
 	lda.w #$FFFF
-	sta.w $0CAB
+	sta.w replaylock
 	sta.l $7E35F0
 	lda.w #$007F
 	sta.b $0E
@@ -106,9 +106,9 @@ ReplayMode:
 .t1:
 	pla
 	lda.w Hpos
-	sta.w $0CBD
+	sta.w replayHpos
 	lda.w Vpos
-	sta.w $0CBF
+	sta.w replayVpos
 	ldx.w #$0000
 	ldy.w #$01C0
 	lda.w #$6000
@@ -130,7 +130,7 @@ ReplayMode:
 	trb.w sflags3
 	jmp.w .13
 .10:
-	lda.w $0CAB
+	lda.w replaylock
 	bpl .t2
 	jmp.w .7
 
@@ -138,9 +138,9 @@ ReplayMode:
 	tax
 	lda.w Xpos,x
 	sta.w Xpos+$20
-	cmp.w $0CBD
+	cmp.w replayHpos
 	bpl .t1x
-	lda.w $0CBD
+	lda.w replayHpos
 	sec
 	sbc.w #$0004
 	cmp.w Xpos+$20
@@ -151,7 +151,7 @@ ReplayMode:
 	bra .5
 
 .t1x:
-	lda.w $0CBD
+	lda.w replayHpos
 	clc
 	adc.w #$0004
 	cmp.w Xpos+$20
@@ -167,12 +167,12 @@ ReplayMode:
 	lda.w #$0040
 .2x:
 	sta.w Hpos
-	sta.w $0CBD
+	sta.w replayHpos
 	lda.w Ypos,x
 	sta.w Ypos+$20
-	cmp.w $0CBF
+	cmp.w replayVpos
 	bpl .t1xx
-	lda.w $0CBF
+	lda.w replayVpos
 	sec
 	sbc.w #$0004
 	cmp.w Ypos+$20
@@ -183,7 +183,7 @@ ReplayMode:
 	bra .6
 
 .t1xx:
-	lda.w $0CBF
+	lda.w replayVpos
 	clc
 	adc.w #$0004
 	cmp.w Ypos+$20
@@ -201,19 +201,19 @@ ReplayMode:
 	lda.w #$0100
 .4x:
 	sta.w Vpos
-	sta.w $0CBF
+	sta.w replayVpos
 	txa
 	lsr a
-	sta.w $0AF3
+	sta.w PadControlObj+$C
 	jmp.w .12
 
 .7:
 	cmp.w #$FFFF
 	beq .11
 	lda.w Xpos+$20
-	cmp.w $0CBD
+	cmp.w replayHpos
 	bpl .t2x
-	lda.w $0CBD
+	lda.w replayHpos
 	sec
 	sbc.w #$0002
 	cmp.w Xpos+$20
@@ -223,7 +223,7 @@ ReplayMode:
 	bra .8
 
 .t2x:
-	lda.w $0CBD
+	lda.w replayHpos
 	clc
 	adc.w #$0002
 	cmp.w Xpos+$20
@@ -239,11 +239,11 @@ ReplayMode:
 	lda.w #$0040
 .2xxx:
 	sta.w Hpos
-	sta.w $0CBD
+	sta.w replayHpos
 	lda.w Ypos+$20
-	cmp.w $0CBF
+	cmp.w replayVpos
 	bpl .t1xxx
-	lda.w $0CBF
+	lda.w replayVpos
 	sec
 	sbc.w #$0002
 	cmp.w Ypos+$20
@@ -253,7 +253,7 @@ ReplayMode:
 	bra .9
 
 .t1xxx:
-	lda.w $0CBF
+	lda.w replayVpos
 	clc
 	adc.w #$0002
 	cmp.w Ypos+$20
@@ -271,21 +271,21 @@ ReplayMode:
 	lda.w #$0100
 .4xx:
 	sta.w Vpos
-	sta.w $0CBF
+	sta.w replayVpos
 	bra .12
 .11:
 	lda.w Hpos
-	sta.w $0CBD
+	sta.w replayHpos
 	lda.w Vpos
-	sta.w $0CBF
+	sta.w replayVpos
 .12:
 	lda.b d7
-	sta.w $0ADB
+	sta.w timestep
 	jsl.l SprSort
 	jsl.l SpriteFrameStart
 	jsl.l setvideo
 	jsl.l SpriteFrameEnd
-	stz.w $0CB9
+	stz.w replaynewframe
 .13:
 	ldx.b d7
 	bne .2xxxxx
@@ -308,7 +308,7 @@ ReplayMode:
 	lda.w #$FFFF
 	sta.b d4
 	sta.b $B7
-	sta.w $0CAB
+	sta.w replaylock
 	lda.w #$0016
 	sta.b a0
 .loopx:
@@ -374,7 +374,7 @@ ReplayMode:
 	cmp.w #$0002
 	bcs .t1xxxx
 	lda.b d4
-	sta.w $0CAB
+	sta.w replaylock
 	lda.w #$001E
 	sta.b d7
 	lda.w #$0020
@@ -386,7 +386,7 @@ ReplayMode:
 	plb
 	jsl.l ReadPausePad
 	lda.w #$FFFE
-	sta.w $0CAB
+	sta.w replaylock
 	lda.w #$0020
 	tsb.w sflags
 	asl.b d0
@@ -459,22 +459,22 @@ ReplayMode:
 	sta.w Ypos+$20
 	sta.w Vpos
 	lda.w #$0010
-	sta.w $0AF3
+	sta.w PadControlObj+$C
 	jmp.w .10
 .14:		; x and y steps (words) for eight directions
 	dw $0000,$0002, $0002,$0002, $0002,$0000, $0002,$FFFE
 	dw $0000,$FFFE, $FFFE,$FFFE, $FFFE,$0000, $FFFE,$0002
 .16:
-	lda.w $0CAB
+	lda.w replaylock
 	cmp.w #$FFFF
 	bne .9x
-	lda.w $0AE7
+	lda.w PadControlObj
 	cmp.w #$000F
 	beq .t1xxxxx
 	asl a
 	tax
 	lda.w #$000F
-	sta.w $0AF3
+	sta.w PadControlObj+$C
 	lda.w Xpos,x
 	sta.w Xpos+$20
 	lda.w Ypos,x
@@ -483,7 +483,7 @@ ReplayMode:
 
 .t1xxxxx:
 	lda.w #$000F
-	sta.w $0AF3
+	sta.w PadControlObj+$C
 	lda.w puckx
 	cmp.w #$FF78
 	bpl .2xxxxxxxx
@@ -557,7 +557,7 @@ ReplayMode:
 
 .t3:
 	lda.w #$FFFF
-	sta.w $0CAB
+	sta.w replaylock
 	lda.w #$0020
 	trb.w sflags
 	jmp.w .13
@@ -594,15 +594,15 @@ ReplayMode:
 	jsl.l adda4
 	lda.b d7
 	beq .11x
-	lda.w $0CB3
+	lda.w recsfx2
 	and.w #$00FF
 	cmp.w #$00FF
 	beq .13x
 	cmp.w #$0016
 	bcs .t2xxxx
-	lda.w $0CB7
+	lda.w recsfxvol2
 	sta.b $64
-	lda.w $0CB3
+	lda.w recsfx2
 	and.w #$00FF
 	jsl.l QueueSound
 	tay
@@ -616,7 +616,7 @@ ReplayMode:
 	tya
 	asl a
 	tay
-	lda.w $0CB5
+	lda.w recsfxpitch2
 	sta.w $094A,y
 .1xxxxxxxxxxxx:
 	rep #$20
@@ -627,15 +627,15 @@ ReplayMode:
 	sbc.w #$0015
 	jsl.l StreamSfx
 .13x:
-	lda.w $0CAD
+	lda.w recsfx
 	and.w #$00FF
 	cmp.w #$00FF
 	beq .14x
 	cmp.w #$0016
 	bcs .t1xxxxxxxx
-	lda.w $0CB1
+	lda.w recsfxvol
 	sta.b $64
-	lda.w $0CAD
+	lda.w recsfx
 	and.w #$00FF
 	jsl.l QueueSound
 	tay
@@ -650,7 +650,7 @@ org $9BB001
 	tya
 	asl a
 	tay
-	lda.w $0CAF
+	lda.w recsfxpitch
 	sta.w $094A,y
 .1xxxxxxxxxxxxx:
 	rep #$20
@@ -664,7 +664,7 @@ org $9BB001
 	jmp.w .10
 .15:
 	lda.w #$000F
-	sta.w $0AF3
+	sta.w PadControlObj+$C
 	jsl.l SoundVoicesOff
 	pla
 	sta.w Hpos
@@ -700,7 +700,7 @@ org $9BB001
 	jsl.l forceblack
 	lda.w $1D81
 	bne .1xxxxxxxxxxxxxx
-	lda.w $0CBB
+	lda.w replaymusic
 	beq .1xxxxxxxxxxxxxx
 	jsl.l SPCMenuUpload
 	lda.l $7E34BC

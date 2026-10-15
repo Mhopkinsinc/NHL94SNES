@@ -85,20 +85,20 @@ LoadTitleLogo:
 	cpx.w #$0040
 	bcc .loop
 	plx
-	stz.w $0BE5
+	stz.w LogoSrcOfs
 	lda.w #$0040
-	sta.w $0BE7
+	sta.w LogoDstOfs
 .loop2:
 	phx
 	jsr.w .t1
-	lda.w $0BE5
+	lda.w LogoSrcOfs
 	clc
 	adc.w #$0020
-	sta.w $0BE5
-	lda.w $0BE7
+	sta.w LogoSrcOfs
+	lda.w LogoDstOfs
 	clc
 	adc.w #$0040
-	sta.w $0BE7
+	sta.w LogoDstOfs
 	plx
 	dex
 	bne .loop2
@@ -111,14 +111,14 @@ LoadTitleLogo:
 
 .t1:
 	stz.b $A7
-	ldx.w $0BE7
-	ldy.w $0BE5
+	ldx.w LogoDstOfs
+	ldy.w LogoSrcOfs
 	sep #$20
 .loopx:
 	lda.b [$0C],y
 	sta.b d0
 	and.b #$0F
-	ora.w $0BED
+	ora.w LogoPalBits
 	sta.l $7FA001,x
 	lda.b d0
 	lsr a
@@ -126,7 +126,7 @@ LoadTitleLogo:
 	lsr a
 	lsr a
 	and.b #$0F
-	ora.w $0BED
+	ora.w LogoPalBits
 	sta.l $7FA000,x
 	inx
 	inx
@@ -140,7 +140,7 @@ LoadTitleLogo:
 
 .t3:
 	lda.w #$0060
-	sta.w $0BED
+	sta.w LogoPalBits
 	ldx.w #$0000
 	ldy.w #$0000
 	lda.b [$0C],y
@@ -174,7 +174,7 @@ LoadTitleLogo:
 	bit.b #$1C
 	beq .1
 	lda.b #$70
-	sta.w $0BED
+	sta.w LogoPalBits
 .1:
 	iny
 	inx

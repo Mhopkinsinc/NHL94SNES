@@ -54,7 +54,7 @@ assepen:
 	lda.w teampads,x
 	cmp.w #$0004
 	bcc .2x
-	ldy.w $0AF9,x
+	ldy.w padsitnext,x
 .loop:
 	iny
 	iny

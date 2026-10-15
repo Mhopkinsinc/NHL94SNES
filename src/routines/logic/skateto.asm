@@ -2,7 +2,7 @@
 skateto:
 	lda.w temp2,x
 	sec
-	sbc.w $0ADB
+	sbc.w timestep
 	sta.w temp2,x
 	bmi .t2
 	jmp.w .7
@@ -47,7 +47,7 @@ skateto:
 	sta.b d1
 	lda.w position,x
 	bne .3
-	lda.w $0B05,x
+	lda.w goalieflags,x
 	bit.w #$0002
 	beq .5
 .3:

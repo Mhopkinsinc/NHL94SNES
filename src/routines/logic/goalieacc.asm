@@ -27,7 +27,7 @@ org $9ED002
 .t2:
 	cpx.w puckc
 	beq .t4
-	lda.w $0B7D,x
+	lda.w asscur,x
 	cmp.w #$000C
 	beq .t4
 	lda.w Ypos,x
@@ -58,7 +58,7 @@ org $9ED002
 	jmp.w StopNA
 
 .t4:
-	lda.w $0BCB,x
+	lda.w goalieturnwait,x
 	bne .3
 	lda.b d0
 	sec
@@ -76,18 +76,18 @@ org $9ED002
 	sta.b d0
 	sta.w facedir,x
 	lda.w #$0006
-	sta.w $0BCB,x
+	sta.w goalieturnwait,x
 .3:
-	lda.w $0BCB,x
+	lda.w goalieturnwait,x
 	beq .2xx
 	sec
-	sbc.w $0ADB
+	sbc.w timestep
 	bpl .1xx
 	lda.w #$0000
 .1xx:
-	sta.w $0BCB,x
+	sta.w goalieturnwait,x
 .2xx:
-	lda.w $0B05,x
+	lda.w goalieflags,x
 	bit.w #$0002
 	bne .t1x
 	lda.w #SPAgready

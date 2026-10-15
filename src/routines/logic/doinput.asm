@@ -27,7 +27,7 @@ doinput:
 	jmp.w .7
 
 .t2:
-	lda.w $0B7D,x
+	lda.w asscur,x
 	cmp.w #$BCC7
 	beq .1
 	phy
@@ -101,7 +101,7 @@ doinput:
 .12:
 	jml.l PadTakeRightDefense
 .13:
-	lda.w $0B05,x
+	lda.w goalieflags,x
 	bit.w #$0001
 	bne .1xxx
 	and.w #$0002
@@ -207,7 +207,7 @@ doinput:
 	cmp.w pfteam,x
 	bne .23
 	sty.b d0
-	inc.w $0BAB
+	inc.w onetimerreq
 	jsl.l AssignPadPlayer
 	rtl
 .23:

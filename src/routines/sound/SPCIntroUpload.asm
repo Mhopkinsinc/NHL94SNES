@@ -1,6 +1,6 @@
 ; Upload the intro sample set (IntroSampleList, sound table IntroSfxTable), unless it is loaded
 SPCIntroUpload:
-	stz.w $0CC3
+	stz.w cursong
 	lda.w $1D68
 	cmp.w #$0001
 	beq .rtl

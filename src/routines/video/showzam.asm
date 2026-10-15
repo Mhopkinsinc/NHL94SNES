@@ -11,18 +11,18 @@ showzam:
 	beq .rtl
 	lda.w InIntermission
 	beq .rtl
-	stz.w $0CC5
-	stz.w $0CD3
+	stz.w sprhflip
+	stz.w sprvflip
 	lda.w #$2000
-	sta.w $0CC9
+	sta.w sprattr
 	lda.b tmp0
 	lsr a
 	lsr a
-	sta.w $0CCF
+	sta.w sprx
 	lda.w #$00C8
-	sta.w $0CD1
+	sta.w spry
 	lda.w #SPFzamboni
-	sta.w $0CCD
+	sta.w sprframe
 	jsl.l addframe
 .rtl:
 	rtl

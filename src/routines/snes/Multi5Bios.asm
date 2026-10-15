@@ -4,8 +4,8 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	php
 	sep #$20
 	rep #$10
-	stz.w $0ACD
-	stz.w $0ACE
+	stz.w mp5padsig+3
+	stz.w mp5padsig+4
 .loop:
 	lda.w HVBJOY
 	and.b #$01
@@ -14,15 +14,15 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	stx.w JoyPad
 	txa
 	and.b #$0F
-	sta.w $0ACA
+	sta.w mp5padsig
 	lda.w JOYSER0
 	lsr a
-	rol.w $0ACA
+	rol.w mp5padsig
 	ldx.w JOY2L
 	stx.w JoyPad+2
 	txa
 	and.b #$0F
-	sta.w $0ACB
+	sta.w mp5padsig+1
 	lda.w mp5present
 	bne .t2
 	jmp.w .2
@@ -32,14 +32,14 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	stx.w JoyPad+4
 	txa
 	and.b #$0F
-	sta.w $0ACC
+	sta.w mp5padsig+2
 	lda.w JOYSER1
 	lsr a
-	rol.w $0ACB
+	rol.w mp5padsig+1
 	lsr a
-	rol.w $0ACC
+	rol.w mp5padsig+2
 	stz.w WRIO
-	lda.w $0AD7
+	lda.w mp5readall
 	ora.w mp5warning
 	bne .1
 	lda.w $1C8A
@@ -137,20 +137,20 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	rol.w JoyPad+8
 	lda.w JoyPad+6
 	and.b #$0F
-	sta.w $0ACD
+	sta.w mp5padsig+3
 	lda.w JoyPad+8
 	and.b #$0F
-	sta.w $0ACE
+	sta.w mp5padsig+4
 	lda.w JOYSER1
 	lsr a
-	rol.w $0ACD
+	rol.w mp5padsig+3
 	lsr a
-	rol.w $0ACE
+	rol.w mp5padsig+4
 	bra .5
 .2:
 	lda.w JOYSER1
 	lsr a
-	rol.w $0ACB
+	rol.w mp5padsig+1
 .5:
 	lda.b #$80
 	sta.w WRIO
@@ -217,7 +217,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 .7:
 	stz.w JOYSER0
 .10:
-	lda.w $0ACA
+	lda.w mp5padsig
 	cmp.b #$01
 	beq .2xx
 	ldx.w #$000F
@@ -227,7 +227,7 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 .1xx:
 	jsr.w .12
 .2xx:
-	lda.w $0ACB
+	lda.w mp5padsig+1
 	cmp.b #$01
 	beq .4x
 	ldx.w #$000F
@@ -240,21 +240,21 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 	lda.w mp5present
 	beq .8
 .5x:
-	lda.w $0ACC
+	lda.w mp5padsig+2
 	cmp.b #$01
 	beq .6x
 	ldx.w #$000F
 	stx.w JoyPad+4
 	jsr.w .12
 .6x:
-	lda.w $0ACD
+	lda.w mp5padsig+3
 	cmp.b #$01
 	beq .7x
 	ldx.w #$000F
 	stx.w JoyPad+6
 	jsr.w .12
 .7x:
-	lda.w $0ACE
+	lda.w mp5padsig+4
 	cmp.b #$01
 	beq .8
 	ldx.w #$000F

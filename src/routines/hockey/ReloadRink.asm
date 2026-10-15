@@ -219,9 +219,9 @@ ReloadRink:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w $0CC7
+	lda.w reloadtime
 	adc.w #$003C
-	sta.w $0CC7
+	sta.w reloadtime
 	lda.w #$FFFF
 	sta.w textdirtylo
 	stz.w textdirtyhi

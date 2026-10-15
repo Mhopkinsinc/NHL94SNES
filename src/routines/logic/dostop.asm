@@ -49,7 +49,7 @@ StopNA:
 	lda.w #$0070
 	clc
 	adc.w legstr,x
-	ldx.w $0ADB
+	ldx.w timestep
 	jsl.l Mul8U
 	sta.b $08
 	plx

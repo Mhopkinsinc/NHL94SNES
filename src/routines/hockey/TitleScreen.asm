@@ -39,32 +39,32 @@ TitleScreen:
 	sta.w $07E0
 	lda.w #$0100
 	sta.w $07D6
-	stz.w $0BCB
-	stz.w $0BCD
-	stz.w $0BCF
+	stz.w TitleWH1
+	stz.w TitleWH3
+	stz.w TitleWH3Low
 	lda.w #$0009
-	sta.w $0BD1
+	sta.w TitleBGMode
 	lda.w #$0200
-	sta.w $0BF3
-	sta.w $0BF5
+	sta.w TitleM7X
+	sta.w TitleM7Y
 	lda.w #$0200
-	sta.w $0BF5
-	sta.w $0BF7
+	sta.w TitleM7Y
+	sta.w TitleM7HOfs
 	lda.w #$0190
-	sta.w $0BF7
-	sta.w $0BF9
+	sta.w TitleM7HOfs
+	sta.w TitleM7VOfs
 	lda.w #$0180
-	sta.w $0BF9
-	sta.w $0BFB
+	sta.w TitleM7VOfs
+	sta.w TitleM7Scale
 	lda.w #$1800
-	sta.w $0BFB
-	sta.w $0BFD
+	sta.w TitleM7Scale
+	sta.w TitlePathFlip
 	lda.w #$0011
-	sta.w $0BD3
-	stz.w $0BFF
+	sta.w TitleM7TM
+	stz.w TitleLogoFlags
 	jsr.w .7
 	jsr.w BuildTitlePath
-	stz.w $0BEB
+	stz.w TitleSkipMask
 	stz.w titleskip
 	jsl.l FadeIn
 .loop:
@@ -101,7 +101,7 @@ TitleScreen:
 	lda.w #$0034
 	jsl.l PlaySound
 	lda.w #$0042
-	sta.w $0BCD
+	sta.w TitleWH3
 	jsr.w TitleBlankSprites
 	lda.w #$0003
 	jsr.w .9
@@ -112,7 +112,7 @@ TitleScreen:
 	lda.w #$0034
 	jsl.l PlaySound
 	lda.w #$007D
-	sta.w $0BCD
+	sta.w TitleWH3
 	jsr.w TitleBlankSprites
 	lda.w #$0006
 	jsr.w .9
@@ -123,11 +123,11 @@ TitleScreen:
 	lda.w #$0034
 	jsl.l PlaySound
 	lda.w #$00FF
-	sta.w $0BCD
+	sta.w TitleWH3
 	jsr.w TitleBlankSprites
 	jsr.w TitleStub
 	lda.w #$0001
-	sta.w $0BD1
+	sta.w TitleBGMode
 	lda.w #$0036
 	jsl.l PlaySound
 	ldx.w #$0007
@@ -154,13 +154,13 @@ TitleScreen:
 	lda.w #$0009
 	jsr.w DrawTitleSprite
 	lda.w #$0010
-	sta.w $0BD3
+	sta.w TitleM7TM
 	lda.w #$1800
-	sta.w $0BFB
+	sta.w TitleM7Scale
 	lda.w #$0190
-	sta.w $0BF7
+	sta.w TitleM7HOfs
 	lda.w #$0180
-	sta.w $0BF9
+	sta.w TitleM7VOfs
 	jsl.l SpriteFrameEnd
 	jsl.l WaitFrame
 	lda.w #$007F
@@ -174,7 +174,7 @@ TitleScreen:
 	jsl.l Mode7MapToVRAM
 	jsl.l WaitFrame
 	lda.w #$0011
-	sta.w $0BD3
+	sta.w TitleM7TM
 	jsl.l WaitFrame
 	jsr.w TitleZoomIn
 	ldx.w #$002D
@@ -194,17 +194,17 @@ TitleScreen:
 	jsl.l WaitFrame
 	jsl.l WaitFrame
 	lda.w #$0010
-	sta.w $0BD3
+	sta.w TitleM7TM
 	lda.w #$0F00
-	sta.w $0BFB
+	sta.w TitleM7Scale
 	lda.w #$0190
-	sta.w $0BF7
+	sta.w TitleM7HOfs
 	lda.w #$01B0
-	sta.w $0BF9
+	sta.w TitleM7VOfs
 	lda.w #$0210
-	sta.w $0BF3
+	sta.w TitleM7X
 	lda.w #$F0C0
-	sta.w $0BEB
+	sta.w TitleSkipMask
 	lda.w #TitlePuckTiles>>16
 	sta.b $0E
 	lda.w #TitlePuckTiles
@@ -221,21 +221,21 @@ TitleScreen:
 	ldy.w #$2000
 	jsl.l DMAToVRAMHigh
 	jsr.w ShuffleTitleTeams
-	stz.w $0BFD
-	lda.w $0BD5
+	stz.w TitlePathFlip
+	lda.w TitleTeamIdx
 	asl a
 	tax
 	lda.l $7EF000,x
 	jsr.w LoadTitleLogo
 	lda.w #$0011
-	sta.w $0BD3
+	sta.w TitleM7TM
 	jsl.l WaitFrame
 	jsl.l WaitFrame
 	stz.w $0764
-	stz.w $0BEF
-	stz.w $0BF1
+	stz.w TitlePathPos
+	stz.w TitlePathFrac
 	lda.w #$0002
-	sta.w $0BFF
+	sta.w TitleLogoFlags
 .1:
 	lda.w $0764
 	cmp.w #$00F0
@@ -275,67 +275,67 @@ TitleScreen:
 	jsr.w .8
 	rtl
 .5:
-	lda.w $0BFF
+	lda.w TitleLogoFlags
 	bit.w #$0001
 	beq .rts
-	stz.w $0BEF
-	stz.w $0BF1
+	stz.w TitlePathPos
+	stz.w TitlePathFrac
 	jsr.w NextTitleTeam
 	jsr.w LoadTitleLogo
 	lda.w #$0001
-	trb.w $0BFF
+	trb.w TitleLogoFlags
 .rts:
 	rts
 .6:
 	php
 	rep #$30
-	lda.w $0BFF
+	lda.w TitleLogoFlags
 	bit.w #$0002
 	beq .4x
 	bit.w #$0001
 	bne .1x
-	lda.w $0BF1
+	lda.w TitlePathFrac
 	clc
 	adc.w #$0C00
-	sta.w $0BF1
+	sta.w TitlePathFrac
 	bcc .1x
-	inc.w $0BEF
+	inc.w TitlePathPos
 .1x:
 	sep #$20
-	lda.w $0BEF
+	lda.w TitlePathPos
 	xba
-	lda.w $0BF2
+	lda.w TitlePathFrac+1
 	rep #$20
 	cmp.w #$0500
 	bcc .2x
 	lda.w #$0001
-	tsb.w $0BFF
-	lda.w $0BFD
+	tsb.w TitleLogoFlags
+	lda.w TitlePathFlip
 	eor.w #$0001
-	sta.w $0BFD
+	sta.w TitlePathFlip
 	lda.w #$0000
 .2x:
 	asl a
 	tax
 	lda.l $7F8000,x
-	sta.w $0BFB
+	sta.w TitleM7Scale
 	lda.l $7F8A00,x
-	ldy.w $0BFD
+	ldy.w TitlePathFlip
 	beq .3x
 	eor.w #$FFFF
 	inc a
 .3x:
 	clc
 	adc.w #$0190
-	sta.w $0BF7
+	sta.w TitleM7HOfs
 	lda.l $7F9400,x
-	sta.w $0BF9
+	sta.w TitleM7VOfs
 .4x:
 	plp
 	rts
 .framehook:		; frame hook: a press ends the title (titleskip), then the display registers and .irq1
 	lda.w JoyPad
-	bit.w $0BEB
+	bit.w TitleSkipMask
 	beq .5x
 	lda.w #$0001
 	sta.w titleskip
@@ -351,11 +351,11 @@ TitleScreen:
 	sta.w BG12NBA
 	lda.b #$C3
 	sta.w W12SEL
-	lda.w $0BD1
+	lda.w TitleBGMode
 	sta.w BGMODE
-	lda.w $0BCB
+	lda.w TitleWH1
 	sta.w WH1
-	lda.w $0BCD
+	lda.w TitleWH3
 	sta.w WH3
 	rep #$20
 	lda.w #.irq1>>16
@@ -370,7 +370,7 @@ TitleScreen:
 	rtl
 .irq1:		; IRQ hook: the WH3 window edge, then .irq2
 	sep #$20
-	lda.w $0BCF
+	lda.w TitleWH3Low
 	sta.w WH3
 	rep #$20
 	lda.w #.irq2>>16
@@ -391,31 +391,31 @@ TitleScreen:
 	lda.b #$00
 	sta.w BG12NBA
 	stz.w W12SEL
-	lda.w $0BD3
+	lda.w TitleM7TM
 	sta.w TM
-	lda.w $0BF3
+	lda.w TitleM7X
 	sta.w M7X
-	lda.w $0BF4
+	lda.w TitleM7X+1
 	sta.w M7X
-	lda.w $0BF5
+	lda.w TitleM7Y
 	sta.w M7Y
-	lda.w $0BF6
+	lda.w TitleM7Y+1
 	sta.w M7Y
-	lda.w $0BF7
+	lda.w TitleM7HOfs
 	sta.w BG1HOFS
-	lda.w $0BF8
+	lda.w TitleM7HOfs+1
 	sta.w BG1HOFS
-	lda.w $0BF9
+	lda.w TitleM7VOfs
 	sta.w BG1VOFS
-	lda.w $0BFA
+	lda.w TitleM7VOfs+1
 	sta.w BG1VOFS
-	lda.w $0BFB
+	lda.w TitleM7Scale
 	sta.w M7A
-	lda.w $0BFC
+	lda.w TitleM7Scale+1
 	sta.w M7A
-	lda.w $0BFB
+	lda.w TitleM7Scale
 	sta.w M7D
-	lda.w $0BFC
+	lda.w TitleM7Scale+1
 	sta.w M7D
 	rep #$20
 	lda.w #.irq3>>16

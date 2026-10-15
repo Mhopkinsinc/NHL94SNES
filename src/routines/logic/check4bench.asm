@@ -11,7 +11,7 @@ check4bench:
 	lda.w newpnum,x
 	cmp.w pnum,x
 	beq .t2
-	lda.w $0B7D,x
+	lda.w asscur,x
 	cmp.w #$000C
 	beq .t1
 	cpx.w puckc

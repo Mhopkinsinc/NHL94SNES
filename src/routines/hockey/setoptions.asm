@@ -54,7 +54,7 @@ setoptions:
 	jsl.l ReadPads
 	jsl.l ReadAnyPad
 	lda.w #$0000
-	sta.w $0CCB
+	sta.w sprpriority
 	lda.b $8F
 	pha
 	lda.b a1
@@ -163,7 +163,7 @@ setoptions:
 	sta.w lastframevc
 	sta.w oldvcount
 	jsl.l Readjoy1
-	dec.w $0AC4
+	dec.w repeatdelay
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	and.w #$FFF0

@@ -2,7 +2,7 @@
 AdjustFacingDirection:
 	lda.w facedir,x
 	sta.b $14
-	lda.w $0BCB,x
+	lda.w goalieturnwait,x
 	bne .t1
 	lda.b d0
 	sec
@@ -19,17 +19,17 @@ AdjustFacingDirection:
 	and.w #$0007
 	sta.w facedir,x
 	lda.w #$0006
-	sta.w $0BCB,x
+	sta.w goalieturnwait,x
 	rtl
 
 .t1:
-	lda.w $0BCB,x
+	lda.w goalieturnwait,x
 	beq .rtl
 	sec
-	sbc.w $0ADB
+	sbc.w timestep
 	bpl .1
 	lda.w #$0000
 .1:
-	sta.w $0BCB,x
+	sta.w goalieturnwait,x
 .rtl:
 	rtl

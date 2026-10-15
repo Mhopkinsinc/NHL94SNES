@@ -91,7 +91,7 @@ StartSoundVoice:
 	bit.w #$0800
 	bne .1x
 	lda.b $5C
-	sta.w $0CB1
+	sta.w recsfxvol
 .1x:
 	lda.b $4E
 	sta.w $092A,x
@@ -233,7 +233,7 @@ StartSoundVoice:
 	bit.w #$0800
 	bne .1xxx
 	lda.w $094A,x
-	sta.w $0CAF
+	sta.w recsfxpitch
 .1xxx:
 	sep #$20
 	jsr.w SeqCmd07

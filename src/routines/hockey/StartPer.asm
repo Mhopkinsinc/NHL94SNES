@@ -10,7 +10,7 @@ StartPer:
 	lda.w #$0002
 	sta.b a2
 	jsl.l reenergizeteam
-	stz.w $0CC7
+	stz.w reloadtime
 	jsl.l forceblack
 	jsl.l setupice_reset
 	jsl.l ResetClock
@@ -53,9 +53,9 @@ StartPer:
 	lda.w #$0400
 	tsb.w sflags
 	lda.w #$FFFF
-	sta.w $0CAD
-	sta.w $0CB3
-	sta.w $0CC1
+	sta.w recsfx
+	sta.w recsfx2
+	sta.w percue
 	lda.l $7E34BC
 	cmp.w #$0004
 	beq .t1
@@ -70,7 +70,7 @@ StartPer:
 .t1:
 	lda.w $1EBB
 	bne .5
-	stz.w $0CC1
+	stz.w percue
 .5:
 	lda.w #$FFFF
 	sta.w textdirtylo

@@ -98,14 +98,14 @@ lcfound2:
 	lda.w #mesarea
 	sta.b a1
 	sep #$20
-	lda.w $0A2F
+	lda.w mesarea+5
 	ldy.w mesarea+2
-	sty.w $0A2F
+	sty.w mesarea+5
 	sta.w mesarea+2
 	rep #$30
-	lda.w $0A2D
+	lda.w mesarea+3
 	xba
-	sta.w $0A2D
+	sta.w mesarea+3
 	lda.w #$4000
 	trb.w printa
 	pla

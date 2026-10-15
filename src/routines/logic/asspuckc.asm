@@ -60,7 +60,7 @@ asspuckc:
 .t1x:
 	jsl.l chk4lc
 	jsl.l chk4shot
-	lda.w $0B7D,x
+	lda.w asscur,x
 	cmp.w #$0011
 	bne .3
 	jsl.l chk4pass

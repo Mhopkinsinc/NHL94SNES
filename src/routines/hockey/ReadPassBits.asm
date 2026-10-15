@@ -47,7 +47,7 @@ ReadPassBits:
 	sta.b d0
 	jsl.l .sd
 	lda.b d0
-	sta.w $0AD5
+	sta.w WinBits
 	lda.w #$0004
 	sta.b d0
 	jsl.l .sd
@@ -67,7 +67,7 @@ ReadPassBits:
 	sta.b d0
 	jsl.l .sd
 	lda.b d0
-	sta.w $0ACF
+	sta.w bosgames
 	lda.w #$0020
 	sta.b d0
 	jsl.l .sd

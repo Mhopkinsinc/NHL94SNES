@@ -78,7 +78,7 @@ sfx:
 	tay
 	lda.b $0C
 	sta.w $094A,y
-	sta.w $0CAF
+	sta.w recsfxpitch
 .1x:
 	sep #$20
 	inc.w SoundLock

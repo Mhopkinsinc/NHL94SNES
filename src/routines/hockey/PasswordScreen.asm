@@ -111,13 +111,13 @@ PasswordScreen:
 	jsl.l PlacePasswordCursor
 	jsl.l FramerOutline
 	lda.w #$0003
-	sta.w $0A4A
+	sta.w PWCharStr
 	phx
 	ldy.b d5
 	tyx
 	lda.l PasstoText,x
 	plx
-	sta.w $0A4C
+	sta.w PWCharStr+2
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A4A
@@ -222,13 +222,13 @@ PasswordRedraw:
 	sta.b d2
 	jsl.l eraser
 	lda.w #$0003
-	sta.w $0A4A
+	sta.w PWCharStr
 	phx
 	ldy.b d5
 	tyx
 	lda.l PasstoText,x
 	plx
-	sta.w $0A4C
+	sta.w PWCharStr+2
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A4A
@@ -246,7 +246,7 @@ PasswordRedraw:
 	tyx
 	lda.l PasstoText,x
 	plx
-	sta.w $0A4C
+	sta.w PWCharStr+2
 	lda.w #$0000
 	sta.b $8F
 	lda.w #$0A4A

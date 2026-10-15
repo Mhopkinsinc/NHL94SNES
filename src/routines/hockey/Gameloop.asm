@@ -12,7 +12,7 @@ Gameloop:
 	sta.b $04
 	jsl.l Div32U
 	lda.b $00
-	sta.w $0A98
+	sta.w gamefps
 	lda.w gsp
 	cmp.w #$0002
 	bne .1
@@ -30,7 +30,7 @@ Gameloop:
 	sec
 	sbc.w oldvcount
 	sta.b d7
-	sta.w $0ADB
+	sta.w timestep
 	asl a
 	sta.w impactstep
 	asl a

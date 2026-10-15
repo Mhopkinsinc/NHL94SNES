@@ -34,7 +34,7 @@ asspenalty:
 .2:
 	lda.w temp5,x
 	sec
-	sbc.w $0ADB
+	sbc.w timestep
 	sta.w temp5,x
 	bpl .6
 .1:
@@ -167,7 +167,7 @@ asspenalty:
 	cpy.w #$0003
 	bne .2xxx
 	ldx.b a2
-	ldy.w $0AF9,x
+	ldy.w padsitnext,x
 .loopx:
 	iny
 	iny
@@ -187,7 +187,7 @@ asspenalty:
 	sta.w $1C84,y
 .2xxx:
 	ldx.b a2
-	ldy.w $0AF9,x
+	ldy.w padsitnext,x
 	bra .6x
 .5x:
 	iny
@@ -211,7 +211,7 @@ asspenalty:
 	ldy.w #$0000
 .1xxxx:
 	tya
-	sta.w $0AF9,x
+	sta.w padsitnext,x
 	ply
 	ldx.w c1playernum,y
 	lda.w #$FFFF

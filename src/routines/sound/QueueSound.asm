@@ -43,16 +43,16 @@ QueueSound:
 	pla
 	phx
 	rep #$10
-	ldx.w $0CAD
+	ldx.w recsfx
 	bmi .1x
-	ldx.w $0CAD
-	stx.w $0CB3
-	ldx.w $0CAF
-	stx.w $0CB5
-	ldx.w $0CB1
-	stx.w $0CB7
+	ldx.w recsfx
+	stx.w recsfx2
+	ldx.w recsfxpitch
+	stx.w recsfxpitch2
+	ldx.w recsfxvol
+	stx.w recsfxvol2
 .1x:
-	sta.w $0CAD
+	sta.w recsfx
 	sep #$10
 	plx
 	jmp.w PlaySoundEntry

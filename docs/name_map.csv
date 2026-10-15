@@ -6618,3 +6618,84 @@ $1A0C,mp5present,,behavior,RAM; bit 0: multitap on port 2 (pads 3-5 are read),sr
 $1A0E,mp5warning,,behavior,"RAM; bit 0 multitap in port 1, bit 1 Super Scope, bit 2 mouse: ShowMP5Warning shows its text",src/ram94snes.asm
 $1A10,InIntermission,,behavior,RAM; 1 during the intermission,src/ram94snes.asm
 $1A12,HotColdTable,,behavior,RAM; 52 players x 12 attribute bytes added to the ratings (Create_HotCold_Table),src/ram94snes.asm
+$0A8E,PushWidthBuf,,93S,"RAM; PushNumberWrap/PushNumberWidth: length word (digits + 2), then 8 characters ($0A90-$0A97) set to spaces ...",src/ram94snes.asm
+$0AC4,repeatdelay,,93S,"RAM; ProcessInputWithRepeat: frames to the next key repeat (dec, reload 6 / 20 on a change), as the 93S ...",src/ram94snes.asm
+$0ACF,bosgames,,93S,RAM; ReadPassBits/WritePassBits read and write it at the 93S bosgames slot (range 8); 0-6 = game of the best of ...,src/ram94snes.asm
+$0AD5,WinBits,,93S,RAM; ReadPassBits/WritePassBits at the 93S WinBits slot (range $4000); ResolveGames sets the bits of the teams ...,src/ram94snes.asm
+$0CC1,percue,,93S,RAM; StartPer sets $FFFF (cleared in some modes); puckfaceoff2 then plays team song slot 0 (the period start ...,src/ram94snes.asm
+$0CC3,cursong,,93S,RAM; PlayTeamSong stores the TeamSongs slot + 1 of the song started; the SPC uploads and UpdateStreamSfx (no ...,src/ram94snes.asm
+$0CC5,sprhflip,,93S,RAM; addframe parameter: nonzero = x flip (attribute $4000); setsortcords/checkfo set attribute & $0800 as 93S ...,src/ram94snes.asm
+$0CCB,sprpriority,,93S,"RAM; checkfo sets $3000 for the faceoff sprites and $2000 after, ORed into sprattr; setoptions sets 0: as 93S ...",src/ram94snes.asm
+$0CCD,sprframe,,93S,"RAM; addframe parameter: sprite frame number (1-based, at most $3D0), as 93S sprframe; set by setsortcords, ...",src/ram94snes.asm
+$0CCF,sprx,,93S,RAM; addframe parameter: screen x of the frame (93S sprx).,src/ram94snes.asm
+$0CD1,spry,,93S,RAM; addframe parameter: screen y of the frame (93S spry).,src/ram94snes.asm
+$0CD3,sprvflip,,93S,RAM; addframe parameter: nonzero = y flip (attribute $8000); setsortcords sets attribute & $1000 as 93S sprvflip.,src/ram94snes.asm
+$0CA9,replaydelay,,94G,"RAM; Goal / Stop4Pen set 30: updatereplay keeps recording until it counts down to 1, then stops; puckfaceoff2 / ...",src/ram94snes.asm
+$0BE1,CreditNameIdx,,behavior,RAM; RollCredits: index into CreditNames.,src/ram94snes.asm
+$0BE3,CreditNameY,,behavior,"RAM; RollCredits: screen y of the credit name, scrolls up from $F0.",src/ram94snes.asm
+$0BD9,CreditStep,,behavior,"RAM; StartCredits/RollCredits: credits state (0 scroll title and name, 1 scroll name, 2 hold, 3 done).",src/ram94snes.asm
+$0BDB,CreditTime,,behavior,RAM; RollCredits: the $0764 frame count at which the next credits step runs.,src/ram94snes.asm
+$0BDD,CreditTitleIdx,,behavior,RAM; RollCredits: index into CreditTitles.,src/ram94snes.asm
+$0BDF,CreditTitleY,,behavior,"RAM; RollCredits: screen y of the credit title (PrintStringSprites), scrolls up from $E0.",src/ram94snes.asm
+$0BE7,LogoDstOfs,,behavior,RAM; LoadTitleLogo: offset into the $7FA000 mode 7 buffer of that row (+$40 a row).,src/ram94snes.asm
+$0BED,LogoPalBits,,behavior,RAM; LoadTitleLogo: the palette bits ($60 or $70) ORed into every unpacked logo pixel.,src/ram94snes.asm
+$0BE5,LogoSrcOfs,,behavior,RAM; LoadTitleLogo: source offset of the logo row being unpacked (+$20 a row).,src/ram94snes.asm
+$0A4A,PWCharStr,,behavior,"RAM; PasswordScreen: a one-character print string (length word 3, then the PasstoText character) printed ...",src/ram94snes.asm
+$0AE7,PadControlObj,,behavior,"RAM; setpads stores SCnum of the player each marker slot follows (slot 0 puck carrier, 1-5 pads, 6 replay ...",src/ram94snes.asm
+$0BD1,TitleBGMode,,behavior,"RAM; Title: the BGMODE the frame hook writes for the top band (9, then 1).",src/ram94snes.asm
+$0BFF,TitleLogoFlags,,behavior,"RAM; TitleScreen: bit 1 = the logo path runs, bit 0 = path ended: load the next team logo (NextTitleTeam, ...",src/ram94snes.asm
+$0BF7,TitleM7HOfs,,behavior,RAM; Title .irq2 writes it to BG1HOFS; TitleZoomOutLeft/Right and the path move it.,src/ram94snes.asm
+$0BFB,TitleM7Scale,,behavior,RAM; Title .irq2 writes it to M7A and M7D (the zoom); TitleZoomIn/OutLeft/OutRight step it between $100 and $200.,src/ram94snes.asm
+$0BD3,TitleM7TM,,behavior,RAM; Title: the TM value .irq2 writes for the mode 7 band ($11 / $10).,src/ram94snes.asm
+$0BF9,TitleM7VOfs,,behavior,RAM; Title .irq2 writes it to BG1VOFS; TitleZoomOutLeft/Right and the path move it.,src/ram94snes.asm
+$0BF3,TitleM7X,,behavior,"RAM; Title .irq2 writes it to M7X (low, then $0BF4 high).",src/ram94snes.asm
+$0BF5,TitleM7Y,,behavior,RAM; Title .irq2 writes it to M7Y.,src/ram94snes.asm
+$0BFD,TitlePathFlip,,behavior,RAM; TitleScreen .6: toggled at each path end; nonzero negates the path's horizontal offset.,src/ram94snes.asm
+$0BF1,TitlePathFrac,,behavior,RAM; TitleScreen .6: fraction of the path position (+$0C00 a frame).,src/ram94snes.asm
+$0BEF,TitlePathPos,,behavior,RAM; TitleScreen .6: integer part of the logo path position ($0BF1 carries into it); with TitlePathFrac+1 it ...,src/ram94snes.asm
+$0BEB,TitleSkipMask,,behavior,"RAM; Title: the frame hook ends the title (titleskip) when JoyPad has a bit of it; 0 at first, $F0C0 once the ...",src/ram94snes.asm
+$0BD5,TitleTeamIdx,,behavior,RAM; ShuffleTitleTeams fills the 26 team list at $7EF000 (it is the byte count while filling); NextTitleTeam ...,src/ram94snes.asm
+$0BCB,TitleWH1,,behavior,"RAM; Title: the WH1 window edge the frame hook writes; TitleWindowWipe moves it, TitleScreen clears it.",src/ram94snes.asm
+$0BCD,TitleWH3,,behavior,"RAM; Title: the WH3 window edge for the top band (frame hook); TitleScreen steps it $42, $7D, $FF as the title ...",src/ram94snes.asm
+$0BCF,TitleWH3Low,,behavior,RAM; Title: the WH3 edge .irq1 writes for the band below line $46; TitleWindowWipe moves it.,src/ram94snes.asm
+$0B7D,asscur,,behavior,"RAM; Per object: the assignment number being run (the asslist entry at assnum), set by ...",src/ram94snes.asm
+$0C25,benchrounds,,behavior,"RAM; StartBenchCheer clears it, UpdateBenchCheer counts the cheer rounds (ends after 4), FallDown sets 2 ...",src/ram94snes.asm
+$0C27,benchtimer,,behavior,RAM; StartBenchCheer sets 11; UpdateBenchCheer counts it down by timestep and steps benchframe when it runs out.,src/ram94snes.asm
+$0B9F,botgoalie,,behavior,RAM; updateplayers: the goalie with Ypos < 0 (bottom goal end); avdgoal for the net at y -$108; topgoalie+2 in ...,src/ram94snes.asm
+$0C2B,crowdanim,,behavior,"RAM; showcrowd: per crowd sprite slot (21 words, x = 0-$28): the CrowdAnimTable sequence playing (0 idle, $A, ...",src/ram94snes.asm
+$0C55,crowdanimstep,,behavior,RAM; showcrowd: per slot the byte offset of the current frame in the sequence (+2 each step).,src/ram94snes.asm
+$0C7F,crowdanimtime,,behavior,RAM; showcrowd: per slot frames left on the current frame (count down by timestep).,src/ram94snes.asm
+$0AF5,fopadfirst,,behavior,"RAM; FaceoffPads: per team (home here, away +2) the first pad given a player (findpc) at the last faceoff; the ...",src/ram94snes.asm
+$0A98,gamefps,,behavior,RAM; Gameloop: $1D6D (game frames since the faceoff) * 60 / $0764 (NMI frames since the faceoff) = game frames ...,src/ram94snes.asm
+$0BEB,goaliedivewait,,behavior,RAM; Per player: assgoalie sets $168 after a dive and $F0 after a poke check; updateplayers counts it down by ...,src/ram94snes.asm
+$0B05,goalieflags,,behavior,"RAM; Per player (12): assgoalie/assgoalietopuck set bits 1,2 and clear bit 2 inside the crease, bit 1 near the ...",src/ram94snes.asm
+$0BA1,goaliestopped,,behavior,RAM; assgoalie: set after the CPU goalie is stopped dead once while an opposing carrier is in a shot animation ...,src/ram94snes.asm
+$0BCB,goalieturnwait,,behavior,RAM; Per player: AdjustFacingDirection/goalieacc set 6 after turning a goalie's facedir one step and count it ...,src/ram94snes.asm
+$0BC5,lastshotspeed,,behavior,RAM; doshot stores passspeed (the shot speed after the backhand cut) here; nothing reads it.,src/ram94snes.asm
+$0ACA,mp5padsig,,behavior,"RAM; Multi5Bios: 5 bytes, one per pad: the low nibble of JOYxL (controller signature) shifted left with one ...",src/ram94snes.asm
+$0AD7,mp5readall,,behavior,RAM; PlayerSelect sets $FFFF while it runs and clears it at the end; when nonzero Multi5Bios reads the multitap ...,src/ram94snes.asm
+$0BAB,onetimerreq,,behavior,"RAM; Set when the pass receiver's pad presses shoot (asspassrec, doinput) or the CPU decides; asspassrec then ...",src/ram94snes.asm
+$0AC2,padchangeany,,behavior,RAM; ReadPads: OR of the five padchange words; ReadAnyPad returns it in d1; SaveRegsStartHL2 clears it.,src/ram94snes.asm
+$0ADD,padinputdone,,behavior,"RAM; updateplayers: 5 words (pad*2) cleared each frame, set to 1 when the pad's doinput has run; ...",src/ram94snes.asm
+$0AF9,padsitnext,,behavior,"RAM; asspenalty/assepen/FaceoffPads, indexed by team (a2): round-robin pad index for sitting a pad out ($19F6 ...",src/ram94snes.asm
+$0B01,passpad,,behavior,"RAM; dopass stores the passer's pad ($19D4,x) per team (a2); puckglue gives that pad to the pass receiver ...",src/ram94snes.asm
+$0BA7,passtargetx,,behavior,RAM; dopass: puckx + the pass vector x (where the receiver meets the puck); asspassrec aims the one-timer from ...,src/ram94snes.asm
+$0BA9,passtargety,,behavior,RAM; dopass: pucky + the pass vector y; asspassrec: goal line y (+-$108) minus it for the one-timer direction.,src/ram94snes.asm
+$0BAD,passwait,,behavior,RAM; Per player: dopass sets the receiver's frames until the puck arrives (d6+6); asspassrec counts it down by ...,src/ram94snes.asm
+$0AC8,pausepadidle,,behavior,"RAM; SelectPauseController: 60 when the pause pad holds a button, -3 per idle frame; at 0 pausepad goes back to ...",src/ram94snes.asm
+$0AFD,puckpadnext,,behavior,"RAM; PuckCarrierPad/puckfaceoff2, indexed by team: the pad that last got the puck carrier, the round-robin ...",src/ram94snes.asm
+$0CAD,recsfx,,behavior,RAM; QueueSound: the sound queued this frame ($FFFF none) for the replay record; updatereplay records it ...,src/ram94snes.asm
+$0CB3,recsfx2,,behavior,RAM; QueueSound moves recsfx here when a second sound comes in the same frame; recorded and replayed like recsfx.,src/ram94snes.asm
+$0CAF,recsfxpitch,,behavior,RAM; StartSoundVoice / PuckSfx / updatepwrplay store the voice pitch ($094A) of the recorded sound; ReplayMode ...,src/ram94snes.asm
+$0CB5,recsfxpitch2,,behavior,RAM; QueueSound copies recsfxpitch here with recsfx2; ReplayMode restores $094A from it.,src/ram94snes.asm
+$0CB1,recsfxvol,,behavior,RAM; StartSoundVoice stores the sound's volume ($093A); ReplayMode puts it in $64 (the volume in the high byte) ...,src/ram94snes.asm
+$0CB7,recsfxvol2,,behavior,RAM; QueueSound copies recsfxvol here; ReplayMode loads $64 from it.,src/ram94snes.asm
+$0CC7,reloadtime,,behavior,"RAM; StartPer clears it, ReloadRink adds 60 each time it reloads the rink; never read.",src/ram94snes.asm
+$0CBD,replayHpos,,behavior,"RAM; ReplayMode: the replay camera x, eased toward the locked object / cursor (4 or 2 a frame, clamped) and ...",src/ram94snes.asm
+$0CBF,replayVpos,,behavior,"RAM; ReplayMode: the replay camera y, eased the same way and written to Vpos.",src/ram94snes.asm
+$0CAB,replaylock,,behavior,RAM; ReplayMode: object the replay camera / cursor locks onto; $FFFF = none (follows PadControlObj slot 0 or ...,src/ram94snes.asm
+$0CBB,replaymusic,,behavior,RAM; PauseReplay saves MusicOn here; at the end of ReplayMode a nonzero value restarts the menu / playoff song.,src/ram94snes.asm
+$0CB9,replaynewframe,,behavior,"RAM; RestoreReplayFrame increments it, ReplayMode clears it after drawing; showcrowd animates during a replay ...",src/ram94snes.asm
+$0CC9,sprattr,,behavior,"RAM; addframe parameter: the OAM attribute word for DrawSprite (priority, palette $0200; addframe ORs in the ...",src/ram94snes.asm
+$0ADB,timestep,,behavior,RAM; Gameloop/SaveRegsStartHL2/ReplayMode/PauseReplay store d7 (frames elapsed) here (PauseMenu sets 2); ...,src/ram94snes.asm
+$0B9D,topgoalie,,behavior,"RAM; updateplayers: each frame the goalie (position 0) with Ypos >= 0 (top goal end), $FFFF none; avdgoal uses ...",src/ram94snes.asm

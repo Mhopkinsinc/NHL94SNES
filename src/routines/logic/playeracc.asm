@@ -138,7 +138,7 @@ playeracc:
 	bne .4
 	lda.w playerpad,x
 	bmi .4
-	lda.w $0B05,x
+	lda.w goalieflags,x
 	bit.w #$0004
 	bne .4
 	lda.b $AF

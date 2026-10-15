@@ -44,11 +44,11 @@ NewPO:
 	lda.w #$0000
 	sta.l playoffRoundIdx
 	lda.w #$0007
-	sta.w $0ACF
+	sta.w bosgames
 	lda.l $7E34BC
 	cmp.w #$0002
 	beq .1x
-	stz.w $0ACF
+	stz.w bosgames
 	lda.w #$0007
 	sta.b d0
 	ldx.w #$0000

@@ -48,7 +48,7 @@ maketree:
 	sta.b a1
 	lda.b $8B
 	sta.b $8F
-	lda.w $0AD5
+	lda.w WinBits
 	sta.b d0
 .loop4:
 	lda.b d0
@@ -113,7 +113,7 @@ maketree:
 	rtl
 
 .t2:
-	lda.w $0ACF
+	lda.w bosgames
 	cmp.w #$0002
 	beq .t1
 	cmp.w #$0003

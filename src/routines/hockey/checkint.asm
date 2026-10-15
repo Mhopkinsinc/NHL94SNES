@@ -55,7 +55,7 @@ checkint:
 	lda.w gmode
 	bit.w #$0010
 	bne .rtl
-	lda.w $0B05,y
+	lda.w goalieflags,y
 	and.w #$0004
 	bne .rtl
 	lda.w #$0026

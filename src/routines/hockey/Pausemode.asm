@@ -103,8 +103,8 @@ Pausemode:
 	lda.w #$0013
 	jsl.l QueueSound
 	lda.w #$FFFF
-	sta.w $0CAD
-	sta.w $0CB3
+	sta.w recsfx
+	sta.w recsfx2
 	lda.b $83
 	sta.w lastframevc
 	sta.w oldvcount

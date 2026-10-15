@@ -10,14 +10,14 @@ asspassrec:
 	lda.w #$0008
 	sta.w temp2b,x
 .3:
-	lda.w $0BAD,x
+	lda.w passwait,x
 	sec
-	sbc.w $0ADB
-	sta.w $0BAD,x
+	sbc.w timestep
+	sta.w passwait,x
 	bmi .6
 	lda.w puckc
 	bpl .6
-	lda.w $0BAB
+	lda.w onetimerreq
 	bne .8
 	ldy.w playerpad,x
 	bmi .t2
@@ -27,7 +27,7 @@ asspassrec:
 	bit.w #$0080
 	beq .t2
 .4:
-	inc.w $0BAB
+	inc.w onetimerreq
 	bra .8
 
 .t1:
@@ -46,7 +46,7 @@ asspassrec:
 	jsl.l RandomWord
 	and.w #$0080
 	bne .5
-	inc.w $0BAB
+	inc.w onetimerreq
 	jmp.w .8
 .2:
 	lda.w Ypos,x
@@ -59,7 +59,7 @@ asspassrec:
 	lda.w #$FFFF
 	sta.w passReceiverPlayerNum
 	stz.w pfalock,x
-	stz.w $0BAB
+	stz.w onetimerreq
 	lda.w pflags,x
 	and.w #$FFFE
 	sta.w pflags,x
@@ -84,20 +84,20 @@ asspassrec:
 	ply
 	lda.w #$0000
 	sec
-	sbc.w $0BA7
+	sbc.w passtargetx
 	sta.b d0
 	lda.w pfgoal,x
 	bne .t1x
 	lda.w #$FEF8
 	sec
-	sbc.w $0BA9
+	sbc.w passtargety
 	sta.b d1
 	bra .2x
 
 .t1x:
 	lda.w #$0108
 	sec
-	sbc.w $0BA9
+	sbc.w passtargety
 	sta.b d1
 .2x:
 	jsl.l vtoa

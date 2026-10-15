@@ -72,7 +72,7 @@ puckglue:
 	cmp.w passReceiverPlayerNum
 	bne .t1
 	ldy.b a1
-	lda.w $0B01,y
+	lda.w passpad,y
 	sta.b d4
 	bmi .t1
 	jsl.l AssignPadIfFree

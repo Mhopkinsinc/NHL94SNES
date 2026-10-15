@@ -26,7 +26,7 @@ avdgoal:
 	sty.b $16
 	lda.w #$0108
 	sta.b $22
-	lda.w $0B9D
+	lda.w topgoalie
 	sta.b $20
 	lda.b tmp2
 	bne .t2
@@ -39,7 +39,7 @@ avdgoal:
 	sty.b $16
 	lda.w #$FEF8
 	sta.b $22
-	lda.w $0B9F
+	lda.w botgoalie
 	sta.b $20
 	lda.b tmp2
 	bne .2

@@ -35,8 +35,8 @@ puckfaceoff2:
 	lda.w #$0013
 	jsl.l QueueSound
 	lda.w #$FFFF
-	sta.w $0CAD
-	sta.w $0CB3
+	sta.w recsfx
+	sta.w recsfx2
 	lda.w #$0000
 	sta.l $7E3448
 	lda.l crowdlevel
@@ -79,7 +79,7 @@ puckfaceoff2:
 	bra .4
 
 .t3:
-	ldy.w $0CC1
+	ldy.w percue
 	bne .1x
 	lda.l $7E34BC
 	cmp.w #$0004
@@ -89,20 +89,20 @@ puckfaceoff2:
 	bne .4
 .1x:
 	lda.w #$0000
-	ldy.w $0CC1
+	ldy.w percue
 	bne .3x
 .2x:
 	lda.w #$0002
 .3x:
 	jsl.l PlayTeamSong
-	stz.w $0CC1
+	stz.w percue
 .4:
 	lda.w #$000D
 	trb.w sflags
 	lda.w #$0001
 	trb.w sflags3
 	stz.w iflags
-	stz.w $0CA9
+	stz.w replaydelay
 	lda.w #$FFFF
 	sta.w RefCnt
 	sta.w puckcross+2
@@ -429,7 +429,7 @@ puckfaceoff2:
 	tax
 	lda.w teampads,x
 	beq .6x
-	ldy.w $0AFD,x
+	ldy.w puckpadnext,x
 .loop2x:
 	iny
 	iny
@@ -442,7 +442,7 @@ puckfaceoff2:
 	bne .loop2x
 	sty.b d1
 	tya
-	sta.w $0AFD,x
+	sta.w puckpadnext,x
 	ldx.w #$0008
 .loop3:
 	lda.w padside,x

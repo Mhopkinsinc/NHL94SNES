@@ -546,7 +546,7 @@ org $9D9000
 	sta.b a1
 	pla
 	sta.b $8F
-	lda.w $0ACF
+	lda.w bosgames
 	cmp.w #$0007
 	beq .1x
 	lda.b [a0]
@@ -577,10 +577,10 @@ org $9D9000
 	adc.w #$0030
 	sta.w mesarea+2
 	lda.w #$002D
-	sta.w $0A2D
+	sta.w mesarea+3
 	lda.l $7E3558,x
 	adc.w #$0030
-	sta.w $0A2E
+	sta.w mesarea+4
 	lda.w #$6E82
 	sta.w printm
 	jsl.l print

@@ -3,7 +3,7 @@ updatereplay:
 	lda.w gmode
 	bit.w #$0010
 	bne .1
-	lda.w $0CA9
+	lda.w replaydelay
 	beq .5
 	dec a
 	bne .t1
@@ -11,7 +11,7 @@ updatereplay:
 	jmp.w .6
 
 .t1:
-	sta.w $0CA9
+	sta.w replaydelay
 .5:
 	lda.w sflags
 	bit.w #$0400
@@ -109,44 +109,44 @@ updatereplay:
 	sta.w WMDATA
 	lda.w shadowz
 	sta.w WMDATA
-	lda.w $0CAD
+	lda.w recsfx
 	sta.w WMDATA
-	lda.w $0CAF
+	lda.w recsfxpitch
 	sta.w WMDATA
-	lda.w $0CB0
+	lda.w recsfxpitch+1
 	sta.w WMDATA
-	lda.w $0CB2
+	lda.w recsfxvol+1
 	sta.w WMDATA
-	lda.w $0CB3
+	lda.w recsfx2
 	sta.w WMDATA
-	lda.w $0CB5
+	lda.w recsfxpitch2
 	sta.w WMDATA
-	lda.w $0CB6
+	lda.w recsfxpitch2+1
 	sta.w WMDATA
-	lda.w $0CB8
+	lda.w recsfxvol2+1
 	sta.w WMDATA
 	lda.b d7
 	sta.w WMDATA
-	lda.w $0AE9
+	lda.w PadControlObj+2
 	asl a
 	asl a
 	asl a
 	asl a
-	ora.w $0AE7
+	ora.w PadControlObj
 	sta.w WMDATA
-	lda.w $0AED
+	lda.w PadControlObj+6
 	asl a
 	asl a
 	asl a
 	asl a
-	ora.w $0AEB
+	ora.w PadControlObj+4
 	sta.w WMDATA
-	lda.w $0AF1
+	lda.w PadControlObj+$A
 	asl a
 	asl a
 	asl a
 	asl a
-	ora.w $0AEF
+	ora.w PadControlObj+8
 	sta.w WMDATA
 	lda.l crowdlevel
 	sta.w WMDATA
@@ -164,11 +164,11 @@ updatereplay:
 	sta.w WMDATA
 	lda.w benchframe
 	sta.w WMDATA
-	lda.w $0C2A
+	lda.w benchframe+1
 	sta.w WMDATA
 	rep #$20
 	lda.w #$FFFF
-	sta.w $0CAD
-	sta.w $0CB3
+	sta.w recsfx
+	sta.w recsfx2
 .6:
 	rtl

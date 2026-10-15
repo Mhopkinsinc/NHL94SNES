@@ -70,7 +70,7 @@ assnearest:
 	bne .3
 	lda.w position,y
 	beq .3
-	lda.w $0B7D,y
+	lda.w asscur,y
 	cmp.w #$0015
 	beq .3
 	ldx.b a1

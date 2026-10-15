@@ -4,10 +4,10 @@ ProcessInputWithRepeat:
 	beq .rtl
 	lda.b d2
 	bne .t1
-	dec.w $0AC4
+	dec.w repeatdelay
 	bpl .rtl
 	lda.w #$0006
-	sta.w $0AC4
+	sta.w repeatdelay
 	lda.b d3
 	sta.b d1
 .rtl:
@@ -15,5 +15,5 @@ ProcessInputWithRepeat:
 
 .t1:
 	lda.w #$0014
-	sta.w $0AC4
+	sta.w repeatdelay
 	rtl

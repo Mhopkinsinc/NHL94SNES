@@ -2,7 +2,7 @@
 RestoreReplayFrame:
 	lda.b d1
 	pha
-	inc.w $0CB9
+	inc.w replaynewframe
 	sep #$20
 	ldx.b a4
 	stx.w WMADDL
@@ -112,53 +112,53 @@ RestoreReplayFrame:
 .6:
 	sta.w shadowz+1
 	lda.w WMDATA
-	sta.w $0CAD
+	sta.w recsfx
 	lda.w WMDATA
-	sta.w $0CAF
+	sta.w recsfxpitch
 	lda.w WMDATA
-	sta.w $0CB0
+	sta.w recsfxpitch+1
 	lda.w WMDATA
-	sta.w $0CB2
+	sta.w recsfxvol+1
 	lda.w WMDATA
-	sta.w $0CB3
+	sta.w recsfx2
 	lda.w WMDATA
-	sta.w $0CB5
+	sta.w recsfxpitch2
 	lda.w WMDATA
-	sta.w $0CB6
+	sta.w recsfxpitch2+1
 	lda.w WMDATA
-	sta.w $0CB8
+	sta.w recsfxvol2+1
 	lda.w WMDATA
 	sta.b d7
 	lda.w WMDATA
 	sta.b $14
 	and.b #$0F
-	sta.w $0AE7
+	sta.w PadControlObj
 	lda.b $14
 	lsr a
 	lsr a
 	lsr a
 	lsr a
-	sta.w $0AE9
+	sta.w PadControlObj+2
 	lda.w WMDATA
 	sta.b $14
 	and.b #$0F
-	sta.w $0AEB
+	sta.w PadControlObj+4
 	lda.b $14
 	lsr a
 	lsr a
 	lsr a
 	lsr a
-	sta.w $0AED
+	sta.w PadControlObj+6
 	lda.w WMDATA
 	sta.b $14
 	and.b #$0F
-	sta.w $0AEF
+	sta.w PadControlObj+8
 	lda.b $14
 	lsr a
 	lsr a
 	lsr a
 	lsr a
-	sta.w $0AF1
+	sta.w PadControlObj+$A
 	lda.w WMDATA
 	sta.l crowdlevel
 	lda.w WMDATA
@@ -187,7 +187,7 @@ RestoreReplayFrame:
 	lda.w WMDATA
 	sta.w benchframe
 	lda.w WMDATA
-	sta.w $0C2A
+	sta.w benchframe+1
 	bra .8
 
 .t1xxx:
@@ -198,23 +198,23 @@ RestoreReplayFrame:
 	lda.w WMDATA
 	sta.w benchframe
 	lda.w WMDATA
-	sta.w $0C2A
+	sta.w benchframe+1
 .8:
 	rep #$20
-	lda.w $0CAD
+	lda.w recsfx
 	and.w #$00FF
 	cmp.w #$0080
 	bcc .1x
 	ora.w #$FF00
 .1x:
-	sta.w $0CAD
-	lda.w $0CB3
+	sta.w recsfx
+	lda.w recsfx2
 	and.w #$00FF
 	cmp.w #$0080
 	bcc .2x
 	ora.w #$FF00
 .2x:
-	sta.w $0CB3
+	sta.w recsfx2
 	pla
 	sta.b d1
 	rtl

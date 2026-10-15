@@ -154,7 +154,7 @@ FallDown:
 	adc.w #$0006
 	jsl.l StartBenchCheer
 	lda.w #$0002
-	sta.w $0C25
+	sta.w benchrounds
 	ldx.b a3
 	ldy.b a2
 	jmp.w .24
@@ -209,7 +209,7 @@ FallDown:
 	inc a
 	jsl.l StartBenchCheer
 	lda.w #$0002
-	sta.w $0C25
+	sta.w benchrounds
 	lda.w #SPAfallback
 	sta.b d1
 	ldy.b a2

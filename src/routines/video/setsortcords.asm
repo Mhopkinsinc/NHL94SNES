@@ -88,16 +88,16 @@ setsortcords:
 	jsl.l projxy
 	cmp.w #$4E20
 	beq .8
-	sta.w $0CD1
+	sta.w spry
 	lda.b d0
-	sta.w $0CCF
+	sta.w sprx
 	lda.w frame,x
 	sta.w oldframe,x
 	bne .1xx
 	cpx.w #$0018
 	bcs .8
 .1xx:
-	sta.w $0CCD
+	sta.w sprframe
 	lda.w frame,x
 	cmp.w #SPFPen+8
 	beq .9
@@ -105,10 +105,10 @@ setsortcords:
 	bcs .9
 	lda.w attribute,x
 	and.w #$0800
-	sta.w $0CC5
+	sta.w sprhflip
 	lda.w attribute,x
 	and.w #$1000
-	sta.w $0CD3
+	sta.w sprvflip
 .7:
 	lda.w attribute,x
 	ldx.w #$2000
@@ -116,19 +116,19 @@ setsortcords:
 	bcc .1xxx
 	ldx.w #$2200
 .1xxx:
-	stx.w $0CC9
+	stx.w sprattr
 	jsl.l addframe
-	lda.w $0CCD
+	lda.w sprframe
 	cmp.w #SPFcup
 	bcc .8
 	cmp.w #SPFcupover+8
 	bcs .8
 	adc.w #SPFcupover-SPFcup-1	; DrawSprite index of the cup over SPFcup+n
 	sta.b $00
-	lda.w $0CC9
+	lda.w sprattr
 	and.w #$F000
-	ldx.w $0CCF
-	ldy.w $0CD1
+	ldx.w sprx
+	ldy.w spry
 	jsl.l DrawSprite
 .8:
 	inc.b a4
@@ -140,6 +140,6 @@ setsortcords:
 .t1x:
 	rtl
 .9:
-	stz.w $0CC5
-	stz.w $0CD3
+	stz.w sprhflip
+	stz.w sprvflip
 	bra .7

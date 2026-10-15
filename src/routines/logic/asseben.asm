@@ -9,7 +9,7 @@ asseben:
 	sta.w pflags,x
 	stz.w Xvel,x
 	stz.w Yvel,x
-	stz.w $0B05,x
+	stz.w goalieflags,x
 	txa
 	lsr a
 	sec

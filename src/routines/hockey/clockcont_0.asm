@@ -21,7 +21,7 @@ clockcont_0:
 	lda.l playoffRoundIdx
 	cmp.w #$0003
 	bne .4
-	lda.w $0ACF
+	lda.w bosgames
 	cmp.w #$0007
 	beq .3
 	lda.l $7E35D6

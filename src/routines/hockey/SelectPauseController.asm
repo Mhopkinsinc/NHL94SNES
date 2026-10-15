@@ -54,9 +54,9 @@ SelectPauseController:
 	jsl.l SendTextMap
 	jsr.w PulseUntilRelease
 	lda.w #$003C
-	sta.w $0AC8
+	sta.w pausepadidle
 	lda.w #$0014
-	sta.w $0AC4
+	sta.w repeatdelay
 	lda.w $1EB7
 	beq .t1x
 	cmp.w #$0005
@@ -70,25 +70,25 @@ SelectPauseController:
 .3:
 	stx.w pausepad
 	lda.w #$003C
-	sta.w $0AC8
+	sta.w pausepadidle
 	txa
 .4:
 	lsr a
 	jsl.l ReadjoyA
-	dec.w $0AC4
-	dec.w $0AC4
+	dec.w repeatdelay
+	dec.w repeatdelay
 	jsl.l ProcessInputWithRepeat
 	lda.b d3
 	bne .t1xx
-	lda.w $0AC8
+	lda.w pausepadidle
 	beq .5
 	sec
 	sbc.w #$0003
-	sta.w $0AC8
+	sta.w pausepadidle
 	beq .1x
 	bpl .5
 .1x:
-	stz.w $0AC8
+	stz.w pausepadidle
 	ldx.w pausepad
 	lda.w $1C84,x
 	eor.w #$FFFF
@@ -98,7 +98,7 @@ SelectPauseController:
 
 .t1xx:
 	lda.w #$003C
-	sta.w $0AC8
+	sta.w pausepadidle
 .5:
 	lda.w demoflag
 	beq .7

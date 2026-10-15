@@ -42,9 +42,9 @@ PadTakePosition:
 	lda.w pflags,x
 	bit.w #$1000
 	bne .2
-	lda.w $0ADD,y
+	lda.w padinputdone,y
 	inc a
-	sta.w $0ADD,y
+	sta.w padinputdone,y
 	stx.b d0
 	jsl.l AssignPadPlayer
 .2:

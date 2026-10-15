@@ -11,7 +11,7 @@ Endfaceoff:
 	sta.l $7E3120
 	lda.w #$0400
 	trb.w sflags
-	stz.w $0CA9
+	stz.w replaydelay
 	stz.w gmclock
 	lda.w #$0010
 	tsb.w sflags3

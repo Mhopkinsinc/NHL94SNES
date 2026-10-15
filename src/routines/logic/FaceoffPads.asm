@@ -51,7 +51,7 @@ FaceoffPads:
 	bcs .6
 	cpy.w teampads
 	beq .6
-	ldy.w $0AF9
+	ldy.w padsitnext
 .loop4:
 	iny
 	iny
@@ -103,7 +103,7 @@ FaceoffPads:
 	bcs .10
 	cpy.w teampads
 	beq .10
-	ldy.w $0AFB
+	ldy.w padsitnext+2
 .loop7:
 	iny
 	iny
@@ -129,9 +129,9 @@ FaceoffPads:
 	lda.w #$FFFF
 .loop8:
 	sta.w playerpad,x
-	stz.w $0B05,x
-	stz.w $0BCB,x
-	stz.w $0BEB,x
+	stz.w goalieflags,x
+	stz.w goalieturnwait,x
+	stz.w goaliedivewait,x
 	stz.w $0C0B,x
 	dex
 	dex
@@ -147,9 +147,9 @@ FaceoffPads:
 	beq .15
 	lda.w #$0005
 	sta.b $0C
-	ldx.w $0AF5
+	ldx.w fopadfirst
 	lda.w #$FFFF
-	sta.w $0AF5
+	sta.w fopadfirst
 	dex
 	dex
 	bpl .11
@@ -159,9 +159,9 @@ FaceoffPads:
 	bne .13
 	stx.b d4
 	phx
-	lda.w $0AF5
+	lda.w fopadfirst
 	bpl .12
-	stx.w $0AF5
+	stx.w fopadfirst
 .12:
 	jsl.l findpc
 	plx
@@ -178,9 +178,9 @@ FaceoffPads:
 	beq .rtl
 	lda.w #$0005
 	sta.b $0C
-	ldx.w $0AF7
+	ldx.w fopadfirst+2
 	lda.w #$FFFF
-	sta.w $0AF7
+	sta.w fopadfirst+2
 	dex
 	dex
 	bpl .16
@@ -191,9 +191,9 @@ FaceoffPads:
 	bne .18
 	stx.b d4
 	phx
-	lda.w $0AF7
+	lda.w fopadfirst+2
 	bpl .17
-	stx.w $0AF7
+	stx.w fopadfirst+2
 .17:
 	jsl.l findpc
 	plx

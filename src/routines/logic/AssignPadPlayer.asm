@@ -18,7 +18,7 @@ AssignPadPlayer:
 	lda.w position,y
 	bne .1
 	lda.w #$0000
-	sta.w $0B05,y
+	sta.w goalieflags,y
 .1:
 	ldy.b d0
 	cpy.w #$0018

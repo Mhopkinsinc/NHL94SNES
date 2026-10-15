@@ -36,7 +36,7 @@ PlayTeamSong:
 	jsl.l MusicStart
 .1:
 	pla
-	sta.w $0CC3
+	sta.w cursong
 .2:
 	plx
 	rtl

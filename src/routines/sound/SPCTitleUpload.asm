@@ -1,6 +1,6 @@
 ; Upload the title sample set (TitleSampleList, sound table MenuSfxTable)
 SPCTitleUpload:
-	stz.w $0CC3
+	stz.w cursong
 	lda.w $1D68
 	cmp.w #$0001
 	beq .rtl

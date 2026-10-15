@@ -58,7 +58,7 @@ updateanim:
 	lda.w SPAcnt,x
 	bmi .2x
 	sec
-	sbc.w $0ADB
+	sbc.w timestep
 	sta.w SPAcnt,x
 	bpl .4
 	lda.w SPAnum,x

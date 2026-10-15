@@ -15,7 +15,7 @@ assexit:
 	and.w #$00FF
 	ply
 	plx
-	sta.w $0B7D,x
+	sta.w asscur,x
 	lda.w pflags,x
 	ora.w #$0002
 	sta.w pflags,x

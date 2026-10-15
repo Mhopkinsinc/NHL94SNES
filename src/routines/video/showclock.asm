@@ -11,7 +11,7 @@ showclock:
 	lda.w #$0020
 	sta.w mesarea+2
 	lda.w #$003A
-	sta.w $0A2E
+	sta.w mesarea+4
 	lda.w gameclock
 	sta.b $08
 	lda.w #$000A
@@ -21,7 +21,7 @@ showclock:
 	clc
 	adc.w #$0030
 	sep #$20
-	sta.w $0A30
+	sta.w mesarea+6
 	rep #$20
 	lda.b $00
 	sta.b $08
@@ -32,7 +32,7 @@ showclock:
 	clc
 	adc.w #$0030
 	sep #$20
-	sta.w $0A2F
+	sta.w mesarea+5
 	rep #$20
 	lda.b $00
 	sta.b $08
@@ -43,7 +43,7 @@ showclock:
 	clc
 	adc.w #$0030
 	sep #$20
-	sta.w $0A2D
+	sta.w mesarea+3
 	rep #$20
 	lda.b $00
 	beq .1

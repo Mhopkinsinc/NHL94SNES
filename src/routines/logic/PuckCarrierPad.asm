@@ -11,7 +11,7 @@ PuckCarrierPad:
 .1:
 	lda.w teampads,x
 	beq .4
-	ldy.w $0AFD,x
+	ldy.w puckpadnext,x
 	dey
 	dey
 	bpl .2
@@ -25,7 +25,7 @@ PuckCarrierPad:
 	bne .5
 	sty.b d4
 	tya
-	sta.w $0AFD,x
+	sta.w puckpadnext,x
 	jsl.l AssignPadPlayer
 .4:
 	plx

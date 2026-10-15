@@ -7,7 +7,7 @@ PauseReplay:
 
 .t1:
 	lda.w MusicOn
-	sta.w $0CBB
+	sta.w replaymusic
 	jsl.l FadeOut
 	jsl.l FadeOutSound
 	jsl.l WaitFadeOut
@@ -23,7 +23,7 @@ PauseReplay:
 	jsl.l ScreenOn
 	pla
 	sta.b d7
-	sta.w $0ADB
+	sta.w timestep
 PauseSubmenuDone:
 	stz.w textdirtylo
 	lda.w #$03FF

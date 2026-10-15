@@ -11,7 +11,7 @@ PlayerSelect:
 
 .t1:
 	lda.w #$FFFF
-	sta.w $0AD7
+	sta.w mp5readall
 	jsl.l FadeOut
 	jsl.l WaitFadeOut
 	jsl.l forceblack
@@ -305,7 +305,7 @@ PlayerSelect:
 	dex
 	bne .loop2
 .3x:
-	stz.w $0AD7
+	stz.w mp5readall
 	rtl
 
 .t1xxxxx:

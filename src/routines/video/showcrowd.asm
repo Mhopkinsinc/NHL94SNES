@@ -3,7 +3,7 @@ showcrowd:
 	lda.w sflags
 	and.w #$0800
 	beq .t1
-	lda.w $0CB9
+	lda.w replaynewframe
 	bne .t1
 	rtl
 
@@ -13,9 +13,9 @@ showcrowd:
 	lda.w HomeTeam
 	cmp.w #$0013
 	bne .2
-	lda.w $0C53
+	lda.w crowdanim+$28
 	bne .1
-	lda.w $0CC3
+	lda.w cursong
 	cmp.w #$0002
 	bne .2
 .1:
@@ -27,7 +27,7 @@ showcrowd:
 	cpx.w #$000A
 	bne .t2
 .1x:
-	lda.w $0C53
+	lda.w crowdanim+$28
 	beq .t2
 	jmp.w .5
 
@@ -36,7 +36,7 @@ showcrowd:
 	sta.b $12
 	lda.l CrowdAnimTable,x
 	sta.b $10
-	lda.w $0C2B,x
+	lda.w crowdanim,x
 	beq .t1x
 org $9BA000
 	jmp.w .9
@@ -69,9 +69,9 @@ org $9BA000
 	bne .5
 .3:
 	lda.w #$000A
-	sta.w $0C2B,x
+	sta.w crowdanim,x
 	tay
-	stz.w $0C55,x
+	stz.w crowdanimstep,x
 	lda.b [$10],y
 	sta.b $0C
 	lda.w #$009B
@@ -120,8 +120,8 @@ org $9BA000
 	lda.b [$10],y
 	asl a
 	adc.b [$10],y
-	sta.w $0C7F,x
-	ldy.w $0C55,x
+	sta.w crowdanimtime,x
+	ldy.w crowdanimstep,x
 	lda.b [$0C],y
 	bmi .5
 	tax
@@ -160,13 +160,13 @@ org $9BA000
 	ldx.b $08
 	cpx.w #$0028
 	bne .8
-	lda.w $0C51
+	lda.w crowdanim+$26
 	bne .8
 	lda.w #$000A
-	sta.w $0C4F
-	sta.w $0C51
-	stz.w $0CA3
-	stz.w $0CA5
+	sta.w crowdanim+$24
+	sta.w crowdanim+$26
+	stz.w crowdanimtime+$24
+	stz.w crowdanimtime+$26
 .8:
 	ldx.b $08
 	dex
@@ -177,17 +177,17 @@ org $9BA000
 .t1xx:
 	rtl
 .9:
-	lda.w $0C7F,x
+	lda.w crowdanimtime,x
 	sec
-	sbc.w $0ADB
-	sta.w $0C7F,x
+	sbc.w timestep
+	sta.w crowdanimtime,x
 	bpl .8
-	ldy.w $0C2B,x
+	ldy.w crowdanim,x
 	lda.b [$10],y
 	sta.b $0C
 	lda.w #$009B
 	sta.b $0E
-	ldy.w $0C55,x
+	ldy.w crowdanimstep,x
 	lda.b [$0C],y
 	bmi .t1xxx
 	iny
@@ -195,14 +195,14 @@ org $9BA000
 	lda.b [$0C],y
 	bmi .t1xxx
 	tya
-	sta.w $0C55,x
+	sta.w crowdanimstep,x
 	jmp.w .7
 
 .t1xxx:
-	lda.w $0C2B,x
+	lda.w crowdanim,x
 	cmp.w #$000E
 	bne .t2x
-	stz.w $0C2B,x
+	stz.w crowdanim,x
 	bra .8
 
 .t2x:
@@ -211,27 +211,27 @@ org $9BA000
 	cpx.w #$0026
 	bne .t1xxxx
 .1xxx:
-	lda.w $0C53
-	sta.w $0C2B,x
+	lda.w crowdanim+$28
+	sta.w crowdanim,x
 	bra .2x
 
 .t1xxxx:
 	cmp.w #$000C
 	beq .3x
 	lda.w #$000C
-	sta.w $0C2B,x
+	sta.w crowdanim,x
 .2x:
-	ldy.w $0C2B,x
+	ldy.w crowdanim,x
 	lda.b [$10],y
 	sta.b $0C
 	lda.w #$009B
 	sta.b $0E
-	stz.w $0C55,x
+	stz.w crowdanimstep,x
 	jmp.w .7
 .3x:
 	jsl.l RandomWord
 	and.w #$00C0
 	bne .2x
 	lda.w #$000E
-	sta.w $0C2B,x
+	sta.w crowdanim,x
 	bra .2x

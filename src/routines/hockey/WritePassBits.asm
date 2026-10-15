@@ -7,7 +7,7 @@ WritePassBits:
 	lda.w #$0020
 	sta.b d1
 	jsl.l .t1
-	lda.w $0ACF
+	lda.w bosgames
 	sta.b d0
 	lda.w #$0008
 	sta.b d1
@@ -27,7 +27,7 @@ WritePassBits:
 	lda.w #$0004
 	sta.b d1
 	jsl.l .t1
-	lda.w $0AD5
+	lda.w WinBits
 	sta.b d0
 	lda.w #$4000
 	sta.b d1

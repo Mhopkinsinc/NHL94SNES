@@ -23,7 +23,7 @@ DumpInTarget:
 	rtl
 
 .t2:
-	lda.w $0B77
+	lda.w puckdir+$1A
 	sec
 	sbc.w #$0004
 	and.w #$0007
@@ -50,7 +50,7 @@ DumpInTarget:
 	rtl
 
 .t2x:
-	lda.w $0B75
+	lda.w puckdir+$18
 	sec
 	sbc.w #$0004
 	and.w #$0007

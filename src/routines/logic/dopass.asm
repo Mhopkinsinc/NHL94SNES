@@ -1,6 +1,6 @@
 ; Pass the puck in the pass direction, to the best teammate there if any
 dopass:
-	stz.w $0BAB
+	stz.w onetimerreq
 	lda.w #$0004
 	trb.w sflags
 	lda.w #$FFFF
@@ -179,7 +179,7 @@ dopass_count:
 	inc a
 	sta.w tmpassatt,y
 .1:
-	ldx.w $0B9D,y
+	ldx.w topgoalie,y
 	lda.w aidef,x
 	lsr a
 	clc
@@ -344,11 +344,11 @@ dopass_count:
 	lda.b d2
 	clc
 	adc.w puckx
-	sta.w $0BA7
+	sta.w passtargetx
 	lda.b d3
 	clc
 	adc.w pucky
-	sta.w $0BA9
+	sta.w passtargety
 	lda.b d4
 	asl a
 	asl a
@@ -360,13 +360,13 @@ dopass_count:
 	lda.b d6
 	clc
 	adc.w #$0006
-	sta.w $0BAD,y
+	sta.w passwait,y
 	ldx.b $E4
 	lda.b d6
 	sta.w nopuck,x
 	ldy.b a2
 	lda.w playerpad,x
-	sta.w $0B01,y
+	sta.w passpad,y
 	lda.w position,x
 	bne .rtl
 	lda.w playerpad,x

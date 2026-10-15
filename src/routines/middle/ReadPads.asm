@@ -41,5 +41,5 @@ ReadPads:
 	ora.w padchange+4
 	ora.w padchange+6
 	ora.w padchange+8
-	sta.w $0AC2
+	sta.w padchangeany
 	rtl

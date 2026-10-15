@@ -13,7 +13,7 @@ ResolveGames:
 	lda.b d1
 	asl a
 	sta.b a0
-	lda.w $0ACF
+	lda.w bosgames
 	cmp.w #$0007
 	bne .4
 	jmp.w .9
@@ -50,8 +50,8 @@ ResolveGames:
 	dec.b a0
 	dec.b d1
 	bpl .4
-	inc.w $0ACF
-	lda.w $0ACF
+	inc.w bosgames
+	lda.w bosgames
 	cmp.w #$0007
 	bne .t3
 	jmp.w .7
@@ -123,7 +123,7 @@ ResolveGames:
 	lda.w #$0004
 	tsb.w sflags3
 .7:
-	stz.w $0ACF
+	stz.w bosgames
 	jsl.l GetShifter
 	lda.b d1
 	asl a
@@ -154,12 +154,12 @@ ResolveGames:
 	lda.l BitMaskTable,x
 	tax
 	dec a
-	and.w $0AD5
-	sta.w $0AD5
+	and.w WinBits
+	sta.w WinBits
 	lda.b d3
 	jsl.l Mul16U
 	lda.b $08
-	tsb.w $0AD5
+	tsb.w WinBits
 	lda.l playoffRoundIdx
 	inc a
 	sta.l playoffRoundIdx
@@ -199,12 +199,12 @@ ResolveGames:
 	lda.l BitMaskTable,x
 	tax
 	dec a
-	and.w $0AD5
-	sta.w $0AD5
+	and.w WinBits
+	sta.w WinBits
 	lda.b d3
 	jsl.l Mul16U
 	lda.b $08
-	tsb.w $0AD5
+	tsb.w WinBits
 	lda.l playoffRoundIdx
 	inc a
 	sta.l playoffRoundIdx

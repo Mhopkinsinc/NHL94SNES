@@ -96,10 +96,10 @@ Stop4Pen:
 	cmp.w #$003C
 	bcc .1x
 .1x:
-	lda.w $0CA9
+	lda.w replaydelay
 	bne .2x
 	lda.w #$001E
-	sta.w $0CA9
+	sta.w replaydelay
 .2x:
 	lda.w #$7000
 	sta.b $64

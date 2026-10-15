@@ -71,7 +71,7 @@ StartHL2:
 	jmp.w .14
 
 .t1x:
-	stz.w $0AC2
+	stz.w padchangeany
 	jsl.l FadeOut
 	jsl.l WaitFadeOut
 	jsl.l forceblack
@@ -230,7 +230,7 @@ org $9F9001
 	sec
 	sbc.w oldvcount
 	sta.b d7
-	sta.w $0ADB
+	sta.w timestep
 	asl a
 	sta.w impactstep
 	asl a
@@ -269,7 +269,7 @@ org $9F9001
 	jsl.l DoGameFrame
 	pla
 	sta.b d7
-	sta.w $0ADB
+	sta.w timestep
 	lda.w gmclock
 	beq .8
 	pla

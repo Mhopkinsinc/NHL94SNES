@@ -8,7 +8,7 @@ StartBenchCheer:
 	asl a
 	sta.w benchframe
 	lda.w #$000B
-	sta.w $0C27
-	stz.w $0C25
+	sta.w benchtimer
+	stz.w benchrounds
 .rtl:
 	rtl

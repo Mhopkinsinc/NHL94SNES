@@ -3,5 +3,5 @@ setpads:
 	txa
 	lsr a
 	ldy.b d4
-	sta.w $0AE7,y
+	sta.w PadControlObj,y
 	rtl

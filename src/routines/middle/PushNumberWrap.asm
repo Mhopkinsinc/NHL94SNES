@@ -22,13 +22,13 @@ PushNumberWidth:
 	lda.b d1
 	inc a
 	inc a
-	sta.w $0A8E
+	sta.w PushWidthBuf
 	tay
 	lda.w #$2020
-	sta.w $0A90
-	sta.w $0A92
-	sta.w $0A94
-	sta.w $0A96
+	sta.w PushWidthBuf+2
+	sta.w PushWidthBuf+4
+	sta.w PushWidthBuf+6
+	sta.w PushWidthBuf+8
 	phx
 	lda.b d0
 .loop:
@@ -41,7 +41,7 @@ PushNumberWidth:
 	sep #$20
 	clc
 	adc.b #$30
-	sta.w $0A8E,y
+	sta.w PushWidthBuf,y
 	rep #$20
 	lda.b $00
 	bne .loop

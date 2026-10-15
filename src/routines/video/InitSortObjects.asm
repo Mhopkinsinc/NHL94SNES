@@ -44,7 +44,7 @@ InitSortObjects:
 	lda.w .3+14,x
 	sta.w asslist,y
 	ldy.b a3
-	sta.w $0B7D,y
+	sta.w asscur,y
 	lda.w .3+16,x
 	sta.w pflags,y
 	lda.w #$0000

@@ -19,10 +19,10 @@ linebar:
 	clc
 	adc.w #$001D
 	sta.w mesarea+2
-	sta.w $0A2D
-	sta.w $0A2E
-	sta.w $0A2F
-	sta.w $0A30
+	sta.w mesarea+3
+	sta.w mesarea+4
+	sta.w mesarea+5
+	sta.w mesarea+6
 	lda.w #mesarea>>16
 	sta.b $8F
 	lda.w #mesarea
