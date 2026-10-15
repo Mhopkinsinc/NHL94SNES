@@ -248,5 +248,5 @@ PlayoffSong:		; header, track offsets (a zero ends them), padding, then the trac
 	db $00,$30,"TRAK"
 .crshbkwd_4:
 	db $00,$E7,$0C,"crshbkwd #4",$00
-	db $18,$DC,$04,$48,$E2,$7F,a0,$54,$44,$63,$0B,$82,$2C,$DB,$00,$D9
+	db $18,$DC,$04,$48,$E2,$7F,$89,$54,$44,$63,$0B,$82,$2C,$DB,$00,$D9
 	db $00,$00,$00,$00,$00,$00,$00,$00,$6D
