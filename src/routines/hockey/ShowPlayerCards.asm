@@ -3,7 +3,7 @@ ShowPlayerCards:
 	jsl.l GetPauseTeam
 	lda.b a2
 	pha
-	stz.w $07C6
+	stz.w FrameByNumber
 	jsl.l LoadPlayerCardScreen
 	pla
 	sta.b a2

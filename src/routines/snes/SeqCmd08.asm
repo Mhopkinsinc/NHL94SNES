@@ -6,10 +6,10 @@ SeqCmd08:
 	lda.w APUIO0
 	bne .loop
 	ldy.b #$00
-	lda.w $07F8
+	lda.w SoundVolume+1
 	sta.w APUIO1
 	iny
-	lda.w $07F8
+	lda.w SoundVolume+1
 	sta.w APUIO2
 	iny
 	lda.l $0007E9
@@ -31,7 +31,7 @@ SeqCmd08:
 	cpx.w APUIO0
 	bne .loop3
 	stz.w APUIO0
-	lda.w $07E7
+	lda.w EchoVoices
 	beq .1
 .loop4:
 	lda.w APUIO0

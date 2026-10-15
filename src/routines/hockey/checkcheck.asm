@@ -77,13 +77,13 @@ org $9EA001
 	bpl .t2
 	cmp.w #$FF08
 	bpl .t2
-	lda.w $0792
+	lda.w seed
 	and.w #$00F0
 	beq .3
 	bra .2
 
 .t2:
-	lda.w $0792
+	lda.w seed
 	and.w #$0030
 	beq .3
 .2:
@@ -125,7 +125,7 @@ org $9EA001
 	lda.w gmode
 	bit.w #$0010
 	bne .t1x
-	lda.w $0793
+	lda.w seed+1
 	and.w #$0002
 	clc
 	adc.w #$0018
@@ -143,7 +143,7 @@ org $9EA001
 	lda.w gmode
 	bit.w #$0010
 	bne .1xx
-	lda.w $0793
+	lda.w seed+1
 	and.w #$0002
 	clc
 	adc.w #$001C

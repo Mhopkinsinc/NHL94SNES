@@ -1,7 +1,7 @@
 ; Copy part of map [$0C] into the screen map at column X, row Y, adding A to each entry
 MapPartToVRAMOffset:
 	sta.b $16
-	lda.w $0761
+	lda.w IniDispShadow-1
 	bmi .t1
 .1:
 	jmp.w MapPartToVRAMOffset
@@ -13,10 +13,10 @@ MapPartToVRAMOffset:
 	txa
 	and.w #$001F
 	tax
-	lda.w $079C
+	lda.w MapVRAM
 	clc
 	adc.w #$0400
-	sta.w $079C
+	sta.w MapVRAM
 .2:
 	stx.b $1C
 	sty.b $1E
@@ -41,7 +41,7 @@ MapPartToVRAMOffset:
 	asl a
 	asl a
 	asl a
-	adc.w $079C
+	adc.w MapVRAM
 	ora.b $1C
 	tax
 .3:
@@ -80,7 +80,7 @@ MapPartToVRAMOffset:
 .1xx:
 	txa
 	clc
-	adc.w $079E
+	adc.w MapScreenStep
 	tax
 .2x:
 	dec.b $1A

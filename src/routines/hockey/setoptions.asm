@@ -107,9 +107,9 @@ setoptions:
 	jsl.l WaitFrame
 	lda.w OAMReady
 	bne .2
-	inc.w $0792
+	inc.w seed
 	bne .1
-	inc.w $0794
+	inc.w seed+2
 .1:
 	jsl.l WaitFrame
 	ldx.w mp5warning

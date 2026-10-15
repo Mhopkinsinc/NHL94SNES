@@ -6,7 +6,7 @@ StartGame_scout:
 	jsl.l ScoutingReport
 StartGame_go:
 	lda.w #$FFFF
-	sta.w $07C6
+	sta.w FrameByNumber
 	jsl.l FadeOut
 	ldx.w #$0AD7
 	lda.w #$0000

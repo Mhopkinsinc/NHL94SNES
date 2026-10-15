@@ -36,7 +36,7 @@ assbreakaway:
 	lda.w #$0008
 	sta.w temp2b,x
 	stz.w $1EA7
-	lda.w $0792
+	lda.w seed
 	and.w #$0003
 	sta.w temp3,x
 	jsr.w .11

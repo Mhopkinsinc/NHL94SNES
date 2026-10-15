@@ -27,9 +27,9 @@ DecompressHuffman:
 	lda.b $75
 	sec
 	sbc.b $77
-	sta.w $0720,x
+	sta.w HuffOffset,x
 	jsr.w .149
-	sta.w $0700,x
+	sta.w HuffCount,x
 	clc
 	adc.b $77
 	sta.b $77
@@ -39,7 +39,7 @@ DecompressHuffman:
 	sta.b $75
 	lda.b $6F
 	bne .t1
-	stz.w $0740,x
+	stz.w HuffLimit,x
 	bra .2
 
 .t1:
@@ -54,17 +54,17 @@ DecompressHuffman:
 	bne .loop
 .1:
 	lda.b $00
-	sta.w $0740,x
+	sta.w HuffLimit,x
 	bcc .2
 	txa
 	lsr a
 	sta.b $79
 	ldx.b #$3E
 .loop2:
-	stz.w $0500,x
-	stz.w $0540,x
-	stz.w $0580,x
-	stz.w $05C0,x
+	stz.w DecompTab1,x
+	stz.w DecompTab1+$40,x
+	stz.w DecompTab1+$80,x
+	stz.w DecompTab1+$C0,x
 	dex
 	dex
 	bpl .loop2
@@ -79,11 +79,11 @@ DecompressHuffman:
 	inc a
 .loop4:
 	inx
-	bit.w $0500,x
+	bit.w DecompTab1,x
 	bmi .loop4
 	dec a
 	bne .loop4
-	dec.w $0500,x
+	dec.w DecompTab1,x
 	rep #$20
 	stx.w WMDATA
 	dec.b $77
@@ -102,7 +102,7 @@ DecompressHuffman:
 	tax
 	cpx.b #$10
 	beq .9
-	lda.w $0700,x
+	lda.w HuffCount,x
 	sta.b $77
 	ldx.b $7B
 	lda.l .4,x
@@ -115,7 +115,7 @@ DecompressHuffman:
 	lda.b $7B
 	asl a
 	sta.b $00
-	lda.w $0100,y
+	lda.w DecompBuf,y
 	sta.b $01
 	iny
 	cmp.b $73
@@ -131,9 +131,9 @@ DecompressHuffman:
 	bra .7
 .6:
 	lda.b $01
-	sta.w $0500,x
+	sta.w DecompTab1,x
 	lda.b $00
-	sta.w $0600,x
+	sta.w DecompTab2,x
 	inx
 .7:
 	dey
@@ -152,7 +152,7 @@ DecompressHuffman:
 	beq .1xx
 	lda.b #$10
 .loopx:
-	sta.w $0600,x
+	sta.w DecompTab2,x
 	inx
 	bne .loopx
 .1xx:
@@ -161,7 +161,7 @@ DecompressHuffman:
 	tax
 	rep #$20
 	lda.l .10-$10,x	; by the longest code length, from 9 bits up
-	sta.w $0760
+	sta.w HuffLongVec
 	ldy.b $12
 	sty.w WMADDH
 	lda.b $10
@@ -193,13 +193,13 @@ DecompressHuffman:
 	lda.b ($0C)
 	rep #$20
 	inc.b $0C
-	ldx.w $0500,y
+	ldx.w DecompTab1,y
 	stx.w WMDATA
 	stx.b $08
 .20:
 	sta.b $6C
 	ldy.b $6D
-	ldx.w $0600,y
+	ldx.w DecompTab2,y
 	jmp (.21,x)
 .21:
 	dw .31,.42,.53,.64,.75,.86,.97,.12,.23,.22
@@ -235,13 +235,13 @@ DecompressHuffman:
 	inc.b $0C
 .31:
 	asl a
-	ldx.w $0500,y
+	ldx.w DecompTab1,y
 	stx.w WMDATA
 	stx.b $08
 .32:
 	sta.b $6C
 	ldy.b $6D
-	ldx.w $0600,y
+	ldx.w DecompTab2,y
 	jmp (.33,x)
 .33:
 	dw .43,.54,.65,.76,.87,.98,.13,.24,.35,.34
@@ -278,13 +278,13 @@ DecompressHuffman:
 	asl a
 .43:
 	asl a
-	ldx.w $0500,y
+	ldx.w DecompTab1,y
 	stx.w WMDATA
 	stx.b $08
 .44:
 	sta.b $6C
 	ldy.b $6D
-	ldx.w $0600,y
+	ldx.w DecompTab2,y
 	jmp (.45,x)
 .45:
 	dw .55,.66,.77,.88,.99,.14,.25,.36,.47,.46
@@ -322,13 +322,13 @@ DecompressHuffman:
 	asl a
 .55:
 	asl a
-	ldx.w $0500,y
+	ldx.w DecompTab1,y
 	stx.w WMDATA
 	stx.b $08
 .56:
 	sta.b $6C
 	ldy.b $6D
-	ldx.w $0600,y
+	ldx.w DecompTab2,y
 	jmp (.57,x)
 .57:
 	dw .67,.78,.89,.100,.15,.26,.37,.48,.59,.58
@@ -367,13 +367,13 @@ DecompressHuffman:
 	asl a
 .67:
 	asl a
-	ldx.w $0500,y
+	ldx.w DecompTab1,y
 	stx.w WMDATA
 	stx.b $08
 .68:
 	sta.b $6C
 	ldy.b $6D
-	ldx.w $0600,y
+	ldx.w DecompTab2,y
 	jmp (.69,x)
 .69:
 	dw .79,.90,.101,.16,.27,.38,.49,.60,.71,.70
@@ -413,13 +413,13 @@ DecompressHuffman:
 	asl a
 .79:
 	asl a
-	ldx.w $0500,y
+	ldx.w DecompTab1,y
 	stx.w WMDATA
 	stx.b $08
 .80:
 	sta.b $6C
 	ldy.b $6D
-	ldx.w $0600,y
+	ldx.w DecompTab2,y
 	jmp (.81,x)
 .81:
 	dw .91,.102,.17,.28,.39,.50,.61,.72,.83,.82
@@ -460,13 +460,13 @@ DecompressHuffman:
 	asl a
 .91:
 	asl a
-	ldx.w $0500,y
+	ldx.w DecompTab1,y
 	stx.w WMDATA
 	stx.b $08
 .92:
 	sta.b $6C
 	ldy.b $6D
-	ldx.w $0600,y
+	ldx.w DecompTab2,y
 	jmp (.93,x)
 .93:
 	dw .103,.18,.29,.40,.51,.62,.73,.84,.95,.94
@@ -508,13 +508,13 @@ DecompressHuffman:
 	asl a
 .103:
 	asl a
-	ldx.w $0500,y
+	ldx.w DecompTab1,y
 	stx.w WMDATA
 	stx.b $08
 .104:
 	sta.b $6C
 	ldy.b $6D
-	ldx.w $0600,y
+	ldx.w DecompTab2,y
 	jmp (.105,x)
 .105:
 	dw .19,.30,.41,.52,.63,.74,.85,.96,.107,.106
@@ -546,10 +546,10 @@ DecompressHuffman:
 	lsr a
 	lsr a
 	sec
-	sbc.w $0730
+	sbc.w HuffOffset+$10
 	tay
 	sep #$20
-	lda.w $0100,y
+	lda.w DecompBuf,y
 	ldy.b #$01
 	cmp.b $73
 	beq .110
@@ -562,10 +562,10 @@ DecompressHuffman:
 	lsr a
 	lsr a
 	sec
-	sbc.w $0732
+	sbc.w HuffOffset+$12
 	tay
 	sep #$20
-	lda.w $0100,y
+	lda.w DecompBuf,y
 	ldy.b #$02
 	cmp.b $73
 	beq .110
@@ -575,75 +575,75 @@ DecompressHuffman:
 .111:
 	jmp.w .108
 .112:
-	cmp.w $0750
+	cmp.w HuffLimit+$10
 	bcc .108
 .113:
 	jmp.w .109
 .114:
-	cmp.w $0750
+	cmp.w HuffLimit+$10
 	bcc .108
-	cmp.w $0752
+	cmp.w HuffLimit+$12
 	bcc .109
 	jmp.w .120
 .115:
-	cmp.w $0750
+	cmp.w HuffLimit+$10
 	bcc .108
-	cmp.w $0752
+	cmp.w HuffLimit+$12
 	bcc .109
-	cmp.w $0754
+	cmp.w HuffLimit+$14
 	bcc .120
 	jmp.w .121
 .116:
-	cmp.w $0750
+	cmp.w HuffLimit+$10
 	bcc .108
-	cmp.w $0752
+	cmp.w HuffLimit+$12
 	bcc .109
-	cmp.w $0754
+	cmp.w HuffLimit+$14
 	bcc .120
-	cmp.w $0756
+	cmp.w HuffLimit+$16
 org $80C001
 	bcc .121
 	jmp.w .124
 .117:
-	cmp.w $0750
+	cmp.w HuffLimit+$10
 	bcc .108
-	cmp.w $0752
+	cmp.w HuffLimit+$12
 	bcc .109
-	cmp.w $0754
+	cmp.w HuffLimit+$14
 	bcc .120
-	cmp.w $0756
+	cmp.w HuffLimit+$16
 	bcc .121
-	cmp.w $0758
+	cmp.w HuffLimit+$18
 	bcc .124
 	jmp.w .125
 .118:
-	cmp.w $0750
+	cmp.w HuffLimit+$10
 	bcc .111
-	cmp.w $0752
+	cmp.w HuffLimit+$12
 	bcc .113
-	cmp.w $0754
+	cmp.w HuffLimit+$14
 	bcc .120
-	cmp.w $0756
+	cmp.w HuffLimit+$16
 	bcc .121
-	cmp.w $0758
+	cmp.w HuffLimit+$18
 	bcc .124
-	cmp.w $075A
+	cmp.w HuffLimit+$1A
 	bcc .125
 	jmp.w .126
 .119:
-	cmp.w $0750
+	cmp.w HuffLimit+$10
 	bcc .123
-	cmp.w $0752
+	cmp.w HuffLimit+$12
 	bcc .113
-	cmp.w $0754
+	cmp.w HuffLimit+$14
 	bcc .120
-	cmp.w $0756
+	cmp.w HuffLimit+$16
 	bcc .121
-	cmp.w $0758
+	cmp.w HuffLimit+$18
 	bcc .124
-	cmp.w $075A
+	cmp.w HuffLimit+$1A
 	bcc .125
-	cmp.w $075C
+	cmp.w HuffLimit+puckobj
 	bcc .126
 	jmp.w .127
 .120:
@@ -653,10 +653,10 @@ org $80C001
 	lsr a
 	lsr a
 	sec
-	sbc.w $0734
+	sbc.w HuffOffset+$14
 	tay
 	sep #$20
-	lda.w $0100,y
+	lda.w DecompBuf,y
 	ldy.b #$03
 	cmp.b $73
 	beq .122
@@ -667,10 +667,10 @@ org $80C001
 	lsr a
 	lsr a
 	sec
-	sbc.w $0736
+	sbc.w HuffOffset+$16
 	tay
 	sep #$20
-	lda.w $0100,y
+	lda.w DecompBuf,y
 	ldy.b #$04
 	cmp.b $73
 	beq .122
@@ -684,10 +684,10 @@ org $80C001
 	lsr a
 	lsr a
 	sec
-	sbc.w $0738
+	sbc.w HuffOffset+$18
 	tay
 	sep #$20
-	lda.w $0100,y
+	lda.w DecompBuf,y
 	ldy.b #$05
 	cmp.b $73
 	beq .122
@@ -696,10 +696,10 @@ org $80C001
 	lsr a
 	lsr a
 	sec
-	sbc.w $073A
+	sbc.w HuffOffset+$1A
 	tay
 	sep #$20
-	lda.w $0100,y
+	lda.w DecompBuf,y
 	ldy.b #$06
 	cmp.b $73
 	beq .122
@@ -707,20 +707,20 @@ org $80C001
 .126:
 	lsr a
 	sec
-	sbc.w $073C
+	sbc.w HuffOffset+puckobj
 	tay
 	sep #$20
-	lda.w $0100,y
+	lda.w DecompBuf,y
 	ldy.b #$07
 	cmp.b $73
 	beq .122
 	bra .128
 .127:
 	sec
-	sbc.w $073E
+	sbc.w HuffOffset+$1E
 	tay
 	sep #$20
-	lda.w $0100,y
+	lda.w DecompBuf,y
 	ldy.b #$08
 	cmp.b $73
 	beq .146

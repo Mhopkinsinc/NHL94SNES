@@ -8,7 +8,7 @@ SendBigText:
 	lda.w #$A676
 	sta.b $0C
 	lda.w #$0800
-	sta.w $079C
+	sta.w MapVRAM
 	lda.w #$0000
 	sta.b $24
 	lda.w #$0020

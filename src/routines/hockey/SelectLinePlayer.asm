@@ -199,7 +199,7 @@ SelectLinePlayer:
 	inc.w $1DA7
 	jsl.l .10
 	lda.w #$FFFF
-	sta.w $07E0
+	sta.w BG3VScroll
 	bra .6
 .9:
 	lda.w $1DA7
@@ -208,9 +208,9 @@ SelectLinePlayer:
 	dec.w $1DA7
 	jsl.l .10
 	lda.w #$FFFF
-	sta.w $07E0
+	sta.w BG3VScroll
 	lda.w #$FFFF
-	sta.w $07D8
+	sta.w BG1VScroll
 	jmp.w .6
 .10:
 	lda.b $8F

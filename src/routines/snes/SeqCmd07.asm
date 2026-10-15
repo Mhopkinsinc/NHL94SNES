@@ -4,9 +4,9 @@ SeqCmd07:
 	bne SeqCmd07
 	lda.b $4B
 	sta.w APUIO1
-	lda.w $07FC
+	lda.w VoiceVolL
 	sta.w APUIO2
-	lda.w $07FE
+	lda.w VoiceVolR
 	sta.w APUIO3
 	lda.b #$07
 	sta.w APUIO0

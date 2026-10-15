@@ -39,7 +39,7 @@ Restart:
 	jsl.l SPCMenuUpload
 	lda.w MusicOn
 	beq .1
-	lda.w $07ED
+	lda.w SongPtr
 	cmp.w #$C20C
 	beq .2
 	jsl.l FadeOutSound
@@ -63,5 +63,5 @@ Restart:
 	cmp.w #$0004
 	bne StartGame
 	jsl.l PlayShootout
-	stz.w $07C6
+	stz.w FrameByNumber
 	jmp.w Restart

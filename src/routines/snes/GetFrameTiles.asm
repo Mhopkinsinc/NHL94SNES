@@ -1,10 +1,10 @@
 ; A = the first VRAM tile of the frame at [$0C], loaded now if needed; negative if there is no room
 GetFrameTiles:
-	ldy.w $07BA
+	ldy.w FrameCacheCount
 	beq .2
-	ldx.w $07C6
+	ldx.w FrameByNumber
 	beq .5
-	ldx.w $07C4
+	ldx.w DrawFrameNum
 	lda.w $2740,x
 	bpl .3
 .2:
@@ -28,7 +28,7 @@ GetFrameTiles:
 	pla
 	sta.b $14
 	lda.w #$FFFF
-	sta.w $07C0
+	sta.w FrameTilesFail
 	rts
 
 .t1:
@@ -42,7 +42,7 @@ GetFrameTiles:
 	asl a
 	tax
 .4:
-	lda.w $07C2
+	lda.w CacheUseMark
 	sta.w $2D40,x
 	lda.w $2E40,x
 	rts

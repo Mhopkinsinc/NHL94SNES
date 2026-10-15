@@ -31,7 +31,7 @@ puckgoalie:
 	and.w #$0003
 	sta.b d1
 	bne .2
-	lda.w $0792
+	lda.w seed
 	sta.b d0
 .2:
 	lda.b d0

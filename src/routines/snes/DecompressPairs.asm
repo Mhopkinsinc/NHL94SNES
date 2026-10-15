@@ -7,16 +7,16 @@ DecompressPairs:	; byte pair data at Y (after its header) to WRAM
 .loop:
 	dex
 	dex
-	sta.w $0100,x
-	sta.w $0140,x
-	sta.w $0180,x
-	sta.w $01C0,x
+	sta.w DecompBuf,x
+	sta.w DecompBuf+$40,x
+	sta.w DecompBuf+$80,x
+	sta.w DecompBuf+$C0,x
 	bne .loop
 	sep #$20
 	iny
 	lda.w $0000,y
 	tax
-	inc.w $0100,x
+	inc.w DecompBuf,x
 	iny
 	lda.w $0000,y
 	sta.b $00
@@ -27,28 +27,28 @@ DecompressPairs:	; byte pair data at Y (after its header) to WRAM
 	tax
 	iny
 	lda.w $0000,y
-	sta.w $0500,x
+	sta.w DecompTab1,x
 	iny
 	lda.w $0000,y
-	sta.w $0600,x
-	dec.w $0100,x
+	sta.w DecompTab2,x
+	dec.w DecompBuf,x
 	dec.b $00
 	bne .loop2
 	bra .7
 .2:
 	phx
-	lda.w $0500,x
+	lda.w DecompTab1,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .1
 	jsr.w .12
 .1:
 	txa
 	sta.w WMDATA
 	plx
-	lda.w $0600,x
+	lda.w DecompTab2,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .10
 	jsr.w .12
 	bra .10
@@ -64,7 +64,7 @@ DecompressPairs:	; byte pair data at Y (after its header) to WRAM
 	iny
 	lda.w $0000,y
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	bne .4
 .6:
 	txa
@@ -73,112 +73,112 @@ DecompressPairs:	; byte pair data at Y (after its header) to WRAM
 	iny
 	lda.w $0000,y
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .6
 	bpl .5
 .8:
 	phx
-	lda.w $0500,x
+	lda.w DecompTab1,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	bmi .11
 .9:
 	txa
 	sta.w WMDATA
 	plx
-	lda.w $0600,x
+	lda.w DecompTab2,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .6
 	phx
-	lda.w $0500,x
+	lda.w DecompTab1,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	bmi .2
 .10:
 	txa
 	sta.w WMDATA
 	plx
-	lda.w $0600,x
+	lda.w DecompTab2,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .6
 	phx
-	lda.w $0500,x
+	lda.w DecompTab1,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .1x
 	jsr.w .12
 .1x:
 	txa
 	sta.w WMDATA
 	plx
-	lda.w $0600,x
+	lda.w DecompTab2,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .6
 	jsr.w .12
 	bra .6
 .11:
 	phx
-	lda.w $0500,x
+	lda.w DecompTab1,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	bmi .3x
 .2x:
 	txa
 	sta.w WMDATA
 	plx
-	lda.w $0600,x
+	lda.w DecompTab2,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .9
 	phx
-	lda.w $0500,x
+	lda.w DecompTab1,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .1xx
 	jsr.w .12
 .1xx:
 	txa
 	sta.w WMDATA
 	plx
-	lda.w $0600,x
+	lda.w DecompTab2,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .9
 	jsr.w .12
 	bra .9
 .3x:
 	phx
-	lda.w $0500,x
+	lda.w DecompTab1,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .1xxx
 	jsr.w .12
 .1xxx:
 	txa
 	sta.w WMDATA
 	plx
-	lda.w $0600,x
+	lda.w DecompTab2,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .2x
 	jsr.w .12
 	bra .2x
 .12:
 	phx
-	lda.w $0500,x
+	lda.w DecompTab1,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	beq .1xxxx
 	jsr.w .12
 .1xxxx:
 	txa
 	sta.w WMDATA
 	plx
-	lda.w $0600,x
+	lda.w DecompTab2,x
 	tax
-	lda.w $0100,x
+	lda.w DecompBuf,x
 	bne .12
 	rts

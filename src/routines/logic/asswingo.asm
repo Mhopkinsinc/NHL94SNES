@@ -104,7 +104,7 @@ asswingo:
 	lda.b d2
 	cmp.w temp5,x
 	bne .6
-	lda.w $0792
+	lda.w seed
 	cmp.w #$0200
 	bcs .7
 .6:

@@ -57,44 +57,44 @@ Multi5Bios:		; read the five pads: pads 1 and 2 from the auto read, pads 3 to 5 
 .1:
 	lda.w JOYSER1
 	lsr a
-	rol.w $077D
+	rol.w JoyPad+7
 	lsr a
-	rol.w $077F
+	rol.w JoyPad+9
 	lda.w JOYSER1
 	lsr a
-	rol.w $077D
+	rol.w JoyPad+7
 	lsr a
-	rol.w $077F
+	rol.w JoyPad+9
 	lda.w JOYSER1
 	lsr a
-	rol.w $077D
+	rol.w JoyPad+7
 	lsr a
-	rol.w $077F
+	rol.w JoyPad+9
 	lda.w JOYSER1
 	lsr a
-	rol.w $077D
+	rol.w JoyPad+7
 	lsr a
-	rol.w $077F
+	rol.w JoyPad+9
 	lda.w JOYSER1
 	lsr a
-	rol.w $077D
+	rol.w JoyPad+7
 	lsr a
-	rol.w $077F
+	rol.w JoyPad+9
 	lda.w JOYSER1
 	lsr a
-	rol.w $077D
+	rol.w JoyPad+7
 	lsr a
-	rol.w $077F
+	rol.w JoyPad+9
 	lda.w JOYSER1
 	lsr a
-	rol.w $077D
+	rol.w JoyPad+7
 	lsr a
-	rol.w $077F
+	rol.w JoyPad+9
 	lda.w JOYSER1
 	lsr a
-	rol.w $077D
+	rol.w JoyPad+7
 	lsr a
-	rol.w $077F
+	rol.w JoyPad+9
 	lda.w JOYSER1
 	lsr a
 	rol.w JoyPad+6

@@ -11,7 +11,7 @@ updatesound:
 	asl a
 	asl a
 	asl a
-	sta.w $093C
+	sta.w VoiceGain+2
 	phx
 	tax
 	lda.w #$0015
@@ -19,12 +19,12 @@ updatesound:
 	plx
 	clc
 	adc.w #$0253
-	sta.w $094C
-	lda.w $093C
+	sta.w VoicePitch+2
+	lda.w VoiceGain+2
 	cmp.w #$2733
 	bcs .t1
 	lda.w #$0100
-	sta.w $093A
+	sta.w VoiceGain
 	rtl
 
 .t1:
@@ -32,5 +32,5 @@ updatesound:
 	sbc.w #$2600
 	asl a
 	asl a
-	sta.w $093A
+	sta.w VoiceGain
 	rtl

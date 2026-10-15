@@ -6,7 +6,7 @@ LoadTitleLogo:
 	lda.w #$4000
 	sta.b $0C
 	lda.w #$0000
-	sta.w $079C
+	sta.w MapVRAM
 	ldx.w #$003C
 	ldy.w #$003C
 	jsl.l Mode7MapToVRAM
@@ -40,7 +40,7 @@ LoadTitleLogo:
 	lda.w #$A000
 	sta.b $0C
 	lda.w #$0000
-	sta.w $079C
+	sta.w MapVRAM
 	jsl.l Mode7MapToVRAM
 	plx
 	lda.l CenterIceTable,x

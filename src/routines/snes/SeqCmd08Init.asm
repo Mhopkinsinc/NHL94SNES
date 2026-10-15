@@ -3,16 +3,16 @@ SeqCmd08Init:
 	jsl.l SPCCmd0D
 	sep #$30
 	lda.b #$00
-	sta.w $07E9
-	sta.w $07E8
-	sta.w $07E7
-	sta.w $07EA
-	sta.w $07EB
-	sta.w $07EC
+	sta.w PitchModVoices
+	sta.w NoiseVoices
+	sta.w EchoVoices
+	sta.w EchoDelay
+	sta.w EchoVolume
+	sta.w EchoFeedback
 SeqCmd08Init_send:
 	lda.w APUIO0
 	bne SeqCmd08Init_send
-	lda.w $07F8
+	lda.w SoundVolume+1
 	sta.w APUIO1
 	sta.w APUIO2
 	lda.l $0007E9

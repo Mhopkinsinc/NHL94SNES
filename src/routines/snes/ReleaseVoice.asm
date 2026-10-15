@@ -1,15 +1,15 @@
 ; Put voice Y into its release
 ReleaseVoice:
 	sep #$20
-	lda.w $08F2,y
+	lda.w VoiceState,y
 	beq .3
 	cmp.b #$01
 	beq .4
 	lda.b #$04
-	sta.w $08F2,y
+	sta.w VoiceState,y
 	phy
 	rep #$20
-	lda.w $092A,x
+	lda.w VoiceInst,x
 	sta.b $4E
 	ldy.b #$15
 	lda.b ($4E),y
@@ -17,7 +17,7 @@ ReleaseVoice:
 	and.w #$7000
 	clc
 	adc.w #$0FFF
-	sta.w $093A,x
+	sta.w VoiceGain,x
 	ldy.b #$10
 	lda.b ($4E),y
 	xba

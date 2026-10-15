@@ -22,7 +22,7 @@ QueueSound:
 	ldx.b #$00
 	txy
 .1:
-	lda.w $092A,x
+	lda.w VoiceInst,x
 	cmp.b $4E
 	beq .3
 .2:
@@ -34,9 +34,9 @@ QueueSound:
 	ldx.b #$10
 	stx.b $4A
 	ldx.b #$20
-	stx.w $07FF
+	stx.w CurTrackOfs
 	lda.b $4E
-	sta.w $086A,x
+	sta.w TrackInst,x
 	lda.w sflags
 	bit.w #$0800
 	bne .t1
@@ -61,7 +61,7 @@ QueueSound:
 	pla
 	jmp.w PlaySoundEntry
 .3:
-	lda.w $08F2,y
+	lda.w VoiceState,y
 	and.w #$00FF
 	beq .2
 	pla

@@ -1,6 +1,6 @@
 ; DMA X bytes from [$0C] to video memory at Y
 DMAToVRAM:
-	lda.w $0761
+	lda.w IniDispShadow-1
 	bpl QueueVRAMDMA
 	stx.w DAS1L
 	lda.b $0C

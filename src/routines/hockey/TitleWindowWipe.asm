@@ -1,10 +1,10 @@
 ; Title: count $07D6 down, moving the window edges WH1 ($0BCB) and WH3 ($0BCF) each step (TitleDelay), then close them ($FF)
 TitleWindowWipe:
-	lda.w $07D6
+	lda.w BG1HScroll
 .loop:
 	dec a
 	bmi .t1
-	sta.w $07D6
+	sta.w BG1HScroll
 	tay
 	eor.w #$FFFF
 	inc a
@@ -23,7 +23,7 @@ TitleWindowWipe:
 	bra .loop
 
 .t1:
-	stz.w $07D6
+	stz.w BG1HScroll
 	lda.w #$00FF
 	sta.w TitleWH1
 	sta.w TitleWH3Low

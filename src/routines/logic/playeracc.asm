@@ -163,7 +163,7 @@ playeracc:
 .5:
 	lda.l $7E34C6
 	beq .t1x
-	lda.w $0792
+	lda.w seed
 	and.w #$003F
 	bne .t1x
 	jsl.l getpde

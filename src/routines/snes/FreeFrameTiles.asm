@@ -11,7 +11,7 @@ FreeFrameTiles:
 .t1:		; the same for frame A of the sprite set at [$10]
 	phx
 	phy
-	sta.w $07C4
+	sta.w DrawFrameNum
 	asl a
 	asl a
 	tay
@@ -29,11 +29,11 @@ FreeFrameTiles:
 	plb
 	plb
 .1:
-	ldy.w $07BA
+	ldy.w FrameCacheCount
 	beq .2
-	ldx.w $07C6
+	ldx.w FrameByNumber
 	beq .3
-	ldy.w $07C4
+	ldy.w DrawFrameNum
 	lda.w $2740,y
 	bpl FreeCacheEntryA
 .2:
@@ -70,10 +70,10 @@ FreeCacheEntry:
 FreeCacheEntry_go:
 	lda.w $2C40,x
 	sta.b $00
-	dec.w $07BA
+	dec.w FrameCacheCount
 	beq .1
 	stx.b $02
-	lda.w $07BA
+	lda.w FrameCacheCount
 	asl a
 	cmp.b $02
 	beq .1
@@ -251,7 +251,7 @@ FreeCacheEntry_go:
 	plb
 	plb
 	stz.b $14
-	lda.w $07B8
+	lda.w SpriteBlockTiles
 .loop:
 	tax
 	lda.w $2F40,x

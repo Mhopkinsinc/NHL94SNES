@@ -115,7 +115,7 @@ org $9FC002
 	lda.w Hscroll
 	clc
 	adc.w #$00C0
-	sta.w $07DA
+	sta.w BG2HScroll
 	lda.w Vscroll
 	and.w #$0007
 	sta.b $14
@@ -124,5 +124,5 @@ org $9FC002
 	asl a
 	asl a
 	ora.b $14
-	sta.w $07DC
+	sta.w BG2VScroll
 	rtl

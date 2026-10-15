@@ -509,7 +509,7 @@ assgoalie:
 	bpl .27
 	lda.w puckc
 	bmi .27
-	lda.w $0792
+	lda.w seed
 	and.w #$0180
 	beq .29
 .26:
@@ -542,7 +542,7 @@ assgoalie:
 	sta.b d0
 	bra .30
 .28:
-	lda.w $0792
+	lda.w seed
 	and.w #$0380
 	beq .26
 .29:
@@ -741,7 +741,7 @@ assgoalie:
 	beq .38
 	cmp.w #$0003
 	beq .38
-	lda.w $0792
+	lda.w seed
 	and.w #$0001
 	bra .41
 

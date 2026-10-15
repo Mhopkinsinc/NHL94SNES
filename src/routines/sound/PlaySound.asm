@@ -14,7 +14,7 @@ PlaySound:
 	ldx.b #$10
 	stx.b $4A
 	ldx.b #$20
-	stx.w $07FF
+	stx.w CurTrackOfs
 	asl a
 	tay
 	rep #$20
@@ -22,7 +22,7 @@ PlaySound:
 	clc
 	adc.b $34
 	sta.b $4E
-	sta.w $086A,x
+	sta.w TrackInst,x
 PlaySoundEntry:
 	ldy.b #$06
 	lda.b ($4E),y
@@ -33,13 +33,13 @@ PlaySoundEntry:
 	sta.b $60
 	ldy.b #$2F
 	lda.b ($4E),y
-	sta.w $089D,x
-	stz.w $088C,x
-	lda.w $07E3
+	sta.w TrackBendRange,x
+	stz.w TrackBend,x
+	lda.w SoundMono
 	bne .t1
 	ldy.b #$12
 	lda.b ($4E),y
-	sta.w $08BE
+	sta.w TrackVolL+$10
 	iny
 	lda.b ($4E),y
 	bra .1
@@ -47,9 +47,9 @@ PlaySoundEntry:
 .t1:
 	ldy.b #$17
 	lda.b ($4E),y
-	sta.w $08BE
+	sta.w TrackVolL+$10
 .1:
-	sta.w $08CF
+	sta.w TrackVolR+$10
 	lda.b $65
 	sta.b $5A
 	ldy.b #$10
@@ -85,7 +85,7 @@ PlaySoundEntry:
 	ldx.b #$00
 	txy
 .2:
-	lda.w $092A,x
+	lda.w VoiceInst,x
 	cmp.b $4E
 	bne .t1xx
 	jsr.w ReleaseVoice

@@ -1,9 +1,9 @@
 ; NMI after the hook: the IRQ timers, INIDISP from IniDispShadow, the BG scroll registers and the rest of the frame registers
 NMI_HookReturn:
 	rep #$30
-	lda.w $07D2
+	lda.w IRQVTime
 	sta.w VTIMEL
-	lda.w $07D4
+	lda.w IRQHTime
 	sta.w HTIMEL
 	sep #$30
 	lda.w IniDispShadow
@@ -12,9 +12,9 @@ NMI_HookReturn:
 	txy
 .loop:
 	txa
-	lda.w $07D6,x
+	lda.w BG1HScroll,x
 	sta.w BG1HOFS,y
-	lda.w $07D7,x
+	lda.w BG1HScroll+1,x
 	sta.w BG1HOFS,y
 	iny
 	inx
@@ -22,26 +22,26 @@ NMI_HookReturn:
 	cpx.b #$0C
 	bne .loop
 	rep #$20
-	lda.w $0768
+	lda.w CGDMALen
 	beq .1
 	lda.w #DMA_CGRAM
 	sta.w DMAP0
-	lda.w $076C
+	lda.w CGDMASrc
 	sta.w A1T0L
-	ldx.w $076E
+	ldx.w CGDMABank
 	stx.w A1B0
-	lda.w $0768
+	lda.w CGDMALen
 	sta.w DAS0L
-	ldx.w $076A
+	ldx.w CGDMAColour
 	stx.w CGADD
 	ldx.b #$01
 	stx.w MDMAEN
 	lda.b $3E
 	sec
-	sbc.w $0768
+	sbc.w CGDMALen
 	sbc.w #$0048
 	sta.b $3E
-	stz.w $0768
+	stz.w CGDMALen
 .1:
 	sep #$20
 	rep #$10
@@ -49,26 +49,26 @@ NMI_HookReturn:
 .2:
 	cpx.b $3C
 	beq .t1
-	lda.w $0100,x
+	lda.w DMAQueue,x
 	bmi .4
 	sta.w DMAP0
 	lda.b #$18
 	sta.w BBAD0
-	lda.w $0101,x
+	lda.w DMAQueue+1,x
 	sta.w A1T0L
 	rep #$20
 	lda.b $3E
 	sec
 	sbc.w #$0066
 	bcc .5
-	sbc.w $0104,x
+	sbc.w DMAQueue+4,x
 	bcc .5
 	sta.b $3E
-	lda.w $0102,x
+	lda.w DMAQueue+2,x
 	sta.w A1T0H
-	lda.w $0104,x
+	lda.w DMAQueue+4,x
 	sta.w DAS0L
-	lda.w $0106,x
+	lda.w DMAQueue+6,x
 	sta.w VMADDL
 	txa
 	clc
@@ -97,13 +97,13 @@ NMI_HookReturn:
 	sbc.w #$005C
 	bcc .5
 	sta.b $3E
-	lda.w $0102,x
+	lda.w DMAQueue+2,x
 	sta.w VMADDL
-	lda.w $0104,x
+	lda.w DMAQueue+4,x
 	sta.w VMDATAL
 	iny
 	beq .2x
-	lda.w $0106,x
+	lda.w DMAQueue+6,x
 	sta.w VMDATAL
 .2x:
 	txa
@@ -117,7 +117,7 @@ NMI_HookReturn:
 	stx.b $3A
 	jmp.w NMI_Tick
 .6:
-	lda.w $0101,x
+	lda.w DMAQueue+1,x
 	sta.w A1T0L
 	rep #$20
 	lda.w #$1808
@@ -126,14 +126,14 @@ NMI_HookReturn:
 	sec
 	sbc.w #$0078
 	bcc .5
-	sbc.w $0104,x
+	sbc.w DMAQueue+4,x
 	bcc .5
 	sta.b $3E
-	lda.w $0102,x
+	lda.w DMAQueue+2,x
 	sta.w A1T0H
-	lda.w $0104,x
+	lda.w DMAQueue+4,x
 	sta.w DAS0L
-	lda.w $0106,x
+	lda.w DMAQueue+6,x
 	sta.w VMADDL
 	txa
 	clc
@@ -151,7 +151,7 @@ NMI_HookReturn:
 	cmp.b #$FB
 	beq .t2
 	bmi .t1x
-	lda.w $0101,x
+	lda.w DMAQueue+1,x
 	sta.w A1T0L
 	rep #$20
 	lda.w #$1908
@@ -160,14 +160,14 @@ NMI_HookReturn:
 	sec
 	sbc.w #$0079
 	bcc .5
-	sbc.w $0104,x
+	sbc.w DMAQueue+4,x
 	bcc .5
 	sta.b $3E
-	lda.w $0102,x
+	lda.w DMAQueue+2,x
 	sta.w A1T0H
-	lda.w $0104,x
+	lda.w DMAQueue+4,x
 	sta.w DAS0L
-	lda.w $0106,x
+	lda.w DMAQueue+6,x
 	sta.w VMADDL
 	txa
 	clc
@@ -183,7 +183,7 @@ NMI_HookReturn:
 	jmp.w .9
 
 .t2:
-	lda.w $0101,x
+	lda.w DMAQueue+1,x
 	sta.w A1T0L
 	rep #$20
 	lda.w #$1800
@@ -192,14 +192,14 @@ NMI_HookReturn:
 	sec
 	sbc.w #$007D
 	bcc .8
-	sbc.w $0104,x
+	sbc.w DMAQueue+4,x
 	bcc .8
 	sta.b $3E
-	lda.w $0102,x
+	lda.w DMAQueue+2,x
 	sta.w A1T0H
-	lda.w $0104,x
+	lda.w DMAQueue+4,x
 	sta.w DAS0L
-	lda.w $0106,x
+	lda.w DMAQueue+6,x
 	sta.w VMADDL
 	txa
 	clc
@@ -216,7 +216,7 @@ NMI_HookReturn:
 .8:
 	jmp.w .5
 .9:
-	lda.w $0101,x
+	lda.w DMAQueue+1,x
 	sta.w A1T0L
 	rep #$20
 	lda.w #$1900
@@ -225,14 +225,14 @@ NMI_HookReturn:
 	sec
 	sbc.w #$007D
 	bcc .8
-	sbc.w $0104,x
+	sbc.w DMAQueue+4,x
 	bcc .8
 	sta.b $3E
-	lda.w $0102,x
+	lda.w DMAQueue+2,x
 	sta.w A1T0H
-	lda.w $0104,x
+	lda.w DMAQueue+4,x
 	sta.w DAS0L
-	lda.w $0106,x
+	lda.w DMAQueue+6,x
 	sta.w VMADDL
 	txa
 	clc

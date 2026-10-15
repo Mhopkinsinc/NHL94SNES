@@ -33,7 +33,7 @@ ReplayMode:
 	lda.w #$0008
 	sta.b $1A
 	lda.w #$0000
-	sta.w $079C
+	sta.w MapVRAM
 	lda.w #$2000
 	sta.b $14
 	lda.l $7E35AA
@@ -607,17 +607,17 @@ ReplayMode:
 	jsl.l QueueSound
 	tay
 	sep #$20
-	lda.w $08F2,y
+	lda.w VoiceState,y
 	cmp.b #$02
 	bne .1xxxxxxxxxxxx
 	lda.b #$03
-	sta.w $08F2,y
+	sta.w VoiceState,y
 	rep #$20
 	tya
 	asl a
 	tay
 	lda.w recsfxpitch2
-	sta.w $094A,y
+	sta.w VoicePitch,y
 .1xxxxxxxxxxxx:
 	rep #$20
 	bra .13x
@@ -640,18 +640,18 @@ ReplayMode:
 	jsl.l QueueSound
 	tay
 	sep #$20
-	lda.w $08F2,y
+	lda.w VoiceState,y
 	cmp.b #$02
 	bne .1xxxxxxxxxxxxx
 org $9BB001
 	lda.b #$03
-	sta.w $08F2,y
+	sta.w VoiceState,y
 	rep #$20
 	tya
 	asl a
 	tay
 	lda.w recsfxpitch
-	sta.w $094A,y
+	sta.w VoicePitch,y
 .1xxxxxxxxxxxxx:
 	rep #$20
 	bra .14x

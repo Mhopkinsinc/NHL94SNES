@@ -7,7 +7,7 @@ IRQ_StatsScroll3:
 	sta.w BG1VOFS
 	rep #$20
 	lda.w #IRQ_StatsScroll1
-	sta.w $078F
+	sta.w IRQHook
 	rtl
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF
 	db $FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF,$FF

@@ -50,5 +50,5 @@ demoread:
 	rtl
 .4:
 	stz.w fadestep
-	stz.w $07C6
+	stz.w FrameByNumber
 	jml.l Restart

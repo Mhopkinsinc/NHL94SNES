@@ -1,6 +1,6 @@
 ; DMA X bytes from [$0C] to the high bytes of video memory at Y
 DMAToVRAMHigh:
-	lda.w $0761
+	lda.w IniDispShadow-1
 	bpl .t1
 	stx.w DAS1L
 	lda.b $0C
@@ -30,24 +30,24 @@ DMAToVRAMHigh:
 	bcc .1
 	lda.w #$1000
 .1:
-	sta.w $0104,x
+	sta.w DMAQueue+4,x
 	pha
 	tya
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	pla
 	clc
-	adc.w $0106,x
+	adc.w DMAQueue+6,x
 	tay
 	lda.b $0C
-	sta.w $0101,x
+	sta.w DMAQueue+1,x
 	clc
 	adc.w #$1000
 	sta.b $0C
 	sep #$20
 	lda.b $0E
-	sta.w $0103,x
+	sta.w DMAQueue+3,x
 	lda.b #$FA
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	rep #$20
 	txa
 	clc

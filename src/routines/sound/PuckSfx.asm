@@ -55,7 +55,7 @@ sfx:
 	ldy.w #$0002
 	lda.b [$4E],y
 	tax
-	lda.w $0792
+	lda.w seed
 	and.w #$003F
 	clc
 	adc.w #$00C0
@@ -67,17 +67,17 @@ sfx:
 	tay
 	sep #$20
 	dec.w SoundLock
-	lda.w $08F2,y
+	lda.w VoiceState,y
 	cmp.b #$02
 	bne .1x
 	lda.b #$03
-	sta.w $08F2,y
+	sta.w VoiceState,y
 	rep #$20
 	tya
 	asl a
 	tay
 	lda.b $0C
-	sta.w $094A,y
+	sta.w VoicePitch,y
 	sta.w recsfxpitch
 .1x:
 	sep #$20

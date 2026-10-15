@@ -290,7 +290,7 @@ LoadPlayerCardScreen:
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	lda.w #$0004
-	sta.w $07D6
+	sta.w BG1HScroll
 	lda.w #$FFFB
-	sta.w $07D8
+	sta.w BG1VScroll
 	rtl

@@ -1,6 +1,6 @@
 ; After a game: the password and the playoff screen, then the next game or the start
 GameOver:
-	stz.w $07C6
+	stz.w FrameByNumber
 	jsl.l EncodePW
 	jsl.l PlayoffScreen
 	lda.l $7E34BC

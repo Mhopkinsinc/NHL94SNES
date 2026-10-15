@@ -86,7 +86,7 @@ asscentero:
 	lda.b d2
 	cmp.w temp5,x
 	bne .5
-	lda.w $0794
+	lda.w seed+2
 	cmp.w #$0200
 	bcs .6
 .5:

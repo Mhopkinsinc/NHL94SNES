@@ -422,7 +422,7 @@ org $9DC002
 	lda.w #$7780
 	sta.b $0C
 	lda.w #$0400
-	sta.w $079C
+	sta.w MapVRAM
 	ldx.w #$000C
 	ldy.w #$0004
 	jsl.l MapToVRAM

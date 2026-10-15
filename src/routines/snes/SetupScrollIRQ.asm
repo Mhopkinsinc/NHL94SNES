@@ -8,7 +8,7 @@ SetupScrollIRQ:
 	sta.w $1DF5
 	sta.w $1DF7
 	lda.w #$00C4
-	sta.w $07D4
+	sta.w IRQHTime
 	lda.w #IRQ_StatsScroll1
 	ldx.w #IRQ_StatsScroll1>>16
 	ldy.w $1DED

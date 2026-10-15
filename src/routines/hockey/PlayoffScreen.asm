@@ -19,7 +19,7 @@ PlayoffScreen:
 	lda.l playoffRoundIdx
 	cmp.w #$0002
 	bcc .t2
-	lda.w $07ED
+	lda.w SongPtr
 	cmp.w #$ED31
 	beq .t2
 	jsl.l FadeOutSound
@@ -640,7 +640,7 @@ org $9D9000
 	lda.w #$C676
 	sta.b $0C
 	lda.w #$3800
-	sta.w $079C
+	sta.w MapVRAM
 	lda.w #$0020
 	sta.b $24
 	stz.b $26
@@ -655,7 +655,7 @@ org $9D9000
 	sta.b $0E
 	lda.w #$A670
 	sta.b $0C
-	stz.w $079C
+	stz.w MapVRAM
 	lda.w #$0020
 	sta.b $24
 	stz.b $26
@@ -670,13 +670,13 @@ org $9D9000
 	sta.w Hscroll
 	sec
 	sbc.w #$0100
-	sta.w $07D6
-	sta.w $07DE
+	sta.w BG1HScroll
+	sta.w BG3HScroll
 	sec
 	sbc.w #$0080
-	sta.w $07DA
+	sta.w BG2HScroll
 	lda.w #$FFFC
-	sta.w $07E0
+	sta.w BG3VScroll
 	lda.w #$1D47
 	sta.l $7E3616
 	sta.l $7E361E
@@ -771,7 +771,7 @@ org $9D9000
 	sta.b $0E
 	lda.w #$A670
 	sta.b $0C
-	stz.w $079C
+	stz.w MapVRAM
 	stz.b $26
 	lda.w #$0001
 	sta.b $18
@@ -790,7 +790,7 @@ org $9D9000
 	lda.w #$C676
 	sta.b $0C
 	lda.w #$3800
-	sta.w $079C
+	sta.w MapVRAM
 	plx
 	pla
 	sta.b $24
@@ -817,7 +817,7 @@ org $9D9000
 	sta.b $0E
 	lda.w #$A670
 	sta.b $0C
-	stz.w $079C
+	stz.w MapVRAM
 	stz.b $26
 	lda.w #$0001
 	sta.b $18
@@ -836,7 +836,7 @@ org $9D9000
 	lda.w #$C676
 	sta.b $0C
 	lda.w #$3800
-	sta.w $079C
+	sta.w MapVRAM
 	plx
 	pla
 	sta.b $24
@@ -869,11 +869,11 @@ org $9D9000
 	lda.w Hscroll
 	sec
 	sbc.w #$0100
-	sta.w $07D6
-	sta.w $07DE
+	sta.w BG1HScroll
+	sta.w BG3HScroll
 	sec
 	sbc.w #$0080
-	sta.w $07DA
+	sta.w BG2HScroll
 	jmp.w .2x
 .8:
 	db $04,$06,$08,$0A,$0C,$0E,$10,$12,$14,$16,$18,$1A,$1C,$1E,$24,$26

@@ -1,13 +1,13 @@
 ; IRQ hook: BG1 vertical scroll from $07E0, then the next hook
 IRQ_BG1Scroll:
 	sep #$20
-	lda.w $07E0
+	lda.w BG3VScroll
 	sta.w BG1VOFS
-	lda.w $07E1
+	lda.w BG3VScroll+1
 	sta.w BG1VOFS
 	rep #$20
 	lda.w #.t1
-	sta.w $078F
+	sta.w IRQHook
 	lda.w #$0030
 	sta.w VTIMEL
 	rtl
@@ -20,5 +20,5 @@ IRQ_BG1Scroll:
 	sta.w BG1VOFS
 	rep #$20
 	lda.w #IRQ_BG1Scroll
-	sta.w $078F
+	sta.w IRQHook
 	rtl

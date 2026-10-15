@@ -1,21 +1,21 @@
 ; A = a random word: the sum of two 16-bit shift-register generators ($0792 and $0794, seeded $A5A5 / $B4B4 when 0)
 RandomWord:
-	lda.w $0792
+	lda.w seed
 	beq .3
 	asl a
 	bcc .1
 	eor.w #$1D87
 .1:
-	sta.w $0792
-	lda.w $0794
+	sta.w seed
+	lda.w seed+2
 	beq .4
 	asl a
 	bcc .2
 	eor.w #$1D87
 .2:
-	sta.w $0794
+	sta.w seed+2
 	clc
-	adc.w $0792
+	adc.w seed
 	rtl
 .3:
 	lda.w #$A5A5

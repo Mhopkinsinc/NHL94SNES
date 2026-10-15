@@ -12,7 +12,7 @@ FindCachedFrame:
 	dey
 	bne FindCachedFrame
 LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its tiles and add a tile cache entry
-	ldy.w $07BA
+	ldy.w FrameCacheCount
 	cpy.w #$0080
 	beq .t3
 	lda.w #$0001
@@ -25,11 +25,11 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	beq DrawSpritePieces_exit
 	ldy.w #$000C
 	lda.b [$0C],y
-	sta.w $07C8
+	sta.w PieceX
 	iny
 	iny
 	lda.b [$0C],y
-	sta.w $07CA
+	sta.w PieceY
 	iny
 	iny
 	lda.b [$0C],y
@@ -110,29 +110,29 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	rep #$30
 	ldx.b $3C
 	lda.b $04
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	lda.b $06
-	sta.w $0102,x
-	lda.w $07C8
-	sta.w $0104,x
+	sta.w DMAQueue+2,x
+	lda.w PieceX
+	sta.w DMAQueue+4,x
 	clc
 	adc.b $05
 	sta.b $05
-	ldy.w $07C4
+	ldy.w DrawFrameNum
 	sep #$20
-	lda.w $07BA
+	lda.w FrameCacheCount
 	sta.w $2741,y
 	rep #$20
-	lda.w $07BA
+	lda.w FrameCacheCount
 	asl a
 	tay
-	lda.w $07C4
+	lda.w DrawFrameNum
 	sta.w $2B40,y
 	lda.b $0C
 	sta.w $2540,y
 	lda.b $0E
 	sta.w $2640,y
-	inc.w $07BA
+	inc.w FrameCacheCount
 	lda.b $0A
 	ora.w #$8000
 	sta.w $2C40,y
@@ -152,24 +152,24 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	asl a
 	adc.w SpriteVRAM
 	sta.b $0A
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	txa
 	clc
 	adc.w #$0008
 	and.w #$03FF
 	tax
 	lda.b $04
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	lda.b $06
-	sta.w $0102,x
-	lda.w $07CA
-	sta.w $0104,x
+	sta.w DMAQueue+2,x
+	lda.w PieceY
+	sta.w DMAQueue+4,x
 	bne .t1x
 	stx.b $3C
 	plb
 	ply
 	plx
-	lda.w $07BA
+	lda.w FrameCacheCount
 	dec a
 	asl a
 	rtl
@@ -177,7 +177,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 .t1x:
 	lda.b $0A
 	ora.w #$0100
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	txa
 	clc
 	adc.w #$0008
@@ -186,7 +186,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	plb
 	ply
 	plx
-	lda.w $07BA
+	lda.w FrameCacheCount
 	dec a
 	asl a
 	rtl
@@ -279,29 +279,29 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	rep #$30
 	ldx.b $3C
 	lda.b $04
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	lda.b $06
-	sta.w $0102,x
-	lda.w $07C8
-	sta.w $0104,x
+	sta.w DMAQueue+2,x
+	lda.w PieceX
+	sta.w DMAQueue+4,x
 	clc
 	adc.b $05
 	sta.b $05
-	ldy.w $07C4
+	ldy.w DrawFrameNum
 	sep #$20
-	lda.w $07BA
+	lda.w FrameCacheCount
 	sta.w $2741,y
 	rep #$20
-	lda.w $07BA
+	lda.w FrameCacheCount
 	asl a
 	tay
-	lda.w $07C4
+	lda.w DrawFrameNum
 	sta.w $2B40,y
 	lda.b $0C
 	sta.w $2540,y
 	lda.b $0E
 	sta.w $2640,y
-	inc.w $07BA
+	inc.w FrameCacheCount
 	lda.b $0A
 	ora.w #$8000
 	sta.w $2C40,y
@@ -321,18 +321,18 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	asl a
 	adc.w SpriteVRAM
 	sta.b $0A
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	txa
 	clc
 	adc.w #$0008
 	and.w #$03FF
-	ldy.w $07CA
+	ldy.w PieceY
 	bne .t1xxxx
 	sta.b $3C
 	plb
 	ply
 	plx
-	lda.w $07BA
+	lda.w FrameCacheCount
 	dec a
 	asl a
 	rtl
@@ -340,18 +340,18 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 .t1xxxx:
 	tax
 	lda.b $04
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	lda.b $06
-	sta.w $0102,x
+	sta.w DMAQueue+2,x
 	tya
-	sta.w $0104,x
-	lda.w $07C8
+	sta.w DMAQueue+4,x
+	lda.w PieceX
 	lsr a
 	and.w #$FF00
 	ora.w #$0100
 	clc
 	adc.b $0A
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	txa
 	clc
 	adc.w #$0008
@@ -360,7 +360,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	plb
 	ply
 	plx
-	lda.w $07BA
+	lda.w FrameCacheCount
 	dec a
 	asl a
 	rtl
@@ -421,38 +421,38 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	rep #$30
 	ldx.b $3C
 	lda.b $04
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	lda.b $06
-	sta.w $0102,x
-	lda.w $07C8
-	sta.w $0104,x
-	ldy.w $07C4
+	sta.w DMAQueue+2,x
+	lda.w PieceX
+	sta.w DMAQueue+4,x
+	ldy.w DrawFrameNum
 	sep #$20
-	lda.w $07BA
+	lda.w FrameCacheCount
 	sta.w $2741,y
 	rep #$20
-	lda.w $07BA
+	lda.w FrameCacheCount
 	asl a
 	tay
-	lda.w $07C4
+	lda.w DrawFrameNum
 	sta.w $2B40,y
 	lda.b $0C
 	sta.w $2540,y
 	lda.b $0E
 	sta.w $2640,y
-	inc.w $07BA
+	inc.w FrameCacheCount
 	lda.b $0A
 	sta.w $2C40,y
 	lda.b $0A
 	clc
-	adc.w $07B8
+	adc.w SpriteBlockTiles
 	sta.w $2E40,y
 	asl a
 	asl a
 	asl a
 	asl a
 	adc.w SpriteVRAM
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	txa
 	clc
 	adc.w #$0008
@@ -461,7 +461,7 @@ LoadFrameTiles:		; allocate VRAM for the frame at [$0C], queue the DMA of its ti
 	plb
 	ply
 	plx
-	lda.w $07BA
+	lda.w FrameCacheCount
 	dec a
 	asl a
 	rtl

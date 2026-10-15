@@ -7,7 +7,7 @@ FindFreeVoice:
 	ldy.b #$07
 	tax
 .1:
-	lda.w $08F2,x
+	lda.w VoiceState,x
 	beq .5
 .2:
 	inx
@@ -18,12 +18,12 @@ FindFreeVoice:
 	bpl .1
 	lda.b #$FF
 	sta.b $4B
-	stz.w $07FB
-	stz.w $07FC
-	stz.w $07FD
+	stz.w InstVolL
+	stz.w VoiceVolL
+	stz.w InstVolR
 	ldy.b #$2A
 	lda.b ($4E),y
-	sta.w $07FE
+	sta.w VoiceVolR
 	lda.b #$08
 	sta.b $68
 	ldx.b $66
@@ -32,27 +32,27 @@ FindFreeVoice:
 	lda.b ($4E)
 	and.l ByteBitMasks,x
 	beq .4
-	lda.w $07FE
-	cmp.w $0912,x
+	lda.w VoiceVolR
+	cmp.w VoicePriority,x
 	bcc .4
-	lda.w $08F2,x
-	cmp.w $07FD
+	lda.w VoiceState,x
+	cmp.w InstVolR
 	bcc .4
 	bne .t1
 	rep #$20
-	lda.w $096A,y
-	cmp.w $07FB
+	lda.w VoiceAge,y
+	cmp.w InstVolL
 	bcc .4
 	stx.b $4B
-	sta.w $07FB
+	sta.w InstVolL
 	bra .4
 
 .t1:
 	stx.b $4B
-	sta.w $07FD
+	sta.w InstVolR
 	rep #$20
-	lda.w $096A,y
-	sta.w $07FB
+	lda.w VoiceAge,y
+	sta.w InstVolL
 .4:
 	sep #$20
 	inx

@@ -27,7 +27,7 @@ SpriteFrameStart:	; start filling OAMDrawBuf after the reserved entries; free th
 	asl a
 	adc.w OAMDrawBuf
 	sta.w OAMNext
-	lda.w $07BA
+	lda.w FrameCacheCount
 	beq .2
 	dec a
 	asl a

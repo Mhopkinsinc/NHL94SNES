@@ -5,14 +5,14 @@ MusicStop:		; stop the song: release its voices and clear its tracks
 	lda.b #$FF
 	sta.w SoundLock
 	stz.w MusicOn
-	stz.w $0801
+	stz.w TrackCount
 	ldy.b #$07
 	ldx.b #$0E
 .loop:
-	lda.w $08FA,y
+	lda.w VoiceTrack,y
 	cmp.b #$10
 	bcs .1
-	lda.w $08F2,y
+	lda.w VoiceState,y
 	beq .1
 	jsr.w StopVoice
 .1:

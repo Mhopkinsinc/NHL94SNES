@@ -21,10 +21,10 @@ Mode7MapToVRAM:
 	asl a
 	asl a
 	asl a
-	adc.w $079C
+	adc.w MapVRAM
 	ora.b $1C
 	tay
-	lda.w $0761
+	lda.w IniDispShadow-1
 	bmi .1
 	jmp.w .3
 .1:
@@ -65,22 +65,22 @@ Mode7MapToVRAM:
 	ldx.b $3C
 .loopx:
 	lda.b $0C
-	sta.w $0101,x
+	sta.w DMAQueue+1,x
 	clc
 	adc.b $18
 	sta.b $0C
 	lda.b $18
-	sta.w $0104,x
+	sta.w DMAQueue+4,x
 	tya
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	clc
 	adc.w #$0080
 	tay
 	sep #$20
 	lda.b $0E
-	sta.w $0103,x
+	sta.w DMAQueue+3,x
 	lda.b #$FB
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	rep #$20
 	txa
 	clc

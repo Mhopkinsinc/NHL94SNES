@@ -19,7 +19,7 @@ chk4shot:
 	bmi .t1
 	cmp.w #$00ED
 	bpl .t1
-	lda.w $0792
+	lda.w seed
 	and.w #$0003
 	bne .t1
 	jmp.w StartDumpIn

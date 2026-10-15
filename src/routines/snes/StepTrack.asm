@@ -4,21 +4,21 @@ StepTrack:
 	sta.b $4A
 	asl a
 	tax
-	stx.w $07FF
+	stx.w CurTrackOfs
 .1:
 	rep #$20
-	lda.w $0848,x
+	lda.w TrackWait,x
 	beq .t1
 	jmp.w .13
 
 .t1:
-	lda.w $0804,x
+	lda.w TrackPtr,x
 	sta.b $4C
 .2:
 	jsr.w ReadTrackEvent
 	lda.b $56
 	sta.b $4C
-	ldx.w $07FF
+	ldx.w CurTrackOfs
 	ldy.b $60
 	cpy.b #$D9
 	bcs .t1x
@@ -36,15 +36,15 @@ StepTrack:
 .t3:
 	cpy.b #$E2
 	bne .t1xx
-	lda.w $0804,x
-	sta.w $0826,x
+	lda.w TrackPtr,x
+	sta.w TrackLoop,x
 	jmp.w .12
 
 .t1xx:
 	cpy.b #$DB
 	bne .t2
-	lda.w $0826,x
-	sta.w $0804,x
+	lda.w TrackLoop,x
+	sta.w TrackPtr,x
 	bra .1
 
 .t2:
@@ -52,7 +52,7 @@ StepTrack:
 	bne .t1xxx
 .1xx:
 	ldy.b $5A
-	sty.w $07F6
+	sty.w TempoTick
 	jmp.w .12
 
 .t1xxx:
@@ -60,14 +60,14 @@ StepTrack:
 	beq .3
 	jmp.w .10
 .3:
-	lda.w $086A,x
+	lda.w TrackInst,x
 	sta.b $4E
 	sep #$20
-	lda.w $07E3
+	lda.w SoundMono
 	bne .t1xxxx
 	ldy.b #$12
 	lda.b ($4E),y
-	sta.w $07FB
+	sta.w InstVolL
 	iny
 	lda.b ($4E),y
 	bra .2x
@@ -75,42 +75,42 @@ StepTrack:
 .t1xxxx:
 	ldy.b #$17
 	lda.b ($4E),y
-	sta.w $07FB
+	sta.w InstVolL
 .2x:
-	sta.w $07FD
+	sta.w InstVolR
 	ldx.b $4A
-	lda.w $07FB
+	lda.w InstVolL
 	xba
 	lda.b $5A
 	jsr.w MulFrac8
-	sta.w $08AE,x
-	lda.w $07FD
+	sta.w TrackVolL,x
+	lda.w InstVolR
 	xba
 	lda.b $5A
 	jsr.w MulFrac8
-	sta.w $08BF,x
+	sta.w TrackVolR,x
 	ldy.b #$07
 .loop:
-	lda.w $08FA,y
+	lda.w VoiceTrack,y
 	cmp.b $4A
 	bne .1xxx
 	ldx.b $4A
-	lda.w $08AE,x
+	lda.w TrackVolL,x
 	xba
-	lda.w $0902,y
+	lda.w VoiceVelocity,y
 	jsr.w MulFrac8
-	sta.w $07FC
-	lda.w $08BF,x
+	sta.w VoiceVolL
+	lda.w TrackVolR,x
 	xba
-	lda.w $0902,y
+	lda.w VoiceVelocity,y
 	jsr.w MulFrac8
-	sta.w $07FE
+	sta.w VoiceVolR
 .loop2:
 	lda.w APUIO0
 	bne .loop2
-	lda.w $07FE
+	lda.w VoiceVolR
 	sta.w APUIO3
-	lda.w $07FC
+	lda.w VoiceVolL
 	sta.w APUIO2
 	sty.w APUIO1
 	lda.b #$0E
@@ -143,14 +143,14 @@ StepTrack:
 	sep #$20
 	ldx.b $4A
 	lda.b $5E
-	sta.w $08D0,x
+	sta.w TrackSustain,x
 	bne .3x
 	ldx.b #$07
 .loopx:
-	lda.w $08FA,x
+	lda.w VoiceTrack,x
 	cmp.b $4A
 	bne .2xx
-	lda.w $08F2,x
+	lda.w VoiceState,x
 	beq .2xx
 	phx
 	txy
@@ -174,7 +174,7 @@ StepTrack:
 	sep #$20
 	ldx.b $4A
 	lda.b $5E
-	sta.w $08AE,x
+	sta.w TrackVolL,x
 	rep #$20
 	jmp.w .12
 
@@ -184,7 +184,7 @@ StepTrack:
 	sep #$20
 	ldx.b $4A
 	lda.b $5E
-	sta.w $08BF,x
+	sta.w TrackVolR,x
 	rep #$20
 	jmp.w .12
 
@@ -193,7 +193,7 @@ StepTrack:
 	bne .t1x2
 	sep #$20
 	lda.b $5E
-	sta.w $07E7
+	sta.w EchoVoices
 	jsr.w SeqCmd08
 	rep #$20
 	jmp.w .12
@@ -203,7 +203,7 @@ StepTrack:
 	bne .t2xx
 	sep #$20
 	lda.b $5E
-	sta.w $07EA
+	sta.w EchoDelay
 	jsr.w SeqCmd08
 	rep #$20
 	jmp.w .12
@@ -213,7 +213,7 @@ StepTrack:
 	bne .t1xxxxxxx
 	sep #$20
 	lda.b $5E
-	sta.w $07EB
+	sta.w EchoVolume
 	jsr.w SeqCmd08
 	rep #$20
 	jmp.w .12
@@ -223,7 +223,7 @@ StepTrack:
 	bne .t3x
 	sep #$20
 	lda.b $5E
-	sta.w $07EC
+	sta.w EchoFeedback
 	jsr.w SeqCmd08
 	rep #$20
 	jmp.w .12
@@ -233,7 +233,7 @@ StepTrack:
 	bne .t1x2x
 	sep #$20
 	lda.b $5E
-	sta.w $07F8
+	sta.w SoundVolume+1
 	jsr.w SeqCmd08Init_send
 	rep #$20
 	jmp.w .12
@@ -248,7 +248,7 @@ StepTrack:
 	bne .t1xxxxxxxx
 	sep #$20
 	lda.b $5E
-	sta.w $07E8
+	sta.w NoiseVoices
 	jsr.w SeqCmd08Init_send
 	rep #$20
 	jmp.w .12
@@ -275,9 +275,9 @@ StepTrack:
 	sep #$20
 	xba
 	ldx.b $4A
-	sta.w $088C,x
+	sta.w TrackBend,x
 	sta.b $5C
-	lda.w $089D,x
+	lda.w TrackBendRange,x
 	bne .t1x3
 .1x2:
 	jmp.w .8
@@ -286,7 +286,7 @@ StepTrack:
 	sta.b $60
 	ldy.b #$07
 .4x:
-	lda.w $08FA,y
+	lda.w VoiceTrack,y
 	cmp.b $4A
 	beq .t3xx
 	jmp.w .7
@@ -300,7 +300,7 @@ StepTrack:
 	lda.b $5C
 	beq .t1xxxxxxxxx
 	bmi .t2xxxx
-	lda.w $090A,y
+	lda.w VoiceNote,y
 	clc
 	adc.b $60
 	asl a
@@ -309,7 +309,7 @@ StepTrack:
 	lda.l PitchTable,x
 	plx
 	sec
-	sbc.w $095A,x
+	sbc.w VoiceBasePitch,x
 	sta.b $5E
 	sep #$20
 	lda.b $5C
@@ -318,19 +318,19 @@ StepTrack:
 	lda.b $5E
 	jsr.w MulFrac16
 	clc
-	adc.w $095A,x
+	adc.w VoiceBasePitch,x
 	sta.b $5A
 	bra .6
 
 .t1xxxxxxxxx:
 	rep #$20
 	plx
-	lda.w $095A,x
+	lda.w VoiceBasePitch,x
 	sta.b $5A
 	bra .6
 
 .t2xxxx:
-	lda.w $090A,y
+	lda.w VoiceNote,y
 	sec
 	sbc.b $60
 	asl a
@@ -339,7 +339,7 @@ StepTrack:
 	lda.l PitchTable,x
 	sta.b $5A
 	plx
-	lda.w $095A,x
+	lda.w VoiceBasePitch,x
 	sec
 	sbc.b $5A
 	sta.b $5E
@@ -359,7 +359,7 @@ StepTrack:
 	lda.b $5E
 	jsr.w MulFrac16
 .5:
-	lda.w $095A,x
+	lda.w VoiceBasePitch,x
 	sec
 	sbc.b $43
 	sta.b $5A
@@ -368,7 +368,7 @@ StepTrack:
 	lda.b ($4E),y
 	clc
 	adc.b $5A
-	sta.w $094A,x
+	sta.w VoicePitch,x
 	ply
 .7:
 	sep #$20
@@ -393,19 +393,19 @@ StepTrack:
 	lda.b [$34],y
 	clc
 	adc.b $34
-	sta.w $086A,x
+	sta.w TrackInst,x
 	sta.b $4E
 	sep #$20
 	ldx.b $4A
 	ldy.b #$2F
 	lda.b ($4E),y
-	sta.w $089D,x
-	stz.w $088C,x
-	lda.w $07E3
+	sta.w TrackBendRange,x
+	stz.w TrackBend,x
+	lda.w SoundMono
 	bne .t1xxxxxxxxxxx
 	ldy.b #$12
 	lda.b ($4E),y
-	sta.w $08AE,x
+	sta.w TrackVolL,x
 	iny
 	lda.b ($4E),y
 	bra .3xx
@@ -413,9 +413,9 @@ StepTrack:
 .t1xxxxxxxxxxx:
 	ldy.b #$17
 	lda.b ($4E),y
-	sta.w $08AE,x
+	sta.w TrackVolL,x
 .3xx:
-	sta.w $08BF,x
+	sta.w TrackVolR,x
 .4xx:
 	rep #$20
 	cpy.b #$EA
@@ -445,19 +445,19 @@ StepTrack:
 	adc.b $34
 	sta.b $4E
 	lda.b $4E
-	sta.w $086A,x
+	sta.w TrackInst,x
 	sep #$20
 	ldx.b $4A
 	ldy.b #$12
 	lda.b [$4E],y
-	sta.w $08AE,x
+	sta.w TrackVolL,x
 	iny
 	lda.b [$4E],y
-	sta.w $08BF,x
+	sta.w TrackVolR,x
 	ldy.b #$2F
 	lda.b [$4E],y
-	sta.w $089D,x
-	stz.w $088C,x
+	sta.w TrackBendRange,x
+	stz.w TrackBend,x
 .1xxxxxxxx:
 	lda.b $4A
 	asl a
@@ -466,7 +466,7 @@ StepTrack:
 	jsr.w StartSoundVoice
 .12:
 	jsr.w ReadVarLen
-	ldx.w $07FF
+	ldx.w CurTrackOfs
 	cmp.w #$0000
 	bne .t2xxxxx
 	jmp.w .2
@@ -476,11 +476,11 @@ StepTrack:
 	bra .12
 
 .t2xxxxx:
-	sta.w $0848,x
+	sta.w TrackWait,x
 	lda.b $4C
-	sta.w $0804,x
+	sta.w TrackPtr,x
 .13:
-	dec.w $0848,x
+	dec.w TrackWait,x
 .14:
 	sep #$30
 	ldx.b $4A

@@ -24,15 +24,15 @@ DMAToCGRAM:
 	rtl
 
 .t1:
-	sty.w $076A
+	sty.w CGDMAColour
 	rep #$20
 	lda.b $0E
-	sta.w $076E
+	sta.w CGDMABank
 	lda.b $0C
-	sta.w $076C
+	sta.w CGDMASrc
 	txa
 	asl a
-	sta.w $0768
+	sta.w CGDMALen
 	rtl
 
 .t3:

@@ -15,11 +15,11 @@ Multi5ConnectCheck:
 	lda.w JOYSER0
 	lsr a
 	lsr a
-	rol.w $0782
+	rol.w Multi5Sig+1
 	lda.w JOYSER1
 	lsr a
 	lsr a
-	rol.w $0784
+	rol.w Multi5Sig+3
 	dex
 	bne .loop2
 	stz.w JOYSER0
@@ -28,26 +28,26 @@ Multi5ConnectCheck:
 	lda.w JOYSER0
 	lsr a
 	lsr a
-	rol.w $0781
+	rol.w Multi5Sig
 	lda.w JOYSER1
 	lsr a
 	lsr a
-	rol.w $0783
+	rol.w Multi5Sig+2
 	dex
 	bne .loop3
-	lda.w $0782
+	lda.w Multi5Sig+1
 	cmp.b #$FF
 	bne .1
-	lda.w $0781
+	lda.w Multi5Sig
 	cmp.b #$FF
 	beq .1
 	lda.b #$80
 	sta.w mp5connect
 .1:
-	lda.w $0784
+	lda.w Multi5Sig+3
 	cmp.b #$FF
 	bne .2
-	lda.w $0783
+	lda.w Multi5Sig+2
 	cmp.b #$FF
 	beq .2
 	lda.b #$40

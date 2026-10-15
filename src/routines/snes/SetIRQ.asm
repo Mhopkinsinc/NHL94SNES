@@ -8,13 +8,13 @@ SetIRQ:
 	sta.w NMITIMEN
 	pla
 	rep #$20
-	sty.w $07D2
+	sty.w IRQVTime
 	sty.w VTIMEL
-	ldy.w $07D4
+	ldy.w IRQHTime
 	sty.w HTIMEL
 	sep #$10
-	stx.w $0791
-	sta.w $078F
+	stx.w IRQHook+2
+	sta.w IRQHook
 	jsl.l WaitFrame
 	sep #$20
 	lda.b #$B1

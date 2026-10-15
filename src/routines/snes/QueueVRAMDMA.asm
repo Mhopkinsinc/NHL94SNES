@@ -8,25 +8,25 @@ QueueVRAMDMA:
 	bcc .1
 	lda.w #$1000
 .1:
-	sta.w $0104,x
+	sta.w DMAQueue+4,x
 	lsr a
 	sta.b $16
 	tya
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	clc
 	adc.b $16
 	tay
 	lda.b $0C
-	sta.w $0101,x
+	sta.w DMAQueue+1,x
 	clc
 	adc.b $16
 	adc.b $16
 	sta.b $0C
 	sep #$20
 	lda.b $0E
-	sta.w $0103,x
+	sta.w DMAQueue+3,x
 	lda.b #$01
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	rep #$20
 	txa
 	clc

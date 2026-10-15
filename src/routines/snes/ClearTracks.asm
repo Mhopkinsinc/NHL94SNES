@@ -10,8 +10,8 @@ ClearTracks:
 	rep #$20
 	lda.w #$0000
 .loop:
-	sta.w $086A,y
-	sta.w $0848,y
+	sta.w TrackInst,y
+	sta.w TrackWait,y
 	iny
 	iny
 	inx

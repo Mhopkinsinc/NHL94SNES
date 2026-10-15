@@ -19,10 +19,10 @@ MapToVRAM:
 	asl a
 	asl a
 	asl a
-	adc.w $079C
+	adc.w MapVRAM
 	ora.b $1C
 	tay
-	lda.w $0761
+	lda.w IniDispShadow-1
 	bmi .t1
 	jmp.w .4
 
@@ -66,7 +66,7 @@ MapToVRAM:
 	bne .1x
 	tya
 	clc
-	adc.w $079E
+	adc.w MapScreenStep
 	tay
 .1x:
 	dec.b $1A
@@ -123,7 +123,7 @@ MapToVRAM:
 	bne .1xxx
 	tya
 	clc
-	adc.w $079E
+	adc.w MapScreenStep
 	tay
 .1xxx:
 	dec.b $1A

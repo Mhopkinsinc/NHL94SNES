@@ -2,7 +2,7 @@
 StartSoundVoice:
 	php
 	rep #$20
-	lda.w $086A,x
+	lda.w TrackInst,x
 	beq .3
 	sta.b $4E
 	cmp.w #$DF80
@@ -25,12 +25,12 @@ StartSoundVoice:
 
 .t1:
 	asl a
-	sta.w $0800
+	sta.w VoiceOfs
 	lda.b $4A
-	sta.w $08FA,x
+	sta.w VoiceTrack,x
 	ldy.b #$2A
 	lda.b ($4E),y
-	sta.w $0912,x
+	sta.w VoicePriority,x
 	ldy.b #$15
 	lda.b ($4E),y
 	bpl .t2
@@ -40,8 +40,8 @@ StartSoundVoice:
 .t2:
 	lda.b #$01
 .4:
-	sta.w $08F2,x
-	ldx.w $0800
+	sta.w VoiceState,x
+	ldx.w VoiceOfs
 	rep #$20
 	lda.b $4E
 	cmp.w #$E130
@@ -53,22 +53,22 @@ StartSoundVoice:
 	lda.b $5E
 .5:
 	dec a
-	sta.w $091A,x
-	stz.w $096A,x
-	stz.w $097A,x
-	stz.w $098A,x
+	sta.w VoiceLength,x
+	stz.w VoiceAge,x
+	stz.w VoiceVibCount,x
+	stz.w VoiceVibOfs,x
 	ldy.b #$1C
 	lda.b ($4E),y
-	sta.w $099A,x
-	stz.w $09AA,x
+	sta.w VoiceVibRate,x
+	stz.w VoiceVibRateFrac,x
 	ldy.b #$20
 	lda.b ($4E),y
-	sta.w $09BA,x
-	stz.w $09CA,x
+	sta.w VoiceVibDepth,x
+	stz.w VoiceVibDepthFrac,x
 	ldy.b #$1E
 	lda.b ($4E),y
-	sta.w $09DA,x
-	stz.w $09EA,x
+	sta.w VoiceVibSpeed,x
+	stz.w VoiceVibSpeedFrac,x
 	ldy.b #$2D
 	lda.b ($4E),y
 	bmi .t1xx
@@ -78,10 +78,10 @@ StartSoundVoice:
 .t1xx:
 	lda.w #$0000
 .6:
-	sta.w $09FA,x
+	sta.w VoiceVibDir,x
 	ldy.b #$0A
 	lda.b ($4E),y
-	sta.w $093A,x
+	sta.w VoiceGain,x
 	sta.b $5C
 	lda.b $4A
 	and.w #$00FF
@@ -94,7 +94,7 @@ StartSoundVoice:
 	sta.w recsfxvol
 .1x:
 	lda.b $4E
-	sta.w $092A,x
+	sta.w VoiceInst,x
 	sep #$20
 	ldx.b $5A
 	lda.l VolumeCurve,x
@@ -102,40 +102,40 @@ StartSoundVoice:
 	cmp.b #$40
 	bne .t1xxx
 	ldx.b $4A
-	lda.w $08AE,x
-	sta.w $07FC
+	lda.w TrackVolL,x
+	sta.w VoiceVolL
 	iny
-	lda.w $08BF,x
-	sta.w $07FE
+	lda.w TrackVolR,x
+	sta.w VoiceVolR
 	jmp.w .7
 
 .t1xxx:
 	asl a
 	sta.b $5A
 	ldx.b $4B
-	sta.w $0902,x
+	sta.w VoiceVelocity,x
 	ldx.b $4A
 	xba
-	lda.w $08AE,x
+	lda.w TrackVolL,x
 	jsr.w MulFrac8
-	sta.w $07FC
+	sta.w VoiceVolL
 	lda.b $5A
 	xba
-	lda.w $08BF,x
+	lda.w TrackVolR,x
 	jsr.w MulFrac8
-	sta.w $07FE
+	sta.w VoiceVolR
 .7:
-	lda.w $0802
+	lda.w MusicDuck
 	beq .1xx
 	lda.b $4A
 	cmp.b #$10
 	beq .1xx
-	lsr.w $07FE
-	lsr.w $07FC
-	lda.w $0802
+	lsr.w VoiceVolR
+	lsr.w VoiceVolL
+	lda.w MusicDuck
 	bpl .1xx
-	lsr.w $07FE
-	lsr.w $07FC
+	lsr.w VoiceVolR
+	lsr.w VoiceVolL
 .1xx:
 	ldy.b #$04
 	lda.b $60
@@ -143,7 +143,7 @@ StartSoundVoice:
 	adc.b ($4E),y
 	sta.b $60
 	ldx.b $4B
-	sta.w $090A,x
+	sta.w VoiceNote,x
 	ldx.b $4A
 	cpx.b #$09
 	bne .2x
@@ -155,19 +155,19 @@ StartSoundVoice:
 	tax
 	rep #$20
 	lda.l PitchTable,x
-	ldx.w $0800
-	sta.w $095A,x
+	ldx.w VoiceOfs
+	sta.w VoiceBasePitch,x
 	sta.b $5A
 	sep #$20
 	ldy.b $4A
-	lda.w $089D,y
+	lda.w TrackBendRange,y
 	beq .9
-	lda.w $088C,y
+	lda.w TrackBend,y
 	beq .9
 	bmi .t2x
 	lda.b $60
 	clc
-	adc.w $089D,y
+	adc.w TrackBendRange,y
 	asl a
 	tax
 	rep #$20
@@ -176,7 +176,7 @@ StartSoundVoice:
 	sbc.b $5A
 	sta.b $5E
 	sep #$20
-	lda.w $088C,y
+	lda.w TrackBend,y
 	tay
 	rep #$20
 	lda.b $5E
@@ -189,7 +189,7 @@ StartSoundVoice:
 .t2x:
 	lda.b $60
 	sec
-	sbc.w $089D,y
+	sbc.w TrackBendRange,y
 	asl a
 	tax
 	rep #$20
@@ -200,7 +200,7 @@ StartSoundVoice:
 	sep #$20
 	lda.b #$00
 	sec
-	sbc.w $088C,y
+	sbc.w TrackBend,y
 	bpl .t1xxxx
 	rep #$20
 	lda.b $5E
@@ -221,10 +221,10 @@ StartSoundVoice:
 	rep #$20
 	ldy.b #$02
 	lda.b ($4E),y
-	ldx.w $0800
+	ldx.w VoiceOfs
 	clc
 	adc.b $5A
-	sta.w $094A,x
+	sta.w VoicePitch,x
 	lda.b $4A
 	and.w #$00FF
 	cmp.w #$0010
@@ -232,7 +232,7 @@ StartSoundVoice:
 	lda.w sflags
 	bit.w #$0800
 	bne .1xxx
-	lda.w $094A,x
+	lda.w VoicePitch,x
 	sta.w recsfxpitch
 .1xxx:
 	sep #$20

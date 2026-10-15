@@ -7,7 +7,7 @@ MusicStart:
 	lda.b #$1F
 	ldy.b #$10
 .loop:
-	sta.w $08E1,y
+	sta.w TrackUnused,y
 	dey
 	bpl .loop
 	rep #$10
@@ -20,13 +20,13 @@ MusicStart:
 .1:
 	lda.b [$0C],y
 	jsl.l DivX8U
-	sta.w $07F6
+	sta.w TempoTick
 	sep #$10
 	lda.b $0E
 	sta.b $58
 	rep #$20
 	lda.b $0C
-	sta.w $07ED
+	sta.w SongPtr
 	ldx.b #$00
 	ldy.b #$08
 .loop2:
@@ -34,8 +34,8 @@ MusicStart:
 	beq .t1
 	clc
 	adc.b $0C
-	sta.w $0804,x
-	sta.w $0826,x
+	sta.w TrackPtr,x
+	sta.w TrackLoop,x
 	iny
 	iny
 	inx
@@ -43,11 +43,11 @@ MusicStart:
 	bra .loop2
 
 .t1:
-	stz.w $07EF
+	stz.w SongUnused
 	sep #$20
 	ldy.b #$06
 	lda.b [$0C],y
-	sta.w $0801
+	sta.w TrackCount
 	lda.b #$01
 	sta.w MusicOn
 	inc.w SoundLock

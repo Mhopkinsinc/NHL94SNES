@@ -128,7 +128,7 @@ checkgoalp:
 	pha
 	lda.b d1
 	pha
-	lda.w $0792
+	lda.w seed
 	and.w #$01C0
 	bne .1xx
 	lda.w SPA,x

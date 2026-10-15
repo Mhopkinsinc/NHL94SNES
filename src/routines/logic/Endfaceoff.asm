@@ -70,7 +70,7 @@ Endfaceoff:
 	bne .7
 	and.w #$0007
 	sta.b d0
-	lda.w $0792
+	lda.w seed
 	and.w #$0003
 	bne .8
 .7:

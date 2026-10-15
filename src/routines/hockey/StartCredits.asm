@@ -12,7 +12,7 @@ StartCredits:
 	rts
 
 RollCredits:
-	lda.w $0764
+	lda.w FrameCount
 	cmp.w CreditTime
 	bcc .rts
 	lda.w CreditStep
@@ -90,7 +90,7 @@ RollCredits:
 	lda.w #$000F
 .5:
 	clc
-	adc.w $0764
+	adc.w FrameCount
 	sta.w CreditTime
 	jsl.l SpriteFrameStart
 	lda.w #$007F

@@ -29,7 +29,7 @@ FallDown:
 	bcc .t2
 	lda.w nopuckb,y
 	bne .t2
-	lda.w $0792
+	lda.w seed
 	and.w #$000F
 	adc.w #$000A
 	sta.b d0

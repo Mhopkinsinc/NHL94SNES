@@ -12,5 +12,5 @@ PauseExitGame:
 	jmp.w PauseMenuPoll
 
 .t1:
-	stz.w $07C6
+	stz.w FrameByNumber
 	jml.l Restart

@@ -11,7 +11,7 @@ IRQ_BandStart:
 	sta.w BG1VOFS
 	rep #$20
 	lda.w #IRQ_BandEnd
-	sta.w $078F
+	sta.w IRQHook
 	lda.w $1DEF
 	sta.w VTIMEL
 	rtl

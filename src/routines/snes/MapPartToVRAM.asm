@@ -5,10 +5,10 @@ MapPartToVRAM:
 	txa
 	and.w #$001F
 	tax
-	lda.w $079C
+	lda.w MapVRAM
 	clc
 	adc.w #$0400
-	sta.w $079C
+	sta.w MapVRAM
 .1:
 	stx.b $1C
 	sty.b $1E
@@ -19,7 +19,7 @@ MapPartToVRAM:
 	ldx.b $26
 	jsl.l Mul16U
 	asl.b $24
-	lda.w $0761
+	lda.w IniDispShadow-1
 	bmi .t1
 	jmp.w .5
 
@@ -38,7 +38,7 @@ MapPartToVRAM:
 	asl a
 	asl a
 	asl a
-	adc.w $079C
+	adc.w MapVRAM
 	ora.b $1C
 	tay
 	sep #$20
@@ -79,7 +79,7 @@ MapPartToVRAM:
 	bne .1x
 	tya
 	clc
-	adc.w $079E
+	adc.w MapScreenStep
 	tay
 .1x:
 	dec.b $1A
@@ -126,7 +126,7 @@ MapPartToVRAM:
 	asl a
 	asl a
 	asl a
-	adc.w $079C
+	adc.w MapVRAM
 	ora.b $1C
 	tay
 .1xx:
@@ -160,7 +160,7 @@ MapPartToVRAM:
 	bne .1xxx
 	tya
 	clc
-	adc.w $079E
+	adc.w MapScreenStep
 	tay
 .1xxx:
 	dec.b $1A

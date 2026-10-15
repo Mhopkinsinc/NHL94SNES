@@ -9,7 +9,7 @@ Create_HotCold_Table:
 	lda.w #$000C
 .1:
 	sta.b $14
-	lda.w $0792
+	lda.w seed
 	and.w #$0010
 	beq .4
 	sep #$20

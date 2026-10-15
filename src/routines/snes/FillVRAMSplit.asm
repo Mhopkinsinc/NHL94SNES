@@ -1,7 +1,7 @@
 ; Fill X bytes of video memory at Y with the word A, the low bytes then the high bytes
 FillVRAMSplit:
 	sta.b $16
-	lda.w $0761
+	lda.w IniDispShadow-1
 	bpl .t1
 	txa
 	pha
@@ -49,15 +49,15 @@ FillVRAMSplit:
 	lda.w #$1000
 .1:
 	pha
-	sta.w $0104,x
+	sta.w DMAQueue+4,x
 	tya
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	lda.w #$0016
-	sta.w $0101,x
+	sta.w DMAQueue+1,x
 	sep #$20
-	stz.w $0103,x
+	stz.w DMAQueue+3,x
 	lda.b #$FD
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	rep #$20
 	txa
 	clc
@@ -65,20 +65,20 @@ FillVRAMSplit:
 	and.w #$03FF
 	tax
 	pla
-	sta.w $0104,x
+	sta.w DMAQueue+4,x
 	pha
 	tya
-	sta.w $0106,x
+	sta.w DMAQueue+6,x
 	pla
 	clc
-	adc.w $0106,x
+	adc.w DMAQueue+6,x
 	tay
 	lda.w #$0017
-	sta.w $0101,x
+	sta.w DMAQueue+1,x
 	sep #$20
-	stz.w $0103,x
+	stz.w DMAQueue+3,x
 	lda.b #$FC
-	sta.w $0100,x
+	sta.w DMAQueue,x
 	rep #$20
 	txa
 	clc

@@ -11,7 +11,7 @@ ClearNMIHook:
 
 .t1:
 	sep #$10
-	stx.w $0775
-	sta.w $0773
+	stx.w NMIHookNext+2
+	sta.w NMIHookNext
 	rep #$10
 	rtl

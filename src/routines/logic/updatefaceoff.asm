@@ -79,6 +79,6 @@ updatefaceoff:
 	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	stz.w $0764
+	stz.w FrameCount
 	stz.w $1D6D
 	rtl

@@ -3,7 +3,7 @@ SetupBandIRQ:
 	sta.w $1DED
 	stx.w $1DEF
 	lda.w #$00C4
-	sta.w $07D4
+	sta.w IRQHTime
 	lda.w #IRQ_BandStart
 	ldx.w #IRQ_BandStart>>16
 	ldy.w $1DED

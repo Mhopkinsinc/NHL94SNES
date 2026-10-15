@@ -72,19 +72,19 @@ NMI_Tick:
 	stz.w fadestep
 .7:
 	rep #$20
-	lda.w $0787
+	lda.w FrameCountHold
 	bne .1xx
-	inc.w $0764
+	inc.w FrameCount
 .1xx:
 	sep #$10
 	rep #$20
-	ldx.w $0771
+	ldx.w FrameHookNext+1
 	beq .2x
-	lda.w $0770
-	sta.w $0789
-	stz.w $0770
-	ldx.w $0772
-	stx.w $078B
+	lda.w FrameHookNext
+	sta.w FrameHook
+	stz.w FrameHookNext
+	ldx.w FrameHookNext+2
+	stx.w FrameHook+2
 .2x:
 	ldx.b #$80
 	phx

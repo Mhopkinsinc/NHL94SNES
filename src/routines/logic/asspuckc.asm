@@ -24,7 +24,7 @@ asspuckc:
 	stz.w temp2,x
 	lda.w #$0008
 	sta.w temp2b
-	lda.w $0792
+	lda.w seed
 	and.w #$0003
 	sta.w temp3,x
 .1x:
@@ -188,7 +188,7 @@ asspuckc:
 	eor.w #$0004
 	cmp.b d0
 	bne .9
-	lda.w $0794
+	lda.w seed+2
 	and.w #$0001
 	clc
 	adc.b d0

@@ -15,8 +15,8 @@ InitSprites:		; A: SpriteVRAM, X: SpritesReserved, Y: sizes the 16x16 block area
 	clc
 	adc.w #$001F
 	and.w #$FFE0
-	sta.w $07B8
-	stz.w $07BA
+	sta.w SpriteBlockTiles
+	stz.w FrameCacheCount
 	lsr a
 	lsr a
 	sep #$30
@@ -36,10 +36,10 @@ InitSprites:		; A: SpriteVRAM, X: SpritesReserved, Y: sizes the 16x16 block area
 	sta.w $2FB9
 	rep #$30
 	lda.w #$0002
-	sta.w $07C2
+	sta.w CacheUseMark
 	lda.w #$0200
 	sec
-	sbc.w $07B8
+	sbc.w SpriteBlockTiles
 	sep #$30
 	tax
 	sta.w $3032

@@ -2,7 +2,7 @@
 ReloadRink:
 	jsl.l FadeOut
 	lda.w #$FFFF
-	sta.w $07C6
+	sta.w FrameByNumber
 	jsl.l BuildRinkMap
 	lda.w #IceRinkTiles>>16
 	sta.b $0E

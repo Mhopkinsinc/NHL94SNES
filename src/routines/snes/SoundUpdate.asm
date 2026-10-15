@@ -22,18 +22,18 @@ SoundUpdate:		; per frame: fade, envelopes, and the song ticks that are due; not
 	jsr.w SeqCmd08Init_send
 .5:
 	sep #$20
-	lda.w $07F1
+	lda.w MusicPause
 	beq .2
 .1:
-	lda.w $07F8
+	lda.w SoundVolume+1
 	pha
-	stz.w $07F8
+	stz.w SoundVolume+1
 .2:
-	lda.w $07F1
+	lda.w MusicPause
 	beq .4
 .3:
 	pla
-	sta.w $07F8
+	sta.w SoundVolume+1
 .4:
 	jsr.w UpdateSfxVoices
 	lda.w MusicOn

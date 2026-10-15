@@ -9,7 +9,7 @@ DrawSprite:
 	plb
 	plb
 	lda.b $00
-	sta.w $07C4
+	sta.w DrawFrameNum
 	asl a
 	asl a
 	tay
@@ -50,23 +50,23 @@ DrawSprite_draw:
 	lda.w SpritesLeft
 	beq .1
 	lda.b [$0C],y
-	sta.w $07C8
+	sta.w PieceX
 	iny
 	iny
 	lda.b [$0C],y
-	sta.w $07CA
+	sta.w PieceY
 	iny
 	iny
 	lda.b [$0C],y
-	sta.w $07CC
+	sta.w PieceTile
 	iny
 	iny
 	lda.b [$0C],y
 	and.w #$00FF
-	sta.w $07CE
+	sta.w PieceSize
 	iny
-	sty.w $07D0
-	lda.w $07CA
+	sty.w PieceNext
+	lda.w PieceY
 	clc
 	adc.b $1E
 	cmp.w #$FFF0
@@ -78,7 +78,7 @@ DrawSprite_draw:
 
 .t2:
 	sta.b $26
-	lda.w $07C8
+	lda.w PieceX
 	clc
 	adc.b $1C
 	cmp.w #$0100
@@ -89,7 +89,7 @@ DrawSprite_draw:
 	sta.w $0000,x
 	lda.b $26
 	sta.w $0001,x
-	lda.w $07CC
+	lda.w PieceTile
 	clc
 	adc.b $16
 	eor.b $14
@@ -99,7 +99,7 @@ DrawSprite_draw:
 	sep #$20
 	lda.b $21
 	bpl .t3
-	lda.w $07CE
+	lda.w PieceSize
 	beq .t1x
 	lda.w $0000,y
 	ora.w $E688,x
@@ -112,7 +112,7 @@ DrawSprite_draw:
 	bra .3
 
 .t3:
-	lda.w $07CE
+	lda.w PieceSize
 	beq .t1xx
 	lda.w $0000,y
 	and.w $E67C,x
@@ -142,7 +142,7 @@ DrawSprite_draw:
 	sta.w OAMNext
 	tax
 .5:
-	ldy.w $07D0
+	ldy.w PieceNext
 	dec.b $00
 	beq .7
 	jmp.w .2
@@ -153,23 +153,23 @@ DrawSprite_draw:
 	lda.w SpritesLeft
 	beq .7
 	lda.b [$0C],y
-	sta.w $07C8
+	sta.w PieceX
 	iny
 	iny
 	lda.b [$0C],y
-	sta.w $07CA
+	sta.w PieceY
 	iny
 	iny
 	lda.b [$0C],y
-	sta.w $07CC
+	sta.w PieceTile
 	iny
 	iny
 	lda.b [$0C],y
 	and.w #$00FF
-	sta.w $07CE
+	sta.w PieceSize
 	iny
-	sty.w $07D0
-	lda.w $07CA
+	sty.w PieceNext
+	lda.w PieceY
 	clc
 	adc.b $1E
 	cmp.w #$FFF0
@@ -181,11 +181,11 @@ DrawSprite_draw:
 
 .t1xxxx:
 	sta.b $26
-	lda.w $07CE
+	lda.w PieceSize
 	beq .t2x
 	lda.b $1C
 	sec
-	sbc.w $07C8
+	sbc.w PieceX
 	sec
 	sbc.w #$000F
 	bra .2x
@@ -193,7 +193,7 @@ DrawSprite_draw:
 .t2x:
 	lda.b $1C
 	sec
-	sbc.w $07C8
+	sbc.w PieceX
 	sec
 	sbc.w #$0007
 .2x:
@@ -205,7 +205,7 @@ DrawSprite_draw:
 	sta.w $0000,x
 	lda.b $26
 	sta.w $0001,x
-	lda.w $07CC
+	lda.w PieceTile
 	clc
 	adc.b $16
 	eor.b $14
@@ -215,7 +215,7 @@ DrawSprite_draw:
 	sep #$20
 	lda.b $21
 	bpl .t2xx
-	lda.w $07CE
+	lda.w PieceSize
 	beq .t1xxxxx
 	lda.w $0000,y
 	ora.w $E688,x
@@ -228,7 +228,7 @@ DrawSprite_draw:
 	bra .3x
 
 .t2xx:
-	lda.w $07CE
+	lda.w PieceSize
 	beq .t1xxxxxx
 	lda.w $0000,y
 	and.w $E67C,x
@@ -258,7 +258,7 @@ DrawSprite_draw:
 	sta.w OAMNext
 	tax
 .5x:
-	ldy.w $07D0
+	ldy.w PieceNext
 	dec.b $00
 	beq DrawSpriteExit
 	jmp.w .8

@@ -1,7 +1,7 @@
 ; Stop voice Y
 StopVoice:
 	rep #$20
-	lda.w $092A,x
+	lda.w VoiceInst,x
 	cmp.w #$E1C0
 	bcc .1
 	cmp.w #$E2B1
@@ -13,9 +13,9 @@ StopVoice:
 .1:
 	sep #$30
 	lda.b #$00
-	sta.w $08F2,y
+	sta.w VoiceState,y
 	lda.b #$FF
-	sta.w $08FA,y
+	sta.w VoiceTrack,y
 	lda.b #$9F
 	sta.b $5B
 	jmp.w SeqCmd0C

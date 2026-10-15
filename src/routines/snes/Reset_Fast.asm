@@ -89,7 +89,7 @@ Reset_Fast:
 	ldx.w #$0005
 .loop8:
 	lda.w InitTag,x
-	sta.w $0796,x
+	sta.w RAMTag,x
 	sta.w $1EBD,x
 	sta.l ReplayBufferEnd,x
 	dex
@@ -110,12 +110,12 @@ Reset_Fast:
 	ldx.w #$000C
 .loop10:
 	lda.w InitHooks,x
-	sta.w $0789,x
+	sta.w FrameHook,x
 	dex
 	bpl .loop10
 	ldx.w #$0024
 .loop11:
-	stz.w $0764,x
+	stz.w FrameCount,x
 	dex
 	bpl .loop11
 	rep #$20

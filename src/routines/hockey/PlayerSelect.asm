@@ -26,7 +26,7 @@ PlayerSelect:
 	sta.w TM
 	rep #$20
 	lda.w #$FFFC
-	sta.w $07E0
+	sta.w BG3VScroll
 	lda.w #$007E
 	sta.b $12
 	lda.w #$A676

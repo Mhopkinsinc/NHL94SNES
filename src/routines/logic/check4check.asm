@@ -83,7 +83,7 @@ check4check:
 	cmp.w #$F46B
 	bcc .8
 .1x:
-	lda.w $0793
+	lda.w seed+1
 	and.w #$0007
 	beq .8
 .3x:
@@ -95,7 +95,7 @@ check4check:
 	cmp.w #$FEF8
 	bpl .2x
 .5x:
-	lda.w $0793
+	lda.w seed+1
 	and.w #$0007
 	bne .8
 	jmp.w .3x

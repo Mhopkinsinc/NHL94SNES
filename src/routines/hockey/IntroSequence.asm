@@ -6,7 +6,7 @@ IntroSequence:
 	jsl.l SPCIntroUpload
 	sep #$20
 	lda.b #$FF
-	sta.w $07E2
+	sta.w Mode7InUse
 	rep #$30
 	ldy.w #$01A0
 	lda.w #$6000
@@ -164,10 +164,10 @@ IntroSequence:
 .3:
 	lda.w #$0180
 	sta.b $D5
-	sta.w $07D6
+	sta.w BG1HScroll
 	lda.w #$0190
 	sta.b $D7
-	sta.w $07D8
+	sta.w BG1VScroll
 	lda.w #$0010
 	tsb.b $C3
 	lda.w #$0003

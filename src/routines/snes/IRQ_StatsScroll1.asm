@@ -7,7 +7,7 @@ IRQ_StatsScroll1:
 	sta.w BG1VOFS
 	rep #$20
 	lda.w #IRQ_StatsScroll2
-	sta.w $078F
+	sta.w IRQHook
 	lda.w $1DEF
 	sta.w VTIMEL
 	lda.w #$FFFF

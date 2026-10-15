@@ -14,7 +14,7 @@ TitleScreen:
 	lda.b #$05
 	sta.w BG34NBA
 	lda.b #$FF
-	sta.w $07E2
+	sta.w Mode7InUse
 	stz.w W34SEL
 	stz.w WOBJSEL
 	stz.w WH0
@@ -28,17 +28,17 @@ TitleScreen:
 	stz.w M7C
 	stz.w M7C
 	rep #$20
-	stz.w $07D6
+	stz.w BG1HScroll
 	lda.w #$FFFF
-	sta.w $07D8
-	stz.w $07DA
-	stz.w $07DC
-	stz.w $07DE
-	stz.w $07E0
+	sta.w BG1VScroll
+	stz.w BG2HScroll
+	stz.w BG2VScroll
+	stz.w BG3HScroll
+	stz.w BG3VScroll
 	lda.w #$0050
-	sta.w $07E0
+	sta.w BG3VScroll
 	lda.w #$0100
-	sta.w $07D6
+	sta.w BG1HScroll
 	stz.w TitleWH1
 	stz.w TitleWH3
 	stz.w TitleWH3Low
@@ -74,7 +74,7 @@ TitleScreen:
 	lda.w #.irq1
 	ldx.w #.irq1>>16
 	ldy.w #$0000
-	sty.w $07D4
+	sty.w IRQHTime
 	ldy.w #$0046
 	jsl.l SetIRQ
 	lda.w #.framehook
@@ -168,7 +168,7 @@ TitleScreen:
 	lda.w #$0000
 	sta.b $0C
 	lda.w #$0000
-	sta.w $079C
+	sta.w MapVRAM
 	ldx.w #$003C
 	ldy.w #$003C
 	jsl.l Mode7MapToVRAM
@@ -231,16 +231,16 @@ TitleScreen:
 	sta.w TitleM7TM
 	jsl.l WaitFrame
 	jsl.l WaitFrame
-	stz.w $0764
+	stz.w FrameCount
 	stz.w TitlePathPos
 	stz.w TitlePathFrac
 	lda.w #$0002
 	sta.w TitleLogoFlags
 .1:
-	lda.w $0764
+	lda.w FrameCount
 	cmp.w #$00F0
 	bcs .3
-	lda.w $0764
+	lda.w FrameCount
 	cmp.w #$0078
 	bcs .t1
 	jsr.w DrawLicenceNHL
@@ -252,11 +252,11 @@ TitleScreen:
 	jsr.w .5
 	bra .1
 .3:
-	stz.w $0764
+	stz.w FrameCount
 	jsr.w StartCredits
 	jsl.l WaitFrame
 .loopx:
-	lda.w $0764
+	lda.w FrameCount
 	cmp.w #$1284
 	bcs .4
 	lda.w titleskip
@@ -359,9 +359,9 @@ TitleScreen:
 	sta.w WH3
 	rep #$20
 	lda.w #.irq1>>16
-	sta.w $0791
+	sta.w IRQHook+2
 	lda.w #.irq1
-	sta.w $078F
+	sta.w IRQHook
 	lda.w #$0046
 	sta.w VTIMEL
 	lda.w #$0000
@@ -374,9 +374,9 @@ TitleScreen:
 	sta.w WH3
 	rep #$20
 	lda.w #.irq2>>16
-	sta.w $0791
+	sta.w IRQHook+2
 	lda.w #.irq2
-	sta.w $078F
+	sta.w IRQHook
 	lda.w #$0050
 	sta.w VTIMEL
 	lda.w #$00A0
@@ -419,9 +419,9 @@ TitleScreen:
 	sta.w M7D
 	rep #$20
 	lda.w #.irq3>>16
-	sta.w $0791
+	sta.w IRQHook+2
 	lda.w #.irq3
-	sta.w $078F
+	sta.w IRQHook
 	lda.w #$00B0
 	sta.w VTIMEL
 	lda.w #$0000
@@ -483,7 +483,7 @@ TitleScreen:
 	lda.w #LicenceNHLMap
 	sta.b $0C
 	lda.w #$0000
-	sta.w $079C
+	sta.w MapVRAM
 	ldx.w #$003C
 	ldy.w #$003C
 	jsl.l Mode7MapToVRAM
@@ -516,7 +516,7 @@ TitleScreen:
 	lda.w #$0000
 	sta.b $0C
 	lda.w #$5400
-	sta.w $079C
+	sta.w MapVRAM
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapToVRAM
@@ -534,7 +534,7 @@ TitleScreen:
 	lda.w #$0000
 	sta.b $0C
 	lda.w #$5800
-	sta.w $079C
+	sta.w MapVRAM
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapToVRAM

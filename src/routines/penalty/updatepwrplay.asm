@@ -75,17 +75,17 @@ updatepwrplay:
 	phx
 	tay
 	sep #$20
-	lda.w $08F2,y
+	lda.w VoiceState,y
 	cmp.b #$02
 	bne .wide
 	lda.b #$03
-	sta.w $08F2,y
+	sta.w VoiceState,y
 	rep #$20
 	tya
 	asl a
 	tay
 	lda.w #$0659
-	sta.w $094A,y
+	sta.w VoicePitch,y
 	sta.w recsfxpitch
 .wide:
 	rep #$20

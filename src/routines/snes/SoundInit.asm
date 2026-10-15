@@ -10,7 +10,7 @@ SoundInit:
 	stx.b $50
 	ldx.w #$021A
 .loop:
-	stz.w $07EF,x
+	stz.w SongUnused,x
 	dex
 	bpl .loop
 	ldx.w #$5000
@@ -27,7 +27,7 @@ SoundInit:
 	bne .loop2
 	jsr.w SeqCmd08Init
 	lda.b #$12
-	sta.w $07F6
+	sta.w TempoTick
 	stz.w SoundLock
 	stz.b $66
 	plp

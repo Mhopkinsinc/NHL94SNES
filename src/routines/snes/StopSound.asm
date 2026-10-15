@@ -21,7 +21,7 @@ StopSound:
 	ldx.b #$00
 	txy
 .loop:
-	lda.w $092A,x
+	lda.w VoiceInst,x
 	cmp.b $4E
 	bne .1
 	jsr.w StopVoice

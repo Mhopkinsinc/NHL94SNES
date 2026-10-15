@@ -8,7 +8,7 @@ Gameloop:
 	lda.w #$003C
 	ldx.w $1D6D
 	jsl.l Mul16x8U
-	lda.w $0764
+	lda.w FrameCount
 	sta.b $04
 	jsl.l Div32U
 	lda.b $00

@@ -17,7 +17,7 @@ chk4lc:
 	sec
 	sbc.w #$0058
 	bpl .t1
-	lda.w $0792
+	lda.w seed
 	and.w #$0003
 	bne .t1
 	phy

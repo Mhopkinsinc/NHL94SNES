@@ -46,7 +46,7 @@ StatsReport:
 	lda.w #$001C
 	sta.b $1A
 	lda.w #$0400
-	sta.w $079C
+	sta.w MapVRAM
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapPartToVRAM
@@ -63,7 +63,7 @@ StatsReport:
 	lda.w #$001C
 	sta.b $1A
 	lda.w #$0800
-	sta.w $079C
+	sta.w MapVRAM
 	ldx.w #$0000
 	ldy.w #$0000
 	jsl.l MapPartToVRAM

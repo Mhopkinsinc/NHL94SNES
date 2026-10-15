@@ -3,27 +3,27 @@ DrawSpritePieces:
 	lda.w SpritesLeft
 	beq DrawSpriteExit
 	lda.b [$0C],y
-	sta.w $07C8
+	sta.w PieceX
 	iny
 	iny
 	lda.b [$0C],y
-	sta.w $07CA
+	sta.w PieceY
 	iny
 	iny
 	lda.b [$0C],y
-	sta.w $07CC
+	sta.w PieceTile
 	iny
 	iny
 	lda.b [$0C],y
 	and.w #$00FF
-	sta.w $07CE
+	sta.w PieceSize
 	iny
-	sty.w $07D0
-	lda.w $07CE
+	sty.w PieceNext
+	lda.w PieceSize
 	beq .t1
 	lda.b $1E
 	sec
-	sbc.w $07CA
+	sbc.w PieceY
 	sec
 	sbc.w #$000F
 	bra .2
@@ -31,7 +31,7 @@ DrawSpritePieces:
 .t1:
 	lda.b $1E
 	sec
-	sbc.w $07CA
+	sbc.w PieceY
 	sec
 	sbc.w #$0007
 .2:
@@ -47,11 +47,11 @@ DrawSpritePieces:
 	lda.b $14
 	and.w #$4000
 	beq .t3
-	lda.w $07CE
+	lda.w PieceSize
 	beq .t1x
 	lda.b $1C
 	sec
-	sbc.w $07C8
+	sbc.w PieceX
 	sec
 	sbc.w #$000F
 	bra .3
@@ -59,13 +59,13 @@ DrawSpritePieces:
 .t1x:
 	lda.b $1C
 	sec
-	sbc.w $07C8
+	sbc.w PieceX
 	sec
 	sbc.w #$0007
 	bra .3
 
 .t3:
-	lda.w $07C8
+	lda.w PieceX
 	clc
 	adc.b $1C
 .3:
@@ -77,7 +77,7 @@ DrawSpritePieces:
 	sta.w $0000,x
 	lda.b $26
 	sta.w $0001,x
-	lda.w $07CC
+	lda.w PieceTile
 	clc
 	adc.b $16
 	eor.b $14
@@ -87,7 +87,7 @@ DrawSpritePieces:
 	sep #$20
 	lda.b $21
 	bpl .t2x
-	lda.w $07CE
+	lda.w PieceSize
 	beq .t1xx
 	lda.w $0000,y
 	ora.w $E688,x
@@ -100,7 +100,7 @@ DrawSpritePieces:
 	bra .4
 
 .t2x:
-	lda.w $07CE
+	lda.w PieceSize
 	beq .t1xxx
 	lda.w $0000,y
 	and.w $E67C,x
@@ -130,7 +130,7 @@ DrawSpritePieces:
 	sta.w OAMNext
 	tax
 .6:
-	ldy.w $07D0
+	ldy.w PieceNext
 	dec.b $00
 	beq .t1xxxxx
 	jmp.w DrawSpritePieces
@@ -151,7 +151,7 @@ DrawSpritePieces:
 .t1xxxxxx:		; the same for frame A of the sprite set at [$10]
 	phx
 	phy
-	sta.w $07C4
+	sta.w DrawFrameNum
 	asl a
 	asl a
 	tay
@@ -169,11 +169,11 @@ DrawSpritePieces:
 	plb
 	plb
 .7:
-	ldy.w $07BA
+	ldy.w FrameCacheCount
 	beq LoadFrameTiles
-	ldx.w $07C6
+	ldx.w FrameByNumber
 	beq FindCachedFrame
-	ldx.w $07C4
+	ldx.w DrawFrameNum
 	lda.w $2740,x
 	bmi LoadFrameTiles
 	xba
