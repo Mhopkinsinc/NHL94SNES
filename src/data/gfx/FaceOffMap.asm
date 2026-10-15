@@ -1,6 +1,6 @@
-; Data.
+; The faceoff box map (12 x 10 over FaceOffTiles), copied into textmap by puckfaceoff2: the 93S FaceOffMap words, with a width / height header
 
-DATA8_9AD6A6:		; a map, not packed: width, height and a word, then the map words (12 x 10); not identified yet
+FaceOffMap:		; a map, not packed: width, height and a word, then the map words (12 x 10)
 	dw $000C,$000A,$0308
 	dw $2000,$2001,$2002,$2003,$2004,$2005,$2006,$2007
 	dw $2008,$2009,$200A,$200B,$200C,$200D,$200E,$200F

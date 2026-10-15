@@ -503,7 +503,7 @@ puckfaceoff2:
 	jsl.l marktextlo
 	lda.w printy
 	clc
-	adc.l DATA8_9AD6A6+2
+	adc.l FaceOffMap+2
 	dec a
 	asl a
 	asl a
@@ -511,11 +511,11 @@ puckfaceoff2:
 	asl a
 	asl a
 	adc.w printx
-	adc.l DATA8_9AD6A6
+	adc.l FaceOffMap
 	dec a
 	jsl.l marktexthi
 	jsl.l SeatPenaltyBox
-	lda.w #DATA8_9AD6A6+6
+	lda.w #FaceOffMap+6
 	sta.l $7E3120
 	sta.b tmp0
 	lda.w #$009A
@@ -530,13 +530,13 @@ puckfaceoff2:
 	asl a
 	tax
 	ldy.w #$0000
-	lda.l DATA8_9AD6A6+2
+	lda.l FaceOffMap+2
 	sta.b $C8
 	clc
 	lda.w $1E9B
 	bne .t2xx
 .loop4:
-	lda.l DATA8_9AD6A6
+	lda.l FaceOffMap
 	sta.b $CA
 .loop5:
 	lda.b [tmp0],y
@@ -554,8 +554,8 @@ puckfaceoff2:
 	clc
 	adc.w #$0040
 	sec
-	sbc.l DATA8_9AD6A6
-	sbc.l DATA8_9AD6A6
+	sbc.l FaceOffMap
+	sbc.l FaceOffMap
 	tax
 	dec.b $C8
 	bne .loop4

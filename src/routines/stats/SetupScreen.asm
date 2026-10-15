@@ -84,9 +84,9 @@ SetupScreen:
 	sta.l $7E35C4
 	sta.l scorechars
 	jsl.l RemapTiles
-	lda.w #DATA8_9AC1F3>>16
+	lda.w #TeamBlocksTiles>>16
 	sta.b $0E
-	lda.w #DATA8_9AC1F3
+	lda.w #TeamBlocksTiles
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -221,9 +221,9 @@ SetupScreen:
 	clc
 	adc.w #$0C00
 	jsl.l PasteMap
-	lda.w #DATA8_9ADE57>>16
+	lda.w #SetupScreenPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9ADE57
+	lda.w #SetupScreenPalette
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12
@@ -292,9 +292,9 @@ SetupScreen:
 	dey
 	dey
 	bpl .loop
-	lda.w #DATA8_9ADE57>>16
+	lda.w #SetupScreenPalette>>16
 	sta.b $0E
-	lda.w #DATA8_9ADE57
+	lda.w #SetupScreenPalette
 	sta.b $0C
 	lda.w #$007F
 	sta.b $12

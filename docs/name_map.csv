@@ -6311,3 +6311,6 @@ $9ADC8D,EALogoMap,DATA8_9ADC8D,render,IntroSequence's 128 x 128 mode 7 map over 
 $9ADBD3,EALogoEMap,DATA8_9ADBD3,render,IntroSequence pastes it at column $37 of the mode 7 map; renders the E of the EA logo,src/data/gfx/EALogoEMap.asm
 $9ADB19,EALogoAMap,DATA8_9ADB19,render,IntroSequence pastes it at the same place after EALogoEMap; renders the A of the EA logo,src/data/gfx/EALogoAMap.asm
 $94F8EC,EALogoSprites,DATA8_94F8EC,render,IntroSequence unpacks it to $7F4A40 and draws its two frames: the large E and A letters,src/data/gfx/EALogoSprites.asm
+$9AC1F3,TeamBlocksTiles,DATA8_9AC1F3,93S,"Loaded at scorechars, where 93S loads TeamBlocksTiles; DrawTeamBlocks draws TeamBlocksMap over them (rendered: one bevelled block), the team name drawn on it as sprites",src/data/gfx/CenterIceTilesEDM.asm
+$9AD6A6,FaceOffMap,DATA8_9AD6A6,93S,93S FaceOffMap: the same 120 map words (94 adds the width / height header); puckfaceoff2 copies it into textmap over FaceOffTiles as 93S does,src/data/gfx/CenterIceTilesLA.asm
+$9ADE57,SetupScreenPalette,DATA8_9ADE57,93S,"The 128 colours of the 93S RonBarrMap block (.ronpal; rows 1-7 the same, two colours of row 0 differ), which 93S ScoutingReport / TeamRoster send to colour 0; loaded at colour 0 by SetupScreen, LoadScoutingScreen and LoadPlayerCardScreen",src/data/gfx/TitlePuckMap.asm

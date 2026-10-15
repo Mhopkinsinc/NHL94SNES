@@ -201,9 +201,9 @@ ReloadRink:
 	sta.b $0C
 	ldy.w #$FFFF
 	jsl.l DMAToVRAM
-	lda.w #DATA8_9AC1F3>>16
+	lda.w #TeamBlocksTiles>>16
 	sta.b $0E
-	lda.w #DATA8_9AC1F3
+	lda.w #TeamBlocksTiles
 	sta.b $0C
 	jsl.l Decompress
 	txa
