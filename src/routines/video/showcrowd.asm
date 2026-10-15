@@ -136,9 +136,9 @@ org $9BA000
 	asl a
 	asl a
 	clc
-	adc.w #$8000
+	adc.w #CrowdTiles
 	sta.b $0C
-	lda.w #$0090
+	lda.w #CrowdTiles>>16
 	sta.b $0E
 	ldy.w #$0002
 	lda.b [$10],y
