@@ -1,4 +1,4 @@
-; sound driver command $07, X and 5 bytes from [p0]
+; sound driver command $07 (voice X: volume left / right, sample, ADSR1, ADSR2), X and 5 bytes from [p0]
 SPCCmd07:
 	sep #$30
 .wait:

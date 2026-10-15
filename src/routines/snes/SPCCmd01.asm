@@ -1,4 +1,4 @@
-; sound driver command $01
+; sound driver command $01 (empty the sample area and key off every voice)
 SPCCmd01:
 	sep #$20
 .wait:

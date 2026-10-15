@@ -1,4 +1,4 @@
-; sound driver command $0B, Y in APUIO2-APUIO3, X in APUIO1
+; sound driver command $0B (pitch Y of voice X), Y in APUIO2-APUIO3, X in APUIO1
 SPCCmd0B:
 	sty.w APUIO2
 	sep #$30

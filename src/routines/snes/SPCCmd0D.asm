@@ -1,4 +1,4 @@
-; sound driver command $0D
+; sound driver command $0D (key off every voice)
 SPCCmd0D:
 	sep #$20
 .wait:

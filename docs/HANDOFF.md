@@ -189,7 +189,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 - `src/macros/snes94.mac` holds the `String` macro (length word counting itself, then text) and the `Player` macro, as 93S.
   `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
 - Tools: `tools/snesgfx.py` (unpack, blocks, tiles, map, sprites renders), `tools/spriteframes.py` (writes the SpriteFrames
-  source with the SPF group labels and the offset table), `tools/songwav.py` (plays the songs and samples to WAV).
+  source with the SPF group labels and the offset table), `tools/songwav.py` (plays the songs and samples to WAV), `tools/spc700dis.py` (disassembles sound CPU code in the asar syntax SoundDriver uses).
 
 ### Formats
 
@@ -207,6 +207,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   end with other data after their frames (centre ice logos, player photos, songs).
 - Songs: header, track offsets, TRAK chunks (big-endian size word before each "TRAK" tag); the note stream is the
   sequencer's events $D9-$EA (StepTrack, ReadTrackEvent); `tools/songwav.py` plays them.
+- The sound CPU program (`SoundDriver`, src/data/tables/SoundDriver.asm) is SPC700 source (asar `arch spc700`, base $0400; DSP and I/O registers named): it clears sound RAM above itself, keeps a sample directory at $0200 and serves 17 commands ($01-$11: reset, status, upload / drop a sample, key on / off, voice volume / sample / ADSR / pitch / gain, main volume and echo setup, the echo filter, streamed uploads, reading sound RAM back), each answered on port 0. The 65816 senders are SPCCmd01-SPCCmd0E, SPCUploadBlock ($03), SPCStreamStart / SPCStreamNext ($0F / $10) and SPCDownload ($11).
 - Sound uploads: TitleSampleList, MenuSampleList and IntroSampleList (bank $80) are long pointer lists of blocks for
   SPCUploadBlock (big-endian sound RAM address and length, then the bytes); each block is one BRR sample. The SPC upload
   routines set SoundTable (MenuSfxTable, IntroSfxTable ...), call SoundInit and send every block of one list.
@@ -265,7 +266,6 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 
 ### Still open
 
-- The SPC700 side of the sound driver (SoundDriver, db) is not disassembled; the command numbers are the driver's.
 - Next: nothing queued. The segment-era layout log that was here is in git history (before this rewrite).
 
 ## Setup notes

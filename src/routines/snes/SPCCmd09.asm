@@ -1,4 +1,4 @@
-; sound driver command $09, 5 bytes from [p0]
+; sound driver command $09 (echo volume, feedback, buffer address and delay), 5 bytes from [p0]
 SPCCmd09:
 	sep #$30
 .wait:

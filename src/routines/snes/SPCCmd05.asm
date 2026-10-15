@@ -1,4 +1,4 @@
-; sound driver command $05, X in APUIO1
+; sound driver command $05 (key off voice X), X in APUIO1
 SPCCmd05:
 	sep #$30
 .wait:

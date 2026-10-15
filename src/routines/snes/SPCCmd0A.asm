@@ -1,4 +1,4 @@
-; sound driver command $0A, 8 bytes from [p0]
+; sound driver command $0A (the eight echo filter coefficients), 8 bytes from [p0]
 SPCCmd0A:
 	sep #$30
 .wait:

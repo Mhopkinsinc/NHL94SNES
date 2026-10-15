@@ -1,4 +1,4 @@
-; sound driver command $11: X bytes from sound RAM address Y to [p0]
+; sound driver command $11 (read sound RAM back): X bytes from sound RAM address Y to [p0]
 SPCDownload:
 	sep #$20
 .wait:

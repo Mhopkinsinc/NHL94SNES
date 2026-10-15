@@ -1,4 +1,4 @@
-; sound driver command $08, 5 bytes from [p0]
+; sound driver command $08 (main volume, pitch modulation, noise, echo enable, FLG), 5 bytes from [p0]
 SPCCmd08:
 	sep #$30
 .wait:

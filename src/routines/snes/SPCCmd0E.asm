@@ -1,4 +1,4 @@
-; sound driver command $0E, X in APUIO1, A in APUIO2, Y in APUIO3
+; sound driver command $0E (volume of voice X), X in APUIO1, A in APUIO2, Y in APUIO3
 SPCCmd0E:
 	sep #$30
 	pha
