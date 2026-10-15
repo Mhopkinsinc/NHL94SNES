@@ -6,16 +6,16 @@ DecompressHuffman:
 	adc.w #$0005
 	sta.b $0C
 	lda.b ($0C)
-	sta.b $73
+	sta.b HuffEscape
 	inc.b $0C
 	lda.b ($0C)
 	inc.b $0C
 	inc.b $0C
 	xba
-	sta.b $6C
+	sta.b HuffBits
 	ldy.b #$08
-	stz.b $77
-	stz.b $75
+	stz.b HuffSymCount
+	stz.b HuffCode
 	lda.w #$0010
 	sta.b $14
 	ldx.b #$FE
@@ -23,27 +23,27 @@ DecompressHuffman:
 	inx
 	inx
 	dec.b $14
-	asl.b $75
-	lda.b $75
+	asl.b HuffCode
+	lda.b HuffCode
 	sec
-	sbc.b $77
+	sbc.b HuffSymCount
 	sta.w HuffOffset,x
 	jsr.w .149
 	sta.w HuffCount,x
 	clc
-	adc.b $77
-	sta.b $77
-	lda.b $6F
+	adc.b HuffSymCount
+	sta.b HuffSymCount
+	lda.b HuffNumber
 	clc
-	adc.b $75
-	sta.b $75
-	lda.b $6F
+	adc.b HuffCode
+	sta.b HuffCode
+	lda.b HuffNumber
 	bne .t1
 	stz.w HuffLimit,x
 	bra .2
 
 .t1:
-	lda.b $75
+	lda.b HuffCode
 	sta.b $00
 	lda.b $14
 	clc
@@ -58,7 +58,7 @@ DecompressHuffman:
 	bcc .2
 	txa
 	lsr a
-	sta.b $79
+	sta.b HuffMaxLen
 	ldx.b #$3E
 .loop2:
 	stz.w DecompTab1,x
@@ -86,48 +86,48 @@ DecompressHuffman:
 	dec.w DecompTab1,x
 	rep #$20
 	stx.w WMDATA
-	dec.b $77
+	dec.b HuffSymCount
 	bne .loop3
 	tya
 	asl a
-	sta.b $71
+	sta.b HuffStartBits
 	sep #$20
 	ldx.b #$00
 	txy
-	stz.b $7B
+	stz.b HuffLenIdx
 .3:
 	stx.b $00
-	lda.b $7B
+	lda.b HuffLenIdx
 	asl a
 	tax
 	cpx.b #$10
 	beq .9
 	lda.w HuffCount,x
-	sta.b $77
-	ldx.b $7B
+	sta.b HuffSymCount
+	ldx.b HuffLenIdx
 	lda.l .4,x
-	sta.b $7D
+	sta.b HuffSpan
 	ldx.b $00
 	bra .8
 .4:		; lookup table entries for a code of each length, plus 1
 	db $81,$41,$21,$11,$09,$05,$03,$02
 .5:
-	lda.b $7B
+	lda.b HuffLenIdx
 	asl a
 	sta.b $00
 	lda.w DecompBuf,y
 	sta.b $01
 	iny
-	cmp.b $73
+	cmp.b HuffEscape
 	bne .1x
-	lda.b $7B
+	lda.b HuffLenIdx
 	inc a
-	sta.b $74
+	sta.b HuffEscapeLen
 	lda.b #$12
 	sta.b $00
 .1x:
 	sty.b $04
-	ldy.b $7D
+	ldy.b HuffSpan
 	bra .7
 .6:
 	lda.b $01
@@ -140,11 +140,11 @@ DecompressHuffman:
 	bne .6
 	ldy.b $04
 .8:
-	dec.b $77
+	dec.b HuffSymCount
 	bpl .5
-	inc.b $7B
-	lda.b $79
-	cmp.b $7B
+	inc.b HuffLenIdx
+	lda.b HuffMaxLen
+	cmp.b HuffLenIdx
 	bcs .3
 	stx.b $00
 .9:
@@ -156,7 +156,7 @@ DecompressHuffman:
 	inx
 	bne .loopx
 .1xx:
-	lda.b $79
+	lda.b HuffMaxLen
 	asl a
 	tax
 	rep #$20
@@ -166,8 +166,8 @@ DecompressHuffman:
 	sty.w WMADDH
 	lda.b $10
 	sta.w WMADDL
-	lda.b $6C
-	ldx.b $71
+	lda.b HuffBits
+	ldx.b HuffStartBits
 	jmp (.11,x)
 .10:
 	dw .111,.112,.114,.115,.116,.117,.118,.119
@@ -197,8 +197,8 @@ DecompressHuffman:
 	stx.w WMDATA
 	stx.b $08
 .20:
-	sta.b $6C
-	ldy.b $6D
+	sta.b HuffBits
+	ldy.b HuffBits+1
 	ldx.w DecompTab2,y
 	jmp (.21,x)
 .21:
@@ -208,12 +208,12 @@ DecompressHuffman:
 	jmp.w .147
 .23:
 	ldx.b #$10
-	stz.b $6A
+	stz.b HuffBitsExt
 	lda.b ($0C)
 	and.w #$00FF
-	ora.b $6B
-	sta.b $6B
-	lda.b $6C
+	ora.b HuffBitsExt+1
+	sta.b HuffBitsExt+1
+	lda.b HuffBits
 	jmp ($0760)
 .24:
 	asl a
@@ -239,8 +239,8 @@ DecompressHuffman:
 	stx.w WMDATA
 	stx.b $08
 .32:
-	sta.b $6C
-	ldy.b $6D
+	sta.b HuffBits
+	ldy.b HuffBits+1
 	ldx.w DecompTab2,y
 	jmp (.33,x)
 .33:
@@ -250,13 +250,13 @@ DecompressHuffman:
 	jmp.w .147
 .35:
 	ldx.b #$0E
-	stz.b $6A
+	stz.b HuffBitsExt
 	lda.b ($0C)
 	and.w #$00FF
 	asl a
-	ora.b $6B
-	sta.b $6B
-	lda.b $6C
+	ora.b HuffBitsExt+1
+	sta.b HuffBitsExt+1
+	lda.b HuffBits
 	jmp ($0760)
 .36:
 	asl a
@@ -282,8 +282,8 @@ DecompressHuffman:
 	stx.w WMDATA
 	stx.b $08
 .44:
-	sta.b $6C
-	ldy.b $6D
+	sta.b HuffBits
+	ldy.b HuffBits+1
 	ldx.w DecompTab2,y
 	jmp (.45,x)
 .45:
@@ -293,14 +293,14 @@ DecompressHuffman:
 	jmp.w .147
 .47:
 	ldx.b #$0C
-	stz.b $6A
+	stz.b HuffBitsExt
 	lda.b ($0C)
 	and.w #$00FF
 	asl a
 	asl a
-	ora.b $6B
-	sta.b $6B
-	lda.b $6C
+	ora.b HuffBitsExt+1
+	sta.b HuffBitsExt+1
+	lda.b HuffBits
 	jmp ($0760)
 .48:
 	asl a
@@ -326,8 +326,8 @@ DecompressHuffman:
 	stx.w WMDATA
 	stx.b $08
 .56:
-	sta.b $6C
-	ldy.b $6D
+	sta.b HuffBits
+	ldy.b HuffBits+1
 	ldx.w DecompTab2,y
 	jmp (.57,x)
 .57:
@@ -337,15 +337,15 @@ DecompressHuffman:
 	jmp.w .147
 .59:
 	ldx.b #$0A
-	stz.b $6A
+	stz.b HuffBitsExt
 	lda.b ($0C)
 	and.w #$00FF
 	asl a
 	asl a
 	asl a
-	ora.b $6B
-	sta.b $6B
-	lda.b $6C
+	ora.b HuffBitsExt+1
+	sta.b HuffBitsExt+1
+	lda.b HuffBits
 	jmp ($0760)
 .60:
 	asl a
@@ -371,8 +371,8 @@ DecompressHuffman:
 	stx.w WMDATA
 	stx.b $08
 .68:
-	sta.b $6C
-	ldy.b $6D
+	sta.b HuffBits
+	ldy.b HuffBits+1
 	ldx.w DecompTab2,y
 	jmp (.69,x)
 .69:
@@ -382,16 +382,16 @@ DecompressHuffman:
 	jmp.w .147
 .71:
 	ldx.b #$08
-	stz.b $6A
+	stz.b HuffBitsExt
 	lda.b ($0C)
 	and.w #$00FF
 	asl a
 	asl a
 	asl a
 	asl a
-	ora.b $6B
-	sta.b $6B
-	lda.b $6C
+	ora.b HuffBitsExt+1
+	sta.b HuffBitsExt+1
+	lda.b HuffBits
 	jmp ($0760)
 .72:
 	asl a
@@ -417,8 +417,8 @@ DecompressHuffman:
 	stx.w WMDATA
 	stx.b $08
 .80:
-	sta.b $6C
-	ldy.b $6D
+	sta.b HuffBits
+	ldy.b HuffBits+1
 	ldx.w DecompTab2,y
 	jmp (.81,x)
 .81:
@@ -428,7 +428,7 @@ DecompressHuffman:
 	jmp.w .147
 .83:
 	ldx.b #$06
-	stz.b $6A
+	stz.b HuffBitsExt
 	lda.b ($0C)
 	and.w #$00FF
 	asl a
@@ -436,9 +436,9 @@ DecompressHuffman:
 	asl a
 	asl a
 	asl a
-	ora.b $6B
-	sta.b $6B
-	lda.b $6C
+	ora.b HuffBitsExt+1
+	sta.b HuffBitsExt+1
+	lda.b HuffBits
 	jmp ($0760)
 .84:
 	asl a
@@ -464,8 +464,8 @@ DecompressHuffman:
 	stx.w WMDATA
 	stx.b $08
 .92:
-	sta.b $6C
-	ldy.b $6D
+	sta.b HuffBits
+	ldy.b HuffBits+1
 	ldx.w DecompTab2,y
 	jmp (.93,x)
 .93:
@@ -475,7 +475,7 @@ DecompressHuffman:
 	jmp.w .147
 .95:
 	ldx.b #$04
-	stz.b $6A
+	stz.b HuffBitsExt
 	lda.b ($0C)
 	and.w #$00FF
 	asl a
@@ -484,9 +484,9 @@ DecompressHuffman:
 	asl a
 	asl a
 	asl a
-	ora.b $6B
-	sta.b $6B
-	lda.b $6C
+	ora.b HuffBitsExt+1
+	sta.b HuffBitsExt+1
+	lda.b HuffBits
 	jmp ($0760)
 .96:
 	asl a
@@ -512,8 +512,8 @@ DecompressHuffman:
 	stx.w WMDATA
 	stx.b $08
 .104:
-	sta.b $6C
-	ldy.b $6D
+	sta.b HuffBits
+	ldy.b HuffBits+1
 	ldx.w DecompTab2,y
 	jmp (.105,x)
 .105:
@@ -523,7 +523,7 @@ DecompressHuffman:
 	jmp.w .147
 .107:
 	ldx.b #$02
-	stz.b $6A
+	stz.b HuffBitsExt
 	lda.b ($0C)
 	and.w #$00FF
 	asl a
@@ -533,9 +533,9 @@ DecompressHuffman:
 	asl a
 	asl a
 	asl a
-	ora.b $6B
-	sta.b $6B
-	lda.b $6C
+	ora.b HuffBitsExt+1
+	sta.b HuffBitsExt+1
+	lda.b HuffBits
 	jmp ($0760)
 .108:
 	lsr a
@@ -551,7 +551,7 @@ DecompressHuffman:
 	sep #$20
 	lda.w DecompBuf,y
 	ldy.b #$01
-	cmp.b $73
+	cmp.b HuffEscape
 	beq .110
 	jmp.w .128
 .109:
@@ -567,7 +567,7 @@ DecompressHuffman:
 	sep #$20
 	lda.w DecompBuf,y
 	ldy.b #$02
-	cmp.b $73
+	cmp.b HuffEscape
 	beq .110
 	jmp.w .128
 .110:
@@ -658,7 +658,7 @@ org $80C001
 	sep #$20
 	lda.w DecompBuf,y
 	ldy.b #$03
-	cmp.b $73
+	cmp.b HuffEscape
 	beq .122
 	bra .128
 .121:
@@ -672,7 +672,7 @@ org $80C001
 	sep #$20
 	lda.w DecompBuf,y
 	ldy.b #$04
-	cmp.b $73
+	cmp.b HuffEscape
 	beq .122
 	bra .128
 .122:
@@ -689,7 +689,7 @@ org $80C001
 	sep #$20
 	lda.w DecompBuf,y
 	ldy.b #$05
-	cmp.b $73
+	cmp.b HuffEscape
 	beq .122
 	bra .128
 .125:
@@ -701,7 +701,7 @@ org $80C001
 	sep #$20
 	lda.w DecompBuf,y
 	ldy.b #$06
-	cmp.b $73
+	cmp.b HuffEscape
 	beq .122
 	bra .128
 .126:
@@ -712,7 +712,7 @@ org $80C001
 	sep #$20
 	lda.w DecompBuf,y
 	ldy.b #$07
-	cmp.b $73
+	cmp.b HuffEscape
 	beq .122
 	bra .128
 .127:
@@ -722,14 +722,14 @@ org $80C001
 	sep #$20
 	lda.w DecompBuf,y
 	ldy.b #$08
-	cmp.b $73
+	cmp.b HuffEscape
 	beq .146
 .128:
 	sta.w WMDATA
 	sta.b $08
 	rep #$20
 	inc.b $0C
-	lda.b $6B
+	lda.b HuffBitsExt+1
 	jmp (.129-2,x)
 .129:
 	dw .137,.136,.135,.134,.133,.132,.131,.130
@@ -808,9 +808,9 @@ org $80C001
 .146:
 	rep #$20
 	inc.b $0C
-	lda.b $6B
+	lda.b HuffBitsExt+1
 	jsr.w .152
-	sta.b $6C
+	sta.b HuffBits
 	jsr.w .150
 	beq .148
 	ldy.b $08
@@ -818,12 +818,12 @@ org $80C001
 	sty.w WMDATA
 	dec a
 	bne .loopxx
-	lda.b $6C
+	lda.b HuffBits
 	jmp (.11,x)
 .147:
-	ldy.b $74
+	ldy.b HuffEscapeLen
 	jsr.w .152
-	sta.b $6C
+	sta.b HuffBits
 	jsr.w .150
 	beq .148
 	ldy.b $08
@@ -831,15 +831,15 @@ org $80C001
 	sty.w WMDATA
 	dec a
 	bne .loopxxx
-	lda.b $6C
+	lda.b HuffBits
 	jmp (.11,x)
 .148:
-	lda.b $6C
+	lda.b HuffBits
 	bmi .t1x
 	ldy.b #$01
 	jsr.w .152
-	sta.b $6C
-	ldy.b $6D
+	sta.b HuffBits
+	ldy.b HuffBits+1
 	sty.w WMDATA
 	sty.b $08
 	ldy.b #$08
@@ -849,24 +849,24 @@ org $80C001
 .t1x:
 	rts
 .149:
-	stz.b $6F
-	lda.b $6C
+	stz.b HuffNumber
+	lda.b HuffBits
 	asl a
 	dey
 	beq .3x
 .1xxxx:
 	bcc .7x
 	asl a
-	rol.b $6F
+	rol.b HuffNumber
 	dey
 	beq .4x
 .2x:
 	asl a
-	rol.b $6F
+	rol.b HuffNumber
 	dey
 	beq .5x
-	sta.b $6C
-	lda.b $6F
+	sta.b HuffBits
+	lda.b HuffNumber
 	rts
 .3x:
 	sep #$20
@@ -888,8 +888,8 @@ org $80C001
 	rep #$20
 	inc.b $0C
 	ldy.b #$08
-	sta.b $6C
-	lda.b $6F
+	sta.b HuffBits
+	lda.b HuffNumber
 	rts
 .7x:
 	stx.b $00
@@ -904,20 +904,20 @@ org $80C001
 	stx.b $04
 .3xx:
 	asl a
-	rol.b $6F
+	rol.b HuffNumber
 	dey
 	beq .6x
 .4xx:
 	dex
 	bne .3xx
-	sta.b $6C
+	sta.b HuffBits
 	asl.b $04
 	ldx.b $04
 	lda.l .151-4,x
 	ldx.b $00
 	clc
-	adc.b $6F
-	sta.b $6F
+	adc.b HuffNumber
+	sta.b HuffNumber
 	rts
 .5xx:
 	sep #$20
@@ -934,8 +934,8 @@ org $80C001
 	ldy.b #$08
 	bra .4xx
 .150:
-	stz.b $6F
-	lda.b $6C
+	stz.b HuffNumber
+	lda.b HuffBits
 	asl a
 	dex
 	dex
@@ -943,18 +943,18 @@ org $80C001
 .1xxxxxx:
 	bcc .7xx
 	asl a
-	rol.b $6F
+	rol.b HuffNumber
 	dex
 	dex
 	beq .4xxx
 .2xxx:
 	asl a
-	rol.b $6F
+	rol.b HuffNumber
 	dex
 	dex
 	beq .5xxx
-	sta.b $6C
-	lda.b $6F
+	sta.b HuffBits
+	lda.b HuffNumber
 	rts
 .3xxx:
 	sep #$20
@@ -976,8 +976,8 @@ org $80C001
 	rep #$20
 	inc.b $0C
 	ldx.b #$10
-	sta.b $6C
-	lda.b $6F
+	sta.b HuffBits
+	lda.b HuffNumber
 	rts
 .7xx:
 	ldy.b #$02
@@ -992,14 +992,14 @@ org $80C001
 	sty.b $14
 .3xxxx:
 	asl a
-	rol.b $6F
+	rol.b HuffNumber
 	dex
 	dex
 	beq .6xx
 .4xxxx:
 	dey
 	bne .3xxxx
-	sta.b $6C
+	sta.b HuffBits
 	txy
 	lda.b $14
 	and.w #$00FF
@@ -1008,8 +1008,8 @@ org $80C001
 	lda.l .151-4,x
 	tyx
 	clc
-	adc.b $6F
-	sta.b $6F
+	adc.b HuffNumber
+	sta.b HuffNumber
 	rts
 .5xxxx:
 	sep #$20

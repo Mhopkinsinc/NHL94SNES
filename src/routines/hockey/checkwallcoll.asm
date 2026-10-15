@@ -84,13 +84,13 @@ checkwallcoll:
 	eor.w #$FFFF
 	inc a
 .2:
-	sta.b $D7
+	sta.b cornerdy
 	cmp.b tmp4
 	bcc .t1x
 	lda.b tmp4
 	lsr a
 	lsr a
-	adc.b $D7
+	adc.b cornerdy
 	bra .5
 
 .t1x:

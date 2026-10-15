@@ -321,9 +321,9 @@ updateplayers:
 	dex
 	bpl .loop2
 	lda.w #$0000
-	sta.b $EA
+	sta.b curobjteam
 	lda.w #$0002
-	sta.b $EC
+	sta.b curobjopp
 	ldx.w #$0000
 .15:
 	stx.b a3
@@ -331,12 +331,12 @@ updateplayers:
 	cpx.w #$000C
 	bne .1xxxxxx
 	lda.w #$0002
-	sta.b $EA
+	sta.b curobjteam
 	lda.w #$0000
-	sta.b $EC
+	sta.b curobjopp
 .1xxxxxx:
 	lda.w #$FFFF
-	sta.b $E6
+	sta.b PlayersUnused
 	lda.w position,x
 	bpl .t2xx
 	jmp.w .19

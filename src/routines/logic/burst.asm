@@ -24,7 +24,7 @@ burst:
 	jsl.l Mul16U
 	ldx.b a3
 	lda.b $0A
-	sta.b $D7
+	sta.b burstspeed
 	lda.w facedir,x
 	asl a
 	asl a
@@ -37,7 +37,7 @@ burst:
 	iny
 	iny
 	tax
-	lda.b $D7
+	lda.b burstspeed
 	jsl.l Mul8XS
 	ldx.b a3
 	clc
@@ -45,7 +45,7 @@ burst:
 	sta.w Xvel,x
 	lda.b [a0],y
 	tax
-	lda.b $D7
+	lda.b burstspeed
 	jsl.l Mul8XS
 	ldx.b a3
 	clc

@@ -7013,3 +7013,34 @@ $CB,tmp3,,behavior,RAM; scratch word (after tmp0-tmp2),src/ram94snes.asm
 $CD,tmp4,,behavior,RAM; scratch word,src/ram94snes.asm
 $CF,tmp5,,behavior,RAM; scratch word,src/ram94snes.asm
 $E4,curobj,,behavior,"RAM; object index of the object being updated (updateplayers, CalcPuckDistances store X; the assignments reload it)",src/ram94snes.asm
+$DD,mulres,,93S,"RAM; SuperMult (passbits *= d0): passbits is copied here and cleared (sta $DD,x for x = $0E..0), then ...",src/ram94snes.asm
+$6A,HuffBitsExt,,behavior,RAM; Low word of the 32-bit bit window $6A-$6D under HuffBits,src/ram94snes.asm
+$6B,LZCopySrc,,behavior,RAM; Long pointer of a back-reference copy: $6B/$6C = LZOutAddr - LZDistance - 1 (lda $6F / clc / sbc ...,src/ram94snes.asm
+$6C,HuffBits,,behavior,"RAM; 16-bit bit buffer, MSB first: header loads it with the 2 bytes at header+6 (xba / sta $6C, Y = 8 ...",src/ram94snes.asm
+$6F,HuffNumber,,behavior,"RAM; Result of the variable-length number readers .149/.150 (stz $6F, then rol $6F per bit, plus the ...",src/ram94snes.asm
+$6F,LZOutAddr,,behavior,RAM; Output address: starts as the destination word $10 (lda $10 / sta $6F) and every literal and ...,src/ram94snes.asm
+$71,HuffStartBits,,behavior,"RAM; Bits left in the buffer after the header, times 2 (tya / asl a / sta $71); the decode loop ...",src/ram94snes.asm
+$71,LZCmd,,behavior,"RAM; Command byte of each LZ token (lda [$0C],y / sta $71): bit 7 / bit 6 / bit 5 choose the 2-, 3-, ...",src/ram94snes.asm
+$73,HuffEscape,,behavior,RAM; Escape symbol from header byte 5 (lda ($0C) / sta $73 after adding 5); table build gives its ...,src/ram94snes.asm
+$73,LZCmdByte2,,behavior,RAM; Second byte of a 2- or 3-byte LZ token: offset low byte of the short form (offset = (cmd and ...,src/ram94snes.asm
+$74,HuffEscapeLen,,behavior,RAM; Code length of the escape symbol: set while building the tables when the symbol equals ...,src/ram94snes.asm
+$75,HuffCode,,behavior,"RAM; Canonical code accumulator in the header loop: per length asl $75, HuffOffset,x = $75 - symbols ...",src/ram94snes.asm
+$75,LZCmdByte3,,behavior,"RAM; Third byte of the 3-byte LZ token (lda [$0C],y / sta $75): offset low byte, offset = (($73 and ...",src/ram94snes.asm
+$77,HuffSymCount,,behavior,"RAM; Symbol count: header loop sums the codes of each length into it (adc $77 / sta $77), the symbol ...",src/ram94snes.asm
+$77,LZLenLo,,behavior,"RAM; Fourth byte of the 4-byte LZ token (lda [$0C],y / sta $77): low byte of the copy length, length ...",src/ram94snes.asm
+$79,HuffMaxLen,,behavior,RAM; Longest code length index: x/2 at the end of the header loop (txa / lsr a / sta $79); bounds the ...,src/ram94snes.asm
+$79,LZSrcIdx,,behavior,"RAM; Source index Y saved over each back-reference copy (sty $79 / ldy #0 / copy [$6B],y / ldy $79)",src/ram94snes.asm
+$7B,HuffLenIdx,,behavior,"RAM; Code length - 1 during the table fill (stz $7B, inc $7B): indexes HuffCount (asl / tax) and the ...",src/ram94snes.asm
+$7B,LZDistance,,behavior,"RAM; Back-reference distance: (cmd and $60)*8 + byte 2, or ((byte 2 and $3F) << 8) + byte 3, or the ...",src/ram94snes.asm
+$7D,HuffSpan,,behavior,"RAM; Table entries per code of the current length, plus 1 (lda .4,x / sta $7D; ldy $7D / dey / bne ...",src/ram94snes.asm
+$C3,introHookFlags,,behavior,"RAM; Jobs pending for the intro frame hook (.framehook), set with tsb and cleared there with trb: ...",src/ram94snes.asm
+$D1,introPal2Src,,behavior,"RAM; Long pointer ($D1 address word, $D3 bank) of the second palette the intro frame hook sends when ...",src/ram94snes.asm
+$D5,introBG1H,,behavior,RAM; BG1 horizontal scroll of the intro: .3 sets $0180 (also into BG1HScroll) and tsb $0010; the ...,src/ram94snes.asm
+$D7,introBG1V,,behavior,RAM; BG1 vertical scroll of the intro: .3 sets $0190 (also into BG1VScroll); the frame hook writes ...,src/ram94snes.asm
+$D7,burstspeed,,behavior,"RAM; Speed of the burst: energy*$233 >> 16 (Mul16U high word $0A / sta $D7), multiplied by the dirtab ...",src/ram94snes.asm
+$D7,cornerdy,,behavior,"RAM; checkwallcoll corner circle: |d3 - d5|, the y distance from the corner center (93S mulb at .dy); ...",src/ram94snes.asm
+$D9,introM7A,,behavior,"RAM; Mode 7 matrix A (x scale) of the intro: .23 sets $0100, .24 sets $0001, the zoom step .6 adds ...",src/ram94snes.asm
+$DB,introM7D,,behavior,"RAM; Mode 7 matrix D (y scale) of the intro, always stored with the same value as introM7A (sta $D9 / ...",src/ram94snes.asm
+$E6,PlayersUnused,,behavior,RAM; never read: updateplayers sets $FFFF for every object at the top of the per-object loop (lda #$FFFF / sta ...,src/ram94snes.asm
+$EA,curobjteam,,behavior,"RAM; never read. Team of the object being updated, 0 = home, 2 = away: updateplayers sets 0 before the loop and 2 ...",src/ram94snes.asm
+$EC,curobjopp,,behavior,"RAM; never read. The other team of the object being updated (2 for the home objects, 0 from X = $0C on), set ...",src/ram94snes.asm

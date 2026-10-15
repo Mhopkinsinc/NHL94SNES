@@ -20,7 +20,7 @@ IntroSequence:
 	sta.b $0E
 	jsl.l .33
 	jsr.w .2
-	stz.b $C3
+	stz.b introHookFlags
 	jsr.w .3
 	stz.w fadestep
 	stz.w brightness
@@ -163,13 +163,13 @@ IntroSequence:
 	rts
 .3:
 	lda.w #$0180
-	sta.b $D5
+	sta.b introBG1H
 	sta.w BG1HScroll
 	lda.w #$0190
-	sta.b $D7
+	sta.b introBG1V
 	sta.w BG1VScroll
 	lda.w #$0010
-	tsb.b $C3
+	tsb.b introHookFlags
 	lda.w #$0003
 	sta.b d4+2
 	stz.b d5+2
@@ -193,7 +193,7 @@ IntroSequence:
 	lda.w JoyPad
 	beq .1x
 .1x:
-	lda.b $C3
+	lda.b introHookFlags
 	beq .t1x
 	jmp.w .20
 
@@ -208,21 +208,21 @@ IntroSequence:
 .6:
 	ldx.b d5+2
 	bne .t1xx
-	lda.b $D9
+	lda.b introM7A
 	clc
 	adc.w #$000C
-	sta.b $D9
-	sta.b $DB
+	sta.b introM7A
+	sta.b introM7D
 	cmp.w #$0100
 	bpl .t1xx
 	lda.w #$0040
-	tsb.b $C3
+	tsb.b introHookFlags
 	bra .1xx
 
 .t1xx:
 	jsr.w .23
 	lda.w #$0040
-	tsb.b $C3
+	tsb.b introHookFlags
 	lda.b d5
 	sta.b d4+2
 .1xx:
@@ -237,7 +237,7 @@ IntroSequence:
 	jsr.w .30
 	bne .t1xxx
 	lda.w #$0008
-	tsb.b $C3
+	tsb.b introHookFlags
 	bra .1xxx
 
 .t1xxx:
@@ -247,7 +247,7 @@ IntroSequence:
 	sta.b $12
 	jsr.w .32
 	lda.w #$0008
-	tsb.b $C3
+	tsb.b introHookFlags
 	lda.b d5
 	sta.b d4+2
 .1xxx:
@@ -280,7 +280,7 @@ IntroSequence:
 	sta.b $0E
 	jsl.l .26
 	lda.w #$00C0
-	tsb.b $C3
+	tsb.b introHookFlags
 	lda.w #$0004
 	ldx.b d5+2
 	bne .1xxxxx
@@ -320,7 +320,7 @@ IntroSequence:
 	sta.b $0E
 	jsl.l .26
 	lda.w #$00C0
-	tsb.b $C3
+	tsb.b introHookFlags
 	lda.w #$0006
 	ldx.b d5+2
 	bne .1xxxxxx
@@ -370,7 +370,7 @@ IntroSequence:
 	lda.w #$0010
 	sta.b tmp1
 	lda.w #$00C8
-	tsb.b $C3
+	tsb.b introHookFlags
 	lda.w #$000B
 	ldx.b d5+2
 	bne .1xxxxxxx
@@ -389,7 +389,7 @@ IntroSequence:
 	lda.w #$0010
 	sta.b tmp1
 	lda.w #$0008
-	tsb.b $C3
+	tsb.b introHookFlags
 	lda.w #$000D
 	sta.b d4+2
 	jmp.w .20
@@ -509,13 +509,13 @@ IntroSequence:
 	rts
 .23:
 	lda.w #$0100
-	sta.b $D9
-	sta.b $DB
+	sta.b introM7A
+	sta.b introM7D
 	rts
 .24:
 	lda.w #$0001
-	sta.b $D9
-	sta.b $DB
+	sta.b introM7A
+	sta.b introM7D
 	rts
 .25:
 	stz.b d1
@@ -685,16 +685,16 @@ IntroSequence:
 	rts
 .framehook:		; the frame hook of this sequence
 	rep #$30
-	lda.b $C3
+	lda.b introHookFlags
 	bit.w #$0080
 	beq .t1xxxxxxxxxxxxx
 	jsl.l .28
 	lda.w #$0080
-	trb.b $C3
+	trb.b introHookFlags
 	jmp.w .3xx
 
 .t1xxxxxxxxxxxxx:
-	lda.b $C3
+	lda.b introHookFlags
 	bit.w #$0008
 	beq .3xx
 	lda.b $0C
@@ -708,13 +708,13 @@ IntroSequence:
 	ldy.b tmp0
 	ldx.b tmp1
 	jsl.l DMAToCGRAM
-	lda.b $C3
+	lda.b introHookFlags
 	bit.w #$0200
 	beq .2xxxxxx
 .1xxxxxxxxxxxx:
-	lda.b $D1
+	lda.b introPal2Src
 	sta.b $0C
-	lda.b $D3
+	lda.b introPal2Src+2
 	sta.b $0E
 	ldy.b tmp4
 	ldx.b tmp5
@@ -725,39 +725,39 @@ IntroSequence:
 	pla
 	sta.b $0C
 	lda.w #$0208
-	trb.b $C3
+	trb.b introHookFlags
 .3xx:
-	lda.b $C3
+	lda.b introHookFlags
 	bit.w #$0010
 	beq .1xxxxxxxxxxxxx
 	sep #$20
-	lda.b $D5
+	lda.b introBG1H
 	sta.w BG1HOFS
-	lda.b $D6
+	lda.b introBG1H+1
 	sta.w BG1HOFS
-	lda.b $D7
+	lda.b introBG1V
 	sta.w BG1VOFS
-	lda.b $D8
+	lda.b introBG1V+1
 	sta.w BG1VOFS
 	rep #$20
 	lda.w #$0010
-	trb.b $C3
+	trb.b introHookFlags
 .1xxxxxxxxxxxxx:
-	lda.b $C3
+	lda.b introHookFlags
 	bit.w #$0040
 	beq .rtl
 	sep #$20
-	lda.b $D9
+	lda.b introM7A
 	sta.w M7A
-	lda.b $DA
+	lda.b introM7A+1
 	sta.w M7A
-	lda.b $DB
+	lda.b introM7D
 	sta.w M7D
-	lda.b $DC
+	lda.b introM7D+1
 	sta.w M7D
 	rep #$20
 	lda.w #$0040
-	trb.b $C3
+	trb.b introHookFlags
 .rtl:
 	rtl
 .33:
