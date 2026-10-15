@@ -1,8 +1,8 @@
 ; The sound table of the in-game sample set (SoundInit $34): an offset per sound
 ; Byte 20 of an entry is its sample: the position in GameSampleList (sample 20 is the streamed sample slot).
 ; Sounds, from the code that plays them: 0 pass, 1 shot, 2 hard shot, 3 puck taken, 4 puck off the boards, 5 beep,
-; 6 puck off the goalie, 7 puck on the ice, 8 puck off a body, 9 puck off the post, $A puck off the boards when high,
-; $B / $C the organ (the song instrument, left / right), $D player into the boards, $F check, $11 skate stop, $12 / $13 two looping samples queued at the faceoff and on
+; 6 puck off the goalie, 7 puck on the ice, 8 puck off a body, 9 puck off the post, $A puck off the glass (the puck high),
+; $B / $C the organ (the song instrument, left / right), $D player into the boards, $F check, $11 skate stop, $12 / $13 the crowd noise loops, queued at the faceoff and on
 ; leaving the pause, $15 whistle, $16-$1B the streamed samples (StreamSfxSounds)
 GameSfxTable:
 	dw $003A,$006A,$009A,$00CA,$00FA,$03FA,$012A,$015A
