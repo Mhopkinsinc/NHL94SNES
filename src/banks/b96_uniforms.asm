@@ -1,7 +1,7 @@
 ; Bank $96: songs, maps and the uniform palettes. Files in ROM order.
 
 org $968000
-incsrc "../data/sound/DATA8_968000.asm"
+incsrc "../data/sound/SampleCowbell.asm"
 incsrc "../data/sound/DATA8_968646.asm"
 incsrc "../data/gfx/StanleyCupTiles.asm"
 incsrc "../data/sound/DATA8_969190.asm"

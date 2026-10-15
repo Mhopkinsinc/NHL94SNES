@@ -1,6 +1,6 @@
 ; In-game sample 10: the organ, a 27-byte looping tone; sounds $B and $C (the same sample, left and right volumes swapped) are the instruments every TeamSongs / DefaultSongs song sets on its left and right tracks (StepTrack event $DC)
 
-SampleOrgan:		; for SPCUploadBlock, as DATA8_9A8000
+SampleOrgan:		; for SPCUploadBlock, as SamplePlayoffOrgan
 	db $00,$09
 	db $00,$1B
 	incbin "../../../Extracted/data/sound/SampleOrgan.spc":4..31

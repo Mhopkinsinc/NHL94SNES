@@ -4,24 +4,24 @@ SPCTitleToMenu:
 	jsl.l SPCCmd04
 	jsl.l SPCCmd04
 	jsl.l SPCCmd04
-	lda.w #DATA8_94BEAC>>16
+	lda.w #SampleTimp>>16
 	sta.b $0E
-	lda.w #DATA8_94BEAC
+	lda.w #SampleTimp
 	sta.b $0C
 	jsl.l SPCUploadBlock
-	lda.w #DATA8_93DFAD>>16
+	lda.w #SampleDist>>16
 	sta.b $0E
-	lda.w #DATA8_93DFAD
+	lda.w #SampleDist
 	sta.b $0C
 	jsl.l SPCUploadBlock
-	lda.w #DATA8_9A8000>>16
+	lda.w #SamplePlayoffOrgan>>16
 	sta.b $0E
-	lda.w #DATA8_9A8000
+	lda.w #SamplePlayoffOrgan
 	sta.b $0C
 	jsl.l SPCUploadBlock
-	lda.w #DATA8_9390FA>>16
+	lda.w #SampleAPower>>16
 	sta.b $0E
-	lda.w #DATA8_9390FA
+	lda.w #SampleAPower
 	sta.b $0C
 	jsl.l SPCUploadBlock
 	lda.w #$0002

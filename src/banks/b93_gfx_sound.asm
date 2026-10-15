@@ -2,11 +2,11 @@
 
 org $938000
 incsrc "../data/gfx/SetupBackTiles.asm"
-incsrc "../data/sound/DATA8_9390FA.asm"
+incsrc "../data/sound/SampleAPower.asm"
 incsrc "../data/sound/StreamSampleOverGlass.asm"
 incsrc "../data/gfx/CardBackTiles.asm"
 incsrc "../data/sound/SamplePuckPost.asm"
 incsrc "../data/sound/DATA8_93D187.asm"
-incsrc "../data/sound/DATA8_93DFAD.asm"
+incsrc "../data/sound/SampleDist.asm"
 incsrc "../data/sound/PlayoffSong.asm"
 incsrc "../data/sound/DATA8_93FAB1.asm"
