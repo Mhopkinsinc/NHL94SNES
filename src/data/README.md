@@ -15,7 +15,7 @@ compares `Extracted/` with the ROM.
   NHLPA93SNES `teamdata93s.asm`; bank9C_A000 includes it.
 
 Where a header is already spelled as `db`/`dw`, the `incbin` is the rest of that asset (`incbin "../../../Extracted/data/gfx/<name>":<start>..<end>`, decimal, end exclusive). IceRinkTiles and TeamLogoSprites are that shape. SpriteFrames keeps one `Extracted` file per bank; the source writes each frame's header and pieces and includes that frame's tiles by range. The file is still a ROM cut of the frame region, not one `.chr` per frame.
-`tools/snesgfx.py` unpacks the packed formats and renders tiles, maps and sprite sets to PNG. `tools/songwav.py` plays the organ songs (TeamSongs / DefaultSongs) and decodes the sample blocks to WAV.
+`tools/snesgfx.py` unpacks the packed formats and renders tiles, maps and sprite sets to PNG. `tools/songwav.py` plays the organ songs (TeamSongs / DefaultSongs) and decodes the sample blocks to WAV. `tools/spc700dis.py` disassembles sound CPU code in the asar syntax of `tables/SoundDriver.asm`.
 
 The file extension gives the format:
 
