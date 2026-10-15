@@ -6409,3 +6409,7 @@ $96AA64,SampleUnused15,DATA8_96AA64,code,"In-game sample 15: only sound $10 play
 $93D187,SampleUnused,DATA8_93D187,code,"A BRR sample in no sample list and with no reader, so it never reaches the sound CPU (unused)",src/data/sound/SampleUnused.asm
 $9C8328,CrowdMeterFramePalette,DATA8_9C8328,code,"ShowCrowdMeter sends its first row to palette 5, the palette SetupScreen gives the FramerNineTile box tiles: the gold box around the meter (a gold ramp where SetupScreenPalette has greys; user screenshot)",src/data/tables/CrowdMeterFramePalette.asm
 $91DDAD,CardFrameTiles,DATA8_91DDAD,code,"LoadPlayerCardScreen loads it after CardBackTiles; CardPictureMap (the photo frame) uses its last 8 tiles, the only ones shown; the first 316 are an unused EA SPORTS logo on marble",src/data/gfx/CardFrameTiles.asm
+$9AEE1C,EALogoEPalette,DATA8_9AEE1C,render,IntroSequence: palette 3 (and sprite palette 3); EALogoEMap's tiles use only that row: the red E of the boot EA logo,src/data/gfx/LogoPaletteNJ.asm
+$9AEE3C,EALogoAPalette,DATA8_9AEE3C,render,IntroSequence: palette 4 (and sprite palette 4); EALogoAMap's tiles use only that row: the red A of the boot EA logo,src/data/gfx/LogoPaletteNJ.asm
+$9AEE5C,EALogoSportsPalette,DATA8_9AEE5C,render,"IntroSequence fades it into palette 2, the row of the SPORTS tiles of EALogoMap (blue ramp)",src/data/gfx/LogoPaletteNJ.asm
+$9AEE7C,EALogoTextPalette,DATA8_9AEE7C,render,"IntroSequence fades it into palette 1, the row of the ELECTRONIC ARTS tiles of EALogoMap",src/data/gfx/LogoPaletteNJ.asm

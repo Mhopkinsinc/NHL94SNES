@@ -62,9 +62,9 @@ IntroSequence:
 	sta.w CGDATA
 	sta.w CGDATA
 	rep #$20
-	lda.w #DATA8_9AEE1C
+	lda.w #EALogoEPalette
 	sta.b $0C
-	lda.w #DATA8_9AEE1C>>16
+	lda.w #EALogoEPalette>>16
 	sta.b $0E
 	ldy.w #$0030
 	ldx.w #$0010
@@ -72,9 +72,9 @@ IntroSequence:
 	ldy.w #$00B0
 	ldx.w #$0010
 	jsl.l DMAToCGRAM
-	lda.w #DATA8_9AEE3C
+	lda.w #EALogoAPalette
 	sta.b $0C
-	lda.w #DATA8_9AEE3C>>16
+	lda.w #EALogoAPalette>>16
 	sta.b $0E
 	ldy.w #$0040
 	ldx.w #$0010
@@ -361,7 +361,7 @@ IntroSequence:
 	jsr.w .23
 .2xxxx:
 	jsl.l .25
-	lda.w #DATA8_9AEE5C
+	lda.w #EALogoSportsPalette
 	sta.b tmp2
 	lda.w #$009A
 	sta.b $CB
@@ -380,7 +380,7 @@ IntroSequence:
 	sta.b $B7
 	jmp.w .20
 .14:
-	lda.w #DATA8_9AEE7C
+	lda.w #EALogoTextPalette
 	sta.b tmp2
 	lda.w #$009A
 	sta.b $CB
@@ -402,9 +402,9 @@ IntroSequence:
 	jmp.w .20
 
 .t1xxxxxxx:
-	lda.w #DATA8_9AEE1C
+	lda.w #EALogoEPalette
 	sta.b $0C
-	lda.w #DATA8_9AEE1C>>16
+	lda.w #EALogoEPalette>>16
 	sta.b $0E
 	lda.w #$0030
 	sta.b tmp0
@@ -423,9 +423,9 @@ IntroSequence:
 	jmp.w .20
 
 .t1xxxxxxxx:
-	lda.w #DATA8_9AEE3C
+	lda.w #EALogoAPalette
 	sta.b $0C
-	lda.w #DATA8_9AEE3C>>16
+	lda.w #EALogoAPalette>>16
 	sta.b $0E
 	lda.w #$0040
 	sta.b tmp0
@@ -441,9 +441,9 @@ IntroSequence:
 	jmp.w .20
 
 .t1xxxxxxxxx:
-	lda.w #DATA8_9AEE5C
+	lda.w #EALogoSportsPalette
 	sta.b $0C
-	lda.w #DATA8_9AEE5C>>16
+	lda.w #EALogoSportsPalette>>16
 	sta.b $0E
 	lda.w #$0020
 	sta.b tmp0
