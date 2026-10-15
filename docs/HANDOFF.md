@@ -188,7 +188,7 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   name, first address, end exclusive; formats in `src/data/README.md`). Packed streams stay packed.
 - `src/macros/snes94.mac` holds the `String` macro (length word counting itself, then text) and the `Player` macro, as 93S.
   `src/inc/snes_regs.asm` (from 93S) and `src/ram94snes.asm` are included at the top of `src/nhl94snes.asm`.
-- Tools: `tools/snesgfx.py` (unpack, blocks, tiles, map, sprites renders), `tools/spriteframes.py` (writes the SpriteFrames
+- Tools: `tools/snesgfx.py` (unpack, blocks, tiles, map, sprites, pal renders), `tools/spriteframes.py` (writes the SpriteFrames
   source with the SPF group labels and the offset table), `tools/songwav.py` (plays the songs and samples to WAV), `tools/spc700dis.py` (disassembles sound CPU code in the asar syntax SoundDriver uses).
 
 ### Formats
@@ -221,6 +221,13 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
   map). The tiles are linear 4bpp packed for DecompressHuffman (converted to planar by LinearToPlanar); BuildRinkMap pastes
   the map with palette 5. Teams 26 and 27 (the all-star teams) use CenterIceMapNHL with CenterIceTilesNHL (the NHL shield).
 - TeamLogoSprites ($81ABDE, Huffman): a sprite set drawn with DrawSprite (frame = team, palettes from LogoPaletteTable).
+  Frames 26 / 27 are the all-star (Wales / Campbell) logos, 28 / 29 the NHL shield and the NHLPA logo (LogoPaletteNHL /
+  LogoPaletteNHLPA; DrawMatchupPictures on the password and other scores screens).
+- Palettes: every palette is a file in `Extracted/data/pal/` (`.pal` raw BGR555, the packed ones `.pal.lz` ...), one per
+  label as 94G's Graphics/Pals; the uniform colours one per team with the 94G names (`BOSh.pal` home, `BOSv.pal` away).
+  The palette block at $9AEA5C-$9AF59C is 16-colour palettes back to back; the team block palettes (TeamBlockPalettes)
+  that sat inside the logo / photo labels are labels of their own (`TeamBlockPalette<team>`; entry 28 is never read:
+  `TeamBlockPaletteUnused`). `tools/snesgfx.py pal` draws palette files as swatches.
 - Player photos: PlayerPhotoTable ($9DCD53) has 28 rows of 26 long pointers to packed photos (6 x 6 tiles, LinearToPlanar),
   read by DrawPlayerPicture and LoadMatchupPhotos as (team * 26 + slot) * 4; the entries after the rows point at the photo
   palettes, one per team. Players without their own photo share the NoPicSkater1-3 / NoPicGoalie pictures.
