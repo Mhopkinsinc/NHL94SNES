@@ -29,6 +29,8 @@ Where these docs say "push to main", contributors push to their fork and open a 
   A local clone (anywhere) is optional, e.g. for fast grep; never commit into them from here.
 
 ## 2. Build and confirm MATCH
+The build writes two ROMs: `output/nhl94snes.sfc`, the 2 MB game to play and extend, and `output/retail.sfc` (`-DRETAIL`), the retail layout that must MATCH. `docs/EXTENDING.md` is how to add code and data without breaking it.
+
 
 `./build.sh` (Windows: `build.ps1`). The prebuild check makes sure the ROM is there to compare with. The last line must be `MATCH`. On a fresh clone, if it is not MATCH, stop and report the output.
 `sh tools/verify_all.sh` is the clean check: it deletes the old output, builds, and checks every segment.

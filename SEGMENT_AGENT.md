@@ -778,3 +778,4 @@ until traced (`--entry`, `--continue`). The column is the default pass, not the 
 - More graphics named. MATCH.
 - All-star palettes. MATCH.
 - SPA entries from 93S call points. MATCH.
+- Extensible build: no org inside a bank, %PadTo bank ends, ROM addresses as labels (romrefs.py, reloctest.sh), 2 MB with banks $A0-$BF (docs/EXTENDING.md). Retail layout MATCH.

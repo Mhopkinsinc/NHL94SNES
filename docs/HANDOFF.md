@@ -176,6 +176,8 @@ User-approved policy is in `docs/cleanup_plan.md` (section **Unsure decisions**,
 
 ## State
 
+The default build is the 2 MB extensible ROM; `-DRETAIL` is the retail layout that MATCHes. What was fixed for that and what is still open: `docs/EXTENDING.md`.
+
 - Full build MATCH (SHA-1 `10dcd21be9c5542e82b0b94473bf5ff569b36cf5`); `tools/verify_all.sh` MATCH.
 - Every bank ($80-$9F) is source. Code lives in `src/routines/<module>/<Routine>.asm`, tables in `src/data/tables/`, text in
   `src/data/text/`, graphics and sound wrappers in `src/data/gfx/` and `src/data/sound/`, all included from `src/banks/`.
