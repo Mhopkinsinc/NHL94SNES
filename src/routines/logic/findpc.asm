@@ -60,12 +60,12 @@ findpc:
 	lda.w SPA,x
 	cmp.w #SPAturnl
 	bcc .2x
-	cmp.w #$EBE3
+	cmp.w #SPAturnr+1
 	bcc .4
 .2x:
 	cmp.w #SPAcrosscheck
 	bcc .3
-	cmp.w #$F343
+	cmp.w #SPAburst+1
 	bcc .4
 .3:
 	lda.w pflags,x

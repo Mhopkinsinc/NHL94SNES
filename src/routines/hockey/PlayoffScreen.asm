@@ -20,7 +20,7 @@ PlayoffScreen:
 	cmp.w #$0002
 	bcc .t2
 	lda.w SongPtr
-	cmp.w #$ED31
+	cmp.w #PlayoffSong
 	beq .t2
 	jsl.l FadeOutSound
 	jsl.l forceblack

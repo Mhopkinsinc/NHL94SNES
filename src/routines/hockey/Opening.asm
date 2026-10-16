@@ -40,7 +40,7 @@ Restart:
 	lda.w MusicOn
 	beq .1
 	lda.w SongPtr
-	cmp.w #$C20C
+	cmp.w #MenuSong
 	beq .2
 	jsl.l FadeOutSound
 .loop:

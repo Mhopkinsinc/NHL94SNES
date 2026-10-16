@@ -33,7 +33,19 @@ def load_sym():
 				line_addr.setdefault(key, (int(m[1], 16) << 16) | int(m[2], 16))
 	return labels, line_addr
 
+def data_starts(line_addr):
+	# ROM addresses where a db/dw/dl/dd/incbin line starts
+	out = set(); cache = {}
+	for (f, n), a in line_addr.items():
+		if f not in cache:
+			try: cache[f] = open(f, encoding='latin1').read().split(chr(10))
+			except OSError: cache[f] = []
+		src = cache[f]
+		if n <= len(src) and re.match(r'\s*(db|dw|dl|dd|incbin)', src[n - 1], re.I): out.add(a)
+	return out
+
 labels, line_addr = load_sym()
+datastart = data_starts(line_addr)
 label_lo = collections.defaultdict(set)		# low word -> banks that have a label there
 for a in labels: label_lo[a & 0xFFFF].add(a >> 16)
 
@@ -72,6 +84,10 @@ for f in sorted(glob.glob(os.path.join(ROOT, 'src', '**', '*.asm'), recursive=Tr
 		for h in HEX.finditer(arg):
 			v = h[1]; n = int(v, 16); imm = arg[:h.start()].endswith('#')
 			if imm:
+				same = ((pc >> 16) << 16) | n
+				if n >= 0x8000 and len(v) == 4 and (same in labels or same in datastart):
+					strong.append((where, f'{op} #${v}', f'= {lname(same) or "a data line"} at ${same:06X} (same bank as the code)'))
+					continue
 				if n >= 0x8000 and len(v) == 4:
 					win = ' '.join(src[max(0, i - 6):i + 7])
 					banks = {int(b, 16) for b in BANKIMM.findall(win)}

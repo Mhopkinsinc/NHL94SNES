@@ -28,7 +28,7 @@ doinput:
 
 .t2:
 	lda.w asscur,x
-	cmp.w #$BCC7
+	cmp.w #asspenalty
 	beq .1
 	phy
 	ldy.w #$0000

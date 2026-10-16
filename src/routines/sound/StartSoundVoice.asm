@@ -5,9 +5,9 @@ StartSoundVoice:
 	lda.w TrackInst,x
 	beq .3
 	sta.b InstPtr
-	cmp.w #$DF80
+	cmp.w #GameSfxTable_organl
 	beq .1
-	cmp.w #$DFB0
+	cmp.w #GameSfxTable_organr
 	bne .2
 .1:
 	lda.b EventData2
@@ -44,7 +44,7 @@ StartSoundVoice:
 	ldx.w VoiceOfs
 	rep #$20
 	lda.b InstPtr
-	cmp.w #$E130
+	cmp.w #GameSfxTable_clap
 	bne .t1x
 	lda.w #$002D
 	bra .5

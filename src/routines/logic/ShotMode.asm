@@ -5,7 +5,7 @@ ShotMode:
 	lda.w SPA,x
 	cmp.w #SPAshotf
 	bcc .off
-	cmp.w #$F021
+	cmp.w #SPAonetimerb+1
 	bcs .off
 	lda.w SPAnum,x
 	cmp.w #$0018

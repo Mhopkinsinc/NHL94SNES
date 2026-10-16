@@ -156,7 +156,7 @@ checkplcoll:
 	lda.w SPA,x
 	cmp.w #SPAHold2
 	bcc .2
-	cmp.w #$F46B
+	cmp.w #SPAflail+1
 	bcs .2
 	stz.w pfalock,x
 	stz.w pf2aip,x
@@ -164,7 +164,7 @@ checkplcoll:
 	lda.w SPA,y
 	cmp.w #SPAHold2
 	bcc .1x2
-	cmp.w #$F46B
+	cmp.w #SPAflail+1
 	bcs .1x2
 	lda.w #$0000
 	sta.w pfalock,y
@@ -175,7 +175,7 @@ checkplcoll:
 	lda.w SPA,y
 	cmp.w #SPAHold2
 	bcc .4
-	cmp.w #$F46B
+	cmp.w #SPAflail+1
 	bcs .4
 	lda.w #$0000
 	sta.w pfalock,y
@@ -184,7 +184,7 @@ checkplcoll:
 	lda.w SPA,x
 	cmp.w #SPAHold2
 	bcc .3
-	cmp.w #$F46B
+	cmp.w #SPAflail+1
 	bcs .3
 	stz.w pfalock,x
 	stz.w pf2aip,x
@@ -209,7 +209,7 @@ checkplcoll:
 	lda.w SPA,x
 	cmp.w #SPAsweepchk
 	bcc .7
-	cmp.w #$F343
+	cmp.w #SPAburst+1
 	bcs .7
 .6:
 	lda.b d4
@@ -221,7 +221,7 @@ checkplcoll:
 	lda.w SPA,y
 	cmp.w #SPAsweepchk
 	bcc .8
-	cmp.w #$F343
+	cmp.w #SPAburst+1
 	bcc .6
 .8:
 	lda.b d4

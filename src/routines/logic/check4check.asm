@@ -30,7 +30,7 @@ check4check:
 	lda.w SPA,y
 	cmp.w #SPAHold2
 	bcc .3
-	cmp.w #$F46B
+	cmp.w #SPAflail+1
 	bcc .7
 .3:
 	lda.w pfalock,y
@@ -80,7 +80,7 @@ check4check:
 	lda.w SPA,y
 	cmp.w #SPAHold2
 	bcc .1x
-	cmp.w #$F46B
+	cmp.w #SPAflail+1
 	bcc .8
 .1x:
 	lda.w seed+1

@@ -874,7 +874,7 @@ assgoalie:
 	lda.w SPA,y
 	cmp.w #SPAshotf
 	bcc .t2xxxxx
-	cmp.w #$F021
+	cmp.w #SPAonetimerb+1
 	bcs .t2xxxxx
 	lda.w Yvel,y
 	bit.w #$8000
