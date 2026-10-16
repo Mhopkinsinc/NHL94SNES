@@ -2,9 +2,9 @@
 StopVoice:
 	rep #$20
 	lda.w VoiceInst,x
-	cmp.w #$E1C0
+	cmp.w #GameSfxTable_stream
 	bcc .1
-	cmp.w #$E2B1
+	cmp.w #GameSfxTable_streamlast+1
 	bcs .1
 	lda.w #$0000
 	sta.l streamstate
