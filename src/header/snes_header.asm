@@ -3,7 +3,11 @@
 	db "NHL '94              "		; title
 	db $30		; map mode: LoROM, FastROM
 	db $00		; cartridge type: ROM only
+if defined("RETAIL")
 	db $0A		; ROM size: 1 MB
+else
+	db $0B		; ROM size: 2 MB (banks $A0-$BF are the expansion)
+endif
 	db $00		; SRAM size: none
 	db $01		; country: USA
 	db $69		; licensee: Electronic Arts

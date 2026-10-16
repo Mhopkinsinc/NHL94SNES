@@ -1,6 +1,7 @@
 ; Bank $9D: roster, game setup, player cards and animation sequences. Files in ROM order.
 
 org $9D8000
+%RelocShift()
 incsrc "../routines/middle/Framer.asm"
 incsrc "../routines/middle/FramerRow.asm"
 incsrc "../routines/middle/FramerNineTile.asm"
@@ -83,8 +84,13 @@ incsrc "../routines/hockey/ClearPictureBox.asm"
 incsrc "../routines/snes/SetupBandIRQ.asm"
 incsrc "../routines/snes/IRQ_BandStart.asm"
 incsrc "../routines/snes/IRQ_BandEnd.asm"
+if defined("RETAIL")
 incsrc "../data/tables/PlayerPhotoTable.asm"
 incsrc "../data/tables/PhotoPaletteTable.asm"
+else
+	fillbyte $FF		; the two photo tables ($BD0 bytes) are in bank $A0; $D0 bytes here keep everything after them on the
+	fill $D0		;   page offsets of the retail ROM, so tools/reloctest.sh retail runs the same cycles (can go)
+endif
 incsrc "../routines/snes/SendTextMap.asm"
 incsrc "../routines/snes/SendTextMapRows.asm"
 incsrc "../routines/snes/SendTextMap2.asm"

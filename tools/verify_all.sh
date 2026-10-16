@@ -7,7 +7,7 @@ fail=0; mkdir -p output; LOG=output/verify_all.log
 ./build.sh >$LOG 2>&1
 grep -qiE 'error' $LOG && { echo "ASM ERRORS"; fail=1; }
 tail -1 $LOG | grep -qx MATCH || { echo "TOP:"; tail -15 $LOG; fail=1; }
-[ -s output/nhl94snes.sfc ] || { echo "TOP NO BIN"; fail=1; }
+[ -s output/nhl94snes.sfc ] && [ -s output/retail.sfc ] || { echo "TOP NO BIN"; fail=1; }
 for f in src/bank*_*.asm src/banks/b*.asm; do
   [ -f "$f" ] || continue
   s=$(basename "$f" .asm)

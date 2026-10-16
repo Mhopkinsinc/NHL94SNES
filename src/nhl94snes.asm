@@ -40,3 +40,9 @@ incsrc "banks/b9C_teams.asm"
 incsrc "banks/b9D_roster.asm"
 incsrc "banks/b9E_game.asm"
 incsrc "banks/b9F_flow.asm"
+
+; The 2 MB expansion: banks $A0-$BF are not in the retail ROM. Build with -DRETAIL for the retail 1 MB layout.
+if defined("RETAIL") == 0
+incsrc "banks/bA0_expansion.asm"
+incsrc "banks/bA1_bBF_free.asm"
+endif
