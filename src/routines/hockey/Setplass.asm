@@ -3,7 +3,7 @@ Setplass:
 	lda.w position,x
 	sta.b d0
 	bmi .t1
-	lda.w #$009F
+	lda.w #.1>>16
 	sta.b a0+2
 	lda.w #.1
 	sta.b a0

@@ -16,7 +16,7 @@ IntroSequence:
 	stz.b DMAQueueTail
 	lda.w #.1
 	sta.b p0
-	lda.w #$009F
+	lda.w #.1>>16
 	sta.b p0+2
 	jsl.l .33
 	jsr.w .2
@@ -100,7 +100,7 @@ IntroSequence:
 	bcc .loopx
 	lda.w #EALogoTiles
 	sta.b p0
-	lda.w #$0094
+	lda.w #EALogoTiles>>16
 	sta.b p0+2
 	lda.w #$8010
 	sta.b p1
@@ -363,7 +363,7 @@ IntroSequence:
 	jsl.l .25
 	lda.w #EALogoSportsPalette
 	sta.b tmp2
-	lda.w #$009A
+	lda.w #EALogoSportsPalette>>16
 	sta.b tmp3
 	lda.w #$0020
 	sta.b tmp0
@@ -382,7 +382,7 @@ IntroSequence:
 .14:
 	lda.w #EALogoTextPalette
 	sta.b tmp2
-	lda.w #$009A
+	lda.w #EALogoTextPalette>>16
 	sta.b tmp3
 	lda.w #$0010
 	sta.b tmp0

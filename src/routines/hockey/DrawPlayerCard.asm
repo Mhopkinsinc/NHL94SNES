@@ -27,7 +27,7 @@ DrawPlayerCard:
 	ldy.w #$0010
 	jsl.l DrawLogoSprite
 	ldy.b a2
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a3+2
 	lda.w tmdata,y
 	sta.b a3
@@ -51,7 +51,7 @@ DrawPlayerCard:
 	clc
 	adc.w #$0006
 	tay
-	lda.w #$009D
+	lda.w #.8>>16
 	sta.b a1+2
 	lda.w #.8
 	sta.b a1
@@ -295,7 +295,7 @@ DrawPlayerCard:
 	lda.w #$0000
 	sta.l cardblock
 	ldy.b a2
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a1+2
 	lda.w tmdata,y
 	sta.b a1

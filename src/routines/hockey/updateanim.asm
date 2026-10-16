@@ -24,7 +24,7 @@ updateanim:
 .2:
 	phy
 	sta.b a0
-	lda.w #$009D
+	lda.w #SPAList>>16
 	sta.b a0+2
 	ldy.w #$0010
 	lda.b [a0],y

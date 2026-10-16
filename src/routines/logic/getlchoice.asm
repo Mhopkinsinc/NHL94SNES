@@ -40,7 +40,7 @@ getlchoice:
 	adc.b d1
 	sta.b d0
 	tay
-	lda.w #$009F
+	lda.w #.tab>>16
 	sta.b a0+2
 	lda.w #.tab
 	sta.b a0

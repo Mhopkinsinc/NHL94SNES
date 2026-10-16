@@ -1,6 +1,7 @@
 ; Bank $9A: centre-ice logos, maps and palettes. Files in ROM order.
 
 org $9A8000
+%RelocShift()
 incsrc "../data/sound/SamplePlayoffOrgan.asm"
 incsrc "../data/gfx/CardOwenNolan.asm"
 incsrc "../data/gfx/CardPierreTurgeon.asm"

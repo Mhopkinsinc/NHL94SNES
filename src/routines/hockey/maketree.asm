@@ -30,11 +30,11 @@ maketree:
 	sta.b a0+2
 	lda.w #potree
 	sta.b a0
-	lda.w #$ED59
+	lda.w #playoffseats
 	clc
 	adc.b d1
 	sta.b a1
-	lda.w #$009C
+	lda.w #playoffseats>>16
 	sta.b a1+2
 	ldy.w #$000E
 	sty.b d2

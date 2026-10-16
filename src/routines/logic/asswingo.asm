@@ -111,7 +111,7 @@ asswingo:
 	lda.b d2
 	sta.w temp5,x
 	tay
-	lda.w #$009E
+	lda.w #.9>>16
 	sta.b a0+2
 	lda.w #.9
 	sta.b a0

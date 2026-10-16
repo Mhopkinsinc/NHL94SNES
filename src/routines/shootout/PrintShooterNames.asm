@@ -37,11 +37,11 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	lda.b d0
 	dec a
 	sta.b d1
-	lda.w #$0080
+	lda.w #.7>>16
 	sta.b a5+2
 	lda.w #.7
 	sta.b a5
-	lda.w #$0080
+	lda.w #.6>>16
 	sta.b a3+2
 	lda.w #.6
 	sta.b a3
@@ -64,7 +64,7 @@ PrintShooterNames:		; print the goalie and shooter rows, the row at the cursor (
 	lda.w #awayshooters
 	sta.b a3
 .1:
-	lda.w #$0080
+	lda.w #.8>>16
 	sta.b a5+2
 	lda.w #.8
 	sta.b a5

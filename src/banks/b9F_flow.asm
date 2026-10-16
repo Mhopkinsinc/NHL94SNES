@@ -1,6 +1,7 @@
 ; Bank $9F: period flow, goals and menus. Files in ROM order.
 
 org $9F8000
+%RelocShift()
 incsrc "../routines/hockey/ShowPeriodStats.asm"
 incsrc "../routines/hockey/DrawPeriodStats.asm"
 incsrc "../routines/snes/ResetStub.asm"

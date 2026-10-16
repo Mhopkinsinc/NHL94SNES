@@ -1,6 +1,7 @@
 ; Bank $9C: box graphics, team tables, the stats screens and the team database. Files in ROM order.
 
 org $9C8000
+%RelocShift()
 incsrc "../data/tables/FramerTiles.asm"
 incsrc "../data/tables/FramerMap.asm"
 incsrc "../data/tables/FramerNineTileTiles.asm"

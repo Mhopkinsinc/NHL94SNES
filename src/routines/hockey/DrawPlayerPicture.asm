@@ -109,9 +109,9 @@ DrawPlayerPicture:
 	asl a
 	asl a
 	clc
-	adc.w #$D8B3
+	adc.w #PhotoPaletteTable
 	sta.b a1
-	lda.w #$009D
+	lda.w #PhotoPaletteTable>>16
 	sta.b a1+2
 	lda.b [a1]
 	sta.b p0
@@ -238,7 +238,7 @@ DrawPlayerPicture:
 	rtl
 .9:
 	ldy.b a2
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a3+2
 	lda.w tmdata,y
 	sta.b a3
@@ -313,9 +313,9 @@ DrawPlayerPicture:
 	asl a
 	asl a
 	clc
-	adc.w #$D8B3
+	adc.w #PhotoPaletteTable
 	sta.b a1
-	lda.w #$009D
+	lda.w #PhotoPaletteTable>>16
 	sta.b a1+2
 	lda.b [a1]
 	sta.b p0

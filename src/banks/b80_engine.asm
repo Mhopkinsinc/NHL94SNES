@@ -1,6 +1,7 @@
 ; Bank $80: reset, math, the sound player, sprites and the shootout. Files in ROM order.
 
 org $808000
+%RelocShift()
 incsrc "../data/tables/Mode7Identity.asm"
 incsrc "../data/tables/InitHooks.asm"
 incsrc "../data/tables/InitTag.asm"

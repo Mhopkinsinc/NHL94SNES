@@ -81,7 +81,7 @@ CompLine:
 .t1:
 	lda.w #$0002
 	sta.b d1
-	lda.w #$009F
+	lda.w #.5>>16
 	sta.b a0+2
 	lda.w #.5
 	sta.b a0
@@ -93,13 +93,13 @@ CompLine:
 	cmp.w tmscore,y
 	beq .1x
 	php
-	lda.w #$009F
+	lda.w #.5>>16
 	sta.b a0+2
 	lda.w #.5+14
 	sta.b a0
 	plp
 	bpl .1x
-	lda.w #$009F
+	lda.w #.5>>16
 	sta.b a0+2
 	lda.w #.5+28
 	sta.b a0
@@ -127,7 +127,7 @@ CompLine:
 .6:
 	lda.w #$0002
 	sta.b d1
-	lda.w #$009F
+	lda.w #.7>>16
 	sta.b a0+2
 	lda.w #.7
 	sta.b a0
@@ -140,13 +140,13 @@ CompLine:
 	cmp.w tmscore,y
 	beq .1xx
 	php
-	lda.w #$009F
+	lda.w #.7>>16
 	sta.b a0+2
 	lda.w #.7+6
 	sta.b a0
 	plp
 	bpl .1xx
-	lda.w #$009F
+	lda.w #.7>>16
 	sta.b a0+2
 	lda.w #.7+12
 	sta.b a0

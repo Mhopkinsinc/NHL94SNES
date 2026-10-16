@@ -146,7 +146,7 @@ assbreakaway:
 	adc.w sopathpoint
 	asl a
 	tay
-	lda.w #$009E
+	lda.w #.10>>16
 	sta.b a0+2
 	lda.w #.10
 	sta.b a0

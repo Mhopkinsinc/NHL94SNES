@@ -96,7 +96,7 @@ DrawSelectTeam:
 	tax
 	lda.l TeamPlaceNames,x
 	sta.b p0
-	lda.w #$009C
+	lda.w #TeamPlaceNames>>16
 	sta.b p0+2
 	lda.w printx
 	pha

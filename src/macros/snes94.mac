@@ -19,3 +19,10 @@ macro PadTo(addr)		; $FF fill up to addr; the build fails if what comes before h
 		pad <addr>
 	endif
 endmacro
+
+macro RelocShift()		; after a bank's org: tools/reloctest.sh builds with -DRELOC_SHIFT=n, n $FF bytes that move everything after them
+	if defined("RELOC_SHIFT")
+		fillbyte $FF
+		fill !RELOC_SHIFT
+	endif
+endmacro

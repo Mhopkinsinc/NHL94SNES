@@ -6,7 +6,7 @@ DefaultMenus:
 	sta.b a0+2
 	lda.w #OptPlayMode
 	sta.b a0
-	lda.w #$009D
+	lda.w #.1>>16
 	sta.b a1+2
 	lda.w #.1
 	sta.b a1

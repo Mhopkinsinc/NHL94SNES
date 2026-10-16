@@ -13,7 +13,7 @@ LoadTeamLines:
 	phy
 	jsl.l GetTeamLines
 	ldy.b a2
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a1+2
 	lda.w tmdata,y
 	sta.b a1
@@ -39,7 +39,7 @@ LoadTeamLines:
 	bne .1
 	jsl.l GetTeamLines
 	ldy.b a2
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a1+2
 	lda.w tmdata,y
 	sta.b a1

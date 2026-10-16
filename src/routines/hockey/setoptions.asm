@@ -309,7 +309,7 @@ setoptions:
 	sta.b a2+2
 	lda.w #OptPlayMode
 	sta.b a2
-	lda.w #$009D
+	lda.w #.14>>16
 	sta.b a3+2
 	lda.w #.14
 	sta.b a3
@@ -458,7 +458,7 @@ setoptions:
 	sta.b a0
 	lda.b [a0],y
 	sta.b d3
-	lda.w #$009D
+	lda.w #.15>>16
 	sta.b a0+2
 	lda.w #.15
 	sta.b a0

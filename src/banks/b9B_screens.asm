@@ -1,6 +1,7 @@
 ; Bank $9B: screen setup and the rink loader. Files in ROM order.
 
 org $9B8000
+%RelocShift()
 incsrc "../routines/snes/CheckPAL.asm"
 incsrc "../routines/middle/ReadPads.asm"
 incsrc "../data/tables/PadDirection.asm"

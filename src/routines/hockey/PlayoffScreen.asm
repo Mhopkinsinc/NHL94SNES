@@ -323,7 +323,7 @@ PlayoffScreen:
 	sta.b a1+2
 	lda.w #potree
 	sta.b a1
-	lda.w #$009D
+	lda.w #.10>>16
 	sta.b a0+2
 	lda.w #.10
 	sta.b a0
@@ -382,7 +382,7 @@ PlayoffScreen:
 	tax
 	lda.l TeamPlaceNames,x
 	sta.b p0
-	lda.w #$009C
+	lda.w #TeamPlaceNames>>16
 	sta.b p0+2
 	lda.w printx
 	pha
@@ -486,9 +486,9 @@ PlayoffScreen:
 	cmp.w #$00FF
 	beq .7
 	asl a
-	adc.w #$B72C
+	adc.w #PlayoffBracketMap+6
 	sta.b tmp0
-	lda.w #$0099
+	lda.w #PlayoffBracketMap>>16
 	sta.b tmp1
 	lda.b [a0]
 	inc.b a0

@@ -164,7 +164,7 @@ Pmenu:
 	sta.b tmp0
 	lda.w tmdata,y
 	sta.b a4
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a4+2
 	ldy.w #$0000
 	lda.b [a4],y

@@ -1,6 +1,7 @@
 ; Bank $9D: roster, game setup, player cards and animation sequences. Files in ROM order.
 
 org $9D8000
+%RelocShift()
 incsrc "../routines/middle/Framer.asm"
 incsrc "../routines/middle/FramerRow.asm"
 incsrc "../routines/middle/FramerNineTile.asm"

@@ -9,10 +9,10 @@ GetFrameHot:
 	tax
 	lda.l SpriteFrames,x
 	clc
-	adc.w #$8000
+	adc.w #SpriteFrames&$FFFF
 	sta.b p0
 	lda.l SpriteFrames+2,x
-	adc.w #$0082
+	adc.w #SpriteFrames>>16
 	sta.b p0+2
 	tyx
 	ldy.w #$0012

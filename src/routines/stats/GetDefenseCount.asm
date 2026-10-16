@@ -1,7 +1,7 @@
 ; d0 = defensemen on team a2 (low nibble of team data byte 3 at +8)
 GetDefenseCount:
 	ldy.b a2
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a3+2
 	lda.w tmdata,y
 	sta.b a3

@@ -240,7 +240,7 @@ SelectLinePlayer:
 .1xx:
 	lda.w #SkaterAttribColumns
 	sta.b a1
-	lda.w #$009B
+	lda.w #SkaterAttribColumns>>16
 	sta.b a1+2
 	lda.w DispAttribCtr
 	sta.b d0

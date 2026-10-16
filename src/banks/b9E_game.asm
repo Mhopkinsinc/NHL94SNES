@@ -1,6 +1,7 @@
 ; Bank $9E: in-game object logic. Files in ROM order.
 
 org $9E8000
+%RelocShift()
 incsrc "../routines/logic/GlideBack.asm"
 incsrc "../routines/logic/assnearest.asm"
 incsrc "../routines/logic/burst.asm"

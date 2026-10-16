@@ -84,7 +84,7 @@ SetLCmode2:
 	sta.w printx
 	ldy.b a2
 	lda.w HomeTeam,y
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a1+2
 	lda.w tmdata,y
 	sta.b a1

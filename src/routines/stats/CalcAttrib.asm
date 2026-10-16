@@ -14,7 +14,7 @@ CalcAttrib:
 	adc.w #$0138
 	sta.b r0
 .1:
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a0+2
 	lda.w tmdata,y
 	sta.b a0

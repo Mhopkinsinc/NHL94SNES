@@ -12,9 +12,9 @@ NewPO:
 	asl a
 	asl a
 	asl a
-	adc.w #$ED59
+	adc.w #playoffseats
 	sta.b a0
-	lda.w #$009C
+	lda.w #playoffseats>>16
 	sta.b a0+2
 	lda.w #$000F
 	sta.b d1

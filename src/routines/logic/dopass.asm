@@ -86,9 +86,9 @@ dopass:
 	lda.w passdir
 	asl a
 	asl a
-	adc.w #$DA08
+	adc.w #dirtab+2
 	sta.b a0
-	lda.w #$0080
+	lda.w #dirtab>>16
 	sta.b a0+2
 	lda.b [a0]
 	cmp.w #$8000

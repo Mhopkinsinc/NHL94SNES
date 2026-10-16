@@ -268,7 +268,7 @@ puckfaceoff2:
 	asl a
 	asl a
 	sta.b d4
-	lda.w #$009F
+	lda.w #.19>>16
 	sta.b a1+2
 	lda.w #.19
 	clc
@@ -276,7 +276,7 @@ puckfaceoff2:
 	sta.b a1
 	lda.w penshot
 	beq .7
-	lda.w #$009F
+	lda.w #.20>>16
 	sta.b a1+2
 	lda.w #.20
 	sta.b a1
@@ -287,7 +287,7 @@ puckfaceoff2:
 	asl a
 	asl a
 	sta.b d4
-	lda.w #$009F
+	lda.w #.21>>16
 	sta.b a1+2
 	lda.w #.21
 	sta.b a1
@@ -518,7 +518,7 @@ puckfaceoff2:
 	lda.w #FaceOffMap+6
 	sta.l fobox
 	sta.b tmp0
-	lda.w #$009A
+	lda.w #FaceOffMap>>16
 	sta.b tmp1
 	lda.w printy
 	asl a

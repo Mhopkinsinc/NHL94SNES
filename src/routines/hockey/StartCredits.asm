@@ -106,7 +106,7 @@ RollCredits:
 	tax
 	lda.l CreditTitles,x
 	sta.b a1
-	lda.w #$0080
+	lda.w #CreditTitles>>16
 	sta.b a1+2
 	ldx.w #$0080
 	ldy.w CreditTitleY
@@ -116,7 +116,7 @@ RollCredits:
 	tax
 	lda.l CreditNames,x
 	sta.b a1
-	lda.w #$0080
+	lda.w #CreditNames>>16
 	sta.b a1+2
 	ldx.w #$0080
 	ldy.w CreditNameY

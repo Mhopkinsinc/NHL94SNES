@@ -1,0 +1,20 @@
+# reloctest input: skip the intro, Game Setup (defaults), Player Select with nobody playing (CPU against CPU),
+# Matchups, the pregame menu (Start Game), then the first period of LA at Montreal.
+300 start
+390 start
+480 start
+570 start
+660 start
+750 start
+840 start
+930 start
+1020 start
+1110 start
+1200 start
+1290 start
+1380 start
+1600 start		# Game Setup -> Player Select
+1800 start		# Player Select, nobody playing -> Matchups
+2200 start		# Matchups -> pregame menu
+2700 start		# Start Game
+24000 end

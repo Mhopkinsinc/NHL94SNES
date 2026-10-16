@@ -2,7 +2,7 @@
 ScoutHomeArena:
 	lda.w tmdata
 	sta.b a1
-	lda.w #$009C
+	lda.w #TeamList>>16
 	sta.b a1+2
 	ldy.w #$0004
 	lda.b a1

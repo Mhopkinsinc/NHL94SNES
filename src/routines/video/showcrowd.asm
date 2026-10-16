@@ -32,7 +32,7 @@ showcrowd:
 	jmp.w .5
 
 .t2:
-	lda.w #$009B
+	lda.w #CrowdAnimTable>>16
 	sta.b p1+2
 	lda.l CrowdAnimTable,x
 	sta.b p1
@@ -73,7 +73,7 @@ showcrowd:
 	stz.w crowdanimstep,x
 	lda.b [p1],y
 	sta.b p0
-	lda.w #$009B
+	lda.w #CrowdAnimTable>>16
 	sta.b p0+2
 	bra .7
 .4:
@@ -184,7 +184,7 @@ showcrowd:
 	ldy.w crowdanim,x
 	lda.b [p1],y
 	sta.b p0
-	lda.w #$009B
+	lda.w #CrowdAnimTable>>16
 	sta.b p0+2
 	ldy.w crowdanimstep,x
 	lda.b [p0],y
@@ -223,7 +223,7 @@ showcrowd:
 	ldy.w crowdanim,x
 	lda.b [p1],y
 	sta.b p0
-	lda.w #$009B
+	lda.w #CrowdAnimTable>>16
 	sta.b p0+2
 	stz.w crowdanimstep,x
 	jmp.w .7
