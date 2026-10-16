@@ -827,5 +827,3 @@ IntroSequence:
 	rep #$20
 	rtl
 	db $00
-	padbyte $FF
-	pad $A08000

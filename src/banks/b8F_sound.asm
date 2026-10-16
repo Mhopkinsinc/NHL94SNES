@@ -5,3 +5,5 @@ incsrc "../data/sound/SampleEASportsVoice.asm"
 incsrc "../data/sound/StreamSampleBigHit.asm"
 incsrc "../data/sound/TitleSong.asm"
 incsrc "../data/gfx/NoPicSkater3.asm"
+FreeSpace8F:
+	%PadTo($908000)

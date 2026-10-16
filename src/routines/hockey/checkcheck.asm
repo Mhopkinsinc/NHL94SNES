@@ -5,7 +5,6 @@ checkcheck:
 	lda.b a2
 	pha
 	lda.b a3
-org $9EA001
 	pha
 	jsl.l .cc
 	ldx.b a2

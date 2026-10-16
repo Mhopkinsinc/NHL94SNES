@@ -601,7 +601,6 @@ DecompressHuffman:
 	cmp.w HuffLimit+$14
 	bcc .120
 	cmp.w HuffLimit+$16
-org $80C001
 	bcc .121
 	jmp.w .124
 .117:

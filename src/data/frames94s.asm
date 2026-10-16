@@ -698,5 +698,3 @@ SPAunused3:		; nothing sets it
 	dw .d0,.d0,.d0,.d0,.d0,.d0,.d0,.d0
 	dw 0
 .d0:	dw SPFskateb+12,-52
-	padbyte $FF
-	pad $9E8000

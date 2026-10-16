@@ -643,7 +643,6 @@ ReplayMode:
 	lda.w VoiceState,y
 	cmp.b #$02
 	bne .1xxxxxxxxxxxxx
-org $9BB001
 	lda.b #$03
 	sta.w VoiceState,y
 	rep #$20

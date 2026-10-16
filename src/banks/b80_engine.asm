@@ -204,6 +204,8 @@ incsrc "../data/tables/TitleSampleList.asm"
 incsrc "../data/tables/MenuSampleList.asm"
 incsrc "../data/tables/IntroSampleList.asm"
 incsrc "../data/tables/IntroSfxTable.asm"
+FreeSpace80:
+	%PadTo($80FF00)
 incsrc "../data/tables/OAMHighMasks.asm"
-	pad $80FFC0
+	%PadTo($80FFC0)
 incsrc "../header/snes_header.asm"

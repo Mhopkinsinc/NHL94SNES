@@ -170,3 +170,5 @@ incsrc "../routines/penalty/UpdatePA.asm"
 incsrc "../routines/penalty/SetPA.asm"
 incsrc "../routines/video/showref.asm"
 incsrc "../routines/penalty/PushRef.asm"
+FreeSpace9E:
+	%PadTo($9F8000)

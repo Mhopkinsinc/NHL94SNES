@@ -36,7 +36,6 @@ skatetopuck:
 	lda.b d1
 	eor.w #$FFFF
 	inc a
-org $9EB000
 	sec
 	sbc.w Yvel+1,x
 	and.w #$00FF

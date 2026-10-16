@@ -152,7 +152,6 @@ SetScore:
 	asl a
 	adc.w #$A038
 	sta.b a1
-org $9FA001
 	lda.w #$009F
 	sta.b a1+2
 	lda.b [a1]

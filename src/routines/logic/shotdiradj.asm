@@ -6,7 +6,6 @@ shotdiradj:
 
 .t2:
 	lda.w #$0008
-org $9EE002
 	sta.b d0
 	lda.w #$0005
 	sta.b d1

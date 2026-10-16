@@ -10,3 +10,5 @@ incsrc "../data/sound/SampleUnused.asm"
 incsrc "../data/sound/SampleDist.asm"
 incsrc "../data/sound/PlayoffSong.asm"
 incsrc "../data/sound/SampleKick.asm"
+FreeSpace93:
+	%PadTo($948000)

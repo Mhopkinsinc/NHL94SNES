@@ -17,3 +17,5 @@ incsrc "../data/sound/SampleChug.asm"
 incsrc "../data/gfx/MenuBackTiles.asm"
 incsrc "../data/gfx/LicenceTiles.asm"
 incsrc "../data/gfx/StanleyCupMap.asm"
+FreeSpace95:
+	%PadTo($968000)

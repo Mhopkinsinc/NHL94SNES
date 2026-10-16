@@ -148,7 +148,6 @@ ShowRosterLine:
 	dec.b d1
 .3:
 	lda.w #$0001
-org $9DA000
 	sta.w printx
 	lda.b a5+2
 	sta.b a1+2

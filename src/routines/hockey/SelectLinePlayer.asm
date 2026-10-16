@@ -275,7 +275,6 @@ SelectLinePlayer:
 	lda.b [a1]
 	sta.b d4+2
 	ldy.w #$0002
-org $9B9001
 	lda.b [a1],y
 	sta.b d4
 	lda.b a1+2

@@ -11,3 +11,11 @@ macro Player(name, w1, w2, w3, w4)	; length word (counts itself), the name, then
 	db "<name>"
 ?e:	db <w1>>>8,<w1>&$FF,<w2>>>8,<w2>&$FF,<w3>>>8,<w3>&$FF,<w4>>>8,<w4>&$FF
 endmacro
+
+macro PadTo(addr)		; $FF fill up to addr; the build fails if what comes before has grown past addr
+	if pc()&$FFFF != 0		; a bank filled to its last byte leaves pc() at $xx0000 of the next bank: nothing to fill
+		assert pc() <= <addr>, "no room: the code or data before this %PadTo runs past <addr>"
+		padbyte $FF
+		pad <addr>
+	endif
+endmacro

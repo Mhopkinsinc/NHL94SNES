@@ -101,3 +101,5 @@ incsrc "../routines/snes/SetColours.asm"
 incsrc "../routines/snes/SendColours.asm"
 incsrc "../routines/snes/GetPauseTeam.asm"
 incsrc "../data/frames94s.asm"
+FreeSpace9D:
+	%PadTo($9E8000)

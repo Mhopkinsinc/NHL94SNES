@@ -96,7 +96,6 @@ wallcoll:
 	lda.b d3
 	sec
 	sbc.b d0
-org $9E9000
 	sec
 	sbc.b d0+2
 	sta.b d3

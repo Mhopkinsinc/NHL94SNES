@@ -19,7 +19,6 @@ SpriteFrameEnd:		; move the unused entries off screen, swap the OAM buffers and 
 .1:
 	ldy.w OAMLastEnd
 	lda.w OAMNext
-org $80B001
 	sta.w OAMLastEnd
 	sty.w OAMHideEnd
 	ldx.w OAMDrawBuf

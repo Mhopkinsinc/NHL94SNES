@@ -194,5 +194,4 @@ ShooterSelectList:
 .t1x2:
 	dec.w picktop
 	jsl.l PrintShooterList
-org $80D001
 	jmp.w .2

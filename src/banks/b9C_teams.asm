@@ -65,9 +65,7 @@ incsrc "../routines/hockey/SuperMult.asm"
 incsrc "../routines/snes/ApproxLength.asm"
 incsrc "../routines/logic/CalcPuckDistances.asm"
 incsrc "../data/teamdata94s.asm"
-org $9CEF59
 incsrc "../data/text/WinsMark.asm"
-org $9CF000
 incsrc "../data/text/DrawEditLinesTitlePos.asm"
-	padbyte $FF
-	pad $9D8000
+FreeSpace9C:
+	%PadTo($9D8000)

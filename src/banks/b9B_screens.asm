@@ -117,3 +117,5 @@ incsrc "../routines/snes/SetupScrollIRQ.asm"
 incsrc "../routines/snes/IRQ_StatsScroll1.asm"
 incsrc "../routines/snes/IRQ_StatsScroll2.asm"
 incsrc "../routines/snes/IRQ_StatsScroll3.asm"
+FreeSpace9B:
+	%PadTo($9C8000)

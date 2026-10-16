@@ -145,5 +145,3 @@ PushRef:
 	sta.b d0
 	plx
 	rtl
-	padbyte $FF
-	pad $9F8000

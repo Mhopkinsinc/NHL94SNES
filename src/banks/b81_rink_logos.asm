@@ -4,3 +4,5 @@ org $818000
 incsrc "../data/gfx/IceRinkTiles.asm"
 incsrc "../data/gfx/TeamLogoSprites.asm"
 incsrc "../data/sound/SongGoTeamGoC.asm"
+FreeSpace81:
+	%PadTo($828000)

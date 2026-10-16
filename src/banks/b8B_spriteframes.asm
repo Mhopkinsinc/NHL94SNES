@@ -3,3 +3,5 @@
 org $8B8000
 incsrc "../data/gfx/SpriteFrames8B.asm"
 incsrc "../data/sound/SongCharge.asm"
+FreeSpace8B:
+	%PadTo($8C8000)

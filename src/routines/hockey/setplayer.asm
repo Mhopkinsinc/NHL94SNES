@@ -132,7 +132,6 @@ setplayer:
 	bpl .6
 .2:
 	lda.w tmscore
-org $9FD000
 	sec
 	sbc.w tmscore+2
 	sta.b tmp0

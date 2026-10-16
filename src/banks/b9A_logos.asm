@@ -173,3 +173,5 @@ incsrc "../data/gfx/LogoPaletteHFD.asm"
 incsrc "../data/gfx/LogoPaletteLA.asm"
 incsrc "../data/gfx/PhotoPaletteANH.asm"
 incsrc "../data/sound/SampleOrgan.asm"
+FreeSpace9A:
+	%PadTo($9B8000)

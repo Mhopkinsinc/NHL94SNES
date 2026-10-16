@@ -38,7 +38,6 @@ showcrowd:
 	sta.b p1
 	lda.w crowdanim,x
 	beq .t1x
-org $9BA000
 	jmp.w .9
 
 .t1x:

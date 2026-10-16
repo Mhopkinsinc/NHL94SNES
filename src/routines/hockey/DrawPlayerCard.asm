@@ -178,7 +178,6 @@ DrawPlayerCard:
 	clc
 	adc.b d1
 	cmp.w curplayer
-org $9DC002
 	beq .t1x2
 	bmi .t1x2
 	lda.w #RosterGroups>>16

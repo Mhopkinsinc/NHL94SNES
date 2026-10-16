@@ -13,4 +13,3 @@ Mul16x8S:
 	eor.w #$FFFF
 	inc a
 	jmp.w Mul16x8U_go
-org $809002

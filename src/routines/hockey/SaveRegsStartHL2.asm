@@ -217,7 +217,6 @@ StartHL2:
 	sta.w puckc
 .5:
 	jsl.l SprSort
-org $9F9001
 	lda.w #$00B4
 	pha
 	lda.b vcount

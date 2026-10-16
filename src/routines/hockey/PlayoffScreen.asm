@@ -461,7 +461,6 @@ PlayoffScreen:
 	inx
 	dec.b tmp1
 	bne .loop4
-org $9D9000
 	dec.b d4
 	beq .t1x
 	jmp.w .loop2

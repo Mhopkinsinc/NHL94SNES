@@ -57,3 +57,5 @@ incsrc "../data/gfx/CardAdamOates.asm"
 incsrc "../data/gfx/CardJohanGarpenlov.asm"
 incsrc "../data/gfx/CardRodBrindAmour.asm"
 incsrc "../data/gfx/CenterIceTilesNYI.asm"
+FreeSpace98:
+	%PadTo($998000)

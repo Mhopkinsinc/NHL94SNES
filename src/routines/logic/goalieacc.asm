@@ -17,7 +17,6 @@ goalieacc:
 	bne .t3
 .2:
 	lda.w pf2aip,x
-org $9ED002
 	bne .t1
 	jml.l SetSPA
 

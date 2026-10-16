@@ -34,3 +34,5 @@ incsrc "../data/sound/SongLaRaspa.asm"
 incsrc "../data/sound/SongLetsGoRallyTime.asm"
 incsrc "../data/sound/SongLetsGoC.asm"
 incsrc "../data/gfx/CardJonCasey.asm"
+FreeSpace96:
+	%PadTo($978000)

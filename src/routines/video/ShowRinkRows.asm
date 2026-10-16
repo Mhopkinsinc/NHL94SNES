@@ -50,7 +50,6 @@ ShowRinkRows:
 	sec
 	sbc.b tmp1
 	and.w #$001F
-org $9FC002
 	sta.b tmp2
 	txa
 	clc

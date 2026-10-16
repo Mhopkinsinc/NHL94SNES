@@ -39,6 +39,5 @@ Multi5SocketMsg:
 	sta.b a1
 	pla
 	sta.b a1+2
-org $9DB000
 	jsl.l SendTextMap
 	rtl

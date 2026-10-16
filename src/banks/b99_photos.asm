@@ -61,3 +61,5 @@ incsrc "../data/gfx/CardKirkMuller.asm"
 incsrc "../data/gfx/CardSteveChiasson.asm"
 incsrc "../data/gfx/CardDaveAndreychuk.asm"
 incsrc "../data/gfx/CenterIceTilesOTW.asm"
+FreeSpace99:
+	%PadTo($9A8000)

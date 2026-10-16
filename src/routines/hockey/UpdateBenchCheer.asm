@@ -8,7 +8,6 @@ UpdateBenchCheer:
 	lda.w benchtimer
 	sec
 	sbc.w timestep
-org $9CA002
 	bpl .t1
 	clc
 	adc.w #$000B

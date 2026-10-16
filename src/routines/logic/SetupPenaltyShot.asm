@@ -24,7 +24,6 @@ SetupPenaltyShot:
 	jsl.l .4
 	jsl.l .4
 	jsl.l .4
-org $9FB003
 	ldx.b d4
 	lda.w teampads,x
 	beq .3

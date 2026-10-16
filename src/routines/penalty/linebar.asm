@@ -38,5 +38,4 @@ linebar:
 	jsl.l print
 	pla
 	sta.w printa
-org $9FE000
 	rtl

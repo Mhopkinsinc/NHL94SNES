@@ -9,3 +9,5 @@ incsrc "../data/sound/StreamSampleGoal.asm"
 incsrc "../data/gfx/IceRinkMap.asm"
 incsrc "../data/sound/SampleOpenHat.asm"
 incsrc "../data/gfx/PhotoMap.asm"
+FreeSpace92:
+	%PadTo($938000)

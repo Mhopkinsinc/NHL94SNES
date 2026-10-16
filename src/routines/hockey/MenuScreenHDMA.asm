@@ -5,7 +5,6 @@ MenuScreenHDMA:
 	sta.w WOBJSEL
 	lda.b #$40
 	sta.w WH0
-org $9DE002
 	lda.b #$BF
 	sta.w WH1
 	lda.b #$10

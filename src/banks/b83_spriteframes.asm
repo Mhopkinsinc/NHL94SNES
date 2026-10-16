@@ -3,3 +3,5 @@
 org $838000
 incsrc "../data/gfx/SpriteFrames83.asm"
 incsrc "../data/gfx/CenterIceTilesPIT.asm"
+FreeSpace83:
+	%PadTo($848000)

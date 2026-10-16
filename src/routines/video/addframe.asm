@@ -31,6 +31,5 @@ addframe:		; draw SpriteFrames frame $0CCD (at most $3D0) at $0CCF, $0CD1
 	ldx.w sprx
 	ldy.w spry
 	jsl.l DrawSprite
-org $9BC001
 .rtl:
 	rtl

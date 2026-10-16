@@ -12,3 +12,5 @@ incsrc "../data/gfx/RonBarrTiles.asm"
 incsrc "../data/sound/SampleCheck.asm"
 incsrc "../data/sound/SampleUnused13.asm"
 incsrc "../data/gfx/EALogoSprites.asm"
+FreeSpace94:
+	%PadTo($958000)

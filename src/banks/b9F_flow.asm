@@ -188,7 +188,6 @@ incsrc "../data/text/GoalieOptionText.asm"
 incsrc "../routines/hockey/PmenuNone.asm"
 incsrc "../data/tables/PmenuValueItems.asm"
 incsrc "../data/text/PauseMenuItems.asm"
-org $9FF00B
 incsrc "../routines/hockey/AskExitGame.asm"
 incsrc "../routines/hockey/DrawExitPrompt.asm"
 incsrc "../data/text/ExitPromptClear.asm"
@@ -200,3 +199,5 @@ incsrc "../routines/hockey/PrintMP5Line4.asm"
 incsrc "../routines/hockey/PrintCentered.asm"
 incsrc "../data/text/MultiPlayer5Text.asm"
 incsrc "../routines/hockey/IntroSequence.asm"
+FreeSpace9F:
+	%PadTo($A08000)

@@ -6,3 +6,5 @@ incsrc "../data/sound/StreamSampleSave.asm"
 incsrc "../data/sound/MenuSong.asm"
 incsrc "../data/sound/SampleTimpTitle.asm"
 incsrc "../data/gfx/CardSergeiFedorov.asm"
+FreeSpace90:
+	%PadTo($918000)

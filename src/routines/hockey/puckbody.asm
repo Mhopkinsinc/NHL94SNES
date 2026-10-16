@@ -56,7 +56,6 @@ puckbody:
 	jsl.l Mul16S
 	lda.b r2+2
 	sta.b d2+2
-org $9EF000
 	lda.b r2
 	sta.b d2
 	lda.b d3

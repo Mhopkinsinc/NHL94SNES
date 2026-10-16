@@ -3,3 +3,5 @@
 org $8C8000
 incsrc "../data/gfx/SpriteFrames8C.asm"
 incsrc "../data/gfx/CardPeterSidorkwicz.asm"
+FreeSpace8C:
+	%PadTo($8D8000)

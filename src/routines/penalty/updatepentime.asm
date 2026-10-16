@@ -91,7 +91,6 @@ updatepentime:
 .1xx:
 	lda.w mesarea+2
 	sta.b d0
-org $9EC000
 .2xx:
 	lda.b a2
 	beq .1xxx

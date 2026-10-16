@@ -41,7 +41,6 @@ PrintTeamStatRows:
 	lda.w #TeamStatNames>>16
 	sta.b a1+2
 	lda.w #TeamStatNamesNoPen
-org $9C9000
 	sta.b a1
 .2:
 	jsl.l AdvanceStringPtr

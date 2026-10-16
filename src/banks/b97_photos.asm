@@ -52,3 +52,5 @@ incsrc "../data/gfx/CardNeilWilkinson.asm"
 incsrc "../data/gfx/CardJoeCirella.asm"
 incsrc "../data/sound/SongBuildupC.asm"
 incsrc "../data/gfx/CenterIceTilesTB.asm"
+FreeSpace97:
+	%PadTo($988000)

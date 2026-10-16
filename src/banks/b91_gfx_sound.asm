@@ -7,3 +7,5 @@ incsrc "../data/gfx/TitleSprites.asm"
 incsrc "../data/sound/SampleCrowd1.asm"
 incsrc "../data/gfx/CardFrameTiles.asm"
 incsrc "../data/sound/SamplePassShot.asm"
+FreeSpace91:
+	%PadTo($928000)

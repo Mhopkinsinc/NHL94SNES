@@ -27,7 +27,6 @@ PlayerPhotoTable:	; per team (TeamList order) 26 long pointers to packed player 
 	dd CardTimCheveldae,NoPicGoalie,CardSteveYzerman,CardSergeiFedorov,NoPicSkater3,NoPicSkater2,NoPicSkater1	; Detroit
 	dd NoPicSkater3,NoPicSkater2,NoPicSkater1,NoPicSkater3,NoPicSkater2,CardDinoCiccarelli,NoPicSkater1
 	dd NoPicSkater3,NoPicSkater2
-org $9DD003
 	dd NoPicSkater1,CardPaulCoffey,CardSteveChiasson,NoPicSkater3,NoPicSkater2,NoPicSkater1,NoPicSkater3
 	dd NoPicSkater2,NoPicSkater1,NoPicSkater3
 	dd CardBillRanford,CardDougWeight,NoPicSkater3,NoPicSkater2,NoPicSkater1,NoPicSkater3,NoPicSkater2	; Edmonton
