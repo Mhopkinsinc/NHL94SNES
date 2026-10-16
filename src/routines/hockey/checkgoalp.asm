@@ -1,0 +1,208 @@
+; Player X runs into the goal a2
+checkgoalp:
+	lda.w pflags,x
+	bit.w #$8000
+	bne .1
+	cpx.w #$0017
+	bcc .11
+.1:
+	rtl
+.11:
+	ldy.b a2
+	cpy.w #$0018
+	beq .t1
+	lda.b d3
+	sec
+	sbc.w wcradiusy
+	cmp.w #$FF16
+	bpl .1
+	bra .8
+
+.t1:
+	lda.b d3
+	clc
+	adc.w wcradiusy
+	cmp.w #$00EA
+	bmi .1
+.8:
+	lda.b d2
+	bit.w #$8000
+	beq .1x
+	eor.w #$FFFF
+	inc a
+.1x:
+	sec
+	sbc.w wcradiusx
+	cmp.w #$0040
+	bpl .1
+	lda.b d3
+	pha
+	sec
+	sbc.w Ypos,y
+	sta.b d3
+	eor.w #$FFFF
+	inc a
+	sta.b d0
+	lda.b d2
+	pha
+	sec
+	sbc.w Xpos,y
+	sta.b d1
+	sta.b r1
+	tax
+	jsl.l Mul8S
+	sta.b r2
+	ldx.b a3
+	lsr a
+	lsr a
+	cmp.w #$0101
+	bcs .2
+	sta.b d2
+	lda.b d3
+	sta.b r1+2
+	tax
+	jsl.l Mul8S
+	asl a
+	sta.b r2+2
+	ldx.b a3
+	clc
+	adc.b d2
+	cmp.w #$0101
+.2:
+	bcs .7
+	pla
+	sta.b d2
+	pla
+	sta.b d3
+	jsr.w .t1x
+	lda.b d3
+	pha
+	lda.b d2
+	pha
+	lda.b r1
+	ldy.b r1+2
+	jsl.l ApproxLength
+	inc a
+	sta.b d2
+	lda.b d0
+	xba
+	and.w #$FF00
+	tax
+	lda.b d2
+	jsl.l DivX8S
+	cmp.w #$00FF
+	bmi .3
+	lda.w #$00FF
+.3:
+	cmp.w #$FF01
+	bpl .4
+	lda.w #$FF01
+.4:
+	sta.b d0
+	lda.b d1
+	xba
+	and.w #$FF00
+	tax
+	lda.b d2
+	jsl.l DivX8S
+	cmp.w #$00FF
+	bmi .5
+	lda.w #$00FF
+.5:
+	cmp.w #$FF01
+	bpl .6
+	lda.w #$FF01
+.6:
+	sta.b d1
+	ldx.b a3
+	jsl.l wallcoll
+.7:
+	pla
+	sta.b d2
+	pla
+	sta.b d3
+	rtl
+
+.t1x:
+	lda.b d0
+	pha
+	lda.b d1
+	pha
+	lda.w seed
+	and.w #$01C0
+	bne .1xx
+	lda.w SPA,x
+	cmp.w #SPAburst
+	bne .1xx
+	ldy.b a2
+	lda.w pucky
+	sec
+	sbc.w Ypos,y
+	cmp.w #$FF80
+	bmi .1xx
+	cmp.w #$0080
+	bpl .1xx
+	lda.w Xvel,x
+	sta.b d0
+	lda.w Yvel,x
+	sta.b d1
+	cmp.w #$DFFF
+	bmi .10
+	cmp.w #$2001
+	bpl .10
+	lda.b d0
+	cmp.w #$DFFF
+	bmi .10
+	cmp.w #$2001
+	bpl .10
+.1xx:
+	pla
+	sta.b d1
+	pla
+	sta.b d0
+.9:
+	rts
+.10:
+	pla
+	pla
+	lda.b d0
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$1000
+	beq .1xxx
+	ora.w #$E000
+.1xxx:
+	sta.b d0
+	cmp.w #$8000
+	ror a
+	clc
+	adc.b d0
+	sta.b d0
+	ldy.b a2
+	sta.w Xvel,y
+	lda.b d1
+	lsr a
+	lsr a
+	lsr a
+	bit.w #$1000
+	beq .2x
+	ora.w #$E000
+.2x:
+	sta.b d1
+	cmp.w #$8000
+	ror a
+	clc
+	adc.b d1
+	sta.b d1
+	sta.w Yvel,y
+	stz.w Xvel,x
+	stz.w Yvel,x
+	lda.w #$0040
+	tsb.w sflags
+	lda.w gmclock
+	bne .9
+	pla
+	lda.w #$0008
+	sta.b d0
+	jmp.w AddPenalty2

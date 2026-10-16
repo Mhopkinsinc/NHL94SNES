@@ -4,14 +4,14 @@ setInjuryType:
 	lda.w pflags,y
 	ora.w #$1000
 	sta.w pflags,y
-	lda.l $7E35E0
+	lda.l crowdlevel
 	clc
 	adc.w #$012C
-	sta.l $7E35E0
+	sta.l crowdlevel
 	lda.w #$003C
-	sta.b $81
+	sta.b crowdhold
 	lda.w #$0004
-	jsl.l CODE_9C9A7F
+	jsl.l StreamSfx
 	ldy.b a2
 	lda.w Xpos,y
 	sta.w xc1
@@ -48,7 +48,7 @@ setInjuryType:
 	lda.w #$FFFD
 	sta.w tmpdst,y
 	lda.w #$0007
-	jsl.l CODE_9BB385
+	jsl.l randoma8
 	cmp.w #$0000
 	bne .rtl
 	lda.w #$FFFC

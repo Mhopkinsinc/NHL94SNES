@@ -27,11 +27,11 @@ setplayer:
 	lda.w tmpdst,y
 	sta.b d1
 	tya
-	sta.b $14
+	sta.b r3
 	asl a
-	adc.b $14
+	adc.b r3
 	asl a
-	sta.b $14
+	sta.b r3
 	lda.b d1
 	bpl .da
 	lda.w #$000A
@@ -70,23 +70,23 @@ setplayer:
 	sta.b a0
 	stz.w PPBonus
 	stz.w PKBonus
-	stz.w $0CE5
+	stz.w ThirdPBonus
 	stz.w HmAwBonus
 	lda.w position,x
 	bne .t1
-	jmp.w CODE_9FD01F
+	jmp.w .6
 
 .t1:
 	lda.w sflags
 	bit.w #$2000
-	beq CODE_9FCFBF
+	beq .5
 	jsl.l chkpk2
 	beq .t2
 	ldy.w #$0001
 	lda.b [a0],y
 	and.w #$000F
 	sta.w PPBonus
-	bra CODE_9FCFBF
+	bra .5
 
 .t2:
 	ldy.w #$0001
@@ -99,7 +99,7 @@ setplayer:
 	eor.w #$FFFF
 	inc a
 	sta.w PKBonus
-CODE_9FCFBF:
+.5:
 	ldy.w #$0002
 	lda.b [a0],y
 	and.w #$000F
@@ -121,7 +121,7 @@ CODE_9FCFBF:
 	lda.w gsp
 	sec
 	sbc.w #$0002
-	bmi CODE_9FD01F
+	bmi .6
 	bne .2
 	jsl.l GetPeriodTime
 	lsr.b d0
@@ -129,12 +129,12 @@ CODE_9FCFBF:
 	sec
 	sbc.w gameclock
 	beq .2
-	bpl CODE_9FD01F
+	bpl .6
 .2:
-	lda.w $178E
+	lda.w tmscore
 org $9FD000
 	sec
-	sbc.w $1790
+	sbc.w tmscore+2
 	sta.b tmp0
 	beq .4
 	lda.w pfteam,x
@@ -145,13 +145,13 @@ org $9FD000
 	sta.b tmp0
 .3:
 	lda.b tmp0
-	bpl CODE_9FD01F
+	bpl .6
 .4:
 	lda.w #$0002
-	sta.w $0CE5
-CODE_9FD01F:
+	sta.w ThirdPBonus
+.6:
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	ldy.w #$0000
@@ -173,22 +173,22 @@ CODE_9FD01F:
 	sta.b a0
 	lda.b [a0]
 	and.w #$00FF
-	sta.w $13C3,x
+	sta.w rostnum,x
 	ldy.w #$0001
 	lda.b [a0],y
 	and.w #$00F0
 	lsr a
-	sta.w $12C3,x
+	sta.w weight,x
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$0000
-	jsl.l CODE_9FD22B
-	sta.w $12E3,x
+	jsl.l .8
+	sta.w legstr,x
 	ldy.w #$0002
 	lda.b [a0],y
 	lsr a
@@ -196,21 +196,21 @@ CODE_9FD01F:
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$0001
-	jsl.l CODE_9FD22B
-	sta.w $1303,x
+	jsl.l .8
+	sta.w legspd,x
 	ldy.w #$0002
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w PPBonus
@@ -219,14 +219,14 @@ CODE_9FD01F:
 	clc
 	adc.w HmAwBonus
 	clc
-	adc.w $0CE5
+	adc.w ThirdPBonus
 	ldy.w #$0002
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	eor.w #$000F
 	clc
 	adc.w #$000F
 	lsr a
-	sta.w $1323,x
+	sta.w aioff,x
 	ldy.w #$0003
 	lda.b [a0],y
 	lsr a
@@ -234,44 +234,44 @@ CODE_9FD01F:
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w HmAwBonus
 	ldy.w #$0003
-	jsl.l CODE_9FD22B
+	jsl.l .8
 	pha
 	lda.w position,x
-	beq .t1
+	beq .t1x
 	pla
 	eor.w #$000F
 	clc
 	adc.w #$0007
-	sta.w $1343,x
-	bra CODE_9FD0FA
+	sta.w aidef,x
+	bra .7
 
-.t1:
+.t1x:
 	pla
 	eor.w #$000F
 	clc
 	adc.w #$000F
 	lsr a
-	sta.w $1343,x
-CODE_9FD0FA:
+	sta.w aidef,x
+.7:
 	ldy.w #$0003
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$0004
-	jsl.l CODE_9FD22B
-	sta.w $1363,x
+	jsl.l .8
+	sta.w shotspd,x
 	ldy.w #$0004
 	lda.b [a0],y
 	lsr a
@@ -279,16 +279,16 @@ CODE_9FD0FA:
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
-	adc.w $0CE5
+	adc.w ThirdPBonus
 	ldy.w #$0005
-	jsl.l CODE_9FD22B
-	sta.w $1483,x
+	jsl.l .8
+	sta.w aggress,x
 	lda.w attribute,x
 	and.w #$F7FF
 	sta.w attribute,x
@@ -296,15 +296,15 @@ CODE_9FD0FA:
 	lda.b [a0],y
 	and.w #$0001
 	eor.w #$0001
-	sta.w $14A3,x
-	bne .1
+	sta.w handed,x
+	bne .1x
 	lda.w attribute,x
 	ora.w #$0800
 	sta.w attribute,x
-.1:
+.1x:
 	lda.b [a0],y
 	and.w #$000E
-	sta.w $1463,x
+	sta.w fightagg,x
 	ldy.w #$0005
 	lda.b [a0],y
 	lsr a
@@ -312,10 +312,10 @@ CODE_9FD0FA:
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w PPBonus
@@ -324,15 +324,15 @@ CODE_9FD0FA:
 	clc
 	adc.w HmAwBonus
 	ldy.w #$0006
-	jsl.l CODE_9FD22B
-	sta.w $1403,x
+	jsl.l .8
+	sta.w stickhand,x
 	ldy.w #$0005
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w PPBonus
@@ -341,8 +341,8 @@ CODE_9FD0FA:
 	clc
 	adc.w HmAwBonus
 	ldy.w #$0007
-	jsl.l CODE_9FD22B
-	sta.w $1383,x
+	jsl.l .8
+	sta.w shotacc,x
 	ldy.w #$0006
 	lda.b [a0],y
 	lsr a
@@ -350,29 +350,29 @@ CODE_9FD0FA:
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$0008
-	jsl.l CODE_9FD22B
-	sta.w $1423,x
+	jsl.l .8
+	sta.w endurance,x
 	ldy.w #$0006
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
-	adc.w $0CE5
+	adc.w ThirdPBonus
 	clc
-	adc.w $0CE5
+	adc.w ThirdPBonus
 	ldy.w #$0009
-	jsl.l CODE_9FD22B
-	sta.w $13E3,x
+	jsl.l .8
+	sta.w spodds,x
 	ldy.w #$0007
 	lda.b [a0],y
 	lsr a
@@ -380,29 +380,55 @@ CODE_9FD0FA:
 	lsr a
 	lsr a
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	clc
 	adc.w PPBonus
 	clc
 	adc.w HmAwBonus
 	ldy.w #$000A
-	jsl.l CODE_9FD22B
-	sta.w $13A3,x
+	jsl.l .8
+	sta.w passacc,x
 	ldy.w #$0007
 	lda.b [a0],y
 	and.w #$0007
-	sta.b $00
+	sta.b r0
 	asl a
 	asl a
-	adc.b $00
+	adc.b r0
 	lsr a
 	ldy.w #$000B
-	jsl.l CODE_9FD22B
-	sta.w $1443,x
+	jsl.l .8
+	sta.w GGSleft,x
 	ply
 	plx
+	rtl
+.8:
+	sta.b r3+2
+	tya
+	clc
+	adc.b r3
+	tay
+	sep #$20
+	lda.w HotColdTable,y
+	lsr a
+	lsr a
+	bit.b #$00
+	beq .1xx
+	ora.b #$00
+.1xx:
+	clc
+	adc.b r3+2
+	bpl .2x
+	lda.b #$00
+.2x:
+	cmp.b #$0F
+	bcc .3x
+	lda.b #$0F
+.3x:
+	rep #$20
+	and.w #$00FF
 	rtl

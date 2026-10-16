@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCCmd06:		; sound driver command $06, Y in APUIO2-APUIO3, X in APUIO1
+; sound driver command $06 (key on voice X at pitch Y), Y in APUIO2-APUIO3, X in APUIO1
+SPCCmd06:
 	sty.w APUIO2
 	sep #$30
 .wait:

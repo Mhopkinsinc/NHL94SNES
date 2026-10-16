@@ -1,48 +1,48 @@
 ; Other scores screen
 ShowOtherScores:
 	lda.w #$001C
-	sta.l $7E3454
+	sta.l setupvis
 	lda.w #$001D
-	sta.l $7E3452
-	jsl.l CODE_9DD9AD
+	sta.l setuphome
+	jsl.l SetupScreen
 	ldx.w #$0049
 	ldy.w #$0018
-	lda.w #$009C
-	sta.b $8F
+	lda.w #OtherScores>>16
+	sta.b a1+2
 	lda.w #OtherScores
 	sta.b a1
-	jsl.l CODE_9C936C
+	jsl.l PrintLetterSprites
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9DE0D4
-	stz.w $1DB9
+	jsl.l SendColours
+	stz.w curitem
 	lda.w #$0000
-	cmp.l $7E35D6
+	cmp.l gamenum
 	bne .2
 .1:
 	inc a
 .2:
-	sta.w $1DBD
+	sta.w listtop
 	jsl.l GetShifter
 	lda.b d1
 	inc a
-	sta.w $1DC1
+	sta.w listend
 	jsl.l FillOtherScores
-	jsl.l CODE_9DD923
+	jsl.l SendTextMap
 	lda.w #$0050
 	ldx.w #$00C0
 	ldy.w #$00D8
-	jsl.l CODE_9BCDF8
-	jsl.l CODE_9DDFF6
-	jsl.l CODE_8086BD
+	jsl.l SetupScrollIRQ
+	jsl.l MenuScreenHDMA
+	jsl.l ScreenOn
 	lda.w #$0005
-	sta.w $1DC5
+	sta.w listrows
 	jsl.l DrawOtherScoresPage
-CODE_9BC2C9:
-	jsl.l CODE_9B851F
+OtherScoresLoop:
+	jsl.l ReadPausePad
 	lda.b d3
 	bit.w #$1000
 	beq .t2
-	jmp.w CODE_9BC43B
+	jmp.w OtherScoresRtl
 
 .t2:
 	bit.w #$0800
@@ -51,57 +51,57 @@ CODE_9BC2C9:
 	jmp.w ScrollOtherScoresUp
 
 .t1:
-	bit.w #DMA_OAM
+	bit.w #$0400
 	bne ScrollOtherScoresDown
-CODE_9BC2E4:
-	lda.w $1DBD
+OtherScoresNext:
+	lda.w listtop
 	beq .3
 	dec a
 	bne .2
 .1:
-	cmp.l $7E35D6
+	cmp.l gamenum
 	beq .3
 .2:
 	lda.w #$0004
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	asl a
-	adc.w $1DBD
+	adc.w listtop
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
-	lda.w #$009C
-	sta.b $8F
+	sta.w printa
+	lda.w #LineBraces>>16
+	sta.b a1+2
 	lda.w #LineBraces
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .3:
-	lda.w $1DBD
+	lda.w listtop
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	clc
-	adc.w $1DE9
-	cmp.w $1DC1
+	adc.w otherskip
+	cmp.w listend
 	bpl .4
 	lda.w #$0004
 	sta.w printx
-	lda.w $1DBD
+	lda.w listtop
 	clc
-	adc.w $1DC5
+	adc.w listrows
 	dec a
-	sta.b $14
+	sta.b r3
 	asl a
-	adc.b $14
+	adc.b r3
 	inc a
 	sta.w printy
 	lda.w #$2000
-	sta.w $0D0D
-	lda.w #$009C
-	sta.b $8F
+	sta.w printa
+	lda.w #LineBraces>>16
+	sta.b a1+2
 	lda.w #LineBraces+3
 	sta.b a1
-	jsl.l CODE_9EC894
+	jsl.l PrintToStatsPage
 .4:
 	jsl.l DrawOtherScoresPage
 	jsl.l WaitFrame
-	jmp.w CODE_9BC2C9
+	jmp.w OtherScoresLoop

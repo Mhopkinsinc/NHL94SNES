@@ -11,12 +11,3 @@ chkpk2:
 	lda.w sflags
 	and.w #sf2pwrtm
 	rtl
-	cpx.w shotPlIdx
-	bne .1
-	lda.w $19D4,x
-	bmi asseben
-.1:
-	jmp.w CODE_9E8BE6
-
-.t1:
-	rtl

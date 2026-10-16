@@ -7,5 +7,5 @@ PauseScoringSummary:
 
 .t1:
 	jsl.l ShowScoringSummary
-	jsl.l CODE_9FE79F
+	jsl.l ReloadRink
 	jmp.w PauseSubmenuDone

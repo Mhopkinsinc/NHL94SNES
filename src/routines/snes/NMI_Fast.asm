@@ -1,4 +1,4 @@
-; Unidentified routine.
+; NMI: save the registers; nothing more while $38 is set, else the frame work and the NMI hook
 NMI_Fast:
 	rep #$30
 	phb
@@ -9,7 +9,7 @@ NMI_Fast:
 	lda.w #$0000
 	tcd
 	lda.w RDNMI
-	lda.b $38
+	lda.b NMISkip
 	beq .t1
 	pla
 	plb
@@ -19,15 +19,15 @@ NMI_Fast:
 	phx
 	phy
 	lda.w #$16D3
-	sta.b $3E
+	sta.b DMABudget
 	sep #$10
-	ldx.w $0774
+	ldx.w NMIHookNext+1
 	beq .1
-	lda.w $0773
-	sta.w $078C
-	stz.w $0773
-	ldx.w $0775
-	stx.w $078E
+	lda.w NMIHookNext
+	sta.w NMIHook
+	stz.w NMIHookNext
+	ldx.w NMIHookNext+2
+	stx.w NMIHook+2
 .1:
 	ldx.b #$80
 	phx

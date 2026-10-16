@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCUpload:		; sound driver command $03: X bytes from [$0C] to sound RAM address Y
+; sound driver command $03: a sample of X bytes from [p0], loop point Y (the next sample slot)
+SPCUpload:
 	sep #$20
 .wait:
 	lda.w APUIO0
@@ -13,7 +13,7 @@ SPCUpload:		; sound driver command $03: X bytes from [$0C] to sound RAM address 
 	bne .ack
 	ldy.w #$0000
 .loop:
-	lda.b [$0C],y
+	lda.b [p0],y
 	sta.w APUIO2
 	iny
 	tya

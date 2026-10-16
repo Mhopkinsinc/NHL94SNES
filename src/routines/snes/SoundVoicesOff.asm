@@ -6,7 +6,7 @@ SoundVoicesOff:		; release every voice
 	ldy.b #$07
 	ldx.b #$0E
 .loop:
-	jsr.w CODE_80ABC7
+	jsr.w StopVoice
 	dex
 	dex
 	dey

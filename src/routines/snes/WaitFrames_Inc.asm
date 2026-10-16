@@ -1,4 +1,4 @@
-; Unidentified routine.
+; Wait X frames, Y counting the rounds of 65536 (the _Inc entry adds 1 to Y first)
 WaitFrames_Inc:
 	iny
 

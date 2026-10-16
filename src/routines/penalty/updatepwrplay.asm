@@ -1,6 +1,6 @@
 ; Show the power play box: the time left and the team on the power play
 updatepwrplay:
-	lda.l $7E34BC
+	lda.l OptPlayMode
 	cmp.w #$0004
 	beq .off
 	stz.b a2
@@ -39,15 +39,15 @@ updatepwrplay:
 	tsb.w sflags
 	bne .uppt
 	ldx.b a3
-	inc.w $1746,x
+	inc.w tmPwrPlays,x
 .uppt:
 	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #DATA8_9CF718>>16
+	lda.w #updatepwrplayPos>>16
 	sta.b a1+2
-	lda.w #DATA8_9CF718
+	lda.w #updatepwrplayPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -63,30 +63,30 @@ updatepwrplay:
 	cmp.w #$0001
 	beq .one
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0005
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	bra .time
 .one:
 	lda.w #$7000
-	sta.b $64
+	sta.b SfxVelocity
 	lda.w #$0005
-	jsl.l CODE_80A17D
+	jsl.l QueueSound
 	phx
 	tay
 	sep #$20
-	lda.w $08F2,y
+	lda.w VoiceState,y
 	cmp.b #$02
 	bne .wide
 	lda.b #$03
-	sta.w $08F2,y
+	sta.w VoiceState,y
 	rep #$20
 	tya
 	asl a
 	tay
 	lda.w #$0659
-	sta.w $094A,y
-	sta.w $0CAF
+	sta.w VoicePitch,y
+	sta.w recsfxpitch
 .wide:
 	rep #$20
 	plx
@@ -104,9 +104,9 @@ updatepwrplay:
 	sta.b a3
 	lda.w #$0002
 	sta.b [a3]
-	lda.w #DATA8_9CF72A>>16
+	lda.w #updatepwrplayPos2>>16
 	sta.b a1+2
-	lda.w #DATA8_9CF72A
+	lda.w #updatepwrplayPos2
 	sta.b a1
 	jsl.l appstring
 	lda.b a0

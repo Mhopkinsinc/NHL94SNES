@@ -1,5 +1,5 @@
-; Unidentified routine.
-SPCStreamStart:		; sound driver command $0F: start sending X bytes from [$3E] to sound RAM address Y; sends the first block
+; sound driver command $0F: start streaming a sample of X bytes from [$3E], loop point Y; sends the first block
+SPCStreamStart:
 	lda.w STAT78
 	bit.w #$007E
 	beq .small
@@ -29,7 +29,7 @@ SPCStreamStart:		; sound driver command $0F: start sending X bytes from [$3E] to
 	bne .ack
 	ldy.w #$0000
 .loop:
-	lda.b [$3E],y
+	lda.b [StreamSrc],y
 	sta.w APUIO2
 	iny
 	tya
@@ -46,8 +46,8 @@ SPCStreamStart:		; sound driver command $0F: start sending X bytes from [$3E] to
 	rep #$20
 	tya
 	clc
-	adc.b $3E
+	adc.b StreamSrc
 	sta.l SPCStreamPtr
-	lda.b $40
+	lda.b StreamSrc+2
 	sta.l SPCStreamPtr+2
 	rtl

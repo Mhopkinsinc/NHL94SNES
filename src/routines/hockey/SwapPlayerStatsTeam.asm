@@ -3,23 +3,23 @@ SwapPlayerStatsTeam:
 	lda.b a2
 	eor.w #$0002
 	sta.b a2
-	jsl.l CODE_9C8826
-	jsl.l CODE_9C8B54
-	jsl.l CODE_9C8B69
+	jsl.l SetPlayerStatsRange
+	jsl.l InitStatsOrder
+	jsl.l SortPlayerStats
 	jsl.l SpriteFrameStart
 	ldx.b a2
 	lda.w HomeTeam,x
-	sta.l $7E3454
+	sta.l setupvis
 	ldx.w #$0049
 	ldy.w #$0018
-	lda.w #$009C
-	sta.b $8F
+	lda.w #PlayerStatsHeading>>16
+	sta.b a1+2
 	lda.w #PlayerStatsHeading
 	sta.b a1
-	jsl.l CODE_9C936C
-	jsl.l CODE_9DDDB3
+	jsl.l PrintLetterSprites
+	jsl.l DrawMatchupPictures
 	jsl.l WaitFrame
-	jsl.l CODE_9C88A0
+	jsl.l DrawPlayerStatsPage
 	jsl.l SpriteFrameEnd
-	jsl.l CODE_9DE0D4
-	jmp.w CODE_808684
+	jsl.l SendColours
+	jmp.w ShowPlayerStats_redraw

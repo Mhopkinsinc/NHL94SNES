@@ -1,140 +1,165 @@
 ; Edit Lines menu: Return to Game and Restore default lines
 EditLinesMenu:
-	jsr.w CODE_9B89E6
-	lda.b $8F
+	jsr.w ClearEditLinesMenu
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF00A
+	lda.w #ReturnToGameTxt>>16
+	sta.b a1+2
+	lda.w #ReturnToGameTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.b $8F
+	sta.b a1+2
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF01D
+	lda.w #RestoreDefaultLinesTxt>>16
+	sta.b a1+2
+	lda.w #RestoreDefaultLinesTxt
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	jsl.l CODE_9DD923
+	sta.b a1+2
+	jsl.l SendTextMap
 	jsl.l WaitButtonRelease
 	lda.w #$0000
-	sta.w $1D97
-CODE_9B8A5A:
+	sta.w linemenuitem
+.1:
 	lda.w #$0000
-	cmp.w $1D97
+	cmp.w linemenuitem
 	bne .t1
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF037
+	lda.w #EditLinesMenuPos>>16
+	sta.b a1+2
+	lda.w #EditLinesMenuPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	bra CODE_9B8A98
+	sta.b a1+2
+	bra .2
 
 .t1:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF03C
+	lda.w #EditLinesMenuPos2>>16
+	sta.b a1+2
+	lda.w #EditLinesMenuPos2
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-CODE_9B8A98:
-	lda.b $8F
+	sta.b a1+2
+.2:
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #ReturnToGame>>16
+	sta.b a1+2
 	lda.w #ReturnToGame
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	lda.w #$0001
-	cmp.w $1D97
-	bne .t1
-	lda.b $8F
+	cmp.w linemenuitem
+	bne .t1x
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF051
+	lda.w #EditLinesMenuPos3>>16
+	sta.b a1+2
+	lda.w #EditLinesMenuPos3
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	bra CODE_9B8AF0
+	sta.b a1+2
+	bra .3
 
-.t1:
-	lda.b $8F
+.t1x:
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF056
+	lda.w #EditLinesMenuPos4>>16
+	sta.b a1+2
+	lda.w #EditLinesMenuPos4
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-CODE_9B8AF0:
-	lda.b $8F
+	sta.b a1+2
+.3:
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #RestoreDefaultLines>>16
+	sta.b a1+2
 	lda.w #RestoreDefaultLines
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	jsl.l CODE_9DD923
+	sta.b a1+2
+	jsl.l SendTextMap
 	jsl.l WaitFrame
-	jsl.l CODE_9B8017
-	jsl.l CODE_9B851F
+	jsl.l ReadPads
+	jsl.l ReadPausePad
 	jsl.l ProcessInputWithRepeat
 	lda.b d1
 	bit.w #$9080
-	bne CODE_9B8B42
-	bit.w #DMA_OAM
-	bne CODE_9B8B3A
+	bne .7
+	bit.w #$0400
+	bne .6
 	bit.w #$0800
-	bne CODE_9B8B32
-CODE_9B8B2F:
-	jmp.w CODE_9B8A5A
+	bne .5
+.4:
+	jmp.w .1
+.5:
+	lda.w #$0000
+	sta.w linemenuitem
+	bra .4
+.6:
+	lda.w #$0001
+	sta.w linemenuitem
+	bra .4
+.7:
+	lda.w linemenuitem
+	cmp.w #$0000
+	beq .t1xx
+	bra .t2
+
+.t1xx:
+	lda.w #$FFFF
+	bra .1x
+
+.t2:
+	jsl.l LoadTeamLines
+	jsr.w ClearEditLinesMenu
+	jsl.l DrawEditLinesTop
+	lda.w #$0000
+.1x:
+	rts

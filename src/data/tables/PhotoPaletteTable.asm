@@ -6,4 +6,4 @@ PhotoPaletteTable:	; per team: a long pointer to the 16 colours of its player ph
 	dd PhotoPaletteNJ,PhotoPaletteNYI,PhotoPaletteNYR,PhotoPaletteOTW
 	dd PhotoPalettePHI,PhotoPalettePIT,PhotoPaletteQUE,PhotoPaletteSJ
 	dd PhotoPaletteSTL,PhotoPaletteTB,PhotoPaletteTOR,PhotoPaletteVAN
-	dd PhotoPaletteWSH,PhotoPaletteWPG,DATA8_9AEB3C,DATA8_9AEB3C
+	dd PhotoPaletteWSH,PhotoPaletteWPG,PhotoPaletteAllStars,PhotoPaletteAllStars

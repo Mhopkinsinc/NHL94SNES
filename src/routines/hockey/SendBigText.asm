@@ -1,0 +1,35 @@
+; Send the RenderBigText map ($7EA676, the BigLetterSelect map) and the letter tiles ($7E4EF4, $7E3466 letters) to VRAM
+SendBigText:
+	lda.w #$0020
+	sta.l screenmap+6
+	sta.l screenmap+8
+	lda.w #$007E
+	sta.b p0+2
+	lda.w #$A676
+	sta.b p0
+	lda.w #$0800
+	sta.w MapVRAM
+	lda.w #$0000
+	sta.b r7
+	lda.w #$0020
+	sta.b r4
+	lda.w #$0002
+	sta.b r4+2
+	ldy.w printy
+	sty.b r7+2
+	ldx.w #$0000
+	jsl.l MapPartToVRAM
+	lda.w #bigtextbuf>>16
+	sta.b p0+2
+	lda.w #bigtextbuf
+	sta.b p0
+	ldy.w #$4000
+	lda.l bigtextchar
+	inc a
+	asl a
+	asl a
+	asl a
+	asl a
+	tax
+	jsl.l DMAToVRAM
+	rts

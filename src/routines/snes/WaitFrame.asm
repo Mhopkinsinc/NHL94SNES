@@ -1,9 +1,9 @@
-; Unidentified routine.
+; Wait for the next frame ($0764 changes)
 WaitFrame:
 	pha
-	lda.w $0764
+	lda.w FrameCount
 .loop:
-	cmp.w $0764
+	cmp.w FrameCount
 	beq .loop
 	pla
 	rtl

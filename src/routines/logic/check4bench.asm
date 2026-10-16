@@ -11,10 +11,10 @@ check4bench:
 	lda.w newpnum,x
 	cmp.w pnum,x
 	beq .t2
-	lda.w $0B7D,x
+	lda.w asscur,x
 	cmp.w #$000C
 	beq .t1
-	cpx.w shotPlIdx
+	cpx.w puckc
 	beq .t1
 	sep #$20
 	pla
@@ -23,7 +23,7 @@ check4bench:
 	lda.w pflags,x
 	ora.w #$1000
 	sta.w pflags,x
-	stz.w $1003,x
+	stz.w temp1,x
 	lda.w #$000C
 	sta.b d0
 	jml.l assreplace
@@ -39,7 +39,7 @@ check4bench:
 	lda.w pflags,x
 	and.w #$EFFF
 	sta.w pflags,x
-	stz.w $1563,x
+	stz.w pfnc,x
 	lda.w #$FFFF
 	sta.w newpnum,x
 	sta.w newpos,x

@@ -1,10 +1,10 @@
 ; Pick which pause menu is up, then read the pad and run the selected item.
 PauseMenu:
 	lda.w #$FFFF
-	sta.l $7E3476
-	lda.w $1D81
+	sta.l pausemenuon
+	lda.w shootoutmode
 	beq .t4
-	lda.w $1EBB
+	lda.w pregamepause
 	bne .t5
 	bra .t6
 
@@ -12,7 +12,7 @@ PauseMenu:
 	lda.w gsp
 	cmp.w #$0004
 	beq .t2
-	lda.w $1EBB
+	lda.w pregamepause
 	bne .t3
 	bra .t1
 
@@ -22,92 +22,92 @@ PauseMenu:
 
 .t2:
 	lda.w #$000F
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0001
-	sta.w $1EB7
+	sta.w pmenulist
 	bra .t7
 
 .t3:
 	lda.w #$0009
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0002
-	sta.w $1EB7
+	sta.w pmenulist
 	bra .t7
 
 .t5:
 	lda.w #$0006
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0003
-	sta.w $1EB7
+	sta.w pmenulist
 	bra .t7
 
 .t6:
 	lda.w #$0006
-	sta.w $1EB9
+	sta.w pmenucount
 	lda.w #$0004
-	sta.w $1EB7
+	sta.w pmenulist
 	bra .t7
 
 .t7:
 	jsl.l SpriteFrameStart
-	jsl.l CODE_9FBAAA
+	jsl.l setvideo
 	jsl.l WaitFrame
 	jsl.l SpriteFrameEnd
 	lda.w #$0002
-	sta.w $0ADB
+	sta.w timestep
 	lda.w #$FFFF
-	sta.l $7F76DE
-	sta.l $7F76FE
+	sta.l colourbuf+$1DE
+	sta.l colourbuf+$1FE
 PauseMenuPoll:
-	jsl.l CODE_9FEA24
+	jsl.l Pmenu
 	jsl.l SelectPauseController
 	lda.b d3
 	bit.w #$1000
 	beq .t3
-	jmp.w DATA8_80E73D
+	jmp.w PauseResumeRtl
 
 .t3:
 	lda.b d1
 	bit.w #$8080
 	bne .t7
-	bit.w #DMA_OAM
+	bit.w #$0400
 	beq .t2
-	inc.w $0D15
-	lda.w $1EB9
-	cmp.w $0D15
+	inc.w psitem
+	lda.w pmenucount
+	cmp.w psitem
 	beq .t1
-	lda.w $0D15
+	lda.w psitem
 	sec
 	sbc.w #$0005
-	cmp.w $0D13
+	cmp.w psfirst
 	bmi PauseMenuPoll
-	inc.w $0D13
+	inc.w psfirst
 	bra PauseMenuPoll
 
 .t1:
-	dec.w $0D15
+	dec.w psitem
 	bra PauseMenuPoll
 
 .t2:
 	bit.w #$0800
 	beq .t7
-	dec.w $0D15
-	lda.w $0D15
-	cmp.w $0D13
+	dec.w psitem
+	lda.w psitem
+	cmp.w psfirst
 	bpl PauseMenuPoll
-	dec.w $0D13
+	dec.w psfirst
 	bpl PauseMenuPoll
-	stz.w $0D13
-	stz.w $0D15
+	stz.w psfirst
+	stz.w psitem
 	bra PauseMenuPoll
 
 .t7:
-	lda.w $0D15
+	lda.w psitem
 	asl a
 	asl a
 	sta.b d0
 	tay
-	lda.w $1EB7
+	lda.w pmenulist
 	beq .t1x
 	cmp.w #$0001
 	beq .t3x
@@ -120,49 +120,49 @@ PauseMenuPoll:
 	bra .t2x
 
 .t1x:
-	lda.w #$009F
-	sta.b $8B
-	lda.w #DATA8_9FE504
+	lda.w #PauseMenuHandlers>>16
+	sta.b a0+2
+	lda.w #PauseMenuHandlers
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t2x:
-	lda.w #$009F
-	sta.b $8B
-	lda.w #$E544
+	lda.w #PauseMenuHandlers>>16
+	sta.b a0+2
+	lda.w #PauseMenuHandlers+64
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t3x:
-	lda.w #$009F
-	sta.b $8B
-	lda.w #$E588
+	lda.w #PauseMenuHandlers>>16
+	sta.b a0+2
+	lda.w #PauseMenuHandlers+132
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t4:
-	lda.w #$009F
-	sta.b $8B
-	lda.w #$E5C4
+	lda.w #PauseMenuHandlers>>16
+	sta.b a0+2
+	lda.w #PauseMenuHandlers+192
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t5:
-	lda.w #$009F
-	sta.b $8B
-	lda.w #$E5E8
+	lda.w #PauseMenuHandlers>>16
+	sta.b a0+2
+	lda.w #PauseMenuHandlers+228
 	sta.b a0
-	bra CODE_9FE263
+	bra .1
 
 .t6:
-	lda.w #$009F
-	sta.b $8B
-	lda.w #$E600
+	lda.w #PauseMenuHandlers>>16
+	sta.b a0+2
+	lda.w #PauseMenuHandlers+252
 	sta.b a0
-CODE_9FE263:
+.1:
 	lda.b [a0],y
-	sta.w $1D5A
+	sta.w jmlvector+1
 	iny
 	lda.b [a0],y
-	sta.w $1D5B
-	jml.l $001D59
+	sta.w jmlvector+2
+	jml.l jmlvector

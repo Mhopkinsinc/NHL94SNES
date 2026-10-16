@@ -1,6 +1,6 @@
-; Unidentified routine.
-MulFrac16:		; A * Y / 128 into A and $43; bit 6 of $07E2 set: shift-and-add loop instead of the mode 7 multiplier
-	bit.w $07E1
+; A * Y / 128 into A and $43; bit 6 of $07E2 set: shift-and-add loop instead of the mode 7 multiplier
+MulFrac16:
+	bit.w Mode7InUse-1
 	bvc .hw
 	cpy.b #$00
 	beq .zero
@@ -10,32 +10,32 @@ MulFrac16:		; A * Y / 128 into A and $43; bit 6 of $07E2 set: shift-and-add loop
 	lda.w #$0000
 	rts
 .soft:
-	sty.b $46
-	sta.b $3E
-	stz.b $40
-	stz.b $42
-	stz.b $44
+	sty.b MulPlier
+	sta.b MulCand
+	stz.b MulCand+2
+	stz.b MulProd
+	stz.b MulProd+2
 	ldy.b #$07
 .loop:
-	asl.b $3E
-	rol.b $40
-	lda.b $46
+	asl.b MulCand
+	rol.b MulCand+2
+	lda.b MulPlier
 	beq .done
 	lsr a
-	sta.b $46
+	sta.b MulPlier
 	bcc .next
-	lda.b $42
+	lda.b MulProd
 	clc
-	adc.b $3E
-	sta.b $42
-	lda.b $44
-	adc.b $40
-	sta.b $44
+	adc.b MulCand
+	sta.b MulProd
+	lda.b MulProd+2
+	adc.b MulCand+2
+	sta.b MulProd+2
 .next:
 	dey
 	bne .loop
 .done:
-	lda.b $43
+	lda.b MulProd+1
 	rts
 .hw:
 	sep #$20
@@ -46,5 +46,5 @@ MulFrac16:		; A * Y / 128 into A and $43; bit 6 of $07E2 set: shift-and-add loop
 	rep #$20
 	lda.w MPYM
 	asl a
-	sta.b $43
+	sta.b MulProd+1
 	rts

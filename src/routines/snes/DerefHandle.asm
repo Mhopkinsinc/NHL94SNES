@@ -1,17 +1,17 @@
-; Unidentified routine.
-DerefHandle:		; address of handle A in A, bank in X; 0 and 0 for a bad handle
+; address of handle A in A, bank in X; 0 and 0 for a bad handle
+DerefHandle:
 	cmp.w #$2000
 	bcc .bad
-	cmp.w #INIDISP
+	cmp.w #$2100
 	bcs .bad
-	stx.b $14
+	stx.b r3
 	tax
-	lda.l $7E0000,x
-	ora.l $7E0002,x
+	lda.l Ram7E,x
+	ora.l Ram7E+2,x
 	beq .bad
-	lda.l $7E0002,x
+	lda.l Ram7E+2,x
 	pha
-	lda.l $7E0000,x
+	lda.l Ram7E,x
 	plx
 	bra .exit
 .bad:

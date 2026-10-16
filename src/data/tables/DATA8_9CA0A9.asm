@@ -1,3 +1,0 @@
-; Data table.
-DATA8_9CA0A9:
-	dw $2000,DMA_CGRAM,$2000,DMA_CGRAM

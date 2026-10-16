@@ -17,5 +17,5 @@ assreplace:
 	lda.b d0
 	sta.w asslist,y
 	rep #$30
-	sta.w $0B7D,x
+	sta.w asscur,x
 	rtl

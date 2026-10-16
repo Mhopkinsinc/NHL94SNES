@@ -1,0 +1,26 @@
+; If the computer pulled its goalie, should he come back?
+ReturnGoalies:
+	stz.b a2
+	lda.w #$0002
+	sta.b a1
+	jsl.l .1
+	stz.b a1
+	lda.w #$0002
+	sta.b a2
+.1:
+	ldy.b a2
+	lda.w tmgoalie,y
+	bpl .t1
+.2:
+	and.w #$00FF
+	cmp.w #$000A
+	bcs .t1
+	sta.w tmgoalie,y
+	lda.w teampads,y
+	bne .t1
+	lda.l foy
+	sta.b d1
+	jmp.w CPgoalie
+
+.t1:
+	rtl

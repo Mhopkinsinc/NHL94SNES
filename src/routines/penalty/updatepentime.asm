@@ -4,25 +4,25 @@ updatepentime:
 	trb.w sflags3
 	lda.w gmclock
 	beq .t2
-	jmp.w CODE_80BFDD
+	jmp.w .4
 
 .t2:
-	lda.w $163A
+	lda.w PenShotActive
 	beq .t1
-	jmp.w CODE_80BFDD
+	jmp.w .4
 
 .t1:
 	lda.w pentimer
 	sec
 	sbc.b d7
 	sta.w pentimer
-	bpl CODE_9EBFDD
+	bpl .4
 	adc.w #$0018
 	sta.w pentimer
 	lda.w #$0020
 	tsb.w sflags3
-	jsl.l CODE_9EB198
-	jsl.l CODE_9EB1C9
+	jsl.l chkatop
+	jsl.l CountPowerPlayTime
 	stz.b a2
 	jsl.l .1
 	lda.w #$0002
@@ -33,33 +33,33 @@ updatepentime:
 	lda.w #$001A
 .2:
 	sta.b a0
-	lda.w #$0000
-	sta.b $8F
+	lda.w #mesarea>>16
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #$0002
 	sta.b d1
 	sta.b d3
-CODE_9EBF9E:
+.3:
 	ldy.b a0
 	lda.w tmboxlist,y
 	inc.b a0
 	and.w #$00FF
 	sta.b d0
 	bit.w #$0080
-	bne CODE_9EBFDE
+	bne .5
 	lda.b a2
-	beq .1
+	beq .1x
 	lda.w #$0034
-.1:
+.1x:
 	clc
 	adc.b d0
 	tay
 	lda.w tmpdst,y
 	bit.w #$4000
-	bne CODE_9EC01D
+	bne .6
 	dec.b d1
-	bmi CODE_9EBF9E
+	bmi .3
 	lda.b d0
 	sta.b [a1]
 	inc.b a1
@@ -67,7 +67,62 @@ CODE_9EBF9E:
 	lda.w tmpdst,y
 	dec a
 	sta.w tmpdst,y
-	bne .2
+	bne .2x
 	jsl.l RemovePlayerFromList
-.2:
-	bra CODE_9EBF9E
+.2x:
+	bra .3
+.4:
+	rtl
+.5:
+	lda.w mesarea
+	sta.b d0
+	lda.b d1
+	cmp.w #$0001
+	beq .2xx
+	lda.b d1
+	bne .t1x
+	jsl.l .2xx
+	bra .1xx
+
+.t1x:
+	lda.b d1
+	cmp.w #$FFFF
+	bne .4
+.1xx:
+	lda.w mesarea+2
+	sta.b d0
+org $9EC000
+.2xx:
+	lda.b a2
+	beq .1xxx
+	lda.w #$0034
+.1xxx:
+	clc
+	adc.b d0
+	tay
+	lda.w tmpdst,y
+	cmp.w #$0006
+	bpl .4
+	lda.w tmpdst,y
+	bne .rtl
+	jsl.l releasepl
+.rtl:
+	rtl
+.6:
+	dec a
+	sta.w tmpdst,y
+	bit.w #$0800
+	bne .t2x
+	jmp.w .3
+
+.t2x:
+	bit.w #$1000
+	bne .t1xx
+	lda.w #$1000
+	sta.w tmpdst,y
+	jml.l RemovePlayerFromList
+
+.t1xx:
+	lda.w #$0000
+	sta.w tmpdst,y
+	jml.l RemovePlayerFromList

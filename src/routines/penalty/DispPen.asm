@@ -39,7 +39,7 @@ DispPen:
 	and.w #$00FF
 	sta.b d0
 	bit.w #$0080
-	bne CODE_9FA1B7
+	bne USBoard_rtl
 	lda.b a2
 	beq .2x
 	lda.w #$0034

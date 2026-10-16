@@ -1,19 +1,19 @@
-; Unidentified routine.
-Decompress:		; unpack the data at [$0C] to WRAM at [$10] by its format word ($FB10 LZ, $FB46 pairs, $FB30 Huffman,
+; unpack the data at [p0] to WRAM at [p1] by its format word ($FB10 LZ, $FB46 pairs, $FB30 Huffman,
+Decompress:
 		;   $FB7A run-length); X = the unpacked size from the header, or 1 for an unknown format
 	php
 	phb
 	rep #$30
 	jsl.l WaitDMAQueue
-	lda.b $11
+	lda.b p1+1
 	sta.w WMADDM
-	lda.b $10
+	lda.b p1
 	sta.w WMADDL
-	lda.b $0D
+	lda.b p0+1
 	pha
 	plb
 	plb
-	ldy.b $0C
+	ldy.b p0
 	lda.w $0003,y
 	xba
 	pha

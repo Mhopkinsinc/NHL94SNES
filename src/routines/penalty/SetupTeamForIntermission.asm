@@ -2,7 +2,7 @@
 SetupTeamForIntermission:
 	jsl.l ResetBench
 	lda.w #$0001
-	sta.l $7E344E
+	sta.l newperiod
 	stz.b a2
 	lda.w #$0002
 	sta.b a3
@@ -15,7 +15,7 @@ SetupTeamForIntermission:
 	ldx.b a3
 	ldy.b a2
 	stz.w tmline,x
-	lda.l $7E34C6
+	lda.l OptLine
 	beq .rtl
 	lda.w tmap,x
 	sec

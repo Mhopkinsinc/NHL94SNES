@@ -13,7 +13,7 @@ ShooterAttribColumns:		; rating columns of the shooter list: title, then a mask 
 	%String("     [Handed]")
 	dw $0040,$0004
 	%String("[Off. Aware.]")
-	dw DMA_OAM,$000A
+	dw $0400,$000A
 	%String("[Def. Aware.]")
 	dw $0200,$000A
 	%String(" [Shot Power]")

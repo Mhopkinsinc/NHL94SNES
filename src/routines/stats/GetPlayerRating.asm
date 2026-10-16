@@ -1,0 +1,86 @@
+; d0 = rating column d1 (AttribMenuSkater / AttribMenuGoalie) of player $1D9B of team a2 through CalcAttrib, with the hot / cold adjustment
+GetPlayerRating:
+	stx.b xsave
+	ldx.w #$0000
+.loop:
+	lda.b d0,x
+	pha
+	inx
+	inx
+	cpx.w #$0014
+	bne .loop
+	ldx.b xsave
+	lda.b a0
+	pha
+	lda.b a0+2
+	pha
+	lda.b a1
+	pha
+	lda.b a1+2
+	pha
+	lda.w #AttribMenuSkater>>16
+	sta.b a1+2
+	lda.w #AttribMenuSkater
+	sta.b a1
+	stz.b r2
+	jsl.l GoalieCount
+	lda.w curplayer
+	cmp.b d0
+	bpl .1
+	lda.w #AttribMenuGoalie>>16
+	sta.b a1+2
+	lda.w #AttribMenuGoalie
+	sta.b a1
+	lda.w #$0010
+	sta.b r2
+.1:
+	phx
+	ldx.b d1
+.loop2:
+	dex
+	bmi .t1
+	lda.b a1
+	clc
+	adc.b [a1]
+	adc.w #$0004
+	sta.b a1
+	bra .loop2
+
+.t1:
+	lda.b a1
+	clc
+	adc.b [a1]
+	sta.b a1
+	lda.b [a1]
+	sta.b d4+2
+	ldy.w #$0002
+	lda.b [a1],y
+	sta.b d4
+	plx
+	lda.w curplayer
+	sta.b d0
+	lda.w #$0001
+	sta.l usehotcold
+	jsl.l CalcAttrib
+	lda.b d0
+	sta.b r0
+	pla
+	sta.b a1+2
+	pla
+	sta.b a1
+	pla
+	sta.b a0+2
+	pla
+	sta.b a0
+	stx.b xsave
+	ldx.w #$0012
+.loopx:
+	pla
+	sta.b d0,x
+	dex
+	dex
+	bpl .loopx
+	ldx.b xsave
+	lda.b r0
+	sta.b d0
+	rtl

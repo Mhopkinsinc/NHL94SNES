@@ -1,6 +1,6 @@
 ; Players on the bench get some energy back
 RestoreBenchEnergy:
-	lda.l $7E34C6
+	lda.l OptLine
 	beq .rtl
 	stz.b a2
 	jsl.l .1

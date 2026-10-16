@@ -2,19 +2,19 @@
 PlayerShortName:
 	lda.b d0
 	pha
-	lda.b $A7
+	lda.b d0+2
 	pha
 	lda.b a2
 	pha
-	lda.b $93
+	lda.b a2+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	jsl.l GetPlayerRecord
-	lda.w #$0000
-	sta.b $8F
+	lda.w #mesarea>>16
+	sta.b a1+2
 	lda.w #mesarea
 	sta.b a1
 	lda.w #$0002
@@ -23,7 +23,7 @@ PlayerShortName:
 	inc.b a1
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a0
 	clc
@@ -37,7 +37,7 @@ PlayerShortName:
 	sta.b [a1]
 	inc.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	lda.b [a0]
@@ -45,8 +45,8 @@ PlayerShortName:
 	clc
 	adc.b a0
 	sta.b a2
-	lda.b $8B
-	sta.b $93
+	lda.b a0+2
+	sta.b a2+2
 	inc.b a0
 	inc.b a0
 	lda.b [a0]
@@ -75,15 +75,15 @@ PlayerShortName:
 	bne .loop2
 	jsl.l MesAreaDone
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $93
+	sta.b a2+2
 	pla
 	sta.b a2
 	pla
-	sta.b $A7
+	sta.b d0+2
 	pla
 	sta.b d0
 	rtl

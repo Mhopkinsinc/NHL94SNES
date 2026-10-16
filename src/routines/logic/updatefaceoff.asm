@@ -1,6 +1,6 @@
 ; Step the puck drop animation
 updatefaceoff:
-	lda.w $1003,x
+	lda.w temp1,x
 	beq .t2
 	clc
 	adc.w #$0006
@@ -16,27 +16,27 @@ updatefaceoff:
 	clc
 	adc.w #$000A
 	sta.b d0
-	sta.l $7E3132
+	sta.l fofdata
 .rtl:
 	rtl
 
 .t2:
-	lda.w $1E9B
+	lda.w penshot
 	bne .t1
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF8CD
+	lda.w #updatefaceoffPos>>16
+	sta.b a1+2
+	lda.w #updatefaceoffPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	lda.l $7E3126
+	sta.b a1+2
+	lda.l fodropx
 	sec
 	sbc.w #$002E
 	lsr a
@@ -48,7 +48,7 @@ updatefaceoff:
 	ora.w #$E000
 .2:
 	sta.w printx
-	lda.l $7E3128
+	lda.l fodropy
 	sec
 	sbc.w #$0044
 	lsr a
@@ -64,7 +64,7 @@ updatefaceoff:
 	sta.b d0
 	inc a
 	sta.b d1
-	bra CODE_9FAFAD
+	bra .5
 
 .t1:
 	lda.w #$0001
@@ -75,10 +75,10 @@ updatefaceoff:
 	sta.b d0
 	lda.w #$0008
 	sta.b d1
-CODE_9FAFAD:
-	lda.l $7E35D0
+.5:
+	lda.l blankchar
 	sta.b d2
 	jsl.l eraser
-	stz.w $0764
-	stz.w $1D6D
+	stz.w FrameCount
+	stz.w gameframes
 	rtl

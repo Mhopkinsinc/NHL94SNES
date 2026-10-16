@@ -5,6 +5,6 @@ EraseScoutName:
 	sta.b d0
 	lda.w #$0002
 	sta.b d1
-	lda.l $7E35D0
+	lda.l blankchar
 	sta.b d2
 	jml.l eraser

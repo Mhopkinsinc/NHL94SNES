@@ -27,18 +27,18 @@ SpriteFrameStart:	; start filling OAMDrawBuf after the reserved entries; free th
 	asl a
 	adc.w OAMDrawBuf
 	sta.w OAMNext
-	lda.w $07BA
-	beq CODE_80AFDC
+	lda.w FrameCacheCount
+	beq .2
 	dec a
 	asl a
 	tax
-CODE_80AFB9:
-	lda.w $2D40,x
+.1:
+	lda.w FrameCacheUse,x
 	bmi .t1
 	lsr a
-	sta.w $2D40,x
+	sta.w FrameCacheUse,x
 	bcc .t1
-	ldy.w $2B40,x
+	ldy.w FrameCacheNum,x
 	sep #$20
 	lda.b #$80
 	pha
@@ -48,12 +48,12 @@ CODE_80AFB9:
 	phx
 	phy
 	phb
-	jmp.w CODE_80B772
+	jmp.w FreeCacheEntry
 
 .t1:
 	dex
 	dex
-	bpl CODE_80AFB9
-CODE_80AFDC:
+	bpl .1
+.2:
 	plb
 	rtl

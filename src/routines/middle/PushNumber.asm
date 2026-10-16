@@ -7,9 +7,9 @@ PushNumber:
 	sta.b a1
 	lda.b d0
 .0:
-	sta.b $08
+	sta.b r2
 	lda.w #$000A
-	sta.b $04
+	sta.b r1
 	jsl.l Div16x8U
 	dec.b a1
 	sep #$20
@@ -18,7 +18,7 @@ PushNumber:
 	adc.b #$30
 	sta.b [a1]
 	rep #$30
-	lda.b $00
+	lda.b r0
 	bne .0
 	dec.b a1
 	dec.b a1

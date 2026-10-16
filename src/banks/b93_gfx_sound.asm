@@ -1,12 +1,12 @@
 ; Bank $93: graphics and sound. Files in ROM order.
 
 org $938000
-incsrc "../data/gfx/DATA8_938000.asm"
-incsrc "../data/sound/DATA8_9390FA.asm"
-incsrc "../data/sound/DATA8_93A18D.asm"
-incsrc "../data/gfx/DATA8_93B217.asm"
-incsrc "../data/sound/DATA8_93C20B.asm"
-incsrc "../data/sound/DATA8_93D187.asm"
-incsrc "../data/sound/DATA8_93DFAD.asm"
-incsrc "../data/sound/DATA8_93ED31.asm"
-incsrc "../data/sound/DATA8_93FAB1.asm"
+incsrc "../data/gfx/SetupBackTiles.asm"
+incsrc "../data/sound/SampleAPower.asm"
+incsrc "../data/sound/StreamSampleOverGlass.asm"
+incsrc "../data/gfx/CardBackTiles.asm"
+incsrc "../data/sound/SamplePuckPost.asm"
+incsrc "../data/sound/SampleUnused.asm"
+incsrc "../data/sound/SampleDist.asm"
+incsrc "../data/sound/PlayoffSong.asm"
+incsrc "../data/sound/SampleKick.asm"

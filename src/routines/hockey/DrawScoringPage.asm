@@ -1,43 +1,43 @@
 ; Draw the visible scoring rows, or No Scoring when the list is empty.
 DrawScoringPage:
-	lda.w $1DC1
+	lda.w listend
 	cmp.w #$0000
 	beq .t1
 .1:
-	lda.w $1DBD
+	lda.w listtop
 	asl a
-	adc.w $1DBD
+	adc.w listtop
 	xba
 	lsr a
 	lsr a
 	adc.w #$2780
-	sta.b $0C
+	sta.b p0
 	lda.w #$007F
-	sta.b $0E
-	lda.w $1DC5
+	sta.b p0+2
+	lda.w listrows
 	asl a
-	adc.w $1DC5
+	adc.w listrows
 	xba
 	lsr a
 	lsr a
 	tax
 	ldy.w #$0160
-	jsl.l CODE_80891F
+	jsl.l DMAToVRAM
 	rts
 
 .t1:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
+	lda.w #NoScoring>>16
+	sta.b a1+2
 	lda.w #NoScoring
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
-	jsl.l CODE_9FBF75
+	sta.b a1+2
+	jsl.l QueueTextDMA
 	rts

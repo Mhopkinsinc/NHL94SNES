@@ -7,5 +7,5 @@ PauseCrowdLevel:
 
 .t1:
 	jsl.l ShowCrowdMeter
-	jsl.l CODE_9FE79F
+	jsl.l ReloadRink
 	jmp.w PauseSubmenuDone

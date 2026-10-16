@@ -1,4 +1,4 @@
-; Unidentified routine.
+; IRQ: save the registers, acknowledge TIMEUP and run the IRQ hook at [$078F]; the hook returns through IRQ_HookReturn
 IRQ_Fast:
 	rep #$30
 	sei

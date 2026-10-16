@@ -1,5 +1,5 @@
-; Unidentified routine.
-Mul16S:		; A * X into $08-$0B, both signed
+; A * X into $08-$0B, both signed
+Mul16S:
 	phy
 	tay
 	beq Mul16_Zero
@@ -7,7 +7,7 @@ Mul16S:		; A * X into $08-$0B, both signed
 	eor.w #$FFFF
 	inc a
 	tay
-	sta.b $00
+	sta.b r0
 	txa
 	beq Mul16_Zero
 	bpl Mul16XS_Neg

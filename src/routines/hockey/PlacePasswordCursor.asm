@@ -1,18 +1,18 @@
 ; Move the password cursor to character d5.
 PlacePasswordCursor:
-	lda.b $8F
+	lda.b a1+2
 	pha
 	lda.b a1
 	pha
-	lda.w #$009C
-	sta.b $8F
-	lda.w #DATA8_9CF231
+	lda.w #PlacePasswordCursorPos>>16
+	sta.b a1+2
+	lda.w #PlacePasswordCursorPos
 	sta.b a1
 	jsl.l print
 	pla
 	sta.b a1
 	pla
-	sta.b $8F
+	sta.b a1+2
 	phx
 	ldx.b d5
 	lda.w #$0006
@@ -30,5 +30,5 @@ PlacePasswordCursor:
 	lda.w #$0003
 	sta.b d0
 	sta.b d1
-CODE_9BCAF7:
+PasswordCursorRtl:
 	rtl

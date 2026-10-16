@@ -11,46 +11,46 @@ findpc:
 	bne .loop
 	ldx.b xsave
 	lda.w #$0008
-	sta.b $00
-	ldy.w shotPlIdx
-	bmi CODE_9FCC06
+	sta.b r0
+	ldy.w puckc
+	bmi .9
 	lda.w position,x
 	beq .t1
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .t1
 	lda.w pfalock,x
 	bne .t1
-	lda.w $0B3D,x
+	lda.w puckdist2,x
 	cmp.w #$0064
 	bcs .t1
-	jmp.w CODE_9FCCAE
+	jmp.w .10
 
 .t1:
-	lda.w $19D4,y
+	lda.w playerpad,y
 	bmi .1
 	tay
-	lda.w $19F6,y
-	cmp.w $19F6,x
-	beq CODE_9FCC06
+	lda.w padside,y
+	cmp.w padside,x
+	beq .9
 .1:
 	ldy.w #$0000
 	lda.w pfgoal,x
 	bne .2
 	ldy.w #$0004
 .2:
-	sty.b $00
-CODE_9FCC06:
+	sty.b r0
+.9:
 	lda.w #$0006
 	sta.b d1
 	ldy.b d4
 	lda.w #$FFFF
 	sta.b d2
 	ldx.w #$0000
-	lda.w $1C84,y
+	lda.w cont1team,y
 	cmp.w #$0001
-	beq .1
+	beq .1x
 	ldx.w #$000C
-.1:
+.1x:
 	lda.w position,x
 	bmi .8
 	beq .8
@@ -58,12 +58,12 @@ CODE_9FCC06:
 	bit.w #$1000
 	bne .8
 	lda.w SPA,x
-	cmp.w #$EBB0
-	bcc .2
+	cmp.w #SPAturnl
+	bcc .2x
 	cmp.w #$EBE3
 	bcc .4
-.2:
-	cmp.w #$F196
+.2x:
+	cmp.w #SPAcrosscheck
 	bcc .3
 	cmp.w #$F343
 	bcc .4
@@ -73,18 +73,18 @@ CODE_9FCC06:
 	ora.w pfalock,x
 	bne .8
 .4:
-	lda.w $19D4,x
+	lda.w playerpad,x
 	bmi .5
 	cmp.b d4
 	bne .8
 .5:
-	stz.b $14
-	lda.w shotPlIdx
+	stz.b r3
+	lda.w puckc
 	bmi .7
-	lda.b $00
+	lda.b r0
 	cmp.w #$0008
 	beq .7
-	eor.w $0B5D,x
+	eor.w puckdir,x
 	cmp.w #$0004
 	bcc .6
 	eor.w #$FFFF
@@ -99,12 +99,12 @@ CODE_9FCC06:
 	asl a
 	asl a
 	clc
-	adc.b $14
-	sta.b $14
+	adc.b r3
+	sta.b r3
 .7:
-	lda.w $0B1D,x
+	lda.w puckdist,x
 	clc
-	adc.b $14
+	adc.b r3
 	bcs .8
 	cmp.b d2
 	bcs .8
@@ -114,57 +114,71 @@ CODE_9FCC06:
 	inx
 	inx
 	dec.b d1
-	bne .1
+	bne .1x
 	ldx.b a3
 	lda.b d2
 	cmp.w #$FFFF
-	beq CODE_9FCCFB
+	beq .12
 	ldy.b d4
 	lda.b d3
-	cmp.w $19EC,y
-	bne CODE_9FCCF5
-CODE_9FCCAE:
+	cmp.w c1playernum,y
+	bne .11
+.10:
 	lda.w pfalock,x
-	bne CODE_9FCCFB
+	bne .12
 	lda.b d4
 	pha
-	lda.b $B7
+	lda.b d4+2
 	pha
 	lda.b d5
 	pha
-	lda.b $BB
+	lda.b d5+2
 	pha
 	lda.b d6
 	pha
-	lda.b $BF
+	lda.b d6+2
 	pha
 	lda.b a0
 	pha
-	lda.b $8B
+	lda.b a0+2
 	pha
 	lda.b a1
 	pha
-	lda.b $8F
+	lda.b a1+2
 	pha
-	jsl.l CODE_9EA242
+	jsl.l Sweepcheck
 	pla
-	sta.b $8F
+	sta.b a1+2
 	pla
 	sta.b a1
 	pla
-	sta.b $8B
+	sta.b a0+2
 	pla
 	sta.b a0
 	pla
-	sta.b $BF
+	sta.b d6+2
 	pla
 	sta.b d6
 	pla
-	sta.b $BB
+	sta.b d5+2
 	pla
 	sta.b d5
 	pla
-	sta.b $B7
+	sta.b d4+2
 	pla
 	sta.b d4
-	bra CODE_9FCCFB
+	bra .12
+.11:
+	sta.b d0
+	jsl.l AssignPadPlayer
+.12:
+	stx.b xsave
+	ldx.w #$000E
+.loopx:
+	pla
+	sta.b d0,x
+	dex
+	dex
+	bpl .loopx
+	ldx.b xsave
+	rtl

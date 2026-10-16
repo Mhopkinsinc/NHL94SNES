@@ -25,9 +25,9 @@ USBoard:
 	pha
 	lda.b a1
 	pha
-	lda.w #DATA8_9CF858>>16
+	lda.w #USBoardPos>>16
 	sta.b a1+2
-	lda.w #DATA8_9CF858
+	lda.w #USBoardPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -40,9 +40,9 @@ USBoard:
 	pha
 	lda.b a1
 	pha
-	lda.w #DATA8_9CF85D>>16
+	lda.w #IntermissionPos>>16
 	sta.b a1+2
-	lda.w #DATA8_9CF85D
+	lda.w #IntermissionPos
 	sta.b a1
 	jsl.l print
 	pla
@@ -71,5 +71,5 @@ USBoard:
 	bpl .restore
 	ldx.b xsave
 	ldx.b a3
-CODE_9FA1B7:
+USBoard_rtl:
 	rtl

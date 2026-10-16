@@ -6,7 +6,7 @@ ClearTeamStats:
 	pha
 	ldx.w #$0000
 .clr:
-	stz.w gmStatBase,x
+	stz.w tmPwrGoals,x
 	inx
 	inx
 	cpx.w #$01AC

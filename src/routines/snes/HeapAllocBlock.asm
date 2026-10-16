@@ -1,17 +1,17 @@
-; Unidentified routine.
-HeapAllocBlock:		; first free block of size $14 or more (flags $16) from header Y in the bank in $0E; splits it when 16 or more bytes are left.
+; first free block of size $14 or more (flags $16) from header Y in the bank in $0E; splits it when 16 or more bytes are left.
+HeapAllocBlock:
 		;   returns the data address, $FFFF for none
-	stz.b $0C
+	stz.b p0
 .walk:
-	lda.b [$0C],y
+	lda.b [p0],y
 	iny
 	iny
-	cmp.b $14
+	cmp.b r3
 	bcs .fit
 .next:
 	iny
 	iny
-	lda.b [$0C],y
+	lda.b [p0],y
 	beq .none
 	tay
 	bra .walk
@@ -19,60 +19,60 @@ HeapAllocBlock:		; first free block of size $14 or more (flags $16) from header 
 	lda.w #$FFFF
 	rts
 .fit:
-	lda.b [$0C],y
+	lda.b [p0],y
 	bne .next
 	dey
 	dey
-	lda.b [$0C],y
-	sty.b $02
+	lda.b [p0],y
+	sty.b r0+2
 	sec
-	sbc.b $14
+	sbc.b r3
 	beq .whole
 	cmp.w #$0010
 	bcc .whole
-	sta.b $00
-	lda.b $14
-	sta.b [$0C],y
+	sta.b r0
+	lda.b r3
+	sta.b [p0],y
 	iny
 	iny
-	lda.b $16
+	lda.b r3+2
 	ora.w #$8000
-	sta.b [$0C],y
+	sta.b [p0],y
 	iny
 	iny
-	lda.b [$0C],y
-	sta.b $04
-	lda.b $02
+	lda.b [p0],y
+	sta.b r1
+	lda.b r0+2
 	clc
-	adc.b $14
+	adc.b r3
 	adc.w #$0008
-	sta.b [$0C],y
+	sta.b [p0],y
 	tay
-	lda.b $00
+	lda.b r0
 	sec
 	sbc.w #$0008
-	sta.b [$0C],y
+	sta.b [p0],y
 	iny
 	iny
 	lda.w #$0000
-	sta.b [$0C],y
+	sta.b [p0],y
 	iny
 	iny
-	lda.b $04
-	sta.b [$0C],y
+	lda.b r1
+	sta.b [p0],y
 	iny
 	iny
-	lda.b $02
-	sta.b [$0C],y
+	lda.b r0+2
+	sta.b [p0],y
 .ret:
-	lda.b $02
+	lda.b r0+2
 	clc
 	adc.w #$0008
 	rts
 .whole:
 	iny
 	iny
-	lda.b $16
+	lda.b r3+2
 	ora.w #$8000
-	sta.b [$0C],y
+	sta.b [p0],y
 	bra .ret

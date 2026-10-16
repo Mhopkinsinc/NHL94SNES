@@ -2,44 +2,102 @@
 check4check:
 	lda.w #$0014
 	sec
-	sbc.w $1483,x
+	sbc.w aggress,x
 	sta.b d0
 	lda.l OptPen
 	beq .1
 	asl.b d0
 .1:
 	lda.b d0
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	cmp.w #$0004
 	bcc .2
 	lda.b d0
-	jsl.l CODE_9BB370
+	jsl.l randoma
 	cmp.w #$0004
-	bcs CODE_9EA1BC
+	bcs .6
 .2:
 	lda.w #$0005
 	sta.b d2
 	ldy.w #$0000
 	cpx.w #$000C
-	bcs CODE_9EA19B
+	bcs .4
 	ldy.w #$000C
-CODE_9EA19B:
+.4:
 	sty.b a0
 	lda.w position,y
-	beq CODE_9EA1B4
+	beq .5
 	lda.w SPA,y
-	cmp.w #$F3A6
+	cmp.w #SPAHold2
 	bcc .3
 	cmp.w #$F46B
-	bcc CODE_9EA1BD
+	bcc .7
 .3:
 	lda.w pfalock,y
-	beq CODE_9EA1BD
-CODE_9EA1B4:
+	beq .7
+.5:
 	ldy.b a0
 	iny
 	iny
 	dec.b d2
-	bpl CODE_9EA19B
-CODE_9EA1BC:
+	bpl .4
+.6:
 	rtl
+.7:
+	lda.w Xpos,y
+	sec
+	sbc.w Xpos,x
+	sta.b d0
+	cmp.w #$FFDE
+	bmi .5
+	cmp.w #$0022
+	bpl .5
+	lda.w Ypos,y
+	sec
+	sbc.w Ypos,x
+	sta.b d1
+	cmp.w #$FFDE
+	bmi .5
+	cmp.w #$0022
+	bpl .5
+	jsl.l vtoa
+	lda.b d0
+	cmp.w facedir,x
+	bne .5
+	lda.w Xpos,x
+	cmp.w #$004A
+	bpl .5x
+	cmp.w #$FFB6
+	bmi .5x
+	lda.w pfgoal,x
+	bne .4x
+	lda.w Ypos,x
+	cmp.w #$0058
+	bmi .5x
+	cmp.w #$0108
+	bpl .5x
+.2x:
+	lda.w SPA,y
+	cmp.w #SPAHold2
+	bcc .1x
+	cmp.w #$F46B
+	bcc .8
+.1x:
+	lda.w seed+1
+	and.w #$0007
+	beq .8
+.3x:
+	jml.l Acheck
+.4x:
+	lda.w Ypos,x
+	cmp.w #$FFA8
+	bpl .5x
+	cmp.w #$FEF8
+	bpl .2x
+.5x:
+	lda.w seed+1
+	and.w #$0007
+	bne .8
+	jmp.w .3x
+.8:
+	jml.l burst

@@ -7,5 +7,5 @@ PausePlayerCards:
 
 .t1:
 	jsl.l ShowPlayerCards
-	jsl.l CODE_9FE79F
+	jsl.l ReloadRink
 	jmp.w PauseSubmenuDone

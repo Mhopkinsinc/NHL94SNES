@@ -1,5 +1,5 @@
-; Unidentified routine.
-Cos:		; cos A into A; 1024 steps a circle, $0100 = 1
+; cos A into A; 1024 steps a circle, $0100 = 1
+Cos:
 	clc
 	adc.w #$0100
 Sin:		; sin A into A; 1024 steps a circle, $0100 = 1

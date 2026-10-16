@@ -15,8 +15,8 @@ lineinput:
 	and.w #$FFFE
 	sta.w tmflags,y
 	lda.w #$FFFF
-	sta.w $1D55,y
-	jsl.l CODE_9FDE13
+	sta.w lcpad,y
+	jsl.l lcfound2
 	jsl.l SetLCmode2
 .2:
 	pla
@@ -37,7 +37,7 @@ lineinput:
 	beq .t1
 	lda.w pfalock,x
 	bne .t1
-	jml.l CODE_9EA8A9
+	jml.l doplayeracc
 
 .t1:
 	rtl
@@ -46,14 +46,14 @@ lineinput:
 	lda.w pflags,x
 	ora.w #$0008
 	sta.w pflags,x
-	jsl.l CODE_9FC757
+	jsl.l loadTeamStruct
 	ldy.b a2
 	lda.w tmflags,y
 	and.w #$FFF7
 	sta.w tmflags,y
 	lda.w #$FFFF
-	sta.w $1D55,y
-	jmp.w CODE_9FDE13
+	sta.w lcpad,y
+	jmp.w lcfound2
 
 .t3:
 	jmp.w lcfound

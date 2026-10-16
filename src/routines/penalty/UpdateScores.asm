@@ -2,20 +2,20 @@
 UpdateScores:
 	jsl.l GetShifter
 	lda.b d1
-	sta.w $0D31
+	sta.w TickerNum
 	asl a
 	sta.b a0
 .loop:
 	lda.b d1
-	cmp.l $7E35D6
+	cmp.l gamenum
 	beq .1
 	ldx.b a0
-	lda.l $7E3598,x
+	lda.l gsflags,x
 	and.w #$FFFD
-	sta.l $7E3598,x
+	sta.l gsflags,x
 	bit.w #$0004
 	bne .1
-	jsl.l CODE_9F9EB7
+	jsl.l SetScore
 .1:
 	dec.b a0
 	dec.b a0
